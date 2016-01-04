@@ -44,7 +44,7 @@ require_once $planetsDir . '/BumbleBee/Autoload/ButineurAutoloader.php';
 // INIT THE AUTOLOADER
 //------------------------------------------------------------------------------/
 ButineurAutoloader::getInst()
-    ->addLocation($modulesDir)
+    ->addLocation($planetsDir)
     ->start();
 
 
