@@ -35,9 +35,9 @@ But if you don't have any idea, I suggest the following:
 use BumbleBee\Autoload\ButineurAutoloader;
 
 
-$modulesDir = __DIR__ . "/../planets"; // rename if you want (modules, classes, ...) 
-require_once $modulesDir . '/BumbleBee/Autoload/BeeAutoloader.php';
-require_once $modulesDir . '/BumbleBee/Autoload/ButineurAutoloader.php';
+$planetsDir = __DIR__ . "/../planets"; // rename if you want (modules, classes, ...) 
+require_once $planetsDir . '/BumbleBee/Autoload/BeeAutoloader.php';
+require_once $planetsDir . '/BumbleBee/Autoload/ButineurAutoloader.php';
 
 
 //------------------------------------------------------------------------------/
