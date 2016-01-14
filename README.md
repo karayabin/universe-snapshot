@@ -17,6 +17,9 @@ Why would I need this?
 Rather than resolving the class dependencies manually, a better workflow is to download all the classes at once,
 and then help yourself when needed.
 
+In Lingtalfi's universe, every package is called a planet.
+Go there for more information about [planets](https://github.com/lingtalfi/Observer/blob/master/article/article.planetReference.eng.md).
+
 
 How do I use it?
 --------------------
