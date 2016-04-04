@@ -109,6 +109,7 @@ Snapshots
 
 Snapshot |  Zip Size | Unzipped Size | Link to listing
 ---------| ----------|--------------|-----------------------
+2016-04-04  | 1.1Mo   |  2.6Mo       | https://github.com/karayabin/universe-snapshot/blob/master/2016-04-04.zip
 2016-03-02  | 917Ko   |  2Mo         | https://github.com/karayabin/universe-snapshot/blob/master/2016-03-02.zip
 2016-02-01  | 764Ko   |  1.6Mo       | https://github.com/karayabin/universe-snapshot/blob/master/2016-02-01.zip
 2016-01-02  | 463Ko   |  982Ko       | https://github.com/karayabin/universe-snapshot/blob/master/2016-01-02.zip
