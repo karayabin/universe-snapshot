@@ -1,5 +1,0 @@
-dependencies:
-    - git::/lingtalfi/ArrayToString:1.0.0    (only if you use PhpDoc adaptor)
-    - git::/lingtalfi/ReflectionRepresentation:1.0.0    (recommended)
-ACPCompliantRanges:
-    - *

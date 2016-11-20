@@ -1,4 +1,0 @@
-0: apple
-banana
-name: cherry
-yellow: lemon

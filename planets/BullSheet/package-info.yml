@@ -1,4 +1,0 @@
-dependencies:
-    - git::/lingtalfi/Bat:1.30.0    
-    - git::/lingtalfi/DirScanner:1.3.0
-    - git::/lingtalfi/QuickPdo:1.16.0

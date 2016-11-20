@@ -1,6 +1,0 @@
-dependencies:
-    - git::/lingtalfi/Bat:1.27
-    - git::/lingtalfi/ThumbnailTools:1.0.1  (only if you use the ThumbnailPhpFileUploader class)
-        
-        
-        
