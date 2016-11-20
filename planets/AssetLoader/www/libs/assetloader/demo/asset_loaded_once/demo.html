@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<script src="/libs/assetloader/js/assetloader.js"></script>
+	<title>Html page</title>
+</head>
+
+<body>
+
+
+
+<script>
+	//------------------------------------------------------------------------------/
+	// FIRST REGISTER ALL YOUR LIBRARIES, that's the cost to pay...
+	//------------------------------------------------------------------------------/
+	assetLoader.registerItems({
+		p1: ['/libs/assetloader/demo/asset_loaded_once/myplugin.js', '/libs/assetloader/demo/asset_loaded_once/myplugin2.js'],
+		p2: ['/libs/assetloader/demo/asset_loaded_once/myplugin.js', '/libs/assetloader/demo/asset_loaded_once/myplugin3.js'],
+	});
+
+	//------------------------------------------------------------------------------/
+	// NOW YOU CAN DYNAMICALLY INJECT ASSETS IN YOUR PAGE
+	//------------------------------------------------------------------------------/
+	assetLoader.loadItems(['p1', 'p2'], function () {
+
+		/**
+		 * (console output: note that myplugin appears only once, although it belongs to both p1 and p2)
+		 * myplugin
+		 * myplugin2
+		 * myplugin3
+		 */
+
+		assetLoader.loadItems('p2', function () {
+
+			/**
+			 * (No extra console output, because p2 is already loaded)
+			 */
+
+		});
+	});
+
+</script>
+
+</body>
+</html>   

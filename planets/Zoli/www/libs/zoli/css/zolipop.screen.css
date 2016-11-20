@@ -1,0 +1,121 @@
+/*******************************
+// FUNCTIONAL
+*******************************/
+/** 
+http://jsfiddle.net/MadLittleMods/LmYay/  
+*/
+.zolipop_box {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.zolipop_box .top_bar {
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 5px;
+    font-weight: bold;
+    
+}
+
+.zolipop_box .top_bar .title {
+    margin-left: 1vw;
+    line-height: 22px;
+}
+
+.zolipop_box .top_bar .close_button {
+    margin-right: 5px;
+    margin-top: 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    display: block;
+    width: 16px;
+    height: 16px;
+    text-align: center;
+    font-family: fantasy, arial, verdana;
+    font-size: 12px;
+    line-height: 21px;
+
+}
+
+.zolipop_box .body {
+    box-sizing: border-box;
+    padding: 10px;
+    flex: 1;
+    margin: 0 auto;
+    width: 95%;
+}
+
+.zolipop_box .bottom_bar {
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 5px;    
+}
+
+.zolipop_box .bottom_bar .button {
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+/*******************************
+// FLAVOURS
+*******************************/
+.zolipop_box.rounded {
+    border-radius: 7px;
+}
+
+.zolipop_box.rounded .top_bar{
+    border-radius: 7px 7px 0 0;
+}
+
+.zolipop_box.rounded .bottom_bar{
+    border-radius: 0 0 7px 7px;
+}
+
+
+
+/* SCREEN
+*******************************/
+.zolipop_box.screen {
+    background-color: #424242;
+    color: white;
+    box-shadow: 0px 1px 10px 3px rgba(0, 0, 0, 0.2);
+}
+
+.zolipop_box.screen a{
+    color: white;
+}
+
+
+.zolipop_box.screen .top_bar .close_button {
+    background: linear-gradient(to bottom, #dd1414, #af1414, #dd1414);
+}
+
+.zolipop_box.screen .top_bar .close_button:hover {
+    background: linear-gradient(to bottom, #fd1414, #cf1414, #fd1414);
+}
+
+
+.zolipop_box.screen .body {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+
+.zolipop_box.screen .bottom_bar .button {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.zolipop_box.screen .bottom_bar .button:hover {
+    background: rgba(255, 255, 255, 0.5);
+    color: white;
+}
+
+
+/* RED SCREEN
+*******************************/
+.zolipop_box.screen.red {
+    background-color: #692121;
+}

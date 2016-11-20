@@ -1,0 +1,6 @@
+dependencies:
+    - git::/lingtalfi/Bat:1.29
+    - git::/lingtalfi/QuickPdo:1.7.0
+    - git::/lingtalfi/Tim:1.6.0
+    - git::/lingtalfi/StringFormatter:1.0.0
+    - git::/lingtalfi/SuspiciousException:1.0.0

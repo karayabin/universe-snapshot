@@ -1,0 +1,165 @@
+Asset Loader
+=================
+2016-01-30
+
+
+
+
+Load assets (js/css) in your html page.
+
+
+
+
+Nomenclature
+---------------
+
+- asset: this is a js or css file.
+- item: an item is a group of assets used by a module/library.
+- load: to load an item is the action of injecting the item's assets into the html page.
+
+                    
+            
+            
+Conception
+--------------
+
+You have the following js api:
+
+
+- void          registerItem ( str:name, array:assets )
+
+                        Register an item in the "asset loader" memory.
+                        
+- void          registerItems ( map:names2Assets )
+
+                        Register multiple items at once, internally use the registerItem method.
+                        names2Assets is an array of name => assets (array).
+                        
+- void          setPosition ( str:position=head )
+
+                        Define where the js assets will be injected in the html page.
+                        The css assets will always be injected into the html head.
+                        The value can be either head or bodyEnd.
+                        The default is head.
+                        
+- array         getLoadedItems ()
+
+                        Return the map of currently loaded items names.
+                        
+                        Note: only items loaded with the asset loader, via the loadItem method will 
+                        be detected (i.e. if you have manually injected libraries, the asset loader doesn't 
+                        know about them).
+                        
+                        Note2: you can use the declareLoadedItem method to manually fake a loaded item.
+                        
+- bool          isLoaded ( str:name )
+
+                        Return whether or not the item is loaded.
+                        
+                        
+- void          loadItems ( str|array:items, ?callable:success )
+
+                        Load items, then execute the success callback if defined.
+                        The items parameter can be either an item name (string), or an array of item names.
+
+- void          declareLoadedItems ( str|array:items )
+                        
+                        Register the given items as loaded, directly in the memory of the asset loader.
+                        The asset loader will then believe that those assets have been loaded.
+                        
+                        
+
+
+Design personal notes
+------------------------
+
+The tool is deliberately simple and lightweight.
+It expects that you manually resolve dependencies.
+Why?
+From my own experience, the only required dependency is jquery, so I would argue that a dependency system would make 
+the asset loader code bigger than necessary.
+
+Just manually load jquery (using the loadItems method) at the top of your page and in most cases you're done.
+If not, you might be able to resolve conflicts anyway, just call assets in the right order.
+
+Because of this, asset loader is lightweight and simple to use.
+
+The tool is a singleton, because I believe it should manage all the assets in your page.
+
+The tool only allows one position for all assets for the same reason.
+Personally, I think it is already a superfluous widget, but that's ok...
+
+
+If experience proves that this is not powerful enough, then we might add a dependency resolving system.
+
+
+
+Cache strategy notes
+------------------------
+
+A common cache strategy is, for a given page, to group all your js assets in one file and compress it,
+and do the same for your css assets.
+
+Although not yet implemented, here are thoughts about that:
+ 
+You can use the getLoadedItems method per page to start with.
+
+You would probably need a getLoadedAssets extension, but don't put it in the asset loader code,
+because one of the goal of the assets loader is to be tiny (caching shouldn't be an excuse to make
+the page heavier).
+
+
+
+I believe that there are two main approaches for caching.
+Let's first distinguish two types of assets calls.
+The static and the dynamic.
+
+The static assets are those written in the source code of the html page.
+The dynamic are those injected on the fly upon a call to a service via ajax for instance.
+
+(there might be more case of dynamic assets, but that's mine for the purpose of this discussion)
+
+
+So the two main approaches are the following:
+
+- either you cache every possible asset on a page, including asset that would potentially be loaded
+        if the user clicked on a given button.
+        
+- or you only cache the minimum number of assets to get the page working, and then when the page needs
+        more assets, it calls them on the fly.
+
+
+
+With the first strategy, you have a bigger first asset to load, but then you only use one http request.
+With the second strategy, you  have a smaller first asset to load, but then you might end up with more 
+than one http request, depending on the user activity on the page.
+
+(that's assuming you've already minified your assets)
+
+I'm not going to tell you which one is better, because I don't know the answer.
+My personal preference, now, is the second one.
+
+
+
+
+About manifest
+------------------
+
+The first intention is to make it easy to load asset.
+At first I thought I would use javascript to fetch the manifest, but then because fetching
+a file is an asynchronous operation, it seemed suddenly unecessary complicated.
+
+So I made a php implementation.
+The syntax is intuitive.
+
+One could say that it would be better to have it in the application config, but I would argue that 
+I like the manifest to be on the web side, since it's related to web assets.
+It's basically a standalone "module" that works by its own, so that's that much less trouble for the application.
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        

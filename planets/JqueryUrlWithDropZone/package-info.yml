@@ -1,0 +1,2 @@
+dependencies:
+    - libjs::jquery:2.1.4    (older versions might work too...)

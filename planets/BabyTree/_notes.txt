@@ -1,0 +1,123 @@
+
+A Scanner is something that returns a BabyTreeInfo array.
+
+
+
+BabyTreeInfo is a php array which entries represents a filesystem tree,
+ordered in the natural order for parsing a recursive tree (parse children first, THEN siblings).
+
+Every entry has the following structure:
+- type: string (file|link|dir)
+- path: string, relative path to the root (given) dir
+- linkTarget: false|string, false if the resource is not a link, or the link target as fetched with the php's readlink function
+- perms: string|false: a string representing the octal mode applied to the resource (0755 for instance), or false when there is no permission to read or when the resource doesn't exist (for links, the resource is the target of the link)   
+- owner: string|false: the owner of the file or dir, or false when there is no ownership to read or when the resource doesn't exist (for links, the resource is the target of the link)
+- ownerGroup: string|false: the owner group of the file or dir, or false when there is no ownership to read or when the resource doesn't exist (for links, the resource is the target of the link)
+
+
+
+
+
+
+There are two types of scanners:
+
+- filesystem scanner, which computes the babyTreeInfo of a given root directory
+- baby tree notation scanner, which parses the **baby tree notation** to produce the babyTreeInfo array
+
+
+
+
+
+The baby tree notation is an intuitive way to write a tree filesystem.
+It is composed of indented lines, indentation representing the hierarchy.
+Line are stacked one below the others.
+
+
+
+Below is a full concrete example of the baby tree notation:
+
+
+- .DS_Store ** [0644] ** {pierrelafitte=staff}
+- dir1 ** [0755] ** {pierrelafitte=staff}:
+----- linkToBroken -> $/dir3 ** [_resource_not_existing_]
+----- linkToDir -> $/dir2 ** [0755] ** {pierrelafitte=staff}
+----- linkToFile -> $/dir2/file2.txt ** [0644] ** {pierrelafitte=staff}
+- dir2 ** [0755] ** {pierrelafitte=staff}:
+----- .DS_Store ** [0644] ** {pierrelafitte=staff}
+----- dir3 -> $/dir3 ** [_resource_not_existing_]
+----- file2.txt ** [0644] ** {pierrelafitte=staff}
+----- linkToFile1Txt -> ../file1.txt ** [0644] ** {pierrelafitte=staff}
+----- oo ** [0755] ** {pierrelafitte=staff}:
+--------- linkToDir4 -> $/dir4/ ** [0755] ** {pierrelafitte=staff}
+- dir4 ** [0755] ** {pierrelafitte=staff}:
+----- .DS_Store ** [0644] ** {pierrelafitte=staff}
+----- dir5 ** [0755] ** {pierrelafitte=staff}:
+--------- hish.txt ** [0644] ** {pierrelafitte=staff}
+--------- possible.txt ** [0644] ** {501=1}
+- file1.txt ** [0644] ** {pierrelafitte=staff}
+- link -> link2 ** [_resource_not_existing_]
+- link2 -> link ** [_resource_not_existing_]
+    
+
+
+
+Each line has the following abstract structure:
+
+babyTree line: <indent> <line>
+- indent: x consecutive dashes, where x = (level * 4) + 1
+- line: <rPath> ( "->" <linkTarget> )? (<**> <fileInfo>)?
+- rPath: relative path to the resource (relative to the given root dir).
+                It is assumed that this relative path always points to an existing resource.
+- linkTarget: if the resource is a link, the link target.
+                we recognize two types of link paths:
+
+                    - a relative path, starting with a parent dot dot directory or the current dot directory
+                    - an absolute path
+
+                There is also a third part which starts with the rootDirAlias, and resolve
+                in one of the two other forms (the rootDir alias being replaced with the root dir).
+
+
+- fileInfo: <nonExistingLinkTargetMessage> | <permsInfo>
+- nonExistingLinkTargetMessage: [_target_not_found_]
+        This message is only seen if the resource is a link pointing to a non
+        existing resource (aka broken link).
+- permsInfo: <permsOrOwner> (<**> <permsOrOwner>)?
+- permsOrOwner: <perms> | <owner>
+- perms: <[> <permOctal> <]>
+- permOctal: the permission information in octal (0755, 0644, ...)
+- owner: <{> <ownerName> <=> <ownerGroup> <}>
+
+
+
+
+    
+Restrictions:
+    
+1. 
+        The BabyTreeNotationScanner uses the string: " -> " to create a link.
+        This means that things will go wrong if the file name contains this string.
+        Todo: this should be fixed by allowing quoting (but what if the filename looks like a quote then?)
+2. 
+        By default, the BabyTreeNotationScanner uses the string "**" to separate the file path from its
+        perms/ownership info. 
+        This means that things will go wrong if the file name contains this string.
+        In case of conflicts, the user must change the default values of this string to a value 
+        that doesn't conflict with any of her paths.
+        
+        
+        
+3. 
+        By default, the BabyTreeWriter uses the dollar symbol to represent the root dir alias.
+        When writing a link, if the root dir alias symbol is found at the very beginning of the link,
+        it will be replaced by the root dir path.
+        This means that if your path starts with the root dir alias (should never be the case on unix, since
+        paths start with a slash), then you should change the root dir alias to another symbol that fits your needs.
+        
+        
+        
+Philosophy:
+        
+When something goes wrong (not planned by the user, or true exception), we throw a BabyTreeException exception.        
+        
+            

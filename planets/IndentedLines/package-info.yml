@@ -1,0 +1,4 @@
+dependencies:
+    - git::/lingtalfi/Bat:1.18    
+    - git::/lingtalfi/Bate:1.0.0    
+    - git::/lingtalfi/Quoter:1.4.0

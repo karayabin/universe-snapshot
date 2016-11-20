@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script src="/libs/here/js/here.js"></script>
+	<script src="/libs/here/js/timeplotter/timeplotter.js"></script>
+	<link rel="stylesheet" href="/libs/here/css/here.demo.css">
+	<title>Here demo page</title>
+</head>
+
+<body>
+
+
+<div id="here_container">
+	<div class="tool_bar">
+		<div class="hours">
+			<div>
+				<span data-offset="0">00:00</span>
+				<span data-offset="180">03:00</span>
+				<span data-offset="360">06:00</span>
+				<span data-offset="540">09:00</span>
+			</div>
+			<div>
+				<span data-offset="720">12:00</span>
+				<span data-offset="900">15:00</span>
+				<span data-offset="1080">18:00</span>
+				<span data-offset="1260">21:00</span>
+			</div>
+		</div>
+		<div class="zoom_tools">
+			<button class="zoom_in">+</button>
+			<button class="zoom_out">-</button>
+		</div>
+	</div>
+
+	<div class="timeline_outer">
+		<div class="timeline_inner">
+			<div class="timeline_plots"></div>
+			<div class="timeline_events">
+				<div data-offset="100"
+				     data-duration="3600">
+					<img src="http://vkontakte.ru/images/gifts/256/78.jpg">
+					<span class="title">Duck</span>
+				</div>
+				<div data-offset="3750"
+				     data-duration="5500">
+					<img src="http://vkontakte.ru/images/gifts/256/83.jpg">
+					<span class="title">Toucan</span>
+				</div>
+				<div data-offset="10000"
+				     data-duration="1600">
+					<img src="http://vkontakte.ru/images/gifts/256/44.jpg">
+					<span class="title">Mammoth</span>
+				</div>
+				<div data-offset="12000"
+				     data-duration="5040">
+					<img src="http://vkontakte.ru/images/gifts/256/70.jpg">
+					<span class="title">Fat cat</span>
+				</div>
+				<div data-offset="18000"
+				     data-duration="7200">
+					<img src="http://www.irisa.fr/vista/Themes/Demos/Debruitage/images/Peppers.png">
+					<span class="title">Peppers</span>
+				</div>
+				<div data-offset="26000"
+				     data-duration="6000">
+					<img
+							src="http://cdn.theatlantic.com/assets/media/img/photo/2015/11/images-from-the-2016-sony-world-pho/s01_130921474920553591/main_900.jpg?1448476701">
+					<span class="title">Running hamster</span>
+				</div>
+				<div data-offset="32000"
+				     data-duration="7100">
+					<img src="http://all4desktop.com/data_images/original/4237641-images.jpg">
+					<span class="title">Universe</span>
+				</div>
+				<div data-offset="40000"
+				     data-duration="7100">
+					<img src="http://www.francetvinfo.fr/image/759f7nqe0-e652/908/624/7593841.jpg">
+					<span class="title">2016</span>
+				</div>
+				<div data-offset="50000"
+				     data-duration="5200">
+					<img src="http://ichef-1.bbci.co.uk/news/640/cpsprodpb/EED6/production/_87524116_87524107.jpg">
+					<span class="title">Glass ball</span>
+				</div>
+				<div data-offset="56000"
+				     data-duration="7300">
+					<img src="http://www.hindustantimes.com/Images/popup/2015/6/kungfu2.jpg">
+					<span class="title">Kung fu pandas</span>
+				</div>
+				<div data-offset="65000"
+				     data-duration="4000">
+					<img src="http://www.thehindu.com/multimedia/dynamic/02184/VBK-03-SOLAR_FLARE_2184508f.jpg">
+					<span class="title">Sun</span>
+				</div>
+				<div data-offset="70000"
+				     data-duration="2600">
+					<img src="http://www.thinkstockphotos.com/CMS/StaticContent/Hero/TS_AnonHP_462882495_01.jpg">
+					<span class="title">Turtle</span>
+				</div>
+				<div data-offset="73000"
+				     data-duration="9000">
+					<img src="http://www.gettyimages.co.uk/gi-resources/images/frontdoor/creative/Embed/hero_dog_482206371.jpg">
+					<span class="title">Super dog</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+	(function ($) {
+		$(document).ready(function () {
+
+
+			var jHereContainer = $('#here_container');
+			var jToolbar = $('.tool_bar', jHereContainer);
+			var jPlotContainer = $('.timeline_plots', jHereContainer);
+			var jTimeLineInner = $('.timeline_inner', jHereContainer);
+			var jHours = $('.hours', jToolbar);
+
+
+			var jHere = jTimeLineInner.here({
+				jEvents: $(".timeline_events > div", jHereContainer),
+				timePlotPlugin: new constantDistance({
+					jPlotContainer: jPlotContainer,
+					minimumDistance: 200
+				})
+			});
+
+
+			//------------------------------------------------------------------------------/
+			// ADDING ZOOM FUNCTIONALITY
+			//------------------------------------------------------------------------------/
+			var oHere = jHere.data('here');
+			$('.zoom_in', jToolbar).on('click', function () {
+				oHere.zoomIn();
+				return false;
+			});
+			$('.zoom_out', jToolbar).on('click', function () {
+				oHere.zoomOut();
+				return false;
+			});
+
+
+			//------------------------------------------------------------------------------/
+			// ADDING NAVIGATION BY BUTTON FUNCTIONALITY
+			//------------------------------------------------------------------------------/
+			jHours.on('click', 'span', function () {
+				var offset = parseInt($(this).attr('data-offset')) * 60;
+				oHere.moveTo(offset);
+				return false;
+			});
+		});
+	})(jQuery);
+</script>
+</body>
+</html>

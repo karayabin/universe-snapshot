@@ -1,0 +1,11 @@
+dependencies:
+    - git::/lingtalfi/MySimpleXmlElement:1.0.0
+ACPCompliantRanges:
+    - 1.0.0
+    - 1.1*
+        
+    
+    
+    
+    
+    

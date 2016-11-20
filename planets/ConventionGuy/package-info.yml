@@ -1,0 +1,4 @@
+ACPCompliantRanges:
+    - 1.0 - 1.09
+    - *
+versionNamingSystem: columns (https://github.com/lingtalfi/ConventionGuy/blob/master/convention.columns.vns/convention.columns.vns.1.0.0.eng.md)

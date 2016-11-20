@@ -1,0 +1,6 @@
+<div class="person" data-id="$id">
+	<div class="row">
+		<span class="name">$name</span>
+		<span class="value">$value</span>
+	</div>
+</div>

@@ -1,0 +1,5 @@
+dependencies:
+    - git::/lingtalfi/Bat:1.27
+    - git::/lingtalfi/YouTubeUtils:1.1.0  (only if you want to get youtube preview when pasting a youtube url in the selector)
+    - git::/lingtalfi/Tim:1.5.0     (necessary if you use a tim server)
+    - git::/lingtalfi/UploaderHandler:1.0.0     (not recommended, unless you use the colis_upload_new service or a similar service)        

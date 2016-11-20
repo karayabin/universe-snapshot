@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<script src="/libs/assetloader/js/assetloader.js"></script>
+	<title>Html page</title>
+</head>
+
+<body>
+
+
+<div id="blue">I've got the blues</div>
+
+<script>
+	//------------------------------------------------------------------------------/
+	// FIRST REGISTER ALL YOUR LIBRARIES, that's the cost to pay...
+	//------------------------------------------------------------------------------/
+	assetLoader.registerItems({
+		jquery: 'http://code.jquery.com/jquery-2.1.4.min.js',
+		fake: [
+			'/libs/assetloader/demo/fake/js/fake.js',
+			'/libs/assetloader/demo/fake/css/fake.css'
+		]
+	});
+
+	//------------------------------------------------------------------------------/
+	// NOW YOU CAN DYNAMICALLY INJECT ASSETS IN YOUR PAGE
+	//------------------------------------------------------------------------------/
+	assetLoader.loadItems(['jquery', 'fake'], function () {
+
+		fake.sayHello();
+		$(document).ready(function () {
+			$('#blue').css('background', 'blue');
+		});
+	});
+
+</script>
+
+</body>
+</html>

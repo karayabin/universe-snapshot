@@ -1,0 +1,2 @@
+dependencies:
+    - git::/lingtalfi/Tim:1.2.0  (necessary only if you plan to use a tim server)     
