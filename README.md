@@ -1,118 +1,158 @@
 Universe snapshot
 =====================
-2016-01-02
+2016-01-02 -- 2016-11-20
 
 
 
-What is this?
-----------------
-
-This is a compilation of lingtalfi's universe php classes.
+Personal collection of multi-purpose php classes.
 
 
-Why would I need this?
-----------------------------
-
-[Lingtalfi's universe](https://github.com/lingtalfi/universe) has now expanded a little bit.
-Rather than resolving the class dependencies manually, a better workflow is to download all the classes at once,
-and then help yourself when needed.
-
-In Lingtalfi's universe, every package is called a planet.
-Go there for more information about [planets](https://github.com/lingtalfi/Observer/blob/master/article/article.planetReference.eng.md).
 
 
-How do I use it?
---------------------
+Features
+---------------
 
-There are many different ways to import the classes to your applications.
-But if you don't have any idea, I suggest the following:
+- one liner setup 
+- unified naming convention based on psr-0 for all the classes
+- easily extendable/organizable
 
-- Download the most recent version of the universe snapshot
-- extract the zip 
-- copy paste the folder named "planets" to your application
-- go to your application init file, and add the following lines somewhere where it fits
+
+
+Metaphor
+-------------
+
+The sum of all universes is called multi-verse.
+A developer creates her own universe(s).
+Each universe consists of a collection of classes called planets.
+
+
+
+
+Guide for the new developer
+-------------------
+
+Here are the few guidelines I can think of:
+
+- Every planet should be named using the [BSR-0](https://github.com/lingtalfi/BumbleBee/blob/master/Autoload/convention.bsr0.eng.md) naming convention
+
+
+
+
+Installation
+-----------------
+
+First, install the universe.
+
+You can either install it once per machine, or install it on a per application basis.
+
+```bash
+cd /path/to/where/you/want/to/install
+git clone https://github.com/karayabin/universe-snapshot.git
+```
+
+These commands will create a universe-snapshots directory with the following structure:
+
+
+- universe-snapshots/
+    - bigbang.php
+    - planets/
+
+
+
+
+Bigbang: the universe's one liner setup
+------------------------------------------
+
+To start using the universe in your php application, you need to call the bigbang.php script.
 
 ```php
-<?php
+require_once "bigbang.php";
+```
 
-use BumbleBee\Autoload\ButineurAutoloader;
+This line will basically lazily register all the classes in the planets directory.
+
+You will generally put this line once in your application init script.
+
+Now to use a class in your project, just call it:
 
 
-$planetsDir = __DIR__ . "/../planets"; // rename if you want (modules, classes, ...) 
-require_once $planetsDir . '/BumbleBee/Autoload/BeeAutoloader.php';
-require_once $planetsDir . '/BumbleBee/Autoload/ButineurAutoloader.php';
+```php
+// Note: most IDE will generate this line for you as you type the other line below...
+use My\Awesome\MegaClass;
+
+// ...therefore in most cases you just need to type this line (and this IDE mechanism is a huge time saver by the way)
+$translator = new MegaClass();
+```
 
 
-//------------------------------------------------------------------------------/
-// INIT THE AUTOLOADER
-//------------------------------------------------------------------------------/
+
+### adding your own classes
+
+When creating a php application, using my universe collection can be helpful,
+but at some point you always need to create your own classes.
+
+
+The good news is that the universe is easily expandable.
+
+Start by creating a class directory in your project and put all your classes in there (using the BSR-0 naming convention).
+
+```bash
+cd /my/app
+mkdir class
+```
+
+Then, you need to revisit the bigbang one liner setup, and turn it into this:
+
+```php
+$__butineurStart = false; 
+require_once "bigbang.php";  
 ButineurAutoloader::getInst()
-    ->addLocation($planetsDir)
-    ->start();
-
-
-//------------------------------------------------------------------------------/
-// From now on you can use any BSR-0 class that resides in your planets (or modules...) directory
-//------------------------------------------------------------------------------/
-// ;)
+->addLocation(__DIR__ . "/class")
+// ->addLocation(__DIR__ . "/another_class_dir") // you could add other directories if needed...
+->start();
 ```
 
-And basically that's it, you can now use any classes from lingtalfi's universe from your application.
+We use the **$__butineurStart** variable to tell the bigbang.php script that we will start the universe manually.
+
+Then we add our own dependencies (the **class** directory), and call the start method when ready.
 
 
-Don't forget a and az functions
-------------------------------------
 
-However, I would also suggest that you import the "a" and "az" debug functions, since they are used in a lot of 
-examples from the lingtalfi universe classes documentation.
+### Bigbang bonus: a and az debug functions
 
-The "a" and "az" functions are found in different places, but here is the 
-interesting excerpt from the [bee bash autoloader](https://github.com/lingtalfi/TheScientist/blob/master/convention.beeBashAutoloader.eng.md):
-
-You can simply create an az.php file, put the following content inside, and include those in your application:
+If you look inside the bigbang.php script, you will see that there are two functions definitions at the end: a and az.
 
 
-```php
-// https://github.com/lingtalfi/TheScientist/blob/master/_bb_autoload/autoload.php
-//------------------------------------------------------------------------------/
-// BONUS FUNCTIONS, SO HANDFUL... (a huge time saver in the end)
-//------------------------------------------------------------------------------/
-if (!function_exists('a')) {
-    function a()
-    {
-        foreach (func_get_args() as $arg) {
-            ob_start();
-            var_dump($arg);
-            $output = ob_get_clean();
-            if ('1' !== ini_get('xdebug.default_enable')) {
-                $output = preg_replace("!\]\=\>\n(\s+)!m", "] => ", $output);
-            }
-            if ('cli' === PHP_SAPI) {
-                echo $output;
-            }
-            else {
-                echo '<pre>' . $output . '</pre>';
-            }
-        }
-    }
-    function az()
-    {
-        call_user_func_array('a', func_get_args());
-        exit;
-    }
-}
-```
+
+**a** is basically an alias for var_dump, since it's probably the function I use the most in php.
+
+**az** does the same, plus it exits the current script.
+
+I can't emphasize enough how much time those two aliases cut the debug time.
 
 
-Snapshots
+Anyway, if you don't use them, you can throw them away, no big deal.
+
+
+
+
+
+
+
+Final words
 ------------------
 
-Snapshot |  Zip Size | Unzipped Size | Link to listing
----------| ----------|--------------|-----------------------
-2016-04-04  | 1.1Mo   |  2.6Mo       | https://github.com/karayabin/universe-snapshot/blob/master/2016-04-04.zip
-2016-03-02  | 917Ko   |  2Mo         | https://github.com/karayabin/universe-snapshot/blob/master/2016-03-02.zip
-2016-02-01  | 764Ko   |  1.6Mo       | https://github.com/karayabin/universe-snapshot/blob/master/2016-02-01.zip
-2016-01-02  | 463Ko   |  982Ko       | https://github.com/karayabin/universe-snapshot/blob/master/2016-01-02.zip
+Well, that's the end of the party.
+See you next time (this paragraph is ridiculously useless and should have been deleted). 
+
+
+
+
+
+
+
+
+
 
 
 
