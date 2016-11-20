@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AACE,2BAAW;EACT,QAAQ,EAAE,QAAQ;EAClB,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,IAAI;EACZ,QAAQ,EAAE,MAAM;EAChB,kCAAO;IACL,QAAQ,EAAE,QAAQ;IAClB,KAAK,EAAE,IAAI;IACX,MAAM,EAAE,IAAI;IAEZ,wCAAQ;MACN,gBAAgB,EAAE,KAAK",
+"sources": ["layered-manager.scss"],
+"names": [],
+"file": "layered-manager.css"
+}

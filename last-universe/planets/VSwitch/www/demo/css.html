@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script src="/libs/vswitch/js/vswitch.js"></script>
+	<title>Html page</title>
+
+
+	<style>
+
+		/*--------------------------------------------------------------------------*
+		// BASIC SHOW/HIDE
+		/*--------------------------------------------------------------------------*/
+		/*.view {*/
+		/*display: none;*/
+		/*}*/
+
+		/*.surface.form .view.form,*/
+		/*.surface.success .view.success {*/
+		/*display: block;*/
+		/*}*/
+
+		/*--------------------------------------------------------------------------*
+		// OR YOU CAN PLAY WITH OPACITY
+		/*--------------------------------------------------------------------------*/
+		/*.surface {*/
+		/*position: relative;*/
+		/*}*/
+
+		/*.view {*/
+		/*opacity: 0;*/
+		/*position: absolute;*/
+		/*z-index: 1;*/
+		/*}*/
+
+		/*.surface.form .view.form,*/
+		/*.surface.success .view.success {*/
+		/*transition: opacity 1s ease;*/
+		/*opacity: 1;*/
+		/*z-index: 3;*/
+		/*}*/
+
+
+		/*--------------------------------------------------------------------------*
+		// OR YOU CAN GO EVEN MORE FANCY 
+		/*--------------------------------------------------------------------------*/
+		.surface {
+			position: relative;
+		}
+
+		.view {
+			opacity: 0;
+			position: absolute;
+			z-index: 1;
+		}
+
+		.surface.form .view.form,
+		.surface.success .view.success {
+			transition: all 1s ease;
+			opacity: 1;
+			z-index: 3;
+		}
+
+		.surface .view.success {
+			transform: translateX(-60px);
+		}
+
+		.surface.success .view.success {
+			transform: translateX(0);
+		}
+
+	</style>
+
+</head>
+
+<body>
+
+
+<div class="surface form">
+	<div class="view form">
+		<form>
+			<input type="text" name="name" value="">
+			<input type="submit" value="submit">
+		</form>
+	</div>
+
+	<div class="view success">
+		The form was sent successfully!
+	</div>
+</div>
+
+
+<script>
+	$(document).ready(function () {
+		var jSurface = $('.surface');
+		var oswitch = new vswitch(jSurface, "form success");
+
+		var jForm = $('form', jSurface);
+		jForm.on('submit', function () {
+
+			// post data, then...
+			if ('form is success') {
+				oswitch.switchView("success");
+			}
+
+			return false;
+		})
+
+	});
+</script>
+</body>
+</html>

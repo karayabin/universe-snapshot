@@ -1,0 +1,9 @@
+dependencies:
+    - git::/lingtalfi/DirScanner:1.0.0
+    - git::/lingtalfi/BabyDash:1.1.0
+ACPCompliantRanges:
+    - *
+    
+    
+    
+    

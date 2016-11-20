@@ -1,0 +1,6 @@
+dependencies:
+    - git::/lingtalfi/WrappedString:1.3.0    
+    - git::/lingtalfi/Escaper:1.4.0    
+    - git::/lingtalfi/Bat:1.15  
+ACPCompliantRanges:
+    - *

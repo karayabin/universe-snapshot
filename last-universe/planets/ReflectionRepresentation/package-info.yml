@@ -1,0 +1,4 @@
+dependencies:
+    - git::/lingtalfi/VariableToString:1.0.0    
+ACPCompliantRanges:
+    - *

@@ -1,0 +1,4 @@
+dependencies:
+    - git::/lingtalfi/Bat:1.31
+    - git::/lingtalfi/ThumbnailTools:1.0.1
+

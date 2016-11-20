@@ -1,0 +1,4 @@
+dependencies:
+    - git::/lingtalfi/Bat:1.29  (required only by YorgDirScannerTool::getFilesWithExtension)
+        
+        

@@ -1,0 +1,99 @@
+#here_container {
+    background: #111;
+}
+
+#here_container .tool_bar {
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1vmin;
+    color: #b4b4b4;
+}
+
+#here_container .hours {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+}
+
+#here_container .hours > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1vmin;
+}
+
+#here_container .hours > div span {
+    margin: 0 1vw;
+    background: #3f3f3f;
+    border-radius: 10px;
+    padding: 0.5vmax;
+    cursor: pointer;
+}
+
+#here_container .hours > div span:hover {
+    background: #b31414;
+    color: white;
+}
+
+
+#here_container .timeline_outer {
+    overflow: hidden;
+}
+
+#here_container .timeline_inner {
+    position: relative;
+    left: 0px;
+}
+
+#here_container .timeline_events {
+    width: 100%;
+    position: relative;
+    margin-bottom: 1vmin;
+}
+
+#here_container .timeline_events {
+    height: 120px;
+    overflow: hidden;
+}
+
+
+#here_container .timeline_inner > div.timeline_plots {
+    height: 40px;
+    position: relative;
+}
+
+#here_container .timeline_inner > div.timeline_plots > span {
+    position: absolute;
+    border-radius: 10px;
+    padding: 6px;
+    font-size: 14px;
+    background: #3f3f3f;
+    color: #b4b4b4;
+}
+
+#here_container .timeline_events > div {
+    position: absolute;
+    left: 0px;
+    border-radius: 2px;
+    display: flex;
+    margin-left: 0vmin;
+    padding-right: 1vmin;
+    padding-top: 0.7vmin;
+    background: #262626;
+    border-top-width: 0.4vmin;
+    border-top-style: solid;
+    overflow: hidden; /* crop images when resizing is too small */
+    color: white;
+}
+
+
+#here_container .timeline_events img {
+    width: 120px;
+    height: 80px;
+    object-fit: cover;
+    vertical-align: top;
+    margin-right: 1vmin;
+}

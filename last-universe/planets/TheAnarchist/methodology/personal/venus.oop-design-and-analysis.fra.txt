@@ -1,0 +1,310 @@
+Oop design
+==================
+2015-02-23
+
+
+
+Intérêt: gagner un peu de temps à la conception
+
+
+
+
+Blabla introductif
+-------------------
+
+Dans sa vie de tous les jours, un dev concepteur php doit apporter des solutions à des problèmes.
+Cela passe par la création d'objets, beaucoup d'objets.
+ 
+ 
+La création d'un objet peut être vue comme un processus en deux étapes:
+
+- la conception
+- l'implémentation
+
+Il va sans dire que l'implémentation dépend totalement de la conception, 
+ce qui rend la conception la phase la plus importante.
+
+
+Quels outils a-t'on (hormis notre cerveau) pour faire une bonne conception ?
+    - patterns oop ?
+
+L'idée de cet article est d'essayer d'avancer sur un projet dont le but serait de définir
+une méthodologie générale que l'on pourrait appliquer à chaque fois pendant la phase de conception,
+une sorte de todolist qui s'assurerait que les étapes nécessaires à une "bonne" conception
+ont bien été réalisées.
+
+Entreprise très délicate, avec un intérêt très discutable, mais j'ai bon espoir qu'on pourra 
+obtenir quelque chose d'utile de ce projet.
+
+
+
+Les point communs à toute conception
+----------------------------------------
+
+
+- analyse du problème
+----- la visualisation du problème peut aider
+            (avoir différentes vues sur le problème peut aider)
+            
+            Comprendre le problème, c'est 50% du boulot.
+            
+            
+            
+- réduire l'entropie en trouvant les rôles
+            Si notre conception est:
+                    on appuie sur un bouton et cela résoud le problème,
+                    le codeur aura bcp de mal.
+                    Si on définit les différents rôles, dans l'idéal, 
+                    l'implémentation est une grande ligne droite sans surprises.
+                    
+            Création de la nomenclature et des concepts (de fonctionnement) spécifiques
+            au système créé.
+                    
+            Si on connaît des patterns, c'est le moment de les sortir,
+            car ils ont leur propre nomenclature et concepts, c'est ça de moins pour le dev.                                                         
+                    
+
+- brain tester le système: 
+----- tester le cas général (mentalement?)    
+----- trouver tous les cas particuliers et expliquer leur behaviour
+            - behaviour est plus important à ce stade de la conception
+                    car c'est le contrat et la documentation en même temps.
+                    Cette étape doit être faite avec le plus de détails possibles
+                    (
+                        mais en général, enfin moi, le concepteur n'est pas assez bien organisé
+                        pour prendre tous les cas à la conception, et aura qq surprises au niveau
+                        de l'implémentation
+                    )                                        
+
+- c'est tout ;)
+
+
+
+Une méthodologie, essai 1 (appelons la venus, pour le fun, et puis surtout parce que c'est moins long
+à écrire que méthodologie essai 1):
+------------------------------
+
+
+- créer un dossier conceptionX (X=1, car on va peut être en faire plusieurs...)
+    Dans ce dossier,
+
+----- écrire la problématique (créer un fichier problematik).
+    Cela permet de comprendre la direction générale, et donc d'avoir une vision concrète de
+    pourquoi on a eu besoin de créer cet objet ou système.
+    6 mois après, ça permet de nous remettre dans le bain plus rapidement.
+    Cela permet également de nous assurer qu'on part sur la bonne direction.
+    
+----- écrire le but (créer un fichier goals)
+    Que doit faire notre système, en général, et dans le détail.
+    Ecrire la liste des étapes clés du fonctionnement, dans l'ordre naturel d'apparition
+    dans la conscience: c'est un brainstorming.
+    Le but est de trouver tous les cas particuliers, et quelle doit être la behaviour de notre
+    système dans ce cas ?
+    Autrement dit, on brain test le système.
+    
+    
+----- définir les rôles (créer un fichier roles)
+            Maintenant on connaît notre but, mais comment y parvenir ?
+            
+                - apprendre des patterns oop?
+            
+            Qui va faire quoi, dans le détail.
+            
+            
+                         
+Test de la méthodologie
+--------------
+                         
+Bon en fait, je viens de tester cette méthodologie sur mon projet en cours, c'est bidon.
+La méthodologie est bien trop générale pour réfléter la complexité du problème.
+En fait, pour être plus précis, la phase d'écriture de la problématique était cool,
+mais lors de la phase d'écriture des goals, je me suis rendu compte que mon sujet était trop complexe
+pour que je puisse écrire tous les goals, pour l'écriture de certains goals (et je le sais uniquement 
+car j'ai déjà implémenté une bonne partie), il faut faire la phase des rôles avant, sinon on ne peut 
+pas réfléchir de manière concrète.
+On devrait peut être supprimer tmp la phase d'écriture des goals. 
+
+
+
+
+
+
+Une méthodologie, essai 2 (appelons la venus, car je n'ai plus d'idées (blague), en fait, venus 
+sera le nom du concept de la méthodologie sur l'analyse):
+------------------------------
+
+
+- créer un dossier conceptionX (X=1, car on va en faire plusieurs...)
+    Dans ce dossier,
+
+----- écrire la problématique (créer un fichier problematik).
+    Cela permet de comprendre la direction générale, et donc d'avoir une vision concrète de
+    pourquoi on a eu besoin de créer cet objet ou système.
+    6 mois après, ça permet de nous remettre dans le bain plus rapidement.
+    Cela permet également de nous assurer qu'on part sur la bonne direction.
+        
+          
+        
+----- définir les rôles (créer un fichier conception)
+
+            Maintenant on connaît notre but, mais comment y parvenir ?
+            
+            Dans ce fichier, le dev définira les objets utilisés dans sa solution,
+            le rôle de chacun, et les concepts nécessaires à la compréhension de leur utilisation.
+            
+            
+            C'est là que l'expérience du dev va lui servir.
+            S'il connaît des patterns oop, peut être va-t'il trouver le pattern qui correspond
+            à son problème.
+            Si ce n'est pas le cas, il va devoir inventer son propre système, avec la nomenclature
+            associée, et peut être créer son propre pattern si cela pouvait être réutiliser.
+            
+            C'est là que cette méthodologie n'aide pas beaucoup, en tous cas pour l'instant.
+            Cependant, on peut prévoir dans cette méthodologie une sorte de feuille d'aide
+            qui propose, en fonction du type de problème, différentes approches possibles.
+            Les patterns sont un des outils que l'on peut suggérer.
+            On peut également proposer des schémas d'implémentation, ou exemples d'implémentation.
+            La différence entre les 2 est que le schéma d'implémentation va plus loin dans le détail,
+            alors que le pattern reste au niveau structurel, donc assez général.
+            
+            On aura donc, dans un endroit bien défini,
+            un accès à cette base de connaissance qui propose différentes approches/exemples
+            en fonction d'un problème donné.
+            
+            Si cette phase est bien construite, on se retrouve avec un document qui peut servir 
+            de documentation pour un dev, voire pour les utilisateurs, et l'implémentation du 
+            système est une ligne droite sans surprises.
+            Autrement dit, c'est ici que tout le travail est fait, et si c'est mal fait,
+            cela ne sert à rien de passer à l'implémentation car l'implémentation ne corrige
+            pas les erreurs de conception (du moins n'est pas censée le faire).
+            
+            
+----- créer le prototype (créer un fichier prototype)
+            
+            Ce fichier conserve les notes de conception spécifiques à l'implémentation
+            que le dev a en tête.
+            
+            Ce n'est pas encore l'implémentation finale, mais juste des idées plus précises
+            sur le fonctionnement interne des objets.
+            Par exemple, si le dev compte utiliser des modes de fonctionnement, 
+            il peut les décrire ici.
+            
+            Ce fichier permet de conserver le fichier conception intact,
+            et de pré-tester en quelque sorte la solidité de la conception définie dans le fichier conception.
+            
+            Peut être que plusieurs variantes sont possibles, mais que certaines sont plus pratiques
+            que d'autres à implémenter. 
+            Les choix du dev à ce sujet figurent dans le fichier prototype.
+            
+            Il peut y avoir plusieurs prototypes, on incorporera un identifiant numérique? 
+            dans le nom du fichier pour différencier les différents prototypes.
+            
+            
+        
+----- créer un fichier de réflections
+            Durant l'écriture des fichiers conception et prototype,
+            il est probable que le dev ait des réflections ou notes importantes,
+            qui expriment le problème auquel le dev est confronté et la solution qu'il a 
+            choisie d'utiliser.
+            
+            Afin de ne pas alourdir le fichier principal, on mettra placera ces réflections
+            dans un fichier séparé.
+            Ce fichier pourrait être nommé simplement reflections.
+            On pourrait aussi le nommer d'après le nom de fichier utilisé, si cela 
+            donnerait une organisation plus claire:
+            
+                - conception.reflections
+                - prototype.reflections
+                          
+            
+            A l'intérieur du fichier, les réflections seront classées de la plus récente à la plus ancienne, car c'est
+            plus pratique comme cela je pense.
+            
+            Ces réflections sont intéressantes car elles expliquent par exemple les choix de 
+            conception que l'on a fait.
+            
+            Une réflection devrait avoir un label et une date.
+            
+            Chaque réflection serait indexée à l'aide du symbole @ (représentant le cerveau) et 
+            d'un numéro de réflexion.
+            Pour faire une référence vers une réflection, on utiliserait par exemple @1, ou @3.
+            Cela nous permet de ne pas polluer les autres fichiers avec des notes dans tous les sens.
+            
+            
+            
+
+Le système de versionnage:
+            
+            A utiliser seulement si cela apporte une meilleure organisation.
+            
+            Certaines réflections font revenir sur la conception.
+            Dans ce cas, 2 cas se présentent:
+                - le dev modifie directement le fichier
+                - le dev crée une nouvelle version de son fichier
+            
+                
+            Si le dev modifie directement le fichier original, il se peut que certaines références 
+            à des réflections n'existent plus, donnant naissance à des réflections
+            fantômes.
+            Ces réflections devraient tout de même (je pense) être conservées,
+            car elles permettent de voir l'acheminement de la création du système.
+            Pouvoir revenir à une des étapes de la conception est toujours intéressant.
+            
+            Dans le deuxième cas, le dev devrait attribuer un identifiant (numéro ou nom) de version 
+            au fichier partant, et cet identifiant devrait également se retrouver dans le fichier
+            de réflections correspondant.
+            Par exemple, si on a un fichier conception.mySystem.fra.txt associé à un fichier
+            conception.reflections.mySystem.fra.txt et que suite à une réflection, on décide de changer
+            une méthode, on peut faire des copies des 2 fichiers en:
+            
+                - conception.mySystem.1.fra.txt
+                - conception.reflections.mySystem.1.fra.txt 
+                
+                ou encore 
+                
+                - conception.mySystem.oldConception.fra.txt
+                - conception.reflections.mySystem.oldConception.fra.txt 
+            
+            De manière à ne pas perdre ces réflections parfois intéressantes.
+            Une fois la copie effectuée, on peut continuer à travailler dans
+            les fichiers:                
+             
+                - conception.reflection.mySystem.fra.txt 
+                - conception.mySystem.fra.txt                 
+                    
+             
+             
+            Cela permet de garder une certaine organisation lorsque l'on revient dans ce dossier 
+            quelques mois plus tard.
+            
+            
+            
+             
+          
+Test de la méthodologie:
+    pour l'instant ça me va...
+    
+    
+Conclusion
+===============
+
+Si le travail de conception n'est pas évident (du fait de la multitude de solutions possibles)
+il l'est encore moins si le développeur manque de rigueur et d'organisation.
+L'utilisation d'une méthodologie de conception permet de sensibiliser le dev à l'importance
+de ses réflections et est un premier pas vers l'organisation et le stockage de celles-ci.
+Il y a probablement dans l'application de cette méthodologie un petit gain de temps à la clé.
+
+Concrètement:
+
+- le design est expliqué  
+- les fichiers créés constituent une doc pour développeur  
+- les réflections originales de l'auteur sont toujours disponibles 
+- si besoin, les notes aident à reprendre la conception depuis n'importe quel point
+
+            
+            
+            
+    
+    
+    
+    

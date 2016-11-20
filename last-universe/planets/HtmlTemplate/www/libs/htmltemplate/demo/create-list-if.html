@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script src="/libs/htmltemplate/js/htmltemplate.js"></script>
+	<title>Html page</title>
+</head>
+
+<body>
+
+<div id="container">
+	Hello, my name is Roger.<br>
+
+</div>
+
+
+
+
+
+<div id="container_full" style="display: none">
+	<!-- ---------------------------------------------------------- -->
+	<!-- Note: this is the full html template that we aim for -->
+	<!-- Run this example in a browser, and you will see that -->
+	<!-- the markup below and the one inside the #container element are the identical -->
+	<!-- ---------------------------------------------------------- -->
+	Hello, my name is Roger.<br>
+	<div class="colors">
+		My favourite colours are:
+		<ul>
+			<li>blue</li>
+			<li>green</li>
+			<li>red</li>
+		</ul>
+	</div>
+	<div class="sports">
+		My favourite sports are:
+		<ul>
+			<li>karate</li>
+			<li>judo</li>
+			<li>kung-fu</li>
+		</ul>
+	</div>
+
+</div>
+
+
+<script>
+	(function ($) {
+		$(document).ready(function () {
+
+			htpl.dir = "/libs/htmltemplate/demo/templates"; // usually, you won't need this line, that's just because the demo has non default needs
+
+			// we need to load all our templates first
+			htpl.loadTemplates({
+				container: "container_list.htpl",
+				colors: "colors.htpl",
+				sports: "sports.htpl",
+				li: "list_item.htpl"
+			}, function () {
+
+
+				// imagine we get rows from a call to an ajax service,
+				// and imagine that maybe colors or sports are not specified, we don't know...
+				var pageData = {
+					colors: [
+						'blue',
+						'green',
+						'red'
+					],
+					sports: [
+						'karate',
+						'judo',
+						'kung-fu'
+					]
+				};
+
+
+				pageData['colors'] = htpl.utils.getListIf('colors', pageData, 'colors', 'li');
+				pageData['sports'] = htpl.utils.getListIf('sports', pageData, 'sports', 'li');
+
+
+				// inject the rows using default mode (called map mode)
+				$('#container').append(htpl.getHtml(pageData, 'container'));
+			});
+		});
+	})(jQuery);
+</script>
+
+
+</body>
+</html>

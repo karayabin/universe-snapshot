@@ -1,0 +1,11 @@
+
+#screendebug {
+    position: fixed;
+    min-width: 200px;
+    min-height: 200px;
+    background: white;
+    color: black;
+    left: 0%;
+    top: 0%;
+    z-index: 10000;
+}

@@ -1,0 +1,164 @@
+/*******************************
+// FUNCTIONAL
+*******************************/
+.zolipop_box {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.zolipop_box .top_bar {
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 5px;
+    font-weight: bold;
+    border-bottom-width: 1px;
+    border-bottom-style: outset;
+    
+}
+
+.zolipop_box .top_bar .title {
+    margin-left: 1vw;
+    line-height: 22px;
+}
+
+.zolipop_box .top_bar .close_button {
+    margin-right: 5px;
+    cursor: pointer;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 50%;
+    display: block;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    font-family: verdana;
+    font-size: 12px;
+    line-height: 21px;
+
+}
+
+.zolipop_box .body {
+    box-sizing: border-box;
+    padding: 10px;
+    flex: 1;
+}
+
+.zolipop_box .bottom_bar {
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 5px;
+    border-top-width: 1px;
+    border-top-style: inset;
+    
+}
+
+.zolipop_box .bottom_bar .button {
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+/*******************************
+// FLAVOURS
+*******************************/
+.zolipop_box.rounded {
+    border-radius: 7px;
+}
+
+.zolipop_box.rounded .top_bar{
+    border-radius: 7px 7px 0 0;
+}
+
+.zolipop_box.rounded .bottom_bar{
+    border-radius: 0 0 7px 7px;
+}
+
+
+
+/* DARK
+*******************************/
+.zolipop_box.dark {
+    background-color: #333;
+    color: #DAD6D6;
+    box-shadow: 0px 1px 10px 3px rgba(0, 0, 0, 0.2);
+}
+
+.zolipop_box.dark .top_bar {
+    background: rgba(255, 255, 255, 0.1);
+    border-bottom-color: #fff;
+}
+
+.zolipop_box.dark .top_bar .close_button {
+    background-color: #222;
+    border-color: #999;
+}
+
+.zolipop_box.dark .top_bar .close_button:hover {
+    color: #222;
+    background-color:#999;
+}
+
+
+.zolipop_box.dark .body {
+    background: rgba(0, 0, 0, 0.22);
+}
+
+.zolipop_box.dark .bottom_bar {
+    background: rgba(255, 255, 255, 0.1);
+    border-top-color: #fff;
+}
+
+.zolipop_box.dark .bottom_bar .button {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.zolipop_box.dark .bottom_bar .button:hover {
+    background: rgba(255, 255, 255, 0.5);
+    color: #222;
+}
+
+/* DARK BLUE
+*******************************/
+.zolipop_box.dark_blue {
+    background-color: #333;
+    color: #DAD6D6;
+    box-shadow: 0px 1px 10px 3px rgba(0, 0, 0, 0.2);
+}
+
+.zolipop_box.dark_blue .top_bar {
+    background: rgba(12, 28, 121, 0.75);
+    border-bottom-color: #fff;
+}
+
+.zolipop_box.dark_blue .top_bar .close_button {
+    background-color: #222;
+    border-color: #999;
+}
+
+.zolipop_box.dark_blue .top_bar .close_button:hover {
+    color: #222;
+    background-color:#999;
+}
+
+
+.zolipop_box.dark_blue .body {
+    background: rgba(1, 27, 109, 0.22);
+}
+
+.zolipop_box.dark_blue .bottom_bar {
+    background: rgba(12, 28, 121, 0.75);
+    border-top-color: #fff;
+}
+
+.zolipop_box.dark_blue .bottom_bar .button {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.zolipop_box.dark_blue .bottom_bar .button:hover {
+    background: rgba(255, 255, 255, 0.5);
+    color: #222;
+}
+

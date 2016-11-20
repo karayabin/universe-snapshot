@@ -1,0 +1,63 @@
+Oop design
+==================
+2015-02-27
+
+
+
+Suite de l'article venus.oop-design-and-analysis.
+
+Voici la version Venus 3:
+
+
+
+
+- conceptionXX
+----- problematik.$tags
+----- analysis.$tags
+----- conception.$tags
+----- prototype.$tags
+----- reflections.$tags
+
+
+
+La problématique:
+    Elle permet de comprendre la direction générale, et donc d'avoir une vision concrète de
+    pourquoi on a eu besoin de créer cet objet ou système.
+    6 mois après, ça permet de nous remettre dans le bain plus rapidement.
+    Cela permet également de nous assurer qu'on part sur la bonne direction.
+        
+          
+L'analyse:
+    Elle permet de montrer l'interprétation générale de l'auteur face au problème:
+    quelles ont été les réflexions principales.
+    Grâce à cela, un autre auteur, ou le même, 6 mois après, pourra utiliser ce document
+    pour dire que l'analyse de base était mauvaise, ou bonne, et peut être déceler des
+    failles de la conception à ce niveau.
+          
+          
+La conception:
+    Maintenant on connaît notre but, mais comment y parvenir ?
+    
+    Dans ce fichier, le dev définira les objets utilisés dans sa solution,
+    le rôle de chacun, et les concepts nécessaires à la compréhension de leur utilisation.
+    
+    
+    C'est là que l'expérience du dev va lui servir.
+    S'il connaît des patterns oop, peut être va-t'il trouver le pattern qui correspond
+    à son problème.
+    Si ce n'est pas le cas, il va devoir inventer son propre système, avec la nomenclature
+    associée, et peut être créer son propre pattern si cela pouvait être réutiliser.
+            
+
+Le prototype: 
+    Ce fichier conserve les notes de conception spécifiques à l'implémentation
+    que le dev a en tête.
+                        
+        
+Les réflections:
+    Ce sont les réflections qui ont été faites durant toute la conception du projet.
+    Revenir sur des réflections permet de se remettre dans le bain rapidement,
+    si l'on doit agir sur certaines parties mal documentées du code plus tard.
+    
+    On essaiera de les classer de la plus récente d'abord à la plus ancienne.
+    

@@ -1,0 +1,6 @@
+<div class="sports">
+	My favourite sports are:
+	<ul>
+		$list
+	</ul>
+</div>

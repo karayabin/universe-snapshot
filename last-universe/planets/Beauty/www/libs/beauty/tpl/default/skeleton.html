@@ -1,0 +1,114 @@
+<div class="beauty-gui">
+
+	<div class="session-info"> <!-- Result here -->
+		<div class="pending"></div>
+		<h2>Session info:</h2>
+
+		<div>
+
+			<table class="session-info-table">
+				<caption>
+					Info: <span class="info"></span>
+					<button class="info-focus">Focus in tree</button>
+				</caption>
+				<tr>
+					<td colspan="7">nbPages: <span class="nb-pages-current"></span>/<span class="nb-pages-total"></span></td>
+				</tr>
+				<tr>
+					<td>nbTotalSuccess: <span class="nb-success"></span></td>
+					<td>failure: <span class="nb-failure"></span></td>
+					<td>error: <span class="nb-error"></span></td>
+					<td>skip: <span class="nb-skip"></span></td>
+					<td>notApplicable: <span class="nb-not-applicable"></span></td>
+					<td>unknown: <span class="nb-unknown"></span></td>
+					<td>pending: <span class="nb-pending"></span></td>
+				</tr>
+				<tr>
+					<td colspan="7">nbTotalTests: <span class="nb-total-tests"></span></td>
+				</tr>
+				<tr>
+					<td colspan="7">
+						<div class="details-container 
+            filter-success-on 
+            filter-failure-on 
+            filter-error-on 
+            filter-skip-on 
+            filter-not-applicable-on 
+            filter-pending-on
+            filter-unknown-on 
+            showing-details
+            ">
+							details:
+							<button class="show-details">Show</button>
+							<button class="hide-details">Hide</button>
+
+							<div class="details-content">
+								<div class="filters">
+									<div class="detail-filter filter-success">Success</div>
+									<div class="detail-filter filter-failure">Failure</div>
+									<div class="detail-filter filter-pending">Pending</div>
+									<div class="detail-filter filter-unknown">Unknown</div>
+								</div>
+								<ul class="details-items-container">
+
+								</ul>
+							</div>
+						</div>
+
+
+					</td>
+				</tr>
+			</table>
+
+
+		</div>
+
+	</div>
+	<div class="all-tests-container"></div>
+
+
+	<div class="tpl-container" style="display: none">
+		<li class="detail-item">
+			<span class="url"></span>: <span class="result"></span>
+			<button class="show-detail-output">show output</button>
+			<button class="hide-detail-output">hide output</button>
+			<button class="focus-tree">focus-in-tree</button>
+			<button class="open-newtab">open in new tab</button>
+			<div class="details-output"></div>
+		</li>
+
+
+		<div class="testgroup-item baritem">
+			<div class="result-bullet">&nbsp;</div>
+			<span class="title"></span>
+			groups: <span class="nb-groups"></span>
+			tests: <span class="nb-tests"></span>
+			totalTests: <span class="nb-total-tests"></span>
+
+			<button class="play-group">play</button>
+			<button class="play-group-recursive">playRecursive</button>
+			<button class="unfold">open</button>
+			<button class="unfold-recursive">openRecursive</button>
+			<button class="fold">close</button>
+			<button class="fold-recursive">closeRecursive</button>
+
+
+			<div class="content">
+				<div class="tests-container"></div>
+				<div class="groups-container"></div>
+			</div>
+		</div>
+
+		<div class="test-item baritem">
+			<span class="title"></span>
+			<button class="play-test">play</button>
+			<button class="show-output">show output</button>
+			<button class="hide-output">hide output</button>
+			<button class="open-in-newtab">open in a new tab</button>
+			<iframe src="" class="output"></iframe>
+		</div>
+
+	</div>
+
+</div>
+

@@ -1,0 +1,11 @@
+- 0: apple
+- banana
+- colors:
+----- blue
+----- favorites 
+--------- purple
+--------- sports:
+------------- karate
+------------- and: judo
+--------- green
+- yellow: lemon

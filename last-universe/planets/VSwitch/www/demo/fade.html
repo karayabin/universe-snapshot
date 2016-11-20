@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script src="/libs/vswitch/js/vswitch.js"></script>
+	<title>Html page</title>
+</head>
+
+<body>
+
+
+<div class="surface">
+	<div class="form">
+		<form>
+			<input type="text" name="name" value="">
+			<input type="submit" value="submit">
+		</form>
+	</div>
+
+	<div class="success">
+		The form was sent successfully!
+	</div>
+</div>
+
+
+<script>
+	$(document).ready(function () {
+		var jSurface = $('.surface');
+		var oswitch = new vswitch(jSurface, "form success", {mode: 'fade', starter: "form"});
+
+		var jForm = $('form', jSurface);
+		jForm.on('submit', function () {
+
+			// post data, then...
+			if ('form is success') {
+				oswitch.switchView("success");
+			}
+
+			return false;
+		})
+
+	});
+</script>
+</body>
+</html>
