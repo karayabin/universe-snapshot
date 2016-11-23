@@ -44,8 +44,21 @@ The following example should tell you everything there is to know about it:
     <meta charset="utf-8"/>
     <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="/libs/screendebug/js/screendebug.js"></script>
-    <link rel="stylesheet" href="/libs/screendebug/css/screendebug.css">
+    <!-- <link rel="stylesheet" href="/libs/screendebug/css/screendebug.css"> -->
     <title>Html page</title>
+    <style type="text/css">
+        /*This is the content of screendebug.css*/
+        #screendebug {
+            position: fixed;
+            min-width: 200px;
+            min-height: 200px;
+            background: white;
+            color: black;
+            left: 0%;
+            top: 0%;
+            z-index: 10000;
+        }        
+    </style>
 </head>
 
 <body>
