@@ -23,6 +23,7 @@ What are the new methods?
 - [getColumnNames](https://github.com/lingtalfi/QuickPdo/blob/master/QuickPdoInfoTool.md#getcolumnnames)
 - [getDatabase](https://github.com/lingtalfi/QuickPdo/blob/master/QuickPdoInfoTool.md#getdatabase)
 - [getDriver](https://github.com/lingtalfi/QuickPdo/blob/master/QuickPdoInfoTool.md#getdriver)
+- [getPrimaryKey](https://github.com/lingtalfi/QuickPdo/blob/master/QuickPdoInfoTool.md#getprimarykey)
 - [getTables](https://github.com/lingtalfi/QuickPdo/blob/master/QuickPdoInfoTool.md#gettables)
 
  
@@ -130,6 +131,18 @@ string    getDriver ( )
 ```
 
 Return the driver (mysql for instance) from the existing connection
+
+
+getPrimaryKey
+-------------
+2016-11-24
+
+
+```php
+array    getPrimaryKey ( str:table, str:schema=null )
+```
+
+Return an array containing the column(s) in the primary key.
 
 
 getForeignKeysInfo

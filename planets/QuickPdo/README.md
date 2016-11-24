@@ -485,6 +485,11 @@ Then the results will look like this on the console:
 History Log
 ------------------
     
+- 1.20.0 -- 2016-11-24
+
+    - fix bug in QuickPdoInfoTool::getAutoIncrementedField 
+    - add QuickPdoInfoTool::getPrimaryKey
+    
 - 1.19.0 -- 2016-11-17
 
     - QuickPdo::update can now do increments (update users set nb_points=nb_points+1 where id=550)
