@@ -38,6 +38,38 @@ class QuickPdoInfoTool
     }
 
 
+    public static function getColumnDataTypes($table, $precision = false)
+    {
+        $types = [];
+        $info = QuickPdo::fetchAll("SHOW COLUMNS FROM $table");
+        if (false !== $info) {
+            foreach ($info as $_info) {
+                $type = $_info['Type'];
+                if (false === $precision) {
+                    $type = explode('(', $type, 2)[0];
+                }
+                $types[$_info['Field']] = $type;
+            }
+            return $types;
+        }
+        return false;
+    }
+
+
+    public static function getColumnDefaultValues($table)
+    {
+        $defaults = [];
+        $info = QuickPdo::fetchAll("SHOW COLUMNS FROM $table");
+        if (false !== $info) {
+            foreach ($info as $_info) {
+                $defaults[$_info['Field']] = $_info['Default'];
+            }
+            return $defaults;
+        }
+        return false;
+    }
+
+
     public static function getColumnNames($table, $schema = null)
     {
         /**
@@ -126,6 +158,22 @@ and CONSTRAINT_TYPE = 'FOREIGN KEY'
     }
 
 
+    public static function getPrimaryKey($table, $schema = null)
+    {
+        if (null === $schema) {
+            $schema = self::getDatabase();
+        }
+        $rows = QuickPdo::fetchAll("SHOW KEYS FROM $schema.$table WHERE Key_name = 'PRIMARY'");
+        $ret = [];
+        if (false !== $rows) {
+            foreach ($rows as $info) {
+                $ret[] = $info['Column_name'];
+            }
+        }
+        return $ret;
+    }
+
+
     public static function getTables($db)
     {
         QuickPdo::freeExec("use $db;");
@@ -144,18 +192,5 @@ and CONSTRAINT_TYPE = 'FOREIGN KEY'
         return false;
     }
 
-    public static function getPrimaryKey($table, $schema = null)
-    {
-        if (null === $schema) {
-            $schema = self::getDatabase();
-        }
-        $rows = QuickPdo::fetchAll("SHOW KEYS FROM $schema.$table WHERE Key_name = 'PRIMARY'");
-        $ret = [];
-        if (false !== $rows) {
-            foreach ($rows as $info) {
-                $ret[] = $info['Column_name'];
-            }
-        }
-        return $ret;
-    }
+
 }

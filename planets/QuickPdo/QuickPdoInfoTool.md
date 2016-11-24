@@ -20,6 +20,8 @@ What are the new methods?
 ------------------------
 
 - [getAutoIncrementedField](https://github.com/lingtalfi/QuickPdo/blob/master/QuickPdoInfoTool.md#getautoincrementedfield)
+- [getColumnDataTypes](https://github.com/lingtalfi/QuickPdo/blob/master/QuickPdoInfoTool.md#getcolumndatatypes)
+- [getColumnDefaultValues](https://github.com/lingtalfi/QuickPdo/blob/master/QuickPdoInfoTool.md#getcolumndefaultvalues)
 - [getColumnNames](https://github.com/lingtalfi/QuickPdo/blob/master/QuickPdoInfoTool.md#getcolumnnames)
 - [getDatabase](https://github.com/lingtalfi/QuickPdo/blob/master/QuickPdoInfoTool.md#getdatabase)
 - [getDriver](https://github.com/lingtalfi/QuickPdo/blob/master/QuickPdoInfoTool.md#getdriver)
@@ -93,6 +95,40 @@ string|false    getAutoIncrementedField ( str:table, str:schema=null )
 ```
 
 Return the name of the auto-incremented field, or false if there is none.
+
+
+
+getColumnDataTypes
+-------------
+2016-11-24
+
+
+```php
+array|false    getColumnDataTypes ( str:table, bool:precision=false )
+```
+
+Return the data types of the given table's columns, in the form of an array of columnName => dataType.
+If the precision parameter is false (default), data types which accept precision are returned in their 
+symbolic form (i.e. varchar, tinyint, ...).
+
+If the precision parameter is set to true, the precision suffix is returned, like varchar(64), tinyint(1) for instance. 
+  
+Return false in case of failure.
+
+
+
+getColumnDefaultValues
+-------------
+2016-11-24
+
+
+```php
+array|false    getColumnDefaultValues ( str:table )
+```
+
+Return the default values associated with the given table's columns (array of column => default value).
+
+Return false in case of failure.
 
 
 

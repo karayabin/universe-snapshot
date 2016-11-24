@@ -485,10 +485,17 @@ Then the results will look like this on the console:
 History Log
 ------------------
     
+- 1.21.0 -- 2016-11-24
+
+    - add QuickPdoInfoTool::getColumnDataTypes
+    - add QuickPdoInfoTool::getColumnDefaultValues
+    
+    
 - 1.20.0 -- 2016-11-24
 
     - fix bug in QuickPdoInfoTool::getAutoIncrementedField 
     - add QuickPdoInfoTool::getPrimaryKey
+    
     
 - 1.19.0 -- 2016-11-17
 
