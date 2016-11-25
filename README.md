@@ -1,6 +1,6 @@
 Universe snapshot
 =====================
-2016-01-02 -- 2016-11-20
+2016-01-02 -- 2016-11-25
 
 
 
@@ -14,7 +14,6 @@ Features
 
 - one liner setup 
 - unified naming convention based on psr-0 for all the classes
-- easily extendable/organizable
 
 
 
@@ -41,16 +40,15 @@ Here are the few guidelines I can think of:
 Installation
 -----------------
 
-First, install the universe.
-
-You can either install it once per machine, or install it on a per application basis.
+First, clone (or download) the universe where you want.
 
 ```bash
 cd /path/to/where/you/want/to/install
 git clone https://github.com/karayabin/universe-snapshot.git
 ```
 
-These commands will create a universe-snapshots directory with the following structure:
+
+You will end up with a universe-snapshots directory with the following structure:
 
 
 - universe-snapshots/
@@ -58,22 +56,49 @@ These commands will create a universe-snapshots directory with the following str
     - planets/
 
 
+Now that the universe is on your machine, you can use it.
 
 
-Bigbang: the universe's one liner setup
+Bigbang
 ------------------------------------------
 
-To start using the universe in your php application, you need to call the bigbang.php script.
+Bigbang is the name of the script that starts the universe.
+
+If you want to use a planet (class) from the universe in your application, you need to call the bigbang script, once.
+ 
+There are two ways to call the bigbang, the portable way (recommended), and the hard link way.
+
+
+### Portable bigbang
+
+Put the universe directory (universe-snapshots) in the include_path directive of your php ini.
+Note that in this case you only need to do this once per machine (one universe per machine). 
+
+Then put the following line at the beginning of your application (probably an init file):
 
 ```php
 require_once "bigbang.php";
 ```
 
-This line will basically lazily register all the classes in the planets directory.
+Done! from now on, any planet is available to you.
 
-You will generally put this line once in your application init script.
+This is the recommended solution, because when you upload your app to another machine with the universe setup (in the php ini's include_path),
+then you don't need to change the path to the bigbang script in your application.
 
-Now to use a class in your project, just call it:
+
+
+### hard link bigbang
+
+The other way is simply to include the bigbang file wherever it is:
+
+```php
+require_once "/path/to/bigbang.php";
+```
+
+
+
+
+In either cases, to use a class in your project, just call it:
 
 
 ```php
@@ -144,15 +169,6 @@ Final words
 
 Well, that's the end of the party.
 See you next time (this paragraph is ridiculously useless and should have been deleted). 
-
-
-
-
-
-
-
-
-
 
 
 
