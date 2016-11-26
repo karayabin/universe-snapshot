@@ -115,14 +115,7 @@
         this.listeners = {};
         this.listenerIndex = 0;
         this.plugins = this.d.plugins;
-        /**
-         * Use this map to deactivate some inner behaviours.
-         * This is used by the live plugin.
-         */
-        this.numbs = {
-            resume: false,
-            pause: false,
-        };
+
         this._init();
     };
 
@@ -335,7 +328,7 @@
                     zis.currentVideoInfo = videoInfo;
                     zis.trigger("setcurrentvideo", videoInfo);
 
-                    if (false === loadedPromise.hasOwnProperty('noResume') || false === loadedPromise.noResume) {
+                    if (false === loadedPromise.hasOwnProperty('noResume') || fa) {
                         zis.trigger("resume");
                     }
 
@@ -489,17 +482,13 @@
             // AUTO-REGISTERING INTERNAL EVENTS
             //------------------------------------------------------------------------------/
             this.on('resume', function () {
-                if (false === zis.numbs.resume) {
-                    if (null !== zis.currentVideoInfo) {
-                        zis.getCurrentVideo().resume();
-                    }
+                if (null !== zis.currentVideoInfo) {
+                    zis.getCurrentVideo().resume();
                 }
             });
             this.on('pause', function () {
-                if (false === zis.numbs.pause) {
-                    if (null !== zis.currentVideoInfo) {
-                        zis.getCurrentVideo().pause();
-                    }
+                if (null !== zis.currentVideoInfo) {
+                    zis.getCurrentVideo().pause();
                 }
             });
             this.on('settime', function (t) {

@@ -101,24 +101,21 @@ class ThumbnailTool
         $imageFinal = imagecreatetruecolor($width, $height);
 
 
-        $dstType = null;
         switch ($srcType) {
             case IMAGETYPE_JPEG:
             case IMAGETYPE_JPEG2000:
-                $dstType = 'jpg';
                 $image = imagecreatefromjpeg($src);
                 break;
             case IMAGETYPE_PNG:
-                $dstType = 'png';
 
                 $image = imagecreatefrompng($src);
                 imagealphablending($imageFinal, false);
                 imagesavealpha($imageFinal, true);
                 $transparent = imagecolorallocatealpha($imageFinal, 255, 255, 255, 127);
                 imagefilledrectangle($imageFinal, 0, 0, $width, $height, $transparent);
+
                 break;
             case IMAGETYPE_GIF:
-                $dstType = 'gif';
                 $image = imagecreatefromgif($src);
 
                 $transparent_index = imagecolortransparent($image);
@@ -140,13 +137,6 @@ class ThumbnailTool
 
         // assuming the file has an explicit extension (otherwise accept an array as argument...)
         $ext = strtolower(FileSystemTool::getFileExtension($dst));
-
-        if ('' === $ext) {
-            // no extension, as it is always the case with php $_FILES's tmp_name
-            // our best guess in this case is to reuse the source's type
-            $ext = $dstType;
-            $dst .= ".$ext";
-        }
 
         if (true === FileSystemTool::mkdir(dirname($dst), 0777, true)) {
 

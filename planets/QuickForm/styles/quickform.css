@@ -47,6 +47,12 @@
     height: 200px;
 }
 
+.form fieldset {
+    margin: 30px 0;
+    padding-top: 30px;
+}
+
+
 .form .autowidth {
     width: auto;
 }

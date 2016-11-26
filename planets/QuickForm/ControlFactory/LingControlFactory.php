@@ -12,6 +12,16 @@ class LingControlFactory implements ControlFactoryInterface
     {
         $canHandle = true;
         $type = $c->getType();
+        $args = $c->getTypeArgs();
+        $placeholder = null;
+        if(array_key_exists(0, $args)){
+            if(is_string($args[0])){
+                $placeholder = $args[0];
+            }
+        }
+
+        $pl = (null!==$placeholder)?' placeholder="'. htmlspecialchars($placeholder) .'"':'';
+
         switch ($type) {
             case 'text':
                 ?>
@@ -19,6 +29,7 @@ class LingControlFactory implements ControlFactoryInterface
                     type="text"
                     name="<?php echo htmlspecialchars($name); ?>"
                     value="<?php echo htmlspecialchars($c->getValue()); ?>"
+                    <?php echo $pl; ?>
                 >
                 <?php
                 break;

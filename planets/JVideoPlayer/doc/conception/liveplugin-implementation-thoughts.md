@@ -148,17 +148,6 @@ Then resuming should not try to handle those "init events", but only future even
 
 
 
-livesettime should be playing only once
-==========================================
-2016-04-07
-
-I think my current implementation of livesettime is wrong: it currently fires every time the eventsStreams is processed.
-It should be fired only once per page refresh. Once the timeline has started, play/resume functionality suffice 
-to handle events.
-That's an easy to fix bug which is transparent for the plugin.live's outside.
-I fix it with a firstProcessEventsCall boolean flag.
-
-
 
 
 

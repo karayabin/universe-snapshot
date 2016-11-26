@@ -490,15 +490,11 @@ To access the current video element, you can use the getCurrentVideo sugar metho
 ### Default Video player compatibility
 
 When the **default videoplayer** was created, I was only concerned with playing .mp4 files.
-This means that the **default videoplayer** might not be able to play other file formats.
-Here are the personal tests that I run in Chrome/Firefox:
-
-- .mov work
-- .avi donn't work
+This means that the **default videoplayer** might not be able to play other file formats
+(actually, I tested with .mov file and it worked).
 
 Also, I was only concerned to make it work in Chrome and Firefox browsers.
-So, it might not work in other browsers. In particular, I used EcmaScript 6 promises, and css3 features 
-without vendor prefixes.
+So, it might not work in other browsers. In particular, I used EcmaScript 6 promises.
 
 
 

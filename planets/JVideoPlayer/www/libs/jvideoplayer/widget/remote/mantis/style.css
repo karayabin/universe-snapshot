@@ -81,14 +81,10 @@
     .mantis_host > .videoplayer .layer-panel {
       display: flex;
       justify-content: center;
-      align-items: center; }
-      .mantis_host > .videoplayer .layer-panel .panel {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background: black;
-        color: white;
-        font-family: verdana, arial; }
+      align-items: center;
+      background: black;
+      color: white;
+      font-family: verdana, arial; }
   .mantis_host .cue {
     position: absolute;
     z-index: 2;

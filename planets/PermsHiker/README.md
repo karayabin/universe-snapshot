@@ -248,7 +248,6 @@ Here is an example code of the grouping directories technique.
 
 ### as a filter
 
-
 ```php
 $dir = "/some/dir3";
 $file = "_permsmap.txt";

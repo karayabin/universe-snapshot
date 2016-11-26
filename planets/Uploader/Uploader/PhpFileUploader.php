@@ -49,12 +49,7 @@ class PhpFileUploader implements UploaderInterface
             $oFile->tmp_name = $file['tmp_name'];
             $oFile->error = $file['error'];
 
-            if (true === is_uploaded_file($oFile->tmp_name)) {
-                return $this->uploadFile($oFile);
-            }
-            else {
-                $this->addError("File considered unsafe");
-            }
+            return $this->uploadFile($oFile);
 
         }
         else {
@@ -154,10 +149,6 @@ class PhpFileUploader implements UploaderInterface
     }
 
 
-    /**
-     * @param PhpFile $f, a php safe file (has passed the is_uploaded_file test successfully)  
-     * @param array $files
-     */
     protected function processFile(PhpFile $f, array &$files)
     {
         if (null !== $this->processFileCb) {

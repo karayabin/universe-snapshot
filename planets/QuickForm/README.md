@@ -15,6 +15,8 @@ Table of contents
 - [Simplest example](#simplest-example)
 - [Removing the title](#removing-the-title)
 - [Display a header](#display-a-header)
+- [Using fieldsets](#using-fieldsets)
+- [Adding placeholders](#adding-placeholders)
 - [Adding constraints](#adding-constraints)
 - [Moving constraints messages to the top](#moving-constraints-messages-to-the-top)
 - [Adding multiple constraints](#adding-multiple-constraints)
@@ -130,6 +132,80 @@ $form->title = "Form";
 $form->header = "We would like to know more about you";
 $form->addControl('first_name')->type('text');
 $form->addControl('last_name')->type('text');
+
+
+$form->play();
+```
+
+
+
+Using fieldsets
+===============================================
+[![fieldsets.png](https://s19.postimg.org/vcf36l6ub/fieldsets.png)](https://postimg.org/image/qdrks231b/)
+
+
+Use the fieldsets to organize your controls in sections.
+
+QuickForm displays the controls in the order which they were registered.
+
+However, if the control belongs to a fieldset, then the whole fieldset is diplayed (in the order
+defined during the call to the addFieldset method).
+
+
+
+```php
+<?php
+
+
+use QuickForm\QuickForm;
+
+require "bigbang.php";
+
+
+?>
+    <link rel="stylesheet" href="quickform.css">
+<?php
+$form = new QuickForm();
+$form->title = "Form";
+$form->addControl('first_name')->type('text');
+$form->addControl('last_name')->type('text');
+$form->addControl('pet_first_name')->type('text');
+$form->addControl('pet_last_name')->type('text');
+
+
+$form->addFieldset('Your pet info', ['pet_first_name', 'pet_last_name']);
+
+$form->play();
+```
+
+
+
+Adding placeholders
+===============================================
+[![placeholders.png](https://s19.postimg.org/m5wsjb1lv/placeholders.png)](https://postimg.org/image/91r86m9jz/)
+
+
+Controls of type text accept placeholders.
+
+The example below show how to create such placeholders.
+
+
+```php
+<?php
+
+
+use QuickForm\QuickForm;
+
+require "bigbang.php";
+
+
+?>
+    <link rel="stylesheet" href="quickform.css">
+<?php
+$form = new QuickForm();
+$form->title = "Form";
+$form->addControl('first_name')->type('text', 'Roger');
+$form->addControl('last_name')->type('text', 'Rabbit');
 
 
 $form->play();
@@ -680,6 +756,20 @@ Who uses QuickForm
  
 History Log
 ------------------
+    
+- 3.2.0 -- 2016-11-26
+
+    - add placeholders
+
+
+- 3.1.1 -- 2016-11-26
+
+    - fix fieldsets
+
+    
+- 3.1.0 -- 2016-11-26
+
+    - added fieldsets 
     
 - 3.0.0 -- 2016-11-26
 

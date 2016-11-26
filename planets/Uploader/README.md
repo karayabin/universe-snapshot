@@ -151,86 +151,19 @@ function getUploader($uploaderId)
 
 
 
-or something like this (using the ThumbnailPhpFileUploader class):
-
-
-```php
-<?php
-
-use Bat\CaseTool;
-use UniqueNameGenerator\Generator\SimpleFileSystemUniqueNameGenerator;
-use Uploader\File\PhpFile;
-use Uploader\Uploader\ThumbnailPhpFileUploader;
-use Uploader\Uploader\UploaderInterface;
-use MyApp\Business\UsersBusiness;
-use MyApp\MyAppTools\User\MyAppUser;
-
-if (MyAppUser::inst()->isAlive()) {
-
-    //------------------------------------------------------------------------------/
-    // DEV CONFIG
-    //------------------------------------------------------------------------------/
-    $uploadConf = [
-        'thumbnail-episode' => [
-            'dir' => UsersBusiness::getUserDir('episode-thumbnail'),
-            'dims' => [300, 200],
-        ],
-    ];
-
-
-    //------------------------------------------------------------------------------/
-    // FUNCTIONS
-    //------------------------------------------------------------------------------/
-    /**
-     * @param $uploaderId
-     * @return UploaderInterface
-     */
-    function getUploader($uploaderId)
-    {
-        global $uploadConf;
-
-        if (array_key_exists($uploaderId, $uploadConf)) {
-
-            $info = $uploadConf[$uploaderId];
-            $dir = $info['dir'];
-            list($mw, $mh) = $info['dims'];
-            $gen = SimpleFileSystemUniqueNameGenerator::create();
-
-
-            return ThumbnailPhpFileUploader::create()
-                ->setGetPathCb(function (PhpFile $f) use ($dir, $gen) {
-                    return $gen->generate($dir . "/" . CaseTool::toFlea($f->name));
-                })
-                ->setMaxDimensions($mw, $mh);
-        }
-        return false;
-    }
-}
-else {
-    throw new \Exception("Who are you?");
-}
-```
-
-
-
 
 
 
 Dependencies
 ------------------
 
-- [lingtalfi/Bat 1.27](https://github.com/lingtalfi/Bat)
-- [lingtalfi/ThumbnailTools 1.0.1](https://github.com/lingtalfi/ThumbnailTools)
+- [lingtalfi/Bat 1.24](https://github.com/lingtalfi/Bat)
 
 
 
 History Log
 ------------------
     
-- 1.1.0 -- 2016-01-06
-
-    - add ThumbnailPhpFileUploader
-        
 - 1.0.0 -- 2016-01-06
 
     - initial commit

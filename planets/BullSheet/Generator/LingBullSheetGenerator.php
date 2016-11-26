@@ -309,7 +309,6 @@ class LingBullSheetGenerator extends AuthorBullSheetGenerator
     }
 
 
-
     public function uploadedMedia($dstPath, $dstUrl, string $domain = 'image', string $tag = '[media]'): string
     {
         $file = $this->getDir() . '/' . $this->getPureData($domain);

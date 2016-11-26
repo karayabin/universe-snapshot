@@ -8,7 +8,14 @@ namespace Meredith\ContentTransformer;
 class Data2ButtonContentTransformer implements ContentTransformerInterface
 {
 
+    /**
+     * @var array of str:data to [ str:cssClass, str:spanText ]
+     */
     private $textMap;
+
+    /**
+     * @var array|null, the  [ str:cssClass, str:spanText ] array
+     */
     private $defaultInfo;
 
 
@@ -46,20 +53,12 @@ EEE;
         return $this;
     }
 
-    /**
-     * @param $defaultInfo array|null, the  [ str:cssClass, str:spanText ] array
-     * @return this
-     */
     public function setDefaultInfo(array $defaultInfo)
     {
         $this->defaultInfo = $defaultInfo;
         return $this;
     }
 
-    /**
-     * @param $textMap array of str:value to [ str:cssClass, str:spanText ]
-     * @return this
-     */
     public function setTextMap(array $textMap)
     {
         $this->textMap = $textMap;

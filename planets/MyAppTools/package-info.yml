@@ -1,2 +1,0 @@
-dependencies:
-    - git::/lingtalfi/Uri2PageRouter:1.0.0  (recommended if you use the AuthorApplication or TurtleApplicationEngine)
