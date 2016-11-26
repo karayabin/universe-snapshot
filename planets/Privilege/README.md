@@ -179,6 +179,10 @@ to not put too much data in the php session).
 History Log
 ------------------
     
+- 1.1.0 -- 2016-11-26
+
+    - PrivilegeUser.$sessionTimeout now accepts infinite timeout
+
 - 1.0.0 -- 2016-11-23
 
     - initial commit

@@ -14,7 +14,7 @@ interface ControlFactoryInterface
      *
      * - name is the html name attribute.
      *
-     * - Returns false if the factory doesn't know how to display the given control
+     * - Returns bool: whether or not the factory was able to handle the given control
      */
     public function displayControl($name, QuickFormControl $c);
 }

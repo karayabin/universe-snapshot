@@ -9,6 +9,8 @@ Class PrivilegeUser
     /**
      * time out in seconds.
      * If the user doesn't refresh the page before the timeout expires, she will be automatically disconnected.
+     *
+     * Or set to null to allow infinite timeout
      */
     public static $sessionTimeout = 300; // 5 minutes by default
 
@@ -32,15 +34,18 @@ Class PrivilegeUser
 
     public static function isConnected()
     {
-        if (array_key_exists('user_connexion_time', $_SESSION)) {
-            // has it expired?
-            if (time() < $_SESSION['user_connexion_time'] + self::$sessionTimeout) {
-                return true;
-            } else {
-                // disconnect?
+        if (null !== self::$sessionTimeout) {
+            if (array_key_exists('user_connexion_time', $_SESSION)) {
+                // has it expired?
+                if (time() < $_SESSION['user_connexion_time'] + self::$sessionTimeout) {
+                    return true;
+                } else {
+                    // disconnect?
+                }
             }
+            return false;
         }
-        return false;
+        return true;
     }
 
     public static function refresh()

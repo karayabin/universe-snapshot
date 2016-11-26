@@ -8,15 +8,16 @@ use QuickPdo\QuickPdo;
 class LingControlFactory implements ControlFactoryInterface
 {
 
-    public function displayControl($column, QuickFormControl $c)
+    public function displayControl($name, QuickFormControl $c)
     {
+        $canHandle = true;
         $type = $c->getType();
         switch ($type) {
             case 'text':
                 ?>
                 <input
                     type="text"
-                    name="<?php echo htmlspecialchars($column); ?>"
+                    name="<?php echo htmlspecialchars($name); ?>"
                     value="<?php echo htmlspecialchars($c->getValue()); ?>"
                 >
                 <?php
@@ -33,13 +34,30 @@ class LingControlFactory implements ControlFactoryInterface
 
                 ?>
                 <select
-                    name="<?php echo htmlspecialchars($column); ?>"
+                    name="<?php echo htmlspecialchars($name); ?>"
                 >
                     <?php foreach ($items as $pk => $label):
                         $sel = ((int)$value === (int)$pk) ? ' selected="selected"' : '';
                         ?>
                         <option
                             <?php echo $sel; ?>value="<?php echo htmlspecialchars($pk); ?>"><?php echo $label; ?></option>
+                    <?php endforeach; ?>
+                </select>
+                <?php
+                break;
+            case 'select':
+                $args = $c->getTypeArgs();
+                $items = $args[0];
+                $value = $c->getValue();
+                ?>
+                <select
+                    name="<?php echo htmlspecialchars($name); ?>"
+                >
+                    <?php foreach ($items as $k => $v):
+                        $sel = ($value == $k) ? ' selected="selected"' : '';
+                        ?>
+                        <option
+                            <?php echo $sel; ?>value="<?php echo htmlspecialchars($k); ?>"><?php echo $v; ?></option>
                     <?php endforeach; ?>
                 </select>
                 <?php
@@ -71,7 +89,7 @@ class LingControlFactory implements ControlFactoryInterface
                     $this->error("date3: max year cannot be less than min year");
                 }
 
-                $elId = 'date-3-' . $column;
+                $elId = 'date-3-' . $name;
 
 
                 $value = $c->getValue();
@@ -105,7 +123,7 @@ class LingControlFactory implements ControlFactoryInterface
                         <option <?php echo $sel; ?> value="<?php echo $i; ?>"><?php echo $i; ?></option>
                     <?php endfor; ?>
                 </select>
-                <input class="_target" type="hidden" name="<?php echo htmlspecialchars($column); ?>" value="">
+                <input class="_target" type="hidden" name="<?php echo htmlspecialchars($name); ?>" value="">
                 <script>
                     (function () {
                         var dayEl = document.getElementById('<?php echo $elId; ?>');
@@ -153,7 +171,7 @@ class LingControlFactory implements ControlFactoryInterface
                     $this->error("date6: max year cannot be less than min year");
                 }
 
-                $elId = 'date-6-' . $column;
+                $elId = 'date-6-' . $name;
 
 
                 $value = $c->getValue();
@@ -215,7 +233,7 @@ class LingControlFactory implements ControlFactoryInterface
                     <?php endfor; ?>
                 </select>
 
-                <input class="_target" type="hidden" name="<?php echo htmlspecialchars($column); ?>" value="">
+                <input class="_target" type="hidden" name="<?php echo htmlspecialchars($name); ?>" value="">
                 <script>
                     (function () {
                         var dayEl = document.getElementById('<?php echo $elId; ?>');
@@ -245,14 +263,15 @@ class LingControlFactory implements ControlFactoryInterface
             case 'message':
                 ?>
                 <textarea
-                    name="<?php echo htmlspecialchars($column); ?>"
+                    name="<?php echo htmlspecialchars($name); ?>"
                 ><?php echo $c->getValue(); ?></textarea>
                 <?php
                 break;
             default:
-                return false;
+                $canHandle = false;
                 break;
         }
+        return $canHandle = true;
     }
 
 

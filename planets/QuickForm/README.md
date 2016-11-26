@@ -13,6 +13,8 @@ Table of contents
 
 - [README first](#readme-first)
 - [Simplest example](#simplest-example)
+- [Removing the title](#removing-the-title)
+- [Display a header](#display-a-header)
 - [Adding constraints](#adding-constraints)
 - [Moving constraints messages to the top](#moving-constraints-messages-to-the-top)
 - [Adding multiple constraints](#adding-multiple-constraints)
@@ -24,6 +26,7 @@ Table of contents
 - [Forcing values with finalValues](#forcing-values-with-finalvalues)
 - [Translate validation error messages](#translate-validation-error-messages)
 - [Doing something useful with the posted data](#doing-something-useful-with-the-posted-data)
+- [Who uses QuickForm](#who-uses-quickform)
 - [History Log](#history-log)
 
 
@@ -31,6 +34,9 @@ Table of contents
 
 README first
 ---------------
+
+
+QuickForm is part of the [universe](https://github.com/karayabin/universe-snapshot).
 
 All the examples below assume that quickform.css is properly linked (find it here: link to [quickform.css](https://github.com/lingtalfi/QuickForm/blob/master/styles/quickform.css)).
 
@@ -65,7 +71,68 @@ $form->addControl('first_name')->type('text');
 $form->addControl('last_name')->type('text');
 
 
-$form->display();
+$form->play();
+```
+
+
+Removing the title
+===============================================
+[![no-title.png](https://s19.postimg.org/4v1sdjkkj/no_title.png)](https://postimg.org/image/bli9mz7q7/)
+
+
+```php
+<?php
+
+
+use QuickForm\QuickForm;
+
+require "bigbang.php";
+
+
+?>
+    <link rel="stylesheet" href="quickform.css">
+<?php
+$form = new QuickForm();
+//$form->title = null;
+$form->addControl('first_name')->type('text');
+$form->addControl('last_name')->type('text');
+
+
+$form->play();
+```
+
+
+Display a header
+===============================================
+[![header.png](https://s19.postimg.org/vrlrlv3dv/header.png)](https://postimg.org/image/uck6x52an/)
+
+
+The header is displayed below the title.
+
+It helps adding information about the purpose of the form.
+
+
+
+```php
+<?php
+
+
+use QuickForm\QuickForm;
+
+require "bigbang.php";
+
+
+?>
+    <link rel="stylesheet" href="quickform.css">
+<?php
+$form = new QuickForm();
+$form->title = "Form";
+$form->header = "We would like to know more about you";
+$form->addControl('first_name')->type('text');
+$form->addControl('last_name')->type('text');
+
+
+$form->play();
 ```
 
 
@@ -95,7 +162,7 @@ $form->addControl('first_name')->type('text')
 $form->addControl('last_name')->type('text');
 
 
-$form->display();
+$form->play();
 ```
 
 
@@ -134,7 +201,7 @@ $form->addControl('first_name')->type('text')
 $form->addControl('last_name')->type('text');
 
 
-$form->display();
+$form->play();
 ```
 
 
@@ -167,7 +234,7 @@ $form->addControl('first_name')->type('text')
 $form->addControl('last_name')->type('text');
 
 
-$form->display();
+$form->play();
 ```
 
 
@@ -205,7 +272,7 @@ $form->addControl('first_name')->type('text')
 $form->addControl('last_name')->type('text');
 
 
-$form->display();
+$form->play();
 ```
 
 
@@ -214,8 +281,7 @@ $form->display();
 
 Using different form types
 ===============================================
-[![form-types.png](https://s19.postimg.org/olpf5o4wz/form_types.png)](https://postimg.org/image/si2r1npwf/)
-
+[![form-types.png](https://s19.postimg.org/nbw74d0ir/form_types.png)](https://postimg.org/image/gy7413vmn/)
 
 The code below showcases all the available control types as of today. 
 
@@ -256,12 +322,13 @@ $form->allowMultipleErrorsPerControl = false;
 $form->addControl('first_name')->type('text');
 $form->addControl('last_name')->type('text');
 $form->addControl('country')->type('selectByRequest', "select id, nom from pays");
+$form->addControl('favorite_sport')->type('select', ['judo', 'kendo', 'sudo']);
 $form->addControl('birthdate')->type('date3');
 $form->addControl('begin_at')->type('date6');
 $form->addControl('biography')->type('message');
 
 
-$form->display();
+$form->play();
 ```
 
 
@@ -320,7 +387,7 @@ $form->addControl('begin_at')->type('date6');
 $form->addControl('biography')->type('message');
 
 
-$form->display();
+$form->play();
 ```
 
 
@@ -366,7 +433,7 @@ $form->addControl('first_name')->type('text')->addConstraint('required');
 $form->addControl('last_name')->type('text');
 
 
-$form->display();
+$form->play();
 ```
 
 
@@ -420,7 +487,7 @@ $form->addControl('last_name')->type('text');
 
 
 
-$form->display();
+$form->play();
 ```
 
 
@@ -450,7 +517,7 @@ $form->addControl('last_name')->type('text')->value("Rabbit");
 
 
 
-$form->display();
+$form->play();
 ```
 
 
@@ -504,7 +571,7 @@ $form->addControl('last_name')->type('text');
 
 
 
-$form->display();
+$form->play();
 ```
 
 
@@ -545,7 +612,7 @@ $form->addControl('last_name')->type('text');
 
 
 
-$form->display();
+$form->play();
 ```
 
 
@@ -597,15 +664,38 @@ $form->addControl('last_name')->type('text');
 
 
 
-$form->display();
+$form->play();
 ```
 
 
 
 
  
+Who uses QuickForm
+------------------
+    
+- [nullos admin](https://github.com/lingtalfi/nullos-admin)
+
+
+ 
 History Log
 ------------------
+    
+- 3.0.0 -- 2016-11-26
+
+    - renamed display method to play 
+
+
+- 2.0.0 -- 2016-11-26
+
+    - changed ControlFactoryInterface.displayControl's return value
+    - added select 
+
+    
+- 1.1.0 -- 2016-11-26
+
+    - added header public property
+
     
 - 1.0.0 -- 2016-11-25
 

@@ -13,6 +13,7 @@ class QuickForm
 
     public $controlErrorLocation; // local(default)|top
     public $title; // string(default="$table form")|null, null means no title
+    public $header; // string|null, null means no header
     public $labels;
     public $allowMultipleErrorsPerControl;
     public $translateFunc;
@@ -36,6 +37,7 @@ class QuickForm
         $this->controlFactories = [];
         $this->controlErrorLocation = "local";
         $this->title = null;
+        $this->header = null;
         $this->allowMultipleErrorsPerControl = true;
         $this->displayForm = true;
         $this->validationTranslateFunc = function ($v) {
@@ -73,7 +75,7 @@ class QuickForm
     }
 
 
-    public function display()
+    public function play()
     {
 
         if (0 === count($this->controlFactories)) {
@@ -142,7 +144,7 @@ class QuickForm
 
             // submit
             if (false === $atLeastOneControlError) {
-                $formTreatmentMsg = "";
+                $formTreatmentMsg = null;
                 $formTreatmentIsSuccess = (bool)call_user_func_array($this->formTreatmentFunc, [$formattedValues, &$formTreatmentMsg]);
             }
 
@@ -173,6 +175,12 @@ class QuickForm
 
             <?php if (null !== $this->title): ?>
                 <h3 class="form-title"><?php echo $this->title; ?></h3>
+            <?php endif; ?>
+
+            <?php if (null !== $this->header): ?>
+                <div class="form-header">
+                    <?php echo $this->header; ?>
+                </div>
             <?php endif; ?>
 
             <?php if (null !== $formTreatmentMsg):
@@ -288,10 +296,15 @@ class QuickForm
     //--------------------------------------------
     private function displayControl($name, QuickFormControl $c)
     {
+        $wasHandled = false;
         foreach ($this->controlFactories as $f) {
-            if (false !== $f->displayControl($name, $c)) {
+            if (true === $f->displayControl($name, $c)) {
+                $wasHandled = true;
                 break;
             }
+        }
+        if (false === $wasHandled) {
+            throw new \Exception("Was not able to handle control of type " . $c->getType() . " (name=$name)");
         }
     }
 
