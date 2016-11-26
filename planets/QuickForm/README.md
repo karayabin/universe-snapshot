@@ -757,6 +757,11 @@ Who uses QuickForm
 History Log
 ------------------
     
+- 3.3.0 -- 2016-11-26
+
+    - add displayNothing property
+    
+    
 - 3.2.0 -- 2016-11-26
 
     - add placeholders

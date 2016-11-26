@@ -21,6 +21,7 @@ class QuickForm
     public $defaultValues;
     public $finalValues;
     public $displayForm;
+    public $displayNothing;
     public $messages;
 
 
@@ -42,6 +43,7 @@ class QuickForm
         $this->header = null;
         $this->allowMultipleErrorsPerControl = true;
         $this->displayForm = true;
+        $this->displayNothing = false;
         $this->validationTranslateFunc = function ($v) {
             return $v;
         };
@@ -172,150 +174,152 @@ class QuickForm
         $formId = 'form-' . rand(0, 10000);
 
 
-        ?>
+        if (false === $this->displayNothing):
+            ?>
 
-        <script>
-            window.onSubmitCallbacks = [];
-        </script>
+            <script>
+                window.onSubmitCallbacks = [];
+            </script>
 
-        <section class="form-section freepage">
+            <section class="form-section freepage">
 
-            <?php if (null !== $this->title): ?>
-                <h3 class="form-title"><?php echo $this->title; ?></h3>
-            <?php endif; ?>
+                <?php if (null !== $this->title): ?>
+                    <h3 class="form-title"><?php echo $this->title; ?></h3>
+                <?php endif; ?>
 
-            <?php if (null !== $this->header): ?>
-                <div class="form-header">
-                    <?php echo $this->header; ?>
-                </div>
-            <?php endif; ?>
-
-            <?php if (null !== $formTreatmentMsg):
-                $class = (true === $formTreatmentIsSuccess) ? 'success' : 'error';
-                ?>
-                <div class="top-form-result <?php echo $class; ?>"><?php echo $formTreatmentMsg; ?></div>
-            <?php endif; ?>
-
-
-            <?php if (true === $atLeastOneControlError && 'top' === $this->controlErrorLocation): ?>
-                <div class="top-control-errors">
-                    <p>
-                        <?php echo $this->messages["formHasControlErrors"]; ?>
-                    </p>
-
-                    <?php foreach ($this->controls as $name => $c):
-                        $errors = $c->getErrorMessages();
-                        $n = count($errors);
-                        if ($n > 0): ?>
-                            <ul>
-                                <li><?php echo ucfirst($this->label($name, $c)) . ': ';
-                                    if (1 === $n): ?>
-                                        <?php echo $errors[0]; ?>
-                                    <?php else: ?>
-                                        <ul>
-                                            <?php foreach ($errors as $err): ?>
-                                                <li><?php echo $err; ?></li>
-                                            <?php endforeach; ?>
-                                        </ul>
-                                    <?php endif; ?>
-                                </li>
-                            </ul>
-                        <?php endif; ?>
-                    <?php endforeach; ?>
-                </div>
-            <?php endif; ?>
-
-
-            <?php if (true === $this->displayForm): ?>
-                <form class="form" method="post" action="" id="<?php echo $formId; ?>">
-                    <?php
-
-
-                    $triggers = [];
-                    foreach ($this->fieldsets as $label => $controlNames) {
-                        foreach ($controlNames as $name) {
-                            $triggers[$name] = $label;
-                        }
-                    }
-
-
-                    $fieldsetsAndControls = [];
-                    $used = [];
-                    foreach ($this->controls as $name => $c) {
-                        if (array_key_exists($name, $triggers)) {
-                            $label = $triggers[$name];
-                            $_controls = [];
-                            foreach ($this->fieldsets[$label] as $controlName) {
-                                $used[] = $controlName;
-                                $_controls[$controlName] = $this->controls[$controlName];
-                            }
-                            $fieldsetsAndControls[$label] = $_controls;
-
-                        } else {
-                            if (false === in_array($name, $used, true)) {
-                                $fieldsetsAndControls[$name] = $c;
-                            }
-                        }
-                    }
-
-
-                    foreach ($fieldsetsAndControls as $name => $c) {
-
-                        if (is_array($c)):
-                            ?>
-                            <fieldset>
-                                <legend><?php echo $name; ?></legend>
-                                <?php
-                                foreach ($c as $cname => $c2) {
-                                    $this->displayControlBundle($cname, $c2);
-                                }
-                                ?>
-                            </fieldset>
-                            <?php
-                        else:
-                            $this->displayControlBundle($name, $c);
-                        endif;
-                    }
-                    ?>
-                    <input type="hidden" name="_quickform_posted" value="1">
-
-
-                    <div class="submit">
-                        <input class="input-submit autowidth"
-                               value="<?php echo htmlspecialchars($this->messages['submit']); ?>" type="submit">
+                <?php if (null !== $this->header): ?>
+                    <div class="form-header">
+                        <?php echo $this->header; ?>
                     </div>
+                <?php endif; ?>
 
-                </form>
-            <?php else: ?>
-                <p class="error">
-                    <?php echo $this->messages['formNotDisplayed']; ?>
-                </p>
-            <?php endif; ?>
-        </section>
+                <?php if (null !== $formTreatmentMsg):
+                    $class = (true === $formTreatmentIsSuccess) ? 'success' : 'error';
+                    ?>
+                    <div class="top-form-result <?php echo $class; ?>"><?php echo $formTreatmentMsg; ?></div>
+                <?php endif; ?>
 
 
-        <script>
+                <?php if (true === $atLeastOneControlError && 'top' === $this->controlErrorLocation): ?>
+                    <div class="top-control-errors">
+                        <p>
+                            <?php echo $this->messages["formHasControlErrors"]; ?>
+                        </p>
 
-            var form = document.getElementById('<?php echo $formId; ?>');
-            var submitBtn = form.querySelector('.input-submit');
-            submitBtn.addEventListener('click', function (e) {
+                        <?php foreach ($this->controls as $name => $c):
+                            $errors = $c->getErrorMessages();
+                            $n = count($errors);
+                            if ($n > 0): ?>
+                                <ul>
+                                    <li><?php echo ucfirst($this->label($name, $c)) . ': ';
+                                        if (1 === $n): ?>
+                                            <?php echo $errors[0]; ?>
+                                        <?php else: ?>
+                                            <ul>
+                                                <?php foreach ($errors as $err): ?>
+                                                    <li><?php echo $err; ?></li>
+                                                <?php endforeach; ?>
+                                            </ul>
+                                        <?php endif; ?>
+                                    </li>
+                                </ul>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                    </div>
+                <?php endif; ?>
 
-                if (window.onSubmitCallbacks.length > 0) {
-                    e.preventDefault();
-                    var count = window.onSubmitCallbacks.length;
-                    var done = function () {
-                        count--;
-                        if (0 === count) {
-                            form.submit();
+
+                <?php if (true === $this->displayForm): ?>
+                    <form class="form" method="post" action="" id="<?php echo $formId; ?>">
+                        <?php
+
+
+                        $triggers = [];
+                        foreach ($this->fieldsets as $label => $controlNames) {
+                            foreach ($controlNames as $name) {
+                                $triggers[$name] = $label;
+                            }
                         }
-                    };
-                    window.onSubmitCallbacks.forEach(function (c) {
-                        c(done);
-                    });
-                }
-            });
-        </script>
-        <?php
+
+
+                        $fieldsetsAndControls = [];
+                        $used = [];
+                        foreach ($this->controls as $name => $c) {
+                            if (array_key_exists($name, $triggers)) {
+                                $label = $triggers[$name];
+                                $_controls = [];
+                                foreach ($this->fieldsets[$label] as $controlName) {
+                                    $used[] = $controlName;
+                                    $_controls[$controlName] = $this->controls[$controlName];
+                                }
+                                $fieldsetsAndControls[$label] = $_controls;
+
+                            } else {
+                                if (false === in_array($name, $used, true)) {
+                                    $fieldsetsAndControls[$name] = $c;
+                                }
+                            }
+                        }
+
+
+                        foreach ($fieldsetsAndControls as $name => $c) {
+
+                            if (is_array($c)):
+                                ?>
+                                <fieldset>
+                                    <legend><?php echo $name; ?></legend>
+                                    <?php
+                                    foreach ($c as $cname => $c2) {
+                                        $this->displayControlBundle($cname, $c2);
+                                    }
+                                    ?>
+                                </fieldset>
+                                <?php
+                            else:
+                                $this->displayControlBundle($name, $c);
+                            endif;
+                        }
+                        ?>
+                        <input type="hidden" name="_quickform_posted" value="1">
+
+
+                        <div class="submit">
+                            <input class="input-submit autowidth"
+                                   value="<?php echo htmlspecialchars($this->messages['submit']); ?>" type="submit">
+                        </div>
+
+                    </form>
+                <?php else: ?>
+                    <p class="error">
+                        <?php echo $this->messages['formNotDisplayed']; ?>
+                    </p>
+                <?php endif; ?>
+            </section>
+
+
+            <script>
+
+                var form = document.getElementById('<?php echo $formId; ?>');
+                var submitBtn = form.querySelector('.input-submit');
+                submitBtn.addEventListener('click', function (e) {
+
+                    if (window.onSubmitCallbacks.length > 0) {
+                        e.preventDefault();
+                        var count = window.onSubmitCallbacks.length;
+                        var done = function () {
+                            count--;
+                            if (0 === count) {
+                                form.submit();
+                            }
+                        };
+                        window.onSubmitCallbacks.forEach(function (c) {
+                            c(done);
+                        });
+                    }
+                });
+            </script>
+            <?php
+        endif;
     }
 
 
