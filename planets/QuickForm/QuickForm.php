@@ -29,6 +29,9 @@ class QuickForm
     private $controlFactories;
     private $fieldsets;
 
+    private static $count = 0;
+
+    private $formPostedId;
 
     public function __construct()
     {
@@ -47,6 +50,7 @@ class QuickForm
         $this->validationTranslateFunc = function ($v) {
             return $v;
         };
+        $this->formPostedId = '_quickform_posted' . self::$count++;
 
         /**
          * Return whether or not the form treatment is a success or failure.
@@ -99,19 +103,11 @@ class QuickForm
 
 
         //--------------------------------------------
-        // DEFAULT VALUES
-        //--------------------------------------------
-        foreach ($this->defaultValues as $k => $v) {
-            $this->controls[$k]->value($v);
-        }
-
-
-        //--------------------------------------------
         // FORM SUBMITTED
         //--------------------------------------------
-        if (array_key_exists('_quickform_posted', $_POST)) {
+        if (array_key_exists($this->formPostedId, $_POST)) {
 
-            unset($_POST['_quickform_posted']);
+            unset($_POST[$this->formPostedId]);
             $controlsNames = array_keys($this->controls);
             $safeValues = array_intersect_key($_POST, array_flip($controlsNames));
 
@@ -157,6 +153,16 @@ class QuickForm
                 $formTreatmentIsSuccess = (bool)call_user_func_array($this->formTreatmentFunc, [$formattedValues, &$formTreatmentMsg]);
             }
 
+
+        } else {
+            //--------------------------------------------
+            // DEFAULT VALUES
+            //--------------------------------------------
+            foreach ($this->defaultValues as $k => $v) {
+                if (array_key_exists($k, $this->controls)) {
+                    $this->controls[$k]->value($v);
+                }
+            }
 
         }
 
@@ -280,7 +286,7 @@ class QuickForm
                             endif;
                         }
                         ?>
-                        <input type="hidden" name="_quickform_posted" value="1">
+                        <input type="hidden" name="<?php echo $this->formPostedId; ?>" value="1">
 
 
                         <div class="submit">

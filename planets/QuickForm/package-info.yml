@@ -1,2 +1,3 @@
 dependencies:
+    - git::/lingtalfi/Bat:1.32
     - git::/lingtalfi/QuickPdo:1.21.0  (only if you use the selectByRequest type)

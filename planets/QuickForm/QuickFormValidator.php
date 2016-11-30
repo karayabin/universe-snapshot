@@ -4,7 +4,6 @@
 namespace QuickForm;
 
 
-
 class QuickFormValidator
 {
 
@@ -18,7 +17,10 @@ class QuickFormValidator
                     }
                     return true;
                 } else {
-                    $this->error("not implemented yet");
+                    if (count($subject) > 0) {
+                        return true;
+                    }
+                    return "this field cannot be empty";
                 }
                 break;
 
@@ -29,6 +31,23 @@ class QuickFormValidator
                         return [
                             "this field must contain at least {minChar} characters",
                             ['minChar' => $ruleArgs[0]],
+                        ];
+                    }
+                    return true;
+                } else {
+                    $this->error("not implemented yet");
+                }
+                break;
+            case 'minChecked': // rulesArgs: [$minChecked]
+                if (null === $subject) { // no checkbox checked
+                    $subject = [];
+                }
+                if (is_array($subject)) {
+                    $count = count($subject);
+                    if ($count < $ruleArgs[0]) {
+                        return [
+                            "you must select at least {minChecked} option(s)",
+                            ['minChecked' => $ruleArgs[0]],
                         ];
                     }
                     return true;

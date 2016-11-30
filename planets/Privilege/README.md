@@ -179,6 +179,11 @@ to not put too much data in the php session).
 History Log
 ------------------
     
+- 1.2.0 -- 2016-11-30
+
+    - add disconnect destroy cookie parameter
+    - fix PrivilegeUser.$sessionTimeout bug won't disconnect
+    
 - 1.1.0 -- 2016-11-26
 
     - PrivilegeUser.$sessionTimeout now accepts infinite timeout

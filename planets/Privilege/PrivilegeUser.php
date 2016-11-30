@@ -34,18 +34,19 @@ Class PrivilegeUser
 
     public static function isConnected()
     {
-        if (null !== self::$sessionTimeout) {
-            if (array_key_exists('user_connexion_time', $_SESSION)) {
-                // has it expired?
-                if (time() < $_SESSION['user_connexion_time'] + self::$sessionTimeout) {
-                    return true;
-                } else {
-                    // disconnect?
-                }
+
+        if (array_key_exists('user_connexion_time', $_SESSION)) {
+            if (null === self::$sessionTimeout) {
+                return true;
             }
-            return false;
+            // has it expired?
+            if (time() < $_SESSION['user_connexion_time'] + self::$sessionTimeout) {
+                return true;
+            } else {
+                // disconnect?
+            }
         }
-        return true;
+        return false;
     }
 
     public static function refresh()
@@ -56,9 +57,21 @@ Class PrivilegeUser
     }
 
 
-    public static function disconnect()
+    public static function disconnect($destroyCookie = false)
     {
+        // http://php.net/manual/en/function.session-destroy.php
         $_SESSION = [];
+        // If it's desired to kill the session, also delete the session cookie.
+        // Note: This will destroy the session, and not just the session data!
+        if (true === $destroyCookie) {
+            if (ini_get("session.use_cookies")) {
+                $params = session_get_cookie_params();
+                setcookie(session_name(), '', time() - 42000,
+                    $params["path"], $params["domain"],
+                    $params["secure"], $params["httponly"]
+                );
+            }
+        }
         session_destroy();
 
     }
@@ -70,7 +83,10 @@ Class PrivilegeUser
 
     public static function getProfile()
     {
-        return $_SESSION['privileges_profile'];
+        if (array_key_exists('privileges_profile', $_SESSION)) {
+            return $_SESSION['privileges_profile'];
+        }
+        return null;
     }
 
     public static function setProfile($profile)

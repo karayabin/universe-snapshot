@@ -357,7 +357,8 @@ $form->play();
 
 Using different form types
 ===============================================
-[![form-types.png](https://s19.postimg.org/nbw74d0ir/form_types.png)](https://postimg.org/image/gy7413vmn/)
+[![Screen Shot 2016-11-29 at 13.45.54.png](https://s19.postimg.org/yxtc8s4wz/Screen_Shot_2016_11_29_at_13_45_54.png)](https://postimg.org/image/l44zjqcbj/)
+
 
 The code below showcases all the available control types as of today. 
 
@@ -370,7 +371,6 @@ use QuickForm\QuickForm;
 use QuickPdo\QuickPdo;
 
 require "bigbang.php";
-
 
 
 
@@ -393,8 +393,6 @@ $form->controlErrorLocation = 'top';
 $form->allowMultipleErrorsPerControl = false;
 
 
-
-
 $form->addControl('first_name')->type('text');
 $form->addControl('last_name')->type('text');
 $form->addControl('country')->type('selectByRequest', "select id, nom from pays");
@@ -402,6 +400,13 @@ $form->addControl('favorite_sport')->type('select', ['judo', 'kendo', 'sudo']);
 $form->addControl('birthdate')->type('date3');
 $form->addControl('begin_at')->type('date6');
 $form->addControl('biography')->type('message');
+$form->addControl('favorite_towns')->type('selectMultiple', ['Paris', 'New-York', 'London', 'Beijing']);
+$form->addControl('options')->type('checkboxList', [
+        'option1' => "Option 1",
+        'option2' => "Option 2",
+        'option3' => "Option 3",
+]);
+
 
 
 $form->play();
@@ -754,8 +759,39 @@ Who uses QuickForm
 
 
  
+Dependencies
+-----------------
+- [Bat 1.32](https://github.com/lingtalfi/Bat) 
+- [QuickPdo 1.21.0](https://github.com/lingtalfi/QuickPdo) 
+ 
+ 
+ 
 History Log
 ------------------
+    
+- 3.6.1 -- 2016-11-29
+
+    - fix bug: QuickForm->defaultValues was overriding the posted values
+    
+- 3.6.0 -- 2016-11-29
+
+    - add minChecked constraint in QuickFormValidator
+    
+- 3.5.0 -- 2016-11-29
+
+    - add checkboxList type
+    
+- 3.4.2 -- 2016-11-27
+
+    - fix LingControlFactory $canHandle always returns true
+    
+- 3.4.1 -- 2016-11-27
+
+    - fix undefined index bug for QuickForm line 109
+    
+- 3.4.0 -- 2016-11-26
+
+    - added selectMultiple control type
     
 - 3.3.0 -- 2016-11-26
 

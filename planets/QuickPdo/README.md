@@ -343,6 +343,7 @@ Return     |  Method Name                                       | Comments
 ---------- | -------------------------------------------------- | ---------------------
 void                    | setConnection ( dsn, user, pass, array options ) |
 \PDO                    | getConnection ()        |                                      Or throws \Exception
+bool                    | hasConnection ()        |                                      Returns whether or not the PDO connection has been set
 false\|int              | count ( table )                                               | 1.14.0+ Returns the number of rows of the table in case of success, and false otherwise
 false\|int              | insert ( table, array fields, keyword?)                               | Returns the last inserted id in case of success
 bool                    | replace ( table, array fields, keyword?)                               | 
@@ -484,6 +485,10 @@ Then the results will look like this on the console:
  
 History Log
 ------------------
+    
+- 1.22.0 -- 2016-11-29
+
+    - add QuickPdo::hasConnection
     
 - 1.21.0 -- 2016-11-24
 

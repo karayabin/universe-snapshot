@@ -167,6 +167,102 @@ The engine needs a symbolManager object to resolve the actual structure symbols.
 
 
 
+Tutorial: write a php array into a class
+---------------
+2016-11-26
+
+Sometimes, when you generate code, you want to write an array in a class file.
+
+For instance, imagine you have prepared the following class template:
+
+```php
+<?php
+
+
+namespace MyNamespace;
+
+class MyObject
+{
+    public static function getListOfItems()
+    {
+        //{items}
+    }
+}
+```
+
+
+And your goal is to rewrite this class, and replace the **//{items}** tag with a return statement
+that returns an array, like so...
+
+```php
+<?php
+
+
+namespace MyNamespace;
+
+class MyObject
+{
+    public static function getListOfItems()
+    {
+        return [
+            'a' => 'aaa',
+            'b' => 'bbb',
+            'c' => 'ccc',
+        ];
+    }
+}
+```
+
+
+In order to do so, you need to configure the manager object, here is an imaginary code that would do the trick:
+
+```php
+function array_to_string(array $items)
+{
+    $manager = new PhpArrayToStringSymbolManager();
+    $manager->setIndentationCallback(function ($spaceSymbol, $nbSpaces, $level) {
+        if (0 === $level) {
+            return str_repeat($spaceSymbol, 8);
+        }
+        if (1 === $level) {
+            return str_repeat($spaceSymbol, 12);
+        }
+        return str_repeat($spaceSymbol, 16);
+    });
+
+    return 'return ' . ArrayToStringUtil::create()->setSymbolManager($manager)->toString($items) . ";";
+}
+
+$items = [
+    'a' => 'aaa',
+    'b' => 'bbb',
+    'c' => 'ccc',
+];
+
+$src = "/path/to/templates/MyObject-template.php";
+$dst = "/path/to/class/myObject.php";
+$s = file_get_contents($src);
+$s = str_replace('//{items}', array_to_string($items), $s);
+$ret = file_put_contents($dst, $s);
+```
+
+
+The nice thing is that even if your array contains nested arrays, the format will be nicely indented.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 History Log
 ------------------
     

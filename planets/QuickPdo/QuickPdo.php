@@ -42,6 +42,14 @@ class QuickPdo
     }
 
     /**
+     * @return bool
+     */
+    public static function hasConnection()
+    {
+        return (null !== self::$conn);
+    }
+
+    /**
      * @return \PDO
      * @throws \Exception
      */
