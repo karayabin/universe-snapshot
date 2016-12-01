@@ -486,6 +486,10 @@ Then the results will look like this on the console:
 History Log
 ------------------
     
+- 1.23.0 -- 2016-12-01
+
+    - add QuickPdoInfoTool::getColumnNullabilities
+    
 - 1.22.0 -- 2016-11-29
 
     - add QuickPdo::hasConnection

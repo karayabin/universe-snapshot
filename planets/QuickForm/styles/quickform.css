@@ -124,12 +124,15 @@
 /**
 * Remove this rule if you want inline checkboxes instead of a checkbox stack
  */
-.checkbox-label {
+.checkbox-label
+{
     display: block;
     text-align: left;
 }
 
-.checkbox-label input {
+.checkbox-label input,
+.radio-label input
+{
     width: auto;
 }
 

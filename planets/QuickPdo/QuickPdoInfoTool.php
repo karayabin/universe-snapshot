@@ -70,6 +70,7 @@ class QuickPdoInfoTool
     }
 
 
+
     public static function getColumnNames($table, $schema = null)
     {
         /**
@@ -105,6 +106,21 @@ AND TABLE_NAME=:table;
         return false;
 
     }
+
+
+    public static function getColumnNullabilities($table)
+    {
+        $defaults = [];
+        $info = QuickPdo::fetchAll("SHOW COLUMNS FROM $table");
+        if (false !== $info) {
+            foreach ($info as $_info) {
+                $defaults[$_info['Field']] = ('YES' === $_info['Null']) ? true : false;
+            }
+            return $defaults;
+        }
+        return false;
+    }
+
 
 
     public static function getDatabase()

@@ -18,6 +18,7 @@ Table of contents
 - [Using fieldsets](#using-fieldsets)
 - [Adding placeholders](#adding-placeholders)
 - [Adding constraints](#adding-constraints)
+- [Adding enctype=multipart/form-data](#adding-enctypemultipartform-data)
 - [Moving constraints messages to the top](#moving-constraints-messages-to-the-top)
 - [Adding multiple constraints](#adding-multiple-constraints)
 - [Displaying only the first constraint error message](#displaying-only-the-first-constraint-error-message)
@@ -243,6 +244,37 @@ $form->play();
 
 
 
+Adding enctype=multipart/form-data
+===============================================
+
+
+```php
+<?php
+
+
+use QuickForm\QuickForm;
+
+
+require "bigbang.php";
+
+
+?>
+    <link rel="stylesheet" href="quickform.css">
+<?php
+$form = new QuickForm();
+$form->multipart = true; // we use an input of type file
+$form->title = "Form";
+$form->addControl('photos')->type('file', [
+    'accept' => 'image/*',
+    'multiple', // accept multiple images
+]);
+
+
+$form->play();
+```
+
+
+
 
 
 
@@ -357,7 +389,7 @@ $form->play();
 
 Using different form types
 ===============================================
-[![Screen Shot 2016-11-29 at 13.45.54.png](https://s19.postimg.org/yxtc8s4wz/Screen_Shot_2016_11_29_at_13_45_54.png)](https://postimg.org/image/l44zjqcbj/)
+[![type.png](https://s19.postimg.org/lw3iok82r/type.png)](https://postimg.org/image/rx17lmuov/)
 
 
 The code below showcases all the available control types as of today. 
@@ -373,8 +405,6 @@ use QuickPdo\QuickPdo;
 require "bigbang.php";
 
 
-
-
 // required by the selectByRequest form control type
 QuickPdo::setConnection("mysql:host=localhost;dbname=oui", 'root', 'root', [
     PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'",
@@ -382,12 +412,11 @@ QuickPdo::setConnection("mysql:host=localhost;dbname=oui", 'root', 'root', [
 ]);
 
 
-
-
 ?>
     <link rel="stylesheet" href="quickform.css">
 <?php
 $form = new QuickForm();
+$form->multipart = true; // we use an input of type file
 $form->title = "Form";
 $form->controlErrorLocation = 'top';
 $form->allowMultipleErrorsPerControl = false;
@@ -402,11 +431,29 @@ $form->addControl('begin_at')->type('date6');
 $form->addControl('biography')->type('message');
 $form->addControl('favorite_towns')->type('selectMultiple', ['Paris', 'New-York', 'London', 'Beijing']);
 $form->addControl('options')->type('checkboxList', [
-        'option1' => "Option 1",
-        'option2' => "Option 2",
-        'option3' => "Option 3",
+    'option1' => "Option 1",
+    'option2' => "Option 2",
+    'option3' => "Option 3",
+])->addConstraint('minChecked', 1);
+$form->addControl('favorite_meal')->type('radioList', [
+    'pizza' => "Pizza",
+    'bacon' => "Bacon",
+    'ice_cream' => "Ice cream",
+])->value('pizza');
+$form->addControl('photos')->type('file', [
+    'accept' => 'image/*',
+    'multiple', // accept multiple images
 ]);
-
+$form->addControl("current_country")->type('select', [
+    'Asia' => [
+        'china' => 'china',
+        'japan ' => 'japan',
+    ],
+    'Europe' => [
+        'france' => 'france',
+        'germany' => 'germany',
+    ],
+], ['size' => 6]);
 
 
 $form->play();
@@ -768,6 +815,24 @@ Dependencies
  
 History Log
 ------------------
+
+- 3.10.0 -- 2016-12-01
+
+    - select type now handles optgroup
+    
+- 3.9.0 -- 2016-12-01
+
+    - every added control now returns a value (null if not set) so that they are seen by the validation system 
+    - handling submit process now handles $_FILES so that they also can be validated with constraints
+    
+- 3.8.0 -- 2016-12-01
+
+    - add file type
+    - add multipart property for enctype=multipart/form-data
+    
+- 3.7.0 -- 2016-12-01
+
+    - add radioList type
     
 - 3.6.1 -- 2016-11-29
 

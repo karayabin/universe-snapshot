@@ -23,6 +23,7 @@ What are the new methods?
 - [getColumnDataTypes](https://github.com/lingtalfi/QuickPdo/blob/master/QuickPdoInfoTool.md#getcolumndatatypes)
 - [getColumnDefaultValues](https://github.com/lingtalfi/QuickPdo/blob/master/QuickPdoInfoTool.md#getcolumndefaultvalues)
 - [getColumnNames](https://github.com/lingtalfi/QuickPdo/blob/master/QuickPdoInfoTool.md#getcolumnnames)
+- [getColumnNullabilities](https://github.com/lingtalfi/QuickPdo/blob/master/QuickPdoInfoTool.md#getcolumnnullabilities)
 - [getDatabase](https://github.com/lingtalfi/QuickPdo/blob/master/QuickPdoInfoTool.md#getdatabase)
 - [getDriver](https://github.com/lingtalfi/QuickPdo/blob/master/QuickPdoInfoTool.md#getdriver)
 - [getPrimaryKey](https://github.com/lingtalfi/QuickPdo/blob/master/QuickPdoInfoTool.md#getprimarykey)
@@ -143,6 +144,24 @@ array|false    getColumnNames ( str:table, str:schema=null )
 
 Return the column names of a given table.
 Return false in case of failure.
+
+
+
+
+getColumnNullabilities
+-------------
+2016-12-01
+
+
+```php
+array|false    getColumnNullabilities ( str:table )
+```
+
+
+Return an array of column name => nullability (boolean indicating whether or the column accepts null values)
+
+Return false in case of failure.
+
 
 
 getDatabase
