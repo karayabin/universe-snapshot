@@ -62,9 +62,7 @@ class PhpFileExploder
         $allFiles = [];
         if (is_string($phpFiles["name"])) {
             $allFiles[] = $phpFiles;
-            if (true === $stopIfFileIsNotUploadedViaHttp && false === is_uploaded_file($phpFiles['tmp_name'])) {
-                self::notUploaded($phpFiles);
-            }
+            self::checkUploaded($phpFiles, $stopIfFileIsNotUploadedViaHttp);
         } elseif (is_array($phpFiles['name'])) {
             $n = count($phpFiles['name']);
             for ($i = 0; $i < $n; $i++) {
@@ -77,9 +75,7 @@ class PhpFileExploder
                     "size" => $phpFiles['size'][$i],
                 ];
 
-                if (true === $stopIfFileIsNotUploadedViaHttp && false === is_uploaded_file($phpItem['tmp_name'])) {
-                    self::notUploaded($phpItem);
-                }
+                self::checkUploaded($phpItem, $stopIfFileIsNotUploadedViaHttp);
 
                 $allFiles[] = $phpItem;
             }
@@ -90,8 +86,15 @@ class PhpFileExploder
     //--------------------------------------------
     //
     //--------------------------------------------
-    private static function notUploaded(array $phpItem)
+    private static function checkUploaded(array $phpItem, $stopIfFileIsNotUploadedViaHttp)
     {
-        throw new QuickFormException("File not uploaded via http: " . $phpItem['name'] . " (" . $phpItem['tmp_name'] . ")");
+        if (
+            true === $stopIfFileIsNotUploadedViaHttp &&
+            0 === (int)$phpItem['error'] &&
+            false === is_uploaded_file($phpItem['tmp_name'])
+        ) {
+            throw new QuickFormException("File not uploaded via http: " . $phpItem['name'] . " (" . $phpItem['tmp_name'] . ")");
+        }
+        return true;
     }
 }
