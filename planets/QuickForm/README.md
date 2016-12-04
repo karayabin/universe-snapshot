@@ -23,6 +23,7 @@ Table of contents
 - [Adding multiple constraints](#adding-multiple-constraints)
 - [Displaying only the first constraint error message](#displaying-only-the-first-constraint-error-message)
 - [Using different form types](#using-different-form-types)
+- [Using MagicControlFactory types](#using-magiccontrolfactory-types)
 - [Using labels](#using-labels)
 - [Customizing form messages](#customizing-form-messages)
 - [Using default values](#using-default-values)
@@ -31,6 +32,8 @@ Table of contents
 - [Doing something useful with the posted data](#doing-something-useful-with-the-posted-data)
 - [Who uses QuickForm](#who-uses-quickform)
 - [History Log](#history-log)
+
+
 
 
 
@@ -44,7 +47,6 @@ QuickForm is part of the [universe](https://github.com/karayabin/universe-snapsh
 All the examples below assume that quickform.css is properly linked (find it here: link to [quickform.css](https://github.com/lingtalfi/QuickForm/blob/master/styles/quickform.css)).
 
 Also, all examples use the [bigbang](https://github.com/karayabin/universe-snapshot#bigbang) autoloader, but you can use any [PSR-0](http://www.php-fig.org/psr/psr-0/) autoloader.
-
 
 
 
@@ -462,6 +464,52 @@ $form->play();
 
 
 
+
+Using MagicControlFactory types
+===============================================
+[![magic.png](https://s19.postimg.org/cqzr8fu1v/magic.png)](https://postimg.org/image/if61zbye7/)
+
+
+The code below shows how to use the MagicControlFactory factory, which provides javascript enhanced controls.
+
+
+```php
+<?php
+
+
+use QuickForm\ControlFactory\MagicControlFactory;
+use QuickForm\QuickForm;
+use QuickPdo\QuickPdo;
+
+
+/**
+ * Show case of the MagicControlFactory types
+ */
+require "bigbang.php";
+
+
+?>
+    <link rel="stylesheet" href="quickform.css">
+<?php
+$form = new QuickForm();
+$form->addControlFactory(MagicControlFactory::create());
+$form->title = "Form with MagicControlFactory";
+
+$form->addControl('options')->type('checkboxList', [
+    'option1' => "Option 1",
+    'option2' => "Option 2",
+    'option3' => "Option 3",
+])->addConstraint('minChecked', 1);
+$form->addControl('check_all')->type("checkUncheckAll", "options", "Check all", "Uncheck all")->label("");
+
+
+$form->play();
+```
+
+
+
+
+
 Using labels
 ===============================================
 [![labels.png](https://s19.postimg.org/wfq0r2cpv/labels.png)](https://postimg.org/image/damrhay1r/)
@@ -816,6 +864,23 @@ Dependencies
 History Log
 ------------------
 
+- 3.13.0 -- 2016-12-03
+
+    - The form now returns success and error messages when the returned msg is null
+
+- 3.12.0 -- 2016-12-03
+
+    - add isFake method to controls so that they don't waste the formattedValues array
+    
+    
+- 3.11.0 -- 2016-12-03
+
+    - add MagicControlFactory with checkUncheckAll type
+    - add InertControlFactory
+    - add cssId on all control bundles
+    - add QuickForm::getControlCssId
+    
+    
 - 3.10.0 -- 2016-12-01
 
     - select type now handles optgroup

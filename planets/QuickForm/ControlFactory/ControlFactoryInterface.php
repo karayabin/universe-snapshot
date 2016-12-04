@@ -4,6 +4,7 @@
 namespace QuickForm\ControlFactory;
 
 
+use QuickForm\QuickForm;
 use QuickForm\QuickFormControl;
 
 interface ControlFactoryInterface
@@ -16,5 +17,5 @@ interface ControlFactoryInterface
      *
      * - Returns bool: whether or not the factory was able to handle the given control
      */
-    public function displayControl($name, QuickFormControl $c);
+    public function displayControl($name, QuickFormControl $c, QuickForm $f);
 }

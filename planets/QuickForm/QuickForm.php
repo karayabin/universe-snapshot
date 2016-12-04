@@ -31,6 +31,15 @@ class QuickForm
     public $stopIfFileIsNotUploaded;
 
 
+    /**
+     * Css id, will be set automatically by QuickForm, but can be overridden.
+     * - All controls will also use it, as to ease js targeting.
+     *      - a control id will be {id}_{controlName}
+     *
+     */
+    private $_formId;
+
+
     private $controls;
     private $controlFactories;
     private $fieldsets;
@@ -45,7 +54,9 @@ class QuickForm
         $this->labels = [];
         $this->defaultValues = [];
         $this->finalValues = [];
-        $this->controlFactories = [];
+        $this->controlFactories = [
+            new LingControlFactory(),
+        ];
         $this->fieldsets = [];
         $this->controlErrorLocation = "local";
         $this->title = null;
@@ -65,18 +76,26 @@ class QuickForm
          * The msg adds precision to the result.
          */
         $this->formTreatmentFunc = function (array $formattedValue, &$msg) {
-            $msg = 'form data have been successfully treated';
             return true;
         };
 
         $this->messages = [
             'formHasControlErrors' => 'The form has the following errors, please fix them and resubmit the form',
+            'formSubmittedOk' => 'The form data have been successfully treated',
             'submit' => 'Submit', // submit btn value
             'formNotDisplayed' => 'Oops, there was a problem with the form',
         ];
     }
 
 
+    public static function getControlCssId(QuickForm $f, $controlName)
+    {
+        return $f->getFormCssId() . '_' . $controlName;
+    }
+
+    //--------------------------------------------
+    //
+    //--------------------------------------------
     public function addControl($name)
     {
         $c = new QuickFormControl();
@@ -90,6 +109,22 @@ class QuickForm
         return $this;
     }
 
+    public function resetControlFactories()
+    {
+        $this->controlFactories = [];
+        return $this;
+    }
+
+    public function getFormCssId()
+    {
+        return $this->_formId;
+    }
+
+    public function setFormCssId($formCssId)
+    {
+        $this->_formId = $formCssId;
+    }
+
     public function addFieldset($label, array $controlNames)
     {
         $this->fieldsets[$label] = $controlNames;
@@ -98,12 +133,6 @@ class QuickForm
 
     public function play()
     {
-
-        if (0 === count($this->controlFactories)) {
-            $this->controlFactories = [
-                new LingControlFactory(),
-            ];
-        }
         $atLeastOneControlError = false;
 
         $formTreatmentMsg = null; // witnesses whether or not the form has been posted
@@ -116,7 +145,6 @@ class QuickForm
         if (array_key_exists($this->formPostedId, $_POST)) {
 
             unset($_POST[$this->formPostedId]);
-
 
 
             //--------------------------------------------
@@ -132,17 +160,18 @@ class QuickForm
             //          an array of phpItems, as defined in QuickForm/Tool/PhpFileExploder.
             //          This way, the files can also be subject to validation
 
-            $controlsNames = array_keys($this->controls);
             $formattedValues = [];
-            foreach ($controlsNames as $name) {
-                $v = null;
-                if (array_key_exists($name, $_POST)) {
-                    $v = $_POST[$name];
-                } elseif (array_key_exists($name, $_FILES)) {
-                    $v = PhpFileExploder::explode($_FILES[$name], $this->stopIfFileIsNotUploadedViaHttp);
+            foreach ($this->controls as $name => $c) {
+                if (false === $c->isFake()) {
+                    $v = null;
+                    if (array_key_exists($name, $_POST)) {
+                        $v = $_POST[$name];
+                    } elseif (array_key_exists($name, $_FILES)) {
+                        $v = PhpFileExploder::explode($_FILES[$name], $this->stopIfFileIsNotUploadedViaHttp);
+                    }
+                    $formattedValues[$name] = $v;
+                    $this->controls[$name]->value($v);
                 }
-                $formattedValues[$name] = $v;
-                $this->controls[$name]->value($v);
             }
 
 
@@ -179,6 +208,14 @@ class QuickForm
             if (false === $atLeastOneControlError) {
                 $formTreatmentMsg = null;
                 $formTreatmentIsSuccess = (bool)call_user_func_array($this->formTreatmentFunc, [$formattedValues, &$formTreatmentMsg]);
+                if (null === $formTreatmentMsg) {
+                    if (true === $formTreatmentIsSuccess) {
+                        $formTreatmentMsg = $this->messages['formSubmittedOk'];
+                    } else {
+                        $formTreatmentMsg = $this->messages['formHasControlErrors'];
+                    }
+                }
+
             }
 
 
@@ -205,7 +242,7 @@ class QuickForm
         }
 
 
-        $formId = 'form-' . rand(0, 10000);
+        $this->_formId = 'form-' . rand(0, 10000);
 
 
         if (false === $this->displayNothing):
@@ -266,7 +303,7 @@ class QuickForm
                 <?php if (true === $this->displayForm):
                     $multi = (true === $this->multipart) ? ' enctype="multipart/form-data"' : '';
                     ?>
-                    <form class="form" method="post" action="" id="<?php echo $formId; ?>" <?php echo $multi; ?>>
+                    <form class="form" method="post" action="" id="<?php echo $this->_formId; ?>" <?php echo $multi; ?>>
                         <?php
 
 
@@ -335,7 +372,7 @@ class QuickForm
 
             <script>
 
-                var form = document.getElementById('<?php echo $formId; ?>');
+                var form = document.getElementById('<?php echo $this->_formId; ?>');
                 var submitBtn = form.querySelector('.input-submit');
                 submitBtn.addEventListener('click', function (e) {
 
@@ -365,10 +402,10 @@ class QuickForm
     private function displayControlBundle($name, QuickFormControl $c)
     {
         ?>
-        <div class="row">
+        <div class="row" id="<?php echo self::getControlCssId($this, $name); ?>">
             <span class="label"><?php echo ucfirst($this->label($name, $c)); ?></span>
             <div class="control">
-                <?php $this->displayControl($name, $c); ?>
+                <?php $this->displayControl($name, $c, $this); ?>
             </div>
         </div>
         <?php
@@ -393,7 +430,7 @@ class QuickForm
     {
         $wasHandled = false;
         foreach ($this->controlFactories as $f) {
-            if (true === $f->displayControl($name, $c)) {
+            if (true === $f->displayControl($name, $c, $this)) {
                 $wasHandled = true;
                 break;
             }

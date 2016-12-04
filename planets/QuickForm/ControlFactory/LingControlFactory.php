@@ -3,13 +3,14 @@
 namespace QuickForm\ControlFactory;
 
 use Bat\StringTool;
+use QuickForm\QuickForm;
 use QuickForm\QuickFormControl;
 use QuickPdo\QuickPdo;
 
 class LingControlFactory implements ControlFactoryInterface
 {
 
-    public function displayControl($name, QuickFormControl $c)
+    public function displayControl($name, QuickFormControl $c, QuickForm $f)
     {
         $canHandle = true;
         $type = $c->getType();

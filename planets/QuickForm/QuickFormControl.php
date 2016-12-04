@@ -14,10 +14,18 @@ class QuickFormControl
     private $errors;
     private $constraints;
 
+    /**
+     * Fake controls are widgets that don't create values in the $_POST array.
+     * They should be signaled to QuickForm, so that it does not add them to the formatted values when the form is submitted.
+     * Fake controls should set claim their "fake" state in order to not waste the formatted values array.
+     */
+    private $_isFake;
+
     public function __construct()
     {
         $this->errors = [];
         $this->constraints = [];
+        $this->_isFake = false;
     }
 
 
@@ -59,6 +67,16 @@ class QuickFormControl
         return $this;
     }
 
+    public function markAsFake()
+    {
+        $this->_isFake = true;
+        return $this;
+    }
+
+    public function isFake()
+    {
+        return $this->_isFake;
+    }
 
 
 
