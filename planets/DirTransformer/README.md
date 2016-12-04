@@ -63,6 +63,10 @@ Examples
 ================
 
 
+
+Using the RegexTransformer
+----------------------------
+
 Using the following code:
 
 ```php
@@ -80,9 +84,9 @@ $dstDir = "/pathto/php/projects/nullos-admin/doc2";
 
 
 $t = RegexTransformer::create()
-    ->regex('!<-(.*)->!') // your pattern must have ONE group of capturing parentheses
-    ->onMatch(function ($v) {
-        return '[' . $v . ']';
+    ->regex('!<-(.*)->!')  
+    ->onMatch(function (array $matches) {
+        return '[' . $matches[1] . ']';
     });
 Scanner::create()
     ->allowedExtensions(['md'])
@@ -122,6 +126,102 @@ And here [another again]...
 
 
 
+Using the TrackingMapRegexTransformer
+----------------------
+
+
+Using the following code:
+
+```php
+<?php
+
+
+use DirTransformer\Scanner\Scanner;
+use DirTransformer\Transformer\TrackingMapRegexTransformer;
+
+require "bigbang.php";
+
+
+$srcDir = "/pathto/php/projects/nullos-admin/doc";
+$dstDir = "/pathto/php/projects/nullos-admin/doc2";
+
+
+$t = TrackingMapRegexTransformer::create()
+    ->regex('!<-(.*)->!')
+    ->map([
+        'another link' => 'http://mydoc.com/another-link.md',
+    ])
+    ->onFound(function ($match, $value) {
+        return '[' . $match . '](' . $value . ')';
+    });
+Scanner::create()
+    ->allowedExtensions(['md'])
+    ->limit(1)
+    ->addTransformer($t)
+    ->copy($srcDir, $dstDir);
+
+
+a($t->getFoundList());
+a($t->getUnfoundList());
+```
+
+A file aa.md containing the following:
+
+```md
+Nullos aliases
+==================
+2016-11-30
+
+
+
+Here is <-another link->.
+
+And here <-another again->...
+```
+
+will be converted to this (in the destination directory):
+
+
+```md
+Nullos aliases
+==================
+2016-11-30
+
+
+
+Here is [another link](http://mydoc.com/another-link.md).
+
+And here <-another again->...
+```
+
+And the output of the script will display the following dump:
+
+```html
+array(1) {
+  ["/pathto/php/projects/nullos-admin/doc/bonus/aa.md"] => array(1) {
+    [0] => array(4) {
+      [0] => string(16) "<-another link->"
+      [1] => string(12) "another link"
+      [2] => string(32) "http://mydoc.com/another-link.md"
+      [3] => string(48) "[another link](http://mydoc.com/another-link.md)"
+    }
+  }
+}
+
+array(1) {
+  ["/pathto/php/projects/nullos-admin/doc/bonus/aa.md"] => array(1) {
+    [0] => array(2) {
+      [0] => string(17) "<-another again->"
+      [1] => string(13) "another again"
+    }
+  }
+}
+
+```
+
+
+
+
 
 Dependencies
 ------------------
@@ -133,6 +233,11 @@ Dependencies
 
 History Log
 ------------------
+    
+- 1.1.0 -- 2016-12-04
+
+    - added TrackingMapRegexTransformer
+    - fix bug in RegexTransformer
     
 - 1.0.0 -- 2016-12-04
 

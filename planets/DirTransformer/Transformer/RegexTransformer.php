@@ -10,6 +10,11 @@ namespace DirTransformer\Transformer;
  * Converts <regular expression matches> to  <transformed expressions>.
  *
  *
+ * When the regular expression matches, it creates an itemArray.
+ * - the itemArray's first index contains the matched regular expression
+ * - if the regular expression uses capturing groups, each capturing group is added to the itemArray in the order of matching (see preg_replace_callback for more info)
+ *
+ * The onMatch callback receives the itemArray as its sole argument, and returns the expression to replace the matched expression with.
  *
  */
 class RegexTransformer implements TransformerInterface
@@ -33,9 +38,6 @@ class RegexTransformer implements TransformerInterface
     }
 
 
-    /**
-     * The pattern must have one and only one group of capturing parentheses.
-     */
     public function regex($pattern)
     {
         $this->_regex = $pattern;
@@ -54,9 +56,6 @@ class RegexTransformer implements TransformerInterface
     //--------------------------------------------
     public function transform(&$content)
     {
-        $content = preg_replace_callback($this->_regex, function (array $matches) {
-            return call_user_func($this->onMatchCallback, $matches[1]);
-
-        }, $content);
+        $content = preg_replace_callback($this->_regex, $this->onMatchCallback, $content);
     }
 }

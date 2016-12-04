@@ -5,6 +5,7 @@ namespace DirTransformer\Scanner;
 
 
 use Bat\FileSystemTool;
+use DirTransformer\Transformer\TrackingInterface;
 use DirTransformer\Transformer\TransformerInterface;
 
 class Scanner
@@ -112,13 +113,15 @@ class Scanner
                         // process the transformer chain
                         $content = file_get_contents($realfile);
                         foreach ($this->transformers as $t) {
+                            if ($t instanceof TrackingInterface) {
+                                $t->setPath($realfile);
+                            }
                             $t->transform($content);
                         }
 
                         // output the file to the destination directory
                         file_put_contents($targetFile, $content);
-                    }
-                    else{
+                    } else {
                         break;
                     }
                 }
