@@ -33,7 +33,7 @@ How does it work?
 
 The ArrayStore object has two methods:
 
-- store (array store), which stores an array to the storePath
+- store (array store), which stores an array to the storePath, and returns a boolean (whether or not the data could be stored)
 - retrieve, which returns an array
 
 
@@ -57,6 +57,14 @@ History Log
 ------------------
     
    
+- 1.1.0 -- 2016-12-05
+
+    - forgot store method returns a boolean 
+    
+- 1.0.1 -- 2016-12-05
+
+    - fix constant store name 
+    
 - 1.0.0 -- 2016-12-05
 
     - initial commit
