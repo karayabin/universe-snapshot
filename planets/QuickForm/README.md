@@ -391,7 +391,7 @@ $form->play();
 
 Using different form types
 ===============================================
-[![type.png](https://s19.postimg.org/lw3iok82r/type.png)](https://postimg.org/image/rx17lmuov/)
+[![types.png](https://s19.postimg.org/6vt914elf/types.png)](https://postimg.org/image/fe2p5gl3z/)
 
 
 The code below showcases all the available control types as of today. 
@@ -456,7 +456,7 @@ $form->addControl("current_country")->type('select', [
         'germany' => 'germany',
     ],
 ], ['size' => 6]);
-
+$form->addControl("newsletter")->type("checkbox", "Subscribe to the newsletter");
 
 $form->play();
 ```
@@ -864,6 +864,10 @@ Dependencies
 History Log
 ------------------
 
+- 3.14.0 -- 2016-12-05
+
+    - add checkbox boolean control 
+    
 - 3.13.0 -- 2016-12-03
 
     - The form now returns success and error messages when the returned msg is null
