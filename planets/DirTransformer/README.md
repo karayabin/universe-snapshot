@@ -84,7 +84,7 @@ $dstDir = "/pathto/php/projects/nullos-admin/doc2";
 
 
 $t = RegexTransformer::create()
-    ->regex('!<-(.*)->!')  
+    ->regex('!<-(.*)->!U')  
     ->onMatch(function (array $matches) {
         return '[' . $matches[1] . ']';
     });
@@ -147,7 +147,7 @@ $dstDir = "/pathto/php/projects/nullos-admin/doc2";
 
 
 $t = TrackingMapRegexTransformer::create()
-    ->regex('!<-(.*)->!')
+    ->regex('!<-(.*)->!U')
     ->map([
         'another link' => 'http://mydoc.com/another-link.md',
     ])
@@ -234,7 +234,15 @@ Dependencies
 History Log
 ------------------
     
-- 1.2.2 -- 2016-12-05
+- 1.3.2 -- 2016-12-05
+
+    - fix misleading example in README
+        
+- 1.3.1 -- 2016-12-05
+
+    - fix misleading comment in TrackingMapRegexTransformer
+    
+- 1.3.0 -- 2016-12-05
 
     - add TrackingMapRegexTransformer->fileFunc method
     

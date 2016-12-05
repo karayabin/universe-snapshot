@@ -22,7 +22,7 @@ namespace DirTransformer\Transformer;
  * The format of the foundList and unfoundList
  * ----------------------------------------------
  *
- * foundList: an array of filePath => foundItem
+ * foundList: an array of filePath => foundItems
  *      - the filePath is the absolute path of the containing file
  *      - each foundItem is an array containing 4 entries:
  *          - 0: the original regex match
@@ -30,7 +30,7 @@ namespace DirTransformer\Transformer;
  *          - 2: the value
  *          - 3: the final value
  *
- * unfoundList: an array of filePath => unfoundItem
+ * unfoundList: an array of filePath => unfoundItems
  *      - the filePath is the absolute path of the containing file
  *      - each unfoundItem is an array containing 2 entries:
  *          - 0: the original regex match
