@@ -46,6 +46,7 @@ class TrackingMapRegexTransformer extends RegexTransformer implements TrackingIn
     private $unfoundList;
     private $capture2Value;
     private $onFoundMatch;
+    private $_fileFunc;
 
 
     protected function __construct()
@@ -56,16 +57,17 @@ class TrackingMapRegexTransformer extends RegexTransformer implements TrackingIn
         $this->unfoundList = [];
         $this->capture2Value = [];
         $this->onFoundMatch = null; // function
+        $this->_fileFunc = null;
 
         $this->onMatch(function (array $matches) {
             $capture = $matches[1];
             if (array_key_exists($capture, $this->capture2Value)) {
                 $value = $this->capture2Value[$capture];
                 $ret = call_user_func($this->onFoundMatch, $capture, $value);
-                $this->foundList[$this->curFile][] = [$matches[0], $capture, $value, $ret];
+                $this->foundList[$this->getCurFileKey()][] = [$matches[0], $capture, $value, $ret];
                 return $ret;
             } else {
-                $this->unfoundList[$this->curFile][] = [$matches[0], $capture];
+                $this->unfoundList[$this->getCurFileKey()][] = [$matches[0], $capture];
             }
             return $matches[0];
         });
@@ -98,6 +100,12 @@ class TrackingMapRegexTransformer extends RegexTransformer implements TrackingIn
         return $this;
     }
 
+    public function fileFunc($func)
+    {
+        $this->_fileFunc = $func;
+        return $this;
+    }
+
 
     //--------------------------------------------
     //
@@ -110,4 +118,14 @@ class TrackingMapRegexTransformer extends RegexTransformer implements TrackingIn
     }
 
 
+    //--------------------------------------------
+    //
+    //--------------------------------------------
+    private function getCurFileKey()
+    {
+        if (null !== $this->_fileFunc) {
+            return call_user_func($this->_fileFunc, $this->curFile);
+        }
+        return $this->curFile;
+    }
 }

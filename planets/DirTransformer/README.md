@@ -234,6 +234,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.2.2 -- 2016-12-05
+
+    - add TrackingMapRegexTransformer->fileFunc method
+    
 - 1.2.1 -- 2016-12-05
 
     - fix limit bug
