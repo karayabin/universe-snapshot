@@ -28,6 +28,7 @@ class Scanner
      *
      */
     private $_limit;
+    private $_dry;
 
     private $transformers;
 
@@ -35,6 +36,7 @@ class Scanner
     {
         $this->_allowedExtensions = null;
         $this->_limit = null;
+        $this->_dry = false;
         $this->transformers = [];
     }
 
@@ -82,6 +84,12 @@ class Scanner
         return $this;
     }
 
+    public function dryRun()
+    {
+        $this->_dry = true;
+        return $this;
+    }
+
     //--------------------------------------------
     //
     //--------------------------------------------
@@ -96,7 +104,10 @@ class Scanner
                 $targetFile = $dstDir . "/" . $file;
 
                 if (is_dir($realfile)) {
-                    mkdir($targetFile);
+                    if (false === $this->_dry) {
+                        mkdir($targetFile);
+                    }
+
                     $this->scanDir($realfile, $targetFile);
                 } else {
 
@@ -119,8 +130,13 @@ class Scanner
                             $t->transform($content);
                         }
 
+
                         // output the file to the destination directory
-                        file_put_contents($targetFile, $content);
+                        if (false === $this->_dry) {
+                            file_put_contents($targetFile, $content);
+                        }
+
+
                     } else {
                         break;
                     }

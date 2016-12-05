@@ -234,6 +234,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.2.0 -- 2016-12-05
+
+    - add dryRun method
+    
 - 1.1.0 -- 2016-12-04
 
     - added TrackingMapRegexTransformer
