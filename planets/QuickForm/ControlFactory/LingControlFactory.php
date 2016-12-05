@@ -60,7 +60,7 @@ class LingControlFactory implements ControlFactoryInterface
                     <input
                             type="checkbox"
                             name="<?php echo htmlspecialchars($name); ?>"
-                            value="<?php echo $value; ?>"
+                            value="1"
                         <?php echo $checked; ?>
                     >
                     <?php echo $label; ?>

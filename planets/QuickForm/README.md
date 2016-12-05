@@ -864,6 +864,11 @@ Dependencies
 History Log
 ------------------
 
+- 3.14.1 -- 2016-12-05
+
+    - fix checkbox boolean control value
+    
+
 - 3.14.0 -- 2016-12-05
 
     - add checkbox boolean control 
