@@ -1,0 +1,3 @@
+dependencies:
+    - git::/lingtalfi/ArrayExport:1.0.0
+    - git::/lingtalfi/Bat:1.33
