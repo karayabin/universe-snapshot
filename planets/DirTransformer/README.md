@@ -234,6 +234,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.2.1 -- 2016-12-05
+
+    - fix limit bug
+    
 - 1.2.0 -- 2016-12-05
 
     - add dryRun method

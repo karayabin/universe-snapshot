@@ -111,7 +111,7 @@ class Scanner
                     $this->scanDir($realfile, $targetFile);
                 } else {
 
-                    if ($n++ < $this->_limit) {
+                    if (null === $this->_limit || $n++ < $this->_limit) {
 
                         // extension filter
                         if (null !== $this->_allowedExtensions) {
@@ -129,7 +129,6 @@ class Scanner
                             }
                             $t->transform($content);
                         }
-
 
                         // output the file to the destination directory
                         if (false === $this->_dry) {
