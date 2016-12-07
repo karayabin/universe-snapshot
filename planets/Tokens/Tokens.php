@@ -8,7 +8,6 @@ class Tokens
 {
 
 
-
     public static function toFile(array $tokenIdentifiers, $file)
     {
         $content = '';
@@ -19,7 +18,7 @@ class Tokens
                 $content .= $tokenIdentifier[1];
             }
         }
-        file_put_contents($file, $content);
+        return (false !== file_put_contents($file, $content));
     }
 
 
@@ -34,8 +33,7 @@ class Tokens
                     $token[1],
                     $token[2],
                 ];
-            }
-            else {
+            } else {
                 $ret[] = $token;
             }
         }

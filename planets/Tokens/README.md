@@ -192,6 +192,10 @@ $defs = [
 History Log
 ------------------
     
+- 1.0.1 -- 2016-12-07
+
+    - fix Tokens::toFile not returning value
+    
 - 1.0.0 -- 2016-12-06
 
     - initial commit
