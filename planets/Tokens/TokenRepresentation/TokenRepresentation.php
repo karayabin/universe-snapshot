@@ -10,6 +10,7 @@ class TokenRepresentation
 
     private $replacementSequences;
     private $tokenIdentifiers;
+    private $_onSequenceMatch;
 
     public function __construct(array $tokenIdentifiers)
     {
@@ -22,10 +23,18 @@ class TokenRepresentation
         return new self($tokenIdentifiers);
     }
 
-
     public function addReplacementSequence(ReplacementSequence $s)
     {
         $this->replacementSequences[] = $s;
+        return $this;
+    }
+
+    /**
+     * func takes the newSequence as parameter, and return the (modified)? newSequence
+     */
+    public function onSequenceMatch($func)
+    {
+        $this->_onSequenceMatch = $func;
         return $this;
     }
 
@@ -37,6 +46,9 @@ class TokenRepresentation
         $replacementSequences = [];
         foreach ($this->replacementSequences as $s) {
             $s->onMatch(function ($beginIndex, $endIndex, array $newSequence) use (&$replacementSequences) {
+                if (null !== $this->_onSequenceMatch) {
+                    $newSequence = call_user_func($this->_onSequenceMatch, $newSequence);
+                }
                 $replacementSequences[] = [$beginIndex, $endIndex, $newSequence];
             });
             foreach ($this->tokenIdentifiers as $index => $tokenIdentifier) {
@@ -60,7 +72,9 @@ class TokenRepresentation
 
                 $start = $replacementSequence[0];
                 $end = $replacementSequence[1];
+
                 $newSeq = $replacementSequence[2];
+
                 $length = $end - $start + 1;
                 array_splice($newTokens, $start, $length, $newSeq);
             }

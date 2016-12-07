@@ -162,9 +162,76 @@ Tokens::toFile($newTokens, "maurice.php");
 
 
 
+Since 1.1.0, there is a newer easier way to do so:
 
 
-And here is the result: the output file's content (maurice.php):
+```php
+<?php
+
+use Tokens\TokenRepresentation\ReplacementSequence;
+use Tokens\TokenRepresentation\ReplacementSequenceToken;
+use Tokens\TokenRepresentation\TokenRepresentation;
+use Tokens\Tokens;
+use Tokens\Util\TokenUtil;
+
+
+$src = "/pathto/app-nullos/lang/ch/modules/sqlTools/sqlTools.php";
+$tokenIdentifiers = token_get_all(file_get_contents($src));
+//a(Tokens::explicitTokenNames($tokenIdentifiers));
+echo '<hr>';
+
+
+$representation = TokenRepresentation::create($tokenIdentifiers);
+$representation
+    ->addReplacementSequence(
+        ReplacementSequence::create()
+            ->addToken(
+                ReplacementSequenceToken::create()
+                    ->matchIf(function ($tokenIdentifier) {
+                        return (is_array($tokenIdentifier) && T_CONSTANT_ENCAPSED_STRING === $tokenIdentifier[0]);
+                    })
+            )
+            ->addToken(
+                ReplacementSequenceToken::create()
+                    ->optional()
+                    ->matchIf(function ($tokenIdentifier) {
+                        return (is_array($tokenIdentifier) && T_WHITESPACE === $tokenIdentifier[0]);
+                    })
+            )
+            ->addToken(
+                ReplacementSequenceToken::create()
+                    ->matchIf(function ($tokenIdentifier) {
+                        return (is_array($tokenIdentifier) && T_DOUBLE_ARROW === $tokenIdentifier[0]);
+                    })
+            )
+            ->addToken(
+                ReplacementSequenceToken::create()
+                    ->optional()
+                    ->matchIf(function ($tokenIdentifier) {
+                        return (is_array($tokenIdentifier) && T_WHITESPACE === $tokenIdentifier[0]);
+                    })
+            )
+            ->addToken(
+                ReplacementSequenceToken::create()
+                    ->matchIf(function (&$tokenIdentifier) {
+                        return (is_array($tokenIdentifier) && T_CONSTANT_ENCAPSED_STRING === $tokenIdentifier[0]);
+                    })
+            )
+    )
+    ->onSequenceMatch(function($newSeq){
+        $newSeq[4][1] = TokenUtil::encapsulate("Maurice owns this file now, niaaahahahaha");
+        return $newSeq;
+    })
+;
+$newTokens = $representation->getTokens();
+Tokens::toFile($newTokens, "maurice.php");
+```
+
+
+
+
+
+And here is the result (for both above code examples it's the same result): the output file's content (maurice.php):
 
 
 ```php
@@ -191,6 +258,10 @@ $defs = [
  
 History Log
 ------------------
+    
+- 1.1.0 -- 2016-12-07
+
+    - add TokenRepresentation->onSequenceMatch
     
 - 1.0.1 -- 2016-12-07
 
