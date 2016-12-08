@@ -19,11 +19,17 @@ class LingControlFactory implements ControlFactoryInterface
         switch ($type) {
             case 'text':
             case 'hidden':
+            case 'password':
                 $placeholder = null;
+                $htmlArgs = [];
                 if (array_key_exists(0, $args)) {
                     if (is_string($args[0])) {
                         $placeholder = $args[0];
+                        $htmlArgs = (array_key_exists(1, $args)) ? $args[1] : [];
+                    } elseif (is_array($args[0])) {
+                        $htmlArgs = $args[0];
                     }
+
                 }
 
                 $pl = (null !== $placeholder) ? ' placeholder="' . htmlspecialchars($placeholder) . '"' : '';
@@ -34,6 +40,7 @@ class LingControlFactory implements ControlFactoryInterface
                         name="<?php echo htmlspecialchars($name); ?>"
                         value="<?php echo htmlspecialchars($c->getValue()); ?>"
                     <?php echo $pl; ?>
+                    <?php echo StringTool::htmlAttributes($htmlArgs); ?>
                 >
                 <?php
                 break;

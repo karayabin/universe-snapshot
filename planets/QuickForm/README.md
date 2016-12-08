@@ -288,7 +288,7 @@ Moving constraints messages to the top
 
 
 You can choose whether you want to put the constraints error messages at the control level (default), or at the 
-top of the form, as done in the example below:
+top of the form, or even at the bottom of the form. See the example below:
 
 
 ```php
@@ -305,7 +305,7 @@ require "bigbang.php";
 <?php
 $form = new QuickForm();
 $form->title = "Form";
-$form->controlErrorLocation = 'top'; // top | local (default)
+$form->controlErrorLocation = 'top'; // top | local (default) | bottom
 $form->addControl('first_name')->type('text')
     ->addConstraint('required');
 $form->addControl('last_name')->type('text');
@@ -391,7 +391,7 @@ $form->play();
 
 Using different form types
 ===============================================
-[![types.png](https://s19.postimg.org/6vt914elf/types.png)](https://postimg.org/image/fe2p5gl3z/)
+[![types.png](https://s19.postimg.org/7jswskyjn/types.png)](https://postimg.org/image/yue80i1gf/)
 
 
 The code below showcases all the available control types as of today. 
@@ -864,6 +864,24 @@ Dependencies
 History Log
 ------------------
 
+- 3.18.0 -- 2016-12-07
+
+    - input of type text now accepts any html attribute
+    
+    
+- 3.17.0 -- 2016-12-07
+
+    - validationTranslateFunc now accepts the name of the control as the second parameter
+    
+- 3.16.0 -- 2016-12-07
+
+    - controlErrorLocation can now be bottom too
+    
+    
+- 3.15.0 -- 2016-12-07
+
+    - add password type
+    
 - 3.14.1 -- 2016-12-05
 
     - fix checkbox boolean control value

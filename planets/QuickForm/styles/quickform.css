@@ -98,6 +98,7 @@
 }
 
 .form .error,
+.bottom-control-errors,
 .top-control-errors,
 .top-form-result.error {
     color: #c00;
@@ -116,8 +117,17 @@
     padding: 10px;
 }
 
+.bottom-control-errors {
+    box-sizing: border-box;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+.bottom-control-errors ul,
+.bottom-control-errors li,
 .top-control-errors ul,
-.top-control-errors li {
+.top-control-errors li
+{
     margin-left: 20px;
 }
 
