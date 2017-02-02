@@ -88,7 +88,7 @@ class KazuyaTestFinder implements TestFinderInterface
      *          - an array of <item>
      *
      */
-    public function getTestPageUrls() : array
+    public function getTestPageUrls()
     {
         $tests = [];
 
@@ -124,20 +124,20 @@ class KazuyaTestFinder implements TestFinderInterface
     //------------------------------------------------------------------------------/
     // 
     //------------------------------------------------------------------------------/
-    public function setRootDir(string $rootDir)
+    public function setRootDir($rootDir)
     {
         $this->rootDir = $rootDir;
         return $this;
     }
 
 
-    public function addExtension(string $extension)
+    public function addExtension($extension)
     {
         $this->extensions [] = $extension;
         return $this;
     }
 
-    public function setHost(string $host)
+    public function setHost($host)
     {
         $this->host = $host;
         return $this;
@@ -148,7 +148,7 @@ class KazuyaTestFinder implements TestFinderInterface
     //------------------------------------------------------------------------------/
     // 
     //------------------------------------------------------------------------------/
-    private function arrayNest(string $file, string $dirName, array $array)
+    private function arrayNest($file, $dirName, array $array)
     {
         if (empty($array)) {
             return 0;

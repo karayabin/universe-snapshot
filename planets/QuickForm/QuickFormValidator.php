@@ -55,6 +55,16 @@ class QuickFormValidator
                     $this->error("not implemented yet");
                 }
                 break;
+            case 'regex': // rulesArgs: [$regex, ?$message]
+                if (is_string($subject)) {
+                    if (preg_match($ruleArgs[0], $subject)) {
+                        return $ruleArgs[1];
+                    }
+                    return true;
+                } else {
+                    $this->error("not implemented yet");
+                }
+                break;
             default:
                 $this->error('FormValidator: unknown rule ' . $ruleName);
                 break;

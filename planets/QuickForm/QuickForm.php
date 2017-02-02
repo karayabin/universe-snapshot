@@ -134,10 +134,16 @@ class QuickForm
     public function play()
     {
         $atLeastOneControlError = false;
-
         $formTreatmentMsg = null; // witnesses whether or not the form has been posted
         $formTreatmentIsSuccess = false;
 
+
+        //------------------------------------------------------------------------------/
+        // PREPARE CONTROLS
+        //------------------------------------------------------------------------------/
+        foreach ($this->controls as $name => $c) {
+            $this->prepareControl($name, $c);
+        }
 
         //--------------------------------------------
         // FORM SUBMITTED
@@ -394,6 +400,12 @@ class QuickForm
                 <?php $this->displayControl($name, $c, $this); ?>
             </div>
         </div>
+        <?php if (null !== ($hint = $c->getHint())): ?>
+        <div class="row">
+            <span class="label"></span>
+            <div class="control"><?php echo $hint; ?></div>
+        </div>
+    <?php endif; ?>
         <?php
         if ('local' === $this->controlErrorLocation):
             $errors = $c->getErrorMessages();
@@ -417,6 +429,20 @@ class QuickForm
         $wasHandled = false;
         foreach ($this->controlFactories as $f) {
             if (true === $f->displayControl($name, $c, $this)) {
+                $wasHandled = true;
+                break;
+            }
+        }
+        if (false === $wasHandled) {
+            throw new \Exception("Was not able to handle control of type " . $c->getType() . " (name=$name)");
+        }
+    }
+
+    private function prepareControl($name, QuickFormControl $c)
+    {
+        $wasHandled = false;
+        foreach ($this->controlFactories as $f) {
+            if (true === $f->prepareControl($name, $c, $this)) {
                 $wasHandled = true;
                 break;
             }

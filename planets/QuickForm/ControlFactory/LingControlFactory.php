@@ -10,6 +10,34 @@ use QuickPdo\QuickPdo;
 class LingControlFactory implements ControlFactoryInterface
 {
 
+
+    public function prepareControl($name, QuickFormControl $c)
+    {
+        $canHandle = true;
+        $type = $c->getType();
+        switch ($type) {
+            case 'text':
+            case 'hidden':
+            case 'password':
+            case 'file':
+            case 'checkbox':
+            case 'checkboxList':
+            case 'radioList':
+            case 'selectByRequest':
+            case 'select':
+            case 'selectMultiple':
+            case 'date3':
+            case 'date6':
+            case 'message':
+                break;
+            default:
+                $canHandle = false;
+                break;
+        }
+        return $canHandle;
+    }
+
+
     public function displayControl($name, QuickFormControl $c, QuickForm $f)
     {
         $canHandle = true;
@@ -21,6 +49,7 @@ class LingControlFactory implements ControlFactoryInterface
             case 'hidden':
             case 'password':
                 $placeholder = null;
+                $focus = false;
                 $htmlArgs = [];
                 if (array_key_exists(0, $args)) {
                     if (is_string($args[0])) {
@@ -29,7 +58,10 @@ class LingControlFactory implements ControlFactoryInterface
                     } elseif (is_array($args[0])) {
                         $htmlArgs = $args[0];
                     }
-
+                    if (array_key_exists('focus', $htmlArgs)) {
+                        unset($htmlArgs['focus']);
+                        $focus = true;
+                    }
                 }
 
                 $pl = (null !== $placeholder) ? ' placeholder="' . htmlspecialchars($placeholder) . '"' : '';
@@ -43,6 +75,15 @@ class LingControlFactory implements ControlFactoryInterface
                     <?php echo StringTool::htmlAttributes($htmlArgs); ?>
                 >
                 <?php
+                if (true === $focus):
+                    ?>
+                    <script>
+                        var control = document.getElementById('<?php echo QuickForm::getControlCssId($f, $name); ?>');
+                        control.querySelector('input').focus();
+                    </script>
+                    <?php
+                endif;
+
                 break;
             case 'file':
                 // http://www.w3schools.com/tags/att_input_accept.asp
@@ -388,10 +429,12 @@ class LingControlFactory implements ControlFactoryInterface
                 <?php
                 break;
             case 'message':
+                $htmlArgs = (array_key_exists(0, $args)) ? $args[0] : [];
                 ?>
                 <textarea
                         name="<?php echo htmlspecialchars($name); ?>"
-                ><?php echo $c->getValue(); ?></textarea>
+                    <?php echo StringTool::htmlAttributes($htmlArgs); ?>
+                ><?php echo htmlspecialchars($c->getValue()); ?></textarea>
                 <?php
                 break;
             default:

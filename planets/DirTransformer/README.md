@@ -234,6 +234,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.4.0 -- 2016-12-20
+
+    - allowedExtension now only applies to the transform process, not the copy process
+    
 - 1.3.2 -- 2016-12-05
 
     - fix misleading example in README

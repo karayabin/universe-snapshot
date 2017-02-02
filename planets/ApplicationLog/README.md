@@ -114,3 +114,10 @@ Dependencies
 
 
 
+
+History Log
+===============
+    
+- 1.0.0 -- 2016-12-28
+
+    - fix package info

@@ -18,7 +18,7 @@ class ArrayExport
      * - closures and instances's indentation is "unpredictable"
      *
      */
-    public static function export($mixed, $floatPrecision = null, $configure = null)
+    public static function export($mixed, $floatPrecision = null)
     {
         $manager = new PhpArrayToStringSymbolManager();
         $storedValue = ini_get('serialize_precision');
@@ -26,10 +26,6 @@ class ArrayExport
             $floatPrecision = $storedValue;
         }
         ini_set('serialize_precision', $floatPrecision); // http://stackoverflow.com/questions/32149340/php-var-export-fails-with-float
-
-        if (null !== $configure) {
-            call_user_func($configure, $manager);
-        }
 
         $ret = ArrayToStringUtil::create()
             ->setValueFormatter(function ($value, $level) {

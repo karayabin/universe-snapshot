@@ -1,5 +1,5 @@
 dependencies:
-    git::/lingtalfi/Bat:1.09
+    - git::/lingtalfi/Bat:1.09
 ACPCompliantRanges:
     - *
     

@@ -66,6 +66,7 @@ a($b->getPureData("actor"));
 // AUTHOR SPECIFIC
 //------------------------------------------------------------------------------/
 a($b->numbers(5));
+a($b->float(5, 2));
 a($b->letters(5));
 a($b->asciiChars(5));
 a($b->wordChars(5));
@@ -1073,6 +1074,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.2.0 -- 2017-02-02
+
+    - add AuthorBullSheetGenerator.float method
+
 - 1.1.0 -- 2016-02-14
 
     - add LingBullSheetGenerator.getTableKey method

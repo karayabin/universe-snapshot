@@ -1,0 +1,66 @@
+Brainstorm
+=================
+2015-05-21
+
+
+
+miniMl est une notation qui permet d'écrire des indications basiques de format de texte.
+Sa notation est proche de la notation html, mais avec les différences suivantes:
+
+
+
+- il n'est pas possible d'écrire des attributs
+- il y a au total 27 balises qui sont répertoriées plus bas
+- il n'est pas possible d'imbriquer plusieurs fois la même balise
+- le symbole spécial \n signifie retour à la ligne
+- il n'est pas possible d'utiliser du html avec miniMl
+
+
+
+
+
+
+Cela permet de décorer un peu les messages austères (noir sur fond blanc)
+d'un système de log destiné à être affiché par un média tel qu'un browser
+ou un terminal par exemple.
+
+
+
+Les balises acceptées sont les suivantes:
+
+-------------- text effects
+
+- bold
+- underline
+
+-------------- colors
+
+- black
+- white
+- red
+- green
+- blue
+- orange
+- yellow
+- purple
+
+-------------- background colors
+
+- blackBg
+- ... (le nom d'une couleur suivie du suffixe "Bg")
+
+
+-------------- miscellaneous 
+
+- emergency     (red - blackBg)
+- alert         (yellow - blackBg)
+- critical      (white - blackBg)
+- error         (red)
+- warning       (orange)
+- notice        (purple)
+- info          (blue)
+- debug         (gray - bold)
+- success       (green)
+
+
+Formats in parenthesis are just a suggestion.

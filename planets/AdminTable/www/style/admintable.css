@@ -1,0 +1,144 @@
+/*------------------------------------
+- ADMIN TABLE
+------------------------------------*/
+.admintable a {
+    text-decoration: none;
+}
+
+.admintable a:hover {
+    text-decoration: underline;
+}
+
+.admintable .create-new-item-container {
+    text-align: center;
+}
+
+.admintable .create-new-item-container a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: blue;
+}
+
+.admintable .multiple-actions {
+    display: flex;
+}
+
+.admintable .checkall-btn,
+.admintable .uncheckall-btn {
+    margin-right: 20px;
+}
+
+.admintable .toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #999;
+    width: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.admintable .pagination {
+    display: flex;
+    justify-content: flex-start;
+    list-style-type: none;
+    width: 100%;
+    position: relative;
+    overflow-x: auto;
+}
+
+.admintable .pagination li {
+    border-right: 1px solid #666;
+}
+
+.admintable .pagination li:last-child {
+    border-right: none;
+}
+
+.admintable a:hover {
+    text-decoration: underline;
+}
+
+.admintable .pagination a {
+    display: block;
+    padding: 0 10px;
+    width: 100%;
+    height: 100%;
+    color: #666;
+}
+
+.admintable .pagination a.selected {
+    color: #ddd;
+}
+
+.admintable .search {
+    width: 30%;
+    display: flex;
+}
+
+.admintable .search .search-form {
+    display: flex;
+    width: 100%;
+}
+
+.search-input {
+    flex: auto;
+}
+
+.admintable .multiple-actions {
+    background: #666;
+    padding: 5px;
+}
+
+.datatable {
+    /*
+    * The width:100% doesn't work as I expected here
+    * Todo: find why, test with a table with few columns, like the configuration table so that you can see the problem
+    */
+    width: 100%;
+    overflow-x: scroll;
+    border-collapse: collapse;
+}
+
+.datatable .checkbox {
+    width: 40px;
+    height: 40px;
+}
+
+.datatable tr.headerrow {
+    background: #aaa;
+}
+
+.datatable tr.headerrow a {
+    color: #555;
+}
+
+.datatable tr.even {
+    background: #eee;
+}
+
+.datatable tr.odd {
+    background: #ddd;
+}
+
+.datatable tr, td {
+    border-bottom: 1px solid #ccc;
+}
+
+.datatable td {
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+}
+
+.datatable td {
+    padding: 5px;
+}
+
+.datatable tbody a {
+    color: #1515bb;
+}
+
+.datatable tbody a.action-link {
+    color: #9341ce;
+}

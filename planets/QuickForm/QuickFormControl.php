@@ -9,6 +9,7 @@ class QuickFormControl
     private $_type;
     private $_typeArgs;
     private $_label;
+    private $_hint;
     private $_value;
 
     private $errors;
@@ -50,6 +51,12 @@ class QuickFormControl
     public function value($value)
     {
         $this->_value = $value;
+        return $this;
+    }
+
+    public function hint($hint)
+    {
+        $this->_hint = $hint;
         return $this;
     }
 
@@ -104,6 +111,11 @@ class QuickFormControl
     public function getValue()
     {
         return $this->_value;
+    }
+
+    public function getHint()
+    {
+        return $this->_hint;
     }
 
     public function getErrorMessages()

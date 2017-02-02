@@ -104,7 +104,7 @@ class QuickPdo
             } else {
                 $query .= ', ';
             }
-            $query .= $k . '=:' . $k;
+            $query .= '`' . $k . '`' . '=:' . $k;
             $markers[':' . $k] = $v;
         }
 
@@ -135,7 +135,8 @@ class QuickPdo
             } else {
                 $query .= ', ';
             }
-            $query .= $k . '=:' . $k;
+
+            $query .= '`' . $k . '`' . '=:' . $k;
             $markers[':' . $k] = $v;
         }
 
@@ -200,7 +201,7 @@ class QuickPdo
             }
 
             if (!is_array($v)) {
-                $query .= $k . '=:' . $k;
+                $query .= '`' . $k . '`' . '=:' . $k;
                 $markers[':' . $k] = $v;
             } else {
                 $v = array_shift($v);
@@ -211,6 +212,7 @@ class QuickPdo
         self::addWhereSubStmt($whereConds, $query, $markers);
         $markers = array_replace($markers, $extraMarkers);
         self::$query = $query;
+
         $stmt = $pdo->prepare($query);
         if (true === $stmt->execute($markers)) {
             return true;

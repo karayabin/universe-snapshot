@@ -3,7 +3,9 @@
 
 namespace Tokens\Util;
 
-
+/**
+ * tools that apply to one token
+ */
 class TokenUtil
 {
 

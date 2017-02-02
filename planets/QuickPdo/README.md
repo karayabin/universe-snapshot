@@ -486,6 +486,10 @@ Then the results will look like this on the console:
 History Log
 ------------------
     
+- 1.24.0 -- 2017-01-14
+
+    - wrap column names with back ticks to allow use of reserved words as columns
+    
 - 1.23.0 -- 2016-12-01
 
     - add QuickPdoInfoTool::getColumnNullabilities

@@ -36,6 +36,11 @@ class AuthorBullSheetGenerator extends BullSheetGenerator
         return CharGeneratorTool::numbers($length);
     }
 
+    public function float(int $length = 3, $decimal = 2): string
+    {
+        return CharGeneratorTool::numbers($length) . '.' . CharGeneratorTool::numbers($decimal);
+    }
+
     public function letters(int $length = 3): string
     {
         return CharGeneratorTool::letters($length);

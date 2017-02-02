@@ -1,6 +1,6 @@
 Tokens
 =========================
-2016-12-06
+2016-12-06 -- 2016-12-19
 
 
 
@@ -254,11 +254,33 @@ $defs = [
 
 
 
+
+Another implementation
+-----------------------
+2016-12-19
+
+Another implementation was introduced, which used the [SequenceMatcher](https://github.com/lingtalfi/SequenceMatcher) technique.
+It's actually even better, depending on your use case, so be sure to check it out.
+
+
  
  
 History Log
 ------------------
     
+- 1.4.0 -- 2016-12-31
+
+    - add UseStatementsUtil
+    
+- 1.3.0 -- 2016-12-29
+
+    - add SequenceMatcher TokenAlternateEntity
+    
+- 1.2.0 -- 2016-12-19
+
+    - add SequenceMatcher section
+
+
 - 1.1.0 -- 2016-12-07
 
     - add TokenRepresentation->onSequenceMatch

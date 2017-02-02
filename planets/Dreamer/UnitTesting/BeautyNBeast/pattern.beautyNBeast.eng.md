@@ -93,4 +93,7 @@ The Beauty is the nick name for the visitor.<br>
 The Beast is the nick name for the unit testing framework for a given test page.
 
 
-        
+
+Related
+=============
+- [example implementation](https://github.com/lingtalfi/bnb)

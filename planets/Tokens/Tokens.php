@@ -4,6 +4,9 @@
 namespace Tokens;
 
 
+/**
+ * tools that apply to multiple tokens
+ */
 class Tokens
 {
 
@@ -38,6 +41,19 @@ class Tokens
             }
         }
         return $ret;
+    }
+
+    public static function concatenate(array $tokenIdentifiers)
+    {
+        $s = '';
+        foreach ($tokenIdentifiers as $tokenIdentifier) {
+            if (is_array($tokenIdentifier)) {
+                $s .= $tokenIdentifier[1];
+            } else {
+                $s .= $tokenIdentifier;
+            }
+        }
+        return trim($s);
     }
 
 

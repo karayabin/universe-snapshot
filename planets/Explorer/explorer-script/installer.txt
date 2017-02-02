@@ -1,0 +1,240 @@
+<?php
+
+
+// cd; curl -o zzx2.php https://raw.githubusercontent.com/lingtalfi/Explorer/master/explorer-script/installer.txt; php -f zzx2.php; rm zzx2.php
+//------------------------------------------------------------------------------/
+// this script will install the explorer-script into the current directory
+// it's recommended that you are in your home before executing it
+// How to?
+// php -f thisScript.php
+//------------------------------------------------------------------------------/
+
+$urls = [
+    'explorer.php',
+    'pack/BabyYaml/BabyYamlUtil.php',
+    'pack/BabyYaml/Helper/ArrayExportUtil/ArrayExportUtil.php',
+    'pack/BabyYaml/Helper/ArrayExportUtil/Exception/ArrayExportUtilException.php',
+    'pack/BabyYaml/Helper/ArrayExportUtil/SymbolsManager/ArrayExportUtilSymbolsManagerInterface.php',
+    'pack/BabyYaml/Helper/ArrayExportUtil/SymbolsManager/GenericArrayExportUtilSymbolsManager.php',
+    'pack/BabyYaml/Helper/ArrayExportUtil/SymbolsManager/HtmlArrayExportUtilSymbolsManager.php',
+    'pack/BabyYaml/Helper/ArrayExportUtil/SymbolsManager/InlineArgsArrayExportUtilSymbolsManager.php',
+    'pack/BabyYaml/Helper/ArrayExportUtil/SymbolsManager/PhpArrayExportUtilSymbolsManager.php',
+    'pack/BabyYaml/Helper/ArrayExportUtil/SymbolsManager/SpaceIndentedArrayExportUtilSymbolsManager.php',
+    'pack/BabyYaml/Helper/ArrayExportUtil/SymbolsManager/StackedPhpFunctionArgumentsArrayExportUtilSymbolsManager.php',
+    'pack/BabyYaml/Helper/ArrayTool.php',
+    'pack/BabyYaml/Helper/BdotTool.php',
+    'pack/BabyYaml/Helper/Escaping/Backslash/RecursiveBackslashEscapeTool.php',
+    'pack/BabyYaml/Helper/Escaping/Backslash/SimpleBackslashEscapeTool.php',
+    'pack/BabyYaml/Helper/Escaping/EscapeTool.php',
+    'pack/BabyYaml/Helper/Escaping/RecursiveEscapeTool.php',
+    'pack/BabyYaml/Helper/InlineVariableUtil/Adaptor/CallableInlineVariableUtilAdaptor.php',
+    'pack/BabyYaml/Helper/InlineVariableUtil/Adaptor/ClosureInlineVariableUtilAdaptor.php',
+    'pack/BabyYaml/Helper/InlineVariableUtil/Adaptor/InlineVariableUtilAdaptor.php',
+    'pack/BabyYaml/Helper/InlineVariableUtil/Adaptor/InlineVariableUtilAdaptorInterface.php',
+    'pack/BabyYaml/Helper/InlineVariableUtil/Adaptor/PhpDocInlineVariableUtilAdaptor.php',
+    'pack/BabyYaml/Helper/InlineVariableUtil/Adaptor/PhpTypeInlineVariableUtilAdaptor.php',
+    'pack/BabyYaml/Helper/InlineVariableUtil/InlineVariableUtil.php',
+    'pack/BabyYaml/Helper/IntTool.php',
+    'pack/BabyYaml/Helper/QuoteTool.php',
+    'pack/BabyYaml/Helper/ReflectionParameterUtil/ReflectionParameterUtil.php',
+    'pack/BabyYaml/Helper/ReflectionTool.php',
+    'pack/BabyYaml/Helper/RowsTool.php',
+    'pack/BabyYaml/Helper/StringTool.php',
+    'pack/BabyYaml/Helper/VarTool.php',
+    'pack/BabyYaml/Helper/WrappedString/Tool/CandyResolverTool.php',
+    'pack/BabyYaml/Helper/WrappedString/Tool/WrappedStringResolverTool.php',
+    'pack/BabyYaml/Helper/WrappedString/Tool/WrappedStringTool.php',
+    'pack/BabyYaml/Helper/WrappedString/Util/Exception/WrappedStringUtilCircularException.php',
+    'pack/BabyYaml/Helper/WrappedString/Util/Exception/WrappedStringUtilException.php',
+    'pack/BabyYaml/Helper/WrappedString/Util/WrappedStringResolverUtil.php',
+    'pack/BabyYaml/Helper/WrappedString/_conception/general.wrappedString.fra.txt',
+    'pack/BabyYaml/Reader/BabyYamlBuilder.php',
+    'pack/BabyYaml/Reader/BabyYamlReader.php',
+    'pack/BabyYaml/Reader/Exception/ParseErrorException.php',
+    'pack/BabyYaml/Reader/KeyFinder/KeyFinder.php',
+    'pack/BabyYaml/Reader/KeyFinder/KeyFinderInterface.php',
+    'pack/BabyYaml/Reader/MiniMl/Formatter/ConsoleMiniMlFormatter.php',
+    'pack/BabyYaml/Reader/MiniMl/Formatter/HtmlMiniMlFormatter.php',
+    'pack/BabyYaml/Reader/MiniMl/Formatter/MiniMlFormatterInterface.php',
+    'pack/BabyYaml/Reader/MiniMl/Formatter/ParentsAwareMarkupParser/MiniMlConsoleParentsAwareMarkupParserAdaptor.php',
+    'pack/BabyYaml/Reader/MiniMl/Formatter/StripMiniMlFormatter.php',
+    'pack/BabyYaml/Reader/MiniMl/Tool/HtmlMiniMlFormatterShowCaseTool.php',
+    'pack/BabyYaml/Reader/MiniMl/Tool/MiniMlTool.php',
+    'pack/BabyYaml/Reader/MiniMl/Util/MiniMlFormatterUtil.php',
+    'pack/BabyYaml/Reader/MiniMl/_conception/brainstorm.miniMl.fra.txt',
+    'pack/BabyYaml/Reader/Monitor/ClassicMonitor.php',
+    'pack/BabyYaml/Reader/Monitor/Listener/MonitorListenerInterface.php',
+    'pack/BabyYaml/Reader/Monitor/LoggingMonitor.php',
+    'pack/BabyYaml/Reader/Monitor/LoggingMonitorInterface.php',
+    'pack/BabyYaml/Reader/Monitor/Monitor.php',
+    'pack/BabyYaml/Reader/Monitor/MonitorInterface.php',
+    'pack/BabyYaml/Reader/Monitor/Traits/ClassicMonitorTrait.php',
+    'pack/BabyYaml/Reader/Monitor/VoidMonitor.php',
+    'pack/BabyYaml/Reader/MultiLineCompiler/MultiLineCompilerInterface.php',
+    'pack/BabyYaml/Reader/MultiLineCompiler/WithLeftMarginMultiLineCompiler.php',
+    'pack/BabyYaml/Reader/MultiLineDelimiter/MultiLineDelimiterInterface.php',
+    'pack/BabyYaml/Reader/MultiLineDelimiter/SingleCharMultiLineDelimiter.php',
+    'pack/BabyYaml/Reader/Node/Node.php',
+    'pack/BabyYaml/Reader/Node/NodeInterface.php',
+    'pack/BabyYaml/Reader/NodeToArrayConvertor/NodeToArrayConvertor.php',
+    'pack/BabyYaml/Reader/NodeToArrayConvertor/NodeToArrayConvertorInterface.php',
+    'pack/BabyYaml/Reader/ParentsAwareMarkupParser/ParentsAwareMarkupParser/Adaptor/CombinedTagsConsoleParentsAwareMarkupParserAdaptor.php',
+    'pack/BabyYaml/Reader/ParentsAwareMarkupParser/ParentsAwareMarkupParser/Adaptor/ConsoleParentsAwareMarkupParserAdaptor.php',
+    'pack/BabyYaml/Reader/ParentsAwareMarkupParser/ParentsAwareMarkupParser/Adaptor/ParentsAwareMarkupParserAdaptorInterface.php',
+    'pack/BabyYaml/Reader/ParentsAwareMarkupParser/ParentsAwareMarkupParser.php',
+    'pack/BabyYaml/Reader/ParentsAwareMarkupParser/ParentsAwareMarkupParserInterface.php',
+    'pack/BabyYaml/Reader/StringIterator/StringIterator.php',
+    'pack/BabyYaml/Reader/StringIterator/StringIteratorInterface.php',
+    'pack/BabyYaml/Reader/StringParser/BabyYamlLineExpressionDiscoverer.php',
+    'pack/BabyYaml/Reader/StringParser/ExpressionDiscoverer/CandyExpressionDiscoverer.php',
+    'pack/BabyYaml/Reader/StringParser/ExpressionDiscoverer/CommentExpressionDiscoverer.php',
+    'pack/BabyYaml/Reader/StringParser/ExpressionDiscoverer/Container/ArrangementContainerExpressionDiscoverer.php',
+    'pack/BabyYaml/Reader/StringParser/ExpressionDiscoverer/Container/ContainerExpressionDiscoverer.php',
+    'pack/BabyYaml/Reader/StringParser/ExpressionDiscoverer/Container/MandatoryKeyContainerExpressionDiscoverer.php',
+    'pack/BabyYaml/Reader/StringParser/ExpressionDiscoverer/Container/MappingContainerExpressionDiscoverer.php',
+    'pack/BabyYaml/Reader/StringParser/ExpressionDiscoverer/Container/OptionalKeyContainerExpressionDiscoverer.php',
+    'pack/BabyYaml/Reader/StringParser/ExpressionDiscoverer/Container/SequenceContainerExpressionDiscoverer.php',
+    'pack/BabyYaml/Reader/StringParser/ExpressionDiscoverer/Container/TriContainerExpressionDiscoverer.php',
+    'pack/BabyYaml/Reader/StringParser/ExpressionDiscoverer/Container/ValueContainerExpressionDiscoverer.php',
+    'pack/BabyYaml/Reader/StringParser/ExpressionDiscoverer/Exception/HybridCommentException.php',
+    'pack/BabyYaml/Reader/StringParser/ExpressionDiscoverer/ExpressionDiscoverer.php',
+    'pack/BabyYaml/Reader/StringParser/ExpressionDiscoverer/ExpressionDiscovererInterface.php',
+    'pack/BabyYaml/Reader/StringParser/ExpressionDiscoverer/GreedyExpressionDiscovererInterface.php',
+    'pack/BabyYaml/Reader/StringParser/ExpressionDiscoverer/HybridExpressionDiscoverer.php',
+    'pack/BabyYaml/Reader/StringParser/ExpressionDiscoverer/Miscellaneous/FunctionExpressionDiscoverer.php',
+    'pack/BabyYaml/Reader/StringParser/ExpressionDiscoverer/Miscellaneous/PhpStyleArgsExpressionDiscoverer.php',
+    'pack/BabyYaml/Reader/StringParser/ExpressionDiscoverer/Miscellaneous/PolyExpressionDiscoverer.php',
+    'pack/BabyYaml/Reader/StringParser/ExpressionDiscoverer/Miscellaneous/ShortCodeExpressionDiscoverer.php',
+    'pack/BabyYaml/Reader/StringParser/ExpressionDiscoverer/QuoteExpressionDiscoverer.php',
+    'pack/BabyYaml/Reader/StringParser/ExpressionDiscoverer/SimpleQuoteExpressionDiscoverer.php',
+    'pack/BabyYaml/Reader/StringParser/ExpressionDiscoverer/Tool/ExpressionDiscovererTool.php',
+    'pack/BabyYaml/Reader/StringParser/ExpressionDiscoverer/VariableExpressionDiscoverer.php',
+    'pack/BabyYaml/Reader/StringParser/ExpressionDiscovererModel/ExpressionDiscovererModel.php',
+    'pack/BabyYaml/Reader/StringParser/ExpressionDiscovererModel/ExpressionDiscovererModelInterface.php',
+    'pack/BabyYaml/Reader/StringParser/ExpressionFinder/CleanStartExpressionFinder.php',
+    'pack/BabyYaml/Reader/StringParser/ExpressionFinder/EscapableExpressionFinder.php',
+    'pack/BabyYaml/Reader/StringParser/ExpressionFinder/ExpressionFinder.php',
+    'pack/BabyYaml/Reader/StringParser/ExpressionFinder/ExpressionFinderInterface.php',
+    'pack/BabyYaml/Reader/StringParser/Validator/ContainerValidator.php',
+    'pack/BabyYaml/Reader/StringParser/Validator/ValidatorInterface.php',
+    'pack/BabyYaml/Reader/ValueInterpreter/BabyYamlValueInterpreter.php',
+    'pack/BabyYaml/Reader/ValueInterpreter/ValueInterpreter.php',
+    'pack/BabyYaml/Reader/ValueInterpreter/ValueInterpreterInterface.php',
+    'pack/Bat/.gitignore',
+    'pack/Bat/ArrayTool.md',
+    'pack/Bat/ArrayTool.php',
+    'pack/Bat/CaseTool.md',
+    'pack/Bat/CaseTool.php',
+    'pack/Bat/ClassTool.md',
+    'pack/Bat/ClassTool.php',
+    'pack/Bat/ExceptionTool.md',
+    'pack/Bat/ExceptionTool.php',
+    'pack/Bat/FileSystemTool.md',
+    'pack/Bat/FileSystemTool.php',
+    'pack/Bat/FileTool.md',
+    'pack/Bat/FileTool.php',
+    'pack/Bat/LocalHostTool.md',
+    'pack/Bat/LocalHostTool.php',
+    'pack/Bat/MimeTypeTool.md',
+    'pack/Bat/MimeTypeTool.php',
+    'pack/Bat/PermTool.md',
+    'pack/Bat/PermTool.php',
+    'pack/Bat/README.md',
+    'pack/Bat/StringTool.md',
+    'pack/Bat/StringTool.php',
+    'pack/Bat/UriTool.md',
+    'pack/Bat/UriTool.php',
+    'pack/Bat/ValidationTool.md',
+    'pack/Bat/ValidationTool.php',
+    'pack/Bat/ZipTool.md',
+    'pack/Bat/ZipTool.php',
+    'pack/Bat/package-info.yml',
+    'pack/BumbleBee/Autoload/BeeAutoloader.php',
+    'pack/BumbleBee/Autoload/ButineurAutoloader.php',
+    'pack/BumbleBee/Autoload/README.md',
+    'pack/BumbleBee/Autoload/convention.bsr0.eng.md',
+    'pack/BumbleBee/README.md',
+    'pack/BumbleBee/package-info.yml',
+    'pack/CopyDir/.gitignore',
+    'pack/CopyDir/AuthorCopyDirUtil.php',
+    'pack/CopyDir/CopyDirUtil.php',
+    'pack/CopyDir/Exception/CopyDirException.php',
+    'pack/CopyDir/README.md',
+    'pack/CopyDir/package-info.yml',
+    'pack/DirScanner/.gitignore',
+    'pack/DirScanner/DirScanner.php',
+    'pack/DirScanner/README.md',
+    'pack/DirScanner/YorgDirScannerTool.md',
+    'pack/DirScanner/YorgDirScannerTool.php',
+    'pack/DirScanner/package-info.yml',
+    'pack/Explorer/Explorer/MaculusExplorer.php',
+    'pack/Explorer/Explorer/NeoMaculusExplorer.php',
+    'pack/Explorer/Importer/GithubImporter.php',
+    'pack/Explorer/Importer/ImporterInterface.php',
+    'pack/Explorer/Log/ExplorerLogInterface.php',
+    'pack/Explorer/Log/ExplorerScriptLog.php',
+    'pack/Explorer/Util/ExplorerUtil.php',
+];
+// If you ever need to recreate the list...
+//$dir = "/path/to/class-planets/Explorer/explorer-script";
+//$files = YorgDirScannerTool::getFiles($dir, true, true);
+//foreach ($files as $f) {
+//    echo "'" . $f . "'" . ',<br>';
+//}
+
+$nbElements = count($urls);
+
+
+$urlPrefix = 'https://raw.githubusercontent.com/lingtalfi/Explorer/master/explorer-script/';
+
+$dir = getcwd();
+$explorerDir = $dir . "/explorer-script";
+
+
+function say($m, $n = null)
+{
+    if (null !== $n) {
+        echo $m . str_repeat(" ", $n) . '|' . PHP_EOL;
+
+    } else {
+        echo $m . PHP_EOL;
+    }
+}
+say("Install dir is '$explorerDir'");
+$i = 1;
+foreach ($urls as $url) {
+    $fullUrl = $urlPrefix . $url;
+    $file = $explorerDir . "/" . $url;
+    $parentDir = dirname($file);
+    if (false === is_dir($parentDir)) {
+        mkdir($parentDir, 0777, true);
+    }
+    say("Creating file $url ($i/$nbElements)");
+    $i++;
+    file_put_contents($file, file_get_contents($fullUrl));
+}
+
+
+say("");
+say("");
+say("swiii-----------\\__/-------------shh-------***----------------------$$------------------------>");
+say("| ");
+say("| \e[32mYour explorer is ready master.\e[0m");
+say("| It's all in the '$explorerDir' directory.");
+say("| I heard it was recommended to add the following alias to your .bashrc or .bash_profile:");
+say("| \e[97;40malias explorer='php -f \"$explorerDir/explorer-script/explorer.php\" --\e[0m");
+say("| ");
+say("| The doc is here: https://github.com/lingtalfi/Explorer#the-explorer-script");
+say("| Also, here are some quotes from the doc");
+say("| Ensure you have the curl and unzip software installed (otherwise it won't work)");
+say("| ");
+say("| Have a good day master.");
+say("| \033[34mLong live the universe!\033[0m");
+say("| ");
+say("|----------\\_/--|\\|--|--\\_/--|->--|-)--_-_--|->--------------------------------------------->");
+
+
+
+
+
+

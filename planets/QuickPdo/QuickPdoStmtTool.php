@@ -71,8 +71,7 @@ class QuickPdoStmtTool
                         $val2 = (isset($cond[3])) ? $cond[3] : null;
                         if (true === $first) {
                             $first = false;
-                        }
-                        else {
+                        } else {
                             if (false === $previousWasGlue) {
                                 $stmt .= ' and ';
                             }
@@ -80,12 +79,11 @@ class QuickPdoStmtTool
 
 
                         if (null !== $val) {
-                            $stmt .= $field . ' ' . $op . ' :' . $mk . $mkCpt;
+                            $stmt .= '`' . $field . '` ' . $op . ' :' . $mk . $mkCpt;
                             $markers[':' . $mk . $mkCpt] = $val;
                             $mkCpt++;
-                        }
-                        else{
-                            $stmt .= $field . ' is null';
+                        } else {
+                            $stmt .= '`' . $field . '` is null';
                         }
 
 
@@ -95,15 +93,13 @@ class QuickPdoStmtTool
                             $mkCpt++;
                         }
                         $previousWasGlue = false;
-                    }
-                    elseif (is_string($cond)) {
+                    } elseif (is_string($cond)) {
                         $stmt .= $cond;
                         $previousWasGlue = true;
                     }
                 }
             }
-        }
-        elseif (is_string($whereConds)) {
+        } elseif (is_string($whereConds)) {
             $stmt .= ' where ' . $whereConds;
         }
     }
@@ -130,16 +126,14 @@ class QuickPdoStmtTool
             foreach ($keys2Values as $key => $val) {
                 if (true === $first) {
                     $first = false;
-                }
-                else {
+                } else {
                     $stmt .= ' and ';
                 }
                 if (null !== $val) {
-                    $stmt .= $key . ' = :' . $mk . $mkCpt;
+                    $stmt .= '`' . $key . '` = :' . $mk . $mkCpt;
                     $markers[':' . $mk . $mkCpt] = $val;
-                }
-                else {
-                    $stmt .= $key . ' is null';
+                } else {
+                    $stmt .= '`' . $key . '` is null';
                 }
 
                 $mkCpt++;

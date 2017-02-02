@@ -113,21 +113,27 @@ class Scanner
 
                     if (null === $this->_limit || $n++ < $this->_limit) {
 
+
+                        $process = true;
+
                         // extension filter
                         if (null !== $this->_allowedExtensions) {
                             $ext = strtolower(FileSystemTool::getFileExtension($file));
                             if (false === in_array($ext, $this->_allowedExtensions)) {
-                                continue;
+                                $process = false;
                             }
                         }
 
-                        // process the transformer chain
+
                         $content = file_get_contents($realfile);
-                        foreach ($this->transformers as $t) {
-                            if ($t instanceof TrackingInterface) {
-                                $t->setPath($realfile);
+                        // process the transformer chain
+                        if (true === $process) {
+                            foreach ($this->transformers as $t) {
+                                if ($t instanceof TrackingInterface) {
+                                    $t->setPath($realfile);
+                                }
+                                $t->transform($content);
                             }
-                            $t->transform($content);
                         }
 
                         // output the file to the destination directory

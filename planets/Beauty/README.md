@@ -1,6 +1,6 @@
 Beauty
 ============
-2016-05-17
+2016-05-17 -- 2016-12-28
 
 
 ![Beauty look](http://s19.postimg.org/98adwpher/beauty3.png)
@@ -135,12 +135,23 @@ $openGroups = [
 </html>
 ```
  
+ 
+ 
+Related
+=============
+- [quickstart bnb app with kif](https://github.com/lingtalfi/bnb)
+
+
 
 
     
 
 History Log
 ------------------
+    
+- 1.4.0 -- 2016-05-28
+
+    - downgraded KazuyaTestFinder from php7 to php5 for portability reasons
     
 - 1.3.0 -- 2016-05-18
 
