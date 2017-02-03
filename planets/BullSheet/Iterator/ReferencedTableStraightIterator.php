@@ -22,7 +22,7 @@ class ReferencedTableStraightIterator implements \Iterator
     /**
      * table: a table from which you select rows, not the one in which you insert data
      */
-    public function __construct(string $table, float $percent)
+    public function __construct($table, $percent)
     {
         $this->position = 0;
         $this->firstColNames = [];
@@ -65,7 +65,7 @@ class ReferencedTableStraightIterator implements \Iterator
     //------------------------------------------------------------------------------/
     // 
     //------------------------------------------------------------------------------/
-    private function getRows(string $table, float $percent): array
+    private function getRows($table, $percent)
     {
         $ret = [];
         $percent = round($percent, 3);
@@ -100,7 +100,7 @@ class ReferencedTableStraightIterator implements \Iterator
         return $ret;
     }
 
-    private function getFirstColumnName(string $table): string
+    private function getFirstColumnName($table)
     {
         if (!array_key_exists($table, $this->firstColNames)) {
             if (false !== ($columns = QuickPdoInfoTool::getColumnNames($table))) {
@@ -113,7 +113,7 @@ class ReferencedTableStraightIterator implements \Iterator
         return $this->firstColNames[$table];
     }
 
-    private function getNbRows(string $table): int
+    private function getNbRows($table)
     {
         if (false === ($nbRows = QuickPdo::count($table))) {
             throw new BullSheetException("Cannot count the number of rows for table $table");
@@ -121,7 +121,7 @@ class ReferencedTableStraightIterator implements \Iterator
         return $nbRows;
     }
 
-    private function resolvePercent(float $percent, int $nbRows): int
+    private function resolvePercent($percent,  $nbRows)
     {
         return (int)$nbRows * $percent / 100;
     }

@@ -122,7 +122,7 @@
     background: #ddd;
 }
 
-.datatable tr, td {
+.datatable tr, .datatable td {
     border-bottom: 1px solid #ccc;
 }
 
@@ -139,6 +139,8 @@
     color: #1515bb;
 }
 
-.datatable tbody a.action-link {
+.datatable tbody a.action-link,
+.datatable tbody a.ajaxlink
+{
     color: #9341ce;
 }

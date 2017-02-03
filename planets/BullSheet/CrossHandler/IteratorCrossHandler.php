@@ -27,7 +27,7 @@ class IteratorCrossHandler
     /**
      * Populate some database.
      */
-    public function handle(string $table, callable $insert, string $crossNotation, array $weights)
+    public function handle($table, callable $insert, $crossNotation, array $weights)
     {
         if (0 === strpos($crossNotation, "cross:")) {
 
@@ -41,8 +41,8 @@ class IteratorCrossHandler
                 $rightProportion = (float)$rightProportion;
 
 
-                $lWeights = $weights['left']??null;
-                $rWeights = $weights['right']??null;
+                $lWeights = array_key_exists('left', $weights) ? $weights['left'] : null;
+                $rWeights = array_key_exists('right', $weights) ? $weights['right'] : null;
 
 
                 $leftIt = new ReferencedTableIterator($table, $leftProportion, $leftTable, $lWeights);
@@ -65,8 +65,7 @@ class IteratorCrossHandler
                         $leftIt->injectRow($lrow);
                     }
                 }
-            }
-            else {
+            } else {
                 throw new BullSheetException("Invalid cross notation: 4 arguments were expected");
             }
         }

@@ -37,7 +37,7 @@ class RelationalUtil
     }
 
 
-    public function getTableKey(string $table, array $weights = null, string $keyName = 'id', bool $allowAutoIncrementReset = true): string
+    public function getTableKey($table, array $weights = null, $keyName = 'id', $allowAutoIncrementReset = true)
     {
 
 
@@ -103,7 +103,7 @@ DDD;
     }
 
 
-    private function rebaseAutoIncrement(string $table)
+    private function rebaseAutoIncrement($table)
     {
         if (!in_array($table, $this->rebased, true)) {
             QuickPdoDbOperationTool::rebaseAutoIncrement($table);
@@ -111,7 +111,7 @@ DDD;
         }
     }
 
-    private function getAutoIncrementedField(string $table): string
+    private function getAutoIncrementedField($table)
     {
         if (!array_key_exists($table, $this->autoIncs)) {
             $this->autoIncs[$table] = QuickPdoInfoTool::getAutoIncrementedField($table);
@@ -119,7 +119,7 @@ DDD;
         return $this->autoIncs[$table];
     }
 
-    private function getNbItems(string $table): int
+    private function getNbItems($table)
     {
         if (!array_key_exists($table, $this->nbItems)) {
             if (false !== ($info = QuickPdo::fetch("select count(*) as count from $table"))) {
@@ -132,7 +132,7 @@ DDD;
         return $this->nbItems[$table];
     }
 
-    private function request(string $q): array
+    private function request($q)
     {
         if (false !== ($info = QuickPdo::fetch($q))) {
             return $info;

@@ -218,24 +218,24 @@ class AuthorPopulator implements PopulatorInterface
      *                      - ?right: weightedColumns
      *
      *                      With:
-     *                          - weightedColumns: array of column => weights
-     *                          - weights: array of value => weight
+     *                          - weightedColumns of column => weights
+     *                          - weights of value => weight
      *
      */
-    public function addTable(string $table, $generator, callable $insert, $extra = null): AuthorPopulator
+    public function addTable($table, $generator, callable $insert, $extra = null)
     {
         $this->tables[] = [$table, $generator, $insert, $extra];
         return $this;
     }
 
-    public function setOnExceptionCb(callable $onExceptionCb): AuthorPopulator
+    public function setOnExceptionCb(callable $onExceptionCb)
     {
         $this->onExceptionCb = $onExceptionCb;
         return $this;
     }
 
 
-    public function setOnTableBefore(callable $cb): AuthorPopulator
+    public function setOnTableBefore(callable $cb)
     {
         $this->onTableBeforeCb = $cb;
         return $this;
@@ -246,7 +246,7 @@ class AuthorPopulator implements PopulatorInterface
     //------------------------------------------------------------------------------/
     // 
     //------------------------------------------------------------------------------/
-    protected function setIsDestructive(bool $isDestructive)
+    protected function setIsDestructive($isDestructive)
     {
         $this->destructive = $isDestructive;
         return $this;
@@ -256,7 +256,7 @@ class AuthorPopulator implements PopulatorInterface
     //------------------------------------------------------------------------------/
     // 
     //------------------------------------------------------------------------------/
-    private function getFirstColumnName(string $table): string
+    private function getFirstColumnName($table)
     {
         if (!array_key_exists($table, $this->firstColNames)) {
             if (false !== ($columns = QuickPdoInfoTool::getColumnNames($table))) {

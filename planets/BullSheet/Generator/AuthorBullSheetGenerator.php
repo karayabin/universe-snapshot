@@ -16,53 +16,53 @@ class AuthorBullSheetGenerator extends BullSheetGenerator
     //------------------------------------------------------------------------------/
     // GENERATED DATA
     //------------------------------------------------------------------------------/
-    public function boolean(int $chanceOfGettingTrue = 50): bool
+    public function boolean($chanceOfGettingTrue = 50)
     {
         return mt_rand(1, 100) <= $chanceOfGettingTrue ? true : false;
     }
 
-    public function password(int $length = 10): string
+    public function password($length = 10)
     {
         return $this->asciiChars($length);
     }
 
-    public function hexa(int $length = 3): string
+    public function hexa($length = 3)
     {
         return CharGeneratorTool::hexa($length);
     }
 
-    public function numbers(int $length = 3): string
+    public function numbers($length = 3)
     {
         return CharGeneratorTool::numbers($length);
     }
 
-    public function float(int $length = 3, $decimal = 2): string
+    public function float($length = 3, $decimal = 2)
     {
         return CharGeneratorTool::numbers($length) . '.' . CharGeneratorTool::numbers($decimal);
     }
 
-    public function letters(int $length = 3): string
+    public function letters($length = 3)
     {
         return CharGeneratorTool::letters($length);
     }
 
-    public function alphaNumericChars(int $length = 3): string
+    public function alphaNumericChars($length = 3)
     {
         return CharGeneratorTool::alphaNumericChars($length);
     }
 
-    public function wordChars(int $length = 3): string
+    public function wordChars($length = 3)
     {
         return CharGeneratorTool::wordChars($length);
     }
 
-    public function asciiChars(int $length = 3): string
+    public function asciiChars($length = 3)
     {
         return CharGeneratorTool::asciiChars($length);
     }
 
 
-    public function dateTimeBetween(string $min = '-1 month', string $max = '+1 month'): \DateTime
+    public function dateTimeBetween($min = '-1 month', $max = '+1 month')
     {
         $startTimestamp = strtotime($min);
         $endTimestamp = strtotime($max);

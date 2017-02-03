@@ -329,6 +329,26 @@ Dependencies
 History Log
 ------------------
 
+- 1.5.1 -- 2017-02-03
+
+    - AdminTableRenderer, add jslink helper comments
+    
+- 1.5.0 -- 2017-02-03
+
+    - AdminTableRenderer, add jslink helper
+    
+- 1.4.1 -- 2017-02-03
+
+    - AdminTableRenderer, fix ajaxlink helper 
+    
+- 1.4.0 -- 2017-02-03
+
+    - AdminTableRenderer, add ajaxlink helper
+    
+- 1.3.0 -- 2017-02-03
+
+    - AdminTableRenderer, add extraHiddenFields and onItemIterated methods
+    
 - 1.2.0 -- 2017-01-01
 
     - AdminTableRenderer, add getTableId method

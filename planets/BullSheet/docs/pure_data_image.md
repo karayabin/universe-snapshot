@@ -123,7 +123,7 @@ So, I forgot the method for the case where the user passes an url.
 The method is the following:
 
 ```php
-str     imageUrlFromLorem( int:width=400, int:height=200, str:category=null )
+str     imageUrlFromLorem( int:width=400, :height=200, str:category=null )
 ```
 
 
@@ -131,7 +131,7 @@ So that's it, we have two new methods in 1.1.0.
 
 ```php
 str     uploadedImage ( mixed:dstPath, mixed:dstUrl, str:domain=image ) 
-str     imageUrlFromLorem ( int:width=400, int:height=200, str:category=null ) 
+str     imageUrlFromLorem ( int:width=400, :height=200, str:category=null ) 
 ```
 
 

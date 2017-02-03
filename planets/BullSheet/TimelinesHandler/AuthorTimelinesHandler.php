@@ -13,7 +13,7 @@ class AuthorTimelinesHandler
     private $onExceptionCb;
 
 
-    public function handle(string $table, callable $insert, string $generator, array $extra = null)
+    public function handle($table, callable $insert, $generator, array $extra = null)
     {
         $p = explode(";", substr($generator, 10));
         list($timelineTable, $percent, $start, $end, $minDelay, $maxDelay) = $p;

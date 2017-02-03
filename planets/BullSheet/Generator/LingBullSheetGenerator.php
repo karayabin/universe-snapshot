@@ -21,7 +21,7 @@ class LingBullSheetGenerator extends AuthorBullSheetGenerator
     //------------------------------------------------------------------------------/
     // GOODIES
     //------------------------------------------------------------------------------/
-    public function populate(string $table, string $domain, callable $populate)
+    public function populate($table, $domain, callable $populate)
     {
         $file = $this->selectFile($domain);
         if (file_exists($file)) {
@@ -36,7 +36,7 @@ class LingBullSheetGenerator extends AuthorBullSheetGenerator
     //------------------------------------------------------------------------------/
     // RELATIONAL DATA 
     //------------------------------------------------------------------------------/
-    public function getTableKey(string $table, array $weights = null, string $keyName = 'id', bool $allowAutoIncrementReset = true): string
+    public function getTableKey($table, array $weights = null, $keyName = 'id', $allowAutoIncrementReset = true)
     {
         return $this->getRelationalUtil()->getTableKey($table, $weights, $keyName, $allowAutoIncrementReset);
     }
@@ -44,7 +44,7 @@ class LingBullSheetGenerator extends AuthorBullSheetGenerator
     //------------------------------------------------------------------------------/
     // COMBINED DATA
     //------------------------------------------------------------------------------/
-    public function comment(int $min = 5, int $max = 10): string
+    public function comment($min = 5,  $max = 10)
     {
         $s = '';
         $n = mt_rand($min, $max);
@@ -60,7 +60,7 @@ class LingBullSheetGenerator extends AuthorBullSheetGenerator
     /**
      * lineLength: approximate minimum line length
      */
-    public function dummySentence(int $min = 3, int $max = 5, int $lineLength = 50): string
+    public function dummySentence($min = 3,  $max = 5,  $lineLength = 50)
     {
         $s = '';
         $len = 0;
@@ -82,12 +82,12 @@ class LingBullSheetGenerator extends AuthorBullSheetGenerator
         return $s;
     }
 
-    public function email(bool $useGenerator = false): string
+    public function email($useGenerator = false)
     {
         return $this->pseudo($useGenerator) . '@' . $this->getPureData('free_email_provider_domain');
     }
 
-    public function loremSentence(int $min = 5, int $max = 10): string
+    public function loremSentence($min = 5,  $max = 10)
     {
         $s = '';
         $n = mt_rand($min, $max);
@@ -101,7 +101,7 @@ class LingBullSheetGenerator extends AuthorBullSheetGenerator
     }
 
 
-    public function loremWord(int $min = 5, int $max = 10): string
+    public function loremWord($min = 5,  $max = 10)
     {
         $s = '';
         $n = mt_rand($min, $max);
@@ -120,7 +120,7 @@ class LingBullSheetGenerator extends AuthorBullSheetGenerator
      * Returns a pseudo, using either a generator (lots of variations),
      * or a pure data stream (1932 variations).
      */
-    public function pseudo(bool $useGenerator = true): string
+    public function pseudo($useGenerator = true)
     {
         if (true === $useGenerator) {
 
@@ -222,12 +222,12 @@ class LingBullSheetGenerator extends AuthorBullSheetGenerator
     //------------------------------------------------------------------------------/
     // GENERATED DATA EXTENSION
     //------------------------------------------------------------------------------/
-    public function colorHexa(string $prefix = '#'): string
+    public function colorHexa($prefix = '#')
     {
         return $prefix . $this->hexa(6);
     }
 
-    public function colorRgb(bool $useAlpha = false): string
+    public function colorRgb($useAlpha = false)
     {
         $s = 'rgb(' . mt_rand(0, 255) . ', ' . mt_rand(0, 255) . ', ' . mt_rand(0, 255);
         if (true === $useAlpha) {
@@ -237,7 +237,7 @@ class LingBullSheetGenerator extends AuthorBullSheetGenerator
         return $s;
     }
 
-    public function colorWeb(): string
+    public function colorWeb()
     {
         if (1 === mt_rand(0, 1)) {
             return $this->colorHexa();
@@ -247,12 +247,12 @@ class LingBullSheetGenerator extends AuthorBullSheetGenerator
         }
     }
 
-    public function dateMysql(string $min = '-1 month', string $max = '+1 month'): string
+    public function dateMysql($min = '-1 month', $max = '+1 month')
     {
         return $this->dateTimeBetween($min, $max)->format('Y-m-d');
     }
 
-    public function dateTimeMysql(string $min = '-1 month', string $max = '+1 month'): string
+    public function dateTimeMysql($min = '-1 month', $max = '+1 month')
     {
         return $this->dateTimeBetween($min, $max)->format('Y-m-d H:i:s');
     }
@@ -261,32 +261,32 @@ class LingBullSheetGenerator extends AuthorBullSheetGenerator
     //------------------------------------------------------------------------------/
     // PURE DATA
     //------------------------------------------------------------------------------/
-    public function actor(): string
+    public function actor()
     {
         return $this->getPureData('actor');
     }
 
-    public function firstName(): string
+    public function firstName()
     {
         return $this->getPureData('first_name');
     }
 
-    public function lastName(): string
+    public function lastName()
     {
         return $this->getPureData('last_name');
     }
 
-    public function passwordHuman(): string
+    public function passwordHuman()
     {
         return $this->getPureData('password/common');
     }
 
-    public function topLevelDomain(): string
+    public function topLevelDomain()
     {
         return $this->getPureData('top_level_domain');
     }
     
-    public function websiteDomain(): string
+    public function websiteDomain()
     {
         return $this->getPureData('website_domain');
     }
@@ -295,7 +295,7 @@ class LingBullSheetGenerator extends AuthorBullSheetGenerator
     //------------------------------------------------------------------------------/
     // PURE DATA IMAGES
     //------------------------------------------------------------------------------/
-    public function imageUrlFromLorem(int $width = 400, int $height = 200, string $category = null): string
+    public function imageUrlFromLorem($width = 400,  $height = 200, $category = null)
     {
         if (null === $category) {
             return "http://lorempixel.com/$width/$height";
@@ -303,13 +303,13 @@ class LingBullSheetGenerator extends AuthorBullSheetGenerator
         return "http://lorempixel.com/$width/$height/$category";
     }
 
-    public function uploadedImage($dstPath, $dstUrl, string $domain = 'image'): string
+    public function uploadedImage($dstPath, $dstUrl, $domain = 'image')
     {
         return $this->uploadedMedia($dstPath, $dstUrl, $domain, '[image]');
     }
 
 
-    public function uploadedMedia($dstPath, $dstUrl, string $domain = 'image', string $tag = '[media]'): string
+    public function uploadedMedia($dstPath, $dstUrl, $domain = 'image', $tag = '[media]')
     {
         $file = $this->getDir() . '/' . $this->getPureData($domain);
         if (!file_exists($file)) {
@@ -351,7 +351,7 @@ class LingBullSheetGenerator extends AuthorBullSheetGenerator
     //------------------------------------------------------------------------------/
     // 
     //------------------------------------------------------------------------------/
-    protected function getDir(): string
+    protected function getDir()
     {
         return parent::getDir() . '/ling';
     }
@@ -360,7 +360,7 @@ class LingBullSheetGenerator extends AuthorBullSheetGenerator
     //------------------------------------------------------------------------------/
     // 
     //------------------------------------------------------------------------------/
-    private function getComponentName(string $choice): string
+    private function getComponentName($choice)
     {
         switch ($choice) {
             case 'f':
@@ -378,7 +378,7 @@ class LingBullSheetGenerator extends AuthorBullSheetGenerator
         }
     }
 
-    private function getRelationalUtil(): RelationalUtil
+    private function getRelationalUtil()
     {
         if (null === $this->relationalUtil) {
             $this->relationalUtil = RelationalUtil::create();

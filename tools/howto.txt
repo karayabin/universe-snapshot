@@ -1,0 +1,17 @@
+2016-04-04
+
+Run the duplicate script in browser (http://usnap/private/duplicate.php)
+	- it copies the current universe into the last-universe/planets directory
+	- it filters out the private and .git directories
+
+
+Make a zip of the last-universe/planets directory, you end up with the last-universe/planets.zip file.
+
+Move the zip to the root (universe-snapshots/2016-04-04.zip)
+
+Update the README file
+
+
+Commit
+
+

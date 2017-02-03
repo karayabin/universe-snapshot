@@ -12,7 +12,7 @@ class PickRandomLineTool
 {
 
     
-    public static function getRandomLine(string $file): string
+    public static function getRandomLine($file)
     {
         
         /**

@@ -15,7 +15,7 @@ class ProbabilityTool
      *
      * @return mixed - the randomly chosen value, with consideration of the given weights
      */
-    public static function resolveWeight(array $values2Weights): string
+    public static function resolveWeight(array $values2Weights)
     {
         $ret = null;
         arsort($values2Weights);
@@ -39,7 +39,7 @@ class ProbabilityTool
      * @param array $weights
      * @return array
      */
-    public static function resolveWeights(array $weights): array
+    public static function resolveWeights(array $weights)
     {
         $ret = [];
         foreach ($weights as $key => $info) {

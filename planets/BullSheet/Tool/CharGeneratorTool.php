@@ -8,7 +8,7 @@ namespace BullSheet\Tool;
 class CharGeneratorTool
 {
 
-    public static function hexa(int $length = 3): string
+    public static function hexa($length = 3)
     {
         $s = '';
         $characters = '0123456789abcdef';
@@ -19,7 +19,7 @@ class CharGeneratorTool
     }
     
     
-    public static function numbers(int $length = 3): string
+    public static function numbers($length = 3)
     {
         $s = '';
         for ($i = 0; $i < $length; $i++) {
@@ -28,7 +28,7 @@ class CharGeneratorTool
         return $s;
     }
 
-    public static function letters(int $length = 3): string
+    public static function letters($length = 3)
     {
         $s = '';
         $characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
@@ -38,7 +38,7 @@ class CharGeneratorTool
         return $s;
     }
 
-    public static function alphaNumericChars(int $length = 3): string
+    public static function alphaNumericChars($length = 3)
     {
         $s = '';
         $characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
@@ -48,7 +48,7 @@ class CharGeneratorTool
         return $s;
     }
 
-    public static function wordChars(int $length = 3): string
+    public static function wordChars($length = 3)
     {
         $s = '';
         $characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz_';
@@ -58,7 +58,7 @@ class CharGeneratorTool
         return $s;
     }
 
-    public static function asciiChars(int $length = 3): string
+    public static function asciiChars($length = 3)
     {
         $s = '';
         for ($i = 0; $i < $length; $i++) {

@@ -25,7 +25,7 @@ class ReferencedTableWeightedIterator implements \Iterator
      * table: the table in which you insert data
      * foreignTable: the table from which you select rows using weights.
      */
-    public function __construct(string $table, float $percent, string $foreignTable, array $weights)
+    public function __construct($table, $percent, $foreignTable, array $weights)
     {
         $this->current = 0;
         $this->max = $this->resolvePercent($percent, $this->getNbRows($foreignTable));
@@ -100,7 +100,7 @@ class ReferencedTableWeightedIterator implements \Iterator
     // 
     //------------------------------------------------------------------------------/
 
-    private function getNbRows(string $table): int
+    private function getNbRows($table)
     {
         if (false === ($nbRows = QuickPdo::count($table))) {
             throw new BullSheetException("Cannot count the number of rows for table $table");
@@ -108,12 +108,12 @@ class ReferencedTableWeightedIterator implements \Iterator
         return $nbRows;
     }
 
-    private function resolvePercent(float $percent, int $nbRows): int
+    private function resolvePercent($percent,  $nbRows)
     {
         return (int)$nbRows * $percent / 100;
     }
 
-    private function getForeignKey(string $table, string $foreignTable): string
+    private function getForeignKey($table, $foreignTable)
     {
         $foreignKey = null;
         $info = QuickPdoInfoTool::getForeignKeysInfo($table);

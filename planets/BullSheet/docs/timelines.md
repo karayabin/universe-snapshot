@@ -84,7 +84,7 @@ This timestamp argument is a reference, and the user is responsible for incremen
 Here is how a typical insert callback would work:
 
 ```php 
-    function ( array:row, int:&startTime ){
+    function ( array:row, :&startTime ){
     
         QuickPdo::insert(my_school_events, [
             the_classes_id: row[id],    

@@ -11,7 +11,6 @@ Generate fake data to populate your database.
 Features
 --------------
 
-- php7
 - easy to extend
 - data is decoupled from the generator, you can create your own data directory easily
 - existing public data repository 
@@ -338,11 +337,11 @@ AuthorBullSheetGenerator extends BullSheetGenerator   // it adds a generated dat
 LingBullSheetGenerator extends AuthorBullSheetGenerator   // add a combined data layer
 
 (combined layer data)
-+ string        comment ( int:min=5, int:max=10 )
-+ string        dummySentence ( int:min=3, int:max=5, int:lineLength=50 )
++ string        comment ( int:min=5, :max=10 )
++ string        dummySentence ( int:min=3, :max=5, :lineLength=50 )
 + string        email (bool:useGenerator=false)
-+ string        loremSentence ( int:min=5, int:max=10 )
-+ string        loremWord ( int:min=5, int:max=10 )
++ string        loremSentence ( int:min=5, :max=10 )
++ string        loremWord ( int:min=5, :max=10 )
 + string        pseudo ( bool:useGenerator=true )       // using generator creates a lot more randomness
 
 (generated layer data)
@@ -361,7 +360,7 @@ LingBullSheetGenerator extends AuthorBullSheetGenerator   // add a combined data
 + string        websiteDomain ()
 
 (pure data images)
-+ string        imageUrlFromLorem ( int:width=400, int:height=200, str:category=null )
++ string        imageUrlFromLorem ( int:width=400, :height=200, str:category=null )
 + string        uploadedImage ( str|callable:dstPath, str|callable:dstUrl, str:domain=image )
 + string        uploadedMedia ( str|callable:dstPath, str|callable:dstUrl, str:domain=image, str:tag=[media] )
 
@@ -1074,6 +1073,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.3.0 -- 2017-02-03
+
+    - revert to php5 (instead of php7)
+
 - 1.2.0 -- 2017-02-02
 
     - add AuthorBullSheetGenerator.float method

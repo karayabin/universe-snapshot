@@ -8,7 +8,7 @@ namespace BullSheet\Tool;
 class CleanListBuddyTool
 {
 
-    public static function outputCleanList(string $dataFile)
+    public static function outputCleanList($dataFile)
     {
         $lines = file($dataFile);
         $lines = array_unique($lines);

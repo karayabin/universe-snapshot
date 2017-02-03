@@ -29,7 +29,7 @@ class BullSheetGenerator implements BullSheetGeneratorInterface
     }
 
 
-    public function getPureData($domain = null): string
+    public function getPureData($domain = null)
     {
         $file = $this->selectFile($domain);
         return PickRandomLineTool::getRandomLine($file);
@@ -63,7 +63,7 @@ class BullSheetGenerator implements BullSheetGeneratorInterface
     //------------------------------------------------------------------------------/
 
 
-    private function getFileList($domain = null): array
+    private function getFileList($domain = null)
     {
         if (is_array($domain)) {
             $hashIndex = implode('', $domain);
@@ -89,7 +89,7 @@ class BullSheetGenerator implements BullSheetGeneratorInterface
         return $fList;
     }
 
-    private function collectDataFiles(string $dom, array &$fileList, $silent = false)
+    private function collectDataFiles($dom, array &$fileList, $silent = false)
     {
         // resolving wildcard if any
         if (false !== ($pos = strpos($dom, '/*/'))) {

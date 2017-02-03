@@ -1,0 +1,16 @@
+automate the workflow of creating snapshots:
+
+
+- create zip directly,
+- update the readme providing the size of the snapshot...
+
+
+To create a snapshot manually:
+
+copy the planets folder to the universe-snapshots dir and name it with the current date.
+Run http://universe/get-bar-missing.php and remove the private projects.
+run the cleaner to remove .git, and private, ...
+zip the snapshot.
+update the readme.
+Worflow should be automated every 01 at midnight, or later (implement your cron system ?)
+
