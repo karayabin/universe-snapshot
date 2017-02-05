@@ -1,6 +1,6 @@
 AdminTable
 ===============
-2016-12-23
+2016-12-23 --> 2017-02-05
 
 
 An object to display administrable list of rows.
@@ -328,6 +328,10 @@ Dependencies
 
 History Log
 ------------------
+
+- 1.6.0 -- 2017-02-05
+
+    - AdminTableRenderer, extraHiddenFields accepts array 
 
 - 1.5.1 -- 2017-02-03
 

@@ -540,9 +540,19 @@ class AdminTableRenderer implements TableRendererInterface
 
 
         foreach ($this->extraHiddenFields as $name => $value):
-            ?>
-            <input type="hidden" name="<?php echo htmlspecialchars($name); ?>
+
+            if (is_array($value)) {
+                foreach ($value as $v) {
+                    ?>
+                    <input type="hidden" name="<?php echo htmlspecialchars($name); ?>
+                       value="<?php echo htmlspecialchars($v); ?>"><?php
+                }
+            } else {
+                ?>
+                <input type="hidden" name="<?php echo htmlspecialchars($name); ?>
                        value="<?php echo htmlspecialchars($value); ?>"><?php
+            }
+
 
         endforeach;
 
