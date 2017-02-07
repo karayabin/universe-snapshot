@@ -24,13 +24,13 @@
 
 
 $universeDir = "/myphp/universe/planets";
-$universeCopyDir = "/myphp/universe-snapshots/planets";
+$universeCopyDir = "/myphp/universe-snapshot/planets";
 
 $bigbangSrc = "/myphp/universe/bigbang.php";
-$bigbangDst = "/myphp/universe-snapshots/bigbang.php";
+$bigbangDst = "/myphp/universe-snapshot/bigbang.php";
 
 $readmeSrc = "/myphp/universe/README.md";
-$readmeDst = "/myphp/universe-snapshots/README.md";
+$readmeDst = "/myphp/universe-snapshot/README.md";
 
 
 

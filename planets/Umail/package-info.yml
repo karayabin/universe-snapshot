@@ -1,0 +1,5 @@
+dependencies:
+    - git::/lingtalfi/DirScanner:1.3.0 (only if you use the mail-viewer script)
+        
+        
+        

@@ -363,143 +363,146 @@ class AdminTableRenderer implements TableRendererInterface
             var uncheckAllBtn = tableSection.querySelector('.uncheckall-btn');
             var table = tableSection.querySelector(".datatable");
 
-            if (checkAllBtn) {
+            if (table) {
 
-                checkAllBtn.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    [].forEach.call(table.querySelectorAll(".checkbox"), function (el) {
-                        el.checked = true;
+
+                if (checkAllBtn) {
+
+                    checkAllBtn.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        [].forEach.call(table.querySelectorAll(".checkbox"), function (el) {
+                            el.checked = true;
+                        });
+                        checkAllBtn.classList.add('hidden');
+                        uncheckAllBtn.classList.remove('hidden');
                     });
-                    checkAllBtn.classList.add('hidden');
-                    uncheckAllBtn.classList.remove('hidden');
-                });
 
 
-                uncheckAllBtn.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    [].forEach.call(table.querySelectorAll(".checkbox"), function (el) {
-                        el.checked = false;
+                    uncheckAllBtn.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        [].forEach.call(table.querySelectorAll(".checkbox"), function (el) {
+                            el.checked = false;
+                        });
+                        checkAllBtn.classList.remove('hidden');
+                        uncheckAllBtn.classList.add('hidden');
                     });
-                    checkAllBtn.classList.remove('hidden');
-                    uncheckAllBtn.classList.add('hidden');
-                });
-            }
+                }
 
-            /**
-             * Multiple action
-             */
-            var tableForm = tableSection.querySelector('.datatable-form');
-            var multiActionSelector = tableSection.querySelector(".multiple-action-selector");
-            multiActionSelector && multiActionSelector.addEventListener('change', function () {
+                /**
+                 * Multiple action
+                 */
+                var tableForm = tableSection.querySelector('.datatable-form');
+                var multiActionSelector = tableSection.querySelector(".multiple-action-selector");
+                multiActionSelector && multiActionSelector.addEventListener('change', function () {
 
-                var option = multiActionSelector.options[multiActionSelector.selectedIndex];
-                if (option.hasAttribute('data-confirm') && 'true' === option.getAttribute('data-confirm')) {
-                    if (true === window.confirm("<?php echo $this->jsQuote($this->texts['multipleAction.confirm']); ?>")) {
+                    var option = multiActionSelector.options[multiActionSelector.selectedIndex];
+                    if (option.hasAttribute('data-confirm') && 'true' === option.getAttribute('data-confirm')) {
+                        if (true === window.confirm("<?php echo $this->jsQuote($this->texts['multipleAction.confirm']); ?>")) {
+                            tableForm.submit();
+                        }
+                    }
+                    else {
                         tableForm.submit();
                     }
-                }
-                else {
-                    tableForm.submit();
-                }
-            });
+                });
 
 
-            /**
-             * Handling datatable single actions
-             */
-            var blackhole = tableSection.querySelector(".blackhole");
-            table.addEventListener('click', function (e) {
+                /**
+                 * Handling datatable single actions
+                 */
+                var blackhole = tableSection.querySelector(".blackhole");
+                table.addEventListener('click', function (e) {
 
-                if (e.target.classList.contains("confirmlink")) {
-                    if (false === window.confirm("<?php echo $this->jsQuote($this->texts['singleAction.confirm']); ?>")) {
-                        e.preventDefault();
-                        return; // prevent postlink to execute (delete link for instance)
-                    }
-                }
-
-
-                if (e.target.classList.contains('postlink')) {
-
-
-                    var action = e.target.getAttribute('data-action');
-                    var ric = e.target.getAttribute('data-ric');
-                    var value = e.target.getAttribute('data-value');
-
-
-                    var tmpForm = document.createElement('form');
-                    tmpForm.setAttribute('method', 'post');
-
-
-                    var inputAction = document.createElement('input');
-                    inputAction.setAttribute('type', 'hidden');
-                    inputAction.setAttribute('name', 'action');
-                    inputAction.setAttribute('value', action);
-
-                    var inputRic = document.createElement('input');
-                    inputRic.setAttribute('type', 'hidden');
-                    inputRic.setAttribute('name', 'ric');
-                    inputRic.setAttribute('value', ric);
-
-
-                    tmpForm.appendChild(inputAction);
-                    tmpForm.appendChild(inputRic);
-
-
-                    if (null !== value) {
-                        var inputVal = document.createElement('input');
-                        inputVal.setAttribute('type', 'hidden');
-                        inputVal.setAttribute('name', 'value');
-                        inputVal.setAttribute('value', value);
-                        tmpForm.appendChild(inputVal);
-                    }
-
-                    blackhole.appendChild(tmpForm);
-                    tmpForm.submit();
-
-
-                    e.preventDefault();
-                }
-                else if (e.target.classList.contains('ajaxlink')) {
-
-                    var url = e.target.getAttribute('data-url');
-                    var param = e.target.getAttribute('data-param');
-                    var paramName = e.target.getAttribute('data-param-name');
-                    var handler = e.target.getAttribute('data-handler');
-
-                    var callback = function () {
-                    };
-                    if (null !== handler && handler in adminTableHandlers) {
-                        callback = adminTableHandlers[handler];
-                    }
-
-
-                    var data = {};
-                    if (null !== param) {
-                        var theParamName = "param";
-                        if (null !== paramName) {
-                            theParamName = paramName;
+                    if (e.target.classList.contains("confirmlink")) {
+                        if (false === window.confirm("<?php echo $this->jsQuote($this->texts['singleAction.confirm']); ?>")) {
+                            e.preventDefault();
+                            return; // prevent postlink to execute (delete link for instance)
                         }
-                        data[theParamName] = param;
                     }
 
-                    ajaxPost(url, data, function (theData) {
-                        callback(theData, e.target);
-                    });
-                    e.preventDefault();
-                }
-                else if (e.target.classList.contains('jslink')) {
 
-                    var handler = e.target.getAttribute('data-handler');
-                    var callback = function () {
-                    };
-                    if (null !== handler && handler in adminTableHandlers) {
-                        callback = adminTableHandlers[handler];
+                    if (e.target.classList.contains('postlink')) {
+
+
+                        var action = e.target.getAttribute('data-action');
+                        var ric = e.target.getAttribute('data-ric');
+                        var value = e.target.getAttribute('data-value');
+
+
+                        var tmpForm = document.createElement('form');
+                        tmpForm.setAttribute('method', 'post');
+
+
+                        var inputAction = document.createElement('input');
+                        inputAction.setAttribute('type', 'hidden');
+                        inputAction.setAttribute('name', 'action');
+                        inputAction.setAttribute('value', action);
+
+                        var inputRic = document.createElement('input');
+                        inputRic.setAttribute('type', 'hidden');
+                        inputRic.setAttribute('name', 'ric');
+                        inputRic.setAttribute('value', ric);
+
+
+                        tmpForm.appendChild(inputAction);
+                        tmpForm.appendChild(inputRic);
+
+
+                        if (null !== value) {
+                            var inputVal = document.createElement('input');
+                            inputVal.setAttribute('type', 'hidden');
+                            inputVal.setAttribute('name', 'value');
+                            inputVal.setAttribute('value', value);
+                            tmpForm.appendChild(inputVal);
+                        }
+
+                        blackhole.appendChild(tmpForm);
+                        tmpForm.submit();
+
+
+                        e.preventDefault();
                     }
-                    callback(e.target);
-                    e.preventDefault();
-                }
-            });
+                    else if (e.target.classList.contains('ajaxlink')) {
 
+                        var url = e.target.getAttribute('data-url');
+                        var param = e.target.getAttribute('data-param');
+                        var paramName = e.target.getAttribute('data-param-name');
+                        var handler = e.target.getAttribute('data-handler');
+
+                        var callback = function () {
+                        };
+                        if (null !== handler && handler in adminTableHandlers) {
+                            callback = adminTableHandlers[handler];
+                        }
+
+
+                        var data = {};
+                        if (null !== param) {
+                            var theParamName = "param";
+                            if (null !== paramName) {
+                                theParamName = paramName;
+                            }
+                            data[theParamName] = param;
+                        }
+
+                        ajaxPost(url, data, function (theData) {
+                            callback(theData, e.target);
+                        });
+                        e.preventDefault();
+                    }
+                    else if (e.target.classList.contains('jslink')) {
+
+                        var handler = e.target.getAttribute('data-handler');
+                        var callback = function () {
+                        };
+                        if (null !== handler && handler in adminTableHandlers) {
+                            callback = adminTableHandlers[handler];
+                        }
+                        callback(e.target);
+                        e.preventDefault();
+                    }
+                });
+            }
         </script>
         <?php
     }
@@ -544,12 +547,12 @@ class AdminTableRenderer implements TableRendererInterface
             if (is_array($value)) {
                 foreach ($value as $v) {
                     ?>
-                    <input type="hidden" name="<?php echo htmlspecialchars($name); ?>
-                       value="<?php echo htmlspecialchars($v); ?>"><?php
+                    <input type="hidden" name="<?php echo htmlspecialchars($name); ?>"
+                           value="<?php echo htmlspecialchars($v); ?>"><?php
                 }
             } else {
                 ?>
-                <input type="hidden" name="<?php echo htmlspecialchars($name); ?>
+                <input type="hidden" name="<?php echo htmlspecialchars($name); ?>"
                        value="<?php echo htmlspecialchars($value); ?>"><?php
             }
 

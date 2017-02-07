@@ -329,6 +329,14 @@ Dependencies
 History Log
 ------------------
 
+- 1.6.2 -- 2017-02-05
+
+    - AdminTableRenderer, fix javascript table ref when table does not exist
+
+- 1.6.1 -- 2017-02-05
+
+    - AdminTableRenderer, extraHiddenFields fix missing quote bug
+
 - 1.6.0 -- 2017-02-05
 
     - AdminTableRenderer, extraHiddenFields accepts array 
