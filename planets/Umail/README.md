@@ -825,6 +825,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.1.0 -- 2017-02-14
+
+    - revisit TemplateLoader technique to handle php templates
+    
 - 1.0.0 -- 2017-02-07
 
     - initial commit

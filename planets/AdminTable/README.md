@@ -329,6 +329,10 @@ Dependencies
 History Log
 ------------------
 
+- 1.6.3 -- 2017-02-14
+
+    - AdminTableRenderer, add onItemRendered callback trClass argument
+    
 - 1.6.2 -- 2017-02-05
 
     - AdminTableRenderer, fix javascript table ref when table does not exist

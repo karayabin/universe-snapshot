@@ -211,10 +211,12 @@ class AdminTableRenderer implements TableRendererInterface
                         </thead>
                         <tbody>
                         <?php foreach ($items as $item):
-                            $this->onItemIterated($item);
+                            $trClass = "";
+                            $this->onItemIterated($item, $trClass);
                             $rowUniqueIdentifier = $this->getRowUniqueIdentifier($item, $ric, $ricSeparator);
                             ?>
-                            <tr class="<?php echo (0 === $i++ % 2) ? 'even' : 'odd'; ?>">
+                            <tr class="<?php echo $trClass . ' ';
+                            echo (0 === $i++ % 2) ? 'even' : 'odd'; ?>">
 
                                 <?php if (true === $p->showCheckboxes): ?>
                                     <td>
@@ -562,10 +564,10 @@ class AdminTableRenderer implements TableRendererInterface
     }
 
 
-    private function onItemIterated(array $item)
+    private function onItemIterated(array $item, &$trClass)
     {
         if (null !== $this->onItemIteratedCallback) {
-            call_user_func($this->onItemIteratedCallback, $item);
+            call_user_func_array($this->onItemIteratedCallback, [$item, &$trClass]);
         }
     }
 
