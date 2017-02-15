@@ -329,6 +329,10 @@ Dependencies
 History Log
 ------------------
 
+- 1.6.4 -- 2017-02-15
+
+    - AdminTableRenderer, printHiddenFields visibility to protected
+    
 - 1.6.3 -- 2017-02-14
 
     - AdminTableRenderer, add onItemRendered callback trClass argument

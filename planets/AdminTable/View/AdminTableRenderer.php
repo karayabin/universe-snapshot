@@ -515,7 +515,7 @@ class AdminTableRenderer implements TableRendererInterface
     //------------------------------------------------------------------------------/
     //
     //------------------------------------------------------------------------------/
-    private function printHiddenFields($exclude, ListParameters $p, $page, $sortColumn, $sortColumnDir, $search, $nbItemsPerPageChoice)
+    protected function printHiddenFields($exclude, ListParameters $p, $page, $sortColumn, $sortColumnDir, $search, $nbItemsPerPageChoice)
     {
         ?>
         <input type="hidden" name="<?php echo $p->sortColumnGetKey; ?>"
