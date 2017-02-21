@@ -5,6 +5,7 @@ namespace Umail;
 
 
 use Umail\Exception\UmailException;
+use Umail\Renderer\RendererInterface;
 use Umail\TemplateLoader\TemplateLoaderInterface;
 
 
@@ -148,6 +149,13 @@ interface UmailInterface
 
 
     /**
+     * @param RendererInterface $renderer
+     * @return UmailInterface
+     */
+    public function setRenderer(RendererInterface $renderer);
+
+
+    /**
      * Variables
      * --------------
      *
@@ -207,7 +215,7 @@ interface UmailInterface
      *              to and it can choose inline mode even if you don't specify it
      *              with this inline argument.
      *
-     * @param bool $isFilePath=true, whether or not the given file is a file path or a dynamically generated content
+     * @param bool $isFilePath =true, whether or not the given file is a file path or a dynamically generated content
      *
      *
      *
@@ -223,7 +231,7 @@ interface UmailInterface
      * @param $mimeType , the mime type of the file (ex: image/jpeg).
      *                      Is guessed automatically for common formats (images)
      *
-     * @param bool $isFilePath=true, whether or not the given file is a file path or a dynamically generated content
+     * @param bool $isFilePath =true, whether or not the given file is a file path or a dynamically generated content
      *
      * @return string, the contentId that you need to include in your html body,
      *              inside the src attribute of your image (or video) to make
@@ -232,8 +240,6 @@ interface UmailInterface
      *
      */
     public function embedFile($file, $fileName = null, $mimeType = null, $isFilePath = true);
-
-
 
 
     /**

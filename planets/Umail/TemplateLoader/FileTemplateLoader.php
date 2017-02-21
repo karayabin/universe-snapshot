@@ -22,6 +22,7 @@ class FileTemplateLoader implements TemplateLoaderInterface
      *
      */
     private $dir;
+    private $suffix;
 
     /**
      * htmlPath, plainPath are locations to the actual template files
@@ -33,11 +34,23 @@ class FileTemplateLoader implements TemplateLoaderInterface
     public function __construct()
     {
         $this->dir = __DIR__ . "/../../../mails";
+        $this->suffix = '';
+    }
+
+    public static function create()
+    {
+        return new static();
     }
 
     public function setDir($d)
     {
         $this->dir = $d;
+        return $this;
+    }
+
+    public function setSuffix($s)
+    {
+        $this->suffix = $s;
         return $this;
     }
 
@@ -83,12 +96,12 @@ class FileTemplateLoader implements TemplateLoaderInterface
     //------------------------------------------------------------------------------/
     protected function getHtmlRelativePath($templateName)
     {
-        return $templateName . '.html';
+        return $templateName . '.html' . $this->suffix;
     }
 
     protected function getPlainRelativePath($templateName)
     {
-        return $templateName . '.txt';
+        return $templateName . '.txt' . $this->suffix;
     }
 
     /**
@@ -99,13 +112,7 @@ class FileTemplateLoader implements TemplateLoaderInterface
     {
         $content = null;
         if (file_exists($path)) {
-            if ('.php' === substr(strtolower($path), -4)) {
-                ob_start();
-                include $path;
-                $content = ob_get_clean();
-            } else {
-                $content = file_get_contents($path);
-            }
+            $content = file_get_contents($path);
         }
         return $content;
     }

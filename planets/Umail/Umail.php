@@ -5,6 +5,8 @@ namespace Umail;
 
 
 use Umail\Exception\UmailException;
+use Umail\Renderer\Renderer;
+use Umail\Renderer\RendererInterface;
 use Umail\TemplateLoader\FileTemplateLoader;
 use Umail\TemplateLoader\TemplateLoaderInterface;
 use Umail\VarLoader\VarLoaderInterface;
@@ -70,6 +72,11 @@ class Umail implements UmailInterface
     private $fileMimeType;
     private $fileInline;
     private $fileIsPath;
+
+    /**
+     * @var \RendererInterface $renderer
+     */
+    private $renderer;
 
 
     public function __construct()
@@ -179,6 +186,12 @@ class Umail implements UmailInterface
     public function setTemplateLoader(TemplateLoaderInterface $loader)
     {
         $this->templateLoader = $loader;
+        return $this;
+    }
+
+    public function setRenderer(RendererInterface $renderer)
+    {
+        $this->renderer = $renderer;
         return $this;
     }
 
@@ -326,6 +339,14 @@ class Umail implements UmailInterface
         return $this->templateLoader;
     }
 
+    protected function getRenderer()
+    {
+        if (null === $this->renderer) {
+            $this->renderer = new Renderer();
+        }
+        return $this->renderer;
+    }
+
     protected function onBatchExceptionCaught(\Swift_SwiftException $e, &$processNextItem = true)
     {
         throw $e; // override this method if you want...
@@ -386,20 +407,11 @@ class Umail implements UmailInterface
 
     private function injectVars(&$subjectContent, &$htmlContent, &$plainContent, array $vars)
     {
-        $keys = array_keys($vars);
-        if (is_callable($this->varRefWrapper)) {
-            $keys = array_map($this->varRefWrapper, $keys);
-        }
-        $values = array_values($vars);
-        if (is_string($subjectContent)) {
-            $subjectContent = str_replace($keys, $values, $subjectContent);
-        }
-        if (is_string($htmlContent)) {
-            $htmlContent = str_replace($keys, $values, $htmlContent);
-        }
-        if (is_string($plainContent)) {
-            $plainContent = str_replace($keys, $values, $plainContent);
-        }
+
+        $renderer = $this->getRenderer();
+        $subjectContent = $renderer->setTemplateContent($subjectContent)->render($vars);
+        $plainContent = $renderer->setTemplateContent($plainContent)->render($vars);
+        $htmlContent = $renderer->setTemplateContent($htmlContent)->render($vars);
     }
 
     private function prepareMessageBody($subjectText, $htmlText, $plainText)

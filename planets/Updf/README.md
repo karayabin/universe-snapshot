@@ -537,6 +537,10 @@ So if you write this code, notice the border=0.5 set on the table tag...
 History Log
 ------------------
     
+- 1.0.1 -- 2017-02-17
+
+    - fix bug in template loader
+    
 - 1.0.0 -- 2017-02-12
 
     - initial commit

@@ -4,7 +4,6 @@
 namespace Updf\TemplateLoader;
 
 
-
 use Updf\Util\UpdfUtil;
 
 class TemplateLoader implements TemplateLoaderInterface
@@ -27,6 +26,12 @@ class TemplateLoader implements TemplateLoaderInterface
     }
 
 
+    public static function create()
+    {
+        return new static();
+    }
+
+
     public function load($templateName, $context = null)
     {
         $tplFile = $this->tplDir . "/" . $templateName . '.' . $this->tplExtension;
@@ -34,6 +39,7 @@ class TemplateLoader implements TemplateLoaderInterface
         if (file_exists($tplFile)) {
             return file_get_contents($tplFile);
         } elseif (null !== $context) {
+
             $refClass = new \ReflectionClass($context);
             $tplDir = dirname($refClass->getFileName()) . '/pdf';
             $tplBaseFile = $tplDir . "/" . $templateName;
@@ -51,7 +57,7 @@ class TemplateLoader implements TemplateLoaderInterface
     //--------------------------------------------
     public function setTemplateDir($dir)
     {
-        $this->dir = $dir;
+        $this->tplDir = $dir;
         return $this;
     }
 

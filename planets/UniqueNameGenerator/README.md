@@ -1,6 +1,6 @@
 UniqueNameGenerator
 ========================
-2016-01-07
+2016-01-07 --> 2017-02-21
 
 
 
@@ -18,10 +18,11 @@ Use cases
 So far, the following use cases have been encountered:
 
 - generate a unique filesystem name, to avoid file overwriting
+- generate a unique item name, to avoid naming conflict
 
 
 
-Example
+Example with files
 -----------
 
 ```php
@@ -39,6 +40,31 @@ $f = "/tmp/newFile.txt";
 */
 a(SimpleFileSystemUniqueNameGenerator::create()->generate($f));  // /tmp/newFile-1.txt    
 ```
+
+
+
+Example with names
+-----------
+
+```php
+<?php
+
+use UniqueNameGenerator\Generator\ItemUniqueNameGenerator;
+
+require_once "bigbang.php";
+
+
+$f = "A";
+a(ItemUniqueNameGenerator::create()->setNamePool([
+    'A',
+    'A-2',
+    'A-3',
+])->generate($f)); // A-4
+```
+
+
+
+
 
 
 
@@ -96,6 +122,10 @@ Dependencies
 
 History Log
 ------------------
+    
+- 1.1.0 -- 2017-02-21
+
+    - add ItemUniqueNameGenerator
     
 - 1.0.0 -- 2016-01-07
 
