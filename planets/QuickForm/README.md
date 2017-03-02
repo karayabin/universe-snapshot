@@ -865,6 +865,10 @@ History Log
 ------------------
 
 
+- 4.6.1 -- 2017-03-02
+
+    - LingControlFactory fix date6 parent bug
+    
 - 4.6.0 -- 2017-03-02
 
     - LingControlFactory add first option to selectByRequest

@@ -456,7 +456,7 @@ class LingControlFactory implements ControlFactoryInterface
 
 
                             if (false === checkbox.checked) {
-                                var parent = dayEl.parentNode;
+                                var parent = dayEl.parentNode.parentNode;
                                 var day = dayEl.options[dayEl.selectedIndex].value;
                                 var monthEl = parent.querySelector('._month');
                                 var month = monthEl.options[monthEl.selectedIndex].value;
