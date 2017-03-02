@@ -168,11 +168,16 @@ class LingControlFactory implements ControlFactoryInterface
                     $markers = $args[1];
                 }
                 $items = QuickPdo::fetchAll($q, $markers, \PDO::FETCH_COLUMN | \PDO::FETCH_UNIQUE);
+                $firstOptionText = (array_key_exists(2, $args)) ? $args[2] : null;
+
 
                 ?>
                 <select
                         name="<?php echo htmlspecialchars($name); ?>"
                 >
+                    <?php if (null !== $firstOptionText): ?>
+                        <option value="0"><?php echo $firstOptionText; ?></option>
+                    <?php endif; ?>
                     <?php foreach ($items as $pk => $label):
                         $sel = ((int)$value === (int)$pk) ? ' selected="selected"' : '';
                         ?>
@@ -338,6 +343,7 @@ class LingControlFactory implements ControlFactoryInterface
                 $minYear = (array_key_exists(2, $args) && null !== $args[2]) ? $args[2] : 1900;
 
                 $nullable = false;
+                $startAsNullable = (array_key_exists(4, $args)) ? (bool)$args[4] : false;
                 if (array_key_exists(3, $args)) {
                     $nullable = (bool)$args[3];
                 }
@@ -357,7 +363,7 @@ class LingControlFactory implements ControlFactoryInterface
 
 
                 $value = $c->getValue();
-                if (null !== $value) {
+                if (null !== $value && '' !== trim($value)) {
                     $p = explode(' ', $value);
                     list($year, $month, $day) = explode('-', $p[0]);
                     list($hour, $minute, $second) = explode(':', $p[1]);
@@ -418,8 +424,9 @@ class LingControlFactory implements ControlFactoryInterface
                 </div>
 
                 <label style="display: <?php echo (true === $nullable) ? "block" : "none"; ?>">
-                    Aucune
-                    <input id="<?php echo $checkboxId; ?>" type="checkbox">
+                    None
+                    <input id="<?php echo $checkboxId; ?>"
+                           type="checkbox" <?php echo (true === $startAsNullable) ? "checked" : ""; ?>>
                 </label>
 
 
@@ -440,6 +447,10 @@ class LingControlFactory implements ControlFactoryInterface
                                 div.setAttribute("style", 'display: block');
                             }
                         });
+
+                        <?php if(true === $startAsNullable): ?>
+                        div.setAttribute("style", 'display: none');
+                        <?php endif; ?>
 
                         window.onSubmitCallbacks.push(function (c) {
 

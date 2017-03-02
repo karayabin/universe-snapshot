@@ -865,7 +865,11 @@ History Log
 ------------------
 
 
-- 4.5.0 -- 2016-12-24
+- 4.6.0 -- 2017-03-02
+
+    - LingControlFactory add first option to selectByRequest
+
+- 4.5.0 -- 2017-03-02
 
     - LingControlFactory add nullable to date6
     
