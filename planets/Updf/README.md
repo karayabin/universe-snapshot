@@ -1,6 +1,6 @@
 Updf
 =========
-2017-02-12
+2017-02-12 --> 2017-02-19
 
 
 
@@ -536,6 +536,10 @@ So if you write this code, notice the border=0.5 set on the table tag...
 
 History Log
 ------------------
+    
+- 1.1.0 -- 2017-02-19
+
+    - add a render mode
     
 - 1.0.1 -- 2017-02-17
 

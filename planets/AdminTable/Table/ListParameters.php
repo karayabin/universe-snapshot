@@ -27,6 +27,7 @@ class ListParameters
     public $hasNippSelector;
     public $hasPagination;
     public $hasMultipleActions;
+    public $hasCounter;
 
     public $nbItemsPerPageList;
     public $multipleActions;

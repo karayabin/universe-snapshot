@@ -9,6 +9,7 @@
 
 use FileCleaner\FileCleaner;
 use FileCleaner\FileKeeper\EveryXDaysFileKeeper;
+use FileCleaner\FileKeeper\LastXDaysFileKeeper;
 use FileCleaner\FileKeeper\OnePerMonthFileKeeper;
 use FileCleaner\FileKeeper\XPerMonthFileKeeper;
 use FileCleaner\FileKeeper\XPerWeekFileKeeper;
@@ -27,7 +28,7 @@ require __DIR__ . "/../init.php";
 // All the examples were implemented in order, so there is a chronological continuity here,
 // and one might understand how this planet work by reading from top to bottom.
 //--------------------------------------------
-$ex = 7;
+$ex = 8;
 
 
 if (1 === $ex) {
@@ -68,11 +69,20 @@ if (1 === $ex) {
         ->addKeeper(XPerYearFileKeeper::create()->setX(1)->setExtractor(ExtractorUtil::getDatePrefixExtractor()))
         ->clean();
 }
-
+elseif (7 === $ex) {
+    FileCleaner::create()
+        ->setTestMode(true)
+        ->setDir("test")
+        ->addKeeper(LastXDaysFileKeeper::create()->setX(7)->setExtractor(ExtractorUtil::getDatePrefixExtractor()))
+        ->clean();
+}
 
 
 SimpleFileCleaner::create()
-    ->setTestMode(true)
+    ->setTestMode(true)// remove this line in prod
     ->setDir("test")
+    ->keep('last 5 days')
     ->keep('1 per month')
     ->clean();
+
+

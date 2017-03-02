@@ -315,6 +315,7 @@ class LingControlFactory implements ControlFactoryInterface
             case 'date6':
                 $args = $c->getTypeArgs();
 
+
                 if (array_key_exists(0, $args) && null !== $args[0]) {
                     $months = $args[0];
                 } else {
@@ -333,13 +334,26 @@ class LingControlFactory implements ControlFactoryInterface
                         'december',
                     ];
                 }
-                $maxYear = (array_key_exists(1, $args)) ? $args[1] : date('Y');
-                $minYear = (array_key_exists(2, $args)) ? $args[2] : 1900;
+                $maxYear = (array_key_exists(1, $args) && null !== $args[1]) ? $args[1] : date('Y');
+                $minYear = (array_key_exists(2, $args) && null !== $args[2]) ? $args[2] : 1900;
+
+                $nullable = false;
+                if (array_key_exists(3, $args)) {
+                    $nullable = (bool)$args[3];
+                }
+
+
                 if ($minYear > $maxYear) { // avoid infinite loop
                     $this->error("date6: max year cannot be less than min year");
                 }
 
                 $elId = 'date-6-' . $name;
+
+                $randId = rand(0, 10000000);
+                $randId2 = rand($randId, 100000000);
+
+                $checkboxId = 'a-' . $randId . '-' . $randId2;
+                $divId = 'b-' . $randId . '-' . $randId2;
 
 
                 $value = $c->getValue();
@@ -352,76 +366,103 @@ class LingControlFactory implements ControlFactoryInterface
                 }
 
                 ?>
-                <select class="autowidth _day" id="<?php echo $elId; ?>">
-                    <?php for ($i = 1; $i <= 31; $i++):
-                        $sel = ((int)$i === (int)$day) ? ' selected="selected"' : '';
-                        $i = sprintf('%02s', $i);
-                        ?>
-                        <option <?php echo $sel; ?> value="<?php echo $i; ?>"><?php echo $i; ?></option>
-                    <?php endfor; ?>
-                </select>
-                <select class="autowidth _month">
-                    <?php for ($i = 0; $i < 12; $i++):
-                        $sel = ((int)($i + 1) === (int)$month) ? ' selected="selected"' : '';
-                        ?>
-                        <option <?php echo $sel; ?>
-                                value="<?php echo sprintf('%02s', $i + 1); ?>"><?php echo $months[$i]; ?></option>
-                    <?php endfor; ?>
-                </select>
-                <select class="autowidth _year _lastdate">
-                    <?php for ($i = $maxYear; $i >= $minYear; $i--):
-                        $sel = ((int)$i === (int)$year) ? ' selected="selected"' : '';
-                        ?>
-                        <option <?php echo $sel; ?> value="<?php echo $i; ?>"><?php echo $i; ?></option>
-                    <?php endfor; ?>
-                </select>
+                <div id="<?php echo $divId; ?>">
+                    <select class="autowidth _day" id="<?php echo $elId; ?>">
+                        <?php for ($i = 1; $i <= 31; $i++):
+                            $sel = ((int)$i === (int)$day) ? ' selected="selected"' : '';
+                            $i = sprintf('%02s', $i);
+                            ?>
+                            <option <?php echo $sel; ?> value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                        <?php endfor; ?>
+                    </select>
+                    <select class="autowidth _month">
+                        <?php for ($i = 0; $i < 12; $i++):
+                            $sel = ((int)($i + 1) === (int)$month) ? ' selected="selected"' : '';
+                            ?>
+                            <option <?php echo $sel; ?>
+                                    value="<?php echo sprintf('%02s', $i + 1); ?>"><?php echo $months[$i]; ?></option>
+                        <?php endfor; ?>
+                    </select>
+                    <select class="autowidth _year _lastdate">
+                        <?php for ($i = $maxYear; $i >= $minYear; $i--):
+                            $sel = ((int)$i === (int)$year) ? ' selected="selected"' : '';
+                            ?>
+                            <option <?php echo $sel; ?> value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                        <?php endfor; ?>
+                    </select>
 
-                <select class="autowidth _hour">
-                    <?php for ($i = 0; $i <= 23; $i++):
-                        $i = sprintf('%02s', $i);
-                        $sel = ((int)$i === (int)$hour) ? ' selected="selected"' : '';
-                        ?>
-                        <option <?php echo $sel; ?> value="<?php echo $i; ?>"><?php echo $i; ?>h</option>
-                    <?php endfor; ?>
-                </select>
-                <select class="autowidth _minute">
-                    <?php for ($i = 0; $i <= 59; $i++):
-                        $i = sprintf('%02s', $i);
-                        $sel = ((int)$i === (int)$minute) ? ' selected="selected"' : '';
-                        ?>
-                        <option <?php echo $sel; ?> value="<?php echo $i; ?>"><?php echo $i; ?>m</option>
-                    <?php endfor; ?>
-                </select>
-                <select class="autowidth _second">
-                    <?php for ($i = 0; $i <= 59; $i++):
-                        $i = sprintf('%02s', $i);
-                        $sel = ((int)$i === (int)$second) ? ' selected="selected"' : '';
-                        ?>
-                        <option <?php echo $sel; ?> value="<?php echo $i; ?>"><?php echo $i; ?>s</option>
-                    <?php endfor; ?>
-                </select>
+                    <select class="autowidth _hour">
+                        <?php for ($i = 0; $i <= 23; $i++):
+                            $i = sprintf('%02s', $i);
+                            $sel = ((int)$i === (int)$hour) ? ' selected="selected"' : '';
+                            ?>
+                            <option <?php echo $sel; ?> value="<?php echo $i; ?>"><?php echo $i; ?>h</option>
+                        <?php endfor; ?>
+                    </select>
+                    <select class="autowidth _minute">
+                        <?php for ($i = 0; $i <= 59; $i++):
+                            $i = sprintf('%02s', $i);
+                            $sel = ((int)$i === (int)$minute) ? ' selected="selected"' : '';
+                            ?>
+                            <option <?php echo $sel; ?> value="<?php echo $i; ?>"><?php echo $i; ?>m</option>
+                        <?php endfor; ?>
+                    </select>
+                    <select class="autowidth _second">
+                        <?php for ($i = 0; $i <= 59; $i++):
+                            $i = sprintf('%02s', $i);
+                            $sel = ((int)$i === (int)$second) ? ' selected="selected"' : '';
+                            ?>
+                            <option <?php echo $sel; ?> value="<?php echo $i; ?>"><?php echo $i; ?>s</option>
+                        <?php endfor; ?>
+                    </select>
+                </div>
+
+                <label style="display: <?php echo (true === $nullable) ? "block" : "none"; ?>">
+                    Aucune
+                    <input id="<?php echo $checkboxId; ?>" type="checkbox">
+                </label>
+
 
                 <input class="_target" type="hidden" name="<?php echo htmlspecialchars($name); ?>" value="">
                 <script>
                     (function () {
-                        var dayEl = document.getElementById('<?php echo $elId; ?>');
-                        window.onSubmitCallbacks.push(function (c) {
-                            var parent = dayEl.parentNode;
-                            var day = dayEl.options[dayEl.selectedIndex].value;
-                            var monthEl = parent.querySelector('._month');
-                            var month = monthEl.options[monthEl.selectedIndex].value;
-                            var yearEl = parent.querySelector('._year');
-                            var year = yearEl.options[yearEl.selectedIndex].value;
-                            var hourEl = parent.querySelector('._hour');
-                            var hour = hourEl.options[hourEl.selectedIndex].value;
-                            var minuteEl = parent.querySelector('._minute');
-                            var minute = minuteEl.options[minuteEl.selectedIndex].value;
-                            var secondEl = parent.querySelector('._second');
-                            var second = secondEl.options[secondEl.selectedIndex].value;
 
-                            var date = year + '-' + month + '-' + day + " " + hour + ':' + minute + ':' + second;
-                            var target = parent.querySelector('._target');
-                            target.value = date;
+
+                        var dayEl = document.getElementById('<?php echo $elId; ?>');
+                        var div = document.getElementById("<?php echo $divId; ?>");
+                        var checkbox = document.getElementById("<?php echo $checkboxId; ?>");
+
+                        checkbox.addEventListener('click', function (e) {
+                            if (true === checkbox.checked) {
+                                div.setAttribute("style", 'display: none');
+                            }
+                            else {
+                                div.setAttribute("style", 'display: block');
+                            }
+                        });
+
+                        window.onSubmitCallbacks.push(function (c) {
+
+
+                            if (false === checkbox.checked) {
+                                var parent = dayEl.parentNode;
+                                var day = dayEl.options[dayEl.selectedIndex].value;
+                                var monthEl = parent.querySelector('._month');
+                                var month = monthEl.options[monthEl.selectedIndex].value;
+                                var yearEl = parent.querySelector('._year');
+                                var year = yearEl.options[yearEl.selectedIndex].value;
+                                var hourEl = parent.querySelector('._hour');
+                                var hour = hourEl.options[hourEl.selectedIndex].value;
+                                var minuteEl = parent.querySelector('._minute');
+                                var minute = minuteEl.options[minuteEl.selectedIndex].value;
+                                var secondEl = parent.querySelector('._second');
+                                var second = secondEl.options[secondEl.selectedIndex].value;
+
+                                var date = year + '-' + month + '-' + day + " " + hour + ':' + minute + ':' + second;
+                                var target = parent.querySelector('._target');
+                                target.value = date;
+                            }
+
                             c();
                         })
                     })();

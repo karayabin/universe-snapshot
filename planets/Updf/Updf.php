@@ -100,13 +100,15 @@ class Updf
 
 
     /**
-     * @param null|string $type
+     * @param null|false|string $type
      *          Defines how the pdf should be rendered.
      *          The default value is null, which means
      *          the pdf is rendered in the browser (using any pdf plugin
      *          the browser has).
      *
      *          If the $type is a string, then it's the path of the pdf file to create.
+     *          If it's false, the tcpdf instance is returned, so that you can yourself call
+     *          it's Output method with your options.
      *
      *
      *
@@ -130,7 +132,13 @@ class Updf
 
 
         $html = $this->renderModel($this->model, $this->templateName);
+
         $this->tcpdf->writeHTML($html, true, 0, true);
+
+
+        if (false === $path) {
+            return $this->tcpdf;
+        }
 
 
         /**
@@ -183,12 +191,15 @@ class Updf
     protected function renderTemplate($templateName, array $vars, $context = null)
     {
 
+
         /**
          * get the uninterpreted content
          */
         $content = '';
 
         $loader = $this->getTemplateLoader();
+
+
         if (false !== ($_content = $loader->load($templateName, $context))) {
             $content = $_content;
         } else {
@@ -220,6 +231,7 @@ class Updf
             /**
              * First interpret the template's php if any
              */
+
             ob_start();
             include $path;
             $content = ob_get_clean();

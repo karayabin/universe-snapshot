@@ -14,7 +14,7 @@ function error($m){
 }
 
 
-$replace = false;
+$replace = true;
 
 
 if(is_dir($planetsDir)){

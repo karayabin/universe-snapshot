@@ -327,8 +327,6 @@ class FileSystemTool
     }
 
 
-
-
     /**
      *
      * Works like php's native touch function, except that intermediate dirs are created if necessary,

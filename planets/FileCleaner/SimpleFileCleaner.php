@@ -14,8 +14,6 @@ class SimpleFileCleaner extends FileCleaner
     {
         parent::__construct();
         $this->addAdapter(TimeBasedFileKeeperAdapter::create());
-        $this->addAdapter(TimeBasedFileKeeperAdapter::create());
-        $this->addAdapter(TimeBasedFileKeeperAdapter::create());
     }
 
 

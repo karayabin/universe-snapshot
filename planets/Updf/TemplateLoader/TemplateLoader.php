@@ -36,6 +36,7 @@ class TemplateLoader implements TemplateLoaderInterface
     {
         $tplFile = $this->tplDir . "/" . $templateName . '.' . $this->tplExtension;
 
+
         if (file_exists($tplFile)) {
             return file_get_contents($tplFile);
         } elseif (null !== $context) {
@@ -44,6 +45,7 @@ class TemplateLoader implements TemplateLoaderInterface
             $tplDir = dirname($refClass->getFileName()) . '/pdf';
             $tplBaseFile = $tplDir . "/" . $templateName;
             $tplFile = $tplBaseFile . ".tpl.php";
+
             if (file_exists($tplFile)) {
                 return file_get_contents($tplFile);
             }

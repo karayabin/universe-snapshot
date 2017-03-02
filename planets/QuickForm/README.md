@@ -865,6 +865,10 @@ History Log
 ------------------
 
 
+- 4.5.0 -- 2016-12-24
+
+    - LingControlFactory add nullable to date6
+    
 - 4.4.0 -- 2016-12-24
 
     - MagicControlFactory add multipleInput

@@ -234,6 +234,62 @@ array(10) {
 ```  
 
 
+Then, using the generators (gen.php) with new parameters:
+
+```php
+$dateStart = "2017-01-01";
+$nbDays = 100;
+```
+
+
+```php
+SimpleFileCleaner::create()
+    ->setTestMode(true)// remove this line in prod
+    ->setDir("test")
+    ->keep('last 5 days')
+    ->clean();
+```
+
+
+
+Outputs this:
+```txt
+array (size=5)
+  0 => string 'test/20170220--000000--backup.txt' (length=33)
+  1 => string 'test/20170221--000000--backup.txt' (length=33)
+  2 => string 'test/20170222--000000--backup.txt' (length=33)
+  3 => string 'test/20170223--000000--backup.txt' (length=33)
+  4 => string 'test/20170224--000000--backup.txt' (length=33)
+```
+
+And then combining keep conditions:
+
+```php
+SimpleFileCleaner::create()
+    ->setTestMode(true)// remove this line in prod
+    ->setDir("test")
+    ->keep('last 5 days')
+    ->keep('1 per month')
+    ->clean();
+```
+
+Outputs this:
+
+```txt
+array (size=9)
+  0 => string 'test/20170101--000000--backup.txt' (length=33)
+  1 => string 'test/20170201--000000--backup.txt' (length=33)
+  2 => string 'test/20170220--000000--backup.txt' (length=33)
+  3 => string 'test/20170221--000000--backup.txt' (length=33)
+  4 => string 'test/20170222--000000--backup.txt' (length=33)
+  5 => string 'test/20170223--000000--backup.txt' (length=33)
+  6 => string 'test/20170224--000000--backup.txt' (length=33)
+  7 => string 'test/20170301--000000--backup.txt' (length=33)
+  8 => string 'test/20170401--000000--backup.txt' (length=33)
+```
+
+
+
 
 
 Tip2: if you want to dig more into the code, take a look at my **pedagogic.php** file inside the **tools**
@@ -242,6 +298,10 @@ directory of this repository.
 
 History Log
 ------------------
+    
+- 1.1.0 -- 2017-02-24
+
+    - add last x days syntax
     
 - 1.0.0 -- 2017-02-24
 

@@ -6,6 +6,7 @@ namespace FileCleaner\FileKeeperAdapter;
 
 use FileCleaner\FileKeeper\EveryXDaysFileKeeper;
 use FileCleaner\FileKeeper\FileKeeperInterface;
+use FileCleaner\FileKeeper\LastXDaysFileKeeper;
 use FileCleaner\FileKeeper\XPerMonthFileKeeper;
 use FileCleaner\FileKeeper\XPerWeekFileKeeper;
 use FileCleaner\FileKeeper\XPerYearFileKeeper;
@@ -18,6 +19,7 @@ use FileCleaner\Util\ExtractorUtil;
  *
  *
  * every $x days
+ * last $x days
  * $x per week
  * $x per month
  * $x per year
@@ -30,8 +32,8 @@ class TimeBasedFileKeeperAdapter implements FileKeeperAdapterInterface
     private $extractor;
 
 
-
-    public static function create(){
+    public static function create()
+    {
         return new static();
     }
 
@@ -75,6 +77,10 @@ class TimeBasedFileKeeperAdapter implements FileKeeperAdapterInterface
         } else {
             if (preg_match('!every\s+([0-9]+)\s+days!', $string, $match)) {
                 $object = EveryXDaysFileKeeper::create();
+                $object->setX((int)$match[1]);
+                $object->setExtractor($this->extractor);
+            } elseif (preg_match('!last\s+([0-9]+)\s+days!', $string, $match)) {
+                $object = LastXDaysFileKeeper::create();
                 $object->setX((int)$match[1]);
                 $object->setExtractor($this->extractor);
             }
