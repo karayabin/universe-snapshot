@@ -1,0 +1,39 @@
+http://kamille/uu?pou
+
+
+array(34) {
+  ["USER"] => string(13) "pierrelafitte"
+  ["HOME"] => string(20) "/Users/pierrelafitte"
+  ["FCGI_ROLE"] => string(9) "RESPONDER"
+  ["QUERY_STRING"] => string(3) "pou"
+  ["REQUEST_METHOD"] => string(3) "GET"
+  ["CONTENT_TYPE"] => string(0) ""
+  ["CONTENT_LENGTH"] => string(0) ""
+  ["SCRIPT_NAME"] => string(10) "/index.php"
+  ["REQUEST_URI"] => string(7) "/uu?pou"
+  ["DOCUMENT_URI"] => string(10) "/index.php"
+  ["DOCUMENT_ROOT"] => string(22) "/myphp/kamille/app/www"
+  ["SERVER_PROTOCOL"] => string(8) "HTTP/1.1"
+  ["REQUEST_SCHEME"] => string(4) "http"
+  ["GATEWAY_INTERFACE"] => string(7) "CGI/1.1"
+  ["SERVER_SOFTWARE"] => string(12) "nginx/1.10.3"
+  ["REMOTE_ADDR"] => string(9) "127.0.0.1"
+  ["REMOTE_PORT"] => string(5) "50699"
+  ["SERVER_ADDR"] => string(9) "127.0.0.1"
+  ["SERVER_PORT"] => string(2) "80"
+  ["SERVER_NAME"] => string(7) "kamille"
+  ["REDIRECT_STATUS"] => string(3) "200"
+  ["SCRIPT_FILENAME"] => string(32) "/myphp/kamille/app/www/index.php"
+  ["HTTP_HOST"] => string(7) "kamille"
+  ["HTTP_USER_AGENT"] => string(82) "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:51.0) Gecko/20100101 Firefox/51.0"
+  ["HTTP_ACCEPT"] => string(63) "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+  ["HTTP_ACCEPT_LANGUAGE"] => string(14) "en-GB,en;q=0.5"
+  ["HTTP_ACCEPT_ENCODING"] => string(13) "gzip, deflate"
+  ["HTTP_COOKIE"] => string(117) "pmaCookieVer=5; pma_lang=en; pma_collation_connection=utf8mb4_unicode_ci; phpMyAdmin=jsgnmr6p0a8ef4l6qph9tc1rmm98ep4c"
+  ["HTTP_CONNECTION"] => string(10) "keep-alive"
+  ["HTTP_UPGRADE_INSECURE_REQUESTS"] => string(1) "1"
+  ["HTTP_CACHE_CONTROL"] => string(9) "max-age=0"
+  ["PHP_SELF"] => string(10) "/index.php"
+  ["REQUEST_TIME_FLOAT"] => float(1488384709.323)
+  ["REQUEST_TIME"] => int(1488384709)
+}
