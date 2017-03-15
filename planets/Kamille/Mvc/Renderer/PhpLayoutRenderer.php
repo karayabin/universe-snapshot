@@ -3,6 +3,8 @@
 
 namespace Kamille\Mvc\Renderer;
 
+use Kamille\Mvc\Layout\LayoutAwareInterface;
+use Kamille\Mvc\Layout\LayoutInterface;
 use Kamille\Mvc\LayoutProxy\LayoutProxy;
 use Kamille\Mvc\LayoutProxy\LayoutProxyInterface;
 use Kamille\Mvc\Renderer\Exception\RendererException;
@@ -50,7 +52,7 @@ class PhpLayoutRenderer extends LayoutRenderer
             $__varsKeys = [];
             $__varsValues = [];
             foreach ($variables as $k => $v) {
-                if (!is_array($v)) {
+                if (!is_array($v) && !is_object($v)) {
                     $__varsKeys[] = '{' . $k . '}';
                     $__varsValues[] = $v;
                 }
@@ -103,6 +105,15 @@ class PhpLayoutRenderer extends LayoutRenderer
     {
 
     }
+
+    public function setLayout(LayoutInterface $layout)
+    {
+        if ($this->layoutProxy instanceof LayoutAwareInterface) {
+            $this->layoutProxy->setLayout($layout);
+        }
+        return parent::setLayout($layout);
+    }
+
 
     //--------------------------------------------
     //

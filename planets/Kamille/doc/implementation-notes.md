@@ -709,7 +709,17 @@ to ensure that only one jquery lib would be loaded).
  
 
 
+A themable application
+============================
 
+As discussed before, the notion of theme is the ability to change the design of a page in one click.
+With the MVC implementation of kamille, it concretely means changing the template of the layout and changing
+the template of the widgets.
+
+At the level application, it makes only sense that all pages of the application can be changed in one click.
+
+To allow this, I suggest that the application (probably web application) provides a "theme" parameter,
+which should spread across the whole system. 
 
 
 

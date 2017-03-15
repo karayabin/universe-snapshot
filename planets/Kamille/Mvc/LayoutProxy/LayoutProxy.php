@@ -4,10 +4,11 @@
 namespace Kamille\Mvc\LayoutProxy;
 
 
+use Kamille\Mvc\Layout\LayoutAwareInterface;
 use Kamille\Mvc\Layout\LayoutInterface;
 use Kamille\Mvc\Widget\Exception\WidgetException;
 
-class LayoutProxy implements LayoutProxyInterface
+class LayoutProxy implements LayoutProxyInterface, LayoutAwareInterface
 {
 
 
@@ -19,6 +20,11 @@ class LayoutProxy implements LayoutProxyInterface
     public function __construct()
     {
         // peanuts
+    }
+
+    public static function create()
+    {
+        return new static();
     }
 
     public function setLayout(LayoutInterface $layout)
@@ -35,18 +41,22 @@ class LayoutProxy implements LayoutProxyInterface
     //--------------------------------------------
     public function widget($name)
     {
-        if (null !== ($widget = $this->layout->getWidget($name))) {
-            echo $widget->render();
-        } else {
-            $this->onWidgetNotFound($name);
-            /**
-             * If the widget if not found, we return an empty string,
-             * so that the layout can still render the other widgets...
-             */
-            echo "";
+        try {
+
+            if (null !== ($widget = $this->layout->getWidget($name))) {
+                echo $widget->render();
+            } else {
+                $this->onWidgetNotFound($name);
+                /**
+                 * If the widget if not found, we return an empty string,
+                 * so that the layout can still render the other widgets...
+                 */
+                echo "";
+            }
+
+        } catch (\Exception $e) {
+            echo $this->onWidgetException($e, $name);
         }
-
-
     }
 
     //--------------------------------------------
@@ -55,6 +65,11 @@ class LayoutProxy implements LayoutProxyInterface
     protected function onWidgetNotFound($name)
     {
         throw new WidgetException("Widget not found: $name");
+    }
+
+    protected function onWidgetException(\Exception $e, $widgetName)
+    {
+        return "Problem with rendering the widget $widgetName";
     }
 }
 

@@ -9,6 +9,7 @@ use Kamille\Architecture\Controller\ControllerInterface;
 use Kamille\Architecture\Controller\Exception\ControllerException;
 use Kamille\Architecture\Response\Web\HttpResponse;
 use Kamille\Architecture\Response\Web\HttpResponseInterface;
+use Kamille\Ling\Z;
 
 class StaticPageController implements ControllerInterface
 {
