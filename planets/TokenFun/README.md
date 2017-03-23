@@ -96,6 +96,22 @@ array (size=9)
 Some methods of the TokenFinderTool include the following.
 
 
+
+
+### getInterfaces
+
+```php
+array    getInterfaces ( array:tokens, bool:fullName=true )
+```
+
+Return the names of the interfaces if any.
+
+When fullName is true, it looks for a use statement matching
+each interface class name, and returns it if it exists.
+Otherwise, it just prepends the namespace (if no use statement matched the interface class name).
+
+
+
 ### getNamespace
 
 ```php
@@ -103,6 +119,27 @@ false|string    getNamespace ( array:tokens )
 ```
 
 Return the namespace found in the given tokens, or false if no namespace was found.
+
+
+
+
+
+### getParentClassName
+
+```php
+false|string    getParentClassName ( array:tokens, bool:fullName=true )
+```
+
+Return the parent class name if any, or false otherwise.
+
+When fullName is true, it looks for a use statement matching
+the parent class name, and returns it if it exists.
+Otherwise, it just prepends the namespace (if no use statement matched the parent class name).
+
+
+
+
+
 
 
 ### getUseDependencies
@@ -126,6 +163,7 @@ found in the php files under the given directory.
 
 
 
+
 Dependencies
 ------------------
 
@@ -137,6 +175,10 @@ Dependencies
 
 History Log
 ------------------
+    
+- 1.1.0 -- 2017-03-23
+
+    - add TokenFinderTool::getInterfaces and TokenFinderTool::getParentClassName methods
     
 - 1.0.0 -- 2016-01-02
 

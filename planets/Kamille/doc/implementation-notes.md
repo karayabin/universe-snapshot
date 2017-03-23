@@ -14,6 +14,13 @@ Architecture
 
 The kam framework doesn't define (purposely) precisely what a Controller is.
 
+Does the Controller exist only in web applications, or does it exist too in console applications? 
+I will assume that yes.
+
+If it exists in web applications, does it exist only in the three request listeners model (router, controller, response)?
+I will assume that no.
+
+
 
 Using the proposed model with three RequestListeners (Router, Controller, Response),
 I found out that the Router's returned controller should be a callable (exactly like in symfony).
@@ -197,6 +204,12 @@ in kamille:
 
 Services, Modules - Hooks
 ================
+
+Note: the implementation part has now moved to [kaminos](https://github.com/lingtalfi/kaminos) (at the application level rather than
+at the framework level, but this text remains here for reference).
+
+
+
 ... 
 Another way to see it, is that a container is an empty shell, to which modules can attach services.
 
@@ -288,7 +301,7 @@ as you can see in the example code below:
     {
         $uri = $request->uri(false);
         $uri2Page = $this->uri2Page;
-        Hooks::StaticPageRouter_feedRequestUri($uri2Page);
+        Hooks::StaticPageRouter_feedUri2PageArray($uri2Page);
         if (array_key_exists($uri, $uri2Page)) {
             $page = $uri2Page[$uri];
 
@@ -305,7 +318,7 @@ as you can see in the example code below:
 ```
         
 It means that now if you want to use the StaticPageRouter, you must also have an X class and a Hooks class,
-and they must have the StaticPageRouter_getStaticPageController and StaticPageRouter_feedRequestUri methods respectively,
+and they must have the StaticPageRouter_getStaticPageController and StaticPageRouter_feedUri2PageArray methods respectively,
 other wise you'll get an error.
 
 Ouch, that sounds like a bad idea, doesn't it?
@@ -728,8 +741,109 @@ which should spread across the whole system.
 
 
 
+And then the "daily" blog
+==============================
 
 
+
+Static Object Router
+==========================
+2017-03-16
+
+
+Today I added a static object router.
+Like the static page router, it's a router based on a simple map (an array is used to make the correspondence 
+between the uri and a controller string).
+
+At some point in the conception, I wondered: why don't I simply return a controller instance from the 
+StaticObjectRouter object, so that I can control how the instance is already configured.
+
+And then the answer appeared: the router loops through all instances of the array. Imagine if all instances of 
+potential controllers were instantiated: that would be a fair waste of performances. Passing string is much cheaper
+and much adapted. 
+
+ 
+Now to keep the flexibility of choosing the controller method, we also pass the method in the string.
+ 
+The format of that controller string will be: 
+
+- My\MyController:method
+
+
+
+
+Now what's the benefit of using StaticObjectRouter vs the older StaticPageRouter?
+
+Well, first in some cases the StaticPageRouter will be more adapted, so do not confound old with bad or deprecated,
+it has just been created before.
+
+Now, with the StaticObjectRouter  cheaper by one step (in terms of architectural steps).
+Here is how both objects compare together:
+
+- StaticPageRouter: 
+    - 1. find page 
+    - 2. execute the page and capture the output 
+    - 3. create the http response
+    
+- StaticObjectRouter: 
+    - 1. find controller
+    - 2. execute the controller (and returns the supposedly returned http response) 
+
+
+So, basically, we potentially don't need to capture (buffer) the output with the StaticObjectRouter, although
+we still can if we want.
+
+So, not a huge win, but if you are a performance freak, that's something you'll appreciate.
+In the end, the overall system architecture wins by having more routers to choose from.
+
+
+
+
+
+
+
+Exceptions
+================
+2017-03-20
+
+
+There are at least two different uses for exceptions:
+
+- exceptions thrown when something exceptional occurs (that's the default usage of exceptions)
+- exceptions thrown as signals (meant to be caught in the first place)
+ 
+ 
+ 
+UserErrorException
+------------------
+Today, I implemented an UserErrorException and I thought the reasoning behind it was interesting.
+
+An UserErrorException belongs to the second type of exceptions: the signal type.
+It basically carries an user error. For instance, the user forgot to setup some value, and so the program goes wrong.
+
+In this case, we want to display a message to the user: "Hey, you forgot to set this value (blabla), please try again...".
+So basically, we just need the exception message, but we don't really need the debug trace in this case.
+
+That said we could have chosen other mechanisms to bubble up such an error.
+So why choosing an exception?
+Because exceptions have this unique ability to jump over blocks of code, which makes the development faster:
+just throw an (user error) exception when something goes wrong, and you know that it will be caught and display
+as an error message to the user.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
 
 
 

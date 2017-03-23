@@ -18,14 +18,6 @@ uni import Kamille
 ```
 
 
-Once you've installed Kamille, you should create the following classes at your application level:
-
-- Services\Hooks: this is the Hooks class for your modules 
-- Services\X: the service container in kamille
-
-
-
-
 
 
 Getting started
@@ -46,23 +38,42 @@ Example index.php controller
 <?php
 
 
+
 use Kamille\Architecture\Application\Web\WebApplication;
+use Kamille\Architecture\ApplicationParameters\Web\WebApplicationParameters;
 use Kamille\Architecture\Request\Web\HttpRequest;
 use Kamille\Architecture\RequestListener\Web\ControllerExecuterRequestListener;
 use Kamille\Architecture\RequestListener\Web\ResponseExecuterListener;
 use Kamille\Architecture\RequestListener\Web\RouterRequestListener;
-use Kamille\Architecture\Router\Web\StaticPageRouter;
+use Kamille\Architecture\Router\Web\StaticObjectRouter;
+use Services\X;
+
 
 require_once __DIR__ . "/../init.php";
 
+WebApplicationParameters::boot();
+
+
+
+
 
 WebApplication::inst()
-    ->addListener(RouterRequestListener::create()->addRouter(StaticPageRouter::create()))
+    ->set('theme', "gentelella")// this application uses a theme
+    ->addListener(RouterRequestListener::create()
+        ->addRouter(StaticObjectRouter::create()->setUri2Controller(X::getStaticObjectRouter_Uri2Controller()))
+//        ->addRouter(StaticPageRouter::create()
+//            ->setStaticPageController(X::getStaticPageRouter_StaticPageController())
+//            ->setUri2Page(X::getStaticPageRouter_Uri2Page()))
+    )
     ->addListener(ControllerExecuterRequestListener::create())
     ->addListener(ResponseExecuterListener::create())
     ->handleRequest(HttpRequest::create());
 
+
+
+
 ```
+
 
 
 Example MVC code (should be inside a Controller)
@@ -149,6 +160,51 @@ echo HtmlLayout::create()
 
 History Log
 ===============
+    
+- 1.13.0 -- 2017-03-21
+
+    - update StepTrackerAwareModule
+    
+- 1.12.0 -- 2017-03-21
+
+    - added StepTrackerAwareInterface.getStepTracker
+    
+- 1.11.0 -- 2017-03-21
+
+    - removed WebApplicationParameters (moved to app specific like kaminos)
+    
+- 1.10.0 -- 2017-03-20
+
+    - added AbstractX and AbstractXConfig
+    
+- 1.9.0 -- 2017-03-20
+
+    - added ModuleInstaller and StepTracker
+    
+- 1.8.0 -- 2017-03-17
+
+    - moved application parameters outside the Application
+    
+- 1.7.0 -- 2017-03-16
+
+    - add ControllerExecuterRequestListener.throwExOnControllerNotFound method
+    
+- 1.6.0 -- 2017-03-16
+
+    - add possibility of choosing the method from the StaticObjectRouter's controller string
+    
+    
+- 1.5.0 -- 2017-03-16
+
+    - Remove built-in dependencies to X and Hooks
+    
+- 1.4.0 -- 2017-03-16
+
+    - Undo add WebControllerInterface
+    
+- 1.3.0 -- 2017-03-16
+
+    - Added WebControllerInterface 
     
 - 1.2.0 -- 2017-03-15
 

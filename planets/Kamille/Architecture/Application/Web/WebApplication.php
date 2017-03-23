@@ -4,7 +4,7 @@
 namespace Kamille\Architecture\Application\Web;
 
 
-use Kamille\Architecture\Environment\Web\Environment;
+use Kamille\Architecture\ApplicationParameters\ApplicationParameters;
 use Kamille\Architecture\Request\Web\HttpRequestInterface;
 use Kamille\Architecture\RequestListener\Web\HttpRequestListenerInterface;
 
@@ -136,15 +136,6 @@ class WebApplication implements WebApplicationInterface
     //--------------------------------------------
     protected function getParams()
     {
-        // the commented code below does not work with symlinks, so I used the DOCUMENT_ROOT property, which is
-        // there in apache and nginx environments.
-        //
-//        $paramsFile = __DIR__ . "/../../../../../config/application-parameters-" . Environment::getEnvironment() . ".php";
-        $paramsFile = $_SERVER['DOCUMENT_ROOT'] . "/../config/application-parameters-" . Environment::getEnvironment() . ".php";
-        $params = [];
-        if (file_exists($paramsFile)) {
-            require $paramsFile;
-        }
-        return $params;
+        return ApplicationParameters::all();
     }
 }

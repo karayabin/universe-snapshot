@@ -16,6 +16,8 @@ class StaticPageController implements ControllerInterface
 
     private $pagesDir;
 
+
+
     public function handlePage()
     {
 

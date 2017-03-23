@@ -8,8 +8,10 @@ use DirScanner\DirScanner;
 use TokenFun\TokenArrayIterator\TokenArrayIterator;
 use TokenFun\TokenArrayIterator\Tool\TokenArrayIteratorTool;
 use TokenFun\TokenFinder\ClassNameTokenFinder;
+use TokenFun\TokenFinder\InterfaceTokenFinder;
 use TokenFun\TokenFinder\MethodTokenFinder;
 use TokenFun\TokenFinder\NamespaceTokenFinder;
+use TokenFun\TokenFinder\ParentClassNameTokenFinder;
 use TokenFun\TokenFinder\UseStatementsTokenFinder;
 use TokenFun\Tool\TokenTool;
 
@@ -36,8 +38,7 @@ class TokenFinderTool
                 $tok = $tokens[$i];
                 if (is_string($tok)) {
                     $s .= $tok;
-                }
-                elseif (is_array($tok)) {
+                } elseif (is_array($tok)) {
                     $s .= $tok[1];
                 }
             }
@@ -61,6 +62,107 @@ class TokenFinderTool
                 array_walk($ret, function (&$v) use ($namespace) {
                     $v = $namespace . '\\' . $v;
                 });
+            }
+        }
+        return $ret;
+    }
+
+    /**
+     * @return string|false, the classname of the parent class if any,
+     * and include the full name if $fullName is set to true.
+     *
+     * When fullName is true, it tries to see if there is a use statement matching
+     * the parent class name, and returns it if it exists.
+     * Otherwise, it just prepends the namespace (if no use statement matched the parent class name).
+     *
+     * Note: as for now it doesn't take into account the "as" alias (i.e. use My\Class as Something)
+     *
+     */
+    public static function getParentClassName(array $tokens, $fullName = true, $onClassNameFound = null)
+    {
+        $o = new ParentClassNameTokenFinder();
+        $matches = $o->find($tokens);
+        if ($matches) {
+            $ret = $matches;
+            TokenFinderTool::matchesToString($ret, $tokens);
+
+            // there can only be one parent class in php
+            $ret = array_shift($ret);
+
+            if (is_callable($onClassNameFound)) {
+                $ret = call_user_func($onClassNameFound, $ret);
+            }
+
+            if (false !== $ret) {
+                if (true === $fullName) {
+
+                    $useStmts = self::getUseDependencies($tokens);
+                    foreach ($useStmts as $dep) {
+                        $p = explode('\\', $dep);
+                        $lastName = array_pop($p);
+                        if ($lastName === $ret) {
+                            return $dep;
+                        }
+                    }
+                    if (false !== ($namespace = self::getNamespace($tokens))) {
+                        $ret = $namespace . '\\' . ltrim($ret, '\\');
+                    }
+                }
+            }
+
+            return $ret;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * @return array, the names of the interfaces if any,
+     * and include the full name if $fullName is set to true.
+     *
+     * When fullName is true, it tries to see if there is a use statement matching
+     * the interface class name, and returns it if it exists.
+     * Otherwise, it just prepends the namespace (if no use statement matched the interface class name).
+     *
+     * Note: as for now it doesn't take into account the "as" alias (i.e. use My\Class as Something)
+     *
+     */
+    public static function getInterfaces(array $tokens, $fullName = true)
+    {
+        $o = new InterfaceTokenFinder();
+        $matches = $o->find($tokens);
+        $ret = [];
+        if ($matches) {
+            $string = $matches;
+            TokenFinderTool::matchesToString($string, $tokens);
+
+            // expect only one string to be returned
+            $string = array_shift($string);
+
+            $ret = explode(',', $string);
+            $ret = array_map('trim', $ret);
+
+
+            if (true === $fullName) {
+
+                $useStmts = self::getUseDependencies($tokens);
+                foreach ($ret as $k => $className) {
+                    $found = false;
+                    foreach ($useStmts as $dep) {
+                        $p = explode('\\', $dep);
+                        $lastName = array_pop($p);
+                        if ($lastName === $className) {
+                            $ret[$k] = $dep;
+                            $found = true;
+                        }
+                    }
+
+                    if (false === $found) {
+                        if (false !== ($namespace = self::getNamespace($tokens))) {
+                            $ret[$k] = $namespace . '\\' . $className;
+                        }
+                    }
+                }
             }
         }
         return $ret;
@@ -110,8 +212,7 @@ class TokenFinderTool
                         if (true === TokenTool::match([T_COMMENT, T_DOC_COMMENT], $token)) {
                             if (true === TokenTool::match(T_COMMENT, $token)) {
                                 $commentType = 'oneLine';
-                            }
-                            else {
+                            } else {
                                 $commentType = 'multiLine';
                             }
                             $comment = $token[1];

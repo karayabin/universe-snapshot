@@ -66,8 +66,7 @@ class TokenArrayIteratorTool
                     if (is_string($token)) {
                         if ($begin === $token) {
                             $level++;
-                        }
-                        elseif ($end === $token) {
+                        } elseif ($end === $token) {
                             $level--;
                             if (0 === $level) {
                                 array_pop($capture);
@@ -140,16 +139,14 @@ class TokenArrayIteratorTool
                         }
                     }
 
-                }
-                else {
+                } else {
                     // malformed php?
                 }
             }
 
             if (true === $validate) {
                 $ret = true;
-            }
-            else {
+            } else {
                 $tai->seek($startKey);
             }
         }
@@ -191,8 +188,7 @@ class TokenArrayIteratorTool
             }
             if (true === $validate) {
                 $ret = true;
-            }
-            else {
+            } else {
                 $tai->seek($startKey);
             }
         }
@@ -240,8 +236,7 @@ class TokenArrayIteratorTool
 
                 if (true === $validate) {
                     $ret = true;
-                }
-                else {
+                } else {
                     $tai->seek($startKey);
                 }
             }
@@ -288,8 +283,7 @@ class TokenArrayIteratorTool
 
             if (true === $lastIsString) {
                 $ret = true;
-            }
-            else {
+            } else {
                 $tai->seek($startKey);
             }
         }
@@ -305,6 +299,23 @@ class TokenArrayIteratorTool
     {
         $cur = $tai->current();
         while (is_array($cur) && T_WHITESPACE === $cur[0]) {
+            $tai->next();
+            $cur = $tai->current();
+        }
+    }
+
+
+    /**
+     * Skips whitespaces and commas, and positions the cursor AFTER the last whitespace or comma.
+     *
+     */
+    public static function skipWhiteSpacesOrComma(TokenArrayIteratorInterface $tai)
+    {
+        $cur = $tai->current();
+        while (
+            (is_array($cur) && T_WHITESPACE === $cur[0]) ||
+            (is_string($cur) && "," === $cur)
+        ) {
             $tai->next();
             $cur = $tai->current();
         }

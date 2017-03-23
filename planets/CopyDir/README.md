@@ -134,6 +134,14 @@ It has the following features out of the box:
 
 
 
+SimpleCopyDirUtil
+--------------------
+
+The SimpleCopyDirUtil provides a replaceMode.
+
+If the replace mode is on, files are overwritten in case of conflict. This is the default.
+
+If the replace mode is off, files are NOT overwritten in case of conflict.
 
 
 
@@ -160,6 +168,10 @@ Eventually, I changed my mind because of the following reasons:
 History Log
 ------------------
 
+- 1.1.0 -- 2017-03-21
+
+    add SimpleCopyDirUtil
+    
 - 1.0.0 -- 2015-10-20
 
     initial commit

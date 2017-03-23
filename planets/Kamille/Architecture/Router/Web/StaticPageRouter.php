@@ -4,14 +4,17 @@
 namespace Kamille\Architecture\Router\Web;
 
 
+use Kamille\Architecture\Application\Web\WebApplication;
+use Kamille\Architecture\Controller\Web\StaticPageController;
 use Kamille\Architecture\Request\Web\HttpRequestInterface;
 use Kamille\Architecture\Router\RouterInterface;
-use Services\Hooks;
-use Services\X;
+
 
 class StaticPageRouter implements RouterInterface
 {
-    private $uri2Page;
+
+    protected $uri2Page;
+    protected $staticPageController;
 
     public function __construct()
     {
@@ -22,6 +25,23 @@ class StaticPageRouter implements RouterInterface
     {
         return new static();
     }
+
+
+    public function setUri2Page($uri2Page)
+    {
+        $this->uri2Page = $uri2Page;
+        return $this;
+    }
+
+
+    public function setStaticPageController(StaticPageController $staticPageController)
+    {
+        $this->staticPageController = $staticPageController;
+        return $this;
+    }
+
+
+
     //--------------------------------------------
     //
     //--------------------------------------------
@@ -29,12 +49,9 @@ class StaticPageRouter implements RouterInterface
     {
         $uri = $request->uri(false);
         $uri2Page = $this->uri2Page;
-        Hooks::StaticPageRouter_feedRequestUri($uri2Page);
         if (array_key_exists($uri, $uri2Page)) {
             $page = $uri2Page[$uri];
-
-            $o = X::StaticPageRouter_getStaticPageController();
-
+            $o = $this->getStaticPageController();
             return [
                 [$o, 'handlePage'],
                 [
@@ -44,5 +61,13 @@ class StaticPageRouter implements RouterInterface
         }
     }
 
+    protected function getStaticPageController()
+    {
+        if (null === $this->staticPageController) {
+            $this->staticPageController = new StaticPageController();
+            $this->staticPageController->setPagesDir(WebApplication::inst()->get('app_dir') . "/pages");
+        }
+        return $this->staticPageController;
+    }
 
 }
