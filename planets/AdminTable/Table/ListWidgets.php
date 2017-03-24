@@ -14,10 +14,10 @@ class ListWidgets
         $this->widgets = [
             'pageSelector' => true,
             'search' => true,
+            'itemsCounter' => true,
             'nippSelector' => true,
             'pagination' => true,
             'multipleActions' => true,
-            'counter' => true,
         ];
 
         $this->nbItemsPerPageList = [5, 10, 25, 50, 100, 250, 'all']; // all is a special value
@@ -54,6 +54,12 @@ class ListWidgets
         return $this;
     }
 
+    public function disableItemsCounter()
+    {
+        $this->widgets['itemsCounter'] = false;
+        return $this;
+    }
+
     public function disableNippSelector()
     {
         $this->widgets['nippSelector'] = false;
@@ -69,12 +75,6 @@ class ListWidgets
     public function disableMultipleActions()
     {
         $this->widgets['multipleActions'] = false;
-        return $this;
-    }
-
-    public function disableCounter()
-    {
-        $this->widgets['counter'] = false;
         return $this;
     }
 

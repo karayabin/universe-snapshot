@@ -51,6 +51,14 @@ $c = $packer->pack($d);
 History Log
 ------------------
         
+- 1.2.0 -- 2017-03-24
+
+    - fix use duplicate statements problem 
+    
+- 1.1.0 -- 2017-03-23
+
+    - added priority checking, to avoid not found class errors
+    
 - 1.0.0 -- 2017-03-23
 
     - initial commit

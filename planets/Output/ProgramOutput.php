@@ -89,6 +89,14 @@ class ProgramOutput extends Output implements ProgramOutputInterface
     {
         $this->writeMessage('debug', $msg, "0;33", $lbr);
     }
+    //--------------------------------------------
+    //
+    //--------------------------------------------
+    public function setDampened(array $dampened)
+    {
+        $this->dampened = $dampened;
+        return $this;
+    }
 
     //--------------------------------------------
     //

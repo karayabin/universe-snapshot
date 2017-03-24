@@ -50,11 +50,6 @@ abstract class KaminosModule implements ProgramOutputAwareInterface, ModuleInter
      */
     private $steps;
 
-    /**
-     * Todo
-     */
-    private $stopText2OutputType;
-
 
     public function __construct()
     {
@@ -66,8 +61,9 @@ abstract class KaminosModule implements ProgramOutputAwareInterface, ModuleInter
     {
 
         $steps = [];
-        $this->registerSteps($steps, 'install');
         $this->collectAutoSteps($steps, 'install');
+        $this->registerSteps($steps, 'install');
+        $this->steps = $steps;
 
 
         $this->installAuto();
@@ -115,7 +111,7 @@ abstract class KaminosModule implements ProgramOutputAwareInterface, ModuleInter
     protected function startStep($stepId)
     {
         if (array_key_exists($stepId, $this->steps)) {
-            $label = $this->getStepLabel([$stepId]);
+            $label = $this->getStepLabel($stepId);
             $this->getOutput()->notice($label, false);
         } else {
             throw new KaminosModuleException("step $stepId doesn't exist");
@@ -151,6 +147,7 @@ abstract class KaminosModule implements ProgramOutputAwareInterface, ModuleInter
         if (true === $this->usesAutoFiles()) {
             $this->startStep('files');
             ModuleInstallTool::installFiles($this);
+            $this->stopStep('files', "done");
 
         }
     }
@@ -199,7 +196,7 @@ abstract class KaminosModule implements ProgramOutputAwareInterface, ModuleInter
             }
         }
         $count = count($this->steps);
-        $msg = "Step $n/$count: $label ... ";
+        $msg = "----> Step $n/$count: $label ... ";
         return $msg;
     }
 

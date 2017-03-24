@@ -127,16 +127,24 @@ class QuickPdoListable extends WithSearchColumns
             $p = preg_split('/\s+/', $val);
             $val = array_pop($p);
             return trim($val);
-        }, explode(',', $fields));
+        }, explode(',' . PHP_EOL, $fields));
     }
 
     private function getSearchColumnsFromFields($fields)
     {
-        return array_map(function ($v) {
+
+        $ret = array_map(function ($v) {
             $v = trim($v);
             $p = preg_split('/\s+/', $v);
             $v = array_shift($p);
             return $v;
-        }, explode(',', $fields));
+        }, explode(',' . PHP_EOL, $fields));
+        $ret = array_filter($ret, function ($v) {
+            if ('(' === substr($v, 0, 1)) {
+                return false;
+            }
+            return true;
+        });
+        return $ret;
     }
 }

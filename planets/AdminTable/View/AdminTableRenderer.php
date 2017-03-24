@@ -54,6 +54,7 @@ class AdminTableRenderer implements TableRendererInterface
     public $texts = [
         'search.placeholder' => "Search in rows",
         'search.btn' => "Search",
+        'itemscounter.items' => "items",
         'nipp.label' => "Number or rows",
         'multipleActions.checkAll' => "Check all rows",
         'multipleActions.uncheckAll' => "Uncheck all rows",
@@ -135,6 +136,12 @@ class AdminTableRenderer implements TableRendererInterface
                                 <?php endfor; ?>
                             </select>
                         </form>
+                    <?php endif; ?>
+
+
+
+                    <?php if ($p->hasItemsCounter): ?>
+                        <div class="itemscounter"><?php echo $p->nbItemsTotal; ?> <?php echo $this->texts['itemscounter.items']; ?></div>
                     <?php endif; ?>
 
 

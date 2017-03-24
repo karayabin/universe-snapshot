@@ -4,9 +4,7 @@
 namespace Packer;
 
 
-use Bat\FileSystemTool;
 use DirScanner\YorgDirScannerTool;
-use Packer\Node\Node;
 use TokenFun\TokenFinder\Tool\TokenFinderTool;
 use TokenFun\Tool\TokenTool;
 
@@ -24,9 +22,25 @@ use TokenFun\Tool\TokenTool;
  */
 class Packer
 {
+
+
+    private $droppedNamespaces;
+
+
+    public function __construct()
+    {
+        $this->droppedNamespaces = [];
+    }
+
     public static function create()
     {
         return new static();
+    }
+
+    public function addDroppedNamespace($namespace)
+    {
+        $this->droppedNamespaces[] = $namespace;
+        return $this;
     }
 
 
@@ -61,41 +75,71 @@ class Packer
         }
 
 
-        az($this->createDependencyTree($classFiles, $rootDirectory));
+        $tree = $this->createDependencyTree($classFiles, $rootDirectory);
 
 
-        // first round, checking that everybody's here
-//        $deps = [];
-//        foreach ($classFiles as $file) {
-//            $p = explode('/', $file);
-//            array_pop($p);
-//            $namespace = implode('\\', $p);
-//            $className = substr($file, 0, -4); // remove .php extension
-//            $deps[$className] = [
-//                'namespace' => $namespace,
-//                'file' => $rootDirectory . "/" . $file,
-//                'points' => 0,
-//            ];
-//        }
-//
-//        // second round, assigning points to everybody
-//        foreach ($deps as $className => $info) {
-//            $required = $this->getRequiredClasses($info['file']);
-//            $deps[$className]['points'] += count($required);
-//        }
+        // define namespaces order
+        $namespaces = [];
+        foreach ($tree as $info) {
+            $files = $info[1];
+            $files = array_reverse($files);
+            foreach ($files as $file) {
+                $p = explode('/', $file);
+                array_pop($p);
+                $namespace = implode('/', $p);
+                $namespaces[$namespace][] = $file;
+            }
+        }
+        foreach ($namespaces as $k => $v) {
+            $v = array_unique($v);
+            $namespaces[$k] = $v;
+        }
 
 
-        az("p");
         //--------------------------------------------
         // PACKING
         //--------------------------------------------
         $s = "";
-        foreach ($namespace2Files as $namespace => $files) {
+        foreach ($namespaces as $namespace => $files) {
+
+            if (in_array($namespace, $this->droppedNamespaces)) {
+                continue;
+            }
+
+            $namespace = str_replace('/', '\\', $namespace);
             $s .= 'namespace ' . $namespace . ' {' . PHP_EOL;
+            $allUseDeps = [];
             foreach ($files as $file) {
+
+                $file = $rootDirectory . "/$file.php";
+
+
+                /**
+                 * get rid of namespaces
+                 */
                 $c = file_get_contents($file);
                 $c = preg_replace('!namespace.*!', '', $c);
                 $c = trim($c);
+
+
+                /**
+                 * be sure that two use identical statements
+                 * are not written in the same namespace context
+                 */
+                $tokens = token_get_all($c);
+                $useDeps = TokenFinderTool::getUseDependencies($tokens);
+                if (count($useDeps) > 0) {
+                    $replaced = false; // just for debug purposes
+                    foreach ($useDeps as $dep) {
+                        if (in_array($dep, $allUseDeps, true)) {
+                            $replaced = true;
+                            $c = preg_replace('!use\s+' . str_replace('\\','\\\\',$dep) . '\s*;!', '', $c);
+                        }
+                    }
+                    $allUseDeps = array_merge($allUseDeps, $useDeps);
+                }
+
+
                 if ('<?php' === substr($c, 0, 5)) {
                     $c = substr($c, 5);
                 }
@@ -120,6 +164,7 @@ class Packer
     //--------------------------------------------
     private function getRequiredClasses($file)
     {
+
         $tokens = token_get_all(file_get_contents($file));
         $useDeps = TokenFinderTool::getUseDependencies($tokens);
         /**
@@ -167,84 +212,44 @@ class Packer
             }, $required);
             $allDeps[$className] = $required;
         }
-
         /**
          * Second iteration: bind branches together
          */
         $nodes = [];
         $treatedNodes = [];
         foreach ($allDeps as $actor => $deps) {
-//            if (!in_array($actor, $treatedNodes)) {
-            $nodeChain = [$actor];
-            foreach ($deps as $dep) {
-                $this->bindNode($dep, $nodeChain, $allDeps, $treatedNodes);
+            if (!in_array($actor, $treatedNodes)) {
+                $nodeChain = [$actor];
+                $maxDepth = 0;
+                foreach ($deps as $dep) {
+                    $this->bindNode($dep, $nodeChain, $allDeps, $treatedNodes, $maxDepth);
+                }
+                $nodes[] = [$maxDepth, $nodeChain];
             }
-            $nodes[] = $nodeChain;
-//            }
         }
-        az($nodes);
-        /**
-         * Third iteration: bind the max level possible to each node
-         */
-        $node2Level = [];
-        $level = 0;
-        foreach ($nodes as $node) {
-            $this->collectParentLevels($node, $level, $node2Level);
-        }
-
-        // apply max on every node
-        $node2LevelFlat = [];
-        foreach ($node2Level as $className => $levels) {
-            $node2LevelFlat[$className] = max($levels);
-        }
-        arsort($node2LevelFlat);
-        a($node2LevelFlat);
-
+        usort($nodes, function ($a, $b) {
+            return $a[0] < $b[0];
+        });
+        return $nodes;
     }
 
 
-    private function collectParentLevels(Node $node, $level, array &$node2Level)
-    {
-        /**
-         * @var Node $node
-         */
-        $name = $node->getName();
-        $node2Level[$name][] = $level;
-        $parents = $node->getParents();
-        if (is_array($parents)) {
-            foreach ($parents as $nod) {
-                $this->collectParentLevels($nod, $level + 1, $node2Level);
-            }
-        }
-    }
-
-    private function bindNode($className, array &$nodeChain, array $allDeps, array &$treatedNodes)
+    private function bindNode($className, array &$nodeChain, array $allDeps, array &$treatedNodes, &$maxDepth)
     {
         if (array_key_exists($className, $allDeps)) {
             $treatedNodes[] = $className;
             $nodeChain[] = $className;
             $deps = $allDeps[$className];
+            $incremented = false;
             foreach ($deps as $dep) {
-                $this->bindNode($dep, $nodeChain, $allDeps, $treatedNodes);
+                if (false === $incremented) {
+                    $maxDepth++;
+                    $incremented = true;
+                }
+                $this->bindNode($dep, $nodeChain, $allDeps, $treatedNodes, $maxDepth);
             }
-        }
-        else{
-            a("not in chain: $className");
         }
     }
 
-
-//    private function bindNode($className, Node $node, array $allDeps, array &$treatedNodes)
-//    {
-//        if (array_key_exists($className, $allDeps)) {
-//            $treatedNodes[] = $className;
-//            $newNode = new Node($className);
-//            $node->bindParent($newNode);
-//            $deps = $allDeps[$className];
-//            foreach ($deps as $dep) {
-//                $this->bindNode($dep, $newNode, $allDeps, $treatedNodes);
-//            }
-//        }
-//    }
 }
 

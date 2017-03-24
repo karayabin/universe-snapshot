@@ -78,7 +78,7 @@ class TokenFinderTool
      * Note: as for now it doesn't take into account the "as" alias (i.e. use My\Class as Something)
      *
      */
-    public static function getParentClassName(array $tokens, $fullName = true, $onClassNameFound = null)
+    public static function getParentClassName(array $tokens, $fullName = true)
     {
         $o = new ParentClassNameTokenFinder();
         $matches = $o->find($tokens);
@@ -89,24 +89,20 @@ class TokenFinderTool
             // there can only be one parent class in php
             $ret = array_shift($ret);
 
-            if (is_callable($onClassNameFound)) {
-                $ret = call_user_func($onClassNameFound, $ret);
-            }
+            if (true === $fullName) {
 
-            if (false !== $ret) {
-                if (true === $fullName) {
+                $useStmts = self::getUseDependencies($tokens);
+                foreach ($useStmts as $dep) {
+                    $p = explode('\\', $dep);
+                    $lastName = array_pop($p);
+                    if ($lastName === $ret) {
+                        return $dep;
+                    }
+                }
 
-                    $useStmts = self::getUseDependencies($tokens);
-                    foreach ($useStmts as $dep) {
-                        $p = explode('\\', $dep);
-                        $lastName = array_pop($p);
-                        if ($lastName === $ret) {
-                            return $dep;
-                        }
-                    }
-                    if (false !== ($namespace = self::getNamespace($tokens))) {
-                        $ret = $namespace . '\\' . ltrim($ret, '\\');
-                    }
+
+                if (false !== ($namespace = self::getNamespace($tokens))) {
+                    $ret = $namespace . '\\' . ltrim($ret, '\\');
                 }
             }
 

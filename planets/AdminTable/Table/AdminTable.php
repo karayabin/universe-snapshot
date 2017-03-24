@@ -335,6 +335,7 @@ class AdminTable
         $p->page = $currentPage;
         $p->nipp = $nbItemsPerPageChoice;
         $p->nbPages = $nbPages;
+        $p->nbItemsTotal = $nbItemsTotal;
         $p->sortColumn = $sortColumn;
         $p->sortColumnDir = $sortColumnDir;
         $p->items = $items;
@@ -343,6 +344,7 @@ class AdminTable
         $p->showCheckboxes = $this->showCheckboxes;
         $p->hasPageSelector = $widgets['pageSelector'];
         $p->hasSearch = $widgets['search'];
+        $p->hasItemsCounter = $widgets['itemsCounter'];
         $p->hasNippSelector = $widgets['nippSelector'];
         $p->hasPagination = $widgets['pagination'];
         $p->hasMultipleActions = $widgets['multipleActions'];
