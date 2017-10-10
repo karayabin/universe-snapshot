@@ -21,6 +21,13 @@ interface LayoutInterface
     public function getWidget($name, $default = null, $throwEx = false);
 
     /**
+     *
+     *
+     * @return WidgetInterface[], array of widgetId => widget
+     */
+    public function getWidgets();
+
+    /**
      * @throws RendererException, if the template is not set
      * @param array $variables
      * @return string

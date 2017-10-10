@@ -1,0 +1,22 @@
+Brainstorm
+==================
+2015-05-22
+
+
+
+
+
+Le processus d'installation dont nous parlons ici est découpé en 3 phases:
+
+- acquisition d'un bundle et éventuellement de ses dépendances
+- installation du/des élément(s) correspondant au(x) bundle(s) dans une application cible
+- activation de l'élément au sein de l'application
+
+
+
+
+Un installateur doit être capable des choses suivantes:
+
+- installer
+- désinstaller
+- savoir si un élément est installé

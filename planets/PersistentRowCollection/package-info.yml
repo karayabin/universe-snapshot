@@ -1,0 +1,4 @@
+dependencies:
+    - git::/lingtalfi/FormModel:1.5.0
+    - git::/lingtalfi/QuickPdo:1.27.0
+    - git::/lingtalfi/RowsGenerator:1.2.4

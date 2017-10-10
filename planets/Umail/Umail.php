@@ -11,7 +11,7 @@ use Umail\TemplateLoader\FileTemplateLoader;
 use Umail\TemplateLoader\TemplateLoaderInterface;
 use Umail\VarLoader\VarLoaderInterface;
 
-class Umail implements UmailInterface
+class  Umail implements UmailInterface
 {
 
     /**
@@ -74,9 +74,10 @@ class Umail implements UmailInterface
     private $fileIsPath;
 
     /**
-     * @var \RendererInterface $renderer
+     * @var RendererInterface $renderer
      */
     private $renderer;
+    private $transport;
 
 
     public function __construct()
@@ -117,18 +118,15 @@ class Umail implements UmailInterface
         return $this->message;
     }
 
+    /**
+     * This method should be called only once per "mail sending session"
+     */
     public function to($recipients, $batchMode = true)
     {
         if (is_string($recipients)) {
-            $this->toRecipients[] = $recipients;
+            $this->toRecipients = [$recipients];
         } elseif (is_array($recipients)) {
-            foreach ($recipients as $k => $v) {
-                if (is_string($k)) {
-                    $this->toRecipients[$k] = $v;
-                } else {
-                    $this->toRecipients[] = $v;
-                }
-            }
+            $this->toRecipients = $recipients;
         }
         $this->isBatchMode = $batchMode;
         return $this;
@@ -234,6 +232,12 @@ class Umail implements UmailInterface
     }
 
 
+    public function setTransport(\Swift_Transport $transport)
+    {
+        $this->transport = $transport;
+        return $this;
+    }
+
     public function send()
     {
         $mailer = $this->getMailer();
@@ -245,7 +249,6 @@ class Umail implements UmailInterface
              * batch mode, each recipient receives its own mail copy,
              * and the "to" field only contains the recipient address
              */
-
             foreach ($this->toRecipients as $k => $v) {
 
                 try {
@@ -320,6 +323,10 @@ class Umail implements UmailInterface
         return $this;
     }
 
+
+
+
+
     //------------------------------------------------------------------------------/
     //
     //------------------------------------------------------------------------------/
@@ -328,7 +335,10 @@ class Umail implements UmailInterface
      */
     protected function getTransport()
     {
-        return \Swift_MailTransport::newInstance();
+        if (null === $this->transport) {
+            $this->transport = \Swift_MailTransport::newInstance();
+        }
+        return $this->transport;
     }
 
     protected function getTemplateLoader()

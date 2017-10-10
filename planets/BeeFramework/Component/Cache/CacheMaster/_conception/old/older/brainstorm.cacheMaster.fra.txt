@@ -1,0 +1,32 @@
+Brainstorm
+===============
+2014-08-22
+
+
+
+En fait, il se trouve que les données mises en cache
+seront ?exclusivement des données de type php.
+Nous allons donc utiliser uniquement la méthode serialize sans détour pour l'instant.
+
+En mettant juste une note que cela pourrait éventuellement évoluer,
+mais de toutes façons sans affecter l'interface.
+
+
+
+
+Voici une idée de structure:
+
+
+- storeDir:
+----- $dataName:  # [a-Z0-9-_]
+--------- cache.txt
+--------- meta.txt
+
+
+Notes:
+cache.txt contient le dump de la data à stocker.
+meta.txt contient également le dump de la meta.
+
+
+
+

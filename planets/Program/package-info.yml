@@ -1,0 +1,5 @@
+dependencies:
+    - git::/lingtalfi/Output:1.3.0
+    - git::/lingtalfi/CommandLineInput:1.0.0
+
+        

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Router\Exception;
+namespace Kamille\Architecture\Router\Exception;
 
 
 class RouterException extends \Exception

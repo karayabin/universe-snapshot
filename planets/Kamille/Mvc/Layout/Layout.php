@@ -4,13 +4,15 @@
 namespace Kamille\Mvc\Layout;
 
 
+use Kamille\Architecture\ApplicationParameters\ApplicationParameters;
 use Kamille\Mvc\Layout\Exception\LayoutException;
-use Kamille\Mvc\Loader\LoaderInterface;
+use Loader\LoaderInterface;
 use Kamille\Mvc\Renderer\Exception\RendererException;
 use Kamille\Mvc\Renderer\LayoutRendererInterface;
 use Kamille\Mvc\Renderer\RendererInterface;
 use Kamille\Mvc\Widget\LayoutAwareWidgetInterface;
 use Kamille\Mvc\Widget\WidgetInterface;
+use Kamille\Services\XLog;
 
 /**
  * In this implementation, we use the following pattern:
@@ -30,6 +32,9 @@ class Layout implements LayoutInterface
      * @var RendererInterface
      */
     private $renderer;
+
+    private $onPrepareVariablesCallback;
+    private $onRenderedTemplateReadyCallback;
 
     public function __construct()
     {
@@ -73,10 +78,14 @@ class Layout implements LayoutInterface
         return $default;
     }
 
+    public function getWidgets()
+    {
+        return $this->widgets;
+    }
+
 
     public function render(array $variables = [])
     {
-
         if (null === $this->templateName) {
             throw new RendererException("Template not set");
         }
@@ -89,6 +98,10 @@ class Layout implements LayoutInterface
                 $this->renderer->setLayout($this);
             }
 
+
+            if (true === ApplicationParameters::get("debug")) {
+                XLog::debug("[Kamille.Layout] - Rendering layout " . $this->templateName);
+            }
             $renderedTemplate = $this->renderer->render($uninterpretedTemplate, $variables);
             $this->onRenderedTemplateReady($renderedTemplate);
             return $renderedTemplate;
@@ -118,6 +131,21 @@ class Layout implements LayoutInterface
         $this->renderer = $renderer;
         return $this;
     }
+
+    public function setOnPrepareVariablesCallback(callable $onPrepareVariablesCallback)
+    {
+        $this->onPrepareVariablesCallback = $onPrepareVariablesCallback;
+        return $this;
+    }
+
+    public function setOnRenderedTemplateReadyCallback(callable $onRenderedTemplateReadyCallback)
+    {
+        $this->onRenderedTemplateReadyCallback = $onRenderedTemplateReadyCallback;
+        return $this;
+    }
+
+
+
     //--------------------------------------------
     //
     //--------------------------------------------
@@ -139,13 +167,18 @@ class Layout implements LayoutInterface
      */
     protected function onRenderedTemplateReady(&$renderedTemplate)
     {
-
+        if (null !== $this->onRenderedTemplateReadyCallback) {
+            call_user_func_array($this->onRenderedTemplateReadyCallback, [&$renderedTemplate]);
+        }
     }
 
 
     protected function prepareVariables(array &$variables)
     {
-
+        if (null !== $this->onPrepareVariablesCallback) {
+            call_user_func_array($this->onPrepareVariablesCallback, [&$variables]);
+//            $variables = call_user_func($this->onPrepareVariablesCallback, $variables);
+        }
     }
 
 

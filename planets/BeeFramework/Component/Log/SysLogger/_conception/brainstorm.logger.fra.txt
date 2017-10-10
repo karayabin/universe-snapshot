@@ -1,0 +1,34 @@
+Brainstorm
+===================
+2015-05-29
+
+
+
+
+Ce système se veut être le logger de référence pour l'écosystème bee.
+Il s'agit d'un logger générique.
+
+
+
+Le côté visuel
+------------------
+
+On (l'application) loggue un message, dénué de tout embellissement visuel.
+SysLogger est à la base uniquement fonctionnel, le but est d'alerter le maintainer que qqchose s'est mal déroulé dans l'application.
+Si vous souhaitez un logger capable d'embellissement visuel, prenez un visual logger tel que Komin.Component.Log.ProcessSysLogger.
+
+
+
+Le retour à la ligne
+-------------------------
+Le message doit être pensé comme s'il était destiné à être écrit dans un fichier, le \n doit être utilisé comme caractère
+de retour à la ligne.
+
+
+Les levels
+----------------
+
+Nous utiliserons les 9 neufs niveaux d'un syslogger, car cela a l'avantage d'être simple à utiliser, et de générer un "écosystème"
+homogène (et facilement maîtrisable).
+
+

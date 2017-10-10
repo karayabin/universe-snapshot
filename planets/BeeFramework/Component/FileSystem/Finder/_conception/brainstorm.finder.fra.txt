@@ -1,0 +1,20 @@
+Brainstorm
+================
+2015-04-28
+
+
+Finder est un BaseFinder avec des méthodes supplémentaires pour les tâches les plus courantes.
+
+
+
+Type
+----------
+
+finder peut filtrer les ressources par type (fichier, dossier, lien, ou n'importe quelle combinaison des 3).
+Par défaut, il ne renvoie que les fichiers et dossiers.
+
+-> self     directories ( reset=true )
+-> self     files ( reset=true )
+-> self     links ( reset=true )
+
+

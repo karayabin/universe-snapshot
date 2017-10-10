@@ -1,0 +1,14 @@
+Problématique
+==================
+2015-03-01
+
+
+Des systèmes comme pcf permettent d'obtenir un tableau représentant des services.
+Pour des raisons d'optimisation (cache), ce tableau doit être traduit en un code php exécutable,
+qui correspondra au code php des méthodes du service container.
+
+
+- Comment représenter un service avec un tableau php ?
+- Comment transformer ce tableau php en code php exécutable ?
+
+

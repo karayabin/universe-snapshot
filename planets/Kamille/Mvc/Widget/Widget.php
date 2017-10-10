@@ -3,17 +3,19 @@
 
 namespace Kamille\Mvc\Widget;
 
-use Kamille\Mvc\Loader\LoaderInterface;
+use Kamille\Architecture\ApplicationParameters\ApplicationParameters;
+use Loader\LoaderInterface;
 use Kamille\Mvc\Renderer\Exception\RendererException;
 use Kamille\Mvc\Renderer\RendererInterface;
 use Kamille\Mvc\Widget\Exception\WidgetException;
+use Kamille\Services\XLog;
 
 
 /**
  * In this implementation, we use the following pattern:
  * https://github.com/lingtalfi/loader-renderer-pattern/blob/master/loader-renderer.pattern.md
  */
-class Widget implements WidgetInterface
+class Widget implements PublicWidgetInterface
 {
     private $templateName;
     protected $variables;
@@ -22,12 +24,14 @@ class Widget implements WidgetInterface
     /**
      * @var LoaderInterface
      */
-    private $loader;
+    protected $loader;
 
     /**
      * @var RendererInterface
      */
     private $renderer;
+
+    private $onPrepareVariablesCallback;
 
     public function __construct()
     {
@@ -51,6 +55,17 @@ class Widget implements WidgetInterface
         return $this;
     }
 
+    public function getTemplate()
+    {
+        return $this->templateName;
+    }
+
+    public function getVariables()
+    {
+        return $this->variables;
+    }
+
+
     public function render()
     {
         $variables = $this->variables;
@@ -62,7 +77,13 @@ class Widget implements WidgetInterface
         if (false !== $uninterpretedTemplate) {
             $this->prepareVariables($variables);
 
-            $renderedTemplate = $this->renderer->render($uninterpretedTemplate, $variables);
+            try {
+                $renderedTemplate = $this->renderer->render($uninterpretedTemplate, $variables);
+            } catch (\Exception $e) {
+                $renderedTemplate = $this->onRenderFailed($e, $this->templateName, $this);
+            }
+
+
             $this->onRenderedTemplateReady($renderedTemplate);
             return $renderedTemplate;
         }
@@ -99,6 +120,14 @@ class Widget implements WidgetInterface
         $this->renderer = $renderer;
         return $this;
     }
+
+    public function setOnPrepareVariablesCallback(callable $onPrepareVariablesCallback)
+    {
+        $this->onPrepareVariablesCallback = $onPrepareVariablesCallback;
+        return $this;
+    }
+
+
     //--------------------------------------------
     //
     //--------------------------------------------
@@ -126,7 +155,23 @@ class Widget implements WidgetInterface
 
     protected function prepareVariables(array &$variables)
     {
+        if (null !== $this->onPrepareVariablesCallback) {
+            call_user_func_array($this->onPrepareVariablesCallback, [&$variables]);
+        }
+    }
 
+
+    /**
+     * @return string, the fallback widget content.
+     */
+    protected function onRenderFailed(\Exception $e, $templateName, WidgetInterface $widget)
+    {
+        $msg = "Error with rendering of widget " . get_class($widget) . " and template $templateName";
+        XLog::error("$e");
+        if (true === ApplicationParameters::get("debug")) {
+            return "debug: " . $msg;
+        }
+        return "";
     }
 
 

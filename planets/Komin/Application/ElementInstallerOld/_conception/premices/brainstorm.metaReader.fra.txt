@@ -1,0 +1,56 @@
+Brainstorm
+===============
+2015-04-20
+
+
+
+
+
+MetaReader vs MetaServer
+------------------------------
+Est-ce qu'on doit n'utiliser qu'un MetaREADER, ou bien est-ce qu'un MetaReader 
+est forcément un MetaServer et qu'il n'y pas d'intérêt à séparer les fonctionnalités ?
+
+Je pense que je ne sais pas, mais qu'il n'y a pas de règles autres que celles que l'on créé,
+et donc que c'est une question sans importance, ou du moins qui n'importe qu'à celui qui la pose.
+Les deux points de vue sont valables, et au final, la question sera:
+
+    est-ce que l'implémentateur privilégie le côté pragmatique, ou essaie-t'il de créer un objet plus souple.
+    
+    Pas tout à fait en fait, c'est une question qui concerne l'équilibre entre les deux et elle doit trouver une réponse
+    adéquate.
+    Qu'est-ce que notre repository en réalité ?
+    
+        - un reader qui utilise en interne le système de stockage qu'il souhaite (donc présentant une api de reader) ?
+        - un système de stockage (donc présentant une api de server avec get et set) ?
+    
+    
+    
+    
+    Cette question trouvera une réponse dans le contexte dans lequel l'objet sera utilisé,
+    c'est à dire l'installation d'un élément.
+    Pour installer un élément, on a besoin de lire les meta.
+    Rien de plus, rien de moins, le côté serveur est un plus que l'on peut ajouter ou pas si,
+    une fonctionnalité supplémentaire non requise par le plan général.
+    
+    La réponse est donc reader.
+    
+    
+    
+    
+MetaReader ou Repository, quel est le meilleur nom ?
+-------------------------------------------------------
+Est-ce qu'on accède à la ressource via le reader ?
+        non
+Donc MetaReader est le meilleur nom.
+Eventuellement MetaRepository, mais le côté repository implique inconsciemment
+qu'un set est possible, reader lève cette ambiguïté dès le départ,
+on préferera donc le nom MetaReader.
+Par contre MetaReader n'évoque pas la notion de dépôt des metas.
+
+- ReadOnlyMetaRepository?
+- MetaRepository?
+- MetaMuseum?
+    
+
+Bon, ben MetaRepository.

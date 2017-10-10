@@ -1,0 +1,130 @@
+Brainstorm: BabyTree
+==========================
+2015-04-28
+
+
+
+
+L'idée de base de babyTree, c'est de pouvoir représenter une arborescence (du système de fichiers) dans différents formats,
+et de créer des outils permettant de passer d'un format à l'autre.
+
+A l'aide de cela, il sera par exemple possible de:
+
+- convertir une arborescence existante en tableau php
+- convertir un tableau en une notation plus humaine et indépendante de php (appelons cette notation babyTree notation)
+- convertir une babyTree notation et tableau php
+- convertir un tableau en arborescence
+
+
+
+babyTree est conçu pour aider aux tâches suivantes:
+
+- création d'une arborescence de manière intuitive pour les tests unitaires 
+
+
+
+
+Format tableau php
+--------------------
+
+En php, le tableau étant la structure la plus souple,
+nous allons commencer par déterminer le format du tableau.
+Il contiendra 2 entrées: une pour stocker le dossier de base (rootDir),
+et un tableau dont chaque élément représentera une ressource.
+
+
+- (babyTree array)
+----- (ressource)
+--------- path: string, le chemin relatif depuis rootDir vers la ressource
+--------- type: file|dir|link 
+--------- linkTarget: false|string
+                                Vaut false pour les ressources de type file ou dir, ou si readlink n'a pas pu lire le contenu du lien.
+                                Pour les ressources de type lien, indique la destination du lien, telle que lue par readlink,
+                                mais avec le rootDir remplacé par un rootDirAlias ($).
+                                
+--------- ?perms: string|false, les permissions appliquées sur la ressource, en notation octale, mais sous forme de string, par exemple: 0777.
+                            Pour les liens, ce sont les permissions de la cible du lien qui sont indiquées.
+                            Si la cible pointe vers une ressource non existante, false est renvoyée. 
+                             
+--------- ?owner: string|false, l'id du owner, ou, si possible (module posix installé), le nom du owner.
+                            Si le path ne pointe pas vers une ressource existante (lien cassé),
+                            false est renvoyée.
+
+--------- ?ownerGroup: string|false, l'id du group du owner, ou, si possible (module posix installé), le nom du groupe du owner
+                            Si le path ne pointe pas vers une ressource existante (lien cassé),
+                            false est renvoyée.
+                            
+                            
+
+
+Notation babyTree
+---------------------
+
+Ensuite, il nous faut un format pour les humains. La notation babyTree est une manière de représenter
+une arborescence visuellement dans un fichier.
+
+
+Les éléments de l'arborescence sont listés de haut en bas.
+La hiérarchie est émulée avec un multiple de dashes, de la même manière que babyYaml utilise des espaces
+pour créer des relations parent-enfant entre les éléments.
+
+Chaque entrée a le format suivant:
+
+    
+    - entryFormat: <indent> (<fileOrDirFormat> | <linkFormat>)
+    - indent: une chaîne de caractères constituée de n dash. n=(depth x 4) + 1.
+    - fileOrDirFormat: <path> ( <sep> <perms> (<sep> <ownership>)?  )?   <colon>?
+    - path: baseName de la ressource
+    - sep: <space> <sepChar> <space>
+    - sepChar: **   # par défaut, mais peut être changé
+    - space: un espace
+    - perms: <[> <octalPerm> <]>
+    - octalPerm: le numéro représentant les permissions de la ressource en notation octale (0777 par exemple).
+                        Pour un lien, ce sont les permissions de la cible du lien qui sont indiquées.
+    - ownership: <{> <owner> <=> <ownerGroup> <}>
+    - owner: id ou name du owner de la ressource (cible du lien pour un lien)
+    - ownerGroup: id ou name du owner group de la ressource (cible du lien pour un lien)
+    - colon: <:>  # seulement utilisé si la ressource est de type dir
+    - linkFormat: <linkPath> ( ( <sep> <perms> (<sep> <ownership>)?)  | <notFound>  )?
+    - linkPath: <path> <space> "->" <space> <linkTarget>
+    - linkTarget: cible du lien, telle que lue par readlink, ou bien le mot clé *readlink_error* (avec les astérisques)
+                        si readlink a renvoyé false.
+    - notFound: [_resource_not_existing_]
+
+
+Exemple:
+    
+    
+    - .DS_Store ** [0644] ** {pierrelafitte=staff}
+    - dir1 ** [0755] ** {pierrelafitte=staff}:
+    ----- linkToBroken -> $/dir3 ** [_resource_not_existing_]
+    ----- linkToDir -> $/dir2 ** [0755] ** {pierrelafitte=staff}
+    ----- linkToFile -> $/dir2/file2.txt ** [0644] ** {pierrelafitte=staff}
+    - dir2 ** [0755] ** {pierrelafitte=staff}:
+    ----- .DS_Store ** [0644] ** {pierrelafitte=staff}
+    ----- dir3 -> $/dir3 ** [_resource_not_existing_]
+    ----- file2.txt ** [0644] ** {pierrelafitte=staff}
+    ----- linkToFile1Txt -> ../file1.txt ** [0644] ** {pierrelafitte=staff}
+    ----- oo ** [0755] ** {pierrelafitte=staff}:
+    --------- linkToDir4 -> $/dir4/ ** [0755] ** {pierrelafitte=staff}
+    - dir4 ** [0755] ** {pierrelafitte=staff}:
+    ----- .DS_Store ** [0644] ** {pierrelafitte=staff}
+    ----- dir5 ** [0755] ** {pierrelafitte=staff}:
+    --------- hish.txt ** [0644] ** {pierrelafitte=staff}
+    - file1.txt ** [0644] ** {pierrelafitte=staff}
+    - link -> link2 ** [_resource_not_existing_]
+    - link2 -> link ** [_resource_not_existing_]
+
+
+
+
+
+
+
+
+
+
+
+
+
+

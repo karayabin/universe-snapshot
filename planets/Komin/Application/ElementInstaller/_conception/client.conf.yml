@@ -1,0 +1,31 @@
+#----------------------------------------
+# SCALP CLIENT CONFIG FILE
+#----------------------------------------
+creator: komin>
+
+
+application:
+  
+    # name of the dir that contains all elements, organized by types 
+    elementsRootDirName: elements
+    
+
+    
+local:
+# by default, every directory registered with the * mark is considered as a local repository
+# this can be overridden on a per application basis
+# (by default the application dir is the dir within which the client has been invoked)
+    *: 
+        - /path/to/alveolus
+        - /path/to/another/dir
+    app1Example:
+        dir: /some/path          
+        exclude:
+            - /path/to/another/dir
+proxy:
+    definitionsFile: /path/to/allDefinitions.yml
+    
+server:
+    user: myUserName  
+    pass1: popi la tulipe  
+    pass2: paf le chien  

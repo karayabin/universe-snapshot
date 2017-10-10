@@ -1,0 +1,33 @@
+Brainstorm
+======================
+2015-06-03
+
+
+
+
+CacheMaster
+---------------
+
+Le cache master est un vieux maître qui stocke des objets pour nous.
+
+On arriva à la consigne, on fournit un nom, la donnée à mettre en cache, et éventuellement
+des meta-informations qui nous permettent de déterminer la validité du cache.
+
+Le cache master nous réserve alors 2 boîtes, assignées au même nom: 
+
+- une pour la donnée à mettre en cache
+- une pour les metas
+
+
+A tout instant, on peut lui demander (sous réserve d'avoir le bon nom) de 
+nous rendre l'une et/ou l'autre des données.
+
+
+
+CacheDisciple
+--------------------------
+
+Bien qu'il soit tout à fait possible de communiquer directement avec le cache master,
+il est possible de déléguer encore un peu de travail à un disciple.
+
+Le rôle du disciple est de gérer la validité du cache à la place du développeur.

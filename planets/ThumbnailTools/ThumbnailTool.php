@@ -19,6 +19,7 @@ class ThumbnailTool
      * The destination directory is created if necessary.
      * The function ensures that an image is created (handy to use with uploaded files for security).
      *
+     *
      * If maxWidth is null and maxHeight is null, the created image will have the same dimensions
      * as the original image.
      *
@@ -32,6 +33,7 @@ class ThumbnailTool
      * and in accordance with the image original ratio.
      *
      *
+     * The image is scaled up if necessary.
      *
      * maxWidth and maxHeight must be strictly positive integers.
      *
@@ -64,107 +66,118 @@ class ThumbnailTool
     public static function biggest($src, $dst, $maxWidth = null, $maxHeight = null)
     {
         list($srcWidth, $srcHeight, $srcType) = getimagesize($src);
+        if (0 !== (int)$srcHeight) {
 
-        //------------------------------------------------------------------------------/
-        // Compute height and width
-        //------------------------------------------------------------------------------/
-        $ratio = $srcWidth / $srcHeight;
-        $width = $srcWidth;
-        $height = $srcHeight;
-        $maxWidth = (int)$maxWidth;
-        $maxHeight = (int)$maxHeight;
-        $res = false;
 
-        if (0 !== $maxWidth && 0 === $maxHeight) {
-            $width = $maxWidth;
-            $height = $width / $ratio;
-        }
-        elseif (0 !== $maxHeight && 0 === $maxWidth) {
-            $height = $maxHeight;
-            $width = $height * $ratio;
-        }
-        elseif (0 !== $maxWidth && 0 !== $maxHeight) {
-            // taller
-            if ($height > $maxHeight) {
-                $width = ($maxHeight / $height) * $width;
-                $height = $maxHeight;
-            }
+            //------------------------------------------------------------------------------/
+            // Compute height and width
+            //------------------------------------------------------------------------------/
+            $ratio = $srcWidth / $srcHeight;
+            $width = $srcWidth;
+            $height = $srcHeight;
+            $maxWidth = (int)$maxWidth;
+            $maxHeight = (int)$maxHeight;
+            $res = false;
 
-            // wider
-            if ($width > $maxWidth) {
-                $height = ($maxWidth / $width) * $height;
+            if (0 !== $maxWidth && 0 === $maxHeight) {
                 $width = $maxWidth;
-            }
-        }
+                $height = $width / $ratio;
+            } elseif (0 !== $maxHeight && 0 === $maxWidth) {
+                $height = $maxHeight;
+                $width = $height * $ratio;
+            } elseif (0 !== $maxWidth && 0 !== $maxHeight) {
+                $width = $maxWidth;
+                $height = $maxHeight;
 
-
-        $imageFinal = imagecreatetruecolor($width, $height);
-
-
-        switch ($srcType) {
-            case IMAGETYPE_JPEG:
-            case IMAGETYPE_JPEG2000:
-                $image = imagecreatefromjpeg($src);
-                break;
-            case IMAGETYPE_PNG:
-
-                $image = imagecreatefrompng($src);
-                imagealphablending($imageFinal, false);
-                imagesavealpha($imageFinal, true);
-                $transparent = imagecolorallocatealpha($imageFinal, 255, 255, 255, 127);
-                imagefilledrectangle($imageFinal, 0, 0, $width, $height, $transparent);
-
-                break;
-            case IMAGETYPE_GIF:
-                $image = imagecreatefromgif($src);
-
-                $transparent_index = imagecolortransparent($image);
-                if ($transparent_index >= 0) {
-                    imagepalettecopy($image, $imageFinal);
-                    imagefill($imageFinal, 0, 0, $transparent_index);
-                    imagecolortransparent($imageFinal, $transparent_index);
-                    imagetruecolortopalette($imageFinal, true, 256);
+                if ($ratio >= 1) {
+                    $height = $width / $ratio;
+                } else {
+                    $width = $height * $ratio;
                 }
-                break;
-            default:
-                throw new \RuntimeException("Unsupported image format: $srcType");
-                break;
-        }
+            }
 
 
-        imagecopyresampled($imageFinal, $image, 0, 0, 0, 0, $width, $height, $srcWidth, $srcHeight);
+            $imageFinal = imagecreatetruecolor($width, $height);
 
 
-        // assuming the file has an explicit extension (otherwise accept an array as argument...)
-        $ext = strtolower(FileSystemTool::getFileExtension($dst));
-
-        if (true === FileSystemTool::mkdir(dirname($dst), 0777, true)) {
+            $type2Handlers = static::getType2Handlers();
+            $handler = (array_key_exists($srcType, $type2Handlers)) ? $type2Handlers[$srcType] : "none";
 
 
-            switch ($ext) {
-                case 'jpeg':
-                case 'jpg':
-                    $res = imagejpeg($imageFinal, $dst);
+            switch ($handler) {
+                case "jpg":
+                    $image = imagecreatefromjpeg($src);
                     break;
-                case 'png':
-                    $res = imagepng($imageFinal, $dst);
+                case "gif":
+
+                    $image = imagecreatefrompng($src);
+                    imagealphablending($imageFinal, false);
+                    imagesavealpha($imageFinal, true);
+                    $transparent = imagecolorallocatealpha($imageFinal, 255, 255, 255, 127);
+                    imagefilledrectangle($imageFinal, 0, 0, $width, $height, $transparent);
+
                     break;
-                case 'gif':
-                    $res = imagegif($imageFinal, $dst);
+                case "png":
+                    $image = imagecreatefromgif($src);
+
+                    $transparent_index = imagecolortransparent($image);
+                    if ($transparent_index >= 0) {
+                        imagepalettecopy($image, $imageFinal);
+                        imagefill($imageFinal, 0, 0, $transparent_index);
+                        imagecolortransparent($imageFinal, $transparent_index);
+                        imagetruecolortopalette($imageFinal, true, 256);
+                    }
                     break;
                 default:
-                    throw new \RuntimeException("Unsupported destination image extension: $ext");
+                    throw new \RuntimeException("Unsupported image format: $srcType, src: $src");
                     break;
             }
-            imagedestroy($imageFinal);
-            imagedestroy($image);
+
+
+            imagecopyresampled($imageFinal, $image, 0, 0, 0, 0, $width, $height, $srcWidth, $srcHeight);
+
+
+            // assuming the file has an explicit extension (otherwise accept an array as argument...)
+            $ext = strtolower(FileSystemTool::getFileExtension($dst));
+
+            if (true === FileSystemTool::mkdir(dirname($dst), 0777, true)) {
+
+
+                switch ($ext) {
+                    case 'jpeg':
+                    case 'jpg':
+                        $res = imagejpeg($imageFinal, $dst);
+                        break;
+                    case 'png':
+                        $res = imagepng($imageFinal, $dst);
+                        break;
+                    case 'gif':
+                        $res = imagegif($imageFinal, $dst);
+                        break;
+                    default:
+                        throw new \RuntimeException("Unsupported destination image extension: $ext");
+                        break;
+                }
+                imagedestroy($imageFinal);
+                imagedestroy($image);
+            } else {
+                $dst_parent = dirname($dst);
+                trigger_error("Couldn't create the target directory $dst_parent", E_USER_WARNING);
+            }
+            return $res;
         }
-        else {
-            $dst_parent = dirname($dst);
-            trigger_error("Couldn't create the target directory $dst_parent", E_USER_WARNING);
-        }
-        return $res;
+        return false;
     }
 
+
+    protected static function getType2Handlers()
+    {
+        return [
+            IMAGETYPE_JPEG => 'jpg',
+            IMAGETYPE_JPEG2000 => 'jpg',
+            IMAGETYPE_GIF => 'gif',
+            IMAGETYPE_PNG => 'png',
+        ];
+    }
 
 }

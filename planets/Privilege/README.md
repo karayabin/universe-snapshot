@@ -148,7 +148,7 @@ Easy, you know it, use a wildcard instead of "person", like this:
  
 So, if you want to create a profile with all privileges granted, just give him the following privilege:
  
-- *
+- \*
  
  
  

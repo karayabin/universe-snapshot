@@ -1,0 +1,22 @@
+MIME-Version: 1.0
+Content-Type: multipart/related;
+  type="text/html"; start="<body@here>"; boundary="embed-boundary"
+
+--embed-boundary
+Content-Type: text/html; charset=us-ascii
+Content-Disposition: inline
+Content-ID: <body@here>
+
+
+{textHtml}
+
+
+{embedded}
+
+
+
+
+
+
+--embed-boundary--
+

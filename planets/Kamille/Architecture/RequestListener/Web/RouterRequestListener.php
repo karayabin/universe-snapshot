@@ -4,8 +4,10 @@
 namespace Kamille\Architecture\RequestListener\Web;
 
 
+use Kamille\Architecture\ApplicationParameters\ApplicationParameters;
 use Kamille\Architecture\Request\Web\HttpRequestInterface;
-use Kamille\Architecture\Router\RouterInterface;
+use Kamille\Architecture\Router\Web\WebRouterInterface;
+use Kamille\Services\XLog;
 
 
 /**
@@ -39,7 +41,7 @@ class RouterRequestListener implements HttpRequestListenerInterface
 {
 
     /**
-     * @var RouterInterface[]
+     * @var WebRouterInterface[]
      */
     private $routers;
 
@@ -59,6 +61,12 @@ class RouterRequestListener implements HttpRequestListenerInterface
         $urlParams = [];
         foreach ($this->routers as $router) {
             if (null !== ($res = $router->match($request))) {
+
+
+                if (is_callable($res)) {
+                    $controller = $res;
+                    break;
+                }
                 if (is_array($res)) {
                     $controller = $res[0];
                     $urlParams = $res[1];
@@ -70,17 +78,55 @@ class RouterRequestListener implements HttpRequestListenerInterface
                 }
             }
         }
+
         if (null !== $controller) {
-            $request->set("controller", $controller);
+
+
+            if (true === ApplicationParameters::get('debug')) {
+                $s = "unknown controller type";
+
+                if (is_callable($controller)) {
+                    $this->callableRepresentation($controller, $s);
+                } elseif (is_string($controller)) {
+                    $s = $controller;
+                } elseif (is_array($controller)) {
+                    $cont = $controller[0];
+                    if (is_callable($cont)) {
+                        $this->callableRepresentation($cont, $s);
+                    } elseif (is_string($cont)) {
+                        $s = $cont;
+                    }
+                }
+                XLog::debug("[Kamille.RouterRequestListener] - Router matched: " . get_class($router) . ", controller: $s");
+            }
+
             $urlParams = array_merge($request->get('urlParams', []), $urlParams);
             $request->set("urlParams", $urlParams);
+            $request->set("controller", $controller);
         }
     }
 
-    public function addRouter(RouterInterface $router)
+    public function addRouter(WebRouterInterface $router)
     {
         $this->routers[] = $router;
         return $this;
     }
 
+    //--------------------------------------------
+    //
+    //--------------------------------------------
+    private function callableRepresentation($controller, &$s)
+    {
+        if (is_string($controller)) {
+            $s = $controller;
+        } elseif (is_object($controller)) {
+            $s = get_class($controller);
+        } elseif (is_array($controller) && array_key_exists(0, $controller)) {
+            if (is_string($controller[0])) {
+                $s = $controller[0];
+            } elseif (is_object($controller[0])) {
+                $s = get_class($controller[0]);
+            }
+        }
+    }
 }

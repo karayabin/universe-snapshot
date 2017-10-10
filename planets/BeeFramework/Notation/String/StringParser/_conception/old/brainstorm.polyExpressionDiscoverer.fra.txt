@@ -1,0 +1,27 @@
+Brainstorm
+=====================
+2015-05-15
+
+
+
+
+
+Ce discoverer est conçu pour parser une seule expression dont la forme est variable.
+
+
+Voici quelques raisons pour utiliser un polyDiscoverer plutôt qu'un discoverer normal:
+
+- le poly discoverer prend en charge la rétro validation.
+        Ainsi, si la chaîne est:
+        
+                [web]
+                    pourrait être interprété comme une séquence, et
+                [web]/path
+                    pourrait être interprété comme un hybride.
+        
+- le poly discoverer permet de gérer les commentaires, indirectement.
+         
+        
+
+
+

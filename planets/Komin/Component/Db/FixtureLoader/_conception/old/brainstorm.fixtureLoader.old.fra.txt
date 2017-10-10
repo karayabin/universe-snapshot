@@ -1,0 +1,163 @@
+Brainstorm
+=====================
+2015-05-30
+
+
+
+
+
+Si l'application utilise une base de données, il y a de fortes chances que le dev ait besoin
+à un moment ou un autre de tester l'application avec une base de données remplie.
+
+A moins d'avoir une base de données déjà pré-remplie, il y a donc une phase de remplissage de la base de données.
+Le but du fixtureLoader est d'aider le dev dans cette tâche.
+
+
+FixtureLoader permet d'insérer des données plus rapidement qu'avec une interface 
+graphique en général (si le dev a un bon ide), car les données sont créées avec l'ide, donc le dev bénéficie
+de nombreuses choses:
+
+- Pour la création d'un enregistrement:
+    
+    - les raccourcis copier-coller, dupliquer une ligne
+    - la notation byaml (babyYaml) est utilisée par défaut pour gagner en concision
+    
+- pour la création de collections de fixtures:
+    
+    - possibilité de copier un fichier et de le renommer, puis chercher/remplacer dans le fichier
+    - le système de fichiers permet d'organiser les collections comme on veut, et de déplacer les éléments d'une collection à l'autre facilement
+    
+    
+- permanence des données:
+    - les données ne sont créées qu'une fois et existent pour "toujours" (tant que le fichier n'est pas supprimé) par la suite,
+                on peut reprendre un fichier et continuer à l'éditer, bref, tous les avantages de l'arborescence via un ide...
+                
+                
+                
+                
+-----------------------------------
+                
+Notre outil fonctionne par défaut avec des fichiers ou dossiers.
+Il recherche des fichiers yml qu'il interprète comme des fichiers de fixtures.
+
+Le fichier de fixtures comprend deux éléments:
+
+- target: le nom de la table dans laquelle les données doivent être insérées
+        Pour des raisons de portabilité, on mettra le nom de la table sans le préfixe de la bdd devant,
+        sauf si le nom de la bdd ne peut pas être implicite.
+        
+- data: les données à insérer
+        
+
+
+Tableau to serialize
+----------------------------                 
+
+Par défaut, toutes les données scalaires sont insérées telles quelles dans la bdd.
+Si un tableau php est passé, par défaut, celui-ci sera sérialisé avant d'être inséré dans la bdd.
+
+        (rappel: il n'est pas possible d'insérer un type non scalaire dans une bdd.)
+        
+
+Field Formatter
+--------------------
+
+Par extension, nous proposons le concept de FieldFormatter, qui s'applique sur une target et un nom de champ donné.
+Le fieldFormatter permet de transformer la valeur d'un champ écrit dans la partie data du fichier fixtures,
+avant que celle-ci ne soit écrite dans la bdd.
+Ainsi on peut effectuer toute opération qu'on peut imaginer: formatter les prénoms en les mettant tout en minuscules par exemple,
+formatter des numéros de téléphone, etc...
+
+Les FieldFormatters sont exécutés avant le serializer natif, de telle sorte que le dev a l'opportunité
+de transformer un tableau php en une valeur de son choix, et si cette valeur est un scalaire, alors le serializer interne
+ne verra plus la donnée.
+
+
+Ordre des fixtures
+----------------------
+
+L'ordre des fixtures peut être très important dans certaines situations.
+Par exemple, on ne peut pas toujours supprimer les données de toutes les tables dans n'importe quel ordre.
+De la même manière, les données requièrent parfois d'être insérées dans un certain ordre, notamment les tables qui on
+
+
+
+
+
+
+DbProcessor
+--------------
+
+Nous souhaitons que le dev puisse choisir le sgbd.
+Cela se traduit dans notre design par la création d'un objet DbProcessor, qui est l'objet effectuant concrètement les requêtes.
+Nous proposerons une implémentation concrète avec pdo par défaut.
+              
+              
+FixtureStorage
+-----------------
+
+Représente notre souhait de permettre l'utilisation d'autres moyens de stockage que bYaml.
+
+
+
+
+
+Par défaut, notre fixtureStorage lit les fichiers bYaml. 
+Si un dossier est passé comme path, les fichiers .yml situés à la racine de ce dossier uniquement sont considérés comme des fixtures.
+Si un fichier _order.yml est créé, il contient 2 entrées:
+    - delete: tableau représentant les tables à supprimer, dans l'ordre
+    - insert: tableau représentant les tables à traiter, dans l'ordre
+ 
+      
+      
+Design sketch
+-----------------
+              
+- FixtureLoader
+
+----- self  setErrorMode ( quietOrStrict )   
+                En mode strict, une exception est lancée dès que qq chose tourne mal.
+                En mode quiet, les erreurs n'empêchent pas le process de continuer, 
+                et les erreurs sont accessibles via la méthode getErrors
+----- array getErrors ( )
+                
+                
+----- self  setDbProcessor ( DbProcessor )
+----- self  setFixtureStorage ( FixtureStorage )
+
+----- bool  load ( fileOrFolder, deleteRecords=true )
+          Insère les fixtures passées en paramètres dans la bdd, et renvoie true.
+          deleteRecords essaie de supprimer les enregistrements existants auparavant.
+          Une exception survient si qq chose se passe mal.
+                
+                
+                
+- DbProcessor        
+----- bool      deleteRows ( table )
+                    Supprime toutes les entrées de la table donnée, puis renvoie true.
+                    Renvoie false en cas de pb.
+            
+----- bool      insert ( table, array row )
+                    Insère une ligne, et renvoie true.
+                    Renvoie false en cas de pb. 
+              
+----- array     getErrors ()              
+                    Renvoie le tableau des erreurs survenues.
+              
+              
+              
+- FixtureStorage
+----- Fixture[]  find ( path )
+                        Lance une exception si qq chose se passe mal
+                        
+              
+              
+- Fixture
+----- target:              
+----- data:              
+              
+              
+              
+              
+              
+              

@@ -30,7 +30,7 @@ class ArrayExport
         $ret = ArrayToStringUtil::create()
             ->setValueFormatter(function ($value, $level) {
                 if ($value instanceof \Closure) {
-                    return self::getClosureAsString($value);
+                    return self::getClosureAsString($value, $level);
                 }
                 return var_export($value, true);
             })
@@ -46,7 +46,7 @@ class ArrayExport
     //--------------------------------------------
     //
     //--------------------------------------------
-    private static function getClosureAsString(\Closure $closure)
+    private static function getClosureAsString(\Closure $closure, $level)
     {
         $func = new \ReflectionFunction($closure);
         $filename = $func->getFileName();
@@ -55,13 +55,28 @@ class ArrayExport
         $length = $end_line - $start_line;
         $source = file($filename);
         $body = implode("", array_slice($source, $start_line, $length));
-        $p = preg_split('!=>?\s?function!i', $body, 2);
+        $p = preg_split('!\s?function\s?\(!i', $body, 2);
         if (2 === count($p)) {
-            $body = 'function ' . trim($p[1]);
-            $lastChar = substr($body, -1);
-            if (';' === $lastChar || ',' === $lastChar) {
-                $body = substr($body, 0, -1);
+            $body = 'function (' . trim($p[1]);
+
+            /**
+             * We will detect the first occurrence of a closing curly brace "}",
+             * on the last line,
+             * as the signal for the end of the function.
+             *
+             *
+             */
+            $q = explode(PHP_EOL, $body);
+            $lastLine = array_pop($q);
+            $r = explode('}', $lastLine, 2);
+            $level--;
+            if ($level < 0) {
+                $level = 0;
             }
+            $tab = str_repeat("\t", $level);
+            $body = implode(PHP_EOL . $tab, $q) . PHP_EOL . $tab . $r[0] . "}";
+
+
         } else {
             // unknown case
             throw new \Exception("Don't know how to handle this case yet");

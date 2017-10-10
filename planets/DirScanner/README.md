@@ -1,6 +1,6 @@
 DirScanner
 ==============
-2015-11-03
+2015-11-03 --> 2017-04-18
 
 
 
@@ -119,6 +119,10 @@ $dirs = YorgDirScannerTool::getDirs("/path/to/dir");
 
 History Log
 ------------------
+    
+- 1.4.0 -- 2017-04-18
+
+    - add YorgDirScannerTool.getEntries method
     
 - 1.3.0 -- 2016-02-01
 

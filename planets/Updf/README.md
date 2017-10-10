@@ -242,6 +242,35 @@ If you open your index.php page in a browser, it should generate and output the 
 to the hello.tpl.php template file.
 
 
+
+If it doesn't, maybe that's because your Updf library is referenced as a symlink for organization reason.
+Don't worry, you just need to change the default template directory used by the template loader.
+
+I did that the other day using the kamille framework and here is the code:
+
+
+```php
+<?php
+
+
+use Updf\TemplateLoader\TemplateLoader;
+use Updf\Updf;
+
+require_once __DIR__ . "/../boot.php";
+require_once __DIR__ . "/../init.php";
+
+
+require_once __DIR__ . "/TCPDF/tcpdf.php";
+
+Updf::create()
+    ->setTemplateLoader(TemplateLoader::create()->setTemplateDir(__DIR__ . "/../pdf"))
+    ->setTemplate('hello')
+    ->render();
+```
+
+
+
+
 The three types of variables
 -----------------------------------
 
@@ -536,6 +565,10 @@ So if you write this code, notice the border=0.5 set on the table tag...
 
 History Log
 ------------------
+    
+- 1.2.0 -- 2017-06-19
+
+    - Updf: add the tempnam fix for php7.1+
     
 - 1.1.0 -- 2017-02-19
 

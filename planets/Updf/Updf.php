@@ -287,7 +287,7 @@ class Updf
     //--------------------------------------------
     private function tmpFile($content)
     {
-        $tmpfname = tempnam("/tmp/updf", "FOO");
+        $tmpfname = @tempnam("/tmp/updf", "FOO"); // https://github.com/Glavin001/atom-beautify/issues/1108
         file_put_contents($tmpfname, $content);
         return $tmpfname;
     }

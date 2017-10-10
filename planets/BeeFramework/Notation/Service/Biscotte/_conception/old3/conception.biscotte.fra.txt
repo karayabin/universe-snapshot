@@ -1,0 +1,152 @@
+Conception
+================
+2015-05-25
+
+
+BEE Service COde (as) TExt
+
+
+Nous allons définir un ensemble de règles.
+Chaque règle est une correspondance entre un certain nombre de propriétés d'un tableau et un code php équivalent.
+
+ 
+Les règles sont réparties par catégorie:
+
+- appel d'une classe (instanciée)
+- arguments
+
+
+Nous utiliserons les variables suivantes:
+
+- className, le className de la classe, par exemple Zombee\Foo\MyClass
+- args, un tableau d'arguments. Le tableau est écrit avec la syntaxe du fichier de configuration, ici babyYaml.
+            Chaque argument peut réutiliser les autres éléments de notation.           
+            
+- serviceAddress, l'adresse du service
+- parameterReference, le chemin bdot vers un paramètre situé dans le tableau contenant tous les paramètres.
+                        Ceci est désactivable.
+                        Ce sont des références de type standalone (voir doc de ArrayWithReferences),
+                        et uniquement utilisables au niveau des arguments, inline ou en tableau.
+ 
+- methodName, le nom d'une méthode
+- index, l'index numérique naturel d'un tableau
+- inlineArgs, un tableau d'arguments écrit de manière linéaire.
+                Cette élément de notation n'est pas aussi complet que la version args,
+                mais a l'avantage de pouvoir s'écrire plus rapidement.
+                
+                Chaque argument est séparé par une virgule.
+                Les espaces (non protégés) n'ont pas d'incidence.
+                Un argument peut être une valeur spéciale: null, false, true.
+                Une string doit être protégée par des guillemets simples ou doubles.
+                    Le mécanisme de protection de php correspondant s'applique: 
+                        à l'intérieur des guillemets, on doit protéger ce même type de guillemet par 
+                        un backslash (lui même non échappé).
+                Les références vers des services peuvent être utilisées.
+                Mais on ne peut pas appeler le résultat d'une méthode.
+                
+                
+
+            
+
+Appel d'une classe instanciée
+------------------------------------       
+
+### non statique
+        
+    serviceA:
+        _class: <className>
+        ?_args: <args>
+        
+### statique
+        
+    serviceA:
+        _static: <className> <::> <methodName>
+        ?_args: <args>         
+
+
+#### Appel d'une méthode sur la classe instanciée
+                    
+    serviceA:                    
+        _class: <className>         # on aurait pu également utiliser _static
+        _args: <args>
+        _calls:      
+            <index>: 
+                _method: <methodName>
+                _args: <args>
+                
+#### Appel d'une méthode sur la classe instanciée, version inline
+                    
+    serviceA:                    
+        _class: <className>         # on aurait pu également utiliser _static
+        _args: <args>
+        _calls:      
+            <index>: <methodName> <(> <inlineArgs> <)>
+                
+
+
+Arguments
+---------------
+
+### Valeurs php
+
+    On les écrit directement, il n'y a pas de notation particulière
+
+### Paramètres
+
+    parameterRef: <referenceSymbol> <referencePath> <referenceSymbol>
+            referenceSymbol: <§>    # par défaut
+            referencePath: string, le chemin bdot vers la valeur à injecter
+
+
+### Appel d'un service
+
+    serviceA: <@> <?>? <serviceAddress> <+>?
+                Le <?> indique que si le service n'est pas trouvé, on renvoie null à la place
+                Le <+> indique qu'une nouvelle instance du service doit être passée.
+
+
+                
+### Résultat de l'appel d'une méthode d'un autre service
+                
+#### service, notation en array
+    _class: <className>
+    _args:
+        <index>:
+            _resultOf: <@> <serviceAddress> "->" <methodName>            
+            _args: <args>
+                
+
+### service, notation inline
+    _class: <className>
+    _args:
+        <index>: <@> <serviceAddress> "->" <methodName> <blank>? <(> <inlineArgs> <)>            
+                                
+
+
+
+### Résultat de l'appel d'une méthode d'une classe statique
+
+#### statique
+    _class: <className>
+    _args:
+        <index>:
+            _resultOf: <className> <::> <methodName>            
+            _args: <args>
+                
+
+#### statique, notation inline
+    _class: <className>
+    _args:
+        <index>: <className> <::> <methodName> <blank>? <(> <inlineArgs> <)>                
+                
+
+
+
+
+
+
+
+
+
+
+

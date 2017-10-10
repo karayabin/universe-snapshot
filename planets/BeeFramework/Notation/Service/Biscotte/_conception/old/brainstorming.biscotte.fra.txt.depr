@@ -1,0 +1,46 @@
+Biscotte
+==========
+2014-08-17
+
+BeeFramework service code (as) text
+
+
+
+
+
+
+I/O
+-----
+Un array est donné en input.
+Un texte (le code php) est retourné.
+
+
+
+
+
+Attention à visualiser le contexte d'utilisation:
+
+
+BDot::walk(function(v, k, p){
+    if(false !== code = biscotte->parseValue(v,p)){
+        container->setService ( new PlainCode( code ) );
+    }
+});
+
+
+On pourrait être tenté d'utiliser le sucre syntaxique <executionCode>
+pour remplacer les valeurs directement:
+
+BDot::walk(function(&v, k, p){
+    v = biscotte->getExecutionCode (v)
+});
+
+
+Mais on ne doit pas, car là on fait on chercherait à remplacer une valeur
+du tableau de config par une valeur produite par un objet qui n'est
+probablement pas encore ready puisque le fichier de conf n'est pas encore parsé.
+Le problème de la poule ou les oeufs first.
+
+
+Donc biscotte doit bien rester focalisé sur la conversion de syntaxe vers
+un code placé dans une méthode.

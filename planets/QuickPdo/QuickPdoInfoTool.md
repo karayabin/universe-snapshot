@@ -25,6 +25,7 @@ What are the new methods?
 - [getColumnNames](https://github.com/lingtalfi/QuickPdo/blob/master/QuickPdoInfoTool.md#getcolumnnames)
 - [getColumnNullabilities](https://github.com/lingtalfi/QuickPdo/blob/master/QuickPdoInfoTool.md#getcolumnnullabilities)
 - [getDatabase](https://github.com/lingtalfi/QuickPdo/blob/master/QuickPdoInfoTool.md#getdatabase)
+- [getDatabases](https://github.com/lingtalfi/QuickPdo/blob/master/QuickPdoInfoTool.md#getdatabases)
 - [getDriver](https://github.com/lingtalfi/QuickPdo/blob/master/QuickPdoInfoTool.md#getdriver)
 - [getPrimaryKey](https://github.com/lingtalfi/QuickPdo/blob/master/QuickPdoInfoTool.md#getprimarykey)
 - [getTables](https://github.com/lingtalfi/QuickPdo/blob/master/QuickPdoInfoTool.md#gettables)
@@ -164,6 +165,24 @@ Return false in case of failure.
 
 
 
+getCreateTable
+-------------
+2017-09-09
+
+
+```php
+array|false    getCreateTable ( str:table )
+```
+
+
+Return an array containing information about the string used to create the table.
+- table: the table name
+- create: the create string used for creating this table
+
+Return false in case of failure.
+
+
+
 getDatabase
 -------------
 2015-12-28
@@ -174,6 +193,25 @@ string    getDatabase ( )
 ```
 
 Return the database name from existing connection
+
+
+getDatabases
+-------------
+2017-05-04
+
+
+```php
+array    getDatabases ( bool:filterMysql=true )
+```
+
+Return the databases names from existing connection.
+If filterMysql is true (by default), will automatically filter the following (default mysql) databases:
+
+- mysql
+- information_schema
+- performance_schema
+
+
 
 
 getDriver
@@ -225,6 +263,20 @@ array    getTables ( str:database )
 ```
 
 Return the array of tables for the given database
+
+
+getUniqueIndexes
+-------------
+2017-09-03
+
+
+```php
+array    getUniqueIndexes ( str:table )
+```
+
+Return an array of indexName => indexes.
+
+With indexes being an array of column names ordered by ascending index sequence.
 
 
 

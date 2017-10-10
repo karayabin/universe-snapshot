@@ -1,0 +1,18 @@
+Brainstorm
+=================
+2015-05-29
+
+
+
+L'idée à l'origine de QuickPdo est de permettre au dev d'obtenir le résultat de certaines requêtes exécutées avec pdo,
+notamment des requêtes préparées, plus rapidement qu'en tapant les lignes de code php équivalentes.
+
+
+QuickPdo propose des méthodes correspondant aux principales méthodes: insert, fetch, fetchAll, etc...
+Chaque commande ayant ses propres caractéristiques.
+La prise en main est cependant rapide car les paramètres sont conçus de façon intuitive.
+ 
+ 
+ 
+ 
+ 

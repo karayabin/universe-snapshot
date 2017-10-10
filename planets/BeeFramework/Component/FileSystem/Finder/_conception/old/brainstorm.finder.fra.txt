@@ -1,0 +1,347 @@
+Par défaut, Finder suit les liens symboliques.
+
+
+
+Ordre des éléments retournés
+-------------------------------
+Les dossiers sont toujours process en premier.
+Puis les files et links dans l'ordre alphabétique par défaut.
+
+
+
+
+
+
+Filtres par chemin
+----------------------
+    fonctionnent par groupe de 6 méthodes:
+
+    - XXX
+    - XXXIfDir
+    - XXXIfFile
+    - excludeXXX
+    - excludeXXXIfDir
+    - excludeXXXIfFile
+
+
+La version XXX s'applique à tout type de ressource: link, file, dir.
+La version XXXIfDir ne s'applique qu'au type dir ou dirLink.
+La version XXXIfFile ne s'applique qu'au type file ou fileLink.
+
+
+La version excludeXXX exclut tout type de ressource: link, file, dir.
+La version excludeXXXIfDir n'exclut une ressource que si son type
+                est dir ou dirLink.
+La version excludeXXXIfFile n'exclut une ressource que si son type
+                est file ou fileLink.
+
+
+Les filtres de type exclude... sont appliqué APRÈS.
+
+Quelque soit le résultat du filtrage, cela n'affecte pas le mode de recherche.
+C'est pourquoi même si un élément de type dossier est exclus avec l'une de ces méthodes,
+le Finder ira quand même scanner à l'intérieur de ce dossier.
+
+
+
+
+
+- baseName: filtrage par baseName.
+- baseNameIfDir: filtrage par baseName, mais s'appliquant uniquement aux ressources de type dir.
+- baseNameIfFile: filtrage par baseName, mais s'appliquant uniquement aux ressources de type file.
+- excludeBaseName: exclusion par baseName
+- excludeBaseNameIfDir
+- excludeBaseNameIfFile
+
+
+- relativePath: la ressource matche seulement si le subPathname matche
+- relativePathIfDir
+- relativePathIfFile
+- excludeRelativePath
+- excludeRelativePathIfDir
+- excludeRelativePathIfFile
+
+
+
+
+
+
+
+Pour toutes ces méthodes, la recherche est effectuée à l'aide d'une chaîne de caractères
+qui peut être soit de type glob (voir ailleurs dans ce document), soit de type pattern,
+qui est strictement équivalent à un pattern regex tel que défini dans la documentation
+php. Le pattern doit être donné complètement, avec les délimiteurs et modificateurs
+si nécessaires.
+
+
+
+
+La syntaxe glob
+-----------------
+La syntaxe glob utilisée par notre Finder autorise les caractères suivants:
+
+ - ?: remplace exactement un caractère, mais pas aucun
+ - [abc]: un caractère parmi a, b ou c.
+ - [!abc]: un caractère parmi tous, excepté a, b ou c.
+ - *: n'importe quels caractères
+
+
+Avec la syntaxe glob, l'expression ne doit pas obligatoirement être en début
+de chaîne, elle peut se trouver n'importe où.
+Par exemple,
+
+    .*   matchera les deux exemples suivants:
+    - .htaccess
+    - file.txt
+
+
+Si on souhaite ne matcher que les fichiers cachés par exemple, on doit utiliser
+un pattern.
+
+
+La syntaxe glob s'applique à toute la chaîne, et ne tient pas compte (n'est pas au courant)
+des composants du chemin délimités pas des slashs.
+
+
+
+
+
+
+Différences entre les méthodes d'accès de MeeSplFileInfo
+---------------------------------------------------------
+- getRealpath: false|string, le chemin absolu vers le file ou dir, une fois
+            le link résolu (si c'est un link qui est pointé).
+            Retourne false si c'est un §broken link§.
+
+- getBasename: retourne le §baseName§ du dir, file ou link.
+                    C'est à dire que le §baseName§ du lien est retourné
+                    et non pas celui de sa cible.
+- getFilename: comme getBasename.
+- getPathname: retourne le chemin absolu vers le file, dir ou link.
+
+                Si les liens pointant vers un dossier sont suivis,
+                le chemin absolu vers le link du symlink est utilisé comme
+                "namespace" (préfixe) pour tous les éléments situés dans
+                le dossier cible.
+
+                Exemple:
+
+                - a:
+                ----- linkToB->$/b
+                - b:
+                ----- myFile.txt
+
+                Si on scanne les fichiers dans a, on trouve
+
+                    - pathName: /a/linkToB/myFile.txt
+
+                    ( et non pas le realpath /a/b/myFile.txt)
+
+
+
+
+
+
+
+- getPath: le chemin absolu vers le parent de getPathname
+- getSubPathname:
+                    normalement,
+                    le chemin relatif depuis le dossier de recherche et
+                        vers le file, dir ou link (non résolu).
+                    Correspond au fragment de getPathname qui est situé
+                    après le dossier de recherche (puis en enlevant le slash
+                    du début).
+
+
+                    Il y a des exceptions.
+                    Je travaille dessus...
+
+
+
+
+- getSubPath: renvoie le parent de getSubPathname.
+                        La chaîne vide est renvoyée si la ressource renvoyée
+                        par getSubPathname est à la racine.
+
+
+
+
+Gestion des boucles infinies
+-------------------------------
+On pense que avec l'arborescence suivante
+
+- a:
+----- linkToB->$/b
+- b:
+----- linkToA->$/a
+
+
+il y a un risque de boucle infinie au niveau du Finder.
+Testons...
+Bizarrement, on trouve 135 éléments.
+Comme si il y avait une sorte de limite,
+mais le mécanisme de boucle cyclique est bien présent.
+Vu la rareté du cas, et vu que c'est une erreur que l'utilisateur
+est censé réparer, nous pouvons nous permettre de laisser la gestion
+de cette limitation par php (en espérant que ça soit bien php).
+Si un hacker mal intentionné cherchait à utiliser ce mécanisme
+pour faire tourner en boucle le process, php le limiterait au bout
+d'un moment, et il y a 1001+ façons de faire tourner un process en boucle,
+donc bref,
+pas de raison de s'en occuper pour l'instant.
+
+
+
+
+Finder et les links
+------------------------
+Une approche naturelle, mais simpliste, est de laisser php gérer les links.
+Mais pour apporter une réponse à la question:
+
+- est-ce que si on fait un $finder->files(), cela inclut les symlinks de type dir,
+        et de type file, et de type broken ?
+
+On doit aller un peu plus loin.
+Notre approche est de laisser le choix à l'utilisateur.
+
+
+
+Nous avons deux types d'options à notre disposition.
+A ne pas confondre:
+
+
+- followSymlinks: bool=true,
+                    par défaut, le Finder suit les §dirLinks§.
+                    On peut souhaiter casser ce comportement en mettant le flag à false.
+                    Cela a une influence entre autres sur la propriété pathname et ses dérivées (subpathname, path et subpath).
+
+
+- ignoreXXXLinks: bool=false, avec XXX=(Dir|File|Broken).
+                    L'idée est que l'utilisateur puisse exclure les links
+                    de sa recherche.
+
+                    Note:
+                    L'exclusion des links "s'effectue après que l'option followSymlink soit appliquée".
+
+
+                    Voici donc le fonctionnement de notre Finder:
+
+
+                    Si le filtre files() est utilisé, les ressources suivantes seront rappatriées:
+                    - file
+                    - fileLink (sauf si ignoreFileLinks vaut true)
+                    - brokenLink (sauf si ignoreBrokenLinks vaut true)
+
+                    Si le filtre directories() est utilisé, les ressources suivantes seront rappatriées:
+                    - dir
+                    - dirLink (sauf si ignoreDirLinks vaut true)
+
+
+
+Ordre des itérateurs
+------------------------
+Le Finder peut être vu comme un ensemble d'itérateurs branchés en série.
+L'ordre des itérateurs est important, car la sortie de chaque itérateur est l'entrée d'un autre.
+
+Voici l'ordre des itérateurs:
+
+- ?DepthFilterIterator (restreint les éléments aux niveaux désirés)
+- WithoutDotFilterIterator (supprime les . et ..)
+- ?FileTypeFilterIterator (restriction par type: file, dir)
+- ?SymlinkFilterIterator (gestion des options ignoreXXXLinks, voir ailleurs dans ce document)
+- ?WithBaseNameFilterIterator (restriction des éléments par rapport à leur baseName)
+        Piloté par les méthodes baseName, baseNameIfDir et baseNameIfFile.
+
+- ?WithoutBaseNameFilterIterator (suppression des éléments par rapport à leur baseName)
+        Piloté par les méthodes excludeBaseName, excludeBaseNameIfDir et excludeBaseNameIfFile.
+
+- ?WithRelativePathFilterIterator (restriction des éléments par rapport à leur subPathname)
+        Piloté par les méthodes relativePath, relativePathIfDir et relativePathIfFile.
+
+- ?WithoutRelativePathFilterIterator (suppression des éléments par rapport à leur baseName)
+        Piloté par les méthodes excludeRelativePath, excludeRelativePathIfDir et excludeRelativePathIfFile.
+
+
+- ?WithFileContentFilterIterator: filtrage par contenu de fichier (n'affecte pas les dir ou links)
+- ?WithoutFileContentFilterIterator: exclusion par contenu de fichier (n'affecte pas les dir ou links)
+- ?FileSizeFilterIterator: filtrage des files (pas links, ni dirs) par rapport à leur taille
+- ?FileDateFilterIterator: filtrage des files (pas links, ni dirs) par rapport à leur mtime
+- ?CustomFilterIterator: filtrage des resources par fonction utilisateur.
+                            La fonction utilisateur prend un MeeSplFileInfo en argument.
+                            Si la fonction utilisateur renvoie false, alors la resource
+                            est exclue, sinon elle est acceptée.
+
+
+- ?SortableIterator: phase de tri
+- \AppendIterator: permet d'utiliser plusieurs dossiers de recherche à la fois
+
+
+
+Méthodes publiques
+----------------------
+- contains: filtrage des files (pas les dirs ni les links) par rapport à leur contenu.
+                On peut utiliser directement une expression (case insensitive),
+                ou bien une expression rationnelle.
+
+- notContains: exclusion des files (pas les dirs ni les links) par rapport à leur contenu.
+                On peut utiliser directement une expression (case insensitive),
+                ou bien une expression rationnelle.
+
+- filter: permet d'utiliser un callback utilisateur pour le filtrage.
+                    Le callback prend un MeeSplFileInfo en argument.
+                            Si le callback renvoie false, alors la resource
+                            est exclue, sinon elle est acceptée.
+
+- depth: permet de restreindre les match retournés à un niveau ou une plage de niveau donnée.
+
+        Un nombre, ou bien un nombre précédé d'un des opérateurs suivants (espace permis entre
+                    l'opérateur et le nombre)
+
+                        - =  (implicite si juste un nombre est utilisé)
+                        - !=  (implicite si juste un nombre est utilisé)
+                        - !  (alias de !=)
+                        - <
+                        - <=
+                        - >
+                        - >=
+
+- fileSize: filtrage par poids de fichier (n'affecte pas les matchs des dirs ou links).
+        - size: <operator>? <number> <unit>?
+        ----- operator: les mêmes que depth
+        ----- number: int
+        ----- unit: voir §sizeUnit§
+
+- fileDate: filtrage des files (n'affecte pas les dirs et links) en fonction d'une date.
+            Le format de la date est:
+
+            - dateFormat: <operator>? <phpDate>
+            - operator:
+            ----- les mêmes que depth
+            ----- after (alias de >)
+            ----- before (alias de <)
+            - phpDate: un format de date accepté par php, par exemple:
+
+                            - now
+                            - 2014-09-01
+                            - voir http://php.net/manual/en/datetime.formats.php
+
+- sortBy: permet de définir le tri appliqué au jeu de résultats retourné.
+        - sort: <sortType> <sortDir>
+        - sortType:
+        ----- name: comparaison sur les baseName.
+                        Note: sur ma machine, le point est placé avant un caractère alphabétique.
+
+        ----- size
+        ----- type (si asc, les dossiers sont avant, sinon, les files sont avant)
+        ----- atime
+        ----- mtime
+        ----- ctime
+        - sortDir: <asc> | <desc>
+
+
+
+
+
+
+
+

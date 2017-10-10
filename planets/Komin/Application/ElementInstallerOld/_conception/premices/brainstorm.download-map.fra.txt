@@ -1,0 +1,38 @@
+Brainstorm
+==================
+2015-04-21
+
+
+
+Download map:
+
+    
+    Le numéro de version utilisé par le client accepte les symboles spéciaux *, + et -.
+    Ces symboles sont toujours trouvés en fin de chaîne.
+    
+    Exemples:
+            
+            - *
+            - 2.*
+            - 1.4.*
+            - 1.4+
+            - 2+
+            - 1.5.8-
+            
+
+    La notation est en fait:
+            
+            versionNotation: <wildCard> | (<numericString> <rangeOperator>?)
+            - wildCard: * 
+            - numericString: string, le numéro de version en fonction du vns choisi.
+                                    Dans le cas de 3m, 3m utilise également le wildcard pour spécifier
+                                    n'importe quel sous-élément d'une section donnée (une section est 
+                                    représentée par un m, major, medium ou minor).
+            - rangeOperator: +|-
+            
+            
+    
+    
+    
+     
+    

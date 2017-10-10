@@ -1,0 +1,208 @@
+Brainstorm
+==================
+2015-05-20
+
+
+
+
+Installation d'un élément
+-----------------------------
+
+Trouvons qq outils génériques qui nous aideront pour l'installation des éléments.
+
+Avant toute chose, précisons qu'ici nous parlons pour l'instant d'installation d'un élément sans ses dépendances.
+L'installation d'un élément avec ses dépendances est au autre processus plus complexe qui utilise le système d'installation que nous décrivons ici.
+Afin de distinguer les deux, nous utiliserons les termes:
+
+- installation de l'élément seul, ou installation brute
+- installation de l'élément avec ses dépendances, ou installation sophistiquée
+
+
+
+
+
+InstallTool
+    injectFiles ( srcDir, dstDir )
+    
+    
+Ceci serait un outil qui permettrait de mapper un pan d'arborescence dans une autre, une sorte de merge pour les arborescences.    
+En cas de fichier existant trouvé, on pourra choisir le comportement, par défaut on écrase si la nouvelle version a un mtime plus récent.
+
+Pour les éléments qui sont bien organisés au niveau du système de fichiers, comme des modules oop bsr0 par exemple, le plus gros du travail est fait
+juste avec un appel à la méthode injectFiles.
+La méthodologie serait de mettre dans le bundle les fichiers depuis un root (à définir au niveau du type d'élément),
+dans le cas d'un beeModule, le dossier contenant tous les vendors par exemple.
+
+beeModule sera un module oop bsr0.
+
+L'avantage de cette technique, c'est qu'on peut installer un package en plusieurs modules, sans modifier l'arborescence du package,
+un peu comme un puzzle qu'on remplit au fur et à mesure de nos besoins.
+
+Pour l'instant le synopsis serait d'installer le module dans un dossier vendors au niveau de l'application.
+C'est bien, mais quelles autres options pourrions nous avoir ?
+
+
+- changer le dstDir,
+        comme ça on pourrait installer les beeModules directement dans notre alveolus par exemple ?
+        On pourrait aussi vouloir faire du alias switch, mais peut être que dans ce cas il faudrait des outils plus spécialisés (afin de ne pas tout mélanger)
+
+
+
+
+InstallerInterface
+------------------------
+
+Comme nous l'avons dit plus tôt, l'installation d'un élément dépend de la capacité de l'installer à l'installer.
+Chaque créateur de type d'élément peut avoir des besoins spécifiques.
+C'est pourquoi c'est au créateur que revient la tâche de créer et rendre disponible son installer.
+
+Comme nous souhaitons automatiser ce processus d'installation, nous souhaitons que l'installation se fasse depuis un objet que nous aurons
+créé.
+Afin que les créateurs puissent proposer leurs systèmes, nous proposons une interface qui accepte tous les systèmes.
+
+Le synopsis, du point de vue de l'utilisateur, est que, avant de pouvoir installer un type d'élement,
+il doit télécharger l'installateur adéquat, et faire en sorte qu'il soit reconnu par notre installer.
+
+Notre interface est la suivante:
+
+ElementInstallerInterface
+        install ( bundlePath )
+                bundlePath est le chemin vers le dossier décompressé du bundle.
+                Ce dossier contient donc le fichier meta.yml, et les fichiers d'installation.
+                
+                Lance des exceptions quand quelque chose va mal.
+                
+WithMonitorElementInstallerInterface extends ElementInstallerInterface
+        setMonitor ( Monitor )
+        
+                si l'installer utilise cette interface, il peut renvoyer des messages à la sortie (terminal, browser, ...).
+                Cela peut être utile pour donner des indications sur l'avancement de l'installation, 
+                mais on ne souhaite pas forcer les créateurs à l'utiliser.
+                
+                
+                
+                
+Notre installer implémente également cette interface, mais agit comme un hub dans lequel on injecte les autres installateurs concrets.
+Notre hub lit le type dans le fichier de metas, puis en fonction du type, appelle l'installateur adéquat.
+
+Afin de prendre en compte l'évolution possible de la structure du metaFile, nous allons l'encapsuler dans une interface.
+
+Comme pour notre installer, on prendra en compte le fait que le meta peut être dans plusieurs versions différentes.
+Heureusement, par définition, un metaFile est tenu de fournir les informations dont notre système a besoin.
+
+Nous fournirons une interface meta simple pour l'utilisateur:
+
+MetaFile
+   
+    -> getMetaVersion
+    -> getType
+    -> getName
+    -> getVersion
+    -> getDependencies
+
+qui sera un hub utilisant des objets WritableMetaFile:
+
+WritableMetaFile extends MetaFile
+
+    -> setMetaArray ( array metaArray )
+
+    
+    
+ProcessLogger
+------------------
+    
+Lors de l'installation d'un élément, l'installateur pourra lancer des exceptions pour indiquer que qq chose s'est mal déroulé.
+Alternativement, si l'installateur souhaite communiquer de manière plus intense avec notre installateur, il pourra le faire via l'objet ProcessLogger,
+créé par notre système, et distribué à tous les installateurs qui implémentent l'interface ProcessLoggerAware.
+
+
+
+Installation info
+--------------------
+
+Lors de l'installation d'un élément, un installateur aura également besoin de différentes infos, comme par exemple:
+
+- dans quel(s) dossier(s) doit-on installer l'élément ?
+- doit-on insérer des données dans une bdd ?
+- doit-on demander des informations supplémentaires appartenant à l'instance de l'application cible ?
+- ... et bien d'autres encore
+
+
+ 
+Dans notre système, toutes les infos nécessaires à l'installation sont spécifiques au type d'élément installé.
+C'est donc le créateur du type d'élément qui doit définir tous les tenants et aboutissants de l'installation d'un élément.
+
+Cependant, pour préparer le terrain, nous fournissons qq variables que tous les créateurs d'éléments peuvent utiliser.
+
+
+Lorsque l'installateur est lancé depuis la ligne de commande, il est forcément lancé depuis un endroit de l'arborescence.
+Cet endroit est un dossier que nous appellons executeDir.
+Cependant, comme nous prévoyons qu'il soit possible d'installer un élément via une autre interface que la console, ce n'est pas
+une variable que nous recommandons d'utiliser.
+
+Nous recommandons plutôt l'utilisation d'un fichier de configuration accompagnant l'installateur.
+Faisant l'assertion qu'il n'y a qu'un installateur par machine, ce fichier de config serait probablement à sa place dans l'alveolus
+de l'utilisateur.
+L'avantage du fichier de config, hormis le fait qu'il soit indépendant du media utilisé pour exécuter l'installation,
+permet une grande souplesse dans la déclaration des variables: l'utilisateur peut créer toutes les variables qu'il souhaite facilement, 
+et ainsi, potentiellement, contrôler tous les aspects de l'installation.
+
+Le fichier de config de l'installateur est bien pour contrôler le comportement général de l'installateur.
+Cependant, la cible de l'installateur est souvent une application.
+Nous devons pouvoir indiquer à l'installateur le chemin vers le dossier root de l'application,
+cependant encore une fois nous pouvons utiliser un fichier situé à la racine de l'application, à partir duquel l'installateur
+pourra donc déduire le chemin root de l'application.
+Ce fichier spécial par application pourrait être elements.yml.
+
+Pour faire d'une pierre deux coups, ce fichier recenserait tous les éléments utilisés par l'application et installés via notre système.
+Notre installateur pourrait l'utiliser installer tous les éléments d'un coup.
+
+
+
+installation.yml
+----------------------
+
+- elements:
+----- $type:
+--------- $elementId
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+            
+            
+            
+            
+                    
+                    
+        
+
+
+
+

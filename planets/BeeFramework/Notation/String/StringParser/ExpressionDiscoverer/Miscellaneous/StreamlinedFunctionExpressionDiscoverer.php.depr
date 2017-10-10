@@ -1,0 +1,145 @@
+<?php
+
+/*
+ * This file is part of the BeeFramework package.
+ *
+ * (c) Ling Talfi <lingtalfi@bee-framework.org>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace BeeFramework\Notation\String\StringParser\ExpressionDiscoverer\Miscellaneous;
+
+use BeeFramework\Bat\StringTool;
+use BeeFramework\Component\String\StringIterator\StringIteratorInterface;
+use BeeFramework\Notation\String\StringParser\ExpressionDiscoverer\Container\OptionalKeyContainerExpressionDiscoverer;
+use BeeFramework\Notation\String\StringParser\ExpressionDiscoverer\Container\ValueContainerExpressionDiscoverer;
+use BeeFramework\Notation\String\StringParser\ExpressionDiscoverer\GreedyExpressionDiscovererInterface;
+use BeeFramework\Notation\String\StringParser\ExpressionDiscoverer\HybridExpressionDiscoverer;
+use BeeFramework\Notation\String\StringParser\ExpressionDiscoverer\SimpleQuoteExpressionDiscoverer;
+use BeeFramework\Notation\String\StringParser\ExpressionDiscovererModel\ExpressionDiscovererModel;
+use BeeFramework\Notation\String\StringParser\ExpressionFinder\ExpressionFinder;
+use BeeFramework\Notation\String\StringParser\ExpressionFinder\ExpressionFinderInterface;
+
+
+/**
+ * StreamlinedFunctionExpressionDiscoverer
+ * @author Lingtalfi
+ * 2015-06-06
+ *
+ * To accept a php like function inside of a string.
+ * It's a combination of the HybridExpressionDiscoverer and the
+ * FunctionExpressionDiscoverer.
+ * Example of possible syntax:
+ *
+ *          saying myFunction( hello world, bye ) in the same line
+ *
+ * Note:
+ *      the result of a streamlined function should be a string,
+ *      because it's concatenated in a string.
+ *
+ */
+class StreamlinedFunctionExpressionDiscoverer extends ValueContainerExpressionDiscoverer implements GreedyExpressionDiscovererInterface
+{
+
+    private $symbols;
+    private $prefixSymbol;
+    private $prefixSymbolLength;
+    private $autoCast;
+
+    /**
+     * @var FunctionExpressionDiscoverer
+     */
+    private $functionDiscoverer;
+
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->symbols = [];
+        $this->autoCast = true;
+        $this->prefixSymbol = '&';
+        $this->prefixSymbolLength = 1;
+    }
+
+    public static function create()
+    {
+        return new static();
+    }
+
+
+
+    //------------------------------------------------------------------------------/
+    // IMPLEMENTS GreedyExpressionDiscovererInterface
+    //------------------------------------------------------------------------------/
+    public function setBoundarySymbols(array $symbols)
+    {
+        $this->symbols = $symbols;
+        return $this;
+    }
+
+    //------------------------------------------------------------------------------/
+    //
+    //------------------------------------------------------------------------------/
+    public function setAutoCast($bool)
+    {
+        $this->autoCast = $bool;
+        return $this;
+    }
+
+    public function setFunctionDiscoverer(FunctionExpressionDiscoverer $functionDiscoverer)
+    {
+        $this->functionDiscoverer = $functionDiscoverer;
+        return $this;
+    }
+
+    public function setPrefixSymbol($prefixSymbol)
+    {
+        $this->prefixSymbol = $prefixSymbol;
+        $this->prefixSymbolLength = mb_strlen($prefixSymbol);
+        return $this;
+    }
+
+
+
+
+    //------------------------------------------------------------------------------/
+    //
+    //------------------------------------------------------------------------------/
+    protected function isContainerBegin(StringIteratorInterface $it)
+    {
+        /**
+         * We detect which char appears first: a boundary symbol or the prefix symbol.
+         * If the prefix symbol does not appear, it can't be a streamlined function.
+         * If a boundary symbol appears BEFORE the prefix symbol, it means that the expression
+         * is closed (by a container boundary) before it could reach the streamlined function.
+         * 
+         * If at the position next to the symbol prefix we can find the function expression,
+         * then this IS the container begin.
+         * 
+         */
+        $string = $it->getString();
+        $pos = $it->getPosition();
+        $sub = mb_substr($string, $pos);
+
+        if (false !== $prefixSymbolPos = mb_strpos($sub, $this->prefixSymbol)) {
+            if (false !== $symbolPos = StringTool::strposMultiple($string, $this->symbols, $pos)) {
+                if ($prefixSymbolPos < $symbolPos) {
+                    $funcPos = $prefixSymbolPos + $this->prefixSymbolLength;
+                    return $this->functionDiscoverer->parse($string, $funcPos);
+                }
+            }
+        }
+        return false;
+    }
+
+
+    protected function resolveValue($v)
+    {
+        if (true === $this->autoCast) {
+            return StringTool::autoCast($v);
+        }
+        return $v;
+    }
+}

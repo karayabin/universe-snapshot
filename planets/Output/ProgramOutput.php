@@ -72,7 +72,7 @@ class ProgramOutput extends Output implements ProgramOutputInterface
 
     public function warn($msg, $lbr = true)
     {
-        $this->writeMessage('warn', $msg, "1;31", $lbr);
+        $this->writeMessage('warn', $msg, "1;33", $lbr);
     }
 
     public function info($msg, $lbr = true)

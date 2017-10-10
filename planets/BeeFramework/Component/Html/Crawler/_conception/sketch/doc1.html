@@ -1,0 +1,195 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+
+	<title>The HTML5 Herald</title>
+	<meta name="description" content="The HTML5 Herald">
+	<meta name="author" content="SitePoint">
+
+	<link rel="stylesheet" href="css/styles.css?v=1.0">
+
+
+	<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+
+	<!--[if lt IE 9]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+
+
+<!-- ---------------------------------------------------------- -->
+<!-- ---------------------------------------------------------- -->
+<div class="hop">
+	<h1>a</h1>
+
+	<div id="ex1">
+		<div>
+			<ul>
+				<li><a href="/hello">hello</a></li>
+				<li><a href="/bye">bye</a></li>
+			</ul>
+		</div>
+		<a href="/subscribe"> Subscribe now </a>
+	</div>
+</div>
+
+<!-- ---------------------------------------------------------- -->
+<!-- ---------------------------------------------------------- -->
+<div class="hop" id="jjj">
+	<h1>ul [id]</h1>
+
+	<div id="ex2">
+		<ul>
+			<li><p id="marseille">Marseille</p></li>
+			<li><a id="boris" href="boris">Boris</a></li>
+		</ul>
+	</div>
+</div>
+
+<!-- ---------------------------------------------------------- -->
+<!-- ---------------------------------------------------------- -->
+<div>
+	<h1>input[id][class='man']</h1>
+
+	<div id="ex3">
+		<ul>
+			<li><input id="paris" type="text" value="Paris"/></li>
+			<li><input id="allen" class="man" type="text" value="allen"/></li>
+		</ul>
+		<p id="alpha">Maurice ?</p>
+	</div>
+</div>
+
+<!-- ---------------------------------------------------------- -->
+<!-- ---------------------------------------------------------- -->
+<div class="test">
+	<h1>label + input</h1>
+
+	<div id="ex4">
+		<form>
+			<label for="name">Name:</label>
+			<input name="name" id="name">
+			<input name="firstName" id="firstName">
+			<fieldset>
+				<label for="newsletter">Newsletter:</label>
+				<input name="newsletter" id="newsletter">
+			</fieldset>
+		</form>
+		<input name="none">
+	</div>
+</div>
+
+
+<!-- ---------------------------------------------------------- -->
+<!-- ---------------------------------------------------------- -->
+<div>
+	<h1>joo</h1>
+
+	<div id="ex5">
+		<!--<joo>correct</joo>		-->
+	</div>
+</div>
+
+<!-- ---------------------------------------------------------- -->
+<!-- ---------------------------------------------------------- -->
+<div>
+	<h1>input[name*='man']</h1>
+
+	<div id="ex6">
+		<input name="man-news">
+		<input name="milkman">
+		<input name="letterman2">
+		<input name="newmilk">
+	</div>
+</div>
+
+<!-- ---------------------------------------------------------- -->
+<!-- ---------------------------------------------------------- -->
+<div>
+	<h1>input[name$='letter']</h1>
+
+	<div id="ex7">
+		<input name="newsletter">
+		<input name="milkman">
+		<input name="jobletter">
+	</div>
+</div>
+
+<!-- ---------------------------------------------------------- -->
+<!-- ---------------------------------------------------------- -->
+<div>
+	<h1>ul.topnav > li</h1>
+
+	<div id="ex8">
+		<div>
+			<ul class="topnav">
+				<li>Item 1</li>
+				<li>Item 2
+					<ul>
+						<li>Nested item 1</li>
+						<li>Nested item 2</li>
+						<li>Nested item 3</li>
+					</ul>
+				</li>
+				<li>Item 3</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<!-- ---------------------------------------------------------- -->
+<!-- ---------------------------------------------------------- -->
+<div>
+	<h1>.doo:not( a )</h1>
+
+	<div id="ex9">
+		<div class="doo">doo</div>
+		<div class="doo">foo</div>
+		<div class="doo">soo</div>
+		<a href="#" class="doo">soo</a>
+		<span class="doo">span</span>
+	</div>
+</div>
+
+<!-- ---------------------------------------------------------- -->
+<!-- ---------------------------------------------------------- -->
+<div>
+	<h1>#ex10 .doo:not(.mi .doo)</h1>
+
+	<div id="ex10">
+		<div><span class="doo">one</span></div>
+		<div class="mi"><span class="doo">two</span></div>
+		<div><span class="doo">three</span></div>
+	</div>
+</div>
+
+
+
+<!-- ---------------------------------------------------------- -->
+<!-- ---------------------------------------------------------- -->
+<div>
+	<h1>Find a comment</h1>
+
+	<div id="exXXXX">
+		<!-- This sure is a comment -->
+		<p>really ?</p>
+	</div>
+</div>
+
+
+<script src="js/scripts.js"></script>
+<script>
+	(function ($) {
+		$(document).ready(function () {
+			var o = $('#ex10 .doo:not(.mi .doo)');
+			console.log(o);
+		});
+	})(jQuery);
+</script>
+</body>
+</html>
+		

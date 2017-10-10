@@ -1,6 +1,6 @@
 QuickPdo
 =================
-2015-10-04
+2015-10-04 --> 2017-05-23
 
 
 
@@ -73,6 +73,17 @@ if (false !== ($row = QuickPdo::fetch($stmt)) {
 }
 
 ```
+
+
+#### Fetch with markers
+
+```php
+
+$stmt = 'select id, name from my_table where host=:host';
+$row = QuickPdo::fetch($stmt, ["host" => "mydomain.com"]);
+
+```
+
 
   
 ### Count
@@ -344,6 +355,7 @@ Return     |  Method Name                                       | Comments
 void                    | setConnection ( dsn, user, pass, array options ) |
 \PDO                    | getConnection ()        |                                      Or throws \Exception
 bool                    | hasConnection ()        |                                      Returns whether or not the PDO connection has been set
+void                    | changeErrorMode ( newErrorMode )                              | Change the error mode to your likings
 false\|int              | count ( table )                                               | 1.14.0+ Returns the number of rows of the table in case of success, and false otherwise
 false\|int              | insert ( table, array fields, keyword?)                               | Returns the last inserted id in case of success
 bool                    | replace ( table, array fields, keyword?)                               | 
@@ -354,6 +366,7 @@ false\|array            | fetch ( stmt, array markers?, fetchStyle?)            
 false\|\PDOStatement    | freeQuery( stmt, array markers?)                  | Returns the \PDOStatement query in case of success
 false\|int              | freeStmt( stmt, array markers?)                             | Returns the number of affected lines in case of success
 false\|int              | freeExec( stmt )                                            | Returns the number of affected lines in case of success. This is not a prepared request, it calls pdo->exec directly
+bool                    | transaction( transactionCallback )                        | Executes a transaction and returns whether or not the transaction was successful
 array                   | getErrors( )                                            | Returns an array of errorArray (0: SQLSTATE error code, 1: Driver-specific error code, 2: Driver-specific error message, 3: class method name)
 array                   | getLastError ( )                                            | Returns the last errorArray (see getErrors method for a definition of errorArray)
 string                  | getQuery ( )                                            | Returns the current query
@@ -402,24 +415,47 @@ The PDO error mode affects all (almost) QuickPdo's methods behaviour in case of 
 How to make transaction
 --------------------------
 
-QuickPdo doesn't have special methods for transaction, just use transaction as you would normally do
-
-
 ```php
-$conn = QuickPdo::getConnection();
-try {
-    $conn->beginTransaction();
-    QuickPdo::update('mytable', ['name' => 'Alice'], [
-        ['id', '=', 1],
-    ]);
-    // ...other stuff
-    $conn->commit();
+$transactionSuccessful = QuickPdo::transaction(function(){
 
-} catch (\Exception $e) {
-    $conn->rollBack();
-}
+    QuickPdo::update('mytable', ['name' => 'Alice'], [
+      ['id', '=', 1],
+    ]);
+    // ...other statements of the transaction
+    
+});
 ```
 
+If you want to catch the exception in case the transaction failed, use the second argument:
+ 
+ 
+```php
+$transactionSuccessful = QuickPdo::transaction(function(){
+
+    QuickPdo::update('mytable', ['name' => 'Alice'], [
+      ['id', '=', 1],
+    ]);
+    // ...other statements of the transaction
+    
+}, function(\Exception $e){
+    // log the exception for instance...
+});
+```
+
+
+How to log every request
+-----------------------
+
+Use the QuickPdo.setOnQueryReadyCallback method to see all request passing through your callback.
+
+
+
+How to change error mode?
+----------------------------
+
+```php
+QuickPdo::changeErrorMode(\PDO::ERRMODE_WARNING);
+```
 
 
 
@@ -431,6 +467,7 @@ The QuickPdo planet includes some other classes that achieve various tasks:
 - [QuickPdoDbOperationTool](https://github.com/lingtalfi/QuickPdo/blob/master/QuickPdoDbOperationTool.md): to perform various database operations
 - [QuickPdoInfoTool](https://github.com/lingtalfi/QuickPdo/blob/master/QuickPdoInfoTool.md): a general companion for QuickPdo 
 - [QuickPdoStmtTool](https://github.com/lingtalfi/QuickPdo/blob/master/QuickPdoStmtTool.md): to manipulate statements
+- [QuickPdoInfoCacheUtil](https://github.com/lingtalfi/QuickPdo/blob/master/Util/QuickPdoInfoCacheUtil.md): a caching wrapper for QuickPdoInfoTool
 
 
 
@@ -485,6 +522,98 @@ Then the results will look like this on the console:
  
 History Log
 ------------------
+    
+- 2.11.0 -- 2017-09-25
+
+    - add QuickPdo::transaction method now handles nested transaction problems
+    
+- 2.10.0 -- 2017-09-09
+
+    - add QuickPdoInfoTool::getCreateTable method
+    
+- 2.9.0 -- 2017-09-06
+
+    - add QuickPdoStmtTool::simpleWhereToPdoWhere method
+    
+- 2.8.1 -- 2017-09-03
+
+    - fix QuickPdoInfoTool db and table names escaping
+    
+- 2.8.0 -- 2017-09-03
+
+    - add QuickPdoInfoTool.getUniqueIndexes method
+    
+- 2.7.0 -- 2017-07-23
+
+    - add QuickPdoInfoTool.getTables prefix argument
+    
+- 2.6.0 -- 2017-07-08
+
+    - add whereConds to QuickPdo::count
+    
+- 2.5.0 -- 2017-06-09
+
+    - add second argument to transaction method to handle transaction error
+    
+- 2.4.0 -- 2017-06-08
+
+    - transaction method now switches temporarily to \PDO::ERRMODE_EXCEPTION mode
+    
+- 2.3.0 -- 2017-06-08
+
+    - add transaction method
+    
+- 2.2.0 -- 2017-05-31
+
+    - add whereConds to QuickPdo.setOnQueryReadyCallback for update and delete methods
+    
+- 2.1.0 -- 2017-05-29
+
+    - change QuickPdoExceptionTool.isDuplicateEntry signature
+    
+- 2.0.0 -- 2017-05-23
+
+    - change QuickPdo.setOnQueryReadyCallback signature
+    
+- 1.32.0 -- 2017-05-20
+
+    - add QuickPdo::changeErrorMode method 
+    
+- 1.31.0 -- 2017-05-20
+
+    - QuickPdoStmtTool now uses uppercase special keywords 
+    
+- 1.30.0 -- 2017-05-19
+
+    - add QuickPdoInfoCacheUtil.prepareDb
+    
+- 1.29.0 -- 2017-05-19
+
+    - add QuickPdoInfoCacheUtil.cleanCache
+    
+- 1.28.2 -- 2017-05-11
+
+    - fix QuickPdoInfoCacheUtil cache paths 2
+    
+- 1.28.1 -- 2017-05-11
+
+    - fix QuickPdoInfoCacheUtil cache paths
+    
+- 1.28.0 -- 2017-05-11
+
+    - add QuickPdoInfoCacheUtil
+    
+- 1.27.0 -- 2017-05-09
+
+    - add QuickPdoStmtTool.addWhereEqualsSubStmt.tablePrefix argument
+    
+- 1.26.0 -- 2017-05-04
+
+    - add QuickPdoInfoTool.getDatabases method
+    
+- 1.25.0 -- 2017-04-27
+
+    - add QuickPdo.setOnQueryReadyCallback method
     
 - 1.24.0 -- 2017-01-14
 

@@ -60,25 +60,31 @@ class StringTool
      * this behaviour might be useful in this case where we define default attributes values,
      * then the client can unset them by setting a null value.
      *
+     *
+     * The $keyPrefix allows us to prefix with "data-" for instance.
+     *
      */
-    public static function htmlAttributes(array $attributes)
+    public static function htmlAttributes(array $attributes, $keyPrefix = "")
     {
         $s = '';
         foreach ($attributes as $k => $v) {
             if (is_numeric($k)) {
                 $s .= ' ';
                 $s .= htmlspecialchars($v, ENT_QUOTES, 'UTF-8');
-            }
-            else {
+            } else {
                 if (null !== $v) {
                     $s .= ' ';
-                    $s .= htmlspecialchars($k, ENT_QUOTES, 'UTF-8') . '="' . htmlspecialchars($v, ENT_QUOTES, 'UTF-8') . '"';
+                    $s .= $keyPrefix . htmlspecialchars($k, ENT_QUOTES, 'UTF-8') . '="' . htmlspecialchars($v, ENT_QUOTES, 'UTF-8') . '"';
                 }
             }
         }
         return $s;
     }
 
+    public static function getUniqueCssId($prefix = "a")
+    {
+        return $prefix . md5(uniqid($prefix, true));
+    }
 
     public static function removeAccents($str)
     {
@@ -374,11 +380,15 @@ class StringTool
                 $ret[] = $pos;
                 $offset = $pos + $len;
             }
-        }
-        else {
+        } else {
             trigger_error(sprintf("strPosAll expects needle argument to be string or numeric, %s given", gettype($needle)), E_USER_WARNING);
         }
         return $ret;
+    }
+
+    public static function ucfirst($string)
+    {
+        return mb_convert_case($string, MB_CASE_TITLE, 'UTF-8');
     }
 }
 

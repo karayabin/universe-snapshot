@@ -1,0 +1,31 @@
+Brainstorm
+================
+2015-05-21
+
+
+
+
+beeModule
+---------------
+
+un beeModule est un dossier contenant des classes, et nommé en utilisant la convention bsr0.
+Le premier composant doit être un nom de vendeur.
+Afin d'éviter les conflits entre vendeurs, la stratégie uniqueVendorName est utilisée.
+
+ 
+
+
+
+
+Installation d'un beeModule
+---------------------------------
+
+
+- installVars requises:
+----- rootDir
+- fichiers d'installation requis:
+----- un dossier packages à la racine du bundle,
+            qui représente le pan d'arborescence correspondant au beeModule.
+            
+    
+    

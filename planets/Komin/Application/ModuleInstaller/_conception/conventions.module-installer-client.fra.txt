@@ -1,0 +1,60 @@
+Conventions
+======================
+2015-05-05
+
+
+
+
+
+
+
+
+Nomenclature:            
+
+
+- moduleCanonicalName: <moduleCommonName> <:> <moduleVersionId>
+- moduleCommonName: <moduleType> <:> <moduleId>
+- moduleType: le type de module, sorte de namespace en fc duquel sont déterminées de nombreuses choses. [a-Z_0-9-]+
+- moduleId: l'identifiant unique du module dans le contexte d'un moduleType  [a-Z_][a-Z_0-9.-]*
+- moduleVersionId: l'identifiant unique d'une version du module dans le contexte d'un moduleId  [a-Z_0-9.-]+
+- moduleSearchPattern: <moduleCommonName> | <moduleCanonicalName>
+                                Si le moduleCommonName est passé, la version doit être interprétée 
+                                implicitement comme: la dernière disponible.
+
+
+- userMeta: array contenant les informations fournies par l'utilisateur lorsqu'il enregistre un nouveau module.
+                Ce tableau contient au minimum les infos suivantes:
+                
+        - type: le type du module
+        - id: l'identifiant du module
+        - versionId: l'identifiant de version du module
+                                    Astuce, si le module n'utilise pas de vns (très rare),
+                                    il doit quand même déterminer un versionId qui ne changera jamais, par exemple: all.
+        - ?price: le prix du module
+        - ?payAt: un tableau indiquant comment payer l'auteur du module (seulement si price est renseigné)
+        - ?vns: string, le vns utilisé. Si omis, on considère que 3m est utilisé.
+        - ... d'autres infos, en fonction du moduleType
+        
+                                
+- serverMeta: array contenant au minimum les userMeta, plus les infos suivantes, rajoutées par le serveur.
+                    Le serveur fait une copie des userMeta, et ajoute des infos:
+                            - cela évite d'ouvrir le zip qui contient les userMeta (performances du serveur)
+                            - cela lui permet de créer dynamiquement ou pas les download info 
+                            
+----- download: une url ou un tableau d'informations permettant de télécharger le bundle.
+----- ?publicationDate: la date de publication du module
+                    
+
+- bundle: fichier au format zip contenant:
+                    - le fichier userMeta
+                    - les fichiers d'installation du module                    
+                    
+                    
+- module: au sens large: tout élément qui encapsule une fonctionnalité et que l'on 
+                peut exporter/importer dans une application modulaire.                    
+                    
+                    
+                    
+                    
+                    
+                    

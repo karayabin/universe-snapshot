@@ -31,12 +31,18 @@ Tools       |       Description
 [ExceptionTool]( https://github.com/lingtalfi/Bat/blob/master/ExceptionTool.md )          |       Tools for manipulating exception
 [FileSystemTool]( https://github.com/lingtalfi/Bat/blob/master/FileSystemTool.md )          |       Tools for the filesystem
 [FileTool]( https://github.com/lingtalfi/Bat/blob/master/FileTool.md )          |                   Tools for the files
+[HttpTool]( https://github.com/lingtalfi/Bat/blob/master/HttpTool.md )          |                   Tools for the using http protocol
 [LocalHostTool](  https://github.com/lingtalfi/Bat/blob/master/LocalHostTool.md )          |       Tools aware of the local host
+[MathTool](  https://github.com/lingtalfi/Bat/blob/master/MathTool.md )          |       Tools for math problems
 [MimeTypeTool](  https://github.com/lingtalfi/Bat/blob/master/MimeTypeTool.md )          |       Tool handling mime type
+[ObTool](  https://github.com/lingtalfi/Bat/blob/master/ObTool.md )          |          Tool for buffer manipulation
 [PermTool](  https://github.com/lingtalfi/Bat/blob/master/PermTool.md )          |       Tool for permissions manipulation
+[SessionTool]( https://github.com/lingtalfi/Bat/blob/master/SessionTool.md )          |       Tools for session manipulation
 [StringTool]( https://github.com/lingtalfi/Bat/blob/master/StringTool.md )          |       Tools for string manipulation
+[UploadTool]( https://github.com/lingtalfi/Bat/blob/master/UploadTool.md )          |       Tools for helping with php file uploads
 [UriTool]( https://github.com/lingtalfi/Bat/blob/master/UriTool.md )          |       Tools for uri manipulation
 [ValidationTool]( https://github.com/lingtalfi/Bat/blob/master/ValidationTool.md )          |       Tools for validating data
+[XmlTool]( https://github.com/lingtalfi/Bat/blob/master/XmlTool.md )          |       Tools for working with xml
 [ZipTool]( https://github.com/lingtalfi/Bat/blob/master/ZipTool.md )          |       Zip related tool
 
 
@@ -51,6 +57,162 @@ Dependencies
 
 History Log
 ------------------
+    
+- 1.81 -- 2017-09-11
+
+    - update UriTool::appendQueryString, now recognize the question mark in baseUri 
+    
+- 1.80 -- 2017-09-11
+
+    - update UriTool::uri now strip trailing question marks 
+    
+- 1.79 -- 2017-09-11
+
+    - add MathTool
+    
+- 1.78 -- 2017-08-24
+
+    - StringTool.getUniqueCssId now has a default prefix of a (otherwise it's might not be a regular css identifier)
+    
+- 1.77 -- 2017-08-20
+
+    - add UploadTool
+    
+- 1.76 -- 2017-08-18
+
+    - add CaseTool.snakeToFlexiblePascal
+    
+- 1.75 -- 2017-08-08
+
+    - enhance UriTool.appendQueryString, now understands associative array
+    
+- 1.74 -- 2017-08-01
+
+    - add CaseTool.toSnake processUpperLetters boolean argument
+    
+- 1.73 -- 2017-06-27
+
+    - add HttpTool
+    
+- 1.72 -- 2017-06-27
+
+    - add XmlTool
+    
+- 1.71 -- 2017-06-24
+
+    - UriTool.appendQueryString function now supports one level numeric index array
+    
+- 1.70 -- 2017-06-24
+
+    - undo UriTool.uri function now supports merging with one level numeric index array 
+    
+- 1.69 -- 2017-06-24
+
+    - UriTool.uri function now supports merging with one level numeric index array 
+    
+- 1.68 -- 2017-06-22
+
+    - add FileSystemTool.clearDir abortIfSymlink argument
+    
+- 1.67 -- 2017-06-09
+
+    - add CaseTool::snakeToCamelCase method
+    
+- 1.66 -- 2017-06-08
+
+    - add ArrayTool::superimpose method
+    
+- 1.65 -- 2017-06-07
+
+    - add UriTool::getHost method
+    
+- 1.64 -- 2017-06-03
+
+    - add FileSystemTool::noEscalating method
+    
+- 1.63 -- 2017-05-30
+
+    - add SessionTool::destroyAll method
+    
+- 1.62 -- 2017-05-23
+
+    - add StringTool::ucfirst method
+    
+- 1.61 -- 2017-05-22
+
+    - add SessionTool::start method
+    
+- 1.60 -- 2017-05-17
+
+    - add SessionTool
+    
+- 1.59 -- 2017-05-11
+
+    - add FileSystemTool.copyFile method
+    
+- 1.58 -- 2017-05-10
+
+    - add UriTool.noEscalating method
+    
+- 1.57 -- 2017-05-04
+
+    - add ArrayTool.arrayUniqueRecursive method
+    
+- 1.56 -- 2017-05-03
+
+    - add keyPrefix argument to StringTool.htmlAttributes method
+    
+- 1.55 -- 2017-04-28
+
+    - add StringTool.getUniqueCssId
+    
+- 1.54 -- 2017-04-23
+
+    - add ClassTool.getShortName method
+    
+- 1.53 -- 2017-04-20
+
+    - add FileTool.cleanVerticalSpaces method
+    
+- 1.52 -- 2017-04-20
+
+    - FileTool.extract method now has a replaceFile option
+    
+- 1.51 -- 2017-04-20
+
+    - FileTool.cut method now has a replaceFile option
+    
+- 1.50 -- 2017-04-20
+
+    - add FileTool.insert method
+    
+- 1.49 -- 2017-04-18
+
+    - add UriTool.uri method
+    
+- 1.48 -- 2017-04-08
+
+    - fix UriTool.appendQueryString with empty param value
+    
+- 1.47 -- 2017-04-04
+
+    - add FileTool.extract
+    
+- 1.46 -- 2017-04-04
+
+    - add flags argument to FileSystemTool.mkfile
+    
+- 1.45 -- 2017-04-04
+
+    - add ObTool
+    
+- 1.44 -- 2017-03-27
+
+    - add ClassTool.getMethodInnerContent
+    
+- 1.43 -- 2017-03-26
+
+    - fix ClassTool.getMethodContent return false if the function does not exist.
     
 - 1.42 -- 2017-03-24
 

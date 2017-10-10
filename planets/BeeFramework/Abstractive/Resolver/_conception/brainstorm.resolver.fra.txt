@@ -1,0 +1,16 @@
+Brainstorm
+==================
+2015-05-15
+
+
+
+
+
+Cet objet permet de transformer (résoudre) une valeur en utilisant une série de filtres.
+
+
+
+
+
+
+

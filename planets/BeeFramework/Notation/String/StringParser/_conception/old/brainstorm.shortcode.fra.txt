@@ -1,0 +1,58 @@
+Brainstorm
+=================
+2015-05-09
+
+
+
+
+Pour différentes raisons, on peut avoir besoin de parser une ligne d'arguments.
+Par exemple si on veut créer une notation intuitive pour configurer un objet.
+
+
+Dans ces cas, on peut utiliser le lineParser de bee, qui permet de créer tout type de syntaxe qui tiennent
+sur une ligne.
+
+Cependant, si on se met d'accord sur une syntaxe, on peut figer la notation dans un objet
+afin de gagner encore plus de temps pour parser la syntaxe.
+
+
+C'est l'idée derrière shortcode.
+Shortcode est la notation suivante:
+
+
+- shortCodeLine: ( <keyValuePair> ( <kvPairSep> <keyValuePair> )*  )?
+- keyValuePair: <key> <spaces> <sep> <spaces> <value>
+- key: <quotedString>
+- quotedString: une quotedString, avec échappement simple
+                    On utilise les quotedString suivant le bon sens, 
+                    c'est à dire lorsqu'un des caractères spéciaux suivants est présent:
+                        - sep
+                        - kvPairSep
+                        - guillemet
+                        - ?space (recommandé mais pas obligatoire)
+                     
+                    
+- spaces: un nombre arbitraire (incluant 0) d'espaces non sémantiques
+- sep: le symbole égal (=)
+- value: <quotedString> | <array>
+- array: idem que les arrays en php, en utilisant la notation avec crochets
+                sauf que:
+                        - le système d'échappement simple est utilisé pour les quotedStrings
+                                    (alors qu'en php c'est le système backslash récursif qui est utilisé)
+                        - il est possible d'écrire tous les scalaires sans les protéger avec des guillemets
+                                    (alors qu'en php, les strings doivent être protégées avec des guillemets)
+                                    
+                                    
+                         
+- kvPairSep: le symbole virgule (,)
+
+
+
+
+
+
+
+
+Exemples: 
+
+    minLength=2, param2 = "som,e,s,tring", fruits=[ apple, banana, favorite => "cherry" ]

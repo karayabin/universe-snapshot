@@ -1,0 +1,163 @@
+Biscotte
+==========
+2015-02-18
+
+
+BEE Service COde (as) TExt
+
+
+
+
+Blabla introductif
+---------------------
+
+Dans une architecture orientée services, la configuration des services est probablement l'une des étapes les plus importantes.
+Le défi que doit relever Biscotte est de définir une notation qui permette de configurer des services le plus simplement possible.
+
+
+
+
+Eléments de notation
+======================
+
+Nous utiliserons les variables suivantes:
+
+- className, le className de la classe, par exemple Zombee\Foo\MyClass
+- args, un tableau d'arguments. Le tableau est écrit avec la syntaxe du fichier de configuration, ici babyYaml.
+            Chaque argument peut réutiliser les autres éléments de notation.
+- serviceAddress, l'adresse du service
+- methodName, le nom d'une méthode
+- index, l'index numérique naturel d'un tableau
+- inlineArgs, un tableau d'arguments écrit de manière linéaire.
+                Cette élément de notation n'est pas aussi complet que la version args,
+                mais a l'avantage de pouvoir s'écrire plus rapidement.
+                
+                Chaque argument est séparé par une virgule.
+                Les espaces (non protégés) n'ont pas d'incidence.
+                Un argument peut être une valeur spéciale: null, false, true.
+                Une string doit être protégée par des guillemets simples ou doubles.
+                    Le mécanisme de protection de php correspondant s'applique: 
+                        à l'intérieur des guillemets, on doit protéger ce même type de guillemet par 
+                        un backslash (lui même non échappé).
+                Les services peuvent être utilisés.
+                Toute autre valeur est considérée comme un paramètre du container.                                     
+                
+                
+
+            
+            
+
+Instanciation d'une classe
+----------------------------       
+        
+    serviceA:
+        _class: <className>
+        ?_args: <args>
+
+
+Appel d'une méthode
+-----------------------
+
+### statique
+
+    serviceA:
+        _class: <className> <::> <methodName>
+        ?_args: <args>         
+    
+
+### non statique
+                    
+    serviceA:                    
+        _class: <className>
+        _args: <args>
+        _calls:      
+            <index>: 
+                _method: <methodName>
+                _args: <args>
+
+
+
+Notations spéciales au sein des arguments
+---------------------------------------------
+
+Les notations suivantes  ne sont disponibles que dans le contexte de la notation 
+des arguments (args ou inlineArgs).
+
+
+Appel d'un service
+---------------------  
+
+    serviceA: <@> <?>? <serviceAddress> <+>?
+                Le <?> indique que si le service n'est pas trouvé, on renvoie null à la place
+                Le <+> indique qu'une nouvelle instance du service doit être passée.
+
+
+
+Injecter le résultat d'une méthode (dans un argument)
+-----------------------------------------------------
+
+### statique
+    _class: <className>
+    _args:
+        <index>:
+            _resultOf: <className> <::> <methodName>            
+            _args: <args>
+                
+
+### statique, notation inline
+    _class: <className>
+    _args:
+        <index>: <::> <className> <::> <methodName> <(> <inlineArgs> <)>                
+                
+### service, notation en array
+    _class: <className>
+    _args:
+        <index>:
+            _resultOf: <@> <serviceAddress> "->" <methodName>            
+            _args: <args>
+                
+
+### service, notation inline
+    _class: <className>
+    _args:
+        <index>: <@> <serviceAddress> "->" <methodName> <(> <inlineArgs> <)>            
+                                
+
+
+
+
+
+
+
+
+
+
+Vieilles notes d'implémentation
+=====================================
+
+Attention à visualiser le contexte d'utilisation:
+
+
+BDot::walk(function(v, k, p){
+    if(false !== code = biscotte->parseValue(v, p)){
+        container->setService ( p, new PlainCode( code ) );
+    }
+});
+
+
+On pourrait être tenté d'utiliser le sucre syntaxique <executionCode>
+pour remplacer les valeurs directement:
+
+BDot::walk(function(&v, k, p){
+    v = biscotte->getExecutionCode (v)
+});
+
+
+Mais on ne doit pas, car là on fait on chercherait à remplacer une valeur
+du tableau de config par une valeur produite par un objet qui n'est
+probablement pas encore ready puisque le fichier de conf n'est pas encore parsé.
+Le problème de la poule ou les oeufs first.
+
+
+Donc biscotte doit bien rester focalisé sur la conversion de syntaxe vers
+un code placé dans une méthode.

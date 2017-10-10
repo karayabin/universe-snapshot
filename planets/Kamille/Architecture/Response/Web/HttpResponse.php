@@ -82,7 +82,7 @@ class HttpResponse implements HttpResponseInterface
     );
 
 
-    private $content;
+    protected $content;
     private $statusCode;
     private $httpVersion;
 

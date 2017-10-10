@@ -1,0 +1,239 @@
+Brainstorm
+===============
+2014-08-22
+
+
+
+
+Comment stocker les data ?
+-----------------------------
+Le cache master va utiliser le système de fichier.
+
+Les données de type php peuvent être normalement
+sérialisées et désérialisées (par exemple un array,
+ou même un objet).
+
+Il peut cependant il y avoir d'autres types de données
+qui pourraient nécessiter l'utilisation de plusieurs fichiers,
+et peut être d'autres mode de sérialisation.
+
+
+C'est pourquoi, nous utiliserons un système de handler.
+Chaque handler comportera une méthode serialize, et une méthode deserialize.
+Et on aura une fonction dédiée qui permettra de détecter le type de data fournie,
+et de trouver le handler le plus adéquat pour traiter (stocker et extraire) cette donnée.
+
+Comme nous l'avons énoncé implicitement plus haut, il devrait être possible
+de pouvoir stocker des objets de type php, mais par expérience, nous probablement
+des problèmes avec des objets possédant des références circulaires.
+
+Nos handlers utiliseront l'envoi d'exception pour signaler un problème dans la désérialisation
+et/ou la sérialisation des données, comme par exemple si notre handler n'est pas capable
+de gérer un objet ayant des références circulaires.
+
+
+
+Quelles méthodes concrètement pour nos handlers ?
+---------------------------------------------------
+
+- string serialize ( data )
+        pas très pratique, comme nous l'avons énoncé plus haut, car peut être que le
+        résultat ne sera pas stocké dans une string, ...
+
+- bool store ( dir, data )
+        dir est le chemin vers un dossier créé en amont par le cacheMaster,
+        dans lequel le handler pourra stocker ses données.
+        Il pourra par exemple créer un fichier unique nommé cached-data.php
+        qui contient ce qu'il veut.
+
+        Le handler doit renvoyer true si la ressource a été correctement mise en cache,
+        ou false sinon, afin que le cacheMaster puisse supprimer le dossier
+        (pour libérer cet emplacement).
+
+        En quelque sorte, dir contient d'une certaine manière la clé unique
+        décidée par le cacheMaster.
+
+- mixed|false retrieve (dir)
+
+
+
+
+Et à propos de la validité du cache ?
+-----------------------------------------
+A dire vrai, pour l'instant j'ai oublié cette partie.
+Et on pourrait presque reléguer totalement la gestion de la validité à l'utilisateur du cache, et non pas au cacheMaster, qui ne fait que
+gérer l'allocation d'emplacements de stockage.
+
+Cependant, après petite réflexion, il y a un point gênant dans cette approche, qui est révélé par le brain test suivant:
+
+imaginons que nous sommes un utilisateur, et que nous voulons stocker un container en cache.
+Ce container est créé par un ensemble de plusieurs fichiers, et nous souhaitons que si l'un au moins de ces fichiers est modifié,
+le cache devienne invalide.
+
+Autrement dit, en tant qu'utilisateur, il y a une question qui reste en suspense: est-ce que le cache est valide ?
+Si oui, alors on peut demander le cache au cacheMaster (cacheKeeper), et si non, on peut reconstruire notre container avant de le passer à nouveau
+au cacheMaster.
+Le problème qui se pose à nous est que pour ce type de validation, nous avons besoin de comparer les mtimes des fichiers actuels avec les mtimes
+qu'ils avaient au moment de la mise en cache.
+
+Autrement dit, si nous voulions gérer la validité du cache, il nous faudrait stocker les mtimes quelque part avant de pouvoir faire une requête au CacheMaster.
+Ce qui est gênant, c'est que le cacheMaster utilise déjà un espace de stockage, et ce serait un peu bête de ne pas en profiter.
+
+On peut donc trouver un compromis qui est celui-ci:
+
+le CacheMaster ne va pas gérer la validité pour nous (car les conditions sont trop variables pour les modéliser, on va dire...),
+mais en revanche, il peut stocker des meta données associées à notre casier.
+
+NOUS avons la responsabilité de créer un callback qui testera la validité en fonction des meta (ou sans meta si il n'y a pas de meta).
+
+
+Le pseudo code dont je viens de parler ressemblerait à cela:
+
+    cache = new CacheMaster
+    key = MyApp::getKeyForContainer(); // retourne une clé "stable"
+
+
+    // on veut éviter le coup de la désérialisation si le cache n'est pas valide
+    // donc le test de validté vient en premier
+
+
+
+
+    if( false !== container = cache->getData( key ) ){
+
+    }
+
+
+    isValid = false
+    if( false!== meta = cache -> getMeta ( key )){
+        isValid = function() use( meta ){
+            // vérifications de validité ici...
+        }
+    }
+
+
+
+
+        if(false === container){
+            // build container
+            files = [a, b, c]
+            container = MyApp::buildContainerFromFiles(files);
+            cache -> storeData ( container, [
+                key => key,
+                meta => files,
+            ])
+        }
+    }
+
+    container::doSomething
+
+
+
+
+
+
+
+
+
+
+
+CacheMaster est un vieux maître qui possède une armoire de rangement.
+CacheMaster sait bien que nous autres, ses enfants, toujours occupés, avons besoin de stocker temporairement
+des données dans son armoire.
+Le CacheMaster est très vieux, et un peu aveugle aussi, mais il est gentil, et il aime bien qu'on le sollicite.
+
+Régulièrement, les enfants viennent le voir pour stocker leurs affaires dans l'armoire du CacheMaster.
+Certains enfants lui passent également leur goûter.
+
+Au fil du temps, une règle s'est installée entre les enfants et le cacheMaster.
+L'enfant doit indiquer son nom sur un bout de papier et le donner au CacheMaster en même temps que les affaires qu'il souhaite stocker.
+Cela permet au CacheMaster d'organiser son armoire en fonction des noms des enfants.
+
+
+Cette technique fonctionne relativement bien, sauf lorsque deux enfants ont le même nom pendant la même journée,
+quand cela arrive, en général le CacheMaster ne fait pas attention et donne à l'enfant les premières affaires trouvées à son nom.
+
+Mais les enfants sont habitués et les enfants qui ont des noms identiques écrivent simplement un autre nom sur le bout de papier.
+
+
+
+
+
+Cette métaphore décrit globalement le système de cache utilisé.
+On a donc un espace de stockage dans lequel on peut insérer des données, associées avec un nom, et éventuellement des meta data.
+Les meta data servent à vérifier la validité du cache (par exemple, on stockera un mtime et/ou un chemin de fichier).
+Savoir si le cache est périmé est NOTRE rôle et pas celui du CacheMaster, qui est déjà assez sollicité comme ça.
+
+
+UseCase:
+-----------
+Dans cet exemple, nous sommes dans le KernelChopin.
+Nous créeons la classe du container et la stockons dans un fichier.
+Le nom du fichier est toujours le même, et à la limite nous n'avons presque pas besoin du CacheMaster pour générer ce fichier.
+Cependant, nous souhaitons quand même que lorsqu'un au moins des fichiers (de configuration) a, b ou c ayant servi à la création du container
+est modifié, nous puissions le détecter afin de recréer un nouveau fichier à la place de l'ancien.
+
+Nous pouvons donc simplement stocker le timestamp et le chemin des fichiers a, b et c.
+Puis, le pseudo code suivant devrait suffire à faire ce que l'on veut:
+
+
+
+
+containerName = App::getContainerName()
+containerFile = App::getPathToContainerFile()
+cache = CacheMaster::inst()  // nous ne connaissons bien sûr qu'un seul CacheMaster, surtout un CacheMaster un peu aveugle comme notre CacheMaster
+
+
+function containerIsValid (configFiles){
+    // test de validité
+    // Si l'un des mtime a été modifié, le container n'est plus valide
+    isValid = true
+    foreach(configFiles as f){
+        if(array_key_exists( f, myData )){
+            if( myData[f] > mtime(f) ){
+                isValid=false
+                break
+            }
+        }
+        else{
+            // le fichier n'existe pas, ou plus, on considère que le container n'est plus valide
+            isValid = false
+            break
+        }
+    }
+    return isValid
+}
+
+
+if(file_exists(containerFile)){
+    isValid = true
+    if( false !== myFiles = cache->getData (containerName) ){
+        isValid = containerIsValid( myFiles )
+    }
+}
+else{
+    isValid = false
+}
+
+if(false === isValid){
+    // création du container, et remise en cache
+    myFiles = [a, b, c];
+
+    container = App::createContainer(myFiles);
+    App::writeContainerToFile ( container, containerFile )
+
+    cache->store( containerName, myFiles )
+}
+require_once containerFile
+
+
+
+
+
+
+
+
+
+
+
+

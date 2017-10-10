@@ -145,6 +145,25 @@ If the replace mode is off, files are NOT overwritten in case of conflict.
 
 
 
+WithFilterCopyDirUtil
+-----------------------
+2017-04-18
+
+This CopyDirUtil gives you a simpler (easier to understand for the developer) api to filter the directory to copy.
+ 
+ 
+```php
+
+// filter hidden files
+WithFilterCopyDirUtil::create()
+    ->setFilter(function ($baseName) {
+        if (0 === strpos($baseName, ".")) {
+            return false;
+        }
+        return true;
+    })
+    ->copyDir($srcDir, $dstDir);
+```
 
 
 
@@ -168,6 +187,14 @@ Eventually, I changed my mind because of the following reasons:
 History Log
 ------------------
 
+- 1.3.0 -- 2017-04-18
+
+    WithFilterCopyDirUtil now extends SimpleCopyDirUtil 
+    
+- 1.2.0 -- 2017-04-18
+
+    add WithFilterCopyDirUtil
+    
 - 1.1.0 -- 2017-03-21
 
     add SimpleCopyDirUtil

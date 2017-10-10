@@ -28,6 +28,7 @@ class PhpArrayToStringSymbolManager extends SpaceIndentedArrayToStringSymbolMana
         $this
             ->setSpaceSymbol(' ')
             ->setNbSpaces(4)
+            ->setOffset(0)
             ->setKvSepSymbol(' => ')
             ->setLineSepSymbol(',' . PHP_EOL)
             ->setStartSymbol('[' . PHP_EOL)

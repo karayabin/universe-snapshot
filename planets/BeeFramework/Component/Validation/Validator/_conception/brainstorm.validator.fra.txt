@@ -1,0 +1,79 @@
+Brainstorm
+=================
+2015-05-07
+
+
+
+
+
+Valider des données venant de l'utilisateur est utile lorsqu'on demande des données à l'utilisateur,
+donc dans les formulaires, ou les questions via terminal.
+
+
+
+Voici le système de validation que nous proposons:
+
+
+
+    Les tests de validation sont à la base des tests qui renvoient un booléen.
+    On peut donc utiliser ces tests comme tels.
+    Une couche supplémentaire d'enrobage et création de messages d'erreur par défaut
+    est ajoutée, afin d'éviter à l'utilisateur de le faire.
+    
+    La couche des tests de base est représentée par ValidatorTest,
+    la couche d'enrobage est représentée par Validator.
+    
+    
+    
+    ValidatorTest
+        bool    execute (v)
+        self    setParam(k, v)                            
+        self    setParams(array params)                            
+        array   getParams()                            
+        
+    Validator
+        uses ValidatorTest
+        true|ValidatorResult   validate(  )
+                Exécute le test interne (ValidatorTest),
+                puis renvoie true en cas de succès, ou 
+                l'objet ValidatorResult en cas d'échec.
+                
+                Le validator fonctionne avec une requirementPhrase qui 
+                est une phrase créée dynamiquement, car elle peut utiliser potentiellement les résultats du test.
+                
+                Exemple:
+                
+                        résolu: Votre texte doit contenir au moins 2 caractères, vous en avez fourni 1.
+                        brut:   Votre texte doit contenir au moins {minLength} caractères, vous en avez fourni {currentLength}.
+                        
+                    Ici, 
+                            - minLength est un paramètre du Validator
+                            - currentLength est une variable créée dynamiquement
+                            
+                    La phrase utilisée à l'état brut est appelée requirementPhrase, elle est définie par défaut,
+                    mais l'utilisateur peut l'overrider, auquel cas il devra consulter le Validator pour voir les
+                    tags disponibles.
+                    
+                    Un tag est soit le nom d'un paramètre du ValidatorTest, soit une variable créée dynamiquement.
+                    Par convention, on essaie de créer le tag {currentValue} lorsque cela est pertinent.
+                    
+                        
+                    
+                    
+                    
+                            
+                            
+        self    setRequirementPhrase(v)                            
+                        
+                
+                
+        
+    ValidatorResult
+        string  ?getRequirementPhrase()
+                        Renvoie la requirementPhrase brute
+        string  getErrorMessage()
+                        Renvoie la requirementPhrase résolue
+
+
+
+

@@ -6,7 +6,7 @@ namespace Bat;
  * LingTalfi 2015-10-07
  */
 use CopyDir\AuthorCopyDirUtil;
-use DirScanner\DirScanner;
+
 
 class FileSystemTool
 {
@@ -23,10 +23,22 @@ class FileSystemTool
      * and false in case of failure.
      *
      *
+     * By default, if the target is a symlink, the process will be aborted.
+     * If you want to clear the symlink dir, set the $abortIfSymlink flag to false.
+     *
+     *
+     *
      */
-    public static function clearDir($file, $throwEx = true)
+    public static function clearDir($file, $throwEx = true, $abortIfSymlink = true)
     {
-        if (true === self::mkdir($file, 0777, true)) {
+
+        if (
+            (
+                false === $abortIfSymlink &&
+                is_dir($file) && is_link($file)
+            ) ||
+            true === self::mkdir($file, 0777, true)
+        ) {
             $files = new \FilesystemIterator($file,
                 \FilesystemIterator::KEY_AS_PATHNAME |
                 \FilesystemIterator::CURRENT_AS_FILEINFO |
@@ -53,6 +65,15 @@ class FileSystemTool
         $ret = $o->copyDir($src, $target);
         $errors = $o->getErrors();
         return $ret;
+    }
+
+    /**
+     * Copy a file
+     */
+    public static function copyFile($src, $target)
+    {
+        self::mkdir(dirname($target), 0777, true);
+        return copy($src, $target);
     }
 
 
@@ -259,16 +280,21 @@ class FileSystemTool
      *      true if the file exists when the method has been executed
      *      false if the file couldn't be created
      */
-    public static function mkfile($pathName, $data = '', $dirMode = 0777)
+    public static function mkfile($pathName, $data = '', $dirMode = 0777, $mode = 0)
     {
         if (true === FileSystemTool::mkdir(dirname($pathName), $dirMode, true)) {
-            if (false !== file_put_contents($pathName, $data)) {
+            if (false !== file_put_contents($pathName, $data, $mode)) {
                 return true;
             }
         }
         return false;
     }
 
+
+    public static function noEscalating($uri)
+    {
+        return str_replace('..', '', $uri);
+    }
 
     /**
      * Removes an entry from the filesystem.

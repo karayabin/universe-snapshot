@@ -1,0 +1,78 @@
+Usage
+-------
+
+The word item is defined like this:
+- item: itemId | itemName
+- itemId: repositoryId.itemName | repositoryAlias.itemName
+
+
+# import/install
+myprog import {item}                       # import an item and its dependencies, skip already existing item(s)/dependencies
+myprog import -f {item}                    # import an item and its dependencies, replace already existing item(s)/dependencies
+myprog importall {repoId}?                 # import all items at once, skip already existing item(s)/dependencies
+myprog importall {repoId}? -f              # import all items at once, replace already existing item(s)/dependencies
+myprog install {item}                      # install an item and its dependencies, will import them if necessary, skip already existing item(s)/dependencies
+myprog install -f {item}                   # install an item and its dependencies, will import them if necessary, replace already existing item(s)/dependencies
+myprog installall {repoId}?                # install all items at once, will import them if necessary, skip already existing item(s)/dependencies
+myprog installall {repoId}? -f             # install all items at once, will import them if necessary, replace already existing item(s)/dependencies
+myprog uninstall {item}                    # call the uninstall method on the given item and dependencies
+
+
+# list/search
+myprog list {repoAlias}?                   # list available items
+myprog listd {repoAlias}?                  # list available items with their description if any
+myprog listimported                        # list imported items
+myprog listinstalled                       # list installed items
+myprog search {term} {repoAlias}?          # search through available items names
+myprog searchd {term} {repoAlias}?         # search through available items names and/or description
+
+# local (shared) repo
+myprog setlocalrepo {repoPath}             # set the local repository path
+myprog getlocalrepo                        # print the local repository path
+myprog todir                               # converts the top level items of the import directory to directories (based on the directories in local repo)
+myprog tolink                              # converts the top level items of the import directory to symlinks to the directories in local repo
+myprog flash                               # list all the top level items of the local repo, and make sure they exist in the import directory; if not, it copies them from the local repo
+myprog flash -l                            # with this flag, will create links rather copying directories
+myprog flash -f                            # forces the re-import
+
+
+# utilities
+myprog clean                               # removes the .git, .gitignore, .idea and .DS_Store files in your items directories, recursively
+
+
+
+
+For instance:
+    myprog import Connexion
+    myprog import km.Connexion
+    myprog import -f Connexion
+    myprog import -f km.Connexion
+    myprog importall
+    myprog importall -f
+    myprog install Connexion
+    myprog install km.Connexion
+    myprog install -f Connexion
+    myprog install -f km.Connexion
+    myprog installall
+    myprog installall -f
+    myprog uninstall Connexion
+    myprog uninstall km.Connexion
+    myprog list
+    myprog list km
+    myprog listd
+    myprog listd km
+    myprog listimported
+    myprog listinstalled
+    myprog search ling
+    myprog search ling km
+    myprog searchd kaminos
+    myprog searchd kaminos km
+    myprog setlocalrepo /path/to/local/repo
+    myprog getlocalrepo
+    myprog tolink
+    myprog flash
+    myprog flash -l
+    myprog flash -l
+    myprog flash -fl
+    myprog todir
+    myprog clean

@@ -1,0 +1,12 @@
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="mixedBoundary"
+
+--mixedBoundary
+Content-Type: text/plain; charset=us-ascii
+
+{textPlain}
+
+--mixedBoundary
+{htmlBody}
+
+--mixedBoundary--

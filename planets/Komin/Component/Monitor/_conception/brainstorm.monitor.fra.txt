@@ -1,0 +1,15 @@
+Brainstorm
+===================
+2015-05-07
+
+
+
+Monitor fournit un moyen d'afficher des données à l'écran.
+
+
+Il y a des similitudes entre un logger et un monitor.
+
+La différence entre les deux est qu'un logger est conçu à la base pour stocker des données,
+alors que le but du monitor est d'afficher des données.
+
+Par extension, ces deux composants ont la possibilité de déclencher des actions en fonction du message passé.

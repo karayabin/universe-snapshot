@@ -1,0 +1,39 @@
+Prototype
+================
+2015-03-03
+
+
+
+Dans cette conception, notre parser est utilisé comme helper
+du container.
+Le container est responsable de parcourir toutes les clés du tableau,
+et d'appeler biscotteParser pour chaque clé, et ainsi d'obtenir
+le code php pour chaque service.
+
+
+De cette manière, du point de vue de biscotte, nous pouvons nous
+concentrer sur le parsage d'une seule valeur,
+ce qui réduit la complexité générale.
+
+
+
+- BiscotteParser
+-----> string|false     parseValue ( value, address )
+            Cette méthode retourne le code php permettant l'instanciation
+            d'un service.
+            False est retournée si value n'est pas interprétable
+            par biscotte.
+            Le paramètre address n'est utilisé qu'en cas d'erreur
+            de syntaxe, auquel cas une exception typée
+            (BiscotteParserException)
+            est lancée.
+
+
+
+
+
+
+
+
+
+

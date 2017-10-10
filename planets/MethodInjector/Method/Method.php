@@ -32,4 +32,17 @@ class Method
     {
         return $this->content;
     }
+
+    public function getInnerContent()
+    {
+        $s = $this->getContent();
+        $s = trim($s);
+        $s = substr($s, 0, -1);
+        $p = explode('{', $s, 2);
+        if (2 === count($p)) {
+            return trim($p[1]);
+        } else {
+            return false;
+        }
+    }
 }

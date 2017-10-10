@@ -1,0 +1,135 @@
+Analyse
+==============
+2015-01-20
+
+
+
+
+Si on veut servir des fichiers, on devrait utiliser un serveur de fichiers.
+
+Pour stocker des fichiers, le moyen qu'on utilise actuellement est un fileSystem.
+Servir des fichiers, c'est savoir trouver un fichier et en donner l'accès à l'utilisateur
+qui en ferait la demande.
+
+
+Je vois deux principales manières d'indexer les fichiers: 
+
+- bdd
+- le système de fichiers
+
+
+
+A priori, les bases de données permettent de trouver une information rapidement;
+cependant après réflexion, dans tous les cas le fichier doit être indexé, car il doit être servi,
+et donc on n'échappe pas à la corvée d'indexer nos fichiers.
+
+Ceci, plus le fait que chercher dans un système de fichiers est plus rapide que d'ouvrir une 
+connexion à une bdd si on sait où chercher, constitue une raison suffisante à créer un 
+système de serveur de fichiers basé entièrement sur le file system.
+
+
+
+
+
+Voici en vrac les outils que nous pourrions utiliser:
+
+
+- Filesystem Tree (Builder|Indexor)?:
+        un outil qui permet de réorganiser un tree de profondeur arbitraire
+        en un tree de profondeur donnée.
+        Cet outil serait à la base de notre système.
+        
+        
+        
+        
+Et voici le système que j'imagine:
+
+
+On aurait un fileServer dans lequel on ajouterait les fichiers manuellement.
+
+Après chaque ajout manuel, ou de temps en temps, ou automatiquement, en fonction 
+d'un certain nombre de fichiers (seuil), on réorganise le fileServer (ou il s'auto-réorganise)
+en appellant le FileSystem Tree Builder. 
+Cette opération de réorganisation est transparente aux yeux d'un utilisateur externe, bien
+que le système puisse éventuellement être hors service temporairement le temps d'une réorganisation ?
+
+
+
+
+Voilà les grandes lignes, passons maintenant à l'implémentation.
+Commençons par FileSystemTreeIndexor.
+Il me semble que le problème le plus important est celui du nombre de dossiers par serveur.
+C'est une limitation que nous devons prendre en compte, et celle que l'on peut utiliser pour
+faire des choix de réorganisation.
+
+
+Comment organiser des fichiers dans un filesystem ?
+------------------------------------------------------------
+
+- l'indexage "classique"
+
+
+L'indexage classique
+    consiste à créer des dossiers dont le nom n'a qu'une lettre
+    
+    
+    
+    
+    
+Concernant la recherche sur des meta
+-------------------------------------------
+Dans cette conception, le fileServer n'a pas la capacité de rechercher.
+On pourrait imaginer un système de recherche par fichiers, mais je pense pour l'instant
+que les bdd sont plus adaptées pour cette tâche, c'est pourquoi mon idée serait de combiner les deux:
+
+le fileServer pour stocker les données (donc plutôt fileStorer fileOrganizor que fileServer?),
+et un système de bdd si on en a besoin pour chercher le chemin du fichier par des meta.
+
+
+Note importante pour la productivité: 
+    on peut tout à fait se concentrer sur la création d'une routine
+    qui scannerait, éventuellement par tranches si le travail devait être trop long, un arbre,
+    et mettrait les résultats dans une bdd.
+
+    
+
+
+
+
+
+inputBox
+-----------------
+inputBox serait un dossier spécial qui servirait d'input à notre système.
+Je pense que notre système aurait une interface shell, un programme qui permette d'ajouter
+des fichiers manuellement.
+Il faudrait évidemment spécifier l'emplacement du fichier, ce qui peut être assez long.
+Si on a plein de fichiers, ou même juste un, on peut les placer dans un dossier spécial (inputBox),
+et demander au programme de traiter les fichiers qui s'y trouvent.
+Ainsi, on n'a pas à taper le nom du fichier à la main.
+Cependant, on doit connaître l'emplacement du inputBox, ce qui peut éventuellement être aussi pénible,
+voire plus.
+Un mix des deux méthodes est bien.
+
+
+L'input box me semble une bonne idée pour plusieurs raisons:
+
+- la toute première fois qu'on souhaite organiser un dossier, celui-ci n'est pas encore indexé,
+    et on peut donc utiliser (désigner) ce dossier comme input box afin d'automatiser l'indexation
+    dès la première fois.
+    
+- avec input box, les ajouts peuvent se faire semi-manuellement, c'est à dire qu'on peut placer
+    un nombre arbitraire (et non pas juste une) de fichiers dans la inputBox, puis lancer via un client
+    une méthode addFromInputBox.
+
+
+
+
+
+
+
+
+        
+
+
+
+

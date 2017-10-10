@@ -1,0 +1,3 @@
+dependencies:
+    - git::/lingtalfi/Bat:1.57
+    - git::/lingtalfi/ArrayToString:1.1.0

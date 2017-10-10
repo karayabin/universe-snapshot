@@ -1,0 +1,52 @@
+ElementId
+===============
+2015-05-28
+
+
+L'elementId est un identifiant qui permet de cibler un élément de manière unique.
+
+Le concept d'elementId tente de résoudre les problèmes suivants:
+
+- possibilité de retrouver les 3 composants (type, name et version) à partir de l'élément id
+- l'elementId doit être facilement convertible en nom de fichier, et sans ambiguïté
+- l'elementId doit être facilement convertible en chemin vers un dossier, et sans ambiguïté
+
+
+
+
+
+Notation string
+---------------------
+
+        Exemple:
+            module.komin.base@1.0.0
+        
+        
+        elementId: <type> <.> <elementPath> <@> <version>
+        Avec:
+            - type: le type de l'élément, par exemple plugin, a-plugin, b-plugin, kominWidget, etc...
+                        Les caractères autorisés sont: [a-zA-Z0-9_-]
+            - elementPath: 
+                        (aka name)
+                        Il représente le chemin menant au dossier root de l'élément.
+                            Ce chemin doit être unique pour le type donné.
+                            Les caractères autorisés sont: [a-zA-Z0-9._]
+                        
+                            Le point fait office de séparateur de dossier.
+                        
+                            Ainsi, si on convertit tous les points en slashes, on doit obtenir 
+                            l'arborescence exacte menant au dossier "root" de l'élément (le numéro de version 
+                            est toujours implicite dans le système tel que conçu par komin>).
+                        
+                        
+            - version: l'identifiant de version.
+                        Par convention, on utilise la notation 3m.
+                        Les caractères autorisés sont: [a-zA-Z0-9_.-]
+                        Si l'élément n'utilise pas de système de versionnage, il doit trouver 
+                        un numéro de version factice, par convention: none.
+                        
+                        Toujours par convention, si le dev le souhaite, il peut partager sa version
+                        de développement, en utilisant le nom de version spécial dev.
+                            
+        
+        

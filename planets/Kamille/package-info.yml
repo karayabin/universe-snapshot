@@ -1,0 +1,16 @@
+dependencies:
+    - git::/lingtalfi/ApplicationItemManager:1.13.0
+    - git::/lingtalfi/ArrayExport:1.0.0
+    - git::/lingtalfi/Bat:1.46.0
+    - git::/lingtalfi/ClassCooker:1.4.0
+    - git::/lingtalfi/LinearFile:1.0.0
+    - git::/lingtalfi/Logger:1.2.0
+    - git::/lingtalfi/Loader:1.0.0
+    - git::/lingtalfi/Output:1.2.0
+    - git::/lingtalfi/TokenFun:1.1.0
+    - git::/lingtalfi/Bee:1.0.1
+    - git::/lingtalfi/Umail:1.2.0
+
+    
+    
+    

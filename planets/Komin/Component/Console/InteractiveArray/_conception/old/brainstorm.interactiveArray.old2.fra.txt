@@ -1,0 +1,90 @@
+Brainstorm
+=================
+2015-05-08
+
+
+
+
+
+
+
+Permet de créer des tableaux numériques ou associatifs sur un niveau (pas de multi levels possible).
+
+
+Il y a deux modes de fonctionnement principaux:
+
+- numérique
+- associatif
+
+Ces modes sont quasiment identiques: la seule différence étant qu'en mode numérique, les clés sont préremplies par défaut.
+
+
+
+Notre objet fonctionne de la manière suivante:
+    
+    - affichage du tableau
+    - interaction
+    
+    
+L'affichage du tableau est évidemment l'affichage du tableau.
+Le tableau est affiché sur 3 colonnes: identifiant, key, value.
+L'identifiant est un pointeur ajouté par notre objet, qui permet de cibler un enregistrement (lorsque l'on veut
+modifier/supprimer un enregistrement, on doit pouvoir le pointer).
+
+
+L'interaction permet à l'utilisateur de rentrer les données du tableau.
+L'affichage se met à jour au fur et à mesure que l'utilisateur rentre les données.
+    
+    
+L'interaction est une phase que l'on peut répéter pour chaque nouvelle entrée, et qui est organisée comme suit:
+    
+- on demande la key à l'utilisateur (appelons cette phase inputKey)
+- on demande la value à l'utilisateur (appelons cette phase inputValue)
+
+Que ce soit en mode inputKey ou inputValue, l'utilisateur valide ce qu'il a tapé avec la touche return du clavier.    
+
+Si pendant la phase inputKey l'utilisateur appuie sur entrée alors que le champ est vide, 
+il entre dans le dialogue de gestion du tableau décrit plus bas.
+    
+Que ce soit en mode inputKey ou inputValue, si l'utilisateur tape la touche escape, la valeur qu'il est en train
+de modifier reprend son état initial (c'est à dire l'état qu'elle avait AVANT que l'utilisateur ne commence à la modifier).
+    
+    
+    
+Dialogue de gestion du tableau
+--------------------------------
+Il s'agit d'une simple question posée à l'utilisateur, qui lui permet de gérer le tableau:
+     
+     
+    Que voulez-vous faire:
+            0: valider le tableau  (le tableau php est alors renvoyé)
+            1: recommencer (le tableau reprend la forme initiale qu'il avait au début de la session et le processus recommence)
+            2: modifier une entrée
+            3: supprimer une entrée
+            4: continuer à éditer le tableau
+            
+            
+Si l'utilisateur choisit 2, le dialogue suivant s'affiche:
+    Quelle entrée souhaitez-vous modifier ? 
+        Cette question est posée jusqu'à ce que l'utilisateur tape un identifiant valide.
+        Puis l'interaction pour l'entrée pointée est alors lancée.
+        Une fois l'interaction finie, c'est à dire si l'utilisateur tape la touche return au niveau de la value,
+        le dialogue de gestion du tableau apparaît de nouveau.
+                           
+                          
+        
+Si l'utilisateur choisit 3, le dialogue suivant s'affiche:        
+    Quelle entrée souhaitez-vous supprimer ? 
+        Cette question est posée jusqu'à ce que l'utilisateur tape un identifiant valide.
+        Puis l'entrée est supprimée, et le dialogue de gestion du tableau réapparaît.
+        (et bien sûr l'affichage est mis à jour)
+        
+        
+        
+        
+
+
+              
+
+
+

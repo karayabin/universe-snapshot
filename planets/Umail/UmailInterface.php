@@ -155,6 +155,8 @@ interface UmailInterface
     public function setRenderer(RendererInterface $renderer);
 
 
+    public function setTransport(\Swift_Transport $transport);
+
     /**
      * Variables
      * --------------

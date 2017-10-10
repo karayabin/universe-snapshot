@@ -1,0 +1,18 @@
+ElementId
+===============
+2015-05-20
+
+
+L'elementId est un identifiant qui permet de cibler un élément de manière unique.
+
+Sa notation est la suivante:
+        
+        elementId: <type> <:> <name> (<:> <version>)?
+        Avec:
+            - type: le type de l'élément, par exemple plugin, a-plugin, b-plugin, kominWidget, etc...
+                        Le caractère deux-points (:) est interdit.
+            - name: le nom de l'élément, unique pour le type donné.
+                        Le caractère deux-points (:) est interdit.
+            - version: l'identifiant de version.
+                        Par convention, on utilise la notation 3m.
+                            

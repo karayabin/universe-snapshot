@@ -63,6 +63,34 @@ foreach ($methods as $method) {
 
 History Log
 ------------------
+
+- 1.5.0 -- 2017-04-04
+
+    - add Method.removeMethods
+    
+- 1.4.0 -- 2017-03-26
+
+    - add Method.getInnerContent
+    - add MethodInjector.replaceMethodByInnerContent
+    - fix change algorithm
+    - fix getMethodByName can now return false
+    
+- 1.3.1 -- 2017-03-26
+
+    - fix filters
+
+- 1.3.0 -- 2017-03-26
+
+    - hasMethod can now choose its filters
+    
+- 1.2.0 -- 2017-03-26
+
+    - add removeMethod
+    
+- 1.1.0 -- 2017-03-26
+
+    - getMethodsList can now choose its filters
+    
 - 1.0.0 -- 2017-03-24
 
     - initial commit

@@ -1,0 +1,23 @@
+Convention
+=================
+2015-05-09
+
+
+              
+              
+Lorsque la méthode listen keyboard listener est lancée,
+par convention, avant que le programme ne commence à écouter les frappes du clavier
+de l'utilisateur, il lance un premier tour à vide avec la chaîne vide;
+ceci a le même effet que si l'utilisateur avait tapé une chaîne vide sur 
+le clavier (ce qui n'est pas possible avec un clavier normal).
+
+Ce premier tour est une sorte de phase d'initialisation pour les observers attachés
+au keyboardListener: il permet aux listeners d'afficher le prompt sans avoir à attendre
+une frappe de l'utilisateur par exemple.
+
+Nous appelons ce premier tour le burst.
+
+
+
+
+

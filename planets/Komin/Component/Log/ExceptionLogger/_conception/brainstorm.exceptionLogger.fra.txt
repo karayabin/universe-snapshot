@@ -1,0 +1,19 @@
+Brainstorm
+=================
+2015-05-25
+
+
+
+La nécessité d'un exception logger vient probablement du désir d'implémentation d'une stratégie de 
+gestion des erreurs nommée helones.
+
+De manière plus générale, une exception logger est un logger dont les listeners réagissent à une exception plutôt
+qu'un simple message textuel.
+
+
+
+
+
+
+
+

@@ -87,6 +87,18 @@ Dependencies
 History Log
 ------------------
     
+- 1.2.0 -- 2017-07-13
+
+    - now returns false when "Division by zero" problem (erroneous image) occurs
+    
+- 1.1.0 -- 2017-05-24
+
+    - add KoolThumbnailTool class
+    
+- 1.0.2 -- 2017-05-24
+
+    - fix bug: when both maxWidth and maxHeight are specified, the image can scale up
+    
 - 1.0.1 -- 2016-01-06
 
     - fix bug: the destination directory is now created before hand

@@ -78,15 +78,32 @@ For instance,
 
 
 
+getUniqueCssId
+-----------
+2017-04-28
+
+
+```php
+string      getUniqueCssId ( string:prefix = "" )
+```
+
+Returns a "unique" identifier to use as a css id, possibly prefixed with a given string.
+
+
+```php
+a(StringTool::getUniqueCssId("po-")); // po-7d92af3dddd5083eb7432686c2a9f2ca
+```
+
+
 
 
 htmlAttributes
 -----------
-2015-10-28
+2015-10-28 -> 2017-05-03
 
 
 ```php
-str    htmlAttributes ( array:attributes )
+str    htmlAttributes ( array:attributes, str:keyPrefix="" )
 ```
 
 
@@ -290,7 +307,15 @@ array (size=2)
 
 
 
+ucfirst
+-----------
+2017-05-23
 
+```php
+string ucfirst( str:string )
+```
+
+Like ucfirst, but using utf8 (works with accentuated letters).
 
 
 

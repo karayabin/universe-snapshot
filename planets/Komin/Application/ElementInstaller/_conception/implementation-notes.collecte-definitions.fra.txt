@@ -1,0 +1,85 @@
+Implémentation notes
+========================
+2015-05-29
+
+
+
+
+
+
+
+
+Recherche dans l'application des fichiers meta.yml
+
+        rootDir=elements
+        
+             - $rootDir:
+            ----- elements:
+            --------- $type:
+            ------------- ($elementPath avec les points convertis en slashes, donc profondeur variable):
+            ----------------- meta.yml
+                            on cherche le prix et les dépendances 
+                            
+                            
+
+
+Recherche dans le local repository
+
+        Même technique que recherche dans l'application, mais il peut y avoir
+        plusieurs dossiers de recherche.
+                            
+                            
+                            
+Recherche serveur:
+                            
+    - definition: 1
+    - elements: tableau des éléments dont on veut la définition
+    - user:    # credentials de l'utilisateur 
+    - pass1: 
+    - pass2:                             
+                            
+                            
+    E_CREDENTIALS_REQUIRED: at least one of the elements you've asked for is charged, you must provide credentials in order to fulfil this request
+                      
+
+MetaFile
+    ::fromFile ( file )  !E: invalid meta file
+    ->getDependencies()
+
+
+
+ScalpTool
+    array   getElementInfo ( elementId )
+                    Renvoie 
+                        0: type
+                        1: elementPath
+                        2: version
+        
+        
+
+Client
+    setConfigFile ( path )
+    install ( elementIds )
+        -- checkConfig !E: please set the config file first
+        
+        #1: collecting definitions for all elements
+        defs = collectDefinitions 
+            
+
+    -- collectDefinitions ()  (recursive)
+            recherche dans l'application
+            recherche dans le local repository
+            recherche dans le proxy repository
+            
+            recherche via le server: un seul appel pour toutes les déf manquantes.
+
+
+
+        -- false|array  findDefinition( elementId, dir )
+        
+        
+        
+
+        
+        
+        

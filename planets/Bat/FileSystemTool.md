@@ -15,10 +15,10 @@ If you don't use bigbang, you can use var_dump as a replacement.
 
 clearDir
 -------------
-2015-10-12
+2015-10-12 --> 2017-06-22
 
 ```php
-void|bool    clearDir ( string:file, bool:throwEx = true )
+void|bool    clearDir ( string:file, bool:throwEx = true, bool:abortIfSymlink=true )
 ```
 
 
@@ -30,6 +30,9 @@ By default, the method throws an exception in case of failure.
 
 If you set the throwEx flag to false, then this method will return true in case of success,
 and false in case of failure.
+
+By default, if the target is a symlink, the process will be aborted.
+If you want to clear the symlink dir, set the $abortIfSymlink flag to false.
      
      
 
@@ -42,6 +45,19 @@ bool        copyDir ( str:srcDir, str:targetDir, bool:preservePerms = false, arr
 ```
      
 Copies a directory (recursively) to a given location.
+
+
+copyFile
+-------------     
+2017-05-11
+
+
+```php
+bool        copyFile ( str:srcDir, str:targetDir )
+```
+
+Copy a file.
+
 
      
 existsUnder
@@ -227,7 +243,7 @@ mkfile
 
 
 ```php
-bool    mkfile ( str:pathName, str:data="", octal:dirMode = 0777 )
+bool    mkfile ( str:pathName, str:data="", octal:dirMode = 0777, int:flags=0 )
 ```
 
 Creates a file, and the intermediary directories if necessary
@@ -251,6 +267,21 @@ a(FileSystemTool::mkfile($f, "hello"));
 
 
 ```
+
+
+
+
+noEscalating
+-----------
+2017-06-03
+
+
+```php
+str    noEscalating (string:uri)
+```
+
+Returns a file path which won't be able to escalate into parent directories (removing the expression ".." basically).
+
 
 
 

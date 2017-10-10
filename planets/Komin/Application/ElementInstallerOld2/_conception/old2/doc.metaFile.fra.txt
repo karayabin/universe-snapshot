@@ -1,0 +1,62 @@
+metaFile
+==================
+2015-05-20
+
+
+
+Le metaFile est un fichier utilisé par le système d'installation de l'ElementInstaller de komin>.
+Il contient les informations générales et utiles sur un élément, telles que le nom de l'auteur, les 
+dépendances de l'élément, le numéro de version, etc.
+
+
+
+
+
+Tout fichier meta, quelle que soit sa version, doit être capable de fournir au moins les informations suivantes:
+
+- ?metaVersion, la version du metaFile, par défaut, le chiffre 1. 
+- type, le type de l'élément 
+- name, le nom (complet et unique par rapport au type donné) de l'élément 
+- version, le numéro de version de l'élément, ou la chaîne vide si l'élément n'est pas versionné 
+- dependencies, un tableau dont les entrées sont les elementId des dépendances concrètement utilisées par l'élément principal
+                                (elementId est défini ailleurs)
+
+
+            
+De plus, le fichier meta doit toujours comporter la propriété metaVersion, qui est un entier positif commençant à 1,
+et pouvant être incrémenté avec le temps.
+
+
+
+
+
+
+metaFile v1
+-------------------------------------------------------------------------------------
+
+
+Le metaFile a pour nom meta.yml et est interprété comme un fichier babyYaml contenant les
+données suivantes:
+
+
+
+- ?metaVersion: 1   (par défaut),
+                        Cette propriété est la seule meta qui ne doit jamais changer du point de vue de notre
+                        système, elle est l'identifiant de la structure du fichier.
+                        
+                        
+- name: string, le nom de l'élément, qui doit être unique dans le contexte de son type
+- type: string, le type de l'élément
+- ?version: string, la version de l'élément
+- ?dependencies: array, indique les dépendances de l'élément vers d'autres éléments.
+                            Les notations possibles sont:
+                            
+                                    - <elementId> # voir komin> docs conventions
+                                    
+                                    
+                                            
+                                
+- ?author: mixed, informations sur l'auteur.
+                        En général, une string représentant le nom de l'auteur.
+                        
+- ?..., l'auteur peut ajouter autant d'info qu'il veut                        

@@ -1,0 +1,191 @@
+Brainstorm
+================
+2015-04-28
+
+
+
+
+Documentation
+==================
+            
+Le finder est un outil permettant de trouver des ressources (fichiers, dossiers, liens) sur un système de fichiers donné.
+
+
+
+
+Synopsis
+-------------
+
+        Finder::create( srcDir )
+        
+        ** choix du type de ressource à chercher **
+        
+            ->directories()
+            ->files( )
+            ->links( )
+            
+            
+            
+Dossier(s) de recherche
+---------------------------
+
+Bien que tout dossier scanné par le finder pourrait techniquement être appelé un dossier de recherche,
+nous appelons dossier de recherche uniquement un dossier que l'utilisateur a choisi comme base de la recherche.
+Il est possible de spécifier plusieurs dossiers de recherche d'un coup.
+           
+           
+            
+Les types de ressource            
+------------------------------
+            
+Une ressource appartient à un seul type parmi:
+            
+- dossier            
+- fichier            
+- lien
+            
+            
+            
+Métaphoriquement, un lien est une porte que l'on peut ouvrir pour accéder à d'autres ressources.
+Les liens qui mènent vers des ressources inexistantes sont appelés liens cassés.
+Les liens qu'on arrive pas à ouvrir sont également appelés liens cassés.
+
+
+
+
+Options principales
+-----------------------
+
+Les options suivantes permettent de modifier le comportement du finder.
+
+- researchDirNotFound: 0|1(=0)
+
+            Que faire lorsqu'un dossier de recherche n'existe pas:
+            
+                - 0: lancer une exception
+                - 1: ignorer ce dossier de recherche  @1
+                
+                Dans les 2 cas, un hook est appelé en plus, afin de donner à l'utilisateur l'opportunité de logguer 
+                l'événement sans interrompre la logique du finder.
+                
+        
+- followLinks: bool(=true)        
+            
+            Lorsqu'on tombe sur un lien qui pointe vers un dossier existant, doit-on parser ce dossier ? @2
+
+
+- onBrokenSymlink: 0|1|2(=2)
+
+            Que faire lorsqu'un lien est cassé:
+            
+                - 0: lancer une exception
+                - 1: ignorer ce lien et empêcher le finder de l'inclure dans le jeu de résultats (n'atteint pas la phase de filtrage)
+                - 2: ignorer ce lien et permettre au finder de l'inclure dans le jeu de résultats (passe par la phase de filtrage)
+                
+                Dans les 2 cas, un hook est appelé en plus, afin de donner à l'utilisateur l'opportunité de logguer 
+                l'événement sans interrompre la logique du finder.
+
+            
+            
+Les filtres  
+---------------
+
+La puissance du finder vient des filtres qu'on peut lui ajouter.
+Un filtre est un callback qui décide si oui ou non la ressource en cours d'examen doit être incorporée au jeu de résultats
+renvoyé par le finder.
+
+Ce callback prend en paramètre un objet FinderFileInfo (voir plus bas), ainsi qu'un flag modifiable (passé en référence)
+permettant de courcircuiter la recherche par défaut récursive du finder (pour des questions d'optimisation de performances).
+
+            
+            bool    callback ( FinderFileInfo f, &stopRecursion=false )
+            
+            
+            
+FinderFileInfo
+-----------------
+
+Les filtres utilisent un objet FinderFileInfo pour prendre une décision d'acceptation/rejet d'une ressource.
+Cet objet est un enfant de l'objet php SplFileInfo, et il contient quelques informations supplémentaires, qui sont
+des leviers que l'on peut utiliser dans les filtres.
+
+
+- componentsPath: string
+                
+                    La liste des composants (basename d'un fichier, dossier, ou lien) utilisés pour parvenir à la ressource 
+                    en cours d'examen, et séparés par le DIRECTORY_SEPARATOR.
+                    Le dossier de recherche est exclus de la liste des composants.
+    
+- depth: int
+    
+                La profondeur de la ressource en cours d'examen.
+                Cette profondeur est directement lié à componentsPath, c'est à dire au nombre de composants rencontrés.
+                
+                Note:
+                    les enfants directs d'un dossier de recherche ont une profondeur de 0.
+                
+- links: array
+                Une liste contenant des informations sur les liens rencontrés lors de la recherche.
+                Si le dossier de recherche est lui-même la cible d'un lien, il n'est pas compatibilisé dans ce tableau.
+                
+                Les informations sur un lien sont assemblées dans un tableau ayant la structure suivante:
+                 
+                    - name: baseName du lien
+                    - path: chemin absolu du lien
+                    - target: string: la cible du lien telle que spécifiée lors de la création du lien
+
+
+
+
+
+Notes
+===========
+@1: 
+    Ignorer un dossier de recherche peut être une option utile si la liste des dossiers de recherche
+    est créée dynamiquement.
+
+@2: 
+
+    Si le lien est cassé, le comportement du finder est régi par l'option onBrokenSymlink.
+    Si le lien pointe vers un fichier (existant), c'est à l'utilisateur de définir manuellement ce qu'il veut
+    faire avec la ressource.
+    
+    Les créateurs de filtre devraient être conscients de cette particularité lors de la création des filtres,
+    c'est à dire qu'un fichier est peut être également un lien.
+    
+    Une astuce pour conserver la simplicité de développement des filtres peut être de diversifier le finder 
+    en 2 courants:
+    
+        - un finder classique
+        - un finder de liens
+        
+    Tous deux sont des extensions du finder de base que nous décrivons ici.        
+        
+        Le finder classique ne peut trouver que des fichiers ou dossiers, et utilise les liens comme des portes,
+        mais ne les considère jamais comme un fichier ou dossier en soi.
+        Tout lien cassé est simplement ignoré et ne peut pas faire partie de la recherche.
+        
+        A l'inverse, le finder de liens ne s'intéresse qu'aux liens.
+        
+    
+    Pour que cela fonctionne, le finder de base doit avoir en interne la capacité
+    de filtrer les ressources par type.
+    
+     
+
+
+    A la base, on voulait faire cela (simple conceptuellement):
+        Si on tombe sur un lien, doit-on essayer d'ouvrir la porte ou pas ? 
+        Cela signifie que si la ressource en cours d'examen est un lien vers un fichier existant,
+        et que followLinks=false, alors ce fichier ne sera jamais accessible.
+        
+        Mais dans la pratique, comme php accepte qu'une ressource soit de type lien et fichier simultanément,
+        et qu'on n'a pas trouvé de workaround simple, alors on a inventé la conception courante.            
+
+
+
+
+
+
+       
+       

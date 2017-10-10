@@ -12,6 +12,36 @@ Based on the [DirScanner](https://github.com/lingtalfi/DirScanner).
 
 
 
+getDirs
+---------------
+
+Return the dirs in a given folder.
+
+
+```php
+array  getDirs( str:dir, bool:recursive = false, bool:relativePath = false, bool:followSymlinks = false, bool:ignoreHidden = true)
+```
+
+Works like the getFiles method below.
+
+
+
+
+
+getEntries
+---------------
+2017-04-18
+
+Return the entries (files or dirs) in a given folder.
+
+
+```php
+array  getEntries( str:dir, bool:recursive = false, bool:relativePath = false, bool:followSymlinks = false, bool:ignoreHidden = true)
+```
+
+Works like the getFiles method below.
+
+
 
 
 getFiles
@@ -63,20 +93,6 @@ string|array|null $extension , the allowed extensions. If null, all extensions a
 
 Works like the getFiles method above.
 
-
-
-
-getDirs
----------------
-
-Return the dirs in a given folder.
-
-
-```php
-array  getDirs( str:dir, bool:recursive = false, bool:relativePath = false, bool:followSymlinks = false, bool:ignoreHidden = true)
-```
-
-Works like the getFiles method above.
 
 
 

@@ -74,6 +74,23 @@ foreach ($ar as $a) {
 
 
 
+snakeToCamel
+-----------
+2017-06-09
+
+
+
+
+```php
+str    snakeToCamel ( string:str )
+```
+
+
+Converts a string in snake case to a string in camel case.
+[string cases nomenclature]( https://github.com/lingtalfi/ConventionGuy/blob/master/nomenclature.stringCases.eng.md )
+ 
+ 
+
 snakeToPascal
 -----------
 2015-12-22
@@ -126,6 +143,67 @@ foreach ($ar as $a) {
  * string 'AndNowRealXml' (length=13)
  * string 'AndNowRealXml' (length=13)
  * string 'AndNowRealXml' (length=13)
+ */
+
+```
+
+
+
+
+ 
+
+snakeToFlexiblePascal
+-----------
+2018-08-18
+
+
+
+
+```php
+str    snakeToFlexiblePascal ( string:str )
+```
+
+
+Converts a string in snake case to a string in flexible pascal case<br>
+Exact nomenclature is defined in 
+[string cases nomenclature]( https://github.com/lingtalfi/ConventionGuy/blob/master/nomenclature.stringCases.eng.md )
+ 
+ 
+```php
+<?php
+
+
+use Bat\CaseTool;
+
+require_once "bigbang.php";
+
+
+$ar = [
+    '',
+    'just a test sentence to start with',
+    'and_now_real_shit',
+    'and_now_real_XML',
+    'and_now_real__XML',
+    'AND_NOW_REAL__XML',
+];
+
+
+foreach ($ar as $a) {
+    a(CaseTool::snakeToFlexiblePascal($a));
+}
+ 
+
+
+ 
+/**
+ * The output looks like this (in a browser): 
+ *  
+ * string(0) ""
+ * string(34) "Just a test sentence to start with"
+ * string(14) "AndNowRealShit"
+ * string(13) "AndNowRealXML"
+ * string(13) "AndNowRealXML"
+ * string(13) "ANDNOWREALXML"
  */
 
 ```
@@ -224,7 +302,7 @@ toSnake
 
 
 ```php
-str    toSnake ( string:str )
+str    toSnake ( string:str, bool:processUpperLetters=false )
 ```
 
 Return the [snake version](https://github.com/lingtalfi/ConventionGuy/blob/master/nomenclature.stringCases.eng.md#snake-case) of the given string.
@@ -241,6 +319,20 @@ require_once "bigbang.php";
 
 
 a(CaseTool::toSnake("Hello everybody, is it ok?")); // hello_everybody_is_it_ok
+```
+
+Use the second argument to consider upper letters as special characters:
+
+```php
+<?php
+
+
+use Bat\CaseTool;
+
+require_once "bigbang.php";
+
+
+a(CaseTool::toSnake("MyClassIsKool", true)); // my_class_is_kool
 ```
 
 

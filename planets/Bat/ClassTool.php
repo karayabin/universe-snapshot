@@ -11,12 +11,17 @@ class ClassTool
      * Example:
      *      $content = ClassTool::getMethodContent(LayoutServices::class, 'displayLeftMenuBlocks');
      *
+     * @return string|false
      *
      */
     public static function getMethodContent($class, $method)
     {
         // http://stackoverflow.com/questions/7026690/reconstruct-get-code-of-php-function
-        $func = new \ReflectionMethod($class, $method);
+        try {
+            $func = new \ReflectionMethod($class, $method);
+        } catch (\ReflectionException $e) {
+            return false;
+        }
         $filename = $func->getFileName();
         $start_line = $func->getStartLine() - 1; // it's actually - 1, otherwise you wont get the function() block
         $end_line = $func->getEndLine();
@@ -32,10 +37,20 @@ class ClassTool
         return $body;
     }
 
+
+    public static function getMethodInnerContent($class, $method)
+    {
+        if (false === ($content = self::getMethodContent($class, $method))) {
+            return false;
+        }
+        $content = substr($content, 0, -1); // remove trailing }
+        $p = explode('{', $content, 2);
+        return $p[1];
+    }
+
     public static function getMethodSignature(\ReflectionMethod $method)
     {
         $s = '';
-
         if (true === $method->isAbstract()) {
             $s .= 'abstract ';
         }
@@ -84,6 +99,18 @@ class ClassTool
         return $s;
     }
 
+
+    /**
+     * @return string, the short name for the given class.
+     * For instance if the class is A\B\CCC,
+     * it returns CCC.
+     *
+     */
+    public static function getShortName($object)
+    {
+        $p = explode('\\', get_class($object));
+        return array_pop($p);
+    }
 
     /**
      * @throws \ReflectionException when the class/method doesn't exist

@@ -1,0 +1,57 @@
+Brainstorm
+================
+2015-05-22
+
+
+
+
+Cet objet est prévu dans le but d'accélerer le temps d'implémentation de 
+systèmes conçus comme des objets et qui ont besoin de stocker de l'information.
+
+
+Le principe est qu'on a un espace de travail au sein duquel on travaille,
+et on a un assistant qui nous aide à créer les classes au fur et à mesure qu'on a besoin d'un container.
+
+
+
+Les classes sont générées statiquement de manière à ce que:
+  
+- l'on bénéficie de l'auto-complétion par notre ide
+- l'api ait des noms explicites
+
+
+Voici un exemple fictif de classe générée pour un objet user.
+
+        Notes:
+            - data est un tableau de clés/valeurs
+            - on peut injecter un logger général pour tous les containers, ou bien un logger par container
+            - une erreur est présente sous forme d'un objet Error.
+
+
+
+
+UserContainer
+
+- bool|int      createUser ( data )
+                        si le container user contient un champ auto-incrémenté,
+                                renvoie la valeur concrète du champ auto-incrémenté, ou false en cas d'erreur.
+                        sinon, un booléen est renvoyé        
+                         
+- bool          setUser ( data )
+- User|false    getUser ( whereData )
+- User[]        getAllUser ( whereData, limitData )
+                         
+- Error|null    getLastError ( )
+- int|null      getLastInsertId ( )
+
+  
+  
+
+
+
+
+
+
+Error:
+    - method: create|...
+    - container: user|...

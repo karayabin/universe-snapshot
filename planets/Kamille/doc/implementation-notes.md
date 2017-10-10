@@ -836,6 +836,38 @@ as an error message to the user.
 
 
 
+Controllers
+================
+2017-04-03
+
+In a web application, Controllers are responsible for returning the appropriate http response to a given http request.
+
+Controllers will be brought by modules in the first place, but then how does the user override them.
+
+It's semantically wrong to tell the user to directly update the modules files.
+
+Therefore the following idea will/has been implemented, via KamilleModule: all modules controllers are "copied" to 
+the **app/class-controllers** directory, where the user can potentially edit them (because it's userland, not moduleland).
+
+For instance, to override a Soap controller from module Hamburger, which is originally should be here:
+
+- app/class-modules/Hamburger/Controller/SoapController.php
+
+
+Will be copied (and adapted) here:
+
+- app/class-controllers/Hamburger/SoapController.php
+
+
+So modules themselves should use the userland version internally.
+This simple overriding mechanism choice was made to keep the application simple. 
+
+
+
+Note that theme purposely don't depend on the theme.
+
+ 
+
 
 
 

@@ -1,0 +1,266 @@
+Brainstorm
+===============
+2015-04-18
+
+
+
+
+Cet objet aide à l'installation d'un élément dans une application.
+Lorsqu'on parle d'installation, on pense en général à deux étapes:
+
+- import: 
+        téléchargement de l'élément sur internet (en général)
+- installation
+        installation de l'élément par rapport à notre application (dans quel(s) dossier(s))
+        
+        
+        
+Il y a ensuite peut être une phase d'activation de l'élément, mais ce n'est pas le sujet de la discussion.
+        
+        
+        
+        
+        
+Pour réussir l'installation en général d'un élément, nous allons répartir les tâches et utiliser les objets suivants:
+        
+      
+        
+- Client        
+- Stock        
+- Repository        
+- Downloader        
+- Installer
+        
+        
+
+Un des avantages de cette approche est que l'on peut facilement adapter les objets à nos besoins sans 
+avoir besoin de changer obligatoirement tout le système.
+        
+        
+        
+Le client va être notre interface, c'est lui qui gérera en interne les autres objets.
+Le stock est lié à l'application, il est capable de déterminer les éléments utilisés par l'application.
+            L'intérêt du stock est d'éviter d'aller chercher sur internet un élément qu'on a déjà à portée de main.
+Le repository est dans la pratique
+            l'élément qui contient les meta ET qui permet l'accès aux ressources.
+            Cela se fait toutefois en deux temps:
+                - l'objet repository en à la base ne s'occupe que des meta
+                - dans les meta se trouvent les informations de téléchargement de la ressource.
+                    
+                        Bien que techniquement les meta et les ressources ne sont pas liés,
+                        un repository ne devrait stocker des meta que s'il est également capable
+                        de fournir (directement ou indirectement par le biais d'une machine sur laquelle il
+                        a contrôle, autorité, ou entièrement confiance) la ressource correspondante.
+                        
+                        En effet, sémantiquement parlant, il n'y a pas trop d'intérêt à fournir uniquement
+                        des metas.
+                    
+                    
+            Pour récapituler, le repository délivre les informations sur un élément.
+            Parmi ces informations on trouvera les informations de 
+            download, ainsi que les dépendances que pourrait avoir cet élément.
+            
+            
+Le downloader est capable de downloader un élément sur internet et de le placer dans un dossier nommé targetDir.
+            Pour les éléments gratuits, il s'agit simplement de copier une ressource dont l'url est donnée dans le dossier targetDir.
+            Parfois, un dialogue avec un serveur distant peut intervenir, par exemple pour l'achat d'un élément qui serait payant.
+            Le dialogue est l'objet qui connaît (ou est responsable de connaître) tous ces protocoles de communication.
+            
+            
+            
+L'installer est lié à l'application, et lui seul sait comment installer un élément dans l'application.
+            L'installer n'est pas lié au downloader, et il est tout à fait capable d'installer
+            un zip (ou autre) sans autre information que le chemin vers le zip.
+            En fait, l'installer est un mécanisme indépendant qui est ajouté comme une option à notre client.
+            
+            
+            
+
+Une idée efficace est celle de créer un fichier à la racine de l'application qui contient toutes les dépendances de l'application,
+organisées par type.
+Ce fichier peut également spécifier les objets à utiliser, ce qui le rend très efficace car centralisant pas mal de choses.
+
+            
+Exemple de fichier:
+
+
+# la section config sera en fait en général intégrée dans le client.
+# mais si on veut être explicite ou l'overrider, on peut comme dans l'exemple ci-dessous:
+config:
+    repositoryList:
+        rep1: 
+            _class:\My\WebRepository
+            _args: 
+                repo:
+                    - http://beehive.com
+                    - http://nobeesland.com
+    installer: 
+        _class: \My\Installer
+
+    
+    
+types:
+    packages:
+            komin: 1+
+            arachnophoBeeFramework: 1.*.*+
+    plugins:
+            komin/base: 2.4+
+            arachnophoBeeFramework/mystifier: 1.*
+
+            
+
+# Des options spécifiques au client choisi
+# on peut aussi overrider le client dans la section config, mais sinon un client 
+# par défaut devrait être choisi, d'où l'intérêt de cette section clientOptions
+            
+clientOptions:
+    ifVersionMisMatch: ask
+    ...
+                
+                
+            
+            
+Avant d'en arriver là, on peut commencer doucement par écrire plus précisément le rôle de chaque objet en termes de méthodes.            
+            
+- Client
+        
+        Le client a un rôle central de coordination des objets entre eux.
+
+----- install ( type, element, version=* )
+        
+        
+        
+        @param string version
+            Le wildcard (*) signifie: "la dernière version disponible".
+            Lorsque version n'est pas le wildcard, ou lorsqu'il ne se termine pas par un wildcard,
+            il peut être suivi d'un opérateur + ou - pour indiquer une plage de versions.
+            
+                - plus (+): signifie la version indiquée de préférence, ou toute autre version ultérieure sinon.
+                                C'est le client qui pour l'instant détermine si une version est ultérieure à une autre.
+                                Pour des vns comme 3m, cela est facile à déterminer de manière fiable, mais peut être 
+                                que pour d'autres vns ce ne sera pas le cas.
+                - moins (-): signifie la version indiquée de préférence, ou toute autre version antérieure sinon.
+                                
+            
+            
+            Les vns (version naming system) n'ont pas tous les mêmes facultés et nous recommandons l'utilisation de 3m,
+            qui permet pas mal de choses.
+            Notamment, on peut utiliser l'astérisque comme partie d'un nom, pour demander la dernière version d'une section
+            donnée.
+            Par exemple: 2.*.* signifie: la dernière version (trouvée) dont le premier chiffre commence par 2 (c'est à dire compatible
+            avec la version 2 de l'élément).
+            De plus, lorsqu'un composant de 3m est manquant, il est remplacé par un 0, on peut donc être plus précis pour 
+            préciser une plage de versions:
+                    2.4+ signifie: matche la version 2.4.0 de préférence, ou sinon, la dernière version mineure de 2.4 (2.4.*).
+                    2+ signifie: matche la version 2.0.0 de préférence, ou sinon, la dernière version medium de 2 (2.*.*).
+                    
+            Note: les omissions de composant de numéro de version ne fonctionnent qu'à droite.
+            Ainsi il n'est pas possible de faire:
+                                  
+                                  *.2.4
+                                  
+            
+            
+        
+        Les clients peuvent utiliser le synopsis suivant comme guide pour leur implémentation de la méthode install.
+        
+            1. Création du downloadMap
+            2. Download 
+            3. Install
+        
+        
+        1. Création downloadMap
+        ----------------------------
+        
+        L'utilisateur peut chercher une version précise, ou bien la dernière version (terminant par le wildcard).
+        
+        Le client cherche d'abord dans son stock l'élément cherché.
+        Si une version précise est demandée et qu'elle se trouve en stock, alors la version trouvée en stock sera utilisée.
+        Si cette version n'est pas trouvée en stock, le client cherchera dans les repositories.
+        
+        Par contre, si la dernière version est demandée, le client cherchera dans le stock ET dans les repositories, 
+        puis décidera laquelle répond le mieux à la requête de l'utilisateur.
+         
+        Dans les deux cas, le client créera ce qu'on appelle un downloadMap (aka dependencyMap).
+        Le downloadMap contient les informations de download pour tous les éléments à télécharger.
+        Effectivement, un élément peut dépendre d'un ou plusieurs autres éléments,
+        le processus décrit ci-dessus est donc récursif.
+        
+        Le downloadMap ressemble à ceci, une fois compilé:
+        
+            - elementName:
+                    - fromStock: bool, est-ce que l'élément provient du stock 
+                    - version: string
+                    - ?download: mixed, les informations de download (trouvées dans les informations de l'élément délivrées par un repository).
+                                        Cette propriété n'existe que si fromStock vaut false.
+            - ...
+        
+        
+        Le client appelle ensuite le Downloader qui aura pour mission de télécharger les fichiers manquants et de les placer dans un dossier targetDir.
+        En principe, le client va ensuite placer les éléments téléchargés en stock, afin de gagner du temps pour plus tard.
+        En fait, on peut considérer le stock comme un dossier contenant tous les setups.
+        Le downloader renvoie un tableau d'informations installInfo permettant de réussir la dernière étape.
+        
+        Une fois tous les éléments dans le dossier targetDir (y compris ceux provenant du stock),
+        le client appelle l'installer pour chaque élément du tableau intallInfo, et les installe si ce n'est pas déjà fait.
+        
+        Le client peut proposer d'autres méthodes pour forcer la réinstallation d'un élément donné.
+        
+            
+
+
+- Repository
+----- array|false   getElementInfo ( type, name, version=* )
+                @param $version: idem que pour le client
+                
+----- bool   hasElementInfo ( type, name, version=* )
+        
+        
+        
+- Stock extends Repository
+        Stock est en fait un repository local, avec en plus la possibilité d'ajouter des éléments
+----- storeElement ( type, name, version, elementFile, elementInfo )        
+        
+        
+        
+- Downloader
+----- targetDir
+----- array|false  download ( array downloadMapItem )
+                        Si le download réussit, cette méthode renvoie un tableau installInfo dont chaque entrée est:
+                        
+                                - elementName:
+                                        file: string, chemin vers le fichier contenant l'élément
+                                        version: string
+                
+        
+- Installer
+----- bool install ( type, name, version, file )
+----- bool isInstalled ( type, name, version )
+                    
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+Contraintes
+---------------
+                
+                
+- une fois un élément installé, on est capable de retrouver les informations (elementInfo du repository) de l'élément installé.
+- on peut réinstaller un élément à partir du stock
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                

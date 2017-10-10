@@ -24,6 +24,7 @@ class SpaceIndentedArrayToStringSymbolManager extends BaseArrayToStringSymbolMan
 
     private $nbSpaces;
     private $spaceSymbol;
+    private $offset;
     private $indentationCallback;
 
 
@@ -31,9 +32,10 @@ class SpaceIndentedArrayToStringSymbolManager extends BaseArrayToStringSymbolMan
     {
         parent::__construct();
         $this->nbSpaces = 4;
+        $this->offset = 0;
         $this->spaceSymbol = ' ';
-        $this->indentationCallback = function ($spaceSymbol, $nbSpaces, $level) {
-            return str_repeat($spaceSymbol, $nbSpaces * $level);
+        $this->indentationCallback = function ($spaceSymbol, $nbSpaces, $level, $offset) {
+            return str_repeat($spaceSymbol, $offset + $nbSpaces * $level);
         };
     }
 
@@ -42,7 +44,7 @@ class SpaceIndentedArrayToStringSymbolManager extends BaseArrayToStringSymbolMan
     //------------------------------------------------------------------------------/
     public function getLineIndentationSymbol($level, $key, $value, array $thisLevelArray)
     {
-        return call_user_func($this->indentationCallback, $this->spaceSymbol, $this->nbSpaces, $level);
+        return call_user_func($this->indentationCallback, $this->spaceSymbol, $this->nbSpaces, $level, $this->offset);
     }
 
     public function getContainerStartIndentationSymbol($level, array $thisLevelArray)
@@ -52,7 +54,7 @@ class SpaceIndentedArrayToStringSymbolManager extends BaseArrayToStringSymbolMan
 
     public function getContainerEndIndentationSymbol($level, array $thisLevelArray)
     {
-        return call_user_func($this->indentationCallback, $this->spaceSymbol, $this->nbSpaces, $level - 1);
+        return call_user_func($this->indentationCallback, $this->spaceSymbol, $this->nbSpaces, $level - 1, $this->offset);
     }
 
     //------------------------------------------------------------------------------/
@@ -67,6 +69,12 @@ class SpaceIndentedArrayToStringSymbolManager extends BaseArrayToStringSymbolMan
     public function setNbSpaces($nbSpaces)
     {
         $this->nbSpaces = $nbSpaces;
+        return $this;
+    }
+
+    public function setOffset($offset)
+    {
+        $this->offset = $offset;
         return $this;
     }
 

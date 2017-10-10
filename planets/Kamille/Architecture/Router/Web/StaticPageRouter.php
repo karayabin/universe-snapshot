@@ -7,10 +7,9 @@ namespace Kamille\Architecture\Router\Web;
 use Kamille\Architecture\Application\Web\WebApplication;
 use Kamille\Architecture\Controller\Web\StaticPageController;
 use Kamille\Architecture\Request\Web\HttpRequestInterface;
-use Kamille\Architecture\Router\RouterInterface;
 
 
-class StaticPageRouter implements RouterInterface
+class StaticPageRouter implements WebRouterInterface
 {
 
     protected $uri2Page;

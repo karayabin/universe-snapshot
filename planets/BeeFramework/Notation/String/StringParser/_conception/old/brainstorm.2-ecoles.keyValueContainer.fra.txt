@@ -1,0 +1,37 @@
+Brainstorm
+=================
+2015-05-13
+
+
+
+
+
+Soit s la chaîne de caractères suivante:
+
+s = [a: 21, b: ,, c: 46]
+
+
+Il y a deux manières d'interpréter cette chaîne:
+    si on considère que le seul symbole de terminaison d'une clé est le kvSep (:)
+    alors on obtient le tableau suivant:
+    
+    a => 21,    
+    b => null,   // en admettant que implicit values = true    
+    , c => 46,   
+        
+    Si par contre on considère que les symboles de terminaison d'une clé sont le kvSep (:) et le valueSep (,)        
+    alors on obtient le tableau suivant:
+    
+    a => 21,    
+    b => null,   // en admettant que implicit values = true    
+    0 => null,   // en admettant que implicit entries = true           
+    c => 46,           
+
+
+ 
+ Nous appellerons la première méthode "méthode sans implicit entries".
+        Aussi dite méthode avec clé obligatoire.
+ Nous appellerons la deuxième méthode "méthode avec implicit entries".
+ 
+ 
+Notre implémentation par défaut est pensée comme une méthode sans implicit entries.

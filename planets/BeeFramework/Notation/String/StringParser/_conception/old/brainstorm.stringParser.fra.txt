@@ -1,0 +1,265 @@
+Brainstorm
+==================
+2015-05-11
+
+
+
+
+
+
+
+Description
+===================
+
+
+
+ExpressionParser est un objet qui permet de reconnaître une expression, et d'en extraire la valeur.
+
+        On peut reconnaître une quotedString comme un tableau.
+        
+        
+        Un tableau est lui-même composé de plusieurs éléments,
+        mais quels éléments sont acceptés ?
+
+        
+        Comment parser les différents éléments du tableau:
+        il nous faut un itérateur: stringIterator.
+        
+        
+        
+        L'itérateur avance de caractère (ascii?) en caractère,
+        et demande à chaque fois à un analyseur si ce caractère est le 
+        caractère de début d'une expression valide.
+            Si c'est le cas,
+                l'analyseur?
+                indiquera la position du dernier caractère de cette expression,
+                et l'itérateur se déplace jusqu'à cette position.
+                
+                
+        Ensuite, l'itérateur reprend ce même algorithme jusqu'à la fin de la string.
+                        
+        L'itérateur en soi est bête,
+        
+        mais l'analyseur est assez intelligent pour gérer les notions de clé/valeur que l'on trouve souvent
+        dans les tableaux.
+        Certains tableaux n'utilisent que des valeurs, d'autres des clés et valeurs, ou bien la clé peut être optionnelle.
+        Cette manière de penser: clé?/valeur, bien que très répandue, n'est qu'un cas particulier d'analyseur.
+                Dans ce cas l'analyseur doit par exemple: détecter une clé, il sait ensuite que, comme il a détecté une clé,
+                il doit ensuite détecter le symbole de séparation entre une clé et une valeur, puis si la détection réussit,
+                il sait qu'il doit ensuite parser une valeur.
+                
+                Tout cela est le mode de fonctionnement de l'analyseur.
+                
+                Le rôle de l'analyseur est simplement de fournir les nouvelles positions à l'itérateur.
+                
+        Finalement l'analyseur est maître, et l'itérateur est un outil qu'il utilise, et contrôle.
+        
+        
+        
+        Recommençons.
+        
+        
+        Pour une expression simple comme un quoted string, on fait simplement appel à un expression parser.
+        Pour une expression qui met en jeu plusieurs éléments différents (typiquement un tableau),
+        on utilise un analyseur.
+        L'analyseur peut utiliser un itérateur.
+        En fc de son mode de fonctionnement, l'analyseur dira par exemple: je ne veux que parser des valeurs.
+        
+        Il appellera donc l'itérateur en lui passant un callback (arpès avoir défini la position de départ).
+        
+        Iterator->setPosition ( x )
+        Iterator->run ( callback )
+        
+        L'itérateur lance une exception si la position donnée est hors string,
+        puis il parcourt tous les caractères (mode ascii ou utf8?) un par un
+        jusqu'au dernier, après lequel il retourne false.
+        
+        Le callback prend en paramètre le caractère parsé par l'itérateur.
+        
+        abc
+        
+        a b c false
+        
+        
+        callback ( char, pos, string )
+        
+        
+        on peut ajouter des parsers à l'analyseur (sorte de plugins).
+        
+            le premier plugin serait un plugin qui ignorerait les caractères insignifiants (souvent espace)
+            Le plugin peut skipper les autres plugins (stopPropagation)
+            
+            
+            
+            
+            
+        callback ( char, pos, string )
+                    
+                    
+                foreach( listeners as listener )
+                    
+                    e = new Event( char, pos, string )
+                    listener->listen( e)
+                    if( e->isPropagationStopped ){                                                                                    
+                                                                
+                                        
+                                        
+            
+            
+            
+        
+        
+        
+        
+        
+        
+        
+        
+Quel type de string veut-on parser:
+
+
+        simple
+        
+        container
+            début
+            fin
+            éléments
+            
+            (avantage: le début et la fin peuvent être différents, ce n'est qu'une conception parmi d'autres)
+
+        autre? (pas vu pour l'instant)
+        
+
+Si on a un expression parser dédié, l'utiliser.
+
+
+bool    ExpressionParser.parse
+mixed   ExpressionParser.getValue
+                En théorie une expression pourrait valoir false, donc on sépare les méthodes parse et getValue.         
+        
+        
+        
+La question devient: comment parser les containers ?
+
+        ignorer caractères insignifiants
+                on doit pouvoir les définir
+                
+
+        détection début
+                
+        chaîne des expression Parsers à tester
+                Si l'expression parser matche et qu'il a une forme fixe:
+                tester sa validité
+                si valide, l'ajouter.
+        
+        
+        Container standard ? (arrayLikeContainer?)
+        container de bloc
+        bloc: clé-valeur|valeur|clé?-valeur
+        
+        
+        
+        ExpressionDiscoverer
+            
+            est programmé pour trouver une expression.
+            On le place à une position P donnée d'une chaîne de caractères.
+            S'il peut trouver une expression valide commençant à P, il renvoie un int: la position du dernier caractère de l'expression.
+            Il renvoie false sinon.
+            
+            
+    
+                
+        Stratégie pour parser un container de values.
+                        
+        On appelle un extracteur.
+        
+        Extractor
+            Le but de l'extracteur est d'extraire les valeurs des strings à partir des positions données par les discoverers.
+                               
+                               
+        Globalement, on parcourt tous les caractères de la chaîne de gauche à droite, un par un.
+        L'objet qui exécute cela
+                                               
+                                               
+       Driver
+            -> int getNextPosition
+            -> bool hasValue
+            -> mixed getValue
+                
+                driver de type skip (caractères insignifiants)
+                driver de type discoverer
+                
+                vs
+                
+                private insignificantChars = [];
+                
+                               
+                               
+                               
+                                
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+                        
+                        
+                        
+                
+                
+                
+        
+        
+        
+Note sur la validation:
+    sémantiquement,
+        un objet sait si il correspond à une string donnée,
+        mais si la "chaîne à parser" est plus grande que ce que l'objet a parsé,
+        le résultat est invalidé ?
+                -> car si une expression est valide,
+                            on ne peut pas lui ajouter un caractère sans altérer sa validité ?
+                            (pas vrai pour les hybrides)
+                            
+            forme fixe (forme=modèle de résolution)  
+                soit x une chaîne à parser, x est une expression valide si le parser utilise tous les caractères de x
+                et n'accepte pas d'autres caractères.
+            forme ouverte                            
+                toujours valide
+                            
+                            
+        
+        La notion de "chaîne à parser" est définie par le contexte dans lequel s'effectue le parsage
+        (rien, ou un container, ou autre).
+
+
+
+
+
+
+Problèmes & objectifs
+
+    [web]/path/doo
+    
+    expression parser standalone
+        on peut les utliser out of the box pour les éléments communs (sequence, mapping, pq pas tags...)
+        
+        
+    tags récursifs
+        Vous avez choisi les types @php->implode(", ", @s:myservice->getImageTypes() ), est-ce correct ?                    
+        
+
+
+
+    Problème de récursivité
+        si un tableau accepte d'autres tableaux, ainsi que des mappings,
+        mais que les mappings n'acceptent pas de tableau.

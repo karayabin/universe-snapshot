@@ -67,6 +67,20 @@ Will try differents methods:
 
 
 
+getHost
+-----------
+2017-06-07
+
+
+```php
+str|false    getHost ( )
+```
+
+Gets the host name, or false in case of error.
+
+
+
+
 getWebsiteAbsoluteUrl
 -----------
 2016-11-26
@@ -77,6 +91,38 @@ str|false    getWebsiteUrl ( )
 ```
 
 Gets the absolute url for a website. Useful when you need to redirect a page using the php header function.
+
+
+
+
+
+
+noEscalating
+-----------
+2017-05-10
+
+
+```php
+str    noEscalating (string:uri)
+```
+
+Returns an uri which, if mapped to the file system, wouldn't be able to escalate into parent directories.
+
+
+
+uri
+-----------
+2017-04-18
+
+
+```php
+str|false    uri ( string:uri = null, array:params = [], bool:replace = true, bool:absolute = false )
+```
+
+A swiss army knife for uri.
+It can return a relative or absolute url for a website,
+including/replacing the existing parameters or even your parameters.
+
 
 
 

@@ -1,0 +1,98 @@
+Explication
+===================
+2015-05-12
+
+
+
+Le système StringParser tel que nous l'avons conçu fonctionne avec une rétro-validation.
+
+En effet, la stratégie de parsage utilisée est que l'on parse chaque caractère, un par un,
+et à chaque fois on regarde s'il y a un discoverer capable de trouver une expression commençant à 
+ce caractère.
+
+Dès qu'un discoverer trouve une expression valide, on avance le curseur jusqu'à la fin de l'expression trouvée,
+puis on reprend le processus, accumulant les valeurs trouvées au fur et à mesure.
+
+Dans cette approche, le rôle du discoverer est de renvoyer une expression le plus tôt possible,
+sans tenir compte de ce qu'il y a après.
+
+
+Du fait qu'on utilise cette approche, nous devons ajouter un système de rétro-validation pour que cela fonctionne.
+L'exemple le plus parlant permettant d'illustrer cette nécessité  st probablement celui-ci:
+ 
+- [root] 
+- [root]/path/to/webDir
+
+Dans le premier exemple, on a affaire à une séquence contenant un élément root.
+Dans le deuxième exemple, la chaîne de caractères entière représente un chemin, on imagine que [root] est une notation symbolique pour
+un dossier root du système de fichiers par exemple.
+
+
+Avec notre approche, si on n'utilisait pas de rétro-validation,
+un discoverer de séquence dirait dans les deux cas et à juste titre que [root] est une séquence valide.
+
+C'est le rôle du discoverer.
+Néanmoins, le discoverer n'a pas la vision globale de la chaîne à parser (ou plus exactement, nous ne lui demandons pas de
+le faire), et c'est donc à nous de confirmer/infirmer la validité de l'expression trouvée par le discoverer.
+Dans le premier cas, on dira qu'effectivement [root] est bien une séquence, dans le deuxième cas, on dira que ce n'en est pas une.
+
+
+
+Mais quelle est la logique derrière la validation ?
+-------------------------------------------------------
+
+Comme on vient de le dire, la validation dépend de l'approche utilisée.
+Dans une approche à tâtons avec des discoverers qui matchent le plus petit résultat possible,
+on peut définir la logique de validation de la manière suivante:
+
+
+
+
+Soit X une expression composée de plusieurs composants C.
+De manière générale, un ou plusieurs symboles sont utilisés pour organiser (hiérarchiser?) les composants
+entre eux.
+Une conséquence de cette volonté d'organisation est que les composants C se retrouvent séparés par des symboles
+que l'on appellera symbole d'agencement des composants dans le cadre de cette section.
+
+De telle sorte que sémantiquement, et visuellement, X pourrait ressembler à cela:
+
+
+    - X: C ( SEP C )*
+
+Dans ce cadre, la validation consiste à trouver quels sont les symboles représentant SEP,
+puis de dire que si C est suivi d'un SEP, alors C est valide,
+sinon, si C est suivi d'un autre symbole que SEP, et que ce n'est pas la fin de chaîne, alors C n'est pas valide.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+

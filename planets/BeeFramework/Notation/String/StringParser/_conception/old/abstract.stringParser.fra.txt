@@ -1,0 +1,125 @@
+Abstract
+===================
+2015-05-12
+
+
+
+
+
+
+Soit E une expression.
+Soit S une chaîne de caractères pouvant contenir des expressions.
+
+
+Notre système permet de parser différentes chaînes de caractères de la forme:
+
+- S: E
+
+Autrement dit, notre système détecte des expressions.
+
+Un autre intérêt de notre système est qu'il permet, par extension, de parser des containers.
+Un container contient plusieurs expressions (agencées entre elles selon une modalité définie le container). 
+
+Soit C un container qui utilise un symbole SEP de séparation entre les composants.
+Un container est introduit par un symbole BEGIN marquant le début du container,
+et un symbole END marquant la fin du container.
+ 
+ 
+- C: BEGIN  E (SEP E)*   END
+ 
+Grâce au container, on peut parser les chaînes de ce type:
+
+- S: BEGIN  E (SEP E)*   END 
+    équivalent à
+- S: C
+
+et les factoriser dans un container C.
+Pour peu que l'on soit capable de générer manuellement les symboles BEGIN et END, 
+on peut donc parser des chaînes du type suivant:
+
+- S: E (SEP E)*
+
+Pour cela, on rajoutera simplement BEGIN et END au début et à la fin de la chaîne, puis on utilisera le container
+approprié.
+ 
+
+
+Si bien qu'on pourrait dire que notre système est capable de parser des expressions de 2 types:
+
+- expression unique  (E) 
+- container d'expression  (C)
+            avec BEGIN et END explicites ou implicites
+            
+            
+ 
+Il y a peut être d'autres formes intéressantes qui ne figurent pas (encore?) dans ce document. 
+
+
+
+Soit T une chaîne de caractères ne contenant pas l'expression E.
+Par le biais d'un hybride, notre système est capable de parser la chaîne suivante:
+
+- S: T? E T?
+
+
+
+
+
+
+
+
+
+------------
+
+Validation:
+    
+    Soit D un ensemble de symbole spéciaux tels que la combinaison:
+    
+         E X
+         
+    n'est valide que si X appartient à D.
+    Les symboles contenus dans D dépendent du contexte.
+            - la fin de ligne est toujours contenue dans D
+            - si la combinaison est un enfant direct d'un container donné, D contient
+                    également les symboles END et SEP de ce container.
+                    Note: SEP peut représenter plusieurs symboles,
+                            notamment dans le cas d'un container de type clé/valeur, 
+                            SEP représente non seulement le caractère de séparation entre valeurs,
+                            mais également le caractère de séparation entre les clés et les valeurs.
+          
+    
+    
+Hybride:
+    
+    on remarquera qu'un hybride doit s'arrêter aux mêmes symboles contenus dans l'ensemble D
+    défini dans la section validation.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+

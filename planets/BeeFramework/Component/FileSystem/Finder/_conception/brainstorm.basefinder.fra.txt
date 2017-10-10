@@ -1,0 +1,153 @@
+Brainstorm
+================
+2015-04-28
+
+
+
+
+Documentation
+==================
+            
+Le finder est un outil permettant de trouver des ressources (fichiers, dossiers, liens) sur un système de fichiers donné.
+
+
+
+
+            
+Dossier(s) de recherche
+---------------------------
+
+Le finder travaille dans un ou plusieurs dossier(s) de recherche donné(s).
+Ces dossiers de recherche sont choisis par l'utilisateur.
+
+
+Types de ressource
+---------------------
+
+Une ressource peut être de différents types parmi:
+
+- dossier
+- fichier
+- lien
+
+
+Comme en php, le type lien peut se combiner avec une ressource d'un autre type.
+C'est à dire qu'une ressource peut être à la fois un lien et un dossier,
+ou à la fois un lien et un fichier.
+
+Le type de ressource peut être testé avec les fonctions php is_file, is_dir et is_link.
+
+Note:
+    une ressource de type lien qui n'est ni un fichier ni un dossier peut être considérée
+    comme un lien cassé.
+    
+    
+    
+    
+
+
+
+
+Options principales
+-----------------------
+
+Les options suivantes permettent de modifier le comportement du finder.
+
+- researchDirNotFound: 0|1(=0)
+
+            Que faire lorsqu'un dossier de recherche n'existe pas:
+            
+                - 0: lancer une exception
+                - 1: ignorer ce dossier de recherche  @1
+                
+                Dans les 2 cas, un hook est appelé en plus, afin de donner à l'utilisateur l'opportunité de logguer 
+                l'événement sans interrompre la logique du finder.
+                
+        
+- ignoreLinks: bool(=false)
+
+            Est-ce que le finder doit ignorer les liens ou pas.
+
+            
+            
+Les filtres  
+---------------
+
+La puissance du finder vient des filtres qu'on peut lui ajouter.
+Un filtre est un callback qui décide deux choses:
+
+- si oui ou non la ressource en cours d'examen doit être incorporée au jeu de résultats renvoyé par le finder
+- si oui ou non le finder doit parser récursivement le dossier (cela ne s'applique qu'aux dossiers)
+
+Ce callback prend en paramètre un objet FinderFileInfo (voir plus bas), ainsi qu'un flag modifiable (passé en référence)
+permettant, si la ressource est un dossier, de courcircuiter le comportement récursif du finder pour cette ressource.
+
+            bool    callback ( FinderFileInfo f, &stopRecursion=false )
+
+
+            
+            
+            
+FinderFileInfo
+-----------------
+
+Les filtres utilisent un objet FinderFileInfo pour prendre une décision d'acceptation/rejet d'une ressource.
+Cet objet est un enfant de l'objet php SplFileInfo, et il contient quelques informations supplémentaires, qui sont
+des leviers que l'on peut utiliser dans les filtres.
+
+
+- componentsPath: string
+                
+                    La liste des composants (basename d'un fichier, dossier, ou lien) utilisés pour parvenir à la ressource 
+                    en cours d'examen, et séparés par le DIRECTORY_SEPARATOR.
+                    Le dossier de recherche est inclus de la liste des composants.
+                    
+                    Lorsqu'un lien pointant vers un dossier ou un fichier est rencontré, c'est le nom du lien qui est utilisé
+                    et non pas le nom du dossier ou fichier pointé.
+                    Cela permet d'éviter certains pb de conflits de noms qui apparaîtraient sinon.
+                    
+                    Une astuce pour utiliser le nom du dossier ou fichier pointé est d'utiliser le realpath de la ressource.
+    
+- depth: int
+    
+                La profondeur de la ressource en cours d'examen.
+                Cette profondeur est directement lié à componentsPath, c'est à dire au nombre de composants rencontrés.
+                
+                Note:
+                    les enfants directs d'un dossier de recherche ont une profondeur de 0.
+                
+- links: array
+                Une liste contenant des informations sur les liens rencontrés lors de la recherche.
+                Ces liens sont appelés bridgeLinks au sein de la nomenclature du finder, et ce sont des liens
+                vers des dossiers ou fichiers existants.
+                
+                Si le dossier de recherche est lui-même la cible d'un lien, il n'est pas compatibilisé dans ce tableau.
+                
+                Les informations sur un lien sont assemblées dans un tableau ayant la structure suivante:
+                 
+                    - src: emplacement du lien
+                    - dst: destination du lien
+                    
+
+
+Boucles infinies
+-------------------
+
+Une boucle infinie survient lorsque des symlinks s'appellent mutuellement,
+directement ou pas.
+
+Notre implémentation du finder ne gère pas les boucles infinies,
+car d'après mes tests, php arrête automatiquement une boucle infinie après
+100 itérations, ce qui est donc raisonnable;
+cela évite également de surcharger la logique du finder.
+
+
+
+
+
+Notes
+===========
+@1: 
+    Ignorer un dossier de recherche peut être une option utile si la liste des dossiers de recherche
+    est créée dynamiquement.
+

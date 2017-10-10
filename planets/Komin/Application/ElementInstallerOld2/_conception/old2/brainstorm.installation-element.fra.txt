@@ -1,0 +1,111 @@
+Brainstorm
+==================
+2015-05-22
+
+
+
+
+Quelles stratégies d'installation ?
+--------------------------------------
+
+Une fois le bundle importé, nous l'installons à l'aide d'un installateur.
+Le bundle contient un fichier meta.yml et des fichiers d'installation.
+
+A partir de là, quelles stratégies sont à notre disposition pour l'installation ?
+
+
+- 1. installation manuelle: les fichiers d'installation contiennent l'installateur 
+- 2. installation semi-automatique: un fichier générique installation.yml peut être créé et utilisé pour installer tout type d'élément
+- 3. installation automatique: l'installateur gère tout seul l'installation
+ 
+ 
+Voyant les avantages et inconvénients de chacun.
+ 
+ 
+Installation manuelle:
+    - avantages:
+    ----- très libre, permet tous les cas d'installation possibles
+    
+    - inconvénients: 
+    ----- plus de travail pour le dev 
+    ----- plus de travail au niveau de la sécurité:
+                    il faudrait contrôler le code d'installation pour vérifier que 
+                    l'installation est vraiment une installation et pas autre chose.
+ 
+Installation semi-automatique:
+    - avantages:
+    ----- moins de travail pour le dev 
+    - inconvénients: 
+    ----- duplication de références à des méthodes, donc difficultés en regard de l'évolution du système
+    
+    
+Installation automatique:
+    - avantages:
+    ----- pas de travail pour le dev 
+    - inconvénients: 
+    ----- création et publication de l'installateur dédié, et mise à jour dans le système de l'utilisateur
+    
+    
+    
+Nous choisissons l'installation automatique, car c'est la plus pratique pour le dev.
+Le w3b assure l'unicité des types d'éléments.
+Le créateur du type d'élément doit nous fournir l'installateur approprié,
+et nous devons l'ajouter à notre hub et publier une nouvelle version de l'élément installer reflétant le changement.
+
+ 
+
+
+
+Quelques outils à développer
+--------------------------------
+
+
+### installer.yml
+
+    - installVars:
+    ----- rootDir: string|array, si c'est un array, c'est un tableau de type => rootDir (string)
+
+
+### elements.yml
+
+    - elements:
+    ----- $type:
+    --------- $elementId
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+            
+            
+            
+            
+                    
+                    
+        
+
+
+
+

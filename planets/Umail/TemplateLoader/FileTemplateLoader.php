@@ -21,14 +21,14 @@ class FileTemplateLoader implements TemplateLoaderInterface
      * root of your application.
      *
      */
-    private $dir;
-    private $suffix;
+    protected $dir;
+    protected $suffix;
 
     /**
      * htmlPath, plainPath are locations to the actual template files
      */
-    private $htmlContent;
-    private $plainContent;
+    protected $htmlContent;
+    protected $plainContent;
 
 
     public function __construct()

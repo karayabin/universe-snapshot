@@ -28,7 +28,10 @@ Example 1: send an email
 --------------------------
 
 Note: I tested this example on 2017-02-06, and it worked 
-on my local machine (macbook pro). However, it failed on my iMac (gate timeout error).
+on my local machine (macbook pro). However, it failed on my iMac (late 2009)(gate timeout error).
+
+Note2: retested on my new iMac (late 2015), it works fine.
+
 
 In other words, if your machine allows it, you can send emails without using smtp settings (username, password, ...).
 
@@ -207,7 +210,7 @@ There is a default template loader (which explains why the code below works): th
 
 By default, the FileTemplateLoader will try to find a template file in the "mails" directory at the root 
 of the application.
-With FileTemplateLoader,yYou can have a template for both html and/or plain versions.
+With FileTemplateLoader,you can have a template for both html and/or plain versions.
 
 A template file ending with ".html" will be a template for the html version, while a template
 ending with ".txt" will be a template for the plain text version.
@@ -824,6 +827,18 @@ Dependencies
 
 History Log
 ------------------
+    
+- 1.3.0 -- 2017-08-24
+
+    - add Umail.setTransport method 
+    
+- 1.2.1 -- 2017-07-02
+
+    - Umail fix "to" method not resetting correctly 
+    
+- 1.2.0 -- 2017-05-29
+
+    - FileTemplateLoader: some variables are now protected instead of private
     
 - 1.1.1 -- 2017-02-17
 

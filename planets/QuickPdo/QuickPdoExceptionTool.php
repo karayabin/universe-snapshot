@@ -13,19 +13,21 @@ class QuickPdoExceptionTool
 {
 
 
-    public static function isDuplicateEntry(\PDOException $e)
+    public static function isDuplicateEntry(\Exception $e)
     {
-        $sqlstate = $e->errorInfo[0];
-        $driverCode = $e->errorInfo[1];
-        if ('23000' === $sqlstate) {
-            $driver = QuickPdoInfoTool::getDriver();
-            if ("mysql" === $driver) {
-                if (1062 === $driverCode) {
-                    return true;
+        if ($e instanceof \PDOException) {
+
+            $sqlstate = $e->errorInfo[0];
+            $driverCode = $e->errorInfo[1];
+            if ('23000' === $sqlstate) {
+                $driver = QuickPdoInfoTool::getDriver();
+                if ("mysql" === $driver) {
+                    if (1062 === $driverCode) {
+                        return true;
+                    }
+                } else {
+                    throw new \Exception("Driver not implemented: $driver");
                 }
-            }
-            else {
-                throw new \Exception("Driver not implemented: $driver");
             }
         }
         return false;

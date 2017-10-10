@@ -1,6 +1,6 @@
 QuickPdoStmtTool
 =================
-2016-01-15
+2016-01-15 --> 2017-05-09
 
 
 
@@ -34,7 +34,7 @@ Methods
 
 
 ```php
-void function addWhereSubStmt ( mixed:whereConds, &str:stmt, &array:$markers )
+void function addWhereSubStmt ( mixed:whereConds, &str:stmt, &array:$markers, str:tablePrefix="" )
 ```
 
 This method adds the WHERE clause to your statement.
@@ -306,4 +306,18 @@ array (size=1)
   ':bzz_0' => string 'paul' (length=4)
 
 ```
+
+
+
+
+
+### simpleWhereToPdoWhere
+
+
+```php
+array function simpleWhereToPdoWhere ( array:where )
+```
+
+Converts a simple map array (array of key => value) to a pdo whereConds array,
+as described in the [**QuickPdo WHERE notation**](https://github.com/lingtalfi/QuickPdo#the-where-notation).
 

@@ -1,0 +1,68 @@
+Brainstorm
+======================
+2015-05-04
+
+
+
+
+
+
+
+
+Algorithme du client d'installation des modules
+======================================================
+par lingtalfi
+
+
+
+
+
+Le client peut prendre en input:
+    - un dossier de bundles
+    - un bundle
+    - un moduleCanonicalName
+    - un array de moduleCanonicalName
+    
+    
+    
+    
+    
+    
+1. Extraction des canonicalNames à partir des bundles.
+
+    Extraction des metas des bundles, on créé un tableau de canonicalNames.
+    $bundleCanonicalNames = [];
+        
+            On considère que chercher dans un bundle est plus rapide que de chercher dans un repository.
+       
+            
+2. Préparation des canonical names.
+
+        On merge les bundleCanonicalNames avec les moduleCanonicalNames de l'input.
+        En cas de conflit, en fc de la conf (demande à l'utilisateur de choisir, ou bien on choisit automatiquement la dernière version
+        et discarde l'ancienne).
+        
+   On obtient un nouveau tableau $resolvedCanonicalNames.
+        
+        
+        
+3. Import des bundles dans le dossier tmpBundles.
+        
+        On créé un dossier tmpBundles ($resolvedCanonicalNames n'est pas vide)
+        On parcourt $resolvedCanonicalNames.
+            Dans stock ? skip
+            Fait partie de bundleCanonicalNames ? copy du bundle dans tmpBundles
+            Sinon, fetch from repository.
+                            
+                Si après avoir essayé tous les repo, on n'a toujours pas pu télécharger le meta ou le bundle,
+                en fc de la config:
+                
+                        - ignore
+                        - abort
+                        - ask user
+                            
+                            
+        On se retrouve avec un dossier tmpBundles contenant tous les bundles à installer.
+                                    
+4. Install
+        On appelle l'installer qui installe tous les bundles.

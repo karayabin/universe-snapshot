@@ -1,0 +1,31 @@
+Brainstorm
+===================
+2015-06-10
+
+
+
+
+cUrl est une librairie qui permet de faire toutes sorte de requêtes http, et autres.
+Le but de notre classe est de proposer une interface simple objet pour manipuler cUrl.
+
+
+cUrl propose de nombreuses fonctionnalités.
+Plutôt que de toutes les reprendre dans une seule classe, nous utilisons un système de wrapper.
+Il y a un objet central qui représente la connexion cUrl,
+et chaque wrapper utilise cette connexion et lui ajoute les options nécessaires afin de parvenir au but de l'utilisateur.
+
+Cette approche nous permet de travailler par domaines, par exemple on peut créer une couche spécialisée pour POST,
+une pour GET, etc...
+De plus, si un l'implémentation d'un wrapper ne nous plaît pas, on peut toujours créer/utiliser un autre wrapper
+sans devoir modifier le design général.
+
+
+Notre motivation originale est de créer un client capable de:
+
+
+- accéder au contenu d'une page web
+- poster des données
+- définir les cookies
+- utiliser ssl
+
+

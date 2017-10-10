@@ -28,11 +28,13 @@ class ControllerExecuterRequestListener implements HttpRequestListenerInterface
 {
 
     private $_throwExOnControllerNotFound;
+    private $controllerRepresentationAdaptorCb;
 
 
     public function __construct()
     {
         $this->_throwExOnControllerNotFound = true;
+        $this->controllerRepresentationAdaptorCb = null;
     }
 
     public static function create()
@@ -52,7 +54,7 @@ class ControllerExecuterRequestListener implements HttpRequestListenerInterface
         $controller = $request->get("controller", null);
 
         if (null === $controller && true === $this->_throwExOnControllerNotFound) {
-            throw new RequestListenerException("The controller parameter was not found in the request");
+            throw new RequestListenerException("The controller parameter was not found in the request " . $request->uri());
         }
 
 
@@ -73,28 +75,35 @@ class ControllerExecuterRequestListener implements HttpRequestListenerInterface
         return $this;
     }
 
+    public function setControllerRepresentationAdaptorCb(callable $controllerRepresentationAdaptorCb)
+    {
+        $this->controllerRepresentationAdaptorCb = $controllerRepresentationAdaptorCb;
+        return $this;
+    }
+
+
+
     //--------------------------------------------
     //
     //--------------------------------------------
     private function executeController($controller)
     {
         if (is_callable($controller)) {
-            /**
-             * For now, we only accept callable controllers (no strings aliases,
-             * but that might change, although not planned as of today)
-             */
-            $response = call_user_func($controller);
-            return $response;
+            return call_user_func($controller);
+        } elseif (is_string($controller)) {
+            $controller = call_user_func($this->controllerRepresentationAdaptorCb, $controller);
+            if (is_callable($controller)) {
+                return call_user_func($controller);
+            }
+
+            if (is_array($controller) && 2 === count($controller)) {
+                $p = $controller;
+                $controller = '[' . get_class($p[0]) . ':' . $p[1] . ']';
+            }
+            throw new RequestListenerException("Could not interpret the controllerRepresentation for $controller");
         } else {
-            /**
-             * With this ControllerRequestListener, we throw an exception (i.e. if you don't like it
-             * use another class).
-             */
             $type = gettype($controller);
-            throw new RequestListenerException("Controller should be a callable, $type given");
+            throw new RequestListenerException("Controller should be a callable or a string (controller representation), $type given");
         }
-
-
     }
-
 }

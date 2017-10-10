@@ -1,0 +1,6 @@
+dependencies:
+    - git::/lingtalfi/QuickPdo:2.8.1
+    - git::/lingtalfi/Bat:1.78
+    - git::/lingtalfi/OrmTools:1.6.0
+    - git::/lingtalfi/ArrayToString:1.3.0
+

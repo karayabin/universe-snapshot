@@ -1,0 +1,53 @@
+Design
+===================
+2015-05-13
+
+
+
+
+ExpressionDiscovererInterface
+                    parse
+                    getValue
+                    getLastPos
+        |
+        |
+ExpressionDiscoverer
+                    getValue
+                    getLastPos
+        |   
+        |
+ContainerExpressionDiscoverer
+                    + parse
+                    + getDiscoverers
+                    + setDiscoverers
+                    
+                    a- isContainerBegin
+                    a- isContainerEnd
+                    a- getContainerSpecialSymbols
+                    a- skipNotSignificant
+                    a- parseContainer
+        |
+        |
+StaticSymbolsContainerExpressionDiscoverer
+                    fixed width special symbols and not significant symbols
+                    
+                    + setEndSep
+                    + setValueSep
+                    + setNotSignificantSymbols
+        |
+        |
+ValueContainerExpressionDiscoverer              ---------------------------------------   KeyValueStaticSymbolsContainerExpressionDiscoverer                                     
+                    Spécialisé pour un container de type value (pas de clé)                                 fixed width special symbols, including kvSep
+
+                    - getContainerSpecialSymbols                                                        + setKeyDiscoverers
+                    - parseContainer                                                                    + setKeyValueSep
+        |                                                                                                       |
+        |                                                                                                       |
+StaticValueContainerExpressionDiscoverer                                                MandatoryKeyContainerExpressionDiscoverer                                                    
+                    fixed width for beginSep                                                        - parseContainer
+                    
+                    + setBeginSep
+                    - isContainerBegin
+        |
+        |
+SequenceContainerExpressionDiscoverer

@@ -5,8 +5,9 @@ namespace Kamille\Architecture\Router\Web;
 
 
 use Kamille\Architecture\Request\Web\HttpRequestInterface;
-use Kamille\Architecture\Router\RouterInterface;
-use Router\Exception\RouterException;
+use Kamille\Architecture\Router\Helper\RouterHelper;
+use Kamille\Architecture\Router\Web\WebRouterInterface;
+
 
 
 /**
@@ -18,10 +19,11 @@ use Router\Exception\RouterException;
  * - <controllerFullPath> <:> <method>
  *
  */
-class StaticObjectRouter implements RouterInterface
+class StaticObjectRouter implements WebRouterInterface
 {
 
     protected $uri2Controller;
+    protected $defaultController;
 
     public function __construct()
     {
@@ -39,6 +41,14 @@ class StaticObjectRouter implements RouterInterface
         return $this;
     }
 
+    public function setDefaultController($defaultController)
+    {
+        $this->defaultController = $defaultController;
+        return $this;
+    }
+
+
+
     //--------------------------------------------
     //
     //--------------------------------------------
@@ -46,17 +56,14 @@ class StaticObjectRouter implements RouterInterface
     {
         $uri = $request->uri(false);
         $uri2Controller = $this->uri2Controller;
+        $controllerString = null;
         if (array_key_exists($uri, $uri2Controller)) {
             $controllerString = $uri2Controller[$uri];
-            $p = explode(':', $controllerString, 2);
-            if (2 === count($p)) {
-                $o = new $p[0];
-                return [
-                    [$o, $p[1]],
-                    [],
-                ];
-            }
-            throw new RouterException("invalid controller string format: expected format is controllerFullPath:method");
+        } elseif (null !== $this->defaultController) {
+            $controllerString = $this->defaultController;
+        }
+        if (null !== $controllerString) {
+            return RouterHelper::routerControllerToCallable($controllerString);
         }
     }
 }

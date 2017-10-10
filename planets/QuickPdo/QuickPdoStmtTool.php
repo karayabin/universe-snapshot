@@ -60,7 +60,7 @@ class QuickPdoStmtTool
 
                 $mkCpt = 0;
                 $mk = 'bzz_';
-                $stmt .= ' where ';
+                $stmt .= ' WHERE ';
                 $first = true;
 
                 // if the previous cond was a glue, do not inject the "AND" keyword 
@@ -73,7 +73,7 @@ class QuickPdoStmtTool
                             $first = false;
                         } else {
                             if (false === $previousWasGlue) {
-                                $stmt .= ' and ';
+                                $stmt .= ' AND ';
                             }
                         }
 
@@ -83,12 +83,12 @@ class QuickPdoStmtTool
                             $markers[':' . $mk . $mkCpt] = $val;
                             $mkCpt++;
                         } else {
-                            $stmt .= '`' . $field . '` is null';
+                            $stmt .= '`' . $field . '` IS NULL';
                         }
 
 
                         if ('between' === $op) {
-                            $stmt .= ' and :' . $mk . $mkCpt;
+                            $stmt .= ' AND :' . $mk . $mkCpt;
                             $markers[':' . $mk . $mkCpt] = $val2;
                             $mkCpt++;
                         }
@@ -100,7 +100,7 @@ class QuickPdoStmtTool
                 }
             }
         } elseif (is_string($whereConds)) {
-            $stmt .= ' where ' . $whereConds;
+            $stmt .= ' WHERE ' . $whereConds;
         }
     }
 
@@ -115,29 +115,44 @@ class QuickPdoStmtTool
      * @param $stmt
      * @param array $markers
      */
-    public static function addWhereEqualsSubStmt(array $keys2Values, &$stmt, array &$markers)
+    public static function addWhereEqualsSubStmt(array $keys2Values, &$stmt, array &$markers, $tablePrefix='')
     {
-
         if ($keys2Values) {
             $mkCpt = 0;
             $mk = 'bzz_';
-            $stmt .= ' where ';
+            $stmt .= ' WHERE ';
             $first = true;
             foreach ($keys2Values as $key => $val) {
                 if (true === $first) {
                     $first = false;
                 } else {
-                    $stmt .= ' and ';
+                    $stmt .= ' AND ';
                 }
                 if (null !== $val) {
-                    $stmt .= '`' . $key . '` = :' . $mk . $mkCpt;
+                    $stmt .= $tablePrefix . '`' . $key . '` = :' . $mk . $mkCpt;
                     $markers[':' . $mk . $mkCpt] = $val;
                 } else {
-                    $stmt .= '`' . $key . '` is null';
+                    $stmt .= $tablePrefix . '`' . $key . '` IS NULL';
                 }
 
                 $mkCpt++;
             }
         }
+    }
+
+
+    /**
+     * Converts a simple map array (array of key => value) to a pdo whereConds array.
+     *
+     * @param array $where
+     * @return array, the pdoWhere array
+     */
+    public static function simpleWhereToPdoWhere(array $where)
+    {
+        $ret = [];
+        foreach ($where as $k => $v) {
+            $ret[] = [$k, '=', $v];
+        }
+        return $ret;
     }
 }

@@ -1,0 +1,3 @@
+dependencies:
+    - git::/lingtalfi/Bat:1.48
+    - git::/lingtalfi/DirScanner:1.4.0

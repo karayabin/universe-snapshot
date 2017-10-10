@@ -1,0 +1,20 @@
+Disclaimer
+================
+2015-04-24
+
+
+
+BabyTree est avant tout une notation qui permet de modéliser une arborescence dans un système de fichiers.
+
+ 
+Les outils principaux de BabyTree permettent:
+
+- de convertir rapidement ces modèles en ressources physiques (fichiers, dossiers, liens) dans le système de fichiers
+- de vérifier l'arborescence d'un dossier donné
+
+
+Par conséquent, BabyTree est un bon compagnon pour l'écriture des tests unitaires dont l'exécution nécessite
+la mise en place d'une arborescence de base.
+        
+        Notamment, les tests du Finder utilisent babyTree.
+        Ainsi que les tests de CompressionTool.

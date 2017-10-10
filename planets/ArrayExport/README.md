@@ -161,12 +161,6 @@ $theArray = [
 
 
 
-Known issues
-----------------
-
-As for now, closures and instances's indentation is "unpredictable".
-
-
 
 
 
@@ -183,4 +177,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.1.0 -- 2017-04-19
+
+    - fix indentation issue and improved inline function detection 
+
 - 1.0.0 -- 2016-12-02
+
+     - initial commit

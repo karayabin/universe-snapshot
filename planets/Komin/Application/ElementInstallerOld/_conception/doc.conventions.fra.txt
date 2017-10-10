@@ -1,0 +1,53 @@
+Documentation
+==================
+2015-04-23
+
+
+
+
+Conventions utilisées par le système de distribution ElementInstallerOld:
+
+
+
+
+Bundle
+----------------
+
+Les éléments sont délivrés sous forme d'un fichier zip nommé bundle. 
+Ce fichier contient:
+    
+    - un fichier meta.info au format babyYaml qui contient les meta de l'élément.
+                La structure du fichier meta est définie dans la documentation de komin>, chercher meta file.
+    - les fichiers d'installation de l'élément
+
+
+
+
+
+ElementId
+----------------
+
+elementId est un identifiant qui permet de cibler de manière unique un élément.
+Sa notation est la suivante:
+        
+        elementId: <type> <:> <name> (<:> <version>)?
+        Avec:
+            - type: le type de l'élément, par exemple plugin, a-plugin, b-plugin, kominWidget, etc...
+                        Le caractère deux-points (:) est interdit.
+            - name: le nom de l'élément, unique au sein du système de distribution pour le type donné
+                        Le caractère deux-points (:) est interdit.
+            - version: l'identifiant de version statique (voir plus bas).
+                            
+
+            
+        
+        
+        
+        
+Identifiant de version statique
+-------------------------------------
+
+
+C'est l'identifiant de version choisi par l'auteur de l'élément.
+C'est à dire qu'il ne contient aucun symbole spécial qui n'est pas défini par l'auteur (+, >=, ->, *, ...).
+Les caractères autorisés sont [a-zA-Z0-9-._].

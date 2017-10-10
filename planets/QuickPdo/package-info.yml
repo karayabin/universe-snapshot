@@ -1,0 +1,2 @@
+dependencies:
+    - git::/lingtalfi/Bat:1.60 (only if you use QuickPdoInfoCacheUtil)

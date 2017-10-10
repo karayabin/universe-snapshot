@@ -10,15 +10,59 @@ Utility to export a php array in various string formats.
 
 
 Features
-------------
+============
 
 - extensible: create your own formats 
 - comes with 5 native formats: space indented, html, inline args, php, php function args
 
   
   
+  
+  
 How to use
---------------
+==============
+  
+  
+  
+You can use either the Tool or the Util.
+The Tool uses the Util under the hood and provides quicker access to most common methods.
+  
+Using the Tool
+-----------------
+
+
+Create a modern (using brackets) php array representation:
+
+
+```php
+header("content-type: text/plain");
+echo ArrayToStringTool::toPhpArray($phpArray);
+```
+
+This will generate this kind of output:
+
+
+```  
+[
+    'pou' => 456,
+    'aaa' => 777,
+    'bbb' => [
+        'omélie' => 'archeval',
+        'pedros' => 'la casa',
+    ],
+]
+
+```
+   
+  
+
+
+
+Using the Util
+------------------  
+  
+  
+  
   
 ArrayToString is a [planet](https://github.com/lingtalfi/Observer/blob/master/article/article.planetReference.eng.md).
   
@@ -267,6 +311,19 @@ History Log
 ------------------
     
    
+- 1.3.0 -- 2017-09-03
+
+    - add SpaceIndentedArrayToStringSymbolManager.setOffset method
+    - add ArrayToStringTool::toPhpArray offset argument
+    
+- 1.2.0 -- 2017-06-21
+
+    - add ArrayToStringTool.toPhpArray $showKeys argument
+   
+- 1.1.0 -- 2017-04-10
+
+    - add ArrayToStringTool
+    
 - 1.0.0 -- 2015-10-27
 
     - initial commit

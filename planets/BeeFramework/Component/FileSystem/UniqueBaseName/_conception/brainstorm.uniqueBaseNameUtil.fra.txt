@@ -1,0 +1,58 @@
+Brainstorm
+=================
+2015-04-15
+
+
+
+
+parentPath / baseName
+
+
+
+baseName:
+    
+    abc.php
+    abc.x.php
+    
+    
+Question 1:
+    si on créé un suffixe, 
+    dans le cas d'extensions multiples,
+    à quelle position dans les extensions doit on le placer ?
+
+    abc.SUF.x.php         
+    abc.x.SUF.php         
+    
+    => $suffixPosition
+    
+    
+        
+On peut aussi vouloir un préfixe plutôt qu'un suffixe.
+    
+On pourrait avoir un suffix/prefix generator.
+Cela permettrait de répartir les tâches et d'y voir plus clair.
+
+
+
+
+- File\AffixGenerator
+
+
+--> generate ()
+        Cette méthode propose un nouvel affixe à chaque fois qu'on l'appelle.
+        
+
+
+
+
+L'affixe, comme son nom l'indique, peut être un préfixe ou un suffixe.
+
+
+    format: (AFFIXE SEP)? BASENAME (SEP AFFIXE)? ( . EXTENSION)?
+     
+     
+Dans le format ci-dessus, l'extension n'existe pas pour les fichiers .htaccess par exemple.
+Egalement, il faut voir si l'EXTENSION est greedy ou pas ($suffixPosition ou autre).
+     
+    
+    

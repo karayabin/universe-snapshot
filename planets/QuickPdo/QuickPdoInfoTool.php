@@ -26,7 +26,7 @@ class QuickPdoInfoTool
     public static function getAutoIncrementedField($table, $schema = null)
     {
         if (null !== $schema) {
-            $table = $schema . '.' . $table;
+            $table = '`' . $schema . '`.`' . $table . '`';
         }
 
         if (false !== ($rows = QuickPdo::fetchAll("show columns from $table where extra='auto_increment'"))) {
@@ -41,6 +41,7 @@ class QuickPdoInfoTool
     public static function getColumnDataTypes($table, $precision = false)
     {
         $types = [];
+        $table = self::escapeTable($table);
         $info = QuickPdo::fetchAll("SHOW COLUMNS FROM $table");
         if (false !== $info) {
             foreach ($info as $_info) {
@@ -56,9 +57,11 @@ class QuickPdoInfoTool
     }
 
 
+
     public static function getColumnDefaultValues($table)
     {
         $defaults = [];
+        $table = self::escapeTable($table);
         $info = QuickPdo::fetchAll("SHOW COLUMNS FROM $table");
         if (false !== $info) {
             foreach ($info as $_info) {
@@ -68,7 +71,6 @@ class QuickPdoInfoTool
         }
         return false;
     }
-
 
 
     public static function getColumnNames($table, $schema = null)
@@ -111,6 +113,7 @@ AND TABLE_NAME=:table;
     public static function getColumnNullabilities($table)
     {
         $defaults = [];
+        $table = self::escapeTable($table);
         $info = QuickPdo::fetchAll("SHOW COLUMNS FROM $table");
         if (false !== $info) {
             foreach ($info as $_info) {
@@ -121,6 +124,48 @@ AND TABLE_NAME=:table;
         return false;
     }
 
+
+    public static function getCreateTable($table)
+    {
+        $table = self::escapeTable($table);
+        $info = QuickPdo::fetch("SHOW CREATE TABLE $table");
+        if (false !== $info) {
+            return [
+                'table' => $info['Table'],
+                'create' => $info['Create Table'],
+            ];
+        }
+        return false;
+    }
+
+
+    /**
+     * @param $table
+     * @return array of indexName => indexes
+     *                      With: indexes is an array of column names ordered by ascending index sequence
+     */
+    public static function getUniqueIndexes($table)
+    {
+        $ret = [];
+        $table = self::escapeTable($table);
+        $info = QuickPdo::fetchAll("SHOW INDEX FROM $table");
+        if (false !== $info) {
+            $indexes = [];
+            foreach ($info as $_info) {
+                if (
+                    '0' === $_info['Non_unique'] &&
+                    'PRIMARY' !== $_info['Key_name']
+                ) {
+                    $indexes[$_info['Key_name']][$_info['Seq_in_index']] = $_info['Column_name'];
+                }
+            }
+            foreach ($indexes as $name => $keys) {
+                $keys = array_merge($keys);
+                $ret[$name] = $keys;
+            };
+        }
+        return $ret;
+    }
 
 
     public static function getDatabase()
@@ -133,6 +178,28 @@ AND TABLE_NAME=:table;
         }
     }
 
+
+    public static function getDatabases($filterMysql = true)
+    {
+        if (true === $filterMysql) {
+            $filter = function ($v) {
+                if (
+                    'mysql' === $v ||
+                    'performance_schema' === $v ||
+                    'information_schema' === $v
+                ) {
+                    return false;
+                }
+                return true;
+            };
+        } else {
+            $filter = function () {
+                return true;
+            };
+        }
+        $query = QuickPdo::getConnection()->query('show databases');
+        return array_filter($query->fetchAll(\PDO::FETCH_COLUMN), $filter);
+    }
 
     public static function getDriver()
     {
@@ -179,7 +246,7 @@ and CONSTRAINT_TYPE = 'FOREIGN KEY'
         if (null === $schema) {
             $schema = self::getDatabase();
         }
-        $rows = QuickPdo::fetchAll("SHOW KEYS FROM $schema.$table WHERE Key_name = 'PRIMARY'");
+        $rows = QuickPdo::fetchAll("SHOW KEYS FROM `$schema`.`$table` WHERE Key_name = 'PRIMARY'");
         $ret = [];
         if (false !== $rows) {
             foreach ($rows as $info) {
@@ -190,11 +257,20 @@ and CONSTRAINT_TYPE = 'FOREIGN KEY'
     }
 
 
-    public static function getTables($db)
+    public static function getTables($db, $prefix = null)
     {
         QuickPdo::freeExec("use $db;");
         $query = QuickPdo::getConnection()->query('show tables');
-        return $query->fetchAll(\PDO::FETCH_COLUMN);
+        $tables = $query->fetchAll(\PDO::FETCH_COLUMN);
+        if (null !== $prefix) {
+            $tables = array_filter($tables, function ($v) use ($prefix) {
+                if (0 === strpos($v, $prefix)) {
+                    return true;
+                }
+                return false;
+            });
+        }
+        return $tables;
     }
 
 
@@ -209,4 +285,17 @@ and CONSTRAINT_TYPE = 'FOREIGN KEY'
     }
 
 
+
+    //--------------------------------------------
+    //
+    //--------------------------------------------
+
+    private static function escapeTable($table)
+    {
+        $p = explode('.', $table, 2);
+        if (2 === count($p)) {
+            return '`' . $p[0] . '`.`' . $p[1] . '`';
+        }
+        return '`' . $table . '`';
+    }
 }

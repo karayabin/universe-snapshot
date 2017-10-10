@@ -1,0 +1,84 @@
+StringParser
+==================
+2015-05-14
+
+
+
+
+
+
+
+
+$s = '(a: 21, [a, b], [{po: ko}], b:)';
+
+
+
+La chaîne ci-dessus m'a posé problème.
+En admettant que implicitValue=on.
+Voici comment je la lis:
+
+
+- a: 21
+- 0:
+----- 0: a
+----- 1: b
+- 1:
+----- 0:
+--------- po: ko
+- b: null
+
+
+
+Pourtant quand je lance le discoverer $o, tel que:
+
+
+    $seq = new SequenceContainerExpressionDiscoverer();
+    $map = new MappingContainerExpressionDiscoverer();
+    $arr = new ArrangementContainerExpressionDiscoverer();
+    
+    
+    $discoverers = [
+        new ExpressionDiscovererModel($arr),
+        new ExpressionDiscovererModel($map),
+        new ExpressionDiscovererModel($seq),
+        new SimpleQuoteExpressionDiscoverer(),
+        new HybridExpressionDiscoverer(),
+    ];
+    
+    $seq->setDiscoverers($discoverers);
+    $map->setDiscoverers($discoverers);
+    $arr->setDiscoverers($discoverers);
+    $o = $arr;
+    
+    
+J'obtiens:
+    
+    
+- a: 21
+- 0:
+----- 0: a
+----- 1: b
+- [{po: ko}]
+- b: null   
+ 
+ 
+Que s'est-il passé ?
+l'arrangement a considéré que '[{po' était une clé.
+Ce qui est tout à fait logique puisqu'il est programmé pour trouver une clé, suivie du symbole ':'.
+
+Ce qu'il n'a pas compris, c'est qu'ici on a pensé la clé comme optionnelle, et on aurait voulu qu'il parse la valeur d'abord.
+Certes, mais comment pourrait-il deviner ?
+    On peut créer une règle qui dit que les débuts de container doivent être protégés par quote,
+    et ajouter, avant chaque parsage de clé, un parsage des containers.
+    Cette technique semble logique et assez proche d'une approche humaine.
+    Elle fonctionne relativement bien également car une clé ne peut pas être un container.
+    
+
+
+
+
+
+
+
+
+ 

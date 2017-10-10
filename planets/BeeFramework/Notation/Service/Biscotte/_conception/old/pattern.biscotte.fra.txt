@@ -1,0 +1,197 @@
+Biscotte
+==========
+2014-08-17
+
+
+
+Définition
+-----------
+Biscotte est une notation qui permet de convertir un tableau php
+en un texte représentant le code d'un service php.
+
+
+
+
+
+Exemple
+----------
+
+
+    Notation biscotte                               Code php produit
+    ----------------------------------------------------------------------------------------------
+    _class: Komin\MyClass                           $o = new Komin\MyClass();
+                                                    return $o;
+
+
+
+
+
+Exemple 2
+----------
+
+
+    Notation biscotte                               Code php produit (idée générale)
+    ----------------------------------------------------------------------------------------------
+    _class: Komin\MyClass                           $o = new Komin\MyClass();
+                                                    return $o;
+
+    _class: Komin\MyClass                           $o = new Komin\MyClass('one', 'two');
+    _args: [one, two]                               return $o;
+
+
+    _class: Komin\MyClass                           $o = new Komin\MyClass('one', $this->callService('my.service'));
+    _args: [one, @my.service]                       return $o;
+
+
+    _class: Komin\MyClass                           $ifExist = true;
+    _args: [one, @?my.service]                      $o = new Komin\MyClass('one', $this->callService('my.service', $ifExist));
+                                                    return $o;
+
+
+    _class: Komin\MyClass                           $ifExist = true;
+    _args: [one, @?my.service+]                     $createNewInstance = true;
+                                                    $o = new Komin\MyClass('one', $this->callService('my.service', $ifExist, $createNewInstance));
+                                                    return $o;
+
+
+    _static: Komin\MyClass::factory                 $ifExist = true;
+    _args: [one, @?my.service+]                     $createNewInstance = true;
+                                                    $o = Komin\MyClass::factory('one', $this->callService('my.service', $ifExist, $createNewInstance));
+                                                    return $o;
+
+
+    _class: Komin\MyClass                           $o = new Komin\MyClass (
+    _args:                                                  'one',
+        one                                                 $this->callService('my.service')->doo(true),
+        two:                                                'three'
+            _resultOf: @my.service->doo             );
+            _args: [true]                           return $o;
+        three
+
+
+
+    _class: Komin\MyClass                           $o = new Komin\MyClass (
+    _args:                                                  'one',
+        0: one                                              Komin\Factory::create(true),
+        1:                                                  'two'
+            _resultOf: Komin\Factory::create        );
+            _args: [true]                           return $o;
+        2: two
+
+
+    _class: Komin\MyClass                           $o = new Komin\MyClass (
+    _args:                                                  'one',
+        0: one                                              Komin\Factory::create(true),
+        1:                                                  Komin\Toon::create(true),
+            _resultOf: Komin\Factory::create                'two'
+            _args: [true]                           );
+        2:                                          return $o;
+            _resultOf: Komin\Toon::create
+            _args: [true]
+        3: two
+
+
+
+    _class: Komin\MyClass                           $o = new Komin\MyClass (
+    _args:                                                  'one',
+        0: one                                               [
+        1:                                                      'little' => Komin\Factory::create(true),
+            little:                                              'big' => 6,
+                _resultOf: Komin\Factory::create             ],
+                _args: [true]                                'two'
+            big: 6                                  );
+        2: two                                      return $o;
+
+
+    _class: Komin\MyClass                           $o = new Komin\MyClass('one', 'two');
+    _args: [one, two]                               $o->test(false);
+    _calls:                                         return $o;
+        0:
+            _method: test
+            _args: [false]
+
+
+    _class: Komin\MyClass                           $ifExist = false;
+    _args: [one, two]                               $createNewInstance = true;
+    _calls:                                         $o = new Komin\MyClass('one', 'two');
+        0:                                          $o->test($this->callService('doo', $ifExist, $createNewInstance), Ko::create());
+            _method: test                           return $o;
+            _args:
+                @doo+
+                1:
+                    _resultOf: Ko::create
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Créé pour
+-----------
+Le service container
+
+
+
+
+Définition technique:
+------------------------
+Voici une définition technique en notation §pomSyntax§:
+
+
+- biscotteNode:     <instanciationNode>
+- instanciationNode: <classOrStaticInstanciation>
+- classOrStaticInstanciation: <classInstanciation> | <staticInstanciation>
+- classInstanciation: array:
+            - (node)
+            ----- _class: <className>
+            ----- ?_args: <args>
+            ----- ?_calls: <calls>
+- staticInstanciation: array:
+            - (node)
+            ----- _static: <staticString>
+            ----- ?_args: <args>
+            ----- ?_calls: <calls>
+
+- className: nom de la classe au format §className§
+- staticString: <className> <::> <method>
+- args: array of ( <value> | <service> | <executionNode> )
+- value: <scalar> | <null> | <args>
+- scalar: un scalaire php
+- null: la valeur spéciale null
+- array: un tableau php
+- service: <@> <optionalService>? <serviceAddress> <recreateService>?
+- optionalService: <?>  # si le service est inexistant, la valeur de service doit être remplacée par null
+- serviceAddress: l'adresse du service, en utilisant le système de notation utilisé par l'implémentation
+- recreateService: <+>  # demande la création d'une nouvelle instance du service
+- getIdentifier: int, un identifiant numérique pour différencier les clés <getKey> en cas de doublons au sein d'un
+                        même parent direct.
+- executionNode: array:
+            - _resultOf: <resultOfValue>
+            - ?_args: <args>
+- resultOfValue: <callServiceMethod> | <callStaticMethod>
+- callServiceMethod: <nonOptionalService> "->" <method>
+- nonOptionalService: <@> <serviceAddress> <recreateService>?
+- method: string, nom de la méthode du service ou de la classe statique
+- callStaticMethod: <staticString>
+- calls: un tableau dont chaque entrée est une <callEntry>
+- callEntry: array:
+            - _method: le nom de la méthode à appeler
+            - ?_args: <args>
+
+
+
+
+Notes complémentaires:
+<args> peut être utilisé pour fournir les arguments d'une méthode, ou bien comme un tableau normal d'arguments.
+La différence est que dans le premier cas, les clés n'ont pas d'importance, alors que dans le
+deuxième cas, les clés du tableau sont utilisées normalement.
+
