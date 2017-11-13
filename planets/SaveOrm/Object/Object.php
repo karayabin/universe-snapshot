@@ -57,6 +57,7 @@ class Object
      *              - uq: first unique index found
      *              - ric: ric values
      *              - pr: object properties
+     *              - prm: object properties minus the primary key
      *
      * @return static
      */
@@ -96,7 +97,6 @@ class Object
             'update' === $this->_mode &&
             '' !== $this->_whereQuery // filtering createUpdate calls
         ) {
-
             $this->_whereIsResolved = true;
             $params = $this->_where;
             $row = QuickPdo::fetch($this->_whereQuery, $params);

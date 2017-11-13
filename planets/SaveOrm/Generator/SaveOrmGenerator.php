@@ -602,6 +602,7 @@ class SaveOrmGenerator
             'ai' => $ai,
             'primaryKey' => $info->getPrimaryKey(),
             'bindings' => $info->getBindings(),
+            'nullables' => $info->getNullables(),
 
         ];
         $ric = $this->getRic($database, $table);

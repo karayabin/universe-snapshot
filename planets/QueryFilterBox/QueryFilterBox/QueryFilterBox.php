@@ -26,6 +26,11 @@ class QueryFilterBox implements QueryFilterBoxInterface, FilterBoxWidgetInterfac
         $this->model = [];
     }
 
+    public static function create()
+    {
+        return new static();
+    }
+
 
     public function decorateQuery(QueryInterface $query, array $pool, array &$usedPool)
     {

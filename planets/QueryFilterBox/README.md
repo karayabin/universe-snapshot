@@ -45,6 +45,34 @@ Related
 History Log
 ------------------
     
+- 1.6.0 -- 2017-10-24
+
+    - add ItemsGenerator.getFilterBoxes method
+    
+- 1.5.0 -- 2017-10-24
+
+    - update SortQueryFilterBox sorts system, now accept an array as real value
+    
+- 1.4.0 -- 2017-10-23
+
+    - add ItemsGenerator.unsetFilterBox method
+    
+- 1.3.0 -- 2017-10-23
+
+    - add Query.saveState and Query.restoreState methods
+    
+- 1.2.0 -- 2017-10-19
+
+    - add ItemsGeneratorHelper::getBundleByItemsAndGenerator sortFrame option
+    
+- 1.1.0 -- 2017-10-16
+
+    - add Query signal system
+    
+- 1.0.1 -- 2017-10-16
+
+    - add QueryFilterBox::create method
+    
 - 1.0.0 -- 2017-10-03
 
     - initial commit

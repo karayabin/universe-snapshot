@@ -4,6 +4,7 @@
 namespace QueryFilterBox\ItemsGenerator;
 
 
+use Kamille\Services\XLog;
 use QueryFilterBox\Query\Query;
 use QueryFilterBox\Query\QueryInterface;
 use QueryFilterBox\QueryFilterBox\QueryFilterBoxInterface;
@@ -51,11 +52,23 @@ class ItemsGenerator implements ItemsGeneratorInterface
         return null;
     }
 
+    public function getFilterBoxes()
+    {
+        return $this->filterBoxes;
+    }
+
     public function setFilterBox($name, QueryFilterBoxInterface $filterBox)
     {
         $this->filterBoxes[$name] = $filterBox;
         return $this;
     }
+
+    public function unsetFilterBox($name)
+    {
+        unset($this->filterBoxes[$name]);
+        return $this;
+    }
+
 
     public function getItems(array $pool, $fetchStyle = null)
     {
@@ -74,13 +87,14 @@ class ItemsGenerator implements ItemsGeneratorInterface
             $this->paginator->decorateQuery($query, $nbTotalItems, $pool, $usedPool);
         }
 
-
         $usedPool = array_unique($usedPool);
         $this->_usedPool = array_intersect_key($pool, array_flip($usedPool));
 
 
         $q = $query->getQuery();
+//        az($q);
         $items = QuickPdo::fetchAll($q, $markers, $fetchStyle);
+
         foreach ($this->filterBoxes as $filterBox) {
             $filterBox->setItems($items);
             $filterBox->setUsedPool($usedPool);
@@ -97,6 +111,14 @@ class ItemsGenerator implements ItemsGeneratorInterface
     {
         $this->query = $query;
         return $this;
+    }
+
+    public function getQuery()
+    {
+        if (null === $this->query) {
+            $this->query = new Query();
+        }
+        return $this->query;
     }
 
     public function setPaginator(PaginatorInterface $paginator)
@@ -124,20 +146,6 @@ class ItemsGenerator implements ItemsGeneratorInterface
             'pool' => $this->_usedPool,
         ];
     }
-
-
-    //--------------------------------------------
-    //
-    //--------------------------------------------
-    protected function getQuery()
-    {
-        if (null === $this->query) {
-            $this->query = new Query();
-        }
-        return $this->query;
-    }
-
-
 }
 
 

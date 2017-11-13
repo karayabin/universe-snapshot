@@ -237,7 +237,7 @@ identifierType: control the most relevant identifiers
 By default, when you use the createUpdate method, it will use what's called "the most relevant identifiers" to:
 
 - try fetching an existing record (to decide whether to perform an update or an insert)
-- return the result in the savedResults 
+
 
 
 "The most relevant identifiers" (mri) is an array of columns uniquely identifying any record in a table.
@@ -256,6 +256,15 @@ That's where the identifierType argument of the createUpdate method comes in.
 The identifierType, if defined, overrides the mri default algorithm.
 
 
+
+
+
+The return of the save method
+================================
+2017-10-12
+
+
+Since 1.17.0, the save method always return all the values representing the updated object (at least that's the intent). 
 
 
  

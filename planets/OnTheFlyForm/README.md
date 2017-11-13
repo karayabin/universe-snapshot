@@ -11,6 +11,8 @@ A quick dirty form strategy for your front forms.
 This is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
 
 
+Note: this planet has been superseded by the [SokoForm](https://github.com/lingtalfi/SokoForm).
+
 
 Install
 ==========
@@ -201,6 +203,12 @@ The off protocol
 
 - [off protocol](https://github.com/lingtalfi/OnTheFlyForm/blob/master/doc/off-protocol.md)
 
+
+
+Related
+==============
+
+- [SokoForm](https://github.com/lingtalfi/SokoForm), the new version of this planet
 
 
 

@@ -79,9 +79,7 @@ class SessionUser
         // http://php.net/manual/en/function.session-destroy.php
 
 
-
         SessionTool::destroyPartial(self::$key);
-
 
 
         /**
@@ -111,6 +109,12 @@ class SessionUser
             return $_SESSION[self::$key][$key];
         }
         return $default;
+    }
+
+    public static function getAll()
+    {
+        self::startSession();
+        return $_SESSION[self::$key];
     }
 
     //--------------------------------------------

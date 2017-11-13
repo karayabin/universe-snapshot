@@ -31,6 +31,7 @@ class ItemsGeneratorHelper
             'nameSortDir' => 'asc',
             'formMethod' => 'get',
             'sortOptionsValue2Labels' => [],
+            'sortFrame' => null,
         ], $options);
 
 
@@ -55,18 +56,23 @@ class ItemsGeneratorHelper
         ]));
 
 
-        $bundle->setSort(SortFrame::createByOptions([
-            'nameSort' => $options['nameSort'],
-            'nameSortDir' => $options['nameSortDir'],
-            'pool' => $info['pool'],
-            'value2Label' => $options['sortOptionsValue2Labels'],
-            'formMethod' => $options['formMethod'],
-            //
-            'formTrail' => ListParamsUtil::getFormTrailByPool($info['pool'], [
-                $options['nameSort'],
-                $options['nameSortDir'],
-            ]),
-        ]));
+        $sortFrame = $options['sortFrame'];
+        if (null === $sortFrame) {
+            $sortFrame = SortFrame::createByOptions([
+                'nameSort' => $options['nameSort'],
+                'nameSortDir' => $options['nameSortDir'],
+                'pool' => $info['pool'],
+                'value2Label' => $options['sortOptionsValue2Labels'],
+                'formMethod' => $options['formMethod'],
+                //
+                'formTrail' => ListParamsUtil::getFormTrailByPool($info['pool'], [
+                    $options['nameSort'],
+                    $options['nameSortDir'],
+                ]),
+            ]);
+        }
+
+        $bundle->setSort($sortFrame);
 
         return $bundle;
     }

@@ -495,6 +495,21 @@ Related
 History Log
 ------------------    
     
+- 1.17.1 -- 2017-10-12
+
+    - fix ObjectManager.save not returning all the values representing the object with insert
+    
+- 1.17.0 -- 2017-10-12
+
+    - update ObjectManager.save, now return all the values representing the object
+    
+- 1.16.0 -- 2017-10-12
+
+    - add ObjectManager debugSql mode
+    - fix ObjectManager.save complaining when nullable fk is null
+    - add ObjectManager prm identifier type
+    - fix createUpdate not working properly (complaining about unresolved keys that it should have resolved automatically)
+    
 - 1.15.2 -- 2017-10-09
 
     - fix Object._resolveUpdate overriding user defined values

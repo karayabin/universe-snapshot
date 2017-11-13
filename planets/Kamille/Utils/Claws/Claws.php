@@ -4,6 +4,8 @@
 namespace Kamille\Utils\Claws;
 
 
+use Kamille\Services\XLog;
+
 class Claws implements ClawsInterface
 {
     /**
@@ -16,10 +18,19 @@ class Claws implements ClawsInterface
      */
     private $widgets;
 
+    /**
+     * @var array of widgetId => pos,
+     * pos being defined in doc/claws/widget-position.md
+     */
+    private $widgetId2Pos;
+    private $orderedIds;
+
 
     public function __construct()
     {
         $this->widgets = [];
+        $this->widgetId2Pos = [];
+        $this->orderedIds = null;
     }
 
     /**
@@ -50,6 +61,7 @@ class Claws implements ClawsInterface
      */
     public function getWidgets()
     {
+        $this->orderWidgets();
         return $this->widgets;
     }
 
@@ -60,17 +72,20 @@ class Claws implements ClawsInterface
      *
      * See https://github.com/lingtalfi/laws for more info
      * @param $widget
+     * @param $position , string: the widget position as defined in doc/claws/widget-position.md
      * @return $this
      */
-    public function setWidget($id, ClawsWidget $widget)
+    public function setWidget($id, ClawsWidget $widget, $position = null)
     {
         $this->widgets[$id] = $widget;
+        $this->widgetId2Pos[$id] = $position;
         return $this;
     }
 
     public function removeWidget($id)
     {
         unset($this->widgets[$id]);
+        unset($this->widgetId2Pos[$id]);
         return $this;
     }
 
@@ -86,6 +101,10 @@ class Claws implements ClawsInterface
                 "conf" => $widget->getConf(),
             ];
         }
+
+        //--------------------------------------------
+        // PREPARING THE OUTPUT
+        //--------------------------------------------
         $arr = [
             "layout" => [
                 'tpl' => $layout->getTemplate(),
@@ -102,6 +121,75 @@ class Claws implements ClawsInterface
         ];
 
         return $arr;
+    }
+
+
+    //--------------------------------------------
+    //
+    //--------------------------------------------
+    private function orderWidgets()
+    {
+        if (null === $this->orderedIds) {
+            $widgets = $this->widgets;
+            $ids = array_keys($this->widgets);
+            foreach ($this->widgetId2Pos as $id => $pos) {
+                switch ($pos) {
+                    case "first":
+                        unset($ids[array_search($id, $ids)]);
+                        array_unshift($ids, $id);
+                        break;
+                    case "last":
+                        unset($ids[array_search($id, $ids)]);
+                        $ids[] = $id;
+                        break;
+                    default:
+                        if (0 === strpos($pos, 'before:')) {
+                            $baseIndex = array_search($id, $ids);
+                            unset($ids[$baseIndex]);
+                            $ids = array_merge($ids);
+
+                            $targetWidgetId = substr($pos, 7);
+                            $targetWidgetIndex = array_search($targetWidgetId, $ids);
+                            if (false !== $targetWidgetIndex) {
+                                $index = $targetWidgetIndex;
+                                array_splice($ids, $index, 0, $id);
+                            } else {
+                                XLog::error("[Kamille Claws]: Claws.toArray widget id not found: $targetWidgetId");
+                                array_splice($ids, $baseIndex, 0, $id); // canceling
+
+                            }
+                        } elseif (0 === strpos($pos, 'after:')) {
+                            $baseIndex = array_search($id, $ids);
+                            unset($ids[$baseIndex]);
+                            $ids = array_merge($ids);
+
+                            $targetWidgetId = substr($pos, 6);
+                            $targetWidgetIndex = array_search($targetWidgetId, $ids);
+                            if (false !== $targetWidgetIndex) {
+                                $index = $targetWidgetIndex + 1;
+                                array_splice($ids, $index, 0, $id);
+                            } else {
+                                XLog::error("[Kamille Claws]: Claws.toArray widget id not found: $targetWidgetId");
+                                array_splice($ids, $baseIndex, 0, $id); // canceling
+
+                            }
+                        }
+                        break;
+                }
+                $ids = array_merge($ids);
+            }
+            $this->orderedIds = $ids;
+
+
+            //--------------------------------------------
+            // RE-ORDERING WIDGETS ACCORDING TO THEIR POSITION
+            //--------------------------------------------
+            $this->widgets = [];
+            foreach ($ids as $pos) {
+                $this->widgets[$pos] = $widgets[$pos];
+            }
+        }
+        return $this->orderedIds;
     }
 
 }

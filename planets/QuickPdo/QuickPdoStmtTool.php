@@ -14,6 +14,16 @@ namespace QuickPdo;
 class QuickPdoStmtTool
 {
 
+
+    /**
+     * @param $query
+     * @return string, the query minus the wildcards it potentially contains
+     */
+    public static function stripWildcards($query)
+    {
+        return str_replace(['%', '_'], ['\%', '\_'], $query);
+    }
+
     /**
      * @param $whereConds
      *
@@ -115,7 +125,7 @@ class QuickPdoStmtTool
      * @param $stmt
      * @param array $markers
      */
-    public static function addWhereEqualsSubStmt(array $keys2Values, &$stmt, array &$markers, $tablePrefix='')
+    public static function addWhereEqualsSubStmt(array $keys2Values, &$stmt, array &$markers, $tablePrefix = '')
     {
         if ($keys2Values) {
             $mkCpt = 0;

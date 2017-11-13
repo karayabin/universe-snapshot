@@ -109,7 +109,7 @@ class ClawsWidget
         if (!is_array($this->conf)) {
             $this->conf = call_user_func($this->conf);
             if (!is_array($this->conf)) {
-                throw new ClawsException("The deferred conf callable must return an array, " . gettype($this->conf) . " given");
+                throw new ClawsException("The deferred conf callable must return an array, " . gettype($this->conf) . " given, template is " . $this->template);
             }
         }
         return $this->conf;

@@ -8,73 +8,75 @@ class AcceptLanguageHelper
 {
     // https://github.com/matriphe/php-iso-639/blob/master/src/ISO639.php
     private static $iso1_iso3 = [
-        'ab' => 'abk',
         'aa' => 'aar',
+        'ab' => 'abk',
+        'ae' => 'ave',
         'af' => 'afr',
         'ak' => 'aka',
-        'sq' => 'sqi',
         'am' => 'amh',
-        'ar' => 'ara',
         'an' => 'arg',
-        'hy' => 'hye',
+        'ar' => 'ara',
         'as' => 'asm',
         'av' => 'ava',
-        'ae' => 'ave',
         'ay' => 'aym',
         'az' => 'aze',
-        'bm' => 'bam',
         'ba' => 'bak',
-        'eu' => 'eus',
         'be' => 'bel',
-        'bn' => 'ben',
+        'bg' => 'bul',
         'bh' => '',
         'bi' => 'bis',
-        'bs' => 'bos',
+        'bm' => 'bam',
+        'bn' => 'ben',
+        'bo' => 'bod',
         'br' => 'bre',
-        'bg' => 'bul',
-        'my' => 'mya',
+        'bs' => 'bos',
         'ca' => 'cat',
-        'ch' => 'cha',
         'ce' => 'che',
-        'ny' => 'nya',
-        'zh' => 'zho',
-        'cv' => 'chv',
-        'kw' => 'cor',
+        'ch' => 'cha',
         'co' => 'cos',
         'cr' => 'cre',
-        'hr' => 'hrv',
         'cs' => 'ces',
+        'cu' => 'chu',
+        'cv' => 'chv',
+        'cy' => 'cym',
         'da' => 'dan',
+        'de' => 'deu',
         'dv' => 'div',
-        'nl' => 'nld',
         'dz' => 'dzo',
+        'ee' => 'ewe',
+        'el' => 'ell',
         'en' => 'eng',
         'eo' => 'epo',
+        'es' => 'spa',
         'et' => 'est',
-        'ee' => 'ewe',
-        'fo' => 'fao',
-        'fj' => 'fij',
-        'fi' => 'fin',
-        'fr' => 'fra',
+        'eu' => 'eus',
+        'fa' => 'fas',
         'ff' => 'ful',
+        'fi' => 'fin',
+        'fj' => 'fij',
+        'fo' => 'fao',
+        'fr' => 'fra',
+        'fy' => 'fry',
+        'ga' => 'gle',
+        'gd' => 'gla',
         'gl' => 'glg',
-        'ka' => 'kat',
-        'de' => 'deu',
-        'el' => 'ell',
         'gn' => 'grn',
         'gu' => 'guj',
-        'ht' => 'hat',
+        'gv' => 'glv',
         'ha' => 'hau',
         'he' => 'heb',
-        'hz' => 'her',
         'hi' => 'hin',
         'ho' => 'hmo',
+        'hr' => 'hrv',
+        'ht' => 'hat',
         'hu' => 'hun',
+        'hy' => 'hye',
+        'hz' => 'her',
         'ia' => 'ina',
         'id' => 'ind',
         'ie' => 'ile',
-        'ga' => 'gle',
         'ig' => 'ibo',
+        'ii' => 'iii',
         'ik' => 'ipk',
         'io' => 'ido',
         'is' => 'isl',
@@ -82,22 +84,22 @@ class AcceptLanguageHelper
         'iu' => 'iku',
         'ja' => 'jpn',
         'jv' => 'jav',
+        'ka' => 'kat',
+        'kg' => 'kon',
+        'ki' => 'kik',
+        'kj' => 'kua',
+        'kk' => 'kaz',
         'kl' => 'kal',
+        'km' => 'khm',
         'kn' => 'kan',
+        'ko' => 'kor',
         'kr' => 'kau',
         'ks' => 'kas',
-        'kk' => 'kaz',
-        'km' => 'khm',
-        'ki' => 'kik',
-        'rw' => 'kin',
-        'ky' => 'kir',
-        'kv' => 'kom',
-        'kg' => 'kon',
-        'ko' => 'kor',
         'ku' => 'kur',
-        'kj' => 'kua',
+        'kv' => 'kom',
+        'kw' => 'cor',
+        'ky' => 'kir',
         'la' => 'lat',
-        '' => 'lld',
         'lb' => 'ltz',
         'lg' => 'lug',
         'li' => 'lim',
@@ -106,35 +108,34 @@ class AcceptLanguageHelper
         'lt' => 'lit',
         'lu' => 'lub',
         'lv' => 'lav',
-        'gv' => 'glv',
-        'mk' => 'mkd',
         'mg' => 'mlg',
-        'ms' => 'msa',
-        'ml' => 'mal',
-        'mt' => 'mlt',
-        'mi' => 'mri',
-        'mr' => 'mar',
         'mh' => 'mah',
+        'mi' => 'mri',
+        'mk' => 'mkd',
+        'ml' => 'mal',
         'mn' => 'mon',
+        'mr' => 'mar',
+        'ms' => 'msa',
+        'mt' => 'mlt',
+        'my' => 'mya',
         'na' => 'nau',
-        'nv' => 'nav',
+        'nb' => 'nob',
         'nd' => 'nde',
         'ne' => 'nep',
         'ng' => 'ndo',
-        'nb' => 'nob',
+        'nl' => 'nld',
         'nn' => 'nno',
         'no' => 'nor',
-        'ii' => 'iii',
         'nr' => 'nbl',
+        'nv' => 'nav',
+        'ny' => 'nya',
         'oc' => 'oci',
         'oj' => 'oji',
-        'cu' => 'chu',
         'om' => 'orm',
         'or' => 'ori',
         'os' => 'oss',
         'pa' => 'pan',
         'pi' => 'pli',
-        'fa' => 'fas',
         'pl' => 'pol',
         'ps' => 'pus',
         'pt' => 'por',
@@ -143,31 +144,30 @@ class AcceptLanguageHelper
         'rn' => 'run',
         'ro' => 'ron',
         'ru' => 'rus',
+        'rw' => 'kin',
         'sa' => 'san',
         'sc' => 'srd',
         'sd' => 'snd',
         'se' => 'sme',
-        'sm' => 'smo',
         'sg' => 'sag',
-        'sr' => 'srp',
-        'gd' => 'gla',
-        'sn' => 'sna',
         'si' => 'sin',
         'sk' => 'slk',
         'sl' => 'slv',
+        'sm' => 'smo',
+        'sn' => 'sna',
         'so' => 'som',
-        'st' => 'sot',
-        'es' => 'spa',
-        'su' => 'sun',
-        'sw' => 'swa',
+        'sq' => 'sqi',
+        'sr' => 'srp',
         'ss' => 'ssw',
+        'st' => 'sot',
+        'su' => 'sun',
         'sv' => 'swe',
+        'sw' => 'swa',
         'ta' => 'tam',
         'te' => 'tel',
         'tg' => 'tgk',
         'th' => 'tha',
         'ti' => 'tir',
-        'bo' => 'bod',
         'tk' => 'tuk',
         'tl' => 'tgl',
         'tn' => 'tsn',
@@ -185,13 +185,12 @@ class AcceptLanguageHelper
         'vi' => 'vie',
         'vo' => 'vol',
         'wa' => 'wln',
-        'cy' => 'cym',
         'wo' => 'wol',
-        'fy' => 'fry',
         'xh' => 'xho',
         'yi' => 'yid',
         'yo' => 'yor',
         'za' => 'zha',
+        'zh' => 'zho',
         'zu' => 'zul',
     ];
 
@@ -221,7 +220,13 @@ class AcceptLanguageHelper
         foreach ($p as $frag) {
             $q = explode(';', $frag, 2);
             if (2 === count($q)) {
-                $ret[trim($q[0])] = (float)$q[1];
+                $r = explode('=', $q[1]);
+                if (2 === count($r)) {
+                    $indice = (float)$r[1];
+                } else {
+                    $indice = 0;
+                }
+                $ret[trim($q[0])] = $indice;
             } else {
                 $ret[trim($q[0])] = 1;
             }
@@ -234,25 +239,30 @@ class AcceptLanguageHelper
      * Return the user's preferred iso-639-3 language
      * based on the given accept-language.
      *
-     * If no correspondance is found the default will be returned.
+     * If no correspondence is found the default will be returned.
      *
      */
     public static function acceptLanguageToPreferredIso639_3($acceptLanguage, $default = "eng")
     {
-        $p = array_keys(self::parseAcceptLanguage($acceptLanguage));
-        $p = array_shift($p);
-        $q = explode('-', $p);
-
-
+        $language = self::getPreferredLanguage($acceptLanguage);
         /**
          * Note: this is an iso639-1 to iso639-3 conversion,
          * not sure if that's what should be done, but anyway
          * this is a starting point.
          */
-        $language = array_shift($q);
         if (array_key_exists($language, self::$iso1_iso3)) {
             return self::$iso1_iso3[$language];
         }
         return $default;
+    }
+
+
+    public static function getPreferredLanguage($acceptLanguageString){
+        $p = array_keys(self::parseAcceptLanguage($acceptLanguageString));
+        $p = array_shift($p);
+        $q = explode('-', $p);
+
+        $language = array_shift($q);
+        return $language;
     }
 }

@@ -321,3 +321,15 @@ array function simpleWhereToPdoWhere ( array:where )
 Converts a simple map array (array of key => value) to a pdo whereConds array,
 as described in the [**QuickPdo WHERE notation**](https://github.com/lingtalfi/QuickPdo#the-where-notation).
 
+
+
+
+### stripWildcards
+
+
+```php
+string function stripWildcards ( str:query )
+```
+
+Return the query minus the wildcards it potentially contains (by default: % and _).
+

@@ -523,6 +523,10 @@ Then the results will look like this on the console:
 History Log
 ------------------
     
+- 2.12.0 -- 2017-10-17
+
+    - add QuickPdoStmtTool::stripWildCards method
+    
 - 2.11.0 -- 2017-09-25
 
     - add QuickPdo::transaction method now handles nested transaction problems

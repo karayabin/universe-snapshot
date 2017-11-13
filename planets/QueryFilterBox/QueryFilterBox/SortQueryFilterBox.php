@@ -109,11 +109,15 @@ class SortQueryFilterBox extends QueryFilterBox
             if (array_key_exists($sort, $this->sorts)) {
                 $realSort = $this->sorts[$sort];
 
-                $sortDir = 'asc';
-                if (array_key_exists($this->keySortDir, $pool)) {
-                    $usedPool[] = $this->keySortDir;
-                    $_sortDir = $pool[$this->keySortDir];
-                    $sortDir = ("0" === $_sortDir) ? 'desc' : 'asc';
+                if (is_array($realSort)) {
+                    list($realSort, $sortDir) = $realSort;
+                } else {
+                    $sortDir = 'asc';
+                    if (array_key_exists($this->keySortDir, $pool)) {
+                        $usedPool[] = $this->keySortDir;
+                        $_sortDir = $pool[$this->keySortDir];
+                        $sortDir = ("0" === $_sortDir) ? 'desc' : 'asc';
+                    }
                 }
                 $query->addOrderBy($realSort . " " . $sortDir);
             }

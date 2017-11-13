@@ -88,6 +88,11 @@ class HtmlPageHelper
         self::$bodyClasses[] = $cssClass;
     }
 
+    public static function hasBodyClass($cssClass)
+    {
+        return in_array($cssClass, self::$bodyClasses);
+    }
+
     public static function addBodyAttribute($attrName, $attrValue)
     {
         self::$bodyAttributes[$attrName] = $attrValue;

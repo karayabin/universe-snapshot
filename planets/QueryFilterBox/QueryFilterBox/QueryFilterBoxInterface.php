@@ -16,6 +16,18 @@ use QueryFilterBox\Query\QueryInterface;
  * - prepare
  *
  *
+ * (you can read the ItemsGenerator object source code to be sure)
+ *
+ *
+ * The tasks that you should do:
+ *
+ * - prepare the model
+ *      - you can use any method in order to do so, although the prepare method is
+ *          the "official" one
+ * - prepare the transformation of the query depending on the params you receive in the uri
+ *      - the decorateQuery method should be used
+ *
+ *
  *
  *
  *
@@ -27,10 +39,12 @@ interface QueryFilterBoxInterface
 {
 
     /**
-     * This method should be used to initialize the object.
+     * Use this method to transform the sql request depending on the pool.
+     * Also, feed the usedPool with the params your QueryFilterBox instance reacts to.
      *
      * @param QueryInterface $query
-     * @param array $pool , the available variables to this system
+     * @param array $pool , the available variables to this system,
+     *                          the widget/plugin should use this method to settle the pool for the rest of the process.
      * @param array $usedPool , the QueryFilterBox should
      *                  subscribe the variables that is uses
      *                  in the usedPool, such as the usedPool

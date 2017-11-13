@@ -7,6 +7,14 @@ namespace QueryFilterBox\Query;
 /**
  * Class Query
  * @package QueryFilterBox\Query
+ *
+ *
+ * Note:
+ * this query can save its own state with saveState/restoreState methods.
+ * This can help in a modular environment where some modules might affect the query
+ * in a way you don't have full control on.
+ *
+ *
  */
 class Query implements QueryInterface
 {
@@ -20,14 +28,19 @@ class Query implements QueryInterface
     private $markers;
     private $limit;
     private $countString;
+    // see doc/signals.md
+    private $signals;
 
     //
     private $br;
+
+    private $_state;
 
 
     public function __construct()
     {
         $this->markers = [];
+        $this->signals = [];
         $this->selects = [];
         $this->from = null;
         $this->joins = [];
@@ -35,8 +48,9 @@ class Query implements QueryInterface
         $this->groupBy = null;
         $this->orderBy = [];
         $this->limit = [];
-        $this->br = "\n";
+        $this->br = PHP_EOL;
         $this->countString = "*";
+        $this->_state = null;
     }
 
     public static function create()
@@ -48,18 +62,19 @@ class Query implements QueryInterface
     public function getQuery()
     {
         $s = $this->getBaseQuery();
+        $s .= PHP_EOL;
         if (null !== $this->groupBy) {
-            $s .= " group by " . $this->groupBy;
+            $s .= PHP_EOL . "group by " . $this->groupBy;
         }
 
         if ($this->orderBy) {
-            $s .= " order by ";
+            $s .= PHP_EOL . "order by ";
             $s .= implode($this->br . ", ", $this->orderBy);
         }
 
         if ($this->limit) {
             list($offset, $rowCount) = $this->limit;
-            $s .= " limit $offset, $rowCount";
+            $s .= PHP_EOL . "limit $offset, $rowCount";
         }
         return $s;
     }
@@ -174,6 +189,53 @@ class Query implements QueryInterface
     }
 
 
+    public function setSignal($name)
+    {
+        $this->signals[] = $name;
+        return $this;
+    }
+
+    public function hasSignal($name)
+    {
+        return in_array($name, $this->signals);
+    }
+
+
+    public function saveState()
+    {
+        $this->_state = [
+            'markers' => $this->markers,
+            'signals' => $this->signals,
+            'selects' => $this->selects,
+            'from' => $this->from,
+            'joins' => $this->joins,
+            'wheres' => $this->wheres,
+            'groupBy' => $this->groupBy,
+            'orderBy' => $this->orderBy,
+            'limit' => $this->limit,
+            'br' => $this->br,
+            'countString' => $this->countString,
+        ];
+        return $this;
+    }
+
+    public function restoreState()
+    {
+        if (null !== $this->_state) {
+            $this->markers = $this->_state['markers'];
+            $this->signals = $this->_state['signals'];
+            $this->selects = $this->_state['selects'];
+            $this->from = $this->_state['from'];
+            $this->joins = $this->_state['joins'];
+            $this->wheres = $this->_state['wheres'];
+            $this->groupBy = $this->_state['groupBy'];
+            $this->orderBy = $this->_state['orderBy'];
+            $this->limit = $this->_state['limit'];
+            $this->br = $this->_state['br'];
+            $this->countString = $this->_state['countString'];
+        }
+        return $this;
+    }
 
     //--------------------------------------------
     //
@@ -181,30 +243,32 @@ class Query implements QueryInterface
     private function getBaseQuery($isCount = false)
     {
         $br = $this->br;
-        $s = "select ";
+        $s = "select";
 
 
         if (false === $isCount) {
-            $s .= implode($br, $this->selects);
+            $s .= $br . implode($br, $this->selects);
         } else {
-            $s .= " count(". $this->countString .") as count";
+            $s .= $br . "count(" . $this->countString . ") as count";
         }
 
 
         if (null !== $this->from) {
-            $s .= " from " . $this->from;
+            $s .= $br . "from " . $this->from;
         }
         if ($this->joins) {
             $s .= implode($br, $this->joins);
         }
         if ($this->wheres) {
-            $s .= " where ";
+            $s .= $br . "where" . $br;
             $c = 0;
             foreach ($this->wheres as $where) {
+                $s .= $br;
                 list($string, $ifPrefix) = $where;
+                $string = trim($string);
                 if (0 !== $c++) {
                     if (null === $ifPrefix) {
-                        $ifPrefix = 'and';
+                        $ifPrefix = $br . 'and';
                     }
                     $s .= " " . $ifPrefix . " ";
                 }

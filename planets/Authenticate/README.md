@@ -202,6 +202,10 @@ Hopefully this was helpful.
 History Log
 ------------------
    
+- 1.6.0 -- 2017-11-08
+
+    - add SessionUser::getAll method
+    
 - 1.5.0 -- 2017-05-15
 
     - SessionUser::$key is now public

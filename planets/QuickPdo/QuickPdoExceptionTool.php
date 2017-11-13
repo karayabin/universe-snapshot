@@ -19,6 +19,7 @@ class QuickPdoExceptionTool
 
             $sqlstate = $e->errorInfo[0];
             $driverCode = $e->errorInfo[1];
+
             if ('23000' === $sqlstate) {
                 $driver = QuickPdoInfoTool::getDriver();
                 if ("mysql" === $driver) {

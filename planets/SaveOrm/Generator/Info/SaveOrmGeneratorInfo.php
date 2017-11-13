@@ -19,6 +19,7 @@ class SaveOrmGeneratorInfo
     private $statements;
     private $foreignKeys;
     private $primaryKey;
+    private $nullables;
     //
     private $conf;
     private $bindings;
@@ -37,6 +38,7 @@ class SaveOrmGeneratorInfo
         $this->statements = [];
         $this->foreignKeys = [];
         $this->primaryKey = [];
+        $this->nullables = [];
         $this->prepared = false;
         $this->database = $database;
         $this->table = $table;
@@ -119,6 +121,14 @@ class SaveOrmGeneratorInfo
         return $this->primaryKey;
     }
 
+    /**
+     * @return array
+     */
+    public function getNullables()
+    {
+        return $this->nullables;
+    }
+
 
     /**
      * @return array
@@ -157,6 +167,7 @@ class SaveOrmGeneratorInfo
             $this->ai = QuickPdoInfoTool::getAutoIncrementedField($this->table, $this->database);
             $this->foreignKeys = QuickPdoInfoTool::getForeignKeysInfo($this->table, $this->database);
             $this->primaryKey = QuickPdoInfoTool::getPrimaryKey($this->table, $this->database);
+            $this->nullables = array_keys(array_filter(QuickPdoInfoTool::getColumnNullabilities($fullTable)));
             $rics = $this->getConfValue('ric', []);
             if (array_key_exists($fullTable, $rics)) {
                 $this->ric = $rics[$fullTable];
