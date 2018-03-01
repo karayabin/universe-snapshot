@@ -51,6 +51,7 @@ class FraLocalys extends BaseLocalys
         return $dayName . " " . str_replace('__', $this->getMonth(date("m", $timestamp)), $s);
     }
 
+
     /**
      *
      *      - du 1 juillet 2017 au 6 août 2018
@@ -91,6 +92,46 @@ class FraLocalys extends BaseLocalys
         }
     }
 
+
+    /**
+     * - ["1 juillet 2017", "6 août 2018"]
+     * - ["1 juillet", "6 août 2017"]
+     * - ["1", "6 juillet 2017"]
+     * - ["7 juillet 2017", null]
+     */
+    public function getLongDateRangeBits($timestampStart, $timestampEnd)
+    {
+        $ds = date("Y-m-d", $timestampStart);
+        $de = date("Y-m-d", $timestampEnd);
+        $ps = explode('-', $ds);
+        $pe = explode('-', $de);
+        $yearStart = $ps[0];
+        $yearEnd = $pe[0];
+        $monthStart = sprintf('%02s', $ps[1]);
+        $monthEnd = sprintf('%02s', $pe[1]);
+        $dayStart = sprintf('%02s', $ps[2]);
+        $dayEnd = sprintf('%02s', $pe[2]);
+
+
+        $monthStart = $this->getMonth($monthStart);
+        $monthEnd = $this->getMonth($monthEnd);
+
+
+        if ($yearEnd !== $yearStart) {
+            return ["$dayStart $monthStart $yearStart", "$dayEnd $monthEnd $yearEnd"];
+        } else {
+            if ($monthEnd !== $monthStart) {
+                return ["$dayStart $monthStart", "$dayEnd $monthEnd $yearEnd"];
+            } else {
+                if ($dayEnd !== $dayStart) {
+                    return ["$dayStart", "$dayEnd $monthEnd $yearEnd"];
+                } else {
+                    return ["$dayStart $monthEnd $yearEnd", null];
+                }
+            }
+        }
+    }
+
     public function getGenderAbbreviation($gender)
     {
         $gender = (string)$gender;
@@ -103,7 +144,6 @@ class FraLocalys extends BaseLocalys
                 break;
         }
     }
-
 
     public function getDayNameLong($dayNumber)
     {

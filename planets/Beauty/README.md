@@ -1,6 +1,6 @@
 Beauty
 ============
-2016-05-17 -- 2016-12-28
+2016-05-17 -- 2017-11-21
 
 
 ![Beauty look](http://s19.postimg.org/98adwpher/beauty3.png)
@@ -14,6 +14,29 @@ Beauty uses an html gui interface (shown in the image above) to display the test
  
 
 It's an implementation of the beauty part of the [beauty'n'beast unit testing pattern](https://github.com/lingtalfi/Dreamer/blob/master/UnitTesting/BeautyNBeast/pattern.beautyNBeast.eng.md).
+
+
+Quickstart
+-----------
+Open the [/libs/beauty](https://github.com/lingtalfi/Beauty/tree/master/www/libs/beauty) directory of this repository and download all:
+
+```txt
+- demo/
+- js/
+- server/
+- tests/
+- tpl/
+```
+
+
+Then, try to open /libs/demo/demo.php in your browser, fix the script so that your specific app works with it.
+(you just need to deal with the first statement: require_once "bigbang.php";).
+After that you should see the functioning gui with some fake tests.
+
+Enjoy :)
+
+
+
 
 
 

@@ -4,6 +4,8 @@
 namespace Kamille\Mvc\HtmlPageHelper;
 
 
+use Bat\StringTool;
+
 class HtmlPageHelper
 {
     public static $title;
@@ -20,6 +22,18 @@ class HtmlPageHelper
     private static $htmlAttributes = [];
     private static $bodyEndSnippets = [];
 
+
+    public static function renderPageFromContent($content)
+    {
+
+        echo '<!DOCTYPE html>' . PHP_EOL;
+        echo '<html' . StringTool::htmlAttributes(HtmlPageHelper::getHtmlTagAttributes()) . '>' . PHP_EOL;
+        HtmlPageHelper::displayHead();
+        HtmlPageHelper::displayOpeningBodyTag();
+        echo $content;
+        HtmlPageHelper::displayBodyEndSection(true);
+        echo '</html>' . PHP_EOL;
+    }
 
     public static function displayHead()
     {

@@ -5,6 +5,7 @@ namespace OrmTools\Helper;
 
 
 use Bat\CaseTool;
+use QuickPdo\QuickPdo;
 use QuickPdo\QuickPdoInfoTool;
 
 class OrmToolsHelper
@@ -44,6 +45,18 @@ class OrmToolsHelper
     ];
 
 
+    public static function getRic($table, &$hasPrimaryKey = false)
+    {
+        $ret = [];
+        if (false !== ($ai = QuickPdoInfoTool::getAutoIncrementedField($table))) {
+            $ret[] = $ai;
+            $hasPrimaryKey = true;
+            return $ret;
+        }
+        return QuickPdoInfoTool::getPrimaryKey($table, null, true, $hasPrimaryKey);
+
+    }
+
     public static function getPlural($word)
     {
 
@@ -80,6 +93,111 @@ class OrmToolsHelper
         }
 
         return $word;
+    }
+
+
+    /**
+     * Gets the has tables for the given table.
+     *
+     * Basically if the given table is ek_product,
+     * then it returns all table starting with ek_product_has_
+     *
+     *
+     * @param $table
+     * @return array
+     * @throws \Exception
+     */
+    public static function getHasTables($table)
+    {
+        $ret = [];
+        $needle = $table . "_has_";
+        $tables = QuickPdoInfoTool::getTables(QuickPdoInfoTool::getDatabase());
+        foreach ($tables as $table) {
+            if (0 === strpos($table, $needle)) {
+                $ret[] = $table;
+            }
+        }
+        return $ret;
+    }
+
+    /**
+     * Try to guess the right table of a has relationship,
+     * using the given has table.
+     *
+     * Note: if the table name has multiple _has_
+     * (for instance ek_shop_has_product_has_discount),
+     * for now it assumes that the last _has_ is the separator.
+     * This could/should be improved in the future.
+     *
+     *
+     * The algorithm currently is the following:
+     * - we get the right part off from the table name, call it rightCue
+     * - then we take all the foreign keys from the hasTable.
+     *      If the foreign table matches with $prefix$rightCue, then we consider it leads to the right table
+     *
+     * - if this fails, we try the following approach:
+     *          see if $prefix$rightCue is a table, and return it if it matches
+     * - if the approaches above fails, we return false
+     *
+     *
+     * @return string|False
+     *
+     */
+    public static function getHasRightTable($hasTable, $prefix = null)
+    {
+
+        if (null !== $prefix) {
+            if (!is_array($prefix)) {
+                $prefix = [$prefix];
+            }
+        }
+
+        $p = explode('_has_', $hasTable);
+        if (count($p) > 1) {
+            $rightCue = array_pop($p);
+//            $fkeys = QuickPdoInfoTool::getForeignKeysInfo($hasTable);
+//            // first try with rightCue_id
+//            foreach ($fkeys as $key => $info) {
+//                $fTable = $info[1];
+//                foreach ($prefix as $pre) {
+//                    if ($fTable === $pre . $rightCue) {
+//                        return $fTable;
+//                    }
+//                }
+//            }
+
+
+            // try the table name directly
+
+            foreach ($prefix as $pre) {
+                try {
+                    $table = $pre . $rightCue;
+                    if (false !== QuickPdo::fetch("select count(*) as count from $table")) {
+                        return $table;
+                    }
+                } catch (\PDOException $e) {
+
+                }
+            }
+        }
+        return false;
+    }
+
+
+    public static function getHasLeftTable($hasTable)
+    {
+        $p = explode('_has_', $hasTable);
+        if (count($p) > 1) {
+            $table = array_shift($p);
+            try {
+                if (false !== QuickPdo::fetch("select count(*) as count from $table")) {
+                    return $table;
+                }
+            } catch (\PDOException $e) {
+
+            }
+        }
+        return false;
     }
 
 
@@ -285,6 +403,131 @@ class OrmToolsHelper
         $s .= $sp . "*/" . PHP_EOL;
     }
 
+
+    public static function getPrettyColumn($table, array $prettyFields = [])
+    {
+
+        $prettyFields[] = 'label';
+        $prettyFields[] = 'name';
+        $prettyFields = array_unique($prettyFields);
+
+
+        $cols = QuickPdoInfoTool::getColumnDataTypes($table);
+        $found = false;
+        $firstVarChar = null;
+        foreach ($cols as $col => $type) {
+            if (in_array($col, $prettyFields, true)) {
+                $found = true;
+                break;
+            }
+            if (null === $firstVarChar && 'varchar' === $type) {
+                $firstVarChar = $col;
+            }
+        }
+
+        if (false === $found) {
+            if (null !== $firstVarChar) {
+                $col = $firstVarChar;
+            }
+        }
+
+        return $col;
+    }
+
+
+    /**
+     * Takes a tables array: [address, seller],
+     * and returns a table2Alias map: [address => a, seller => s].
+     *
+     * It also handles prefixes:
+     * [ek_address, ek_seller]  ==> [ek_address => a, ek_seller => s]
+     *
+     *
+     *
+     *
+     * @param array $tables
+     * @param null $prefix
+     * @return array
+     * @throws \Exception
+     */
+    public static function getAliases(array $tables, $prefix = null, array $forbiddenAliases = [])
+    {
+        $ret = [];
+        if (null !== $prefix) {
+            if (!is_array($prefix)) {
+                $prefix = [$prefix];
+            }
+        } else {
+            $prefix = [];
+        }
+
+        $usefulTableNames = [];
+        foreach ($tables as $table) {
+            $found = false;
+            foreach ($prefix as $p) {
+                if (0 === strpos($table, $p)) {
+                    $usefulTableNames[$table] = substr($table, strlen($p));
+                    $found = true;
+                    break;
+                }
+            }
+            if (false === $found) {
+                $usefulTableNames[$table] = $table;
+            }
+        }
+
+        $usefulTableNames = array_unique($usefulTableNames);
+        $c = 0;
+        foreach ($usefulTableNames as $table => $name) {
+            $alias = $name;
+            $length = 1;
+            while (true) {
+                if ($c > 10000) {
+                    throw new \Exception("too much tries for aliases, is that normal?");
+                }
+                $c++;
+                $test = substr($alias, 0, $length);
+                if (in_array($test, $forbiddenAliases, true)) {
+                    $length++;
+                    continue;
+                }
+                if (false === in_array($test, $ret, true)) {
+                    $ret[$table] = $test;
+                    break;
+                }
+                $length++;
+            }
+        }
+
+        return $ret;
+    }
+
+
+    public static function getRepresentativeColumn($table)
+    {
+        $cols = QuickPdoInfoTool::getColumnDataTypes($table);
+
+
+        $prettyCols = [
+            "label",
+            "name",
+            "ref",
+            "reference",
+        ];
+        foreach ($prettyCols as $col) {
+            if (array_key_exists($col, $cols)) {
+                return $col;
+            }
+        }
+
+
+        foreach ($cols as $col => $type) {
+            if ('varchar' === $type) {
+                return $col;
+            }
+        }
+        return $col;
+    }
 
     //--------------------------------------------
     //

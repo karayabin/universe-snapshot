@@ -89,6 +89,19 @@ interface LocalysInterface
      */
     public function getLongDateRange($timestampStart, $timestampEnd);
 
+    /**
+     * Like getLongDateRange, but returns an array containing the two bits (start date and end date).
+     * This is a more flexible version of getLongDateRange which allows template designer to
+     * integrate the date text along with html markup.
+     *
+     *
+     * @param $timestampStart
+     * @param $timestampEnd
+     * @return array of two elements: [startDateText, endDateText|null]
+     * The second member is null when the date end and the date start are the same
+     */
+    public function getLongDateRangeBits($timestampStart, $timestampEnd);
+
 
     /**
      *
@@ -100,7 +113,6 @@ interface LocalysInterface
      * @return string, the abbreviated version of the given gender
      */
     public function getGenderAbbreviation($gender);
-
 
 
     /**

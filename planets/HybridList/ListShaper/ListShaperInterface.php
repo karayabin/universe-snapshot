@@ -18,11 +18,30 @@ interface ListShaperInterface extends ShaperInterface
      *              - sliceLength
      *              - totalNumberOfItems
      *              - offset
+     * @param array $originalItems , an array containing the original items (before any ListShaper has applied)
      *
      *
      * @return void
      */
-    public function execute($input, array &$rows, array &$info = []);
+    public function execute($input, array &$rows, array &$info = [], array $originalItems = []);
+
+    /**
+     * This method is called before the original items are filtered by list shapers.
+     * It provides the list shaper the opportunity to collect information about the current list.
+     *
+     *
+     * @param array $originalItems
+     * @return void
+     */
+    public function prepareWithOriginalItems(array $originalItems);
+
+    /**
+     * Defines the priority in which shaper execute.
+     *
+     * @return null|int, the lowest number has the highest priority.
+     *          null means auto.
+     */
+    public function getPriority();
 
 
 }

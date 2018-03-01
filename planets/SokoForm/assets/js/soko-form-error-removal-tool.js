@@ -55,7 +55,7 @@ if ('undefined' === typeof SokoFormErrorRemovalTool) {
                     // REGULAR INPUTS
                     //----------------------------------------
                     var jControl = jContext.find('[name="' + name + '"]');
-                    if (jControl.is("input")) {
+                    if (jControl.is("input") || jControl.is("textarea")) {
                         var type = jControl.attr('type');
                         if ("text" === type) {
                             (function (theName, _jControl) {
@@ -67,7 +67,7 @@ if ('undefined' === typeof SokoFormErrorRemovalTool) {
                             })(name, jControl);
                         }
                     }
-                    else if(jControl.is("select")){
+                    else if (jControl.is("select")) {
                         (function (theName, _jControl) {
                             _jControl
                                 .off("change.dynamicErrorRemoval")
@@ -91,7 +91,6 @@ if ('undefined' === typeof SokoFormErrorRemovalTool) {
                                 });
                         })(name, jCbControl);
                     }
-
                 }
             }
         };

@@ -15,6 +15,54 @@ class QuickPdoStmtTool
 {
 
 
+    public static function addDateRangeToQuery(&$q, array &$markers = [], $dateStart = null, $dateEnd = null, $dateCol = null)
+    {
+        if (null === $dateCol) {
+            $dateCol = 'date';
+        }
+
+        $queryHasWhere = QuickPdoStmtTool::hasWhere($q);
+
+
+        if (null !== $dateStart && null !== $dateEnd) {
+            if (false === $queryHasWhere) {
+                $q .= " where ";
+            } else {
+                $q .= " and ";
+            }
+
+            $q .= "($dateCol >= :date_start and $dateCol <= :date_end)";
+            $markers["date_start"] = $dateStart;
+            $markers["date_end"] = $dateEnd;
+        } elseif (null !== $dateStart || null !== $dateEnd) {
+            if (false === $queryHasWhere) {
+                $q .= " where ";
+            } else {
+                $q .= " and ";
+            }
+
+
+            if (null !== $dateStart) {
+                $q .= "$dateCol >= :date_start";
+                $markers["date_start"] = $dateStart;
+            } else {
+
+                $q .= "$dateCol <= :date_end";
+                $markers["date_end"] = $dateEnd;
+            }
+        }
+    }
+
+
+
+    public static function hasWhere($query)
+    {
+        if (preg_match('!\swhere\s!i', $query)) {
+            return true;
+        }
+        return false;
+    }
+
     /**
      * @param $query
      * @return string, the query minus the wildcards it potentially contains
@@ -130,7 +178,12 @@ class QuickPdoStmtTool
         if ($keys2Values) {
             $mkCpt = 0;
             $mk = 'bzz_';
-            $stmt .= ' WHERE ';
+            if (false === stripos($stmt, 'where ')) {
+                $stmt .= ' WHERE ';
+            } else {
+                $stmt .= ' AND ';
+            }
+
             $first = true;
             foreach ($keys2Values as $key => $val) {
                 if (true === $first) {
@@ -138,11 +191,28 @@ class QuickPdoStmtTool
                 } else {
                     $stmt .= ' AND ';
                 }
-                if (null !== $val) {
-                    $stmt .= $tablePrefix . '`' . $key . '` = :' . $mk . $mkCpt;
-                    $markers[':' . $mk . $mkCpt] = $val;
+
+                if ('' === $tablePrefix) {
+                    $p = explode(".", $key, 2);
+                    if (count($p) < 2) {
+                        $keyVal = '`' . $key . '`';
+                    } else {
+                        $keyVal = $p[0] . '.`' . $p[1] . '`';
+                    }
+
+                    if (null !== $val) {
+                        $stmt .= $keyVal . ' = :' . $mk . $mkCpt;
+                        $markers[':' . $mk . $mkCpt] = $val;
+                    } else {
+                        $stmt .= $keyVal . ' IS NULL';
+                    }
                 } else {
-                    $stmt .= $tablePrefix . '`' . $key . '` IS NULL';
+                    if (null !== $val) {
+                        $stmt .= $tablePrefix . '`' . $key . '` = :' . $mk . $mkCpt;
+                        $markers[':' . $mk . $mkCpt] = $val;
+                    } else {
+                        $stmt .= $tablePrefix . '`' . $key . '` IS NULL';
+                    }
                 }
 
                 $mkCpt++;

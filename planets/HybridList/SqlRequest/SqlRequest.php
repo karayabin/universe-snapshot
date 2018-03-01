@@ -162,7 +162,8 @@ class SqlRequest implements SqlRequestInterface
         return $this;
     }
 
-    public function getLimit(){
+    public function getLimit()
+    {
         return $this->limit;
     }
 
@@ -181,7 +182,16 @@ class SqlRequest implements SqlRequestInterface
         $br = PHP_EOL;
         $s = "";
         if (true === $isCount) {
-            $s .= "select count(*) as count";
+            $fields = $this->fields;
+
+            // sometimes we need the distinct keyword inside our count request
+            $firstField = array_shift($fields);
+            $firstField = explode(',', $firstField)[0];
+            if (false !== strpos(strtolower($firstField), 'distinct')) {
+                $s .= "select count($firstField) as count";
+            } else {
+                $s .= "select count(*) as count";
+            }
         } else {
             $s .= "select " . $br;
             $s .= implode(",$br", $this->fields);

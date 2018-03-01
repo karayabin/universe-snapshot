@@ -2,6 +2,8 @@
 
 namespace QuickPdo;
 
+use QuickPdo\Exception\QuickPdoException;
+
 
 /**
  * QuickPdo
@@ -50,6 +52,12 @@ class QuickPdo
      *
      */
     private static $onQueryReadyCallback;
+    /**
+     * same as $onQueryReadyCallback, but only for methods that alter the data in the
+     * database (insert, update, replace, delete), and only if the method was executed properly.
+     */
+    private static $onDataAlterAfterCallback;
+
     private static $transactionActive = false;
 
     public static function setConnection($dsn, $user, $pass, array $options)
@@ -89,6 +97,15 @@ class QuickPdo
     public static function setOnQueryReadyCallback($fn)
     {
         self::$onQueryReadyCallback = $fn;
+    }
+
+
+    /**
+     * @param $fn ( query, array markers=[] )
+     */
+    public static function setOnDataAlterAfterCallback($fn)
+    {
+        self::$onDataAlterAfterCallback = $fn;
     }
 
 
@@ -137,9 +154,11 @@ class QuickPdo
      *
      *
      */
-    public static function insert($table, array $fields, $keyword = '')
+    public static function insert($table, array $fields, $keyword = '', $returnRic = false)
     {
-        $query = 'insert ' . $keyword . ' into ' . $table . ' set ';
+
+        $protectTable = self::protectTable($table);
+        $query = 'insert ' . $keyword . ' into ' . $protectTable . ' set ';
         $first = true;
         $markers = [];
         foreach ($fields as $k => $v) {
@@ -157,7 +176,25 @@ class QuickPdo
         self::onQueryReady('insert', $query, $markers, $table);
         $stmt = $pdo->prepare($query);
         if (true === $stmt->execute($markers)) {
-            return $pdo->lastInsertId();
+            self::onDataAlterAfter('insert', $query, $markers, $table);
+            if (false === $returnRic) {
+                return $pdo->lastInsertId();
+            } else {
+                $lastInsertId = $pdo->lastInsertId();
+                $ai = QuickPdoInfoTool::getAutoIncrementedField($table);
+                if (false !== $ai) {
+                    return [
+                        $ai => $lastInsertId,
+                    ];
+                } else {
+                    $ric = QuickPdoInfoTool::getPrimaryKey($table, null, true);
+                    $ret = [];
+                    foreach ($ric as $col) {
+                        $ret[$col] = $fields[$col];
+                    }
+                    return $ret;
+                }
+            }
         }
         self::handleStatementErrors($stmt, 'insert');
         return false;
@@ -171,7 +208,8 @@ class QuickPdo
      */
     public static function replace($table, array $fields, $keyword = '')
     {
-        $query = 'replace ' . $keyword . ' into ' . $table . ' set ';
+        $protectTable = self::protectTable($table);
+        $query = 'replace ' . $keyword . ' into ' . $protectTable . ' set ';
         $first = true;
         $markers = [];
         foreach ($fields as $k => $v) {
@@ -190,6 +228,7 @@ class QuickPdo
         self::onQueryReady('replace', $query, $markers, $table);
         $stmt = $pdo->prepare($query);
         if (true === $stmt->execute($markers)) {
+            self::onDataAlterAfter('replace', $query, $markers, $table);
             return true;
         }
         self::handleStatementErrors($stmt, 'replace');
@@ -235,8 +274,9 @@ class QuickPdo
      */
     public static function update($table, array $fields, $whereConds = [], array $extraMarkers = [])
     {
+        $protectTable = self::protectTable($table);
         $pdo = self::getConnection();
-        $query = 'update ' . $table . ' set ';
+        $query = 'update ' . $protectTable . ' set ';
         $markers = [];
         $first = true;
         foreach ($fields as $k => $v) {
@@ -268,6 +308,7 @@ class QuickPdo
              * https://stackoverflow.com/questions/10522520/pdo-were-rows-affected-during-execute-statement
              * $p = new PDO($dsn, $user, $pass, array(PDO::MYSQL_ATTR_FOUND_ROWS => true));
              */
+            self::onDataAlterAfter('update', $query, $markers, $table);
             return true;
         }
         self::handleStatementErrors($stmt, 'update');
@@ -287,8 +328,9 @@ class QuickPdo
     public static function delete($table, $whereConds = [])
     {
 
+        $protectTable = self::protectTable($table);
         $pdo = self::getConnection();
-        $query = 'delete from ' . $table;
+        $query = 'delete from ' . $protectTable;
         $markers = [];
         self::addWhereSubStmt($whereConds, $query, $markers);
         self::$query = $query;
@@ -417,11 +459,17 @@ class QuickPdo
      * Note: if you are already inside a transaction, this will just execute the callback
      * (it will not begin a new transaction)
      *
+     * By default, if the transaction fails, an exception will be thrown (onException=null).
+     * If you set onException to a callable, then your callable will be executed.
+     * With any other value for onException, the transaction will silently fail.
+     *
+     *
      *
      * @param callable $transactionCallback , a callback containing all the statements of the transaction
      * @param callable $onException , a callback executed if an exception occurred (and the transaction failed).
      *                              It receives the exception as its sole argument.
      * @return bool, whether or not the transaction was successful.
+     * @throws \Exception
      */
     public static function transaction(callable $transactionCallback, callable $onException = null)
     {
@@ -453,7 +501,11 @@ class QuickPdo
                 call_user_func($transactionCallback);
             } catch (\Exception $e) {
                 if (null !== $onException) {
-                    call_user_func($onException, $e);
+                    if (is_callable($onException)) {
+                        call_user_func($onException, $e);
+                    }
+                } else {
+                    throw $e;
                 }
             }
         }
@@ -488,6 +540,13 @@ class QuickPdo
         }
     }
 
+    protected static function onDataAlterAfter($method, $query, array $markers = null, $table = null, array $whereConds = null)
+    {
+        if (null !== self::$onDataAlterAfterCallback) {
+            call_user_func(self::$onDataAlterAfterCallback, $method, $query, $markers, $table, $whereConds);
+        }
+    }
+
 
     //------------------------------------------------------------------------------/
     //
@@ -509,5 +568,10 @@ class QuickPdo
         if (0 !== (int)$conn->errorInfo()[1]) {
             self::$errors[] = array_merge($conn->errorInfo(), [$methodName]);
         }
+    }
+
+    private static function protectTable($table)
+    {
+        return '`' . $table . '`';
     }
 }

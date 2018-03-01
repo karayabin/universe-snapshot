@@ -86,6 +86,10 @@ $log->log("Hello log", "info");
 History Log
 ------------------
     
+- 1.4.0 -- 2017-11-24
+
+    - improve TagFormatter, now handle arrays natively
+    
 - 1.3.0 -- 2017-05-30
 
     - add QuickDebugLoggerListener

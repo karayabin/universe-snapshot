@@ -58,6 +58,8 @@ class CaseTool
                 $v = ucfirst($v);
             });
             $str = implode('', $arr);
+            $str = str_replace(' ', '', $str);
+
         } else {
             throw new \InvalidArgumentException(sprintf("string argument must be of type string, %s given", gettype($str)));
         }
@@ -77,6 +79,14 @@ class CaseTool
         return $str;
     }
 
+
+    /**
+     *
+     *
+     * 2017-11-30:
+     * fix: choice-listWithNames -> choiceListwithnames
+     * now is: choice-listWithNames -> choiceListWithNames
+     */
     public static function toCamel($str)
     {
         $str = StringTool::removeAccents($str);
@@ -97,7 +107,7 @@ class CaseTool
              * @todo-ling: fix this...
              *
              */
-            return ucfirst(strtolower($v));
+            return ucfirst($v);
         }, $p);
 
         return $first . implode('', $p);

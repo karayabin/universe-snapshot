@@ -13,6 +13,22 @@ If you don't use bigbang, you can use var_dump as a replacement.
 
 
 
+cleanDirBubble
+-------------
+2018-02-27
+
+```php
+void    cleanDirBubble ( string:dir )
+```
+
+Check if the given dir is empty (i.e. does not contain any file/dir/link).
+If this is the case, then remove the dir and cleanDirBubble the parent dir
+recursively until the parent dir is not empty.
+
+     
+
+
+
 clearDir
 -------------
 2015-10-12 --> 2017-06-22
@@ -57,6 +73,19 @@ bool        copyFile ( str:srcDir, str:targetDir )
 ```
 
 Copy a file.
+
+
+
+countFiles
+-------------     
+2018-02-27
+
+
+```php
+int        countFiles ( str:srcDir )
+```
+
+Returns the number of files of a given dir.
 
 
      
@@ -335,6 +364,50 @@ if (false === FileSystemTool::remove('doo', false)) {
 }
 
 ```
+
+
+
+
+rename
+-----------
+2018-02-26
+
+
+```php
+bool        rename ( string:source, string:destination )
+```
+
+
+Will rename the source file to the destination file,
+and create necessary subdirectories.
+
+Returns the same as php's native rename: a boolean indicating whether or not the operation
+was successful.
+
+
+
+```php
+
+
+/**
+ * Case 1: straight to the point
+ */
+FileSystemTool::remove('doo');
+// now entry doo doesn't exist on your file system (or you get an exception)
+
+
+/**
+ * Case 2: flexible approach
+ */
+if (false === FileSystemTool::remove('doo', false)) {
+    // here you get the opportunity to handle the failure manually
+}
+
+```
+
+
+
+
 
 tempDir
 -----------

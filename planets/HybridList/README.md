@@ -208,11 +208,106 @@ array(6) {
 More doc
 ------------
 
-In the **doc/hybrid-list-prototype.md** document.
+- In the **doc/hybrid-list-prototype.md** document
+- In the **doc/hybrid-list-controls.md** document
 
 
 History Log
 ------------------
+    
+- 1.16.0 -- 2017-12-11
+
+    - fix SqlPaginatorHybridListControl problem with nbItems=0  
+    
+- 1.15.0 -- 2017-12-11
+
+    - add ArrayPaginatorHybridListControl  
+    
+- 1.14.0 -- 2017-12-11
+
+    - add RequestGenerator.setItems method  
+    
+- 1.13.0 -- 2017-12-01
+
+    - add SqlPaginatorHybridListControl  
+    
+- 1.12.0 -- 2017-11-17
+
+    - add HybridList.setControlContext method  
+    - fix HybridList forgot control implementation 
+    
+- 1.11.1 -- 2017-11-17
+
+    - fix HybridList listShapers/listParameters typo 
+    
+- 1.11.0 -- 2017-11-17
+
+    - add HybridListInterface.removeControl method 
+    
+- 1.10.0 -- 2017-11-17
+
+    - add HybridListInterface.addControl method 
+    
+- 1.9.0 -- 2017-11-17
+
+    - add HybridListControlInterface and control system 
+    
+- 1.8.0 -- 2017-11-17
+
+    - add ListShaperInterface.getPriority method
+    - update HybridList now reacts to priority system
+    
+- 1.7.1 -- 2017-11-16
+
+    - fix HybridList listInfo overriding shapers return
+    
+- 1.7.0 -- 2017-11-16
+
+    - add ListShaperInterface.prepareWithOriginalItems method
+    
+- 1.6.2 -- 2017-11-15
+
+    - update HybridList, now multiple ListShapers can be bound to the wildcard
+    
+- 1.6.1 -- 2017-11-15
+
+    - fix HybridList wildcard implementation
+    
+- 1.6.0 -- 2017-11-15
+
+    - improve HybridList, now recognizes the wildcard "*" for ListShapers (dynamic shapers). Useful for pagination
+    
+- 1.5.2 -- 2017-11-15
+
+    - fix HybridList now return nulls when not set for sliceNumber, sliceLength, offset
+    
+- 1.5.1 -- 2017-11-15
+
+    - fix SqlRequest now the count query takes into account the distinct keyword
+    
+- 1.5.0 -- 2017-11-15
+
+    - add ListShaperInterface.execute method's originalItems argument
+    
+- 1.4.0 -- 2017-11-14
+
+    - add HybridListInterface.getListParameters method
+    
+- 1.3.0 -- 2017-11-14
+
+    - promote most HybridList public methods to HybridListInterface
+    
+- 1.2.0 -- 2017-11-14
+
+    - add HybridList.preparePhpItems protected method
+    
+- 1.1.0 -- 2017-11-14
+
+    - add SqlRequestGenerator.setPdoFetchStyle method
+    
+- 1.0.1 -- 2017-11-14
+
+    - fix SqlRequestGenerator not extending parent
     
 - 1.0.0 -- 2017-11-07
 

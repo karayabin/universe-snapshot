@@ -166,6 +166,15 @@ class RoutsyRouter implements WebRouterInterface, RouteCollectionInterface
         $urlMatched = false;
         $_urlParams = null; // only for dynamic params
         $uri = $request->uri(false);
+
+
+        /**
+         * added 2018-02-16 to match things like:
+         * /admin/ekom/generated/TABLE 69/list
+         */
+        $uri = urldecode($uri);
+
+
         if (is_string($url)) {
             // is it dynamic or static?
             if (false === strpos($url, '{')) {
@@ -239,6 +248,7 @@ class RoutsyRouter implements WebRouterInterface, RouteCollectionInterface
                     $sInfo .= "; pattern: " . $route[0];
                     XLog::debug("[Kamille.RoutsyRouter] - routeId $routeId matched" . $sInfo);
                 }
+
 
                 if ($collection instanceof RoutsyRouteCollection) {
                     $collection->routeMatched($routeId);

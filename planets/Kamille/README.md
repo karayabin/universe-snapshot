@@ -166,6 +166,117 @@ echo HtmlLayout::create()
 History Log
 ===============
     
+    
+- 1.114.0 -- 2018-02-08
+
+    - add MorphicAdminListRenderer.renderByConfig persistence layer
+    
+- 1.113.0 -- 2018-02-07
+
+    - add formRouteExtraVars in __default.list.conf.php
+      
+- 1.112.0 -- 2018-02-07
+
+    - add KamilleClawsController.renderClaws's $prepareMethod argument  
+    
+- 1.111.1 -- 2018-02-05
+
+    - fix rowActionUpdateRicAdaptor in __default.list.conf.php  
+    
+- 1.111.0 -- 2018-02-01
+
+    - add KamilleClawsController protected handleClawsException method 
+    
+- 1.110.0 -- 2018-01-30
+
+    - add KamilleClawsController ClawsHttpResponseException shortcut/interception mechanism 
+    
+- 1.109.0 -- 2018-01-26
+
+    - add FormConfigurationProviderInterface.getConfig context argument 
+    
+- 1.108.0 -- 2018-01-26
+
+    - add ListConfigurationProviderInterface.getConfig context argument 
+    
+- 1.107.2 -- 2018-01-25
+
+    - reorganize _default.list.conf.php code 
+    
+- 1.107.1 -- 2018-01-25
+
+    - fix _default.list.conf.php typo 
+    
+- 1.107.0 -- 2018-01-25
+
+    - add morphic:defaultFormLinkPrefix to _default.list.conf.php 
+    
+- 1.106.2 -- 2018-01-25
+
+    - fix MorphicAdminListRenderer headersVisibility index not exist 
+    
+- 1.106.1 -- 2018-01-25
+
+    - fix MorphicAdminListRenderer, now handles headersVisibility 
+    
+- 1.106.0 -- 2018-01-23
+
+    - enhance MorphicAdminListRenderer, now makes distinction between symbolic and real column names
+    
+- 1.105.0 -- 2018-01-19
+
+    - add KamilleController constructor
+    
+- 1.104.0 -- 2018-01-18
+
+    - changed Morphic List default file location
+    - add Morphic Form
+    
+- 1.103.0 -- 2018-01-17
+
+    - add Morphic
+    
+- 1.102.0 -- 2018-01-16
+
+    - fix ThemeWidget
+    - add Theme (in mvc)
+    
+- 1.101.0 -- 2018-01-16
+
+    - add ThemeWidget
+    
+- 1.100.1 -- 2018-01-11
+
+    - fix KamilleSession (static instead of self lazy binding error)
+    
+- 1.100.0 -- 2018-01-11
+
+    - add KamilleSession
+    
+- 1.99.0 -- 2018-01-09
+
+    - add KamilleClawsController
+    
+- 1.98.0 -- 2017-12-13
+
+    - add HtmlPageHelper::renderPageFromContent method
+    
+- 1.97.1 -- 2017-12-10
+
+    - fix SessionTransmitter typo
+    
+- 1.97.0 -- 2017-12-10
+
+    - add SessionTransmitter
+    
+- 1.96.0 -- 2017-11-28
+
+    - add ClawsWidgetError::modelIsErroneous method
+    
+- 1.95.0 -- 2017-11-27
+
+    - add ClawsWidgetError
+    
 - 1.94.0 -- 2017-10-24
 
     - update ClawsWidget, improve error message

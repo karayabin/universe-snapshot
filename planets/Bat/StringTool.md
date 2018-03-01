@@ -78,6 +78,23 @@ For instance,
 
 
 
+getPlural
+-----------
+2018-02-13
+
+
+```php
+string      getPlural (string:word)
+```
+
+Returns the plural form of the given word.
+
+
+```php
+a(StringTool::getPlural("cat")); // cats
+```
+
+
 getUniqueCssId
 -----------
 2017-04-28
@@ -130,6 +147,38 @@ $attr = [
 $ret = StringTool::htmlAttributes($attr); 
 az($ret); // $ret = ' class="foo bar" style="color: red" required'
 ```
+
+
+
+
+relativePath 
+---------------
+2017-11-30
+
+
+```php
+str    relativePath ( str:absoluteBaseDir, str:absolutePath, mixed:default = null )
+```
+
+Drop the absoluteBaseDir string in front of the absolutePath.
+
+If it's not in front, the returned value depends on the default parameter:
+- if default is null, the absolutePath is returned
+- else default is returned
+
+
+
+Example of use:
+
+```php
+<?php
+
+a(StringTool::relativePath("/p/a/c", "/p/a/c/man.txt")); // return /man.txt
+
+```
+
+
+
 
 
 
@@ -316,6 +365,32 @@ string ucfirst( str:string )
 ```
 
 Like ucfirst, but using utf8 (works with accentuated letters).
+
+
+
+
+unserializeAsArray
+-----------
+2017-12-12
+
+```php
+mixed unserializeAsArray(str:string)
+```
+
+When you need to unserialize a field from your database and you expect an array,
+you can use this function.
+
+Note that even if your application always put a serialized version of your array
+in the database, an accident could happen (you accidentally update the field directly
+via phpMyAdmin for instance), and you end up with a flat string.
+So, this method deals with this case.
+
+
+
+
+
+
+
 
 
 

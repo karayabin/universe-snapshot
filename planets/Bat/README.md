@@ -28,6 +28,8 @@ Tools       |       Description
 [ArrayTool]( https://github.com/lingtalfi/Bat/blob/master/ArrayTool.md )          |       Tools for manipulating arrays
 [CaseTool]( https://github.com/lingtalfi/Bat/blob/master/CaseTool.md )          |       Tools for converting a case to another
 [ClassTool]( https://github.com/lingtalfi/Bat/blob/master/ClassTool.md )          |       Tools for working with classes
+[DateTool]( https://github.com/lingtalfi/Bat/blob/master/DateTool.md )          |       Tools for working with dates
+[DebugTool]( https://github.com/lingtalfi/Bat/blob/master/DebugTool.md )          |       Tools for debugging
 [ExceptionTool]( https://github.com/lingtalfi/Bat/blob/master/ExceptionTool.md )          |       Tools for manipulating exception
 [FileSystemTool]( https://github.com/lingtalfi/Bat/blob/master/FileSystemTool.md )          |       Tools for the filesystem
 [FileTool]( https://github.com/lingtalfi/Bat/blob/master/FileTool.md )          |                   Tools for the files
@@ -38,6 +40,7 @@ Tools       |       Description
 [MimeTypeTool](  https://github.com/lingtalfi/Bat/blob/master/MimeTypeTool.md )          |       Tool handling mime type
 [ObTool](  https://github.com/lingtalfi/Bat/blob/master/ObTool.md )          |          Tool for buffer manipulation
 [PermTool](  https://github.com/lingtalfi/Bat/blob/master/PermTool.md )          |       Tool for permissions manipulation
+[RandomTool]( https://github.com/lingtalfi/Bat/blob/master/RandomTool.md )          |       Tools for manipulating random numbers
 [SessionTool]( https://github.com/lingtalfi/Bat/blob/master/SessionTool.md )          |       Tools for session manipulation
 [StringTool]( https://github.com/lingtalfi/Bat/blob/master/StringTool.md )          |       Tools for string manipulation
 [UploadTool]( https://github.com/lingtalfi/Bat/blob/master/UploadTool.md )          |       Tools for helping with php file uploads
@@ -58,6 +61,102 @@ Dependencies
 
 History Log
 ------------------
+    
+- 1.111 -- 2018-02-28
+
+    - add DateTool::foreachDateRange method
+    
+- 1.110 -- 2018-02-28
+
+    - add DateTool::getDate method
+    
+- 1.109 -- 2018-02-27
+
+    - add RandomTool::getIp method
+    
+- 1.108 -- 2018-02-27
+
+    - add FileSystemTool::cleanDirBubble method
+    
+- 1.107 -- 2018-02-27
+
+    - add FileSystemTool::countFiles method
+    
+- 1.106 -- 2018-02-26
+
+    - add FileSystemTool::rename method
+    
+- 1.105 -- 2018-02-26
+
+    - add SessionTool:set/get methods
+    
+- 1.104 -- 2018-02-26
+
+    - enhance DebugTool now recognizes bool and null values
+    
+- 1.103 -- 2018-02-26
+
+    - add DebugTool
+    
+- 1.102 -- 2018-02-22
+
+    - fix CaseTool::snakeToFlexiblePascal letting spaces through
+    
+- 1.101 -- 2018-02-16
+
+    - add ArrayTool::removeEntry method
+    
+- 1.100 -- 2018-02-13
+
+    - add StringTool::getPlural method
+    
+- 1.99 -- 2018-01-18
+
+    - add ArrayTool::arrayKeyExistAll method
+    
+- 1.98 -- 2018-01-11
+
+    - update HashTool::passwordVerify and passwordEncrypt
+    
+- 1.97 -- 2017-12-13
+
+    - update MathTool::getPercentagesByKeyValue, add percentSign argument  
+    
+- 1.96 -- 2017-12-13
+
+    - add MathTool::getPercentagesByKeyValue method  
+    
+- 1.95 -- 2017-12-12
+
+    - add HashTool::getRandomHash64 method  
+    
+- 1.94 -- 2017-12-12
+
+    - add StringTool::unserializeAsArray method  
+    
+- 1.93 -- 2017-12-11
+
+    - add HttpTool::isHttps method  
+    
+- 1.92 -- 2017-12-10
+
+    - update FileSystemTool::mkdir, now returns true even if the directory is a link  
+    
+- 1.91 -- 2017-12-07
+
+    - fix DateTool.getSameDayNextMonth problems with the first year increment  
+    
+- 1.90 -- 2017-11-30
+
+    - fix CaseTool.toCamel method
+    
+- 1.89 -- 2017-11-30
+
+    - add StringTool.relativePath method
+    
+- 1.88 -- 2017-11-28
+
+    - add DateTool
     
 - 1.87 -- 2017-11-01
 

@@ -13,6 +13,26 @@ class FileSystemTool
 
 
     /**
+     *
+     * Check if the given dir is empty (i.e. does not contain any file/dir/link).
+     * If this is the case, then remove the dir and cleanDirBubble the parent dir
+     * recursively until the parent dir is not empty.
+     *
+     * @param $dir
+     */
+    public static function cleanDirBubble($dir)
+    {
+        if (0 === self::countFiles($dir)) {
+            self::remove($dir);
+            $parent = dirname($dir);
+            if (is_dir($parent)) {
+                self::cleanDirBubble($parent);
+            }
+        }
+    }
+
+
+    /**
      * Ensures that a directory exist and is empty.
      *
      * It is considered a success if the directory exists and is empty, and a failure otherwise.
@@ -76,6 +96,19 @@ class FileSystemTool
         return copy($src, $target);
     }
 
+
+    /**
+     * Return the number of files/dirs/links of a given dir.
+     *
+     * https://stackoverflow.com/questions/12801370/count-how-many-files-in-directory-php
+     * @param $dir
+     * @return int
+     */
+    public static function countFiles($dir)
+    {
+        $fi = new \FilesystemIterator($dir, \FilesystemIterator::SKIP_DOTS);
+        return iterator_count($fi);
+    }
 
     /**
      * Returns true only if:
@@ -214,8 +247,7 @@ class FileSystemTool
      * bool mkdir ( string $pathname [, int $mode = 0777 [, bool $recursive = false [, resource $context ]]] )
      *
      *
-     * It is considered a success when the dir exists and is a dir (not a file or a link),
-     *      and there were no permissions errors.
+     * It is considered a success when the dir exists and is a dir (not a file), and there were no permissions errors.
      *
      * It is considered a failure otherwise.
      *
@@ -227,7 +259,7 @@ class FileSystemTool
      */
     public static function mkdir($pathName, $mode = 0777, $recursive = false)
     {
-        if (file_exists($pathName) && is_dir($pathName) && !is_link($pathName)) {
+        if (file_exists($pathName) && is_dir($pathName)) {
             return true;
         }
         if (4 === func_num_args()) {
@@ -327,6 +359,17 @@ class FileSystemTool
             }
             return true;
         }
+    }
+
+
+    /**
+     * Will rename src to dst, creating dst subdirs if necessary
+     */
+    public static function rename($src, $dst)
+    {
+        $dstDir = dirname($dst);
+        FileSystemTool::mkdir($dstDir, 0777, true);
+        return rename($src, $dst);
     }
 
 

@@ -11,6 +11,10 @@ use SokoForm\ValidationRule\SokoValidationRuleInterface;
 interface SokoFormInterface
 {
 
+    /**
+     * @return string, the form unique name
+     */
+    public function getName();
 
     //--------------------------------------------
     // FORM ATTRIBUTES
@@ -21,6 +25,10 @@ interface SokoFormInterface
 
     public function getEnctype();
 
+    public function getId(); // the css id
+
+    public function getClass(); // the css class
+
     /**
      * @return string, containing the following attributes:
      * - method
@@ -28,6 +36,8 @@ interface SokoFormInterface
      * - ?enctype, depending on whether or not it is set
      */
     public function getFormAttributesAsString();
+
+    public function getAttributes();
 
 
 
@@ -48,6 +58,8 @@ interface SokoFormInterface
      */
     public function getControls();
 
+    public function addControl(SokoControlInterface $control);
+
 
     //--------------------------------------------
     // INTERACTION
@@ -65,6 +77,17 @@ interface SokoFormInterface
      */
     public function process(callable $onSuccess, array $context = null);
 
+    /**
+     * Will inject values of the context to the corresponding controls.
+     *
+     * Note that if you call the process method, you don't need to call inject before
+     * (although this wouldn't hurt)
+     *
+     * @param array $context
+     * @return mixed
+     */
+    public function inject(array $context = []);
+
 
     /**
      * Notification is an array with 3 properties, as defined here:
@@ -76,9 +99,11 @@ interface SokoFormInterface
     public function addValidationRule($controlName, SokoValidationRuleInterface $validationRule);
 
     /**
-     * @return array, the model to be used by the view.
+     * @return array:formModel, the model to be used by the view.
+     *
      *                  Note: the view should use the model only, not the object.
      *                  See documentation for more info.
+     *
      */
     public function getModel();
 

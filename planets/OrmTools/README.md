@@ -512,6 +512,62 @@ So, may the force be with you.
 History Log
 ------------------
     
+- 1.18.0 -- 2018-02-22
+
+    - enhance OrmToolsHelper::getRepresentativeColumn now accepts ref and reference   
+    
+- 1.17.1 -- 2018-02-16
+
+    - fix OrmToolsHelper::getPrettyColumn not returning the first varchar    
+    
+- 1.17.0 -- 2018-02-16
+
+    - add OrmToolsHelper::getRic $hasPrimaryKey flag   
+    
+- 1.16.3 -- 2018-02-16
+
+    - fix OrmToolsHelper::getRic not returning all fields if no primary key   
+    
+- 1.16.2 -- 2018-02-15
+
+    - fix OrmToolsHelper::getAliases bad handling of infinite loop with forbidden aliases   
+    
+- 1.16.1 -- 2018-02-15
+
+    - fix OrmToolsHelper::getHasRightTable wrong nesting of exceptions  
+    
+- 1.16.0 -- 2018-02-15
+
+    - add OrmToolsHelper::getRic method  
+    
+- 1.15.0 -- 2018-02-15
+
+    - add OrmToolsHelper::getRepresentativeColumn method  
+    
+- 1.14.1 -- 2018-02-15
+
+    - add OrmToolsHelper::getAliases forbiddenAliases argument  
+    
+- 1.14.0 -- 2018-02-15
+
+    - add OrmToolsHelper::getAliases method  
+    
+- 1.13.1 -- 2018-02-15
+
+    - enhance OrmToolsHelper::getPrettyColumn method, now handles complete table name with db prefix  
+    
+- 1.13.0 -- 2018-02-14
+
+    - add OrmToolsHelper::getPrettyColumn method
+    
+- 1.12.0 -- 2018-02-14
+
+    - add OrmToolsHelper::getHasTables method
+    
+- 1.11.0 -- 2018-02-14
+
+    - add OrmToolsHelper::getHasRightTable method
+    
 - 1.10.0 -- 2017-10-01
 
     - add OrmToolsHelper::renderGetMethod options argument

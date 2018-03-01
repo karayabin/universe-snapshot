@@ -495,6 +495,16 @@ Related
 History Log
 ------------------    
     
+- 1.18.1 -- 2017-11-22
+
+    - fix ObjectManager not handling the implementation of createUpdateByArray correctly 
+    
+- 1.18.0 -- 2017-11-22
+
+    - update Object.createUpdateByArray method
+    - update ObjectManager.getInstanceInfo now is public static
+    - improved ObjectManager.getMostRelevantIdentifiers algorithm, now detects the values set on the object by default
+    
 - 1.17.1 -- 2017-10-12
 
     - fix ObjectManager.save not returning all the values representing the object with insert

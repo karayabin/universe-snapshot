@@ -9,6 +9,16 @@ class ArrayTool
 {
 
 
+    public static function arrayKeyExistAll(array $keys, array $pool)
+    {
+        foreach ($keys as $key) {
+            if (false === array_key_exists($key, $pool)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     public static function arrayUniqueRecursive(array $array)
     {
         $result = array_map("unserialize", array_unique(array_map("serialize", $array)));
@@ -61,12 +71,16 @@ class ArrayTool
     }
 
 
+    public static function removeEntry($entry, array &$arr)
+    {
+        if (false !== ($index = array_search($entry, $arr))) {
+            unset($arr[$index]);
+        }
+    }
+
     /**
-     * Put the layer array on top of the base array,
-     * and return an array containing only the base keys,
-     * which values are replaced by the layer values if available.
-     *
-     * https://stackoverflow.com/questions/18240493/php-array-replace-without-creating-keys
+     * Return the <base> array, with values overridden by
+     * the <layer> (only if the key match).
      *
      * @param array $layer
      * @param array $base

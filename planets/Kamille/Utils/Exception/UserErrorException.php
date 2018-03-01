@@ -6,7 +6,8 @@ namespace Kamille\Utils\Exception;
 
 /**
  *
- * The user has done something wrong.
+ * A message intended for the gui user
+ * (The user has done something wrong).
  *
  *
  * The idea of an user error exception is to display only

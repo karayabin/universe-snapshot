@@ -12,6 +12,7 @@ abstract class SokoControl implements SokoControlInterface
     protected $value;
     protected $errors;
     protected $valueIsOverridable;
+    protected $properties;
 
     private $model;
     private $customModel; // extra properties added by the user
@@ -21,6 +22,7 @@ abstract class SokoControl implements SokoControlInterface
         $this->errors = [];
         $this->valueIsOverridable = true;
         $this->model = null;
+        $this->properties = [];
         $this->customModel = [];
     }
 
@@ -67,6 +69,21 @@ abstract class SokoControl implements SokoControlInterface
         return $this->valueIsOverridable;
     }
 
+    public function setProperties(array $properties)
+    {
+        $this->properties = $properties;
+        return $this;
+    }
+
+    public function addProperties(array $properties)
+    {
+        foreach ($properties as $k => $v) {
+            $this->properties[$k] = $v;
+        }
+        return $this;
+    }
+
+
     final public function getModel()
     {
         if (null === $this->model) {
@@ -84,6 +101,7 @@ abstract class SokoControl implements SokoControlInterface
                 'name' => $this->name,
                 'value' => $this->value,
                 'errors' => $this->errors,
+                'properties' => $this->properties,
             ]);
         }
         return $this->model;

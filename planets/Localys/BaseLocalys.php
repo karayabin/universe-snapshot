@@ -38,6 +38,11 @@ abstract class BaseLocalys implements LocalysInterface
 
     }
 
+    public function getLongDateRangeBits($timestampStart, $timestampEnd)
+    {
+
+    }
+
     public function getGenderAbbreviation($gender)
     {
 

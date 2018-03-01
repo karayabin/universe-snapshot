@@ -18,6 +18,8 @@ class SokoForm implements SokoFormInterface
     private $method;
     private $action;
     private $enctype;
+    private $id;
+    private $class;
     private $controls;
     private $validationRules;
     private $notifications;
@@ -74,6 +76,8 @@ class SokoForm implements SokoFormInterface
         $this->name = "sokoform";
         $this->method = "post";
         $this->action = "";
+        $this->id = null;
+        $this->class = null;
         $this->enctype = null;
         $this->controls = [];
         $this->notifications = [];
@@ -88,6 +92,12 @@ class SokoForm implements SokoFormInterface
         return new static();
     }
 
+    public function getName()
+    {
+        return $this->name;
+    }
+
+
     public function getMethod()
     {
         return $this->method;
@@ -98,22 +108,77 @@ class SokoForm implements SokoFormInterface
         return $this->action;
     }
 
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function getClass()
+    {
+        return $this->class;
+    }
+
     public function getEnctype()
     {
         return $this->enctype;
     }
 
-    public function getFormAttributesAsString()
+    public function getAttributes()
     {
         $attr = [
             'method' => $this->method,
             'action' => $this->action,
         ];
+
+        if (null !== $this->id) {
+            $attr['id'] = $this->id;
+        }
+
+        if (null !== $this->class) {
+            $attr['class'] = $this->class;
+        }
+
         if (null !== $this->enctype) {
             $attr['enctype'] = $this->enctype;
         }
-        return StringTool::htmlAttributes($attr);
+        return $attr;
     }
+
+    public function getFormAttributesAsString()
+    {
+        return StringTool::htmlAttributes($this->getAttributes());
+    }
+
+    /**
+     * @param SokoControlInterface $control , a fully configured
+     *                          control (i.e. at least name set)
+     * @return $this
+     */
+    public function addControl(SokoControlInterface $control)
+    {
+        /**
+         * Note: this only works if the name of the control is not set after the
+         * call to addControl... should be the case in most situations but be aware
+         * that this might fail in the future maybe.
+         *
+         * Or we could just say that this method accepts only fully configured controls
+         * (and actually I just did).
+         */
+        $this->controls[$control->getName()] = $control;
+
+        /**
+         * automatically add the enctype if the form contains a regular file control
+         */
+        if ($control instanceof SokoFileControl) {
+            $type = $control->getType();
+            if ('static' === $type) {
+                $this->setEnctype("multipart/form-data");
+            }
+        }
+
+        return $this;
+    }
+
 
     public function getControl($controlName, $throwEx = true, $default = null)
     {
@@ -131,6 +196,16 @@ class SokoForm implements SokoFormInterface
     {
         $this->prepare();
         return $this->controls;
+    }
+
+
+    public function inject(array $context = [])
+    {
+        foreach ($this->controls as $name => $control) {
+            if (array_key_exists($name, $context)) {
+                $control->setValue($context[$name]);
+            }
+        }
     }
 
 
@@ -163,6 +238,8 @@ class SokoForm implements SokoFormInterface
                 $context = $_GET;
             }
         }
+
+
 
         //--------------------------------------------
         // CHECKING WHETHER OR NOT THE FORM IS SUBMITTED
@@ -203,13 +280,16 @@ class SokoForm implements SokoFormInterface
                         }
                         $error = "";
 
+
                         $valueIsValid = call_user_func_array($validationFn, [
                             $value,
                             &$preferences,
                             &$error,
                             $this,
                             $control,
+                            $context,
                         ]);
+
 
                         // in case of failure, we translate the error message(s) and
                         // attach them to the control so that they are available to the view
@@ -238,7 +318,19 @@ class SokoForm implements SokoFormInterface
                     // INJECTING NEW VALUES IN THE CONTROLS (data persistency)
                     //--------------------------------------------
                     $control->setValue($context[$name]);
+                } else {
+                    $filteredContext[$name] = null;
+                    $control->setValue(null);
                 }
+
+
+                //--------------------------------------------
+                // THEN WE ASK THE CONTROL THE VALUE AGAIN
+                // that's because the control could prepare it if it wanted to.
+                // for instance for checkboxes, the control might want to
+                // convert the value to a boolean, or an int, ...
+                //--------------------------------------------
+                $filteredContext[$name] = $control->getValue();
             }
 
 
@@ -277,18 +369,6 @@ class SokoForm implements SokoFormInterface
         $this->prepare();
         if (null === $this->model) {
 
-            //--------------------------------------------
-            // PREPARING FORM PART
-            //--------------------------------------------
-            $formAttributes = [
-                'method' => $this->method,
-                'action' => $this->action,
-            ];
-            if (null !== $this->enctype) {
-                $formAttributes['enctype'] = $this->enctype;
-            }
-            $attrString = StringTool::htmlAttributes($formAttributes);
-
 
             //--------------------------------------------
             // NOW PREPARING CONTROL PARTS
@@ -309,7 +389,10 @@ class SokoForm implements SokoFormInterface
                     'method' => $this->method,
                     'action' => $this->action,
                     'enctype' => $this->enctype,
-                    'attributeString' => $attrString,
+                    'id' => $this->id,
+                    'class' => $this->class,
+                    'attributeString' => $this->getFormAttributesAsString(),
+                    'attributes' => $this->getAttributes(),
                     'errors' => [],
                     'notifications' => $this->notifications,
                 ],
@@ -341,37 +424,6 @@ class SokoForm implements SokoFormInterface
     public function setEnctype($enctype)
     {
         $this->enctype = $enctype;
-        return $this;
-    }
-
-
-    /**
-     * @param SokoControlInterface $control , a fully configured
-     *                          control (i.e. at least name set)
-     * @return $this
-     */
-    public function addControl(SokoControlInterface $control)
-    {
-        /**
-         * Note: this only works if the name of the control is not set after the
-         * call to addControl... should be the case in most situations but be aware
-         * that this might fail in the future maybe.
-         *
-         * Or we could just say that this method accepts only fully configured controls
-         * (and actually I just did).
-         */
-        $this->controls[$control->getName()] = $control;
-
-        /**
-         * automatically add the enctype if the form contains a regular file control
-         */
-        if ($control instanceof SokoFileControl) {
-            $type = $control->getType();
-            if ('static' === $type) {
-                $this->setEnctype("multipart/form-data");
-            }
-        }
-
         return $this;
     }
 
@@ -443,8 +495,7 @@ class SokoForm implements SokoFormInterface
                      */
                     $translation = $error;
                 }
-            }
-            else{
+            } else {
                 /**
                  * In this case, the developer provides its own error message directly with the setErrorMessage
                  * of the SokoValidationRule object.

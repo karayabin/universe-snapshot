@@ -87,6 +87,7 @@ class DbApiGenerator
             }
 
 
+
             $ClassName = GeneralHelper::tableNameToClassName($table, $this->tablePrefix);
             $className = lcfirst($ClassName);
 
@@ -118,6 +119,9 @@ EEE;
             $sUses,
             $s,
         ], $f);
+
+
+
         $path = $this->targetDirectory . "/" . $this->className . '.php';
         FileSystemTool::mkfile($path, $f);
 

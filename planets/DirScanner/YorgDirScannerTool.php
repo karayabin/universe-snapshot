@@ -130,15 +130,28 @@ class YorgDirScannerTool
                         return null;
                     }
 
-                    $ext = FileSystemTool::getFileExtension($path);
-                    if (
-                        null !== $extension &&
-                        (
-                            (true === $extensionCaseSensitive && false === in_array($ext, $extension, true)) ||
-                            (false === $extensionCaseSensitive && false === in_array(strtolower($ext), $extension, true))
-                        )
-                    ) {
-                        return null;
+
+
+                    //--------------------------------------------
+                    // EXTENSION MATCH?
+                    //--------------------------------------------
+                    if (null !== $extension) {
+                        $searchPath = $path;
+                        if (false === $extensionCaseSensitive) {
+                            $searchPath = strtolower($searchPath);
+                        }
+                        $match = false;
+                        foreach ($extension as $_extension) {
+                            if (false === $extensionCaseSensitive) {
+                                $_extension = strtolower($_extension);
+                            }
+                            if ($_extension === substr($searchPath, -1 * (strlen($_extension)))) {
+                                $match = true;
+                            }
+                        }
+                        if (false === $match) {
+                            return null;
+                        }
                     }
 
 

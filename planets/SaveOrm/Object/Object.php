@@ -5,6 +5,7 @@ namespace SaveOrm\Object;
 
 use QuickPdo\QuickPdo;
 use SaveOrm\Generator\Helper\SaveOrmGeneratorHelper;
+use SaveOrm\ObjectManager\ObjectManager;
 
 /**
  * This is the base object extended by all saveOrm objects.
@@ -36,6 +37,26 @@ class Object
                 $o->$setMethod($info[$prop]);
             }
         }
+        return $o;
+    }
+
+
+    /**
+     * Equivalent of createUpdate followed by feedByArray.
+     */
+    public static function createUpdateByArray(array $info)
+    {
+        $o = new static();
+        foreach ($o->_tableProps as $prop) {
+            if (array_key_exists($prop, $info)) {
+                $setMethod = "set" . SaveOrmGeneratorHelper::toPascal($prop);
+                $o->$setMethod($info[$prop]);
+            }
+        }
+
+//        ObjectManager::getInstanceInfo($o);
+        $o->_mode = 'update';
+        $o->_where = null;
         return $o;
     }
 

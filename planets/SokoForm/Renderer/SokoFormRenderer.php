@@ -6,15 +6,16 @@ namespace SokoForm\Renderer;
 
 use Bat\CaseTool;
 use Bat\StringTool;
+use SokoForm\Exception\SokoException;
 use SokoForm\Exception\SokoFormException;
 use SokoForm\Form\SokoFormInterface;
 
 class SokoFormRenderer
 {
     /**
-     * @var $form SokoFormInterface
+     * @var $form SokoFormInterface|array, the form model
      */
-    protected $form;
+    private $form;
     protected $formModel;
 
 
@@ -81,7 +82,6 @@ class SokoFormRenderer
 
         if (array_key_exists($controlName, $controls)) {
             $controlModel = $controls[$controlName];
-
             $renderIdentifier = $this->getRenderIdentifier($controlModel);
             $camelMethod = CaseTool::toCamel("render " . $renderIdentifier);
             if (method_exists($this, $camelMethod)) {
@@ -111,12 +111,12 @@ class SokoFormRenderer
         $formModel = $this->getModel();
         $notifs = $formModel['form']['notifications'];
         foreach ($notifs as $notif) {
-            if (true === is_object($this->notificationsRenderer)) {
+            if (is_callable($this->notificationsRenderer)) {
+                call_user_func($this->notificationsRenderer, $notif);
+            } elseif (true === is_object($this->notificationsRenderer)) {
                 if (method_exists($this->notificationsRenderer, "render")) {
                     $this->notificationsRenderer->render($notif);
                 }
-            } elseif (is_callable($this->notificationsRenderer)) {
-                call_user_func($this->notificationsRenderer, $notif);
             }
         }
     }
@@ -136,6 +136,26 @@ class SokoFormRenderer
         }
     }
 
+    public function getControlModel($controlName, $default = [])
+    {
+        $formModel = $this->getModel();
+        $controls = $formModel['controls'];
+        if (array_key_exists($controlName, $controls)) {
+            return $controls[$controlName];
+        }
+        return $default;
+    }
+
+    public function getFormErrors()
+    {
+        $formModel = $this->getModel();
+        $form = $formModel['form'];
+        if (array_key_exists("errors", $form)) {
+            return $form['errors'];
+        }
+        return [];
+    }
+
 
     public function setGeneralPreferences(array $preferences)
     {
@@ -146,7 +166,7 @@ class SokoFormRenderer
     //--------------------------------------------
     //
     //--------------------------------------------
-    public function setForm(SokoFormInterface $form)
+    public function setForm($form)
     {
         $this->form = $form;
         return $this;
@@ -181,6 +201,7 @@ class SokoFormRenderer
      *              If null, means no render type was found.
      *                  It allows us to chain this method with a custom one,
      *                  if we were using custom controls.
+     * @throws SokoException
      */
     protected function getRenderIdentifier(array $controlModel)
     {
@@ -201,11 +222,24 @@ class SokoFormRenderer
                 $type = $controlModel['type'];
                 $ret = "choice-$type";
                 break;
+            case "SokoAutocompleteInputControl":
+                $type = $controlModel['type'];
+                $ret = "autocomplete-input-$type";
+                break;
+            case "SokoBooleanChoiceControl":
+                $type = $controlModel['type'];
+                $ret = "choice-boolean-$type";
+                break;
             case "SokoFileControl":
                 $type = $controlModel['type'];
                 $ret = "file-$type";
                 break;
+            case "SokoSafeUploadControl":
+                $type = $controlModel['type'];
+                $ret = "file-$type";
+                break;
             default:
+                throw new SokoException("Unknown renderIdentifier with className: $className");
                 break;
         }
 
@@ -279,7 +313,12 @@ class SokoFormRenderer
         if (null === $this->formModel) {
             if (null !== $this->form) {
 
-                $model = $this->form->getModel();
+                if ($this->form instanceof SokoFormInterface) {
+                    $model = $this->form->getModel();
+                } else {
+                    $model = $this->form;
+                }
+
                 //--------------------------------------------
                 // SHAPE THE MODEL ACCORDING TO THE CONFIGURATION
                 //--------------------------------------------
@@ -292,7 +331,7 @@ class SokoFormRenderer
                  */
 
                 $controls = $model['controls'];
-                if (in_array($this->errorDisplayMode, ['formLevel', 'formLevelFirst'])) {
+                if (in_array($this->errorDisplayMode, ['formLevel', 'formLevelFirst'], true)) {
                     $formErrors = [];
                     $firstOnly = ('formLevelFirst' === $this->errorDisplayMode);
                     /**

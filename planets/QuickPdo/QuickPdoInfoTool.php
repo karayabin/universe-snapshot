@@ -27,9 +27,12 @@ class QuickPdoInfoTool
     {
         if (null !== $schema) {
             $table = '`' . $schema . '`.`' . $table . '`';
+        } else {
+            $table = '`' . $table . '`';
         }
 
-        if (false !== ($rows = QuickPdo::fetchAll("show columns from $table where extra='auto_increment'"))) {
+        $q = "show columns from $table where extra='auto_increment'";
+        if (false !== ($rows = QuickPdo::fetchAll($q))) {
             if (array_key_exists(0, $rows)) {
                 return $rows[0]['Field'];
             }
@@ -55,7 +58,6 @@ class QuickPdoInfoTool
         }
         return false;
     }
-
 
 
     public static function getColumnDefaultValues($table)
@@ -213,7 +215,7 @@ AND TABLE_NAME=:table;
      *  foreignKey => [ referencedDb, referencedTable, referencedColumn ]
      *
      */
-    public static function getForeignKeysInfo($table, $schema = null)
+    public static function getForeignKeysInfo($table, $schema = null, $resolve = false)
     {
         $ret = [];
         if (null === $schema) {
@@ -237,11 +239,27 @@ and CONSTRAINT_TYPE = 'FOREIGN KEY'
                 $ret[$row['COLUMN_NAME']] = [$row['REFERENCED_TABLE_SCHEMA'], $row['REFERENCED_TABLE_NAME'], $row['REFERENCED_COLUMN_NAME']];
             }
         }
+
+
+        if (true === $resolve) {
+            foreach ($ret as $col => $info) {
+                $db = $info[0];
+                $table = $info[1];
+                $column = $info[2];
+                self::getResolvedForeignKeyInfo($db, $table, $column);
+                $ret[$col] = [
+                    $db,
+                    $table,
+                    $column,
+                ];
+            }
+        }
+
         return $ret;
     }
 
 
-    public static function getPrimaryKey($table, $schema = null)
+    public static function getPrimaryKey($table, $schema = null, $returnAllIfEmpty = false, &$hasPrimaryKey = true)
     {
         if (null === $schema) {
             $schema = self::getDatabase();
@@ -253,7 +271,60 @@ and CONSTRAINT_TYPE = 'FOREIGN KEY'
                 $ret[] = $info['Column_name'];
             }
         }
+        if (true === $returnAllIfEmpty && 0 === count($ret)) {
+            $hasPrimaryKey = false;
+            $ret = QuickPdoInfoTool::getColumnNames($table, $schema);
+        } else {
+            $hasPrimaryKey = true;
+        }
         return $ret;
+    }
+
+
+    /**
+     * Return an array of entries referencing the given schema.table.
+     * Each entry has the following structure:
+     * - 0: database
+     * - 1: table
+     * - 2: array of referenced column => foreign key column
+     *
+     */
+    public static function getReferencedKeysInfo($table, $schema = null)
+    {
+        $ret = [];
+        if (null === $schema) {
+            $schema = self::getDatabase();
+        }
+        $ric = QuickPdoInfoTool::getPrimaryKey($table, $schema, true);
+
+
+        foreach ($ric as $col) {
+
+            $all = QuickPdo::fetchAll("
+SELECT TABLE_SCHEMA, TABLE_NAME, COLUMN_NAME 
+FROM information_schema.`KEY_COLUMN_USAGE` WHERE 
+`REFERENCED_TABLE_SCHEMA` LIKE '$schema' 
+AND `REFERENCED_TABLE_NAME` LIKE '$table' 
+AND `REFERENCED_COLUMN_NAME` LIKE '$col'            
+            ");
+
+
+            foreach ($all as $info) {
+                $info = array_values($info);
+                $id = $info[0] . '.' . $info[1];
+                if (!array_key_exists($id, $ret)) {
+                    $ret[$id] = [
+                        $info[0],
+                        $info[1],
+                        [$col => $info[2]],
+                    ];
+                } else {
+                    $ret[$id][2][$col] = $info[2];
+                }
+            }
+        }
+        return $ret;
+
     }
 
 
@@ -284,6 +355,27 @@ and CONSTRAINT_TYPE = 'FOREIGN KEY'
         return false;
     }
 
+
+    //--------------------------------------------
+    //
+    //--------------------------------------------
+    protected static function getResolvedForeignKeyInfo(&$db = null, &$table = null, &$column = null)
+    {
+        $foreignKeys = self::getForeignKeysInfo($table, $db);
+        $max = 10;
+        $c = 0;
+        while (array_key_exists($column, $foreignKeys)) {
+            if ($c > $max) {
+                throw new QuickPdoException("Too much occurence");
+            }
+            $info = $foreignKeys[$column];
+            $db = $info[0];
+            $table = $info[1];
+            $column = $info[2];
+            $foreignKeys = self::getForeignKeysInfo($table, $db);
+            $c++;
+        }
+    }
 
 
     //--------------------------------------------

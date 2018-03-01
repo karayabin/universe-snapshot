@@ -32,6 +32,16 @@ class ObjectManager
         return new static();
     }
 
+    public static function getInstanceInfo(\SaveOrm\Object\Object $object)
+    {
+        $class = get_class($object);
+        $configClass = substr(str_replace('\\Object\\', '\\Conf\\', $class), 0, -6) . 'Conf';
+        if (class_exists($configClass)) {
+            return call_user_func([$configClass, 'getConf']);
+        }
+        throw new SaveException("No info for object $class");
+    }
+
     /**
      * see save.md for details about this method
      */
@@ -75,6 +85,12 @@ class ObjectManager
     //--------------------------------------------
     //
     //--------------------------------------------
+    private static function getPascal($word)
+    {
+        return CaseTool::snakeToFlexiblePascal($word);
+    }
+
+
     /**
      * I use a separate doSave method to avoid nested transactions problem.
      * This means internally, every save is operated with the doSave method.
@@ -82,7 +98,7 @@ class ObjectManager
      */
     private function doSave(\SaveOrm\Object\Object $object, $saveType = null)
     {
-        $info = $this->getInstanceInfo($object);
+        $info = self::getInstanceInfo($object);
         $generalConfig = $this->getGeneralConfig();
         $table = $info['table'];
         $properties = $info['properties'];
@@ -129,7 +145,7 @@ class ObjectManager
         $values = [];
         foreach ($properties as $prop) {
 
-            $pascal = $this->getPascal($prop);
+            $pascal = self::getPascal($prop);
             $method = 'get' . $pascal;
             $value = $object->$method();
 
@@ -161,7 +177,8 @@ class ObjectManager
              * alike the createByXXX equivalent methods.
              */
             $identifierType = $managerInfo['identifierType'];
-            $identifiers = $this->getMostRelevantIdentifiers($info, $identifierType);
+            $identifiers = $this->getMostRelevantIdentifiers($info, $identifierType, $values, $object);
+
             $where = array_intersect_key($values, array_flip($identifiers));
 
 
@@ -170,24 +187,35 @@ class ObjectManager
             $q = "select * from `$table`";
             $pdoWhere = QuickPdoStmtTool::simpleWhereToPdoWhere($where);
             QuickPdoStmtTool::addWhereSubStmt($pdoWhere, $q, $markers);
+
             $_row = QuickPdo::fetch($q, $markers);
 
             if (false === $_row) {
                 $isCreate = true;
+                $whereSuccess = false;
+                $managerInfo['_whereValues'] = $values;
             } else {
 
                 /**
                  * updating values.
                  * We need to update values to fill the object with all the values it needs
                  * for the inferring/injection phase.
+                 *
+                 * Generally, we try to get a record from a minimum set of data (for instance only
+                 * from the primary key).
+                 * However, with the createUpdateByArray method, the approach is different, more like a brute
+                 * force technique where the dev sets the object with all the properties she/he's got,
+                 * hoping for a match.
+                 * That's why the values are in the second argument of the following array_replace statement:
+                 * to ensure that the values set by the dev aren't overridden by a potentially empty record.
                  */
+                $managerInfo['_whereValues_'] = array_replace($_row, $values);
                 $values = $_row;
-
+                $whereSuccess = true;
                 $isCreate = false;
                 $managerInfo['where'] = $where; // updating where
             }
         }
-
 
         if (
             true === $isCreate ||
@@ -207,15 +235,23 @@ class ObjectManager
             $pdoWhere = QuickPdoStmtTool::simpleWhereToPdoWhere($where);
 
             // filtering values, we only update the properties that the user set manually
+
             $changedProps = $managerInfo['changedProperties'];
-            $updateValues = array_intersect_key($values, array_flip($changedProps));
+            $updateValues = array_intersect_key($managerInfo["_whereValues_"], array_flip($changedProps));
+
             if (true === self::$debugSql) {
                 a("[ObjectManagerDebug]: update $table, with values and where:");
                 a($values);
                 a($pdoWhere);
             }
 
+
             QuickPdo::update($table, $updateValues, $pdoWhere);
+
+            /**
+             * Need this line to be consistent with the _whereValues_ system tried above.
+             */
+            $values = array_replace($values, $updateValues);
 
         }
 
@@ -251,7 +287,7 @@ class ObjectManager
                 if (null !== $guestObject) {
 
                     // pass the newly created host data to the guest object
-                    $guestInfo = $this->getInstanceInfo($guestObject);
+                    $guestInfo = self::getInstanceInfo($guestObject);
                     $fks = $guestInfo['fks'];
                     $fksInfo = $this->getForeignKeysInfoPointingTo($table, $fks, $guestTable, $guestColumn);
                     /**
@@ -302,7 +338,7 @@ class ObjectManager
 
                     $middleObject = $rightObject->_has_;
 
-                    $middleInfo = $this->getInstanceInfo($middleObject);
+                    $middleInfo = self::getInstanceInfo($middleObject);
                     $middleFKeys = $middleInfo['fks'];
 
 
@@ -351,7 +387,7 @@ class ObjectManager
     }
 
 
-    private function getMostRelevantIdentifiers(array $info, $identifierType = null)
+    private function getMostRelevantIdentifiers(array $info, $identifierType = null, array $values = [], \SaveOrm\Object\Object $object)
     {
         if (null !== $identifierType) {
             switch ($identifierType) {
@@ -378,6 +414,48 @@ class ObjectManager
                     break;
             }
         } else {
+
+            //--------------------------------------------
+            // TAKING INTO ACCOUNT THE VALUES SET BY THE USER
+            //--------------------------------------------
+            // did the user set the ai?
+            if (null !== $info['ai'] && array_key_exists($info['ai'], $values) && null !== $values[$info['ai']]) {
+                return [$info['ai']];
+            } else {
+
+                // did the user set the primary key?
+                if (count($info['primaryKey']) > 0) {
+
+
+                    $class = get_class($object);
+                    $newInstance = call_user_func([$class, "create"]);
+                    $isSet = self::keysAreChecked($info['primaryKey'], $values, $info, $newInstance);
+
+
+                    if (true === $isSet) {
+                        return $info['primaryKey'];
+                    }
+                }
+
+
+                // did the user set a unique index?
+                if (count($info['uniqueIndexes']) > 0) {
+                    $class = get_class($object);
+                    $newInstance = call_user_func([$class, "create"]);
+
+                    foreach ($info['uniqueIndexes'] as $k => $keys) {
+                        $isSet = self::keysAreChecked($keys, $values, $info, $newInstance);
+                        if (true === $isSet) {
+                            return current($info['uniqueIndexes']);
+                        }
+                    }
+                }
+
+            }
+
+            //--------------------------------------------
+            // FIND THE IDENTIFIER BASED ON THE TABLE/OBJECT INFO
+            //--------------------------------------------
             if (null !== $info['ai']) {
                 return [$info['ai']];
             } elseif (count($info['primaryKey']) > 0) {
@@ -387,6 +465,37 @@ class ObjectManager
             }
             return $info['properties'];
         }
+    }
+
+
+    private static function keysAreChecked(array $keys, array $values, array $info, \SaveOrm\Object\Object $newInstance)
+    {
+        /**
+         * We want to access the default values of the object.
+         * In this implementation, we do so by using an empty instance.
+         */
+        $nullables = $info['nullables'];
+
+        $isSet = true;
+        foreach ($keys as $key) {
+
+            if (in_array($key, $nullables)) {
+                // a nullable key is always considered as set with this algorithm
+                continue;
+            }
+            /**
+             * if it's not nullable, we consider it is set if it's different
+             * than the default value.
+             */
+            $method = "get" . self::getPascal($key);
+            $defaultVal = $newInstance->$method();
+
+            if (array_key_exists($key, $values) && $values[$key] === $defaultVal) {
+                $isSet = false;
+                break;
+            }
+        }
+        return $isSet;
     }
 
 
@@ -429,10 +538,6 @@ class ObjectManager
         throw new SaveException("Problem with saving $class: $msg");
     }
 
-    private function getPascal($word)
-    {
-        return CaseTool::snakeToFlexiblePascal($word);
-    }
 
     /**
      * @param array $cols , array of columnName
@@ -528,22 +633,13 @@ class ObjectManager
                 }
             }
         }
-        return $methodPrefix . $this->getPascal($table);
+        return $methodPrefix . self::getPascal($table);
     }
 
     private function getMethodByProperty($prefix, $property)
     {
-        return $prefix . $this->getPascal($property);
+        return $prefix . self::getPascal($property);
     }
 
-    private function getInstanceInfo(\SaveOrm\Object\Object $object)
-    {
-        $class = get_class($object);
-        $configClass = substr(str_replace('\\Object\\', '\\Conf\\', $class), 0, -6) . 'Conf';
-        if (class_exists($configClass)) {
-            return call_user_func([$configClass, 'getConf']);
-        }
-        throw new SaveException("No info for object $class");
-    }
 
 }

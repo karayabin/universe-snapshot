@@ -4,6 +4,7 @@
 namespace SokoForm\Renderer;
 
 use Bat\CaseTool;
+use Bat\StringTool;
 
 /**
  * How to use:
@@ -18,17 +19,30 @@ class SokoTableFormRenderer extends SokoFormRenderer
     public function submitButton(array $preferences = [])
     {
         $label = $this->getPreference("label", $preferences, "Submit");
+        $attributes = $this->getPreference("attributes", $preferences, []);
+        $class = array_key_exists('class', $attributes) ? $attributes['class'] : "";
+        unset($attributes['class']);
         ?>
         <table>
             <tr>
                 <td colspan="2" class="tcenter">
-                    <button type="submit" class="lee-red-button mauto" name="not_important_submit_button">
+                    <button type="submit" class="lee-red-button mauto <?php echo $class; ?>"
+                            name="not_important_submit_button"
+                        <?php echo StringTool::htmlAttributes($attributes); ?>
+                    >
                         <?php echo $label; ?>
                     </button>
                 </td>
             </tr>
         </table>
         <?php
+    }
+
+
+    public function renderControlError($controlName, array $preferences = [])
+    {
+        $model = $this->getControlModel($controlName);
+        $this->doRenderError($model, $preferences);
     }
 
     //--------------------------------------------
@@ -42,6 +56,43 @@ class SokoTableFormRenderer extends SokoFormRenderer
     protected function renderInputHidden(array $model, array $preferences = [])
     {
         $this->doRenderInputControl($model, $preferences);
+    }
+
+    /**
+     * With this method, a falsy value will be unchecked, and a non falsy value
+     * will be checked.
+     *
+     * The checkbox value can only be 1 (with this approach),
+     * and the checkbox is either posted or not.
+     */
+    protected function renderInputCheckbox(array $model, array $preferences = [])
+    {
+        $attr = $this->getHtmlAtributesAsString($preferences);
+        $id = "id-cb-" . $model['name'];
+        $value = $model['value'];
+        $checked = (int)$value > 0;
+        ?>
+        <tr<?php echo $attr; ?>>
+            <td>
+                <input id="<?php echo $id; ?>" type="<?php echo $model['type']; ?>" name="<?php echo $model['name']; ?>"
+                    <?php if (null !== $model['placeholder']): ?>
+                        placeholder="<?php echo htmlspecialchars($model['placeholder']); ?>"
+                    <?php endif; ?>
+                    <?php if ($checked): ?>
+                        checked="checked"
+                    <?php endif; ?>
+                       value="1">
+            </td>
+            <td>
+                <?php if (null !== $model['label']): ?>
+                    <label for="<?php echo $id; ?>">
+                        <?php echo $model['label']; ?>
+                    </label>
+                <?php endif; ?>
+            </td>
+        </tr>
+        <?php
+        $this->doRenderError($model, $preferences);
     }
 
     protected function renderInputPassword(array $model, array $preferences = [])
@@ -113,6 +164,7 @@ class SokoTableFormRenderer extends SokoFormRenderer
         $this->doRenderError($model, $preferences);
     }
 
+
     protected function doRenderChoiceControl(array $model, array $preferences = [])
     {
         $attr = $this->getHtmlAtributesAsString($preferences);
@@ -137,6 +189,7 @@ class SokoTableFormRenderer extends SokoFormRenderer
                value="<?php echo htmlspecialchars($model['value']); ?>">
         <?php
     }
+
 
     protected function doRenderTextareaWidget(array $model, array $preferences = [])
     {
@@ -168,6 +221,8 @@ class SokoTableFormRenderer extends SokoFormRenderer
         $style = $this->getPreference("style", $preferences, 'select'); // select (default)|radio
         if ("radio" === $style) {
             $this->doRenderChoiceListRadioWidget($model, $preferences);
+        } elseif ("checkbox" === $style) {
+            $this->doRenderChoiceListCheckboxWidget($model, $preferences);
         } else {
             $this->doRenderChoiceListSelectWidget($model, $preferences);
         }
@@ -203,6 +258,28 @@ class SokoTableFormRenderer extends SokoFormRenderer
             <input
                     id="<?php echo $id; ?>"
                     type="radio" name="<?php echo $name; ?>"
+                <?php echo $sSel; ?>
+                    value="<?php echo htmlspecialchars($val); ?>"
+            >
+            <label for="<?php echo $id; ?>"><?php echo $label; ?></label>
+        <?php endforeach;
+    }
+
+    protected function doRenderChoiceListCheckboxWidget(array $model, array $preferences = [])
+    {
+        $value = $model['value'];
+        foreach ($model['choices'] as $val => $label):
+
+            $name = $model['name'];
+
+
+            $val = (string)$val; // if the model provides keys as int, we need to convert them so that the === works
+            $sSel = ($value === $val) ? 'checked="checked"' : '';
+            $id = $this->formModel['form']['name'] . "-" . CaseTool::toDog($name) . "-" . CaseTool::toDog($val);
+            ?>
+            <input
+                    id="<?php echo $id; ?>"
+                    type="checkbox" name="<?php echo $name; ?>"
                 <?php echo $sSel; ?>
                     value="<?php echo htmlspecialchars($val); ?>"
             >
@@ -258,7 +335,7 @@ class SokoTableFormRenderer extends SokoFormRenderer
         list($name, $val, $label, $controlName) = $itemModel;
         $id = $this->formModel['form']['name'] . "-" . CaseTool::toDog($name) . "-" . CaseTool::toDog($val);
         $val = (string)$val; // if the model provides keys as int, we need to convert them so that the === works
-        $sSel = (array_key_exists($val, $values)) ? 'checked="checked"' : '';
+        $sSel = (array_key_exists($val, $values) && $values[$val]) ? 'checked="checked"' : '';
         ?>
         <input
                 id="<?php echo $id; ?>"

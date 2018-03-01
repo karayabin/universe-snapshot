@@ -4,6 +4,8 @@
 namespace Logger\Formatter;
 
 
+use ArrayToString\ArrayToStringTool;
+
 class TagFormatter implements FormatterInterface
 {
 
@@ -46,6 +48,11 @@ class TagFormatter implements FormatterInterface
     private function getFormattedTags($msg, $identifier)
     {
         $formattedTags = [];
+
+        if(is_array($msg)){
+            $msg = ArrayToStringTool::toPhpArray($msg);
+        }
+
         $tags = [
             "msg" => $msg,
             "identifier" => $identifier,

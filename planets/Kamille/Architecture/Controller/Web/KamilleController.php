@@ -19,5 +19,8 @@ class KamilleController implements ControllerInterface
 {
 
 
-
+    public function __construct()
+    {
+        //
+    }
 }

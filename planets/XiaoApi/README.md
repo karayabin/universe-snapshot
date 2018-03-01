@@ -374,6 +374,22 @@ and the generators will never delete or even touch them.
 History Log
 ------------------
     
+- 1.21.1 -- 2018-01-31
+
+    - fix CrudObject hook method complaining about observer not being set 
+    
+- 1.21.0 -- 2018-01-31
+
+    - add CrudObject::getInst method
+    
+- 1.20.0 -- 2018-01-08
+
+    - DbObjectGenerator: now auto-incremented fields have a default value set to null
+    
+- 1.19.0 -- 2017-11-30
+
+    - add TableCrudObject::getDefaults method
+    
 - 1.18.2 -- 2017-09-06
 
     - moved QuickPdoStmtHelper.simpleWhereToPdoWhere to QuickPdoStmtTool.simpleWhereToPdoWhere

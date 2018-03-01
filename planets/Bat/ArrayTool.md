@@ -14,7 +14,33 @@ If you don't use bigbang, you can use var_dump as a replacement.
 
 
 
+arrayKeyExistAll
+-------------
+2018-01-18
 
+
+```php
+array    arrayKeyExistAll ( array:keys, array:pool)
+```
+
+Returns whether or not ALL the keys are keys of pool.
+
+
+### Example
+
+```php
+<?php
+
+$keys = ['a', 'b', 'c'];
+$pool = ['a', 'd'];
+
+a(ArrayTool::arrayKeyExistAll($keys, $pool)); // false
+
+
+
+```
+
+  
     
 arrayUniqueRecursive
 -------------
@@ -113,6 +139,39 @@ az(ArrayTool::mirrorRange(1,10));
  *   [8] => int(8)
  *   [9] => int(9)
  *   [10] => int(10)
+ * }
+*/
+
+```
+     
+    
+removeEntry
+-------------
+2018-02-16
+
+
+```php
+void removeEntry ( mixed:entry, array:&$arr)
+```
+
+
+remove the entry from the array.
+
+
+
+```php
+<?php
+
+$arr = ["red", "blue", "green"];
+ArrayTool::removeEntry("blue", $arr);
+a($arr);
+
+/**
+ * Displays this:
+ * 
+ * array(2) {
+ *      [0] => string(3) "red"
+ *      [2] => string(5) "green"
  * }
 */
 

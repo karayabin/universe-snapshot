@@ -29,7 +29,20 @@ Methods
 ------------
 
 
+### addDateRangeToQuery
+2018-02-28
 
+
+
+```php
+void        public static function addDateRangeToQuery( str:&q, array:&markers = [], str:dateStart = null, str:dateEnd = null, str:dateCol = null)
+```
+
+Decorate the given query and markers to include the date range defined by dateStart and dateEnd.            
+
+ 
+ 
+ 
 ### addWhereSubStmt
 
 
@@ -306,6 +319,21 @@ array (size=1)
   ':bzz_0' => string 'paul' (length=4)
 
 ```
+
+
+
+
+
+### hasWhere
+
+
+```php
+bool function hasWhere ( str:query )
+```
+
+
+
+Returns whether or not the given query uses the where clause.
 
 
 

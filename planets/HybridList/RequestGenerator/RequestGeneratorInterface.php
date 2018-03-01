@@ -18,4 +18,6 @@ interface RequestGeneratorInterface
      * @return RequestShaperInterface[]
      */
     public function getRequestShapers();
+
+    public function addRequestShaper(RequestShaperInterface $shaper);
 }

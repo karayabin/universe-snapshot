@@ -58,13 +58,38 @@ The strategy is quite simple:
 - display the form object
 
 
-That's it fot the basics, but then, we can do extra things such as:
+That's it for the basics, but then, we can do extra things such as:
 
 - add notification message to the form
 - add the SokoFormErrorRemovalTool.js script to remove user errors as she/he fixes them
 
  
 At the end of this document, I will provide the complete and functional example. 
+
+
+But before we start, we need to agree on a definition of the form model.
+
+
+
+The form model
+===================
+2017-11-24
+
+
+The form model is the array representing the form at any time.
+It is created by the Model (M of Mvc) and passed to the view (V of Mvc),
+so it's very important that both sides agree on a common format.
+
+In fact, the SokoForm object that we will see later is just an Api to create the form model, which means
+if you wanted to, you could use another api, or even create the form model manually, and it would still works
+with your renderers (should they use the same model too). 
+
+
+In soko, we use this model in version 1.3.0:
+
+
+- https://github.com/lingtalfi/Models/blob/master/Form/form-model.md
+
 
 
 
@@ -349,6 +374,25 @@ This property helps us do two things:
 
 
 
+Add your own properties
+------------------------------
+
+Use the setCustomModelProperty method of the SokoControl to extend the control model with properties of
+your own:
+
+
+```php
+SokoInputControl::create()->setCustomModelProperty("myProperty", "myValue");
+```
+
+Note: the "main" properties listed below cannot be changed with this technique:
+
+- label
+- name
+- value
+- errors
+
+
  
 Adding validation rules to your form object
 -------------------------------------------
@@ -587,151 +631,24 @@ Display the form object
 
 So far, we've discussed the model part (as in MVC) of the SokoForm.
 
-But now we enter the view part.
+But now we enter the view part and display the form model.
 
 In this section we will discuss two main topics:
 
-- the model structure
 - the renderer object
 - general recommendations for rendering forms
 
-
-
-The first thing templates should do is get the model from the form, using the getModel method.
-
-
-```php
-$m = $form->getModel();
-```
-
-
-The idea of this method is to return an array containing all the necessary variables for the templates to do their things.
-
-In the background, the form method in turn will call the getModel method of every control.
-
-
-Note: It's actually important for the View objects to use only the model array rather than trying
-to use the form object and/or control objects directly.
-That's because the getModel method, in some cases, does some work in the background.
-So the only way to access the real model data is to call the getModel method.
-
-This actually is particularly true with the ChoiceControl, which model can take one of three forms
-(simple list, grouped list, named choices), and only the getModel method is capable of creating 
-the model.
-
-
-
-The model structure
------------------------
-
-It is recommended that you use the SokoFormRenderer object.
-
-The SokoFormRenderer internally updates the form model to fit its likings.
-This update only concerns the form.errors property (dot notation). 
-
-
-Here is what it looks like:
-
-
-```txt
-- form: (form related properties)
-    - name: string, the name of the form.
-                It might be used by the view to concatenate
-                for/id identifiers for instance.
-                 
-    - method: 
-    - action: 
-    - enctype: 
-    - attributeString: 
-            it's recommended that you only display this attributeString, and forget about 
-            the method, action and enctype properties  
-    - !errors: array of translated error messages.
-                
-                THIS IS ONLY ADDED IF YOU USE THE SokoFormRenderer class (otherwise the property simply
-                doesn't exist at all). 
-                
-                This array is filled only if the errorDisplayMode property
-                is set to a form level value (see the "Configuring the renderer" section of this document
-                for more info), otherwise it's empty
-                
-    - notifications: array of notification.
-                    Each notification is a notification model as defined here (https://github.com/lingtalfi/Models/blob/master/Notification/NotificationsModel.php).
-                    Or see the "Add notification messages to the form" section below for more details.
-     
-- controls:  (controls related properties)
-    - $controlName: 
-        - class: string, the name of the class. This can be used by the view to "guess" the type of control to display.
-                        Only the short name of the class is used (i.e. not the whole path, just 
-                        the last bit of the path, like SokoInputControl for instance).
-        
-        - label: null|string, null if not set. It's recommended that we always set the label, 
-                even if the view decides to not display it. 
-                            
-        - name: the html name property to display 
-        - value: the value of the control, it can be null, a string, or
-                an array (in case of multiple checkboxes for instance)
-        - errors: an array of error messages bound to the control
-        - ...plus, potential other properties depending on the type and your needs
-```
-
-
-Let's now see the specific control properties:
-
-
-### Input control specific properties
-
-```txt
-- placeholder: null|string, null if not set
-- type: string (text|textarea|hidden|password|...your own types)
-```
-
-
-### Choice control specific properties
-
-```txt
-- type: string (list|listGroup|listWithNames) 
-- choices: array, the structure depends on the type property.
-     - list: an array of $value to $label 
-     - listGroup: an array of $groupLabel to lists (each list being an array of $value => $label) 
-     - listWithNames: an array of [$name, $value, $label] 
-```
-
-
-### File control specific properties
-
-```txt
-- type: string (ajax|static|...own of your own), default=static
-            if ajax, this means the control will use an ajax technique to upload the file
-            if static, this means the control will use the regular php upload file system.
-- accept: null|string, null if not set. Same as html accept attribute otherwise
-```
-
-
-### Add your own properties
-
-Use the setCustomModelProperty method of the SokoControl to extend the control model with properties of
-your own:
-
-
-```php
-SokoInputControl::create()->setCustomModelProperty("myProperty", "myValue");
-```
-
-Note: the "main" properties listed below cannot be changed with this technique:
-
-- label
-- name
-- value
-- errors
 
 
 
 The renderer object
 ----------------------
 
-The renderer object is a helper provided by soko to help you display your soko form.
+The renderer object is an object used to render a form model. 
+Soko provides a default SokoRenderer object to help you with this task.
 
-You don't have to use the soko renderer object to display a form, but it might save you some time.
+
+You don't have to use the soko renderer object to display a form, but it can help you getting started.
 
 
 In this section, we will discuss the following topics:
@@ -1469,6 +1386,123 @@ Related
 
 History Log
 ------------------
+    
+- 1.39.0 -- 2018-02-27
+
+    - add SokoSafeUploadControl object
+    
+- 1.38.0 -- 2018-02-19
+
+    - add SokoControl.addProperties method
+    
+- 1.37.0 -- 2018-02-08
+
+    - soko-form-error-removal-tool.js now handles textarea
+    
+- 1.36.0 -- 2018-02-06
+
+    - SokoFormRenderer internal getRenderIdentifier method now throws exceptions when the class is unknown
+    
+- 1.35.1 -- 2018-01-29
+
+    - update SokoAutocompleteInputControl object, now is more agnostic
+    
+- 1.35.0 -- 2018-01-29
+
+    - add SokoAutocompleteInputControl object
+    
+- 1.34.0 -- 2018-01-25
+
+    - SokoFormRenderer.render now distinguishes SokoBooleanChoiceControl from other types of control
+    
+- 1.33.0 -- 2018-01-24
+
+    - enhance SokoForm.process, now ask the value back from the control objects (rather than just from the pool)
+    
+- 1.32.0 -- 2018-01-24
+
+    - add SokoBooleanChoiceControl
+    
+- 1.31.0 -- 2018-01-18
+
+    - improve SokoControl, now accept properties property
+    
+- 1.30.4 -- 2018-01-01
+
+    - fix notifications, now callback executes first
+    
+- 1.30.3 -- 2017-12-12
+
+    - fix SokoSiretValidationRule illegally returning false
+    
+- 1.30.2 -- 2017-12-12
+
+    - fix SokoSiretValidationRule accepting string with length different than 14
+    
+- 1.30.1 -- 2017-11-30
+
+    - fix SokoTableFormRenderer.renderInputCheckbox now the value is fixed to 1
+        
+- 1.30.0 -- 2017-11-30
+
+    - update SokoForm, now filteredContext returns null if the control's value isn't posted
+    
+- 1.29.0 -- 2017-11-30
+
+    - add SokoTableFormRenderer.renderInputCheckbox method
+    
+- 1.28.0 -- 2017-11-30
+
+    - add SokoFileNotEmptyValidationRule
+    
+- 1.27.0 -- 2017-11-30
+
+    - add SokoFormRenderer.getFormErrors method
+    
+- 1.26.0 -- 2017-11-29
+
+    - add SokoFormRenderer.getControlModel method
+    - add SokoTableFormRenderer.renderControlError method
+    
+- 1.25.0 -- 2017-11-28
+
+    - add SokoFormInterface.inject method
+    
+- 1.24.0 -- 2017-11-28
+
+    - add SokoFormInterface.getName method
+    
+- 1.23.0 -- 2017-11-28
+
+    - improve SokoTableFormRenderer.submitButton method, now accept attributes
+    
+- 1.22.0 -- 2017-11-28
+
+    - add SokoFormInterface.addControl method
+    
+- 1.21.0 -- 2017-11-27
+
+    - update SokoForm, now is compliant with formModel 1.2.0
+    
+- 1.20.1 -- 2017-11-27
+
+    - fix SokoForm erroneous returned model
+    
+- 1.20.0 -- 2017-11-27
+
+    - update SokoForm, now is compliant with formModel 1.1.0
+    
+- 1.19.0 -- 2017-11-24
+
+    - add SokoTableFormRenderer style=checkbox preference for rendering choice control
+    
+- 1.18.0 -- 2017-11-24
+
+    - update SokoForm now accept formModel as input
+    
+- 1.17.0 -- 2017-11-23
+
+    - update SokoForm now passes context to SokoValidationRuleInterface
     
 - 1.16.1 -- 2017-11-02
 

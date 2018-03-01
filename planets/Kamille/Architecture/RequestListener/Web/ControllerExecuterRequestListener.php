@@ -44,6 +44,7 @@ class ControllerExecuterRequestListener implements HttpRequestListenerInterface
 
     public function listen(HttpRequestInterface $request)
     {
+
         // response previously set? then bypass
         if (null !== ($response = $request->get('response'))) {
             if ($response instanceof HttpResponseInterface) {

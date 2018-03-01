@@ -9,6 +9,41 @@ use Tiphaine\TiphaineTool;
 
 class StringTool
 {
+    private static $irregular = [
+        'woman' => 'women',
+        'man' => 'men',
+        'child' => 'children',
+        'tooth' => 'teeth',
+        'foot' => 'feet',
+        'person' => 'people',
+        'leaf' => 'leaves',
+        'mouse' => 'mice',
+        'goose' => 'geese',
+        'half' => 'halves',
+        'knife' => 'knives',
+        'wife' => 'wives',
+        'life' => 'lives',
+        'elf' => 'elves',
+        'loaf' => 'loaves',
+        'potato' => 'potatoes',
+        'tomato' => 'tomatoes',
+        'cactus' => 'cacti',
+        'focus' => 'foci',
+        'fungus' => 'fungi',
+        'nucleus' => 'nuclei',
+        'syllabus' => 'syllabi',
+        'analysis' => 'analyses',
+        'diagnosis' => 'diagnoses',
+        'oasis' => 'oases',
+        'thesis' => 'theses',
+        'crisis' => 'crises',
+        'phenomenon' => 'phenomena',
+        'criterion' => 'criteria',
+        'datum' => 'data',
+    ];
+
+
+
 
 
     public static function autoCast($string)
@@ -81,9 +116,80 @@ class StringTool
         return $s;
     }
 
+
+    /**
+     * Stolen from OrmToolsHelper (OrmTools planet)
+     */
+    public static function getPlural($word)
+    {
+
+        /**
+         * http://www.ef.com/english-resources/english-grammar/singular-and-plural-nouns/
+         */
+
+        if (array_key_exists($word, self::$irregular)) {
+            return self::$irregular[$word];
+        }
+
+        $lastLetter = substr($word, -1);
+        switch ($lastLetter) {
+            case "y":
+                $word = substr($word, 0, -1) . 'ies';
+                break;
+            case "s":
+            case "x":
+            case "z":
+                $word .= 'es';
+                break;
+            default:
+                $lastTwoLetters = substr($word, -2);
+                switch ($lastTwoLetters) {
+                    case "ch":
+                    case "sh":
+                        $word .= 'es';
+                        break;
+                    default:
+                        $word .= "s";
+                        break;
+                }
+                break;
+        }
+
+        return $word;
+    }
+
+
     public static function getUniqueCssId($prefix = "a")
     {
         return $prefix . md5(uniqid($prefix, true));
+    }
+
+
+    /**
+     * Drop the absoluteBaseDir string in front of the absolutePath.
+     *
+     * If it's not in front, the returned value depends on the default parameter:
+     *  - if default is null, the absolutePath is returned
+     *  - else default is returned
+     *
+     *
+     *
+     * @param $absoluteBaseDir , absolute path to the base dir containing the absolutePath
+     * @param $absolutePath , absolute path to a resource
+     * @return string|mixed, a relative path, starting with a slash (at least on linux,
+     *          it will probably NOT WORK on windows),
+     *          or the $default parameter value otherwise.
+     */
+    public static function relativePath($absoluteBaseDir, $absolutePath, $default = null)
+    {
+        if (0 === strpos($absolutePath, $absoluteBaseDir)) {
+            $p = explode($absoluteBaseDir, $absolutePath, 2);
+            return array_pop($p);
+        }
+        if (null === $default) {
+            return $absolutePath;
+        }
+        return $default;
     }
 
     public static function removeAccents($str)
@@ -389,6 +495,19 @@ class StringTool
     public static function ucfirst($string)
     {
         return mb_convert_case($string, MB_CASE_TITLE, 'UTF-8');
+    }
+
+
+    /**
+     * @param $string string
+     * @return array|mixed
+     */
+    public static function unserializeAsArray($string)
+    {
+        if (empty($string)) {
+            return [];
+        }
+        return unserialize($string);
     }
 }
 

@@ -10,10 +10,13 @@ class RequestGenerator implements RequestGeneratorInterface
 {
 
     protected $requestShapers;
+    protected $items;
+    protected $onGetItemsAfterCallback;
 
     public function __construct()
     {
         $this->requestShapers = [];
+        $this->items = [];
     }
 
 
@@ -24,7 +27,15 @@ class RequestGenerator implements RequestGeneratorInterface
 
     public function getItems()
     {
-        return [];
+        $items = $this->items;
+        $this->onGetItemsAfter($items);
+        return $items;
+    }
+
+    public function setItems(array $items)
+    {
+        $this->items = $items;
+        return $this;
     }
 
     public function getRequestShapers()
@@ -36,5 +47,21 @@ class RequestGenerator implements RequestGeneratorInterface
     {
         $this->requestShapers[] = $shaper;
         return $this;
+    }
+
+    public function setOnGetItemsAfterCallback(callable $onGetItemsAfterCallback)
+    {
+        $this->onGetItemsAfterCallback = $onGetItemsAfterCallback;
+        return $this;
+    }
+
+    //--------------------------------------------
+    //
+    //--------------------------------------------
+    protected function onGetItemsAfter(array $items)
+    {
+        if (null !== $this->onGetItemsAfterCallback) {
+            call_user_func($this->onGetItemsAfterCallback, $items);
+        }
     }
 }

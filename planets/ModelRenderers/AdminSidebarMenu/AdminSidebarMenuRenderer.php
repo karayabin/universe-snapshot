@@ -31,8 +31,10 @@ class AdminSidebarMenuRenderer extends AbstractRenderer
     public function render()
     {
         $m = $this->model;
-        foreach ($m['sections'] as $section) {
-            $this->renderSection($section);
+        if (array_key_exists('sections', $m)) {
+            foreach ($m['sections'] as $section) {
+                $this->renderSection($section);
+            }
         }
     }
 
@@ -60,9 +62,11 @@ class AdminSidebarMenuRenderer extends AbstractRenderer
     protected function renderItem(array $item, $level = 0)
     {
         ?>
-        <li><?php
+        <li>
+        <?php
+
         echo $this->renderItemLabel($item, $level);
-        if (null !== $item['items']) {
+        if (array_key_exists("items", $item) && count($item['items']) > 0) {
             echo $this->renderItemContainer($item['items'], $level);
         }
         ?></li><?php
@@ -76,7 +80,10 @@ class AdminSidebarMenuRenderer extends AbstractRenderer
 
     protected function getArrowDown(array $item)
     {
-        return '<span class="' . $this->arrowDownClass . '"></span>';
+        if (array_key_exists("items", $item) && count($item['items']) > 0) {
+            return '<span class="' . $this->arrowDownClass . '"></span>';
+        }
+        return "";
     }
 
     protected function getIcon(array $item)
@@ -88,9 +95,8 @@ class AdminSidebarMenuRenderer extends AbstractRenderer
     protected function renderItemLabel(array $item, $level)
     {
         $sArrowDown = "";
-        if (null !== $item['items']) {
+        if (array_key_exists("items", $item) && count($item['items']) > 0) {
             $sArrowDown = $this->getArrowDown($item);
-        } else {
         }
 
 

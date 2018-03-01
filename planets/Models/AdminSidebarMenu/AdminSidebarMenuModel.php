@@ -13,8 +13,8 @@ use Models\Model\AbstractModel;
  * ----- -
  * --------- label: string, the label of the section
  * --------- ?name: string, the name (identifier) of the section
- * --------- items: array, contains the section items
  * --------- ?active: bool, whether or not this section contains an active item
+ * --------- items: array, contains the section items
  * ------------- -
  * ----------------- label: string, the label of the item
  * ----------------- icon: string|null, a string representing the item icon, or null if there is no icon

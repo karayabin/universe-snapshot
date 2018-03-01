@@ -4,6 +4,8 @@
 namespace HybridList;
 
 
+use HybridList\Exception\HybridListException;
+use HybridList\HybridListControl\HybridListControlInterface;
 use HybridList\ListShaper\ListShaperInterface;
 use HybridList\RequestGenerator\RequestGeneratorInterface;
 use HybridList\RequestGenerator\SqlRequestGenerator;
@@ -30,6 +32,12 @@ class HybridList implements HybridListInterface
     private $sortKey;
     private $listParameters;
     private $listShapers;
+
+    /**
+     * @var HybridListControlInterface[]
+     */
+    private $controls;
+    private $controlsContext;
     private static $allowedListInfoOverride = [
         'sliceNumber',
         'sliceLength',
@@ -43,6 +51,8 @@ class HybridList implements HybridListInterface
         $this->sortKey = "sort";
         $this->listParameters = [];
         $this->listShapers = [];
+        $this->controls = [];
+        $this->controlsContext = [];
     }
 
     public static function create()
@@ -55,11 +65,20 @@ class HybridList implements HybridListInterface
     {
         $listInfo = [
             'items' => [],
-            'sliceNumber' => 0,
-            'sliceLength' => 0,
+            'sliceNumber' => null,
+            'sliceLength' => null,
             'totalNumberOfItems' => 0,
-            'offset' => 0,
+            'offset' => null,
         ];
+
+
+        //--------------------------------------------
+        // PREPARE ALL CONTROLS NOW
+        //--------------------------------------------
+        $context = $this->controlsContext;
+        foreach ($this->controls as $control) {
+            $control->prepareHybridList($this, $context);
+        }
 
 
         //--------------------------------------------
@@ -81,14 +100,14 @@ class HybridList implements HybridListInterface
                     $shaper->execute($value, $sqlRequest);
                 }
             }
-
-
         }
 
         //--------------------------------------------
         // NOW GET THE BASE LIST
         //--------------------------------------------
         $items = $this->requestGenerator->getItems();
+
+
 
         //--------------------------------------------
         // COLLECT ALL THE INFO THAT WE CAN FROM THE SQL
@@ -103,26 +122,56 @@ class HybridList implements HybridListInterface
         // TREAT THE PHP PART
         //--------------------------------------------
         if ($items) {
-            if ($this->listShapers) {
+            $items = $this->preparePhpItems($items);
+            $originalItems = $items;
+
+            /**
+             * Note: as for now the list shapers' priority
+             * affect both the order of listShapers and parameters,
+             * while technically only order of parameters was (originally) required.
+             * This is private stuff anyway.
+             */
+            $listShapers = $this->getOrderedListShapers();
+            $listParameters = self::orderListParameters($listShapers, $this->listParameters);
+
+            if ($listShapers) {
+
+                //--------------------------------------------
+                // PROVIDE OPPORTUNITY FOR LIST SHAPERS TO PREPARE WITH ORIGINAL ITEMS
+                //--------------------------------------------
+                foreach ($listShapers as $listShaper) {
+                    /**
+                     * @var $listShaper ListShaperInterface
+                     */
+                    $listShaper->prepareWithOriginalItems($originalItems);
+                }
+
+
                 //--------------------------------------------
                 // BUILD THE ARRAY OF PARAMETERS => SHAPERS TO EXECUTE
                 //--------------------------------------------
-                $params2Shapers = $this->getParam2Shapers($this->listShapers);
+                $params2Shapers = $this->getParam2Shapers($listShapers);
 
 
                 //--------------------------------------------
                 // NOW EXECUTE THE RELEVANT SHAPERS
                 //--------------------------------------------
-                foreach ($this->listParameters as $key => $value) {
+                foreach ($listParameters as $key => $value) {
                     if (array_key_exists($key, $params2Shapers)) {
                         /**
                          * @var $shaper ListShaperInterface
                          */
                         $shaper = $params2Shapers[$key];
-                        $info = [];
-                        $shaper->execute($value, $items, $info);
-                        self::mergeInfo($info, $listInfo);
+                        $shaper->execute($value, $items, $listInfo, $originalItems);
+                    }
+                }
 
+                //--------------------------------------------
+                // WILDCARD SHAPER
+                //--------------------------------------------
+                if (array_key_exists("*", $params2Shapers)) {
+                    foreach ($params2Shapers["*"] as $shaper) {
+                        $shaper->execute("*", $items, $listInfo, $originalItems);
                     }
                 }
             }
@@ -131,13 +180,7 @@ class HybridList implements HybridListInterface
             //--------------------------------------------
             //
             //--------------------------------------------
-            $listInfo = [
-                'items' => $items,
-                'sliceNumber' => $listInfo['sliceNumber'],
-                'sliceLength' => $listInfo['sliceLength'],
-                'totalNumberOfItems' => $listInfo['totalNumberOfItems'],
-                'offset' => $listInfo['offset'],
-            ];
+            $listInfo['items'] = $items;
         }
         return $listInfo;
 
@@ -153,11 +196,20 @@ class HybridList implements HybridListInterface
         return $this;
     }
 
+    /**
+     * @return RequestGeneratorInterface
+     */
+    public function getRequestGenerator()
+    {
+        return $this->requestGenerator;
+    }
+
     public function addListShaper(ListShaperInterface $listShaper)
     {
         $this->listShapers[] = $listShaper;
         return $this;
     }
+
 
     public function setListParameters(array $listParameters)
     {
@@ -165,25 +217,54 @@ class HybridList implements HybridListInterface
         return $this;
     }
 
+    /**
+     * @return array
+     */
+    public function getListParameters()
+    {
+        return $this->listParameters;
+    }
+
+    public function addControl($name, HybridListControlInterface $control)
+    {
+        $this->controls[$name] = $control;
+        return $this;
+    }
+
+    public function getControl($name, $throwEx = true, $default = null)
+    {
+        if (array_key_exists($name, $this->controls)) {
+            return $this->controls[$name];
+        }
+        if (true === $throwEx) {
+            throw new HybridListException("Control not found with name $name");
+        }
+        return $default;
+    }
+
+    public function removeControl($name)
+    {
+        unset($this->controls[$name]);
+        return $this;
+    }
+
+
+    public function setControlsContext(array $controlsContext)
+    {
+        $this->controlsContext = $controlsContext;
+        return $this;
+    }
 
     //--------------------------------------------
     //
     //--------------------------------------------
-    private function getParam2Shapers(array $shapers)
+    protected function preparePhpItems(array $items)
     {
-        $params2Shapers = [];
-        foreach ($shapers as $shaper) {
-            /**
-             * @var $shaper ShaperInterface
-             */
-            $params = $shaper->getReactsTo();
-            foreach ($params as $param) {
-                $params2Shapers[$param] = $shaper;
-            }
-        }
-        return $params2Shapers;
+        return $items;
     }
-
+    //--------------------------------------------
+    //
+    //--------------------------------------------
     private static function mergeInfo(array $info, array &$listInfo)
     {
 
@@ -195,4 +276,60 @@ class HybridList implements HybridListInterface
             }
         }
     }
+
+    private static function orderListParameters(array $orderedListShapers, array $listParameters)
+    {
+        $ret = [];
+
+        /**
+         * @var $orderedListShapers ListShaperInterface[]
+         */
+        foreach ($orderedListShapers as $shaper) {
+            $reactsTo = $shaper->getReactsTo();
+            foreach ($reactsTo as $name) {
+                if (array_key_exists($name, $listParameters)) {
+                    $ret[$name] = $listParameters[$name];
+                    unset($listParameters[$name]);
+                }
+            }
+        }
+
+        // adding the rest of the params
+        foreach ($listParameters as $k => $v) {
+            $ret[$k] = $v;
+        }
+        return $ret;
+    }
+
+
+    private function getParam2Shapers(array $shapers)
+    {
+        $params2Shapers = [];
+        foreach ($shapers as $shaper) {
+            /**
+             * @var $shaper ShaperInterface
+             */
+            $params = $shaper->getReactsTo();
+            foreach ($params as $param) {
+                if ('*' === $param) {
+                    $params2Shapers[$param][] = $shaper;
+                } else {
+                    $params2Shapers[$param] = $shaper;
+                }
+            }
+        }
+        return $params2Shapers;
+    }
+
+    private function getOrderedListShapers()
+    {
+        $listShapers = $this->listShapers;
+        usort($listShapers, function (ListShaperInterface $listShaperA, ListShaperInterface $listShaperB) {
+            $p1 = (int)$listShaperA->getPriority();
+            $p2 = (int)$listShaperB->getPriority();
+            return $p1 > $p2;
+        });
+        return $listShapers;
+    }
+
 }

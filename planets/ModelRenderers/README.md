@@ -31,6 +31,14 @@ Models are found here: https://github.com/lingtalfi/Models
 History Log
 ------------------
     
+- 1.7.3 -- 2018-01-29
+
+    - fix AdminSidebarMenuRenderer nested items display problem
+    
+- 1.7.2 -- 2018-01-10
+
+    - fix AdminSidebarMenuRenderer doesn't complain when no sections is defined
+    
 - 1.7.1 -- 2017-05-07
 
     - fix DataTableRendererUtil headers

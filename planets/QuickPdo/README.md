@@ -110,6 +110,11 @@ $rows = QuickPdo::fetchAll($stmt, [
     'name' => '%'. str_replace('%','\%', $thename) .'%',
 ]);
 
+
+// or, if you don't want to allow the _ wildcard either, use the following
+$rows = QuickPdo::fetchAll($stmt, [
+    'name' => '%' . str_replace(['%', '_'], ['\%', '\_'], $thename) . '%',
+]);
 ```
 
 #### Fetch all to one dimensional array grouped by id example 
@@ -176,6 +181,34 @@ if (false !== ($lastId = QuickPdo::insert('mytable', [
 
 ```
 
+#### returning ric with insert
+
+By default, the insert method returns the last insert id.
+This is the fastest method.
+However, for tables which don't have auto-incremented keys, this might not be what you want.
+
+Instead, you might want to have the ric (array of cols => value identifying a unique row).
+This is what the fourth argument does. Set the fourth argument to true to return a ric from the insert method.
+ 
+```php
+a(QuickPdo::insert("di_group_has_page", [
+        "group_id" => 2,
+        "page_id" => 2,
+        "position" => '0',
+], '', true));
+
+
+
+// output...
+// array(2) {
+//   ["group_id"] => int(2)
+//   ["page_id"] => int(2)
+// }
+
+
+```
+
+
 ### Insert ignore
   
 ```php
@@ -189,6 +222,9 @@ if (false !== ($lastId = QuickPdo::insert('mytable', [
 }
 
 ```
+
+
+
 
 
 ### Delete
@@ -273,6 +309,28 @@ $rows = QuickPdo::update(
     ['nb_points' => ['nb_points+1']],
     [['id', '=', $userId]]
 );
+
+``````
+
+
+#### Mixing where syntax forms 
+  
+  
+```php
+        
+        
+QuickPdo::update("ek_user_has_product", [
+    "deleted_date" => date("Y-m-d H:i:s"),
+], [
+    ["user_id", "=", $userId],
+    " and deleted_date is null",
+]);
+
+
+// Will translate to:
+// update ek_user_has_product set `deleted_date`=:deleted_date WHERE `user_id` = :bzz_0 and deleted_date is null
+
+
 
 ``````
   
@@ -468,6 +526,7 @@ The QuickPdo planet includes some other classes that achieve various tasks:
 - [QuickPdoInfoTool](https://github.com/lingtalfi/QuickPdo/blob/master/QuickPdoInfoTool.md): a general companion for QuickPdo 
 - [QuickPdoStmtTool](https://github.com/lingtalfi/QuickPdo/blob/master/QuickPdoStmtTool.md): to manipulate statements
 - [QuickPdoInfoCacheUtil](https://github.com/lingtalfi/QuickPdo/blob/master/Util/QuickPdoInfoCacheUtil.md): a caching wrapper for QuickPdoInfoTool
+- [QuickPdoListInfoUtil](https://github.com/lingtalfi/QuickPdo/blob/master/Util/QuickPdoListInfoUtil.md): a tool to generate the info necessary to display a list
 
 
 
@@ -522,6 +581,134 @@ Then the results will look like this on the console:
  
 History Log
 ------------------
+    
+- 2.26.0 -- 2018-02-28
+
+    - migrate QuickPdoHelper::addDateRangeToQuery method to QuickPdoStmtTool::addDateRangeToQuery
+    
+- 2.25.0 -- 2018-02-28
+
+    - add QuickPdoHelper::addDateRangeToQuery method
+    
+- 2.24.0 -- 2018-02-27
+
+    - add QuickPdoStmtTool::hasWhere method
+    
+- 2.23.1 -- 2018-02-26
+
+    - fix QuickPdo::insert fourth argument returning 0 with lastInsertId
+    
+- 2.23.0 -- 2018-02-26
+
+    - add QuickPdo::insert optional fourth argument (returnRic)
+    
+- 2.22.1 -- 2018-02-23
+
+    - fix QuickPdoInfoTool::getReferencedKeysInfo now returns a map of referenced key to foreign key
+    
+- 2.22.0 -- 2018-02-23
+
+    - add QuickPdoInfoTool::getForeignKeysInfo's resolve argument
+    
+- 2.21.2 -- 2018-02-21
+
+    - fix QuickPdoInfoTool::getReferencedKeysInfo undefined indexes
+    
+- 2.21.1 -- 2018-02-21
+
+    - fix QuickPdoInfoTool::getReferencedKeysInfo not always returning the same array structure
+    
+- 2.21.0 -- 2018-02-21
+
+    - add QuickPdoInfoTool::getReferencedKeysInfo method 
+    
+- 2.20.2 -- 2018-02-16
+
+    - fix QuickPdoInfoTool::getPrimaryKey setting hasPrimaryKey flag erroneously 
+    
+- 2.20.2 -- 2018-02-16
+
+    - fix QuickPdo delete handling of table names containing spaces 
+    
+- 2.20.1 -- 2018-02-16
+
+    - fix QuickPdo insert/update/replace handling of table names containing spaces 
+    
+- 2.20.0 -- 2018-02-16
+
+    - add QuickPdoInfoTool::getPrimaryKey optional third argument: returnAllIfEmpty 
+    
+- 2.19.2 -- 2018-02-15
+
+    - fix QuickPdoInfoTool::getAutoIncrementedField, problem with unescaped tables 
+    
+- 2.19.1 -- 2018-02-09
+
+    - fix QuickPdoListInfoUtil::execute, problem with sort handling due to new columnMap syntax 
+    
+- 2.19.0 -- 2018-02-09
+
+    - enhance QuickPdoListInfoUtil::setRealColumnMap, columnMap syntax now accepts array of column names
+    
+- 2.18.0 -- 2018-01-31
+
+    - add QuickPdo::setOnDataAlterAfterCallback method
+    
+- 2.17.0 -- 2018-01-30
+
+    - add QuickPdoHelper object 
+    
+- 2.16.1 -- 2018-01-26
+
+    - enhance QuickPdoListInfoUtil.execute: more robust edge cases code handling 
+    
+- 2.16.0 -- 2018-01-25
+
+    - fix QuickPdoListInfoUtil.execute better filters and sort handling (escaping of names)
+    
+- 2.15.0 -- 2018-01-25
+
+    - now QuickPdo::transaction throws an exception by default in case of failed transaction
+    
+- 2.14.7 -- 2018-01-23
+
+    - enhance QuickPdoStmtTool.addWhereEqualsSubStmt now handles some dot notation
+    
+- 2.14.6 -- 2018-01-23
+
+    - enhance QuickPdoStmtTool.addWhereEqualsSubStmt now handles some cases with WHERE in the query
+    
+- 2.14.5 -- 2018-01-23
+
+    - fix QuickPdoListInfoUtil now makes distinction between symbolic and concrete column names
+    
+- 2.14.4 -- 2018-01-22
+
+    - fix QuickPdoListInfoUtil double where error
+    
+- 2.14.3 -- 2018-01-22
+
+    - enhance QuickPdoListInfoUtil now handles concat
+    
+- 2.14.2 -- 2018-01-22
+
+    - enhance QuickPdoListInfoUtil now handles aliases and dot notation
+    
+- 2.14.1 -- 2018-01-16
+
+    - removed QuickPdoListInfoUtil.allowedCols property
+    
+- 2.14.0 -- 2018-01-16
+
+    - enhance QuickPdoListInfoUtil.render now return nipp
+    
+- 2.13.1 -- 2018-01-16
+
+    - add QuickPdoListInfoUtil.nbPages property
+    
+- 2.13.0 -- 2018-01-16
+
+    - add QuickPdoListInfoUtil object
     
 - 2.12.0 -- 2017-10-17
 

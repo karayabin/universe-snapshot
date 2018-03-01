@@ -16,30 +16,14 @@ This is part of the [universe framework](https://github.com/karayabin/universe-s
 What's a model?
 ===========
 
-A model helps passing data to a template that takes only one php array as input.
+A model is a set of well defined properties (key/value pairs) representing an object.
 
-A model is like an api for the developer, used in order to create complex (or not so complex) arrays.
+Templates are responsible for displaying models.
 
-For instance, instead of creating the following array:
+The main idea behind models is that the same model can be interpreted by different templates.
 
-```php
-$potentiallyComplexArray = [ // this array will be used by a template
-    "name" => "john",
-    "age" => "26",
-];
-```
+So, with the same mould, we can create different variations, basically.
 
-You could use a model instead, like so:
-
-```php
-$potentiallyComplexArray = PersonModel::create()->name("john")->age(26)->getArray();
-```
-
-As you can see, we can now leverage the full power of oop to create potentially complex arrays.
-
-So, that's the goal of a model: it creates a php array using a php object.
- 
-A model is a php interface with one method: getArray.
 
 
 
@@ -57,13 +41,6 @@ Or just download it and place it where you want otherwise.
 
 
 
-Models
-===========
-
-- DataTable: represent a datatable widget
-- Notification: represent a list of notifications
-- AdminSidebarMenuModel: represent an admin sidebar menu
-
 
 
 Related
@@ -75,6 +52,34 @@ Related
 
 History Log
 ------------------
+    
+- 1.21.0 -- 2018-01-18
+
+    - update formModel -> 1.3.0
+    
+- 1.20.0 -- 2017-12-03
+
+    - add RepaymentSchedule model
+    
+- 1.19.1 -- 2017-11-27
+
+    - update formModel -> 1.2.1
+    
+- 1.19.0 -- 2017-11-27
+
+    - update formModel -> 1.2.0
+    
+- 1.18.0 -- 2017-11-27
+
+    - update formModel -> 1.1.0
+    
+- 1.17.0 -- 2017-11-24
+
+    - add formModel 1.0.0
+    
+- 1.16.0 -- 2017-11-15
+
+    - add ListBundle model
     
 - 1.15.0 -- 2017-08-26
 

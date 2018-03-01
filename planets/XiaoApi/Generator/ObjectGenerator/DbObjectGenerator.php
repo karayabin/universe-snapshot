@@ -104,6 +104,7 @@ class DbObjectGenerator
 
                 foreach ($types as $column => $type) {
                     if ($ai === $column) {
+                        $sDefaults .= $dPrefix . "'$column' => null," . PHP_EOL;
                         continue;
                     }
 

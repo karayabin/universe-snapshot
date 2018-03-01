@@ -54,6 +54,31 @@ class SaveOrmGeneratorInfo
         return new static($database, $table);
     }
 
+    public static function getTableDefaultValues($table)
+    {
+        return OrmToolsHelper::getPhpDefaultValuesByTables([$table], [
+            '*' => function ($type, $isNullable, $isAutoIncremented, $nbColumns, $isForeignKey) {
+                if (
+                    true === $isAutoIncremented ||
+                    true === $isNullable ||
+                    true === $isForeignKey
+                ) {
+                    return null;
+                }
+                switch ($type) {
+                    case 'int':
+                    case 'tinyint':
+                    case 'decimal':
+                        return 0;
+                        break;
+                    default:
+                        return '';
+                        break;
+                }
+            },
+        ]);
+    }
+
     public function getColumnsInfo()
     {
         $this->prepare();
@@ -162,7 +187,7 @@ class SaveOrmGeneratorInfo
         if (false === $this->prepared) {
             $fullTable = "$this->database.$this->table";
             $this->prepared = true;
-            $defaultValues = $this->getTableDefaultValues($this->table);
+            $defaultValues = self::getTableDefaultValues($this->table);
             $this->objectProps = array_keys($defaultValues);
             $this->ai = QuickPdoInfoTool::getAutoIncrementedField($this->table, $this->database);
             $this->foreignKeys = QuickPdoInfoTool::getForeignKeysInfo($this->table, $this->database);
@@ -281,30 +306,6 @@ class SaveOrmGeneratorInfo
 
     }
 
-    private function getTableDefaultValues($table)
-    {
-        return OrmToolsHelper::getPhpDefaultValuesByTables([$table], [
-            '*' => function ($type, $isNullable, $isAutoIncremented, $nbColumns, $isForeignKey) {
-                if (
-                    true === $isAutoIncremented ||
-                    true === $isNullable ||
-                    true === $isForeignKey
-                ) {
-                    return null;
-                }
-                switch ($type) {
-                    case 'int':
-                    case 'tinyint':
-                    case 'decimal':
-                        return 0;
-                        break;
-                    default:
-                        return '';
-                        break;
-                }
-            },
-        ]);
-    }
 
     private function stripTablePrefixes($table, array $prefixes)
     {

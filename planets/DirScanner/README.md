@@ -120,6 +120,10 @@ $dirs = YorgDirScannerTool::getDirs("/path/to/dir");
 History Log
 ------------------
     
+- 1.4.1 -- 2017-12-11
+
+    - update YorgDirScannerTool.getFilesWithExtension, extension matching system now accepts "long" extensions like "tpl.php"
+    
 - 1.4.0 -- 2017-04-18
 
     - add YorgDirScannerTool.getEntries method

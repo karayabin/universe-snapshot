@@ -47,6 +47,12 @@ abstract class TableCrudObject extends CrudObject
     abstract protected function getCreateData(array $data);
 
 
+    public static function getDefaults(array $unsafe = [])
+    {
+        $o = new static();
+        return $o->getCreateData($unsafe);
+    }
+
     public function create(array $data, $ifNotExistOnly = false)
     {
         $data = $this->getCreateData($data);
@@ -93,6 +99,7 @@ abstract class TableCrudObject extends CrudObject
     {
         $searchKeys = array_keys($whereValues);
         $searchKeys = array_merge($searchKeys, $this->primaryKey);
+        $searchKeys = array_unique($searchKeys);
 
 
         $searchKeys = array_map(function ($v) {
@@ -105,6 +112,7 @@ abstract class TableCrudObject extends CrudObject
         $markers = [];
         QuickPdoStmtTool::addWhereSubStmt($pdoWhere, $q, $markers);
         $row = QuickPdo::fetch($q, $markers);
+
 
         if (false === $row) {
             return $this->create($data);
