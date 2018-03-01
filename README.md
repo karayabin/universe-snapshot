@@ -4,7 +4,7 @@ Universe snapshot
 
 
 
-The universe is a multi-purpose library of php classes.
+The universe is an extendable multi-purpose library of php classes.
 
 
 
