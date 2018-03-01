@@ -60,6 +60,14 @@ You will end up with a universe-snapshots directory with the following structure
 Now that the universe is on your machine, you can use it.
 
 
+Alternately, you can use the [universe naive importer](https://github.com/lingtalfi/universe-naive-importer) (**uni**) tool, which
+is a console interface to the universe planets.
+The uni tool is actually a good way to manage your planets (I use it personally).
+
+
+
+
+
 Bigbang
 ------------------------------------------
 
