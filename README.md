@@ -59,13 +59,28 @@ You will end up with a universe-snapshots directory with the following structure
 
 Now that the universe is on your machine, you can use it.
 
+I personally always rename it to universe, and I would recommend you to do the same:
 
-Alternately, you can use the [universe naive importer](https://github.com/lingtalfi/universe-naive-importer) (**uni**) tool, which
+```bash
+mv universe-snapshots universe
+```
+
+
+
+Also, I like to (and recommend to) install the [universe naive importer](https://github.com/lingtalfi/universe-naive-importer) (**uni**) tool, which
 is a console interface to the universe planets.
-The uni tool is actually a good way to manage your planets (I use it personally).
+The uni tool is actually a good way to manage your planets.
+
+The https://github.com/karayabin/universe-snapshot is sometimes not up-to-date, while the uni tool manage planets at their sources and therefore always has the latest versions of the planets.
+Install the uni tool and perform this last step to ensure you are working with the latest versions of the planets:
+
+```bash
+cd universe
+uni importall -f
+```
 
 
-
+Now you are done :)
 
 
 Bigbang
