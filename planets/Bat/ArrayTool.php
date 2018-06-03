@@ -57,6 +57,21 @@ class ArrayTool
 
 
     /**
+     * Return an array with keys equal to values.
+     *
+     * @param array $values
+     * @return array
+     */
+    public static function keysSameAsValues(array $values): array
+    {
+        $ret = [];
+        foreach ($values as $value) {
+            $ret[$value] = $value;
+        }
+        return $ret;
+    }
+
+    /**
      * Like php range function, but the ranges applies on both the values and the keys
      * (i.e. not just the values like the php range function does)
      *
@@ -78,6 +93,25 @@ class ArrayTool
         }
     }
 
+
+    /**
+     * Insert the given row into the rows;
+     *
+     *
+     * @param $index
+     * @param array $entry
+     * @param array $rows , an array with numerical keys, each value being an array.
+     */
+    public static function insertRowAfter(int $index, array $row, array &$rows)
+    {
+        $zeIndex = $index + 1;
+        $start = array_slice($rows, 0, $zeIndex);
+        $end = array_slice($rows, $zeIndex);
+        $entryWrapped = [$row];
+        $rows = array_merge($start, $entryWrapped, $end);
+
+    }
+
     /**
      * Return the <base> array, with values overridden by
      * the <layer> (only if the key match).
@@ -93,5 +127,45 @@ class ArrayTool
         return array_merge($base, array_intersect_key($layer, $base));
     }
 
+
+    /**
+     * @param array $arr
+     * @param callable $callback
+     * @param array $options
+     *
+     *
+     * Example:
+     * (this will add the link property to every node in the array recursively)
+     *
+     *
+     * $linkFmt = "/mylink/{type}/{slug}";
+     * ArrayTool::updateNodeRecursive($ret, function (array &$row) use ($linkFmt) {
+     *      $row['link'] = str_replace([
+     *          "{type}",
+     *          "{slug}",
+     *      ], [
+     *          $row['type'],
+     *          $row['slug'],
+     *          ], $linkFmt);
+     * });
+     *
+     *
+     *
+     *
+     */
+    public static function updateNodeRecursive(array &$arr, callable $callback, array $options = [])
+    {
+        $childrenKey = $options['childrenKey'] ?? "children";
+        foreach ($arr as $k => $v) {
+            call_user_func_array($callback, [&$v]);
+
+            if (array_key_exists($childrenKey, $v) && $v[$childrenKey]) {
+                $children = $v[$childrenKey];
+                self::updateNodeRecursive($children, $callback, $options);
+                $v[$childrenKey] = $children;
+            }
+            $arr[$k] = $v;
+        }
+    }
 
 }

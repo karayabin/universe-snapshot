@@ -3,6 +3,7 @@
 
 namespace Kamille\Utils\Morphic\FormConfigurationProvider;
 
+use Kamille\Services\XLog;
 use Kamille\Utils\Morphic\Exception\MorphicException;
 
 
@@ -41,6 +42,7 @@ class FormConfigurationProvider implements FormConfigurationProviderInterface
         $file = $this->getFile($module, $identifier, $context);
         $conf = [];
         if (file_exists($file)) {
+            XLog::debug("[Kamille.Morphic.FormConfigurationProvider] -- using morphic form file with identifier: $identifier");
             include $file;
         } else {
             throw new MorphicException("File not found: $file");

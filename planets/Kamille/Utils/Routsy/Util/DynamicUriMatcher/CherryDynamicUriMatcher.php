@@ -4,10 +4,10 @@
 namespace Kamille\Utils\Routsy\Util\DynamicUriMatcher;
 
 
-
 use Kamille\Utils\Routsy\RoutsyUtil;
 
-class CherryDynamicUriMatcher{
+class CherryDynamicUriMatcher
+{
     /**
      *
      * Tags
@@ -20,10 +20,16 @@ class CherryDynamicUriMatcher{
      * - default tag:   {foo}
      * - slash tag:     {/foo}
      * - greedy tag:    {foo+}
+     * - dash tag:    {-foo}
+     * - dot tag:    {.foo}
      *
      *
      * The default tag must consume at least one char to validate.
      * It matches any char except a slash.
+     *
+     * The dash tag is similar, but matches any chars except a dash or a slash.
+     * The dot tag is similar, but matches any chars except a dot or a slash.
+     *
      *
      * The slash tag is optional, meaning that it can matches zero char.
      * Like the default slash, it matches any char except a slash.
@@ -59,19 +65,31 @@ class CherryDynamicUriMatcher{
      */
     public static function matchDynamic($pattern, $uri)
     {
+
+//        $d = ('/{category_slug}/{-category_id}-{slug+}' === $pattern);
+
         $ret = false;
         $patternVars = [];
         $slashTagVars = [];
         $greedyVars = [];
+        $dashTags = [];
+        $dotTags = [];
         // remove last slash if any
         $uri = RoutsyUtil::removeTrailingSlash($uri);
         // extract vars from pattern
-        if (preg_match_all('#(?<!\\\)\{\/?[a-zA-Z0-9_]+\+?(?<!\\\)\}#', $pattern, $matches, PREG_SET_ORDER)) {
+        if (preg_match_all('#(?<!\\\)\{[/.-]?[a-zA-Z0-9_]+\+?(?<!\\\)\}#', $pattern, $matches, PREG_SET_ORDER)) {
             foreach ($matches as $index => $match) {
                 $inner = substr($match[0], 1, -1);
-                if ('/' === substr($inner, 0, 1)) {
+                $firstChar = substr($inner, 0, 1);
+                if ('/' === $firstChar) {
                     $inner = substr($inner, 1);
                     $slashTagVars[] = $inner;
+                } elseif ('-' === $firstChar) {
+                    $inner = substr($inner, 1);
+                    $dashTags[] = $inner;
+                } elseif ('.' === $firstChar) {
+                    $inner = substr($inner, 1);
+                    $dotTags[] = $inner;
                 } elseif ('+' === substr($inner, -1)) {
                     $inner = substr($inner, 0, -1);
                     $greedyVars[] = $inner;
@@ -81,6 +99,8 @@ class CherryDynamicUriMatcher{
         }
         // convert to regex
         $regex = '!^' . preg_quote($pattern, '!') . '$!';
+
+
         // if pattern used \{, it will contains two escape chars (because of preg_quote).
         $regex = str_replace([
             '\\\\{',
@@ -96,10 +116,25 @@ class CherryDynamicUriMatcher{
             '+',
         ], $regex);
         if ($patternVars) {
+
+
+
+
+
             foreach ($patternVars as $varName) {
                 if (false === in_array($varName, $slashTagVars, true)) {
                     if (false === in_array($varName, $greedyVars, true)) {
-                        $regex = str_replace('{' . $varName . '}', '([^/]*+)', $regex);
+                        if (false === in_array($varName, $dashTags, true)) {
+                            if (false === in_array($varName, $dotTags, true)) {
+                                $regex = str_replace('{' . $varName . '}', '([^/]*+)', $regex);
+                            } else {
+                            // note the dot has been escaped by the preg_quote function
+                                $regex = str_replace('{\\.' . $varName . '}', '([^/.]*+)', $regex);
+                            }
+                        } else {
+                            // note the dash has been escaped by the preg_quote function
+                            $regex = str_replace('{\\-' . $varName . '}', '([^/-]*+)', $regex);
+                        }
                     } else {
                         $regex = str_replace('{' . $varName . '+}', '(.*)', $regex);
                     }
@@ -108,8 +143,10 @@ class CherryDynamicUriMatcher{
                 }
             }
         }
+
+
+
         // perform the matching
-//        a($regex, $uri);
         if (preg_match($regex, $uri, $matches)) {
             $ret = array();
             array_shift($matches); // drop the first key (whole match) to synchronize the matching with patternVars

@@ -53,6 +53,15 @@ class HtmlPageHelper
             echo "\t" . '<meta ' . self::htmlAttributes($attr) . '>' . PHP_EOL;
         }
 
+
+        if (true) {
+            $keyWords = implode(', ', self::$keywords);
+            if ($keyWords) {
+                echo "\t" . '<meta name="keywords" content="' . htmlspecialchars($keyWords) . '">' . PHP_EOL;
+
+            }
+        }
+
         foreach (self::$metaBlocks as $str) {
             echo $str . PHP_EOL;
         }

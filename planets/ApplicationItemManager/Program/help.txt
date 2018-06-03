@@ -11,6 +11,8 @@ myprog import {item}                       # import an item and its dependencies
 myprog import -f {item}                    # import an item and its dependencies, replace already existing item(s)/dependencies
 myprog importall {repoId}?                 # import all items at once, skip already existing item(s)/dependencies
 myprog importall {repoId}? -f              # import all items at once, replace already existing item(s)/dependencies
+myprog updateall                           # try to update all existing items at once (equivalent of git pull with git)
+myprog reimport-existing {repoId}?         # re-import all existing items at once, replace already existing item(s)/dependencies
 myprog install {item}                      # install an item and its dependencies, will import them if necessary, skip already existing item(s)/dependencies
 myprog install -f {item}                   # install an item and its dependencies, will import them if necessary, replace already existing item(s)/dependencies
 myprog installall {repoId}?                # install all items at once, will import them if necessary, skip already existing item(s)/dependencies

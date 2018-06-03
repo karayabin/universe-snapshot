@@ -14,6 +14,34 @@ namespace QuickPdo;
 class QuickPdoStmtTool
 {
 
+    /**
+     * Sometimes you need to create a query using the IN clause with strings, for instance this:
+     *
+     * select * from my_table where name in ('michel', 'boris');
+     *
+     * This method will help you create this query using a simple array of strings ([michel, boris] in this case).
+     *
+     *
+     * @param array $strings
+     * @param array $markers
+     * @param string $markerPrefix , it's recommended to use only alphanumeric chars (unless you know exactly what you are doing)
+     * @return string, the string to insert inside the parenthesis of the IN() statement.
+     *              Every value inside uses a marker (so you don't need to worry about the quoting)
+     */
+    public static function prepareInString(array $strings, array &$markers = [], string $markerPrefix = null)
+    {
+        $_markers = [];
+        if (null === $markerPrefix) {
+            $markerPrefix = "mark";
+        }
+        $c = 0;
+        foreach ($strings as $string) {
+            $marker = $markerPrefix . $c++;
+            $markers[$marker] = $string;
+            $_markers[] = ":$marker";
+        }
+        return implode(', ', $_markers);
+    }
 
     public static function addDateRangeToQuery(&$q, array &$markers = [], $dateStart = null, $dateEnd = null, $dateCol = null)
     {
@@ -52,7 +80,6 @@ class QuickPdoStmtTool
             }
         }
     }
-
 
 
     public static function hasWhere($query)
@@ -123,6 +150,7 @@ class QuickPdoStmtTool
 
                 // if the previous cond was a glue, do not inject the "AND" keyword 
                 $previousWasGlue = false;
+
                 foreach ($whereConds as $cond) {
                     if (is_array($cond)) {
                         list($field, $op, $val) = $cond;

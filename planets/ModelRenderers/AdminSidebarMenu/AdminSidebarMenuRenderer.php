@@ -63,7 +63,10 @@ class AdminSidebarMenuRenderer extends AbstractRenderer
     {
         ?>
         <li>
+
+
         <?php
+
 
         echo $this->renderItemLabel($item, $level);
         if (array_key_exists("items", $item) && count($item['items']) > 0) {

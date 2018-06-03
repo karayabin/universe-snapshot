@@ -9,6 +9,34 @@ use Kamille\Services\Exception\HooksException;
 use Kamille\Services\Exception\XException;
 use Kamille\Utils\ModuleInstallationRegister\ModuleInstallationRegister;
 
+
+/**
+ * Hook name
+ * =================
+ * As of today, there is no strict rule about hook name convention,
+ * but I personally believe the following syntax makes sense:
+ *
+ * - <module> "_" <areaOfTheModule> "_" <function>
+ *
+ * Example:
+ * - Ekom_Back_UserInfoController_decorateModel
+ * With:
+ *      - module: Ekom
+ *      - areaOfTheModule: Back_UserInfoController
+ *      - function: decorateModel
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ */
 class AbstractHooks
 {
 
@@ -83,6 +111,9 @@ class AbstractHooks
                                 break;
                             case "3":
                                 return call_user_func_array([static::class, $method], [&$param, $allParams[0], $allParams[1], $allParams[2]]);
+                                break;
+                            case "4":
+                                return call_user_func_array([static::class, $method], [&$param, $allParams[0], $allParams[1], $allParams[2], $allParams[3]]);
                                 break;
                             default:
                                 throw new HooksException("This case with $n arguments is not handled yet");

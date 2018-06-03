@@ -4,7 +4,7 @@
 namespace QuickPdo\Helper;
 
 
-use QuickPdo\QuickPdoStmtTool;
+use QuickPdo\QuickPdo;
 
 class QuickPdoHelper
 {
@@ -23,6 +23,13 @@ class QuickPdoHelper
             return self::$quickPdoMethods[$method];
         }
         return false;
+    }
+
+    public static function executeFile(string $file)
+    {
+        $content = file_get_contents($file);
+        QuickPdo::freeExec($content);
+
     }
 
 }

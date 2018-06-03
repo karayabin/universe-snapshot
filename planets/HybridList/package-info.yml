@@ -1,2 +1,3 @@
 dependencies:
     - git::/lingtalfi/Bat:1.87
+    - git::/lingtalfi/SqlQuery:1.0.0

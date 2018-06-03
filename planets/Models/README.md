@@ -53,6 +53,22 @@ Related
 History Log
 ------------------
     
+- 1.25.0 -- 2018-03-30
+
+    - add SimpleDropDownModel model
+    
+- 1.24.0 -- 2018-03-28
+
+    - add InfoTableModel hidden property to the model
+    
+- 1.23.0 -- 2018-03-27
+
+    - add InfoTableModel colTransfomers property to the model
+    
+- 1.22.0 -- 2018-03-27
+
+    - add InfoTableModel
+    
 - 1.21.0 -- 2018-01-18
 
     - update formModel -> 1.3.0

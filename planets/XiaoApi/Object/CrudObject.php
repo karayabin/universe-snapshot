@@ -4,46 +4,54 @@
 namespace XiaoApi\Object;
 
 
-use XiaoApi\Observer\ObserverInterface;
-
 class CrudObject
 {
-    /**
-     * Enable/Disable the hooks.
-     *
-     * When you're creating your own objects,
-     * you sometimes want to re-use other generated (tableCrud) objects,
-     * which by default use hooks.
-     * You can disable those hooks temporarily by using this $enableHooks property.
-     * Don't forget to put it back to true when you're done.
-     */
-    public static $enableHooks = true;
 
-    /**
-     * @var ObserverInterface
-     */
-    private $observer;
+    private static $inst = [];
+    private $listeners;
 
     public function __construct()
     {
-        $this->observer = null;
+        $this->listeners = [];
     }
 
-    public function setObserver(ObserverInterface $observer)
+    /**
+     * @return static
+     */
+    public static function getInst()
     {
-        $this->observer = $observer;
+        $class = get_called_class();
+        if (false === array_key_exists($class, self::$inst)) {
+            self::$inst[$class] = new static();
+
+        }
+        return self::$inst[$class];
+    }
+
+
+    //--------------------------------------------
+    //
+    //--------------------------------------------
+    public function trigger($eventName)
+    {
+        $listeners = $this->listeners[$eventName] ?? [];
+        if ($listeners) {
+            foreach ($listeners as $listener) {
+                call_user_func_array($listener, func_get_args());
+            }
+        }
         return $this;
     }
 
-    public function hook($hookType, $data)
+    public function addListener($eventName, callable $listener)
     {
-        if (true === self::$enableHooks && null !== $this->observer) {
-            $this->observer->hook($hookType, $data);
+        if (!is_array($eventName)) {
+            $eventName = [$eventName];
         }
+        foreach ($eventName as $evName) {
+            $this->listeners[$evName][] = $listener;
+        }
+        return $this;
     }
 
-    public static function getInst()
-    {
-        return new static();
-    }
 }

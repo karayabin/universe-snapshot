@@ -202,6 +202,14 @@ Hopefully this was helpful.
 History Log
 ------------------
    
+- 1.7.1 -- 2018-05-09
+
+    - fix SessionUser::setValues destroying the session inadvertently
+
+- 1.7.0 -- 2018-04-22
+
+    - add SessionUser::setValues method
+
 - 1.6.0 -- 2017-11-08
 
     - add SessionUser::getAll method

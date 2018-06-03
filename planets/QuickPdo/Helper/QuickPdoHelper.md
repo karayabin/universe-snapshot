@@ -14,6 +14,20 @@ A utility to help with various QuickPdo related tasks.
 
 
 
+executeFile
+----------------
+2018-04-13
+
+
+
+```php
+void  executeFile(string $file)
+```
+
+Execute sql statements in the given file.
+            
+
+
 getActiveMethod
 ----------------
 2018-01-30
@@ -44,4 +58,5 @@ With:
             - delete            
             
             
+
 

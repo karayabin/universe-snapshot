@@ -6,6 +6,7 @@ namespace SokoForm\ValidationRule;
 
 use SokoForm\Control\SokoControlInterface;
 use SokoForm\Form\SokoFormInterface;
+use SokoForm\Translator\SokoValidationRuleTranslator;
 
 class SokoValidationRule implements SokoValidationRuleInterface
 {
@@ -16,7 +17,7 @@ class SokoValidationRule implements SokoValidationRuleInterface
 
     public function __construct()
     {
-        $this->errorMessages['mandatory'] = "This field is mandatory";
+        $this->errorMessages['mandatory'] = SokoValidationRuleTranslator::getValidationMessageTranslation("mandatory");
         $this->preferences = [];
         $this->validationFunction = function ($value, array &$preferences, &$error = null, SokoFormInterface $form, SokoControlInterface $control) {
             return true;

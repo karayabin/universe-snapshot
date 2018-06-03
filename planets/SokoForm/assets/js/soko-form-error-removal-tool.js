@@ -12,18 +12,36 @@ if ('undefined' === typeof SokoFormErrorRemovalTool) {
 
         var instances = {};
 
+
+        function error(msg) {
+            throw new Error("[SokoFormErrorRemovalTool.error]: " + msg);
+        }
+
+
         window.SokoFormErrorRemovalTool = function (parameters) {
             this.context = parameters.context;
+            var cssId = $(parameters.context).attr('id');
+            if ('undefined' !== typeof cssId) {
+                instances[cssId] = this;
+            }
         };
 
 
-        SokoFormErrorRemovalTool.getInst = function (name, parameters) {
-            if ('undefined' === typeof name) {
+        // SokoFormErrorRemovalTool.getInst = function (name, parameters) {
+        //     if ('undefined' === typeof name) {
+        //
+        //         return new window.SokoFormErrorRemovalTool(parameters);
+        //     }
+        //     if (false === (name in instances)) {
+        //         instances[name] = new window.SokoFormErrorRemovalTool(parameters);
+        //     }
+        //     return instances[name];
+        // };
 
-                return new window.SokoFormErrorRemovalTool(parameters);
-            }
+
+        SokoFormErrorRemovalTool.getInst = function (name) {
             if (false === (name in instances)) {
-                instances[name] = new window.SokoFormErrorRemovalTool(parameters);
+                return false;
             }
             return instances[name];
         };
@@ -57,7 +75,7 @@ if ('undefined' === typeof SokoFormErrorRemovalTool) {
                     var jControl = jContext.find('[name="' + name + '"]');
                     if (jControl.is("input") || jControl.is("textarea")) {
                         var type = jControl.attr('type');
-                        if ("text" === type) {
+                        if ("text" === type || "password" === type) {
                             (function (theName, _jControl) {
                                 _jControl
                                     .off("keydown.dynamicErrorRemoval")

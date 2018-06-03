@@ -102,7 +102,83 @@ a(ArrayTool::getMissingKeys($arr, ['firstName', 'lastName']));  // false
 
 
 ```
-     
+
+
+    
+insertRowAfter
+-------------
+2018-04-30
+
+
+```php
+void    insertRowAfter ( int:index, array:row, array:&rows )
+```
+
+Insert the given row into the rows.
+
+
+### Example
+
+```php
+<?php 
+
+$arr = [
+    [
+        "name" => "peter",
+        "age" => "46",
+    ],
+    [
+        "name" => "andrea",
+        "age" => "28",
+    ],
+    [
+        "name" => "fabrizzio",
+        "age" => "13",
+    ],
+];
+
+ArrayTool::insertRowAfter(1, [
+    "name" => "mélanie",
+    "age" => "5",
+], $arr);
+
+
+a($arr); // melanie is now after andrea...
+
+```
+
+
+
+
+
+keysSameAsValues
+-------------
+2018-03-25
+
+
+```php
+array    keysSameAsValues ( array:values )
+```
+
+Return an array with keys equal to values.
+
+
+### Example
+
+```php
+<?php
+
+$values = ["blue", "red"];
+a(ArrayTool::keysSameAsValues($values));
+?>
+<pre>
+array(2) {
+  ["blue"] => string(4) "blue"
+  ["red"] => string(3) "red"
+}
+</pre>
+```
+
      
     
 mirrorRange
@@ -222,6 +298,52 @@ a($result);
 *    ["boo"] => int(78)
 *  }
 */
+
+```     
+     
+     
+
+
+
+
+
+updateNodeRecursive
+--------------
+2018-05-29
+     
+
+```php
+array    updateNodeRecursive (array &$arr, callable $callback, array $options = [])
+```
+
+Update the structure of a node collection recursively.
+Children nodes must be referenced directly in the nodes using the "children" key by default.
+
+
+Options:
+- childrenKey: string=children, the name of the key used to reference the children of a node
+
+
+
+### Example
+
+```php
+<?php
+
+$linkFmt = A::link("Ekom_category", [
+    "type" => '{type}',
+    "slug" => '{slug}',
+]);
+
+ArrayTool::updateNodeRecursive($ret, function (array &$row) use ($linkFmt) {
+        $row['link'] = str_replace([
+            "{type}",
+            "{slug}",
+        ], [
+            $row['type'],
+            $row['slug'],
+        ], $linkFmt);
+    });
 
 ```     
      

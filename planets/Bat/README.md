@@ -28,6 +28,7 @@ Tools       |       Description
 [ArrayTool]( https://github.com/lingtalfi/Bat/blob/master/ArrayTool.md )          |       Tools for manipulating arrays
 [CaseTool]( https://github.com/lingtalfi/Bat/blob/master/CaseTool.md )          |       Tools for converting a case to another
 [ClassTool]( https://github.com/lingtalfi/Bat/blob/master/ClassTool.md )          |       Tools for working with classes
+[ConvertTool]( https://github.com/lingtalfi/Bat/blob/master/ConvertTool.md )          |       Tools for working with conversion related tasks
 [DateTool]( https://github.com/lingtalfi/Bat/blob/master/DateTool.md )          |       Tools for working with dates
 [DebugTool]( https://github.com/lingtalfi/Bat/blob/master/DebugTool.md )          |       Tools for debugging
 [ExceptionTool]( https://github.com/lingtalfi/Bat/blob/master/ExceptionTool.md )          |       Tools for manipulating exception
@@ -61,6 +62,109 @@ Dependencies
 
 History Log
 ------------------
+    
+- 1.135 -- 2018-06-03
+
+    - change FileSystemTool::mkdir method's recursive option defaults to true
+
+- 1.134 -- 2018-06-03
+
+    - add UploadTool::getPhpFilesArrayFromFilesSuperArrayItem method
+
+- 1.133 -- 2018-06-03
+
+    - add UploadTool::getPhpFilesArrayFromCombinedStructure method
+
+- 1.132 -- 2018-06-03
+
+    - add ConvertTool
+
+- 1.131 -- 2018-05-29
+
+    - add ArrayTool::updateNodeRecursive method
+    
+- 1.130 -- 2018-05-24
+
+    - add DebugTool::getArrayPartial method
+
+- 1.129 -- 2018-05-22
+
+    - fix DebugTool::dumpVar dumping without returning
+
+- 1.128 -- 2018-05-22
+
+    - add DebugTool::dumpVar method
+
+- 1.127 -- 2018-05-01
+
+    - add CaseTool toDash method
+    - add CaseTool toFlexibleDash method
+    - add CaseTool toPascal method
+    - add CaseTool toFlexiblePascal method
+    - add CaseTool toFlexibleCamel method
+    - add CaseTool toConstant method
+    - fix some other cases
+
+- 1.126 -- 2018-04-30
+
+    - add ArrayTool::insertRowAfter method
+
+- 1.125 -- 2018-04-27
+
+    - add SessionTool::remove method
+    
+- 1.124 -- 2018-04-14
+
+    - add ObTool::writeWithoutBuffering method
+
+- 1.123 -- 2018-04-12
+
+    - fix MathTool::getPercentagesByKeyValue problem with divide by zero
+    
+- 1.122 -- 2018-04-04
+
+    - fix StringTool::unserializeAsArray returning empty string (now returns an array)
+    
+- 1.121 -- 2018-04-04
+
+    - fix StringTool::unserializeAsArray returning null (now returns an array)
+    
+- 1.120 -- 2018-04-02
+
+    - now RandomTool::getRandomHash64 method uses php7 random_bytes if available
+
+- 1.119 -- 2018-03-27
+
+    - add RandomTool::getRandomColor method
+    
+- 1.118 -- 2018-03-25
+
+    - add FileTool::getFileSize method (migrated from FileSystemTool), and added a humanize parameter
+    
+- 1.117 -- 2018-03-25
+
+    - add ArrayTool::keysSameAsValues method
+    
+- 1.116 -- 2018-03-22
+
+    - add DebugTool::dump method
+    
+- 1.115 -- 2018-03-15
+
+    - add SessionTool::setFlag method
+    - add SessionTool::pickupFlag method
+    
+- 1.114 -- 2018-03-06
+
+    - add ClassTool::getMethodNames method
+    
+- 1.113 -- 2018-03-05
+
+    - add LocalHostTool::hasProgram method
+    
+- 1.112 -- 2018-03-01
+
+    - add RandomTool::lorem method
     
 - 1.111 -- 2018-02-28
 

@@ -20,6 +20,7 @@ class SokoTableFormRenderer extends SokoFormRenderer
     {
         $label = $this->getPreference("label", $preferences, "Submit");
         $attributes = $this->getPreference("attributes", $preferences, []);
+        $ninShadowId = $this->getPreference("ninShadowId", $preferences, false);
         $class = array_key_exists('class', $attributes) ? $attributes['class'] : "";
         unset($attributes['class']);
         ?>
@@ -32,6 +33,10 @@ class SokoTableFormRenderer extends SokoFormRenderer
                     >
                         <?php echo $label; ?>
                     </button>
+                    <?php if (false !== $ninShadowId): ?>
+                        <div class="nin-shadow-loader bionic-target" data-id="<?php echo $ninShadowId; ?>"
+                             style="margin-left:5px;"></div>
+                    <?php endif; ?>
                 </td>
             </tr>
         </table>
@@ -322,7 +327,7 @@ class SokoTableFormRenderer extends SokoFormRenderer
         ?>
 
         <?php foreach ($model['choices'] as $info): ?>
-        <?php $this->doRenderChoiceListWithNamesItemWidget($info, $values); ?>
+        <?php $this->doRenderChoiceListWithNamesItemWidget($info, $values, $preferences); ?>
         <?php if (false === $inline): ?><br><?php endif; ?>
 
 
@@ -330,7 +335,7 @@ class SokoTableFormRenderer extends SokoFormRenderer
         <?php
     }
 
-    protected function doRenderChoiceListWithNamesItemWidget(array $itemModel, array $values)
+    protected function doRenderChoiceListWithNamesItemWidget(array $itemModel, array $values, array $preferences = [])
     {
         list($name, $val, $label, $controlName) = $itemModel;
         $id = $this->formModel['form']['name'] . "-" . CaseTool::toDog($name) . "-" . CaseTool::toDog($val);

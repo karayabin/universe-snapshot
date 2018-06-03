@@ -51,7 +51,7 @@ class SqlRequestGenerator extends RequestGenerator
     public function getItems()
     {
         $this->infoArray = []; // reset?
-        $countRequest = $this->sqlRequest->getCountSqlRequest();
+        $countRequest = $this->sqlRequest->getCountSqlQuery();
         $markers = $this->sqlRequest->getMarkers();
 
 
@@ -62,7 +62,7 @@ class SqlRequestGenerator extends RequestGenerator
         $this->onNbItemsReady($nbItems);
 
 
-        $sqlRequest = $this->sqlRequest->getSqlRequest();
+        $sqlRequest = $this->sqlRequest->getSqlQuery();
         $rows = QuickPdo::fetchAll($sqlRequest, $markers, $this->pdoFetchStyle);
 
 

@@ -6,6 +6,7 @@ namespace SokoForm\ValidationRule;
 
 use SokoForm\Control\SokoControlInterface;
 use SokoForm\Form\SokoFormInterface;
+use SokoForm\Translator\SokoValidationRuleTranslator;
 
 class SokoInRangeValidationRule extends SokoValidationRule
 {
@@ -15,7 +16,7 @@ class SokoInRangeValidationRule extends SokoValidationRule
     {
         parent::__construct();
 
-        $this->setErrorMessage("The value must be comprised between {min} and {max}");
+        $this->setErrorMessage(SokoValidationRuleTranslator::getValidationMessageTranslation("inRange"));
 
 
         $this->preferences['min'] = 1;

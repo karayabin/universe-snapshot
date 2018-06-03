@@ -523,10 +523,11 @@ Want more?
 The QuickPdo planet includes some other classes that achieve various tasks:
 
 - [QuickPdoDbOperationTool](https://github.com/lingtalfi/QuickPdo/blob/master/QuickPdoDbOperationTool.md): to perform various database operations
-- [QuickPdoInfoTool](https://github.com/lingtalfi/QuickPdo/blob/master/QuickPdoInfoTool.md): a general companion for QuickPdo 
+- [QuickPdoInfoTool](https://github.com/lingtalfi/QuickPdo/blob/master/QuickPdoInfoTool.md): a general companion for QuickPdo
 - [QuickPdoStmtTool](https://github.com/lingtalfi/QuickPdo/blob/master/QuickPdoStmtTool.md): to manipulate statements
 - [QuickPdoInfoCacheUtil](https://github.com/lingtalfi/QuickPdo/blob/master/Util/QuickPdoInfoCacheUtil.md): a caching wrapper for QuickPdoInfoTool
 - [QuickPdoListInfoUtil](https://github.com/lingtalfi/QuickPdo/blob/master/Util/QuickPdoListInfoUtil.md): a tool to generate the info necessary to display a list
+- [QuickPdoAlterTool](https://github.com/lingtalfi/QuickPdo/blob/master/QuickPdoAlterTool.md): a wrapper for the alter statements
 
 
 
@@ -581,6 +582,86 @@ Then the results will look like this on the console:
  
 History Log
 ------------------
+
+- 2.39.0 -- 2018-04-30
+
+    - enhance QuickPdo::insert method's table argument, which now has a more permissive syntax
+
+- 2.38.0 -- 2018-04-20
+
+    - add QuickPdoStmtTool::prepareInString method
+    
+- 2.37.1 -- 2018-04-14
+
+    - enhance QuickPdoDbOperationTool::truncateTables now also reset the auto increment
+
+- 2.37.0 -- 2018-04-14
+
+    - add QuickPdoDbOperationTool::truncateTables method
+
+- 2.36.1 -- 2018-04-14
+
+    - fix QuickPdoAlterTool::addColumn no default type
+
+- 2.36.0 -- 2018-04-14
+
+    - add QuickPdoAlterTool::addColumn method
+
+- 2.35.0 -- 2018-04-14
+
+    - add QuickPdoInfoTool::tableHasColumn method
+
+- 2.34.0 -- 2018-04-14
+
+    - add QuickPdoDbOperationTool::truncateDatabase method
+
+- 2.33.0 -- 2018-04-13
+
+    - add QuickPdoHelper::executeFile method
+    
+- 2.32.0 -- 2018-04-11
+
+    - enhance QuickPdoListInfoUtil, now supports user markers
+
+- 2.31.1 -- 2018-04-01
+
+    - fix QuickPdo::transaction not being consistent with throwing an exception in case of error.
+
+- 2.31.0 -- 2018-03-28
+
+    - enhance QuickPdoListInfoUtil, now supports group by clause
+    
+- 2.30.1 -- 2018-03-28
+
+    - fix QuickPdoListInfoUtil sprintf function not adapted to inject fields in query
+    
+- 2.30.0 -- 2018-03-19
+
+    - replaced QuickPdoListInfoUtil.setBetweens method by the more flexible setOperators method
+    
+- 2.29.0 -- 2018-03-19
+
+    - add QuickPdoListInfoUtil.setBetweens method
+    
+- 2.28.2 -- 2018-03-19
+
+    - fix QuickPdoListInfoUtil::execute method's conflicts with marker names in where and having clauses
+    
+- 2.28.1 -- 2018-03-12
+
+    - fix QuickPdo::transaction's return consistency
+    
+- 2.28.0 -- 2018-03-10
+
+    - add QuickPdoListInfoUtil now understands having clauses
+    
+- 2.27.0 -- 2018-03-10
+
+    - add QuickPdo::fetchAll count argument
+    
+- 2.26.1 -- 2018-03-09
+
+    - fix QuickPdoListInfoUtil::execute not treating query cols with parenthesis correctly
     
 - 2.26.0 -- 2018-02-28
 

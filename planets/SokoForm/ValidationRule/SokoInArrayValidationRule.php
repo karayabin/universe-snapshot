@@ -7,6 +7,7 @@ namespace SokoForm\ValidationRule;
 use SokoForm\Control\SokoControlInterface;
 use SokoForm\Exception\SokoFormException;
 use SokoForm\Form\SokoFormInterface;
+use SokoForm\Translator\SokoValidationRuleTranslator;
 
 class SokoInArrayValidationRule extends SokoValidationRule
 {
@@ -16,7 +17,7 @@ class SokoInArrayValidationRule extends SokoValidationRule
     {
         parent::__construct();
 
-        $this->setErrorMessage("The value must be one of {sArray}");
+        $this->setErrorMessage(SokoValidationRuleTranslator::getValidationMessageTranslation("inArray"));
 
 
         $this->preferences['array'] = [];
@@ -42,7 +43,13 @@ class SokoInArrayValidationRule extends SokoValidationRule
                         $values = $array;
                     }
 
-                    if (!in_array($value, $values, true)) {
+
+                    // posted values from form always are strings
+                    $stringValues = array_map("strval", $values);
+
+
+
+                    if (!in_array((string)$value, $stringValues, true)) {
                         $preferences['sArray'] = implode(', ', $labels);
                         $error = $this->getErrorMessage();
                         return false;

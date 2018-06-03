@@ -56,10 +56,6 @@ interface StepFormBuilderInterface
     public function getStepKey();
 
 
-    /**
-     * Use this to programmatically and temporarily switch to a step.
-     * It has the same effect as clicking on a step's bar
-     */
     public function setActiveStep($id);
 
 

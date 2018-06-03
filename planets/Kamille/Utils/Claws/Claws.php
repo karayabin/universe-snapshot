@@ -12,6 +12,7 @@ class Claws implements ClawsInterface
      * @var ClawsLayout|string, the layout template
      */
     private $layout;
+    private $layoutVariables;
 
     /**
      * @var ClawsWidget[]
@@ -28,6 +29,7 @@ class Claws implements ClawsInterface
 
     public function __construct()
     {
+        $this->layoutVariables = [];
         $this->widgets = [];
         $this->widgetId2Pos = [];
         $this->orderedIds = null;
@@ -47,7 +49,7 @@ class Claws implements ClawsInterface
      *                      the default ClawsLayout instance will be used to hold it.
      * @return $this
      */
-    public function setLayout($layout)
+    public function setLayout(string $layout)
     {
         if (is_string($layout)) {
             $layout = ClawsLayout::create()->setTemplate($layout);
@@ -55,6 +57,21 @@ class Claws implements ClawsInterface
         $this->layout = $layout;
         return $this;
     }
+
+    /**
+     * @return array
+     */
+    public function getLayoutVariables(): array
+    {
+        return $this->layoutVariables;
+    }
+
+    public function setLayoutVariables(array $layoutVariables)
+    {
+        $this->layoutVariables = $layoutVariables;
+        return $this;
+    }
+
 
     /**
      * @return ClawsWidget[]
@@ -75,17 +92,30 @@ class Claws implements ClawsInterface
      * @param $position , string: the widget position as defined in doc/claws/widget-position.md
      * @return $this
      */
-    public function setWidget($id, ClawsWidget $widget, $position = null)
+    public function setWidget(string $id, ClawsWidget $widget, string $position = null)
     {
         $this->widgets[$id] = $widget;
         $this->widgetId2Pos[$id] = $position;
         return $this;
     }
 
-    public function removeWidget($id)
+    public function removeWidget(string $id)
     {
         unset($this->widgets[$id]);
         unset($this->widgetId2Pos[$id]);
+        return $this;
+    }
+
+    public function removeWidgetsByPosition(string $position)
+    {
+        foreach ($this->widgetId2Pos as $id => $pos) {
+            $p = explode('.', $id, 2);
+            $widgetPos = $p[0];
+            if ($position === $widgetPos) {
+                unset($this->widgets[$id]);
+                unset($this->widgetId2Pos[$id]);
+            }
+        }
         return $this;
     }
 
@@ -108,6 +138,7 @@ class Claws implements ClawsInterface
         $arr = [
             "layout" => [
                 'tpl' => $layout->getTemplate(),
+                'conf' => $this->layoutVariables,
             ],
             "widgets" => $widgetsConf,
 
@@ -192,4 +223,13 @@ class Claws implements ClawsInterface
         return $this->orderedIds;
     }
 
+
+    public function reset()
+    {
+        $this->layout = null;
+        $this->widgets = [];
+        $this->widgetId2Pos = [];
+        $this->orderedIds = null;
+        return $this;
+    }
 }

@@ -4,6 +4,7 @@ namespace ApplicationItemManager\Installer;
 
 
 use ApplicationItemManager\Exception\ApplicationItemManagerException;
+use ApplicationItemManager\Helper\KamilleApplicationItemManagerHelper;
 
 class KamilleModuleInstaller extends LingAbstractItemInstaller
 {
@@ -20,7 +21,7 @@ class KamilleModuleInstaller extends LingAbstractItemInstaller
     //--------------------------------------------
     protected function getInstallerClass($itemName)
     {
-        return 'Module\\' . $itemName . '\\' . $itemName . "Module";
+        return KamilleApplicationItemManagerHelper::getInstallerClass($itemName);
     }
 
     protected function getFile()

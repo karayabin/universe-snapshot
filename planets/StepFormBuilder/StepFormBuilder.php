@@ -27,7 +27,6 @@ class StepFormBuilder implements StepFormBuilderInterface
     private $stepKey;
     private $resetKey;
     private $groups;
-    private $activeStepTmp;
 
     /**
      * @var PoolInterface
@@ -47,7 +46,6 @@ class StepFormBuilder implements StepFormBuilderInterface
         $this->groupCpt = 0;
         $this->groups = [];
         $this->pool = null;
-        $this->activeStepTmp = null;
     }
 
 
@@ -129,7 +127,7 @@ class StepFormBuilder implements StepFormBuilderInterface
 
     public function setActiveStep($id)
     {
-        $this->activeStepTmp = $id;
+        $this->getPool()->setPoolValue('active', $id);
         return $this;
     }
 
@@ -145,13 +143,10 @@ class StepFormBuilder implements StepFormBuilderInterface
         return $this;
     }
 
-
-    public function debug()
+    public function debug() //override me
     {
-        a($_POST);
-        a($this->getPool()->getPool());
-    }
 
+    }
 
     //--------------------------------------------
     //
@@ -186,12 +181,6 @@ class StepFormBuilder implements StepFormBuilderInterface
 
             $this->initialized = true;
             $data = $_POST;
-
-
-            if (null !== $this->activeStepTmp) {
-                $data[$this->stepKey] = $this->activeStepTmp;
-                $this->activeStepTmp = null;
-            }
 
 
             $pool = $this->getPool()->getPool();

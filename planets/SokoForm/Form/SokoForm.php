@@ -70,6 +70,7 @@ class SokoForm implements SokoFormInterface
      */
     private $prepared;
     private $model;
+    private $groups;
 
     public function __construct()
     {
@@ -77,13 +78,14 @@ class SokoForm implements SokoFormInterface
         $this->method = "post";
         $this->action = "";
         $this->id = null;
-        $this->class = null;
+        $this->class = [];
         $this->enctype = null;
         $this->controls = [];
         $this->notifications = [];
         $this->validationRules = [];
         $this->prepared = false;
         $this->model = null;
+        $this->groups = [];
         $this->init();
     }
 
@@ -115,8 +117,13 @@ class SokoForm implements SokoFormInterface
 
     public function getClass()
     {
-        return $this->class;
+        $class = $this->class;
+        if (is_array($class)) {
+            $class = implode(" ", $class);
+        }
+        return $class;
     }
+
 
     public function getEnctype()
     {
@@ -134,14 +141,29 @@ class SokoForm implements SokoFormInterface
             $attr['id'] = $this->id;
         }
 
-        if (null !== $this->class) {
-            $attr['class'] = $this->class;
+        if (null !== $this->class && $this->class) {
+            $class = $this->class;
+            if (!is_array($class)) { // backward compatibility
+                $class = [$class];
+            }
+            $attr['class'] = implode(" ", $class);
         }
 
         if (null !== $this->enctype) {
             $attr['enctype'] = $this->enctype;
         }
         return $attr;
+    }
+
+    public function setGroups(array $groups)
+    {
+        $this->groups = $groups;
+        return $this;
+    }
+
+    public function getGroups()
+    {
+        return $this->groups;
     }
 
     public function getFormAttributesAsString()
@@ -214,7 +236,7 @@ class SokoForm implements SokoFormInterface
      *                      fn ( array $context, SokoFormInterface $form )
      *
      * @param array|null $context
-     * @return null
+     * @return mixed (bool|null)
      */
     public function process(callable $onSuccess, array $context = null)
     {
@@ -238,13 +260,11 @@ class SokoForm implements SokoFormInterface
                 $context = $_GET;
             }
         }
-
-
-
         //--------------------------------------------
         // CHECKING WHETHER OR NOT THE FORM IS SUBMITTED
         //--------------------------------------------
         if (array_key_exists($this->name, $context)) { // now the form is posted
+
 
             /**
              * Note: I'm not sure whether the context should be filtered,
@@ -339,10 +359,16 @@ class SokoForm implements SokoFormInterface
             // WE CAN JUST CALL THE SUCCESS CALLBACK
             //--------------------------------------------
             if (true === $formIsValid) {
-                call_user_func($onSuccess, $filteredContext, $this);
+                $res = call_user_func($onSuccess, $filteredContext, $this);
+                if (false === $res) {
+                    $formIsValid = false;
+                }
             }
 
+
+            return $formIsValid;
         }
+        return null;
     }
 
 
@@ -374,12 +400,25 @@ class SokoForm implements SokoFormInterface
             // NOW PREPARING CONTROL PARTS
             //--------------------------------------------
             $controls = [];
+
+            /**
+             * We collect form errors using this technique, because it's very probable
+             * that an user calls the getControl()->addError() method inside the process method's callback,
+             * and so we have to parse controls individually to get all form errors...
+             */
+            $formErrors = [];
             foreach ($this->controls as $name => $control) {
                 /**
                  * @var $control SokoControlInterface
                  */
                 $controls[$name] = $control->getModel();
                 $controls[$name]['class'] = ClassTool::getShortName($control);
+//                $controls[$name]['control'] = $control;
+
+                $controlErrors = $control->getErrors();
+                if ($controlErrors) {
+                    $formErrors[$name] = $control->getErrors();
+                }
             }
 
 
@@ -393,10 +432,11 @@ class SokoForm implements SokoFormInterface
                     'class' => $this->class,
                     'attributeString' => $this->getFormAttributesAsString(),
                     'attributes' => $this->getAttributes(),
-                    'errors' => [],
+                    'errors' => $formErrors,
                     'notifications' => $this->notifications,
                 ],
                 'controls' => $controls,
+                'validationRules' => $this->validationRules,
             ];
         }
 
@@ -434,6 +474,27 @@ class SokoForm implements SokoFormInterface
         return $this;
     }
 
+    public function setId(string $id)
+    {
+        $this->id = $id;
+        return $this;
+    }
+
+    public function setClass($class)
+    {
+        if (!is_array($class)) {
+            $class = [$class];
+        }
+        $this->class = $class;
+        return $this;
+    }
+
+
+    public function addClass(string $class)
+    {
+        $this->class[] = $class;
+        return $this;
+    }
 
     public function setValidationRulesLang($validationRulesLang)
     {
@@ -502,18 +563,17 @@ class SokoForm implements SokoFormInterface
                  */
                 $translation = $error;
             }
-
-
-            $keys = array_keys($tags);
-            $values = array_values($tags);
-            $keys = array_map(function ($v) {
-                return "{" . $v . "}";
-            }, $keys);
-            return str_replace($keys, $values, $translation);
-
-
+        } else {
+            $translation = $error;
         }
-        return $error;
+        $keys = array_keys($tags);
+        $values = array_values($tags);
+        $keys = array_map(function ($v) {
+            return "{" . $v . "}";
+        }, $keys);
+        return str_replace($keys, $values, $translation);
+
+
     }
 
 }

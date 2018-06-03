@@ -4,6 +4,7 @@ namespace ApplicationItemManager\Installer;
 
 
 use ApplicationItemManager\Exception\ApplicationItemManagerException;
+use ApplicationItemManager\Helper\KamilleApplicationItemManagerHelper;
 use ApplicationItemManager\Installer\Exception\InstallerException;
 use Output\ProgramOutputAwareInterface;
 use Output\ProgramOutputInterface;
@@ -119,7 +120,10 @@ abstract class LingAbstractItemInstaller implements InstallerInterface
         /**
          * If the item instance is not there, maybe it was not imported in the first place,
          * we don't want to alarm the user with that, just proceed to uninstalling
-         * the item from the list...
+         * the item from the list (of installed modules)...
+         *
+         * Note that it's possible that the module name has been already removed,
+         * in which case we still have a successful uninstall.
          */
 
         $this->msg("uninstalled", $itemName);
@@ -131,7 +135,7 @@ abstract class LingAbstractItemInstaller implements InstallerInterface
                 return true;
             }
         }
-        return false;
+        return true;
     }
 
     //--------------------------------------------
@@ -157,7 +161,8 @@ abstract class LingAbstractItemInstaller implements InstallerInterface
         }
     }
 
-    protected function prepareItemInstaller($object){
+    protected function prepareItemInstaller($object)
+    {
 
     }
 
@@ -173,14 +178,11 @@ abstract class LingAbstractItemInstaller implements InstallerInterface
 
     private function getInstallerInstance($item, $throwEx = true)
     {
-        $class = $this->getInstallerClass($item);
-        if (class_exists($class)) {
-            return new $class;
+        try {
+            return KamilleApplicationItemManagerHelper::getInstallerInstance($item, $throwEx);
+        } catch (\Exception $e) {
+            throw new InstallerException($e->getMessage());
         }
-        if (true === $throwEx) {
-            throw new InstallerException("Instance of $class not found");
-        }
-        return false;
     }
 
 }

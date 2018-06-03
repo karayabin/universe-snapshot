@@ -38,6 +38,20 @@ interface LocalysInterface
      */
     public function getLongDate($timestamp);
 
+
+    /**
+     * Same as getLongDate, but also includes time info.
+     * For instance, in french: 2018-05-04 11:02:39
+     * could translate to: 04 mai 2018 à 11h02
+     *
+     * Note: seconds might be dropped (as we generally don't need that much precision).
+     *
+     *
+     * @param $timestamp
+     * @return string, the long date with time
+     */
+    public function getLongDateWithTime($timestamp);
+
     /**
      * Like getLongDate, but also adds the name of the day.
      * Example of longer date in french:

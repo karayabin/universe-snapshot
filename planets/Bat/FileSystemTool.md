@@ -188,13 +188,7 @@ getFileSize
 2015-10-25
 
 
-```php
-int|false    getFileSize ( string:file )
-```
-
-Returns the size in bytes of a given file.
-The file can be an url starting with http:// https://, or a filesystem file.
-
+See FileTool::getFileSize
 
 
 
@@ -204,7 +198,7 @@ mkdir
 
 
 ```php
-bool    mkdir ( string:pathName, octal:mode = 0777, bool:recursive = false, resource:context? )
+bool    mkdir ( string:pathName, octal:mode = 0777, bool:recursive = true, resource:context? )
 ```
 
 

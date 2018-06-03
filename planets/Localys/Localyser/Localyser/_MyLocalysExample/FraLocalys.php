@@ -40,6 +40,16 @@ class FraLocalys extends BaseLocalys
         return str_replace('__', $this->getMonth(date("m", $timestamp)), $s);
     }
 
+
+    /**
+     *
+     * 1 juillet 2017 à 12h46
+     */
+    public function getLongDateWithTime($timestamp)
+    {
+        return $this->getLongDate($timestamp) . " à " . date("H\hi", $timestamp);
+    }
+
     /**
      *
      * mardi 1 juillet 2017

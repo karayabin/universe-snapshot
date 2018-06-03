@@ -7,6 +7,7 @@ namespace SokoForm\ValidationRule;
 use Bat\ValidationTool;
 use SokoForm\Control\SokoControlInterface;
 use SokoForm\Form\SokoFormInterface;
+use SokoForm\Translator\SokoValidationRuleTranslator;
 
 class SokoAtLeastXCharsValidationRule extends SokoValidationRule
 {
@@ -16,7 +17,7 @@ class SokoAtLeastXCharsValidationRule extends SokoValidationRule
     {
         parent::__construct();
 
-        $this->setErrorMessage("The field must contain at least {minChars} characters");
+        $this->setErrorMessage(SokoValidationRuleTranslator::getValidationMessageTranslation("minLength"));
         $this->preferences['minChars'] = 5;
 
         $this->setValidationFunction(function ($value, array &$preferences, &$error = null, SokoFormInterface $form, SokoControlInterface $control) {

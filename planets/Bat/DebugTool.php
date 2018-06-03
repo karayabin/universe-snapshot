@@ -10,6 +10,68 @@ use BeeFramework\Bat\ReflectionTool;
 class DebugTool
 {
 
+
+    public static function dump()
+    {
+        foreach (func_get_args() as $arg) {
+            ob_start();
+            var_dump($arg);
+            $output = ob_get_clean();
+            if ('1' !== ini_get('xdebug.default_enable')) {
+                $output = preg_replace("!\]\=\>\n(\s+)!m", "] => ", $output);
+            }
+            if ('cli' === PHP_SAPI) {
+                echo $output;
+            } else {
+                echo '<pre>' . $output . '</pre>';
+            }
+        }
+    }
+
+    public static function dumpVar($var, $return = true)
+    {
+
+        ob_start();
+        var_dump($var);
+        $output = ob_get_clean();
+
+
+        ob_start();
+        if ('1' !== ini_get('xdebug.default_enable')) {
+            $output = preg_replace("!\]\=\>\n(\s+)!m", "] => ", $output);
+        }
+        if ('cli' === PHP_SAPI) {
+            echo $output;
+        } else {
+            echo '<pre>' . $output . '</pre>';
+        }
+        $ret = ob_get_clean();
+        if (true === $return) {
+            return $ret;
+        }
+        echo $ret;
+    }
+
+
+    public static function getArrayPartial(array $arr, array $options = [])
+    {
+        $ret = [];
+        $includes = $options['include'] ?? [];
+        $excludes = $options['exclude'] ?? [];
+        if ($includes) {
+            foreach ($includes as $dotPath) {
+                $ret[$dotPath] = BDotTool::getDotValue($dotPath, $arr);
+            }
+        } elseif ($excludes) {
+            $ret = $arr;
+            foreach ($excludes as $dotPath) {
+                BDotTool::unsetDotValue($dotPath, $ret);
+            }
+        }
+        return $ret;
+    }
+
+
     public static function toString($thing)
     {
         /**
@@ -36,8 +98,6 @@ class DebugTool
         }
         return (string)$thing;
     }
-
-
 
 
     //--------------------------------------------

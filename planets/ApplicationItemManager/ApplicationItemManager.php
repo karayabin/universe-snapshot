@@ -5,11 +5,14 @@ namespace ApplicationItemManager;
 
 
 use ApplicationItemManager\Exception\ApplicationItemManagerException;
+use ApplicationItemManager\Helper\KamilleApplicationItemManagerHelper;
 use ApplicationItemManager\Importer\Exception\ImporterException;
 use ApplicationItemManager\Importer\GithubImporter;
 use ApplicationItemManager\Importer\ImporterInterface;
 use ApplicationItemManager\Installer\InstallerInterface;
 use ApplicationItemManager\Repository\RepositoryInterface;
+use Bat\FileSystemTool;
+use Kamille\Module\DependencyAwareModuleInterface;
 
 
 class ApplicationItemManager implements ApplicationItemManagerInterface
@@ -220,6 +223,15 @@ class ApplicationItemManager implements ApplicationItemManagerInterface
         return $allOk;
     }
 
+    public function reimportExisting($repoId = null)
+    {
+
+        $items = $this->listImported();
+        foreach ($items as $item) {
+            $this->import($item, true);
+        }
+    }
+
 
     public function installAll($repoId = null, $force = false)
     {
@@ -318,6 +330,11 @@ class ApplicationItemManager implements ApplicationItemManagerInterface
         try {
             if (true === $this->installer->install($itemName)) {
                 $this->msg("itemInstalled", $itemName);
+                /**
+                 * We return true as to signal to also process dependencies.
+                 * If false were returned, the handleProcedure would not process the module dependencies.
+                 */
+                return true;
             } else {
                 $this->msg("itemNotInstalled", $itemName);
             }
@@ -661,7 +678,6 @@ class ApplicationItemManager implements ApplicationItemManagerInterface
         }
 
         $itemName = $this->getItemNameByItem($item);
-
         $r = $this->$method($itemName, $repoId, $force);
         if (false === $r) {
             return false;
@@ -671,8 +687,31 @@ class ApplicationItemManager implements ApplicationItemManagerInterface
             } elseif (array_key_exists($repoId, $this->repositories)) {
                 $itemName = $this->getItemNameByItem($item);
 
-                $repo = $this->repositories[$repoId];
-                $deps = $repo->$depMethod($itemName);
+
+                /**
+                 * Here we first try to ask the module if it knows its own dependencies (which it SHOULD by the way,
+                 * but in the original conception it wasn't...).
+                 * If it doesn't know, then we ask the repository if it knows about the module's dependencies.
+                 *
+                 * NOTE: you should not use the repository for such functional info: the repository can
+                 * be used to search for modules, and can potentially be aware of the modules dependencies,
+                 * however it is first the module's task to be aware of its own dependencies.
+                 *
+                 * (I'm mad that I didn't get that right the first time when ApplicationItemManager was implemented...)
+                 *
+                 */
+                $knowItsDependencies = false;
+                $oInstance = KamilleApplicationItemManagerHelper::getInstallerInstance($itemName, false);
+                if (false !== $oInstance) {
+                    if ($oInstance instanceof DependencyAwareModuleInterface) {
+                        $deps = $oInstance->getDependencies();
+                        $knowItsDependencies = true;
+                    }
+                }
+                if (false === $knowItsDependencies) {
+                    $repo = $this->repositories[$repoId];
+                    $deps = $repo->$depMethod($itemName);
+                }
 
                 $this->msg($depMsgType, $itemName, $deps);
                 $allDepsOk = true;

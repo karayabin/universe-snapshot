@@ -4,6 +4,7 @@
 namespace Kamille\Utils\Routsy\RouteCollection;
 
 
+use Core\Services\Hooks;
 use Kamille\Utils\Routsy\RoutsyUtil;
 
 /**
@@ -23,6 +24,7 @@ class RoutsyRouteCollection extends RouteCollection
     private $routsyDir;
     private $fileName;
     private $onRouteMatch;
+    private $decorateRoutesCallback;
 
 
     public function __construct()
@@ -39,11 +41,15 @@ class RoutsyRouteCollection extends RouteCollection
 
     public function getRoutes()
     {
-        $f = $this->routsyDir . "/" . $this->fileName . ".php";
-        if (file_exists($f)) {
-            $routes = [];
-            include $f;
-            $this->routes = $routes;
+        if (empty($this->routes)) {
+
+            $f = $this->routsyDir . "/" . $this->fileName . ".php";
+            if (file_exists($f)) {
+                $routes = [];
+                include $f;
+                $this->decorateRoutes($routes, $this->fileName);
+                $this->routes = $routes;
+            }
         }
         return parent::getRoutes();
     }
@@ -60,19 +66,36 @@ class RoutsyRouteCollection extends RouteCollection
     }
 
 
-
     public function setOnRouteMatch(callable $onRouteMatch)
     {
         $this->onRouteMatch = $onRouteMatch;
         return $this;
     }
 
-    public function routeMatched($routeId)
+    public function routeMatched($routeId, array $route)
     {
         if (null !== $this->onRouteMatch) {
-            call_user_func($this->onRouteMatch, $routeId);
+            call_user_func($this->onRouteMatch, $routeId, $route);
         }
     }
 
+    public function setDecorateRoutesCallback(callable $decorateRoutesCallback)
+    {
+        $this->decorateRoutesCallback = $decorateRoutesCallback;
+        return $this;
+    }
+
+
+
+
+    //--------------------------------------------
+    //
+    //--------------------------------------------
+    protected function decorateRoutes(array &$routes, $fileName)
+    {
+        if ($this->decorateRoutesCallback) {
+            call_user_func_array($this->decorateRoutesCallback, [&$routes, $fileName]);
+        }
+    }
 
 }

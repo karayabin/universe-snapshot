@@ -8,15 +8,19 @@ use ApplicationItemManager\ApplicationItemManagerInterface;
 use ArrayToString\ArrayToStringTool;
 use Authenticate\Util\ProfileMergeTool;
 use Bat\FileSystemTool;
+use Bat\FileTool;
+use Bat\LocalHostTool;
 use ClassCooker\ClassCooker;
+use ClassCooker\Helper\ClassCookerHelper;
 use CopyDir\SimpleCopyDirUtil;
 use DirScanner\DirScanner;
-use DirScanner\YorgDirScannerTool;
 use Kamille\Architecture\ApplicationParameters\ApplicationParameters;
 use Kamille\Module\ModuleInterface;
 use Kamille\Utils\ModuleInstallationRegister\ModuleInstallationRegister;
 use Kamille\Utils\Routsy\RoutsyUtil;
 use Kamille\Utils\Routsy\Util\ConfigGenerator\ConfigGenerator;
+use Output\ProgramOutputInterface;
+use Output\WebProgramOutput;
 
 class ModuleInstallTool
 {
@@ -34,6 +38,57 @@ class ModuleInstallTool
     {
         foreach ($widgets as $widget) {
             $manager->install($widget);
+        }
+    }
+
+    public static function installPlanets(array $planets, ModuleInterface $module, ProgramOutputInterface $output)
+    {
+        /**
+         * For now, our heuristics is based on the presence of the uni tool on the client machine:
+         *
+         * - check if the uni tool is installed
+         *      - if so, we will use it to import the planets
+         *      - if not, we will message the user to say WE CAN'T DO IT FOR NOW unless she installs uni tool
+         *
+         *
+         *
+         */
+
+        $isWeb = ('cli' !== php_sapi_name());
+        $program = "/usr/local/bin/uni";
+        $escapedProgram = str_replace('"', '\"', $program);
+        if (true === LocalHostTool::hasProgram($program)) {
+            $output->info("(following is the output of uni tool:)");
+            foreach ($planets as $planet) {
+
+                $appDir = ApplicationParameters::get('app_dir');
+                $cmd = 'cd "' . str_replace('"', '\"', $appDir) . '"; ' . $escapedProgram;
+                if ($isWeb) {
+                    $cmd .= ' --output-type-web';
+                }
+                $cmd .= ' import ' . $planet;
+//                $cmd .= '; ' . $escapedProgram . ' clean'; // make sure we don't have embedded .git files (which can mess up with the user organization)
+
+                /**
+                 * Then here a question arise: do we use uni tolink command ?
+                 * (I mean if the user already uses the tolink system, she might want to
+                 * import the dependency planets as symlinks as well).
+                 *
+                 * We can just detect for the aimp.txt file and will assume that if it's present, the user
+                 * uses the tolink system.
+                 */
+                $toLinkFile = $appDir . '/planets/aimp.txt';
+                if (file_exists($toLinkFile)) {
+                    $cmd .= '; ' . $escapedProgram . ' tolink';
+                }
+
+
+                passthru($cmd);
+            }
+        } else {
+            $planetsString = implode(", ", $planets);
+            $output->error("Sorry, you need to have the uni tool installer to resolve planet dependencies. 
+            The following planets cannot be installed: $planetsString. To install uni tool: https://github.com/lingtalfi/universe-naive-importer");
         }
     }
 
@@ -204,26 +259,89 @@ class ModuleInstallTool
 
         $appDir = ApplicationParameters::get('app_dir');
         if (is_dir($appDir)) {
-            $sourceAppDir = $appDir . "/class-modules/$moduleName/files/app";
-            if (file_exists($sourceAppDir)) {
-                DirScanner::create()->scanDir($sourceAppDir, function ($path, $rPath, $level) use ($appDir) {
-                    $targetEntry = $appDir . "/" . $rPath;
-                    /**
-                     * For now we don't follow symlinks.
-                     * We also don't delete directories, because we could potentially
-                     * remove important app directories.
-                     * Maybe this technique will be fine-tuned as time goes by.
-                     *
-                     */
-                    if (
-                        file_exists($targetEntry) &&
-                        !is_link($targetEntry) &&
-                        !is_dir($targetEntry)
-                    ) {
-                        FileSystemTool::remove($targetEntry);
-                    }
-                });
+
+
+            $removeEntriesFile = $appDir . "/class-modules/$moduleName/_remove-entries.txt";
+            if (file_exists($removeEntriesFile)) {
+
+                $lines = file($removeEntriesFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+                foreach ($lines as $entry) {
+                    $entry = str_replace('[app]', $appDir, $entry);
+                    FileSystemTool::remove($entry); // watch out, you have A LOT OF POWER with this...
+                }
+            } else {
+
+                //--------------------------------------------
+                // OLD DEPRECATED TECHNIQUE FOR REMOVING FILES
+                //--------------------------------------------
+                /**
+                 * Note because of the lack of specificity with the comment below
+                 * I'm not sure if we should remove directories,
+                 * and so we don't remove directories, which make the technique itself inefficient (to my opinion)
+                 */
+                $sourceAppDir = $appDir . "/class-modules/$moduleName/files/app";
+                if (file_exists($sourceAppDir)) {
+                    DirScanner::create()->scanDir($sourceAppDir, function ($path, $rPath, $level) use ($appDir) {
+                        $targetEntry = $appDir . "/" . $rPath;
+                        /**
+                         * For now we don't follow symlinks.
+                         * We also don't delete directories, because we could potentially
+                         * remove important app directories.
+                         * Maybe this technique will be fine-tuned as time goes by.
+                         *
+                         */
+                        if (
+                            file_exists($targetEntry) &&
+                            !is_link($targetEntry) &&
+                            !is_dir($targetEntry)
+                        ) {
+                            FileSystemTool::remove($targetEntry);
+                        }
+                    });
+                }
             }
+        }
+
+    }
+
+
+    public static function addInModuleTxt(ModuleInterface $module)
+    {
+        $moduleName = self::getModuleName($module);
+        $appDir = ApplicationParameters::get('app_dir');
+
+        $moduleTxtFile = $appDir . "/modules.txt";
+        if (file_exists($moduleTxtFile)) {
+            $lines = file($moduleTxtFile, \FILE_IGNORE_NEW_LINES | \FILE_SKIP_EMPTY_LINES);
+            $lines[] = $moduleName;
+            sort($lines);
+            $content = implode(PHP_EOL, $lines);
+
+        } else {
+            $content = $moduleName . PHP_EOL;
+        }
+        FileSystemTool::mkfile($moduleTxtFile, $content);
+
+    }
+
+
+    public static function removeFromModuleTxt(ModuleInterface $module)
+    {
+        $moduleName = self::getModuleName($module);
+        $appDir = ApplicationParameters::get('app_dir');
+
+        $moduleTxtFile = $appDir . "/modules.txt";
+        if (file_exists($moduleTxtFile)) {
+            $recreated = []; // we always ensure that the format is exactly how we want it: without ending spaces after module names...
+            $lines = file($moduleTxtFile, \FILE_IGNORE_NEW_LINES);
+            foreach ($lines as $l) {
+                $curModuleName = trim($l);
+                if ($moduleName !== $curModuleName) {
+                    $recreated[] = $curModuleName;
+                }
+            }
+            $content = implode(PHP_EOL, $recreated);
+            FileSystemTool::mkfile($moduleTxtFile, $content);
         }
 
     }
@@ -342,6 +460,7 @@ class ModuleInstallTool
         //--------------------------------------------
         // FIRST, CREATE THE PROVIDERS AND BIND OTHER MODULES TO IT
         //--------------------------------------------
+
         foreach ($providerMethods as $method) {
 
 
@@ -389,7 +508,45 @@ class ModuleInstallTool
                 }
                 $newInnerContent .= implode(PHP_EOL, $innerContents);
                 $methodContent = "\t" . $signature . PHP_EOL . "\t{" . PHP_EOL . $newInnerContent . "\t}" . PHP_EOL;
-                $hookCooker->addMethod($method, $methodContent);
+
+
+                $sectionLineNumber = ClassCookerHelper::getSectionLineNumber("Module $module", $xHooksFile);
+                $methodBoundaries = ClassCookerHelper::getMethodsBoundaries($xHooksFile);
+                if (false === $sectionLineNumber) {
+                    // section line number not found? find one
+                    // we find the range in which we can potentially insert our new section
+                    $rangeStart = null;
+                    $rangeEnd = null;
+                    foreach ($methodBoundaries as $_method => $methodRange) {
+                        $res = strcasecmp($_method, $module);
+                        if ($res < 0) {
+                            $rangeStart = $methodRange[1] + 1;
+                        } elseif ($res > 0) {
+                            $rangeEnd = $methodRange[0] - 1;
+                            break;
+                        }
+                    }
+                    if (null === $rangeStart) {
+                        $rangeStart = 1;
+                    }
+                    if (null === $rangeEnd) {
+                        $rangeEnd = FileTool::getNbLines($xHooksFile);
+                    }
+
+                    // assuming section have at least one blank line above them,
+                    // it means that we can take the previous method's end line +1 as our insert point
+                    $section = ClassCookerHelper::createSectionComment("Module $module");
+                    FileTool::insert($rangeStart, PHP_EOL . $section . PHP_EOL, $xHooksFile);
+                }
+
+
+                // now section line number should exist
+                if (false === array_key_exists($method, $methodBoundaries)) {
+
+                    $sectionLineNumber = ClassCookerHelper::getSectionLineNumber("Module $module", $xHooksFile);
+                    $lineInsertNumber = $sectionLineNumber + 3;
+                    FileTool::insert($lineInsertNumber, $methodContent . PHP_EOL, $xHooksFile);
+                }
 
 
             } else {
@@ -494,29 +651,30 @@ class ModuleInstallTool
         }
     }
 
-    public static function installControllers($moduleName)
-    {
-        $appDir = ApplicationParameters::get("app_dir");
-        $controllersDir = $appDir . "/class-modules/$moduleName/Controller";
-        if (is_dir($controllersDir)) {
-            $files = YorgDirScannerTool::getFilesWithExtension($controllersDir, "php", false, true, true);
-            foreach ($files as $f) {
-                $file = $controllersDir . "/$f";
-                if ('Controller.php' === substr($file, -14)) {
-                    $c = file_get_contents($file);
-
-                    /**
-                     * non safe namespace replacing technique, but should work 98% of the time,
-                     * good for now...
-                     */
-                    $newNamespace = "namespace Controller\\$moduleName;";
-                    $c = preg_replace('!namespace .*;!', $newNamespace, $c, 1);
-                    $targetFile = $appDir . "/class-controllers/$moduleName/$f";
-                    FileSystemTool::mkfile($targetFile, $c);
-                }
-            }
-        }
-    }
+    // deprecated: use autoFiles system instead...
+//    public static function installControllers($moduleName)
+//    {
+//        $appDir = ApplicationParameters::get("app_dir");
+//        $controllersDir = $appDir . "/class-modules/$moduleName/Controller";
+//        if (is_dir($controllersDir)) {
+//            $files = YorgDirScannerTool::getFilesWithExtension($controllersDir, "php", false, true, true);
+//            foreach ($files as $f) {
+//                $file = $controllersDir . "/$f";
+//                if ('Controller.php' === substr($file, -14)) {
+//                    $c = file_get_contents($file);
+//
+//                    /**
+//                     * non safe namespace replacing technique, but should work 98% of the time,
+//                     * good for now...
+//                     */
+//                    $newNamespace = "namespace Controller\\$moduleName;";
+//                    $c = preg_replace('!namespace .*;!', $newNamespace, $c, 1);
+//                    $targetFile = $appDir . "/class-controllers/$moduleName/$f";
+//                    FileSystemTool::mkfile($targetFile, $c);
+//                }
+//            }
+//        }
+//    }
 
 
     /**

@@ -156,6 +156,10 @@ but that's your responsibility to differentiate the role of the parameter in you
 History Log
 ------------------
     
+- 1.2.0 -- 2018-03-24
+
+    - add CommandLineInput.setAcceptNotRegistered method
+    
 - 1.1.0 -- 2017-03-30
 
     - make better use of default values

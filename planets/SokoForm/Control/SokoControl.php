@@ -75,6 +75,12 @@ abstract class SokoControl implements SokoControlInterface
         return $this;
     }
 
+    public function setProperty($key, $value)
+    {
+        $this->properties[$key] = $value;
+        return $this;
+    }
+
     public function addProperties(array $properties)
     {
         foreach ($properties as $k => $v) {

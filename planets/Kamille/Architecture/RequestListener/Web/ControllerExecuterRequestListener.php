@@ -60,7 +60,9 @@ class ControllerExecuterRequestListener implements HttpRequestListenerInterface
 
 
         if (null !== $controller) {
+
             $response = $this->executeController($controller);
+
             if ($response instanceof HttpResponseInterface) {
                 $request->set("response", $response);
             } else {

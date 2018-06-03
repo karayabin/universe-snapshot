@@ -7,6 +7,7 @@ namespace SokoForm\ValidationRule;
 use Bat\ValidationTool;
 use SokoForm\Control\SokoControlInterface;
 use SokoForm\Form\SokoFormInterface;
+use SokoForm\Translator\SokoValidationRuleTranslator;
 
 class SokoDateValidationRule extends SokoValidationRule
 {
@@ -16,7 +17,7 @@ class SokoDateValidationRule extends SokoValidationRule
     {
         parent::__construct();
 
-        $this->setErrorMessage("The field doesn't match the pattern {dateFormat}");
+        $this->setErrorMessage(SokoValidationRuleTranslator::getValidationMessageTranslation("date"));
         $this->preferences['dateFormat'] = 'yyyy/mm/dd';
 
         $this->setValidationFunction(function ($value, array &$preferences, &$error = null, SokoFormInterface $form, SokoControlInterface $control) {

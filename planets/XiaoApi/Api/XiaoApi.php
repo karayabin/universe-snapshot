@@ -25,14 +25,13 @@ class XiaoApi
     }
 
 
-
     /**
      * @return ObserverInterface
      */
     public function getObserver()
     {
         if (null === $this->observer) {
-            $this->observer = new Observer();
+            $this->observer = Observer::inst();
         }
         return $this->observer;
     }
@@ -91,9 +90,6 @@ class XiaoApi
     {
         if (false === array_key_exists($objectName, $this->objects)) {
             if (false !== ($inst = $this->$method($objectName))) {
-                if ($inst instanceof CrudObject) {
-                    $inst->setObserver($this->getObserver());
-                }
                 $this->objects[$objectName] = $inst;
             } else {
                 $this->error("object instance not found with object name $objectName");

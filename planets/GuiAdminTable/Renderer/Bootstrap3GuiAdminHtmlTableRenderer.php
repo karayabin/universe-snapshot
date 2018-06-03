@@ -13,6 +13,7 @@ class Bootstrap3GuiAdminHtmlTableRenderer extends GuiAdminHtmlTableRenderer
      */
     private $colWidths;
 
+
     public function __construct()
     {
         parent::__construct();
@@ -38,16 +39,41 @@ class Bootstrap3GuiAdminHtmlTableRenderer extends GuiAdminHtmlTableRenderer
     }
 
 
+
+
     //--------------------------------------------
     //
     //--------------------------------------------
-    protected function getHeaderColClasses($col)
+    protected function getHeaderColAttributes($col)
     {
-        $classes = parent::getHeaderColClasses($col);
-        if (array_key_exists($col, $this->colWidths)) {
-            $classes[] = $this->colWidths[$col];
-        }
-        return $classes;
+        $attrs = parent::getHeaderColAttributes($col);
+        $this->addWidthToAttributes($col, $attrs);
+        return $attrs;
     }
 
+//    protected function getBodyColAttributes($columnName, $originalValue, $value)
+//    {
+//        $attrs = parent::getBodyColAttributes($columnName, $originalValue, $value);
+//        $this->addWidthToAttributes($columnName, $attrs);
+//        return $attrs;
+//    }
+
+
+    //--------------------------------------------
+    //
+    //--------------------------------------------
+    private function addWidthToAttributes($col, array &$attrs)
+    {
+        if (array_key_exists($col, $this->colWidths)) {
+            $style = '';
+            if (array_key_exists("style", $attrs)) {
+                $style = rtrim($attrs['style'], ';');
+            }
+            if ($style) {
+                $style .= '; ';
+            }
+            $style .= "width: " . $this->colWidths[$col] . 'px';
+            $attrs["style"] = $style;
+        }
+    }
 }

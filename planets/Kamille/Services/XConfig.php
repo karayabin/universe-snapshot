@@ -30,13 +30,13 @@ class XConfig
      */
     public static function get($key, $default = null, $throwEx = false)
     {
-        $p = explode('.', $key, 2);
+        $p = explode('.', $key);
         $error = null;
         if (count($p) > 1) {
             $module = array_shift($p);
 
 
-            if (ModuleInstallationRegister::isInstalled($module)) {
+            if (array_key_exists($module, self::$confs) || ModuleInstallationRegister::isInstalled($module)) {
 
 
                 if (false === array_key_exists($module, self::$confs)) {
@@ -53,6 +53,11 @@ class XConfig
                 $holder = self::$confs[$module];
                 $ret = null;
                 $found = true;
+
+
+                //--------------------------------------------
+                // BDOT SYSTEM HERE...
+                //--------------------------------------------
                 while ($parameter = array_shift($p)) {
                     if (array_key_exists($parameter, $holder)) {
                         $ret = $holder[$parameter];

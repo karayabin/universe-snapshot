@@ -6,6 +6,7 @@ namespace SokoForm\Renderer;
 
 use Bat\CaseTool;
 use Bat\StringTool;
+use Module\Ekom\Utils\E;
 use SokoForm\Exception\SokoException;
 use SokoForm\Exception\SokoFormException;
 use SokoForm\Form\SokoFormInterface;
@@ -78,7 +79,6 @@ class SokoFormRenderer
             $preferences = [];
         }
         $preferences = array_replace($this->generalPreferences, $preferences);
-
 
         if (array_key_exists($controlName, $controls)) {
             $controlModel = $controls[$controlName];
@@ -222,6 +222,9 @@ class SokoFormRenderer
                 $type = $controlModel['type'];
                 $ret = "choice-$type";
                 break;
+            case "SokoComboBoxControl":
+                $ret = "combobox-choice";
+                break;
             case "SokoAutocompleteInputControl":
                 $type = $controlModel['type'];
                 $ret = "autocomplete-input-$type";
@@ -237,6 +240,17 @@ class SokoFormRenderer
             case "SokoSafeUploadControl":
                 $type = $controlModel['type'];
                 $ret = "file-$type";
+                break;
+            case "SokoFreeHtmlControl":
+                $ret = "free";
+                break;
+            case "SokoDateControl":
+                $type = $controlModel['type'];
+                $ret = "input-$type";
+                break;
+            case "SokoTennisListChoiceControl":
+                $type = $controlModel['type'];
+                $ret = "choice-tennis-$type";
                 break;
             default:
                 throw new SokoException("Unknown renderIdentifier with className: $className");

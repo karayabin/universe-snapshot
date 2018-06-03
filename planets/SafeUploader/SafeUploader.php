@@ -22,6 +22,28 @@ class SafeUploader
     protected $uploadedFilePath;
     protected $uploadedFilePaths;
 
+    /**
+     * @var null|string,
+     * either you use the uploadedFilePath system, or you can override this and use the realUrl system,
+     * where you provide a moveHandler callback in your profile, and return directly the real url expected by
+     * the js handler.
+     *
+     * This is the new way of doing things. It has the benefit that you can execute some action like inserting
+     * the url in the database, plus you have more control on the path (the default tag system doesn't provide
+     * a natural mechanism for handling hashed paths for instance like /1/5/8/3/product.png).
+     * Call setUrl from your moveHandler when you are ready...
+     *
+     * Note: when the moveHandler callback is executed, all checks defined in your profile have been
+     * verified first, so you can safely upload the file without re-checking for file errors.
+     *
+     */
+    protected $realUrl;
+
+    /**
+     * @var array, the profile, once executed (i.e. you need to call uploadPhpFile first)
+     */
+    protected $executedProfile;
+
 
     public function __construct()
     {
@@ -30,6 +52,9 @@ class SafeUploader
         $this->uploadedFilePath = null;
         $this->uploadedFilePaths = [];
         $this->errors = [];
+        $this->realUrl = null;
+
+        $this->executedProfile = [];
     }
 
     public static function create()
@@ -58,6 +83,27 @@ class SafeUploader
         return $this->errors;
     }
 
+    /**
+     * @return null|string
+     */
+    public function getRealUrl()
+    {
+        return $this->realUrl;
+    }
+
+    public function setRealUrl($realUrl)
+    {
+        $this->realUrl = $realUrl;
+        return $this;
+    }
+
+    public function getProfile()
+    {
+        return $this->executedProfile;
+    }
+
+
+
     //--------------------------------------------
     //
     //--------------------------------------------
@@ -76,7 +122,7 @@ class SafeUploader
                     if (0 !== $phpFile['size']) {
                         if (is_uploaded_file($phpFile['tmp_name'])) {
                             $payload['_file'] = $phpFile['name'];
-                            $this->uploadFile($profileId, $phpFile['tmp_name'], $payload);
+                            $this->uploadFile($profileId, $phpFile['tmp_name'], $payload, $phpFile);
                         } else {
                             $this->error("The uploaded file $name was not uploaded via HTTP POST");
                         }
@@ -96,7 +142,7 @@ class SafeUploader
     }
 
 
-    public function uploadFile($profileId, $path, array $payload = [])
+    public function uploadFile($profileId, $path, array $payload = [], array $phpFile = [])
     {
         $f = $this->configFile;
         if (file_exists($f)) {
@@ -107,7 +153,7 @@ class SafeUploader
             if (array_key_exists($profileId, $profiles)) {
                 $profile = $profiles[$profileId];
                 if (is_array($profile)) {
-                    $this->executeProfile($profile, $path, $payload);
+                    $this->executeProfile($profile, $path, $payload, $phpFile);
                 } else {
                     $type = gettype($profile);
                     $this->error("profile must be an array (for profileId=$profileId), $type given");
@@ -120,7 +166,7 @@ class SafeUploader
         }
     }
 
-    public function executeProfile(array $profile, $path, array $payload = [])
+    public function executeProfile(array $profile, $path, array $payload = [], array $phpFile = [])
     {
         $this->uploadedFilePaths = [];
         if (file_exists($path)) {
@@ -134,7 +180,7 @@ class SafeUploader
                 "acceptedMimeType" => null,
                 "maxSize" => "2M",
             ], $profile);
-
+            $this->executedProfile = $profile;
 
             //--------------------------------------------
             // CHECKS
@@ -193,60 +239,62 @@ class SafeUploader
                 //--------------------------------------------
                 // MOVING THE FILE
                 //--------------------------------------------
+                if (array_key_exists("moveHandler", $profile)) {
+                    call_user_func($profile['moveHandler'], $this, $phpFile, $payload);
+                } else {
 
 
-                $dir = SafeUploaderHelperTool::replaceTags($profile['dir'], $payload);
-                $file = $profile['file'];
-                if (null === $file) {
-                    if (array_key_exists("_file", $payload)) {
-                        $file = $payload['_file'];
-                    } else {
-                        $file = basename($path);
-                    }
-                }
-                $file = SafeUploaderHelperTool::replaceTags($file, $payload);
-
-
-                $destFile = $dir . "/" . $file;
-
-
-                FileSystemTool::mkfile($destFile, ""); // creating sub dirs if any
-
-
-                if (true === move_uploaded_file($path, $destFile)) {
-                    /**
-                     * The final goal of this method is to define the uploadedFilePath in case of success.
-                     */
-                    $this->uploadedFilePath = $destFile;
-                    $this->uploadedFilePaths[] = $destFile;
-
-
-                    //--------------------------------------------
-                    // PROCESSING THUMBS IF ANY
-                    //--------------------------------------------
-                    $isImage = $profile['isImage'];
-                    if (true === $isImage) {
-                        $thumbPaths = SafeUploaderHelperTool::getThumbPaths($destFile, $dir, $profile, $payload);
-                        foreach ($thumbPaths as $item) {
-
-                            $thumbDir = $item['dir'];
-                            $thumbSrc = $item['src'];
-                            $thumbDst = $item['dst'];
-                            $maxWidth = $item['maxWidth'];
-                            $maxHeight = $item['maxHeight'];
-
-                            FileSystemTool::mkdir($thumbDir, 0777, true); // ensure that the dir exists (dir can create subdirs...)
-
-                            if (false === ThumbnailTool::biggest($thumbSrc, $thumbDst, $maxWidth, $maxHeight)) {
-                                $this->error("The thumb $thumbSrc couldn't be created to $thumbDst");
-                            }
-                            else{
-                                $this->uploadedFilePaths[] = $thumbDst;
-                            }
+                    $dir = SafeUploaderHelperTool::replaceTags($profile['dir'], $payload);
+                    $file = $profile['file'];
+                    if (null === $file) {
+                        if (array_key_exists("_file", $payload)) {
+                            $file = $payload['_file'];
+                        } else {
+                            $file = basename($path);
                         }
                     }
-                } else {
-                    $this->error("Could not move file $path to $destFile");
+                    $file = SafeUploaderHelperTool::replaceTags($file, $payload);
+
+
+                    $destFile = $dir . "/" . $file;
+
+                    FileSystemTool::mkfile($destFile, ""); // creating sub dirs if any
+
+
+                    if (true === move_uploaded_file($path, $destFile)) {
+                        /**
+                         * The final goal of this method is to define the uploadedFilePath in case of success.
+                         */
+                        $this->uploadedFilePath = $destFile;
+                        $this->uploadedFilePaths[] = $destFile;
+
+
+                        //--------------------------------------------
+                        // PROCESSING THUMBS IF ANY
+                        //--------------------------------------------
+                        $isImage = $profile['isImage'];
+                        if (true === $isImage) {
+                            $thumbPaths = SafeUploaderHelperTool::getThumbPaths($destFile, $dir, $profile, $payload);
+                            foreach ($thumbPaths as $item) {
+
+                                $thumbDir = $item['dir'];
+                                $thumbSrc = $item['src'];
+                                $thumbDst = $item['dst'];
+                                $maxWidth = $item['maxWidth'];
+                                $maxHeight = $item['maxHeight'];
+
+                                FileSystemTool::mkdir($thumbDir, 0777, true); // ensure that the dir exists (dir can create subdirs...)
+
+                                if (false === ThumbnailTool::biggest($thumbSrc, $thumbDst, $maxWidth, $maxHeight)) {
+                                    $this->error("The thumb $thumbSrc couldn't be created to $thumbDst");
+                                } else {
+                                    $this->uploadedFilePaths[] = $thumbDst;
+                                }
+                            }
+                        }
+                    } else {
+                        $this->error("Could not move file $path to $destFile");
+                    }
                 }
             }
         } else {

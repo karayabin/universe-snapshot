@@ -5,6 +5,7 @@ namespace ClassCooker;
 
 
 use ClassCooker\Exception\ClassCookerException;
+use ClassCooker\Helper\ClassCookerHelper;
 
 class ClassCooker
 {
@@ -81,8 +82,10 @@ class ClassCooker
     /**
      * Adds a method to a class if it doesn't exist
      */
-    public function addMethod($methodName, $content)
+    public function addMethod($methodName, $content, array $options = [])
     {
+
+
         $methods = $this->getMethodsBoundaries();
         $nbMethod = count($methods);
         if (false === array_key_exists($methodName, $methods)) {
@@ -231,82 +234,7 @@ class ClassCooker
      */
     public function getMethodsBoundaries(array $signatureTags = [])
     {
-        $ret = [];
-        $preret = [];
-
-        $captureFunctionNamePattern = '!function\s+([a-zA-Z0-9_]+)\s*\(.*\)!';
-
-        $lines = $this->getLines();
-        $lineNumber = 1;
-        $endBrackets = [];
-        $methods = [];
-
-        // first capture all method signatures, and all possible end brackets
-        foreach ($lines as $line) {
-            $line = trim($line);
-            if (0 === strpos($line, '//')) {
-                $lineNumber++;
-                continue;
-            }
-            if (preg_match($captureFunctionNamePattern, $line, $match)) {
-                $func = $match[1];
-                $methods[] = [$func, $line, $lineNumber];
-            }
-            if ('}' === $line) {
-                $endBrackets[] = $lineNumber;
-            }
-            $lineNumber++;
-        }
-
-        // now let's bind the end brackets back to the methods they belong to
-        // the very last bracket must be the class' one, we don't need it
-        array_pop($endBrackets);
-
-
-        // then the last one in the current list must be the end line of the last method
-        $nbMethods = count($methods);
-
-        if (count($endBrackets) >= $nbMethods) {
-            foreach ($methods as $k => $info) {
-                $startLine = $info[2];
-
-
-                $tags = $this->getTagsByLine($info[1]);
-
-                if (array_key_exists($k + 1, $methods)) {
-                    $nextInfo = $methods[$k + 1];
-                    $nextStartLine = $nextInfo[2];
-                    $lastEndLine = 0;
-                    foreach ($endBrackets as $endLine) {
-                        if ($endLine > $nextStartLine) {
-                            $preret[$info[0]] = [$startLine, $lastEndLine, $tags];
-                            break;
-                        }
-                        $lastEndLine = $endLine;
-                    }
-                } else {
-                    $endLine = array_pop($endBrackets);
-                    $preret[$info[0]] = [$startLine, $endLine, $tags];
-                }
-            }
-
-            $n = count($signatureTags);
-            foreach ($preret as $func => $v) {
-                $tags = array_pop($v);
-                if ($n > 0) {
-                    foreach ($signatureTags as $tag) {
-                        if (false === in_array($tag, $tags, true)) {
-                            continue 2;
-                        }
-                    }
-                }
-                $ret[$func] = $v;
-            }
-
-            return $ret;
-        } else {
-            throw new ClassCookerException("Class not well formatted, please read the doc carefully");
-        }
+        return ClassCookerHelper::getMethodsBoundaries($this->file, $signatureTags);
     }
 
     //--------------------------------------------

@@ -6,6 +6,7 @@ namespace SokoForm\ValidationRule;
 
 use SokoForm\Control\SokoControlInterface;
 use SokoForm\Form\SokoFormInterface;
+use SokoForm\Translator\SokoValidationRuleTranslator;
 
 class SokoSameAsValidationRule extends SokoValidationRule
 {
@@ -15,8 +16,8 @@ class SokoSameAsValidationRule extends SokoValidationRule
     {
         parent::__construct();
 
-        $this->setErrorMessage("The two values aren't identical");
-        $this->setErrorMessage("The control {otherControl} does not exist", "aux");
+        $this->setErrorMessage(SokoValidationRuleTranslator::getValidationMessageTranslation("identical"));
+        $this->setErrorMessage(SokoValidationRuleTranslator::getValidationMessageTranslation("controlNotFound"), "aux");
         $this->preferences['otherControl'] = null;
 
         $this->setValidationFunction(function ($value, array &$preferences, &$error = null, SokoFormInterface $form, SokoControlInterface $control) {

@@ -53,13 +53,49 @@ abstract class TableCrudObject extends CrudObject
         return $o->getCreateData($unsafe);
     }
 
-    public function create(array $data, $ifNotExistOnly = false)
+    public function create(array $data, $ifNotExistOnly = false, $returnRic = false)
     {
         $data = $this->getCreateData($data);
         $keyWord = (false === $ifNotExistOnly) ? "" : 'ignore';
-        $lastInsertId = QuickPdo::insert($this->table, $data, $keyWord);
-        $this->hook("createAfter", [$this->table, $lastInsertId, $data]);
+        $lastInsertId = QuickPdo::insert($this->table, $data, $keyWord, $returnRic);
+        $this->trigger("createAfter", $this->table, $data, $lastInsertId);
         return $lastInsertId;
+    }
+
+
+    /**
+     * @param array $where , simple where array (key => value)
+     */
+    public function update(array $data, array $where)
+    {
+        $createData = $this->getCreateData($data);
+
+        // allowing devs to put more data in data, while ensuring only relevant data are being applied
+        /**
+         * Note: array_intersect_key causes problem with nullable values, so I do it with the plain
+         * old foreach and some tricky equality statements...
+         */
+        $safeData = [];
+        foreach ($data as $k => $v) {
+            if (array_key_exists($k, $createData)) {
+
+                if (
+                    '' === $v
+                    && null === $createData[$k]
+                ) { // we don't want to override potential nullable values from createData (problem found in ekom while updating a category)
+                    $v = $createData[$k];
+                }
+                $safeData[$k] = $v;
+            }
+        }
+
+        // removing primary keys for free
+        $safeData = array_diff_key($safeData, array_flip($this->primaryKey));
+
+        $pdoWhere = QuickPdoStmtTool::simpleWhereToPdoWhere($where);
+
+        QuickPdo::update($this->table, $safeData, $pdoWhere);
+        $this->trigger("updateAfter", $this->table, $safeData, $where);
     }
 
 
@@ -126,6 +162,43 @@ abstract class TableCrudObject extends CrudObject
         }
     }
 
+    /**
+     * @param array $where , simple where array (key => value)
+     */
+    public function delete(array $where)
+    {
+        $pdoWhere = QuickPdoStmtTool::simpleWhereToPdoWhere($where);
+        $this->trigger("deleteBefore", $this->table, $where);
+        QuickPdo::delete($this->table, $pdoWhere);
+        $this->trigger("deleteAfter", $this->table, $where);
+    }
+
+    public function deleteAll($resetAutoIncrement = true)
+    {
+        QuickPdo::delete($this->table);
+
+        if (true === $resetAutoIncrement) {
+            $p = explode('.', $this->table);
+            if (2 === count($p)) {
+                $db = $p[0];
+                $table = $p[1];
+            } else {
+                $table = $p[0];
+                $db = null;
+            }
+            if (false !== ($ai = QuickPdoInfoTool::getAutoIncrementedField($table, $db))) {
+                QuickPdoDbOperationTool::rebaseAutoIncrement($this->table, $ai);
+            }
+        }
+
+        $this->trigger("deleteAllAfter", $this->table);
+    }
+
+
+
+    //--------------------------------------------
+    //
+    //--------------------------------------------
 
     /**
      * IMPORTANT NOTE:
@@ -302,58 +375,43 @@ abstract class TableCrudObject extends CrudObject
     }
 
 
-    /**
-     * @param array $where , simple where array (key => value)
-     */
-    public function update(array $data, array $where)
-    {
-        $createData = $this->getCreateData($data);
-
-        // allowing devs to put more data in data, while ensuring only relevant data are being applied
-        $data = array_intersect_key($data, $createData);
-
-
-        $pdoWhere = QuickPdoStmtTool::simpleWhereToPdoWhere($where);
-        QuickPdo::update($this->table, $data, $pdoWhere);
-        $this->hook("updateAfter", [$this->table, $data, $where]);
-    }
-
-
-    /**
-     * @param array $where , simple where array (key => value)
-     */
-    public function delete(array $where)
-    {
-        $pdoWhere = QuickPdoStmtTool::simpleWhereToPdoWhere($where);
-        QuickPdo::delete($this->table, $pdoWhere);
-        $this->hook("deleteAfter", [$this->table, $where]);
-    }
-
-    public function deleteAll($resetAutoIncrement = true)
-    {
-        QuickPdo::delete($this->table);
-
-        if (true === $resetAutoIncrement) {
-            $p = explode('.', $this->table);
-            if (2 === count($p)) {
-                $db = $p[0];
-                $table = $p[1];
-            } else {
-                $table = $p[0];
-                $db = null;
-            }
-            if (false !== ($ai = QuickPdoInfoTool::getAutoIncrementedField($table, $db))) {
-                QuickPdoDbOperationTool::rebaseAutoIncrement($this->table, $ai);
-            }
-        }
-
-        $this->hook("deleteAllAfter", [$this->table]);
-    }
-
-
     public function drop()
     {
         return QuickPdo::freeExec("drop table if exists " . $this->table);
+    }
+
+
+    //--------------------------------------------
+    //
+    //--------------------------------------------
+    /**
+     * Helper method for a subclass which has an id primary key and wants to access it
+     * in both a createAfter or updateAfter event.
+     *
+     *
+     * SUBCLASS CODE...
+     * public function __construct()
+     * {
+     *      parent::__construct();
+     *      $this->addListener(['createAfter', "updateAfter"], function ($eventName, $table, $data, $third) {
+     *          $id = self::getIdFromCreateUpdate(func_get_args());
+     *      });
+     * }
+     */
+    protected static function getIdFromCreateUpdate($args)
+    {
+        list($eventName, $table, $data, $third) = $args;
+        $id = null;
+        if ('createAfter' === $eventName) {
+            if (is_array($third)) {
+                $id = $third["id"];
+            } else {
+                $id = $third;
+            }
+        } else {
+            $id = $third['id'];
+        }
+        return $id;
     }
 
 }

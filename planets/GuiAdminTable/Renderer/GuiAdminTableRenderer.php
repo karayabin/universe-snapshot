@@ -49,6 +49,10 @@ abstract class GuiAdminTableRenderer
     protected $searchColumnGenerators;
     protected $searchValues;
     protected $searchButtonExtraColumnName;
+    /**
+     * columns with no sort and no filter
+     */
+    protected $deadCols;
 
 
     public function __construct()
@@ -67,6 +71,7 @@ abstract class GuiAdminTableRenderer
             "trRow" => [],
         ];
         $this->searchColumnGenerators = [];
+        $this->deadCols = [];
         $this->searchValues = [];
         $this->searchButtonExtraColumnName = "_action";
     }
@@ -80,6 +85,12 @@ abstract class GuiAdminTableRenderer
     //--------------------------------------------
     // CONFIG
     //--------------------------------------------
+    public function setDeadCols(array $deadCols)
+    {
+        $this->deadCols = $deadCols;
+        return $this;
+    }
+
     public function setUseFilters($useFilters)
     {
         $this->useFilters = (bool)$useFilters;

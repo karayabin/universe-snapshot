@@ -6,6 +6,7 @@ namespace SokoForm\ValidationRule;
 
 use SokoForm\Control\SokoControlInterface;
 use SokoForm\Form\SokoFormInterface;
+use SokoForm\Translator\SokoValidationRuleTranslator;
 
 
 /**
@@ -29,7 +30,7 @@ class SokoSiretValidationRule extends SokoValidationRule
     {
         parent::__construct();
 
-        $this->setErrorMessage("This is not a valid siret number");
+        $this->setErrorMessage(SokoValidationRuleTranslator::getValidationMessageTranslation("siret"));
 
         $this->setValidationFunction(function ($value, array &$preferences, &$error = null, SokoFormInterface $form, SokoControlInterface $control) {
 

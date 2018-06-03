@@ -111,6 +111,22 @@ class SessionUser
         return $default;
     }
 
+    public static function setValues(array $values)
+    {
+        $isConsistent = (array_key_exists("user_connexion_time", $values) && array_key_exists("timeout", $values));
+        if (false === $isConsistent) {
+            self::startSession();
+
+
+            $userConnexionTime = self::getValue("user_connexion_time", time());
+            $timeout = self::getValue("timeout", time());
+
+            $values['user_connexion_time'] = $userConnexionTime;
+            $values['timeout'] = $timeout;
+        }
+        return $_SESSION[self::$key] = $values;
+    }
+
     public static function getAll()
     {
         self::startSession();

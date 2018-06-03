@@ -41,4 +41,26 @@ void function truncate ( str:table)
 ```
 
 Truncates a table.
- 
+
+
+### truncateDatabase
+
+
+```php
+void  truncateDatabase ( int:maxPass = 3, array &failedTables = [], string:db = null)
+```
+
+Truncates a database.
+
+
+### truncateTables
+
+
+```php
+void  truncateTables ( array:tablesToTruncate, array:&failedTables = [], int:maxPass = 3 )
+```
+
+Truncates the given tables.
+
+
+

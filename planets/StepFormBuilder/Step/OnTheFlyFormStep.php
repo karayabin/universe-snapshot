@@ -37,7 +37,7 @@ class OnTheFlyFormStep extends Step
     {
         $ret = $this->getForm()->validate();
         if (true === $ret) {
-            $this->onSuccessfulValidateAfter($data, $ret);
+            $this->onSuccessfulValidateAfter($data);
         }
         return $ret;
     }
@@ -51,9 +51,6 @@ class OnTheFlyFormStep extends Step
     {
         return $this->getForm()->getData();
     }
-
-
-
 
     //--------------------------------------------
     //
@@ -71,7 +68,7 @@ class OnTheFlyFormStep extends Step
     //--------------------------------------------
     //
     //--------------------------------------------
-    protected function onSuccessfulValidateAfter(array $data, &$ret)
+    protected function onSuccessfulValidateAfter(array $data)
     {
 
     }
@@ -79,7 +76,7 @@ class OnTheFlyFormStep extends Step
     //--------------------------------------------
     //
     //--------------------------------------------
-    protected function getForm()
+    private function getForm()
     {
         if (null === $this->form) {
             throw new StepFormBuilderException("OnTheFlyForm instance not set");

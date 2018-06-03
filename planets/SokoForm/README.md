@@ -1,6 +1,6 @@
 SokoForm
 ============
-2017-10-29
+2017-10-29 --> 2018-06-01
 
 
 SokoForm is a system that helps you creating your forms.
@@ -89,6 +89,15 @@ In soko, we use this model in version 1.3.0:
 
 
 - https://github.com/lingtalfi/Models/blob/master/Form/form-model.md
+
+
+Plus, Soko adds an extra property to this model::
+
+- validationRules: array of controlName => SokoValidationRuleInterface instance
+
+
+
+
 
 
 
@@ -1386,6 +1395,141 @@ Related
 
 History Log
 ------------------
+    
+- 1.65.0 -- 2018-06-02
+
+    - add UikitSokoFormRenderer grid system
+
+- 1.64.1 -- 2018-06-02
+
+    - fix SokoForm.getModel errors at form level not returned
+
+- 1.64.0 -- 2018-06-02
+
+    - add UikitSokoFormRenderer.renderForm controlIds option
+
+- 1.63.0 -- 2018-06-02
+
+    - enhance SokoForm.process method; now returns false when callback returns false
+
+- 1.62.0 -- 2018-06-02
+
+    - add UikitSokoFormRenderer.renderForm topContent option
+
+- 1.61.0 -- 2018-06-01
+
+    - add WithParsleyUikitSokoFormRenderer topNotification system, add internal js handler for parsley
+    
+- 1.60.1 -- 2018-05-31
+
+    - fix UikitSokoFormRenderer error handling for ajax file upload controls 
+    
+- 1.60.0 -- 2018-05-31
+
+    - enhance SokoForm.process method; it now returns a useful output 
+    
+- 1.59.0 -- 2018-05-31
+
+    - add UikitSokoFormRenderer class 
+    - add FrenchSokoForm class 
+    
+- 1.58.0 -- 2018-05-25
+
+    - add SummerSokoFormRenderer.renderSelect method 
+    
+- 1.57.0 -- 2018-05-25
+
+    - add SummerSokoFormRenderer 
+    
+- 1.56.2 -- 2018-05-21
+
+    - fix SokoForm internal translation mechanism not resolving tags
+    
+- 1.56.1 -- 2018-05-21
+
+    - fix SokoValidationRuleTranslator getLang -> setLang typo
+    
+- 1.56.0 -- 2018-05-21
+
+    - add SokoValidationRuleTranslator
+    
+- 1.55.1 -- 2018-05-09
+
+    - fix SokoTvaIntracomValidationRule.checkTvaIntracomUsingVies private method, use more permissive code (against webservice evolution))
+    
+- 1.55.0 -- 2018-05-01
+
+    - add SokoTool::getGroupControls method
+    
+- 1.54.0 -- 2018-04-30
+
+    - add SokoTool::removeGroup method
+
+- 1.53.0 -- 2018-04-30
+
+    - add SokoTool::addSection method
+    - moved SokoUtil::changeGroupControls method to SokoTool
+
+- 1.52.0 -- 2018-04-30
+
+    - add SokoUtil::changeGroupControls method
+
+- 1.51.0 -- 2018-04-21
+
+    - enhance SokoInArrayValidationRule, now is more permissive with strings vs int checking
+
+- 1.50.0 -- 2018-04-20
+
+    - reforged SokoFormErrorRemovalTool js getInst method, add auto-registration based on form css id
+    
+- 1.49.0 -- 2018-04-20
+
+    - enhance SokoFormErrorRemovalTool js, now handles inputs of type password
+    
+- 1.48.0 -- 2018-04-13
+
+    - add setGroups to SokoFormInterface
+
+- 1.47.1 -- 2018-04-04
+
+    - fix SokoTennisListChoiceControl allSelectedReturnsNull property not being returned properly
+
+- 1.47.0 -- 2018-04-04
+
+    - add SokoTennisListChoiceControl.allSelectedReturnsNull property, true by default
+
+- 1.46.0 -- 2018-04-04
+
+    - add SokoTennisListChoiceControl
+    
+- 1.45.0 -- 2018-03-23
+
+    - add SokoDateControl
+    
+- 1.44.0 -- 2018-03-16
+
+    - add SokoSafeUploadControl.setPayloadVar method
+    
+- 1.43.0 -- 2018-03-12
+
+    - add SokoFormInterface.getGroups method
+    
+- 1.42.1 -- 2018-03-12
+
+    - fix SokoFreeHtmlControl internal html property conflict with user defined properties
+    
+- 1.42.0 -- 2018-03-12
+
+    - add SokoFreeHtmlControl object
+    - add SokoControl.setProperty method
+    
+- 1.41.0 -- 2018-03-11
+
+    - add SokoComboBoxControl.addEmptyChoiceAtBeginning method
+    
+- 1.40.0 -- 2018-03-11
+
+    - add SokoComboBoxControl object
     
 - 1.39.0 -- 2018-02-27
 

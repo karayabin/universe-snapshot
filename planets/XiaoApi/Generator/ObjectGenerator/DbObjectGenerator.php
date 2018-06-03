@@ -88,7 +88,8 @@ class DbObjectGenerator
             $primaryKey = QuickPdoInfoTool::getPrimaryKey($table, $db);
 
 
-            $nf = [];
+            $nfInt = [];
+            $nfStr = [];
             $sDefaults = '';
             $dPrefix = "\t\t\t";
 
@@ -110,7 +111,11 @@ class DbObjectGenerator
 
                     if (true === $nullables[$column]) {
                         $sDefaults .= $dPrefix . "'$column' => null," . PHP_EOL;
-                        $nf[] = $column;
+                        if (true === $this->isOfTypeNumber($type)) {
+                            $nfInt[] = $column;
+                        } else {
+                            $nfStr[] = $column;
+                        }
                     } else {
                         switch ($type) {
                             case 'int':
@@ -127,10 +132,20 @@ class DbObjectGenerator
 
 
             $s = '';
-            foreach ($nf as $field) {
+            foreach ($nfInt as $field) {
 
                 $s .= <<<EEE
         if (0 === (int)\$ret["$field"]) {
+            \$ret["$field"] = null;
+        }
+EEE;
+                $s .= PHP_EOL;
+            }
+
+            foreach ($nfStr as $field) {
+
+                $s .= <<<EEE
+        if ("" === \$ret["$field"]) {
             \$ret["$field"] = null;
         }
 EEE;
@@ -197,4 +212,18 @@ EEE;
     }
 
 
+    //--------------------------------------------
+    //
+    //--------------------------------------------
+    private function isOfTypeNumber(string $type)
+    {
+        if (in_array($type, [
+            "tinyint",
+            "mediumint",
+            "int",
+        ])) {
+            return true;
+        }
+        return false;
+    }
 }

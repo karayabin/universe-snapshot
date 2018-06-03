@@ -204,18 +204,28 @@ Here is the xiao script for generating both the api and the objects.
 <?php
 
 
+use BashColorTool\BashColorTool;
 use Core\Services\A;
+use QuickPdo\QuickPdoInfoTool;
 use XiaoApi\Generator\ApiGenerator\DbApiGenerator;
 use XiaoApi\Generator\ObjectGenerator\DbObjectGenerator;
 
 
-
+//--------------------------------------------
+// THIS SCRIPT GENERATES A XIAO API FOR A GIVEN KAMILLE MODULE
+//--------------------------------------------
 /**
- * assuming this script is located at /your/kamille_app/scripts/xiao-generator.php
- * Then, after configuring this script to your likings,
- * I recommend that you create an alias:
  *
- *          alias xiaoo='php -f /your/kamille_app/scripts/xiao-generator.php'
+ * How to?
+ * -----------
+ * You need a module name and a database prefix.
+ * Don't forget the in the prefix.
+ *
+ * For instance if your module is EkomCronBot, and your tables are prefixed with ekcron_
+ * then you can use the following command to generate your xiao api:
+ *
+ *
+ *      php -f "/path/to/myapp/scripts/xiao-kamille-module-generator.php" --  --module=EkomCronBot --prefix=ekcron_'
  *
  *
  */
@@ -223,54 +233,64 @@ require_once __DIR__ . "/../boot.php";
 require_once __DIR__ . "/../init.php";
 
 
-//--------------------------------------------
-// CONFIGURE THIS SECTION TO YOUR LIKINGS
-//--------------------------------------------
-$apiClassName = "GeneratedEkomApi";
-$tablePrefix = "ek_";
-$nameSpace = 'Module\\Ekom\\Api';
-$targetDir = __DIR__;
-$db = "kamille";
+$shortOptions = '';
+$longOptions = [
+    'module:',
+    'prefix:',
+];
+$options = getopt($shortOptions, $longOptions);
 
 
-//--------------------------------------------
-// don't touch below this line,
-// This script is using the kamille framework,
-// and the XiaoApi planet from the universe framework.
-// kamille: https://github.com/lingtalfi/kamille
-// universe: https://github.com/karayabin/universe-snapshot
-//--------------------------------------------
-A::quickPdoInit();
-
-DbApiGenerator::create()
-    ->setClassName($apiClassName)
-    ->setTablePrefix($tablePrefix)
-    ->setNamespace($nameSpace)
-    ->setTargetDirectory($targetDir)
-    ->generateByDatabase($db);
+$module = $options['module'] ?? null;
+$prefix = $options['prefix'] ?? null;
 
 
-DbObjectGenerator::create()
-    ->setUseDbPrefix(false) 
-    ->setTablePrefix($tablePrefix)
-    ->setNamespace($nameSpace)
-    ->setTargetDirectory($targetDir)
-    ->generateByDatabase($db);
+if (null === $module || null === $prefix) {
+    echo BashColorTool::error("Invalid command: the module and prefix args are expected (i.e. /command --module=\"MyModule\" --prefix=\"my_\"");
+} else {
 
 
-echo "ok" . PHP_EOL;
+    //--------------------------------------------
+    // CONFIGURE THIS SECTION TO YOUR LIKINGS
+    //--------------------------------------------
+    A::quickPdoInit();
+    $db = QuickPdoInfoTool::getDatabase();
+    $apiClassName = "Generated" . $module . "Api";
+    $tablePrefix = $prefix;
+    $nameSpace = 'Module\\' . $module . '\\Api';
+    $targetDir = "/path/to/myapp/class-modules/$module/Api";
+
+
+    //--------------------------------------------
+    // DON'T TOUCH BELOW
+    //--------------------------------------------
+    DbApiGenerator::create()
+        ->setClassName($apiClassName)
+        ->setTablePrefix($tablePrefix)
+        ->setNamespace($nameSpace)
+        ->setTargetDirectory($targetDir)
+        ->generateByDatabase($db);
+
+
+    DbObjectGenerator::create()
+        ->setUseDbPrefix(false)
+        ->setTablePrefix($tablePrefix)
+        ->setNamespace($nameSpace)
+        ->setTargetDirectory($targetDir)
+        ->generateByDatabase($db);
+
+
+    BashColorTool::success("ok");
+}
+
 ```
 
 
-What you should do is:
+Then call it:
 
-- go to your (kamille) app, and create the **/kamilleapp/scripts/xiao-generator.php** file
-- put the above code in it
-- then read the script and configure it to your likings
-- then create an alias (in your .bash_profile for instance): 
-    - alias xiaoo='php -f /kamilleapp/scripts/xiao-generator.php'
-- refresh your terminal
-- now you can call xiaoo anytime to update your api
+```bash
+php -f "/path/to/myapp/scripts/xiao-kamille-module-generator.php" --  --module=EkomCronBot --prefix=ekcron_'
+```
 
 
 This script, when called from a command line, will do the following.
@@ -373,6 +393,51 @@ and the generators will never delete or even touch them.
 
 History Log
 ------------------
+    
+- 2.2.4 -- 2018-04-16
+ 
+    - fix DbObjectGenerator not distinguishing between nullable int values and nullable string values
+    
+- 2.2.3 -- 2018-04-14
+ 
+    - enhance CrudObject add "return static" in the comments for better IDE interaction
+
+- 2.2.2 -- 2018-04-12
+
+    - fix TableCrudObject.getIdFromCreateUpdate method not always returning the expected id
+    
+- 2.2.1 -- 2018-04-12
+ 
+    - fix CrudObject not handling eventName as array
+    
+- 2.2.0 -- 2018-04-12
+ 
+    - removed Observer system
+    
+- 2.1.0 -- 2018-04-05
+ 
+    - add TableCrudObject::getIdFromCreateUpdate internal helper method 
+    
+- 2.0.3 -- 2018-03-21
+ 
+    - fix TableCrudObject.update method overriding nullable values (again) 
+    
+- 2.0.2 -- 2018-03-20
+
+    - fix XiaoApi calling undefined setObserver method 
+    
+- 2.0.1 -- 2018-03-17
+
+    - fix TableCrudObject.update method overriding nullable values 
+    
+- 2.0.0 -- 2018-03-16
+
+    - Change the Observer system 
+    - the TableCrudObject.update method now automatically removes primary keys (convenient when you paste all your form data: don't need to manually filter them...) 
+    
+- 1.22.0 -- 2018-03-10
+
+    - add TableCrudObject->create returnRic argument 
     
 - 1.21.1 -- 2018-01-31
 

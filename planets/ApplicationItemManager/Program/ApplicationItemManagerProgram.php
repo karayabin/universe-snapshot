@@ -58,6 +58,14 @@ class ApplicationItemManagerProgram extends Program
                     $output->error("Some items couldn't be imported");
                 }
             })
+            ->addCommand("reimport-existing", function (CommandLineInputInterface $input, ProgramOutputInterface $output, ProgramInterface $program) use ($itemType) {
+                $repoId = $input->getParameter(2);
+                if (true === $this->manager->reimportExisting($repoId)) {
+                    $output->success("All items have been reimported");
+                } else {
+                    $output->error("Some items couldn't be reimported");
+                }
+            })
             ->addCommand("install", function (CommandLineInputInterface $input, ProgramOutputInterface $output, ProgramInterface $program) use ($itemType) {
                 $force = $input->getFlagValue('f');
                 if (false !== ($itemName = ProgramHelper::getParameter(2, $itemType, $input, $output))) {

@@ -3,6 +3,8 @@
 
 namespace Kamille\Utils\Morphic\ListConfigurationProvider;
 
+use Core\Services\Hooks;
+use Kamille\Services\XLog;
 use Kamille\Utils\Morphic\Exception\MorphicException;
 use Kamille\Utils\Morphic\Helper\MorphicHelper;
 
@@ -22,12 +24,15 @@ class ShortcutListConfigurationProvider extends ListConfigurationProvider
 
 
         $file = $this->getFile($module, $identifier, $context);
+
+
         $defaultFile = $this->confDir . "/$module/_default.list.conf.php";
         $conf = [];
         if (file_exists($file)) {
 
             // make all variables in the context available to the config file
             include $file;
+            XLog::debug("[Kamille.Morphic.ShortcutListConfigurationProvider] -- using morphic list file with identifier: $identifier");
 
 
             /**
@@ -48,6 +53,16 @@ class ShortcutListConfigurationProvider extends ListConfigurationProvider
                 }
             }
 
+            $this->onConfReady($conf, $module, $identifier, $context);
+
+
+            $conf['module'] = $module;
+            if (false === array_key_exists('viewId', $conf)) {
+                $conf['viewId'] = $identifier;
+            }
+            if (false === array_key_exists('context', $conf)) {
+                $conf['context'] = $context;
+            }
         } else {
             throw new MorphicException("File not found: $file");
         }
@@ -61,5 +76,10 @@ class ShortcutListConfigurationProvider extends ListConfigurationProvider
     protected function getFile($module, $identifier, array $context = [])
     {
         return $this->confDir . "/$module/$identifier.list.conf.php";
+    }
+
+    protected function onConfReady(array &$conf, string $module, string $identifier, array $context = [])
+    {
+
     }
 }

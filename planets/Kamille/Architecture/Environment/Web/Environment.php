@@ -68,11 +68,15 @@ class Environment
     public static function getEnvironment()
     {
         if (array_key_exists("APPLICATION_ENVIRONMENT", $_SERVER)) {
-            return $_SERVER['APPLICATION_ENVIRONMENT'];
+            $env = $_SERVER['APPLICATION_ENVIRONMENT'];
+        } elseif (null !== self::$appName && array_key_exists("APPLICATION_ENVIRONMENT_" . self::$appName, $_SERVER)) {
+            $env = $_SERVER["APPLICATION_ENVIRONMENT_" . self::$appName];
+        } else {
+            $env = "prod";
         }
-        if (null !== self::$appName && array_key_exists("APPLICATION_ENVIRONMENT_" . self::$appName, $_SERVER)) {
-            return $_SERVER["APPLICATION_ENVIRONMENT_" . self::$appName];
+        if (null === $env) {
+            $env = "prod";
         }
-        return 'prod';
+        return $env;
     }
 }

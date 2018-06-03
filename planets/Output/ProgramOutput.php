@@ -49,16 +49,45 @@ class ProgramOutput extends Output implements ProgramOutputInterface
 {
 
     private $dampened;
+    private $webMode;
+    private $nbErrors;
+    private $nbWarnings;
 
     public function __construct()
     {
         $this->dampened = [];
+        $this->webMode = false;
+        $this->nbErrors = 0;
+        $this->nbWarnings = 0;
     }
 
     public static function create()
     {
         return new static();
     }
+
+    public function setWebMode(bool $webMode)
+    {
+        $this->webMode = $webMode;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getNbErrors(): int
+    {
+        return $this->nbErrors;
+    }
+
+    /**
+     * @return int
+     */
+    public function getNbWarnings(): int
+    {
+        return $this->nbWarnings;
+    }
+
 
     public function success($msg, $lbr = true)
     {
@@ -68,11 +97,13 @@ class ProgramOutput extends Output implements ProgramOutputInterface
     public function error($msg, $lbr = true)
     {
         $this->writeMessage('error', $msg, "0;31", $lbr);
+        $this->nbErrors++;
     }
 
     public function warn($msg, $lbr = true)
     {
         $this->writeMessage('warn', $msg, "1;33", $lbr);
+        $this->nbWarnings++;
     }
 
     public function info($msg, $lbr = true)
@@ -107,7 +138,35 @@ class ProgramOutput extends Output implements ProgramOutputInterface
         if (in_array($type, $this->dampened, true)) {
             return;
         }
-        $msg = "\e[" . $colorCode . "m$msg\e[0m";
+
+        if (false === $this->webMode) {
+            $msg = "\e[" . $colorCode . "m$msg\e[0m";
+        } else {
+            $color = 'black';
+            switch ($colorCode) {
+                case "0;32":
+                    $color = 'green';
+                    break;
+                case "0;31":
+                    $color = 'red';
+                    break;
+                case "1;33":
+                    $color = 'orange';
+                    break;
+                case "0;34":
+                    $color = 'blue';
+                    break;
+                case "0;30":
+                    $color = '#99ccff';
+                    break;
+                case "0;33":
+                    $color = 'gray';
+                    break;
+                default:
+                    break;
+            }
+            $msg = '<span style="color:' . $color . '">' . $msg . '</span>';
+        }
         $this->write($msg, $lbr);
     }
 

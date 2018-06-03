@@ -177,17 +177,18 @@ The word item is defined like this:
 - itemId: repositoryId.itemName | repositoryAlias.itemName
 
 
-# import/install/update
+# import/install
 myprog import {item}                       # import an item and its dependencies, skip already existing item(s)/dependencies
 myprog import -f {item}                    # import an item and its dependencies, replace already existing item(s)/dependencies
 myprog importall {repoId}?                 # import all items at once, skip already existing item(s)/dependencies
 myprog importall {repoId}? -f              # import all items at once, replace already existing item(s)/dependencies
+myprog updateall                           # try to update all existing items at once (equivalent of git pull with git)
+myprog reimport-existing {repoId}?         # re-import all existing items at once, replace already existing item(s)/dependencies
 myprog install {item}                      # install an item and its dependencies, will import them if necessary, skip already existing item(s)/dependencies
 myprog install -f {item}                   # install an item and its dependencies, will import them if necessary, replace already existing item(s)/dependencies
 myprog installall {repoId}?                # install all items at once, will import them if necessary, skip already existing item(s)/dependencies
 myprog installall {repoId}? -f             # install all items at once, will import them if necessary, replace already existing item(s)/dependencies
 myprog uninstall {item}                    # call the uninstall method on the given item and dependencies
-myprog updateall {repoId}?                  # update all item (much faster than importall -f, but only available for github importer for now
 
 
 # list/search
@@ -197,6 +198,15 @@ myprog listimported                        # list imported items
 myprog listinstalled                       # list installed items
 myprog search {term} {repoAlias}?          # search through available items names
 myprog searchd {term} {repoAlias}?         # search through available items names and/or description
+
+# local (shared) repo
+myprog setlocalrepo {repoPath}             # set the local repository path
+myprog getlocalrepo                        # print the local repository path
+myprog todir                               # converts the top level items of the import directory to directories (based on the directories in local repo)
+myprog tolink                              # converts the top level items of the import directory to symlinks to the directories in local repo
+myprog flash                               # list all the top level items of the local repo, and make sure they exist in the import directory; if not, it copies them from the local repo
+myprog flash -l                            # with this flag, will create links rather copying directories
+myprog flash -f                            # forces the re-import
 
 
 # utilities
@@ -220,8 +230,6 @@ For instance:
     myprog installall -f
     myprog uninstall Connexion
     myprog uninstall km.Connexion
-    myprog updateall 
-    myprog updateall ling 
     myprog list
     myprog list km
     myprog listd
@@ -232,8 +240,15 @@ For instance:
     myprog search ling km
     myprog searchd kaminos
     myprog searchd kaminos km
+    myprog setlocalrepo /path/to/local/repo
+    myprog getlocalrepo
+    myprog tolink
+    myprog flash
+    myprog flash -l
+    myprog flash -l
+    myprog flash -fl
+    myprog todir
     myprog clean
-    
 ```
 
 
@@ -383,8 +398,22 @@ such as when you uninstall item A, item B is also uninstalled (assuming B depend
 
 
 
+
+
 History Log
 ------------------
+    
+- 1.19.1 -- 2018-03-06
+
+    - fix LingAbstractItemInstaller::uninstall method algorithm return false
+    
+- 1.19.0 -- 2018-03-05
+
+    - add program reimport-existing command
+    
+- 1.18.1 -- 2018-03-05
+
+    - fix ApplicationItemManager not installing dependencies when the module is installed for the first time
     
 - 1.18.0 -- 2017-07-31
 

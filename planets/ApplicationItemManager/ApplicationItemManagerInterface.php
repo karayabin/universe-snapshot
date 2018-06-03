@@ -41,6 +41,15 @@ interface ApplicationItemManagerInterface
      */
     public function importAll($repoId = null, $force = false);
 
+
+    /**
+     * Reimport existing items.
+     *
+     * @param null $repoId
+     * @return mixed
+     */
+    public function reimportExisting($repoId = null);
+
     /**
      * Install an item and its dependencies.
      * If force is false, will not try to re-install already installed items.

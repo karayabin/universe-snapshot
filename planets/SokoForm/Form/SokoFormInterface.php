@@ -39,6 +39,17 @@ interface SokoFormInterface
 
     public function getAttributes();
 
+    /**
+     * @return array of item, each item having the following structure:
+     *      - ?name: string to identify this group; you will only need it if you
+     *              do operations with the groups (like an insert after operation for instance...)
+     *      - label: the name/label of the group
+     *      - controls: array control names owned by this group
+     */
+    public function getGroups();
+
+    public function setGroups(array $groups);
+
 
 
     //--------------------------------------------
@@ -73,7 +84,11 @@ interface SokoFormInterface
      *                      fn ( array $values, SokoFormInterface $form )
      *                      - values: array of controlName to value
      * @param array|null $context
-     * @return mixed
+     * @return mixed:
+     *          - true if the form has been posted successfully (all validation tests passed)
+     *          - false if the form has been posted, but at least one validation test failed
+     *          - null if the form has not been posted
+     *          - false if the callback returns false
      */
     public function process(callable $onSuccess, array $context = null);
 

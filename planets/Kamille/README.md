@@ -166,6 +166,132 @@ echo HtmlLayout::create()
 History Log
 ===============
     
+- 1.139.1 -- 2018-05-28
+
+    - fix LinkGenerator not handling CherryDynamicUriMatcher dashTags
+    
+- 1.139.0 -- 2018-05-24
+
+    - enhance CherryDynamicUriMatcher, add dash tags {-my_tag}
+    
+- 1.138.0 -- 2018-05-16
+
+    - enhance NewModuleProgram now also creates a default BackHooksHelper class
+    
+- 1.137.0 -- 2018-05-12
+
+    - add ClawsInterface.setLayoutVariables/getLayoutVariables methods
+
+- 1.136.1 -- 2018-04-30
+
+    - fix MorphicGenerator2, problem with generating fields of type date
+    
+- 1.136.0 -- 2018-04-30
+
+    - AbstractHooks now handles case with four arguments
+    
+- 1.135.0 -- 2018-04-17
+
+    - add ClawsInterface reset method
+
+- 1.134.0 -- 2018-03-29
+
+    - enhance MorphicGenerator2, now also generate relatedTables dropdown (quick nav access)
+    
+- 1.133.0 -- 2018-03-29
+
+    - enhance MorphicGenerator2, now also generate row actions links for foreign keys in the list
+    
+- 1.132.0 -- 2018-03-26
+
+    - update PageCreatorProgram, now following parameters are required (to make the api more intuitive): module, route, uri, controller
+    
+- 1.131.0 -- 2018-03-26
+
+    - enhance NewModuleProgram, now handles the --with-morphic feature
+    
+- 1.130.0 -- 2018-03-25
+
+    - ModuleInstallTool::bindModuleHooks now organizes hooks in sections (every module owns its own section) rather than putting all at the bottom
+    
+- 1.129.0 -- 2018-03-25
+
+    - ModuleInstallTool::addInModuleTxt now creates an alphabetically ordered modules.txt file
+    
+- 1.128.0 -- 2018-03-25
+
+    - enhance NewModuleProgram, now handles the --with-ecp feature
+        
+- 1.127.0 -- 2018-03-25
+
+    - add KamilleEcpServiceUtil class
+    
+- 1.126.0 -- 2018-03-24
+
+    - enhance NewModuleProgram, now creates a default ThemeHelper
+    
+- 1.125.0 -- 2018-03-24
+
+    - add KamilleModuleThemeHelper class
+    
+- 1.124.0 -- 2018-03-24
+
+    - ClawsRenderer now fallbacks to the _default_ theme if no layout and/or widget was found with a claws identifier
+    
+- 1.123.0 -- 2018-03-24
+
+    - enhance PageCreatorProgram class, now create an appropriate module section in routsy file and put all routes there
+    
+- 1.122.0 -- 2018-03-24
+
+    - enhance NewModuleProgram class, now also generate default HooksHelper
+    
+- 1.121.2 -- 2018-03-24
+
+    - fix NewModuleProgram.setModuleName method not accepting null values
+    
+- 1.121.1 -- 2018-03-24
+
+    - adjust some PageCreatorProgram class parameters
+    
+- 1.121.0 -- 2018-03-24
+
+    - add NewModuleProgram class
+    
+- 1.120.1 -- 2018-03-09
+
+    - fix MorphicAdminListRenderer now transmits colTransformers
+    
+- 1.120.0 -- 2018-03-09
+
+    - add KamilleModulePackerHelper tool
+    
+- 1.119.1 -- 2018-03-07
+
+    - fix KamilleModulePacker wrong Hooks regex
+    
+- 1.119.0 -- 2018-03-07
+
+    - add KamilleModulePacker
+     
+- 1.118.0 -- 2018-03-05
+
+    - add KamilleModule _install_after_note.txt recognition mechanism 
+    
+- 1.117.0 -- 2018-03-05
+    - enhance KamilleModule, now setting an appropriate default ProgramOutput  
+    
+- 1.116.0 -- 2018-03-05
+
+    - add KamilleModule::create method
+    - add DirScanner dependency in package-info.yml
+    - update Routsy ConfigGenerator now removes unnecessary vertical spaces between routes
+    - install routine now add module name in modules.txt
+    - add ModuleInstallTool::installPlanets method: now KamilleModule can resolve planets dependencies
+    
+- 1.115.0 -- 2018-03-03
+
+    - add ClawsInterface.setLayout method
     
 - 1.114.0 -- 2018-02-08
 

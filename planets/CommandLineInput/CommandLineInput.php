@@ -34,6 +34,7 @@ class CommandLineInput implements CommandLineInputInterface
 
     private $registeredFlags;
     private $registeredOptions;
+    private $acceptNotRegistered;
 
 
     public function __construct(array $argv)
@@ -43,6 +44,7 @@ class CommandLineInput implements CommandLineInputInterface
         $this->parameters = [];
         $this->registeredFlags = [];
         $this->registeredOptions = [];
+        $this->acceptNotRegistered = false;
 
         //
         $this->argv = $argv;
@@ -53,6 +55,12 @@ class CommandLineInput implements CommandLineInputInterface
     public static function create(array $argv)
     {
         return new static($argv);
+    }
+
+    public function setAcceptNotRegistered(bool $acceptNotRegistered)
+    {
+        $this->acceptNotRegistered = $acceptNotRegistered;
+        return $this;
     }
 
 
@@ -154,14 +162,14 @@ class CommandLineInput implements CommandLineInputInterface
                         // long option
                         $optionName = $p[0];
                         $optionValue = $p[1];
-                        if (in_array($optionName, $this->registeredOptions, true)) {
+                        if (true === $this->acceptNotRegistered || in_array($optionName, $this->registeredOptions, true)) {
                             $this->options[$optionName] = $optionValue;
                         } else {
                             $this->notRegistered("longOption", $optionName);
                         }
                     } else {
                         // long flag
-                        if (in_array($option, $this->registeredFlags, true)) {
+                        if (true === $this->acceptNotRegistered || in_array($option, $this->registeredFlags, true)) {
                             $this->flags[$option] = true;
                         } else {
                             $this->notRegistered("longFlag", $option);
@@ -177,7 +185,7 @@ class CommandLineInput implements CommandLineInputInterface
                         // short option
                         $optionName = $p[0];
                         $optionValue = $p[1];
-                        if (true === in_array($optionName, $this->registeredOptions, true)) {
+                        if (true === $this->acceptNotRegistered || true === in_array($optionName, $this->registeredOptions, true)) {
                             $this->options[$optionName] = $optionValue;
                         } else {
                             $this->notRegistered("shortOption", $optionName);
@@ -187,7 +195,7 @@ class CommandLineInput implements CommandLineInputInterface
                         $len = strlen($option);
                         if (1 === $len) {
                             // short flag
-                            if (true === in_array($option, $this->registeredFlags, true)) {
+                            if (true === $this->acceptNotRegistered || true === in_array($option, $this->registeredFlags, true)) {
                                 $this->flags[$option] = true;
                             } else {
                                 $this->notRegistered("shortFlag", $option);
@@ -196,7 +204,7 @@ class CommandLineInput implements CommandLineInputInterface
                             // assuming combined flags
                             $chars = str_split($option);
                             foreach ($chars as $char) {
-                                if (true === in_array($char, $this->registeredFlags, true)) {
+                                if (true === $this->acceptNotRegistered || true === in_array($char, $this->registeredFlags, true)) {
                                     $this->flags[$char] = true;
                                 } else {
                                     $this->notRegistered("shortFlagCombined", $option);

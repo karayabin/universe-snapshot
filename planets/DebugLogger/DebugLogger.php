@@ -16,7 +16,7 @@ class DebugLogger
         $this->colors = [
             'warning' => 'orange',
             'info' => 'blue',
-            'success' => 'success',
+            'success' => 'green',
             'error' => 'red',
         ];
     }
@@ -32,27 +32,27 @@ class DebugLogger
     //--------------------------------------------
     //
     //--------------------------------------------
-    public function log($mixed, $type = 'info', $br = false)
+    public function log($mixed, $type = 'info', $br = true)
     {
         $this->output($mixed, $type, $br);
     }
 
-    public function warning($mixed, $br = false)
+    public function warning($mixed, $br = true)
     {
         $this->output($mixed, 'warning', $br);
     }
 
-    public function info($mixed, $br = false)
+    public function info($mixed, $br = true)
     {
         $this->output($mixed, 'info', $br);
     }
 
-    public function success($mixed, $br = false)
+    public function success($mixed, $br = true)
     {
         $this->output($mixed, 'success', $br);
     }
 
-    public function error($mixed, $br = false)
+    public function error($mixed, $br = true)
     {
         $this->output($mixed, 'error', $br);
     }
@@ -72,7 +72,7 @@ class DebugLogger
         }
     }
 
-    protected function renderWeb($mixed, $type, $color, $br = false)
+    protected function renderWeb($mixed, $type, $color, $br = true)
     {
         echo '<span style="color: ' . $color . '">';
         if (is_scalar($mixed)) {
@@ -92,7 +92,7 @@ class DebugLogger
     }
 
 
-    protected function renderCli($mixed, $type, $color, $br = false)
+    protected function renderCli($mixed, $type, $color, $br = true)
     {
         /**
          * @todo-ling: implement colors for cli

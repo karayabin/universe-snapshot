@@ -40,4 +40,5 @@ class SokoUtil
         }
         $preferences["attributes"] = $attr;
     }
+
 }

@@ -6,6 +6,7 @@ namespace SokoForm\ValidationRule;
 
 use SokoForm\Control\SokoControlInterface;
 use SokoForm\Form\SokoFormInterface;
+use SokoForm\Translator\SokoValidationRuleTranslator;
 
 class SokoContainsBetweenXAndYDigitsValidationRule extends SokoValidationRule
 {
@@ -16,7 +17,7 @@ class SokoContainsBetweenXAndYDigitsValidationRule extends SokoValidationRule
         parent::__construct();
         $this->preferences['min'] = 1;
         $this->preferences['max'] = 10;
-        $this->setErrorMessage("The value must contain at least {min} digits, and at most {max} digits");
+        $this->setErrorMessage(SokoValidationRuleTranslator::getValidationMessageTranslation("minMaxDigits"));
 
         $this->setValidationFunction(function ($value, array &$preferences, &$error = null, SokoFormInterface $form, SokoControlInterface $control) {
             if (true === $this->checkSubmitted($value, $error)) {

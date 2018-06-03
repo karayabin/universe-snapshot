@@ -175,6 +175,8 @@ class RoutsyRouter implements WebRouterInterface, RouteCollectionInterface
         $uri = urldecode($uri);
 
 
+
+
         if (is_string($url)) {
             // is it dynamic or static?
             if (false === strpos($url, '{')) {
@@ -251,7 +253,7 @@ class RoutsyRouter implements WebRouterInterface, RouteCollectionInterface
 
 
                 if ($collection instanceof RoutsyRouteCollection) {
-                    $collection->routeMatched($routeId);
+                    $collection->routeMatched($routeId, $route);
                 }
                 return $controllerMatch;
             }
