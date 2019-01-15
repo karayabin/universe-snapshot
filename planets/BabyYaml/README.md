@@ -46,6 +46,142 @@ All other classes are private and their code might be modified at any moment so 
 
 
 
+BabyYaml syntax example
+==============================
+The following babyYaml code:
+
+```yaml
+- doo
+- foo
+-moo
+key: value
+key2: value2
+"key:2": another value2
+arr:
+    one: 1
+    - two
+    three:
+        poo: zoo
+-
+    doo: you don't need quotes, generally
+    specialValues:
+        true: true
+        false: false
+        null: null
+        int: 64
+        float: 6.4
+        string: "6.4"
+        emptyString: ""
+    trueAsString: "true"
+    trueAsString2: 'true'
+inlineNotations:
+    sequences: [one, two]
+    map: {one: 1, two: 2}
+    nomap: {one1, two2}
+    recur: [a, b, {one: 1, "two": two, three: [again, again]}, c, [1,2]]
+multiline: <
+This is a multiline firstline
+This is a multiline secondline
+>
+anotherNested:
+    - multiline2: <
+    Multiline always has the same indent as its key.
+    As you can see here...
+    >
+# this is a comment
+comments: null
+emptyStringAgain: # this is not a comment
+bla2: "this # is not a comment either"
+bla2': 'this # is not a comment either'
+bla"2': 'this # is not a comment either'
+bla3: blabla # this is a comment
+arrxx: [soo] # this is also a comment
+
+```
+
+
+Will give the following php array:
+
+```php
+array(18) {
+  [0] => string(3) "doo"
+  [1] => string(3) "foo"
+  [2] => string(3) "moo"
+  ["key"] => string(5) "value"
+  ["key2"] => string(6) "value2"
+  ["key:2"] => string(14) "another value2"
+  ["arr"] => array(3) {
+    ["one"] => int(1)
+    [0] => string(3) "two"
+    ["three"] => array(1) {
+      ["poo"] => string(3) "zoo"
+    }
+  }
+  [3] => array(4) {
+    ["doo"] => string(32) "you don't need quotes, generally"
+    ["specialValues"] => array(7) {
+      ["true"] => bool(true)
+      ["false"] => bool(false)
+      ["null"] => NULL
+      ["int"] => int(64)
+      ["float"] => float(6.4)
+      ["string"] => string(3) "6.4"
+      ["emptyString"] => string(0) ""
+    }
+    ["trueAsString"] => string(4) "true"
+    ["trueAsString2"] => string(4) "true"
+  }
+  ["inlineNotations"] => array(4) {
+    ["sequences"] => array(2) {
+      [0] => string(3) "one"
+      [1] => string(3) "two"
+    }
+    ["map"] => array(2) {
+      ["one"] => int(1)
+      ["two"] => int(2)
+    }
+    ["nomap"] => string(12) "{one1, two2}"
+    ["recur"] => array(5) {
+      [0] => string(1) "a"
+      [1] => string(1) "b"
+      [2] => array(3) {
+        ["one"] => int(1)
+        ["two"] => string(3) "two"
+        ["three"] => array(2) {
+          [0] => string(5) "again"
+          [1] => string(5) "again"
+        }
+      }
+      [3] => string(1) "c"
+      [4] => array(2) {
+        [0] => int(1)
+        [1] => int(2)
+      }
+    }
+  }
+  ["multiline"] => string(60) "This is a multiline firstline
+This is a multiline secondline"
+  ["anotherNested"] => array(1) {
+    [0] => string(71) "Multiline always has the same indent as its key.
+As you can see here..."
+  }
+  ["comments"] => NULL
+  ["emptyStringAgain"] => string(0) ""
+  ["bla2"] => string(30) "this # is not a comment either"
+  ["bla2'"] => string(30) "this # is not a comment either"
+  ["bla"2'"] => string(30) "this # is not a comment either"
+  ["bla3"] => string(6) "blabla"
+  ["arrxx"] => array(1) {
+    [0] => string(3) "soo"
+  }
+}
+
+```
+
+
+
+
+
 So what is the BabyYaml syntax?
 =================================
 
