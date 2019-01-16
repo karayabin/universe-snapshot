@@ -1,22 +1,31 @@
 <?php
 
+
+
+
 //------------------------------------------------------------------------------/
-// THIS IS BIG BANG SCRIPT FOR A JIN (aka modern uni) APP, from whence the universe can be used
+// THIS IS BIG BANG SCRIPT, from whence the universe can be used
 //------------------------------------------------------------------------------/
 use BumbleBee\Autoload\ButineurAutoloader;
 
-require_once __DIR__ . '/BumbleBee/Autoload/BeeAutoloader.php';
-require_once __DIR__ . '/BumbleBee/Autoload/ButineurAutoloader.php';
+
+require_once __DIR__ . '/planets/BumbleBee/Autoload/BeeAutoloader.php';
+require_once __DIR__ . '/planets/BumbleBee/Autoload/ButineurAutoloader.php';
+
+
+
+if (!isset($__butineurStart)) {
+    $__butineurStart = true;
+}
 
 ButineurAutoloader::getInst()
-    ->addLocation(__DIR__)// planets from universe
-    ->addLocation(__DIR__ . "/../class"); // class for the application
-
-ButineurAutoloader::getInst()->start();
-
-
-
-
+    ->addLocation(__DIR__ . "/planets");
+// ->addLocation(__DIR__ . "/myclasses") // we could use multiple directories if needed
+//
+//
+if (true === $__butineurStart) {
+    ButineurAutoloader::getInst()->start();
+}
 
 //------------------------------------------------------------------------------/
 // BONUS FUNCTIONS, SO HANDFUL... (a huge time saver in the end)
@@ -33,18 +42,15 @@ if (!function_exists('a')) {
             }
             if ('cli' === PHP_SAPI) {
                 echo $output;
-            } else {
+            }
+            else {
                 echo '<pre>' . $output . '</pre>';
             }
         }
     }
-
     function az()
     {
         call_user_func_array('a', func_get_args());
         exit;
     }
 }
-
-
-
