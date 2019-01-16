@@ -14,7 +14,8 @@ The **universe** is a php library that you can use for your projects.
 
 THe **universe** is composed of **planets**, each **planet** representing a "package" containing some functionality.
 
-For instance, the **BabyYaml** planet allows you to parse the baby yaml files (see more here: https://github.com/karayabin/universe-snapshot/tree/master/planets/BabyYaml).
+For instance, the **BabyYaml** planet allows you to parse the baby yaml files (see more [here](https://github.com/karayabin/universe-snapshot/tree/master/planets/BabyYaml)).
+
 You can find all the planets here: [https://github.com/karayabin/universe-snapshot](https://github.com/karayabin/universe-snapshot).
 
 You can install one planet or many, it's up to you.
@@ -31,14 +32,14 @@ uni import BabyYaml
 Note that the **uni tool** also takes care of dependencies that planets might have (some planets use other planets) recursively.
 
 
-If you don't want to use the **uni tool**, you can always do the imports manually.
+If you don't want to use the **uni tool**, you can always do the imports manually, as described below.
 
 
 
 
 Structure
 --------------
-Since 2019, the modern way of using the universe is to create the following structure:
+Since 2019, the modern way of using the universe is to create the following structure in your app:
 
 
 ```txt
@@ -48,10 +49,11 @@ Since 2019, the modern way of using the universe is to create the following stru
 --------- bigbang.php		
 --------- BumbleBee
 --------- ...YourPlanet
+----- ...all the other app files
 ```
 
 
-Note that with the **uni tool** can create this structure (except for the **class** directory which is optional) for you with the following command:
+Note that with the **uni tool** can create this structure (except for the **class** directory which is optional) for you automatically with the following command:
 
 ```bash
 cd /your_app
@@ -60,17 +62,15 @@ uni init
 
 
 
-The **class** directory contains your app's classes.
-The **universe** directory contains the planets that your app uses. From your app's point of view, those are external dependencies.
-
-
-The **universe/bigbang.php** script defines the BumbleBee autoloader, which is the autoloader of the universe. It will look into the **class** dir and the **universe** dir
+- The **class** directory contains your app's classes.
+- The **universe** directory contains the planets that your app uses. From your app's point of view, those are external dependencies.
+- The **universe/bigbang.php** script defines the BumbleBee autoloader, which is the autoloader of the universe. It will look into the **class** dir and the **universe** dir
 for classes which are named after the [bsr-0](https://github.com/lingtalfi/BumbleBee/blob/master/Autoload/convention.bsr0.eng.md) convention.
 
 
 Note that modifying the autoloader's directories is trivial (just open the **universe/bigbang.php** file and you should be able to understand without further indications. You can even leverage the BumbleBee autoloader to search into other directories by adding a line...).
 
-The **universe/BumbleBee** is just a planet containing the autoloader class.
+- The **universe/BumbleBee** is just a planet containing the autoloader class.
 
 
 Setup
@@ -81,6 +81,9 @@ For instance, if your main entry point is the **www/index.php** file, you would 
 ```php
 require_once __DIR__ . "/../universe/bigbang.php"; // activate universe
 ```
+
+
+Note: your app does not need to be a web app to benefit the universe, it just needs to be a php app.
 
 
 
