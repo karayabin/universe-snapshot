@@ -364,6 +364,7 @@ class QuickPdo
 
         $stmt = $pdo->prepare($query);
         if (true === $stmt->execute($markers)) {
+            self::onDataAlterAfter('delete', $query, $markers, $table);
             return $stmt->rowCount();
         }
         self::handleStatementErrors($stmt, 'delete');

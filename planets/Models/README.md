@@ -52,7 +52,11 @@ Related
 
 History Log
 ------------------
-    
+
+- 1.26.0 -- 2018-06-15
+
+    - update formModel -> 1.4.0
+
 - 1.25.0 -- 2018-03-30
 
     - add SimpleDropDownModel model

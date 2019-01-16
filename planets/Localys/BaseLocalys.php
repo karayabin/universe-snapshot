@@ -62,4 +62,9 @@ abstract class BaseLocalys implements LocalysInterface
     {
 
     }
+
+    public function getTimeElapsedString(string $dateTime, array $options = [])
+    {
+
+    }
 }

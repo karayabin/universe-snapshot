@@ -151,6 +151,11 @@ class HtmlPageHelper
         self::$listCss[$url] = [$htmlAttributes, $libName];
     }
 
+    public static function link($url, array $htmlAttributes = null)
+    {
+        self::$listCss[$url] = [$htmlAttributes, null];
+    }
+
     /**
      * inHead: bool|after
      * - if true, is displayed in the head

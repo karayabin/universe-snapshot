@@ -19,7 +19,9 @@ class HtmlLayout extends Layout
 
         ob_start();
 
+
         $out = parent::render($variables);
+
 
         echo '<!DOCTYPE html>' . PHP_EOL;
         echo '<html' . StringTool::htmlAttributes(HtmlPageHelper::getHtmlTagAttributes()) . '>' . PHP_EOL;

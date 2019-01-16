@@ -258,7 +258,8 @@ class QuickPdoRowsGenerator extends AbstractRowsGenerator
 
 
             $countQuery = $this->getQuery("count(*) as count") . $searchTail;
-            $this->nbTotalItems = (int)QuickPdo::fetch($countQuery, $markers)['count'];
+            $this->nbTotalItems = (int)$this->doGetNbTotalItems($countQuery, $markers);
+//            $this->nbTotalItems = (int)QuickPdo::fetch($countQuery, $markers)['count'];
 
             //--------------------------------------------
             // SLICE
@@ -288,7 +289,8 @@ class QuickPdoRowsGenerator extends AbstractRowsGenerator
 
             $rowsQuery = $this->getQuery($this->fields) . $searchTail . $sortTail . $limitTail;
 
-            $rows = QuickPdo::fetchAll($rowsQuery, $markers);
+//            $rows = QuickPdo::fetchAll($rowsQuery, $markers);
+            $rows = $this->doGetRows($rowsQuery, $markers);
 
             return $rows;
         } else {
@@ -315,6 +317,17 @@ class QuickPdoRowsGenerator extends AbstractRowsGenerator
         }
     }
 
+
+    protected function doGetNbTotalItems($countQuery, array $markers)
+    {
+        return QuickPdo::fetch($countQuery, $markers)['count'];
+    }
+
+    protected function doGetRows($rowsQuery, array $markers)
+    {
+        return QuickPdo::fetchAll($rowsQuery, $markers);
+    }
+
     //--------------------------------------------
     //
     //--------------------------------------------
@@ -335,7 +348,6 @@ class QuickPdoRowsGenerator extends AbstractRowsGenerator
             return false;
         }
     }
-
 
 
     private function error($msg)

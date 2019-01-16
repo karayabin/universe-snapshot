@@ -71,6 +71,11 @@ The list pagination, order and filters are provided by the plugins.
 History Log
 ------------------
     
+- 1.6.0 -- 2018-06-11
+
+    - add SqlQueryWrapper.doGetNbItems protected method
+    - add SqlQueryWrapper.doGetRows protected method
+    
 - 1.5.0 -- 2018-05-25
 
     - add SqlQueryWrapperBasePlugin.setContext method

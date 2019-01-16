@@ -160,6 +160,7 @@ Voici les propriétés disponibles pour le fichier de configuration des formulai
     ne sont pas passés dans l'url (pour des raisons diverses)  
 - `form`: l'instance SokoFormInterface  
 - `submitBtnLabel`: le label du bouton submit  
+- `hideSubmitBtn`: bool, permet de cacher le bouton submit  
 - `feed`: la fonction à appeler pour pré-remplir le form en mode update (voir `Controller\NullosAdmin\Back\NullosMorphicController::handleMorphicForm` pour plus de détails).
         L'appel à cette fonction se fait uniquement si les ric sont trouvées dans le tableau `$_GET`.
         On peut également forcer l'appel à la fonction feed en utilisant la propriété `forceFeed`.  

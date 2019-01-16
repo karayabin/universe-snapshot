@@ -83,6 +83,10 @@ only the used bits?
 History Log
 ------------------
     
+- 1.9.0 -- 2018-06-19
+
+    - add LocalysInterface.getTimeElapsedString method
+
 - 1.8.0 -- 2018-05-29
 
     - add LocalysFrenchHelper class

@@ -32,5 +32,7 @@ interface DerbyCacheInterface
      * Remove all caches which cacheIdentifier starts with the given prefix
      * @return void
      */
-    public function deleteByPrefix($prefix);
+    public function deleteByPrefix(string $prefix);
+
+    public function deleteByCacheIdentifier(string $cacheIdentifier);
 }

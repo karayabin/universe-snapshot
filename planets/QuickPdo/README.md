@@ -115,6 +115,17 @@ $rows = QuickPdo::fetchAll($stmt, [
 $rows = QuickPdo::fetchAll($stmt, [
     'name' => '%' . str_replace(['%', '_'], ['\%', '\_'], $thename) . '%',
 ]);
+
+
+
+// now using the like method from QuickPdoStmtTool class 
+QuickPdo::fetchAll("
+select cp, ville 
+from $table
+where ville like :city
+", [
+    "city" => QuickPdoStmtTool::like($search),
+]);
 ```
 
 #### Fetch all to one dimensional array grouped by id example 
@@ -244,6 +255,14 @@ if (false !== ($n = QuickPdo::delete('superusers', [
     echo "$n entries have been deleted";
 }
 
+```
+
+
+```php
+QuickPdo::delete("ek_discount", [
+    "id in (34)"
+]); 
+// delete from `ek_discount` WHERE id in (34)
 ```
 
   
@@ -582,6 +601,18 @@ Then the results will look like this on the console:
  
 History Log
 ------------------
+
+- 2.41.0 -- 2018-06-19
+
+    - add QuickPdoStmtTool::likePrefix and likeSuffix methods
+
+- 2.40.1 -- 2018-06-08
+
+    - fix QuickPdo::delete method not triggering the onDataAlterAfter inner method
+    
+- 2.40.0 -- 2018-06-08
+
+    - add QuickPdoStmtTool::like method
 
 - 2.39.0 -- 2018-04-30
 

@@ -192,6 +192,20 @@ See FileTool::getFileSize
 
 
 
+
+getRelativePath
+-----------
+2018-06-15
+
+
+string|false        getRelativePath( string:absolutePath, string:rootDir )
+
+
+Return the relative path from rootDir to absolutePath, or false if the absolutePath
+is not contained in (a children of) rootDir.
+
+
+
 mkdir
 -----------
 2015-10-07
@@ -290,6 +304,53 @@ a(FileSystemTool::mkfile($f, "hello"));
 
 
 ```
+
+
+
+mkTmpFile
+-----------
+2018-06-15
+
+
+```php
+string:path    mkTmpFile ( str:content )
+```
+
+Creates a temporary file with the given content, and return its path.
+
+
+### Example
+
+```php
+<?php
+
+$path = FileSystemTool::mkTmpFile("I'm the content of the file");
+a($path);  // /private/var/folders/sd/8m3gr23x1812c8_fddkwtk740000gn/T/BatGCcMzM
+
+```
+
+
+
+
+move
+-----------
+2018-06-15
+
+Alias for rename.
+
+
+
+moveToDir
+-----------
+2018-06-15
+
+
+```php
+bool    moveToDir (string:filePath, string:destDir)
+```
+
+Move the file filePath to the directory destDir.
+
 
 
 

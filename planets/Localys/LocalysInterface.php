@@ -161,4 +161,25 @@ interface LocalysInterface
      *
      */
     public function getDayNameAbbr($dayNumber);
+
+    /**
+     * Return the duration with appropriated unit (the smallest unit possible that matches the given duration).
+     * Possible values are (in english):
+     *
+     * - just now (less than a minute)
+     * - 2 minutes 5 seconds
+     * - 15 hours 34 minutes 12 seconds
+     * - 6 days 15 hours 34 minutes 12 seconds
+     * - 2 weeks 15 hours 34 minutes 12 seconds
+     * - 1 month 2 weeks 6 days 15 hours 34 minutes 12 seconds
+     * - 2 years 5 months 2 weeks 6 days 15 hours 34 minutes 12 seconds
+     *
+     *
+     * @param $dateTime , a date time (2018-06-19 13:29:04)
+     * @param array $options :
+     *      - full: bool=true, if false, returns only the most representative unit (for instance, 1 year)
+     *
+     * @return mixed
+     */
+    public function getTimeElapsedString(string $dateTime, array $options = []);
 }

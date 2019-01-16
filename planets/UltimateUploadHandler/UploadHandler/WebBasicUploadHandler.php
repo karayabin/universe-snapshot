@@ -11,19 +11,19 @@ class WebBasicUploadHandler extends BasicUploadHandler
 {
 
 
-    protected $wwwDir;
+    protected $baseDir;
 
 
     public function __construct()
     {
         parent::__construct();
-        $this->wwwDir = null;
+        $this->baseDir = null;
     }
 
 
-    public function setWebDir(string $wwwDir)
+    public function setUploadBaseDir(string $baseDir)
     {
-        $this->wwwDir = $wwwDir;
+        $this->baseDir = $baseDir;
         return $this;
     }
 
@@ -33,18 +33,19 @@ class WebBasicUploadHandler extends BasicUploadHandler
     //--------------------------------------------
     protected function getReturnInfo(string $dstFile, array $phpFileItem)
     {
-        if ($this->wwwDir) {
-            $wwwDir = realpath($this->wwwDir);
+        if ($this->baseDir) {
+            $baseDir = realpath($this->baseDir);
             $dstFile = realpath($dstFile);
-            if (FileSystemTool::existsUnder($dstFile, $wwwDir)) {
-                $uri = str_replace($wwwDir, "", $dstFile);
+            if (FileSystemTool::existsUnder($dstFile, $baseDir)) {
+                $relativePath = str_replace($baseDir, "", $dstFile);
                 return [
-                    "uri" => $uri,
+                    "relativePath" => $relativePath,
+                    "fileName" => basename($relativePath),
                 ];
             }
             throw new UltimateUploadHandlerException("Configuration error: dstFile was not uploaded under the wwwDir");
         }
-        throw new UltimateUploadHandlerException("Configuration error: wwwDir not set");
+        throw new UltimateUploadHandlerException("Configuration error: baseDir not set");
     }
 
 }

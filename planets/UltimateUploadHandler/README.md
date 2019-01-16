@@ -124,6 +124,14 @@ How to create an upload handler manually?
 History Log
 ------------------
 
+- 1.2.0 -- 2018-06-03
+
+    - add FrenchMimeTypeConstraint and FrenchSizeConstraint classes
+
+- 1.1.0 -- 2018-06-03
+
+    - add WebBasicUploadHandler getReturnInfo method now also returns the fileName property
+
 - 1.0.0 -- 2018-06-03
 
     - initial commit

@@ -112,6 +112,7 @@ class PhpLayoutRenderer extends LayoutRenderer
                 throw $__exCEption_;
             }
 
+            unlink($path);
             return $content;
 
         } else {
@@ -150,6 +151,10 @@ class PhpLayoutRenderer extends LayoutRenderer
     //--------------------------------------------
     //
     //--------------------------------------------
+    /**
+     * @param $content
+     * @return bool|string
+     */
     private function tmpFile($content)
     {
         $tmpfname = @tempnam("/tmp/PhpLayoutRenderer", "FOO"); // @ to avoid: Notice: tempnam(): file created in the system's temporary directory

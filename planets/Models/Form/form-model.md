@@ -1,10 +1,10 @@
 Form model
 ===============
-2017-11-24
+2018-06-15
 
 
 A form model.
-Version 1.3.0
+Version 1.4.0
 
 
 
@@ -23,7 +23,8 @@ Overview
     - action: string
     - enctype: string
     - id: string|null, the css id, or null if not set
-    - class: string|null, the css class, or null if not set 
+    - errors: array of form level error messages
+    - class: string|null, the css class, or null if not set
     - attributes: read only array containing the following:
                 - method
                 - action

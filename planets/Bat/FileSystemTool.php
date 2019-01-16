@@ -184,10 +184,21 @@ class FileSystemTool
     }
 
 
-
-    public static function getFileSize($file, $humanize=false)
+    public static function getFileSize($file, $humanize = false)
     {
         return FileTool::getFileSize($file, $humanize);
+    }
+
+
+    public static function getRelativePath(string $absolutePath, string $rootDir)
+    {
+        $absolutePath = realpath($absolutePath);
+        $rootDir = realpath($rootDir);
+        if (0 === strpos($absolutePath, $rootDir)) {
+            $len = mb_strlen($rootDir);
+            return mb_substr($absolutePath, $len + 1); // +1 to strip the slash
+        }
+        return false;
     }
 
 
@@ -296,6 +307,25 @@ class FileSystemTool
         return false;
     }
 
+
+    public static function mkTmpFile(string $content)
+    {
+        $path = tempnam(sys_get_temp_dir(), 'Bat');
+        self::mkfile($path, $content);
+        return $path;
+    }
+
+
+    public static function move(string $src, string $dst)
+    {
+        return self::rename($src, $dst);
+    }
+
+    public static function moveToDir(string $filePath, string $directory)
+    {
+        $newPath = rtrim($directory, "/") . "/" . basename($filePath);
+        return self::rename($filePath, $newPath);
+    }
 
     public static function noEscalating($uri)
     {

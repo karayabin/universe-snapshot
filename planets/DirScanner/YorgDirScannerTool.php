@@ -102,6 +102,29 @@ class YorgDirScannerTool
         });
     }
 
+
+    public static function getFilesWithPrefix(string $dir, string $prefix, $recursive = false, $relativePath = false, $followSymlinks = false, $ignoreHidden = true)
+    {
+        return DirScanner::create()->setFollowLinks($followSymlinks)->scanDir($dir, function ($path, $rPath, $level) use ($prefix, $relativePath, $recursive, $ignoreHidden) {
+            if (0 === $level || true === $recursive) {
+                if (is_file($path)) {
+                    if (true === $ignoreHidden && 0 === strpos($rPath, '.')) {
+                        return null;
+                    }
+                    $baseName = basename($rPath);
+                    if (0 !== strpos($baseName, $prefix)) {
+                        return null;
+                    }
+
+                    if (true === $relativePath) {
+                        return $rPath;
+                    }
+                    return $path;
+                }
+            }
+        });
+    }
+
     /**
      * Return the list of files (not dirs) of a given folder.
      *
@@ -129,7 +152,6 @@ class YorgDirScannerTool
                     if (true === $ignoreHidden && 0 === strpos($rPath, '.')) {
                         return null;
                     }
-
 
 
                     //--------------------------------------------

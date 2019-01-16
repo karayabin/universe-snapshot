@@ -162,6 +162,14 @@ a(UniversalFactory::getCar("css")); // "I'm a css car with 4 wheels: wheel top l
 History Log
 ------------------
     
+- 1.5.0 -- 2018-06-08
+
+    - add DerbyCacheInterface.deleteByCacheIdentifier method 
+    
+- 1.4.0 -- 2018-06-08
+
+    - add FileSystemDerbyCache.deleteByCacheIdentifier method 
+    
 - 1.3.1 -- 2017-11-18
 
     - fix FileSystemDerbyCache.get method forceGenerate argument now only triggers when ===true (not an array) 

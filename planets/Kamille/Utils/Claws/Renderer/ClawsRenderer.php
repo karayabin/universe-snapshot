@@ -5,6 +5,7 @@ namespace Kamille\Utils\Claws\Renderer;
 
 
 use Kamille\Architecture\ApplicationParameters\ApplicationParameters;
+use Kamille\Architecture\Registry\ApplicationRegistry;
 use Kamille\Ling\Z;
 use Kamille\Mvc\Layout\HtmlLayout;
 use Kamille\Mvc\Layout\Layout;
@@ -24,6 +25,10 @@ use Loader\PublicFileLoaderInterface;
 
 class ClawsRenderer
 {
+
+    public static $currentWidgetId = null;
+    public static $currentWidgetTemplate = null;
+
     /**
      * @var Claws
      */
@@ -149,6 +154,7 @@ class ClawsRenderer
                         $widgetClass = $clawsWidget->getClass();
 
 
+
                         /**
                          * old code from LawsUtil, I keep it just in case
                          */
@@ -166,10 +172,21 @@ class ClawsRenderer
                                 }
                             });
 
+                            self::$currentWidgetId = $id;
+                            self::$currentWidgetTemplate = $templateName;
+
+
+
+
+
+                            $wRenderer = $commonRenderer;
+
+
+
                             $widget->setTemplate($templateName)
                                 ->setVariables($conf)
                                 ->setLoader($wloader)
-                                ->setRenderer($commonRenderer);
+                                ->setRenderer($wRenderer);
 
 
                             /**

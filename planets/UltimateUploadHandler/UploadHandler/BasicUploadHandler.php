@@ -19,12 +19,14 @@ class BasicUploadHandler implements UltimateUploadHandlerInterface
     protected $constraints;
     protected $fileName;
     protected $dstFile;
+    protected $constraintErrMsgPrefix;
 
 
     public function __construct()
     {
         $this->constraints = [];
         $this->fileName = "files";
+        $this->constraintErrMsgPrefix = "Error while checking file {{fileName}}: ";
         $this->dstFile = null;
     }
 
@@ -39,6 +41,13 @@ class BasicUploadHandler implements UltimateUploadHandlerInterface
         return $this;
     }
 
+    public function setConstraintErrMsgPrefix(string $constraintErrMsgPrefix)
+    {
+        $this->constraintErrMsgPrefix = $constraintErrMsgPrefix;
+        return $this;
+    }
+
+
 
     public function checkFile(array $phpFileItem)
     {
@@ -47,7 +56,8 @@ class BasicUploadHandler implements UltimateUploadHandlerInterface
             $constraint->check($phpFileItem, $errorMessage);
             if ($errorMessage) {
                 $fileName = $phpFileItem['name'];
-                throw new ConstraintUltimateUploadHandlerException("Error while checking file $fileName: " . $errorMessage);
+                $msgPrefix = str_replace('{{fileName}}', $fileName, $this->constraintErrMsgPrefix);
+                throw new ConstraintUltimateUploadHandlerException($msgPrefix . $errorMessage);
             }
         }
     }

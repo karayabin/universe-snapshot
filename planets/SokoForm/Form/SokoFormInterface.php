@@ -8,6 +8,10 @@ use SokoForm\Control\SokoControlInterface;
 use SokoForm\Exception\SokoFormException;
 use SokoForm\ValidationRule\SokoValidationRuleInterface;
 
+
+/**
+ * https://github.com/lingtalfi/Models/blob/master/Form/form-model.md
+ */
 interface SokoFormInterface
 {
 
@@ -102,6 +106,14 @@ interface SokoFormInterface
      * @return mixed
      */
     public function inject(array $context = []);
+
+    /**
+     * Add an error at the form level
+     *
+     * @param string $errorMessage
+     * @return void
+     */
+    public function addError(string $errorMessage);
 
 
     /**

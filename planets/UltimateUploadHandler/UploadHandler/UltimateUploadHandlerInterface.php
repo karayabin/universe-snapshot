@@ -14,8 +14,8 @@ use UltimateUploadHandler\Exception\UltimateUploadHandlerException;
  *      fileItem = $_FILES[files]
  *      checkFile (fileItem)
  *      returnInfo = moveFile (fileItem)
- * uri = returnInfo.uri
- *      // now do whatever with the uri
+ * relativePath = returnInfo.relativePath
+ *      // now do whatever with the relativePath
  * catch e
  *      error = e.getMessage()
  *      // now do whatever with the error
@@ -69,7 +69,19 @@ interface UltimateUploadHandlerInterface
      * defined by the handler.
      * Usually, it will contain the following properties:
      *
-     * - uri, path to the newly uploaded item
+     * - relativePath, path to the newly uploaded item
+     * - fileName, name of the file
+     *
+     *
+     *
+     * Note about security:
+     * --------
+     * if you upload your file in a web accessible directory, then malicious users
+     * will be able to execute the file right away.
+     * If putting files in a web non accessible directory is an option for you, then
+     * I would recommend to put all your files there.
+     *
+     *
      *
      *
      */

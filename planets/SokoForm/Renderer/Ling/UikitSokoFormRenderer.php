@@ -37,6 +37,7 @@ class UikitSokoFormRenderer
         $cssClass = $options['class'] ?? null;
         $submitButtonText = $options['submitButtonText'] ?? "Submit";
         $submitButtonClass = $options['submitButtonClass'] ?? "";
+        $submitButtonAttributes = $options['submitButtonAttributes'] ?? [];
         $noValidate = $options['noValidate'] ?? false;
         $headings = $options['headings'] ?? [];
         $topContent = $options['topContent'] ?? "";
@@ -120,7 +121,7 @@ class UikitSokoFormRenderer
                 foreach ($controls as $control):
                     $controlName = $control['name'];
                     $controlClass = $control['class'];
-                    $controlType = $control['type'];
+                    $controlType = $control['type'] ?? null;
                     $controlGrid = $grid[$controlName] ?? null;
 
 
@@ -187,6 +188,9 @@ class UikitSokoFormRenderer
                                 case "SokoChoiceControl":
                                     $this->renderSokoChoiceControl($control);
                                     break;
+                                case "SokoFilePlaceholderControl":
+                                    $this->renderSokoFilePlaceHolderControl($control);
+                                    break;
                                 case "SokoFileControl":
                                 case "SokoSafeUploadControl":
                                     if ("SokoSafeUploadControl" === $controlClass) {
@@ -220,7 +224,11 @@ class UikitSokoFormRenderer
                     <?php endif; ?>
                     <div uk-margin>
                         <button class="uk-button uk-button-primary
-                    <?php echo $submitButtonClass; ?>"><?php echo $submitButtonText; ?></button>
+                    <?php echo $submitButtonClass; ?>"
+                            <?php if ($submitButtonAttributes): ?>
+                                <?php echo StringTool::htmlAttributes($submitButtonAttributes); ?>
+                            <?php endif; ?>
+                        ><?php echo $submitButtonText; ?></button>
                     </div>
                     <?php if ($grid): ?>
                 </div>
@@ -348,7 +356,7 @@ class UikitSokoFormRenderer
         $uploadFileTextPart1 = $properties['uploadFileTextPart1'] ?? "Attach binaries by dropping them here or";
         $uploadFileTextPart2 = $properties['uploadFileTextPart2'] ?? "selecting one";
         $url = $properties['url'] ?? "";
-        $cssId = StringTool::getUniqueCssId("uikit-soko-ajax-upload-");
+        $cssId = $properties["cssId"] ?? StringTool::getUniqueCssId("uikit-soko-ajax-upload-");
 
 
         $value = $control['value'];
@@ -384,9 +392,15 @@ uk-form-danger
 
         <script>
 
+            /**
+             * Here we define a general hook object,
+             * so that the template can do its own things.
+             */
+            var cssId = "<?php echo addslashes($cssId); ?>";
             var bar = document.getElementById('js-progressbar');
 
-            UIkit.upload('#<?php echo $cssId; ?>', {
+
+            var component = UIkit.upload('#' + cssId, {
 
                 url: "<?php echo addslashes($url); ?>",
                 multiple: true,
@@ -429,8 +443,10 @@ uk-form-danger
                     bar.value = e.loaded;
                 },
 
-                completeAll: function () {
+                completeAll: function (request) {
                     console.log('completeAll', arguments);
+                    var response = request["response"];
+
 
                     setTimeout(function () {
                         bar.setAttribute('hidden', 'hidden');
@@ -440,6 +456,7 @@ uk-form-danger
                 }
 
             });
+
 
         </script>
         <?php
@@ -454,6 +471,131 @@ uk-form-danger
                name="<?php echo htmlspecialchars($name); ?>"
             <?php $this->extraAttributes('renderHiddenSokoInputControl', $control); ?>
                value="<?php echo htmlspecialchars($value); ?>">
+        <?php
+    }
+
+    protected function renderSokoFilePlaceHolderControl(array $control)
+    {
+
+        /**
+         * Note that this method suits only single upload file components.
+         * If you want multiple file handling, create ANOTHER method...
+         */
+
+        $value = $control['value'];
+        $name = $control['name'];
+        $cssId = StringTool::getUniqueCssId("soko-file-placeholder-");
+        $hiddenControlCssId = StringTool::getUniqueCssId("soko-hidden-file-placeholder-");
+
+        ?>
+        <div class="file-place-holder" id="<?php echo $cssId; ?>">
+
+        </div>
+        <input
+                id="<?php echo $hiddenControlCssId; ?>"
+                type="hidden"
+                name="<?php echo htmlspecialchars($name); ?>"
+            <?php $this->extraAttributes('renderHiddenSokoInputControl', $control); ?>
+                value="<?php echo htmlspecialchars($value); ?>">
+        <script>
+
+            jqueryComponent.ready(function () {
+
+                /**
+                 * Here we provide an api for the ajax uploader js component.
+                 * To use the api from outside this block, do this:
+                 *
+                 *
+                 * var controlName = "piece_identite_uri";
+                 * var placeHolderApi = window.myUiKitFilePlaceHolderApis[controlName];
+                 * // placeHolderApi.appendFile( "any..." );
+                 * // ...
+                 */
+
+                var jControlContainer = $('#<?php echo $cssId; ?>');
+                var jHidden = $('#<?php echo $hiddenControlCssId; ?>');
+                var MyUiKitFilePlaceHolderApi = function () {
+
+
+                    var zis = this;
+                    this.events = {};
+
+
+                    function trigger(eventName) {
+                        var args = Array.prototype.slice.call(arguments, 1);
+                        var zeArgs = [eventName];
+                        for (var i in args) {
+                            zeArgs.push(args[i]);
+                        }
+
+
+                        var callbacks = zis.events[eventName];
+                        for (var i in callbacks) {
+                            callbacks[i].apply(null, zeArgs);
+                        }
+                    }
+
+                    this.appendFile = function (relativePath) {
+
+                        var fileName = relativePath.split(/[\\/]/).pop();
+                        var s = '<ul class="uk-list uk-list-bullet"><li>' +
+                            '<span class="uk-margin-medium-right">' + fileName + '</span>' +
+                            '<a href="" uk-icon="close"></a>' +
+                            '</li></ul>';
+
+                        jControlContainer.empty(); // single file handling
+                        jControlContainer.append(s);
+                        jHidden.val(relativePath);
+
+
+                        jControlContainer.find("a").on('click', function () {
+                            zis.removeFile();
+                            return false;
+                        });
+                    };
+
+
+                    this.removeFile = function () {
+                        jHidden.val("");
+                        jControlContainer.empty();
+                        trigger("fileRemoved");
+                    };
+
+
+                    this.on = function (eventName, callback) {
+                        if (false === (eventName in zis.events)) {
+                            zis.events[eventName] = [];
+                        }
+                        zis.events[eventName].push(callback);
+                    };
+
+
+                };
+
+
+                //----------------------------------------
+                // SHARING THIS API TO THE OUTER WORLD
+                //----------------------------------------
+                if (false === ('myUiKitFilePlaceHolderApis' in window)) {
+                    window.myUiKitFilePlaceHolderApis = {};
+                }
+                var api = new MyUiKitFilePlaceHolderApi();
+                window.myUiKitFilePlaceHolderApis["<?php echo $name; ?>"] = api;
+
+
+                //----------------------------------------
+                // STATIC VALUE?
+                //----------------------------------------
+                <?php if($value): ?>
+                api.appendFile("<?php echo addslashes($value); ?>");
+                <?php endif; ?>
+
+
+            });
+
+        </script>
+
+
         <?php
     }
 
@@ -564,6 +706,9 @@ uk-form-danger
             $controlValues = [$controlValues];
         }
         $controlName = $control['name'];
+        $properties = $control['properties'] ?? [];
+        $br = $properties['br'] ?? false;
+        $array = $properties['array'] ?? false;
         ?>
         <?php
         $cpt = 0;
@@ -576,11 +721,13 @@ uk-form-danger
             ?>
             <label><input class="uk-checkbox"
                           type="checkbox"
-                          name="<?php echo htmlspecialchars($controlName); ?>"
+                          name="<?php echo htmlspecialchars($controlName); ?><?php echo (true === $array) ? '[]' : ''; ?>"
                           value="<?php echo htmlspecialchars($value); ?>"
                     <?php $this->extraAttributes('renderCheckboxSokoChoiceControl', $control, $cpt); ?>
                     <?php echo $sChecked; ?>> <?php echo $label; ?></label>
-
+            <?php if (true === $br): ?>
+            <br>
+        <?php endif; ?>
 
             <?php
             $cpt++;

@@ -843,6 +843,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.4.0 -- 2018-06-04
+
+    - enhance Umail now can attach multiple files 
+    
 - 1.3.0 -- 2017-08-24
 
     - add Umail.setTransport method 

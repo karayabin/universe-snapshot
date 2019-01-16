@@ -36,6 +36,9 @@ class SokoValidationRuleTranslator
                     case "minLength":
                         return "Ce champ doit contenir au minimum {minChars} caractères";
                         break;
+                    case "minNumber":
+                        return "Vous devez cocher au moins {minNumber} case(s)";
+                        break;
                     case "minMaxDigits":
                         return "Ce champ doit comprendre entre {min} et {max} chiffres";
                         break;
@@ -82,6 +85,9 @@ class SokoValidationRuleTranslator
                         break;
                     case "minLength":
                         return "The field must contain at least {minChars} characters";
+                        break;
+                    case "minNumber":
+                        return "You must check at least {minNumber} checkbox(es)";
                         break;
                     case "minMax":
                         return "The value must contain at least {min} digits, and at most {max} digits";

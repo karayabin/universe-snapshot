@@ -63,6 +63,35 @@ Dependencies
 History Log
 ------------------
     
+- 1.142 -- 2019-01-16
+
+    - add FileTool::append method
+
+- 1.141 -- 2018-06-19
+
+    - add DateTool::getTimeElapsedString method
+    
+- 1.140 -- 2018-06-17
+
+    - add DateTool::getMysqlDatetime method
+
+- 1.139 -- 2018-06-15
+
+    - add FileSystemTool::moveToDir method
+    - add FileSystemTool::move method
+
+- 1.138 -- 2018-06-15
+
+    - add FileSystemTool::getRelativePath method
+
+- 1.137 -- 2018-06-15
+
+    - add FileSystemTool::mkTmpFile method
+
+- 1.136 -- 2018-06-09
+
+    - change HashTool::getHashByArray now internally uses asort instead of ksort
+
 - 1.135 -- 2018-06-03
 
     - change FileSystemTool::mkdir method's recursive option defaults to true

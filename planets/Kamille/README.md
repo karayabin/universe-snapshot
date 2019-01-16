@@ -166,6 +166,26 @@ echo HtmlLayout::create()
 History Log
 ===============
     
+- 1.144.0 -- 2018-06-17
+
+    - add XmlResponse class
+
+- 1.143.0 -- 2018-06-13
+
+    - enhance MorphicModuleConfigurationTool now fetches all configuration values at once and caches them
+
+- 1.142.0 -- 2018-06-13
+
+    - add MorphicModuleConfigurationTool class  
+    
+- 1.141.0 -- 2018-06-13
+
+    - add MorphicModuleConfigurationUtil class  
+    
+- 1.140.0 -- 2018-06-07
+
+    - update PhpLayoutRenderer, now deletes the temporary files it creates 
+    
 - 1.139.1 -- 2018-05-28
 
     - fix LinkGenerator not handling CherryDynamicUriMatcher dashTags

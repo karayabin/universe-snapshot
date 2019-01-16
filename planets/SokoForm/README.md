@@ -85,7 +85,7 @@ if you wanted to, you could use another api, or even create the form model manua
 with your renderers (should they use the same model too). 
 
 
-In soko, we use this model in version 1.3.0:
+In soko, we use this model in version 1.4.0:
 
 
 - https://github.com/lingtalfi/Models/blob/master/Form/form-model.md
@@ -1396,6 +1396,34 @@ Related
 History Log
 ------------------
     
+- 1.72.0 -- 2018-06-15
+
+    - add SokoFormInterface.addError method
+
+- 1.71.0 -- 2018-06-14
+
+    - add SokoAtLeastNCheckboxCheckedValidationRule class
+    
+- 1.70.0 -- 2018-06-06
+
+    - add SokoForm.countNotifications method
+    
+- 1.69.0 -- 2018-06-06
+
+    - add UikitSokoFormRenderer array option for checkboxes
+    
+- 1.68.0 -- 2018-06-06
+
+    - add UikitSokoFormRenderer br option for checkboxes
+    
+- 1.67.0 -- 2018-06-03
+
+    - add UikitSokoFormRenderer.renderSokoFilePlaceHolderControl method
+
+- 1.66.0 -- 2018-06-03
+
+    - add SokoFilePlaceholderControl control
+
 - 1.65.0 -- 2018-06-02
 
     - add UikitSokoFormRenderer grid system

@@ -90,6 +90,23 @@ class QuickPdoStmtTool
         return false;
     }
 
+
+    public static function like(string $field)
+    {
+        return "%" . self::stripWildcards($field) . "%";
+    }
+
+    public static function likePrefix(string $field)
+    {
+        return self::stripWildcards($field) . "%";
+    }
+
+    public static function likeSuffix(string $field)
+    {
+        return "%" . self::stripWildcards($field);
+    }
+
+
     /**
      * @param $query
      * @return string, the query minus the wildcards it potentially contains

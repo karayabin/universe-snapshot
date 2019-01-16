@@ -337,6 +337,56 @@ Returns whether or not the given query uses the where clause.
 
 
 
+### like
+
+
+```php
+string function like ( str:field )
+```
+
+
+Returns the field wrapped inside `%` wildcards, and the % and _ chars inside the
+fields are escaped.
+
+
+```php
+QuickPdo::fetchAll("
+select cp, ville 
+from $table
+where ville like :city
+", [
+    "city" => QuickPdoStmtTool::like($search),
+]);
+``` 
+
+
+### likePrefix
+
+
+```php
+string function likePrefix ( str:field )
+```
+
+
+Returns the field ending with the `%` wildcard, and the % and _ chars inside the
+fields are escaped. See like method for an example
+
+
+### likeSuffix
+
+
+```php
+string function likeSuffix ( str:field )
+```
+
+
+Returns the field starting with the `%` wildcard, and the % and _ chars inside the
+fields are escaped. See like method for an example
+
+
+
+
+
 ### prepareInString
 
 

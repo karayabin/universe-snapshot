@@ -4,6 +4,8 @@
 namespace Kamille\Architecture\Environment\Web;
 
 
+use Bat\FileSystemTool;
+
 class Environment
 {
     public static $appName;
@@ -78,5 +80,34 @@ class Environment
             $env = "prod";
         }
         return $env;
+    }
+
+
+    public static function getConfigurationSwitchId()
+    {
+        $configurationSwitchId = self::getEnvironment();
+        if ("cli" === PHP_SAPI) {
+            $configurationSwitchId .= "-cli";
+        }
+        return $configurationSwitchId;
+    }
+
+
+    public static function includeConfigurationFile(string $file, string $configurationSwitchId = null)
+    {
+        $dir = dirname($file);
+        $ext = FileSystemTool::getFileExtension($file);
+        $fileName = FileSystemTool::getFileName($file);
+
+        if (null === $configurationSwitchId) {
+            $configurationSwitchId = self::getConfigurationSwitchId();
+        }
+
+        $specificFile = $dir . "/$fileName-$configurationSwitchId.$ext";
+        if (file_exists($specificFile)) {
+            require_once $specificFile;
+        } else {
+            require_once $file;
+        }
     }
 }

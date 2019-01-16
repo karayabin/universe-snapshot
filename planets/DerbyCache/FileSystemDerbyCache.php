@@ -49,7 +49,7 @@ class FileSystemDerbyCache extends DerbyCache
         return $ret;
     }
 
-    public function deleteByPrefix($prefix)
+    public function deleteByPrefix(string $prefix)
     {
         $file = $this->getDeleteCacheDir() . "/" . $prefix;
         $baseDir = dirname($file);
@@ -66,6 +66,13 @@ class FileSystemDerbyCache extends DerbyCache
                 }
             }
         }
+    }
+
+    public function deleteByCacheIdentifier(string $cacheIdentifier)
+    {
+        $file = $this->getCacheFile($cacheIdentifier);
+        unlink($file);
+        $this->hook('onCacheDelete', $file);
     }
 
 

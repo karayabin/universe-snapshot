@@ -133,6 +133,11 @@ Related
 History Log
 ------------------
     
+- 1.6.0 -- 2018-06-11
+
+    - add QuickPdoRowsGenerator.doGetNbTotalItems protected method
+    - add QuickPdoRowsGenerator.doGetRows protected method
+    
 - 1.5.0 -- 2017-06-22
 
     - ArrayRowsGenerator fix sort comparison function

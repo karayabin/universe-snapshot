@@ -4,6 +4,7 @@
 namespace MyLocalys;
 
 
+use Bat\DateTool;
 use Localys\BaseLocalys;
 
 class FraLocalys extends BaseLocalys
@@ -212,5 +213,14 @@ class FraLocalys extends BaseLocalys
         }
     }
 
+
+    public function getTimeElapsedString(string $dateTime, array $options = [])
+    {
+        $full = $options['full'] ?? true;
+        return DateTool::getTimeElapsedString($dateTime, [
+            "full" => $full,
+            "lang" => "fra",
+        ]);
+    }
 
 }

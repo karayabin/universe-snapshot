@@ -83,14 +83,15 @@ class SqlQueryWrapper implements SqlQueryWrapperInterface
         // first the count query
         $qCount = $this->sqlQuery->getCountSqlQuery();
         $markers = $this->sqlQuery->getMarkers();
-        $nbItems = QuickPdo::fetch($qCount, $markers, \PDO::FETCH_COLUMN);
+//        az(__FILE__, $qCount, $markers);
+        $nbItems = $this->doGetNbItems($qCount, $markers);
         $this->nbItems = $nbItems;
 
 
         // first the rows query
         $q = $this->sqlQuery->getSqlQuery();
 //        az(__FILE__, $q, $markers);
-        $rows = QuickPdo::fetchAll($q, $markers);
+        $rows = $this->doGetRows($q, $markers);
 //        az($rows);
         if ($this->rowDecorator) {
             foreach ($rows as $k => $row) {
@@ -170,4 +171,17 @@ class SqlQueryWrapper implements SqlQueryWrapperInterface
     }
 
 
+
+    //--------------------------------------------
+    //
+    //--------------------------------------------
+    protected function doGetNbItems(string $qCount, array $markers)
+    {
+        return QuickPdo::fetch($qCount, $markers, \PDO::FETCH_COLUMN);
+    }
+
+    protected function doGetRows(string $query, array $markers)
+    {
+        return QuickPdo::fetchAll($query, $markers);
+    }
 }
