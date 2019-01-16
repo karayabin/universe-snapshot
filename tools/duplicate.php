@@ -53,9 +53,13 @@ FileSystemTool::copyDir($universeDir, $universeCopyDir);
 
 /**
 * Then copy the bigbang.php script
+* UPDATE from 2019-01-16: actually let's not update it, because I changed it (jin version),
+* and if we copy it from universe, this script will fail.
+* So basically, the universe contains the old bigbang.php script so that the pushuni command works fine,
+* but the bigbang.php script inside the universe-snapshot is the most up to date script (the jin version)
 */
-FileSystemTool::remove($bigbangDst);
-copy($bigbangSrc, $bigbangDst);
+// FileSystemTool::remove($bigbangDst);
+// copy($bigbangSrc, $bigbangDst);
 
 
 /**
