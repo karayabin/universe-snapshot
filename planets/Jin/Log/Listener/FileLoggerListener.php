@@ -42,6 +42,24 @@ use Bat\ZipTool;
  *
  *
  *
+ * Test code
+ * -------------
+ * $fileListener = new FileLoggerListener();
+ * $fileListener->configure([
+ *      "file" => __DIR__ . "/maurice.log",
+ *      "isFileRotationEnabled" => true,
+ *      "maxFileSize" => '7000',
+ *      "zipRotatedFiles" => true,
+ *      "rotatedFileExtension" => 'pom',
+ * ]);
+ *
+ * $logger = new Logger();
+ * $logger->listen("debug", [$fileListener, "listen"]);
+ * $logger->debug("This is a debug message");
+ *
+ *
+ *
+ *
  */
 class FileLoggerListener implements LoggerListenerInterface
 {
@@ -73,16 +91,6 @@ class FileLoggerListener implements LoggerListenerInterface
 
 
     /**
-     *
-     * @info This property holds whether the rotated files should include the datetime or the auto-incremented number.
-     * See the class description (rotated file format section) for more details.
-     *
-     * @type bool=false
-     *
-     */
-    protected $rotatedFileUseDateTime;
-
-    /**
      * @info This property holds the file extension of the rotated files.
      *          The default value is "log".
      *          If set to null, then the extension of the log file will be used.
@@ -106,7 +114,6 @@ class FileLoggerListener implements LoggerListenerInterface
         $this->file = "/tmp/jin_default_log_file.log";
         $this->isFileRotationEnabled = true;
         $this->maxFileSize = "2M";
-        $this->rotatedFileUseDateTime = false;
         $this->rotatedFileExtension = "log";
         $this->zipRotatedFiles = true;
 
@@ -167,9 +174,13 @@ class FileLoggerListener implements LoggerListenerInterface
 
 
                 // zip file?
-//                if(true === $this->zipRotatedFiles){
-//                    \BeeFramework\Bat\ZipTool::zip()
-//                }
+                if (true === $this->zipRotatedFiles) {
+                    $zipFile = $format . ".zip";
+                    if (false !== ZipTool::zip($format, $zipFile)) {
+                        unlink($format); // don't forget to remove the non-zip rotated file
+                    }
+
+                }
 
             }
         }
