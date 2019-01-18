@@ -8,6 +8,23 @@ Utility to scan a directory recursively and do something on every entry.
 
 
 
+DirScanner is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
+
+
+
+
+Install
+=============
+
+
+Using the [uni tool](https://github.com/lingtalfi/universe-naive-importer)
+```bash
+uni import DirScanner
+```
+
+
+
+
 
 How to use
 --------------

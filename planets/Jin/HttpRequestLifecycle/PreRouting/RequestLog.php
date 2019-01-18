@@ -4,6 +4,7 @@
 namespace Jin\HttpRequestLifecycle\PreRouting;
 
 
+use ArrayToString\ArrayToStringTool;
 use Jin\Http\HttpRequest;
 use Jin\Registry\Access;
 
@@ -29,7 +30,8 @@ use Jin\Registry\Access;
  *
  *
  * The RequestLog will make use of the Logger system and dispatch messages to the "stat" channel;
- * therefore you should add a listener in the config/logger.yml file:
+ * therefore you should add a listener in the config/logger.yml file.
+ * In the example below, I add three listeners, preparing for three channels I want to listen to (stat, browser and trace):
  *
  * ```yml
  * listeners:
@@ -40,6 +42,20 @@ use Jin\Registry\Access;
  *                 -
  *                     file: ${appDir}/log/stat.log
  *         channels: stat
+ *     - :
+ *         instance: Jin\Log\Listener\FileLoggerListener
+ *         methods:
+ *             configure:
+ *                 -
+ *                     file: ${appDir}/log/stat_browser.log
+ *         channels: browser
+ *     - :
+ *         instance: Jin\Log\Listener\FileLoggerListener
+ *         methods:
+ *             configure:
+ *                 -
+ *                     file: ${appDir}/log/trace.log
+ *         channels: trace
  * ```
  *
  *
@@ -78,13 +94,15 @@ use Jin\Registry\Access;
  *
  * ### Example:
  *
+ * In the following example, I define the format of the emitter log for three arbitrary channels (stat, browser and trace)
+ *
  * ```yml
  * logging:
  *     request_log:
  *         channels:
- *             stat: format...
- *             tracking: format...
- *             browser: format...
+ *             stat: [{method}]:{port} - {uri} -- {ip} -- {referer}
+ *             browser: [{method}]:{port} - {uri} -- {header_user_agent}
+ *             trace: [{method}]:{port} - {uri} -- {ip} -- get={get_trace}; post={post_trace}; files={files_trace}; cookie={cookie_trace}
  * ```
  *
  *
@@ -112,7 +130,6 @@ class RequestLog
             $msg = $this->getLogMessage($format, $request);
             $logger->log($msg, $channel);
         }
-        az("stop");
     }
 
 
@@ -128,8 +145,8 @@ class RequestLog
      */
     protected function getLogMessage($format, HttpRequest $request)
     {
-        a("here");
-        $msg = preg_replace_callback('!\{([^}]*)\}!', function ($val) use ($request) {
+
+        return preg_replace_callback('!\{([^}]*)\}!', function ($val) use ($request) {
             $key = $val[1];
             $ret = "";
             switch ($key) {
@@ -152,25 +169,25 @@ class RequestLog
                     $ret = $request->isHttps ? "https" : "http";
                     break;
                 case "get_trace":
-                    $ret = $request->get;
+                    $ret = ArrayToStringTool::toInlinePhpArray($request->get);
                     break;
                 case "post_trace":
-                    $ret = $request->$key;
+                    $ret = ArrayToStringTool::toInlinePhpArray($request->post);
                     break;
                 case "files_trace":
-                    $ret = $request->$key;
+                    $ret = ArrayToStringTool::toInlinePhpArray($request->files);
                     break;
                 case "cookie_trace":
-                    $ret = $request->$key;
+                    $ret = ArrayToStringTool::toInlinePhpArray($request->cookie);
                     break;
                 default:
                     if (0 === strpos($key, "header_")) {
-
+                        $header = str_replace('_', '-', substr($key, 7));
+                        $ret = $request->header($header, "");
                     }
                     break;
             }
             return $ret;
         }, $format);
-        return "";
     }
 }

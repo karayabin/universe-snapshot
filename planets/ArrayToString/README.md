@@ -7,6 +7,20 @@ ArrayToString
 Utility to export a php array in various string formats.
 
 
+ArrayToString is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
+
+
+
+
+Install
+=============
+
+
+Using the [uni tool](https://github.com/lingtalfi/universe-naive-importer)
+```bash
+uni import ArrayToString
+```
+
 
 
 Features

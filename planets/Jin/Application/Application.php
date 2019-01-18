@@ -106,8 +106,11 @@ class Application
         $components = Access::configurationFileParser()->parseFile($file, true);
 
 
-        $preRoutingComponents = $components['pre_routing'] ?? [];
 
+        //--------------------------------------------
+        // PRE-ROUTING
+        //--------------------------------------------
+        $preRoutingComponents = $components['pre_routing'] ?? [];
         foreach ($preRoutingComponents as $comp) {
             $callable = $comp['instance'];
             $ret = call_user_func($callable, $request);
@@ -116,11 +119,21 @@ class Application
                 break;
             }
         }
-
-
         if ($response) {
             return $response;
         }
+
+
+        //--------------------------------------------
+        // ROUTING
+        //--------------------------------------------
+
+
+
+
+
+
+
 
         $response = new HttpResponse();
         return $response;

@@ -7,6 +7,20 @@ Tiphaine
 
 Tool for converting a string to a mixed value, using tiphaine notation.
 
+Tiphaine is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
+
+
+
+
+Install
+=============
+
+
+Using the [uni tool](https://github.com/lingtalfi/universe-naive-importer)
+```bash
+uni import Tiphaine
+```
+
 
 
 It uses the [tiphaine notation](https://github.com/lingtalfi/Tiphaine/blob/master/notation.tiphaine.eng.md).
