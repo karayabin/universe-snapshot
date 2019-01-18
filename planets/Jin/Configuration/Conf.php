@@ -43,6 +43,16 @@ class Conf
         $this->vars[$key] = $value;
     }
 
+
+    /**
+     * @info Set the initial variables. It replaces any existing variables.
+     * @param array $vars
+     */
+    public function setVars(array $vars)
+    {
+        $this->vars = $vars;
+    }
+
     /**
      * @info Returns the value stored at the given $key, or the $default value if not found.
      * The $key can use the bdot notation. See Bat\BdotTool class for more info.

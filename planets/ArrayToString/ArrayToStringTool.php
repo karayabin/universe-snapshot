@@ -3,6 +3,7 @@
 namespace ArrayToString;
 
 
+use ArrayToString\SymbolManager\InlineArgsArrayToStringSymbolManager;
 use ArrayToString\SymbolManager\PhpArrayToStringSymbolManager;
 
 class ArrayToStringTool
@@ -18,6 +19,25 @@ class ArrayToStringTool
     {
         $manager = new PhpArrayToStringSymbolManager();
         $manager->setOffset($offset);
+        $keysMode = (null === $showKeys) ? 'auto' : $showKeys;
+        $manager->setShowKeysMode($keysMode);
+        return ArrayToStringUtil::create()
+            ->setSymbolManager($manager)
+            ->toString($array);
+    }
+
+
+    /**
+     * Returns the inline version of a php array.
+     *
+     * @param array $array
+     * @param $showKeys : null|false|true: whether or not to show keys.
+     *                          If null, numeric keys will only be shown if there are non-numeric.
+     * @return string
+     */
+    public static function toInlinePhpArray(array $array, $showKeys = null)
+    {
+        $manager = new InlineArgsArrayToStringSymbolManager();
         $keysMode = (null === $showKeys) ? 'auto' : $showKeys;
         $manager->setShowKeysMode($keysMode);
         return ArrayToStringUtil::create()

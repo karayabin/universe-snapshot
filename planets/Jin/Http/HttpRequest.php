@@ -10,6 +10,8 @@ namespace Jin\Http;
  * Various info can be accessed (and/or stored), including:
  * uri, http method, query string, request time, host, isHttps, the port number, the ip,
  * the http headers...
+ * Also, the http request contain a copy of the original $_GET, $_POST, $_FILES and $_COOKIE arrays.
+ *
  *
  */
 class HttpRequest
@@ -88,6 +90,30 @@ class HttpRequest
      *
      */
     public $headers;
+
+    /**
+     * @info This property holds the initial $_GET array. It should be read only.
+     * @type array
+     */
+    public $get;
+
+    /**
+     * @info This property holds the initial $_POST array. It should be read only.
+     * @type array
+     */
+    public $post;
+
+    /**
+     * @info This property holds the initial $_FILES array. It should be read only.
+     * @type array
+     */
+    public $files;
+
+    /**
+     * @info This property holds the initial $_COOKIE array. It should be read only.
+     * @type array
+     */
+    public $cookie;
 
 
     /**
@@ -171,6 +197,10 @@ class HttpRequest
         $o->ip = $ip;
         $o->referer = $referer;
         $o->headers = $headers;
+        $o->get = $_GET;
+        $o->post = $_POST;
+        $o->files = $_FILES;
+        $o->cookie = $_COOKIE;
         return $o;
     }
 

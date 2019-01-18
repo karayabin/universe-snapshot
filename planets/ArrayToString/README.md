@@ -31,7 +31,10 @@ Using the Tool
 -----------------
 
 
+### Classic php array representation
+
 Create a modern (using brackets) php array representation:
+
 
 
 ```php
@@ -53,7 +56,26 @@ This will generate this kind of output:
 ]
 
 ```
-   
+
+
+### Inline representation
+
+Print an inline version of the php array using the toInlinePhpArray method.
+
+```php
+$a = [
+    "monica" => "seles",
+    "fruits" => [
+        "banana",
+        "cherry",
+    ],
+];
+
+a(ArrayToStringTool::toInlinePhpArray($a)); // ['monica' => 'seles','fruits' => ['banana','cherry']]
+a(ArrayToStringTool::toInlinePhpArray($a, false)); // ['seles',['banana','cherry']]
+
+```
+
   
 
 
@@ -311,6 +333,10 @@ History Log
 ------------------
     
    
+- 1.4.0 -- 2019-01-18
+
+    - add ArrayToStringTool::toInlinePhpArray method
+
 - 1.3.0 -- 2017-09-03
 
     - add SpaceIndentedArrayToStringSymbolManager.setOffset method

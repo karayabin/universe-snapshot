@@ -84,18 +84,38 @@ class Logger
 
 
     /**
-     * Registers a listener (defined by $callable) for the given $channel.
+     * @info Registers a listener (defined by $callable) for the given $channel(s).
      *
-     * @param $channel
+     * @param $channel , if the special channel "*" is specified, the listener will be notified
+     *              of every message on every channel.
+     *          If channel is a string, the listener will be subscribing messages for that particular channel.
+     *          An array of channels can also be passed, to subscribe to multiple channels at the same time.
+     *
+     *
      * @param callable $callable
      */
     public function listen($channel, callable $callable)
     {
-        $this->listeners[$channel][] = $callable;
+        if (!is_array($channel)) {
+            $channel = [$channel];
+        }
+        foreach ($channel as $chan) {
+            $this->listeners[$chan][] = $callable;
+        }
+    }
+
+
+    /**
+     * @info Sets the format of the log messages passed to the listeners.
+     * @param $format
+     */
+    public function setFormat($format)
+    {
+        $this->format = $format;
     }
 
     /**
-     * @info Dispatches a log message on the given $channel
+     * @info Dispatches a log message on the given $channel.
      * @param $msg
      */
     public function log($msg, $channel)
@@ -104,7 +124,7 @@ class Logger
     }
 
     /**
-     * @info Dispatches a log message on the "trace" channel
+     * @info Dispatches a log message on the "trace" channel.
      * @param $msg
      */
     public function trace($msg)
@@ -113,7 +133,7 @@ class Logger
     }
 
     /**
-     * @info Dispatches a log message on the "debug" channel
+     * @info Dispatches a log message on the "debug" channel.
      * @param $msg
      */
     public function debug($msg)
@@ -122,7 +142,7 @@ class Logger
     }
 
     /**
-     * @info Dispatches a log message on the "notice" channel
+     * @info Dispatches a log message on the "notice" channel.
      * @param $msg
      */
     public function notice($msg)
@@ -131,7 +151,7 @@ class Logger
     }
 
     /**
-     * @info Dispatches a log message on the "warn" channel
+     * @info Dispatches a log message on the "warn" channel.
      * @param $msg
      */
     public function warn($msg)
@@ -140,7 +160,7 @@ class Logger
     }
 
     /**
-     * @info Dispatches a log message on the "error" channel
+     * @info Dispatches a log message on the "error" channel.
      * @param $msg
      */
     public function error($msg)
@@ -149,7 +169,7 @@ class Logger
     }
 
     /**
-     * @info Dispatches a log message on the "fatal" channel
+     * @info Dispatches a log message on the "fatal" channel.
      * @param $msg
      */
     public function fatal($msg)
@@ -173,15 +193,20 @@ class Logger
      */
     protected function dispatch($channel, $msg)
     {
+        $loggerMsg = $this->getFormattedMessage($channel, $msg);
+
         if (array_key_exists($channel, $this->listeners)) {
             $listeners = $this->listeners[$channel];
-
-            $loggerMsg = $this->getFormattedMessage($channel, $msg);
-
-
             foreach ($listeners as $listener) {
                 call_user_func($listener, $loggerMsg, $channel);
             }
+        }
+
+
+        // handling the * symbol
+        $listeners = $this->listeners["*"];
+        foreach ($listeners as $listener) {
+            call_user_func($listener, $loggerMsg, $channel);
         }
     }
 
@@ -191,6 +216,13 @@ class Logger
     //--------------------------------------------
     //
     //--------------------------------------------
+    /**
+     * @info Returns the formatted message to dispatch to the listeners.
+     *
+     * @param $channel
+     * @param $msg
+     * @return mixed
+     */
     private function getFormattedMessage($channel, $msg)
     {
         return str_replace([
