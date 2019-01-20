@@ -439,6 +439,6 @@ class ConfigurationVariableFileParser
      */
     private function addError($msg)
     {
-        $this->errors[] = $msg;
+        $this->errors[] = '(Jin\Configuration\ConfigurationVariableFileParser):' . $msg;
     }
 }

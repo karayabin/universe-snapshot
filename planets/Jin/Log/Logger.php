@@ -60,7 +60,15 @@ class Logger
      * @type array
      */
     protected $listeners;
-
+    /**
+     * @info This property holds the muted channels. A muted channel simply drops any message that it
+     * receive (i.e. no dispatching). We can use muted channels to quickly turn on/off some channels.
+     * Also, a muted channel saves some cpu cycles.
+     *
+     *
+     * @type array
+     */
+    protected $mutedChannels;
     /**
      * @info This property holds the format used by this class to transform the emitter message into the actual logger message sent to the listeners.
      * The following tags are available:
@@ -72,13 +80,13 @@ class Logger
      */
     private $format;
 
-
     /**
      * @info Constructs the logger.
      */
     public function __construct()
     {
         $this->listeners = [];
+        $this->mutedChannels = [];
         $this->format = '[{channel}]: {dateTime} -- {message}';
     }
 
@@ -115,12 +123,71 @@ class Logger
     }
 
     /**
+     * @info Sets the muted channels for this instance.
+     * @param array $mutedChannels
+     */
+    public function setMutedChannels(array $mutedChannels)
+    {
+        $this->mutedChannels = $mutedChannels;
+    }
+
+    /**
      * @info Dispatches a log message on the given $channel.
      * @param $msg
      */
     public function log($msg, $channel)
     {
         $this->dispatch($channel, $msg);
+    }
+
+    /**
+     * @info Dispatches the given $msg to the $channel's listeners.
+     * To set listeners, use the listen method.
+     *
+     * @seeMethod listen
+     * @param $channel
+     * @param $msg
+     */
+    protected function dispatch($channel, $msg)
+    {
+        if (false === in_array($channel, $this->mutedChannels, true)) {
+
+            $loggerMsg = $this->getFormattedMessage($channel, $msg);
+
+            if (array_key_exists($channel, $this->listeners)) {
+                $listeners = $this->listeners[$channel];
+                foreach ($listeners as $listener) {
+                    call_user_func($listener, $loggerMsg, $channel);
+                }
+            }
+
+
+            // handling the * symbol
+            $listeners = $this->listeners["*"];
+            foreach ($listeners as $listener) {
+                call_user_func($listener, $loggerMsg, $channel);
+            }
+        }
+    }
+
+    /**
+     * @info Returns the formatted message to dispatch to the listeners.
+     *
+     * @param $channel
+     * @param $msg
+     * @return mixed
+     */
+    private function getFormattedMessage($channel, $msg)
+    {
+        return str_replace([
+            '{channel}',
+            '{dateTime}',
+            '{message}',
+        ], [
+            strtoupper($channel),
+            date("Y-m-d H:i:s"),
+            $msg,
+        ], $this->format);
     }
 
     /**
@@ -159,6 +226,13 @@ class Logger
         $this->dispatch("warn", $msg);
     }
 
+
+
+
+    //--------------------------------------------
+    //
+    //--------------------------------------------
+
     /**
      * @info Dispatches a log message on the "error" channel.
      * @param $msg
@@ -168,6 +242,13 @@ class Logger
         $this->dispatch("error", $msg);
     }
 
+
+
+
+    //--------------------------------------------
+    //
+    //--------------------------------------------
+
     /**
      * @info Dispatches a log message on the "fatal" channel.
      * @param $msg
@@ -175,64 +256,5 @@ class Logger
     public function fatal($msg)
     {
         $this->dispatch("fatal", $msg);
-    }
-
-
-
-
-    //--------------------------------------------
-    //
-    //--------------------------------------------
-    /**
-     * @info Dispatches the given $msg to the $channel's listeners.
-     * To set listeners, use the listen method.
-     *
-     * @seeMethod listen
-     * @param $channel
-     * @param $msg
-     */
-    protected function dispatch($channel, $msg)
-    {
-        $loggerMsg = $this->getFormattedMessage($channel, $msg);
-
-        if (array_key_exists($channel, $this->listeners)) {
-            $listeners = $this->listeners[$channel];
-            foreach ($listeners as $listener) {
-                call_user_func($listener, $loggerMsg, $channel);
-            }
-        }
-
-
-        // handling the * symbol
-        $listeners = $this->listeners["*"];
-        foreach ($listeners as $listener) {
-            call_user_func($listener, $loggerMsg, $channel);
-        }
-    }
-
-
-
-
-    //--------------------------------------------
-    //
-    //--------------------------------------------
-    /**
-     * @info Returns the formatted message to dispatch to the listeners.
-     *
-     * @param $channel
-     * @param $msg
-     * @return mixed
-     */
-    private function getFormattedMessage($channel, $msg)
-    {
-        return str_replace([
-            '{channel}',
-            '{dateTime}',
-            '{message}',
-        ], [
-            strtoupper($channel),
-            date("Y-m-d H:i:s"),
-            $msg,
-        ], $this->format);
     }
 }

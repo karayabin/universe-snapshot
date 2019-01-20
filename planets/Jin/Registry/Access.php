@@ -8,6 +8,7 @@ use Jin\Application\Application;
 use Jin\Configuration\Conf;
 use Jin\Configuration\ConfigurationFileParser;
 use Jin\Log\Logger;
+use Registry\RegistryInterface;
 
 /**
  * @nfo The Access class is a registry designed to ease the development
@@ -47,6 +48,14 @@ class Access
 
 
     /**
+     * @info This property holds the Registry instance of the application.
+     * The Registry instance should be registered as soon as possible (in the www/index.php), so that
+     * it's available to every component in a jin app session, including the Application itself.
+     */
+    private static $registry;
+
+
+    /**
      * @info Returns the main Application instance.
      * @return Application
      */
@@ -80,6 +89,16 @@ class Access
     public static function conf()
     {
         return self::$conf;
+    }
+
+
+    /**
+     * @info Returns the Registry instance.
+     * @return RegistryInterface
+     */
+    public static function registry()
+    {
+        return self::$registry;
     }
 
 
@@ -117,5 +136,13 @@ class Access
     public static function setConf(Conf $conf)
     {
         self::$conf = $conf;
+    }
+
+    /**
+     * @info Sets the Registry instance for the application
+     */
+    public static function setRegistry(RegistryInterface $registry)
+    {
+        self::$registry = $registry;
     }
 }

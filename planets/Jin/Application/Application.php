@@ -4,11 +4,13 @@
 namespace Jin\Application;
 
 
+use Bat\DebugTool;
 use Jin\ApplicationEnvironment\ApplicationEnvironment;
 use Jin\Http\HttpRequest;
 use Jin\Http\HttpResponse;
 use Jin\Log\Logger;
 use Jin\Registry\Access;
+use Jin\Routing\Router\RouterInterface;
 
 /**
  *
@@ -20,7 +22,7 @@ use Jin\Registry\Access;
  * ----------
  * You can control which channels are fed using the config/variables/app.yml file, in the logging.special_channels section.
  *
- * The following channels are available and can be activated/de-activated in the app.yml file:
+ * The following channels are available and can be activated/de-activated using muted_channels in the config/logger.yml file (section logger):
  *
  * - app_init: debug information covering the application init method (creation of the service container).
  *
@@ -50,13 +52,6 @@ class Application
     private $logger;
 
 
-    /**
-     * @info This property holds whether this instance dispatches messages on the app_init channel.
-     * @type bool=false
-     */
-    private $useLogAppInit;
-
-
     public function __construct()
     {
     }
@@ -65,14 +60,12 @@ class Application
     {
 
         // initialization
-        $conf = Access::conf();
         $this->logger = Access::log();
         $this->appDir = $appDir;
         $this->profile = $profile;
-        $this->useLogAppInit = $conf->get("app.logging.special_channels.app_init", false);
 
 
-        $this->logAppInit("Initializing application, with profile=$profile");
+        $this->logger->log("Initializing application, with profile=$profile", "app_init");
 
         // logging errors from application environment if any
         $initErrors = ApplicationEnvironment::getErrors();
@@ -82,7 +75,7 @@ class Application
 
 
         // creating services container
-        $this->logAppInit("Creating service container");
+        $this->logger->log("Creating service container$profile", "app_init");
 
 
     }
@@ -103,8 +96,8 @@ class Application
         $response = null;
 
         $file = $this->appDir . "/config/http_request_lifecycle.yml";
-        $components = Access::configurationFileParser()->parseFile($file, true);
-
+        $dir = $this->appDir . "/config/http_request_lifecycle";
+        $components = Access::configurationFileParser()->parseFileWithDir($file, $dir, true);
 
 
         //--------------------------------------------
@@ -119,36 +112,39 @@ class Application
                 break;
             }
         }
-        if ($response) {
-            return $response;
+        if (null === $response) {
+
+
+            //--------------------------------------------
+            // ROUTING
+            //--------------------------------------------
+            a("application: routing");
+            $routingComponents = $components['routing'] ?? [];
+            foreach ($routingComponents as $routingComponent) {
+                $router = $routingComponent['instance'];
+                if ($router instanceof RouterInterface) {
+                    $routerResult = $router->match($request);
+//                    az($routerResult);
+                } else {
+                    Access::log()->error(
+                        sprintf("(Jin\Application\Application->handleRequest): invalid router instance: a router instance must be of type Jin\Routing\Router\RouterInterface, %s given",
+                            DebugTool::toString($router)
+                        )
+                    );
+                }
+            }
+//            az($components);
+
         }
 
 
         //--------------------------------------------
-        // ROUTING
+        // RESPONSE HANDLING
         //--------------------------------------------
 
 
-
-
-
-
-
-
-        $response = new HttpResponse();
         return $response;
     }
 
-
-
-    //--------------------------------------------
-    //
-    //--------------------------------------------
-    private function logAppInit($msg)
-    {
-        if (true === $this->useLogAppInit) {
-            $this->logger->log($msg, "app_init");
-        }
-    }
 
 }
