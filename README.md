@@ -14,7 +14,7 @@ The **universe** is essentially a php library that you can use for your php proj
 
 THe **universe** is composed of **planets**, each **planet** representing a "package" containing some functionality.
 
-For instance, the **[BabyYaml](https://github.com/karayabin/universe-snapshot/tree/master/planets/BabyYaml)** planet allows you to parse baby yaml files.
+For instance, the **[BabyYaml](https://github.com/karayabin/universe-snapshot/tree/master/universe/BabyYaml)** planet allows you to parse baby yaml files.
 
 
 See the [list of all the planets here](https://github.com/karayabin/universe-snapshot/tree/master/universe).
@@ -24,8 +24,8 @@ See the [list of all the planets here](https://github.com/karayabin/universe-sna
 
 Summary
 -------
-- How to install?
-- How to use?
+- [How to install?](#how-to-install)
+- [How to use?](#how-to-use)
 - Big bang: the beginning of the universe
     - The class directory
     - The a and az functions
