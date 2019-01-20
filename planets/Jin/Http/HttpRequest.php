@@ -3,6 +3,8 @@
 
 namespace Jin\Http;
 
+use PhpUploadFileFix\PhpUploadFileFixTool;
+
 /**
  *
  * @info The HttpRequest class represents the http request.
@@ -104,7 +106,10 @@ class HttpRequest
     public $post;
 
     /**
-     * @info This property holds the initial $_FILES array. It should be read only.
+     * @info This property holds the initial flattened version with dots of the $_FILES array (see
+     * https://github.com/karayabin/universe-snapshot/tree/master/planets/PhpUploadFileFix or the createFromEnv
+     * method for more info).
+     * It should be read only.
      * @type array
      */
     public $files;
@@ -199,7 +204,7 @@ class HttpRequest
         $o->headers = $headers;
         $o->get = $_GET;
         $o->post = $_POST;
-        $o->files = $_FILES;
+        $o->files = PhpUploadFileFixTool::fixPhpFiles($_FILES, true);
         $o->cookie = $_COOKIE;
         return $o;
     }

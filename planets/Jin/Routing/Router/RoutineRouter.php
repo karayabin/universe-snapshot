@@ -314,7 +314,7 @@ use Jin\Registry\Access;
  *             has:
  *                 - [token, jeton]
  *                 - req_type
- *             # This section defines value that must exist and have the value specified
+ *             # This section defines value that must exist and have the value specified. It's not available for the files super array.
  *             value:
  *               # This requirement is valid only if the request get has a variable named var1 which value is 5
  *               # AND a variable var2 with value "doo".
@@ -331,6 +331,25 @@ use Jin\Registry\Access;
  *                 # as it could confuse the user, and this is a feature that will probably not be used a lot.
  *                 #      hasDot: general.token
  *
+ *               # files super array ONLY
+ *               # --------------------------
+ *               # The section below is only available with the file super array.
+ *               # It defines the list of allowed mime-types.
+ *               # The requirement validates only if the mime-type of the file is in this list.
+ *               #
+ *               # Can be either a string or a list
+ *               type: application/pdf
+ *               # Remember that the type value is not reliable:
+ *               # http://php.net/manual/en/features.file-upload.post-method.php says:
+ *               # This mime type is however not checked on the PHP side and therefore don't take its value for granted.
+ *               # List of mime-types: http://svn.apache.org/repos/asf/httpd/httpd/trunk/docs/conf/mime.types
+ *
+ *
+ *               # This defines the allowed minimum and maximum size of the file.
+ *               # It's an array which first entry is the minimum size and which second entry is the maximum size.
+ *               # The requirement only validates if the file size is comprised between this minimum and maximum value.
+ *               # Value is expressed using the human notation (see
+ *               size: [0, 2M]
  *
  *
  * ```
