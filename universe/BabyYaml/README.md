@@ -583,6 +583,36 @@ which I won't change (but all the rest I might get rid off maybe one day...).
 
 
 
+Configuring php storm to recognize baby yaml files.
+==============================
+
+If you use phpStorm (which I recommend), then you can tweak phpStorm to
+work with babyYaml files.
+
+Go to **Preferences > Editor > Code Style > YAML**.
+
+Next to Scheme, click duplicate, then rename your scheme "BabyYaml", then configure your new scheme like this:
+
+
+```txt
+Tabs and Indents:
+	Indent: 4
+	Keep indents on empty lines: false
+	Indent sequence value: true
+Wrapping and Braces:
+	Visual guides: none
+	Keep when reformatting
+		Line breaks: false
+	Align values in maps: Do not align
+	Sequence value:
+		Sequence on new line: false
+		Block mapping on new line: false
+		Automatically insert hyphen on enter: false
+```
+
+
+
+
 Dependencies
 =================
 

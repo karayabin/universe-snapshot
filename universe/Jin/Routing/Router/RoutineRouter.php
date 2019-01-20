@@ -5,6 +5,7 @@ namespace Jin\Routing\Router;
 
 
 use Jin\Http\HttpRequest;
+use Jin\Log\Logger;
 use Jin\Registry\Access;
 
 /**
@@ -16,52 +17,97 @@ use Jin\Registry\Access;
  *
  *
  * This router tries to match an http request by testing a collection of routes against the given http request.
- * A route test is composed of the steps below, if all tests pass, the test is successful and the route is considered
- * a match for the given http request.
- * If one of the following steps fails, the route is considered invalid and this instance proceed to the next step until
- * all routes have been tested.
- *
- *
- *
- * Tests to be a successful route:
- * ----------------------------------
- *
- * - uri matching: the uriPath of the http request must match the uri pattern provided by the route
- * - requirements: the requirements provided by the route must validate against the http request.
- *                  Some examples of requirements include:
- *                      - the port must be 443
- *                      - $_POST[myVar] exists and has a value of 56
- *                      - ...more
- * - constraints: if the pattern provided by the route contains tags and the uri matches, then the tags are
- *                  transformed into values.
- *                  The constraints system tests those values (from the tags).
- *                  Examples of constraints include:
- *                  - the tag with name post_number must be an integer
- *                  - the tag named lang must be one of fr|en
- *
- *
+ * If a route matches, it provides information on how the request should be handled.
  *
  *
  * Declaration of routes
- * ----------------------
- * Routes are declared in the "config/routes.yml" file.
- * In this file, every entry represents a route.
- * The key is the route name, and the value is the route array.
+ * ===========================
  *
- * The route array has the following properties:
- *
- * - pattern: the route pattern. See more details in the pattern matching section
- * - ?page: the relative path from the application's "pages" directory to the page to include if this route matches
- * - ?controller:  the relative path from the application's "pages" directory to the page to include if this route matches
- * - ?requirements: the requirements of this route. It's an array.
- * - ?constraints: the constraints for this route. It's an array.
- * - ?vars: additional variables to attach to the route. Those variables will be passed to the target (the page or controller)
- *      if the route matches.
+ * Routes are defined using yml files.
  *
  *
- * Note: either the page or the controller property shall be defined, but not both at the same time.
- * If both are set, only the controller property will be used (i.e the page property will be ignored in that case).
- * One of them should always be set (i.e. a route not declaring "page" nor "controller" is invalid).
+ * ```txt
+ * - config/
+ * ----- routes.yml                 # this file contains the routes specific to this application
+ * ----- routes/                    # this directory contains routes provided by third-party plugins
+ * --------- $plugin.yml
+ * ```
+ *
+ * Inside a route file, routes are always contained in a route collection.
+ * A route collection is a simple container for routes.
+ * It basically allows us to define common properties for all the routes it contains at once (rather than modifying each route individually).
+ *
+ * Here is the structure of a route file:
+ *
+ *
+ * ```yml
+ * $route_collection_id:
+ *     vars: array, variables shared by all routes.
+ *     routes:
+ *         $route_id:
+ *             pattern: string, the route pattern. The route pattern is tested against the http request uri path to see if the route matches or not.
+ *                       See more details in the "Pattern matching" section.
+ *             ?page: string, the page to include if the route matches.
+ *                      This property is ignored if the controller property is used (see controller property below).
+ *                      A page is simply a file that displays html code. It can be an html file, or a php file.
+ *                      The page property is a path relative to the application's "pages" directory.
+ *
+ *             ?controller: string, the controller to call if the route matches.
+ *                      A controller in general is a callable.
+ *                      This controller property defines which controller to call using the following notation:
+ *                          BLABLA
+ *             ?requirements: array, additional requirements of this route. See the "Requirements" section for more details.
+ *             ?constraints: array, additional tag constraints for this route. See the "Constraints" section for more details.
+ *             ?vars: array, additional variables to attach to the route. Those variables will be passed to the
+ *                          target (the page or controller) if the route matches.
+ * ```
+ *
+ *
+ * Naming conventions for route collections
+ * ----------------------------
+ *
+ * By convention, the route collections in the *config/routes.yml* file start with the "app_" prefix, and
+ * the route collections defined in a *config/routes/$plugin_identifier.yml* start with the "$plugin_identifier_" prefix.
+ *
+ * Why?
+ * Before the router tries to match an http request, it needs to create an array of routes.
+ * It does so by merging all the route files (config/routes.yml and all files in config/routes/) altogether in one big
+ * array, without consideration of the file name.
+ *
+ * So if we don't use a good naming convention, the risk is that when we try do debug the app, we see a
+ * route collection name appear in the debug message, but we have no idea which file it comes from;
+ * and we might spend a considerable amount of time just looking for that information.
+ * By naming the route collections in a more clever way, we can significantly reduce that time.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ * Testing a route
+ * =====================
+ * A route is tested against an http request (Jin\Http\HttpRequest).
+ * A route test is composed of the steps below:
+ *
+ * - uri matching: testing whether the pattern of the route matches the uri path of the http request.
+ *                 See more details in the "Pattern matching" section.
+ * - requirements: testing other (i.e. not the uri path) properties of the http request.
+ *                 For instance the port, the host, the existence of some $_POST variables, and more...
+ *                 See more details in the "Requirements" section.
+ * - constraints: if the "uri matching" step is successful, AND IF the pattern of the route contains tags, then the "constraints" system allows
+ *                to perform additional tests on the values of the tags.
+ *                Examples of constraints include:
+ *                  - the tag with name post_number must be an integer
+ *                  - the tag named lang must be one of fr|en
+ *                 See more details in the "Constraints" section.
+ *
+ *
+ * If all tests pass, the route matches the given http request.
+ * If one of the following steps fails, the route doesn't match (and the next route available is tested until there is no more routes available).
+ *
+ *
  *
  *
  *
@@ -69,16 +115,20 @@ use Jin\Registry\Access;
  * Pattern matching
  * --------------------
  *
- * To match the uriPath of the http request, we use patterns.
- * A pattern is a string that is compared against the http request's uriPath.
- * If both are identical, there is a match.
+ * Each route has a property named "pattern".
+ *
+ * A pattern is a string that is compared against the http request's uri path to see whether the route matches.
+ *
+ * If both the pattern and the uri path are identical, there is a match.
  *
  * For instance if we have:
  * - uriPath: /articles.php
  * - pattern: /articles.php
  *
- * Since uriPath = pattern, we have a match.
+ * Since uriPath and pattern are the same, we have a match.
  *
+ *
+ * ### Tag system
  *
  * Sometimes, you will want more flexibility.
  * For instance, imagine that you are creating a blog app, and your urls look like this:
@@ -86,77 +136,88 @@ use Jin\Registry\Access;
  * - uriPath: /articles/58-the-cat-and-the-dog.html
  *
  * Where 58 is the id of the article.
- * The RoutineRouter provides us with a tag system that allows us to convert 58 into the variable articleId (for instance)
- * directly.
+ *
+ * The RoutineRouter provides us with a tag system that allows us to create a
+ * variable articleId (for instance) with a value of 58.
+ *
  * Here is the pattern that would match the uriPath above and create articleId=58:
  *
  * - pattern: /articles/{articleId}-the-cat-and-the-dog.html
  *
- *
  * As you can guess from the above example, a tag is wrapped by surrounding curly braces.
- * Let's say right away that because of this, we have a special rule about curly braces that are found outside of tags:
- * - YOU MUST ESCAPE CURLY BRACES THAT ARE NOT PART OF A TAG.
- * This means, if your pattern contains curly braces which are not part of a tag, you must escape them by adding a backslash(\) in
- * front of them.
+ *
+ * Therefore, rule#1:
+ * - you must escape curly braces that are not part of a tag (otherwise the router wouldn't be able to
+ *      differentiate which is which). To escape a curly brace, put a backslash (\) in front of it.
  *
  *
- * Back to the pattern.
+ * Back to our example.
  * That's nice already, but there are a couple of problems that we need to address:
  *
  * - the {articleId} tag would match not only numbers, but also any string.
  *          We can fix that with the constraints system explained later in this document.
  * - the other problem that we have is that with this tag, we have to know the exact url by advance.
- * So for instance if we go to the next article, our pattern doesn't work anymore, example:
+ *
+ * So for instance if we go to the next article, our pattern doesn't work anymore:
  *
  * - uriPath: /articles/59-do-you-REALLY-like-sushis.html
  * - pattern: /articles/{articleId}-the-cat-and-the-dog.html
  *
- * As you can guess, this pattern and this uriPath will NOT match at all.
+ * As you can see, this pattern and this uriPath will NOT match at all.
  * It would be nice though if we could write a generic pattern that would match all articles.
  *
  * Fortunately, we can.
- * But in order to do so we have to learn the apricot syntax.
+ * But in order to do so we have to learn the apricot syntax first.
  *
  *
  * ### The apricot syntax
  *
  * The apricot syntax is a notation used inside a tag, which allows more flexibility.
- * First, let me show you the power of the apricot syntax by resolving the problem above.
+ *
+ * First, let me show you the power of the apricot syntax by resolving the problem in the previous example.
  * Here is the generic pattern (using the apricot syntax) that would match any articles of our example above:
  *
  * - pattern: /articles/{!-..articleId}
  *
+ * The pattern above will match both uri paths:
+ *
+ * - uriPath: /articles/58-the-cat-and-the-dog.html
+ * - uriPath: /articles/59-do-you-REALLY-like-sushis.html
+ *
+ * Nice isn't it?
+ *
  * Now let me explain how this works.
  *
  * A simple tag looks like this: {tag}.
- * By default, such a tag matches any character.
+ * By default, such a tag matches all the characters, starting from the tag position, and until the end of the uri path.
  *
  * So, for instance the following uriPath matches with any of the pattern below:
  *
  * - uriPath: /articles/58-the-cat-and-the-dog.html
  * - pattern: {all}                                 // with all = /articles/58-the-cat-and-the-dog.html
- * - pattern: /{all}                                 // with all = articles/58-the-cat-and-the-dog.html
- * - pattern: /a{all}                                 // with all = rticles/58-the-cat-and-the-dog.html
- * - pattern: /ar{all}                                 // with all = ticles/58-the-cat-and-the-dog.html
+ * - pattern: /{all}                                // with all = articles/58-the-cat-and-the-dog.html
+ * - pattern: /a{all}                               // with all = rticles/58-the-cat-and-the-dog.html
+ * - pattern: /ar{all}                              // with all = ticles/58-the-cat-and-the-dog.html
  * - ...
  *
+ *
  * But a tag can be as complex as this: {?.-_ob..!/!..var1:6}
- * (I made an especially complex tag just to show off a bit, but at the end of this lecture, you'll see
- * how actually easy it is to read that).
+ * (Don't worry, I made an especially complex tag just to show you the maximum complexity you'll have to deal with, but
+ * at the end of this lecture, you'll see how actually easy it is to read that).
  *
  *
  * First of all, here is the anatomy of a tag:
  *
  * - the opening curly bracket
- * - the beginning zone of the tag, which is a place reserved for apricot syntax (!-.. in our first example above)
+ * - the "beginning zone" of the tag, which is a place reserved for apricot syntax (!-.. in our first example above)
  * - the tag name: articleId in our example above. The tag name has the same restrictions as a php variable name,
  *          except that it isn't preceded by the $ symbol.
  *          So: the first char must not be a digit, and all chars are either the underscore or a letter or a digit.
  *          Nothing else.
- * - the end zone of the tag, which is another place reserved for apricot syntax (not used in our example above)
+ * - the "end zone" of the tag, which is another place reserved for apricot syntax (not used in our example above)
  * - the closing curly bracket
  *
- * So the two parts that we need to learn are the zones: the beginning zone and the end zone.
+ * So the two parts that we need to learn about now are the zones: the beginning zone and the end zone.
  * Each zone accepts a well-defined number of features:
  *
  * - the beginning zone accept the following features (in this order):
@@ -238,7 +299,7 @@ use Jin\Registry\Access;
  * -----------------
  * In addition to pattern matching, we can test an http request against some requirements.
  * To specify requirements, simply add an entry with "requirements" as the key;
- * By reading the examples below you should be able to understand all the requirements notation:
+ * By reading the examples below you should be able to understand how the requirements work:
  *
  *
  * ```yml
@@ -318,38 +379,74 @@ use Jin\Registry\Access;
  *             value:
  *               # This requirement is valid only if the request get has a variable named var1 which value is 5
  *               # AND a variable var2 with value "doo".
- *                 var1: 5
- *                 var2: doo
- *                 # This sections below is not implemented yet, just ideas for possible future me
- *                 #            value_regex:
- *                 #                var1: \d
- *                 # This sections below is not implemented yet, just ideas for possible future me
- *                 #            value_optional:
- *                 #                token: 78 # if token does not exist, the requirement is valid
- *                 # This section below is not implemented, just ideas for possible future me
- *                 # implementation of the dot notation (we don't want to add it directly to the "has" property,
- *                 # as it could confuse the user, and this is a feature that will probably not be used a lot.
- *                 #      hasDot: general.token
- *
- *               # files super array ONLY
- *               # --------------------------
- *               # The section below is only available with the file super array.
- *               # It defines the list of allowed mime-types.
- *               # The requirement validates only if the mime-type of the file is in this list.
- *               #
- *               # Can be either a string or a list
- *               type: application/pdf
- *               # Remember that the type value is not reliable:
- *               # http://php.net/manual/en/features.file-upload.post-method.php says:
- *               # This mime type is however not checked on the PHP side and therefore don't take its value for granted.
- *               # List of mime-types: http://svn.apache.org/repos/asf/httpd/httpd/trunk/docs/conf/mime.types
+ *               var1: 5
+ *               var2: doo
+ *               # This sections below is not implemented yet, just ideas for possible future me
+ *               #            value_regex:
+ *               #                var1: \d
+ *               # This sections below is not implemented yet, just ideas for possible future me
+ *               #            value_optional:
+ *               #                token: 78 # if token does not exist, the requirement is valid
+ *               # This section below is not implemented, just ideas for possible future me
+ *               # implementation of the dot notation (we don't want to add it directly to the "has" property,
+ *               # as it could confuse the user, and this is a feature that will probably not be used a lot.
+ *               #      hasDot: general.token
  *
  *
- *               # This defines the allowed minimum and maximum size of the file.
- *               # It's an array which first entry is the minimum size and which second entry is the maximum size.
- *               # The requirement only validates if the file size is comprised between this minimum and maximum value.
- *               # Value is expressed using the human notation (see
- *               size: [0, 2M]
+ *
+ *              # files super array ONLY
+ *              # --------------------------
+ *              # The section below is only available with the file super array.
+ *              # Type
+ *              # It's an array of fileKey => acceptableTypes.
+ *              # With:
+ *              #     - fileKey: an actual key of the files super array provided by the request (The requirement will fail is such a key is not found in the files super array).
+ *              #     - acceptableTypes: the list of accepted mime-types for the given fileKey. The requirement validates only if the mime-type of the file is in the list.
+ *              #           Can be either a string or a list
+ *             type:
+ *                 the_file: application/pdf
+ *                 #          the_file.jar.mac: application/pdf
+ *                 # Remember that the type value is not reliable:
+ *                 # http://php.net/manual/en/features.file-upload.post-method.php says:
+ *                 # This mime type is however not checked on the PHP side and therefore don't take its value for granted.
+ *                 # List of mime-types: http://svn.apache.org/repos/asf/httpd/httpd/trunk/docs/conf/mime.types
+ *                 # Common mime types are:
+ *                 # (text)
+ *                 # - text/plain
+ *                 # - text/html
+ *
+ *                 # (image)
+ *                 # - image/gif
+ *                 # - image/png
+ *                 # - image/jpeg
+ *                 # - image/bmp
+ *
+ *                 # (audio)
+ *                 # - audio/wav
+ *
+ *                 # (video)
+ *                 # - video/webm
+ *                 # - video/ogg
+ *                 # - video/mp4
+ *
+ *                 # (application)
+ *                 # application/octet-stream
+ *                 # application/pdf
+ *                 # application/xml
+ *
+ *
+ *
+ *             # Size
+ *             # It's an array of fileKey => sizeBoundaries.
+ *             # With:
+ *             #     - fileKey: an actual key of the files super array provided by the request (The requirement will fail is such a key is not found in the files super array).
+ *             #     - sizeBoundaries: defines the boundary sizes within which the file size shall be.
+ *             #               It's an array which first entry is the minimum size and which second entry is the maximum size.
+ *             #               The requirement only validates if the file size is comprised between this minimum and maximum value.
+ *             #               Value is expressed using the human notation (see https://github.com/lingtalfi/Bat/blob/master/ConvertTool.md#converthumansizetobytes
+ *             #               or Bat\ConvertTool::convertHumanSizeToBytes comments for more details).
+ *             size:
+ *                 the_file: [0, 2M]
  *
  *
  * ```
@@ -358,16 +455,24 @@ use Jin\Registry\Access;
  * If we need to match against arrays, additional methods might be added.
  *
  *
- *
- *
- *
- *
- *
- *
- *
  * All statements declared in the requirements are evaluated to a boolean, and the request
  * matches ONLY IF ALL OF THEM are true.
  *
+ *
+ * (Tag) Constraints
+ * -----------------------
+ * Constraints are yet other tests that we can perform on tags.
+ * So, if the pattern matching test passes and your pattern yields tags, you can test those tags further using the "constraints".
+ *
+ * IF a constraint fails, then the route will not match.
+ *
+ * A constraint let you use the power of php regex to test against a tag.
+ *
+ * By reading the following example from a yml file, you should be able to understand how constraints work.
+ *
+ * ```yml
+ *
+ * ```
  *
  *
  *
@@ -380,40 +485,71 @@ class RoutineRouter implements RouterInterface
 
 
     /**
+     * @info This property holds whether this instance is in debug mode.
+     * In debug mode, the following extra things are done:
+     * - logging of debug messages on the routine_debug channel
+     *
+     */
+    private $debug;
+
+    /**
+     * @info This property holds the logger instance.
+     * Note that if no logger instance is set this class will not work properly.
+     * The logger instance should be set using the Jin\Registry\Access::setConf method.
+     * In a regular jin app this is done automatically by the Jin\ApplicationEnvironment\ApplicationEnvironment::boot method.
+     *
+     *
+     * @var Logger
+     */
+    private $logger;
+
+    /**
      * @implementation
      */
     public function match(HttpRequest $request): RouterResult
     {
+        $this->logger = Access::log();
 
         $appDir = Access::conf()->get('appDir');
         $routesFile = $appDir . "/config/routes.yml";
         $routesDir = $appDir . "/config/routes";
         $routes = Access::configurationFileParser()->parseFileWithDir($routesFile, $routesDir, false);
+
+        /**
+         * - null: no failure
+         * - 1: requirements failure
+         * - 2: uri match failure
+         * - 3: constraint failure
+         */
+        $failureType = null;
+        $routerResult = new RouterResult();
+
+
         foreach ($routes as $routeName => $route) {
-
-
             if (array_key_exists("requirements", $route)) {
                 $failedRequirements = $this->matchRequirements($route['requirements'], $request);
-                a("failedRequirements");
-                a($failedRequirements);
                 if (true !== $failedRequirements) {
-                    continue;
+                    $failureType = 1;
                 }
             }
 
             // does the pattern match
             $pattern = $route["pattern"];
-            if (false !== ($tagVars = $this->matchUriPath($request->uriPath, $pattern))) {
+            $tagVars = $this->matchUriPath($request->uriPath, $pattern);
+            if (false === $tagVars) {
+                $failureType = 2;
+            } else {
+                az($route, "yo");
+                if (array_key_exists("constraints", $route)) {
+                    $route['constraints'];
+                }
             }
         }
 
 
-        return new RouterResult();
+        return $routerResult;
     }
 
-    //--------------------------------------------
-    //
-    //--------------------------------------------
     /**
      * @info Match the given $requirements against the request.
      * Return true if all requirements pass, and a failure array otherwise.
@@ -503,7 +639,8 @@ class RoutineRouter implements RouterInterface
                 case "get":
                 case "post":
                 case "cookie":
-                    $super = ("get" === $type) ? $request->get : (('post' === $type) ? $_POST : $_COOKIE);
+                case "files":
+                    $super = ("get" === $type) ? $request->get : (('post' === $type) ? $_POST : (('cookies' === $type) ? $request->cookie : $request->files));
 
 
                     //--------------------------------------------
@@ -535,26 +672,77 @@ class RoutineRouter implements RouterInterface
                     //--------------------------------------------
                     // value part
                     //--------------------------------------------
-                    if (array_key_exists("value", $value)) {
-                        $values = $value['value'];
-                        $valid = true;
-                        foreach ($values as $k => $v) {
-                            if (
-                                false === array_key_exists($k, $super) ||
-                                (string)$v !== (string)$super[$k]
-                            ) {
-                                $valid = false;
+                    if ("files" !== $type) {
+
+                        if (array_key_exists("value", $value)) {
+                            $values = $value['value'];
+                            $valid = true;
+                            foreach ($values as $k => $v) {
+                                if (
+                                    false === array_key_exists($k, $super) ||
+                                    (string)$v !== (string)$super[$k]
+                                ) {
+                                    $valid = false;
+                                    break;
+                                }
+                            }
+
+                            if (false === $valid) {
+                                $failed[$type] = [$value, $super];
                                 break;
                             }
                         }
+                    } else {
+                        //--------------------------------------------
+                        // file type
+                        //--------------------------------------------
+                        if (array_key_exists('type', $value)) {
 
-                        if (false === $valid) {
-                            $failed[$type] = [$value, $super];
-                            break;
+                            $isValid = true;
+                            foreach ($value["type"] as $fileKey => $allowedTypes) {
+                                if (array_key_exists($fileKey, $request->files)) {
+                                    $fileType = $request->files[$fileKey]["type"];
+                                    if (false === is_array($allowedTypes)) {
+                                        $allowedTypes = [$allowedTypes];
+                                    }
+                                    if (false === in_array($fileType, $allowedTypes, true)) {
+                                        $isValid = false;
+                                        break;
+                                    }
+                                } else {
+                                    $isValid = false;
+                                    break;
+                                }
+                            }
+                            if (false === $isValid) {
+                                $failed[$type] = [$value, $request->files];
+                            }
+                        }
+                        //--------------------------------------------
+                        // file size
+                        //--------------------------------------------
+                        if (array_key_exists('size', $value)) {
+
+                            $isValid = true;
+                            foreach ($value["size"] as $fileKey => $sizeBoundaries) {
+                                if (array_key_exists($fileKey, $request->files)) {
+                                    $fileSize = $request->files[$fileKey]["size"];
+                                    if ($fileSize < $sizeBoundaries[0] || $fileSize > $sizeBoundaries[1]) {
+                                        $isValid = false;
+                                        break;
+                                    }
+                                } else {
+                                    $isValid = false;
+                                    break;
+                                }
+                            }
+                            if (false === $isValid) {
+                                $failed[$type] = [$value, $request->files];
+                            }
                         }
                     }
-                    break;
-                case "files":
+
+
                     break;
                 default:
                     break;
@@ -642,6 +830,9 @@ class RoutineRouter implements RouterInterface
 
         return ['!' . $regex . '!', $tagNames];
     }
+    //--------------------------------------------
+    //
+    //--------------------------------------------
 
     private static function escapeNonTagSpecialChars($pattern)
     {
@@ -708,5 +899,20 @@ class RoutineRouter implements RouterInterface
             $newChars[] = $c;
         }
         return implode("", $newChars);
+    }
+
+    public function setDebug($debug)
+    {
+        $this->debug = (bool)$debug;
+    }
+
+    /**
+     * @info Sends a debug log message on the routine_debug channel
+     * @param $msg
+     * @param $methodName
+     */
+    private function debug($msg, $methodName)
+    {
+        $this->logger->log('(Jin\Routing\Router\RoutineRouter->' . $methodName . '): ' . $msg, "routine_debug");
     }
 }

@@ -106,8 +106,11 @@ class LoggerConfigurator
                 $logger->setFormat($loggerArr['format']);
             }
 
-            if (array_key_exists("muted_channels", $loggerArr) && is_array($loggerArr['muted_channels'])
-            ) {
+            if (array_key_exists("whitelist", $loggerArr) && is_array($loggerArr['whitelist'])) {
+                $logger->setWhitelist($loggerArr['whitelist']);
+            }
+
+            if (array_key_exists("muted_channels", $loggerArr) && is_array($loggerArr['muted_channels'])) {
                 $logger->setMutedChannels($loggerArr['muted_channels']);
             }
         }

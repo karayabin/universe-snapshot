@@ -61,9 +61,21 @@ class Logger
      */
     protected $listeners;
     /**
+     * @info This property holds the list of the whitelist channels. If defined (i.e. not empty), this logger instance will only
+     * dispatch messages on those defined channels.
+     * This mechanism has precedence over the mutedChannels mechanism (see property mutedChannels below).
+     * Meaning if both the whitelist and mutedChannels properties are not empty, mutedChannels is ignored.
+     *
+     *
+     * @type array
+     */
+    protected $whitelist;
+
+    /**
      * @info This property holds the muted channels. A muted channel simply drops any message that it
      * receive (i.e. no dispatching). We can use muted channels to quickly turn on/off some channels.
      * Also, a muted channel saves some cpu cycles.
+     * Muted channels system only works if the whitelist is empty (see whitelist property in this class)
      *
      *
      * @type array
@@ -86,6 +98,7 @@ class Logger
     public function __construct()
     {
         $this->listeners = [];
+        $this->whitelist = [];
         $this->mutedChannels = [];
         $this->format = '[{channel}]: {dateTime} -- {message}';
     }
@@ -123,6 +136,15 @@ class Logger
     }
 
     /**
+     * @info Sets the whitelist of channels for this instance.
+     * @param array $whitelist
+     */
+    public function setWhitelist(array $whitelist)
+    {
+        $this->whitelist = $whitelist;
+    }
+
+    /**
      * @info Sets the muted channels for this instance.
      * @param array $mutedChannels
      */
@@ -150,7 +172,15 @@ class Logger
      */
     protected function dispatch($channel, $msg)
     {
-        if (false === in_array($channel, $this->mutedChannels, true)) {
+        $whitelistPass = false;
+        if (!empty($this->whitelist)) {
+            if (false === in_array($channel, $this->whitelist, true)) {
+                return;
+            }
+            $whitelistPass = true;
+        }
+
+        if (true === $whitelistPass || false === in_array($channel, $this->mutedChannels, true)) {
 
             $loggerMsg = $this->getFormattedMessage($channel, $msg);
 
@@ -227,12 +257,6 @@ class Logger
     }
 
 
-
-
-    //--------------------------------------------
-    //
-    //--------------------------------------------
-
     /**
      * @info Dispatches a log message on the "error" channel.
      * @param $msg
@@ -243,11 +267,6 @@ class Logger
     }
 
 
-
-
-    //--------------------------------------------
-    //
-    //--------------------------------------------
 
     /**
      * @info Dispatches a log message on the "fatal" channel.

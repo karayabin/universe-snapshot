@@ -118,7 +118,6 @@ class Application
             //--------------------------------------------
             // ROUTING
             //--------------------------------------------
-            a("application: routing");
             $routingComponents = $components['routing'] ?? [];
             foreach ($routingComponents as $routingComponent) {
                 $router = $routingComponent['instance'];
