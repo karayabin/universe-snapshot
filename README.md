@@ -26,10 +26,10 @@ Summary
 -------
 - [How to install?](#how-to-install)
 - [How to use?](#how-to-use)
-- Big bang: the beginning of the universe
-    - The class directory
-    - The a and az functions
-- Uni tool: a manager to install planets
+- [Big bang: the beginning of the universe](#big-bang-the-beginning-of-the-universe)
+    - [The class directory](#the-class-directory)
+    - [The a and az functions](#the-a-and-az-functions)
+- [Uni tool: a manager to install planets](#uni-tool-a-manager-to-install-planets)
 
 
 
