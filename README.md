@@ -1,6 +1,6 @@
 Universe
 ==============
-2015-10-14 --> 2019-01-20
+2015-10-14 --> 2019-01-21
 
 
 
@@ -9,7 +9,7 @@ Universe
 Welcome to the **universe** framework.
 
 
-The **universe** is essentially a php library that you can use for your php projects.
+The **universe** is essentially a php library that you can use in your php projects.
 
 
 THe **universe** is composed of **planets**, each **planet** representing a "package" containing some functionality.
@@ -33,14 +33,16 @@ Summary
 
 
 
+
+
 How to install?
 ---------------
 
-If you're new to the universe, the simplest way of testing it is probably to download this repository into your application.
+If you're new to the universe, the simplest way of testing it is probably to download all the planets at once into your application.
 
 1. Create a directory on your machine. I will use **/path/to/my_app**.
-2. Download this repository somewhere on your computer.
-3. Copy the **universe** directory from step 2 into your app (so now **/path/to/my_app/universe** should exist)
+2. Download this repository somewhere on your computer, unzip it, and go inside its main directory. You should find a directory named **universe** (which contains all the planets).
+3. Copy the **universe** directory (from step 2) into your app (so now **/path/to/my_app/universe** should exist)
 4. That's it for the installation! You can now use the universe in your application. See how in the next section.
 
 
@@ -74,7 +76,7 @@ use Bat\ConvertTool;
 require_once __DIR__ . "/universe/bigbang.php"; // activate universe
 
 // converting 2 megabytes in octets
-az(ConvertTool::convertHumanSizeToBytes("2M")); // int(2097152)
+az(ConvertTool::convertHumanSizeToBytes("2M"));
 
 
 ```
@@ -82,11 +84,11 @@ az(ConvertTool::convertHumanSizeToBytes("2M")); // int(2097152)
 As you can see, all we need to do to use the universe is include the **bigbang.php** script.
 
 More details about the **bigbang.php** script and the hopefully mysterious **az** function in the
-"Big bang: the beginning of the universe" section, later in this document.
+[Big bang: the beginning of the universe](#big-bang-the-beginning-of-the-universe) section, later in this document.
 
 
 
-
+- Save the **app.php** file
 - Now to test this application, open a terminal and type the following command:
 
 ```bash
@@ -102,7 +104,7 @@ int(2097152)
 
 Congrats! You now know how to leverage the power of the universe in your applications.
 
-The next step is to explore the universe's planets and grab the ones useful for your project.
+The next step is to explore the [universe's planets](https://github.com/karayabin/universe-snapshot/tree/master/universe) and grab the ones useful for your project.
 
 
 
@@ -118,37 +120,23 @@ In order to use the universe's planets, one need to include the **bigbang.php** 
 
 This script will do the following:
 
-- prepare the autoloader for the universe
-- declare the "a" and "az" functions if they aren't defined already
+- Prepare the autoloader for the universe
+- Declare the "a" and "az" functions if they aren't defined already
 
 
 
-The autoloader will allow you to call the planets of the universe.
-In php, we use the "use" keyword followed by the class name that we want to include, like this:
+The **autoloader** by default parses any ([bsr-0](https://github.com/lingtalfi/BumbleBee/blob/master/Autoload/convention.bsr0.eng.md) compliant) classes from the following directories:
+
+- universe
+- class (if it exists)
 
 
-```php
-use Bat\ConvertTool;
-```
-
-After writing this line, we now can use the ConvertTool class.
-
-Like this:
-
-```php
-echo ConvertTool::convertHumanSizeToBytes("2M"); // 2097152
-```
-
-More info about this on the [use keyword on the php documentation](http://php.net/manual/en/language.namespaces.importing.php).
-
+To change this behaviour (add other directories to parse for instance), modify the **bigbang.php** script (not covered in this document, but should be fairly simple).
 
 
 ### The class directory
 
-We've just saw that the autoloader of the universe let you use classes inside the **universe** directory.
-
-But what we've not seen yet is that it also parses the classes inside the **class** directory if you create it.
-
+The class directory contains application specific classes.
 
 Consider the following structure:
 
@@ -182,15 +170,12 @@ class ExampleClass
 }
 ```
 
-Notice the namespace: Demo. It basically maps the directory structure.
-See the [bsr-0 convention](https://github.com/lingtalfi/BumbleBee/blob/master/Autoload/convention.bsr0.eng.md) for more details
-about the namespace.
 
 
 
 Now you can use the ExampleClass in your code.
 
-- open the **app.php** file and put the following code in it:
+- Open the **app.php** file and put the following code in it:
 
 ```php
 <?php
@@ -206,26 +191,26 @@ ExampleClass::hello(); // will print "hello" to the output
 
 ```
 
+- Now run your app by typing the following command in a terminal:
 
 
-So to recap the default autoloader (defined in the **bigbang.php** script) behaviour is to autoload classes in the following directories:
+```bash
+php -f /path/to/my_app/app.php
+```
 
-- universe
-- class
-
-
+It should print hello.
 
 
 
 ### The a and az functions
 
-The **bigbang.php** script also provides use with two debug functions: a and az.
+The **bigbang.php** script also provides two immensely useful debug functions: a and az.
 
 
 - The a function dumps any argument passed to it (string, numbers, arrays, objects,...).
 
 ```php
-a("coucou");  // pritns string(6) "coucou" on the screen
+a("coucou");  // prints string(6) "coucou" on the screen
 ```
 
 - The az function is the same as the a function, but it exits the script afterward.
@@ -252,8 +237,9 @@ array(2) {
 Uni tool: a manager to install planets
 --------------------------------------
 
-In the "How to install?" section, we have downloaded the whole universe into our app.
+In the [How to install?](#how-to-install) section, we have downloaded the whole universe into our app.
 
-While this is a good idea when you just want to play with the universe, you might want to include only the planets your application needs in a production app (to save some disk space).
+While this is a good idea when you just want to play with the universe, you might want to include only the planets that you need (for instance if you deploy your application in production
+and want to save some disk space).
 
-If this is the case, I wrote a tool to manage your planets, check out the [uni tool: manager of the universe's planets](https://github.com/lingtalfi/universe-naive-importer).
+If this is the case, check out the [uni tool](https://github.com/lingtalfi/universe-naive-importer): a command line tool to import planets (and manage their dependencies) one by one.
