@@ -4,6 +4,7 @@
 namespace Jin\Routing\Router;
 
 
+use Bat\DebugTool;
 use Jin\Http\HttpRequest;
 use Jin\Log\Logger;
 use Jin\Registry\Access;
@@ -18,6 +19,12 @@ use Jin\Registry\Access;
  *
  * This router tries to match an http request by testing a collection of routes against the given http request.
  * If a route matches, it provides information on how the request should be handled.
+ *
+ *
+ * You can activate debug mode, this will send log messages to the "routine_debug" channel.
+ * Note: don't forget to subscribe to that channel (see @class(Jin\Configuration\LoggerConfigurator) class description for more details)
+ * @see \Jin\Configuration\LoggerConfigurator
+ *
  *
  *
  * Declaration of routes
@@ -130,168 +137,166 @@ use Jin\Registry\Access;
  *
  * ### Tag system
  *
- * Sometimes, you will want more flexibility.
- * For instance, imagine that you are creating a blog app, and your urls look like this:
+ * RoutineRouter also let you use a tag system that allows to also capture some parts of the uri path as php variables.
+ *
+ * For instance:
  *
  * - uriPath: /articles/58-the-cat-and-the-dog.html
- *
- * Where 58 is the id of the article.
- *
- * The RoutineRouter provides us with a tag system that allows us to create a
- * variable articleId (for instance) with a value of 58.
- *
- * Here is the pattern that would match the uriPath above and create articleId=58:
- *
  * - pattern: /articles/{articleId}-the-cat-and-the-dog.html
  *
- * As you can guess from the above example, a tag is wrapped by surrounding curly braces.
+ * In the example above, the tag {articleId} will capture the value 58 (and the variable $articleId=58
+ * will be available in the php code).
  *
- * Therefore, rule#1:
+ *
+ * A tag is wrapped with curly braces, and therefore:
+ *
  * - you must escape curly braces that are not part of a tag (otherwise the router wouldn't be able to
  *      differentiate which is which). To escape a curly brace, put a backslash (\) in front of it.
  *
  *
- * Back to our example.
- * That's nice already, but there are a couple of problems that we need to address:
+ * The tag anatomy is the following:
  *
- * - the {articleId} tag would match not only numbers, but also any string.
- *          We can fix that with the constraints system explained later in this document.
- * - the other problem that we have is that with this tag, we have to know the exact url by advance.
+ * - <openingCurlyBrace> <beginZone> <tagName> <endZone> <closingCurlyBrace>
  *
- * So for instance if we go to the next article, our pattern doesn't work anymore:
+ * With:
+ * - openingCurlyBrace: the opening curly brace char "{"
+ * - beginZone: see explanations below
+ * - tagName: a php variable like name (alpha num chars including underscore, the first char must not be a digit)
+ * - endZone: see explanations below
+ * - closingCurlyBrace: the closing curly brace char "}"
  *
- * - uriPath: /articles/59-do-you-REALLY-like-sushis.html
+ *
+ * In the begin zone and end zone we can write features.
+ * There are two features:
+ *
+ * - the "optionally starting with" feature, which must be written in the begin zone
+ * - the "stop when encountering" feature, which must be written in the end zone
+ *
+ * A feature has the following notation:
+ *
+ * - <featureStartChar> <featureBody> <featureEndDelimiter>
+ *
+ * With:
+ *
+ * - featureStartChar: a character to indicate the beginning of the feature. The start chars are:
+ *              - optionally starting with: ?  (question mark)
+ *              - stop when encountering:   !  (exclamation mark)
+ *
+ * - featureBody:
+ *          A set of character(s) for the feature to work with.
+ *          The interpretation of those characters depends on the feature:
+ *
+ *          - optionally starting with: the char(s) that optionally start the pattern, but are not captured.
+ *                      See the examples below for more details.
+ *          - stop when encountering: the char(s) that stop the pattern
+ *
+ *          The feature body must not contain the "{" and "}" characters.
+ *          You can still write curly braces by using their aliases "_ob" for "{" and "_cb" for "}".
+ *          Note: these aliases only work inside the feature body.
+ *
+ * - featureEndDelimiter: .. (two consecutive dots)
+ *
+ *
+ *
+ * ### Pattern matching examples:
+ *
+ *
+ *
+ * #### No tag: an exact match is required
+ *
+ *
+ * - uriPath: /articles/58-the-cat-and-the-dog.html
+ * - pattern: /articles/58-the-cat-and-the-dog.html
+ * - match: yes
+ *
+ *
+ * - uriPath: /articles/58-the-cat-and-the-dog.html
+ * - pattern: /articles/58-the-cat-and-the-dog
+ * - match: no
+ *
+ *
+ * #### Default tag: captures as much chars as it possibly can
+ *
+ * - uriPath: /articles/58-the-cat-and-the-dog.html
+ * - pattern: /articles/{articleId}
+ * - articleId: 58-the-cat-and-the-dog.html
+ * - match: yes
+ *
+ * - uriPath: /articles/58-the-cat-and-the-dog.html
+ * - pattern: /articles/{articleId}-the
+ * - articleId: 58-the-cat-and
+ * - match: yes
+ *
+ *
+ * - uriPath: /articles/58-the-cat-and-the-dog.html
+ * - pattern: /articles/{articleId}-the-cat
+ * - articleId: 58
+ * - match: yes
+ *
+ *
+ * - uriPath: /articles/58-the-cat-and-the-dog.html
  * - pattern: /articles/{articleId}-the-cat-and-the-dog.html
- *
- * As you can see, this pattern and this uriPath will NOT match at all.
- * It would be nice though if we could write a generic pattern that would match all articles.
- *
- * Fortunately, we can.
- * But in order to do so we have to learn the apricot syntax first.
- *
- *
- * ### The apricot syntax
- *
- * The apricot syntax is a notation used inside a tag, which allows more flexibility.
- *
- * First, let me show you the power of the apricot syntax by resolving the problem in the previous example.
- * Here is the generic pattern (using the apricot syntax) that would match any articles of our example above:
- *
- * - pattern: /articles/{!-..articleId}
- *
- * The pattern above will match both uri paths:
+ * - articleId: 58
+ * - match: yes
  *
  * - uriPath: /articles/58-the-cat-and-the-dog.html
- * - uriPath: /articles/59-do-you-REALLY-like-sushis.html
+ * - pattern: /articles/{articleId}-mix
+ * - match: no
  *
- * Nice isn't it?
  *
- * Now let me explain how this works.
+ * #### Tag with "Optionally starting with" feature
  *
- * A simple tag looks like this: {tag}.
- * By default, such a tag matches all the characters, starting from the tag position, and until the end of the uri path.
+ * osw: optionally starting with
  *
- * So, for instance the following uriPath matches with any of the pattern below:
+ * Optionally starting with (but not capturing) ONE char in...
+ *
  *
  * - uriPath: /articles/58-the-cat-and-the-dog.html
- * - pattern: {all}                                 // with all = /articles/58-the-cat-and-the-dog.html
- * - pattern: /{all}                                // with all = articles/58-the-cat-and-the-dog.html
- * - pattern: /a{all}                               // with all = rticles/58-the-cat-and-the-dog.html
- * - pattern: /ar{all}                              // with all = ticles/58-the-cat-and-the-dog.html
- * - ...
+ * - pattern: /articles{?/..articleId}-the-cat
+ * - articleId: 58
+ * - osw char: yes (/)
+ * - match: yes
  *
  *
- * But a tag can be as complex as this: {?.-_ob..!/!..var1:6}
- * (Don't worry, I made an especially complex tag just to show you the maximum complexity you'll have to deal with, but
- * at the end of this lecture, you'll see how actually easy it is to read that).
+ * - uriPath: /articles/58-the-cat-and-the-dog.html
+ * - pattern: /article{?/s..articleId}-the-cat
+ * - articleId: /58
+ * - osw match: yes (s)
+ * - match: yes
  *
  *
- * First of all, here is the anatomy of a tag:
- *
- * - the opening curly bracket
- * - the "beginning zone" of the tag, which is a place reserved for apricot syntax (!-.. in our first example above)
- * - the tag name: articleId in our example above. The tag name has the same restrictions as a php variable name,
- *          except that it isn't preceded by the $ symbol.
- *          So: the first char must not be a digit, and all chars are either the underscore or a letter or a digit.
- *          Nothing else.
- * - the "end zone" of the tag, which is another place reserved for apricot syntax (not used in our example above)
- * - the closing curly bracket
- *
- * So the two parts that we need to learn about now are the zones: the beginning zone and the end zone.
- * Each zone accepts a well-defined number of features:
- *
- * - the beginning zone accept the following features (in this order):
- *      - "optionally starting with" feature
- *      - "stop when encountering" feature
- *
- * - the end zone accept only one feature:
- *      - "limit to x chars" feature, which is not implemented at the time being (due to its lack of practicality)
+ * - uriPath: /articles/58-the-cat-and-the-dog.html
+ * - pattern: /article{?/..articleId}-the-cat
+ * - articleId: s/58
+ * - osw match: no
+ * - match: yes
  *
  *
- * #### optionally starting with
+ * #### Tag with "Stop when encountering" feature
  *
- * This feature allows us to say: this tag also matches if it's preceded by this char (or this set of chars).
- * For instance, imagine that you want one pattern that could match the two following uriPaths:
- *
- * - uriPath: /blog
- * - uriPath: /blog/58
- *
- * Using the "optionally starting with" feature, you can do it, like this:
- *
- * - pattern: /blog{?/..articleId}        // articleId=null for the first uriPath, and 58 for the second
- *
- * The syntax of this feature is the following:
- *
- * - ?                          a question mark to enter the "optionally starting with" feature.
- * - one or many chars          a set of chars that will match if it's at the beginning of the pattern.
- *                              Note: if you use letters, this system is a case sensitive.
- *                              You can use any chars you want except { and }, which are the tag delimiter.
- *                              If you really need to indicate that the pattern should match an optional curly bracket
- *                              at the beginning, use the _ob (for opening bracket) and _cb (closing bracket) aliases.
- *
- * - ..                         the two consecutive dots to indicate the end of the feature.
- *
- * So now you know about this first feature, and if you're not sure, read the question mark as "optionally starting with"
- * and it should go smoothly.
- *
- * So can you understand the following pattern now:
- *
- * - pattern: /articles{?/..articleId}
- *
- * The tag {?/..articleId} translated to plain english simply means: optionally starting with / (and the name of the tag is articleId).
- * It's important that you mentally translate those tags to plain english, otherwise you'll just see a bunch of cryptic characters.
+ * swe: stop when encountering
  *
  *
- * #### stop when encountering
- *
- * If you understood the first feature (optionally starting with), you'll have no problem with this one.
- * This is exactly the same principle, except that it reads: "stop when encountering" (or perhaps even simpler: "not including"), and as you can guess this pattern stops
- * when it encounters the specified set of chars, and the symbol to start this feature is the exclamation mark !.
- *
- * So, the syntax of this feature is this:
- *
- * - !                          an exclamation mark to enter the "stop when encountering" feature.
- * - one or many chars          a set of chars that will stop the capture when encountered.
- *                              Note: if you use letters, this system is a case sensitive.
- *                              You can use any chars you want except { and }, which are the tag delimiter.
- *                              If you really need to indicate that the pattern should stop when encountering a curly bracket
- *                              use the _ob (for opening bracket) and _cb (closing bracket) aliases.
- *
- * - ..                         the two consecutive dots to indicate the end of the feature.
- *
- * So by now you should be able to decipher this pattern:
- *
- * - pattern: /articles/{!-/..articleId}
- *
- * This pattern in plain english reads: stop when encountering dash or slash (and the tag name is articleId).
+ * - uriPath: /articles/58-the-cat-and-the-dog.html
+ * - pattern: /articles/{articleId!-..}
+ * - articleId: 58
+ * - swe match: yes (-)
+ * - match: yes
  *
  *
- * You can combine both features. Can you read the following pattern? (if you can, you're a pro at the apricot syntax)
+ * - uriPath: /articles/58-the-cat-and-the-dog.html
+ * - pattern: /articles/{articleId!-..}-the-cat
+ * - articleId: 58
+ * - swe match: yes (-)
+ * - match: yes
  *
- * - pattern: /articles{?/..!-/..articleId}
+ *
+ * - uriPath: /articles/58-the-cat-and-the-dog.html
+ * - pattern: /articles/{articleId!-..}-mix
+ * - match: no
  *
  *
- * This pattern reads: optionally starting with slash, and stop when encountering the dash or the slash char (and the tag name is articleId)
+ *
  *
  *
  *
@@ -303,35 +308,31 @@ use Jin\Registry\Access;
  *
  *
  * ```yml
+ * #---------------------------
+ * # Requirements examples
+ * #---------------------------
  * requirements_demo:
  *     pattern: /fake1
  *     page: main/home.php
  *     requirements:
  *         # This requirement is valid only if the method matches the one of the request
  *         method: GET
- *
  *         # The requirement is valid only if the request is https.
  *         # Note: if the value was false, this requirement would be only valid if the request was NOT https.
  *         is_https: true
- *
  *         # The requirement is valid only if the request port is 88
  *         port: 88
- *
  *         # This requirement is valid only if the time of the request is in between the boundaries value defined
  *         # The format used for dates is either Y-m-d H:i:s or Y-m-d
  *         time: [2019-01-19 00:00:00, 2020-01-19 00:00:00]
- *
  *         # This requirement is valid only the host matches the one of the request
  *         host: local.treasure
- *
- *         # This requirement is only valid if at least one of the specified referer domains matches the one of the request.
+ *         # This requirement is only valid if the referer domain matches the one of the request.
  *         # The referer domain can be declared either as a string or as a list
  *         #        referer_domain: my_friend.com
  *         referer_domain:
- *           - my_friend.com
- *           - my_friend2.com
- *
- *
+ *             - my_friend.com
+ *             - my_friend2.com
  *         # This requirement is only valid when the referer page matches the one of the request.
  *         # The page does not include the question mark and the query string.
  *         # Again, the referer_page can be either a string or a list (like referer_domain)
@@ -339,14 +340,10 @@ use Jin\Registry\Access;
  *         #        referer_page:
  *         #            - my_friend.com/page2.php
  *         #            - my_friend2.com/marshmallows.php
- *
- *
  *         # This requirement is only valid if the ip of the request matches one of the ip provided by the requirement.
  *         # This value can be either a string or a list
  *         allowed_ip: 88.45.12.34
  *         #        allowed_ip: [127.0.0.0, 88.45.12.34]
- *
- *
  *         # This requirement is only valid if the ip of the request matches IS NOT one of the ip provided by the requirement.
  *         # This value can be either a string or a list
  *         #        forbidden_ip: [69.69.69.69, 88.46.27.34]
@@ -375,64 +372,65 @@ use Jin\Registry\Access;
  *             has:
  *                 - [token, jeton]
  *                 - req_type
- *             # This section defines value that must exist and have the value specified. It's not available for the files super array.
+ *             # This section defines value that must exist and have the value specified
  *             value:
- *               # This requirement is valid only if the request get has a variable named var1 which value is 5
- *               # AND a variable var2 with value "doo".
- *               var1: 5
- *               var2: doo
- *               # This sections below is not implemented yet, just ideas for possible future me
- *               #            value_regex:
- *               #                var1: \d
- *               # This sections below is not implemented yet, just ideas for possible future me
- *               #            value_optional:
- *               #                token: 78 # if token does not exist, the requirement is valid
- *               # This section below is not implemented, just ideas for possible future me
- *               # implementation of the dot notation (we don't want to add it directly to the "has" property,
- *               # as it could confuse the user, and this is a feature that will probably not be used a lot.
- *               #      hasDot: general.token
+ *                 # This requirement is valid only if the request get has a variable named var1 which value is 5
+ *                 # AND a variable var2 with value "doo".
+ *                 var1: 5
+ *                 var2: doo
+ *                 # This section below is not implemented yet, just ideas for possible future me
+ *                 #            value_regex:
+ *                 #                var1: \d
+ *                 # This section below is not implemented yet, just ideas for possible future me
+ *                 #            value_optional:
+ *                 #                token: 78 # if token does not exist, the requirement is valid
+ *
+ *             # This section below is not implemented, just ideas for possible future me
+ *             # implementation of the dot notation (we don't want to add it directly to the "has" property,
+ *             # as it could confuse the user, and this is a feature that will probably not be used a lot.
+ *             #      hasDot: general.token
+ *
+ *             # files super array ONLY
+ *             # --------------------------
+ *             # The section below is only available with the file super array.
  *
  *
- *
- *              # files super array ONLY
- *              # --------------------------
- *              # The section below is only available with the file super array.
- *              # Type
- *              # It's an array of fileKey => acceptableTypes.
- *              # With:
- *              #     - fileKey: an actual key of the files super array provided by the request (The requirement will fail is such a key is not found in the files super array).
- *              #     - acceptableTypes: the list of accepted mime-types for the given fileKey. The requirement validates only if the mime-type of the file is in the list.
- *              #           Can be either a string or a list
+ *             # Type
+ *             # It's an array of fileKey => acceptableTypes.
+ *             # With:
+ *             #     - fileKey: an actual key of the files super array provided by the request (The requirement will fail is such a key is not found in the files super array).
+ *             #     - acceptableTypes: the list of accepted mime-types for the given fileKey. The requirement validates only if the mime-type of the file is in the list.
+ *             #           Can be either a string or a list
  *             type:
  *                 the_file: application/pdf
- *                 #          the_file.jar.mac: application/pdf
- *                 # Remember that the type value is not reliable:
- *                 # http://php.net/manual/en/features.file-upload.post-method.php says:
- *                 # This mime type is however not checked on the PHP side and therefore don't take its value for granted.
- *                 # List of mime-types: http://svn.apache.org/repos/asf/httpd/httpd/trunk/docs/conf/mime.types
- *                 # Common mime types are:
- *                 # (text)
- *                 # - text/plain
- *                 # - text/html
+ *             #          the_file.jar.mac: application/pdf
+ *             # Remember that the type value is not reliable:
+ *             # http://php.net/manual/en/features.file-upload.post-method.php says:
+ *             # This mime type is however not checked on the PHP side and therefore don't take its value for granted.
+ *             # List of mime-types: http://svn.apache.org/repos/asf/httpd/httpd/trunk/docs/conf/mime.types
+ *             # Common mime types are:
+ *             # (text)
+ *             # - text/plain
+ *             # - text/html
  *
- *                 # (image)
- *                 # - image/gif
- *                 # - image/png
- *                 # - image/jpeg
- *                 # - image/bmp
+ *             # (image)
+ *             # - image/gif
+ *             # - image/png
+ *             # - image/jpeg
+ *             # - image/bmp
  *
- *                 # (audio)
- *                 # - audio/wav
+ *             # (audio)
+ *             # - audio/wav
  *
- *                 # (video)
- *                 # - video/webm
- *                 # - video/ogg
- *                 # - video/mp4
+ *             # (video)
+ *             # - video/webm
+ *             # - video/ogg
+ *             # - video/mp4
  *
- *                 # (application)
- *                 # application/octet-stream
- *                 # application/pdf
- *                 # application/xml
+ *             # (application)
+ *             # application/octet-stream
+ *             # application/pdf
+ *             # application/xml
  *
  *
  *
@@ -447,7 +445,6 @@ use Jin\Registry\Access;
  *             #               or Bat\ConvertTool::convertHumanSizeToBytes comments for more details).
  *             size:
  *                 the_file: [0, 2M]
- *
  *
  * ```
  *
@@ -467,12 +464,30 @@ use Jin\Registry\Access;
  * IF a constraint fails, then the route will not match.
  *
  * A constraint let you use the power of php regex to test against a tag.
+ * If the regex doesn't match the tag value, the route test fails.
  *
  * By reading the following example from a yml file, you should be able to understand how constraints work.
  *
- * ```yml
  *
+ * ```yml
+ * #---------------------------
+ * # Constraints examples
+ * #---------------------------
+ * constraints1:
+ *     pattern: /articles/{?/..articleId!-..}
+ *     page: any
+ *     constraints:
+ *         articleId: ^[0-9]{2}$       # a two digits number
+ *         blogId: [0-9]+              # any number (integers)
+ *         lang: ^(eng|fra)$           # the string eng or fra
  * ```
+ *
+ *
+ * Note: a constraint DOES NOT FAIL IF the corresponding tag variable is not defined.
+ * Note2: internally, the slash (/) char is used as the regex delimiter: your constraint will be wrapped with slashes
+ *          to produce the php regex that will actually be used.
+ *          This generally shouldn't be a problem, since you probably won't use slashes in your constraint.
+ *          However, if you do, you are responsible for escaping them when appropriate.
  *
  *
  *
@@ -513,36 +528,99 @@ class RoutineRouter implements RouterInterface
         $appDir = Access::conf()->get('appDir');
         $routesFile = $appDir . "/config/routes.yml";
         $routesDir = $appDir . "/config/routes";
-        $routes = Access::configurationFileParser()->parseFileWithDir($routesFile, $routesDir, false);
+        $routeCollections = Access::configurationFileParser()->parseFileWithDir($routesFile, $routesDir, false);
 
-        /**
-         * - null: no failure
-         * - 1: requirements failure
-         * - 2: uri match failure
-         * - 3: constraint failure
-         */
-        $failureType = null;
+
         $routerResult = new RouterResult();
+        $routerResult->success = false;
 
 
-        foreach ($routes as $routeName => $route) {
-            if (array_key_exists("requirements", $route)) {
-                $failedRequirements = $this->matchRequirements($route['requirements'], $request);
-                if (true !== $failedRequirements) {
-                    $failureType = 1;
+        foreach ($routeCollections as $collectionName => $collectionConfig) {
+            $routes = $collectionConfig['routes'];
+
+
+            foreach ($routes as $routeName => $route) {
+                /**
+                 * - null: no failure
+                 * - 1: requirements failure
+                 * - 2: uri match failure
+                 * - 3: constraint failure
+                 */
+                $failureType = null;
+                if (array_key_exists("requirements", $route)) {
+                    if (false === $this->matchRequirements($route['requirements'], $request, $failedRequirements)) {
+                        $failureType = 1;
+                    }
                 }
-            }
 
-            // does the pattern match
-            $pattern = $route["pattern"];
-            $tagVars = $this->matchUriPath($request->uriPath, $pattern);
-            if (false === $tagVars) {
-                $failureType = 2;
-            } else {
-                az($route, "yo");
-                if (array_key_exists("constraints", $route)) {
-                    $route['constraints'];
+                // does the pattern match
+                $pattern = $route["pattern"];
+
+
+                $tagVars = [];
+                if (false === $this->matchUriPath($request->uriPath, $pattern, $tagVars, $uriDetails)) {
+                    $failureType = 2;
+                } else {
+
+                    if (array_key_exists("constraints", $route)) {
+                        if (false === $this->matchConstraints($route['constraints'], $tagVars, $failureDetails)) {
+                            $failureType = 3;
+                        }
+                    }
                 }
+
+
+                $routeFullName = $collectionName . "." . $routeName;
+                // route match?
+                if (null === $failureType) {
+                    $routeVars = (array_key_exists("vars", $route)) ? $route['vars'] : [];
+                    $vars = array_merge($routeVars, $tagVars);
+                    $routerResult->success = true;
+                    $routerResult->vars = $vars;
+
+                    if (array_key_exists("controller", $route)) {
+                        $routerResult->controller = $route['controller'];
+                    } elseif (array_key_exists("page", $route)) {
+                        $routerResult->page = $route['page'];
+                    }
+                    $routerResult->route = $routeFullName;
+
+                    if (true === $this->debug) {
+                        $msg = "$routeFullName matched! Pattern: $pattern, Uri: " . $request->uriPath;
+                        list($useTag, $regex) = $uriDetails;
+                        if (true === $useTag) {
+                            $msg .= ", Regex: $regex";
+                        }
+                        $this->debug($msg);
+                    }
+                    break 2;
+                } else {
+                    if (true === $this->debug) {
+                        $msg = "$routeFullName failed ";
+                        switch ($failureType) {
+                            case "1":
+
+                                list($requirementName, $requirementValue, $requestValue) = $failedRequirements;
+                                $requirementValue = DebugTool::toString($requirementValue);
+                                $requestValue = DebugTool::toString($requestValue);
+                                $msg .= "by requirement test. Requirement: $requirementName, Requirement value: $requirementValue, HttpRequest value: " . $requestValue;
+                                break;
+                            case "2":
+                                $msg .= "by uri test. Pattern: $pattern, Uri: " . $request->uriPath;
+                                list($useTag, $regex) = $uriDetails;
+                                if (true === $useTag) {
+                                    $msg .= ", Regex: $regex";
+                                }
+                                break;
+                            case "3":
+                                list($tagName, $tagValue, $constraintValue) = $failureDetails;
+                                $msg .= "by constraint test. Tag: $tagName, Tag value: $tagValue, Constraint value: " . $constraintValue;
+                                break;
+                        }
+                        $this->debug($msg);
+                    }
+                }
+
             }
         }
 
@@ -551,39 +629,40 @@ class RoutineRouter implements RouterInterface
     }
 
     /**
-     * @info Match the given $requirements against the request.
-     * Return true if all requirements pass, and a failure array otherwise.
-     * The failure array structure is:
-     *      requirementId => failureComponents
-     * With:
-     *      failureComponents being an array composed of two elements:
-     *          - the requirement value (as specified by the user)
-     *          - the appropriate request bit against which the requirement was matched
+     * @info Tests the given $requirements against the request.
+     *
+     * Return true if all requirements pass, and false otherwise.
+     * In case of failure, the $failed array is fed and has the following structure:
+     *
+     * - 0: the failing requirement name
+     * - 1: the requirement value (as specified in the route)
+     * - 2: the appropriate request bit against which the requirement was matched
      *
      *
      *
      * @param array $requirements
      * @param HttpRequest $request
+     * @param array|null $failed
      * @return array|bool
      */
-    private function matchRequirements(array $requirements, HttpRequest $request)
+    private function matchRequirements(array $requirements, HttpRequest $request, &$failed = null)
     {
         $failed = []; // type => value
         foreach ($requirements as $type => $value) {
             switch ($type) {
                 case "method":
                     if ($request->method !== $value) {
-                        $failed[$type] = [$value, $request->method];
+                        $failed = [$type, $value, $request->method];
                     }
                     break;
                 case "is_https":
                     if ($request->isHttps !== (bool)$value) {
-                        $failed[$type] = [$value, $request->isHttps];
+                        $failed = [$type, $value, $request->isHttps];
                     }
                     break;
                 case "port":
                     if ((int)$request->port !== (int)$value) {
-                        $failed[$type] = [$value, $request->port];
+                        $failed = [$type, $value, $request->port];
                     }
                     break;
                 case "time":
@@ -593,12 +672,12 @@ class RoutineRouter implements RouterInterface
                     $maxTime = strtotime($maxTime);
 
                     if ($time < $minTime || $time > $maxTime) {
-                        $failed[$type] = [$value, $time];
+                        $failed = [$type, $value, $time];
                     }
                     break;
                 case "host":
                     if ($request->host !== $value) {
-                        $failed[$type] = [$value, $request->host];
+                        $failed = [$type, $value, $request->host];
                     }
                     break;
                 case "referer_domain":
@@ -609,7 +688,7 @@ class RoutineRouter implements RouterInterface
                     }
                     $refArray = (is_array($value)) ? $value : [$value];
                     if (false === in_array($refererHost, $refArray, true)) {
-                        $failed[$type] = [$value, $refererHost];
+                        $failed = [$type, $value, $refererHost];
                     }
                     break;
                 case "referer_page":
@@ -621,19 +700,19 @@ class RoutineRouter implements RouterInterface
                     }
                     $refArray = (is_array($value)) ? $value : [$value];
                     if (false === in_array($refererPage, $refArray, true)) {
-                        $failed[$type] = [$value, $refererPage];
+                        $failed = [$type, $value, $refererPage];
                     }
                     break;
                 case "allowed_ip":
                     $ips = (is_array($value)) ? $value : [$value];
                     if (false === in_array($request->ip, $ips, true)) {
-                        $failed[$type] = [$value, $request->ip];
+                        $failed = [$type, $value, $request->ip];
                     }
                     break;
                 case "forbidden_ip":
                     $ips = (is_array($value)) ? $value : [$value];
                     if (true === in_array($request->ip, $ips, true)) {
-                        $failed[$type] = [$value, $request->ip];
+                        $failed = [$type, $value, $request->ip];
                     }
                     break;
                 case "get":
@@ -662,7 +741,7 @@ class RoutineRouter implements RouterInterface
                                 $lineMatch = false;
                             }
                             if (false === $lineMatch) {
-                                $failed[$type] = [$value, $super];
+                                $failed = [$type, $value, $super];
                                 break;
                             }
                         }
@@ -688,7 +767,7 @@ class RoutineRouter implements RouterInterface
                             }
 
                             if (false === $valid) {
-                                $failed[$type] = [$value, $super];
+                                $failed = [$type, $value, $super];
                                 break;
                             }
                         }
@@ -715,7 +794,7 @@ class RoutineRouter implements RouterInterface
                                 }
                             }
                             if (false === $isValid) {
-                                $failed[$type] = [$value, $request->files];
+                                $failed = [$type, $value, $request->files];
                             }
                         }
                         //--------------------------------------------
@@ -737,7 +816,7 @@ class RoutineRouter implements RouterInterface
                                 }
                             }
                             if (false === $isValid) {
-                                $failed[$type] = [$value, $request->files];
+                                $failed = [$type, $value, $request->files];
                             }
                         }
                     }
@@ -747,27 +826,80 @@ class RoutineRouter implements RouterInterface
                 default:
                     break;
             }
+
+            if ($failed) { // we just want the first failing requirement 
+                break;
+            }
         }
         if ($failed) {
-            return $failed;
+            return false;
         }
         return true;
+    }
+
+    /**
+     * @info Returns whether the $pattern matches against the given $uriPath.
+     * If the test is successful, the $tagVars array is fed with the captured variables (key => value).
+     *
+     * The $details array is fed like this:
+     * - 0: bool, whether the pattern uses tags (true) or not (false)
+     * - 1: null|string, the php regex corresponding to the pattern (only if the pattern uses tags)
+     *
+     *
+     * @param $uriPath
+     * @param $pattern
+     * @param array|null $tagVars
+     * @param array|null $details
+     * @return bool
+     */
+    public function matchUriPath($uriPath, $pattern, &$tagVars = null, &$details = null)
+    {
+        $tagVars = [];
+
+        // no tags?
+        if (false === strpos($pattern, "{")) {
+            $details = [
+                false,
+                null,
+            ];
+            if ($uriPath !== $pattern) {
+                return false;
+            }
+            return true;
+        }
+
+        // tags?
+        list($regex, $tagNames) = self::getRegexInfo($pattern);
+        $details = [
+            true,
+            $regex,
+        ];
+
+
+        if (preg_match($regex, $uriPath, $matches)) {
+            $tagVars = array_intersect_key($matches, array_flip($tagNames));
+            return true;
+        }
+        return false;
     }
 
     //--------------------------------------------
     //
     //--------------------------------------------
-
-    public function matchUriPath($uriPath, $pattern)
-    {
-        list($regex, $tagNames) = self::getRegexInfo($pattern);
-        if (preg_match($regex, $uriPath, $matches)) {
-            return array_intersect_key($matches, array_flip($tagNames));
-        }
-        return false;
-    }
-
-    public static function getRegexInfo($pattern)
+    /**
+     * @info Analyzes the given $pattern and returns the corresponding regex info array, which has the following structure:
+     *
+     * - 0: php regex
+     * - 1: array of tag names
+     *
+     *
+     * See more details about the tag notation and features in this class description.
+     *
+     *
+     * @param $pattern
+     * @return array
+     */
+    private static function getRegexInfo($pattern)
     {
 
 
@@ -778,11 +910,12 @@ class RoutineRouter implements RouterInterface
         // converting the pattern to a php regex
         $regex = preg_replace_callback('!{
 (\?(?<starter>.*?)\.\.)?
-(\!(?<stopper>.*?)\.\.)?
 (?<tagName>[_[:alnum:]]+)
+(\!(?<stopper>.*?)\.\.)?
 }!x', function ($v) use (&$tagNames) {
+
             $starter = $v['starter']; // optionally starts with...
-            $stopper = $v['stopper']; // stop when encoutering...
+            $stopper = $v['stopper'] ?? ""; // stop when encountering...
 
             // aliases
             if (!empty($starter)) {
@@ -827,13 +960,23 @@ class RoutineRouter implements RouterInterface
         if (0 === count($tagNames)) { // no tags used
             $regex = '^' . addcslashes($pattern, '!') . '$'; // the pattern must match exactly
         }
-
         return ['!' . $regex . '!', $tagNames];
     }
-    //--------------------------------------------
-    //
-    //--------------------------------------------
 
+    /**
+     * @info Escapes the special chars that are not part of a tag (i.e. outside the tags), and return the
+     * resulting string.
+     *
+     * The escaped chars are the regex sensitive chars ((http://php.net/manual/en/regexp.reference.meta.php)), except for the curly braces.
+     *
+     * Note: the user is responsible for escaping the curly braces manually.
+     * See class description for more info.
+     *
+     *
+     *
+     * @param $pattern
+     * @return string
+     */
     private static function escapeNonTagSpecialChars($pattern)
     {
 
@@ -900,10 +1043,41 @@ class RoutineRouter implements RouterInterface
         }
         return implode("", $newChars);
     }
+    //--------------------------------------------
+    //
+    //--------------------------------------------
 
-    public function setDebug($debug)
+    /**
+     * @info Returns whether all $constraints match the given $tagVars.
+     * Note: a constraint doesn't fail if the tag var is not defined.
+     *
+     * In case of failure, stop at the first failure and feeds the failure details.
+     *
+     *
+     *
+     * @param array $constraints
+     * @param array $tagVars
+     * @param null|array $failureDetails :
+     *      - 0: the tag name
+     *      - 1: the tag value
+     *      - 2: the route constraint value
+     * @return bool
+     */
+    private function matchConstraints(array $constraints, array $tagVars, &$failureDetails = null)
     {
-        $this->debug = (bool)$debug;
+        $isValid = true;
+        foreach ($constraints as $tagName => $constraint) {
+            if (array_key_exists($tagName, $tagVars)) {
+                $value = $tagVars[$tagName];
+                $regex = '/' . $constraint . '/'; // assuming the user will never use / in her pattern
+                if (!preg_match($regex, $value)) {
+                    $failureDetails = [$tagName, $value, $constraint];
+                    $isValid = false;
+                    break;
+                }
+            }
+        }
+        return $isValid;
     }
 
     /**
@@ -911,8 +1085,17 @@ class RoutineRouter implements RouterInterface
      * @param $msg
      * @param $methodName
      */
-    private function debug($msg, $methodName)
+    private function debug($msg)
     {
-        $this->logger->log('(Jin\Routing\Router\RoutineRouter->' . $methodName . '): ' . $msg, "routine_debug");
+        $this->logger->log('(Jin\Routing\Router\RoutineRouter->match): ' . $msg, "routine_debug");
+    }
+
+    /**
+     * @info Sets the debug mode for this instance.
+     * @param $debug
+     */
+    public function setDebug($debug)
+    {
+        $this->debug = (bool)$debug;
     }
 }

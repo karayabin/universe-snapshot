@@ -237,7 +237,7 @@ array(2) {
 Uni tool: a manager to install planets
 --------------------------------------
 
-In the [How to install?](#how-to-install) section, we have downloaded the whole universe into our app.
+In the [How to install?](#how-to-install) section, we've downloaded the whole universe into our app.
 
 While this is a good idea when you just want to play with the universe, you might want to include only the planets that you need (for instance if you deploy your application in production
 and want to save some disk space).
