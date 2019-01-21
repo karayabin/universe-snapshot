@@ -6,7 +6,17 @@ Linker
 Tool to help manage application symlinks.
 
 
-Linker can be installed as a [planet](https://github.com/lingtalfi/Observer/blob/master/article/article.planetReference.eng.md).
+Linker is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
+
+
+Install
+=============
+
+
+Using the [uni tool](https://github.com/lingtalfi/universe-naive-importer)
+```bash
+uni import Linker
+```
 
 
 

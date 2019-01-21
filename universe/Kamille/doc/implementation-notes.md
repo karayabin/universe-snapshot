@@ -171,7 +171,7 @@ in kamille:
 
 
 
-[![kamille-basic-architecture.jpg](https://s19.postimg.org/oelcy20df/kamille_basic_architecture.jpg)](https://postimg.org/image/d28rg9rof/)
+[![kamille-basic-architecture.jpg](http://lingtalfi.com/img/universe/Kamille/kamille-basic-architecture.jpg)](http://lingtalfi.com/img/universe/Kamille/kamille-basic-architecture.jpg)
 
 
 - the Request enters the application (via the handleRequest method of the WebApplication, in this case)
@@ -256,7 +256,7 @@ a good thing. Here are a few things I have notice that occur with ONE centralize
 Let me share the two models with an image:
 
 
-[![comparison-of-two-hooks-systems.jpg](https://s19.postimg.org/p5vyfw2ub/comparison_of_two_hooks_systems.jpg)](https://postimg.org/image/qxoxasm73/)
+[![comparison-of-two-hooks-systems.jpg](http://lingtalfi.com/img/universe/Kamille/comparison-of-two-hooks-systems.jpg)](http://lingtalfi.com/img/universe/Kamille/comparison-of-two-hooks-systems.jpg)
 
 
 

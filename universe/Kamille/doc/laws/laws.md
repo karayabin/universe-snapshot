@@ -9,7 +9,7 @@ Laws in kamille.
 Work in progress.
 
 
-[![laws-in-kamille.jpg](https://s19.postimg.org/yqudrrv8j/laws-in-kamille.jpg)](https://postimg.org/image/8ij92eb4v/)
+[![laws-in-kamille.jpg](http://lingtalfi.com/img/universe/Kamille/laws-in-kamille.jpg)](http://lingtalfi.com/img/universe/Kamille/laws-in-kamille.jpg)
 
 
 Todo: rethink the role of each entity (core module, laws system, kamille framework),

@@ -8,7 +8,19 @@ A helper class to manage assets in your website.
 
 
 
-This is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
+AssetsList is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
+
+
+
+
+Install
+=============
+
+
+Using the [uni tool](https://github.com/lingtalfi/universe-naive-importer)
+```bash
+uni import AssetsList
+```
 
 
 

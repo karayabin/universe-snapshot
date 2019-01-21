@@ -7,7 +7,17 @@ Another infinite scroll jquery plugin.
 
 
 
-Lys can be installed as a [planet](https://github.com/lingtalfi/Observer/blob/master/article/article.planetReference.eng.md).
+Lys is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
+
+
+Install
+=============
+
+
+Using the [uni tool](https://github.com/lingtalfi/universe-naive-importer)
+```bash
+uni import Lys
+```
 
 
 
@@ -38,7 +48,7 @@ Features
 
 
 
-![Water and ball css3 transition at the bottom](http://s19.postimg.org/mggqxdtyb/lys.png)
+![Water and ball css3 transition at the bottom](http://lingtalfi.com/img/universe/Lys/lys.png)
 
 
 
@@ -334,7 +344,7 @@ How does it work?
 --------------------
 
 
-![CheatSheet](http://s19.postimg.org/v5itsfe5f/lys_dev_cheatsheet.jpg)
+![CheatSheet](http://lingtalfi.com/img/universe/Lys/lys-dev-cheatsheet.jpg)
 
 
 Lys, since v3.0.0 works with plugins and events interaction.

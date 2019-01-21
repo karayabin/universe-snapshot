@@ -1,5 +1,5 @@
-vswitch
-============
+VSwitch
+========
 2016-03-03
 
 
@@ -8,7 +8,15 @@ vswitch
 Simple helper to show/hide portions of your html page.
 
 
-vswitch can be installed as a [planet](https://github.com/lingtalfi/Observer/blob/master/article/article.planetReference.eng.md).
+VSwitch is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
+
+
+Install
+==========
+Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
+```bash
+uni import VSwitch
+```
 
 
 Features

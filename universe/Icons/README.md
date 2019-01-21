@@ -6,7 +6,17 @@ Icons
 Add svg icons to your website.
 
 
-This is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
+Icons is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
+
+
+Install
+=============
+
+
+Using the [uni tool](https://github.com/lingtalfi/universe-naive-importer)
+```bash
+uni import Icons
+```
 
 
 This library helps you integrating svg icons in your website.

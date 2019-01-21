@@ -1,4 +1,4 @@
-Zolipop
+Zoli
 ===========
 2016-01-28
 
@@ -6,7 +6,15 @@ Zolipop
 a modal dialog.
 
 
-zoli can be installed as a [planet](https://github.com/lingtalfi/Observer/blob/master/article/article.planetReference.eng.md).
+Zoli is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
+
+
+Install
+==========
+Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
+```bash
+uni import Zoli
+```
 
 
 
@@ -16,7 +24,7 @@ It depends on jquery;
 It was developed for chrome/firefox browsers.
 
 
-![zoli popup](http://s19.postimg.org/tttdo3kdf/Capture_d_e_cran_2016_01_28_a_21_51_20.png)
+![zoli popup](http://lingtalfi.com/img/universe/Zoli/Capture-d-e-cran-2016-01-28-a-21-51-20.png)
 
 
 
@@ -384,7 +392,7 @@ can be combined with other flavours)
 - simple (dark, dark_blue, +rounded)
 - screen (screen, +red, +rounded)
 
-![screen theme](http://s19.postimg.org/q2oefiw2r/zolipop_theme_screen.png "screen theme")
+![screen theme](http://lingtalfi.com/img/universe/Zoli/zolipop-theme-screen.png "screen theme")
 
 
 

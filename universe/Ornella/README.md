@@ -13,6 +13,18 @@ and yet you want her to be able to use advanced string functions like strToUpper
 
 
 
+Ornella is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
+
+
+Install
+==========
+Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
+```bash
+uni import Ornella
+```
+
+
+
 - [ornella tag notation documentation](https://github.com/lingtalfi/ornella/blob/master/ornella-tag-notation.md) 
 - [ornella tag implementation in php](https://github.com/lingtalfi/ornella/blob/master/OrnellaTagNotationUtil.php)
  

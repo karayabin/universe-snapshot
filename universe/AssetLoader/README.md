@@ -1,5 +1,5 @@
-Asset Loader
-=================
+AssetLoader
+===========
 2016-01-30
 
 
@@ -8,7 +8,24 @@ Asset Loader
 Load assets (js/css) in your html page.
 
 
-Asset Loader can be installed as a [planet](https://github.com/lingtalfi/Observer/blob/master/article/article.planetReference.eng.md).
+AssetLoader is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
+
+
+
+
+Install
+=============
+
+
+Using the [uni tool](https://github.com/lingtalfi/universe-naive-importer)
+```bash
+uni import AssetLoader
+```
+
+
+
+
+
 
 
 Features

@@ -7,9 +7,19 @@ ArrayExport
 This class can export a php array containing closures (aka anonymous functions).
 
 
-This class is part of the [universe](https://github.com/karayabin/universe-snapshot).
+
+ArrayExport is part of the [universe](https://github.com/karayabin/universe-snapshot) framework.
 
 
+
+Install
+=============
+
+
+Using the [uni tool](https://github.com/lingtalfi/universe-naive-importer)
+```bash
+uni import ArrayExport
+```
 
 
 

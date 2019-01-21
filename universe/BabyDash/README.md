@@ -6,7 +6,20 @@ BabyDash
 BabyDash is a notation to write an array in a language independent manner.
 
 
-BabyDash can be installed as a [planet](https://github.com/lingtalfi/Observer/blob/master/article/article.planetReference.eng.md).
+BabyDash is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
+
+
+Install
+=============
+
+
+Using the [uni tool](https://github.com/lingtalfi/universe-naive-importer)
+```bash
+uni import BabyDash
+```
+
+
+
 
 
 Examples

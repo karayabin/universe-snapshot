@@ -8,7 +8,15 @@ Grant privileges to your users.
 
 
 
+Privilege is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
 
+
+Install
+==========
+Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
+```bash
+uni import Privilege
+```
 
 
 Intro

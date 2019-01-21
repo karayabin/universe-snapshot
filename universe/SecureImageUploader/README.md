@@ -7,7 +7,15 @@ A simple to use and secure uploader for images in php.
 
 
 
-SecureImageUploader can be installed as a [planet](https://github.com/lingtalfi/Observer/blob/master/article/article.planetReference.eng.md).
+SecureImageUploader is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
+
+
+Install
+==========
+Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
+```bash
+uni import SecureImageUploader
+```
 
 
 

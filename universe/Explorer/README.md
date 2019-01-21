@@ -6,7 +6,23 @@ Explorer
 
 Tool for installing planets into your application.
 
-This is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
+
+
+
+
+Explorer is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
+
+
+Install
+=============
+
+
+Using the [uni tool](https://github.com/lingtalfi/universe-naive-importer)
+```bash
+uni import Explorer
+```
+
+
 
 
 DISCLAIMER -- this tool has been superseded! It is now recommended to use the newer [universe-naive-importer](https://github.com/lingtalfi/universe-naive-importer)

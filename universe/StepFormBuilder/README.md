@@ -10,7 +10,7 @@ A helper to implement a form composed of multiple steps.
 This is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
 
 
-[![step-form-builder.png](https://s19.postimg.org/brlbj8yg3/step-form-builder.png)](https://postimg.org/image/u75sgnckf/)
+[![step-form-builder.png](http://lingtalfi.com/img/universe/StepFormBuilder/step-form-builder.png)](http://lingtalfi.com/img/universe/StepFormBuilder/step-form-builder.png)
 
 
 Install

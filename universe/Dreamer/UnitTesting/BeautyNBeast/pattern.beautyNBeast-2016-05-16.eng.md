@@ -4,7 +4,7 @@ Beauty and Beast
 
 
 
-![Beauty and the beast pattern](http://s19.postimg.org/i3xqkk86b/bnb_pattern.jpg)
+![Beauty and the beast pattern](http://lingtalfi.com/img/universe/Dreamer/bnb-pattern.jpg)
 
 The beauty and beast pattern (bnb pattern) is a technique that helps organizing your unit tests.
 It is framework agnostic, so you can use php unit, jasmine, and/or your own unit test framework, all at the same time,

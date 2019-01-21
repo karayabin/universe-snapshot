@@ -8,6 +8,17 @@ QuickLog
 Lightweight object to quickly send a message to a log file.
 
 
+QuickLog is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
+
+
+Install
+==========
+Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
+```bash
+uni import QuickLog
+```
+
+
 Features
 ------------
 

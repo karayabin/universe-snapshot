@@ -6,9 +6,15 @@ PublicException
 An exception for the gui user.
 
 
+PublicException is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
 
-This is part of the [universe](https://github.com/karayabin/universe-snapshot) framework.
 
+Install
+==========
+Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
+```bash
+uni import PublicException
+```
 
 
 

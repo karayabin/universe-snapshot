@@ -5,7 +5,17 @@ PermsHiker
 
 PermsHiker helps migrating permissions from a server to another.
 
-PermsHiker can be installed as a [planet](https://github.com/lingtalfi/Observer/blob/master/article/article.planetReference.eng.md).
+
+PermsHiker is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
+
+
+Install
+==========
+Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
+```bash
+uni import PermsHiker
+```
+
 
 
 
@@ -119,7 +129,7 @@ a(PermsHikerApplier::create()
 How does it work?
 -------------------
 
-![permshiker workflow](https://s19.postimg.org/upg6b3xwj/Perms_Hiker_idea.jpg)
+![permshiker workflow](http://lingtalfi.com/img/universe/PermsHiker/Perms-Hiker-idea.jpg)
 
 The main idea is to use a medium file (the snapshot) that contains the permission information of a given source directory.
 
@@ -176,7 +186,7 @@ If this is the case, check out the [grouping directories](https://github.com/lin
 Implementation 
 -------------------------
 
-![permshiker implementation](https://s19.postimg.org/6mzcg8h9f/PermsHiker-implementation.jpg)
+![permshiker implementation](http://lingtalfi.com/img/universe/PermsHiker/Perms-Hiker-implementation.jpg)
 
 
 commonPerms

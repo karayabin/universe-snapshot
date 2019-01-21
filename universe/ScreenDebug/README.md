@@ -7,7 +7,15 @@ ScreenDebug
 javascript helper to debug data that change rapidly.
 
 
-ScreenDebug can be installed as a [planet](https://github.com/lingtalfi/Observer/blob/master/article/article.planetReference.eng.md).
+ScreenDebug is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
+
+
+Install
+==========
+Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
+```bash
+uni import ScreenDebug
+```
 
 
 Depends on jquery.

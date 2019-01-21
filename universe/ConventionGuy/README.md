@@ -1,11 +1,24 @@
-Convention Guy
-====================
+ConventionGuy
+=============
 2015-10-14
 
 
 
 Check out my conventions.
 Tools can use them as references.
+
+
+ConventionGuy is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
+
+
+Install
+=============
+
+
+Using the [uni tool](https://github.com/lingtalfi/universe-naive-importer)
+```bash
+uni import ConventionGuy
+```
 
 
 

@@ -6,7 +6,7 @@ Claws mvc
 
 Claw mvc is a redefined form of MVC.
 
-[![claws-mvc-displaying-page.png](https://s19.postimg.org/d2wzewzwz/claws-mvc-displaying-page.png)](https://postimg.org/image/a8tu1gxqn/)
+[![claws-mvc-displaying-page.png](http://lingtalfi.com/img/universe/Kamille/claws-mvc-displaying-page.png)](http://lingtalfi.com/img/universe/Kamille/claws-mvc-displaying-page.png)
 
 
 The goal is still for the model to pass information to the view, via the controller.

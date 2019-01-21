@@ -8,7 +8,15 @@ PhpBeast
 This is a php implementation of the Beast component of the [Beauty n Beast pattern](https://github.com/lingtalfi/Dreamer/blob/master/UnitTesting/BeautyNBeast/pattern.beautyNBeast.eng.md).
 
 
+PhpBeast is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
 
+
+Install
+==========
+Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
+```bash
+uni import PhpBeast
+```
 
 How to use
 --------------

@@ -6,7 +6,23 @@ Helper code to fullscreen with javascript.
 
 
 
-jfullscreen can be installed as a [planet](https://github.com/lingtalfi/Observer/blob/master/article/article.planetReference.eng.md).
+JFullScreen is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
+
+
+Install
+=============
+
+
+Using the [uni tool](https://github.com/lingtalfi/universe-naive-importer)
+```bash
+uni import JFullScreen
+```
+
+
+
+
+
+
 
 code from taken from there: http://www.sitepoint.com/use-html5-full-screen-api/
 

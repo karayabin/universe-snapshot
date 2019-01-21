@@ -7,6 +7,17 @@ TreeListHelper
 Creates an array representing a directory (tree view).
 
 
+TreeListHelper is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
+
+
+Install
+==========
+Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
+```bash
+uni import TreeListHelper
+```
+
+
 
 Why?
 -------

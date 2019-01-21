@@ -8,6 +8,18 @@ VariableToString
 Utility to write any php variable to a string representation.
 
 
+VariableToString is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
+
+
+Install
+==========
+Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
+```bash
+uni import VariableToString
+```
+
+
+
 
 Why? What's the goal?
 ---------

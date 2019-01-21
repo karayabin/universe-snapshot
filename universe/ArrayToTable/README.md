@@ -8,6 +8,22 @@ Create an html table from a php array.
 
 
 
+ArrayToTable is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
+
+
+
+
+Install
+=============
+
+
+Using the [uni tool](https://github.com/lingtalfi/universe-naive-importer)
+```bash
+uni import ArrayToTable
+```
+
+
+
 
 
 Goal
@@ -176,7 +192,7 @@ echo StylizedArrayToTableUtil::create()
 
 The code above, when executed by a browser, would give the following image:
 
-![ arrayToTable stylized example ](http://s19.postimg.org/aldu0yt2b/stylized_Array_To_Table_example.png)
+[![stylized-Array-To-Table-example.png](http://lingtalfi.com/img/universe/ArrayToTable/stylized-Array-To-Table-example.png)](http://lingtalfi.com/img/universe/ArrayToTable/stylized-Array-To-Table-example.png)
 
 
 

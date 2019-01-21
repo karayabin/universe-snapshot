@@ -3,7 +3,7 @@ Hybrid list controls
 2017-11-17
 
 
-[![hybrid-list-and-controls.jpg](https://s19.postimg.org/4631u036r/hybrid-list-and-controls.jpg)](https://postimg.org/image/wvpxqn76n/)
+[![hybrid-list-and-controls.jpg](http://lingtalfi.com/img/universe/HybridList/hybrid-list-and-controls.jpg)](http://lingtalfi.com/img/universe/HybridList/hybrid-list-and-controls.jpg)
 
 
 

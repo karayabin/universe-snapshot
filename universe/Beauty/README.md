@@ -3,7 +3,23 @@ Beauty
 2016-05-17 -- 2017-11-21
 
 
-![Beauty look](http://s19.postimg.org/98adwpher/beauty3.png)
+![Beauty look](http://lingtalfi.com/img/universe/Beauty/beauty3.png)
+
+
+
+
+Beauty is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
+
+
+Install
+=============
+
+
+Using the [uni tool](https://github.com/lingtalfi/universe-naive-importer)
+```bash
+uni import Beauty
+```
+
 
 
 Beauty searches for your [test pages](https://github.com/lingtalfi/Dreamer/blob/master/UnitTesting/BeautyNBeast/pattern.beautyNBeast.eng.md#test-page)

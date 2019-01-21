@@ -45,7 +45,7 @@ you'll have an instant understanding of how data are organized.
 
 In this document, we will work on this one:
 
-[![ekom-events.png](https://s19.postimg.org/n5ec186lf/ekom-events.png)](https://postimg.org/image/tj3f4hbhb/)
+[![ekom-events.png](http://lingtalfi.com/img/universe/SaveOrm/ekom-events.png)](http://lingtalfi.com/img/universe/SaveOrm/ekom-events.png)
 
 
 
@@ -126,7 +126,7 @@ and mine are synced.
 
 Here is how we should see the schema:
 
-[![ekom-events.jpg](https://s19.postimg.org/5gml9luub/ekom-events.jpg)](https://postimg.org/image/as1hubgwv/)
+[![ekom-events.jpg](http://lingtalfi.com/img/universe/SaveOrm/ekom-events.png)](http://lingtalfi.com/img/universe/SaveOrm/ekom-events.png)
 
 
 

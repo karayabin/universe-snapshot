@@ -1,11 +1,25 @@
-get file size
-================================
+GetFileSize
+===========
 2016-01-06
 
 
 Php service to get the size of the file.
   
   
+
+GetFileSize is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
+
+
+Install
+=============
+
+
+Using the [uni tool](https://github.com/lingtalfi/universe-naive-importer)
+```bash
+uni import GetFileSize
+```
+
+
 
 It uses [tim](https://github.com/lingtalfi/Tim) under the hood.
 

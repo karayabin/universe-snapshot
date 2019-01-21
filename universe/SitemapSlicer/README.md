@@ -1,10 +1,21 @@
-Sitemap Slicer
-=====================
+SitemapSlicer
+=============
 2015-10-11
 
 
 
 Generate a sitemap index and its related sitemaps using data from your database.
+
+
+SitemapSlicer is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
+
+
+Install
+==========
+Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
+```bash
+uni import SitemapSlicer
+```
 
 
 

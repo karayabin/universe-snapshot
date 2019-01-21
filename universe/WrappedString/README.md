@@ -7,6 +7,19 @@ WrappedString
 Low level utilities to work with wrapped strings.
 
 
+WrappedString is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
+
+
+Install
+==========
+Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
+```bash
+uni import WrappedString
+```
+
+
+
+
 A wrapped string is a string wrapped by a begin symbol and an end symbol.
 A wrapped string uses the escaping modes as described in 
 the [quotes escaping mode convention](https://github.com/lingtalfi/ConventionGuy/blob/master/convention.quotesEscapingModes.eng.md).

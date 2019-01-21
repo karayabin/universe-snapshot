@@ -1,11 +1,21 @@
 SequenceMatcher
 =========================
-2016-12-15 -- 2015-12-19
+2015-12-19 --> 2016-12-15
 
 
 Find/replace a pattern in a sequence of things.
 
 
+
+SequenceMatcher is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
+
+
+Install
+==========
+Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
+```bash
+uni import SequenceMatcher
+```
 
 Sometimes, you have a sequence of things and you need to find a pattern of those things in the sequence.
 

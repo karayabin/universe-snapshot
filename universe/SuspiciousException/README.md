@@ -8,7 +8,15 @@ This is an interface for the suspicious exception paradigm.
 
 
 
-SuspiciousException can be installed as a [planet](https://github.com/lingtalfi/Observer/blob/master/article/article.planetReference.eng.md).
+SuspiciousException is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
+
+
+Install
+==========
+Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
+```bash
+uni import SuspiciousException
+```
 
 
 Details of the paradigm are explained in the [suspicious exception paradigm](https://github.com/lingtalfi/ConventionGuy/blob/master/paradigm/paradigm.suspiciousException.eng.md)

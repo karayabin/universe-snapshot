@@ -14,8 +14,6 @@ Work in progress...
 Jin is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
 
 
-
-
 Install
 =============
 

@@ -7,6 +7,18 @@ QuickForm
 Quick and dirty form helper class in php.
 
 
+QuickForm is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
+
+
+Install
+==========
+Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
+```bash
+uni import QuickForm
+```
+
+
+
 
 Table of contents
 ---------------------
@@ -54,8 +66,8 @@ Also, all examples use the [bigbang](https://github.com/karayabin/universe-snaps
 
 Simplest example
 ===============================================
-[![form-simplest.png](https://s19.postimg.org/l0tjmg0df/form_simplest.png)](https://postimg.org/image/6hmel178f/)
-[![success-msg.png](https://s19.postimg.org/ih2i63277/success_msg.png)](https://postimg.org/image/yfb7w7wf3/)
+[![form-simplest.png](http://lingtalfi.com/img/universe/QuickForm/form-simplest.png)](http://lingtalfi.com/img/universe/QuickForm/form-simplest.png)
+[![success-msg.png](http://lingtalfi.com/img/universe/QuickForm/success-msg.png)](http://lingtalfi.com/img/universe/QuickForm/success-msg.png)
 
 
 ```php
@@ -82,7 +94,7 @@ $form->play();
 
 Removing the title
 ===============================================
-[![no-title.png](https://s19.postimg.org/4v1sdjkkj/no_title.png)](https://postimg.org/image/bli9mz7q7/)
+[![no-title.png](http://lingtalfi.com/img/universe/QuickForm/no-title.png)](http://lingtalfi.com/img/universe/QuickForm/no-title.png)
 
 
 ```php
@@ -109,7 +121,7 @@ $form->play();
 
 Display a header
 ===============================================
-[![header.png](https://s19.postimg.org/vrlrlv3dv/header.png)](https://postimg.org/image/uck6x52an/)
+[![header.png](http://lingtalfi.com/img/universe/QuickForm/header.png)](http://lingtalfi.com/img/universe/QuickForm/header.png)
 
 
 The header is displayed below the title.
@@ -144,7 +156,7 @@ $form->play();
 
 Using fieldsets
 ===============================================
-[![fieldsets.png](https://s19.postimg.org/vcf36l6ub/fieldsets.png)](https://postimg.org/image/qdrks231b/)
+[![fieldsets.png](http://lingtalfi.com/img/universe/QuickForm/fieldsets.png)](http://lingtalfi.com/img/universe/QuickForm/fieldsets.png)
 
 
 Use the fieldsets to organize your controls in sections.
@@ -185,7 +197,7 @@ $form->play();
 
 Adding placeholders
 ===============================================
-[![placeholders.png](https://s19.postimg.org/m5wsjb1lv/placeholders.png)](https://postimg.org/image/91r86m9jz/)
+[![placeholders.png](http://lingtalfi.com/img/universe/QuickForm/placeholders.png)](http://lingtalfi.com/img/universe/QuickForm/placeholders.png)
 
 
 Controls of type text accept placeholders.
@@ -219,7 +231,7 @@ $form->play();
 
 Adding constraints
 ===============================================
-[![required.png](https://s19.postimg.org/5bmzzz8bn/required.png)](https://postimg.org/image/5bmzzz8bj/)
+[![required.png](http://lingtalfi.com/img/universe/QuickForm/required.png)](http://lingtalfi.com/img/universe/QuickForm/required.png)
 
 
 ```php
@@ -284,7 +296,7 @@ $form->play();
 Moving constraints messages to the top
 ===============================================
 
-[![required-top.png](https://s19.postimg.org/vvazodjhf/required_top.png)](https://postimg.org/image/f7jhlvopr/)
+[![required-top.png](http://lingtalfi.com/img/universe/QuickForm/required-top.png)](http://lingtalfi.com/img/universe/QuickForm/required-top.png)
 
 
 You can choose whether you want to put the constraints error messages at the control level (default), or at the 
@@ -319,7 +331,7 @@ $form->play();
 
 Adding multiple constraints
 ===============================================
-[![multiple-constraints.png](https://s19.postimg.org/zcd1rcijn/multiple_constraints.png)](https://postimg.org/image/69yroiw9r/)
+[![multiple-constraints.png](http://lingtalfi.com/img/universe/QuickForm/multiple-constraints.png)](http://lingtalfi.com/img/universe/QuickForm/multiple-constraints.png)
 
 
 
@@ -352,7 +364,7 @@ $form->play();
 
 Displaying only the first constraint error message
 ===============================================
-[![multiple-constraints-first-only.png](https://s19.postimg.org/up6zpkv6r/multiple_constraints_first_only.png)](https://postimg.org/image/jcue7smhr/)
+[![multiple-constraints-first-only.png](http://lingtalfi.com/img/universe/QuickForm/multiple-constraints-first-only.png)](http://lingtalfi.com/img/universe/QuickForm/multiple-constraints-first-only.png)
 
 
 
@@ -391,7 +403,7 @@ $form->play();
 
 Using different form types
 ===============================================
-[![types.png](https://s19.postimg.org/7jswskyjn/types.png)](https://postimg.org/image/yue80i1gf/)
+[![types.png](http://lingtalfi.com/img/universe/QuickForm/types.png)](http://lingtalfi.com/img/universe/QuickForm/types.png)
 
 
 The code below showcases all the available control types as of today. 
@@ -467,7 +479,7 @@ $form->play();
 
 Using MagicControlFactory types
 ===============================================
-[![magic.png](https://s19.postimg.org/sx31l8dsz/magic.png)](https://postimg.org/image/43thkkusf/)
+[![magic.png](http://lingtalfi.com/img/universe/QuickForm/magic.png)](http://lingtalfi.com/img/universe/QuickForm/magic.png)
 
 
 The code below shows how to use the MagicControlFactory factory, which provides javascript enhanced controls.
@@ -512,7 +524,7 @@ $form->play();
 
 Using labels
 ===============================================
-[![labels.png](https://s19.postimg.org/wfq0r2cpv/labels.png)](https://postimg.org/image/damrhay1r/)
+[![labels.png](http://lingtalfi.com/img/universe/QuickForm/labels.png)](http://lingtalfi.com/img/universe/QuickForm/labels.png)
 
 
 
@@ -573,7 +585,7 @@ Customizing form messages
 ===============================================
 
 
-[![customize-messages.png](https://s19.postimg.org/3kzdkr1er/customize_messages.png)](https://postimg.org/image/p7ee1rzz3/)
+[![customize-messages.png](http://lingtalfi.com/img/universe/QuickForm/customize-messages.png)](http://lingtalfi.com/img/universe/QuickForm/customize-messages.png)
 
 
 The QuickForm has its own set of messages.
@@ -619,7 +631,7 @@ $form->play();
 
 Using default values
 ===============================================
-[![default-values.png](https://s19.postimg.org/t51nr6msj/default_values.png)](https://postimg.org/image/5e2a92mlb/)
+[![default-values.png](http://lingtalfi.com/img/universe/QuickForm/default-values.png)](http://lingtalfi.com/img/universe/QuickForm/default-values.png)
 
 
 Default values are set when the form is first display.
@@ -756,7 +768,7 @@ $form->play();
 
 Translate validation error messages
 ===============================================
-[![translate-constraints.png](https://s19.postimg.org/t5694xc6b/translate_constraints.png)](https://postimg.org/image/cu658lzof/)
+[![translate-constraints.png](http://lingtalfi.com/img/universe/QuickForm/translate-constraints.png)](http://lingtalfi.com/img/universe/QuickForm/translate-constraints.png)
 
 
 QuickForm is multi-language friendly.
@@ -797,7 +809,7 @@ $form->play();
 
 Doing something useful with the posted data
 ===============================================
-[![on-form-posted.png](https://s19.postimg.org/3twyaoe77/on_form_posted.png)](https://postimg.org/image/4jfqn1eqn/)
+[![on-form-posted.png](http://lingtalfi.com/img/universe/QuickForm/on-form-posted.png)](http://lingtalfi.com/img/universe/QuickForm/on-form-posted.png)
 
 
 You treat the form's posted data using the formTreatmentFunc callback.

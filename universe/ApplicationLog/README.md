@@ -8,6 +8,24 @@ ApplicationLog
 Lightweight object to quickly send a message to a log file.
 
 
+
+ApplicationLog is part of the [universe](https://github.com/karayabin/universe-snapshot) framework.
+
+
+
+Install
+=============
+
+
+Using the [uni tool](https://github.com/lingtalfi/universe-naive-importer)
+```bash
+uni import ApplicationLog
+```
+
+
+
+
+
 Features
 ------------
 

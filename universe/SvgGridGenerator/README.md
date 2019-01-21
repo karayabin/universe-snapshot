@@ -6,9 +6,21 @@ SvgGridGenerator
 
 Create css grid lines.
  
- 
-![svg-grid lines](https://s19.postimg.io/dzicn9p7l/svg_grid_colors.png) 
-![svg-grid colors](https://s19.postimg.io/5iiucckip/svg_grid_lines.png) 
+
+
+![svg-grid lines](http://lingtalfi.com/img/universe/SvgGridGenerator/svg-grid-colors.png)
+![svg-grid colors](http://lingtalfi.com/img/universe/SvgGridGenerator/svg-grid-lines.png)
+
+
+SvgGridGenerator is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
+
+
+Install
+==========
+Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
+```bash
+uni import SvgGridGenerator
+```
 
 If you want to experiment/create a css grid framework,
 this might be a good idea to have a canvas of vertical lines behind your work.

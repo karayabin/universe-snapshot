@@ -6,7 +6,17 @@ FileCleaner
 A helper class to clean a directory based on conditions.
 
 
-This is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
+FileCleaner is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
+
+
+Install
+=============
+
+
+Using the [uni tool](https://github.com/lingtalfi/universe-naive-importer)
+```bash
+uni import FileCleaner
+```
 
 
 Motivation

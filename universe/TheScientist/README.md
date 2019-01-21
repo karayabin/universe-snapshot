@@ -1,4 +1,4 @@
-The Scientist
+TheScientist
 ==================
 2015-10-14
 
@@ -11,4 +11,12 @@ The Scientist
 
 
 
+TheScientist is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
 
+
+Install
+==========
+Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
+```bash
+uni import TheScientist
+```

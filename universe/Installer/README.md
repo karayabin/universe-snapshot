@@ -8,6 +8,20 @@ Generic installer for a cms/framework.
 
 
 
+Installer is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
+
+
+Install
+=============
+
+
+Using the [uni tool](https://github.com/lingtalfi/universe-naive-importer)
+```bash
+uni import Installer
+```
+
+
+
 Intro
 ----------
 This installer is the one I use for the [nullos admin](https://github.com/lingtalfi/nullos-admin) project.

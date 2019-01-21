@@ -7,6 +7,19 @@ RssUtil
 RssUtil contains utilities related to rss.
 
 
+RssUtil is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
+
+
+Install
+==========
+Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
+```bash
+uni import RssUtil
+```
+
+
+
+
 - [RssWriter](https://github.com/lingtalfi/RssUtil/tree/master/RssWriter), an utility to create rss 2.0 feeds
 
 

@@ -7,7 +7,17 @@ Some functions that I found useful while playing with jQuery/javascript.
 
 
 
-jGoodies can be installed as a [planet](https://github.com/lingtalfi/Observer/blob/master/article/article.planetReference.eng.md).
+JGoodies is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
+
+
+Install
+=============
+
+
+Using the [uni tool](https://github.com/lingtalfi/universe-naive-importer)
+```bash
+uni import JGoodies
+```
 
 
 Dependencies: jquery 

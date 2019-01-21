@@ -8,7 +8,17 @@ DirTransformer creates a modified copy of a given directory.
 
 
 
-DirTransformer is part of the [universe](https://github.com/karayabin/universe-snapshot) framework.
+DirTransformer is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
+
+
+Install
+=============
+
+
+Using the [uni tool](https://github.com/lingtalfi/universe-naive-importer)
+```bash
+uni import DirTransformer
+```
 
 
 

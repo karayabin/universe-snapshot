@@ -1,4 +1,4 @@
-StringFormatterTool
+StringFormatter
 =====================
 2015-12-11
 
@@ -10,7 +10,15 @@ This tool was originally designed to format log messages.
 In other words, to be able to put any type of variables (typically arrays and exceptions) into a string.
 
 
-StringFormatterTool can be installed as a [planet](https://github.com/lingtalfi/Observer/blob/master/article/article.planetReference.eng.md).
+StringFormatter is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
+
+
+Install
+==========
+Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
+```bash
+uni import StringFormatter
+```
 
 
 

@@ -5,7 +5,7 @@ Beauty
 
 One (unit testing) framework to rule them all.
 
-![Beauty and the beast pattern](http://s19.postimg.org/i3xqkk86b/bnb_pattern.jpg)
+![Beauty and the beast pattern](http://lingtalfi.com/img/universe/Dreamer/bnb-pattern.jpg)
 
 
 The goal of this pattern is to produce a language agnostic unit testing framework.<br>

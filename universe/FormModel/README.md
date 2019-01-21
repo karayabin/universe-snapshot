@@ -390,7 +390,7 @@ BUT, please do not confound control validation with business validation.
 
 Here is how validation should occur:
 
-[![formmodel-validation.jpg](https://s19.postimg.org/m7lmir7j7/formmodel-validation.jpg)](https://postimg.org/image/yyzsp9hb3/)
+[![formmodel-validation.jpg](http://lingtalfi.com/img/universe/FormModel/formmodel-validation.jpg)](http://lingtalfi.com/img/universe/FormModel/formmodel-validation.jpg)
 
 As you can see, it's a two steps proces: first the validation of the form controls (which I consider the low level
 of validation), and then, the validation at the business level (which I consider the high level of validation).

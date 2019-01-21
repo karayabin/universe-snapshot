@@ -7,6 +7,18 @@ Php like functions in js.
 
 
 
+Pea is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
+
+
+Install
+==========
+Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
+```bash
+uni import Pea
+```
+
+
+
 Why the name pea?
 --------------------
 

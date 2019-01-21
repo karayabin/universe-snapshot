@@ -6,6 +6,18 @@ TimeFileUtil
 A helper class to get the start date and end date from a directory.
 
 
+TimeFileUtil is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
+
+
+Install
+==========
+Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
+```bash
+uni import TimeFileUtil
+```
+
+
+
 
 Why is it used for?
 ======================

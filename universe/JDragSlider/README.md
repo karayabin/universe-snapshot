@@ -8,7 +8,22 @@ A helper drag function for your sliders.
 
 
 
-![jquery drag slider](http://s19.postimg.org/u19r9p1b7/jdragslider.gif)
+![jquery drag slider](http://lingtalfi.com/img/universe/JDragSlider/jdragslider.gif)
+
+
+JDragSlider is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
+
+
+Install
+=============
+
+
+Using the [uni tool](https://github.com/lingtalfi/universe-naive-importer)
+```bash
+uni import JDragSlider
+```
+
+
 
 
 Features

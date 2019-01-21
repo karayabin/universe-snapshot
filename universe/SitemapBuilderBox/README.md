@@ -1,11 +1,23 @@
-Sitemap Builder Box
-=========================
+SitemapBuilderBox
+=================
 2015-10-09
 
 
 
 
 Utilities to create basic sitemaps.
+
+
+
+SitemapBuilderBox is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
+
+
+Install
+==========
+Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
+```bash
+uni import SitemapBuilderBox
+```
 
 
 Features

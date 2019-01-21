@@ -4,6 +4,20 @@ JQuery
 
 
 
+JQuery is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
+
+
+Install
+=============
+
+
+Using the [uni tool](https://github.com/lingtalfi/universe-naive-importer)
+```bash
+uni import JQuery
+```
+
+
+
 Some compressed Jquery libraries.
 
 

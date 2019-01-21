@@ -69,7 +69,7 @@ Intent
 
 
 The basic idea of intent is expressed with this schema:
-[![rendering-templates-with-intent-markers.jpg](https://s19.postimg.org/l4wuhxikz/rendering-templates-with-intent-markers.jpg)](https://postimg.org/image/a5bn6bs5r/)
+[![rendering-templates-with-intent-markers.jpg](http://lingtalfi.com/img/universe/Ecp/rendering-templates-with-intent-markers.jpg)](http://lingtalfi.com/img/universe/Ecp/rendering-templates-with-intent-markers.jpg)
 
 
 Intent is a powerful idea.

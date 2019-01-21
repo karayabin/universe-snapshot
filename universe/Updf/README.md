@@ -7,8 +7,19 @@ Updf
 A helper class to create pdf.
 
 
-Updf is part of the [universe framework](https://github.com/karayabin/universe-snapshot) and
-uses the [tcpdf library](https://tcpdf.org/) (I used 6.2.13).
+
+Updf is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
+It uses the [tcpdf library](https://tcpdf.org/) (I used 6.2.13), which you need to install separately.
+
+
+Install
+==========
+Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
+```bash
+uni import Updf
+```
+
+
 
 
 
@@ -81,7 +92,7 @@ Updf uses html templates instead.
 Here is how the Updf code is organized:
 
 
-[![updf.jpg](https://s19.postimg.org/ho3vasqcj/updf.jpg)](https://postimg.org/image/ufi1hb04f/)
+[![updf.jpg](http://lingtalfi.com/img/universe/Updf/updf.jpg)](http://lingtalfi.com/img/universe/Updf/updf.jpg)
 
 
 

@@ -5,9 +5,24 @@ GuiAdminTable
 
 An object to display administrable list of rows.
 
-GuiAdminTable is part of the [universe](https://github.com/karayabin/universe-snapshot) framework.
 
-[![guiadmin.png](https://s19.postimg.org/vii74x1hv/guiadmin.png)](https://postimg.org/image/r9dh2qy8f/)
+
+[![guiadmin.png](http://lingtalfi.com/img/universe/GuiAdminTable/guiadmin.png)](http://lingtalfi.com/img/universe/GuiAdminTable/guiadmin.png)
+
+
+
+GuiAdminTable is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
+
+
+Install
+=============
+
+
+Using the [uni tool](https://github.com/lingtalfi/universe-naive-importer)
+```bash
+uni import GuiAdminTable
+```
+
 
 
 This is a follow up of the [AdminTable](https://github.com/lingtalfi/AdminTable) planet.
@@ -30,7 +45,7 @@ In the following examples, I'm using bootstrap 3.3.7, but GuiAdminTable is frame
 Simplest example
 ---------------------
 
-[![guiadmin-demo1.png](https://s19.postimg.org/z62joc98z/guiadmin-demo1.png)](https://postimg.org/image/kzmst3ydr/)
+[![guiadmin-demo1.png](http://lingtalfi.com/img/universe/GuiAdminTable/guiadmin-demo1.png)](http://lingtalfi.com/img/universe/GuiAdminTable/guiadmin-demo1.png)
 
 To start with, we just need to set the rows, and define the headers.
 
@@ -93,7 +108,7 @@ Then, we can play with different options.
 The details are explained in the comments.
 
 
-[![guiadmin-demo2.png](https://s19.postimg.org/itshz5sir/guiadmin-demo2.png)](https://postimg.org/image/csut235wf/)
+[![guiadmin-demo2.png](http://lingtalfi.com/img/universe/GuiAdminTable/guiadmin-demo2.png)](http://lingtalfi.com/img/universe/GuiAdminTable/guiadmin-demo2.png)
 
 
 

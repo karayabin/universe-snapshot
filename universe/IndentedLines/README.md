@@ -8,6 +8,21 @@ Convert lists in indentedLines format to php arrays.
 
 
 
+IndentedLines is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
+
+
+Install
+=============
+
+
+Using the [uni tool](https://github.com/lingtalfi/universe-naive-importer)
+```bash
+uni import IndentedLines
+```
+
+
+
+
 This tool is a php implementation of the [indentedLines notation](https://github.com/lingtalfi/Dreamer/blob/master/IndentedLines/notation.indentedLines.eng.md),
 which aims at creating programming arrays using a simple language independent notation.
 

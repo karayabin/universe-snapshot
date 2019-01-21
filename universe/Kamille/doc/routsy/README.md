@@ -81,7 +81,7 @@ The ConfigGenerator ensures there will be no duplicates.
 
 The following schema recaps what have been just said.
 
-[![routsy.png](https://s19.postimg.org/82qudx90j/routsy.png)](https://postimg.org/image/pssiyymlb/)
+[![routsy.png](http://lingtalfi.com/img/universe/Kamille/routsy.png)](http://lingtalfi.com/img/universe/Kamille/routsy.png)
 
 
 

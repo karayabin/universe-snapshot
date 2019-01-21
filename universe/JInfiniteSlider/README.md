@@ -1,5 +1,5 @@
-jInfiniteSlider
-====================
+JInfiniteSlider
+===============
 2016-02-15
 
 
@@ -7,13 +7,21 @@ jInfiniteSlider
 Simple jquery infinite (circular) slider.
 
 
-jInfiniteSlider can be installed as a [planet](https://github.com/lingtalfi/Observer/blob/master/article/article.planetReference.eng.md).
+
+![jquery infinite slider](http://lingtalfi.com/img/universe/JInfiniteSlider/jinfinitescoller.gif)
 
 
+JInfiniteSlider is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
 
-![jquery infinite slider](http://s19.postimg.org/72050rmjn/jinfinitescoller.gif)
+
+Install
+=============
 
 
+Using the [uni tool](https://github.com/lingtalfi/universe-naive-importer)
+```bash
+uni import JInfiniteSlider
+```
 
 
 Features

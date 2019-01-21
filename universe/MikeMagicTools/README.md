@@ -1,5 +1,5 @@
-Mike Magic Tools
-====================
+MikeMagicTools
+==============
 2016-02-01
 
 
@@ -9,7 +9,17 @@ This is a set of various tools.
 
 
 
-MikeMagicTools can be installed as a [planet](https://github.com/lingtalfi/Observer/blob/master/article/article.planetReference.eng.md).
+MikeMagicTools is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
+
+
+Install
+=============
+
+
+Using the [uni tool](https://github.com/lingtalfi/universe-naive-importer)
+```bash
+uni import MikeMagicTools
+```
 
 
 File section

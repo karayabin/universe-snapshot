@@ -11,6 +11,20 @@ What is it?
 Yet another implementation of php's [SimpleXmlElement](http://php.net/manual/en/class.simplexmlelement.php) class.
 
 
+MySimpleXmlElement is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
+
+
+Install
+=============
+
+
+Using the [uni tool](https://github.com/lingtalfi/universe-naive-importer)
+```bash
+uni import MySimpleXmlElement
+```
+
+
+
 
 Why ?
 ----------

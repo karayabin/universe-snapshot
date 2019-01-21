@@ -7,6 +7,18 @@ UrlFriendlyListHelper
 Utility to handle pagination, sort and search in your html lists.
 
 
+UrlFriendlyListHelper is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
+
+
+Install
+==========
+Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
+```bash
+uni import UrlFriendlyListHelper
+```
+
+
+
  
 Features
 -----------
@@ -21,9 +33,6 @@ Features
 
 How to use?
 -------------
-
-
-UrlFriendlyListHelper can be installed as a [planet](https://github.com/lingtalfi/Observer/blob/master/article/article.planetReference.eng.md).
 
 
 
@@ -732,7 +741,7 @@ echo $pagination2->renderHtml();
 How does it work?
 ---------------------
 
-![url friendly list helper overview](http://s19.postimg.org/wg2kw004j/url_Friendly_List_Helper_overview.jpg)
+![url friendly list helper overview](http://lingtalfi.com/img/universe/UrlFriendlyListHelper/url-Friendly-List-Helper-overview.jpg)
 
 
 There are also my [brainstorm notes](https://github.com/lingtalfi/UrlFriendlyListHelper/blob/master/doc/brainstorm/brainstorm.urlFriendlyListHelper.md) that might help to understand the general guidelines.

@@ -4,13 +4,20 @@ QuickPdo
 
 
 
+Basic utility to interact with a mysql database via the php pdo wrapper.
 
 
-What is it?
--------------------
+
+QuickPdo is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
 
 
-It's a static class that contains basic methods to interact with a mysql database via pdo.
+Install
+==========
+Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
+```bash
+uni import QuickPdo
+```
+
 
 
 

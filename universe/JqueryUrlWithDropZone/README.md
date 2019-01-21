@@ -1,12 +1,27 @@
-jQuery url with drop zone
-=============================
+JqueryUrlWithDropZone
+=====================
 2016-01-06
 
 
 
 A jquery based snippet to create a form control consisting of an input text and a dropzone.
  
- 
+
+
+
+JqueryUrlWithDropZone is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
+
+
+Install
+=============
+
+
+Using the [uni tool](https://github.com/lingtalfi/universe-naive-importer)
+```bash
+uni import JqueryUrlWithDropZone
+```
+
+
 This depends on [jquery](https://jquery.com/) and [dropzone.js](http://dropzonejs.com/). 
  
 Why?

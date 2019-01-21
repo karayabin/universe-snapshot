@@ -8,7 +8,17 @@ Colis is an input form control connected to a library of user items (videos, ima
  
  
  
-Colis can be installed as a [planet](https://github.com/lingtalfi/Observer/blob/master/article/article.planetReference.eng.md).
+Colis is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
+
+
+Install
+=============
+
+
+Using the [uni tool](https://github.com/lingtalfi/universe-naive-importer)
+```bash
+uni import Colis
+```
 
 
  
@@ -54,17 +64,17 @@ Overview in images
 Two instances of colis on the same page.
 By default, the preview zone doesn't show up until a file is uploaded/selected.
 
-![two colis instances on the same page](http://s19.postimg.org/ewjw99k9v/colis_bootstrap_theme_show_on_startup.png)
-![two collapsed colis instances](http://s19.postimg.org/4b00x9dyb/colis_bootstrap_theme.png)
+![two colis instances on the same page](http://lingtalfi.com/img/universe/Colis/colis-bootstrap-theme-show-on-startup.png)
+![two collapsed colis instances](http://lingtalfi.com/img/universe/Colis/colis-bootstrap-theme.png)
 
 
 ### Raw theme 
 
-![support for autocomplete](http://s19.postimg.org/4xyh3etwj/colis_autocomplete.jpg)
-![support for chunking](http://s19.postimg.org/gbplsctsz/colis_chunking.jpg)
-![import youtube url](http://s19.postimg.org/cgm7psan7/colis_import_youtube_url.jpg)
-![upload image](http://s19.postimg.org/ez7wqgwdf/colis_upload_image.jpg)
-![upload video](http://s19.postimg.org/65h09d9er/colis_upload_video.jpg)
+![support for autocomplete](http://lingtalfi.com/img/universe/Colis/colis-autocomplete.jpg)
+![support for chunking](http://lingtalfi.com/img/universe/Colis/colis-chunking.jpg)
+![import youtube url](http://lingtalfi.com/img/universe/Colis/colis-import-youtube-url.jpg)
+![upload image](http://lingtalfi.com/img/universe/Colis/colis-upload-image.jpg)
+![upload video](http://lingtalfi.com/img/universe/Colis/colis-upload-video.jpg)
 
 
 

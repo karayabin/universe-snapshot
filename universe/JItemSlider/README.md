@@ -7,11 +7,22 @@ jItemSlider
 Simple responsive jquery infinite (circular) slider, based on items.
 
 
-jItemSlider can be installed as a [planet](https://github.com/lingtalfi/Observer/blob/master/article/article.planetReference.eng.md).
 
 
+jItemSlider is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
 
-See the animated gif demo here: http://s19.postimg.org/ittzbflcx/jitemslider.gif
+
+Install
+=============
+
+
+Using the [uni tool](https://github.com/lingtalfi/universe-naive-importer)
+```bash
+uni import jItemSlider
+```
+
+
+See the animated gif demo here: http://lingtalfi.com/img/universe/JItemSlider/jitemslider.gif
 
 
 

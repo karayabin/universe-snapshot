@@ -9,6 +9,19 @@ Tim is a simple protocol to help with communication between a client and a serve
 Upon a server's response, the client knows whether or not the server's response was a success or a failure.
 
 
+Tim is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
+
+
+Install
+==========
+Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
+```bash
+uni import Tim
+```
+
+
+
+
 
 Tim protocol
 --------------

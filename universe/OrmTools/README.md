@@ -157,7 +157,7 @@ $builder->newChip('event', ChipDescription::create()
 So, above, I asked the generator to create a Chip using the two tables: ekev_event and ekev_event_lang,
 which are represented in the schema below.
 
-[![chip-event.png](https://s19.postimg.org/40f7lu0df/chip-event.png)](https://postimg.org/image/tj7jyujxb/)
+[![chip-event.png](http://lingtalfi.com/img/universe/OrmTools/chip-event.png)](http://lingtalfi.com/img/universe/OrmTools/chip-event.png)
 
 Then, I asked him to ignore the id and event_id columns, and finally I asked him to create a one-to-one
 relationship with the LocationChip, yet to be created.

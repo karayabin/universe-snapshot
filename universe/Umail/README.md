@@ -7,8 +7,20 @@ Umail
 A helper class to send mails.
 
 
-It's part of the [universe framework](https://github.com/karayabin/universe-snapshot),
-and it uses [SwiftMailer](http://swiftmailer.org/) library.
+Umail is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
+
+
+Install
+==========
+Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
+```bash
+uni import Umail
+```
+
+It also uses [SwiftMailer](http://swiftmailer.org/) library, which you need to install separately.
+
+
+
 
 
 

@@ -151,7 +151,7 @@ This can be better understood graphically (I believe).
 
 
 Let me draw a picture that helped me.
-http://s19.postimg.org/t1j6mpv8j/live_plugin_pause_cumulate.jpg
+![live plugin](http://lingtalfi.com/img/universe/JVideoPlayer/live-plugin-pause-cumulate.jpg)
 
 To implement this, I added an offset property, which is null when there is no specific user time.
 In combination with the pause's lastPauseTime persistent property, we can manage to have a consistent offset.

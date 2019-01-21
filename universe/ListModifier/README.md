@@ -24,7 +24,7 @@ Or just download it and place it where you want otherwise.
 
 
 
-[![list-modifier-circle-system.jpg](https://s19.postimg.org/tg3yoi8df/list-modifier-circle-system.jpg)](https://postimg.org/image/j61jp9ihr/)
+[![list-modifier-circle-system.jpg](http://lingtalfi.com/img/universe/ListModifier/list-modifier-circle-system.jpg)](http://lingtalfi.com/img/universe/ListModifier/list-modifier-circle-system.jpg)
 
 
 

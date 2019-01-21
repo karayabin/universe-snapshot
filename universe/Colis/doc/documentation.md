@@ -21,7 +21,7 @@ Colis global picture
 -----------------
 
 
-![colis global picture](http://s19.postimg.org/keuvg190j/colis_global_picture.jpg)
+![colis global picture](http://lingtalfi.com/img/universe/Colis/colis-global-picture.jpg)
 
 
 Colis options

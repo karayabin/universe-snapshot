@@ -7,7 +7,17 @@ CommandLineManiac
 Tools for command line scripts written in php.
 
 
+CommandLineManiac is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
 
+
+Install
+=============
+
+
+Using the [uni tool](https://github.com/lingtalfi/universe-naive-importer)
+```bash
+uni import CommandLineManiac
+```
 
 
 GetOptTool

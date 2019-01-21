@@ -7,7 +7,17 @@ FileCreator
 Create a file, line by line, or block by block.
 
 
-This is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
+FileCreator is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
+
+
+Install
+=============
+
+
+Using the [uni tool](https://github.com/lingtalfi/universe-naive-importer)
+```bash
+uni import FileCreator
+```
 
 
 

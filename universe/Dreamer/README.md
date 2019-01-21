@@ -4,7 +4,17 @@ Dreamer
 
 
 
+Dreamer is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
 
+
+Install
+=============
+
+
+Using the [uni tool](https://github.com/lingtalfi/universe-naive-importer)
+```bash
+uni import Dreamer
+```
 
 This is a blog about my dreams.
 

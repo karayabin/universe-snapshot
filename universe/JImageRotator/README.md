@@ -1,5 +1,5 @@
-jImageRotator
-=================
+JImageRotator
+=============
 2016-02-18
 
 
@@ -8,10 +8,21 @@ simple image rotator for jquery.
 
 
 
-jImageRotator can be installed as a [planet](https://github.com/lingtalfi/Observer/blob/master/article/article.planetReference.eng.md).
+
+![image rotator](http://lingtalfi.com/img/universe/JImageRotator/imagerotator.gif)
 
 
-![image rotator](http://s19.postimg.org/h4fdmvieb/imagerotator.gif)
+JImageRotator is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
+
+
+Install
+=============
+
+
+Using the [uni tool](https://github.com/lingtalfi/universe-naive-importer)
+```bash
+uni import JImageRotator
+```
 
 
 Features
