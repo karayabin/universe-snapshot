@@ -6,16 +6,15 @@ namespace Jin\Application;
 
 use Bat\DebugTool;
 use Bat\FileSystemTool;
-use Bat\StringTool;
 use Jin\ApplicationEnvironment\ApplicationEnvironment;
+use Jin\Component\Routing\Router\RouterInterface;
+use Jin\Component\Routing\Router\RouterResult;
 use Jin\Exception\BadConfiguration\JinNoRouteMatchesException;
 use Jin\Exception\JinBadConfigurationException;
 use Jin\Http\HttpRequest;
 use Jin\Http\HttpResponse;
 use Jin\Log\Logger;
 use Jin\Registry\Access;
-use Jin\Routing\Router\RouterInterface;
-use Jin\Routing\Router\RouterResult;
 
 /**
  *
@@ -159,6 +158,7 @@ class Application
                             } // page
                             elseif ($routerResult->page) {
                                 $response = $this->handlePage($routerResult, $router);
+                                az("page here");
                                 break;
                             }
                             break;
@@ -167,7 +167,7 @@ class Application
 
                     } else {
                         Access::log()->error(
-                            sprintf("(Jin\Application\Application->handleRequest): invalid router instance: a router instance must be of type Jin\Routing\Router\RouterInterface, %s given",
+                            sprintf("(Jin\Application\Application->handleRequest): invalid router instance: a router instance must be of type Jin\Component\Routing\Router\RouterInterface, %s given",
                                 DebugTool::toString($router)
                             )
                         );
@@ -195,8 +195,9 @@ class Application
              *
              * If no response is set here, this is the WHITE SCREEN....
              */
-            $response = $this->handleException($e);
+            $response = $this->handleException($e, $components);
             if (false === ($response instanceof HttpResponse)) {
+
                 // do some logging before dying...
                 /**
                  * @todo: errorToPage component, which maps an exception to a page to include.
@@ -249,9 +250,20 @@ class Application
         return new HttpResponse();
     }
 
-    private function handleException(\Exception $e)
+
+    private function handleException(\Exception $e, array $components)
     {
-        return new HttpResponse();
+        $response = null;
+        $exceptionComponents = $components['exception'] ?? [];
+        foreach ($exceptionComponents as $comp) {
+            $callable = $comp['instance'];
+            $ret = call_user_func($callable, $e);
+            if ($ret instanceof HttpResponse) {
+                $response = $ret;
+                break;
+            }
+        }
+        return $response;
     }
 
     private function handleController(RouterResult $routerResult, RouterInterface $router)

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Jin\HttpRequestLifecycle\PreRouting;
+namespace Jin\Component\PreRouting;
 
 
 use Jin\Http\HttpRequest;
@@ -21,7 +21,7 @@ use Jin\Registry\Access;
  * ```yml
  * pre_routing:
  *     -
- *         instance: Jin\HttpRequestLifecycle\PreRouting\MaintenanceSwitch
+ *         instance: Jin\Component\PreRouting\MaintenanceSwitch
  *         callable_method: handleRequest
  * ```
  *

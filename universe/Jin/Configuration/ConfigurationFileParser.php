@@ -51,7 +51,7 @@ class ConfigurationFileParser
      * configuration array.
      *
      * This method is designed mainly for components who allow plugins to participate to their configuration.
-     * For instance, the RoutineRouter component (Jin\Routing\Router\RoutineRouter) use the following structure:
+     * For instance, the RoutineRouter component (Jin\Component\Routing\Router\RoutineRouter) use the following structure:
      *
      * - config/
      * ----- routes.yml                 // the base configuration file
@@ -76,10 +76,13 @@ class ConfigurationFileParser
     {
         // first creating a big unresolved array
         $conf = $this->parseFileRaw($filePath);
-        $files = YorgDirScannerTool::getFilesWithExtension($dirPath, "yml", false, true, false);
-        foreach ($files as $file) {
-            $pluginConf = $this->parseFileRaw($file);
-            $conf = ArrayTool::arrayMergeReplaceRecursive([$conf, $pluginConf]);
+
+        if (is_dir($dirPath)) {
+            $files = YorgDirScannerTool::getFilesWithExtension($dirPath, "yml", false, true, false);
+            foreach ($files as $file) {
+                $pluginConf = $this->parseFileRaw($file);
+                $conf = ArrayTool::arrayMergeReplaceRecursive([$conf, $pluginConf]);
+            }
         }
 
         // then resolve all at once

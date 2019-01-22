@@ -13,13 +13,15 @@ use Jin\Log\Logger;
  *
  * It also sets up a register shutdown function to catch fatal errors (at least those that can be catched by the mean of this function).
  * When a fatal error occurs, the error message is sent on the "php_fatal_error" channel.
- * Note: You need to add a listener in the logger.yml conf if you want to actually log those messages.
- * See section below for more details on logger.yml.
+ *
+ * Registration of listeners can be done in one of two places:
+ * - config/logger.yml          # the file is configured by the maintainer of the application
+ * - config/logger              # in this directory, third-party plugins can add their own logger files, which have the same structure
+ *                              # as config/logger.yml (although only the listeners property shall be modified)
  *
  *
  *
- *
- * About logger.yml
+ * logger.yml
  * ===================
  * This file contains the code for initializing the main logger (during the application environment boot phase).
  *
@@ -94,7 +96,9 @@ class LoggerConfigurator
     public static function configure($appDir, ConfigurationFileParser $confParser)
     {
         $loggerConfFile = $appDir . "/config/logger.yml";
-        $loggerConf = $confParser->parseFile($loggerConfFile, true);
+        $loggerDir = $appDir . "/config/logger";
+        $loggerConf = $confParser->parseFileWithDir($loggerConfFile, $loggerDir, true);
+
 
         $logger = new Logger();
 

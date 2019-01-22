@@ -1,6 +1,6 @@
 <?php
 
-namespace Jin\Routing\Router;
+namespace Jin\Component\Routing\Router;
 
 
 use Jin\Http\HttpRequest;

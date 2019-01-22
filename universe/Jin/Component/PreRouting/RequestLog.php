@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Jin\HttpRequestLifecycle\PreRouting;
+namespace Jin\Component\PreRouting;
 
 
 use ArrayToString\ArrayToStringTool;
@@ -24,7 +24,7 @@ use Jin\Registry\Access;
  * ```yml
  * pre_routing:
  *     -
- *         instance: Jin\HttpRequestLifecycle\PreRouting\RequestLog
+ *         instance: Jin\Component\PreRouting\RequestLog
  *         callable_method: handleRequest
  * ```
  *

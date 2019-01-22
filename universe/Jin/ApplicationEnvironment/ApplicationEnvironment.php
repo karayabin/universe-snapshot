@@ -8,6 +8,7 @@ use Jin\Configuration\ConfigurationFileParser;
 use Jin\Configuration\ConfigurationVariableFileParser;
 use Jin\Configuration\LoggerConfigurator;
 use Jin\Configuration\PhpConfigurator;
+use Jin\Configuration\TemplateEngineMasterConfigurator;
 use Jin\Registry\Access;
 use Registry\Registry;
 
@@ -45,6 +46,7 @@ class ApplicationEnvironment
      * - Initialize the php directives (calls to ini_set function...) according to the php.yml configuration file.
      *          Note that since Conf is instantiated at this point, we can use configuration variables in
      *          our php directives.
+     * - Initialize the template engine master instance
      * - Initialize the main {-Logger-} instance which will be used by the Application instance.
      *
      *
@@ -89,6 +91,12 @@ class ApplicationEnvironment
         // configuration variables in our config/php.yml file
         if (true !== ($phpConfErrors = PhpConfigurator::configure($appDir, $confParser))) {
             $errors = array_merge($errors, $phpConfErrors);
+        }
+
+
+        // configure the template engine master
+        if (true !== ($temErrors = TemplateEngineMasterConfigurator::configure($appDir, $confParser))) {
+            $errors = array_merge($errors, $temErrors);
         }
 
 

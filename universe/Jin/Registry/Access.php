@@ -8,6 +8,7 @@ use Jin\Application\Application;
 use Jin\Configuration\Conf;
 use Jin\Configuration\ConfigurationFileParser;
 use Jin\Log\Logger;
+use Jin\TemplateEngine\TemplateEngineMaster;
 use Registry\RegistryInterface;
 
 /**
@@ -56,6 +57,14 @@ class Access
 
 
     /**
+     * @info This property holds the template engine master instance of the application.
+     * This instance should be registered as soon as possible (in the www/index.php), so that
+     * it's available to every component in a jin app session, including the Application itself.
+     */
+    private static $templateEngineMaster;
+
+
+    /**
      * @info Returns the main Application instance.
      * @return Application
      */
@@ -97,6 +106,15 @@ class Access
      * @return RegistryInterface
      */
     public static function registry()
+    {
+        return self::$registry;
+    }
+
+    /**
+     * @info Returns the template engine master instance.
+     * @return TemplateEngineMaster
+     */
+    public static function templateEngine()
     {
         return self::$registry;
     }
@@ -144,5 +162,13 @@ class Access
     public static function setRegistry(RegistryInterface $registry)
     {
         self::$registry = $registry;
+    }
+
+    /**
+     * @info Sets the TemplateEngineMaster instance for the application
+     */
+    public static function setTemplateEngineMaster(TemplateEngineMaster $engine)
+    {
+        self::$templateEngineMaster = $engine;
     }
 }

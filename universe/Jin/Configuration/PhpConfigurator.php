@@ -39,6 +39,8 @@ class PhpConfigurator
      * @return true|array, true is returned if no error has occurred.
      * Otherwise, an array of error messages is returned. Note: those errors are intended for the main logger when the
      * application initializes (see Jin\Application\Application->init method for more details).
+     *
+     * @see \Jin\Application\Application::init
      */
     public static function configure($appDir, ConfigurationFileParser $confParser)
     {

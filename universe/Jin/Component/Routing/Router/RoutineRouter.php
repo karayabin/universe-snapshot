@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Jin\Routing\Router;
+namespace Jin\Component\Routing\Router;
 
 
 use Bat\DebugTool;
@@ -1087,7 +1087,7 @@ class RoutineRouter implements RouterInterface
      */
     private function debug($msg)
     {
-        $this->logger->log('(Jin\Routing\Router\RoutineRouter->match): ' . $msg, "routine_debug");
+        $this->logger->log('(Jin\Component\Routing\Router\RoutineRouter->match): ' . $msg, "routine_debug");
     }
 
     /**

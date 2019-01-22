@@ -1,12 +1,12 @@
 <?php
 
 
-namespace Jin\Routing\Router;
+namespace Jin\Component\Routing\Router;
 
 
 /**
  *
- * @info The RouterResult class represents the result of the match method of a Jin\Routing\Router\RouterInterface instance
+ * @info The RouterResult class represents the result of the match method of a Jin\Component\Routing\Router\RouterInterface instance
  * (when the Application instance searches for the route during the routing phase of the http request lifecycle).
  *
  * A route result is composed of the following properties:
