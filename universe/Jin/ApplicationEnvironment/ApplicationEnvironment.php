@@ -21,16 +21,6 @@ use Registry\Registry;
 class ApplicationEnvironment
 {
 
-    /**
-     * @info This property holds the error messages that occur during the boot phase.
-     * Those messages shall be transmitted to the Logger when it awakes, so that
-     * the maintainer of this application can see them via the logging system.
-     *
-     *
-     * @type array
-     */
-    private static $errors = [];
-
 
     /**
      * @info Initializes the application environment.
@@ -118,20 +108,15 @@ class ApplicationEnvironment
         Access::setLog(LoggerConfigurator::configure($appDir, $confParser)); // share the main app logger instance with all other components
 
 
-        // sharing errors
-        self::$errors = $errors;
+        if ($errors) {
+            $logger = Access::log();
+            foreach ($errors as $msg) {
+                $logger->fatal($msg);
+            }
+        }
 
 
     }
 
-
-    /**
-     * @info Returns the errors collected during the boot phase (boot method).
-     * @return array
-     */
-    public static function getErrors()
-    {
-        return self::$errors;
-    }
 
 }

@@ -130,6 +130,7 @@ class PageExceptionHandler
             });
 
             if (false !== ($html = Access::templateEngine()->render($params[0], $vars))) {
+                Access::log()->log("(Jin\Component\Exception\PageExceptionHandler->handleException): Response created from template \"" . $params[0] . '"', "app_synopsis");
                 $response = new HttpResponse($html, 200);
             }
         }

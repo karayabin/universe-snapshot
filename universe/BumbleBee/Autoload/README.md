@@ -4,56 +4,204 @@ Butineur Autoloader
 
 
 
-This is a simple [BSR-0] (https://github.com/lingtalfi/BumbleBee/blob/master/Autoload/convention.bsr0.eng.md)
-autoloader for any php project.
+This is a simple [BSR-0](https://github.com/lingtalfi/BumbleBee/blob/master/Autoload/convention.bsr0.eng.md) autoloader for any php project.
+
+
+
+Summary
+-----------
+- [What's an autoloader?](#whats-an-autoloader)
+- [How to use?](#how-to-use)
+    - [Basic example](#basic-example)
+    - [Multiple directories](#multiple-directories)
+    - [Prefix](#prefix)
+
+
+
+
+What's an autoloader?
+-------------------
+
+You'll find the definition of an autoloader on the [autoloader page from the php site](http://php.net/manual/en/language.oop5.autoload.php).
+
+
 
 
 How to use?
 ----------------
 
 
-First, assuming that there is yet no autoloader in your application, 
-we have to manually include the classes files for the Butineur autoloader.<br>
-This should be done once at the beginning of your application's life (in a file like init.php for instance)
+
+### Basic example
+
+When you use the Butineur autoloader, each component of the (fully-qualified) class name must represent a directory on the filesystem,
+except for the last component which is the (short) name of the class itself.
 
 
-```php
+What it means is that if your fully-qualified class name is this:
 
-use BumbleBee\Autoload\ButineurAutoloader;
-
-// a good place for those lines would be the init script of your application
-require_once __DIR__ . '/classes/BeeAutoloader.php';
-require_once __DIR__ . '/classes/ButineurAutoloader.php';
+```txt
+MyCompany\Math\ArithmeticUtils
 ```
 
+Then by default the file containing this class must be the following:
 
-Next, we need to tell where our classes will reside
+```txt
+/$root/MyCompany/Math/ArithmeticUtils.php
+```
+
+Note the **$root** directory.
+
+The Butineur autoloader will search only in the **$root** directory(ies) that you have registered with the **addLocation** method.
+
+So for instance if I write this php code:
 
 
 ```php
 ButineurAutoLoader::getInst()
-    ->addLocation(__DIR__ . "/modules")
-    // ->addLocation(__DIR__ . "/myclasses") // we could use multiple directories if needed 
+    ->addLocation("/path/to/class")
+    ->start(); // the start method registers the autoloading function to php
+```
+
+
+Then we've just define the **$root** directory with the value of **/path/to/class**, and so now if we call the class like this:
+
+```php
+use MyCompany\Math\ArithmeticUtils;
+ArithmeticUtils::add( 2, 3); // 5
+```
+
+Then the autoloader will search the ArithmeticUtils class here:
+
+- /path/to/class/MyCompany/Math/ArithmeticUtils.php
+
+
+And by the way, the source code of the ArithmeticUtils class would look like this:
+
+```php
+<?php
+
+namespace MyCompany\Math;
+
+class ArithmeticUtils {
+    public static function add (int $number1, int $number2){
+        return $number1 + $number2;
+    }
+}
+
+
+```
+
+
+
+
+
+Note: don't forget to call the **start** method to initialize the autoloader.
+
+
+
+
+
+
+### Multiple directories
+
+We can also add other **$root** directories if we want, and we can even register them after the call to the **start** method.
+
+So for instance the following php code:
+
+```php
+ButineurAutoLoader::getInst()
+    ->addLocation("/path/to/class")
+    ->addLocation("/path/to/modules")
+    ->start(); // the start method register the autoloading function to php
+
+ButineurAutoLoader::getInst()->addLocation("/path/to/plugins");
+```
+
+
+Will register three root directories, or if you prefer three locations for the Butineur autoloader to search.
+
+
+
+
+
+So now if I call my ArithmeticUtils class from the previous section, like so:
+
+```php
+use MyCompany\Math\ArithmeticUtils;
+ArithmeticUtils::add( 2, 3); // 5
+```
+
+The autoloader will look in all three locations and return the first class that match:
+
+- /path/to/class/MyCompany/Math/ArithmeticUtils.php
+- /path/to/modules/MyCompany/Math/ArithmeticUtils.php
+- /path/to/plugins/MyCompany/Math/ArithmeticUtils.php
+
+
+You get the idea.
+
+
+
+### Prefix
+
+Another cool thing that the Butineur autoloader let us do is change the prefix for a given location (aka **root** directory).
+
+The prefix is basically the first component of the fully-qualified class name, and its particularity is that it doesn't have a filesystem representation: it's just a virtual component.
+
+So for instance if you define a **root** directory with the "Controller" prefix, like this for instance:
+
+```php
+ButineurAutoLoader::getInst()
+    ->addLocation("/path/to/controller", "Controller") // notice the "Controller" prefix (second argument) 
     ->start();
 ```
 
-That's it!
-Now you can use any "BSR-0" classes that you want in your application.
+Then you need to define your class like this (for instance):
 
-For instance, if you want to use a class named Batman/Weapons/Batarang.php,
-just put the file in one of your location (if we take the example above, this would be **\_\_DIR\_\_ . "/modules/Batman/Weapons/Batarang.php"**).<br>
-Then in your code, do this:
+```php
+<?php
+
+namespace Controller\MyCompany\Test;
+
+class DemoController {
+
+    public static function add (int $number1, int $number2){
+        return $number1 + $number2;
+    }
+}
+
+```
+
+Notice that the first component of the namespace is still "Controller".
+
+But then the Butineur autoloader will look in the following directory:
+
+- /path/to/controller/MyCompany/Test/DemoController.php
+
+And not:
+
+- /path/to/controller/Controller/MyCompany/Test/DemoController.php
+
+
+And to use your class:
 
 
 ```php
-use Batman\Weapons\Batarang;
-
-$o = new Batarang(); 
+use Controller\MyCompany\Test\DemoController;
+DemoController::add( 2, 3); // 5
 ```
 
-So that's the power of BSR-0 convention combined with the ButineurAutoloader: any classes that you put in your location directories becomes available to your code
-in a matter of **two lines of code!**.
+
+
+That's it.
+
+Hope this helps.
 
 
 
-For another concrete example, please look in the [BSR-0 convention file] (https://github.com/lingtalfi/BumbleBee/blob/master/Autoload/convention.bsr0.eng.md).
+
+
+
+
+

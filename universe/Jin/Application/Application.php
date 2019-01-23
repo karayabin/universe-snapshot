@@ -7,10 +7,10 @@ namespace Jin\Application;
 use ArrayToString\ArrayToStringTool;
 use Bat\ClassTool;
 use Bat\DebugTool;
-use Bat\FileSystemTool;
-use Jin\ApplicationEnvironment\ApplicationEnvironment;
 use Jin\Component\Routing\Router\RouterInterface;
 use Jin\Component\Routing\Router\RouterResult;
+use Jin\Exception\BadConfiguration\JinBadControllerException;
+use Jin\Exception\BadConfiguration\JinBadPageException;
 use Jin\Exception\BadConfiguration\JinNoRouteMatchesException;
 use Jin\Exception\JinBadConfigurationException;
 use Jin\Http\HttpRequest;
@@ -75,10 +75,20 @@ class Application
     private $logger;
 
 
+    /**
+     * @info Builds the application instance
+     */
     public function __construct()
     {
     }
 
+    /**
+     * @info Initializes the application instance.
+     *
+     *
+     * @param $appDir
+     * @param $profile
+     */
     public function init($appDir, $profile)
     {
 
@@ -89,12 +99,6 @@ class Application
 
 
         $this->logger->log("Initializing application, with profile=$profile", "app_init");
-
-        // logging errors from application environment if any
-        $initErrors = ApplicationEnvironment::getErrors();
-        foreach ($initErrors as $msg) {
-            $this->logger->fatal($msg);
-        }
 
 
         // creating services container
@@ -135,6 +139,8 @@ class Application
                 $callable = $comp['instance'];
                 $ret = call_user_func($callable, $request);
                 if ($ret instanceof HttpResponse) {
+                    $sCallable = DebugTool::toString($callable);
+                    $this->synopsis("An early response was given by $sCallable");
                     $response = $ret;
                     break;
                 }
@@ -153,10 +159,10 @@ class Application
                         if (true === $routerResult->success) {
                             $routeFound = true;
 
-
                             // controller
                             if ($routerResult->controller) {
-
+                                $response = $this->handleController($routerResult, $router);
+                                break;
                             } // page
                             elseif ($routerResult->page) {
                                 $response = $this->handlePage($routerResult, $router);
@@ -187,6 +193,10 @@ class Application
 
 
         } catch (\Exception $e) {
+
+            $exceptionName = ClassTool::getShortName($e);
+            $this->synopsis("Exception caught: $exceptionName. Calling exception handlers...");
+
             /**
              * If an exception reaches this block, it should be displayed as a big error message in the face of the user.
              * That's because it's probably a problem that should have been fixed by the developer.
@@ -196,7 +206,12 @@ class Application
              *
              * If no response is set here, this is the WHITE SCREEN....
              */
+
             $response = $this->handleException($e, $components);
+
+            if (null === $response) {
+                $this->synopsis("None of the exception handlers could handle this exception. This will lead to WHITE SCREEN!");
+            }
 
         }
 
@@ -221,36 +236,86 @@ class Application
     //--------------------------------------------
     //
     //--------------------------------------------
-
-    private function synopsis($msg)
+    /**
+     * @info Sends a log message on the app_synopsis channel.
+     * See more info in this class description (Logging section)
+     *
+     * @param $msg
+     * @param string $method
+     */
+    private function synopsis($msg, $method = "handleRequest")
     {
-        $this->logger->log("(Jin\Application\Application->handleRequest): " . $msg, "app_synopsis");
+        $this->logger->log("(Jin\Application\Application->$method): " . $msg, "app_synopsis");
     }
 
+
+    /**
+     * @info Tries to return an http response using the given $routerResult (which is configured to use the page mechanism).
+     * If it fails, it throws a JinBadPageException error.
+     *
+     * @param RouterResult $routerResult
+     * @param RouterInterface $router
+     * @return HttpResponse
+     * @throws JinBadPageException
+     */
     private function handlePage(RouterResult $routerResult, RouterInterface $router)
     {
         $msg = "Route found: {$routerResult->route}, by router " . get_class($router) . ", ";
-        $page = $routerResult->page;
-        $pagesDir = $this->appDir . "/pages";
-        $pageFile = $pagesDir . "/" . $page;
+        $msg .= "using \"page\" mechanism with page \"" . $routerResult->page . '".';
 
-        if (is_file($pageFile)) {
-            if (FileSystemTool::existsUnder($pageFile, $pagesDir)) {
-
-            }
+        $html = Access::templateEngine()->render($routerResult->page, $routerResult->vars);
+        if (false !== $html) {
+            $msg .= "The http response was created successfully.";
+            $this->synopsis($msg, "handlePage");
+            return new HttpResponse($html);
         }
-        $msg .= "using \"page\" mechanism with page=" . $routerResult->page;
-        $msg .= "using \"page\" mechanism with invalid page: " . $routerResult->page . "(file not found)";
-        $msg .= "using \"page\" mechanism with invalid page: " . $routerResult->page . "(corrupted directory)";
-        $this->synopsis($msg);
-        return new HttpResponse();
+
+        $msg .= "The http response could not be created.";
+        $this->synopsis($msg, "handlePage");
+
+        throw new JinBadPageException("Invalid page parameters, with page: {$routerResult->page}. Check your routes configuration (config/routes.yml)");
     }
 
 
+
+    /**
+     * @info Tries to return an http response using the given $routerResult (which is configured to use the controller mechanism).
+     * If it fails, it throws a JinBadControllerException error.
+     *
+     * @param RouterResult $routerResult
+     * @param RouterInterface $router
+     * @return HttpResponse
+     * @throws JinBadControllerException
+     */
+    private function handleController(RouterResult $routerResult, RouterInterface $router)
+    {
+        $msg = "Route found: {$routerResult->route}, by router " . get_class($router) . ", ";
+        $msg .= "using \"controller\" mechanism with controller \"" . $routerResult->controller . '".';
+
+        $html = Access::templateEngine()->render($routerResult->page, $routerResult->vars);
+        if (false !== $html) {
+            $msg .= "The http response was created successfully.";
+            $this->synopsis($msg, "handlePage");
+            return new HttpResponse($html);
+        }
+
+        $msg .= "The http response could not be created.";
+        $this->synopsis($msg, "handlePage");
+
+        throw new JinBadControllerException("Invalid controller parameters, with page: {$routerResult->page}. Check your routes configuration (config/routes.yml)");
+    }
+
+    /**
+     * @info Tries to return an http response from the given exception (i.e. trying to recover from the exception).
+     * Returns null if it can't.
+     *
+     *
+     * @param \Exception $e
+     * @param array $components
+     * @return HttpResponse|mixed|null
+     */
     private function handleException(\Exception $e, array $components)
     {
-        $shortName = ClassTool::getShortName($e);
-        $msg = "Exception caught ($shortName)! ";
         $response = null;
         $exceptionComponents = $components['exception'] ?? [];
 
@@ -260,25 +325,10 @@ class Application
 
             if ($ret instanceof HttpResponse) {
                 $response = $ret;
-                $callableString = DebugTool::toString($callable);
-                $msg .= "Was handled successfully (a response will be returned) by callable: $callableString";
-                $this->synopsis($msg);
                 break;
             }
         }
 
-        if (null === $response) {
-            $nb = count($exceptionComponents);
-            $msg .= "No exception handler could handle this exception properly by returning an HttpResponse ($nb handler(s) tested), this will lead to white screen...";
-            $this->synopsis($msg);
-        }
-
         return $response;
-    }
-
-    private function handleController(RouterResult $routerResult, RouterInterface $router)
-    {
-        az("controller not implemented");
-        return new HttpResponse();
     }
 }

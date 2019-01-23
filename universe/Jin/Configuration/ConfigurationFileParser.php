@@ -207,8 +207,10 @@ class ConfigurationFileParser
                 $o = new $v();
                 if (array_key_exists("methods", $array)) {
                     $methods = $array['methods'];
-                    foreach ($methods as $methodName => $args) {
-                        call_user_func_array([$o, $methodName], $args);
+                    if (is_array($methods)) {
+                        foreach ($methods as $methodName => $args) {
+                            call_user_func_array([$o, $methodName], $args);
+                        }
                     }
                 }
 

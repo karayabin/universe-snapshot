@@ -5,7 +5,7 @@ namespace Jin\Configuration;
 
 
 use Jin\Log\Logger;
-use PhpErrorMap\PhpErrorMap;
+use PhpErrorName\PhpErrorName;
 
 /**
  * @info The LoggerConfigurator class configures the main logger instance of a jin application.
@@ -87,7 +87,10 @@ use PhpErrorMap\PhpErrorMap;
  *
  * This configurator class catches php fatal errors (using the register shutdown function) and sends them to the "php_fatal_error" channel.
  *
- * Optionally, you can enable logging of regular php errors (E_WARNING, E_NOTICE, ...)
+ * Optionally, you can enable logging of regular php errors (E_WARNING, E_NOTICE, ...), which will then be sent to the
+ * main logger on the "php_error" channel.
+ * Note that this mechanism is independent of the default php error logging system (configured by the ini directives log_errors and error_log),
+ * which means you can potentially have the php errors logged twice (once by the main logger system, and once by the default php error log system).
  *
  *
  *
@@ -110,7 +113,7 @@ class LoggerConfigurator
         $loggerConfFile = $appDir . "/config/logger.yml";
         $loggerDir = $appDir . "/config/logger";
         $loggerConf = $confParser->parseFileWithDir($loggerConfFile, $loggerDir, true);
-
+        $generalConf = $loggerConf['conf'] ?? [];
 
         $logger = new Logger();
 
@@ -146,7 +149,9 @@ class LoggerConfigurator
         }
 
 
-        // set up a php fatal error logging system
+        //--------------------------------------------
+        // LOG PHP FATAL ERROR
+        //--------------------------------------------
         register_shutdown_function(function () use ($logger) {
 
             // http://php.net/manual/en/errorfunc.constants.php
@@ -173,61 +178,19 @@ class LoggerConfigurator
         });
 
 
-        set_error_handler(function ($code, $description, $file = null, $line = null, $context = null) use ($logger) {
-            $errorType = PhpErrorMap::getErrorName($code);
-            $msg = $errorType . ' (' . $code . '): ' . $description . ' in [' . $file . ', line ' . $line . ']';
-            $logger->log($msg, "php_error");
-            return false;
-        });
+        //--------------------------------------------
+        // LOG PHP ERRORS
+        //--------------------------------------------
+        if (array_key_exists('log_php_errors', $generalConf) && true === $generalConf['log_php_errors']) {
+            set_error_handler(function ($code, $description, $file = null, $line = null, $context = null) use ($logger) {
+                $errorType = PhpErrorName::getErrorName($code);
+                $msg = $errorType . ' (' . $code . '): ' . $description . ' in [' . $file . ', line ' . $line . ']';
+                $logger->log($msg, "php_error");
+                return false;
+            });
+        }
 
         return $logger;
-    }
-
-
-    //--------------------------------------------
-    //
-    //--------------------------------------------
-    /**
-     * @param $code
-     * @return array
-     */
-    private function getErrorType($code)
-    {
-        $error = $log = null;
-        switch ($code) {
-            case E_PARSE:
-            case E_ERROR:
-            case E_CORE_ERROR:
-            case E_COMPILE_ERROR:
-            case E_USER_ERROR:
-                $error = 'Fatal Error';
-                $log = LOG_ERR;
-                break;
-            case E_WARNING:
-            case E_USER_WARNING:
-            case E_COMPILE_WARNING:
-            case E_RECOVERABLE_ERROR:
-                $error = 'Warning';
-                $log = LOG_WARNING;
-                break;
-            case E_NOTICE:
-            case E_USER_NOTICE:
-                $error = 'Notice';
-                $log = LOG_NOTICE;
-                break;
-            case E_STRICT:
-                $error = 'Strict';
-                $log = LOG_NOTICE;
-                break;
-            case E_DEPRECATED:
-            case E_USER_DEPRECATED:
-                $error = 'Deprecated';
-                $log = LOG_NOTICE;
-                break;
-            default :
-                break;
-        }
-        return array($error, $log);
     }
 }
 

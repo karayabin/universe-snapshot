@@ -12,8 +12,7 @@ use Jin\Exception\JinBadConfigurationException;
  *
  *
  * This includes the following cases:
- * - the page defined by a route doesn't reference an existing file
- * - the file referenced by the page is not located under the pages directory
+ * - the page parameters defined by the route are incorrect and don't lead to the creation of a valid http response.
  *
  */
 class JinBadPageException extends JinBadConfigurationException
