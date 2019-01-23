@@ -116,7 +116,7 @@ class Access
      */
     public static function templateEngine()
     {
-        return self::$registry;
+        return self::$templateEngineMaster;
     }
 
 

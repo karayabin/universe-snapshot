@@ -4,6 +4,7 @@
 namespace Jin\TemplateEngine;
 
 
+use Jin\Registry\Access;
 use UniversalTemplateEngine\UniversalTemplateEngineInterface;
 
 /**
@@ -34,11 +35,11 @@ use UniversalTemplateEngine\UniversalTemplateEngineInterface;
  *
  * The resourceId string of the template engine master uses the following notation:
  *
- * - resourceId: ```<@> <templateEngineId> <:> <resourceId>```
+ * - resourceId: ```(<@> <templateEngineId> <:>)? <templateEngineResourceId>```
  *
  * With:
  * - templateEngineId being the key by which the template engine is registered.
- * - resourceId being the default resourceId argument passed to template engines
+ * - templateEngineResourceId being the regular resourceId argument passed to template engines
  *
  *
  * The registration of template engines is done via in the Jin\Configuration\TemplateEngineMasterConfigurator object,
@@ -67,6 +68,12 @@ class TemplateEngineMaster
      */
     private $engines;
 
+    /**
+     * @info This property holds the errors of this instance.
+     * @type array
+     */
+    private $errors;
+
 
     /**
      * @info Builds the template engine master instance.
@@ -75,10 +82,30 @@ class TemplateEngineMaster
     {
         $this->defaultEngine = null;
         $this->engines = [];
+        $this->errors = [];
     }
 
 
-    public function render($resourceId, array $variables)
+    /**
+     * Parses the template identified by $resourceId and returns the interpreted template (the template with the variables injected in it).
+     *
+     * Logs the first error that occurs (including the template engine's errors) to the template_engine_master channel.
+     * See Jin\Log\Logger for more details.
+     *
+     * All errors are also available through the getErrors method of this instance.
+     *
+     *
+     * @param $resourceId , see the class description for more. Its notation is the following:
+     *                  - resourceId: ("@" "templateEngineId" ":")? "templateEngineResourceId"
+     *
+     *                      With:
+     *                      - templateEngineId being the key by which the template engine is registered.
+     *                      - templateEngineResourceId being the regular resourceId argument passed to template engines
+     *
+     * @param array $variables
+     * @return false|string. False is returned in case something went wrong, in which case errors are accessible via the getErrors method.
+     */
+    public function render($resourceId, array $variables = [])
     {
 
         if (0 === strpos($resourceId, '@')) {
@@ -87,12 +114,50 @@ class TemplateEngineMaster
         } else {
             $realResourceId = $resourceId;
             $templateEngineId = $this->defaultEngine;
+            if (null === $templateEngineId) {
+                $this->addError("default template engine required by template with resourceId: $resourceId");
+            }
         }
+
+
+        if (0 === count($this->errors)) {
+            if (array_key_exists($templateEngineId, $this->engines)) {
+                $engine = $this->engines[$templateEngineId];
+                /**
+                 * @var UniversalTemplateEngineInterface $engine
+                 */
+                if (false !== ($code = $engine->render($realResourceId, $variables))) {
+                    return $code;
+                } else {
+                    $errors = $engine->getErrors();
+                    foreach ($errors as $error) {
+                        $this->addError($error);
+                    }
+                }
+            } else {
+                $this->addError("template engine $templateEngineId not found (resourceId: $resourceId)");
+            }
+        }
+
+
+        // logging the first error if any
+        if (count($this->errors) > 0) {
+            $errors = $this->errors;
+            $firstError = array_shift($errors);
+            Access::log()->log("(Jin\TemplateEngine\TemplateEngineMaster): $firstError", "template_engine_master");
+        }
+
+        return false;
     }
 
+
+    /**
+     * @info Returns the errors of this instance.
+     * @return array
+     */
     public function getErrors()
     {
-
+        return $this->errors;
     }
 
     /**
@@ -104,8 +169,25 @@ class TemplateEngineMaster
         $this->defaultEngine = $engine;
     }
 
+    /**
+     * @info Adds an engine to this instance.
+     * @param $name
+     * @param UniversalTemplateEngineInterface $engine
+     */
     public function addEngine($name, UniversalTemplateEngineInterface $engine)
     {
         $this->engines[$name] = $engine;
+    }
+
+
+    //--------------------------------------------
+    //
+    //--------------------------------------------
+    /**
+     * @info Adds an error message to this instance.
+     */
+    private function addError($msg)
+    {
+        $this->errors[] = "(Jin\TemplateEngine\TemplateEngineMaster): " . $msg;
     }
 }

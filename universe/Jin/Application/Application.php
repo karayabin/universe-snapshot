@@ -4,6 +4,8 @@
 namespace Jin\Application;
 
 
+use ArrayToString\ArrayToStringTool;
+use Bat\ClassTool;
 use Bat\DebugTool;
 use Bat\FileSystemTool;
 use Jin\ApplicationEnvironment\ApplicationEnvironment;
@@ -139,7 +141,6 @@ class Application
             }
             if (null === $response) {
 
-
                 //--------------------------------------------
                 // ROUTING
                 //--------------------------------------------
@@ -152,13 +153,13 @@ class Application
                         if (true === $routerResult->success) {
                             $routeFound = true;
 
+
                             // controller
                             if ($routerResult->controller) {
 
                             } // page
                             elseif ($routerResult->page) {
                                 $response = $this->handlePage($routerResult, $router);
-                                az("page here");
                                 break;
                             }
                             break;
@@ -175,7 +176,7 @@ class Application
                 }
 
                 if (false === $routeFound) {
-                    $ex = new JinNoRouteMatchesException();
+                    $ex = new JinNoRouteMatchesException("No route found for request with uri " . $request->uri);
                     $ex->setRequest($request);
                     throw $ex;
                 }
@@ -196,16 +197,6 @@ class Application
              * If no response is set here, this is the WHITE SCREEN....
              */
             $response = $this->handleException($e, $components);
-            if (false === ($response instanceof HttpResponse)) {
-
-                // do some logging before dying...
-                /**
-                 * @todo: errorToPage component, which maps an exception to a page to include.
-                 * Configuration can be set on a per exception name/basis.
-                 * Variables can be added to the template (from the configuration, like for instance the time for
-                 * a maintenance page: we will be in $time).
-                 */
-            }
 
         }
 
@@ -213,10 +204,15 @@ class Application
         // RESPONSE HANDLING
         //--------------------------------------------
         if (false === ($response instanceof HttpResponse)) {
+            $msg = "(Jin\Application\Application->handleRequest): WhITE SCREEN! With request: " . $request->uri;
+            $msg .= " -- ip=" . $request->ip;
+            $msg .= " -- get=" . ArrayToStringTool::toInlinePhpArray($request->get) . ";";
+            $msg .= " post=" . ArrayToStringTool::toInlinePhpArray($request->post) . ";";
+            $msg .= " files=" . ArrayToStringTool::toInlinePhpArray($request->files) . ";";
+            $msg .= " cookie=" . ArrayToStringTool::toInlinePhpArray($request->cookie);
+            Access::log()->fatal($msg);
             $response = new HttpResponse(); // WHITE SCREEN!!!
         }
-
-
         return $response;
     }
 
@@ -253,16 +249,30 @@ class Application
 
     private function handleException(\Exception $e, array $components)
     {
+        $shortName = ClassTool::getShortName($e);
+        $msg = "Exception caught ($shortName)! ";
         $response = null;
         $exceptionComponents = $components['exception'] ?? [];
+
         foreach ($exceptionComponents as $comp) {
             $callable = $comp['instance'];
             $ret = call_user_func($callable, $e);
+
             if ($ret instanceof HttpResponse) {
                 $response = $ret;
+                $callableString = DebugTool::toString($callable);
+                $msg .= "Was handled successfully (a response will be returned) by callable: $callableString";
+                $this->synopsis($msg);
                 break;
             }
         }
+
+        if (null === $response) {
+            $nb = count($exceptionComponents);
+            $msg .= "No exception handler could handle this exception properly by returning an HttpResponse ($nb handler(s) tested), this will lead to white screen...";
+            $this->synopsis($msg);
+        }
+
         return $response;
     }
 

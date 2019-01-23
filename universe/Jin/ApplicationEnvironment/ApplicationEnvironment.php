@@ -62,16 +62,23 @@ class ApplicationEnvironment
     public static function boot($appDir, $appProfile)
     {
 
-        // preparing the Registry for this application
+        //--------------------------------------------
+        // REGISTRY
+        //--------------------------------------------
         Access::setRegistry(new Registry());
 
-        // preparing the configurationFileParser instance
+
+        //--------------------------------------------
+        // CONFIGURATION FILE PARSER
+        //--------------------------------------------
         $confParser = new ConfigurationFileParser();
         $confParser->setProfile($appProfile);
         Access::setConfigurationFileParser($confParser);
 
 
-        // preparing the Conf instance
+        //--------------------------------------------
+        // CONF
+        //--------------------------------------------
         $parser = new ConfigurationVariableFileParser();
         $parser->setProfile("dev");
         $parser->setConfigurationFileParser($confParser);
@@ -86,6 +93,9 @@ class ApplicationEnvironment
         Access::setConf($conf);
 
 
+        //--------------------------------------------
+        // PHP DIRECTIVES
+        //--------------------------------------------
         // configure php directives.
         // Note that we do this AFTER Conf is instantiated, so that we can use
         // configuration variables in our config/php.yml file
@@ -94,13 +104,17 @@ class ApplicationEnvironment
         }
 
 
-        // configure the template engine master
+        //--------------------------------------------
+        // TEMPLATE ENGINE MASTER
+        //--------------------------------------------
         if (true !== ($temErrors = TemplateEngineMasterConfigurator::configure($appDir, $confParser))) {
             $errors = array_merge($errors, $temErrors);
         }
 
 
-        // setup the logger
+        //--------------------------------------------
+        // MAIN LOGGER
+        //--------------------------------------------
         Access::setLog(LoggerConfigurator::configure($appDir, $confParser)); // share the main app logger instance with all other components
 
 

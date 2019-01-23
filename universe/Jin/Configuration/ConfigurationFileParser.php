@@ -85,8 +85,10 @@ class ConfigurationFileParser
             }
         }
 
+
         // then resolve all at once
         $this->resolve($conf); // resolving calls to configuration variables
+
         // resolving sic? (service instantiation code)
         if (true === $interpretServiceInstantiationCode) {
             $this->resolveServiceInstantiationCode($conf);
@@ -171,14 +173,23 @@ class ConfigurationFileParser
     private function resolve(array & $array)
     {
         array_walk_recursive($array, function (&$v) {
-            $match = false;
-            $ret = preg_replace_callback('!\$\{([^}]*)\}!', function ($val) use (&$v, &$match) {
-                $match = true;
+            $replaceStringInline = false;
+            $ret = preg_replace_callback('!\$\{([^}]*)\}!', function ($val) use (&$v, &$replaceStringInline) {
                 $key = $val[1];
-                return Access::conf()->get($key, $key);
+
+                // if the tag spans the whole value, replacing and converting to the right type
+                // so that we pass booleans, objects, ...
+                if ('${' . $key . '}' === $v) {
+                    $v = Access::conf()->get($key, $key);
+                } else {
+                    // using the preg_replace function to replace the tag inline
+                    $replaceStringInline = true;
+                    return Access::conf()->get($key, $key);
+                }
+
             }, $v);
 
-            if ($match) {
+            if ($replaceStringInline) {
                 $v = $ret;
             }
         });

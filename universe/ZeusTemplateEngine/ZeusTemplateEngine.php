@@ -43,6 +43,15 @@ class ZeusTemplateEngine implements UniversalTemplateEngineInterface
     }
 
 
+    /**
+     * Returns the interpreted code corresponding to the given $resourceId and $variables,
+     * or false if a problem occurred.
+     *
+     *
+     * @param $resourceId
+     * @param array $variables
+     * @return false|string
+     */
     public function render($resourceId, array $variables = [])
     {
         $p = explode(":", $resourceId, 2);

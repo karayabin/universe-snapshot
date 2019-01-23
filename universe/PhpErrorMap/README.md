@@ -1,0 +1,42 @@
+PhpErrorName
+===========
+2019-01-23
+
+
+
+A simple planet to convert a php error code to a human name.
+
+
+
+This is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
+
+
+
+Install
+==========
+Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
+```bash
+uni import PhpErrorName
+```
+
+Or just download it and place it where you want otherwise.
+
+
+
+Usage
+=====
+
+```php
+az(PhpErrorName::getErrorName(\E_NOTICE)); // string(8) "E_NOTICE"
+```
+
+
+
+
+
+History Log
+------------------
+
+- 1.0.0 -- 2019-01-23
+
+    - initial commit

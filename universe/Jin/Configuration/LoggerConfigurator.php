@@ -5,14 +5,18 @@ namespace Jin\Configuration;
 
 
 use Jin\Log\Logger;
+use PhpErrorMap\PhpErrorMap;
 
 /**
- * @info The LoggerConfigurator class configures the main Logger instance before the application is started.
+ * @info The LoggerConfigurator class configures the main logger instance of a jin application.
+ * This usually happens BEFORE the application instance's init method is called.
  *
+ * CONFIGURATION
+ * ----------------
  *
+ * The configuration of the main logger is done via babyYaml files, in which we define the listeners instances (@class(Jin\Log\Listener\LoggerListenerInterface))
+ * which will listen to the main logger messages.
  *
- * It also sets up a register shutdown function to catch fatal errors (at least those that can be catched by the mean of this function).
- * When a fatal error occurs, the error message is sent on the "php_fatal_error" channel.
  *
  * Registration of listeners can be done in one of two places:
  * - config/logger.yml          # the file is configured by the maintainer of the application
@@ -33,8 +37,8 @@ use Jin\Log\Logger;
  * logger:
  *     format: {channel}: {dateTime} -- {message}
  *     mutedChannels:
- *         - app_init                   // log covering debug errors of the Jin\Application\Application.init method
- *         - php_fatal_error            // log covering php fatal errors (using register_shutdown_function under the hood)
+ *         - app_init                   # log covering debug errors of the Jin\Application\Application.init method
+ *         - php_fatal_error            # log covering php fatal errors (using register_shutdown_function under the hood)
  *         - stat
  *         - browser
  * listeners:
@@ -70,12 +74,20 @@ use Jin\Log\Logger;
  *          Note: use comment/uncomment to quickly discard any channel
  *
  * - listeners: this array defines the listeners to add to the logger instance.
- *      Each entry represents a listener instance (sic code should be used).
+ *      Each entry represents a listener instance (@keyword(sic) code should be used).
  *      - channels: this extra property indicates the channels this particular listener should be listening
  *      to. The wildcard * means "listen to all channels".
  *      Otherwise, an array of channels should be passed
  *
  *
+ *
+ *
+ * PHP ERRORS
+ * --------------
+ *
+ * This configurator class catches php fatal errors (using the register shutdown function) and sends them to the "php_fatal_error" channel.
+ *
+ * Optionally, you can enable logging of regular php errors (E_WARNING, E_NOTICE, ...)
  *
  *
  *
@@ -160,7 +172,62 @@ class LoggerConfigurator
             }
         });
 
+
+        set_error_handler(function ($code, $description, $file = null, $line = null, $context = null) use ($logger) {
+            $errorType = PhpErrorMap::getErrorName($code);
+            $msg = $errorType . ' (' . $code . '): ' . $description . ' in [' . $file . ', line ' . $line . ']';
+            $logger->log($msg, "php_error");
+            return false;
+        });
+
         return $logger;
+    }
+
+
+    //--------------------------------------------
+    //
+    //--------------------------------------------
+    /**
+     * @param $code
+     * @return array
+     */
+    private function getErrorType($code)
+    {
+        $error = $log = null;
+        switch ($code) {
+            case E_PARSE:
+            case E_ERROR:
+            case E_CORE_ERROR:
+            case E_COMPILE_ERROR:
+            case E_USER_ERROR:
+                $error = 'Fatal Error';
+                $log = LOG_ERR;
+                break;
+            case E_WARNING:
+            case E_USER_WARNING:
+            case E_COMPILE_WARNING:
+            case E_RECOVERABLE_ERROR:
+                $error = 'Warning';
+                $log = LOG_WARNING;
+                break;
+            case E_NOTICE:
+            case E_USER_NOTICE:
+                $error = 'Notice';
+                $log = LOG_NOTICE;
+                break;
+            case E_STRICT:
+                $error = 'Strict';
+                $log = LOG_NOTICE;
+                break;
+            case E_DEPRECATED:
+            case E_USER_DEPRECATED:
+                $error = 'Deprecated';
+                $log = LOG_NOTICE;
+                break;
+            default :
+                break;
+        }
+        return array($error, $log);
     }
 }
 

@@ -8,6 +8,7 @@ use Bat\ConvertTool;
 use Bat\FileSystemTool;
 use Bat\FileTool;
 use Bat\ZipTool;
+use Jin\Exception\BadConfiguration\JinBadLoggerException;
 
 /**
  * @info The FileLoggerListener is a simple logger listener which writes the log messages to a specified file.
@@ -154,9 +155,15 @@ class FileLoggerListener implements LoggerListenerInterface
      * See more in the class description.
      *
      * @implementation
+     * @throws JinBadLoggerException
      */
     public function listen($msg, $channel)
     {
+
+        if (is_dir($this->file)) {
+            throw new JinBadLoggerException("Logger cannot log a message into the directory \"{$this->file}\". Check your logger config (config/logger.yml and config/logger/).");
+        }
+
         // first log
         FileTool::append($msg . PHP_EOL, $this->file);
 
