@@ -3,6 +3,7 @@ dependencies:
     - git::/lingtalfi/BabyYaml:1.0.0
     - git::/lingtalfi/Bat:1.142
     - git::/lingtalfi/DirScanner:1.7.0
+    - git::/lingtalfi/PhpErrorName:1.0.0
     - git::/lingtalfi/PhpUploadFileFix:1.0.0
     - git::/lingtalfi/Registry:1.0.0
     - git::/lingtalfi/UniversalTemplateEngineInterface:1.0.0

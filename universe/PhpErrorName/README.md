@@ -4,7 +4,7 @@ PhpErrorName
 
 
 
-A simple planet to convert a php error code to a human name.
+Converts a php error code to a human name.
 
 
 
