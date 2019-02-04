@@ -12,8 +12,9 @@ use Jin\Exception\JinBadConfigurationException;
  *
  *
  * This includes the following cases:
- * - the controller could not be instantiated
- * - the controller did not return a Jin\Http\HttpResponse instance
+ * - an argument declared in the controller was not found in the route variables
+ * - the controller given by the route is invalid (not a valid callable or not a Jin\Controller\Controller instance)
+ * - the controller didn't return an http response
  *
  */
 class JinBadControllerException extends JinBadConfigurationException

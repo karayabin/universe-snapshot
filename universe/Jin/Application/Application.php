@@ -11,6 +11,7 @@ use Jin\Component\Routing\Router\RouterInterface;
 use Jin\Component\Routing\Router\RouterResult;
 use Jin\Exception\BadConfiguration\JinBadControllerException;
 use Jin\Exception\BadConfiguration\JinBadPageException;
+use Jin\Exception\BadConfiguration\JinBadRouteException;
 use Jin\Exception\BadConfiguration\JinNoRouteMatchesException;
 use Jin\Exception\JinBadConfigurationException;
 use Jin\Http\HttpRequest;
@@ -159,14 +160,25 @@ class Application
                         if (true === $routerResult->success) {
                             $routeFound = true;
 
+
+                            $msg = "Route found: {$routerResult->route}, ";
+
+
                             // controller
                             if ($routerResult->controller) {
-                                $response = $this->handleController($routerResult, $router);
+                                $msg .= "with controller mechanism. Controller=" . DebugTool::toString($routerResult->controller);
+                                $this->synopsis($msg);
+                                $response = $this->handleController($routerResult, $router, $request);
                                 break;
                             } // page
                             elseif ($routerResult->page) {
+                                $msg .= "with page mechanism. Page=" . $routerResult->page;
+                                $this->synopsis($msg);
                                 $response = $this->handlePage($routerResult, $router);
                                 break;
+                            } else {
+                                $this->synopsis("but no mechanism defined");
+                                throw new JinBadRouteException("Neither the controller nor the page mechanism has been defined by the given route ({$routerResult->route})");
                             }
                             break;
                         }
@@ -182,6 +194,7 @@ class Application
                 }
 
                 if (false === $routeFound) {
+                    $this->synopsis("Route not found");
                     $ex = new JinNoRouteMatchesException("No route found for request with uri " . $request->uri);
                     $ex->setRequest($request);
                     throw $ex;
@@ -208,17 +221,15 @@ class Application
              */
 
             $response = $this->handleException($e, $components);
-
-            if (null === $response) {
-                $this->synopsis("None of the exception handlers could handle this exception. This will lead to WHITE SCREEN!");
-            }
-
         }
 
         //--------------------------------------------
         // RESPONSE HANDLING
         //--------------------------------------------
-        if (false === ($response instanceof HttpResponse)) {
+        if ($response instanceof HttpResponse) {
+            $this->synopsis("An http response was created and will be returned.");
+        } else {
+            $this->synopsis("No http response was created. This will lead to WHITE SCREEN!");
             $msg = "(Jin\Application\Application->handleRequest): WhITE SCREEN! With request: " . $request->uri;
             $msg .= " -- ip=" . $request->ip;
             $msg .= " -- get=" . ArrayToStringTool::toInlinePhpArray($request->get) . ";";
@@ -260,49 +271,104 @@ class Application
      */
     private function handlePage(RouterResult $routerResult, RouterInterface $router)
     {
-        $msg = "Route found: {$routerResult->route}, by router " . get_class($router) . ", ";
-        $msg .= "using \"page\" mechanism with page \"" . $routerResult->page . '".';
-
         $html = Access::templateEngine()->render($routerResult->page, $routerResult->vars);
         if (false !== $html) {
-            $msg .= "The http response was created successfully.";
-            $this->synopsis($msg, "handlePage");
             return new HttpResponse($html);
         }
-
-        $msg .= "The http response could not be created.";
-        $this->synopsis($msg, "handlePage");
-
         throw new JinBadPageException("Invalid page parameters, with page: {$routerResult->page}. Check your routes configuration (config/routes.yml)");
     }
 
 
-
     /**
      * @info Tries to return an http response using the given $routerResult (which is configured to use the controller mechanism).
-     * If it fails, it throws a JinBadControllerException error.
+     * If it fails, it throws an exception (JinBadControllerException or \ReflectionException).
      *
      * @param RouterResult $routerResult
      * @param RouterInterface $router
      * @return HttpResponse
      * @throws JinBadControllerException
+     * @throws \ReflectionException
      */
-    private function handleController(RouterResult $routerResult, RouterInterface $router)
+    private function handleController(RouterResult $routerResult, RouterInterface $router, HttpRequest $request)
     {
-        $msg = "Route found: {$routerResult->route}, by router " . get_class($router) . ", ";
-        $msg .= "using \"controller\" mechanism with controller \"" . $routerResult->controller . '".';
+        $controller = $routerResult->controller;
 
-        $html = Access::templateEngine()->render($routerResult->page, $routerResult->vars);
-        if (false !== $html) {
-            $msg .= "The http response was created successfully.";
-            $this->synopsis($msg, "handlePage");
-            return new HttpResponse($html);
+        $invalidController = false;
+        if (is_string($controller)) {
+            $p = explode('->', $controller);
+            if (2 === count($p)) {
+                $p[0] = new $p[0];
+                $callable = $p;
+
+            } else {
+                $invalidController = true;
+            }
+        } elseif (is_array($controller) && array_key_exists("instance", $controller)) {
+            $callable = $controller['instance'];
+        } else {
+            $invalidController = true;
         }
 
-        $msg .= "The http response could not be created.";
-        $this->synopsis($msg, "handlePage");
 
-        throw new JinBadControllerException("Invalid controller parameters, with page: {$routerResult->page}. Check your routes configuration (config/routes.yml)");
+        if (false === $invalidController && is_callable($callable)) {
+
+            //--------------------------------------------
+            // INJECTING ROUTE VARS INTO THE CHOSEN CONTROLLER
+            //--------------------------------------------
+            $routeVars = $routerResult->vars;
+            try {
+                $method = new \ReflectionMethod($callable[0], $callable[1]);
+            } catch (\ReflectionException $e) {
+                $invalidController = true;
+                goto invalid;
+            }
+            $parameters = $method->getParameters();
+
+            $args = [];
+            foreach ($parameters as $parameter) {
+                $name = $parameter->name;
+                $type = $parameter->getType();
+                if (null !== $type) {
+                    $typeName = $type->getName();
+                    if ('Jin\Http\HttpRequest' === $typeName) {
+                        $args[] = $request;
+                        continue;
+                    } elseif ('Jin\Component\Routing\Router\RouterResult' === $typeName) {
+                        $args[] = $routerResult;
+                        continue;
+                    }
+                }
+                if (array_key_exists($name, $routeVars)) {
+                    $args[] = $routeVars[$name];
+                } else {
+                    if ($parameter->isOptional() || $parameter->isDefaultValueAvailable()) {
+                        $args[] = $parameter->getDefaultValue();
+                    } else {
+                        $sCallable = DebugTool::toString($callable);
+                        throw new JinBadControllerException("Argument \"$name\" of controller $sCallable is required but was not found in the route variables.");
+                    }
+                }
+            }
+
+            $response = call_user_func_array($callable, $args);
+            if ($response instanceof HttpResponse) {
+                return $response;
+            } else {
+                $sCallable = DebugTool::toString($controller);
+                throw new JinBadControllerException("Controller did not return a Jin\Http\HttpResponse. Controller: $sCallable, Route: {$routerResult->route}");
+            }
+
+
+        } else {
+            $invalidController = true;
+        }
+
+
+        invalid:
+        if (true === $invalidController) {
+            $sCallable = DebugTool::toString($controller);
+            throw new JinBadControllerException("Invalid controller, a callable was expected, you gave: $sCallable. Check your routes configuration (config/routes.yml) for route {$routerResult->route}");
+        }
     }
 
     /**

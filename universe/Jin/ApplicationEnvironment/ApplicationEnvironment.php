@@ -3,6 +3,7 @@
 namespace Jin\ApplicationEnvironment;
 
 
+use BumbleBee\Autoload\ButineurAutoloader;
 use Jin\Configuration\Conf;
 use Jin\Configuration\ConfigurationFileParser;
 use Jin\Configuration\ConfigurationVariableFileParser;
@@ -38,6 +39,8 @@ class ApplicationEnvironment
      *          our php directives.
      * - Initialize the template engine master instance
      * - Initialize the main {-Logger-} instance which will be used by the Application instance.
+     * - Add the following directories to the autoloader search paths:
+     *      - controller
      *
      *
      *
@@ -100,6 +103,12 @@ class ApplicationEnvironment
         if (true !== ($temErrors = TemplateEngineMasterConfigurator::configure($appDir, $confParser))) {
             $errors = array_merge($errors, $temErrors);
         }
+
+
+        //--------------------------------------------
+        // AUTOLOADER
+        //--------------------------------------------
+        ButineurAutoloader::getInst()->addLocation($appDir . "/controller", "Controller");
 
 
         //--------------------------------------------

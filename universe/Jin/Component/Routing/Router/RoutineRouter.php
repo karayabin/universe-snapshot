@@ -49,24 +49,30 @@ use Jin\Registry\Access;
  *
  * ```yml
  * $route_collection_id:
+ *     ?controller: string|array, the controller to call by default if the route matches. Note: if defined, all routes will use
+ *                  this controller unless the route further defines a page or a controller.
  *     vars: array, variables shared by all routes.
  *     routes:
- *         $route_id:
+ *         $route_name:
  *             pattern: string, the route pattern. The route pattern is tested against the http request uri path to see if the route matches or not.
  *                       See more details in the "Pattern matching" section.
- *             ?page: string, the page to include if the route matches.
- *                      This property is ignored if the controller property is used (see controller property below).
- *                      A page is simply a file that displays html code. It can be an html file, or a php file.
- *                      The page property is a path relative to the application's "pages" directory.
- *
- *             ?controller: string, the controller to call if the route matches.
- *                      A controller in general is a callable.
- *                      This controller property defines which controller to call using the following notation:
- *                          BLABLA
+ *             ?page: string, the page to include if the route matches (see Jin\Component\Routing\Router\RouterResult for more details).
+ *             ?controller: string||array, the controller to call if the route matches (see Jin\Component\Routing\Router\RouterResult for more details).
  *             ?requirements: array, additional requirements of this route. See the "Requirements" section for more details.
  *             ?constraints: array, additional tag constraints for this route. See the "Constraints" section for more details.
  *             ?vars: array, additional variables to attach to the route. Those variables will be passed to the
  *                          target (the page or controller) if the route matches.
+ *
+ *                          It's possible to use values from the http request's get array ($_GET) as the variable values.
+ *                          We do so by using the following notation:
+ *
+ *                          - articleId: $get.article_id
+ *
+ *                          The property above will create a route variable named articleId, which value will
+ *                          be $_GET[article_id] (if it exists) or null (if it doesn't exist).
+ *
+ *
+ *
  * ```
  *
  *
@@ -528,7 +534,7 @@ class RoutineRouter implements RouterInterface
         $appDir = Access::conf()->get('appDir');
         $routesFile = $appDir . "/config/routes.yml";
         $routesDir = $appDir . "/config/routes";
-        $routeCollections = Access::configurationFileParser()->parseFileWithDir($routesFile, $routesDir, false);
+        $routeCollections = Access::configurationFileParser()->parseFileWithDir($routesFile, $routesDir, true);
 
 
         $routerResult = new RouterResult();
@@ -536,6 +542,7 @@ class RoutineRouter implements RouterInterface
 
 
         foreach ($routeCollections as $collectionName => $collectionConfig) {
+            $collectionController = $collectionConfig['controller'] ?? null;
             $routes = $collectionConfig['routes'];
 
 
@@ -574,7 +581,20 @@ class RoutineRouter implements RouterInterface
                 // route match?
                 if (null === $failureType) {
                     $routeVars = (array_key_exists("vars", $route)) ? $route['vars'] : [];
+                    if (!is_array($routeVars)) {
+                        $routeVars = [];
+                    }
                     $vars = array_merge($routeVars, $tagVars);
+
+                    // injecting get vars
+                    array_walk_recursive($vars, function (&$v) use ($request) {
+                        if (0 === strpos($v, '$get.')) {
+                            $key = explode('.', $v, 2)[1];
+                            $v = $request->get[$key] ?? null;
+                        }
+                    });
+
+
                     $routerResult->success = true;
                     $routerResult->vars = $vars;
 
@@ -582,6 +602,8 @@ class RoutineRouter implements RouterInterface
                         $routerResult->controller = $route['controller'];
                     } elseif (array_key_exists("page", $route)) {
                         $routerResult->page = $route['page'];
+                    } elseif (null !== $collectionController) {
+                        $routerResult->controller = $collectionController;
                     }
                     $routerResult->route = $routeFullName;
 
