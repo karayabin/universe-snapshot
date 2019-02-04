@@ -156,7 +156,6 @@ class SimplePdoWrapper implements SimplePdoWrapperInterface
         $markers = [];
         self::addAssignmentListSubStmt($query, $markers, $fields, true);
 
-
         // setup
         $this->query = $query;
         $pdo = $this->boot();
@@ -444,6 +443,7 @@ class SimplePdoWrapper implements SimplePdoWrapperInterface
                 }
 
                 // I don't remember why this (backtick escaping) was needed, but I probably had the use case
+                // Maybe with reserved keywords?
                 $stmt .= '`' . $k . '`' . '=:' . $k;
                 $markers[':' . $k] = $v;
             }

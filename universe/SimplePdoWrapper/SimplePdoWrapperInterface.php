@@ -47,6 +47,7 @@ use SimplePdoWrapper\Exception\NoPdoConnectionException;
  *          - `my_table`
  *          - my_db.my_table
  *          - `my_db`.`my_table`
+ *          - my_db.`my.table`
  *          - ...
  *
  *
