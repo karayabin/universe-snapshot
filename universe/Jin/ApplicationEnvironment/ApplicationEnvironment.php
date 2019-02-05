@@ -286,10 +286,10 @@ class ApplicationEnvironment
             $services = $sicServices['services'] ?? [];
 
 
-            $oService = OctopusServiceContainer::buildFromSic($services);
+//            $oService = OctopusServiceContainer::buildFromSic($services);
 
 
-            az($oService->get("mail")->sayHello());
+//            az($oService->get("mail")->sayHello());
         }
 
 

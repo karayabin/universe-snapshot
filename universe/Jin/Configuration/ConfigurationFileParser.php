@@ -173,7 +173,7 @@ class ConfigurationFileParser
             $sic = $options['sic'] ?? true;
             // resolving sic? (service instantiation code)
             if (true === $sic) {
-                $this->resolveServiceInstantiationCode($conf);
+//                $this->resolveServiceInstantiationCode($conf);
             }
         }
 
