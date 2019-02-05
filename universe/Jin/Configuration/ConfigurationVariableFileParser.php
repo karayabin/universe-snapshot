@@ -85,7 +85,6 @@ class ConfigurationVariableFileParser
     {
         $conf = [];
         $this->collectConfigurationVariablesByDir($dirPath, $conf);
-
         $this->resolveConf($conf);
         return $conf;
     }
