@@ -35,17 +35,19 @@ Notation (abstract)
 -------------------
 
 
+To define a sic element (service or a callable), we use a sic block: an array
+which notation is represented below:
 
 
 ```yml
-$serviceName:           # the name of the service
-    instance: string, the class name
-    ?callable_method: string, the callable method name. This will return a callable (otherwise, the instance will be returned).
-    ?methods:
-        $method_name:
-            - $arg1
-            - $arg2
-            - ...
+
+instance: string, the class name
+?callable_method: string, the callable method name. This will return a callable (otherwise, the instance will be returned).
+?methods:
+    $method_name:
+        - $arg1
+        - $arg2
+        - ...
 
 ```
 
