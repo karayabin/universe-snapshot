@@ -1,4 +1,5 @@
 dependencies:
+    - git::/lingtalfi/ArrayRefResolver:1.0.0
     - git::/lingtalfi/ArrayToString:1.4.0
     - git::/lingtalfi/BabyYaml:1.0.0
     - git::/lingtalfi/Bat:1.142

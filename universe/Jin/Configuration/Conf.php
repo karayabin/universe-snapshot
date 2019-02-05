@@ -5,17 +5,14 @@ namespace Jin\Configuration;
 
 
 use Bat\BDotTool;
+use Jin\Container\VariableContainer\VariableContainerInterface;
 
 /**
- * @info The Conf class is the main variable container in a jin app.
- * It contains all static variables:
+ * The Conf class is the dynamic variation of the VariableContainerInterface interface.
  *
- * - appDir: the JIN_APP_DIR constant
- * - appProfile: the JIN_APP_PROFILE constant
- * - all the variables located inside the config/variables/ directory
- *
+ * It's used for development as it is recreated every time (i.e. no cache).
  */
-class Conf
+class Conf implements VariableContainerInterface
 {
     /**
      * @info This property holds all the variables of this class.
@@ -25,7 +22,7 @@ class Conf
 
 
     /**
-     * @info Constructs the class and initialze the empty vars array.
+     * @info Constructs the class and initializes the empty vars array.
      */
     public function __construct()
     {
@@ -33,10 +30,7 @@ class Conf
     }
 
     /**
-     * @info Sets a key/value pair into the variable container.
-     *
-     * @param $key
-     * @param mixed $value
+     * @implementation
      */
     public function setVar($key, $value)
     {
@@ -45,8 +39,7 @@ class Conf
 
 
     /**
-     * @info Set the initial variables. It replaces any existing variables.
-     * @param array $vars
+     * @implementation
      */
     public function setVars(array $vars)
     {
@@ -54,13 +47,7 @@ class Conf
     }
 
     /**
-     * @info Returns the value stored at the given $key, or the $default value if not found.
-     * The $key can use the bdot notation. See Bat\BdotTool class for more info.
-     *
-     *
-     * @param $key
-     * @param null $default
-     * @return mixed
+     * @implementation
      */
     public function get($key, $default = null)
     {

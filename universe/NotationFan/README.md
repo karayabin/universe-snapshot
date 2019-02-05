@@ -4,7 +4,7 @@ NotationFan
 
 
 
-A subclass of php's SimpleXMLElement class.
+Some notations that I found useful.
 
 
 NotationFan is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
@@ -21,7 +21,12 @@ Or just download it and place it where you want otherwise.
 
 
 
+Summary
+=======
 
+
+- [IdFilter notation](https://github.com/lingtalfi/NotationFan/blob/master/IdFilter/notation.idFilter.eng.md)
+- [Sic notation](https://github.com/lingtalfi/NotationFan/blob/master/sic.md)
 
 
 

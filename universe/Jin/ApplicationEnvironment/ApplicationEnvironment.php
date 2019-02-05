@@ -3,14 +3,15 @@
 namespace Jin\ApplicationEnvironment;
 
 
+use ArrayRefResolver\ArrayTagResolver;
 use BumbleBee\Autoload\ButineurAutoloader;
 use Jin\Configuration\Conf;
 use Jin\Configuration\ConfigurationFileParser;
-use Jin\Configuration\ConfigurationVariableFileParser;
 use Jin\Configuration\LoggerConfigurator;
 use Jin\Configuration\PhpConfigurator;
 use Jin\Configuration\TemplateEngineMasterConfigurator;
 use Jin\Registry\Access;
+use Octopus\OctopusServiceContainer;
 use Registry\Registry;
 
 /**
@@ -25,6 +26,81 @@ class ApplicationEnvironment
 
     /**
      * @info Initializes the application environment.
+     *
+     *
+     *
+     * The initialization of the application consists of the following phase:
+     *
+     * - prepare the basic tools that we will be using
+     *      - a Jin\Configuration\ConfigurationFileParser instance, to parse profile sensitive yml files quickly
+     *
+     * - variables and services booting
+     * - php directives
+     *
+     *
+     *
+     *
+     * Variables and Services booting
+     * ===============================
+     *
+     * In this phase we initialize the variables container (aka Conf) and the service container (using the configuration
+     * files provided by the plugins and or the maintainer, and/or the cache files if they exist).
+     *
+     *
+     * This is done by calling the bootVariables and bootServices methods.
+     *
+     * The bootVariables method's goal is to make variables accessible via Access::Conf,
+     * and the bootServices method's goal is to make services accessible via Access::Services.
+     *
+     * The basic synopsis is that the variables are first collected, then resolved (variables use the default
+     * ArrayTagResolver mechanism, see https://github.com/karayabin/universe-snapshot/blob/master/universe/ArrayRefResolver/ArrayTagResolver.md fore more info).
+     *
+     * Then resolved variables are stored in the Conf object.
+     * Then services are parsed, and resolved using the (resolved) variables.
+     *
+     * It's important (design wise) to understand that variables are already resolved when the services parsing phase begins.
+     *
+     *
+     * Services are then stored in the ServiceContainer object.
+     *
+     *
+     *
+     *
+     *
+     *
+     * Caching
+     * -----------
+     * By default, both methods use a similar caching system, where they first test the existence of a cache file:
+     *
+     * - cache/application/VariableContainer-${appProfile}.php         (for variables)
+     * - cache/application/ServiceContainer-${appProfile}.php          (for services)
+     *
+     *
+     * Those cache files, when they exist, contains a class which can be used directly by the booter method,
+     * in order to save some time and cpu cycles.
+     *
+     * If those object don't exist, then the booter methods will do their job as normal.
+     *
+     * Note: they will not create those files by themselves: a service must be configured in order to do so
+     * (so that the booting phase don't force the user to use a cache system).
+     *
+     *
+     *
+     *
+     *
+     *
+     * Php directives
+     * ================
+     * Todo...
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     * @deprecated
      * The following steps are executed in order:
      *
      * - Preparing the {-Registry-} instance for this application
@@ -55,35 +131,31 @@ class ApplicationEnvironment
     public static function boot($appDir, $appProfile)
     {
 
-        //--------------------------------------------
-        // REGISTRY
-        //--------------------------------------------
-        Access::setRegistry(new Registry());
-
 
         //--------------------------------------------
         // CONFIGURATION FILE PARSER
         //--------------------------------------------
         $confParser = new ConfigurationFileParser();
         $confParser->setProfile($appProfile);
+        $confParser->setResolver(new ArrayTagResolver());
         Access::setConfigurationFileParser($confParser);
 
 
         //--------------------------------------------
-        // CONF
+        // CREATING VARIABLES AND SERVICES CONTAINERS
         //--------------------------------------------
-        $parser = new ConfigurationVariableFileParser();
-        $parser->setProfile("dev");
-        $parser->setConfigurationFileParser($confParser);
-        $variables = $parser->collectConfigurationVariables($appDir . "/config/variables");
-        $errors = $parser->getErrors();
+        self::bootVariables($appDir, $appProfile, $confParser); // now variables are accessible via Access::Conf
+        self::bootServices($appDir, $appProfile, $confParser); // now services are accessible via Access::Service
 
 
-        $conf = new Conf();
-        $conf->setVars($variables);
-        $conf->setVar("appDir", $appDir);
-        $conf->setVar("appProfile", $appProfile);
-        Access::setConf($conf);
+        az("ok");
+        //--------------------------------------------
+        // REGISTRY
+        //--------------------------------------------
+        Access::setRegistry(new Registry());
+
+
+        $errors = [];
 
 
         //--------------------------------------------
@@ -127,5 +199,102 @@ class ApplicationEnvironment
 
     }
 
+    //--------------------------------------------
+    //
+    //--------------------------------------------
+    /**
+     * Finds the first available VariableContainerInterface (aka Conf) instance, and registers it to the Access object.
+     *
+     * It will first try to load the cached (aka static) version of the Conf, by looking in this file (if it exists):
+     *
+     * - cache/application/VariableContainer-${appProfile}.php
+     *
+     * If this file doesn't exist and the Conf instance cannot be found, then it will create a Conf instance itself
+     * using the static configuration files, located in:
+     *
+     * - config/variables.yml           reserved the application maintainer
+     * - config/variables/*.yml         reserved for plugins
+     *
+     *
+     *
+     * @param $appDir
+     * @param $appProfile
+     */
+    private static function bootVariables($appDir, $appProfile, ConfigurationFileParser $confParser)
+    {
+        $cachedConfFile = $appDir . "/cache/application/VariableContainer-$appProfile.php";
+        if (file_exists($cachedConfFile)) {
+            include_once $cachedConfFile;
+            $className = "VariableContainer" . ucfirst(strtolower($appProfile));
+            $oConf = new $className();
+        } else {
+            $varDir = $appDir . "/config/variables";
+            $conf = $confParser->parseDir($varDir, [
+                "resolve" => false,
+            ]);
+
+
+            // resolving references on themselves...
+            $resolver = $confParser->getResolver();
+            $resolver->setVariables($conf);
+            $resolver->resolve($conf, [
+                "recursive" => true,
+            ]);
+
+            $oConf = new Conf();
+            $oConf->setVars($conf);
+
+
+        }
+
+
+        $oConf->setVar("appDir", $appDir);
+        $oConf->setVar("appProfile", $appProfile);
+        Access::setConf($oConf);
+    }
+
+
+    /**
+     * Finds the first available ServiceContainerInterface instance, and registers it to the Access object.
+     *
+     * It will first try to load the cached (aka static) version of the ServiceContainer, by looking in this file (if it exists):
+     *
+     * - cache/application/ServiceContainer-${appProfile}.php
+     *
+     * If this file doesn't exist and the service container instance cannot be found, then it will create a service container instance itself
+     * using the static configuration files, located in:
+     *
+     * - config/services.yml           reserved the application maintainer
+     * - config/services/*.yml         reserved for plugins
+     *
+     *
+     *
+     * @param $appDir
+     * @param $appProfile
+     */
+    private static function bootServices($appDir, $appProfile, ConfigurationFileParser $confParser)
+    {
+        $cachedConfFile = $appDir . "/cache/application/ServiceContainer-$appProfile.php";
+        if (file_exists($cachedConfFile)) {
+            include_once $cachedConfFile;
+            $className = "ServiceContainer" . ucfirst(strtolower($appProfile));
+            $oService = new $className();
+
+        } else {
+            $varDir = $appDir . "/config/services";
+            $sicConf = $confParser->parseDir($varDir);
+            $services = $sicServices['services'] ?? [];
+
+
+            $oService = OctopusServiceContainer::buildFromSic($services);
+
+
+            az($oService->get("mail")->sayHello());
+        }
+
+
+        Access::setServiceContainer($oService);
+
+    }
 
 }

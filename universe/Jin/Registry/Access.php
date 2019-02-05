@@ -5,8 +5,9 @@ namespace Jin\Registry;
 
 
 use Jin\Application\Application;
-use Jin\Configuration\Conf;
 use Jin\Configuration\ConfigurationFileParser;
+use Jin\Container\ServiceContainer\ServiceContainerInterface;
+use Jin\Container\VariableContainer\VariableContainerInterface;
 use Jin\Log\Logger;
 use Jin\TemplateEngine\TemplateEngineMaster;
 use Registry\RegistryInterface;
@@ -21,35 +22,35 @@ use Registry\RegistryInterface;
 class Access
 {
     /**
-     * @info This property holds the jin Application instance.
+     * This property holds the jin Application instance.
      * The jin application instance should be registered as soon as possible (in the www/index.php), so that
      * it's available to every component in a jin app session.
      */
     private static $app;
 
     /**
-     * @info This property holds the main logger of the application.
+     * This property holds the main logger of the application.
      * The logger should be registered as soon as possible (in the www/index.php), so that
      * it's available to every component in a jin app session, including the Application itself.
      */
     private static $log;
 
     /**
-     * @info This property holds the configurationFileParser of the application.
+     * This property holds the configurationFileParser of the application.
      * The configurationFileParser helps parsing babyYaml configuration files.
      */
     private static $configurationFileParser;
 
     /**
-     * @info This property holds the Conf instance of the application.
-     * The Conf instance should be registered as soon as possible (in the www/index.php), so that
+     * This property holds the VariableContainerInterface instance of the application.
+     * The VariableContainerInterface instance should be registered as soon as possible (in the www/index.php), so that
      * it's available to every component in a jin app session, including the Application itself.
      */
     private static $conf;
 
 
     /**
-     * @info This property holds the Registry instance of the application.
+     * This property holds the Registry instance of the application.
      * The Registry instance should be registered as soon as possible (in the www/index.php), so that
      * it's available to every component in a jin app session, including the Application itself.
      */
@@ -57,7 +58,7 @@ class Access
 
 
     /**
-     * @info This property holds the template engine master instance of the application.
+     * This property holds the template engine master instance of the application.
      * This instance should be registered as soon as possible (in the www/index.php), so that
      * it's available to every component in a jin app session, including the Application itself.
      */
@@ -65,7 +66,15 @@ class Access
 
 
     /**
-     * @info Returns the main Application instance.
+     * This property holds the service container instance of the application.
+     * This instance should be registered as soon as possible (in the www/index.php), so that
+     * it's available to every component in a jin app session, including the Application itself.
+     */
+    private static $serviceContainer;
+
+
+    /**
+     * Returns the main Application instance.
      * @return Application
      */
     public static function app()
@@ -74,7 +83,7 @@ class Access
     }
 
     /**
-     * @info Returns the main Logger instance.
+     * Returns the main Logger instance.
      * @return Logger
      */
     public static function log()
@@ -83,7 +92,7 @@ class Access
     }
 
     /**
-     * @info Returns the configurationFileParser instance.
+     * Returns the configurationFileParser instance.
      * @return ConfigurationFileParser
      */
     public static function configurationFileParser()
@@ -92,8 +101,8 @@ class Access
     }
 
     /**
-     * @info Returns the main Conf instance.
-     * @return Conf
+     * Returns the main Conf instance.
+     * @return VariableContainerInterface
      */
     public static function conf()
     {
@@ -102,7 +111,7 @@ class Access
 
 
     /**
-     * @info Returns the Registry instance.
+     * Returns the Registry instance.
      * @return RegistryInterface
      */
     public static function registry()
@@ -111,7 +120,7 @@ class Access
     }
 
     /**
-     * @info Returns the template engine master instance.
+     * Returns the template engine master instance.
      * @return TemplateEngineMaster
      */
     public static function templateEngine()
@@ -120,12 +129,22 @@ class Access
     }
 
 
+    /**
+     * Returns the service container instance.
+     * @return ServiceContainerInterface
+     */
+    public static function service()
+    {
+        return self::$serviceContainer;
+    }
+
+
 
     //--------------------------------------------
     // SETTERS
     //--------------------------------------------
     /**
-     * @info Sets the Application instance.
+     * Sets the Application instance.
      */
     public static function setApp(Application $app)
     {
@@ -133,7 +152,7 @@ class Access
     }
 
     /**
-     * @info Sets the application's (main) Logger instance.
+     * Sets the application's (main) Logger instance.
      */
     public static function setLog(Logger $log)
     {
@@ -141,7 +160,7 @@ class Access
     }
 
     /**
-     * @info Sets the application's configurationFileParser instance
+     * Sets the application's configurationFileParser instance
      */
     public static function setConfigurationFileParser(ConfigurationFileParser $configurationFileParser)
     {
@@ -149,15 +168,15 @@ class Access
     }
 
     /**
-     * @info Sets the application's Conf instance
+     * Sets the application's VariableContainerInterface instance
      */
-    public static function setConf(Conf $conf)
+    public static function setConf(VariableContainerInterface $conf)
     {
         self::$conf = $conf;
     }
 
     /**
-     * @info Sets the Registry instance for the application
+     * Sets the Registry instance for the application
      */
     public static function setRegistry(RegistryInterface $registry)
     {
@@ -165,10 +184,18 @@ class Access
     }
 
     /**
-     * @info Sets the TemplateEngineMaster instance for the application
+     * Sets the TemplateEngineMaster instance for the application
      */
     public static function setTemplateEngineMaster(TemplateEngineMaster $engine)
     {
         self::$templateEngineMaster = $engine;
+    }
+
+    /**
+     * Sets the service container instance for the application
+     */
+    public static function setServiceContainer(ServiceContainerInterface $service)
+    {
+        self::$serviceContainer = $service;
     }
 }

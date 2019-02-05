@@ -4,8 +4,6 @@
 namespace Jin\Configuration;
 
 
-use ArrayRefResolver\ArrayRefResolverInterface;
-use ArrayRefResolver\ArrayTagResolver;
 use BabyYaml\BabyYamlUtil;
 use Bat\ArrayTool;
 use Bat\FileSystemTool;
@@ -17,21 +15,13 @@ use Jin\Registry\Access;
  * files in a jin application.
  *
  */
-class ConfigurationFileParser
+class ConfigurationFileParserOld
 {
     /**
      * @info This property holds the profile of the application (dev, prod, ...)
      * The default value is prod.
      */
     private $profile;
-
-    /**
-     * This property holds the array ref resolver instance used to resolve tags in the configuration
-     * arrays.
-     *
-     * @var ArrayRefResolverInterface
-     */
-    private $resolver;
 
 
     /**
@@ -40,7 +30,6 @@ class ConfigurationFileParser
     public function __construct()
     {
         $this->profile = "prod";
-        $this->resolver = null;
     }
 
 
@@ -52,24 +41,6 @@ class ConfigurationFileParser
     {
         $this->profile = $profile;
     }
-
-
-    public function setResolver(ArrayRefResolverInterface $resolver)
-    {
-        $this->resolver = $resolver;
-    }
-
-    /**
-     * @return ArrayRefResolverInterface|ArrayTagResolver|null
-     */
-    public function getResolver()
-    {
-        if (null === $this->resolver) {
-            $this->resolver = new ArrayTagResolver();
-        }
-        return $this->resolver;
-    }
-
 
     /**
      * @info Parses and resolves the configuration file $filePath, plus all configuration files in $dirPath.
@@ -127,83 +98,32 @@ class ConfigurationFileParser
 //    }
 //
 
-    public function parseDir($dirPath, array $options = [])
+    public function parseDir($dir, $dirPath, array $options = [])
     {
 
         $parseFileWithSameName = $options['parseFileWithSameName'] ?? true;
-        /**
-         * use this option only when the variables container is ready.
-         */
-        $resolve = $options['resolve'] ?? true;
+
 
         $conf = [];
+
         if (true === $parseFileWithSameName) {
-            /**
-             * This file with the same name as the dir is the configuration
-             * file reserved for the jin app maintainer.
-             */
-            $fileName = $dirPath . ".yml";
+            $fileName = $dir . ".yml";
             if (file_exists($fileName)) {
                 $conf = $this->parseFileRaw($fileName);
             }
         }
+
+
         if (is_dir($dirPath)) {
-            $files = YorgDirScannerTool::getFilesWithExtension($dirPath, "yml", false, true, true);
-
-
-            //--------------------------------------------
-            // NOW MERGE ALL FILES
-            //--------------------------------------------
+            $files = YorgDirScannerTool::getFilesWithExtension($dirPath, "yml", false, true, false);
             foreach ($files as $file) {
-                /**
-                 * Ignoring variations here, because the parseFileRaw method will get them.
-                 */
-                if (false === strpos($file, '-')) {
-                    $realFile = $dirPath . "/" . $file;
-                    $pluginConf = $this->parseFileRaw($realFile);
-                    $conf = ArrayTool::arrayMergeReplaceRecursive([$conf, $pluginConf]);
-                }
+                $pluginConf = $this->parseFileRaw($file);
+                $conf = ArrayTool::arrayMergeReplaceRecursive([$conf, $pluginConf]);
             }
         }
 
-        if (true === $resolve) {
-            // then resolve all at once
-            $this->resolve($conf); // resolving calls to configuration variables
 
-            $sic = $options['sic'] ?? true;
-            // resolving sic? (service instantiation code)
-            if (true === $sic) {
-                $this->resolveServiceInstantiationCode($conf);
-            }
-        }
-
-        return $conf;
-    }
-
-
-    /**
-     * @info Parses and resolves the configuration file (which path is given) according to the mechanism explained below.
-     *
-     * This method does actually the following things:
-     *
-     * - parsing the given configuration file according to the given profile (see parseFileRaw method)
-     * - resolving the values using the Conf object under the hood.
-     *          Note that if the Conf object is not ready, results might be unpredictable.
-     * - optional: resolving the service instantiation code
-     *
-     *
-     *
-     * Note: if you want to parse the file without resolving its variable, use the parseFileRaw method instead.
-     *
-     *
-     * @param $filePath
-     * @param bool $interpretServiceInstantiationCode =true
-     * @seeMethod parseFileRaw
-     * @return array
-     */
-    public function parseFile($filePath, bool $interpretServiceInstantiationCode = true)
-    {
-        $conf = $this->parseFileRaw($filePath);
+        // then resolve all at once
         $this->resolve($conf); // resolving calls to configuration variables
 
         // resolving sic? (service instantiation code)
@@ -211,10 +131,8 @@ class ConfigurationFileParser
             $this->resolveServiceInstantiationCode($conf);
         }
 
-
         return $conf;
     }
-
 
     /**
      * @info Parses and the configuration file (which path is given) according to the mechanism explained below
@@ -278,9 +196,6 @@ class ConfigurationFileParser
         return $conf;
     }
 
-    //--------------------------------------------
-    //
-    //--------------------------------------------
     /**
      * @info Resolve the given array using the Conf instance.
      * Warning: this method only works properly if the Conf instance is configured.
@@ -317,7 +232,74 @@ class ConfigurationFileParser
         });
     }
 
+    /**
+     * @info Resolve the service instantiation code found in the given array.
+     *
+     * @param array $array
+     */
+    private function resolveServiceInstantiationCode(array & $array)
+    {
+        foreach ($array as $k => $v) {
+            if (is_string($v) && "instance" === $k) {
+                $o = new $v();
+                if (array_key_exists("methods", $array)) {
+                    $methods = $array['methods'];
+                    if (is_array($methods)) {
+                        foreach ($methods as $methodName => $args) {
+                            call_user_func_array([$o, $methodName], $args);
+                        }
+                    }
+                }
+
+                // do we return a callable?
+                if (array_key_exists("callable_method", $array)) {
+                    // replacing the value of the "instance" key with the callable
+                    $callableMethod = $array['callable_method'];
+                    $array[$k] = [$o, $callableMethod];
+
+                } else {
+                    // replacing the value of the "instance" key with the actual (configured) instance
+                    $array[$k] = $o;
+                }
+
+            } elseif (is_array($v)) {
+                $this->resolveServiceInstantiationCode($array[$k]);
+            }
+        }
+    }
+
+    /**
+     * @info Parses and resolves the configuration file (which path is given) according to the mechanism explained below.
+     *
+     * This method does actually the following things:
+     *
+     * - parsing the given configuration file according to the given profile (see parseFileRaw method)
+     * - resolving the values using the Conf object under the hood.
+     *          Note that if the Conf object is not ready, results might be unpredictable.
+     * - optional: resolving the service instantiation code
+     *
+     *
+     *
+     * Note: if you want to parse the file without resolving its variable, use the parseFileRaw method instead.
+     *
+     *
+     * @param $filePath
+     * @param bool $interpretServiceInstantiationCode =true
+     * @seeMethod parseFileRaw
+     * @return array
+     */
+    public function parseFile($filePath, bool $interpretServiceInstantiationCode = true)
+    {
+        $conf = $this->parseFileRaw($filePath);
+        $this->resolve($conf); // resolving calls to configuration variables
+
+        // resolving sic? (service instantiation code)
+        if (true === $interpretServiceInstantiationCode) {
+            $this->resolveServiceInstantiationCode($conf);
+        }
 
 
+        return $conf;
+    }
 
 }
