@@ -63,11 +63,16 @@ instance: string, the class name
             a sic block but isn't really one (i.e. an array containing an instance key for instance).
             The pass key has to be chosen by the implementor, and should be consistent across her project/application.
             For instance, if it fits your case, you could use the following: __pass__.
+            The pass key might be removed (if found) by an interpreter, so that the intent of the array is not altered.
 
 ```
 
 
+
 See the [examples section](#examples) for more details.
+
+
+Note: if both **methods** and **methods_collection** are defined, **methods** is executed first.
 
 
 Note that **sic** is just a notation and doesn't provide any tool for implementing such a system.
@@ -182,8 +187,7 @@ callable_method: handleRequest
 Related Tools
 -------------
 
-Yep buddy, no tools for now, sorry (try again on march 1st 2019 maybe?).
 
-- TODO...
+- [Sic Tools](https://github.com/karayabin/universe-snapshot/tree/master/universe/SicTools), low level tools to help you implement your own "sic" service containers
 
 
