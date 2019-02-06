@@ -28,6 +28,7 @@ Summary
 
 - [HotServiceResolver](https://github.com/lingtalfi/SicTools/blob/master/doc/HotServiceResolver.md)
 - [ColdServiceResolver](https://github.com/lingtalfi/SicTools/blob/master/doc/ColdServiceResolver.md)
+- [SicTool](https://github.com/lingtalfi/SicTools/blob/master/doc/SicTool.md)
 
 
 

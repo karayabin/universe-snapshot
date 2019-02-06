@@ -54,7 +54,7 @@ class HotServiceResolver
      */
     public function getService(array $sicBlock)
     {
-        if (true === $this->isSicBlock($sicBlock)) {
+        if (true === SicTool::isSicBlock($sicBlock, $this->passKey)) {
 
 
             $service = null;
@@ -70,16 +70,13 @@ class HotServiceResolver
                     $r = new \ReflectionClass($className);
                     $realArgs = $this->resolveArgs($constructorArgs);
                     $service = $r->newInstanceArgs($realArgs);
-                }
-                catch (\ReflectionException $e) {
+                } catch (\ReflectionException $e) {
                     throw new SicBlockWillNotResolveException($e->getMessage());
                 }
-            }
-            else {
+            } else {
                 try {
                     $service = new $className();
-                }
-                    // php7 ?
+                } // php7 ?
                 catch (\Error $e) {
                     throw new SicBlockWillNotResolveException($e->getMessage());
                 }
@@ -187,36 +184,17 @@ class HotServiceResolver
             if (false === $isCustom) {
 
                 if (is_array($v)) {
-                    if (true === $this->isSicBlock($v)) {
+                    if (true === SicTool::isSicBlock($v, $this->passKey)) {
                         $v = $this->getService($v);
-                    }
-                    else {
+                    } else {
                         $v = $this->resolveArgs($v);
                     }
                 }
-            }
-            else {
+            } else {
                 $v = $customValue;
             }
             $realArgs[$k] = $v;
         }
         return $realArgs;
-    }
-
-    /**
-     * Returns whether the given array is a sic block.
-     *
-     * @param array $array
-     * @return bool
-     */
-    private function isSicBlock(array $array)
-    {
-        if (
-            array_key_exists("instance", $array) &&
-            false === array_key_exists($this->passKey, $array)
-        ) {
-            return true;
-        }
-        return false;
     }
 }

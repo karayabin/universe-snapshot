@@ -86,7 +86,7 @@ class ColdServiceResolver
      */
     public function getServicePhpCode(array $sicBlock)
     {
-        if (true === $this->isSicBlock($sicBlock)) {
+        if (true === SicTool::isSicBlock($sicBlock, $this->passKey)) {
             $varName = $this->addServiceCode($sicBlock);
             $s = '';
             foreach ($this->stack as $code) {
@@ -291,22 +291,7 @@ class ColdServiceResolver
         return $this->baseVariableName . $this->cpt++;
     }
 
-    /**
-     * Returns whether the given array is a sic block.
-     *
-     * @param array $array
-     * @return bool
-     */
-    protected function isSicBlock(array $array)
-    {
-        if (
-            array_key_exists("instance", $array) &&
-            false === array_key_exists($this->passKey, $array)
-        ) {
-            return true;
-        }
-        return false;
-    }
+
 //--------------------------------------------
 //
 //--------------------------------------------
@@ -334,19 +319,17 @@ class ColdServiceResolver
             if (false === $isCustom) {
 
                 if (is_array($v)) {
-                    if (true === $this->isSicBlock($v)) {
+                    if (true === SicTool::isSicBlock($v, $this->passKey)) {
                         $v = $this->addServiceCode($v);
                         $v = $this->encode($v);
-                    }
-                    else {
+                    } else {
                         if (array_key_exists($this->passKey, $v)) {
                             unset($v[$this->passKey]);
                         }
                         $v = $this->resolveArgs($v);
                     }
                 }
-            }
-            else {
+            } else {
                 $v = $customValue;
             }
             $realArgs[$k] = $v;
