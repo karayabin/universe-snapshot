@@ -1,6 +1,6 @@
 Sic
 ========
-2019-01-20 --> 2019-02-05
+2019-01-20 --> 2019-02-06
 
 
 Sic stands for "Service instantiation code".
@@ -21,7 +21,8 @@ Summary
     - [Example #1 an instance](#example-1-an-instance)
     - [Example #2 an instance with constructor arguments](#example-2-an-instance-with-constructor-arguments)
     - [Example #3 an instance with the same method called multiple times](#example-3-an-instance-with-the-same-method-called-multiple-times)
-    - [Example #4 a callable](#example-4-a-callable)
+    - [Example #4 using a service in the args](#example-4-using-a-service-in-the-args)
+    - [Example #5 a callable](#example-5-a-callable)
 - [Description](#description)
 - [Related tools](#related-tools)
 
@@ -58,6 +59,10 @@ instance: string, the class name
             - $arg1
             - $arg2
             - ...
+?$passKey: any value, if defined, will invalidate the sic block. This is useful if you want to use an array in an argument that looks like
+            a sic block but isn't really one (i.e. an array containing an instance key for instance).
+            The pass key has to be chosen by the implementor, and should be consistent across her project/application.
+            For instance, if it fits your case, you could use the following: __pass__.
 
 ```
 
@@ -133,8 +138,27 @@ methods_collection:
 
 
 
+### Example #4 using a service in the args
 
-### Example #4 a callable
+```yaml
+instance: Jin\Log\Listener\Imaginary
+methods:
+    setMailer:
+        0:
+            instance: Imaginary\Mailer\MailerService
+
+```
+
+The example above will create an instance of **Jin\Log\Listener\Imaginary**,
+and then call its **setMailer** method, with a new instance of **Imaginary\Mailer\MailerService** as the only argument.
+
+
+
+
+
+
+
+### Example #5 a callable
 ```yaml
 instance: Jin\HttpRequestLifecycle\PreRouting\RequestLog
 callable_method: handleRequest
