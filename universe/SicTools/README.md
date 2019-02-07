@@ -41,6 +41,10 @@ Summary
 History Log
 ------------------
 
+- 1.0.1 -- 2019-02-07
+
+    - fix SicTools\ColdServiceResolver->addServiceCode not resetting stack
+
 - 1.0.0 -- 2019-02-06
 
     - initial commit

@@ -118,6 +118,9 @@ class ColdServiceResolver
      */
     protected function addServiceCode(array $sicBlock)
     {
+        $this->cpt = 0;
+        $this->stack = [];
+
         $varName = $this->getUniqueVariableName();
 
         $code = new CodeBlock();
