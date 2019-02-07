@@ -1,0 +1,3 @@
+dependencies:
+    - git::/lingtalfi/SicTools:1.0.0
+    - git::/lingtalfi/ClassCreator:1.0.0
