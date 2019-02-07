@@ -182,11 +182,11 @@ int(4)
 Example #5: referencing a service using the @services function
 --------------------------------------------------------------
 
-The red octopus provides a @services function, which allows to reference a service.
+The red octopus provides a **@service** function, which allows to reference a service.
 
 The function notation is the following:
 
-- @services($serviceName)
+- @service($serviceName)
 
 With:
 

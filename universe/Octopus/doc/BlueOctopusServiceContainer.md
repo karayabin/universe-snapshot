@@ -29,6 +29,7 @@ Summary
 =======
 
 - [How to use?](#how-to-use)
+- [Using the service function](#using-the-service-function)
 - [Customizing the generator](#customizing-the-generator)
 - [Errors](#errors)
 - [Related](#related)
@@ -175,6 +176,70 @@ and/or the [sic notation](https://github.com/lingtalfi/NotationFan/blob/master/s
 
 
 
+
+
+Using the service function
+==========================
+
+The blue octopuses built with the **Octopus\ServiceContainerBuilder\DarkBlueOctopusServiceContainerBuilder** class
+provide a **@service** function, which allows to reference a service.
+
+The function notation is the following:
+
+- @service($serviceName)
+
+With:
+
+- service name: a string containing only alpha-numeric characters, and the dot and the underscore.
+                Note that there is no space around the parentheses, this is important.
+
+
+The following code demonstrates the use of the **@service** notation.
+
+This code:
+
+```php
+class Animal
+{
+
+}
+
+class Boy
+{
+    public function __construct(Animal $a)
+    {
+        a("boy");
+    }
+}
+
+$conf = [
+    "service1" => [
+        "instance" => "Animal",
+    ],
+    "service2" => [
+        "instance" => "Boy",
+        "constructor_args" => ['@service(service1)'],
+    ],
+];
+$file = __DIR__ . "/MyServiceContainer.php";
+$o = new DarkBlueOctopusServiceContainerBuilder();
+$o->setSicConfig($conf);
+$o->build($file);
+
+
+include_once $file;
+$sc = new DarkBlueOctopusServiceContainer();
+$sc->get("service2");
+```
+
+
+
+Will output:
+
+```html
+string(3) "boy"
+
+```
 
 
 

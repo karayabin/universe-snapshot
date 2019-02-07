@@ -210,6 +210,32 @@ class ColdServiceResolver
         }
 
 
+        //--------------------------------------------
+        // RETURN METHOD
+        //--------------------------------------------
+        /**
+         * Stand by... too dangerous design wise.
+         * There is probably a better way.
+         * Remember eval in php? Well same here, this code is evil...
+         */
+//        if (array_key_exists("return_method", $sicBlock)) {
+//            $methodName = $sicBlock["return_method"];
+//            $args = $sicBlock['return_method_args'] ?? [];
+//            if (empty($args)) { // same note as previous block
+//                $args = [];
+//            }
+//            $realArgs = $this->resolveArgs($args);
+//            $args = $this->argsToString($realArgs);
+//
+//
+//            $varName2 = $this->getUniqueVariableName();
+//            $s = '$' . $varName2 . ' = $' . $varName . '->' . $methodName . '(' . $args . ');';
+//            $code->addStatement($s);
+//            $this->addCodeBlock($code);
+//            return '$' . $varName2;
+//        }
+
+
         $this->addCodeBlock($code);
 
         return '$' . $varName;

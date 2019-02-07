@@ -20,7 +20,7 @@ use SicTools\SicTool;
  *
  *
  */
-class DarkBlueOctopusServiceContainerBuilder
+class DarkBlueOctopusServiceContainerBuilder extends ColdServiceResolver
 {
 
 
@@ -63,23 +63,15 @@ class DarkBlueOctopusServiceContainerBuilder
      */
     private $classCreator;
 
-    /**
-     * The cold resolver is the object used under the hood to get the php code corresponding to a sic block.
-     * See [cold resolver](https://github.com/lingtalfi/SicTools/blob/master/doc/ColdServiceResolver.md) for more details.
-     *
-     * @var ColdServiceResolver
-     */
-    private $coldResolver;
-
 
     /**
      * Builds the DarkBlueOctopusServiceContainerBuilder instance.
      */
     public function __construct()
     {
+        parent::__construct();
         $this->sicConfig = [];
         $this->classCreator = null;
-        $this->coldResolver = new ColdServiceResolver();
     }
 
 
@@ -163,6 +155,28 @@ class DarkBlueOctopusServiceContainerBuilder
     //
     //--------------------------------------------
     /**
+     * @overrides
+     */
+    protected function resolveCustomNotation($value, &$isCustomNotation = false)
+    {
+        if (is_string($value)) { // value could be anything
+            if (
+                0 === strpos($value, '@s')
+                && preg_match('!@service\(([a-zA-Z._0-9]*)\)!', $value, $match)
+            ) {
+                $isCustomNotation = true;
+                $serviceName = $match[1];
+                return $this->encode('$this->get("' . $serviceName . '")');
+            }
+        }
+        return null;
+
+
+
+
+    }
+
+    /**
      * Returns the default comment.
      *
      * @return \ClassCreator\Comment\Comment
@@ -195,7 +209,7 @@ EEE
                 $methodName = BlueOctopusServiceContainer::getMethodName($serviceName);
 
 
-                $methodCode = $this->coldResolver->getServicePhpCode($v);
+                $methodCode = $this->getServicePhpCode($v);
                 $this->classCreator->addMethod(
                     Method::create()
                         ->setSignature('protected function ' . $methodName . '() ')

@@ -137,7 +137,7 @@ class ApplicationEnvironment
         //--------------------------------------------
         $confParser = new ConfigurationFileParser();
         $confParser->setProfile($appProfile);
-        $confParser->setResolver(new ArrayTagResolver());
+//        $confParser->setResolver(new ArrayTagResolver());
         Access::setConfigurationFileParser($confParser);
 
 

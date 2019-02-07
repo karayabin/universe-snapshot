@@ -89,6 +89,10 @@ Octopus comes with two versions:
 History Log
 ------------------
 
+- 1.1.0 -- 2019-02-07
+
+    - Octopus\ServiceContainerBuilder\DarkBlueOctopusServiceContainerBuilder can now parse the @service notation
+
 - 1.0.0 -- 2019-02-07
 
     - initial commit
