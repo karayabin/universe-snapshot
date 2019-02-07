@@ -189,5 +189,6 @@ Related Tools
 
 
 - [Sic Tools](https://github.com/karayabin/universe-snapshot/tree/master/universe/SicTools), low level tools to help you implement your own "sic" service containers
+- [Octopus](https://github.com/lingtalfi/Octopus), a service container for your app
 
 

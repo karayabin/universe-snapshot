@@ -27,6 +27,8 @@ Summary
     - [Example 7: recursion, using a service in a service](#example-7-recursion-using-a-service-in-a-service)
     - [Example 8: recursion, using custom notation](#example-8-recursion-using-custom-notation)
     - [Example 9: bypassing the sic notation](#example-9-bypassing-the-sic-notation)
+    - [Example 10: using a callable as an argument](#example-10-using-a-callable-as-an-argument)
+- [Related](#related)
 
 
 
@@ -423,3 +425,69 @@ return $s0;"
 
 ```
 
+
+
+
+Example 10: using a callable as an argument
+-------------------------------------------
+
+It's possible to pass callables as argument of a method, thanks to the sic notation.
+
+The following code:
+
+```php
+$sicBlock = [
+    "instance" => "MyLogger",
+    "methods_collection" => [
+        [
+            "method" => 'addListener',
+            "args" => [
+                "channels" => "*",
+                "callback" => [
+                    "instance" => "MyListener",
+                    "callable_method" => "listen",
+                ],
+            ],
+        ],
+        [
+            "method" => 'addListener',
+            "args" => [
+                "channels" => "fatal",
+                "callback" => [
+                    "instance" => "MyListener",
+                    "callable_method" => "listen",
+                ],
+            ],
+        ],
+    ],
+];
+
+$o = new ColdServiceResolver();
+az($o->getServicePhpCode($sicBlock));
+```
+
+
+
+Will output:
+
+```html
+string(242) "$s1 = new MyListener();
+$s2 = [$s1, "listen"];
+$s3 = new MyListener();
+$s4 = [$s3, "listen"];
+$s0 = new MyLogger();
+$s0->addListener('channels' => '*','callback' => $s2);
+$s0->addListener('channels' => 'fatal','callback' => $s4);
+
+return $s0;"
+
+```
+
+
+
+
+
+Related
+=======
+
+- [HotServiceResolver](https://github.com/lingtalfi/SicTools/blob/master/doc/HotServiceResolver.md)

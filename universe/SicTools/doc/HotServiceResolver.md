@@ -23,6 +23,8 @@ Summary
     - [Example 6: recursion, using a service as nested parameter](#example-6-recursion-using-a-service-as-nested-parameter)
     - [Example 7: recursion, using a service in a service](#example-7-recursion-using-a-service-in-a-service)
     - [Example 8: recursion, using custom notation](#example-8-using-custom-notation)
+    - [Example 9: using a callable as an argument](#example-9-using-a-callable-as-an-argument)
+- [Related](#related)
 
 
 
@@ -224,7 +226,7 @@ Class Animal
 
     public function playWith(Toy $toy)
     {
-
+        a("ok");
     }
 }
 
@@ -458,5 +460,83 @@ object(Animal)#5 (0) {
 
 
 
+
+Example 9: using a callable as an argument
+--------------------------------
+
+It's possible to pass callables as argument of a method, thanks to the sic notation.
+
+
+
+
+The following code:
+
+```php
+class MyListener
+{
+    public function listen()
+    {
+    }
+}
+
+Class MyLogger
+{
+    public function addListener($channels, callable $listener)
+    {
+        a("listener added with channels $channels");
+    }
+}
+
+$sicBlock = [
+    "instance" => "MyLogger",
+    "methods_collection" => [
+        [
+            "method" => 'addListener',
+            "args" => [
+                "channels" => "*",
+                "callback" => [
+                    "instance" => "MyListener",
+                    "callable_method" => "listen",
+                ],
+            ],
+        ],
+        [
+            "method" => 'addListener',
+            "args" => [
+                "channels" => "fatal",
+                "callback" => [
+                    "instance" => "MyListener",
+                    "callable_method" => "listen",
+                ],
+            ],
+        ],
+    ],
+];
+
+$o = new HotServiceResolver();
+az($o->getService($sicBlock));
+```
+
+
+Will output:
+
+```html
+string(30) "listener added with channels *"
+
+string(34) "listener added with channels fatal"
+
+object(MyLogger)#3 (0) {
+}
+
+
+```
+
+
+
+
+Related
+=======
+
+- [ColdServiceResolver](https://github.com/lingtalfi/SicTools/blob/master/doc/ColdServiceResolver.md)
 
 

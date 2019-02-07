@@ -10,6 +10,8 @@ The BlueOctopusServiceContainer is a blue octopus.
 
 A blue octopus is composed of two classes acting together as a cold (aka static) service container.
 
+See [ColdServiceResolver](https://github.com/lingtalfi/SicTools/blob/master/doc/ColdServiceResolver.md) for more info.
+
 The two parts are the following:
 
 - light part (the **Octopus\ServiceContainer\BlueOctopusServiceContainer** class): this is the parent class, which contains the "get" method implementing the OctopusServiceContainerInterface.
@@ -29,6 +31,7 @@ Summary
 - [How to use?](#how-to-use)
 - [Customizing the generator](#customizing-the-generator)
 - [Errors](#errors)
+- [Related](#related)
 
 
 
@@ -233,3 +236,10 @@ Will throw an error:
 ```html
 Fatal error: Uncaught Error: Call to undefined method DarkBlueOctopusServiceContainer::my_company_service1() in /path/to/...
 ```
+
+
+
+Related
+=======
+
+- [RedOctopusServiceContainer](https://github.com/lingtalfi/Octopus/blob/master/doc/RedOctopusServiceContainer.md)

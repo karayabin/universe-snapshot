@@ -87,6 +87,11 @@ class ColdServiceResolver
     public function getServicePhpCode(array $sicBlock)
     {
         if (true === SicTool::isSicBlock($sicBlock, $this->passKey)) {
+
+            $this->cpt = 0;
+            $this->stack = [];
+
+
             $varName = $this->addServiceCode($sicBlock);
             $s = '';
             foreach ($this->stack as $code) {
@@ -118,8 +123,7 @@ class ColdServiceResolver
      */
     protected function addServiceCode(array $sicBlock)
     {
-        $this->cpt = 0;
-        $this->stack = [];
+
 
         $varName = $this->getUniqueVariableName();
 
@@ -176,6 +180,7 @@ class ColdServiceResolver
                         $methodName = $method['method'];
                         $args = $method['args'] ?? null;
 
+
                         if (empty($args)) { // same note as previous block
                             $args = [];
                         }
@@ -189,6 +194,19 @@ class ColdServiceResolver
                     }
                 }
             }
+        }
+
+
+        //--------------------------------------------
+        // CALLABLE
+        //--------------------------------------------
+        if (array_key_exists("callable_method", $sicBlock)) {
+            $callableMethod = $sicBlock['callable_method'];
+            $varName2 = $this->getUniqueVariableName();
+            $s = '$' . $varName2 . ' = [$' . $varName . ', "' . $callableMethod . '"];';
+            $code->addStatement($s);
+            $this->addCodeBlock($code);
+            return '$' . $varName2;
         }
 
 

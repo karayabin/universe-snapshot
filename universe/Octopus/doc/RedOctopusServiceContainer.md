@@ -19,6 +19,7 @@ Summary
     - [Example #4: The same instance is re-used on subsequent calls](#example-4-the-same-instance-is-re-used-on-subsequent-calls)
     - [Example #5: referencing a service using the @services function](#example-5-referencing-a-service-using-the-services-function)
 - [Errors](#errors)
+- [Related](#related)
 
 
 
@@ -261,3 +262,9 @@ Fatal error: Uncaught Octopus\Exception\OctopusServiceErrorException: Service no
 ```
 
 
+
+
+Related
+=======
+
+- [BlueOctopusServiceContainer](https://github.com/lingtalfi/Octopus/blob/master/doc/BlueOctopusServiceContainer.md)

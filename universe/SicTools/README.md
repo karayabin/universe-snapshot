@@ -41,6 +41,10 @@ Summary
 History Log
 ------------------
 
+- 1.1.0 -- 2019-02-07
+
+    - add callable notation interpretation for SicTools\HotServiceResolver and SicTools\ColdServiceResolver
+
 - 1.0.1 -- 2019-02-07
 
     - fix SicTools\ColdServiceResolver->addServiceCode not resetting stack

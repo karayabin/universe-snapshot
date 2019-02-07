@@ -10,8 +10,8 @@ use Jin\Configuration\ConfigurationFileParser;
 use Jin\Configuration\LoggerConfigurator;
 use Jin\Configuration\PhpConfigurator;
 use Jin\Configuration\TemplateEngineMasterConfigurator;
+use Jin\Container\ServiceContainer\JinHotServiceContainer;
 use Jin\Registry\Access;
-use Octopus\OctopusServiceContainer;
 use Registry\Registry;
 
 /**
@@ -141,6 +141,8 @@ class ApplicationEnvironment
         Access::setConfigurationFileParser($confParser);
 
 
+
+
         //--------------------------------------------
         // CREATING VARIABLES AND SERVICES CONTAINERS
         //--------------------------------------------
@@ -148,11 +150,24 @@ class ApplicationEnvironment
         self::bootServices($appDir, $appProfile, $confParser); // now services are accessible via Access::Service
 
 
-        az("ok");
+        $logger = Access::service()->get("logger");
+        az($logger);
+        az("ok" , __FILE__);
+
+
+
+        //--------------------------------------------
+        // MAIN LOGGER
+        //--------------------------------------------
+        Access::setLog(LoggerConfigurator::configure($appDir, $confParser)); // share the main app logger instance with all other components
+
+
+
         //--------------------------------------------
         // REGISTRY
         //--------------------------------------------
         Access::setRegistry(new Registry());
+
 
 
         $errors = [];
@@ -183,10 +198,6 @@ class ApplicationEnvironment
         ButineurAutoloader::getInst()->addLocation($appDir . "/controller", "Controller");
 
 
-        //--------------------------------------------
-        // MAIN LOGGER
-        //--------------------------------------------
-        Access::setLog(LoggerConfigurator::configure($appDir, $confParser)); // share the main app logger instance with all other components
 
 
         if ($errors) {
@@ -283,16 +294,11 @@ class ApplicationEnvironment
         } else {
             $varDir = $appDir . "/config/services";
             $sicConf = $confParser->parseDir($varDir);
-            $services = $sicServices['services'] ?? [];
-
-
-//            $oService = OctopusServiceContainer::buildFromSic($services);
-
-
-//            az($oService->get("mail")->sayHello());
+            az($sicConf);
+            $services = $sicConf['services'] ?? [];
+            $oService = new JinHotServiceContainer();
+            $oService->build($services);
         }
-
-
         Access::setServiceContainer($oService);
 
     }

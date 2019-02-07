@@ -45,9 +45,13 @@ class HotServiceResolver
      * - the sic block contains the pass key.
      *
      *
+     * Note: when called internally, this method can also return a callable (i.e. an array of [$o, $methodName]).
+     * That's because a callable can be an argument of a method.
+     *
+     *
      *
      * @param array $sicBlock
-     * @return false|object, false is returned when the given array IS NOT a sic block (or a sic block with the pass key defined)
+     * @return false|object|array, false is returned when the given array IS NOT a sic block (or a sic block with the pass key defined)
      * @throws SicBlockWillNotResolveException when the sic block will not resolve
      *
      *
@@ -124,6 +128,18 @@ class HotServiceResolver
             }
 
 
+            //--------------------------------------------
+            // CALLABLE
+            //--------------------------------------------
+            /**
+             * Note: the callable shouldn't be returned at the root level (the getService call made by the client),
+             * but on nested levels it can (internal calls to the resolveArgs method which in turn calls the
+             * getService method recursively...).
+             */
+            if (array_key_exists("callable_method", $sicBlock)) {
+                $callableMethod = $sicBlock['callable_method'];
+                return [$service, $callableMethod];
+            }
             return $service;
         }
         return false;
