@@ -248,15 +248,17 @@ Customizing the generator
 =========================
 
 The **Octopus\ServiceContainerBuilder\DarkBlueOctopusServiceContainerBuilder** generator
-can be customized to create a service container class that match your needs.
+let you customized the created service container classes.
 
-The configuration options are passed along to the **build** method, and are the following:
+This is done by using second argument of the **build** method: $options.
+
+The $options argument is an array with the following keys:
 
 - **classCreator**: an instance of the **ClassCreator\Creator\ClassCreator**. If not set, the default ClassCreator will be used.
 
     See [ClassCreator documentation](https://github.com/karayabin/universe-snapshot/tree/master/universe/ClassCreator) for more details.
 
-- **profile**: **ClassCreator\Profile\Profile**, the profile (see class creator documentation for more details). If not set, the default profile will be used.
+- **profile**: **ClassCreator\Profile\Profile**, the profile (see [class creator documentation profile](https://github.com/karayabin/universe-snapshot/tree/master/universe/ClassCreator#profile) for more details). If not set, the default profile will be used.
 
 - **namespace**: null|string, a namespace to use, null by default
 
