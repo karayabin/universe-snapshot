@@ -47,18 +47,27 @@ class ClassCreator
     protected $signature;
 
     /**
-     * This class holds the array of properties for the class being created.
+     * This property holds the array of properties for the class being created.
      *
      * @var Property[]
      */
     protected $properties;
 
     /**
-     * This class holds the array of methods for the class being created.
+     * This property holds the array of methods for the class being created.
      *
      * @var Method[]
      */
     protected $methods;
+
+
+    /**
+     * This property holds the profile to use for the class being created.
+     * If not set, a default profile will be used.
+     *
+     * @var Profile
+     */
+    protected $profile;
 
 
     /**
@@ -69,6 +78,7 @@ class ClassCreator
         $this->namespace = null;
         $this->useStatements = [];
         $this->comment = null;
+        $this->profile = null;
 
         $this->signature = null;
 
@@ -150,6 +160,19 @@ class ClassCreator
         $this->methods[] = $method;
         return $this;
     }
+
+    /**
+     * Sets the profile for the class being created.
+     *
+     * @param Profile $profile
+     * @return $this
+     */
+    public function setProfile(Profile $profile)
+    {
+        $this->profile = $profile;
+        return $this;
+    }
+
 
 
 
@@ -321,7 +344,10 @@ class ClassCreator
      */
     protected function getDefaultProfile()
     {
-        return new Profile();
+        if (null === $this->profile) {
+            $this->profile = new Profile();
+        }
+        return $this->profile;
     }
 
     //--------------------------------------------

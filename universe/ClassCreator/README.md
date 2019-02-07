@@ -343,6 +343,10 @@ method_children_indentation_unit |  space | Defines the character to use (space|
 History Log
 ------------------
 
+- 1.0.1 -- 2019-02-07
+
+    - add ClassCreator\Creator\ClassCreator->setProfile method
+
 - 1.0.0 -- 2019-02-07
 
     - initial commit
