@@ -27,11 +27,20 @@ class ConfigurationFileParser
 
 
     /**
+     * This property holds the array ref resolver instance used to resolve tags in the configuration
+     * arrays.
+     *
+     * @var ArrayRefResolverInterface
+     */
+    private $resolver;
+
+    /**
      * @info Constructs the ConfigurationFileParser instance with a default profile value.
      */
     public function __construct()
     {
         $this->profile = "prod";
+        $this->resolver = null;
     }
 
 
@@ -45,12 +54,28 @@ class ConfigurationFileParser
     }
 
 
+    public function setResolver(ArrayRefResolverInterface $resolver)
+    {
+        $this->resolver = $resolver;
+    }
+
+    /**
+     * @return ArrayRefResolverInterface|ArrayTagResolver|null
+     */
+    public function getResolver()
+    {
+        if (null === $this->resolver) {
+            $this->resolver = new ArrayTagResolver();
+        }
+        return $this->resolver;
+    }
 
 
     public function parseDir($dirPath, array $options = [])
     {
 
         $parseFileWithSameName = $options['parseFileWithSameName'] ?? true;
+        $resolve = $options['resolve'] ?? true;
 
         $conf = [];
         if (true === $parseFileWithSameName) {
@@ -81,8 +106,59 @@ class ConfigurationFileParser
                 }
             }
         }
+
+
+        if (true === $resolve) {
+            $this->getResolver()->resolve($conf, [
+                /**
+                 * Note: in a jin app so far, recursion is only needed for the (config) variables the very first time,
+                 * and this is handled manually in the Jin\ApplicationEnvironment\ApplicationEnvironment::bootVariables method.
+                 *
+                 * Once the variables are (recursively) resolved, they are available via the Access::conf service, and so
+                 * any subsequent byml file that we parse can just inject those parsed/resolved variables into the
+                 * configuration to parse, we don't need to recursively solve the variables anymore.
+                 */
+                "recursion" => false,
+            ]);
+        }
+
         return $conf;
     }
+
+
+    /**
+     * @info Parses and resolves the configuration file (which path is given) according to the mechanism explained below.
+     *
+     * This method does actually the following things:
+     *
+     * - parsing the given configuration file according to the given profile (see parseFileRaw method)
+     * - resolving the values using the Conf object under the hood.
+     *          Note that if the Conf object is not ready, results might be unpredictable.
+     * - optional: resolving the service instantiation code
+     *
+     *
+     *
+     * Note: if you want to parse the file without resolving its variable, use the parseFileRaw method instead.
+     *
+     *
+     * @param $filePath
+     * @param bool $interpretServiceInstantiationCode =true
+     * @seeMethod parseFileRaw
+     * @return array
+     */
+//    public function parseFile($filePath, bool $interpretServiceInstantiationCode = true)
+//    {
+//        $conf = $this->parseFileRaw($filePath);
+//        $this->resolve($conf); // resolving calls to configuration variables
+//
+//        // resolving sic? (service instantiation code)
+//        if (true === $interpretServiceInstantiationCode) {
+//            $this->resolveServiceInstantiationCode($conf);
+//        }
+//
+//
+//        return $conf;
+//    }
 
     /**
      * @info Parses and the configuration file (which path is given) according to the mechanism explained below
@@ -145,6 +221,48 @@ class ConfigurationFileParser
 
         return $conf;
     }
+
+
+
+    //--------------------------------------------
+    //
+    //--------------------------------------------
+    /**
+     * @info Resolve the given array using the Conf instance.
+     * Warning: this method only works properly if the Conf instance is configured.
+     *
+     * Normally this happen in the middle of the Jin\ApplicationEnvironment\ApplicationEnvironment::boot method.
+     * In other words if you haven't called the boot method yet and done nothing special, this method WILL NOT WORK
+     * properly.
+     *
+     *
+     * @param array $array
+     * @deprecated
+     */
+//    private function resolve(array & $array)
+//    {
+//        array_walk_recursive($array, function (&$v) {
+//            $replaceStringInline = false;
+//            $ret = preg_replace_callback('!\$\{([^}]*)\}!', function ($val) use (&$v, &$replaceStringInline) {
+//                $key = $val[1];
+//
+//                // if the tag spans the whole value, replacing and converting to the right type
+//                // so that we pass booleans, objects, ...
+//                if ('${' . $key . '}' === $v) {
+//                    $v = Access::conf()->get($key, $key);
+//                } else {
+//                    // using the preg_replace function to replace the tag inline
+//                    $replaceStringInline = true;
+//                    return Access::conf()->get($key, $key);
+//                }
+//
+//            }, $v);
+//
+//            if ($replaceStringInline) {
+//                $v = $ret;
+//            }
+//        });
+//    }
 
 
 }

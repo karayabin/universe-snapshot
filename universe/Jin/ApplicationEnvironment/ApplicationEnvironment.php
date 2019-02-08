@@ -11,6 +11,7 @@ use Jin\Configuration\LoggerConfigurator;
 use Jin\Configuration\PhpConfigurator;
 use Jin\Configuration\TemplateEngineMasterConfigurator;
 use Jin\Container\ServiceContainer\JinHotServiceContainer;
+use Jin\Log\Logger;
 use Jin\Registry\Access;
 use Registry\Registry;
 
@@ -141,8 +142,6 @@ class ApplicationEnvironment
         Access::setConfigurationFileParser($confParser);
 
 
-
-
         //--------------------------------------------
         // CREATING VARIABLES AND SERVICES CONTAINERS
         //--------------------------------------------
@@ -150,10 +149,14 @@ class ApplicationEnvironment
         self::bootServices($appDir, $appProfile, $confParser); // now services are accessible via Access::Service
 
 
-        $logger = Access::service()->get("logger");
+        /**
+         * @var Logger $logger
+         */
+        $logger = Access::service()->get("core.dispatcher")->trigger('on_services_ready');
+        $logger = Access::service()->get("on_services_ready")->prepare();
         az($logger);
-        az("ok" , __FILE__);
-
+        az($logger->debug("Test"));
+        az("ok", __FILE__);
 
 
         //--------------------------------------------
@@ -162,12 +165,10 @@ class ApplicationEnvironment
         Access::setLog(LoggerConfigurator::configure($appDir, $confParser)); // share the main app logger instance with all other components
 
 
-
         //--------------------------------------------
         // REGISTRY
         //--------------------------------------------
         Access::setRegistry(new Registry());
-
 
 
         $errors = [];
@@ -196,8 +197,7 @@ class ApplicationEnvironment
         // AUTOLOADER
         //--------------------------------------------
         ButineurAutoloader::getInst()->addLocation($appDir . "/controller", "Controller");
-
-
+        ButineurAutoloader::getInst()->addLocation($appDir . "/plugin", "Plugin");
 
 
         if ($errors) {
@@ -235,32 +235,33 @@ class ApplicationEnvironment
     {
         $cachedConfFile = $appDir . "/cache/application/VariableContainer-$appProfile.php";
         if (file_exists($cachedConfFile)) {
+            // using blue octopus
             include_once $cachedConfFile;
             $className = "VariableContainer" . ucfirst(strtolower($appProfile));
             $oConf = new $className();
         } else {
+            // using red octopus
             $varDir = $appDir . "/config/variables";
             $conf = $confParser->parseDir($varDir, [
                 "resolve" => false,
             ]);
 
 
-            // resolving references on themselves...
+            // resolving references on themselves, once for all...
             $resolver = $confParser->getResolver();
-            $resolver->setVariables($conf);
+            $resolver->setVariables(array_merge([
+                "appDir" => $appDir,
+                "appProfile" => $appProfile,
+            ], $conf));
             $resolver->resolve($conf, [
                 "recursive" => true,
             ]);
 
             $oConf = new Conf();
             $oConf->setVars($conf);
-
-
         }
 
 
-        $oConf->setVar("appDir", $appDir);
-        $oConf->setVar("appProfile", $appProfile);
         Access::setConf($oConf);
     }
 
@@ -294,7 +295,6 @@ class ApplicationEnvironment
         } else {
             $varDir = $appDir . "/config/services";
             $sicConf = $confParser->parseDir($varDir);
-            az($sicConf);
             $services = $sicConf['services'] ?? [];
             $oService = new JinHotServiceContainer();
             $oService->build($services);
