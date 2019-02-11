@@ -20,7 +20,7 @@ class DependencyTool
      *
      * See the [universe dependencies document](https://github.com/lingtalfi/TheScientist/blob/master/universe-dependencies-2019.md) for more information.
      *
-     * The array is a list of dependencyArray, each of which being an array with 3 items:
+     * The array is a list of dependencyItem, each of which being an array with 3 items:
      *
      * - 0: the dependency system name (universe, git, ...).
      * - 1: the dependency item (name, url, ...).
@@ -52,12 +52,14 @@ class DependencyTool
                             $ret[] = ["universe.$maintainer", $planet, $tag];
                         }
                     }
-                } elseif ('git' === $system) {
+                }
+                elseif ('git' === $system) {
                     foreach ($arr as $dependency) {
                         $p = explode(':::', $dependency, 2);
                         if (2 === count($p)) {
                             list($url, $tag) = $p;
-                        } else {
+                        }
+                        else {
                             $url = $dependency;
                             $tag = '*';
                         }
@@ -68,4 +70,45 @@ class DependencyTool
         }
         return $ret;
     }
+
+
+    /**
+     * Returns the home url (the url of the documentation) for the given $dependencyItem.
+     * $dependencyItems are returned by the getDependencyList method of this class.
+     *
+     *
+     * Design note: this method encapsulates the logic of getting the url of the documentation
+     * for EVERY dependency system handled by the universe.
+     * In the future, this method might execute some internet lookup to achieve its goal,
+     * but for now, everything is hardcoded (because all the dependency systems are well known in advance...).
+     *
+     *
+     *
+     *
+     *
+     *
+     * @seeMethod getDependencyList
+     *
+     * @param array $dependencyItem
+     * @return string
+     * @throws UniverseToolsException, When the dependency system is unknown to this class.
+     */
+    public static function getDependencyHomeUrl(array $dependencyItem)
+    {
+        $dependencySystem = $dependencyItem[0];
+        $target = $dependencyItem[1];
+
+        switch ($dependencySystem) {
+            case "universe.ling":
+                return "https://github.com/karayabin/universe-snapshot/tree/master/universe/$target";
+                break;
+            case "git":
+                return $target;
+                break;
+            default:
+                throw new UniverseToolsException("Unknown dependency system: $dependencySystem");
+                break;
+        }
+    }
+
 }

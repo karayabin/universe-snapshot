@@ -1,9 +1,12 @@
 DependencyTool
 ==============
+2019-02-08 --> 2019-02-11
 
 
 The getDependencyList method
 ----------------------------
+2019-02-08
+
 
 
 You can use this method to get the list of the dependencies of a planet which uses [the new dependency system](https://github.com/lingtalfi/TheScientist/blob/master/universe-dependencies-2019.md).
@@ -36,4 +39,40 @@ array(3) {
   }
 }
 
+```
+
+
+The getDependencyHomeUrl method
+----------------------------
+2019-02-11
+
+
+Returns the home url of the given dependency item.
+
+A dependency item is an item returned by the getDependencyList method (see the method above in this document).
+
+The home url is actually the main page of the repository.
+
+Note: this method was originally created so that documentation authors can create a "Related planets" section
+with links to external dependencies.
+
+
+
+
+The following code:
+
+```php
+$item = [
+    "universe.ling",
+    "Bat",
+    "*",
+];
+az(DependencyTool::getDependencyHomeUrl($item)); // string(71) "https://github.com/karayabin/universe-snapshot/tree/master/universe/Bat"
+```
+
+
+Will output:
+
+```html
+string(71) "https://github.com/karayabin/universe-snapshot/tree/master/universe/Bat"
 ```
