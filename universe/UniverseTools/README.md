@@ -32,6 +32,10 @@ Summary
 History Log
 ------------------
 
+- 1.1.0 -- 2019-02-08
+
+    - add UniverseTools\DependencyTool::parseDumpDependencies method
+
 - 1.0.0 -- 2019-02-08
 
     - initial commit

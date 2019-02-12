@@ -1,3 +1,5 @@
 universe:
     ling:
         BabyYaml: *
+        DirScanner: *
+        TokenFun: *

@@ -4,6 +4,8 @@ namespace UniverseTools;
 
 
 use BabyYaml\BabyYamlUtil;
+use DirScanner\YorgDirScannerTool;
+use TokenFun\TokenFinder\Tool\TokenFinderTool;
 use UniverseTools\Exception\UniverseToolsException;
 
 
@@ -12,6 +14,80 @@ use UniverseTools\Exception\UniverseToolsException;
  */
 class DependencyTool
 {
+
+    /**
+     * Parses the planet's [BSR-0](https://github.com/lingtalfi/BumbleBee/blob/master/Autoload/convention.bsr0.eng.md) classes
+     * and returns a list of dependencies to put in the dependencies.byml * at the root of your planet.
+     *
+     * For each dependency, this method will create a new line formatted like this:
+     *
+     * - dependencyName: *
+     *
+     * Note: this is the notation for the universe @keyword(dependency system).
+     * Other dependency systems are not supported yet.
+     *
+     *
+     * Note2: This method only works if there is an effective bsr-0 autoloader in place.
+     * Note3: This method works by parsing the use statements in your classes, so make sure to clean your import use statements
+     *      before running this method.
+     *
+     *
+     *
+     * @param $planetDir , string. The directory path of the planet to scan.
+     * @param $br , string = <br>. The string to use as the carriage return.
+     *
+     *
+     * @return string
+     * @throws UniverseToolsException
+     */
+    public static function parseDumpDependencies(string $planetDir, $br = '<br>')
+    {
+        if (false === is_dir($planetDir)) {
+            throw new UniverseToolsException("Dir not found: $planetDir");
+        }
+
+        $allUseStatements = [];
+
+        $planetName = basename($planetDir);
+        $files = YorgDirScannerTool::getFilesWithExtension($planetDir, 'php', false, true, true);
+
+        foreach ($files as $file) {
+            $classPath = $planetName . "/" . substr($file, 0, -4);
+            $className = str_replace('/', '\\', $classPath);
+            $classFile = $planetDir . "/" . $file;
+
+            try {
+                $o = new \ReflectionClass($className);
+                $tokens = token_get_all(file_get_contents($classFile));
+                $useStatements = TokenFinderTool::getUseDependencies($tokens);
+
+                // filtering out internal use statements (statements referencing a class inside the planet being parsed)
+                $useStatements = array_filter($useStatements, function ($v) use ($planetName) {
+                    if (0 === strpos($v, $planetName . "\\")) {
+                        return false;
+                    }
+                    return true;
+                });
+                $allUseStatements = array_merge($allUseStatements, $useStatements);
+
+            }
+            catch (\ReflectionException $e) {
+                // not a bsr-0 class
+                continue;
+            }
+
+        }
+
+
+        // reducing use statements to planet names
+        $lines = [];
+        foreach ($allUseStatements as $statement) {
+            $lines[] = explode('\\', $statement)[0] . ': *';
+        }
+        $lines = array_unique($lines);
+
+        return implode($br, $lines);
+    }
 
 
     /**
