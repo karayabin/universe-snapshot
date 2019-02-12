@@ -63,16 +63,32 @@ class ZeusTemplateEngine implements UniversalTemplateEngineInterface
                 $path = $dirPath . "/" . $relativePath;
                 if (is_file($path)) {
                     return $this->interpret($path, $variables);
-                } else {
+                }
+                else {
                     $this->addError("file not found: $path (from resourceId: $resourceId");
                 }
-            } else {
+            }
+            else {
                 $this->addError("undefined dir symbol $dir for in resourceId: $resourceId");
             }
-        } else {
+        }
+        else {
             $this->addError("invalid resourceId $resourceId: the colon char (:) was not found");
         }
         return false;
+    }
+
+
+    /**
+     * Returns the interpreted code corresponding to the template which $path is given.
+     *
+     * @param $path
+     * @param array $variables
+     * @return false|string
+     */
+    public function renderByPath($path, array $variables = [])
+    {
+        return $this->interpret($path, $variables);
     }
 
 

@@ -43,7 +43,6 @@ Inside template files, the following variables are available:
 How to use?
 ===========
 
-You first need to define directory aliases with the setDirectories method, then you can call the render method.
 
 
 
@@ -64,15 +63,43 @@ You first need to define directory aliases with the setDirectories method, then 
 ```
 
 
+
+Now we want to render this template.
+
+We have two options:
+
+- either we call it by its file name directly
+- or we use the directory alias provided by Zeus by default
+
+
+
+Using the file name directly
+---------------------------
+
+We just need to call the renderByPath method, as shown in the following code:
+
+```php
+$tpl = "/path/to/my_app/pages/zeus/home.php";
+$o = new ZeusTemplateEngine();
+echo $o->renderByPath($tpl, [
+    "fruit" => "apple",
+]);
+
+```
+
+
+
+Using the directory alias system
+---------------------------
+
+
+
+You first need to define directory aliases with the setDirectories method, then you can call the render method.
+
+
 Then, in your main application file, paste the following code:
 
 ```php
-<?php
-
-
-use ZeusTemplateEngine\ZeusTemplateEngine;
-
-require_once __DIR__ . "/../universe/bigbang.php"; // activate universe
 
 
 $o = new ZeusTemplateEngine();
@@ -111,6 +138,10 @@ With:
 History Log
 ------------------
 
+- 1.2.0 -- 2019-2-12
+
+    - add ZeusTemplateEngine\ZeusTemplateEngine->renderByPath method
+    
 - 1.1.0 -- 2019-01-22
 
     - removed implicit file extension to allow the same instance to process different file extensions if necessary
