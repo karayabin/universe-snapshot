@@ -26,13 +26,18 @@ Or just download it and place it where you want otherwise.
 Summary
 =======
 - [The dependency tool](https://github.com/lingtalfi/UniverseTools/blob/master/doc/DependencyTool.md)
+- [The planet tool](https://github.com/lingtalfi/UniverseTools/blob/master/doc/PlanetTool.md)
 
 
 
 History Log
 ------------------
 
-- 1.1.0 -- 2019-02-08
+- 1.2.0 -- 2019-02-12
+
+    - add UniverseTools\PlanetTool class
+
+- 1.1.0 -- 2019-02-12
 
     - add UniverseTools\DependencyTool::parseDumpDependencies method
 
