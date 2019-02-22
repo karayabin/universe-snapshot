@@ -20,10 +20,19 @@ Adds the property line to the given $s string.
 Parameters
 --------------
 
+
 - s
-    - property
-    - showDeclaringClass
+
     
+
+- property
+
+    
+
+- showDeclaringClass
+
+    
+
 
 Return values
 ----------------

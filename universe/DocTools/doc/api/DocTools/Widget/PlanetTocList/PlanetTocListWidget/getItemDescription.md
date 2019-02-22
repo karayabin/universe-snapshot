@@ -27,11 +27,23 @@ Mode can be one of:
 Parameters
 --------------
 
+
 - comment
-    - mode
-    - formatterCallable
-    - debugString
+
     
+
+- mode
+
+    
+
+- formatterCallable
+
+    
+
+- debugString
+
+    
+
 
 Return values
 ----------------

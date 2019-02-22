@@ -20,8 +20,11 @@ Sets the name of this planet.
 Parameters
 --------------
 
+
 - name
+
     
+
 
 Return values
 ----------------

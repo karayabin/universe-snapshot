@@ -22,8 +22,11 @@ See [the inline functions page](https://github.com/lingtalfi/DocTools/blob/maste
 Parameters
 --------------
 
+
 - argsList
+
     
+
 
 Return values
 ----------------

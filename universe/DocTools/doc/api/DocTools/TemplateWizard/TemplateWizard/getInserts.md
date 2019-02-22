@@ -20,8 +20,11 @@ Returns an array of inserts for the given $type.
 Parameters
 --------------
 
+
 - type
+
     
+
 
 Return values
 ----------------

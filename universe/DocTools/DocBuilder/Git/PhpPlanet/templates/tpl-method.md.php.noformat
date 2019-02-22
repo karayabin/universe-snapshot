@@ -42,8 +42,12 @@ Parameters
 
 <?php if (true === $methodInfo->hasParameters()): ?>
 <?php foreach ($methodInfo->getParameters() as $parameterInfo): ?>
-- <?php echo $parameterInfo->getName() . PHP_EOL; ?>
+
+- <?php echo $parameterInfo->getName(); ?>
+
+
     <?php echo $parameterInfo->getDescriptiveText(); ?>
+
 <?php endforeach; ?>
 <?php else: ?>
 This method has no parameters.

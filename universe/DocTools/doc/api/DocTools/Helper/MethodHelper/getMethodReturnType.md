@@ -20,10 +20,19 @@ Returns the method's return type, with links to class names when possible.
 Parameters
 --------------
 
+
 - method
-    - generatedItems2Url
-    - report
+
     
+
+- generatedItems2Url
+
+    
+
+- report
+
+    
+
 
 Return values
 ----------------

@@ -20,8 +20,11 @@ Sets the resolveInlineTags.
 Parameters
 --------------
 
+
 - resolveInlineTags
+
     
+
 
 Return values
 ----------------

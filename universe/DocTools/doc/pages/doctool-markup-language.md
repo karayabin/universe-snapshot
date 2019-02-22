@@ -501,14 +501,13 @@ Following are examples of the method return tag notation (they are all valid):
 Inline functions
 ===============
 
-
 An inline function, sometimes referred to as an inline tag, is a replacement mechanism which can be written anywhere (i.e. not just in a [php doc comment](#the-php-doc-comment)). 
 
 All inline-level tags have the same notation:
 
 - notation: ```<@> <functionName> <(> <argsList>  <)> ```
 
-With:
+    With:
     - functionName, the name of the function.
         Allowed chars: alpha-numeric chars, underscores.
     - argsList, a comma separated list of arguments.

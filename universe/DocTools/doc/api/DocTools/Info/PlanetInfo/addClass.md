@@ -20,8 +20,11 @@ Adds a class to this instance.
 Parameters
 --------------
 
+
 - class
+
     
+
 
 Return values
 ----------------

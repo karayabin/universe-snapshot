@@ -20,8 +20,11 @@ Returns whether the comment has the tag $tagName.
 Parameters
 --------------
 
+
 - tagName
+
     
+
 
 Return values
 ----------------

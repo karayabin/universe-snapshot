@@ -20,12 +20,24 @@ Interprets the given $tags, and potentially configures the $comment accordingly.
 Parameters
 --------------
 
+
 - tags
-    - comment
-    - info
-    An array containing the following variables:
-- declaringClass: the name of the class in which the doc comment was written.- report
+
     
+
+- comment
+
+    
+
+- info
+
+    An array containing the following variables:
+- declaringClass: the name of the class in which the doc comment was written.
+
+- report
+
+    
+
 
 Return values
 ----------------

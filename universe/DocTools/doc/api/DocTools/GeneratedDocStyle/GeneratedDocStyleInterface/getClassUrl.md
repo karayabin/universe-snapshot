@@ -20,10 +20,19 @@ Returns the class url.
 Parameters
 --------------
 
+
 - planetName
-    The planet name.- generatedClassBaseUrl
-    The generated class base url.- className
+
+    The planet name.
+
+- generatedClassBaseUrl
+
+    The generated class base url.
+
+- className
+
     The class name.
+
 
 Return values
 ----------------

@@ -21,10 +21,19 @@ and returns the rendered result.
 Parameters
 --------------
 
+
 - template
-    - z
-    Array of user defined variables.- zz
+
     
+
+- z
+
+    Array of user defined variables.
+
+- zz
+
+    
+
 
 Return values
 ----------------

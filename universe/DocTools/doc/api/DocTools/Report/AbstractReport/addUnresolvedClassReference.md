@@ -20,9 +20,15 @@ Adds an unresolved class reference.
 Parameters
 --------------
 
+
 - className
-    - hint
+
+    
+
+- hint
+
     A hint to help locate the unresolved class reference.
+
 
 Return values
 ----------------

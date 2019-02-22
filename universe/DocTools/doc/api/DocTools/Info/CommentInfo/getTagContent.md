@@ -20,9 +20,15 @@ Returns the body of the given $tag, or the $default value if the tag isn't defin
 Parameters
 --------------
 
+
 - tagName
-    - default
+
     
+
+- default
+
+    
+
 
 Return values
 ----------------

@@ -20,8 +20,11 @@ Sets the reflectionClass.
 Parameters
 --------------
 
+
 - reflectionClass
+
     
+
 
 Return values
 ----------------

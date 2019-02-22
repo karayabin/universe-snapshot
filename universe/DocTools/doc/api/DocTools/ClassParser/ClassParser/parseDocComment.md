@@ -29,12 +29,18 @@ Until the next tag, and so on...
 Parameters
 --------------
 
+
 - rawComment
-    - elementType
+
+    
+
+- elementType
+
     The type of the element the comment is written for, can be one of:
 - class
 - property (class property)
 - method
+
 
 Return values
 ----------------

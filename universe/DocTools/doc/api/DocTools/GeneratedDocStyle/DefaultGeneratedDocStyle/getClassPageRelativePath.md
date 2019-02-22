@@ -20,9 +20,15 @@ Returns the relative path to the class documentation page.
 Parameters
 --------------
 
+
 - planetName
-    - className
+
     
+
+- className
+
+    
+
 
 Return values
 ----------------

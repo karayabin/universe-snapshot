@@ -20,10 +20,19 @@ Adds an unresolved method reference.
 Parameters
 --------------
 
+
 - className
-    - methodName
-    - hint
+
+    
+
+- methodName
+
+    
+
+- hint
+
     A hint to help locate the unresolved method reference.
+
 
 Return values
 ----------------

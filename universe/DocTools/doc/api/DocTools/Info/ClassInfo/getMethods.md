@@ -20,9 +20,12 @@ Returns an array of [MethodInfo](https://github.com/lingtalfi/DocTools/blob/mast
 Parameters
 --------------
 
+
 - filter
+
     The methods visibility(ies) to return (public, protected, private).
 Can be expressed either as an array (to combine multiple visibilities) or a string (single visibility).
+
 
 Return values
 ----------------

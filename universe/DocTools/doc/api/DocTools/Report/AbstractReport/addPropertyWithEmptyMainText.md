@@ -20,9 +20,15 @@ Adds a property with an empty [main text](https://github.com/lingtalfi/DocTools/
 Parameters
 --------------
 
+
 - className
-    The name of the culprit class.- propertyName
+
+    The name of the culprit class.
+
+- propertyName
+
     
+
 
 Return values
 ----------------

@@ -20,9 +20,15 @@ Adds the name and the visibility of a property which doesn't have a non-empty do
 Parameters
 --------------
 
+
 - propertyName
-    - visibility
+
     
+
+- visibility
+
+    
+
 
 Return values
 ----------------

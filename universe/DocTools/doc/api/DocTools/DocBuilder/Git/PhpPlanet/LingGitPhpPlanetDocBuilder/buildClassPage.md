@@ -20,8 +20,11 @@ Builds a class page.
 Parameters
 --------------
 
+
 - classInfo
+
     
+
 
 Return values
 ----------------

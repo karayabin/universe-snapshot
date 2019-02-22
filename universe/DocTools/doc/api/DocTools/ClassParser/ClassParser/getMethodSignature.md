@@ -20,8 +20,11 @@ Returns the method signature.
 Parameters
 --------------
 
+
 - method
+
     
+
 
 Return values
 ----------------

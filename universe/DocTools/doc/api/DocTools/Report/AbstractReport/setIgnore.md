@@ -20,8 +20,11 @@ Sets the ignore array.
 Parameters
 --------------
 
+
 - ignore
+
     
+
 
 Return values
 ----------------

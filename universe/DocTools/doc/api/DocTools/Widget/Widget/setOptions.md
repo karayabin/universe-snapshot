@@ -20,8 +20,11 @@ Sets the options for this widget instance.
 Parameters
 --------------
 
+
 - options
+
     
+
 
 Return values
 ----------------

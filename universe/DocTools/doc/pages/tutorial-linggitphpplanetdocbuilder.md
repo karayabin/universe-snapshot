@@ -18,11 +18,11 @@ Intro
 In this tutorial we will explore how the LingGitPhpPlanetDocBuilder [DocBuilder](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/DocBuilder/DocBuilder.md) was built.
 
 
-This **DocBuilder** creates a documentation for a planet in the style of the [php.net](http://php.net/) documentation for classes,
+This **DocBuilder** creates a documentation for a planet (just the name of a package in the [universe](https://github.com/karayabin/universe-snapshot)) in the style of the [php.net](http://php.net/) documentation for classes,
 and ready to export on github.com.
 
 
-A planet is just a package in the [universe](https://github.com/karayabin/universe-snapshot).
+
 
 
 

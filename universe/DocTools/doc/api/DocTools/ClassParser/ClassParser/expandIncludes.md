@@ -25,9 +25,15 @@ See the [docTool markup language](https://github.com/lingtalfi/DocTools/blob/mas
 Parameters
 --------------
 
+
 - rawContent
-    - resolved
+
+    
+
+- resolved
+
     Whether the "@implementation tag" or "@overrides tag" has been expanded at least once.
+
 
 Return values
 ----------------

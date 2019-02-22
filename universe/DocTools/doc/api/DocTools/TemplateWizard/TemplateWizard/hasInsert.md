@@ -20,8 +20,11 @@ Returns whether an insert of the given $type exists.
 Parameters
 --------------
 
+
 - type
+
     
+
 
 Return values
 ----------------

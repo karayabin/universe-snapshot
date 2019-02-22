@@ -20,10 +20,19 @@ Returns the relative path to the method documentation page.
 Parameters
 --------------
 
+
 - planetName
-    - className
-    - methodName
+
     
+
+- className
+
+    
+
+- methodName
+
+    
+
 
 Return values
 ----------------

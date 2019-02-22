@@ -25,12 +25,27 @@ Available options are:
 Parameters
 --------------
 
+
 - sourceDir
-    - destinationDir
-    - interpreter
-    - report
-    - options
+
     
+
+- destinationDir
+
+    
+
+- interpreter
+
+    
+
+- report
+
+    
+
+- options
+
+    
+
 
 Return values
 ----------------

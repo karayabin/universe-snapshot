@@ -30,7 +30,9 @@ The info object should be stored and re-used in the buildDoc method.
 Parameters
 --------------
 
+
 - settings
+
     Settings (all mandatory except those prefixed with question mark):
 
 - planetDir: string. The location of the planet directory to parse.
@@ -66,6 +68,7 @@ If set, all generated files will be converted by this translator.
 By default, the md format is used (markdown).
 If you use html, be sure to also set an appropriate markdownTranslator, which will convert
 markdown to html.
+
 
 Return values
 ----------------

@@ -20,10 +20,19 @@ Creates the page in $file, based on the given $template and $variables.
 Parameters
 --------------
 
+
 - file
-    - template
-    - variables
+
     
+
+- template
+
+    
+
+- variables
+
+    
+
 
 Return values
 ----------------

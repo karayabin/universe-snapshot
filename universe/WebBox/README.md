@@ -24,7 +24,11 @@ Or just download it and place it where you want otherwise.
 
 
 
-Documentation is coming...
+Summary
+===========
+- [WebBox api](https://github.com/lingtalfi/WebBox/blob/master/doc/api/WebBox.md) (generated with [DocTools](https://github.com/lingtalfi/DocTools))
+
+
 
 
 

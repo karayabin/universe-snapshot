@@ -20,11 +20,23 @@ Returns the method url.
 Parameters
 --------------
 
+
 - planetName
-    The planet name.- generatedClassBaseUrl
-    The generated class base url.- className
-    The class name.- methodName
+
+    The planet name.
+
+- generatedClassBaseUrl
+
+    The generated class base url.
+
+- className
+
+    The class name.
+
+- methodName
+
     The method name.
+
 
 Return values
 ----------------

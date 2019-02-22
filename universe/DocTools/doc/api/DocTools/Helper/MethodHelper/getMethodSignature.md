@@ -20,11 +20,23 @@ Returns a method signature with links to class names when possible.
 Parameters
 --------------
 
+
 - method
-    - generatedItems2Url
-    - options
-    - report
+
     
+
+- generatedItems2Url
+
+    
+
+- options
+
+    
+
+- report
+
+    
+
 
 Return values
 ----------------

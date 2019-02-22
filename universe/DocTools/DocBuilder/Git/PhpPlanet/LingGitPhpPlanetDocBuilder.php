@@ -290,7 +290,6 @@ class LingGitPhpPlanetDocBuilder extends DocBuilder
             }
         }
 
-
         //--------------------------------------------
         // COPY DOC
         //--------------------------------------------
