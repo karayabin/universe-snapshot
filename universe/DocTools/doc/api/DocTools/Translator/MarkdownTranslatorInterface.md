@@ -17,7 +17,7 @@ Class synopsis
 ==============
 
 
-abstract class <span style="color: orange;">MarkdownTranslatorInterface</span>  {
+abstract class <span class="pl-k">MarkdownTranslatorInterface</span>  {
 
 - Methods
     - abstract public [translate](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Translator/MarkdownTranslatorInterface/translate.md)(string $string) : string

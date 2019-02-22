@@ -16,7 +16,7 @@ Class synopsis
 ==============
 
 
-class <span style="color: orange;">PropertyInfo</span> implements [InfoInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/InfoInterface.md) {
+class <span class="pl-k">PropertyInfo</span> implements [InfoInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/InfoInterface.md) {
 
 - Properties
     - protected [DocTools\Info\CommentInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/CommentInfo.md) [$comment](#property-comment) ;

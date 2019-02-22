@@ -45,7 +45,7 @@ Class synopsis
 ==============
 
 
-abstract class <span style="color: orange;">DocBuilder</span>  {
+abstract class <span class="pl-k">DocBuilder</span>  {
 
 - Properties
     - protected [DocTools\Report\ReportInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Report/ReportInterface.md) [$report](#property-report) ;

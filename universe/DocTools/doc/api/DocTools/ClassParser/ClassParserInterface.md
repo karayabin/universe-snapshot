@@ -25,7 +25,7 @@ Class synopsis
 ==============
 
 
-abstract class <span style="color: orange;">ClassParserInterface</span> implements [GenericParserInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/GenericParser/GenericParserInterface.md) {
+abstract class <span class="pl-k">ClassParserInterface</span> implements [GenericParserInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/GenericParser/GenericParserInterface.md) {
 
 - Methods
     - abstract public [parse](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/ClassParser/ClassParserInterface/parse.md)(string $className) : [InfoInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/InfoInterface.md)

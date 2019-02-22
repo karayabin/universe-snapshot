@@ -42,6 +42,7 @@ QuickNav
 - [The docTool notation](#the-doctool-notation)
 - [Tutorials](#tutorials)
 - [Dictionary](#dictionary)
+    - [Template](#template)
     - [Inserts](#inserts)
     - [GeneratedItems2Url](#generateditems2url)
 - [History Log](#history-log)
@@ -58,10 +59,10 @@ DocTools is an ensemble of classes which help creating a consistent documentatio
 
 DocTools provides 4 main components:
 
-- a parser, which scan a code base and returns information out of it (like the class names, the method names, the properties, the comments, the doc comment tags, ...)
-- a report page: an html page which tells you what's missing in your doc (for instance class XX doesn't have a comment, or this property of this class doesn't declare the "@var" tag, ...)
-- a docTool syntax: which extends the markdown syntax so that we can create documentation more intuitively
-- a documentation generator: which creates the documentation pages for you, based on a templates/widgets system that you create for your needs 
+- a **parser**, which scans a code base and returns information out of it (like the class names, the method names, the properties, the comments, the doc comment tags, ...)
+- a **report page**: an html page which tells you what's missing in your doc (for instance class XX doesn't have a comment, or this property of this class doesn't declare the "@var" tag, ...)
+- a **docTool syntax**: which extends the markdown syntax so that we can create documentation more intuitively
+- a **documentation generator**: aka [DocBuilder](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/DocBuilder/DocBuilder.md) which creates the documentation pages for you, based on a templates/widgets system that you create for your needs 
 
 
 
@@ -77,7 +78,7 @@ How to use?
 If you just want to generate a php style documentation for git (markdown) like the [DocTools api here](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools.md),
 then your fastest option is probably to just re-use the [LingGitPhpPlanetDocBuilder](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/DocBuilder/Git/PhpPlanet/LingGitPhpPlanetDocBuilder.md) [DocBuilder](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/DocBuilder/DocBuilder.md) that I made.
 
-Copy paste the code below, and play with the options.
+Copy paste the code below, and adapt the options to your project.
 
 
 ```php
@@ -317,7 +318,7 @@ $builder->showReport();
 However, DocTools is very flexible and let you create any type of documentation that you like.
 
 If you want to create your documentation, you'll have to understand the inners of 
-every (or most of the) DocTools object. 
+every (or most of the) DocTools objects. 
 
 A good place to start is this documentation: 
 
@@ -449,20 +450,142 @@ Dictionary
 ============
 
 
+
+Template
+----------
+
+A template is a skeleton of a documentation page.
+
+
+For instance, if we want to document a package which contains 10 classes,
+rather than creating 10 documentation pages,
+we can create 1 template and reuse it to generate the 10 pages (and thus saving a lot of time).
+
+Of course, the content of each class is different, but the base structure remains the same.
+ 
+In a template, we can write variables to express what's different from a class to another.
+
+So our template could look like this for instance:
+
+```php
+
+The <?php echo $z['classShortName']; ?> class
+================
+<?php echo $z['projectStartDate']; ?> --> <?php echo $z['date'] . PHP_EOL; ?>
+
+
+
+Introduction
+============
+
+<?php echo $z['classComment']; ?>
+
+
+Class synopsis
+==============
+
+
+<?php echo $z['classSynopsisWidget']; ?>
+
+
+
+
+<?php if ($z['classHasProperties']): ?>
+Properties
+=============
+
+<?php echo $z['classPropertiesWidget']; ?>
+<?php endif; ?>
+
+
+Methods
+==============
+
+<?php echo $z['classMethodsWidget']; ?>
+
+
+```
+
+
+
+The **$z** variable is how we access the variable information in our template.
+
+The information is available to use after we've parsed the code, using a [ClassParser](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/ClassParser/ClassParser.md)
+or a [PlanetParser](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/PlanetParser/PlanetParser.md).
+
+
+The [PageUtil](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Page/PageUtil.md) object is responsible for rendering templates.
+
+
+The [LingGitPhpPlanetDocBuilder](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/DocBuilder/Git/PhpPlanet/LingGitPhpPlanetDocBuilder.md) object builds a documentation based on templates.
+
+
+Another way to inject content in a template is to use [inserts](#inserts).
+
+
+
 Inserts
 ----------
  
-An insert is a file which is injected dynamically by your template.
-
-So for instance you create a template for a class called **my_class.template.php**, 
-in which you call the "examples" **inserts**.
-
-Then if you have three classes A, B, C to parse,
-
-you can then manually create different examples for each of the classes, without having to change your template.
+An insert is a file which is injected dynamically by your [template](#template).
 
 
-See the [tutorials section](#tutorials) for more details about the implementation.
+In your template, you can call the **inserts** like this:
+
+```php
+<?php if($zz->hasInsert('examples')): ?>
+Examples
+-----------
+
+<?php foreach($zz->getInserts('examples') as $content): ?>
+<?php echo $content; ?>
+<?php endforeach; ?>
+<?php endif; ?>
+```
+
+
+The **$zz** variable is a special variable representing a [wizard object](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/TemplateWizard/TemplateWizard.md) that has two methods:
+
+- hasInsert
+- getInserts
+
+
+See the [TemplateWizard](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/TemplateWizard/TemplateWizard.md) class for more details about how inserts work.
+
+
+Now imagine that your package has three classes A, B and C, organized as follow:
+
+
+- /my/package/Info/A.php
+- /my/package/Math/Sinus/B.php
+- /my/package/Terminal/Colors/C.php
+
+
+In the template code above, we're calling inserts with name "examples".
+
+And so, what the PageUtil object will do in the background is check whether those **examples** dir exist here:
+
+- /insert_root/Info/A/examples  
+- /insert_root/Math/Sinus/B/examples  
+- /insert_root/Terminal/Colors/C/examples
+
+
+The **insert_root** directory is defined by you in the configuration.
+
+When an **examples** directory is found, all files found in it will be parsed and their content will be injected in the template. 
+
+So for instance if we want to provide examples for class B, we can just add our files here:
+
+- /insert_root/Math/Sinus/B/examples/example1-classic-sinus.php  
+- /insert_root/Math/Sinus/B/examples/example2-complex-sinus.php  
+- /insert_root/Math/Sinus/B/examples/example3-another-sinus-with-cosinus.php
+- ... 
+  
+
+So, basically, an insert file let you inject content dynamically in your template.
+
+
+
 
 
 
@@ -472,10 +595,12 @@ GeneratedItems2Url
 
 **generatedItems2Url** is the name of the most important array in DocTools.
 
-It's an array which contains all classes and methods used by your documentation, and their respective url.
+It's an array which contains all classes and methods used by your documentation, and their respective urls.
+
+It's used to convert a class name and/or method name to a link to the appropriate documentation page.
 
 
-So technically speaking, it contains a map of items => url.
+So technically speaking, it contains a map of item => url.
 
 An item can be either a class name or a long method name.
 A long method name has the following notation:

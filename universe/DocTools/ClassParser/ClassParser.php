@@ -331,7 +331,7 @@ class ClassParser implements ClassParserInterface
 
 
             $returnType = "void";
-            $returnDescription = "void";
+            $returnDescription = "";
             $tagContent = $comment->getTagByName("return");
 
 

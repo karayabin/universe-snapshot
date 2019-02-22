@@ -4,22 +4,6 @@ DocTools
 
 
 
-A tool to create well-formatted php classes.
-
-
-This is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
-
-
-Install
-==========
-Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
-```bash
-uni import DocTools
-```
-
-Or just download it and place it where you want otherwise.
-
-
 
 Table of contents
 ===========
@@ -331,10 +315,3 @@ Dependencies
 - [Universe: ParseDown](https://github.com/karayabin/universe-snapshot/tree/master/universe/ParseDown)
 
 
-History Log
-==============
-
-
-- 1.0.0 -- 2019-02-22
-
-    - initial commit

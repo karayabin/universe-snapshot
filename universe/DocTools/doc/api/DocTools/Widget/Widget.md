@@ -16,7 +16,7 @@ Class synopsis
 ==============
 
 
-abstract class <span style="color: orange;">Widget</span> implements [WidgetInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/WidgetInterface.md) {
+abstract class <span class="pl-k">Widget</span> implements [WidgetInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/WidgetInterface.md) {
 
 - Properties
     - protected array [$options](#property-options) ;

@@ -18,7 +18,7 @@ Class synopsis
 ==============
 
 
-class <span style="color: orange;">PhpClassHelper</span>  {
+class <span class="pl-k">PhpClassHelper</span>  {
 
 - Methods
     - public static [getClasses2Urls](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Helper/PhpClassHelper/getClasses2Urls.md)() : array

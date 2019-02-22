@@ -16,7 +16,7 @@ Class synopsis
 ==============
 
 
-class <span style="color: orange;">MethodInfo</span> implements [InfoInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/InfoInterface.md) {
+class <span class="pl-k">MethodInfo</span> implements [InfoInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/InfoInterface.md) {
 
 - Properties
     - protected string [$visibility](#property-visibility) ;

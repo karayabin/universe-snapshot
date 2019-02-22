@@ -36,12 +36,14 @@ and uses the $itemFile as a base directory for different types of inserts.
 
 The structure looks like this:
 
+```txt
 - $rootDir/                                      # the regular documentation items are created under this directory
-- $itemRelativePath                         # this is a regular generated documentation item (class, method, ...)
+----- $itemRelativePath                         # this is a regular generated documentation item (class, method, ...)
 - $insertRootDir/                                # this directory contains all our inserts, it mimics the $rootDir structure
-- $itemRelativePathWithoutExtension/        # this directory contains the potential inserts for the $itemRelativePath doc item in particular
-- $type/                                # this directory contains all inserts of type $type for the $itemRelativePath doc item in particular
-- *.md                              # all markdown files under this directory, recursively, are insert files of type $type for the $itemRelativePath doc item in particular
+----- $itemRelativePathWithoutExtension/        # this directory contains the potential inserts for the $itemRelativePath doc item in particular
+--------- $type/                                # this directory contains all inserts of type $type for the $itemRelativePath doc item in particular
+------------- *.md                              # all markdown files under this directory, recursively, are insert files of type $type for the $itemRelativePath doc item in particular
+```
 
 
 Note: we just create inserts for the doc items we need (i.e. we don't need to create ALL inserts files for every doc item).
@@ -51,9 +53,11 @@ Note: we just create inserts for the doc items we need (i.e. we don't need to cr
 
 Typical insert types I personally use are:
 
+```txt
 - class-description.md           # for an extra class description
 - examples.md                    # for examples
 - related.md                     # for a "See Also" section
+```
 
 
 But of course, this depends on your own needs and you should use any type you want.
@@ -64,7 +68,7 @@ Class synopsis
 ==============
 
 
-class <span style="color: orange;">TemplateWizard</span>  {
+class <span class="pl-k">TemplateWizard</span>  {
 
 - Properties
     - protected string|null [$insertDir](#property-insertDir) ;

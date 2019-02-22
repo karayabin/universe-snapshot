@@ -149,7 +149,7 @@ class ClassSynopsisWidget extends Widget
         if (false === $class->isUserDefined()) {
             $className = '\\' . $className;
         }
-        $s .= '<span style="color: orange;">' . $className . '</span> ';
+        $s .= '<span class="pl-k">' . $className . '</span> ';
 
 
         $originalClassName = $className;

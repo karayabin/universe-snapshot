@@ -22,7 +22,7 @@ Class synopsis
 ==============
 
 
-class <span style="color: orange;">PlanetParser</span> implements [GenericParserInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/GenericParser/GenericParserInterface.md) {
+class <span class="pl-k">PlanetParser</span> implements [GenericParserInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/GenericParser/GenericParserInterface.md) {
 
 - Properties
     - protected [DocTools\ClassParser\ClassParserInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/ClassParser/ClassParserInterface.md) [$classParser](#property-classParser) ;

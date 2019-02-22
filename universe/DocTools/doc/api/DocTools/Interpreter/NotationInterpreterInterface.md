@@ -20,7 +20,7 @@ Class synopsis
 ==============
 
 
-abstract class <span style="color: orange;">NotationInterpreterInterface</span>  {
+abstract class <span class="pl-k">NotationInterpreterInterface</span>  {
 
 - Methods
     - abstract public [resolveInlineTags](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Interpreter/NotationInterpreterInterface/resolveInlineTags.md)(string $string, [DocTools\Report\ReportInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Report/ReportInterface.md) $report = null) : string

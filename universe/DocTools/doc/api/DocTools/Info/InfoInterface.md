@@ -20,7 +20,7 @@ Class synopsis
 ==============
 
 
-class <span style="color: orange;">InfoInterface</span>  {
+class <span class="pl-k">InfoInterface</span>  {
 
 }
 

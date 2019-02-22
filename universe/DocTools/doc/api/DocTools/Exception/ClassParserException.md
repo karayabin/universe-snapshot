@@ -17,7 +17,7 @@ Class synopsis
 ==============
 
 
-class <span style="color: orange;">ClassParserException</span> extends [DocToolsException](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Exception/DocToolsException.md) implements [\Throwable](http://php.net/manual/en/class.throwable.php) {
+class <span class="pl-k">ClassParserException</span> extends [DocToolsException](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Exception/DocToolsException.md) implements [\Throwable](http://php.net/manual/en/class.throwable.php) {
 
 - Inherited properties
     - protected  [Exception::$message](#property-message) =  ;

@@ -17,7 +17,7 @@ Class synopsis
 ==============
 
 
-class <span style="color: orange;">PageUtil</span>  {
+class <span class="pl-k">PageUtil</span>  {
 
 - Properties
     - protected string [$rootDir](#property-rootDir) ;

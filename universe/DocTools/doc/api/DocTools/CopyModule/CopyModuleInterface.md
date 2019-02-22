@@ -21,7 +21,7 @@ Class synopsis
 ==============
 
 
-abstract class <span style="color: orange;">CopyModuleInterface</span>  {
+abstract class <span class="pl-k">CopyModuleInterface</span>  {
 
 - Methods
     - abstract public [copy](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/CopyModule/CopyModuleInterface/copy.md)(string $sourceDir, string $destinationDir, [DocTools\Interpreter\NotationInterpreterInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Interpreter/NotationInterpreterInterface.md) $interpreter, [DocTools\Report\ReportInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Report/ReportInterface.md) $report = null, array $options = []) : void

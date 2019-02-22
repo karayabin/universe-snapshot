@@ -16,7 +16,7 @@ Class synopsis
 ==============
 
 
-class <span style="color: orange;">ParseDownTranslator</span> extends [Parsedown](https://github.com/erusev/parsedown/blob/master/Parsedown.php) implements [MarkdownTranslatorInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Translator/MarkdownTranslatorInterface.md) {
+class <span class="pl-k">ParseDownTranslator</span> extends [Parsedown](https://github.com/erusev/parsedown/blob/master/Parsedown.php) implements [MarkdownTranslatorInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Translator/MarkdownTranslatorInterface.md) {
 
 - Inherited constants
     - public const [Parsedown::version](#constant-version) = 1.8.0-beta-5 ;

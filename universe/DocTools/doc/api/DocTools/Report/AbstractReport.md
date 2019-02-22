@@ -16,7 +16,7 @@ Class synopsis
 ==============
 
 
-abstract class <span style="color: orange;">AbstractReport</span> implements [ReportInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Report/ReportInterface.md) {
+abstract class <span class="pl-k">AbstractReport</span> implements [ReportInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Report/ReportInterface.md) {
 
 - Properties
     - protected array [$parsedInlineFunctions](#property-parsedInlineFunctions) ;
