@@ -1,0 +1,10 @@
+universe:
+    ling:
+        Bat: *
+        TokenFun: *
+        DirScanner: *
+        UniverseTools: *
+        ArrayToString: *
+        ArrayToTable: *
+        ZeusTemplateEngine: *
+        ParseDown: *

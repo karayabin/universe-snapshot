@@ -1,0 +1,46 @@
+PropertyInfo::getVisibility
+================
+
+PropertyInfo::getVisibility — Returns the visibility of this instance.
+
+Description
+---------------
+
+
+public [PropertyInfo::getVisibility](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/PropertyInfo/getVisibility.md)() : string
+
+
+
+
+Returns the visibility of this instance.
+It can be one of:
+- public
+- protected
+- private
+
+
+
+
+Parameters
+--------------
+
+This method has no parameters.
+
+
+Return values
+----------------
+
+Returns string.
+
+
+
+
+
+
+
+
+
+See Also
+-----------
+
+The [PropertyInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/PropertyInfo.md) class.

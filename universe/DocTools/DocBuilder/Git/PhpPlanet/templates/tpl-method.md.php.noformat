@@ -1,0 +1,83 @@
+<?php
+
+use DocTools\Info\MethodInfo;
+use DocTools\TemplateWizard\TemplateWizard;
+
+/**
+ * @var $methodInfo MethodInfo
+ */
+$methodInfo = $z['methodInfo'];
+
+/**
+ * @var $zz TemplateWizard
+ */
+
+$methodFullName = $methodInfo->getReflectionMethod()->getDeclaringClass()->getShortName() . "::" . $methodInfo->getName();
+$returnDescription = $methodInfo->getReturnDescription();
+
+
+?><?php echo $methodFullName . PHP_EOL; ?>
+================
+
+<?php echo $methodFullName; ?> — <?php echo $methodInfo->getComment()->getFirstSentence(); ?>
+
+
+Description
+---------------
+
+
+<?php echo $z['methodSignature'] . PHP_EOL; ?>
+
+
+
+<?php echo $methodInfo->getComment()->getMainText(); ?>
+<?php if($methodInfo->getComment()->hasTag('overrideMe')): ?>
+Note: This method was written with the intent to be overridden by the user (i.e you should override this method in a sub-class).
+<?php endif; ?>
+
+
+
+Parameters
+--------------
+
+<?php if (true === $methodInfo->hasParameters()): ?>
+<?php foreach ($methodInfo->getParameters() as $parameterInfo): ?>
+- <?php echo $parameterInfo->getName() . PHP_EOL; ?>
+    <?php echo $parameterInfo->getDescriptiveText(); ?>
+<?php endforeach; ?>
+<?php else: ?>
+This method has no parameters.
+<?php endif; ?>
+
+
+Return values
+----------------
+
+Returns <?php echo $z['methodReturnType'] . "." . PHP_EOL; ?>
+<?php if ($returnDescription): ?>
+<?php echo $returnDescription; ?>
+<?php endif; ?>
+
+
+
+
+
+
+
+<?php if($zz->hasInsert('examples')): ?>
+Examples
+-----------
+
+<?php foreach($zz->getInserts('examples') as $content): ?>
+<?php echo $content; ?>
+<?php endforeach; ?>
+<?php endif; ?>
+
+
+See Also
+-----------
+
+The <?php echo $z['classLink']; ?> class.
+<?php foreach($zz->getInserts('related') as $content): ?>
+<?php echo $content; ?>
+<?php endforeach; ?>

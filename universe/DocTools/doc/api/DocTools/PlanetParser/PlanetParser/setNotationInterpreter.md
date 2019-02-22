@@ -1,0 +1,42 @@
+PlanetParser::setNotationInterpreter
+================
+
+PlanetParser::setNotationInterpreter — Sets the notation interpreter.
+
+Description
+---------------
+
+
+public [PlanetParser::setNotationInterpreter](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/PlanetParser/PlanetParser/setNotationInterpreter.md)([DocTools\Interpreter\NotationInterpreterInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Interpreter/NotationInterpreterInterface.md) $notationInterpreter) : void
+
+
+
+
+Sets the notation interpreter.
+
+
+
+
+Parameters
+--------------
+
+- notationInterpreter
+    
+
+Return values
+----------------
+
+Returns void.
+void
+
+
+
+
+
+
+
+
+See Also
+-----------
+
+The [PlanetParser](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/PlanetParser/PlanetParser.md) class.

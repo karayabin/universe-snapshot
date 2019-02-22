@@ -1,0 +1,50 @@
+<?php
+
+use DocTools\Info\ClassInfo;
+
+/**
+ * @var $class ClassInfo
+ */
+
+$class = $z['classInfo'];
+?>
+The <?php echo $class->getShortName(); ?> class
+================
+<?php echo $z['projectStartDate']; ?> --> <?php echo $z['date'] . PHP_EOL; ?>
+
+
+
+Introduction
+============
+
+<?php echo $class->getComment()->getMainText(); ?>
+
+
+Class synopsis
+==============
+
+
+<?php echo $z['classSynopsisWidget']; ?>
+
+
+
+
+<?php if ($class->hasProperties()): ?>
+Properties
+=============
+
+<?php echo $z['classPropertiesWidget']; ?>
+<?php endif; ?>
+
+
+Methods
+==============
+
+<?php echo $z['classMethodsWidget']; ?>
+
+
+
+
+Location
+=============
+<?php echo $class->getName(); ?>
