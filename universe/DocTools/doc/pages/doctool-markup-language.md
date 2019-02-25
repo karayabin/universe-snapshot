@@ -528,6 +528,7 @@ The following functions are meant to be used inside a description text.
 - @class($className): will be transformed into a link to the $className's generated doc page.
 - @method($longMethodName): will be transformed into a link to the method's generated doc page.
     The $longMethodName has the following notation:
+    
         - longMethodName: ```<className> <::> <methodName>```
     Example: DocTools\ClassParser\ClassParserInterface::parse         
     
@@ -539,6 +540,7 @@ The following functions are meant to be used inside a description text.
 - @page($keyword): an alias for @keyword.
 - @doc($keyword): an alias for @keyword.
 - @concept($keyword): an alias for @keyword.
+- @object($keyword): an alias for @keyword.
 
 - @alias($keyword): will be replaced by the $keyword's value.
 - @url($keyword): an alias for @alias.

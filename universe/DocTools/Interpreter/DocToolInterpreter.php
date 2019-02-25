@@ -195,6 +195,7 @@ class DocToolInterpreter implements NotationInterpreterInterface
             case "page":
             case "section":
             case "concept":
+            case "object":
                 $keyword = $argsList[0];
                 if (array_key_exists($keyword, $this->keyword2UrlMap)) {
                     $url = $this->keyword2UrlMap[$keyword];
