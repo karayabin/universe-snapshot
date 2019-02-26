@@ -18,3 +18,12 @@ uni import Komin
 ```
 
 Or just download it and place it where you want otherwise.
+
+
+
+History Log
+===============
+
+- 1.0.0 -- 2017-05-22
+
+    - initial commit

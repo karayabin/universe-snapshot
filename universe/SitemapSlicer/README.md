@@ -567,6 +567,12 @@ Dependencies
 
 
 
+History Log
+===============
+
+- 1.0.0 -- 2015-10-11
+
+    - initial commit
 
 
  

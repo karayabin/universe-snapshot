@@ -354,3 +354,13 @@ Dependencies
 - [lingtalfi/Bat 1.04](https://github.com/lingtalfi/Bat)
 
 
+
+
+History Log
+===============
+
+- 1.0.0 -- 2015-10-09
+
+    - initial commit
+
+

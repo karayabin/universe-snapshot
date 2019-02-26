@@ -137,13 +137,13 @@ History Log
     
     
     
-- v1.1.0 -- 2015-10-25
+- 1.1.0 -- 2015-10-25
 
     - An empty string value represents an empty element (self closing tag) 
     - Fix self closing tag bug
     
     
-- v1.0.0 -- 2015-10-24
+- 1.0.0 -- 2015-10-24
 
     - initial commit
 

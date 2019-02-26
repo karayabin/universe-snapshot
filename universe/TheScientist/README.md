@@ -21,3 +21,11 @@ Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
 ```bash
 uni import TheScientist
 ```
+
+
+History Log
+===============
+
+- 1.0.0 -- 2015-10-14
+
+    - initial commit

@@ -23,3 +23,11 @@ Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
 ```bash
 uni import TheAnarchist
 ```
+
+
+History Log
+===============
+
+- 1.0.0 -- 2015-12-03
+
+    - initial commit

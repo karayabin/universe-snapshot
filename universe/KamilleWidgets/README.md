@@ -27,3 +27,12 @@ Available widgets
 
 - Form: work in progress
 
+
+
+
+History Log
+===============
+
+- 1.0.0 -- 2017-03-13
+
+    - initial commit

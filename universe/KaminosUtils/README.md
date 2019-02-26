@@ -1,5 +1,6 @@
 KaminosUtils
 ============
+2017-03-22
 
 WORK iN PROGRESS...
 
@@ -28,4 +29,10 @@ which is where it belonged in the first place.
 
 
 
+History Log
+===============
+
+- 1.0.0 -- 2017-03-22
+
+    - initial commit
 

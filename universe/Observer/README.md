@@ -22,3 +22,11 @@ Articles
 -------------
 
 - [Planet Reference](https://github.com/lingtalfi/Observer/blob/master/article/article.planetReference.eng.md)
+
+
+History Log
+===============
+
+- 1.0.0 -- 2015-10-27
+
+    - initial commit
