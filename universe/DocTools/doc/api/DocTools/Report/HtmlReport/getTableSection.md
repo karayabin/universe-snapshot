@@ -1,10 +1,19 @@
+[Back to the DocTools api](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools.md)<br>
+[Back to the DocTools\Report\HtmlReport class](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Report/HtmlReport.md)
+
+
 HtmlReport::getTableSection
 ================
 
+
+
 HtmlReport::getTableSection — Returns a table widget.
 
+
+
+
 Description
----------------
+================
 
 
 private [HtmlReport::getTableSection](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Report/HtmlReport/getTableSection.md)(string $title, string $id, array $headers, array $rows, $nbItems = null, $acceptWarning = true) : array
@@ -18,7 +27,7 @@ Returns a table widget.
 
 
 Parameters
---------------
+================
 
 
 - title
@@ -47,7 +56,7 @@ Parameters
 
 
 Return values
-----------------
+================
 
 Returns array.
 - type: string. The type of widget.
@@ -64,9 +73,7 @@ without the starting pound symbol (#).
 
 
 
-
-
 See Also
------------
+================
 
 The [HtmlReport](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Report/HtmlReport.md) class.

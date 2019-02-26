@@ -1,6 +1,12 @@
+[Back to the DocTools api](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools.md)
+
+
+
 The ClassParserException class
 ================
 2019-02-21 --> 2019-02-26
+
+
 
 
 
@@ -34,6 +40,7 @@ class <span class="pl-k">ClassParserException</span> extends [DocToolsException]
 
 Methods
 ==============
+
 
 
 

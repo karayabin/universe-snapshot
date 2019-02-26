@@ -1,6 +1,12 @@
+[Back to the DocTools api](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools.md)
+
+
+
 The DefaultGeneratedDocStyle class
 ================
 2019-02-21 --> 2019-02-26
+
+
 
 
 
@@ -56,6 +62,7 @@ Methods
 - [DefaultGeneratedDocStyle::getPlanetPageRelativePath](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/GeneratedDocStyle/DefaultGeneratedDocStyle/getPlanetPageRelativePath.md) &ndash; Returns the relative path to the planet documentation page.
 - [DefaultGeneratedDocStyle::getClassPageRelativePath](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/GeneratedDocStyle/DefaultGeneratedDocStyle/getClassPageRelativePath.md) &ndash; Returns the relative path to the class documentation page.
 - [DefaultGeneratedDocStyle::getMethodPageRelativePath](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/GeneratedDocStyle/DefaultGeneratedDocStyle/getMethodPageRelativePath.md) &ndash; Returns the relative path to the method documentation page.
+
 
 
 

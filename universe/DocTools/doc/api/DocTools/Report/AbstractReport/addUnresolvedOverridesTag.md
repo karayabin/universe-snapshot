@@ -1,10 +1,19 @@
+[Back to the DocTools api](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools.md)<br>
+[Back to the DocTools\Report\AbstractReport class](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Report/AbstractReport.md)
+
+
 AbstractReport::addUnresolvedOverridesTag
 ================
 
+
+
 AbstractReport::addUnresolvedOverridesTag — an unresolved @overrides tag.
 
+
+
+
 Description
----------------
+================
 
 
 public [AbstractReport::addUnresolvedOverridesTag](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Report/AbstractReport/addUnresolvedOverridesTag.md)(string $methodName) : void
@@ -21,7 +30,7 @@ See [docTool markup language page](https://github.com/lingtalfi/DocTools/blob/ma
 
 
 Parameters
---------------
+================
 
 
 - methodName
@@ -30,7 +39,7 @@ Parameters
 
 
 Return values
-----------------
+================
 
 Returns void.
 
@@ -40,9 +49,7 @@ Returns void.
 
 
 
-
-
 See Also
------------
+================
 
 The [AbstractReport](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Report/AbstractReport.md) class.

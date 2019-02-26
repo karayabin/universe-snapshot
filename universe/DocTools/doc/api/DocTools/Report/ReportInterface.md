@@ -1,6 +1,12 @@
+[Back to the DocTools api](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools.md)
+
+
+
 The ReportInterface class
 ================
 2019-02-21 --> 2019-02-26
+
+
 
 
 
@@ -160,6 +166,7 @@ Methods
 - [ReportInterface::addPropertyWithEmptyMainText](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Report/ReportInterface/addPropertyWithEmptyMainText.md) &ndash; Adds a property with an empty [main text](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/CommentInfo.md#the-doc-comment-structure).
 - [ReportInterface::addMethodWithEmptyMainText](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Report/ReportInterface/addMethodWithEmptyMainText.md) &ndash; Adds a method with an empty [main text](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/CommentInfo.md#the-doc-comment-structure).
 - [ReportInterface::__toString](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Report/ReportInterface/__toString.md) &ndash; Builds and returns the rendered report as a string.
+
 
 
 

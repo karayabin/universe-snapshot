@@ -1,6 +1,12 @@
+[Back to the DocTools api](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools.md)
+
+
+
 The PlanetParser class
 ================
 2019-02-21 --> 2019-02-26
+
+
 
 
 
@@ -87,6 +93,7 @@ Methods
 - [PlanetParser::setReport](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/PlanetParser/PlanetParser/setReport.md) &ndash; Sets the report.
 - [PlanetParser::setResolveInlineTags](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/PlanetParser/PlanetParser/setResolveInlineTags.md) &ndash; Sets the resolveInlineTags.
 - [PlanetParser::setNotationInterpreter](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/PlanetParser/PlanetParser/setNotationInterpreter.md) &ndash; Sets the notation interpreter.
+
 
 
 

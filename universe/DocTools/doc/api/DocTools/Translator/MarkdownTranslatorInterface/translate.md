@@ -1,10 +1,19 @@
+[Back to the DocTools api](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools.md)<br>
+[Back to the DocTools\Translator\MarkdownTranslatorInterface class](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Translator/MarkdownTranslatorInterface.md)
+
+
 MarkdownTranslatorInterface::translate
 ================
 
+
+
 MarkdownTranslatorInterface::translate — and returns the result.
 
+
+
+
 Description
----------------
+================
 
 
 abstract public [MarkdownTranslatorInterface::translate](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Translator/MarkdownTranslatorInterface/translate.md)(string $string) : string
@@ -19,7 +28,7 @@ and returns the result.
 
 
 Parameters
---------------
+================
 
 
 - string
@@ -28,7 +37,7 @@ Parameters
 
 
 Return values
-----------------
+================
 
 Returns string.
 
@@ -38,9 +47,7 @@ Returns string.
 
 
 
-
-
 See Also
------------
+================
 
 The [MarkdownTranslatorInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Translator/MarkdownTranslatorInterface.md) class.

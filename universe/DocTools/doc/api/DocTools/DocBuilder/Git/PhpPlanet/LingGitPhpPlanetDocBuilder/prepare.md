@@ -1,10 +1,19 @@
+[Back to the DocTools api](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools.md)<br>
+[Back to the DocTools\DocBuilder\Git\PhpPlanet\LingGitPhpPlanetDocBuilder class](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/DocBuilder/Git/PhpPlanet/LingGitPhpPlanetDocBuilder.md)
+
+
 LingGitPhpPlanetDocBuilder::prepare
 ================
 
+
+
 LingGitPhpPlanetDocBuilder::prepare — Prepares the doc builder instance.
 
+
+
+
 Description
----------------
+================
 
 
 public [LingGitPhpPlanetDocBuilder::prepare](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/DocBuilder/Git/PhpPlanet/LingGitPhpPlanetDocBuilder/prepare.md)(array $settings = []) : void
@@ -28,7 +37,7 @@ The info object should be stored and re-used in the buildDoc method.
 
 
 Parameters
---------------
+================
 
 
 - settings
@@ -71,7 +80,7 @@ markdown to html.
 
 
 Return values
-----------------
+================
 
 Returns void.
 
@@ -81,9 +90,7 @@ Returns void.
 
 
 
-
-
 See Also
------------
+================
 
 The [LingGitPhpPlanetDocBuilder](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/DocBuilder/Git/PhpPlanet/LingGitPhpPlanetDocBuilder.md) class.

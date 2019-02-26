@@ -1,10 +1,19 @@
+[Back to the DocTools api](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools.md)<br>
+[Back to the DocTools\Info\CommentInfo class](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/CommentInfo.md)
+
+
 CommentInfo::getTagContent
 ================
 
+
+
 CommentInfo::getTagContent — Returns the body of the given $tag, or the $default value if the tag isn't defined.
 
+
+
+
 Description
----------------
+================
 
 
 public [CommentInfo::getTagContent](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/CommentInfo/getTagContent.md)(?$tagName, $default = null) : mixed | null
@@ -18,7 +27,7 @@ Returns the body of the given $tag, or the $default value if the tag isn't defin
 
 
 Parameters
---------------
+================
 
 
 - tagName
@@ -31,7 +40,7 @@ Parameters
 
 
 Return values
-----------------
+================
 
 Returns mixed | null.
 
@@ -41,9 +50,7 @@ Returns mixed | null.
 
 
 
-
-
 See Also
------------
+================
 
 The [CommentInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/CommentInfo.md) class.

@@ -1,10 +1,19 @@
+[Back to the DocTools api](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools.md)<br>
+[Back to the DocTools\Interpreter\DocToolInterpreter class](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Interpreter/DocToolInterpreter.md)
+
+
 DocToolInterpreter::setKeyword2UrlMap
 ================
 
+
+
 DocToolInterpreter::setKeyword2UrlMap — Sets the keyword2UrlMap.
 
+
+
+
 Description
----------------
+================
 
 
 public [DocToolInterpreter::setKeyword2UrlMap](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Interpreter/DocToolInterpreter/setKeyword2UrlMap.md)(array $keyword2UrlMap) : void
@@ -18,7 +27,7 @@ Sets the keyword2UrlMap.
 
 
 Parameters
---------------
+================
 
 
 - keyword2UrlMap
@@ -27,7 +36,7 @@ Parameters
 
 
 Return values
-----------------
+================
 
 Returns void.
 
@@ -37,9 +46,7 @@ Returns void.
 
 
 
-
-
 See Also
------------
+================
 
 The [DocToolInterpreter](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Interpreter/DocToolInterpreter.md) class.

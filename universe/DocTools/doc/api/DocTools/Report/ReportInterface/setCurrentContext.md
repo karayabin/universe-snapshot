@@ -1,10 +1,19 @@
+[Back to the DocTools api](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools.md)<br>
+[Back to the DocTools\Report\ReportInterface class](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Report/ReportInterface.md)
+
+
 ReportInterface::setCurrentContext
 ================
 
+
+
 ReportInterface::setCurrentContext — Sets the name of the current context being parsed.
 
+
+
+
 Description
----------------
+================
 
 
 abstract public [ReportInterface::setCurrentContext](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Report/ReportInterface/setCurrentContext.md)(string $context) : void
@@ -21,7 +30,7 @@ The context is generally a class name or a file name.
 
 
 Parameters
---------------
+================
 
 
 - context
@@ -30,7 +39,7 @@ Parameters
 
 
 Return values
-----------------
+================
 
 Returns void.
 
@@ -40,9 +49,7 @@ Returns void.
 
 
 
-
-
 See Also
------------
+================
 
 The [ReportInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Report/ReportInterface.md) class.

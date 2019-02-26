@@ -1,10 +1,19 @@
+[Back to the DocTools api](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools.md)<br>
+[Back to the DocTools\Report\ReportInterface class](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Report/ReportInterface.md)
+
+
 ReportInterface::addUnresolvedClassReference
 ================
 
+
+
 ReportInterface::addUnresolvedClassReference — Adds an unresolved class reference.
 
+
+
+
 Description
----------------
+================
 
 
 abstract public [ReportInterface::addUnresolvedClassReference](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Report/ReportInterface/addUnresolvedClassReference.md)(string $className, string $hint = null) : void
@@ -18,7 +27,7 @@ Adds an unresolved class reference.
 
 
 Parameters
---------------
+================
 
 
 - className
@@ -31,7 +40,7 @@ Parameters
 
 
 Return values
-----------------
+================
 
 Returns void.
 
@@ -41,9 +50,7 @@ Returns void.
 
 
 
-
-
 See Also
------------
+================
 
 The [ReportInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Report/ReportInterface.md) class.

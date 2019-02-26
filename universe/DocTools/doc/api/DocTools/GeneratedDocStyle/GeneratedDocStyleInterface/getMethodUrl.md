@@ -1,10 +1,19 @@
+[Back to the DocTools api](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools.md)<br>
+[Back to the DocTools\GeneratedDocStyle\GeneratedDocStyleInterface class](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/GeneratedDocStyle/GeneratedDocStyleInterface.md)
+
+
 GeneratedDocStyleInterface::getMethodUrl
 ================
 
+
+
 GeneratedDocStyleInterface::getMethodUrl — Returns the method url.
 
+
+
+
 Description
----------------
+================
 
 
 abstract public [GeneratedDocStyleInterface::getMethodUrl](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/GeneratedDocStyle/GeneratedDocStyleInterface/getMethodUrl.md)(string $planetName, string $generatedClassBaseUrl, string $className, string $methodName) : string
@@ -18,7 +27,7 @@ Returns the method url.
 
 
 Parameters
---------------
+================
 
 
 - planetName
@@ -39,7 +48,7 @@ Parameters
 
 
 Return values
-----------------
+================
 
 Returns string.
 
@@ -49,9 +58,7 @@ Returns string.
 
 
 
-
-
 See Also
------------
+================
 
 The [GeneratedDocStyleInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/GeneratedDocStyle/GeneratedDocStyleInterface.md) class.

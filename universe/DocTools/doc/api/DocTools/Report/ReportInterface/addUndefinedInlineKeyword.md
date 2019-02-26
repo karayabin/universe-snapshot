@@ -1,10 +1,19 @@
+[Back to the DocTools api](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools.md)<br>
+[Back to the DocTools\Report\ReportInterface class](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Report/ReportInterface.md)
+
+
 ReportInterface::addUndefinedInlineKeyword
 ================
 
+
+
 ReportInterface::addUndefinedInlineKeyword — Adds an undefined keyword (defined with the [keyword inline function](https://github.com/lingtalfi/DocTools/blob/master/doc/pages/doctool-markup-language.md#inline-functions) or alike).
 
+
+
+
 Description
----------------
+================
 
 
 abstract public [ReportInterface::addUndefinedInlineKeyword](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Report/ReportInterface/addUndefinedInlineKeyword.md)(string $keyword, string $functionName) : void
@@ -18,7 +27,7 @@ Adds an undefined keyword (defined with the [keyword inline function](https://gi
 
 
 Parameters
---------------
+================
 
 
 - keyword
@@ -31,7 +40,7 @@ Parameters
 
 
 Return values
-----------------
+================
 
 Returns void.
 
@@ -41,9 +50,7 @@ Returns void.
 
 
 
-
-
 See Also
------------
+================
 
 The [ReportInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Report/ReportInterface.md) class.

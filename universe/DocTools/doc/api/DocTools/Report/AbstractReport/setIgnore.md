@@ -1,10 +1,19 @@
+[Back to the DocTools api](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools.md)<br>
+[Back to the DocTools\Report\AbstractReport class](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Report/AbstractReport.md)
+
+
 AbstractReport::setIgnore
 ================
 
+
+
 AbstractReport::setIgnore — Sets the ignore array.
 
+
+
+
 Description
----------------
+================
 
 
 public [AbstractReport::setIgnore](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Report/AbstractReport/setIgnore.md)(array $ignore) : void
@@ -18,7 +27,7 @@ Sets the ignore array.
 
 
 Parameters
---------------
+================
 
 
 - ignore
@@ -27,7 +36,7 @@ Parameters
 
 
 Return values
-----------------
+================
 
 Returns void.
 
@@ -37,9 +46,7 @@ Returns void.
 
 
 
-
-
 See Also
------------
+================
 
 The [AbstractReport](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Report/AbstractReport.md) class.

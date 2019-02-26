@@ -1,10 +1,19 @@
+[Back to the DocTools api](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools.md)<br>
+[Back to the DocTools\GeneratedDocStyle\DefaultGeneratedDocStyle class](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/GeneratedDocStyle/DefaultGeneratedDocStyle.md)
+
+
 DefaultGeneratedDocStyle::getClassUrl
 ================
 
+
+
 DefaultGeneratedDocStyle::getClassUrl — Returns the class url.
 
+
+
+
 Description
----------------
+================
 
 
 public [DefaultGeneratedDocStyle::getClassUrl](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/GeneratedDocStyle/DefaultGeneratedDocStyle/getClassUrl.md)(string $planetName, string $generatedClassBaseUrl, string $className) : string
@@ -18,7 +27,7 @@ Returns the class url.
 
 
 Parameters
---------------
+================
 
 
 - planetName
@@ -35,7 +44,7 @@ Parameters
 
 
 Return values
-----------------
+================
 
 Returns string.
 
@@ -45,9 +54,7 @@ Returns string.
 
 
 
-
-
 See Also
------------
+================
 
 The [DefaultGeneratedDocStyle](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/GeneratedDocStyle/DefaultGeneratedDocStyle.md) class.

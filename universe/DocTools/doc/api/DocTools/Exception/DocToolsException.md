@@ -1,6 +1,12 @@
+[Back to the DocTools api](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools.md)
+
+
+
 The DocToolsException class
 ================
 2019-02-21 --> 2019-02-26
+
+
 
 
 
@@ -33,6 +39,7 @@ class <span class="pl-k">DocToolsException</span> extends [\Exception](http://ph
 
 Methods
 ==============
+
 
 
 

@@ -141,6 +141,20 @@ class LingGitPhpPlanetDocBuilder extends DocBuilder
     private $_interpreter;
 
 
+
+    /**
+     * This property holds the generatedClassBaseUrl for this instance.
+     * @var string
+     */
+    private $_generatedClassBaseUrl;
+
+    /**
+     * This property holds the mode for this instance (html or md).
+     * @var string
+     */
+    private $_mode;
+
+
     /**
      * @implementation
      *
@@ -205,14 +219,14 @@ class LingGitPhpPlanetDocBuilder extends DocBuilder
         $this->_markdownTranslator = $settings['markdownTranslator'] ?? null;
 
 
-        $generatedClassBaseUrl = $settings['generatedClassBaseUrl'];
-        $mode = $settings['mode'] ?? "md";
+        $this->_generatedClassBaseUrl = $settings['generatedClassBaseUrl'];
+        $this->_mode = $settings['mode'] ?? "md";
         $keyWord2UrlMap = $settings['keyWord2UrlMap'];
         $externalCustomClass2Url = $settings['externalClass2Url'] ?? [];
 
 
         $generatedDocStyle = new DefaultGeneratedDocStyle();
-        $generatedDocStyle->setExtension($mode);
+        $generatedDocStyle->setExtension($this->_mode);
         $this->_generatedDocStyle = $generatedDocStyle;
         $planetName = basename($this->planetDir);
 
@@ -227,12 +241,12 @@ class LingGitPhpPlanetDocBuilder extends DocBuilder
         $classNames = PlanetTool::getClassNames($this->planetDir);
         $generatedItems2Url = [];
         foreach ($classNames as $className) {
-            $generatedItems2Url[$className] = $generatedDocStyle->getClassUrl($planetName, $generatedClassBaseUrl, $className);
+            $generatedItems2Url[$className] = $generatedDocStyle->getClassUrl($planetName, $this->_generatedClassBaseUrl, $className);
             $r = new \ReflectionClass($className);
             foreach ($r->getMethods() as $method) {
                 if ($method->getDeclaringClass()->getName() === $className) {
                     $methodName = $className . "::" . $method->getName();
-                    $generatedItems2Url[$methodName] = $generatedDocStyle->getMethodUrl($planetName, $generatedClassBaseUrl, $className, $method->getName());
+                    $generatedItems2Url[$methodName] = $generatedDocStyle->getMethodUrl($planetName, $this->_generatedClassBaseUrl, $className, $method->getName());
                 }
             }
         }
@@ -359,6 +373,8 @@ class LingGitPhpPlanetDocBuilder extends DocBuilder
     {
 
 
+        $planetName = $this->_planetInfo->getName();
+
         $classSynopsisWidget = new ClassSynopsisWidget();
         $classSynopsisWidget->setReport($this->report);
         $classSynopsisWidget->setClassInfo($classInfo);
@@ -380,12 +396,14 @@ class LingGitPhpPlanetDocBuilder extends DocBuilder
         $pageUtil->setTranslator($this->_markdownTranslator);
         $pageUtil->setRootDir($this->generatedClassBaseDir);
         $pageUtil->setInsertsRootDir($this->insertsBaseDir);
-        $pageUtil->createPage($this->_generatedDocStyle->getClassPageRelativePath($this->_planetInfo->getName(), $classInfo->getName()), $tplClass, [
+        $pageUtil->createPage($this->_generatedDocStyle->getClassPageRelativePath($planetName, $classInfo->getName()), $tplClass, [
             "classInfo" => $classInfo,
             "classSynopsisWidget" => $classSynopsisWidget,
             "classPropertiesWidget" => $classPropertiesWidget,
             "classMethodsWidget" => $classMethodsWidget,
             "projectStartDate" => $this->projectStartDate,
+            "planetName" => $planetName,
+            "planetUrl" => $this->_generatedClassBaseUrl . "/$planetName." . $this->_mode,
         ]);
     }
 
@@ -401,7 +419,7 @@ class LingGitPhpPlanetDocBuilder extends DocBuilder
     private function buildMethodPage(ClassInfo $classInfo, MethodInfo $methodInfo)
     {
 
-
+        $planetName = $this->_planetInfo->getName();
         $filePath = $this->_generatedDocStyle->getMethodPageRelativePath($this->_planetInfo->getName(), $classInfo->getName(), $methodInfo->getName());
 
 
@@ -436,7 +454,11 @@ class LingGitPhpPlanetDocBuilder extends DocBuilder
             "methodSignature" => $methodSignature,
             "methodReturnType" => $methodReturnType,
             "classLink" => $classLink,
+            "className" => $className,
+            "classUrl" => $this->_generatedItems2Url[$className],
             "projectStartDate" => $this->projectStartDate,
+            "planetName" => $planetName,
+            "planetUrl" => $this->_generatedClassBaseUrl . "/$planetName." . $this->_mode,
         ]);
     }
 

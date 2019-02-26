@@ -1,6 +1,12 @@
+[Back to the DocTools api](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools.md)
+
+
+
 The MarkdownTranslatorInterface class
 ================
 2019-02-21 --> 2019-02-26
+
+
 
 
 
@@ -33,6 +39,7 @@ Methods
 ==============
 
 - [MarkdownTranslatorInterface::translate](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Translator/MarkdownTranslatorInterface/translate.md) &ndash; and returns the result.
+
 
 
 

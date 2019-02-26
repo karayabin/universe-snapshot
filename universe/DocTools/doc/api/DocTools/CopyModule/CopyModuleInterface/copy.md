@@ -1,10 +1,19 @@
+[Back to the DocTools api](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools.md)<br>
+[Back to the DocTools\CopyModule\CopyModuleInterface class](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/CopyModule/CopyModuleInterface.md)
+
+
 CopyModuleInterface::copy
 ================
 
+
+
 CopyModuleInterface::copy — Copies the $sourceDir recursively to the $destinationDir, using the given $interpreter during the transfer.
 
+
+
+
 Description
----------------
+================
 
 
 abstract public [CopyModuleInterface::copy](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/CopyModule/CopyModuleInterface/copy.md)(string $sourceDir, string $destinationDir, [DocTools\Interpreter\NotationInterpreterInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Interpreter/NotationInterpreterInterface.md) $interpreter, [DocTools\Report\ReportInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Report/ReportInterface.md) $report = null, array $options = []) : void
@@ -23,7 +32,7 @@ Available options are:
 
 
 Parameters
---------------
+================
 
 
 - sourceDir
@@ -48,7 +57,7 @@ Parameters
 
 
 Return values
-----------------
+================
 
 Returns void.
 
@@ -58,9 +67,7 @@ Returns void.
 
 
 
-
-
 See Also
------------
+================
 
 The [CopyModuleInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/CopyModule/CopyModuleInterface.md) class.

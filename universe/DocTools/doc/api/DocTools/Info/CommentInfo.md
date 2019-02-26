@@ -1,6 +1,12 @@
+[Back to the DocTools api](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools.md)
+
+
+
 The CommentInfo class
 ================
 2019-02-21 --> 2019-02-26
+
+
 
 
 
@@ -168,6 +174,7 @@ Methods
 - [CommentInfo::isEmpty](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/CommentInfo/isEmpty.md) &ndash; Returns whether the comment is empty.
 - [CommentInfo::getSeeItems](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/CommentInfo/getSeeItems.md) &ndash; Returns the seeItems of this instance.
 - [CommentInfo::setSeeItems](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/CommentInfo/setSeeItems.md) &ndash; Sets the seeItems.
+
 
 
 

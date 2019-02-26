@@ -1,6 +1,12 @@
+[Back to the DocTools api](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools.md)
+
+
+
 The LingGitPhpPlanetDocBuilder class
 ================
 2019-02-21 --> 2019-02-26
+
+
 
 
 
@@ -41,6 +47,8 @@ class <span class="pl-k">LingGitPhpPlanetDocBuilder</span> extends [DocBuilder](
     - private [DocTools\GeneratedDocStyle\GeneratedDocStyleInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/GeneratedDocStyle/GeneratedDocStyleInterface.md) [$_generatedDocStyle](#property-_generatedDocStyle) ;
     - private [DocTools\Translator\MarkdownTranslatorInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Translator/MarkdownTranslatorInterface.md)|null [$_markdownTranslator](#property-_markdownTranslator) ;
     - private [DocTools\Interpreter\NotationInterpreterInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Interpreter/NotationInterpreterInterface.md) [$_interpreter](#property-_interpreter) ;
+    - private string [$_generatedClassBaseUrl](#property-_generatedClassBaseUrl) ;
+    - private string [$_mode](#property-_mode) ;
 
 - Inherited properties
     - protected [DocTools\Report\ReportInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Report/ReportInterface.md) [DocBuilder::$report](#property-report) ;
@@ -146,6 +154,18 @@ Properties
     
     
 
+- <span id="property-_generatedClassBaseUrl"><b>_generatedClassBaseUrl</b></span>
+
+    This property holds the generatedClassBaseUrl for this instance.
+    
+    
+
+- <span id="property-_mode"><b>_mode</b></span>
+
+    This property holds the mode for this instance (html or md).
+    
+    
+
 - <span id="property-report"><b>report</b></span>
 
     This property holds the parser report.
@@ -164,6 +184,7 @@ Methods
 - [LingGitPhpPlanetDocBuilder::buildMethodPage](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/DocBuilder/Git/PhpPlanet/LingGitPhpPlanetDocBuilder/buildMethodPage.md) &ndash; Builds a method page.
 - [DocBuilder::showReport](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/DocBuilder/DocBuilder/showReport.md) &ndash; Displays the report.
 - [DocBuilder::setReport](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/DocBuilder/DocBuilder/setReport.md) &ndash; Sets the report object.
+
 
 
 

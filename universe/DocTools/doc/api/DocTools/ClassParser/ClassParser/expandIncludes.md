@@ -1,10 +1,19 @@
+[Back to the DocTools api](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools.md)<br>
+[Back to the DocTools\ClassParser\ClassParser class](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/ClassParser/ClassParser.md)
+
+
 ClassParser::expandIncludes
 ================
 
+
+
 ClassParser::expandIncludes — Expands the @implementation and/or @overrides tags in the raw content recursively, and returns the result.
 
+
+
+
 Description
----------------
+================
 
 
 private [ClassParser::expandIncludes](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/ClassParser/ClassParser/expandIncludes.md)(string $rawContent, &$resolved = false) : string
@@ -23,7 +32,7 @@ See the [docTool markup language](https://github.com/lingtalfi/DocTools/blob/mas
 
 
 Parameters
---------------
+================
 
 
 - rawContent
@@ -36,7 +45,7 @@ Parameters
 
 
 Return values
-----------------
+================
 
 Returns string.
 
@@ -46,9 +55,7 @@ Returns string.
 
 
 
-
-
 See Also
------------
+================
 
 The [ClassParser](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/ClassParser/ClassParser.md) class.

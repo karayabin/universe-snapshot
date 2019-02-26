@@ -1,6 +1,12 @@
+[Back to the DocTools api](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools.md)
+
+
+
 The ParameterInfo class
 ================
 2019-02-21 --> 2019-02-26
+
+
 
 
 
@@ -92,6 +98,7 @@ Methods
 - [ParameterInfo::setValueAlternatives](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/ParameterInfo/setValueAlternatives.md) &ndash; Sets the valueAlternatives.
 - [ParameterInfo::getDescriptiveText](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/ParameterInfo/getDescriptiveText.md) &ndash; Returns the descriptiveText of this instance.
 - [ParameterInfo::setDescriptiveText](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/ParameterInfo/setDescriptiveText.md) &ndash; Sets the descriptiveText.
+
 
 
 

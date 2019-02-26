@@ -1,6 +1,12 @@
+[Back to the DocTools api](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools.md)
+
+
+
 The DocBuilder class
 ================
 2019-02-21 --> 2019-02-26
+
+
 
 
 
@@ -79,6 +85,7 @@ Methods
 - [DocBuilder::buildDoc](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/DocBuilder/DocBuilder/buildDoc.md) &ndash; and according to the writeMode property.
 - [DocBuilder::showReport](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/DocBuilder/DocBuilder/showReport.md) &ndash; Displays the report.
 - [DocBuilder::setReport](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/DocBuilder/DocBuilder/setReport.md) &ndash; Sets the report object.
+
 
 
 

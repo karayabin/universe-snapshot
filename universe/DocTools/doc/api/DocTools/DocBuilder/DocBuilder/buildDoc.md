@@ -1,10 +1,19 @@
+[Back to the DocTools api](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools.md)<br>
+[Back to the DocTools\DocBuilder\DocBuilder class](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/DocBuilder/DocBuilder.md)
+
+
 DocBuilder::buildDoc
 ================
 
+
+
 DocBuilder::buildDoc — and according to the writeMode property.
 
+
+
+
 Description
----------------
+================
 
 
 abstract public [DocBuilder::buildDoc](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/DocBuilder/DocBuilder/buildDoc.md)() : void
@@ -19,13 +28,13 @@ and according to the writeMode property.
 
 
 Parameters
---------------
+================
 
 This method has no parameters.
 
 
 Return values
-----------------
+================
 
 Returns void.
 
@@ -35,9 +44,7 @@ Returns void.
 
 
 
-
-
 See Also
------------
+================
 
 The [DocBuilder](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/DocBuilder/DocBuilder.md) class.

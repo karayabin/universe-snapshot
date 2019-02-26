@@ -1,10 +1,19 @@
+[Back to the DocTools api](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools.md)<br>
+[Back to the DocTools\Report\ReportInterface class](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Report/ReportInterface.md)
+
+
 ReportInterface::addMethodWithoutComment
 ================
 
+
+
 ReportInterface::addMethodWithoutComment — Adds the name and the visibility of a method which doesn't have a non-empty doc comment.
 
+
+
+
 Description
----------------
+================
 
 
 abstract public [ReportInterface::addMethodWithoutComment](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Report/ReportInterface/addMethodWithoutComment.md)(string $methodName, string $visibility) : void
@@ -18,7 +27,7 @@ Adds the name and the visibility of a method which doesn't have a non-empty doc 
 
 
 Parameters
---------------
+================
 
 
 - methodName
@@ -31,7 +40,7 @@ Parameters
 
 
 Return values
-----------------
+================
 
 Returns void.
 
@@ -41,9 +50,7 @@ Returns void.
 
 
 
-
-
 See Also
------------
+================
 
 The [ReportInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Report/ReportInterface.md) class.

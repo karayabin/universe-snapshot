@@ -1,10 +1,19 @@
+[Back to the DocTools api](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools.md)<br>
+[Back to the DocTools\Report\ReportInterface class](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Report/ReportInterface.md)
+
+
 ReportInterface::addClassWithoutComment
 ================
 
+
+
 ReportInterface::addClassWithoutComment — Adds the name of a class which doesn't have a non-empty doc comment.
 
+
+
+
 Description
----------------
+================
 
 
 abstract public [ReportInterface::addClassWithoutComment](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Report/ReportInterface/addClassWithoutComment.md)(string $className) : void
@@ -18,7 +27,7 @@ Adds the name of a class which doesn't have a non-empty doc comment.
 
 
 Parameters
---------------
+================
 
 
 - className
@@ -27,7 +36,7 @@ Parameters
 
 
 Return values
-----------------
+================
 
 Returns void.
 
@@ -37,9 +46,7 @@ Returns void.
 
 
 
-
-
 See Also
------------
+================
 
 The [ReportInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Report/ReportInterface.md) class.

@@ -1,10 +1,19 @@
+[Back to the DocTools api](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools.md)<br>
+[Back to the DocTools\ClassParser\ClassParser class](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/ClassParser/ClassParser.md)
+
+
 ClassParser::getTagDescriptionByContent
 ================
 
+
+
 ClassParser::getTagDescriptionByContent — Returns the tag description from the given $content.
 
+
+
+
 Description
----------------
+================
 
 
 private [ClassParser::getTagDescriptionByContent](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/ClassParser/ClassParser/getTagDescriptionByContent.md)(string $content) : string
@@ -29,7 +38,7 @@ The tag tail is any line of the tag except for the first line (which is reserved
 
 
 Parameters
---------------
+================
 
 
 - content
@@ -38,7 +47,7 @@ Parameters
 
 
 Return values
-----------------
+================
 
 Returns string.
 
@@ -48,9 +57,7 @@ Returns string.
 
 
 
-
-
 See Also
------------
+================
 
 The [ClassParser](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/ClassParser/ClassParser.md) class.

@@ -16,14 +16,24 @@ $methodFullName = $methodInfo->getReflectionMethod()->getDeclaringClass()->getSh
 $returnDescription = $methodInfo->getReturnDescription();
 
 
-?><?php echo $methodFullName . PHP_EOL; ?>
+?>
+[Back to the <?php echo $z['planetName']; ?> api](<?php echo $z['planetUrl']; ?>)<br>
+[Back to the <?php echo $z['className']; ?> class](<?php echo $z['classUrl']; ?>)
+
+
+<?php echo $methodFullName . PHP_EOL; ?>
 ================
+
+
 
 <?php echo $methodFullName; ?> — <?php echo $methodInfo->getComment()->getFirstSentence(); ?>
 
 
+
+
+
 Description
----------------
+================
 
 
 <?php echo $z['methodSignature'] . PHP_EOL; ?>
@@ -38,7 +48,7 @@ Note: This method was written with the intent to be overridden by the user (i.e 
 
 
 Parameters
---------------
+================
 
 <?php if (true === $methodInfo->hasParameters()): ?>
 <?php foreach ($methodInfo->getParameters() as $parameterInfo): ?>
@@ -55,7 +65,7 @@ This method has no parameters.
 
 
 Return values
-----------------
+================
 
 Returns <?php echo $z['methodReturnType'] . "." . PHP_EOL; ?>
 <?php if ($returnDescription): ?>
@@ -66,11 +76,9 @@ Returns <?php echo $z['methodReturnType'] . "." . PHP_EOL; ?>
 
 
 
-
-
 <?php if($zz->hasInsert('examples')): ?>
 Examples
------------
+================
 
 <?php foreach($zz->getInserts('examples') as $content): ?>
 <?php echo $content; ?>
@@ -79,7 +87,7 @@ Examples
 
 
 See Also
------------
+================
 
 The <?php echo $z['classLink']; ?> class.
 <?php foreach($zz->getInserts('related') as $content): ?>

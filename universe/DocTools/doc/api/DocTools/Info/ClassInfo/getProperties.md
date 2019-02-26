@@ -1,10 +1,19 @@
+[Back to the DocTools api](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools.md)<br>
+[Back to the DocTools\Info\ClassInfo class](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/ClassInfo.md)
+
+
 ClassInfo::getProperties
 ================
 
+
+
 ClassInfo::getProperties — Returns an array of [PropertyInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/PropertyInfo.md).
 
+
+
+
 Description
----------------
+================
 
 
 public [ClassInfo::getProperties](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/ClassInfo/getProperties.md)($filter = null) : [PropertyInfo[]](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/PropertyInfo.md)
@@ -18,7 +27,7 @@ Returns an array of [PropertyInfo](https://github.com/lingtalfi/DocTools/blob/ma
 
 
 Parameters
---------------
+================
 
 
 - filter
@@ -28,7 +37,7 @@ Can be expressed either as an array (to combine multiple visibilities) or a stri
 
 
 Return values
-----------------
+================
 
 Returns [PropertyInfo[]](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/PropertyInfo.md).
 
@@ -38,9 +47,7 @@ Returns [PropertyInfo[]](https://github.com/lingtalfi/DocTools/blob/master/doc/a
 
 
 
-
-
 See Also
------------
+================
 
 The [ClassInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/ClassInfo.md) class.

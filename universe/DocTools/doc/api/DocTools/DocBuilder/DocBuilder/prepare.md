@@ -1,10 +1,19 @@
+[Back to the DocTools api](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools.md)<br>
+[Back to the DocTools\DocBuilder\DocBuilder class](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/DocBuilder/DocBuilder.md)
+
+
 DocBuilder::prepare
 ================
 
+
+
 DocBuilder::prepare — Prepares the doc builder instance.
 
+
+
+
 Description
----------------
+================
 
 
 abstract public [DocBuilder::prepare](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/DocBuilder/DocBuilder/prepare.md)(array $settings = []) : void
@@ -28,7 +37,7 @@ The info object should be stored and re-used in the buildDoc method.
 
 
 Parameters
---------------
+================
 
 
 - settings
@@ -37,7 +46,7 @@ Parameters
 
 
 Return values
-----------------
+================
 
 Returns void.
 
@@ -47,9 +56,7 @@ Returns void.
 
 
 
-
-
 See Also
------------
+================
 
 The [DocBuilder](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/DocBuilder/DocBuilder.md) class.

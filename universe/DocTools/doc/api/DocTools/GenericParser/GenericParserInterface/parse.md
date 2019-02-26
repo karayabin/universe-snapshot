@@ -1,10 +1,19 @@
+[Back to the DocTools api](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools.md)<br>
+[Back to the DocTools\GenericParser\GenericParserInterface class](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/GenericParser/GenericParserInterface.md)
+
+
 GenericParserInterface::parse
 ================
 
+
+
 GenericParserInterface::parse — Parses the given $element and returns a [DocTools\Info\InfoInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/InfoInterface.md) object.
 
+
+
+
 Description
----------------
+================
 
 
 abstract public [GenericParserInterface::parse](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/GenericParser/GenericParserInterface/parse.md)(string $element) : [InfoInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/InfoInterface.md)
@@ -18,7 +27,7 @@ Parses the given $element and returns a [DocTools\Info\InfoInterface](https://gi
 
 
 Parameters
---------------
+================
 
 
 - element
@@ -27,7 +36,7 @@ Parameters
 
 
 Return values
-----------------
+================
 
 Returns [InfoInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/InfoInterface.md).
 The info interface.
@@ -37,9 +46,7 @@ The info interface.
 
 
 
-
-
 See Also
------------
+================
 
 The [GenericParserInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/GenericParser/GenericParserInterface.md) class.

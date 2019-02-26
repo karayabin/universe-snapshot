@@ -1,10 +1,19 @@
+[Back to the DocTools api](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools.md)<br>
+[Back to the DocTools\Widget\PlanetTocList\PlanetTocListWidget class](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/PlanetTocList/PlanetTocListWidget.md)
+
+
 PlanetTocListWidget::getItemDescription
 ================
 
+
+
 PlanetTocListWidget::getItemDescription — Returns the item description, according to the given $mode.
 
+
+
+
 Description
----------------
+================
 
 
 protected [PlanetTocListWidget::getItemDescription](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/PlanetTocList/PlanetTocListWidget/getItemDescription.md)([DocTools\Info\CommentInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/CommentInfo.md) $comment, string $mode, callable $formatterCallable, string $debugString) : string
@@ -25,7 +34,7 @@ Mode can be one of:
 
 
 Parameters
---------------
+================
 
 
 - comment
@@ -46,7 +55,7 @@ Parameters
 
 
 Return values
-----------------
+================
 
 Returns string.
 
@@ -56,9 +65,7 @@ Returns string.
 
 
 
-
-
 See Also
------------
+================
 
 The [PlanetTocListWidget](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/PlanetTocList/PlanetTocListWidget.md) class.

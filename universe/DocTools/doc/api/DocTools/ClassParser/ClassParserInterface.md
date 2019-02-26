@@ -1,6 +1,12 @@
+[Back to the DocTools api](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools.md)
+
+
+
 The ClassParserInterface class
 ================
 2019-02-21 --> 2019-02-26
+
+
 
 
 
@@ -43,6 +49,7 @@ Methods
 
 - [ClassParserInterface::parse](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/ClassParser/ClassParserInterface/parse.md) &ndash; Returns a ClassInfo object from the given $className.
 - [ClassParserInterface::getReport](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/ClassParser/ClassParserInterface/getReport.md) &ndash; Returns the parser report.
+
 
 
 

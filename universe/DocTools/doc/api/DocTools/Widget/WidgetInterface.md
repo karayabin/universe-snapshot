@@ -1,6 +1,12 @@
+[Back to the DocTools api](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools.md)
+
+
+
 The WidgetInterface class
 ================
 2019-02-21 --> 2019-02-26
+
+
 
 
 
@@ -42,6 +48,7 @@ Methods
 ==============
 
 - [WidgetInterface::render](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/WidgetInterface/render.md) &ndash; Returns the rendered widget.
+
 
 
 

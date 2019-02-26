@@ -1,10 +1,19 @@
+[Back to the DocTools api](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools.md)<br>
+[Back to the DocTools\Info\PropertyInfo class](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/PropertyInfo.md)
+
+
 PropertyInfo::setReflectionProperty
 ================
 
+
+
 PropertyInfo::setReflectionProperty — Sets the reflectionProperty.
 
+
+
+
 Description
----------------
+================
 
 
 public [PropertyInfo::setReflectionProperty](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/PropertyInfo/setReflectionProperty.md)([\ReflectionProperty](http://php.net/manual/en/class.reflectionproperty.php) $reflectionProperty) : void
@@ -18,7 +27,7 @@ Sets the reflectionProperty.
 
 
 Parameters
---------------
+================
 
 
 - reflectionProperty
@@ -27,7 +36,7 @@ Parameters
 
 
 Return values
-----------------
+================
 
 Returns void.
 
@@ -37,9 +46,7 @@ Returns void.
 
 
 
-
-
 See Also
------------
+================
 
 The [PropertyInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/PropertyInfo.md) class.

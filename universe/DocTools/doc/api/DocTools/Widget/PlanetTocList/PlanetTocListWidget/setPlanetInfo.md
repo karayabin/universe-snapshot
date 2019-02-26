@@ -1,10 +1,19 @@
+[Back to the DocTools api](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools.md)<br>
+[Back to the DocTools\Widget\PlanetTocList\PlanetTocListWidget class](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/PlanetTocList/PlanetTocListWidget.md)
+
+
 PlanetTocListWidget::setPlanetInfo
 ================
 
+
+
 PlanetTocListWidget::setPlanetInfo — Sets the planet info.
 
+
+
+
 Description
----------------
+================
 
 
 public [PlanetTocListWidget::setPlanetInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/PlanetTocList/PlanetTocListWidget/setPlanetInfo.md)([DocTools\Info\PlanetInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/PlanetInfo.md) $planetInfo) : [PlanetTocListWidget](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/PlanetTocList/PlanetTocListWidget.md)
@@ -18,7 +27,7 @@ Sets the planet info.
 
 
 Parameters
---------------
+================
 
 
 - planetInfo
@@ -27,7 +36,7 @@ Parameters
 
 
 Return values
-----------------
+================
 
 Returns [PlanetTocListWidget](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/PlanetTocList/PlanetTocListWidget.md).
 
@@ -37,9 +46,7 @@ Returns [PlanetTocListWidget](https://github.com/lingtalfi/DocTools/blob/master/
 
 
 
-
-
 See Also
------------
+================
 
 The [PlanetTocListWidget](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/PlanetTocList/PlanetTocListWidget.md) class.

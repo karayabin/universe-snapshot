@@ -1,6 +1,12 @@
+[Back to the DocTools api](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools.md)
+
+
+
 The PlanetDependenciesSectionWidget class
 ================
 2019-02-21 --> 2019-02-26
+
+
 
 
 
@@ -63,6 +69,7 @@ Methods
 - [PlanetDependenciesSectionWidget::setPlanetInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/PlanetDependenciesSection/PlanetDependenciesSectionWidget/setPlanetInfo.md) &ndash; Sets the planet info.
 - [PlanetDependenciesSectionWidget::render](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/PlanetDependenciesSection/PlanetDependenciesSectionWidget/render.md) &ndash; Returns the rendered widget.
 - [Widget::setOptions](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/Widget/setOptions.md) &ndash; Sets the options for this widget instance.
+
 
 
 

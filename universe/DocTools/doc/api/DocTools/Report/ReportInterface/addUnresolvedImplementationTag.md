@@ -1,10 +1,19 @@
+[Back to the DocTools api](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools.md)<br>
+[Back to the DocTools\Report\ReportInterface class](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Report/ReportInterface.md)
+
+
 ReportInterface::addUnresolvedImplementationTag
 ================
 
+
+
 ReportInterface::addUnresolvedImplementationTag — an unresolved @implementation tag.
 
+
+
+
 Description
----------------
+================
 
 
 abstract public [ReportInterface::addUnresolvedImplementationTag](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Report/ReportInterface/addUnresolvedImplementationTag.md)(string $methodName) : void
@@ -19,7 +28,7 @@ an unresolved @implementation tag.
 
 
 Parameters
---------------
+================
 
 
 - methodName
@@ -28,7 +37,7 @@ Parameters
 
 
 Return values
-----------------
+================
 
 Returns void.
 
@@ -38,9 +47,7 @@ Returns void.
 
 
 
-
-
 See Also
------------
+================
 
 The [ReportInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Report/ReportInterface.md) class.

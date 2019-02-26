@@ -1,6 +1,12 @@
+[Back to the DocTools api](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools.md)
+
+
+
 The ClassSynopsisWidget class
 ================
 2019-02-21 --> 2019-02-26
+
+
 
 
 
@@ -119,6 +125,7 @@ Methods
 - [ClassSynopsisWidget::getSectionTitle](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/ClassSynopsis/ClassSynopsisWidget/getSectionTitle.md) &ndash; Returns the section title, depending on the body style.
 - [ClassSynopsisWidget::getElementIndentedDash](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/ClassSynopsis/ClassSynopsisWidget/getElementIndentedDash.md) &ndash; Returns the properly indented dash for body elements (methods, properties, inherited properties, ...).
 - [Widget::setOptions](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/Widget/setOptions.md) &ndash; Sets the options for this widget instance.
+
 
 
 

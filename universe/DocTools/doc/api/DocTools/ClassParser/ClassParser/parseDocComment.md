@@ -1,10 +1,19 @@
+[Back to the DocTools api](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools.md)<br>
+[Back to the DocTools\ClassParser\ClassParser class](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/ClassParser/ClassParser.md)
+
+
 ClassParser::parseDocComment
 ================
 
+
+
 ClassParser::parseDocComment — Parses the raw doc comment and returns a DocTools\Info\CommentInfo object.
 
+
+
+
 Description
----------------
+================
 
 
 protected [ClassParser::parseDocComment](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/ClassParser/ClassParser/parseDocComment.md)(string $rawComment, string $elementType) : [CommentInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/CommentInfo.md)
@@ -27,7 +36,7 @@ Until the next tag, and so on...
 
 
 Parameters
---------------
+================
 
 
 - rawComment
@@ -43,7 +52,7 @@ Parameters
 
 
 Return values
-----------------
+================
 
 Returns [CommentInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/CommentInfo.md).
 
@@ -53,9 +62,7 @@ Returns [CommentInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/
 
 
 
-
-
 See Also
------------
+================
 
 The [ClassParser](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/ClassParser/ClassParser.md) class.

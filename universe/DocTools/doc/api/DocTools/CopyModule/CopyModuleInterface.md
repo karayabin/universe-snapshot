@@ -1,6 +1,12 @@
+[Back to the DocTools api](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools.md)
+
+
+
 The CopyModuleInterface class
 ================
 2019-02-21 --> 2019-02-26
+
+
 
 
 
@@ -37,6 +43,7 @@ Methods
 ==============
 
 - [CopyModuleInterface::copy](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/CopyModule/CopyModuleInterface/copy.md) &ndash; Copies the $sourceDir recursively to the $destinationDir, using the given $interpreter during the transfer.
+
 
 
 

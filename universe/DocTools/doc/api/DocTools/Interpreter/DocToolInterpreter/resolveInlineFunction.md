@@ -1,10 +1,19 @@
+[Back to the DocTools api](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools.md)<br>
+[Back to the DocTools\Interpreter\DocToolInterpreter class](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Interpreter/DocToolInterpreter.md)
+
+
 DocToolInterpreter::resolveInlineFunction
 ================
 
+
+
 DocToolInterpreter::resolveInlineFunction — Resolves an inline function and returns the result.
 
+
+
+
 Description
----------------
+================
 
 
 protected [DocToolInterpreter::resolveInlineFunction](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Interpreter/DocToolInterpreter/resolveInlineFunction.md)(?$functionName, array $argsList, [DocTools\Report\ReportInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Report/ReportInterface.md) $report = null) : false | string
@@ -26,7 +35,7 @@ This method by default uses the [docTool markup language](https://github.com/lin
 
 
 Parameters
---------------
+================
 
 
 - functionName
@@ -43,7 +52,7 @@ Parameters
 
 
 Return values
-----------------
+================
 
 Returns false | string.
 
@@ -53,9 +62,7 @@ Returns false | string.
 
 
 
-
-
 See Also
------------
+================
 
 The [DocToolInterpreter](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Interpreter/DocToolInterpreter.md) class.

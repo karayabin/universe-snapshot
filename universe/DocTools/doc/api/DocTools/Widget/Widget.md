@@ -1,6 +1,12 @@
+[Back to the DocTools api](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools.md)
+
+
+
 The Widget class
 ================
 2019-02-21 --> 2019-02-26
+
+
 
 
 
@@ -51,6 +57,7 @@ Methods
 - [Widget::__construct](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/Widget/__construct.md) &ndash; Builds the Widget instance.
 - [Widget::setOptions](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/Widget/setOptions.md) &ndash; Sets the options for this widget instance.
 - [WidgetInterface::render](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/WidgetInterface/render.md) &ndash; Returns the rendered widget.
+
 
 
 

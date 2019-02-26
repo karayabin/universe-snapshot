@@ -1,10 +1,19 @@
+[Back to the DocTools api](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools.md)<br>
+[Back to the DocTools\Report\AbstractReport class](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Report/AbstractReport.md)
+
+
 AbstractReport::addUndefinedInlineKeyword
 ================
 
+
+
 AbstractReport::addUndefinedInlineKeyword — Adds an undefined keyword (defined with the [keyword inline function](https://github.com/lingtalfi/DocTools/blob/master/doc/pages/doctool-markup-language.md#inline-functions) or alike).
 
+
+
+
 Description
----------------
+================
 
 
 public [AbstractReport::addUndefinedInlineKeyword](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Report/AbstractReport/addUndefinedInlineKeyword.md)(string $keyword, string $functionName) : void
@@ -18,7 +27,7 @@ Adds an undefined keyword (defined with the [keyword inline function](https://gi
 
 
 Parameters
---------------
+================
 
 
 - keyword
@@ -31,7 +40,7 @@ Parameters
 
 
 Return values
-----------------
+================
 
 Returns void.
 
@@ -41,9 +50,7 @@ Returns void.
 
 
 
-
-
 See Also
------------
+================
 
 The [AbstractReport](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Report/AbstractReport.md) class.

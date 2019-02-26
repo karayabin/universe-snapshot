@@ -1,10 +1,19 @@
+[Back to the DocTools api](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools.md)<br>
+[Back to the DocTools\TemplateWizard\TemplateWizard class](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/TemplateWizard/TemplateWizard.md)
+
+
 TemplateWizard::hasInsert
 ================
 
+
+
 TemplateWizard::hasInsert — Returns whether an insert of the given $type exists.
 
+
+
+
 Description
----------------
+================
 
 
 public [TemplateWizard::hasInsert](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/TemplateWizard/TemplateWizard/hasInsert.md)(string $type) : bool
@@ -18,7 +27,7 @@ Returns whether an insert of the given $type exists.
 
 
 Parameters
---------------
+================
 
 
 - type
@@ -27,7 +36,7 @@ Parameters
 
 
 Return values
-----------------
+================
 
 Returns bool.
 
@@ -37,9 +46,7 @@ Returns bool.
 
 
 
-
-
 See Also
------------
+================
 
 The [TemplateWizard](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/TemplateWizard/TemplateWizard.md) class.

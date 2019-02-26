@@ -1,6 +1,12 @@
+[Back to the DocTools api](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools.md)
+
+
+
 The GeneratedDocStyleInterface class
 ================
 2019-02-21 --> 2019-02-26
+
+
 
 
 
@@ -42,6 +48,7 @@ Methods
 - [GeneratedDocStyleInterface::getPlanetPageRelativePath](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/GeneratedDocStyle/GeneratedDocStyleInterface/getPlanetPageRelativePath.md) &ndash; Returns the relative path to the planet documentation page.
 - [GeneratedDocStyleInterface::getClassPageRelativePath](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/GeneratedDocStyle/GeneratedDocStyleInterface/getClassPageRelativePath.md) &ndash; Returns the relative path to the class documentation page.
 - [GeneratedDocStyleInterface::getMethodPageRelativePath](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/GeneratedDocStyle/GeneratedDocStyleInterface/getMethodPageRelativePath.md) &ndash; Returns the relative path to the method documentation page.
+
 
 
 

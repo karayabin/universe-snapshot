@@ -1,10 +1,19 @@
+[Back to the DocTools api](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools.md)<br>
+[Back to the DocTools\Page\PageUtil class](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Page/PageUtil.md)
+
+
 PageUtil::createPage
 ================
 
+
+
 PageUtil::createPage — Creates the page in $file, based on the given $template and $variables.
 
+
+
+
 Description
----------------
+================
 
 
 public [PageUtil::createPage](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Page/PageUtil/createPage.md)(string $file, string $template, array $variables) : void
@@ -18,7 +27,7 @@ Creates the page in $file, based on the given $template and $variables.
 
 
 Parameters
---------------
+================
 
 
 - file
@@ -35,7 +44,7 @@ Parameters
 
 
 Return values
-----------------
+================
 
 Returns void.
 
@@ -45,9 +54,7 @@ Returns void.
 
 
 
-
-
 See Also
------------
+================
 
 The [PageUtil](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Page/PageUtil.md) class.

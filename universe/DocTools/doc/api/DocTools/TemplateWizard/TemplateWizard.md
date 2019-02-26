@@ -1,6 +1,12 @@
+[Back to the DocTools api](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools.md)
+
+
+
 The TemplateWizard class
 ================
 2019-02-21 --> 2019-02-26
+
+
 
 
 
@@ -100,6 +106,7 @@ Methods
 - [TemplateWizard::__construct](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/TemplateWizard/TemplateWizard/__construct.md) &ndash; Builds the TemplateWizard instance.
 - [TemplateWizard::hasInsert](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/TemplateWizard/TemplateWizard/hasInsert.md) &ndash; Returns whether an insert of the given $type exists.
 - [TemplateWizard::getInserts](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/TemplateWizard/TemplateWizard/getInserts.md) &ndash; Returns an array of inserts for the given $type.
+
 
 
 

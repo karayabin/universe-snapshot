@@ -1,6 +1,12 @@
+[Back to the DocTools api](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools.md)
+
+
+
 The CommentHelper class
 ================
 2019-02-21 --> 2019-02-26
+
+
 
 
 
@@ -54,6 +60,7 @@ Methods
 ==============
 
 - [CommentHelper::displaySeeAlsoItemsSentence](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Helper/CommentHelper/displaySeeAlsoItemsSentence.md) &ndash; Returns a human sentence out of the see items collected into the given CommentInfo instance.
+
 
 
 

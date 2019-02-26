@@ -1,10 +1,19 @@
+[Back to the DocTools api](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools.md)<br>
+[Back to the DocTools\ClassParser\ClassParserInterface class](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/ClassParser/ClassParserInterface.md)
+
+
 ClassParserInterface::parse
 ================
 
+
+
 ClassParserInterface::parse — Returns a ClassInfo object from the given $className.
 
+
+
+
 Description
----------------
+================
 
 
 abstract public [ClassParserInterface::parse](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/ClassParser/ClassParserInterface/parse.md)(string $className) : [InfoInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/InfoInterface.md)
@@ -20,7 +29,7 @@ See also [the ClassInfo class](https://github.com/lingtalfi/DocTools/blob/master
 
 
 Parameters
---------------
+================
 
 
 - className
@@ -29,7 +38,7 @@ Parameters
 
 
 Return values
-----------------
+================
 
 Returns [InfoInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/InfoInterface.md).
 
@@ -39,9 +48,7 @@ Returns [InfoInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/ap
 
 
 
-
-
 See Also
------------
+================
 
 The [ClassParserInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/ClassParser/ClassParserInterface.md) class.

@@ -1,6 +1,12 @@
+[Back to the DocTools api](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools.md)
+
+
+
 The PropertyInfo class
 ================
 2019-02-21 --> 2019-02-26
+
+
 
 
 
@@ -109,6 +115,7 @@ Methods
 - [PropertyInfo::getDefaultValue](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/PropertyInfo/getDefaultValue.md) &ndash; Returns the default value of this property, or null if there is no default value.
 - [PropertyInfo::getType](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/PropertyInfo/getType.md) &ndash; Returns the type of this instance.
 - [PropertyInfo::setType](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/PropertyInfo/setType.md) &ndash; Sets the type.
+
 
 
 

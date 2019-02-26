@@ -1,6 +1,12 @@
+[Back to the DocTools api](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools.md)
+
+
+
 The ClassParser class
 ================
 2019-02-21 --> 2019-02-26
+
+
 
 
 
@@ -129,6 +135,7 @@ Methods
 - [ClassParser::trimLines](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/ClassParser/ClassParser/trimLines.md) &ndash; from the very beginning or from the very end of that array.
 - [ClassParser::expandIncludes](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/ClassParser/ClassParser/expandIncludes.md) &ndash; Expands the @implementation and/or @overrides tags in the raw content recursively, and returns the result.
 - [ClassParser::getTagDescriptionByContent](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/ClassParser/ClassParser/getTagDescriptionByContent.md) &ndash; Returns the tag description from the given $content.
+
 
 
 

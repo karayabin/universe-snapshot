@@ -1,6 +1,12 @@
+[Back to the DocTools api](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools.md)
+
+
+
 The PageUtil class
 ================
 2019-02-21 --> 2019-02-26
+
+
 
 
 
@@ -72,6 +78,7 @@ Methods
 - [PageUtil::setTranslator](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Page/PageUtil/setTranslator.md) &ndash; Sets the translator.
 - [PageUtil::createPage](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Page/PageUtil/createPage.md) &ndash; Creates the page in $file, based on the given $template and $variables.
 - [PageUtil::renderPage](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Page/PageUtil/renderPage.md) &ndash; and returns the rendered result.
+
 
 
 

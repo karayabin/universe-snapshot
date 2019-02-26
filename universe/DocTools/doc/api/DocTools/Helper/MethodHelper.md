@@ -1,6 +1,12 @@
+[Back to the DocTools api](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools.md)
+
+
+
 The MethodHelper class
 ================
 2019-02-21 --> 2019-02-26
+
+
 
 
 
@@ -35,6 +41,7 @@ Methods
 
 - [MethodHelper::getMethodReturnType](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Helper/MethodHelper/getMethodReturnType.md) &ndash; Returns the method's return type, with links to class names when possible.
 - [MethodHelper::getMethodSignature](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Helper/MethodHelper/getMethodSignature.md) &ndash; Returns a method signature with links to class names when possible.
+
 
 
 

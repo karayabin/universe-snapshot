@@ -1,10 +1,19 @@
+[Back to the DocTools api](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools.md)<br>
+[Back to the DocTools\Report\AbstractReport class](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Report/AbstractReport.md)
+
+
 AbstractReport::addUnresolvedMethodReference
 ================
 
+
+
 AbstractReport::addUnresolvedMethodReference — Adds an unresolved method reference.
 
+
+
+
 Description
----------------
+================
 
 
 public [AbstractReport::addUnresolvedMethodReference](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Report/AbstractReport/addUnresolvedMethodReference.md)(string $className, string $methodName, string $hint = null) : void
@@ -18,7 +27,7 @@ Adds an unresolved method reference.
 
 
 Parameters
---------------
+================
 
 
 - className
@@ -35,7 +44,7 @@ Parameters
 
 
 Return values
-----------------
+================
 
 Returns void.
 
@@ -45,9 +54,7 @@ Returns void.
 
 
 
-
-
 See Also
------------
+================
 
 The [AbstractReport](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Report/AbstractReport.md) class.

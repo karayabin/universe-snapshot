@@ -1,6 +1,12 @@
+[Back to the DocTools api](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools.md)
+
+
+
 The PhpClassHelper class
 ================
 2019-02-21 --> 2019-02-26
+
+
 
 
 
@@ -34,6 +40,7 @@ Methods
 ==============
 
 - [PhpClassHelper::getClasses2Urls](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Helper/PhpClassHelper/getClasses2Urls.md) &ndash; Returns a map of php class to url.
+
 
 
 

@@ -638,6 +638,10 @@ This includes:
 History Log
 =============
     
+- 1.2.0 -- 2019-02-26
+
+    - Add navigation links at the top of the methods and class templates in LingGitPhpPlanetDocBuilder
+    
 - 1.1.0 -- 2019-02-26
 
     - Update DocTools\Report\ReportInterface::addUndefinedInlineKeyword, now has a $functionName argument

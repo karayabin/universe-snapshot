@@ -1,6 +1,12 @@
+[Back to the DocTools api](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools.md)
+
+
+
 The MethodInfo class
 ================
 2019-02-21 --> 2019-02-26
+
+
 
 
 
@@ -134,6 +140,7 @@ Methods
 - [MethodInfo::addParameter](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/MethodInfo/addParameter.md) &ndash; Adds a DocTools\Info\ParameterInfo to this instance.
 - [MethodInfo::getParameters](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/MethodInfo/getParameters.md) &ndash; Returns the parameters of this instance.
 - [MethodInfo::getReturnDescription](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/MethodInfo/getReturnDescription.md) &ndash; Returns the returnDescription of this instance.
+
 
 
 

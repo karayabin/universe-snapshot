@@ -1,6 +1,12 @@
+[Back to the DocTools api](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools.md)
+
+
+
 The ParseDownTranslator class
 ================
 2019-02-21 --> 2019-02-26
+
+
 
 
 
@@ -190,6 +196,7 @@ Methods
 - Parsedown::escape &ndash; 
 - Parsedown::striAtStart &ndash; 
 - Parsedown::instance &ndash; 
+
 
 
 

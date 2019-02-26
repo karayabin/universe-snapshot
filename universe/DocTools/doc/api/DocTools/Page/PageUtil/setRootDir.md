@@ -1,10 +1,19 @@
+[Back to the DocTools api](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools.md)<br>
+[Back to the DocTools\Page\PageUtil class](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Page/PageUtil.md)
+
+
 PageUtil::setRootDir
 ================
 
+
+
 PageUtil::setRootDir — Sets the root dir.
 
+
+
+
 Description
----------------
+================
 
 
 public [PageUtil::setRootDir](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Page/PageUtil/setRootDir.md)(string $rootDir) : void
@@ -18,7 +27,7 @@ Sets the root dir.
 
 
 Parameters
---------------
+================
 
 
 - rootDir
@@ -27,7 +36,7 @@ Parameters
 
 
 Return values
-----------------
+================
 
 Returns void.
 
@@ -37,9 +46,7 @@ Returns void.
 
 
 
-
-
 See Also
------------
+================
 
 The [PageUtil](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Page/PageUtil.md) class.

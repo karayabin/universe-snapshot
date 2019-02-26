@@ -1,6 +1,12 @@
+[Back to the DocTools api](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools.md)
+
+
+
 The ClassInfo class
 ================
 2019-02-21 --> 2019-02-26
+
+
 
 
 
@@ -129,6 +135,7 @@ Methods
 - [ClassInfo::getReflectionClass](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/ClassInfo/getReflectionClass.md) &ndash; Returns the reflectionClass of this instance.
 - [ClassInfo::setReflectionClass](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/ClassInfo/setReflectionClass.md) &ndash; Sets the reflectionClass.
 - [ClassInfo::hasProperties](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/ClassInfo/hasProperties.md) &ndash; Returns whether the class has (direct) properties.
+
 
 
 

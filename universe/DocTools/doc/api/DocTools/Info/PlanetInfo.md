@@ -1,6 +1,12 @@
+[Back to the DocTools api](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools.md)
+
+
+
 The PlanetInfo class
 ================
 2019-02-21 --> 2019-02-26
+
+
 
 
 
@@ -76,6 +82,7 @@ Methods
 - [PlanetInfo::getClass](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/PlanetInfo/getClass.md) &ndash; or null otherwise.
 - [PlanetInfo::getName](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/PlanetInfo/getName.md) &ndash; Returns the name of the planet.
 - [PlanetInfo::setName](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/PlanetInfo/setName.md) &ndash; Sets the name of this planet.
+
 
 
 

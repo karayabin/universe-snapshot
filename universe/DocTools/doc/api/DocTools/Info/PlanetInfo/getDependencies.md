@@ -1,10 +1,19 @@
+[Back to the DocTools api](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools.md)<br>
+[Back to the DocTools\Info\PlanetInfo class](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/PlanetInfo.md)
+
+
 PlanetInfo::getDependencies
 ================
 
+
+
 PlanetInfo::getDependencies — Returns the array of dependencies to other planets.
 
+
+
+
 Description
----------------
+================
 
 
 public [PlanetInfo::getDependencies](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/PlanetInfo/getDependencies.md)() : array
@@ -19,13 +28,13 @@ See more about dependencies in the [DependencyTool](https://github.com/lingtalfi
 
 
 Parameters
---------------
+================
 
 This method has no parameters.
 
 
 Return values
-----------------
+================
 
 Returns array.
 
@@ -35,9 +44,7 @@ Returns array.
 
 
 
-
-
 See Also
------------
+================
 
 The [PlanetInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/PlanetInfo.md) class.

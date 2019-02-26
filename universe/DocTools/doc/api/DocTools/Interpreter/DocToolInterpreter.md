@@ -1,6 +1,12 @@
+[Back to the DocTools api](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools.md)
+
+
+
 The DocToolInterpreter class
 ================
 2019-02-21 --> 2019-02-26
+
+
 
 
 
@@ -64,6 +70,7 @@ Methods
 - [DocToolInterpreter::setKeyword2UrlMap](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Interpreter/DocToolInterpreter/setKeyword2UrlMap.md) &ndash; Sets the keyword2UrlMap.
 - [DocToolInterpreter::resolveInlineFunction](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Interpreter/DocToolInterpreter/resolveInlineFunction.md) &ndash; Resolves an inline function and returns the result.
 - [DocToolInterpreter::resolveArgsList](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Interpreter/DocToolInterpreter/resolveArgsList.md) &ndash; Returns an array representing the resolved $argsList string passed to the method.
+
 
 
 
