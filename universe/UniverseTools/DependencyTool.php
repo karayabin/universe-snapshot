@@ -11,11 +11,19 @@ use UniverseTools\Exception\UniverseToolsException;
 
 /**
  * The DependencyTool class.
+ * This class helps resolving dependencies related problem.
+ *
+ * See more about universe dependencies in the @page(universe dependencies document).
+ *
+ *
  */
 class DependencyTool
 {
 
     /**
+     * A method to help creating the **dependencies.byml** file.
+     *
+     *
      * Parses the planet's [BSR-0](https://github.com/lingtalfi/BumbleBee/blob/master/Autoload/convention.bsr0.eng.md) classes
      * and returns a list of dependencies to put in the dependencies.byml * at the root of your planet.
      *
@@ -33,8 +41,8 @@ class DependencyTool
      *
      *
      *
-     * @param $planetDir , string. The directory path of the planet to scan.
-     * @param $br , string = <br>. The string to use as the carriage return.
+     * @param string $planetDir . The directory path of the planet to scan.
+     * @param string $br = <br>. The string to use as the carriage return.
      *
      *
      * @return string
@@ -70,8 +78,7 @@ class DependencyTool
                 });
                 $allUseStatements = array_merge($allUseStatements, $useStatements);
 
-            }
-            catch (\ReflectionException $e) {
+            } catch (\ReflectionException $e) {
                 // not a bsr-0 class
                 continue;
             }
@@ -94,11 +101,11 @@ class DependencyTool
      * Parses the dependencies.byml file (at the root of the given $planetDir) if it exists,
      * and return an array of all dependencies found in it.
      *
-     * See the [universe dependencies document](https://github.com/lingtalfi/TheScientist/blob/master/universe-dependencies-2019.md) for more information.
+     * See the @page(universe dependencies document) for more information.
      *
      * The array is a list of dependencyItem, each of which being an array with 3 items:
      *
-     * - 0: the dependency system name (universe, git, ...).
+     * - 0: the galaxy identifier/ download technique
      * - 1: the dependency item (name, url, ...).
      * - 2: the tag (aka version) used, or the wildcard if the last version available should be used.
      *
@@ -121,25 +128,20 @@ class DependencyTool
             $conf = BabyYamlUtil::readFile($dependencyFile);
 
             unset($conf['post_install']);
-            foreach ($conf as $system => $arr) {
-                if ('universe' === $system) {
-                    foreach ($arr as $maintainer => $deps) {
-                        foreach ($deps as $planet => $tag) {
-                            $ret[] = ["universe.$maintainer", $planet, $tag];
-                        }
+
+            $dependencies = $conf['dependencies'] ?? [];
+
+            foreach ($dependencies as $downloadTechnique => $deps) {
+                if ('ling' === $downloadTechnique) {
+                    foreach ($deps as $planet => $tag) {
+                        $ret[] = [$downloadTechnique, $planet, $tag];
                     }
-                }
-                elseif ('git' === $system) {
-                    foreach ($arr as $dependency) {
-                        $p = explode(':::', $dependency, 2);
-                        if (2 === count($p)) {
-                            list($url, $tag) = $p;
-                        }
-                        else {
-                            $url = $dependency;
-                            $tag = '*';
-                        }
-                        $ret[] = ["git", $url, $tag];
+                } elseif ('git' === $downloadTechnique) {
+                    foreach ($deps as $dependency) {
+                        $p = explode(':', $dependency);
+                        $tag = array_pop($p);
+                        $url = implode(":", $p);
+                        $ret[] = [$downloadTechnique, $url, $tag];
                     }
                 }
             }
@@ -149,17 +151,34 @@ class DependencyTool
 
 
     /**
-     * Returns the home url (the url of the documentation) for the given $dependencyItem.
+     * Returns the home url (i.e. the url of the main documentation) for the given $dependencyItem.
      * $dependencyItems are returned by the getDependencyList method of this class.
      *
      *
      * Design note: this method encapsulates the logic of getting the url of the documentation
-     * for EVERY dependency system handled by the universe.
-     * In the future, this method might execute some internet lookup to achieve its goal,
-     * but for now, everything is hardcoded (because all the dependency systems are well known in advance...).
+     * for EVERY download technique handled by the universe.
      *
      *
      *
+     * Example:
+     * ------------
+     * The following code:
+     *
+     * ```php
+     * $item = [
+     *      "ling",
+     *      "Bat",
+     *      "*",
+     * ];
+     * az(DependencyTool::getDependencyHomeUrl($item)); // string(71) "https://github.com/karayabin/universe-snapshot/tree/master/universe/Bat"
+     * ```
+     *
+     *
+     * Will output:
+     *
+     * ```html
+     * string(71) "https://github.com/karayabin/universe-snapshot/tree/master/universe/Bat"
+     * ```
      *
      *
      *
@@ -171,18 +190,18 @@ class DependencyTool
      */
     public static function getDependencyHomeUrl(array $dependencyItem)
     {
-        $dependencySystem = $dependencyItem[0];
+        $downloadTechnique = $dependencyItem[0];
         $target = $dependencyItem[1];
 
-        switch ($dependencySystem) {
-            case "universe.ling":
+        switch ($downloadTechnique) {
+            case "ling":
                 return "https://github.com/karayabin/universe-snapshot/tree/master/universe/$target";
                 break;
             case "git":
                 return $target;
                 break;
             default:
-                throw new UniverseToolsException("Unknown dependency system: $dependencySystem");
+                throw new UniverseToolsException("Unknown download technique/galaxy identifier: $downloadTechnique");
                 break;
         }
     }

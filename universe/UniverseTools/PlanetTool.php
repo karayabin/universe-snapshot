@@ -8,13 +8,38 @@ use UniverseTools\Exception\UniverseToolsException;
 
 /**
  * The PlanetTool class.
+ *
+ * Contains methods related to a planet, like listing the @kw(bsr-0) classes found in a planet for instance.
+ *
  */
 class PlanetTool
 {
 
 
     /**
-     * Parses the given directory recursively and returns an array containing the names of all (bsr-0) classes found.
+     * Parses the given directory recursively and returns an array containing the names of all @kw(bsr-0) classes found.
+     *
+     * Example:
+     * -----------
+     *
+     * The following code:
+     *
+     * ```php
+     * $planetDir = "/komin/jin_site_demo/universe/UniverseTools";
+     * az(PlanetTool::getClassNames($planetDir));
+     * ```
+     *
+     *
+     * Will output:
+     *
+     * ```html
+     * array(3) {
+     * [0] => string(28) "UniverseTools\DependencyTool"
+     * [1] => string(46) "UniverseTools\Exception\UniverseToolsException"
+     * [2] => string(24) "UniverseTools\PlanetTool"
+     * }
+     *
+     * ```
      *
      *
      *
@@ -24,7 +49,8 @@ class PlanetTool
      * @return array
      * @throws UniverseToolsException
      */
-    public static function getClassNames($planetDir){
+    public static function getClassNames($planetDir)
+    {
         if (false === is_dir($planetDir)) {
             throw new UniverseToolsException("Dir not found: $planetDir");
         }

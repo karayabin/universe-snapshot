@@ -638,6 +638,10 @@ This includes:
 History Log
 =============
     
+- 1.3.0 -- 2019-02-26
+
+    - fix PlanetDependenciesSectionWidget->render method accordingly with update of \UniverseTools\DependencyTool::getDependencyHomeUrl method
+    
 - 1.2.0 -- 2019-02-26
 
     - Add navigation links at the top of the methods and class templates in LingGitPhpPlanetDocBuilder

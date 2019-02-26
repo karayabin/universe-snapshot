@@ -208,7 +208,8 @@ class MethodHelper
                     $defaultValue = "true";
                 }
 
-                $s .= ' = ' . $defaultValue;
+
+                $s .= ' = ' . htmlspecialchars($defaultValue);
             }
 
         }

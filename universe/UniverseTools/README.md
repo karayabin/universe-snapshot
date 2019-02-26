@@ -25,14 +25,21 @@ Or just download it and place it where you want otherwise.
 
 Summary
 =======
-- [The dependency tool](https://github.com/lingtalfi/UniverseTools/blob/master/doc/DependencyTool.md)
-- [The planet tool](https://github.com/lingtalfi/UniverseTools/blob/master/doc/PlanetTool.md)
+- [UniverseTools api](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/UniverseTools.md) (generated with [DocTools](https://github.com/lingtalfi/DocTools))
+
+
+
+
 
 
 
 History Log
-------------------
+==============
 
+- 1.3.0 -- 2019-02-26
+
+    - add UniverseTools\MetaInfoTool class
+    
 - 1.2.0 -- 2019-02-12
 
     - add UniverseTools\PlanetTool class
@@ -44,3 +51,7 @@ History Log
 - 1.0.0 -- 2019-02-08
 
     - initial commit
+    
+    
+    
+    

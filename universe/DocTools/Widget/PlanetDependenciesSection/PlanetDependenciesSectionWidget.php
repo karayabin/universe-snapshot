@@ -94,12 +94,12 @@ class PlanetDependenciesSectionWidget extends Widget
         // DEPENDENCIES
         //--------------------------------------------
         foreach ($dependencies as $dependencyItem) {
-            $dependencySystem = $dependencyItem[0];
+            $downloadTechnique = $dependencyItem[0];
             $repoName = $dependencyItem[1];
             $url = DependencyTool::getDependencyHomeUrl($dependencyItem);
 
 
-            if (0 === strpos($dependencySystem, 'universe.')) {
+            if ("ling" === $downloadTechnique) {
                 $repoName = "Universe: " . $repoName;
             }
 
