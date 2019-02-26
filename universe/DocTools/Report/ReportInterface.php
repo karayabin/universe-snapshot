@@ -65,7 +65,7 @@ namespace DocTools\Report;
  *
  * Inline functions
  * ---------------
- * - unresolved @keyword: calls to the keyword @kw(inline function) which didn't resolve.
+ * - unresolved @keyword: calls to the keyword @kw(inline function) which didn't resolve, and what function was used.
  * - unresolved @class: calls to the class @kw(inline function) which didn't resolve.
  *          Note that this can create doublons with the "unresolved class references".
  * - unknown functions: the names of the unknown @kw(inline functions) used by the client.
@@ -152,12 +152,17 @@ interface ReportInterface
     public function addUnknownInlineFunction(string $functionName);
 
     /**
-     * Adds an undefined keyword (defined with the @keyword(keyword inline function)).
+     * Adds an undefined keyword (defined with the @keyword(keyword inline function) or alike).
      *
      * @param string $keyword
+     * The keyword which couldn't resolve.
+     *
+     * @param string $functionName
+     * The name of the function used to call the keyword.
+     *
      * @return void
      */
-    public function addUndefinedInlineKeyword(string $keyword);
+    public function addUndefinedInlineKeyword(string $keyword, string $functionName);
 
 
     /**

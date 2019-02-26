@@ -5,10 +5,12 @@ namespace Bate;
 /*
  * LingTalfi 2015-12-01
  */
+
 use Bat\StringTool;
 
 class MicroStringTool
 {
+
 
 
     /**
@@ -26,8 +28,7 @@ class MicroStringTool
                 "\t" === $char
             ) {
                 $pos++;
-            }
-            else {
+            } else {
                 break;
             }
         }

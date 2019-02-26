@@ -203,7 +203,7 @@ class DocToolInterpreter implements NotationInterpreterInterface
                 }
                 else {
                     if (null !== $report) {
-                        $report->addUndefinedInlineKeyword($keyword);
+                        $report->addUndefinedInlineKeyword($keyword, $functionName);
                     }
                 }
                 return $keyword;
@@ -217,7 +217,7 @@ class DocToolInterpreter implements NotationInterpreterInterface
                 }
                 else {
                     if (null !== $report) {
-                        $report->addUndefinedInlineKeyword($keyword);
+                        $report->addUndefinedInlineKeyword($keyword, $functionName);
                     }
                 }
                 return $keyword;

@@ -52,9 +52,10 @@ abstract class AbstractReport implements ReportInterface
 
 
     /**
-     * This property holds an array of undefined keyword items, each of which being the following array:
+     * This property holds an array of undefined keyword items, along with the function name, each of which being the following array:
      *
      * - 0: name of the undefined keyword
+     * - 0: name of the inline function called
      * - 1: location (class name) where it was found
      *
      * @var array
@@ -356,11 +357,12 @@ abstract class AbstractReport implements ReportInterface
     /**
      * @implementation
      */
-    public function addUndefinedInlineKeyword(string $keyword)
+    public function addUndefinedInlineKeyword(string $keyword, string $functionName)
     {
         if (false === in_array($this->currentContext, $this->ignore, true)) {
             $this->undefinedInlineKeywords[] = [
                 $keyword,
+                $functionName,
                 $this->currentContext,
             ];
         }

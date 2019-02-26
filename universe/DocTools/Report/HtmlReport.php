@@ -268,7 +268,7 @@ class HtmlReport extends AbstractReport
         $inlineUnresolvedKeyword = $this->getTableSection(
             "Unresolved @keyword",
             "unresolved-keyword-inline-functions",
-            ['Unresolved @keyword', 'Context'],
+            ['Unresolved @keyword', "Function name", 'Context'],
             $this->undefinedInlineKeywords
         );
 

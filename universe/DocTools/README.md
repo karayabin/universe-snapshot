@@ -638,6 +638,10 @@ This includes:
 History Log
 =============
     
+- 1.1.0 -- 2019-02-26
+
+    - Update DocTools\Report\ReportInterface::addUndefinedInlineKeyword, now has a $functionName argument
+    
 - 1.0.1 -- 2019-02-25
 
     - Add the @object inline function to the docTool markup language
