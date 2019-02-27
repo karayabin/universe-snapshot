@@ -26,10 +26,11 @@ and return an array of all dependencies found in it.
 
 See the [universe dependencies document](https://github.com/lingtalfi/TheScientist/blob/master/universe-dependencies-2019.md) for more information.
 
-The array is a list of dependencyItem, each of which being an array with 3 items:
+The array is a list of dependencyItem, each of which being an array with 3 entries:
 
-- 0: the galaxy identifier/ download technique
+- 0: the galaxy identifier/ dependency system
 - 1: the dependency item (name, url, ...).
+- 2: an array of the post install directives (if any)
 
 
 

@@ -103,10 +103,11 @@ class DependencyTool
      *
      * See the @page(universe dependencies document) for more information.
      *
-     * The array is a list of dependencyItem, each of which being an array with 3 items:
+     * The array is a list of dependencyItem, each of which being an array with 3 entries:
      *
-     * - 0: the galaxy identifier/ download technique
+     * - 0: the galaxy identifier/ dependency system
      * - 1: the dependency item (name, url, ...).
+     * - 2: an array of the post install directives (if any)
      *
      *
      *
@@ -126,13 +127,13 @@ class DependencyTool
         if (file_exists($dependencyFile)) {
             $conf = BabyYamlUtil::readFile($dependencyFile);
 
-            unset($conf['post_install']);
+            $postInstall = $conf['post_install'] ?? [];
 
             $dependencies = $conf['dependencies'] ?? [];
 
             foreach ($dependencies as $dependencySystem => $deps) {
                 foreach ($deps as $dependency) {
-                    $ret[] = [$dependencySystem, $dependency];
+                    $ret[] = [$dependencySystem, $dependency, $postInstall];
                 }
             }
         }

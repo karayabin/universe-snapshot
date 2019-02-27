@@ -36,6 +36,10 @@ Summary
 History Log
 ==============
 
+- 1.5.0 -- 2019-02-27
+
+    - update DependencyTool::getDependencyList, the returned array now contains the post_install directives
+    
 - 1.4.0 -- 2019-02-26
 
     - fix DependencyTool class to be compliant with the [new universe dependency system](https://github.com/lingtalfi/TheScientist/blob/master/universe-dependencies-2019.md)
