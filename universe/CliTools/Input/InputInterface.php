@@ -44,4 +44,30 @@ interface InputInterface
      */
     public function hasFlag(string $flagName): bool;
 
+
+    /**
+     * Returns the list of all parameters, in the order they were written.
+     * It's an array of parameter names.
+     *
+     * @return array
+     */
+    public function getParameters(): array;
+
+    /**
+     * Returns the list of all options (key/value pairs), in the order they were written.
+     * It's an array of key => value.
+     *
+     * @return array
+     */
+    public function getOptions(): array;
+
+
+
+    /**
+     * Returns the list of all flags, in the order they were written.
+     * It's an array of flag names.
+     *
+     * @return array
+     */
+    public function getFlags(): array;
 }

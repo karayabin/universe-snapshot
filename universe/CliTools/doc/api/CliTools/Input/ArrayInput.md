@@ -4,7 +4,7 @@
 
 The ArrayInput class
 ================
-2019-02-26 --> 2019-02-26
+2019-02-26 --> 2019-02-27
 
 
 
@@ -75,62 +75,43 @@ Class synopsis
 ==============
 
 
-class <span class="pl-k">ArrayInput</span> implements [InputInterface](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/InputInterface.md) {
+class <span class="pl-k">ArrayInput</span> extends [AbstractInput](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/AbstractInput.md) implements [InputInterface](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/InputInterface.md) {
 
-- Properties
-    - private array [$flags](#property-flags) ;
-    - private array [$options](#property-options) ;
-    - private array [$parameters](#property-parameters) ;
+- Inherited properties
+    - protected array [AbstractInput::$flags](#property-flags) ;
+    - protected array [AbstractInput::$options](#property-options) ;
+    - protected array [AbstractInput::$parameters](#property-parameters) ;
 
 - Methods
-    - public [__construct](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/ArrayInput/__construct.md)() : void
-    - public [hasFlag](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/ArrayInput/hasFlag.md)(string $flagName) : bool
-    - public [getOption](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/ArrayInput/getOption.md)(string $optionName, $default = null) : mixed | null
-    - public [getParameter](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/ArrayInput/getParameter.md)(int $index, $default = null) : mixed | null
     - public [setItems](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/ArrayInput/setItems.md)(array $items) : void
+
+- Inherited methods
+    - public [AbstractInput::__construct](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/AbstractInput/__construct.md)() : void
+    - public [AbstractInput::hasFlag](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/AbstractInput/hasFlag.md)(string $flagName) : bool
+    - public [AbstractInput::getOption](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/AbstractInput/getOption.md)(string $optionName, $default = null) : mixed | null
+    - public [AbstractInput::getParameter](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/AbstractInput/getParameter.md)(int $index, $default = null) : mixed | null
+    - public [AbstractInput::getParameters](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/AbstractInput/getParameters.md)() : array
+    - public [AbstractInput::getOptions](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/AbstractInput/getOptions.md)() : array
+    - public [AbstractInput::getFlags](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/AbstractInput/getFlags.md)() : array
 
 }
 
 
 
 
-Properties
-=============
-
-- <span id="property-flags"><b>flags</b></span>
-
-    This property holds the array of set flags.
-    It's an array of key => true
-    
-    
-
-- <span id="property-options"><b>options</b></span>
-
-    This property holds the values of the options passed to the program.
-    
-    It's an array of key => value
-    
-    
-
-- <span id="property-parameters"><b>parameters</b></span>
-
-    This property holds the parameters passed to the program.
-    
-    It's an array of index => value, with index starting at 1.
-    Parameters are registered in order from left to right.
-    
-    
-
 
 
 Methods
 ==============
 
-- [ArrayInput::__construct](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/ArrayInput/__construct.md) &ndash; Builds the class instance.
-- [ArrayInput::hasFlag](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/ArrayInput/hasFlag.md) &ndash; Returns whether the flag $flagName was set.
-- [ArrayInput::getOption](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/ArrayInput/getOption.md) &ndash; Returns the value of the option $optionName if set, or the $default value if the option was not defined.
-- [ArrayInput::getParameter](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/ArrayInput/getParameter.md) &ndash; Returns the value of the parameter at index $index, or the $default value if no parameter was defined for the given index.
 - [ArrayInput::setItems](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/ArrayInput/setItems.md) &ndash; Sets the items (parameters, options, flags) for this instance.
+- [AbstractInput::__construct](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/AbstractInput/__construct.md) &ndash; Builds the class instance.
+- [AbstractInput::hasFlag](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/AbstractInput/hasFlag.md) &ndash; Returns whether the flag $flagName was set.
+- [AbstractInput::getOption](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/AbstractInput/getOption.md) &ndash; Returns the value of the option $optionName if set, or the $default value if the option was not defined.
+- [AbstractInput::getParameter](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/AbstractInput/getParameter.md) &ndash; Returns the value of the parameter at index $index, or the $default value if no parameter was defined for the given index.
+- [AbstractInput::getParameters](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/AbstractInput/getParameters.md) &ndash; Returns the list of all parameters, in the order they were written.
+- [AbstractInput::getOptions](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/AbstractInput/getOptions.md) &ndash; Returns the list of all options (key/value pairs), in the order they were written.
+- [AbstractInput::getFlags](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/AbstractInput/getFlags.md) &ndash; Returns the list of all flags, in the order they were written.
 
 
 

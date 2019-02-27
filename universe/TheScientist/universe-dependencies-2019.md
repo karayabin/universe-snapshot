@@ -45,7 +45,7 @@ Note for implementors: the **post_install**'s move action is fictive, it's not p
         - Bat: use the last version of Bat available.
         - ArrayToString: use the last version of ArrayToString available
             
-    - git: a download technique (for non-planet packages hosted on github.com)
+    - git: a dependency system (for non-planet packages hosted on github.com)
         - https://github.com/tecnickcom/tcpdf: use the last version of the tcpdf repository (not a planet) should be used.
         
 
@@ -60,12 +60,12 @@ Note for implementors: the **post_install**'s move action is fictive, it's not p
 
 
 
-Galaxy identifier / download technique
+Galaxy identifier / dependency system
 --------------------
 
-The download technique indicates how to download the package.
+The dependency system indicates how to download the package.
 In the case of a planet (i.e. if the package to download is a planet), then we call it a galaxy identifier, 
-since it's aesthetically more pleasing (i.e. it makes sense to group planets into galaxies in the universe nomenclature).
+since it's aesthetically/semantically more pleasing to the ears (i.e. it makes sense to group planets into galaxies in the universe nomenclature).
 
 
 

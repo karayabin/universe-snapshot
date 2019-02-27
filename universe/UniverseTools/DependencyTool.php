@@ -130,9 +130,9 @@ class DependencyTool
 
             $dependencies = $conf['dependencies'] ?? [];
 
-            foreach ($dependencies as $downloadTechnique => $deps) {
+            foreach ($dependencies as $dependencySystem => $deps) {
                 foreach ($deps as $dependency) {
-                    $ret[] = [$downloadTechnique, $dependency];
+                    $ret[] = [$dependencySystem, $dependency];
                 }
             }
         }
@@ -179,10 +179,10 @@ class DependencyTool
      */
     public static function getDependencyHomeUrl(array $dependencyItem)
     {
-        $downloadTechnique = $dependencyItem[0];
+        $dependencySystem = $dependencyItem[0];
         $target = $dependencyItem[1];
 
-        switch ($downloadTechnique) {
+        switch ($dependencySystem) {
             case "ling":
                 return "https://github.com/karayabin/universe-snapshot/tree/master/universe/$target";
                 break;
@@ -190,7 +190,7 @@ class DependencyTool
                 return $target;
                 break;
             default:
-                throw new UniverseToolsException("Unknown download technique/galaxy identifier: $downloadTechnique");
+                throw new UniverseToolsException("Unknown download technique/galaxy identifier: $dependencySystem");
                 break;
         }
     }

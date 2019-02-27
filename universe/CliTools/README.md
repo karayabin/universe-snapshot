@@ -73,6 +73,11 @@ and the [Symfony/Console](https://github.com/symfony/symfony/tree/master/src/Sym
 History Log
 =================
     
+- 1.2.0 -- 2019-02-27
+
+    - add methods to the InputInterface: getFlags, getParameters and getOptions
+    - add AbstractInput class
+    
 - 1.1.0 -- 2019-02-26
 
     - add the CliTools\Program\Application->onCommandInstantiated method

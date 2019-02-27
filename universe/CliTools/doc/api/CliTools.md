@@ -1,6 +1,6 @@
 CliTools
 ================
-2019-02-26 --> 2019-02-26
+2019-02-26 --> 2019-02-27
 
 
 
@@ -22,21 +22,38 @@ Table of contents
     - [FormatterInterface::format](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Formatter/FormatterInterface/format.md) &ndash; Parses the given $expression and returns its formatted/interpreted version.
 - [QuestionHelper](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Helper/QuestionHelper.md) &ndash; The QuestionHelper class.
     - [QuestionHelper::ask](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Helper/QuestionHelper/ask.md) &ndash; Asks the given $question to the $user, and returns the answer (string).
+- [AbstractInput](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/AbstractInput.md) &ndash; The AbstractInput class is a base class that abstracts the base logic for an InputInterface implementation.
+    - [AbstractInput::__construct](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/AbstractInput/__construct.md) &ndash; Builds the class instance.
+    - [AbstractInput::hasFlag](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/AbstractInput/hasFlag.md) &ndash; Returns whether the flag $flagName was set.
+    - [AbstractInput::getOption](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/AbstractInput/getOption.md) &ndash; Returns the value of the option $optionName if set, or the $default value if the option was not defined.
+    - [AbstractInput::getParameter](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/AbstractInput/getParameter.md) &ndash; Returns the value of the parameter at index $index, or the $default value if no parameter was defined for the given index.
+    - [AbstractInput::getParameters](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/AbstractInput/getParameters.md) &ndash; Returns the list of all parameters, in the order they were written.
+    - [AbstractInput::getOptions](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/AbstractInput/getOptions.md) &ndash; Returns the list of all options (key/value pairs), in the order they were written.
+    - [AbstractInput::getFlags](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/AbstractInput/getFlags.md) &ndash; Returns the list of all flags, in the order they were written.
 - [ArrayInput](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/ArrayInput.md) &ndash; The ArrayInput class is an implementation of the command line as described by [the command line page](https://github.com/lingtalfi/CliTools/blob/master/doc/pages/command-line.md).
-    - [ArrayInput::__construct](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/ArrayInput/__construct.md) &ndash; Builds the class instance.
-    - [ArrayInput::hasFlag](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/ArrayInput/hasFlag.md) &ndash; Returns whether the flag $flagName was set.
-    - [ArrayInput::getOption](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/ArrayInput/getOption.md) &ndash; Returns the value of the option $optionName if set, or the $default value if the option was not defined.
-    - [ArrayInput::getParameter](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/ArrayInput/getParameter.md) &ndash; Returns the value of the parameter at index $index, or the $default value if no parameter was defined for the given index.
     - [ArrayInput::setItems](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/ArrayInput/setItems.md) &ndash; Sets the items (parameters, options, flags) for this instance.
+    - [AbstractInput::__construct](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/AbstractInput/__construct.md) &ndash; Builds the class instance.
+    - [AbstractInput::hasFlag](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/AbstractInput/hasFlag.md) &ndash; Returns whether the flag $flagName was set.
+    - [AbstractInput::getOption](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/AbstractInput/getOption.md) &ndash; Returns the value of the option $optionName if set, or the $default value if the option was not defined.
+    - [AbstractInput::getParameter](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/AbstractInput/getParameter.md) &ndash; Returns the value of the parameter at index $index, or the $default value if no parameter was defined for the given index.
+    - [AbstractInput::getParameters](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/AbstractInput/getParameters.md) &ndash; Returns the list of all parameters, in the order they were written.
+    - [AbstractInput::getOptions](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/AbstractInput/getOptions.md) &ndash; Returns the list of all options (key/value pairs), in the order they were written.
+    - [AbstractInput::getFlags](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/AbstractInput/getFlags.md) &ndash; Returns the list of all flags, in the order they were written.
 - [CommandLineInput](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/CommandLineInput.md) &ndash; The CommandLineInput class is an implementation of the command line as described by [the command line page](https://github.com/lingtalfi/CliTools/blob/master/doc/pages/command-line.md).
     - [CommandLineInput::__construct](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/CommandLineInput/__construct.md) &ndash; Builds the class instance.
-    - [CommandLineInput::hasFlag](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/CommandLineInput/hasFlag.md) &ndash; Returns whether the flag $flagName was set.
-    - [CommandLineInput::getOption](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/CommandLineInput/getOption.md) &ndash; Returns the value of the option $optionName if set, or the $default value if the option was not defined.
-    - [CommandLineInput::getParameter](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/CommandLineInput/getParameter.md) &ndash; Returns the value of the parameter at index $index, or the $default value if no parameter was defined for the given index.
+    - [AbstractInput::hasFlag](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/AbstractInput/hasFlag.md) &ndash; Returns whether the flag $flagName was set.
+    - [AbstractInput::getOption](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/AbstractInput/getOption.md) &ndash; Returns the value of the option $optionName if set, or the $default value if the option was not defined.
+    - [AbstractInput::getParameter](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/AbstractInput/getParameter.md) &ndash; Returns the value of the parameter at index $index, or the $default value if no parameter was defined for the given index.
+    - [AbstractInput::getParameters](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/AbstractInput/getParameters.md) &ndash; Returns the list of all parameters, in the order they were written.
+    - [AbstractInput::getOptions](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/AbstractInput/getOptions.md) &ndash; Returns the list of all options (key/value pairs), in the order they were written.
+    - [AbstractInput::getFlags](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/AbstractInput/getFlags.md) &ndash; Returns the list of all flags, in the order they were written.
 - [InputInterface](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/InputInterface.md) &ndash; The InputInterface class.
     - [InputInterface::getParameter](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/InputInterface/getParameter.md) &ndash; Returns the value of the parameter at index $index, or the $default value if no parameter was defined for the given index.
     - [InputInterface::getOption](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/InputInterface/getOption.md) &ndash; Returns the value of the option $optionName if set, or the $default value if the option was not defined.
     - [InputInterface::hasFlag](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/InputInterface/hasFlag.md) &ndash; Returns whether the flag $flagName was set.
+    - [InputInterface::getParameters](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/InputInterface/getParameters.md) &ndash; Returns the list of all parameters, in the order they were written.
+    - [InputInterface::getOptions](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/InputInterface/getOptions.md) &ndash; Returns the list of all options (key/value pairs), in the order they were written.
+    - [InputInterface::getFlags](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/InputInterface/getFlags.md) &ndash; Returns the list of all flags, in the order they were written.
 - [Output](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Output/Output.md) &ndash; The Output class.
     - [Output::__construct](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Output/Output/__construct.md) &ndash; Builds the Output instance.
     - [Output::setFormatter](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Output/Output/setFormatter.md) &ndash; Sets the formatter.
@@ -60,8 +77,5 @@ Table of contents
     - [ProgramInterface::run](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Program/ProgramInterface/run.md) &ndash; Starts the interactive program.
 
 
-Dependencies
-============
-- [Universe: UniversalLogger](https://github.com/karayabin/universe-snapshot/tree/master/universe/UniversalLogger)
 
 
