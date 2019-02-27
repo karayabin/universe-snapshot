@@ -54,3 +54,6 @@ See Also
 ================
 
 The [ReportInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Report/ReportInterface.md) class.
+
+Previous method: [addMethodWithoutReturnTag](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Report/ReportInterface/addMethodWithoutReturnTag.md)<br>Next method: [addPropertyWithoutVarTag](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Report/ReportInterface/addPropertyWithoutVarTag.md)<br>
+

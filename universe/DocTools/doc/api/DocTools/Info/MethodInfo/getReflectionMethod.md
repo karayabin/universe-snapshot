@@ -47,3 +47,6 @@ See Also
 ================
 
 The [MethodInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/MethodInfo.md) class.
+
+Previous method: [setName](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/MethodInfo/setName.md)<br>Next method: [setReflectionMethod](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/MethodInfo/setReflectionMethod.md)<br>
+

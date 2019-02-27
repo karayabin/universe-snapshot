@@ -47,3 +47,6 @@ See Also
 ================
 
 The [ClassMethodsWidget](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/ClassMethods/ClassMethodsWidget.md) class.
+
+Next method: [setClassInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/ClassMethods/ClassMethodsWidget/setClassInfo.md)<br>
+

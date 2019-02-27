@@ -54,3 +54,6 @@ See Also
 ================
 
 The [ClassSynopsisWidget](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/ClassSynopsis/ClassSynopsisWidget.md) class.
+
+Previous method: [render](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/ClassSynopsis/ClassSynopsisWidget/render.md)<br>Next method: [addConstantLine](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/ClassSynopsis/ClassSynopsisWidget/addConstantLine.md)<br>
+

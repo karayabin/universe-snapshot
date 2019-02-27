@@ -55,3 +55,6 @@ See Also
 ================
 
 The [DocToolInterpreter](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Interpreter/DocToolInterpreter.md) class.
+
+Previous method: [__construct](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Interpreter/DocToolInterpreter/__construct.md)<br>Next method: [interpretBlockLevelTags](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Interpreter/DocToolInterpreter/interpretBlockLevelTags.md)<br>
+

@@ -50,3 +50,6 @@ See Also
 ================
 
 The [ClassInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/ClassInfo.md) class.
+
+Previous method: [getSignature](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/ClassInfo/getSignature.md)<br>Next method: [getShortName](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/ClassInfo/getShortName.md)<br>
+

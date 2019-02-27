@@ -50,3 +50,6 @@ See Also
 ================
 
 The [AbstractReport](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Report/AbstractReport.md) class.
+
+Previous method: [addMethodWithoutComment](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Report/AbstractReport/addMethodWithoutComment.md)<br>Next method: [addParameterWithoutParamTag](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Report/AbstractReport/addParameterWithoutParamTag.md)<br>
+

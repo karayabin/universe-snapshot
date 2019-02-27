@@ -47,3 +47,6 @@ See Also
 ================
 
 The [ClassSynopsisWidget](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/ClassSynopsis/ClassSynopsisWidget.md) class.
+
+Previous method: [setClassInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/ClassSynopsis/ClassSynopsisWidget/setClassInfo.md)<br>Next method: [getClassUrl](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/ClassSynopsis/ClassSynopsisWidget/getClassUrl.md)<br>
+

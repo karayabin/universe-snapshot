@@ -47,3 +47,6 @@ See Also
 ================
 
 The [Widget](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/Widget.md) class.
+
+Next method: [setOptions](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/Widget/setOptions.md)<br>
+

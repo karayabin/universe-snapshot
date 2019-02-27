@@ -47,3 +47,6 @@ See Also
 ================
 
 The [PropertyInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/PropertyInfo.md) class.
+
+Previous method: [setReflectionProperty](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/PropertyInfo/setReflectionProperty.md)<br>Next method: [getType](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/PropertyInfo/getType.md)<br>
+

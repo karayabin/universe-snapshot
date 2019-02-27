@@ -50,3 +50,6 @@ See Also
 ================
 
 The [DefaultGeneratedDocStyle](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/GeneratedDocStyle/DefaultGeneratedDocStyle.md) class.
+
+Previous method: [__construct](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/GeneratedDocStyle/DefaultGeneratedDocStyle/__construct.md)<br>Next method: [getClassUrl](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/GeneratedDocStyle/DefaultGeneratedDocStyle/getClassUrl.md)<br>
+

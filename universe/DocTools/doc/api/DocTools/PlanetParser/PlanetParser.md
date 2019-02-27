@@ -4,7 +4,7 @@
 
 The PlanetParser class
 ================
-2019-02-21 --> 2019-02-26
+2019-02-21 --> 2019-02-27
 
 
 
@@ -101,3 +101,8 @@ Methods
 Location
 =============
 DocTools\PlanetParser\PlanetParser
+
+
+SeeAlso
+==============
+Previous class: [PageUtil](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Page/PageUtil.md)<br>Next class: [AbstractReport](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Report/AbstractReport.md)<br>

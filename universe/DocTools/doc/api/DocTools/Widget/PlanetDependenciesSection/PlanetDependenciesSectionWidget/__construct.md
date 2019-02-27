@@ -47,3 +47,6 @@ See Also
 ================
 
 The [PlanetDependenciesSectionWidget](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/PlanetDependenciesSection/PlanetDependenciesSectionWidget.md) class.
+
+Next method: [setPlanetInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/PlanetDependenciesSection/PlanetDependenciesSectionWidget/setPlanetInfo.md)<br>
+

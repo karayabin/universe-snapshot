@@ -50,3 +50,6 @@ See Also
 ================
 
 The [PlanetInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/PlanetInfo.md) class.
+
+Previous method: [getDependencies](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/PlanetInfo/getDependencies.md)<br>Next method: [getClasses](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/PlanetInfo/getClasses.md)<br>
+

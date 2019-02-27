@@ -50,3 +50,6 @@ See Also
 ================
 
 The [ClassMethodsWidget](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/ClassMethods/ClassMethodsWidget.md) class.
+
+Previous method: [__construct](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/ClassMethods/ClassMethodsWidget/__construct.md)<br>Next method: [setGeneratedItemsToUrl](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/ClassMethods/ClassMethodsWidget/setGeneratedItemsToUrl.md)<br>
+

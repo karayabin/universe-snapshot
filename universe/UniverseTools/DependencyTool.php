@@ -98,25 +98,75 @@ class DependencyTool
 
 
     /**
+     * Returns an array of dependency items for the given $planetDir.
+     *
+     *
+     * Note: it will parse the dependencies.byml file at the root of the planet dir.
+     * If the planet dir does not exist, an UniverseToolsException will be thrown.
+     * If the dependencies.byml file does not exist, an array will be returned.
+     *
+     *
+     * The returned array has the following structure:
+     *
+     * - dependencies:
+     *      0: dependency system / galaxy identifier
+     *      1: the dependency identifier (name or url, ...)
+     * - post_install: array of post install directives
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     * @param string $planetDir
+     * @return array
+     * @throws UniverseToolsException
+     */
+    public static function getDependencyItem(string $planetDir)
+    {
+        if (false === is_dir($planetDir)) {
+            throw new UniverseToolsException("No dir found in $planetDir");
+        }
+
+        $ret = [
+            "dependencies" => [],
+            "post_install" => [],
+        ];
+        $dependencyFile = $planetDir . "/dependencies.byml";
+        if (file_exists($dependencyFile)) {
+            $conf = BabyYamlUtil::readFile($dependencyFile);
+
+
+            $postInstall = $conf['post_install'] ?? [];
+            $dependencies = $conf['dependencies'] ?? [];
+            $ret['dependencies'] = $dependencies;
+            $ret['post_install'] = $postInstall;
+
+        }
+        return $ret;
+    }
+
+
+    /**
      * Parses the dependencies.byml file (at the root of the given $planetDir) if it exists,
      * and return an array of all dependencies found in it.
      *
      * See the @page(universe dependencies document) for more information.
      *
-     * The array is a list of dependencyItem, each of which being an array with 3 entries:
+     * The array is a list of dependencyItem, each of which being an array with 2 items:
      *
      * - 0: the galaxy identifier/ dependency system
-     * - 1: the dependency item (name, url, ...).
-     * - 2: an array of the post install directives (if any)
+     * - 1: the dependency identifier (name or url, ...).
      *
      *
      *
      *
-     * @param $planetDir
+     * @param string $planetDir
      * @return array
      * @throws UniverseToolsException
      */
-    public static function getDependencyList($planetDir)
+    public static function getDependencyList(string $planetDir)
     {
         if (false === is_dir($planetDir)) {
             throw new UniverseToolsException("No dir found in $planetDir");
@@ -127,13 +177,14 @@ class DependencyTool
         if (file_exists($dependencyFile)) {
             $conf = BabyYamlUtil::readFile($dependencyFile);
 
-            $postInstall = $conf['post_install'] ?? [];
+
+            unset($conf['post_install']);
 
             $dependencies = $conf['dependencies'] ?? [];
 
             foreach ($dependencies as $dependencySystem => $deps) {
                 foreach ($deps as $dependency) {
-                    $ret[] = [$dependencySystem, $dependency, $postInstall];
+                    $ret[] = [$dependencySystem, $dependency];
                 }
             }
         }

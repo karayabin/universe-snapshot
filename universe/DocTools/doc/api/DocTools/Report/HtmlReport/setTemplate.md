@@ -50,3 +50,6 @@ See Also
 ================
 
 The [HtmlReport](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Report/HtmlReport.md) class.
+
+Previous method: [__construct](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Report/HtmlReport/__construct.md)<br>Next method: [setOptions](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Report/HtmlReport/setOptions.md)<br>
+

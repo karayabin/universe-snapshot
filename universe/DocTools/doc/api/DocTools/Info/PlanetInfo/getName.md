@@ -47,3 +47,6 @@ See Also
 ================
 
 The [PlanetInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/PlanetInfo.md) class.
+
+Previous method: [getClass](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/PlanetInfo/getClass.md)<br>Next method: [setName](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/PlanetInfo/setName.md)<br>
+

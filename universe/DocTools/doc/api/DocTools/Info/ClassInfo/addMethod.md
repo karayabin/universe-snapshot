@@ -50,3 +50,6 @@ See Also
 ================
 
 The [ClassInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/ClassInfo.md) class.
+
+Previous method: [addProperty](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/ClassInfo/addProperty.md)<br>Next method: [getName](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/ClassInfo/getName.md)<br>
+

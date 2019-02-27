@@ -52,3 +52,6 @@ See Also
 ================
 
 The [ClassParser](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/ClassParser/ClassParser.md) class.
+
+Previous method: [getMethodVisibility](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/ClassParser/ClassParser/getMethodVisibility.md)<br>Next method: [trimLines](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/ClassParser/ClassParser/trimLines.md)<br>
+

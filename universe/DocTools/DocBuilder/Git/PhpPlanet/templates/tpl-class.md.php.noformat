@@ -63,3 +63,12 @@ Examples
 Location
 =============
 <?php echo $class->getName(); ?>
+
+
+
+<?php if($z['hasMultipleClasses']): ?>
+SeeAlso
+==============
+<?php echo $z['classPrevNextWidget']; ?>
+
+<?php endif; ?>

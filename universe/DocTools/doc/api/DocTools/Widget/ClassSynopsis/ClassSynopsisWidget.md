@@ -4,7 +4,7 @@
 
 The ClassSynopsisWidget class
 ================
-2019-02-21 --> 2019-02-26
+2019-02-21 --> 2019-02-27
 
 
 
@@ -133,3 +133,8 @@ Methods
 Location
 =============
 DocTools\Widget\ClassSynopsis\ClassSynopsisWidget
+
+
+SeeAlso
+==============
+Previous class: [ClassPropertiesWidget](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/ClassProperties/ClassPropertiesWidget.md)<br>Next class: [MethodPrevNextWidget](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/MethodPrevNext/MethodPrevNextWidget.md)<br>

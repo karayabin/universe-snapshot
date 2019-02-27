@@ -47,3 +47,6 @@ See Also
 ================
 
 The [PropertyInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/PropertyInfo.md) class.
+
+Next method: [getComment](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/PropertyInfo/getComment.md)<br>
+

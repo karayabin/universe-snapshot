@@ -4,7 +4,7 @@
 
 The CopyModuleException class
 ================
-2019-02-21 --> 2019-02-26
+2019-02-21 --> 2019-02-27
 
 
 
@@ -49,3 +49,8 @@ Methods
 Location
 =============
 DocTools\Exception\CopyModuleException
+
+
+SeeAlso
+==============
+Previous class: [ClassParserException](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Exception/ClassParserException.md)<br>Next class: [DocBuilderException](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Exception/DocBuilderException.md)<br>

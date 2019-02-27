@@ -58,3 +58,6 @@ See Also
 ================
 
 The [ClassSynopsisWidget](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/ClassSynopsis/ClassSynopsisWidget.md) class.
+
+Previous method: [addPropertyLine](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/ClassSynopsis/ClassSynopsisWidget/addPropertyLine.md)<br>Next method: [getConstantVisibility](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/ClassSynopsis/ClassSynopsisWidget/getConstantVisibility.md)<br>
+

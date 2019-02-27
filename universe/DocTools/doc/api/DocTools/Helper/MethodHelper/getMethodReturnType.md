@@ -58,3 +58,6 @@ See Also
 ================
 
 The [MethodHelper](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Helper/MethodHelper.md) class.
+
+Next method: [getMethodSignature](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Helper/MethodHelper/getMethodSignature.md)<br>
+

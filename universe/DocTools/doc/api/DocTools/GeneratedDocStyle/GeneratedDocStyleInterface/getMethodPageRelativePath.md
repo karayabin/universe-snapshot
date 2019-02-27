@@ -58,3 +58,6 @@ See Also
 ================
 
 The [GeneratedDocStyleInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/GeneratedDocStyle/GeneratedDocStyleInterface.md) class.
+
+Previous method: [getClassPageRelativePath](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/GeneratedDocStyle/GeneratedDocStyleInterface/getClassPageRelativePath.md)<br>
+

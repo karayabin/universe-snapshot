@@ -54,3 +54,6 @@ See Also
 ================
 
 The [DefaultGeneratedDocStyle](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/GeneratedDocStyle/DefaultGeneratedDocStyle.md) class.
+
+Previous method: [getPlanetPageRelativePath](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/GeneratedDocStyle/DefaultGeneratedDocStyle/getPlanetPageRelativePath.md)<br>Next method: [getMethodPageRelativePath](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/GeneratedDocStyle/DefaultGeneratedDocStyle/getMethodPageRelativePath.md)<br>
+

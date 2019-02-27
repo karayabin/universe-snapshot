@@ -50,3 +50,6 @@ See Also
 ================
 
 The [DefaultGeneratedDocStyle](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/GeneratedDocStyle/DefaultGeneratedDocStyle.md) class.
+
+Previous method: [getMethodUrl](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/GeneratedDocStyle/DefaultGeneratedDocStyle/getMethodUrl.md)<br>Next method: [getClassPageRelativePath](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/GeneratedDocStyle/DefaultGeneratedDocStyle/getClassPageRelativePath.md)<br>
+

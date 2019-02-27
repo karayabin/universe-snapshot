@@ -51,3 +51,6 @@ See Also
 ================
 
 The [MarkdownTranslatorInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Translator/MarkdownTranslatorInterface.md) class.
+
+
+

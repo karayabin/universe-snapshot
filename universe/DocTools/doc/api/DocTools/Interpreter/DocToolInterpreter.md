@@ -4,7 +4,7 @@
 
 The DocToolInterpreter class
 ================
-2019-02-21 --> 2019-02-26
+2019-02-21 --> 2019-02-27
 
 
 
@@ -78,3 +78,8 @@ Methods
 Location
 =============
 DocTools\Interpreter\DocToolInterpreter
+
+
+SeeAlso
+==============
+Previous class: [PropertyInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/PropertyInfo.md)<br>Next class: [NotationInterpreterInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Interpreter/NotationInterpreterInterface.md)<br>

@@ -47,3 +47,6 @@ See Also
 ================
 
 The [PageUtil](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Page/PageUtil.md) class.
+
+Next method: [setRootDir](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Page/PageUtil/setRootDir.md)<br>
+

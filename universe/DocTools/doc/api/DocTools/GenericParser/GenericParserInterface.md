@@ -4,7 +4,7 @@
 
 The GenericParserInterface class
 ================
-2019-02-21 --> 2019-02-26
+2019-02-21 --> 2019-02-27
 
 
 
@@ -47,3 +47,8 @@ Methods
 Location
 =============
 DocTools\GenericParser\GenericParserInterface
+
+
+SeeAlso
+==============
+Previous class: [GeneratedDocStyleInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/GeneratedDocStyle/GeneratedDocStyleInterface.md)<br>Next class: [CommentHelper](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Helper/CommentHelper.md)<br>

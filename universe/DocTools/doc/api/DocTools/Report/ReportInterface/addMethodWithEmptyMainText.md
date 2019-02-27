@@ -54,3 +54,6 @@ See Also
 ================
 
 The [ReportInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Report/ReportInterface.md) class.
+
+Previous method: [addPropertyWithEmptyMainText](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Report/ReportInterface/addPropertyWithEmptyMainText.md)<br>Next method: [__toString](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Report/ReportInterface/__toString.md)<br>
+

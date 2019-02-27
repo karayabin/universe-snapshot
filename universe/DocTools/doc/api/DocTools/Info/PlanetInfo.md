@@ -4,7 +4,7 @@
 
 The PlanetInfo class
 ================
-2019-02-21 --> 2019-02-26
+2019-02-21 --> 2019-02-27
 
 
 
@@ -90,3 +90,8 @@ Methods
 Location
 =============
 DocTools\Info\PlanetInfo
+
+
+SeeAlso
+==============
+Previous class: [ParameterInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/ParameterInfo.md)<br>Next class: [PropertyInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/PropertyInfo.md)<br>

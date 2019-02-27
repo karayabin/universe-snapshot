@@ -50,3 +50,8 @@ Methods
 Location
 =============
 UniverseTools\MetaInfoTool
+
+
+SeeAlso
+==============
+Previous class: [UniverseToolsException](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/UniverseTools/Exception/UniverseToolsException.md)<br>Next class: [PlanetTool](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/UniverseTools/PlanetTool.md)<br>

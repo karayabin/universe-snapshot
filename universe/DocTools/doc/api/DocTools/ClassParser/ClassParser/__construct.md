@@ -47,3 +47,6 @@ See Also
 ================
 
 The [ClassParser](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/ClassParser/ClassParser.md) class.
+
+Next method: [parse](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/ClassParser/ClassParser/parse.md)<br>
+

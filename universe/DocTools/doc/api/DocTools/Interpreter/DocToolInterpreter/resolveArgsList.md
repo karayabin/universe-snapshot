@@ -52,3 +52,6 @@ See Also
 ================
 
 The [DocToolInterpreter](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Interpreter/DocToolInterpreter.md) class.
+
+Previous method: [resolveInlineFunction](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Interpreter/DocToolInterpreter/resolveInlineFunction.md)<br>
+

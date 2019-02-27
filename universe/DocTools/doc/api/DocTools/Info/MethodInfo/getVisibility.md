@@ -47,3 +47,6 @@ See Also
 ================
 
 The [MethodInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/MethodInfo.md) class.
+
+Previous method: [__construct](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/MethodInfo/__construct.md)<br>Next method: [setVisibility](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/MethodInfo/setVisibility.md)<br>
+

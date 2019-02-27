@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [DependencyTool::getDependencyList](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/UniverseTools/DependencyTool/getDependencyList.md)(?$planetDir) : array
+public static [DependencyTool::getDependencyList](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/UniverseTools/DependencyTool/getDependencyList.md)(string $planetDir) : array
 
 
 
@@ -26,11 +26,10 @@ and return an array of all dependencies found in it.
 
 See the [universe dependencies document](https://github.com/lingtalfi/TheScientist/blob/master/universe-dependencies-2019.md) for more information.
 
-The array is a list of dependencyItem, each of which being an array with 3 entries:
+The array is a list of dependencyItem, each of which being an array with 2 items:
 
 - 0: the galaxy identifier/ dependency system
-- 1: the dependency item (name, url, ...).
-- 2: an array of the post install directives (if any)
+- 1: the dependency identifier (name or url, ...).
 
 
 
@@ -96,3 +95,6 @@ See Also
 ================
 
 The [DependencyTool](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/UniverseTools/DependencyTool.md) class.
+
+Previous method: [getDependencyItem](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/UniverseTools/DependencyTool/getDependencyItem.md)<br>Next method: [getDependencyHomeUrl](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/UniverseTools/DependencyTool/getDependencyHomeUrl.md)<br>
+

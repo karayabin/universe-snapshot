@@ -47,3 +47,6 @@ See Also
 ================
 
 The [CommentInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/CommentInfo.md) class.
+
+Previous method: [__construct](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/CommentInfo/__construct.md)<br>Next method: [getMainText](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/CommentInfo/getMainText.md)<br>
+

@@ -51,3 +51,6 @@ See Also
 ================
 
 The [ClassSynopsisWidget](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/ClassSynopsis/ClassSynopsisWidget.md) class.
+
+Previous method: [getConstantVisibility](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/ClassSynopsis/ClassSynopsisWidget/getConstantVisibility.md)<br>Next method: [getElementIndentedDash](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/ClassSynopsis/ClassSynopsisWidget/getElementIndentedDash.md)<br>
+

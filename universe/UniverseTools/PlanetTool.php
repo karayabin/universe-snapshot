@@ -75,4 +75,22 @@ class PlanetTool
     }
 
 
+    /**
+     * Returns the list of planet dirs for a given $universeDir.
+     *
+     * If the given universe directory does not exist, a UniverseToolsException is thrown.
+     *
+     *
+     * @param string $universeDir
+     * @return array
+     * @throws UniverseToolsException
+     */
+    public static function getPlanetDirs(string $universeDir): array
+    {
+        if (false === is_dir($universeDir)) {
+            throw new UniverseToolsException("Dir not found: $universeDir");
+        }
+        return YorgDirScannerTool::getDirs($universeDir); // well for now, all directories are planets...
+    }
+
 }

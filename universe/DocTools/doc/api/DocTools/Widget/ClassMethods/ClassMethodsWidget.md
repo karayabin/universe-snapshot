@@ -4,7 +4,7 @@
 
 The ClassMethodsWidget class
 ================
-2019-02-21 --> 2019-02-26
+2019-02-21 --> 2019-02-27
 
 
 
@@ -97,3 +97,8 @@ Methods
 Location
 =============
 DocTools\Widget\ClassMethods\ClassMethodsWidget
+
+
+SeeAlso
+==============
+Previous class: [ParseDownTranslator](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Translator/ParseDownTranslator.md)<br>Next class: [ClassPrevNextWidget](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/ClassPrevNext/ClassPrevNextWidget.md)<br>

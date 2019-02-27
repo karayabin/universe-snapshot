@@ -50,3 +50,6 @@ See Also
 ================
 
 The [PlanetParser](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/PlanetParser/PlanetParser.md) class.
+
+Previous method: [setResolveInlineTags](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/PlanetParser/PlanetParser/setResolveInlineTags.md)<br>
+

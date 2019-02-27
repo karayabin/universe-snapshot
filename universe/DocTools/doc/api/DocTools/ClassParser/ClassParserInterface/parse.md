@@ -52,3 +52,6 @@ See Also
 ================
 
 The [ClassParserInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/ClassParser/ClassParserInterface.md) class.
+
+Next method: [getReport](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/ClassParser/ClassParserInterface/getReport.md)<br>
+

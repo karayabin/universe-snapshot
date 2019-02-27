@@ -50,3 +50,6 @@ See Also
 ================
 
 The [ClassParser](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/ClassParser/ClassParser.md) class.
+
+Previous method: [getMethodSignature](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/ClassParser/ClassParser/getMethodSignature.md)<br>Next method: [getMethodVisibility](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/ClassParser/ClassParser/getMethodVisibility.md)<br>
+

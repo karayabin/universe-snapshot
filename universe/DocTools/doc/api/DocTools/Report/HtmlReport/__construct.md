@@ -47,3 +47,6 @@ See Also
 ================
 
 The [HtmlReport](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Report/HtmlReport.md) class.
+
+Next method: [setTemplate](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Report/HtmlReport/setTemplate.md)<br>
+

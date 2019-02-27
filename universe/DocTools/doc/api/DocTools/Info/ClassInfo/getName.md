@@ -47,3 +47,6 @@ See Also
 ================
 
 The [ClassInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/ClassInfo.md) class.
+
+Previous method: [addMethod](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/ClassInfo/addMethod.md)<br>Next method: [setName](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/ClassInfo/setName.md)<br>
+

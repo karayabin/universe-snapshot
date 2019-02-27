@@ -50,3 +50,6 @@ See Also
 ================
 
 The [ParameterInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/ParameterInfo.md) class.
+
+Previous method: [getValueAlternatives](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/ParameterInfo/getValueAlternatives.md)<br>Next method: [getDescriptiveText](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/ParameterInfo/getDescriptiveText.md)<br>
+

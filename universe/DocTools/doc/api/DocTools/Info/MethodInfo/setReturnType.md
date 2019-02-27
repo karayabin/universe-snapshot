@@ -50,3 +50,6 @@ See Also
 ================
 
 The [MethodInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/MethodInfo.md) class.
+
+Previous method: [getReturnType](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/MethodInfo/getReturnType.md)<br>Next method: [setReturnDescription](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/MethodInfo/setReturnDescription.md)<br>
+

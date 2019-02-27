@@ -50,3 +50,6 @@ See Also
 ================
 
 The [PageUtil](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Page/PageUtil.md) class.
+
+Previous method: [setRootDir](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Page/PageUtil/setRootDir.md)<br>Next method: [setTranslator](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Page/PageUtil/setTranslator.md)<br>
+

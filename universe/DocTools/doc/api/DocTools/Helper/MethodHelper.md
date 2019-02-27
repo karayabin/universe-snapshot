@@ -4,7 +4,7 @@
 
 The MethodHelper class
 ================
-2019-02-21 --> 2019-02-26
+2019-02-21 --> 2019-02-27
 
 
 
@@ -49,3 +49,8 @@ Methods
 Location
 =============
 DocTools\Helper\MethodHelper
+
+
+SeeAlso
+==============
+Previous class: [CommentHelper](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Helper/CommentHelper.md)<br>Next class: [PhpClassHelper](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Helper/PhpClassHelper.md)<br>

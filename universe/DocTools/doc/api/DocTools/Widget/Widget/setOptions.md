@@ -50,3 +50,6 @@ See Also
 ================
 
 The [Widget](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/Widget.md) class.
+
+Previous method: [__construct](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/Widget/__construct.md)<br>
+

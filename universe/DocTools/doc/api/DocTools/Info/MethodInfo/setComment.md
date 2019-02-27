@@ -50,3 +50,6 @@ See Also
 ================
 
 The [MethodInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/MethodInfo.md) class.
+
+Previous method: [getComment](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/MethodInfo/getComment.md)<br>Next method: [getSignature](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/MethodInfo/getSignature.md)<br>
+

@@ -47,3 +47,6 @@ See Also
 ================
 
 The [ParameterInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/ParameterInfo.md) class.
+
+Previous method: [setName](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/ParameterInfo/setName.md)<br>Next method: [setType](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/ParameterInfo/setType.md)<br>
+

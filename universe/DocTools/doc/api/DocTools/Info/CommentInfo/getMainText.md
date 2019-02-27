@@ -51,3 +51,6 @@ See Also
 ================
 
 The [CommentInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/CommentInfo.md) class.
+
+Previous method: [getRawText](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/CommentInfo/getRawText.md)<br>Next method: [hasEmptyMainText](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/CommentInfo/hasEmptyMainText.md)<br>
+

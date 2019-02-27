@@ -50,3 +50,6 @@ See Also
 ================
 
 The [PropertyInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/PropertyInfo.md) class.
+
+Previous method: [getVisibility](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/PropertyInfo/getVisibility.md)<br>Next method: [getDeclaringClass](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/PropertyInfo/getDeclaringClass.md)<br>
+

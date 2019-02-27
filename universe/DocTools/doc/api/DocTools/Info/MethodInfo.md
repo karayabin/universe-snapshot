@@ -4,7 +4,7 @@
 
 The MethodInfo class
 ================
-2019-02-21 --> 2019-02-26
+2019-02-21 --> 2019-02-27
 
 
 
@@ -148,3 +148,8 @@ Methods
 Location
 =============
 DocTools\Info\MethodInfo
+
+
+SeeAlso
+==============
+Previous class: [InfoInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/InfoInterface.md)<br>Next class: [ParameterInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/ParameterInfo.md)<br>

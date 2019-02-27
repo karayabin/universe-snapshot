@@ -47,3 +47,6 @@ See Also
 ================
 
 The [ClassPropertiesWidget](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/ClassProperties/ClassPropertiesWidget.md) class.
+
+Next method: [setClassInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/ClassProperties/ClassPropertiesWidget/setClassInfo.md)<br>
+

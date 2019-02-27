@@ -47,3 +47,6 @@ See Also
 ================
 
 The [ParameterInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/ParameterInfo.md) class.
+
+Previous method: [setValueAlternatives](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/ParameterInfo/setValueAlternatives.md)<br>Next method: [setDescriptiveText](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/ParameterInfo/setDescriptiveText.md)<br>
+

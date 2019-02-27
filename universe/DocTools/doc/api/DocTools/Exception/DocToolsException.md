@@ -4,7 +4,7 @@
 
 The DocToolsException class
 ================
-2019-02-21 --> 2019-02-26
+2019-02-21 --> 2019-02-27
 
 
 
@@ -48,3 +48,8 @@ Methods
 Location
 =============
 DocTools\Exception\DocToolsException
+
+
+SeeAlso
+==============
+Previous class: [DocBuilderException](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Exception/DocBuilderException.md)<br>Next class: [PlanetParserException](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Exception/PlanetParserException.md)<br>

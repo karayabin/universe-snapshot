@@ -93,3 +93,9 @@ The <?php echo $z['classLink']; ?> class.
 <?php foreach($zz->getInserts('related') as $content): ?>
 <?php echo $content; ?>
 <?php endforeach; ?>
+
+<?php if($z['hasMultipleMethods']): ?>
+<?php echo $z['methodPrevNextWidget']; ?>
+<?php endif; ?>
+
+

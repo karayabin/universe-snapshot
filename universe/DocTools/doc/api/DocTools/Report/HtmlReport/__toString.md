@@ -47,3 +47,6 @@ See Also
 ================
 
 The [HtmlReport](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Report/HtmlReport.md) class.
+
+Previous method: [setOptions](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Report/HtmlReport/setOptions.md)<br>Next method: [getTableSection](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Report/HtmlReport/getTableSection.md)<br>
+

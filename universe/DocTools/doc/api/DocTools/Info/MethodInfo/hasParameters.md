@@ -47,3 +47,6 @@ See Also
 ================
 
 The [MethodInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/MethodInfo.md) class.
+
+Previous method: [setReturnDescription](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/MethodInfo/setReturnDescription.md)<br>Next method: [addParameter](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/MethodInfo/addParameter.md)<br>
+

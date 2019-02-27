@@ -50,3 +50,6 @@ See Also
 ================
 
 The [CommentInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/CommentInfo.md) class.
+
+Previous method: [getTagByName](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/CommentInfo/getTagByName.md)<br>Next method: [setRawText](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/CommentInfo/setRawText.md)<br>
+

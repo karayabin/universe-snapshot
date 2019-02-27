@@ -20,8 +20,10 @@ use DocTools\PlanetParser\PlanetParser;
 use DocTools\Report\HtmlReport;
 use DocTools\Translator\MarkdownTranslatorInterface;
 use DocTools\Widget\ClassMethods\ClassMethodsWidget;
+use DocTools\Widget\ClassPrevNext\ClassPrevNextWidget;
 use DocTools\Widget\ClassProperties\ClassPropertiesWidget;
 use DocTools\Widget\ClassSynopsis\ClassSynopsisWidget;
+use DocTools\Widget\MethodPrevNext\MethodPrevNextWidget;
 use DocTools\Widget\PlanetDependenciesSection\PlanetDependenciesSectionWidget;
 use DocTools\Widget\PlanetTocList\PlanetTocListWidget;
 use UniverseTools\PlanetTool;
@@ -139,7 +141,6 @@ class LingGitPhpPlanetDocBuilder extends DocBuilder
      * @var NotationInterpreterInterface
      */
     private $_interpreter;
-
 
 
     /**
@@ -391,6 +392,13 @@ class LingGitPhpPlanetDocBuilder extends DocBuilder
         $classMethodsWidget->setGeneratedItemsToUrl($this->_generatedItems2Url);
 
 
+        $classPrevNextWidget = new ClassPrevNextWidget();
+        $classPrevNextWidget->setPlanetInfo($this->_planetInfo);
+        $classPrevNextWidget->setClassInfo($classInfo);
+        $classPrevNextWidget->setReport($this->report);
+        $classPrevNextWidget->setGeneratedItemsToUrl($this->_generatedItems2Url);
+
+
         $tplClass = __DIR__ . "/templates/tpl-class.md.php.noformat";
         $pageUtil = new PageUtil();
         $pageUtil->setTranslator($this->_markdownTranslator);
@@ -401,6 +409,8 @@ class LingGitPhpPlanetDocBuilder extends DocBuilder
             "classSynopsisWidget" => $classSynopsisWidget,
             "classPropertiesWidget" => $classPropertiesWidget,
             "classMethodsWidget" => $classMethodsWidget,
+            "classPrevNextWidget" => $classPrevNextWidget,
+            "hasMultipleClasses" => (count($this->_planetInfo->getClasses()) > 1),
             "projectStartDate" => $this->projectStartDate,
             "planetName" => $planetName,
             "planetUrl" => $this->_generatedClassBaseUrl . "/$planetName." . $this->_mode,
@@ -444,6 +454,15 @@ class LingGitPhpPlanetDocBuilder extends DocBuilder
         }
 
 
+        $hasMultipleMethods = (count($classInfo->getMethods()) > 0);
+
+        $methodPrevNextWidget = new MethodPrevNextWidget();
+        $methodPrevNextWidget->setMethodInfo($methodInfo);
+        $methodPrevNextWidget->setClassInfo($classInfo);
+        $methodPrevNextWidget->setReport($this->report);
+        $methodPrevNextWidget->setGeneratedItemsToUrl($this->_generatedItems2Url);
+
+
         $tplMethod = __DIR__ . "/templates/tpl-method.md.php.noformat";
         $pageUtil = new PageUtil();
         $pageUtil->setTranslator($this->_markdownTranslator);
@@ -457,6 +476,8 @@ class LingGitPhpPlanetDocBuilder extends DocBuilder
             "className" => $className,
             "classUrl" => $this->_generatedItems2Url[$className],
             "projectStartDate" => $this->projectStartDate,
+            "hasMultipleMethods" => $hasMultipleMethods,
+            "methodPrevNextWidget" => $methodPrevNextWidget,
             "planetName" => $planetName,
             "planetUrl" => $this->_generatedClassBaseUrl . "/$planetName." . $this->_mode,
         ]);

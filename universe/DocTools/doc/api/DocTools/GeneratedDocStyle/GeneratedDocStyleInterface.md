@@ -4,7 +4,7 @@
 
 The GeneratedDocStyleInterface class
 ================
-2019-02-21 --> 2019-02-26
+2019-02-21 --> 2019-02-27
 
 
 
@@ -56,3 +56,8 @@ Methods
 Location
 =============
 DocTools\GeneratedDocStyle\GeneratedDocStyleInterface
+
+
+SeeAlso
+==============
+Previous class: [DefaultGeneratedDocStyle](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/GeneratedDocStyle/DefaultGeneratedDocStyle.md)<br>Next class: [GenericParserInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/GenericParser/GenericParserInterface.md)<br>

@@ -4,7 +4,7 @@
 
 The PageUtil class
 ================
-2019-02-21 --> 2019-02-26
+2019-02-21 --> 2019-02-27
 
 
 
@@ -86,3 +86,8 @@ Methods
 Location
 =============
 DocTools\Page\PageUtil
+
+
+SeeAlso
+==============
+Previous class: [NotationInterpreterInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Interpreter/NotationInterpreterInterface.md)<br>Next class: [PlanetParser](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/PlanetParser/PlanetParser.md)<br>

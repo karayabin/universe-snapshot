@@ -4,7 +4,7 @@
 
 The PlanetDependenciesSectionWidget class
 ================
-2019-02-21 --> 2019-02-26
+2019-02-21 --> 2019-02-27
 
 
 
@@ -77,3 +77,8 @@ Methods
 Location
 =============
 DocTools\Widget\PlanetDependenciesSection\PlanetDependenciesSectionWidget
+
+
+SeeAlso
+==============
+Previous class: [MethodPrevNextWidget](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/MethodPrevNext/MethodPrevNextWidget.md)<br>Next class: [PlanetTocListWidget](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/PlanetTocList/PlanetTocListWidget.md)<br>

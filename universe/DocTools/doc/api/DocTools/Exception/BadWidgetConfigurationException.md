@@ -4,7 +4,7 @@
 
 The BadWidgetConfigurationException class
 ================
-2019-02-21 --> 2019-02-26
+2019-02-21 --> 2019-02-27
 
 
 
@@ -49,3 +49,8 @@ Methods
 Location
 =============
 DocTools\Exception\BadWidgetConfigurationException
+
+
+SeeAlso
+==============
+Previous class: [LingGitPhpPlanetDocBuilder](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/DocBuilder/Git/PhpPlanet/LingGitPhpPlanetDocBuilder.md)<br>Next class: [ClassParserException](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Exception/ClassParserException.md)<br>

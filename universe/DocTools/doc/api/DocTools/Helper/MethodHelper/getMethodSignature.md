@@ -62,3 +62,6 @@ See Also
 ================
 
 The [MethodHelper](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Helper/MethodHelper.md) class.
+
+Previous method: [getMethodReturnType](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Helper/MethodHelper/getMethodReturnType.md)<br>
+

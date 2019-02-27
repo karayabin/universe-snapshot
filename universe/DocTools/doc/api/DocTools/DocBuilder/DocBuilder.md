@@ -4,7 +4,7 @@
 
 The DocBuilder class
 ================
-2019-02-21 --> 2019-02-26
+2019-02-21 --> 2019-02-27
 
 
 
@@ -93,3 +93,8 @@ Methods
 Location
 =============
 DocTools\DocBuilder\DocBuilder
+
+
+SeeAlso
+==============
+Previous class: [CopyModuleInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/CopyModule/CopyModuleInterface.md)<br>Next class: [LingGitPhpPlanetDocBuilder](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/DocBuilder/Git/PhpPlanet/LingGitPhpPlanetDocBuilder.md)<br>

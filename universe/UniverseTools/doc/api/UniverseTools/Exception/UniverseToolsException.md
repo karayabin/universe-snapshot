@@ -48,3 +48,8 @@ Methods
 Location
 =============
 UniverseTools\Exception\UniverseToolsException
+
+
+SeeAlso
+==============
+Previous class: [DependencyTool](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/UniverseTools/DependencyTool.md)<br>Next class: [MetaInfoTool](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/UniverseTools/MetaInfoTool.md)<br>

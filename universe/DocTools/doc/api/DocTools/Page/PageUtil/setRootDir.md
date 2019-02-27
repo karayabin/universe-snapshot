@@ -50,3 +50,6 @@ See Also
 ================
 
 The [PageUtil](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Page/PageUtil.md) class.
+
+Previous method: [__construct](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Page/PageUtil/__construct.md)<br>Next method: [setInsertsRootDir](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Page/PageUtil/setInsertsRootDir.md)<br>
+

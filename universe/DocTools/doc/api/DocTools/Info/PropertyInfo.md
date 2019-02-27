@@ -4,7 +4,7 @@
 
 The PropertyInfo class
 ================
-2019-02-21 --> 2019-02-26
+2019-02-21 --> 2019-02-27
 
 
 
@@ -123,3 +123,8 @@ Methods
 Location
 =============
 DocTools\Info\PropertyInfo
+
+
+SeeAlso
+==============
+Previous class: [PlanetInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/PlanetInfo.md)<br>Next class: [DocToolInterpreter](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Interpreter/DocToolInterpreter.md)<br>

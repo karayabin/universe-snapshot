@@ -4,7 +4,7 @@
 
 The Widget class
 ================
-2019-02-21 --> 2019-02-26
+2019-02-21 --> 2019-02-27
 
 
 
@@ -65,3 +65,8 @@ Methods
 Location
 =============
 DocTools\Widget\Widget
+
+
+SeeAlso
+==============
+Previous class: [PlanetTocListWidget](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/PlanetTocList/PlanetTocListWidget.md)<br>Next class: [WidgetInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/WidgetInterface.md)<br>

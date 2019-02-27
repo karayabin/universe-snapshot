@@ -47,3 +47,6 @@ See Also
 ================
 
 The [PlanetParser](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/PlanetParser/PlanetParser.md) class.
+
+Previous method: [setClassParser](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/PlanetParser/PlanetParser/setClassParser.md)<br>Next method: [setReport](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/PlanetParser/PlanetParser/setReport.md)<br>
+

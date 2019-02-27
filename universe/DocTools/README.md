@@ -638,6 +638,10 @@ This includes:
 History Log
 =============
     
+- 1.4.0 -- 2019-02-27
+
+    - add MethodPrevNextWidget and ClassPrevNextWidgets
+    
 - 1.3.0 -- 2019-02-26
 
     - fix PlanetDependenciesSectionWidget->render method accordingly with update of \UniverseTools\DependencyTool::getDependencyHomeUrl method

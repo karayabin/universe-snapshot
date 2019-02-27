@@ -4,7 +4,7 @@
 
 The ParseDownTranslator class
 ================
-2019-02-21 --> 2019-02-26
+2019-02-21 --> 2019-02-27
 
 
 
@@ -204,3 +204,8 @@ Methods
 Location
 =============
 DocTools\Translator\ParseDownTranslator
+
+
+SeeAlso
+==============
+Previous class: [MarkdownTranslatorInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Translator/MarkdownTranslatorInterface.md)<br>Next class: [ClassMethodsWidget](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/ClassMethods/ClassMethodsWidget.md)<br>

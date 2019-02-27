@@ -47,3 +47,6 @@ See Also
 ================
 
 The [CommentInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/CommentInfo.md) class.
+
+Previous method: [setTags](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/CommentInfo/setTags.md)<br>Next method: [setFirstLine](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/CommentInfo/setFirstLine.md)<br>
+

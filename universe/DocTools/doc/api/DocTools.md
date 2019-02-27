@@ -1,6 +1,6 @@
 DocTools
 ================
-2019-02-21 --> 2019-02-26
+2019-02-21 --> 2019-02-27
 
 
 
@@ -273,6 +273,14 @@ Table of contents
     - [ClassMethodsWidget::setReport](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/ClassMethods/ClassMethodsWidget/setReport.md) &ndash; Sets the report.
     - [ClassMethodsWidget::render](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/ClassMethods/ClassMethodsWidget/render.md) &ndash; Returns the rendered widget.
     - [Widget::setOptions](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/Widget/setOptions.md) &ndash; Sets the options for this widget instance.
+- [ClassPrevNextWidget](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/ClassPrevNext/ClassPrevNextWidget.md) &ndash; The ClassPrevNextWidget class.
+    - [ClassPrevNextWidget::__construct](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/ClassPrevNext/ClassPrevNextWidget/__construct.md) &ndash; Builds the ClassMethodsWidget instance.
+    - [ClassPrevNextWidget::setClassInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/ClassPrevNext/ClassPrevNextWidget/setClassInfo.md) &ndash; Sets the classInfo.
+    - [ClassPrevNextWidget::setPlanetInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/ClassPrevNext/ClassPrevNextWidget/setPlanetInfo.md) &ndash; Sets the planetInfo.
+    - [ClassPrevNextWidget::setGeneratedItemsToUrl](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/ClassPrevNext/ClassPrevNextWidget/setGeneratedItemsToUrl.md) &ndash; Sets the generatedItems2Url.
+    - [ClassPrevNextWidget::setReport](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/ClassPrevNext/ClassPrevNextWidget/setReport.md) &ndash; Sets the report.
+    - [ClassPrevNextWidget::render](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/ClassPrevNext/ClassPrevNextWidget/render.md) &ndash; Returns the rendered widget.
+    - [Widget::setOptions](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/Widget/setOptions.md) &ndash; Sets the options for this widget instance.
 - [ClassPropertiesWidget](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/ClassProperties/ClassPropertiesWidget.md) &ndash; The ClassPropertiesWidget class.
     - [ClassPropertiesWidget::__construct](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/ClassProperties/ClassPropertiesWidget/__construct.md) &ndash; Builds the ClassPropertiesWidget instance.
     - [ClassPropertiesWidget::setClassInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/ClassProperties/ClassPropertiesWidget/setClassInfo.md) &ndash; Sets the classInfo.
@@ -284,6 +292,14 @@ Table of contents
     - [ClassSynopsisWidget::setReport](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/ClassSynopsis/ClassSynopsisWidget/setReport.md) &ndash; Sets the report.
     - [ClassSynopsisWidget::setClassInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/ClassSynopsis/ClassSynopsisWidget/setClassInfo.md) &ndash; Sets the classInfo.
     - [ClassSynopsisWidget::render](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/ClassSynopsis/ClassSynopsisWidget/render.md) &ndash; Returns the rendered widget.
+    - [Widget::setOptions](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/Widget/setOptions.md) &ndash; Sets the options for this widget instance.
+- [MethodPrevNextWidget](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/MethodPrevNext/MethodPrevNextWidget.md) &ndash; The MethodPrevNextWidget class.
+    - [MethodPrevNextWidget::__construct](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/MethodPrevNext/MethodPrevNextWidget/__construct.md) &ndash; Builds the ClassMethodsWidget instance.
+    - [MethodPrevNextWidget::setClassInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/MethodPrevNext/MethodPrevNextWidget/setClassInfo.md) &ndash; Sets the classInfo.
+    - [MethodPrevNextWidget::setMethodInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/MethodPrevNext/MethodPrevNextWidget/setMethodInfo.md) &ndash; Sets the methodInfo.
+    - [MethodPrevNextWidget::setGeneratedItemsToUrl](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/MethodPrevNext/MethodPrevNextWidget/setGeneratedItemsToUrl.md) &ndash; Sets the generatedItems2Url.
+    - [MethodPrevNextWidget::setReport](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/MethodPrevNext/MethodPrevNextWidget/setReport.md) &ndash; Sets the report.
+    - [MethodPrevNextWidget::render](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/MethodPrevNext/MethodPrevNextWidget/render.md) &ndash; Returns the rendered widget.
     - [Widget::setOptions](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/Widget/setOptions.md) &ndash; Sets the options for this widget instance.
 - [PlanetDependenciesSectionWidget](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/PlanetDependenciesSection/PlanetDependenciesSectionWidget.md) &ndash; The PlanetDependenciesSectionWidget class.
     - [PlanetDependenciesSectionWidget::__construct](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/PlanetDependenciesSection/PlanetDependenciesSectionWidget/__construct.md) &ndash; Builds the PlanetDependenciesSectionWidget instance.

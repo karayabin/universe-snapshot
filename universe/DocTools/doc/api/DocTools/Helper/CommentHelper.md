@@ -4,7 +4,7 @@
 
 The CommentHelper class
 ================
-2019-02-21 --> 2019-02-26
+2019-02-21 --> 2019-02-27
 
 
 
@@ -68,3 +68,8 @@ Methods
 Location
 =============
 DocTools\Helper\CommentHelper
+
+
+SeeAlso
+==============
+Previous class: [GenericParserInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/GenericParser/GenericParserInterface.md)<br>Next class: [MethodHelper](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Helper/MethodHelper.md)<br>

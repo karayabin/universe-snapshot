@@ -4,7 +4,7 @@
 
 The ClassParserException class
 ================
-2019-02-21 --> 2019-02-26
+2019-02-21 --> 2019-02-27
 
 
 
@@ -49,3 +49,8 @@ Methods
 Location
 =============
 DocTools\Exception\ClassParserException
+
+
+SeeAlso
+==============
+Previous class: [BadWidgetConfigurationException](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Exception/BadWidgetConfigurationException.md)<br>Next class: [CopyModuleException](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Exception/CopyModuleException.md)<br>

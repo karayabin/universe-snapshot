@@ -4,7 +4,7 @@
 
 The ClassInfo class
 ================
-2019-02-21 --> 2019-02-26
+2019-02-21 --> 2019-02-27
 
 
 
@@ -143,3 +143,8 @@ Methods
 Location
 =============
 DocTools\Info\ClassInfo
+
+
+SeeAlso
+==============
+Previous class: [PhpClassHelper](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Helper/PhpClassHelper.md)<br>Next class: [CommentInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/CommentInfo.md)<br>

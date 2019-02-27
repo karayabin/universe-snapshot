@@ -50,3 +50,6 @@ See Also
 ================
 
 The [PlanetParser](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/PlanetParser/PlanetParser.md) class.
+
+Previous method: [setReport](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/PlanetParser/PlanetParser/setReport.md)<br>Next method: [setNotationInterpreter](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/PlanetParser/PlanetParser/setNotationInterpreter.md)<br>
+

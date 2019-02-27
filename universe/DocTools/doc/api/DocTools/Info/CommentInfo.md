@@ -4,7 +4,7 @@
 
 The CommentInfo class
 ================
-2019-02-21 --> 2019-02-26
+2019-02-21 --> 2019-02-27
 
 
 
@@ -182,3 +182,8 @@ Methods
 Location
 =============
 DocTools\Info\CommentInfo
+
+
+SeeAlso
+==============
+Previous class: [ClassInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/ClassInfo.md)<br>Next class: [InfoInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/InfoInterface.md)<br>

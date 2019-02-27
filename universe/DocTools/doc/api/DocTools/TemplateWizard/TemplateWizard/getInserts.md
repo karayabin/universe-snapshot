@@ -50,3 +50,6 @@ See Also
 ================
 
 The [TemplateWizard](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/TemplateWizard/TemplateWizard.md) class.
+
+Previous method: [hasInsert](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/TemplateWizard/TemplateWizard/hasInsert.md)<br>
+

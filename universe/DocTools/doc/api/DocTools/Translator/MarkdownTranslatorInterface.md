@@ -4,7 +4,7 @@
 
 The MarkdownTranslatorInterface class
 ================
-2019-02-21 --> 2019-02-26
+2019-02-21 --> 2019-02-27
 
 
 
@@ -47,3 +47,8 @@ Methods
 Location
 =============
 DocTools\Translator\MarkdownTranslatorInterface
+
+
+SeeAlso
+==============
+Previous class: [TemplateWizard](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/TemplateWizard/TemplateWizard.md)<br>Next class: [ParseDownTranslator](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Translator/ParseDownTranslator.md)<br>

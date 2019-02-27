@@ -4,7 +4,7 @@
 
 The ClassParser class
 ================
-2019-02-21 --> 2019-02-26
+2019-02-21 --> 2019-02-27
 
 
 
@@ -143,3 +143,8 @@ Methods
 Location
 =============
 DocTools\ClassParser\ClassParser
+
+
+SeeAlso
+==============
+Next class: [ClassParserInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/ClassParser/ClassParserInterface.md)<br>

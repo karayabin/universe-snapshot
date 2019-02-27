@@ -4,7 +4,7 @@
 
 The LingGitPhpPlanetDocBuilder class
 ================
-2019-02-21 --> 2019-02-26
+2019-02-21 --> 2019-02-27
 
 
 
@@ -192,3 +192,8 @@ Methods
 Location
 =============
 DocTools\DocBuilder\Git\PhpPlanet\LingGitPhpPlanetDocBuilder
+
+
+SeeAlso
+==============
+Previous class: [DocBuilder](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/DocBuilder/DocBuilder.md)<br>Next class: [BadWidgetConfigurationException](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Exception/BadWidgetConfigurationException.md)<br>

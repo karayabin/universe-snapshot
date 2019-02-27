@@ -4,7 +4,7 @@
 
 The DocBuilderException class
 ================
-2019-02-21 --> 2019-02-26
+2019-02-21 --> 2019-02-27
 
 
 
@@ -48,3 +48,8 @@ Methods
 Location
 =============
 DocTools\Exception\DocBuilderException
+
+
+SeeAlso
+==============
+Previous class: [CopyModuleException](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Exception/CopyModuleException.md)<br>Next class: [DocToolsException](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Exception/DocToolsException.md)<br>
