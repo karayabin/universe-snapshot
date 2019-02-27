@@ -107,7 +107,6 @@ class DependencyTool
      *
      * - 0: the galaxy identifier/ download technique
      * - 1: the dependency item (name, url, ...).
-     * - 2: the tag (aka version) used, or the wildcard if the last version available should be used.
      *
      *
      *
@@ -132,17 +131,8 @@ class DependencyTool
             $dependencies = $conf['dependencies'] ?? [];
 
             foreach ($dependencies as $downloadTechnique => $deps) {
-                if ('ling' === $downloadTechnique) {
-                    foreach ($deps as $planet => $tag) {
-                        $ret[] = [$downloadTechnique, $planet, $tag];
-                    }
-                } elseif ('git' === $downloadTechnique) {
-                    foreach ($deps as $dependency) {
-                        $p = explode(':', $dependency);
-                        $tag = array_pop($p);
-                        $url = implode(":", $p);
-                        $ret[] = [$downloadTechnique, $url, $tag];
-                    }
+                foreach ($deps as $dependency) {
+                    $ret[] = [$downloadTechnique, $dependency];
                 }
             }
         }
@@ -168,7 +158,6 @@ class DependencyTool
      * $item = [
      *      "ling",
      *      "Bat",
-     *      "*",
      * ];
      * az(DependencyTool::getDependencyHomeUrl($item)); // string(71) "https://github.com/karayabin/universe-snapshot/tree/master/universe/Bat"
      * ```

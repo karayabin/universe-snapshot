@@ -38,7 +38,6 @@ The following code:
 $item = [
 "ling",
 "Bat",
-"*",
 ];
 az(DependencyTool::getDependencyHomeUrl($item)); // string(71) "https://github.com/karayabin/universe-snapshot/tree/master/universe/Bat"
 ```

@@ -27,6 +27,25 @@ uni import BabyYaml
 
 
 
+Summary
+============
+- [Is BabyYaml same as Yaml?](#is-babyyaml-same-as-yaml)
+- [How to use?](#how-to-use)
+- [BabyYaml syntax example](#babyyaml-syntax-example)
+- [So what is the BabyYaml syntax?](#so-what-is-the-babyyaml-syntax)
+    - [Keys](#Keys)
+    - [Nesting arrays](#nesting-arrays)
+    - [Values](#values)
+    - [Special Values and types](#special-values-and-types)
+    - [Sequences and mappings](#sequences-and-mappings)
+    - [Multiline](#multiline)
+    - [Comments](#comments)
+
+- [Note](#note)
+- [History Log](#history-log)
+
+
+
 
 
 Is BabyYaml same as Yaml?
@@ -46,8 +65,12 @@ How to use?
 ==============
 
 There is only one class to use: BabyYamlUtil.
+
+You can use it to read a babyYaml file, or write an array as BabyYaml.
  
  
+Below is an example of how to read a babyYaml file.
+
 
 ```php
 <?php
@@ -61,7 +84,19 @@ $f = __DIR__ . "/test.yml";
 a(BabyYamlUtil::readFile($f)); // will display the array corresponding to the test.yml file
 ```
 
-All other classes are private and their code might be modified at any moment so don't rely on them.
+And here is an example of how to write an array to a file:
+
+
+```php
+
+$array = ["test" => 67, "colors" => ["blue", "green"]];
+$destFile = "/komin/jin_site_demo/tmp/test-output.byml";
+BabyYamlUtil::writeFile($array, $destFile); // writing the array to the $destFile
+
+
+```
+
+
 
 
 
@@ -99,13 +134,13 @@ inlineNotations:
     nomap: {one1, two2}
     recur: [a, b, {one: 1, "two": two, three: [again, again]}, c, [1,2]]
 multiline: <
-This is a multiline firstline
-This is a multiline secondline
+    This is a multiline firstline
+    This is a multiline secondline
 >
 anotherNested:
-    - multiline2: <
-    Multiline always has the same indent as its key.
-    As you can see here...
+    multiline2: <
+        Multiline always has the same indent as its key.
+        As you can see here...
     >
 # this is a comment
 comments: null
@@ -181,7 +216,7 @@ array(18) {
   ["multiline"] => string(60) "This is a multiline firstline
 This is a multiline secondline"
   ["anotherNested"] => array(1) {
-    [0] => string(71) "Multiline always has the same indent as its key.
+    ["multiline2"] => string(71) "Multiline always has the same indent as its key.
 As you can see here..."
   }
   ["comments"] => NULL
@@ -194,7 +229,6 @@ As you can see here..."
     [0] => string(3) "soo"
   }
 }
-
 ```
 
 
@@ -564,59 +598,11 @@ $defs = [
 
 
 
-The story nobody cares about except my ego
-============================== 
-
-I hate this implementation because it has so much classes.
+Note
+============
 
 It's an old implementation "stolen/quickly adapted" from my older framework [bee](https://github.com/lingtalfi/bee/tree/master/bee/modules/Bee/Notation/File/BabyYaml).
-
-I wouldn't say that most of those classes are useless, and if I had to redo it, I would do all in one file,
-as it was in my first implementation (that I obviously deleted somehow).
-
-BUT, for now it does the job, and it's mine (=I will have less problems to extend it than someone else's code), 
-so that's two reasons for me to use it.
-
-If you are reading this, don't ever rely on the existing code, except for the BabyYamlUtil class,
-which I won't change (but all the rest I might get rid off maybe one day...).
-
-
-
-
-Configuring php storm to recognize baby yaml files.
-==============================
-
-If you use phpStorm (which I recommend), then you can tweak phpStorm to
-work with babyYaml files.
-
-Go to **Preferences > Editor > Code Style > YAML**.
-
-Next to Scheme, click duplicate, then rename your scheme "BabyYaml", then configure your new scheme like this:
-
-
-```txt
-Tabs and Indents:
-	Indent: 4
-	Keep indents on empty lines: false
-	Indent sequence value: true
-Wrapping and Braces:
-	Visual guides: none
-	Keep when reformatting
-		Line breaks: false
-	Align values in maps: Do not align
-	Sequence value:
-		Sequence on new line: false
-		Block mapping on new line: false
-		Automatically insert hyphen on enter: false
-```
-
-
-
-
-Dependencies
-=================
-
-- [Bat 1.38](https://github.com/lingtalfi/Bat)
+The implementation is messy and without documentation, but it works.
 
 
 
@@ -627,6 +613,10 @@ Dependencies
 
 History Log
 ===============
+    
+- 1.1.0 -- 2019-02-27
+
+    - Add BabyYamlUtil::writeFile and getBabyYamlString methods
     
 - 1.0.0 -- 2016-12-28
 

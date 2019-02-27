@@ -36,6 +36,10 @@ Summary
 History Log
 ==============
 
+- 1.4.0 -- 2019-02-26
+
+    - fix DependencyTool class to be compliant with the [new universe dependency system](https://github.com/lingtalfi/TheScientist/blob/master/universe-dependencies-2019.md)
+    
 - 1.3.0 -- 2019-02-26
 
     - add UniverseTools\MetaInfoTool class

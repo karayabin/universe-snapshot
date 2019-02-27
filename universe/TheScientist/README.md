@@ -26,6 +26,10 @@ uni import TheScientist
 History Log
 ===============
 
+- 1.0.1 -- 2019-02-26
+
+    - update the "new dependency system for the universe" document
+    
 - 1.0.0 -- 2015-10-14
 
     - initial commit

@@ -30,7 +30,6 @@ The array is a list of dependencyItem, each of which being an array with 3 items
 
 - 0: the galaxy identifier/ download technique
 - 1: the dependency item (name, url, ...).
-- 2: the tag (aka version) used, or the wildcard if the last version available should be used.
 
 
 
