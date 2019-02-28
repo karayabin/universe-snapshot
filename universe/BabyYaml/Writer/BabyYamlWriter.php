@@ -4,8 +4,6 @@
 namespace BabyYaml\Writer;
 
 
-
-
 use Bat\FileSystemTool;
 
 /**
@@ -68,11 +66,10 @@ class BabyYamlWriter
             if (is_numeric($k)) {
 
                 $prefix = $k . ': ';
-                if((int)$k===(int)$n){
+                if ((int)$k === (int)$n) {
                     $prefix = "- ";
-                }
-                else{
-                    $n=$k;
+                } else {
+                    $n = $k;
                 }
 
 
@@ -86,18 +83,15 @@ class BabyYamlWriter
                             $p++;
                         }
                         $s .= $this->tab($level);
-                    }
-                    else {
+                    } else {
                         $s .= $this->toLiteral($v, $level);
                     }
                     $s .= $this->eol();
-                }
-                else {
+                } else {
                     $s .= $this->tab($level) . $prefix . $this->toLiteral($v, $level) . $this->eol();
                 }
                 $n++;
-            }
-            else {
+            } else {
                 if (is_array($v)) {
                     $s .= $this->tab($level) . $k . ': ';
                     if ($v) {
@@ -108,13 +102,14 @@ class BabyYamlWriter
                             $p++;
                         }
                         $s .= $this->tab($level);
-                    }
-                    else {
+                    } else {
                         $s .= $this->toLiteral($v, $level);
                     }
                     $s .= $this->eol();
-                }
-                else {
+                } else {
+                    if (false !== strpos($k, ':')) {
+                        $k = '"' . str_replace('"', '\"', $k) . '"';
+                    }
                     $s .= $this->tab($level) . $k . ': ' . $this->toLiteral($v, $level) . $this->eol();
                 }
             }
@@ -142,8 +137,7 @@ class BabyYamlWriter
             }
             $s .= '>';
             $v = $s;
-        }
-        else {
+        } else {
             $v = $this->valueAdaptor->getValue($scalar);
         }
         return $v;

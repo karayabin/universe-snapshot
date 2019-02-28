@@ -9,7 +9,6 @@ namespace BabyYaml\Writer;
  * @author Lingtalfi
  *
  */
-
 class BabyYamlWriterValueAdaptor
 {
 
@@ -44,6 +43,16 @@ class BabyYamlWriterValueAdaptor
             $length = strlen($value);
 
 
+            /**
+             * Does the string need protective quotes around it?
+             *
+             * In this naive version, I will just say that if there is no double quote at all,
+             * then it doesn't need protection.
+             *
+             */
+            if (false === strpos($value, '"')) {
+                return $value;
+            }
 
 
             return $this->protect($value);

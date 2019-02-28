@@ -51,3 +51,6 @@ See Also
 ================
 
 The [CommandLineInput](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/CommandLineInput.md) class.
+
+Previous method: [__construct](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/CommandLineInput/__construct.md)<br>
+

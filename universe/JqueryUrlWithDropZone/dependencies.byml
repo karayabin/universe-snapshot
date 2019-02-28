@@ -1,0 +1,4 @@
+dependencies: 
+    - ling.Jquery
+
+post_install: []

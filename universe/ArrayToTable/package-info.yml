@@ -1,4 +1,0 @@
-dependencies:
-    - git::/lingtalfi/Bat:1.11.0   (if you use the StylizedArrayToTableUtil class) 
-ACPCompliantRanges:
-    - *

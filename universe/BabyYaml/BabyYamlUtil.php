@@ -5,6 +5,7 @@ namespace BabyYaml;
 
 
 use BabyYaml\Reader\BabyYamlReader;
+use BabyYaml\Reader\Exception\ParseErrorException;
 use BabyYaml\Writer\BabyYamlWriter;
 
 class BabyYamlUtil
@@ -46,12 +47,25 @@ class BabyYamlUtil
     /**
      * Returns the configuration array from the given babyYaml $file.
      *
-     * @param $file
+     * @param string $file
      * @return array
      */
     public static function readFile(string $file)
     {
         return self::getInst()->readFile($file);
+    }
+
+
+    /**
+     * Returns the configuration array from the given babyYaml $file.
+     *
+     * @param string $string
+     * @return array
+     * @throws ParseErrorException
+     */
+    public static function readBabyYamlString(string $string)
+    {
+        return self::getInst()->readString($string);
     }
 
 

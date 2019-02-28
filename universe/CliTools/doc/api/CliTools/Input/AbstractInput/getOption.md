@@ -54,3 +54,6 @@ See Also
 ================
 
 The [AbstractInput](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/AbstractInput.md) class.
+
+Previous method: [hasFlag](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/AbstractInput/hasFlag.md)<br>Next method: [getParameter](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/AbstractInput/getParameter.md)<br>
+

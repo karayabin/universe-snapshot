@@ -48,3 +48,8 @@ Methods
 Location
 =============
 CliTools\Formatter\FormatterInterface
+
+
+SeeAlso
+==============
+Previous class: [DumbFormatter](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Formatter/DumbFormatter.md)<br>Next class: [QuestionHelper](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Helper/QuestionHelper.md)<br>

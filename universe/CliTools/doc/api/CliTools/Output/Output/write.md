@@ -52,3 +52,6 @@ See Also
 ================
 
 The [Output](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Output/Output.md) class.
+
+Previous method: [setFormatter](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Output/Output/setFormatter.md)<br>
+

@@ -50,3 +50,6 @@ See Also
 ================
 
 The [DumbFormatter](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Formatter/DumbFormatter.md) class.
+
+
+

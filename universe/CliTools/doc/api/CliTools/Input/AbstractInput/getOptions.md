@@ -48,3 +48,6 @@ See Also
 ================
 
 The [AbstractInput](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/AbstractInput.md) class.
+
+Previous method: [getParameters](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/AbstractInput/getParameters.md)<br>Next method: [getFlags](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/AbstractInput/getFlags.md)<br>
+

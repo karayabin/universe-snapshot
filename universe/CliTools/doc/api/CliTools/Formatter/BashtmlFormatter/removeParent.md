@@ -50,3 +50,6 @@ See Also
 ================
 
 The [BashtmlFormatter](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Formatter/BashtmlFormatter.md) class.
+
+Previous method: [addParent](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Formatter/BashtmlFormatter/addParent.md)<br>Next method: [getStartTag](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Formatter/BashtmlFormatter/getStartTag.md)<br>
+

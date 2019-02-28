@@ -77,5 +77,8 @@ Table of contents
     - [ProgramInterface::run](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Program/ProgramInterface/run.md) &ndash; Starts the interactive program.
 
 
+Dependencies
+============
+- [Universe: UniversalLogger](https://github.com/karayabin/universe-snapshot/tree/master/universe/UniversalLogger)
 
 

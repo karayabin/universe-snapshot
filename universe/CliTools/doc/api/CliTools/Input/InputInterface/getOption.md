@@ -54,3 +54,6 @@ See Also
 ================
 
 The [InputInterface](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/InputInterface.md) class.
+
+Previous method: [getParameter](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/InputInterface/getParameter.md)<br>Next method: [hasFlag](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/InputInterface/hasFlag.md)<br>
+

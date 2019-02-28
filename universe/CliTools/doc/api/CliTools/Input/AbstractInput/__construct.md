@@ -47,3 +47,6 @@ See Also
 ================
 
 The [AbstractInput](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/AbstractInput.md) class.
+
+Next method: [hasFlag](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/AbstractInput/hasFlag.md)<br>
+

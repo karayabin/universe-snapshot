@@ -49,3 +49,8 @@ Methods
 Location
 =============
 CliTools\Output\OutputInterface
+
+
+SeeAlso
+==============
+Previous class: [Output](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Output/Output.md)<br>Next class: [AbstractProgram](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Program/AbstractProgram.md)<br>

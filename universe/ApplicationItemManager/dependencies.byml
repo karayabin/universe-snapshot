@@ -1,0 +1,7 @@
+dependencies: 
+    - ling.Bat
+    - ling.Output
+    - ling.Program
+    - ling.CommandLineInput
+
+post_install: []

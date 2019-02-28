@@ -47,3 +47,6 @@ See Also
 ================
 
 The [Application](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Program/Application.md) class.
+
+Next method: [registerCommand](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Program/Application/registerCommand.md)<br>
+

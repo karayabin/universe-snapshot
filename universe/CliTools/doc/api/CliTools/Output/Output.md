@@ -77,3 +77,8 @@ Methods
 Location
 =============
 CliTools\Output\Output
+
+
+SeeAlso
+==============
+Previous class: [InputInterface](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/InputInterface.md)<br>Next class: [OutputInterface](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Output/OutputInterface.md)<br>

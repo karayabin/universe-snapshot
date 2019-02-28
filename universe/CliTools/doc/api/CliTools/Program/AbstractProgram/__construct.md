@@ -47,3 +47,6 @@ See Also
 ================
 
 The [AbstractProgram](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Program/AbstractProgram.md) class.
+
+Next method: [setLogger](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Program/AbstractProgram/setLogger.md)<br>
+

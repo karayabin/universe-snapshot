@@ -48,3 +48,6 @@ See Also
 ================
 
 The [InputInterface](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/InputInterface.md) class.
+
+Previous method: [getOptions](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/InputInterface/getOptions.md)<br>
+

@@ -1,3 +1,0 @@
-dependencies:
-    - git::/PHPOffice/PHPExcel:1.8.1
-    - git::/lingtalfi/Quickpdo:2.39 (only if you use the PhpExcelTool::file2Table method)

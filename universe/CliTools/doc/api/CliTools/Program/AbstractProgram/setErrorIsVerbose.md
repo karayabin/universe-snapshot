@@ -50,3 +50,6 @@ See Also
 ================
 
 The [AbstractProgram](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Program/AbstractProgram.md) class.
+
+Previous method: [setLoggerChannel](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Program/AbstractProgram/setLoggerChannel.md)<br>Next method: [run](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Program/AbstractProgram/run.md)<br>
+

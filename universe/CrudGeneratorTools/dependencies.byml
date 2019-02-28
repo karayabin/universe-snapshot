@@ -1,0 +1,7 @@
+dependencies: 
+    - ling.Bat
+    - ling.ArrayToString
+    - ling.QuickPdo
+    - ling.Kamille
+
+post_install: []

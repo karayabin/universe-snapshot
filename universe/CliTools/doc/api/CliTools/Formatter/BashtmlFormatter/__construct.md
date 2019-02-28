@@ -47,3 +47,6 @@ See Also
 ================
 
 The [BashtmlFormatter](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Formatter/BashtmlFormatter.md) class.
+
+Next method: [format](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Formatter/BashtmlFormatter/format.md)<br>
+

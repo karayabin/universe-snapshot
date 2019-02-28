@@ -1,0 +1,8 @@
+dependencies: 
+    - ling.Bat
+    - ling.QuickPdo
+    - ling.Tim
+    - ling.StringFormatter
+    - ling.SuspiciousException
+
+post_install: []

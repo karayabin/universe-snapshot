@@ -1,6 +1,0 @@
-dependencies:
-    - git::/lingtalfi/Bat:1.44
-    - git::/lingtalfi/Output:1.4.0  (only if you need an Output)
-
-    
-    

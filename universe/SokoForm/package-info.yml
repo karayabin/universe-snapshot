@@ -1,4 +1,0 @@
-dependencies:
-    - git::/lingtalfi/Bat:1.84
-    - composer::symfony/dom-crawler:*     (only required if you use the SokoTvaIntracomValidationRule webservice to check tva intracom number)
-    - composer::symfony/css-selector:*    (only required if you use the SokoTvaIntracomValidationRule webservice to check tva intracom number)

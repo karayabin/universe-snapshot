@@ -50,3 +50,6 @@ See Also
 ================
 
 The [BashtmlFormatter](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Formatter/BashtmlFormatter.md) class.
+
+Previous method: [getStopTag](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Formatter/BashtmlFormatter/getStopTag.md)<br>Next method: [checkCode](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Formatter/BashtmlFormatter/checkCode.md)<br>
+

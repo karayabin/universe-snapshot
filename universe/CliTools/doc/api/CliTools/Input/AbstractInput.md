@@ -90,3 +90,8 @@ Methods
 Location
 =============
 CliTools\Input\AbstractInput
+
+
+SeeAlso
+==============
+Previous class: [QuestionHelper](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Helper/QuestionHelper.md)<br>Next class: [ArrayInput](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/ArrayInput.md)<br>

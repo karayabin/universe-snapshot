@@ -120,3 +120,8 @@ Methods
 Location
 =============
 CliTools\Input\ArrayInput
+
+
+SeeAlso
+==============
+Previous class: [AbstractInput](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/AbstractInput.md)<br>Next class: [CommandLineInput](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/CommandLineInput.md)<br>

@@ -1,0 +1,4 @@
+dependencies: 
+    - ling.QuickPdo
+
+post_install: []

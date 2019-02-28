@@ -50,3 +50,6 @@ See Also
 ================
 
 The [AbstractInput](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/AbstractInput.md) class.
+
+Previous method: [__construct](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/AbstractInput/__construct.md)<br>Next method: [getOption](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/AbstractInput/getOption.md)<br>
+

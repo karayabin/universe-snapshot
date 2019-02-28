@@ -50,3 +50,6 @@ See Also
 ================
 
 The [AbstractProgram](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Program/AbstractProgram.md) class.
+
+Previous method: [setLogger](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Program/AbstractProgram/setLogger.md)<br>Next method: [setErrorIsVerbose](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Program/AbstractProgram/setErrorIsVerbose.md)<br>
+

@@ -216,3 +216,8 @@ Methods
 Location
 =============
 CliTools\Formatter\BashtmlFormatter
+
+
+SeeAlso
+==============
+Previous class: [InvalidContextException](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Exception/InvalidContextException.md)<br>Next class: [DumbFormatter](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Formatter/DumbFormatter.md)<br>

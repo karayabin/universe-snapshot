@@ -51,3 +51,6 @@ See Also
 ================
 
 The [Application](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Program/Application.md) class.
+
+Previous method: [runProgram](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Program/Application/runProgram.md)<br>
+

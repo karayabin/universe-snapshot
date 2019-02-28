@@ -1,0 +1,7 @@
+dependencies: 
+    - ling.Bat
+    - ling.YouTubeUtils
+    - ling.Tim
+    - ling.UploaderHandler
+
+post_install: []

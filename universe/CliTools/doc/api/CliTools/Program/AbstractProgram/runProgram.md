@@ -55,3 +55,6 @@ See Also
 ================
 
 The [AbstractProgram](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Program/AbstractProgram.md) class.
+
+Previous method: [run](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Program/AbstractProgram/run.md)<br>
+

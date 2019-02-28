@@ -50,3 +50,6 @@ See Also
 ================
 
 The [FormatterInterface](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Formatter/FormatterInterface.md) class.
+
+
+

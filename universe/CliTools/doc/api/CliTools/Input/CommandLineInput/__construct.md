@@ -50,3 +50,6 @@ See Also
 ================
 
 The [CommandLineInput](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/CommandLineInput.md) class.
+
+Next method: [prepare](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/CommandLineInput/prepare.md)<br>
+

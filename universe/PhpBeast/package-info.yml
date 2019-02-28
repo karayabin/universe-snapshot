@@ -1,8 +1,0 @@
-dependencies:
-    - git::/lingtalfi/ArrayToTable:1.2.0 (strong recommendation)
-ACPCompliantRanges:
-    - *
-    
-    
-    
-    

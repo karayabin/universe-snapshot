@@ -49,3 +49,8 @@ Methods
 Location
 =============
 CliTools\Formatter\DumbFormatter
+
+
+SeeAlso
+==============
+Previous class: [BashtmlFormatter](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Formatter/BashtmlFormatter.md)<br>Next class: [FormatterInterface](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Formatter/FormatterInterface.md)<br>

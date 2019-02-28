@@ -48,3 +48,8 @@ Methods
 Location
 =============
 CliTools\Exception\CliToolsException
+
+
+SeeAlso
+==============
+Previous class: [ApplicationException](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Exception/ApplicationException.md)<br>Next class: [InvalidContextException](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Exception/InvalidContextException.md)<br>

@@ -1,0 +1,5 @@
+dependencies: 
+    - ling.SqlQuery
+    - ling.QuickPdo
+
+post_install: []

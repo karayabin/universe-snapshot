@@ -1,4 +1,0 @@
-dependencies:
-    - git::/lingtalfi/Bat:1.104
-    - git::/lingtalfi/BeeFramework:1.0.1
-    - git::/lingtalfi/ThumbnailTools:1.2.2

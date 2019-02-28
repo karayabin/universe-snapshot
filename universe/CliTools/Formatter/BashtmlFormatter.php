@@ -181,7 +181,7 @@ class BashtmlFormatter implements FormatterInterface
             //--------------------------------------------
             "success" => "32", // green
             "info" => "34", // blue
-            "warning" => "33", // yellow
+            "warning" => "35", // magenta
             "error" => "31", // red
             //--------------------------------------------
             // SPECIALS

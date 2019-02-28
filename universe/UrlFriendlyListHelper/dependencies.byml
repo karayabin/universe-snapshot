@@ -1,0 +1,6 @@
+dependencies: 
+    - ling.Bat
+    - ling.Jquery
+    - ling.QuickPdo
+
+post_install: []

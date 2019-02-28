@@ -1,0 +1,5 @@
+dependencies: 
+    - ling.Bat
+    - ling.SitemapBuilderBox
+
+post_install: []

@@ -48,3 +48,8 @@ Methods
 Location
 =============
 CliTools\Helper\QuestionHelper
+
+
+SeeAlso
+==============
+Previous class: [FormatterInterface](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Formatter/FormatterInterface.md)<br>Next class: [AbstractInput](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/AbstractInput.md)<br>

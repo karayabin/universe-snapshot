@@ -62,3 +62,8 @@ Methods
 Location
 =============
 CliTools\Input\InputInterface
+
+
+SeeAlso
+==============
+Previous class: [CommandLineInput](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/CommandLineInput.md)<br>Next class: [Output](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Output/Output.md)<br>

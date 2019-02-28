@@ -1,0 +1,5 @@
+dependencies: 
+    - ling.Bat
+    - ling.QuickPdo
+
+post_install: []

@@ -1,0 +1,6 @@
+dependencies: 
+    - ling.Bat
+    - ling.DirScanner
+    - ling.QuickPdo
+
+post_install: []

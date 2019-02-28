@@ -162,3 +162,8 @@ Methods
 Location
 =============
 CliTools\Input\CommandLineInput
+
+
+SeeAlso
+==============
+Previous class: [ArrayInput](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/ArrayInput.md)<br>Next class: [InputInterface](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/InputInterface.md)<br>

@@ -1,0 +1,6 @@
+dependencies: 
+    - ling.Bat
+    - ling.WrappedString
+    - ling.Escaper
+
+post_install: []

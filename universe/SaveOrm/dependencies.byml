@@ -1,0 +1,6 @@
+dependencies: 
+    - ling.Bat
+    - ling.BeeFramework
+    - ling.ThumbnailTools
+
+post_install: []

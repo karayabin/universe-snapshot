@@ -55,3 +55,6 @@ See Also
 ================
 
 The [BashtmlFormatter](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Formatter/BashtmlFormatter.md) class.
+
+Previous method: [getStartTag](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Formatter/BashtmlFormatter/getStartTag.md)<br>Next method: [getFormatExpression](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Formatter/BashtmlFormatter/getFormatExpression.md)<br>
+

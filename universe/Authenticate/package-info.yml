@@ -1,3 +1,0 @@
-dependencies:
-    - git::/lingtalfi/Bat:1.60
-    - git::/lingtalfi/ArrayToString:1.1.0   (only if you use FileUserStore)

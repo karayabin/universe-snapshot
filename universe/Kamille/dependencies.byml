@@ -1,0 +1,15 @@
+dependencies: 
+    - ling.ApplicationItemManager
+    - ling.ArrayExport
+    - ling.Bat
+    - ling.BeeFramework
+    - ling.ClassCooker
+    - ling.DirScanner
+    - ling.LinearFile
+    - ling.Loader
+    - ling.Logger
+    - ling.Output
+    - ling.TokenFun
+    - ling.Umail
+
+post_install: []

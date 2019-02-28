@@ -51,3 +51,8 @@ Methods
 Location
 =============
 CliTools\Exception\InvalidContextException
+
+
+SeeAlso
+==============
+Previous class: [CliToolsException](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Exception/CliToolsException.md)<br>Next class: [BashtmlFormatter](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Formatter/BashtmlFormatter.md)<br>

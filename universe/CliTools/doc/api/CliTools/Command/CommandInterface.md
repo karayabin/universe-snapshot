@@ -49,3 +49,8 @@ Methods
 Location
 =============
 CliTools\Command\CommandInterface
+
+
+SeeAlso
+==============
+Next class: [ApplicationException](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Exception/ApplicationException.md)<br>

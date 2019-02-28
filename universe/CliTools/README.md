@@ -73,6 +73,14 @@ and the [Symfony/Console](https://github.com/symfony/symfony/tree/master/src/Sym
 History Log
 =================
     
+- 1.3.0 -- 2019-02-28
+
+    - update BashtmlFormatter, change warning to magenta (for better readability)
+    
+- 1.2.1 -- 2019-02-27
+
+    - fix dependencies.byml
+    
 - 1.2.0 -- 2019-02-27
 
     - add methods to the InputInterface: getFlags, getParameters and getOptions

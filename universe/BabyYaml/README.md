@@ -124,6 +124,7 @@ arr:
         null: null
         int: 64
         float: 6.4
+        version: 1.2.0 # nah, that's just a string
         string: "6.4"
         emptyString: ""
     trueAsString: "true"
@@ -149,6 +150,7 @@ bla2: "this # is not a comment either"
 bla2': 'this # is not a comment either'
 bla"2': 'this # is not a comment either'
 bla3: blabla # this is a comment
+bla4: blabla# this is not a comment because the sharp symbol doesn't have a preceding space
 arrxx: [soo] # this is also a comment
 
 ```
@@ -157,7 +159,7 @@ arrxx: [soo] # this is also a comment
 Will give the following php array:
 
 ```php
-array(18) {
+array(19) {
   [0] => string(3) "doo"
   [1] => string(3) "foo"
   [2] => string(3) "moo"
@@ -173,12 +175,13 @@ array(18) {
   }
   [3] => array(4) {
     ["doo"] => string(32) "you don't need quotes, generally"
-    ["specialValues"] => array(7) {
+    ["specialValues"] => array(8) {
       ["true"] => bool(true)
       ["false"] => bool(false)
       ["null"] => NULL
       ["int"] => int(64)
       ["float"] => float(6.4)
+      ["version"] => string(5) "1.2.0"
       ["string"] => string(3) "6.4"
       ["emptyString"] => string(0) ""
     }
@@ -225,10 +228,12 @@ As you can see here..."
   ["bla2'"] => string(30) "this # is not a comment either"
   ["bla"2'"] => string(30) "this # is not a comment either"
   ["bla3"] => string(6) "blabla"
+  ["bla4"] => string(85) "blabla# this is not a comment because the sharp symbol doesn't have a preceding space"
   ["arrxx"] => array(1) {
     [0] => string(3) "soo"
   }
 }
+
 ```
 
 
@@ -561,23 +566,30 @@ $defs = [
 Comments
 --------------
 
-Comments start with the has symbol.
+Comments start with the hash symbol (#).
 
-Comments can be written on their own line, or at the end of a value 
+Comments can be written on their own line, or at the end of a value.
+
+If a comment is written at the end of a value, the hash symbol (#) must be preceded by a space. 
  
+ 
+This yaml file:
+
  
 ```yaml
 # this is a comment
 doo: null
-but: # this is not a comment
+but: # this is a comment
 true: true
 false: "ji # not a comment"
 dup: ji # is a comment
 arr: [soo] # this is a comment
+glued: this is#not a comment
 
 
 ```
- 
+
+Converted to a php array would look like this: 
 
 ```php
 <?php
@@ -590,6 +602,7 @@ $defs = [
     'false' => "ji # not a comment",
     'dup' => "ji",
     'arr' => ['soo'],
+    'glued' => "this is#not a comment",
 ];
 ```
 
@@ -613,6 +626,15 @@ The implementation is messy and without documentation, but it works.
 
 History Log
 ===============
+    
+- 1.2.0 -- 2019-02-27
+
+    - add BabyYamlUtil::readBabyYamlString method
+    
+- 1.1.1 -- 2019-02-27
+
+    - fix BabyYamlUtil::writeFile not escaping key with colon
+    - update BabyYamlUtil::writeFile now tries to display numeric keys with the dash 
     
 - 1.1.0 -- 2019-02-27
 
