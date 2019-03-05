@@ -1,5 +1,7 @@
 dependencies: 
-    - ling.Bat
-    - ling.QuickPdo
+    ling: 
+        - Bat
+        - QuickPdo
+    
 
 post_install: []

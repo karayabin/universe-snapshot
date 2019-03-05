@@ -1,4 +1,6 @@
 dependencies: 
-    - ling.RowsGenerator
+    ling: 
+        - RowsGenerator
+    
 
 post_install: []

@@ -1,4 +1,6 @@
 dependencies: 
-    - ling.BabyYaml
+    ling: 
+        - BabyYaml
+    
 
 post_install: []

@@ -1,7 +1,9 @@
 dependencies: 
-    - ling.Bat
-    - ling.ArrayToString
-    - ling.QuickPdo
-    - ling.Kamille
+    ling: 
+        - Bat
+        - ArrayToString
+        - QuickPdo
+        - Kamille
+    
 
 post_install: []

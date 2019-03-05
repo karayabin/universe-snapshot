@@ -1,4 +1,6 @@
 dependencies: 
-    - ling.MySimpleXmlElement
+    ling: 
+        - MySimpleXmlElement
+    
 
 post_install: []

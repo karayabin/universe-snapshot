@@ -1,6 +1,6 @@
 DocTools
 ================
-2019-02-21 --> 2019-02-27
+2019-02-21 --> 2019-03-05
 
 
 
@@ -319,5 +319,15 @@ Table of contents
     - [WidgetInterface::render](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/WidgetInterface/render.md) &ndash; Returns the rendered widget.
 
 
+Dependencies
+============
+- [Universe: Bat](https://github.com/karayabin/universe-snapshot/tree/master/universe/Bat)
+- [Universe: TokenFun](https://github.com/karayabin/universe-snapshot/tree/master/universe/TokenFun)
+- [Universe: DirScanner](https://github.com/karayabin/universe-snapshot/tree/master/universe/DirScanner)
+- [Universe: UniverseTools](https://github.com/karayabin/universe-snapshot/tree/master/universe/UniverseTools)
+- [Universe: ArrayToString](https://github.com/karayabin/universe-snapshot/tree/master/universe/ArrayToString)
+- [Universe: ArrayToTable](https://github.com/karayabin/universe-snapshot/tree/master/universe/ArrayToTable)
+- [Universe: ZeusTemplateEngine](https://github.com/karayabin/universe-snapshot/tree/master/universe/ZeusTemplateEngine)
+- [Universe: ParseDown](https://github.com/karayabin/universe-snapshot/tree/master/universe/ParseDown)
 
 

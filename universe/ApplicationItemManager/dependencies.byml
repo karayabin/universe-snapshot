@@ -1,7 +1,9 @@
 dependencies: 
-    - ling.Bat
-    - ling.Output
-    - ling.Program
-    - ling.CommandLineInput
+    ling: 
+        - Bat
+        - Output
+        - Program
+        - CommandLineInput
+    
 
 post_install: []

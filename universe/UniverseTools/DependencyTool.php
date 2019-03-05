@@ -60,27 +60,44 @@ class DependencyTool
         $files = YorgDirScannerTool::getFilesWithExtension($planetDir, 'php', false, true, true);
 
         foreach ($files as $file) {
-            $classPath = $planetName . "/" . substr($file, 0, -4);
-            $className = str_replace('/', '\\', $classPath);
-            $classFile = $planetDir . "/" . $file;
+            $content = file_get_contents($planetDir . "/" . $file);
 
-            try {
-                $o = new \ReflectionClass($className);
-                $tokens = token_get_all(file_get_contents($classFile));
-                $useStatements = TokenFinderTool::getUseDependencies($tokens);
+            /**
+             * Filtering scripts starting with:
+             *
+             * ```txt
+             * #!/usr/bin/env php
+             * <?php
+             * ```
+             *
+             */
+            if (0 === strpos($content, '<?')) {
 
-                // filtering out internal use statements (statements referencing a class inside the planet being parsed)
-                $useStatements = array_filter($useStatements, function ($v) use ($planetName) {
-                    if (0 === strpos($v, $planetName . "\\")) {
-                        return false;
-                    }
-                    return true;
-                });
-                $allUseStatements = array_merge($allUseStatements, $useStatements);
+                $classPath = $planetName . "/" . substr($file, 0, -4);
+                $className = str_replace('/', '\\', $classPath);
+                $classFile = $planetDir . "/" . $file;
 
-            } catch (\ReflectionException $e) {
-                // not a bsr-0 class
-                continue;
+
+                try {
+                    $o = new \ReflectionClass($className);
+
+                    $tokens = token_get_all(file_get_contents($classFile));
+                    $useStatements = TokenFinderTool::getUseDependencies($tokens);
+
+                    // filtering out internal use statements (statements referencing a class inside the planet being parsed)
+                    $useStatements = array_filter($useStatements, function ($v) use ($planetName) {
+                        if (0 === strpos($v, $planetName . "\\")) {
+                            return false;
+                        }
+                        return true;
+                    });
+                    $allUseStatements = array_merge($allUseStatements, $useStatements);
+
+                } catch (\ReflectionException $e) {
+                    // not a bsr-0 class
+                    continue;
+                }
+
             }
 
         }

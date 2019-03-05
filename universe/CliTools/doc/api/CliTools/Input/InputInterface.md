@@ -4,7 +4,7 @@
 
 The InputInterface class
 ================
-2019-02-26 --> 2019-02-27
+2019-02-26 --> 2019-03-05
 
 
 
@@ -66,4 +66,4 @@ CliTools\Input\InputInterface
 
 SeeAlso
 ==============
-Previous class: [CommandLineInput](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/CommandLineInput.md)<br>Next class: [Output](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Output/Output.md)<br>
+Previous class: [CommandLineInput](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/CommandLineInput.md)<br>Next class: [BufferedOutput](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Output/BufferedOutput.md)<br>

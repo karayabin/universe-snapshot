@@ -1,8 +1,10 @@
 dependencies: 
-    - ling.Bat
-    - ling.QuickPdo
-    - ling.Tim
-    - ling.StringFormatter
-    - ling.SuspiciousException
+    ling: 
+        - Bat
+        - QuickPdo
+        - Tim
+        - StringFormatter
+        - SuspiciousException
+    
 
 post_install: []

@@ -1,4 +1,6 @@
 dependencies: 
-    - ling.ListParams
+    ling: 
+        - ListParams
+    
 
 post_install: []

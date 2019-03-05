@@ -1,4 +1,6 @@
 dependencies: 
-    - ling.ArrayToTable
+    ling: 
+        - ArrayToTable
+    
 
 post_install: []

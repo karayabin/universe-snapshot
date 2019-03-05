@@ -1,5 +1,7 @@
 dependencies: 
-    - ling.ArrayToString
-    - ling.VariableToString
+    ling: 
+        - ArrayToString
+        - VariableToString
+    
 
 post_install: []

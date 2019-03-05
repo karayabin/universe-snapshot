@@ -1,5 +1,7 @@
 dependencies: 
-    - ling.ArrayExport
-    - ling.Bat
+    ling: 
+        - ArrayExport
+        - Bat
+    
 
 post_install: []

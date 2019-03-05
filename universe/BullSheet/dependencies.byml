@@ -1,6 +1,8 @@
 dependencies: 
-    - ling.Bat
-    - ling.DirScanner
-    - ling.QuickPdo
+    ling: 
+        - Bat
+        - DirScanner
+        - QuickPdo
+    
 
 post_install: []

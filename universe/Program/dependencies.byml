@@ -1,5 +1,7 @@
 dependencies: 
-    - ling.CommandLineInput
-    - ling.Output
+    ling: 
+        - CommandLineInput
+        - Output
+    
 
 post_install: []

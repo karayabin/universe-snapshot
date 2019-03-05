@@ -1,5 +1,7 @@
 dependencies: 
-    - ling.Bat
-    - ling.SitemapBuilderBox
+    ling: 
+        - Bat
+        - SitemapBuilderBox
+    
 
 post_install: []

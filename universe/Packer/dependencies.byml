@@ -1,5 +1,7 @@
 dependencies: 
-    - ling.DirScanner
-    - ling.TokenFun
+    ling: 
+        - DirScanner
+        - TokenFun
+    
 
 post_install: []

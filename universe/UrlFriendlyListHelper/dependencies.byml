@@ -1,6 +1,8 @@
 dependencies: 
-    - ling.Bat
-    - ling.Jquery
-    - ling.QuickPdo
+    ling: 
+        - Bat
+        - Jquery
+        - QuickPdo
+    
 
 post_install: []

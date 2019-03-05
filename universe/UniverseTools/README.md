@@ -36,6 +36,10 @@ Summary
 History Log
 ==============
 
+- 1.8.0 -- 2019-03-05
+
+    - fix DependencyTool::parseDumpDependencies parsing scripts when it should not
+    
 - 1.7.0 -- 2019-02-27
 
     - add PlanetTool::getPlanetDirs method

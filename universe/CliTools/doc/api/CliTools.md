@@ -1,6 +1,6 @@
 CliTools
 ================
-2019-02-26 --> 2019-02-27
+2019-02-26 --> 2019-03-05
 
 
 
@@ -54,6 +54,13 @@ Table of contents
     - [InputInterface::getParameters](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/InputInterface/getParameters.md) &ndash; Returns the list of all parameters, in the order they were written.
     - [InputInterface::getOptions](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/InputInterface/getOptions.md) &ndash; Returns the list of all options (key/value pairs), in the order they were written.
     - [InputInterface::getFlags](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/InputInterface/getFlags.md) &ndash; Returns the list of all flags, in the order they were written.
+- [BufferedOutput](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Output/BufferedOutput.md) &ndash; The BufferedOutput class.
+    - [BufferedOutput::write](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Output/BufferedOutput/write.md) &ndash; Writes a message to the output.
+    - [BufferedOutput::reset](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Output/BufferedOutput/reset.md) &ndash; Resets the messages buffer.
+    - [BufferedOutput::writeMessages](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Output/BufferedOutput/writeMessages.md) &ndash; Prints the buffered messages.
+    - [BufferedOutput::getMessages](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Output/BufferedOutput/getMessages.md) &ndash; Returns the buffered messages.
+    - [Output::__construct](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Output/Output/__construct.md) &ndash; Builds the Output instance.
+    - [Output::setFormatter](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Output/Output/setFormatter.md) &ndash; Sets the formatter.
 - [Output](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Output/Output.md) &ndash; The Output class.
     - [Output::__construct](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Output/Output/__construct.md) &ndash; Builds the Output instance.
     - [Output::setFormatter](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Output/Output/setFormatter.md) &ndash; Sets the formatter.

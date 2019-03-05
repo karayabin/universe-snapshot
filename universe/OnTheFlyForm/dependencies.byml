@@ -1,4 +1,6 @@
 dependencies: 
-    - ling.FormTools
+    ling: 
+        - FormTools
+    
 
 post_install: []

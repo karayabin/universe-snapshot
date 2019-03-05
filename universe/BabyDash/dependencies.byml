@@ -1,4 +1,6 @@
 dependencies: 
-    - ling.IndentedLines
+    ling: 
+        - IndentedLines
+    
 
 post_install: []

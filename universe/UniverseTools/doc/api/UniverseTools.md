@@ -1,6 +1,6 @@
 UniverseTools
 ================
-2019-02-26 --> 2019-02-27
+2019-02-26 --> 2019-03-05
 
 
 
@@ -24,7 +24,5 @@ Table of contents
 Dependencies
 ============
 - [Universe: BabyYaml](https://github.com/karayabin/universe-snapshot/tree/master/universe/BabyYaml)
-- [Universe: DirScanner](https://github.com/karayabin/universe-snapshot/tree/master/universe/DirScanner)
-- [Universe: TokenFun](https://github.com/karayabin/universe-snapshot/tree/master/universe/TokenFun)
 
 

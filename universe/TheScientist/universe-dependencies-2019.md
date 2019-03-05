@@ -31,11 +31,22 @@ dependencies:
 
 
 post_install:
-    -
-        action: move
-        source_dir: bla
-        target_dir: bla2
+    handler:
+        name: My\Class\Name
+        options
+            option1: blabla
 ```
+
+And a more formal notation would be this:
+
+```yaml
+dependencies:
+    $dependencySystem:
+        - $packageImportName
+post_install:
+    $directiveName: $directiveConfiguration
+```
+
 
 
 Note for implementors: the **post_install**'s move action is fictive, it's not part of the system yet.
@@ -52,10 +63,23 @@ Note for implementors: the **post_install**'s move action is fictive, it's not p
 - ... more download techniques might be added in the future
 
 - post_install: contains extra actions to perform once all dependencies have been downloaded.
-    This is an array, each entry being an action array.
-    The action array has the following keys:
-        - action: the name of the action.
-        - ... other keys, depending on the action name. So far, there is no action, but I will add some in the future if necessary.
+    This is an array of key/value pairs.
+    Each key is the name of the directive to execute, and each value is the directive configuration.
+    The directive configuration is either a string or an array, depending on the directive type.
+    
+    The following directives are available:
+    
+    - handler: 
+        - name: string. The class name of the handler to call. 
+        - ?options: array. An array of options to pass to the handler.
+            
+    Note: the handler directive is a way to delegate the handling of the post install process to a class, rather
+    than relying on the post_install syntax of the dependencies.byml file.
+    This might be the most used directive.
+    
+    Other directives might be provided by the implementor of this system.            
+             
+    
 
 
 
@@ -67,11 +91,20 @@ The dependency system indicates how to download the package.
 In the case of a planet (i.e. if the package to download is a planet), then we call it a galaxy identifier, 
 since it's aesthetically/semantically more pleasing to the ears (i.e. it makes sense to group planets into galaxies in the universe nomenclature).
 
+However, the galaxy identifier is not really like a namespace for planets, because all planets merge in the same universe.
+So each planet name must be unique in relation to the universe, and so two planets in the universe can't have the same name, 
+even if they come from different galaxies. 
+
+Note: that's because otherwise we would have to deal with multiple autoloaders, which would probably be more complicated. 
+
 
 
 Planet
 --------
+
 A [BSR-0](https://github.com/lingtalfi/BumbleBee/blob/master/Autoload/convention.bsr0.eng.md) package.
+
+
 
 
 

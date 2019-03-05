@@ -165,13 +165,13 @@ $builder->prepare([
      * and copies everything, including your manual documents to the destination directory.
      *
      *
-     * I like to write my (manual) docs in a private directory, where I use the fancy [inline functions](https://github.com/lingtalfi/DocTools/blob/master/doc/pages/doctool-markup-language.md#inline-functions) a lot in
+     * I like to write my (manual) docs in a private directory named "personal", where I use the fancy [inline functions](https://github.com/lingtalfi/DocTools/blob/master/doc/pages/doctool-markup-language.md#inline-functions) a lot in
      * all my pages (inside the pages directory of the [Lizard scheme](https://github.com/lingtalfi/DocTools/blob/master/README.md#lizard-scheme)).
      *
      * Then I like to copy this structure to the final public destination, which is the doc directory in the git repo
      * (and at the root of my planet on my local machine).
      */
-    "copyModuleSrc" => "$planetDir/private/mydoc",
+    "copyModuleSrc" => "$planetDir/personal/mydoc",
     "copyModuleDst" => "$planetDir/doc",
     /**
      * I filtered out the doctool-markup-language.md document, because it explains the inline functions,

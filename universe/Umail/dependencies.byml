@@ -1,4 +1,6 @@
 dependencies: 
-    - ling.DirScanner
+    ling: 
+        - DirScanner
+    
 
 post_install: []

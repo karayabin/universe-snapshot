@@ -1,10 +1,19 @@
+[Back to the WebBox api](https://github.com/lingtalfi/WebBox/blob/master/doc/api/WebBox.md)<br>
+[Back to the WebBox\Image\PngTextUtil class](https://github.com/lingtalfi/WebBox/blob/master/doc/api/WebBox/Image/PngTextUtil.md)
+
+
 PngTextUtil::displayPngText
 ================
 
+
+
 PngTextUtil::displayPngText — Displays a png text.
 
+
+
+
 Description
----------------
+================
 
 
 public static [PngTextUtil::displayPngText](https://github.com/lingtalfi/WebBox/blob/master/doc/api/WebBox/Image/PngTextUtil/displayPngText.md)(string $text, array $options = []) : void
@@ -33,18 +42,20 @@ This can optionally be prefixed with a pound symbol (#).
 
 
 Parameters
---------------
+================
 
 
 - text
-        
+
+    
 
 - options
-        
+
+    
 
 
 Return values
-----------------
+================
 
 Returns void.
 
@@ -54,9 +65,10 @@ Returns void.
 
 
 
-
-
 See Also
------------
+================
 
 The [PngTextUtil](https://github.com/lingtalfi/WebBox/blob/master/doc/api/WebBox/Image/PngTextUtil.md) class.
+
+
+

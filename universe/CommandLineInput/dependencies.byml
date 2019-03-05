@@ -1,4 +1,6 @@
 dependencies: 
-    - ling.Output
+    ling: 
+        - Output
+    
 
 post_install: []

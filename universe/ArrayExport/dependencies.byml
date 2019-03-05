@@ -1,4 +1,6 @@
 dependencies: 
-    - ling.ArrayToString
+    ling: 
+        - ArrayToString
+    
 
 post_install: []

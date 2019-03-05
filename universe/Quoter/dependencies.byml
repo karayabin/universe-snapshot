@@ -1,6 +1,8 @@
 dependencies: 
-    - ling.Bat
-    - ling.WrappedString
-    - ling.Escaper
+    ling: 
+        - Bat
+        - WrappedString
+        - Escaper
+    
 
 post_install: []

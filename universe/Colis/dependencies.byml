@@ -1,7 +1,9 @@
 dependencies: 
-    - ling.Bat
-    - ling.YouTubeUtils
-    - ling.Tim
-    - ling.UploaderHandler
+    ling: 
+        - Bat
+        - YouTubeUtils
+        - Tim
+        - UploaderHandler
+    
 
 post_install: []

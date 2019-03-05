@@ -201,17 +201,17 @@ History Log
 
 - 1.3.0 -- 2017-04-18
 
-    WithFilterCopyDirUtil now extends SimpleCopyDirUtil 
+    - WithFilterCopyDirUtil now extends SimpleCopyDirUtil 
     
 - 1.2.0 -- 2017-04-18
 
-    add WithFilterCopyDirUtil
+    - add WithFilterCopyDirUtil
     
 - 1.1.0 -- 2017-03-21
 
-    add SimpleCopyDirUtil
+    - add SimpleCopyDirUtil
     
 - 1.0.0 -- 2015-10-20
 
-    initial commit
+    - initial commit
     

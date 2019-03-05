@@ -1,4 +1,6 @@
 dependencies: 
-    - ling.UniversalTemplateEngine
+    ling: 
+        - UniversalTemplateEngine
+    
 
 post_install: []

@@ -1,5 +1,7 @@
 dependencies: 
-    - ling.Bat
-    - ling.DirScanner
+    ling: 
+        - Bat
+        - DirScanner
+    
 
 post_install: []

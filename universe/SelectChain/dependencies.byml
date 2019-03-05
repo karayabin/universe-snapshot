@@ -1,4 +1,6 @@
 dependencies: 
-    - ling.Tim
+    ling: 
+        - Tim
+    
 
 post_install: []

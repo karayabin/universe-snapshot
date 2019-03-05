@@ -4,7 +4,7 @@
 
 The CommandLineInput class
 ================
-2019-02-26 --> 2019-02-27
+2019-02-26 --> 2019-03-05
 
 
 
@@ -28,16 +28,18 @@ The command line is composed of white-space separated components:
 
 
 - **option**: an option contains an equal symbol (=). The key is the part on the left of the equal symbol, and the value is the part on the right.
+An option can start with two or more dashes, but not one dash (one dash is reserved for one-letter flags, see the "flags" entry for more details).
 - **parameter**: a parameter doesn't contain an equal symbol (=). A parameter doesn't start with a dash.
 - **flag**: a parameter doesn't contain an equal symbol (=). A parameter starts with a dash.
+If the flag starts with only one dash, then what follows is a one letter dash, or a combination of multiple one letter flags.
 
 
 Notes:
-- An option can start with one (or more) dash.
 - The value of a a flag always resolves to a boolean: true if set, or false if not set.
 - Dashes at the beginning of an option or a flag are not part of the option name or flag name.
 - Regular quoting (with single or double quotes) can be used to protect the option's values if necessary.
 - The equal symbol (=) is reserved for separating an option key from its value, and therefore cannot be part of a parameter name, an option name, and/or a flag name.
+- An element starting only with one dash is a one-letter flag, or a combination of multiple one-letter flags.
 
 
 
@@ -45,7 +47,7 @@ Notes:
 
 In the following command line:
 
-- php -f myprogram.php -- makecoffee -v --sugars=2 viennois --no-cream -qp -say_word="ok good"
+- php -f myprogram.php -- makecoffee -v --sugars=2 viennois --no-cream -pq --rs say_word="ok good"
 
 
 we have:
@@ -56,8 +58,9 @@ we have:
 - **--sugars=2**: the **option** sugars with the value 2.
 - **viennois**: the second **parameter**.
 - **--no-cream**: the **flag** no-cream (value of true).
-- **-qp**: the **flag** qp (value of true).
-- **-say_word=ok**: **option** say_word with a value of "ok good".
+- **-pq**: the combination of **flag** p and **flag** q (both having a value of true).
+- **--rs**: the **flag** rs (value of true).
+- **say_word=ok**: **option** say_word with a value of "ok good".
 
 
 
@@ -66,50 +69,7 @@ How to use?
 -------------
 
 The command line is meant to be used in a terminal environment (i.e. not a web server environment).
-
-
-
-/path/to/my_app/tmp/myprogram.php
-```php
-
-
-#!/usr/bin/env php
-<?php
-
-
-use CliTools\Input\CommandLineInput;
-
-require_once __DIR__ . "/../universe/bigbang.php"; // activate universe
-
-
-
-// Program was called like this:
-//  php -f myprogram.php -- makecoffee -v --sugars=2 viennois --no-cream -qp -say_word="ok good"
-
-
-$line = new CommandLineInput();
-
-a($line->getParameter(1)); // string(10) "makecoffee"
-a($line->getParameter(2)); // string(8) "viennois"
-a($line->getParameter(3)); // NULL
-a($line->getParameter(3, "default value")); // string(13) "default value"
-
-a($line->getOption("sugars")); // string(1) "2"
-a($line->getOption("say_word")); // string(7) "ok good"
-a($line->getOption("not_an_option")); // NULL
-a($line->getOption("not_an_option", 678)); // int(678)
-
-
-a($line->hasFlag("v")); // bool(true)
-a($line->hasFlag("-v")); // bool(false)
-a($line->hasFlag("no-cream")); // bool(true)
-a($line->hasFlag("q")); // bool(false)
-a($line->hasFlag("p")); // bool(false)
-a($line->hasFlag("qp")); // bool(true)
-a($line->hasFlag("z")); // bool(false)
-
-
-```
+See the "examples" section for more details.
 
 
 
@@ -156,7 +116,61 @@ Methods
 - [AbstractInput::getFlags](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/AbstractInput/getFlags.md) &ndash; Returns the list of all flags, in the order they were written.
 
 
+Examples
+==========
 
+Example 1: testing the command line input
+-------------------
+
+
+```php
+
+#!/usr/bin/env php
+<?php
+
+
+use CliTools\Input\CommandLineInput;
+use CliTools\Output\Output;
+use Uni2\Application\UniToolApplication;
+
+require_once __DIR__ . "/../universe/bigbang.php"; // activate universe
+
+
+
+
+
+// php -f myprogram.php -- makecoffee -v --sugars=2 viennois --no-cream -pq --rs say_word="ok good"
+
+
+$line = new CommandLineInput();
+
+a($line->getParameter(1)); // string(10) "makecoffee"
+a($line->getParameter(2)); // string(8) "viennois"
+a($line->getParameter(3)); // NULL
+a($line->getParameter(3, "default value")); // string(13) "default value"
+
+a($line->getOption("sugars")); // string(1) "2"
+a($line->getOption("say_word")); // string(7) "ok good"
+a($line->getOption("not_an_option")); // NULL
+a($line->getOption("not_an_option", 678)); // int(678)
+
+
+a($line->hasFlag("v")); // bool(true)
+a($line->hasFlag("-v")); // bool(false)
+a($line->hasFlag("no-cream")); // bool(true)
+
+
+a($line->hasFlag("pq")); // bool(false)
+a($line->hasFlag("p")); // bool(true)
+a($line->hasFlag("q")); // bool(true)
+
+a($line->hasFlag("rs")); // bool(true)
+a($line->hasFlag("r")); // bool(false)
+a($line->hasFlag("s")); // bool(false)
+
+a($line->hasFlag("z")); // bool(false)
+
+```
 
 
 Location

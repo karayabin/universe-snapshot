@@ -1,5 +1,7 @@
 dependencies: 
-    - ling.ArrayToString
-    - ling.ReflectionRepresentation
+    ling: 
+        - ArrayToString
+        - ReflectionRepresentation
+    
 
 post_install: []

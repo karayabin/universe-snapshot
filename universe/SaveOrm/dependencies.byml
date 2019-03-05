@@ -1,6 +1,8 @@
 dependencies: 
-    - ling.Bat
-    - ling.BeeFramework
-    - ling.ThumbnailTools
+    ling: 
+        - Bat
+        - BeeFramework
+        - ThumbnailTools
+    
 
 post_install: []

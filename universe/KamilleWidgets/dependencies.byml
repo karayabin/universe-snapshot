@@ -1,4 +1,6 @@
 dependencies: 
-    - ling.Kamille
+    ling: 
+        - Kamille
+    
 
 post_install: []

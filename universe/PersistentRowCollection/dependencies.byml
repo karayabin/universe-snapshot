@@ -1,6 +1,8 @@
 dependencies: 
-    - ling.FormModel
-    - ling.QuickPdo
-    - ling.RowsGenerator
+    ling: 
+        - FormModel
+        - QuickPdo
+        - RowsGenerator
+    
 
 post_install: []

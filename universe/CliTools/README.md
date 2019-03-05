@@ -73,6 +73,10 @@ and the [Symfony/Console](https://github.com/symfony/symfony/tree/master/src/Sym
 History Log
 =================
     
+- 1.4.0 -- 2019-03-04
+
+    - update CommandLineInput, now supports combined one-letter flags, revisited syntax.
+    
 - 1.3.0 -- 2019-02-28
 
     - update BashtmlFormatter, change warning to magenta (for better readability)

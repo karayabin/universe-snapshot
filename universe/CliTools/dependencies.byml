@@ -1,4 +1,6 @@
 dependencies: 
-    - ling.UniversalLogger
+    ling: 
+        - UniversalLogger
+    
 
 post_install: []
