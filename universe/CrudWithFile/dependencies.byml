@@ -1,7 +1,0 @@
-dependencies: 
-    ling: 
-        - Bat
-        - ArrayToString
-    
-
-post_install: []

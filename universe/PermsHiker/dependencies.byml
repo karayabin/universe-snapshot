@@ -1,7 +1,0 @@
-dependencies: 
-    ling: 
-        - Bat
-        - DirScanner
-    
-
-post_install: []

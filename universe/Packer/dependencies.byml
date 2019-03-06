@@ -1,7 +1,0 @@
-dependencies: 
-    ling: 
-        - DirScanner
-        - TokenFun
-    
-
-post_install: []

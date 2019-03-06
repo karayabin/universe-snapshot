@@ -1,6 +1,0 @@
-dependencies: 
-    ling: 
-        - ArrayToTable
-    
-
-post_install: []

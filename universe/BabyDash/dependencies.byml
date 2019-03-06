@@ -1,6 +1,0 @@
-dependencies: 
-    ling: 
-        - IndentedLines
-    
-
-post_install: []

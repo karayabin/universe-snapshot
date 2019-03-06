@@ -1,8 +1,0 @@
-dependencies: 
-    ling: 
-        - Bat
-        - WrappedString
-        - Escaper
-    
-
-post_install: []

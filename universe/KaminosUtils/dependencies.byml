@@ -1,7 +1,0 @@
-dependencies: 
-    ling: 
-        - CopyDir
-        - Output
-    
-
-post_install: []

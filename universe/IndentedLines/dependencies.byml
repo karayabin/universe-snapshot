@@ -1,8 +1,0 @@
-dependencies: 
-    ling: 
-        - Bat
-        - Bate
-        - Quoter
-    
-
-post_install: []

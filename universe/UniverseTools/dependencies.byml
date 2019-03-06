@@ -1,6 +1,0 @@
-dependencies: 
-    ling: 
-        - BabyYaml
-    
-
-post_install: []

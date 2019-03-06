@@ -1,8 +1,0 @@
-# this is a comment
-doo: null
-but: # this is not a comment
-true: true
-false: "ji # not a comment"
-dup: ji # is a comment
-arr: [soo] # this is a comment
-

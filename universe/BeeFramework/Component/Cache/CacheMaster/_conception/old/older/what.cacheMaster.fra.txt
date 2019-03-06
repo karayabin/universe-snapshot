@@ -1,1 +1,0 @@
-Un objet pour mettre en cache certaines ressources.

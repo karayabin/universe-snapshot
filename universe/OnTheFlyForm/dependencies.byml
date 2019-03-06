@@ -1,6 +1,0 @@
-dependencies: 
-    ling: 
-        - FormTools
-    
-
-post_install: []

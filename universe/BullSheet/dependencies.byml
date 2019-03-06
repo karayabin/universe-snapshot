@@ -1,8 +1,0 @@
-dependencies: 
-    ling: 
-        - Bat
-        - DirScanner
-        - QuickPdo
-    
-
-post_install: []

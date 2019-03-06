@@ -1,9 +1,0 @@
-dependencies: 
-    ling: 
-        - Bat
-        - YouTubeUtils
-        - Tim
-        - UploaderHandler
-    
-
-post_install: []

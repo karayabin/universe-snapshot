@@ -1,7 +1,0 @@
-dependencies: 
-    ling: 
-        - SqlQuery
-        - QuickPdo
-    
-
-post_install: []
