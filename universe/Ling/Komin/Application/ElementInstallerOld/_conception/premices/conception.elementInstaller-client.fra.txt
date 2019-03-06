@@ -1,0 +1,32 @@
+Conception
+===============
+2015-04-21
+
+
+
+
+
+
+
+Le client permet d'installer un élément dans une application.
+Un élément est caractérisé par un type, un nom (identifiant unique dans le contexte du type donné) et un numéro de version.
+Un client a une méthode install:
+
+    - install ( type, name, version=* )
+                    L'astérisque est un raccourci signifiant: la dernière version disponible
+                    Le client devrait également accepter les notations se terminant pas les symboles plus (+) et moins (-).
+                    Un numéro de version se terminant par plus signifie: la version indiquée et/ou une version supérieure,
+                    tandis qu'un numéro de version se terminant par moins signifie: la version indiquée et/ou une version inférieure.
+
+
+
+
+Le client proposé par komin> par défaut découpe le programme en 3 phases:
+
+        - création du download map
+                Un download map est un tableau dont chaque entrée correspond aux informations de téléchargement d'un élément.
+                Un élément est soit l'élément original, soit une de ses dépendances.
+        - download
+        - install
+
+

@@ -1,0 +1,532 @@
+Notes
+==============
+2015-05-23
+
+
+rfc:
+    Internet message format
+    822
+    2822 (obsoletes 822) 
+    current 5322 
+    
+    Smtp
+    5321
+    
+
+
+Recipients style headers:
+rfc2822
+
+
+from            =       "From:" mailbox-list CRLF
+sender          =       "Sender:" mailbox CRLF
+reply-to        =       "Reply-To:" address-list CRLF
+to              =       "To:" address-list CRLF
+cc              =       "Cc:" address-list CRLF
+bcc             =       "Bcc:" (address-list / [CFWS]) CRLF
+    
+
+--------------------------------------------
+
+If your requirement is an email with:
+
+    text and html versions
+    html version has embedded (inline) images
+    attachments
+
+The only structure I found that works with Gmail/Outlook/iPad is:
+
+    mixed
+        alternative
+            text
+            related
+                html
+                inline image
+                inline image
+        attachment
+        attachment
+
+
+--------------------------------------------
+For adding attachments you may put the whole structure into a multipart/mixed and add the attachments.
+
+    multipart/mixed
+        multipart/alternative
+            text/plain
+            multipart/related
+                text/html
+                image/gif
+                image/gif
+        some/thing (disposition: attachment)
+        some/thing (disposition: attachment)
+        
+        
+        
+Test: rich3.txt, ok mais sur mac.mail, les attachments s'affichent à la suite du message
+Dans gmail, on voit tout idem, sauf qu'il y a un trait de séparation plus clair entre
+        les embed et les attachments.
+        
+        
+        
+        
+        
+        
+
+You can also use inline image in text/plain messages, but not all MUA support this. (Use none or disposition: inline)
+
+    multipart/mixed
+        text/plain (text above image)
+        image/gif
+        text/plain (text below image)
+
+And I dont't know a clean way to combine this with a multipart/alternative HTML-email.
+
+
+
+
+Commandes SMTP:
+------------------
+Les headers et les commandes smtp envoyées au serveur sont deux choses différentes.
+Au niveau des commandes:
+
+MAIL FROM: string  
+                une seule adresse: celle du sender
+                Ne peut être exécutée qu'une seule fois.
+                
+                C: MAIL FROM:<mail@samlogic.com>
+                S: 250 OK                
+                
+                
+                rfc5321
+                Historically, the <reverse-path> was permitted to contain more than
+                   just a mailbox; however, contemporary systems SHOULD NOT use source
+                   routing (see Appendix C).
+                
+                Cet exemple, trouvé dans la rfc, est possible historiquement ?                
+                MAIL FROM:<@a,@b:user@d>
+                
+
+RCPT TO: string
+                peut être utilisée plusieurs fois.
+                La distinction To, Bcc, Cc se fait uniquement avec les headers. 
+                
+                C: RCPT TO:<john@mail.com>
+                S: 250 OK
+                C: RCPT TO:<peggy@mail.com>
+                S: 250 OK                
+
+
+
+
+Caractères utf-8 dans le sujet
+-------------------------------------
+
+Je voulais que l'on puisse insérer des caractères utf-8 dans le sujet.
+Apparemment, c'est directement pris en compte, je viens de faire le test avec le sujet:
+
+Hello ☆ there, et ça s'affiche nickel.
+
+
+
+Voici mon code, au cas où:
+
+    SmtpMailer::create($host, $port, $protocol, $userName, $password)
+    ->set('From', '"agenceweb37" <contact@agenceweb37.fr>')
+    ->set('To', '"Ling Talfi" <lingtalfi@gmail.com>')
+    ->set('Subject', 'Hello ☆ there')
+        ->attach('image.jpg', 'myimage.jpg')
+        ->setOnDialogAfterListener(function($cmd, $reply){
+            echo MiniMlTool::format('<red>' . $cmd . "\n" . '</red>');
+            echo MiniMlTool::format('<blue>' . $reply . '</blue>');
+        })
+    //    ->setVerboseMode(true)
+        ->send("My first mailer");
+    
+    
+    Note: 
+            le content-type par défaut est text/plain; charset=UTF-8,
+            mais même en retirant le charsest=UTF-8, cela fonctionne.
+    
+    
+Email au format html 
+-------------------------
+
+    
+    Ca fonctionne, il faut juste mettre un Content-type à text/html.
+    
+
+
+    $html = <<<HTML
+    <h1>This is a title</h1>
+    <p>And this is a paragraph with a fake <a href="http://www.agenceweb37.fr">link</a></p>
+    
+    
+    
+    HTML;
+
+
+    SmtpMailer::create($host, $port, $protocol, $userName, $password)
+        ->set('From', '"agenceweb37" <contact@agenceweb37.fr>')
+        ->set('To', '"Ling Talfi" <lingtalfi@gmail.com>')
+        ->set('Subject', 'Hello ☆ there')
+        ->set('Content-Type', 'text/html')
+    //    ->attach('image.jpg', 'myimage.jpg')
+        ->setOnDialogAfterListener(function ($cmd, $reply) {
+            echo MiniMlTool::format('<red>' . $cmd . "\n" . '</red>');
+            echo MiniMlTool::format('<blue>' . $reply . '</blue>');
+        })
+    //    ->setVerboseMode(true)
+        ->send($html);
+    
+        
+    220 ns0.ovh.net You connect to mail246 ESMTP
+    EHLO approot0
+    250-ns0.ovh.net You connect to mail246
+    250-AUTH LOGIN PLAIN
+    250-AUTH=LOGIN PLAIN
+    250-8BITMIME
+    250 SIZE 109000000
+    AUTH LOGIN
+    334 VXNlcm5hbWU6
+    Y29udGFjdEBhZ2VuY2V3ZWIzNy5mcg==
+    334 UGFzc3dvcmQ6
+    bEVsZWZwLDVNNFJp
+    235 ok, go ahead (#2.0.0)
+    MAIL FROM: <contact@agenceweb37.fr>
+    250 ok
+    RCPT TO: <lingtalfi@gmail.com>
+    250 ok
+    DATA
+    354 go ahead
+    MIME-Version: 1.0
+    Content-Type: text/html
+    From: "agenceweb37" <contact@agenceweb37.fr>
+    To: "Ling Talfi" <lingtalfi@gmail.com>
+    Subject: Hello ☆ there
+    
+    <h1>This is a title</h1>
+    <p>And this is a paragraph with a fake <a href="http://www.agenceweb37.fr">link</a></p>
+    
+    
+    
+    .
+    250 ok 1432404013 qp 27160
+    QUIT
+    221 ns0.ovh.net You connect to mail246
+         
+         
+         
+Envoi à plusieurs destinataires
+-------------------------------
+ok, pas de souci
+         
+         
+    $html = <<<HTML
+    <h1>This is a title</h1>
+    <p>And this is a paragraph with a fake <a href="http://www.agenceweb37.fr">link</a></p>
+    
+    
+    
+    HTML;
+    
+    
+    SmtpMailer::create($host, $port, $protocol, $userName, $password)
+        ->from(['contact@agenceweb37.fr' => 'Agence Web 37'])
+        ->to(['lingtalfi@gmail.com', "contact@lingtalfi.com"])
+        ->set('Subject', 'Hello ☆ there')
+        ->set('Content-Type', 'text/html')
+    //    ->attach('image.jpg', 'myimage.jpg')
+        ->setOnDialogAfterListener(function ($cmd, $reply) {
+            echo MiniMlTool::format('<red>' . $cmd . "\n" . '</red>');
+            echo MiniMlTool::format('<blue>' . $reply . '</blue>');
+        })
+    //    ->setVerboseMode(true)
+        ->send($html);         
+         
+         
+Email avec embedded images
+-------------------------------      
+https://www.ietf.org/rfc/rfc2392.txt
+
+http://www.w3.org/Protocols/rfc822/#z7
+msg-id      =  "<" addr-spec ">"            ; Unique message id
+
+addr-spec   =  local-part "@" domain  
+local-part  =  word *("." word) 
+word        =  atom / quoted-string
+domain      =  sub-domain *("." sub-domain)
+sub-domain  =  domain-ref / domain-literal
+domain-ref  =  atom         
+atom        =  1*<any CHAR except specials, SPACE and CTLs>
+specials    =  "(" / ")" / "<" / ">" / "@"  ; Must be in quoted-
+            /  "," / ";" / ":" / "\" / <">  ;  string, to use
+            /  "." / "[" / "]"              ;  within a word.
+            
+            
+
+
+Exemple de session avec plusieurs appels à RCPT TO
+---------------------------------------------------------------
+Notez comment un des appels à RCPT TO est utilisé comme Cc via le header.
+
+
+    [ ]$ telnet tm-gw.x-mailer.co.uk smtp
+    Trying 212.69.217.10...
+    Connected to tm-gw.x-mailer.co.uk.
+    Escape character is '^]'.
+    220 tm01.x-mailer.co.uk ESMTP Exim 4.12 Tue, 01 Jul 2003 15:24:50 +0100
+    EHLO host.their-isp.net
+    250-tm01.x-mailer.co.uk Hello host.their-isp.net [212.69.216.20]
+    250-SIZE 52428800
+    250-PIPELINING
+    250 HELP
+    MAIL FROM: <sender@anotherdomain.com>
+    250 OK
+    RCPT TO: <you@your-domain.co.uk>
+    250 Accepted
+    RCPT TO: <colleague@your-domain.co.uk>
+    250 Accepted
+    RCPT TO: <sales@your-domain.co.uk>
+    250 Accepted
+    DATA
+    354 Enter message, ending with "." on a line by itself
+    Reply-To: them@their-domain.co.uk
+    From: "The Others" <them@theirdomain.co.uk>
+    To: you@your-domain.co.uk
+    Cc: sales@your-domain.co.uk
+    Subject: some stuff here
+    Date: Tue, 1 Apr 2003 14:51:27 +0100
+    
+    the body of the email here
+    .
+    250 OK id=19XM4P-0007dO-00
+    QUIT
+    221 tm01.x-mailer.co.uk closing connection
+    Connection closed by foreign host.
+    
+    
+    
+Reminders:
+----------------
+
+WSP: space ou tab    
+
+quoted-pair     =       ("\" text) / obs-qp
+NO-WS-CTL       =       %d1-8 /         ; US-ASCII control characters
+                        %d11 /          ;  that do not include the
+                        %d12 /          ;  carriage return, line feed,
+                        %d14-31 /       ;  and white space characters
+                        %d127
+
+text            =       %d1-9 /         ; Characters excluding CR and LF
+                        %d11 /
+                        %d12 /
+                        %d14-127 /
+                        obs-text
+
+specials        =       "(" / ")" /     ; Special characters used in
+                        "<" / ">" /     ;  other parts of the syntax
+                        "[" / "]" /
+                        ":" / ";" /
+                        "@" / "\" /
+                        "," / "." /
+                        DQUOTE
+                        
+                        
+                        
+    
+phrase          =       1*word / obs-phrase
+word            =       atom / quoted-string    
+quoted-string   =       [CFWS]
+                        DQUOTE *([FWS] qcontent) [FWS] DQUOTE
+                        [CFWS]
+qcontent        =       qtext / quoted-pair                        
+qtext           =       NO-WS-CTL /     ; Non white space controls
+
+                        %d33 /          ; The rest of the US-ASCII
+                        %d35-91 /       ;  characters not including "\"
+                        %d93-126        ;  or the quote character
+FWS             =       ([*WSP CRLF] 1*WSP) /   ; Folding white space
+                        obs-FWS
+
+ctext           =       NO-WS-CTL /     ; Non white space controls
+
+                        %d33-39 /       ; The rest of the US-ASCII
+                        %d42-91 /       ;  characters not including "(",
+                        %d93-126        ;  ")", or "\"
+
+ccontent        =       ctext / quoted-pair / comment
+
+comment         =       "(" *([FWS] ccontent) [FWS] ")"
+
+CFWS            =       *([FWS] comment) (([FWS] comment) / FWS)                        
+atext           =       ALPHA / DIGIT / ; Any character except controls,
+                        "!" / "#" /     ;  SP, and specials.
+                        "$" / "%" /     ;  Used for atoms
+                        "&" / "'" /
+                        "*" / "+" /
+                        "-" / "/" /
+                        "=" / "?" /
+                        "^" / "_" /
+                        "`" / "{" /
+                        "|" / "}" /
+                        "~"
+
+atom            =       [CFWS] 1*atext [CFWS]         
+
+dot-atom        =       [CFWS] dot-atom-text [CFWS]
+
+dot-atom-text   =       1*atext *("." 1*atext)                   
+                            
+--------------------                            
+                            
+address         =       mailbox / group
+
+mailbox         =       name-addr / addr-spec
+
+name-addr       =       [display-name] angle-addr
+
+angle-addr      =       [CFWS] "<" addr-spec ">" [CFWS] / obs-angle-addr
+
+group           =       display-name ":" [mailbox-list / CFWS] ";"
+                        [CFWS]
+display-name    =       phrase
+
+mailbox-list    =       (mailbox *("," mailbox)) / obs-mbox-list
+
+address-list    =       (address *("," address)) / obs-addr-list                            
+                            
+obs-qp          =       "\" (%d0-127)
+
+obs-text        =       *LF *CR *(obs-char *LF *CR)
+    
+obs-char        =       %d0-9 / %d11 /          ; %d0-127 except CR and
+                        %d12 / %d14-127         ;  LF
+
+obs-utext       =       obs-text
+
+obs-phrase      =       word *(word / "." / CFWS)
+
+obs-phrase-list =       phrase / 1*([phrase] [CFWS] "," [CFWS]) [phrase]    
+    
+    
+obs-angle-addr  =       [CFWS] "<" [obs-route] addr-spec ">" [CFWS]
+
+obs-route       =       [CFWS] obs-domain-list ":" [CFWS]
+
+obs-domain-list =       "@" domain *(*(CFWS / "," ) [CFWS] "@" domain)
+
+obs-local-part  =       word *("." word)
+
+obs-domain      =       atom *("." atom)
+
+obs-mbox-list   =       1*([mailbox] [CFWS] "," [CFWS]) [mailbox]
+
+obs-addr-list   =       1*([address] [CFWS] "," [CFWS]) [address]    
+    
+    
+    
+addr-spec       =       local-part "@" domain
+
+local-part      =       dot-atom / quoted-string / obs-local-part
+
+domain          =       dot-atom / domain-literal / obs-domain
+
+domain-literal  =       [CFWS] "[" *([FWS] dcontent) [FWS] "]" [CFWS]
+
+dcontent        =       dtext / quoted-pair
+
+dtext           =       NO-WS-CTL /     ; Non white space controls
+
+                        %d33-90 /       ; The rest of the US-ASCII
+                        %d94-126        ;  characters not including "[",
+                                        ;  "]", or "\"
+                                            
+                                            
+                                            
+                                            
+    
+    
+Notes de manuel lemos:
+----------------------------
+http://www.phpclasses.org/blog/package/14/post/1-Sending-messages-to-many-recipients-via-SMTP-in-PHP.html    
+    
+Contents
+
+* Sending messages to many recipients
+* The headers do not matter to SMTP servers
+* Do not use the SMTP class alone
+* Avoid using Bcc headers
+* Optimizing deliveries to many recipients
+* SMTP is the slowest method to queue messages
+* Other reasons that may prevent your message to reach the recipients
+
+
+* Sending messages to many recipients
+
+Sending messages to multiple recipients is very easy. As you may see in the test_smtp.php example script there is a call to the SendMessage function.
+phpclasses.org/browse/file/31.html
+The second argument of the SendMessage function should be an array with the addresses of one or more recipients. Each entry of the array should be a string single address. Do not put multiple addresses in each address string, nor include the recipient names there.
+It does not matter if the recipient addresses are in the To:, Cc:, Bcc: or any other headers that usually contain recipient addresses. All recipient addresses should be extracted from the headers and passed to the SendMessage function in an array, one address per array entry.
+
+
+* The headers do not matter to SMTP servers
+
+Not everybody is aware of this, but the fact is that SMTP servers do not process the message headers to extract sender or recipient addresses. That has to be done by the e-mail sending application.
+Therefore, it does not matter if you put headers with the recipient addresses in the message. What matters is the recipient list that you pass to the SendMessage function.
+That function will send individual RCPT TO: commands to the server, so it knows where you want to send the message. If a recipient is rejected, the SendMessage function will fail and aborts sending the message.
+
+
+* Do not use the SMTP class alone
+
+Yes, that's right. Do not use this class just by itself to send messages! Let me explain.
+The problem is that sending e-mail messages is not a trivial matter. Internet e-mail standards are complicated. If you do not send messages that comply with the e-mail standards, chances are that your messages may be discarded. Malformed messages may be considered spam.
+If you really need to send messages using an SMTP server, a better solution is to use this class in conjunction with the MIME message class.
+phpclasses.org/mimemessage
+Not only the MIME message is capable of composing and sending messages compliant with the e-mail standards, but it also makes it easy to extract the list of recipients from the headers, hide the Bcc: headers from the actual messages, set the recipients properly, and skips invalid recipients without aborting the deliveries.
+This way it is safer to make your messages reach your recipients avoiding to get them caught by spam filters.
+
+
+* Avoid using Bcc: headers
+
+When you need to send a message to many recipients, for instance a newsletter, an easy way to do it is to put all recipients in Bcc headers. That way, you can send a single message to all the newsletter subscribers and avoid that they discover each other addresses.
+The problem with this approach is that some mail systems, notably Hotmail, consider spam messages on which the recipient address is not in a visible header.
+Since Bcc headers are removed before the message is sent, to avoid having your messages being classified as spam, you need to set the recipients address in To: or Cc: headers.
+However, since we do not want the newsletter recipients to see each other addresses, the remaining solution is to send separate messages to each recipient.
+
+
+* Optimizing deliveries to many recipients
+
+Sending separate messages to each recipient takes more time and CPU to queue messages to many recipients, but at least your newsletters are not considered spam.
+The MIME message class mentioned above provides means to improve the performance of delivering messages to many recipients. You just need to call the SetBulkMail function before starting the deliveries.
+Among other optimization tricks, the MIME message can reuse the same SMTP connection to send messages to different recipients. It can also cache message body content, if the message body does not change for each recipient.
+All these tricks can provide significant performance improvements. Look at the test_personalized_bulk_mail.php example script to see how it works.
+phpclasses.org/browse/file/2604.htm ...
+
+
+* SMTP is the slowest method to queue messages
+
+Despite a common belief, if you need to send messages to many recipients, queueing them via SMTP is the slowest method.
+If you can, inject messages directly in the message queue using sendmail or compatible programs (Qmail, Postfix, Exim, etc.). That is what the PHP mail() function does when running PHP on Linux or other UNIX like systems.
+The reason why some people believe that SMTP is faster than using the PHP mail function, thus sendmail, is because by default when you queue a message, sendmail attempts to deliver the message right away. This may take a long while.
+The solution for this is to pass sendmail a switch option that makes it just drop the messages in the local mail server queue and deliver it later, instead attempting to deliver it right away. The MIME message package comes with a specialized sub-class that passes the right switches when using sendmail for bulk deliveries.
+If you use Qmail or Postfix, they work this way by default, so you do not need to pass any option switch.
+Dropping the messages in the local message server queue is much faster than using SMTP connections, because there is a lot of needless overhead when using SMTP (TCP) connections to the local machine.
+SMTP is only recommended when you do not have a local mail server like sendmail or compatible, and you need to use your ISP SMTP server or some other remote mail server as Gmail, Hotmail, Yahoo, etc..
+Another article will be written soon to let you know how to use those remote mail servers to send messages with these classes.
+
+
+* Other reasons that may prevent your message to reach the recipients
+
+Sending messages to many recipients in PHP, while assuring that the messages really reach the destinations, was a topic of a talk that I gave several times some time ago.
+The talk explains several reasons that may prevent messages from reaching the destination, including those mentioned in this article.
+The slides of that talk are listed in the MIME message package page. You can go here to view the English version:
+
+- Sending E-mail that reaches the destination
+phpclasses.org/browse/video/3/packa ...
+
+
+
+
+Sources:
+http://www.samlogic.net/articles/smtp-commands-reference.htm

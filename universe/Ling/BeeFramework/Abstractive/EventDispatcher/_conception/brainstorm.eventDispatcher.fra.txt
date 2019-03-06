@@ -1,0 +1,44 @@
+Brainstorm
+=================
+2015-05-09
+
+
+
+
+Une manière de rendre un objet plus flexible est de permettre qu'un partie de son comportement soit
+configurée par l'extérieur.
+
+Une possibilité est de créer un dispatcher d'événement (Event), qui créé une boucle virtuelle
+sur laquelle peuvent se poser un nombre arbitraire de Listener.
+
+Chaque Listener pourra modifier l'Event qui sera finalement traité par le code dans l'objet, à la sortie
+du dispatcher.
+
+
+
+Une des caractéristiques de ce design est que les listeners sont disposés sur cette boucle virtuelle,
+et appelés dans un certain ordre.
+Avoir le contrôle sur cet ordre peut être plus ou moins important, mais en tous cas, lors de la phase de conception,
+c'est une feature qu'il faut permettre.
+
+
+De plus, le fait de permettre à un listener de court-circuiter la boucle offre encore plus
+de possibilités, et c'est pourquoi cela fera partie de notre design également.
+
+
+Les utilisateurs d'un objet sont responsables de connaître la position de chaque listener dans la boucle.
+Nous utiliserons donc simplement un index, qui est également la position dans la boucle,
+et qui permet aux utilisateurs de contrôler l'ordre de la boucle.
+
+
+Certains utilisateurs voudront peut être placer des listeners avant tout autre, ou après tout autre.
+Nous avons le choix de proposer les méthodes suivantes:
+
+    - getIndexes (bas niveau)
+    - prependListener (haut niveau)
+    - appendListener (haut niveau)
+    
+    
+    
+Il pensons que c'est une bonne idée d'utiliser des index numériques.    
+    

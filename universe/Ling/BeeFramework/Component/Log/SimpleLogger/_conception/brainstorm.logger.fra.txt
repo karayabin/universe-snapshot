@@ -1,0 +1,25 @@
+Brainstorm
+===================
+2015-05-05
+
+
+
+SimpleLogger est un simple mécanisme de log.
+
+Il y a un logger que le développeur pour envoyer des messages.
+A chaque message est associé aucun, un, ou plusieurs tags.
+
+Le logger est associé à un certain nombre de listeners.
+
+A chaque fois qu'un message est passé au logger, le message et les tags associés sont passés aux listeners.
+Chaque listener décide alors s'il souhaite ou pas traiter l'information, et de quelle manière.
+
+Le listener peut être un simple callback, cela permet d'utiliser rapidement un logger:
+
+        
+        void    callback ( msg, array tags )
+                    tags est un tableau qui contient habituellement des strings.
+                    
+                    
+Le listener peut également implémenter l'interface LoggerListenerInterface, cela permet
+de mettre en place des loggers configurés.

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script src="/libs/vswitch/js/vswitch.js"></script>
+	<title>Html page</title>
+	<style>
+		.error {
+			color: red;
+		}
+
+		/*--------------------------------------------------------------------------*
+		// THE CSS BELOW IS ONLY NECESSARY IF YOU USE CSS MODE
+		/*--------------------------------------------------------------------------*/
+		/*.view {*/
+		/*display: none;*/
+		/*}*/
+
+		/*.surface.form .form,*/
+		/*.surface.form_error_required_name .form_error_required_name,*/
+		/*.surface.success .success {*/
+		/*display: initial;*/
+		/*}*/
+
+	</style>
+</head>
+
+<body>
+
+
+<div class="surface">
+	<div class="view form">
+		<form>
+			<input type="text" name="name" value="">
+			<span class="view error form_error_required_name">The name must contain at least $minChar characters</span>
+			<input type="submit" value="submit">
+		</form>
+	</div>
+
+	<div class="view success">
+		The form was sent successfully!
+	</div>
+</div>
+
+
+<script>
+	$(document).ready(function () {
+		var jSurface = $('.surface');
+		var oswitch = new vswitch(jSurface, "form success form_error_required_name", {
+			mode: 'fade',
+			starter: "form",
+			callbacks: {
+				form: {
+					init: function (jView, args) {
+						console.log("form init");
+					}
+				},
+				form_error_required_name: {
+					'in': function (jView, min) {
+						console.log("form_error_required_name in");
+						vswitch.template(jView, {minChar: min});
+					},
+					'out': function () {
+						console.log("form_error_required_name out");
+					}
+				}
+			}
+		});
+
+		var jForm = $('form', jSurface);
+		var jName = $('input[name=name]', jForm);
+		jForm.on('submit', function () {
+
+			// post data, then...
+			var minChars = 2;
+			var name = jName.val();
+			if (name.length >= minChars) {
+				oswitch.switchView("success");
+			}
+			else {
+				oswitch.kickIn("form_error_required_name", minChars);
+				jName
+						.off('click')
+						.on('click', function () {
+							oswitch.kickOut("form_error_required_name");
+							jName.off('click');
+						});
+			}
+
+
+			return false;
+		})
+
+	});
+</script>
+</body>
+</html>

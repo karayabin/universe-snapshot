@@ -1,0 +1,28 @@
+Analyse
+================
+2015-03-02
+
+
+
+Qu'est-ce qu'un service ?
+
+
+Du point de vue du container, c'est une méthode qui renvoie une classe instanciée.
+L'instanciation d'une classe se fait par l'appel de la méthode construct, qui comme toute méthode attend souvent des arguments.
+
+Les arguments peuvents être différentes choses:
+ 
+- des valeurs php 
+- d'autres services 
+- le résultat de l'appel d'une méthode d'un autre service  
+- le résultat de l'appel d'une méthode d'une classe statique
+  
+  
+  
+De plus, il pourrait parfois être désirable d'appeler certaines méthodes après l'instanciation d'une classe,
+par exemple certaines classes utilisent une méthode init ou prepare dans laquelle la préparation de l'objet est faite.
+
+
+
+
+

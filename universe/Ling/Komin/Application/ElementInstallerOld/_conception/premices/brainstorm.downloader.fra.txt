@@ -1,0 +1,99 @@
+Brainstorm
+==================
+2015-04-21
+
+
+
+Downloader est l'objet capable d'interpréter la download info donnée par les metas.
+
+
+La download info est indépendant du type de meta.
+Le download info est basée sur une convention à choisir par le client.
+
+
+
+
+Nous proposons la convention suivante:
+
+
+
+
+Convention 1
+-----------------
+
+downloadInfo peut être soit un string, soit un array.
+
+
+Si c'est un string:
+           il représente une url.
+           Cette url peut utiliser l'un des protocoles php suivants:
+           
+                    - http(s)
+                    - file
+                    - ... (peut évoluer)
+                    
+           Par exemple: 
+                    - http://www.mysite.com/download.php
+                    
+           Pour une url utilisant le protocole http(s), le serveur doit accepter le protocole de communication
+           appelé elementAccessProtocol, défini plus loin, et l'url est alors l'url cible (targetUrl).
+           
+           
+Si c'est un tableau:
+            il doit contenir les propriétés suivantes:
+                       
+                   - protocol: string, le protocole d'accès à l'élément utilisé pour la communication avec le serveur
+                   - ..., en fonction du mode de fonctionnement du serveur, on a un nombre arbitraire d'autres propriétés
+                                
+           
+            L'utilisation d'un tableau rend toute implémentation possible.
+            
+            
+            
+            
+Les protocoles d'accès à un élément
+----------------------------------------------
+
+Voici les protocoles d'accès à un élément que nous avons utilisés dans ce document:
+             
+             
+- elementAccessProtocol:
+
+    ce protocole fonctionne sur http(s).
+    Le serveur propose une url cible (targetUrl) par laquelle l'utilisateur peut demander le téléchargement d'une ressource.
+    Le client devra fournir les paramètres suivants dans l'url (GET):
+    
+            - t: type de ressource
+            - i: identifiant de la ressource
+            - v: version précise (les wildcards ne sont pas acceptés) de la ressource
+    
+    Si l'un au moins des 3 paramètres est manquant, ou si le serveur rencontre une difficulté et ne peut pas délivrer la ressource,
+    la réponse du serveur doit être au format suivant:
+    
+            E$errorType: $errorMessage
+            
+            
+    
+    Avec:
+        - $errorType: int, le type de message d'erreur
+                   Les types sont les suivants:
+                        - 0: paramètre manquant (t, v et/ou i)
+                        - 1: autre erreur serveur
+                   
+        - $errorMessage: string, le message d'erreur plus en détails, en anglais
+         
+         
+    Par exemple:
+    
+            - E0: missing param t
+            - E1: resource was not found
+    
+                
+                
+    
+    
+                                            
+
+
+
+

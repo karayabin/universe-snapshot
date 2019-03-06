@@ -1,0 +1,114 @@
+Brainstorm
+=================
+2015-05-08
+
+
+
+Maintenant que les dialogues sont créés, on peut les utiliser dans notre implémentation.
+
+
+Créer un tableau php via la console peut parfois faire gagner un peu de temps.
+
+
+
+
+Après plusieurs idées plus ou moins pratiques, j'ai finalement opté pour une solution simple à implémenter,
+car j'ai peur de ne pas pouvoir gérer le scroll sur des longs tableaux.
+
+
+Voici une solution qui, bien que pas la plus user friendly, 
+est celle qui présente le moins de problèmes au niveau de la gestion du scroll.
+
+
+
+Il y a en gros 2 parties:
+
+- partie affichage
+- partie interactive
+
+
+La partie affichage affiche le tableau avec identifiant, clé et valeur, comme ceci:
+    
+    
+    0       name        michel
+    1       age         26
+    ...
+    
+    
+    Note: la récursivité n'est pas gérée: c'est à dire que ce tableau n'accepte pas d'autres tableaux en valeur.
+L'identifiant sert à pointer un enregistrement, pour le mettre à jour.    
+Cette partie d'affichage, comme son nom l'indique, ne sert qu'à afficher l'état du tableau courant à l'utilisateur.
+
+
+
+Quelque soit l'état du tableau, en-dessous de l'affichage on trouve la partie interactive.
+Celle-ci sera constituée d'un prompt qui demandera à l'utilisateur de rentrer d'abord la key, puis la value.
+
+Voici un synopsis visuel, étape par étape:
+
+------------------------------------------------------
+
+key: <l'user tape name, puis enter>
+
+
+------------------------------------------------------
+0       name
+
+value: <l'user tape michel, puis enter>
+
+------------------------------------------------------
+0       name        michel
+
+key: <l'user tape age, puis enter>
+
+------------------------------------------------------
+0       name        michel
+1       age        
+
+value: <comme on a compris le principe, ici l'user tape esc pour sortir du mode édition de tableau>
+
+------------------------------------------------------
+# note: lorsque l'user tape esc, cela fait apparaître le dialogue de direction générale ci-dessous
+
+
+0       name        michel
+1       age         (ici c'est une string vide, car on ne gère que des strings en fait)
+
+êtes-vous satisfait du tableau ? (y or n or index)  <si user tape n, le tableau est supprimé et on recommence à zéro,
+                                                        mais ici, user va taper 0>
+                                                        
+------------------------------------------------------
+
+0       name        michel
+1       age         (ici c'est une string vide, car on ne gère que des strings en fait)
+
+key: name       # note: name est déjà prérempli  <user tape enter car il voulait modifier la value, pas la key>
+------------------------------------------------------
+
+0       name        michel
+1       age         (ici c'est une string vide, car on ne gère que des strings en fait)
+
+value: michel     <user modifie michel en bernard, puis tape enter, cela passe à la modification du champ 1, jusqu'à ce que esc soit tapé>
+
+
+------------------------------------------------------
+
+
+
+En gros, pour arrêter proprement, le synopsis est de taper esc au moment de l'insertion d'une key.
+
+
+
+
+
+
+
+
+
+
+
+         
+
+
+
+

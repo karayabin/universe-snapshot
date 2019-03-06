@@ -1,0 +1,6 @@
+- 0: apple
+- banana
+- colors:
+----- blue
+----- favorite: orange
+- yellow: lemon

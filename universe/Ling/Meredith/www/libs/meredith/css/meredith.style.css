@@ -1,0 +1,15 @@
+.datatable-meredith > tbody > tr.even.highlight,
+.datatable-meredith > tbody > tr.odd.highlight
+{
+    background-color: yellow;
+}
+
+.datatable-meredith > tbody > tr.even{
+    background-color: white;
+    transition: background-color 1s;
+}
+
+.datatable-meredith > tbody > tr.odd{
+    background-color: #fcfcfc;
+    transition: background-color 1s;
+}

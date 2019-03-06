@@ -1,0 +1,116 @@
+Réflections
+=================
+2015-05-27
+
+
+
+
+A l'heure actuelle, malheureusement je ne pense pas avoir assez de recul pour anticiper 
+mes besoins par rapport à la relation serviceContainer -- application.
+
+Ce que je pense est:
+
+
+
+Container - ServiceContainer ?
+----------------------------------
+
+- le concept de service container délivre uniquement des services,
+        pas de paramètres.
+        Les paramètres sont invisibles, et passés via les constructors et setters
+        grâce à la notation biscotte, de manière à ce que le dev n'ait jamais
+        besoin d'utiliser un paramètre autrement que par le biais d'un service.
+        
+        Ca me paraît un peu pédant également, et pas forcément utile, mais j'aime
+        bien que les choses soient bien définies, donc je pars sur cette idée.
+        
+        
+- Toutefois, conscient que l'idée énoncée à l'instant n'est peut être pas une bonne idée,
+        je précise le terme container, plus large, qui pourrait, éventuellement si on 
+        en avait besoin, être un service container capable de permettre l'accès aux paramètres,
+        probablement de manière readOnly, mais éventuellement sous une autre modalité (setter?).
+        
+        Container extends ServiceContainer
+        
+
+- En conclusion, le terme container est bouche-trou pour l'instant et je souhaite n'utiliser
+        que des ServiceContainer, et pas des Container,
+        mais dans le nom des dossiers et classes, je laisse penser qu'une ouverture est prévue. 
+        
+        
+        
+HotContainer
+-----------------
+        
+La bee qui commence et a envie de tester des choses rapidement veut créer son container rapidement.
+Le concept du hotContainer est introduit pour donner un nom à ce genre de containers.
+        
+Techniquement, 
+            le hotContainer est un (service) container avec la méthode
+            
+                    setCode ( address, ServicePlainCode code )
+                    
+C'est un container que la bee peut customiser.
+Je pense qu'il faudrait également une méthode freeze, qui permettrait de figer le serviceContainer
+dans son état courant, de manière à ce qu'une bee puisse utiliser un HotContainer de manière contrôlée
+dans une application en prod.
+
+
+
+Stratégie pcf à redéfinir
+---------------------------
+
+    L'implémentation actuelle utilise une stratégie nommée pcf qui permet de créer un container
+    à partir de fichiers de conf.
+    Bien que l'idée soit très bonne, l'implémentation laisse à désirer, car l'utilisateur n'a pas
+    beaucoup de liberté par rapport à cette stratégie.
+        
+                    
+Soap
+--------            
+        
+Tant que je suis dans l'exposition de ma todolist et des balbutiements d'idées, 
+soap signifie:
+    service oriented application plugin
+    
+    L'idée est qu'on peut importer des bModules, ou des soap.
+    Un soap est à la base un bModule (même système de dépendances), mais qui 
+    définit des services (cela fait gagner bcp
+    de temps à la bee qui n'a plus qu'à utiliser les services, et non pas à les conceptualiser).
+    
+    La stratégie pcf, en cours de refonte, sera probablement une bonne source d'inspiration
+    pour l'implémentation du modèle soap.
+    
+    Le début de synopsis que j'ai en tête est que la bee importe un soap, cela télécharge les dépendances,
+    plus un fichier pcf (...) dans un endroit particulier, de manière à ce que le serviceContainer
+    de référence? pour ce genre d'applications puisse les intégrer directement.
+    
+    
+    
+HotContainer     
+Que ce soit pour l'implémentation pcf actuelle, ou pour soap en cours de conception,
+la question du moment est: est-ce que le concept de HotContainer a une place justifiée (intéressante)
+dans cet écosystème ?
+    
+    Ok, ma réponse est définitivement oui, par rapport au besoin premier auquel répond ce type de container:
+    un container créé à la volée pour des besoins personnels, de test.
+    Par extension, peut être qu'on le trouvera au coeur des stratégies plus posées comme pcf et soap,
+    mais cela on ne le sait pas encore.
+    
+    HotServiceContainer
+        setCode ( address, ServicePlainCode code ) 
+        freeze()
+            Peut être appelée plusieurs fois sans provoquer d'erreurs                
+        isFrozen()
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        
+        
+        

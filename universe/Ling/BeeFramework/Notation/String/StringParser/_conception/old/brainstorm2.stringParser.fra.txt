@@ -1,0 +1,249 @@
+Brainstorm
+==================
+2015-05-11
+
+
+
+
+
+Objectifs
+
+
+    pouvoir parser rapidement et simplement diverses chaînes de caractères.
+    
+            notation shortcode:
+                    [minLength=2; myArray=[apple, banana]]
+            notation mapping:
+                    {doo: 6, name: michel, phrase: "c'est bon le jambon"} 
+            notation séquence:
+                    [apple, banana, 6] 
+            notation arrangement:
+                    (apple, banana, key: value)
+            notation mixte:
+                    (apple, map: {doo: apple, fruit: banana, [a, b, c]}, banana, key: value)
+            notation arguments php:
+                    6, [doom, diim, key => value], "a string"     
+            ...
+                    
+                    
+    pouvoir ajouter simplement de nouvelles expressions à parser.
+    
+            notation tags:
+                    @php->implode( ", ", @s:myService->getImageTypes() )
+                        
+
+    avoir le contrôle total sur chaque option:
+            - jusqu'à quel niveau est géré la récursivité (ou sous quelles conditions) ?
+            - est-ce que les clés sont facultatives ?
+            - que faire en cas de valeur implicite ?
+            - ...
+                                                    
+                                                    
+                                
+Outils
+
+    
+        ExpressionDiscoverer
+            -> bool parse ( string, pos )
+            -> mixed getValue ()
+            -> false|int getLastPos ()
+            
+            
+            
+        ---------
+        Validator
+            -> isValid ( string, beginP, endP, discoverer )                            
+                
+        
+        
+        
+        ---------
+                                
+                                
+                                
+            Scanning a container of values only.
+                                            
+                                            
+            string = '[2; [apple, banana]; doo]'  
+            string = '[2, [apple, banana], doo]'  
+                      
+                      
+                      
+                      
+            
+                        
+                        
+            ----------------------                        
+            
+            ContainerExpressionDiscoverer
+            
+            parse (string, pos){
+            
+                var it = new CharIterator (string)
+                it->setPos(pos)
+                
+                if(this->isContainerBegin(it)){
+                    it->next()
+                    if(false !== values = this->parseContainer(it)){
+                        this->values = values
+                        this->lastPos = it->getPosition()
+                        return true 
+                    }
+                }                   
+                return false;
+            
+            }
+            
+            
+            
+                
+
+            parseContainer ( it ){
+                                    
+                                    
+                lookingFor = 'value'    // search mode is defined BY the container parser
+                var validator = new ContextualValidator()
+                
+                values = []
+                lastWasSep = false
+                
+                while (it->isValid()){
+                    
+                    
+                    this->skipNotSignificant(it)
+                    
+                    
+                    if(this->isValueSeparator(it)){
+                        if(true === lastWasSep ){
+                            this->onImplicitValue( values, it, &breakLoop=false )
+                            if(true === breakLoop){
+                                break
+                            }
+                        }
+                        lastWasSep = true                
+                    }              
+                    elseif(this->isContainerEnd(it)){
+                        return values
+                    }
+                    else{
+                        lastWasSep = false
+                        
+                        p = it->getPosition();
+                        foreach(discoverers as d){
+                            
+                            // gestion de la récursion
+                            if(d instanceof ParserModel){
+                                d = d->createParser()
+                            }
+                        
+                        
+                            if(true === d->parse( string, p )){
+                            
+                                // le discoverer pense avoir trouvé une expression valide
+                                // mais est-elle réellement valide ?
+                            
+                                lastP = d->getLastPos()
+                            
+                                if(true === validator->isValid( string, p, lastP, d )){
+                                    it->setPosition(lastP)
+                                    values[] = this->resolveValue( d->getValue() )   // opportunité pour des décorateurs
+                                    break;
+                                }
+                            
+                                
+                            }
+                        }
+                    }
+                    it->next()
+                }                                    
+                                    
+                return false                    
+                                    
+            }
+                
+                
+               
+                
+                
+                
+                
+Défis techniques
+----------------------
+                
+- gestion de la récursivité simple 
+        comment gérer la récursivité de l'élément avec lui-même ?
+                            faire exemple sur container values simple
+- gestion de la récursivité croisée
+        comment indiquer que notre container accepte un mapping qui accepte des séquences
+        et des séquences qui acceptent des mappings,
+        ce de manière récursive ?
+        
+        
+        mapping = new MappingParser
+        sequence = new SequenceParser
+        
+        
+        
+        
+        parsers = [
+            mapping
+            sequence
+        ];
+        
+        
+        /**
+        * Le problème de cette approche est que la même instance est utilisée aux différents niveaux de récursion,
+        * cela entraîne des conflits entre les variables appartenant à l'instance (par exemple this->values)
+        */
+        mapping->setParsers(parsers)
+        sequence->setParsers(parsers)
+        
+        
+        
+        Container->setParsers(parsers)
+        
+        
+        
+        --------------------- 
+        
+        Le problème de la récursion est propre aux containers.
+        On peut peut être le résoudre en utilisant des modèles de Parsers (ou factory)
+        
+        ParserModel
+                ->createParser()
+                            renvoie une nouvelle instance du même objet
+        
+        
+                
+                
+                
+                
+                
+Hypothèse:
+    la meilleure manière de concevoir (pour moi) est de faire du pseudo-code, car cela permet de voir les interactions entre les objets de manière concrète,
+    et ainsi éviter les grosses erreurs. 
+    Les noms des objets et variables sont choisis lors de la conception, ce qui contribue à créer un système plus intuitif,
+    car le dév est en mode de réflexion abstraite, il pense donc simplement.
+    Un autre avantage est que le code est concret, on sait qu'il fonctionne ou pas par une simple estimation mentale en php.
+    
+    Inconvénient: 
+            verbeux
+            
+                
+    Méthodologie:
+        ne pas hésiter à refaire le pseudo code jusqu'à ce qu'on trouve le modèle qui fonctionne le mieux.
+        Le but du pseudo code est juste de trouver les interactions entre objets: définir quels objets, et le rôle de chacun.
+        
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                

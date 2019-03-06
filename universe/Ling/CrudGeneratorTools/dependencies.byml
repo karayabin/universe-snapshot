@@ -1,0 +1,9 @@
+dependencies: 
+    Ling: 
+        - Bat
+        - ArrayToString
+        - QuickPdo
+        - Kamille
+    
+
+post_install: []

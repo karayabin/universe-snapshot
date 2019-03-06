@@ -1,0 +1,8 @@
+dependencies: 
+    Ling: 
+        - CopyDir
+        - Tiphaine
+        - BeeFramework
+    
+
+post_install: []

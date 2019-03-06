@@ -1,0 +1,13 @@
+<?php
+
+
+namespace Ling\Updf\Model;
+
+
+interface FooterModelInterface extends ModelInterface
+{
+
+    public function setPageNumber($n);
+
+    public function setNbTotalPages($n);
+}

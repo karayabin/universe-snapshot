@@ -1,0 +1,645 @@
+
+
+
+
+
+
+
+2015-04-22
+
+
+
+Définition d'un repository:
+
+
+    
+    Au fur et à mesure qu'un système modulaire se développe, des questions apparaissent.
+    
+    Pour les auteurs des modules: où stocker leurs modules ?
+    Pour les utilisateurs du système: où trouver les modules ?
+    
+    Le repository est une réponse à ces questions, ayant pour 
+    principale fonction de centraliser les modules des auteurs, afin de 
+    faciliter leur acquisition par des utilisateurs.
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+Constraints:
+    
+    1. L'application doit être capable de lister la liste des éléments installés, ainsi que le numéro de version pour chaque élément.
+            De cette manière, on peut comparer ce numéro de version au dernier numéro de version trouvé sur internet,
+            et ainsi faire un update général.
+            
+            
+    2. On doit être capable de déterminer l'âge relatif de deux versions différentes d'un même élément.
+
+
+        
+        
+        
+        
+        
+        
+Nomenclature:
+        
+    1. 
+    
+        Lorsqu'un élément A dépend de B, on peut le noter A -> B.
+        Pour préciser le numéro de version d'un élément, on peut séparer le nom de l'élément et le nom de version avec le symbole deux-points.
+        
+        
+    2.  
+        Le problème des dépendances parallèlles:
+                      
+                        A -> B:1.0.0
+                        C -> B:1.5.0
+                        
+            B est appelé dans deux versions différentes au sein du même contexte (application par exemple).
+            
+    3. 
+        L'identifiant id d'un élément permet d'identifier de manière unique la version d'un élément dans un contexte donné.
+        Si l'élément n'utilise pas de numéro de version, id est égal au nom de l'élément.
+        Si l'élément utilise un numéro de version, on utilise la notation suivante dans ce document:
+        
+            id:  <elementName> <:> <elementVersionNumber>
+                              
+                        
+        
+
+        
+Sémantiquement:
+
+    1. un repository doit permettre d'accéder à une ressource
+
+
+            Pour un repository web,
+            on peut avoir un annuaire des ressources,
+            l'utilisateur parcourt cet annuaire à la recherche d'un élément.
+            Lorsqu'il a trouvé l'élément, il peut le télécharger.
+            L'utilisateur devra éventuellement passer par un panier si l'élément est payant.
+            
+            
+            Suite à cette phase de téléchargement vient une phase d'installation de la ressource.
+            On admettra que pour des raisons pratiques, la ressource téléchargée est toujours dans
+            un format compressé tel que zip, et on l'appellera bundle dans ce document.
+            
+            
+            
+            Pour un client en ligne de commande,
+            c'est un peu le même procédé, on va chercher sur internet la ressource, et si on la trouve,
+            on la télécharge.
+            Cela implique 2 questions à poser à un repository de ce type:
+            
+                - est-ce que tu es capable de servir la ressource ?
+                - où se trouve cette ressource ?
+                
+            
+            
+            
+        
+    2. dans le cadre de ce document,
+            nous utiliserons deux définitions d'un numéro de version:
+    
+            1. un numéro de version est un identifiant qui permet de figer l'état d'un élément dans le temps.
+                    On admettra qu'une fois une version publiée, elle ne doit JAMAIS être altérée.
+            
+            2. un numéro de version est un identifiant unique qui permet à l'auteur d'un élément de modifier
+                    son élément sans changer le nom de celui-ci.
+                    
+                    Note: tous les auteurs ne sont pas obligés d'utiliser un identifiant de version.
+                    Note 2: un numéro de version est totalement subjectif et dépend de l'"humeur" de l'auteur de l'élément.
+                    
+    3. certains éléments peuvent dépendre d'autres éléments            
+    4. les meta sont des informations à propos d'un élément            
+            
+            
+            
+Tips:
+            
+    1.
+        not finished
+        Si on créé un dossier de téléchargement en local, on peut y placer PLUSIEURS bundles.
+        
+    
+    
+Analyse:
+    
+    
+    1.
+        D'où viennent les problèmes de compatibilité ?
+        
+            Du retrait ou de la modification de features existantes.
+            L'ajout de feature n'est pas un facteur de cassement de la compatibilité.
+            
+            
+    2.
+        Résoudre le problème de dépendances parallèlles.
+        
+            Le problème de dépendances parallèlles vient du fait que des éléments différents utilisés 
+            au sein d'un même contexte, font référence à 2 versions incompatibles d'un même tiers élément.
+            
+            Quelque soit le niveau de sophistication d'un système de nommage de version, l'essence du problème
+            reste.
+            Cependant, le problème part si un élément reste compatible avec lui-même,
+            c'est à dire s'il est développé en mode de compatibilité ascendante.
+            
+            Le mode compatibilité ascendante peut être défini comme suit:
+            
+                c'est un système dans lequel chaque nouvelle version d'un élément est compatible avec la précédente.
+                Par compatibilité, on entend le fait de ne pas modifier/retirer une feature.
+                    Une feature peut être une classe ou une méthode pour un élément basé sur du code,
+                    ou bien des fonctionnalités pour des widgets.
+                    Pour un élément basé sur le code, si la signature d'une méthode reste la même,
+                    ce n'est pas considéré comme une modification.
+                    
+                Autrement dit, dès que la compatibilité est cassée, on change le nom de l'élément.
+                                    
+            
+            
+            
+    3.
+        Gérer/résoudre un conflit de dépendances parallèlles
+        
+        
+            Le symptôme d'un conflit de dépendances parallèlles est lorsqu'on se retrouve avec
+            un même élément appelé dans plusieurs version différentes au sein d'un contexte donné.
+            
+            Une façon logique de gérer le conflit est de n'utiliser que la version la plus récente.
+                Si l'élément est développé en mode de compatibilité ascendante, il n'y aura pas de problème
+                de compatibilité.
+                Si l'élément est développé en utilisant un autre système, on ne peut au mieux qu'espérer
+                qu'il n'y ait pas de problèmes de compatibilité.
+                
+            Note:                
+                Pour n'utiliser que la version la plus récente, on doit être capable de comparer l'âge 
+                des versions.                 
+        
+            
+    4. Le badge de la compatibilité ascendante
+            
+            Les humains ne pouvant pas prévoir le futur, on ne peut raisonnablement pas demander à un auteur
+            d'élément si son élément sera toujours développé en mode de compatibilité ascendante.
+            Car faire le voeu de développement en mode de compatibilité ascendante n'est pas raisonnable, n'est-ce pas ?
+            
+            On peut par contre attribuer un badge qui indique que jusqu'à présent, cet élément est développé en mode
+            de compatibilité ascendante; badge que l'on pourra perdre éventuellement, mais pas regagner pour un élément donné.
+            
+            Par défaut, ce badge pourrait être attribué à toute première version d'un élément.
+            
+            
+        
+    5. Autres problèmes liés à l'installation d'un élément
+    
+    
+            Dépendance non trouvée
+            
+            Un autre problème lié à l'installation d'un élément possédant des dépendances est le manque d'une des dépendances.
+            C'est à dire, si une des dépendances ne peut pas être trouvée.
+            
+            
+            Une première approche pour résoudre ce problème consiste à chercher sur internet l'élément manquant.
+            Une deuxième approche pour résoudre ce problème consiste à voir s'il n'y a pas une version disponible 
+            de l'élément manquant qui pourrait convenir. Cette approche pourrait être nommée l'approche du remplacement.
+    
+    
+    
+    
+    
+        
+Création du client:
+        
+        Soit c un client dont le but est d'installer des éléments dans une application.
+        
+        
+        1.
+            On souhaite que c soit capable d'installer un élément via un bundle, un id d'élément,
+            un dossier de bundles, ou un tableau d'id d'éléments.
+            
+        2. 
+            Dans le cas de l'installation d'un élément par son id, c doit être capable d'aller chercher
+            un élément sur internet, ou dans une bibliothèque d'éléments locale.
+            
+        3. 
+            c doit être assez intelligent pour n'installer que les éléments qui ne sont pas déjà installés dans l'application.
+            
+            
+        4. 
+            Si c installe un élément qui contient des dépendances, on s'attend à ce que les dépendances soient également 
+            installées (récursivement).
+            En cas de conflit de dépendances parallèlles, on doit pouvoir configurer le client de manière à ce qu'il prenne 
+            la meilleure décision par lui-même, ou bien on peut le configurer pour qu'il demande à l'utilisateur quelle direction prendre.
+            
+            
+            
+        5. 
+           c doit être capable de désinstaller un élément.
+           Il doit être capable de déterminer si, suite à la désinstallation, s'il y a des dépendances orphelines qui traînent,
+           et en fonction de la configuration, les supprimer directement, ou bien nous demander si on souhaite les supprimer.
+           
+                                
+        
+                    
+        Pour l'instant, c'est tout.
+        Mais on pourrait faire un client avec d'autres capacités par la suite:
+        
+                - mise à jour d'un élément
+                - affichage des versions disponibles (sur internet ou les libraires locales) pour un élément donné
+                - affichage de toutes les versions actuellement utilisées par l'application
+     
+        
+
+            
+Contraintes liées à l'implémentation du client:
+            
+       
+    Blabla
+    -----------
+    Pour installer correctement un élément, nous avons besoin de connaître ses dépendances.
+    Un moyen de connaître les dépendances est de les écrire dans un fichier que l'on pourrait nomme fichier de meta.
+    Par extension, on pourrait stocker d'autres propriétés relatives à l'élément dans ce fichier de meta.
+                        
+    Puisqu'on doit être capable d'installer l'élément depuis un bundle, le bundle devrait contenir le fichier de meta.
+    
+    
+    
+    Bien que cela ne soit pas précisé dans le brainstorming, un élément peut être de plusieurs types: plugin, widget, b-plugin, x-plugin, ...
+    La notion de type d'élément nous permet de ne pas confondre tous les éléments entre eux.
+    Un élément aura donc toujours un type.
+    
+    
+    #3 implique qu'un objet (puisqu'on choisira de développer en objet) sera capable de déterminer le nom et 
+    éventuellement (si l'élément utilise un numéro de version) la version de chaque élément installé dans l'application.
+    Dans le contexte de notre client, nous appellons cet objet "stock".
+    On peut s'avancer sur les features de stock:
+    
+    
+            stock
+                
+                array           getElementsInfoByType ( type )
+                
+                                        Renvoie un tableau d'elementInfo (0: name, ?1: version)
+                    
+                false|string     getElementVersion ( type, name )
+                            
+                                        Renvoie false si l'élément n'existe pas, ou le numéro de version sinon.
+                                        Si l'élément n'a pas de numéro de version, la chaîne vide est renvoyée.
+    
+    
+    
+    En approfondissant l'idée de l'installation d'un élément par son id, 
+    ce qui semble logique est que le client contacte un ou plusieurs repository jusqu'à ce qu'il trouve l'élément.
+    
+                 
+    
+    
+                            
+                                
+    Voici une première approche, naïve et générale:
+    
+            
+            1. Récupération des metas
+                    Récupération des metas de tous les éléments y compris leurs dépendances.
+                    Gestion des problèmes d'éléments et/ou dépendances non trouvés.
+                    
+            2. Création de la liste des bundles à télécharger (c'est à dire situés dans des repository)
+                Résolution des conflits de dépendances parallèlles
+                 
+                 
+            3. Copie des bundles dans un dossier temporaire
+                    
+            
+            4. Installation des bundles
+            
+                    Vérification de la corruption des meta: si une meta récupérée via un repository ne correspond pas à la meta
+                    trouvée dans le bundle.
+                                                 
+                            
+                            
+    Un des avantages de cette approche est qu'elle permet d'être en possession de toutes les metas à la fin de la première étape.
+    A l'aide de toutes les metas, on peut prendre des décisions et faire des choix réfléchis.
+                                    
+                                    
+    Détaillons un peu plus les différentes étapes.
+                                        
+                                            
+            1. Récupération des metas
+                    
+                    
+                    
+                    On peut avoir deux types de données à traiter:
+                        - un elementId 
+                        - un bundle 
+                    
+                    On appellera éléments primaires les éléments que l'on souhaite installer, par opposition aux éléments qui sont des 
+                    dépendances de ces éléments primaires.
+                     
+                    
+                    Dans les deux cas (elementId ou bundle), on va chercher à récupérer les metas, car ce sont les metas qui contiennent les dépendances,
+                    et installer un élément sans ses dépendances ne serait pas une installation complète.
+                    
+                    La procédure que nous suivons est donc la suivante:
+                        si on a un bundle, on l'ouvre et on récupère le fichier de meta (voir y1 plus bas dans la section contraintes) qui s'y trouve.
+                        Si le fichier de meta n'existe pas, le bundle n'est pas valide et on n'essaiera pas de l'installer.
+                        Le client, s'il est interactif, devrait indiquer à l'utilisateur que ce bundle n'est pas valide, 
+                        et lui demander s'il souhaite continuer l'opération d'installation ou pas (il peut y avoir plusieurs bundles à installer).
+                        C'est la procédure SP-error (voir plus bas).
+                        
+                        Une fois qu'on a les meta, on va vérifier qu'elles sont conformes à ce qu'on attend (sinon on ne peut peut être pas récupérer
+                        les dépendances).
+                        Pour cela on va utiliser une convention (y2).
+                        
+                        Le client pourra utiliser des metaReader pour lire cette convention.
+                        S'il ne peut pas lire la convention, il peut lancer SP-error.
+                        
+                        S'il peut lire les metas, alors il est en possession du tableau de metas pour le bundle,
+                        qui contient au moins le nom de l'élément, le numéro de version s'il existe, et le tableau des dépendances s'il existe.
+                        A partir du nom et du numéro de version, on trouve l'elementId, en intercalant le symbole deux points (:) entre
+                        le nom et le numéro de version.
+                        Cela implique que le nom de l'élément ne doit pas contenir le symbole deux-points (y3).
+                        
+                        On va vérifier que l'élément id n'est pas déjà dans l'application grâce à stock.
+                        Si l'élément est déjà installé avec le même id, on considère que ce n'est pas la peine de le réinstaller.
+                        La procédure de réinstallation d'un élément éventuellement défectueux étant une autre procédure que celle que nous décrivons ici.
+                        
+                        
+                        Si on a un elementId, on va également regarder si l'élément n'est pas déjà installé dans l'application en utilisant le stock.
+                        S'il ne l'est pas, alors on fait un tour des repository, avec pour but de trouver les metas de l'élément,
+                        et on s'arrête au premier repository qui nous donne satisfaction.
+                        
+                        Si aucun repository ne peut fournir l'élément, alors nous sommes dans le cas d'un élément non trouvé.
+                        On peut alors appliquer la procédure SP-error.
+                        Certains clients peuvent essayer d'utiliser la deuxième technique de résolution du problème d'un élément non trouvé, 
+                        c'est à dire essayer de remplacer l'élément manquant par un élément de version compatible.
+                        Voir la section "Questions ouvertes" à ce sujet.
+                        
+                         
+                         
+                         
+                        Que l'on ait un bundle ou un elementId, on se trouve au final avec un tableau de meta pour chaque élément primaire à installer
+                        (c'est à dire qui n'est pas déjà installé).
+                        Il est maintenant temps d'ouvrir les dépendances et de recommencer les étapes de cette première phase, récursivement,
+                        de manière à traiter toutes les dépendances utilisées.
+                         
+                         
+                        A la fin de cette étape, nous nous trouvons normalement en possession d'un tableau qui contient les metas pour chaque élément (primaire
+                        et/ou dépendance) qui n'est pas déjà installé dans l'application.
+                        
+                        Dans le but d'amorcer la deuxième étape, nous ajoutons pour chaque meta la propriété _bundle qui vaut le chemin du bundle
+                        pour indiquer que l'on est déjà en possession de ce bundle. 
+                        
+                                                
+                                                
+                                                
+            2. Création de la liste des bundles à télécharger (c'est à dire situés dans des repository)
+                                                    
+                    Maintenant que nous sommes en possession des metas pour chaque élément à installer,
+                    on va résoudre les problèmes de dépendances parallèlles.
+                    Pour cela, on cherche les versions qui sont appellées plusieurs fois et dans des versions différentes, et on choisit la dernière,
+                    éliminant les autres versions inférieures. 
+                    
+                        Note: 
+                            certains clients peuvent aller plus loin dans la résolution du conflit, et tenir compte du vns utilisé pour réagir de manière
+                            appropriée si le problème fondamental des dépendances parallèlles survient; c'est à dire informer l'utilisateur, puisque
+                            si le problème survient, il n'est pas soluble.
+                            
+                    
+                    Pour ce faire, nous devons être capable de comparer des numéros de version.
+                    Nous proposons une méthode/protocole versionNumberComparator à cet effet (voir plus bas).
+                    
+                    Une fois cela effectué, nous allons maintenant créer le tableau contenant tous les bundles à copier dans le dossier temporaire.
+                    Pour cela, on parcourt le tableau actuel, et on alimente notre nouveau tableau de manière à ce que chaque entrée contienne
+                    les propriétés suivantes:
+                    
+                        - download: les informations de download du bundle
+                        - name: le nom de l'élément
+                        - version: l'identifiant de version (ou la chaîne vide si l'élément n'utilise pas d'identifiant de version)
+                        - type: le type de l'élément
+                        
+                        
+                    La propriété download contient les informations nécessaires au téléchargement du bundle dans le dossier temporaire choisi.
+                    Cela fait l'objet d'un protocole (voir procédures standard plus bas) qui est traité par un objet nommé bundleDownloader dans le
+                    contexte de notre client.
+                     
+                    
+                    Note: 
+                        Pour les entrées du tableau qui contenaient l'entrée spéciale _bundle, cette information est transmise dans le nouveau
+                        tableau sous forme du protocole file (file:///path/to/bundle.zip)
+                                                                                        
+                            
+                    
+                    A la fin de cette étape, nous sommes donc en possession du tableau contenant les informations nécessaires pour télécharger
+                    tous les éléments non encore installés. 
+                    
+                                                    
+            3. Copie des bundles dans un dossier temporaire
+            
+                   On utiliser l'objet BundleDownloader pour rappatrier les bundles dans le dossier temporaire.
+                   
+                   
+            4. Installation des bundles
+                               
+                    L'installation d'un bundle est un procédé qui appartient plus à l'application qu'à notre client.
+                    Ce n'est que pour le côté pratique que nous incorporons un bridge dans notre client, bridge entre notre client
+                    et l'objet de l'application capable d'installer l'élément.
+                    
+                    Cela implique que l'installateur de l'application soit capable de travailler avec des bundles (fichiers de type zip ou autre format
+                    compressé).   
+                        
+                               
+                               
+                               
+                   
+            
+            
+                    
+    Procédures standard:
+                        
+        SP-error:
+            une option du client permet de définir si en cas d'erreur, l'installation doit être interrompue directement, continuer dans tous les cas,
+            ou bien est-ce que l'on doit demander à l'utilisateur ce qu'il faut continuer, et quand le cas est approprié, quelles actions entreprendre.
+            Le fait de demander à l'utilisateur ce que l'on doit faire ne peut fonctionner qu'avec un client interactif.
+                 
+                 
+        versionNumberComparator:
+            Ce protocole local, dépendant de la convention de meta utilisée, a pour but de déterminer, en présence de deux identifiants de version,
+            lequel est le plus récent.
+            
+            
+            Par défaut, on utilise une comparaison numérique en lisant simplement le numéro (identifiant) de version comme si ce n'était qu'un gros nombre
+            (on ignore tous les symboles qui ne sont pas des chiffres).
+            Cette technique fonctionne avec les vns qui utilisent des notations basées sur des chiffres.
+            
+            Si un élément qui utilise un vns non compatible avec cette méthode de comparaison de numéros de version doit indiquer quelle méthode de comparaison
+            doit alors être utilisée.
+            Cela se fait via une propriété située dans les meta, que nous appellons symboliquement versionNumberComparisonMode.
+            
+            Les choix disponibles sont:
+            
+            - num (default)
+            - alpha 
+            - list
+            
+            Nous venons de décrire la méthode num.
+            La méthode alpha fait une comparaison sur les strings, telle que php la ferait, donc alpha numérique en fait.
+            Cela fonctionnerait pour un vns qui utiliserait des lettres ou un mélange de lettres et chiffres.
+            Par exemple:
+            
+                    - a, b, c
+                    - a1, a2, a3
+            
+            La méthode list convient pour les vns qui utilisent des identifiants de version choisis librement.
+            Par exemple:
+            
+                    - squeezy, wheezy, alois
+                    
+            Dans ce cas, une deuxième propriété doit être indiquée, que nous appellerons symboliquement versionList,
+            et qui représente la liste exhaustive des identifiants de version, séparés par des virgules, et dans l'ordre de leur apparition, la 
+            première version à gauche de la liste. Les espaces entourant les virgules sont ignorés.
+            Par exemple:
+                    
+                    - squeezy, wheezy, alois
+            
+            Cela implique que l'identifiant de version ne doit pas contenir de virgule (ou bien de changer le caractère séparateur).
+            
+            
+            La méthode versionNumberComparator permet de traiter les vns les plus répandus, mais pas tous.
+            
+            
+        méthode de download des bundles:
+                            
+            Pour télécharger un bundle, nous avons besoin de son url (http://, https://, file://, ).
+            Pour les éléments gratuits, le plus simple est de donner directement cette url.
+            Cependant il y a d'autres cas où le client doit dialoguer avec un serveur pour obtenir cette url.
+            
+            La méthode que nous décrivons permet de prendre cela en compte.
+            
+            On créera une propriété dans les meta de l'élément, que nous appellerons symboliquement download,
+            et dont la valeur contiendra toutes les informations nécessaires au téléchargement du bundle.
+            
+            Cela peut être une string ou un array.
+            Si c'est une string, c'est une url.
+            Sinon, cela doit être un array.
+            
+            Cela permet aux personnes qui délivrent des bundles de mettre en place leurs propres systèmes.
+            Il faut pour cela qu'il définisse le protocole de communication entre notre client et leur serveur,
+            et également que soit créé un objet bundleDownloader capable d'interpréter leur protocole.
+            
+            
+            Notes personnelles:
+                L'un des défis les plus excitants auquel je suis confronté en ce moment par rapport à ce client est l'implémentation
+                d'un client capable d'acquérir un élément payant.
+                
+                Parmi les différentes solutions auxquelles j'ai pensées, l'une était l'implémentation d'un panier via cli, analogue
+                à un panier web.
+                
+                Pourtant, plus tard m'est apparu un flash que je n'ai pas encore soumis à réflexion, mais qui était l'idée
+                d'un compte et de monnaie virtuelle.
+                L'utilisateur fournit ses credentials et les passe par post et https, de manière à ce qu'on ne puisse pas 
+                (ou peut être pas) les intercepter.
+                Ainsi, notre client peut accéder aux données du compte de manière sécurisée.
+                Le compte est crédité à l'avance, et lors de la résolution des dépendances, le client doit indiquer la liste des éléments payants,
+                et pour chacun (ou bien tir groupé), proposer à l'utilisateur s'il souhaite les acheter.
+                Si oui, son compte virtuel est débité.
+                Cela implique qu'il y ait une url publique (derrière https tout de même) qui permette d'acheter un élément si on a les credentials
+                d'un compte.
+                A étudier.
+                
+                
+                
+                
+                
+            
+            
+    Rôle des méta dans notre système
+    ------------------------------------
+    
+    Notre système utilise les métas pour stocker les informations suivantes:
+                                                     
+        - name: le nom de l'élément                                                     
+        - ?version: l'identifiant de version de l'élément                                                     
+        - download: comment downloader le bundle                                                     
+        - dependencies: quelles sont les dependences de l'élément
+                            Chaque entrée est un elementId.
+                                                                                         
+
+        Les informations de name et version sont utilisées pour les messages de logs utilisés par notre client.
+        
+        Nous avons choisi un fichier de meta alors que nous aurions pu choisir un autre nom de fichier, comme kominClient.installInfo.
+        Mais sémantiquement les metas sont des informations diverses sur un élément, et c'est le concept que nous voulons utiliser,
+        pour des raisons de portabilité, extension de notre système.
+        
+        
+        
+    A propos de notre système 
+    -----------------------------
+    
+        Notre système peut être défini comme un système de distribution et installation d'éléments dans une application modulaire.
+        
+        Comme tout système, il ne fonctionne que si les conventions sont respectées, notamment:
+            - les éléments sont délivrés sous forme de bundle, qui est un fichier .zip contenant d'une part un fichier element.meta à sa racine,
+                    et d'autre part les fichiers d'installation de l'élément.
+                    
+            - les propriétés du fichier de meta sont définies dans une convention publiquement accessible
+            
+        La sémantique du fichier de meta est respectée.                        
+        L'objet responsable d'installer l'élément peut également utiliser ce même fichier de meta,
+        et peut même être à l'origine de la création d'autres metas (conformément à la convention du fichier de meta).
+        
+        
+        
+        
+        
+        
+    
+                            
+                    
+    Questions ouvertes
+    ------------------------
+    
+    procédure pour résoudre le problème d'un élément non trouvé avec la technique du remplacement (voir ailleurs dans ce document) ?
+    
+    
+    
+    
+    
+                    
+    Contraintes
+    --------------
+        
+        y1: 
+                Un bundle doit comporter un fichier de metas nommé element.meta
+        y2:
+                Le fichier de meta est structuré suivant une convention.
+                Une convention détermine quelles propriétés sont obligatoires, et quelles propriétés sont optionnelles,
+                ainsi que le type de valeur attendu pour chaque propriété.
+        y3: 
+                Le nom d'un élément ne doit pas contenir le symbole deux-points (:).
+                                        
+                
+                    
+    Questions philosophiques
+    ----------------------------        
+    
+    - peut-il y avoir plusieurs conventions de meta différentes ? (y2)
+    - quel est le rapport entre les meta et notre client ?
+                Notre client interprète les meta.
+    
+    
+    
+    
+    
+    
+    
+    
+    

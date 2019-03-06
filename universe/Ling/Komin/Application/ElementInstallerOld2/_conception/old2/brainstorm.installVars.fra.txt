@@ -1,0 +1,60 @@
+Brainstorm
+==================
+2015-05-22
+
+
+
+
+Lors d'une installation, un installateur, aussi spécialisé soit-il, a finalement besoin d'informations supplémentaires.
+
+Au minimum:
+    - où est-ce que doit être installé l'élément ?
+
+
+D'autres informations peuvent également être requises ou utilisées par l'installateur:
+    - instance de l'application  
+    - ... 
+
+     
+
+A ce stade de la conception, nous n'avons pas assez de recul pour voir l'ensemble de ces informations.
+Cependant, nous voyons que ces informations dépendent directement de l'installateur, donc du type de l'élément.
+
+
+
+installVars
+--------------- 
+
+Afin d'aider le processus d'installation, nous appellerons ces informations d'installation les installVars.
+installVars peut être vu comme un tableau contenant les variables d'installation dont nous venons de parler.
+
+
+standardInstallVars
+---------------------
+
+Nous proposons également un ensemble de variables d'installation standard.
+Les auteurs d'installateurs devraient avoir conscience de ces variables lors de la création d'un installateur.
+
+La manière dont les valeurs sont associées à ces variables est également indiquée.
+
+
+
+- rootDir:
+        représente le dossier de l'application, ou bien le dossier cible de l'installation.
+         
+        Si un fichier elements.yml est utilisé, alors rootDir
+        prend la valeur du dossier contenant le fichier elements.yml.
+        Si rootDir est lancé sur un bundle, alors rootDir prend la valeur du dossier contenant le bundle.
+        Sinon, le mécanisme d'assignation de valeur par défaut s'applique.
+        
+    
+    
+Mécanisme d'assignation de valeur par défaut:
+
+    Si l'installateur en ligne de commande le permet, toutes les variables standard peuvent être passées via 
+    la ligne de commande.
+    
+    Si l'installateur possède un fichier de configuration (installer.yml?), alors les valeurs de ce fichier 
+    de configuration sont utilisées.
+    
+    

@@ -1,0 +1,123 @@
+Brainstorm
+=====================
+2015-05-30
+
+
+
+
+Le but de cet outil est de faciliter le remplissage d'une base de données avec des fixtures faites maison.
+Les avantages:
+    - en général plus rapide que de rentrer les données via une interface graphique
+    
+                
+                
+-----------------------------------
+                
+Notre outil fonctionne par défaut avec des fichiers ou dossiers.
+Par défaut, il recherche des fichiers yml qu'il interprète comme des fichiers de fixtures.
+
+Le fichier de fixtures comprend trois éléments:
+
+- target: le nom de la table dans laquelle les données doivent être insérées
+        Pour des raisons de portabilité, on mettra le nom de la table sans le préfixe de la bdd devant,
+        sauf si le nom de la bdd ne peut pas être implicite.
+        
+- data: les données à insérer
+- extra: un tableau de données supplémentaires, en fc du sgbd utilisé.
+                A l'origine ce champ est ajouté pour permettre de définir un ordre pour la suppression des données,
+                et un ordre pour l'insertion des données, pour les sgbd qui n'ont pas de facilité d'insertion de données.
+                Mysql a des facilités d'insertion et nous les utilisons. 
+        
+
+
+Tableau to serialize
+----------------------------                 
+
+Par défaut, toutes les données scalaires sont insérées telles quelles dans la bdd.
+Si un tableau php est passé, par défaut, celui-ci sera sérialisé avant d'être inséré dans la bdd.
+
+        (rappel: il n'est pas possible d'insérer un type non scalaire dans une bdd.)
+        
+
+Field Formatter
+--------------------
+
+Par extension, nous proposons le concept de FieldFormatter, qui s'applique sur une target et un nom de champ donné.
+Le fieldFormatter permet de transformer la valeur d'un champ écrit dans la partie data du fichier fixtures,
+avant que celle-ci ne soit écrite dans la bdd.
+Ainsi on peut effectuer toute opération qu'on peut imaginer: formatter les prénoms en les mettant tout en minuscules par exemple,
+formatter des numéros de téléphone, etc...
+
+Les FieldFormatters sont exécutés avant le serializer natif, de telle sorte que le dev a l'opportunité
+de transformer un tableau php en une valeur de son choix, et si cette valeur est un scalaire, alors le serializer interne
+ne verra plus la donnée.
+
+
+
+
+
+DbProcessor
+--------------
+
+Nous souhaitons que le dev puisse choisir le sgbd.
+Cela se traduit dans notre design par la création d'un objet DbProcessor, qui est l'objet effectuant concrètement les requêtes.
+Nous proposerons une implémentation concrète avec pdo par défaut.
+              
+              
+FixtureStorage
+-----------------
+
+Représente notre souhait de permettre l'utilisation d'autres moyens de stockage que bYaml.
+
+
+      
+      
+Design sketch
+-----------------
+              
+- FixtureLoader
+
+----- self  setErrorMode ( quietOrStrict )   
+                En mode strict, une exception est lancée dès que qq chose tourne mal.
+                En mode quiet, les erreurs n'empêchent pas le process de continuer, 
+                et les erreurs sont accessibles via la méthode getErrors
+----- array getErrors ( )
+                
+                
+----- self  setDbProcessor ( DbProcessor )
+----- self  setFixtureStorage ( FixtureStorage )
+
+----- bool  load ( fileOrFolder, deleteRecords=true )
+          Insère les fixtures passées en paramètres dans la bdd, et renvoie true.
+          deleteRecords essaie de supprimer les enregistrements existants auparavant.
+          Une exception survient si qq chose se passe mal.
+                
+                
+                
+- DbProcessor        
+            
+----- bool      loadFixtures ( arrayOfFixtures, deleteDataBeforeInsert=true )
+
+                    Si deleteDataBeforeInsert vaut true, les rows contenues dans la table seront supprimées avant que les 
+                    fixtures ne soient insérées.
+
+                    Insère les fixtures, puis renvoie true.
+                    Lance une exception en cas de pb.
+              
+              
+- FixtureStorage
+----- Fixture[]  find ( path )
+                        Lance une exception si qq chose se passe mal
+                        
+              
+              
+- Fixture
+----- target:              
+----- data:              
+----- extra:              
+              
+              
+              
+              
+              
+              

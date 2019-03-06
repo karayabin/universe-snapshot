@@ -1,0 +1,17 @@
+dependencies: 
+    Ling: 
+        - ApplicationItemManager
+        - ArrayExport
+        - Bat
+        - BeeFramework
+        - ClassCooker
+        - DirScanner
+        - LinearFile
+        - Loader
+        - Logger
+        - Output
+        - TokenFun
+        - Umail
+    
+
+post_install: []

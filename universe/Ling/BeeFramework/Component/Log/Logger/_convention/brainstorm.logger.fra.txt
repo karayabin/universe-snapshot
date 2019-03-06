@@ -1,0 +1,21 @@
+Brainstorm
+=================
+2015-06-01
+
+
+
+Ceci est un logger, celui de l'écosystème bee par défaut.
+
+
+Un logger traditionnel en php utilise un système de level.
+Ce logger utilise un système de tags, qui sont des étiquettes affectées à un message,
+et le level est conservé (afin que les utilisateurs puissent continuer à utiliser les levels), mais sous forme de tag.
+
+
+Utiliser les tags apporte des avantages et des inconvénients.
+
+    - L'avantage principal avec les tags est que le maintainer
+            a un contrôle plus fin sur les listeners: il peut contrôler quels listeners sont exécutés, 
+            et par rapport à quels tags.
+
+    - L'inconvénient principal est qu'utiliser les tags est un peu plus verbeux que d'utiliser juste les levels.

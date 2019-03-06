@@ -1,0 +1,87 @@
+Notes
+=============
+2015-05-12
+
+
+
+
+Une caractéristique intéressante du discoverer est qu'il s'arrête dès qu'il matche.
+Ainsi, si on prend un sequenceDiscoverer, et qu'on lui demande de parser la chaîne suivante:
+
+
+- [a, b, c] # oops
+
+
+il matchera bien le tableau contenant les éléments a, b et c, et n'ira pas plus loin
+que le symbole de fin de séquence.
+
+Dans ce cas, cela tombe très bien puisque ce qu'il y a après est un commentaire et 
+que le discoverer l'ignore complètement.
+
+
+
+Cependant, on peut vouloir écrire des commentaires plus complexes.
+Une bonne recommandation serait de toujours quoter les commentaires.
+Si notre tableau est bien formé, et que le symbole de début de commentaire utilisé littéralement
+est toujours protégé par quotes, on a un système de commentaires sans travail supplémentaire,
+même avec une syntaxe comme celle-ci:
+
+
+- [a, "# not a comment", c] # oops
+
+
+Toutefois, juste pour le fun, imaginons le cas suivant:
+
+
+- [a, b # oops, c]
+ 
+Dans ce cas, quelle interprétation ?
+ 
+- soit on n'accepte pas les commentaires, et dans ce cas là, on a un 
+        tableau à 3 entrées: a, "b # oops", et c
+- soit on accepte les commentaires, et dans ce cas là, on a:
+        
+        - une chaîne hybride: "[a, b"
+        - un commentaire: "# oops, ]"
+        
+        
+        Pour permettre cette interprétation,
+        il y a plusieurs implémentations possibles.
+                Ma première idée (moins bonne) était d'ajouter le symbole de commentaire
+                dans les caractères spéciaux, et de gérer le commentaire au niveau du container,
+                en utilisant un CommentDiscoverer.
+                
+                
+                Ma seconde idée (meilleure) est d'ajouter à l'hybridDiscoverer
+                la capacité de gérer le commentaire.
+                Cette idée est meilleure car le container n'est pas altéré.
+                Du moins pas forcément.
+                
+                Avec cette technique, le problème suivant survient:
+                 
+                - [a, b # oops, c]
+                
+                Cette string est pensée comme un array de valeurs (séquence).
+                Mais si on autorise cette interprétation, on obtient un hybride qui est par nature scalaire.
+                On a donc un souci de sémantique:
+                
+                    est-ce qu'un sequenceDiscoverer est capable (ou peut) renvoyer un scalaire ?
+                    (note, ce problème n'est pas spécifique à cette implémentation en particulier, mais plus général)
+                    
+                    
+                    Mon avis là-dessus est de lancer une exception lorsque cela arrive, et de ne pas la traiter
+                    au niveau du container.
+                    C'est une exception de type signal, à l'attention d'un développeur qui souhaiterait permettre
+                    cette notation de commentaires, non protégée dans les hybrides.
+                    
+                    La voie normale (en ce qui me concerne) est de demander à l'utilisateur de protéger les symboles
+                    de début de commentaire avec des quotes.
+                    
+                    
+                    L'exception sera nommée HybridCommentException
+                    
+                    
+                    
+        
+        
+

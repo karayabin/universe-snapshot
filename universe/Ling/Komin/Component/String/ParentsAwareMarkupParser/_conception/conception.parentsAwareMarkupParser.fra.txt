@@ -1,0 +1,29 @@
+Conception
+==================
+2015-05-21
+
+
+
+
+Cet objet permet de parser une notation utilisant un language balisé (dont les expressions sont encadrées par des balises),
+en fournissant, pour chaque balise parsée, l'accès aux noms des balises parentes.
+
+    
+La problématique que résoud cet objet est bien illustrée lorsqu'on souhaite utiliser un markup et le convertir pour la console.
+En effet, une contrainte très importante à prendre en considération pour l'affichage dans cli est que 
+les formats ne se cumulent pas naturellement comme en html.
+
+C'est à dire:
+
+    1                                           2             3                   4     
+    <warning>Warning, vous êtes priés de manger <bold>vos</bold> sandwichs</warning>
+    
+    
+    Si le language était parsé comme du html, à la sortie du tag bold (3), le formattage du tag warning
+    s'appliquerait naturellement.
+    Or ce n'est pas le cas en mode console, car on a juste une commande qui permet d'annuler tout le formattage,
+    mais pas de commande qui permet d'annuler partiellement le formattage.
+    Cela signifie qu'on doit re-spécifier le formattage que l'on souhaite, et ce à chaque sortie de balise.
+    
+    Connaître les parents de la balise fermée est une information cruciale pour l'implémentation d'un tel système.
+    

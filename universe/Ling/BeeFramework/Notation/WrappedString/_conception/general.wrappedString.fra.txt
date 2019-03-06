@@ -1,0 +1,22 @@
+General
+==============
+2015-05-12
+
+
+
+
+Une wrapped string est une string qui est entourée par un symbole de début et un symbole de fin,
+et qui utilise un des modes d'échappement suivants:
+
+- 0: pas d'échappement
+- 1: échappement simple
+        le backslash ne peut qu'échapper un symbole
+- 2: échappement récursif
+        le backslash peut échapper un symbole ou un autre backslash
+         
+         
+         
+         
+Lorsque le symbole de début et de fin sont identiques, la wrapped string est appelée candy string.         
+
+

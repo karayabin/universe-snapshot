@@ -1,0 +1,113 @@
+Brainstorm
+====================
+2015-06-11
+
+
+
+
+HttpClient est un client qui permet d'envoyer des requêtes http,
+et de recevoir les réponses.
+
+
+                    
+                    
+                        
+        Dans notre conception, le cookie jar est un fichier qui contient
+        les cookies utilisés pendant la session http.
+        A chaque nouvelle requête, si le serveur envoie des cookies,
+        ils sont stockés dans la cookieJar, cela permet de bénéficier
+        de la logique de l'application et de se faire passer pour un utilisateur
+        par exemple.
+        On peut bien évidemment configurer la cookie jar avec des valeurs arbitraires 
+        dès le départ.
+                                    
+                                        
+    HttpResponse            HttpClient.send ( HttpRequest )
+                                    Le host et le port doivent obligatoirement être définis.
+                                    
+    self                    HttpClient.setCookieJar ( CookieJar )
+    self                    HttpClient.setHost ( host )
+                                    Le host sera injecté dans toutes les requêtes HTTP qui n'ont pas défini le header Host.
+                                    
+                                    Cela permet de n'écrire qu'une fois le host.
+                                    Cela peut être pratique, par exemple dans le cas d'un parser de pages html dont les liens sont relatifs
+                                    (on peut suivre les liens avec le même client sans avoir à redéfinir le host à chaque fois).
+    self                    HttpClient.setPort ( port )
+                                    Par défaut: 80
+    self                    HttpClient.useSsl ( boolean )
+                                    Par défaut: false
+                                     
+    
+    BagInterface            HttpRequest.headers
+    self                    HttpRequest.setBody ( string | BodyEntity )
+                                    cette méthode ajoutera automatiquement le header Content-length (ou Transfer-Encoding?)
+                                     
+    self                    HttpRequest.setHttpVersion      
+                                    Par défaut, HTTP/1.1 est utilisé
+    self                    HttpRequest.setRequestTarget      
+                                    Méthode de bas niveau, ne gère pas l'encodage
+    self                    HttpRequest.setUri      
+                                    Méthode de haut niveau, gère l'encodage.
+                                    L'uri sera strippée de tout paramètre.
+                                    Utiliser setUrlParameters pour définir des paramètres.
+    self                    HttpRequest.setUrlParameters      
+                                    Méthode de haut niveau, gère l'encodage.                                    
+                                    
+    self                    HttpRequest.setMethod
+          
+    string                  HttpRequest.getMethod
+                                        default: GET
+    string                  HttpRequest.getRequestTarget      
+    string                  HttpRequest.getHttpVersion      
+    string                  HttpRequest.getBody      
+                                            
+        
+                                
+    string                  HttpResponse.getHttpVersion                           
+    int                     HttpResponse.getStatusCode 
+    string                  HttpResponse.getReasonPhrase
+    
+     
+                              
+    ReadOnlyBagInterface    HttpResponse.headers                           
+                                    Les headers définis plusieurs fois avec le même nom sont retournés sous la
+                                    forme d'un array dont chaque entrée correspond à une valeur.
+                                
+    (méthodes raccourcis)                                    
+    ReadOnlyBagInterface    HttpResponse.cookies    
+                                    (méthode raccourci basée sur HttpResponse.headers)            
+    string                  HttpResponse.getContentType 
+                                    default=text/html
+                                    Note: les paramètres sont strippés (par exemple, si le header original est text/html; charset=UTF8,
+                                    cette méthode renvoie uniquement text/html).
+                                
+    
+     
+    CookieJar.setPath ( path/to/cookieJar )                                        
+                            
+
+        
+    
+    BodyEntity
+        getContentType
+        setContent
+        getContent
+        
+        Cet objet permet de créer le corps encodé d'une requête.
+        En effet, le corps (body) d'une requête peut avoir plusieurs formes:
+                         
+            - text/html:                    <h1>coucou</h1>                         
+            - text:                         coucou                         
+            - file:                         GIF89aœJZARÂêçÊÚÚêÌ∂ﬁœ®êÂﬁ®Â®.......
+            - x-www-form-urlencoded:        nom=michel&age=26                         
+            - application/json:             {nom: michel, age: 26}                         
+            - application/xml:              <xml><nom>michel</nom><age>26</age></xml>                         
+            - multipart/form-data:          constitué de plusieurs BodyPartEntity.
+            - ...:
+                         
+        Note: le terme entity ici n'est pas lié à celui défini dans la rfc.        
+        
+        
+        
+    BodyPartEntity:
+        utilisés pour créer un bodyEntity de type multipart/form-data

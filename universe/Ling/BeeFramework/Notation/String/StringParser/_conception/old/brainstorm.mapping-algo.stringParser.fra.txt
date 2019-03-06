@@ -1,0 +1,193 @@
+Brainstorm
+==================
+2015-05-13
+
+
+
+
+
+Mapping algorithm
+========================
+
+
+Objectifs visuels
+---------------------
+
+{}
+    - return empty array
+{:}
+    - implicit key true ? key=0 (php) : return false;
+    - implicit value: true ? value=null: return false;
+{:,:}
+    - implicit key & implicit value = true ? [0: null, 1: null] : return false
+{a}
+    - return false
+{a::}
+    - return array [a => ':']
+{,}
+    - return false
+{a: doo, }
+    - return false
+    
+
+
+key = null
+values = []
+
+while ( isValid )
+
+
+    if(isContainerEnd()){
+        return values
+    }
+    else{
+        if(null === key){
+            keyFound = false
+            key = findKey(keyFound)
+            if(false === keyFound)){
+                if(false === onKeyNotFound(key)){
+                    return false
+                }
+            }
+        }
+         
+        valueFound = false            
+        value = findValue(valueFound)
+        if(false === valueFound)){
+            if(false === onValueNotFound(value)){
+                return false
+            }
+        }
+        insertEntry( key, value, values )
+    }
+
+
+
+searchType:
+    1: key
+    2: key value sep
+    3: value 
+    4: value sep or end
+
+
+autoIndex = false
+
+while ( isValid )
+
+    skipNotSignificant(it)
+    
+    
+    if ( isContainerEnd )
+        return values
+        
+    else
+    
+        
+        if ( 1 === searchType )
+            
+            if ( isKeyValueSep )
+                if ( allowImplicitKeys )
+                    key = getDefaultImplicitKey()
+                    if ( null === key)
+                        autoIndex = true
+                    
+                    searchType = 2
+                else
+                    return false
+                
+            else
+                keyFound = false
+                k = parseKey ( it, keyFound )
+                if ( true === keyFound )   
+                    key = k
+                    it->next()                                                  
+                    skipNotSignificant(it)
+                                                                      
+                    searchType = 2
+                else
+                    if ( mandatoryKey )
+                        return false
+                    else
+                        key = null
+                        autoIndex = true // optional key always resolve to auto index
+                        searchType = 3
+                      
+                        
+            if ( 2 === searchType )
+                // at this point, cursor should be at the beginning of the kvSep                                    
+                if( isKeyValueSep )
+                    searchType = 3
+                    it->next()                                                                               
+                    skipNotSignificant(it)                                                                       
+                                                                        
+                else
+                    error ( cursor should be in front of kvSep )
+                    return false
+                                                                                                                
+                                            
+                            
+            if ( 3 === searchType )
+                // at this point, cursor should be at the beginning of a value
+                
+                if( isValueSep || isContainerEnd )
+                    if( isValueSep )
+                        if ( allowImplicitValues )
+                            value = getDefaultImplicitValue()
+                        else
+                            return false
+                    else
+                        if ( allowImplicitEntries )
+                            list ( key, value ) = getDefaultImplicitEntry()
+                            if ( null === key )
+                                autoIndex = true
+                        else
+                            return false                                                                 
+                else
+                
+                    valueFound = false
+                    v = parseValue ( valueFound )
+                    if( true === valueFound )
+                        value = v
+                        it->next()                                                  
+                        skipNotSignificant(it)
+                                                                                            
+                    else
+                        return false 
+                        
+                        
+                // at this point, both key and value should be defined
+                // at this point, the cursor should be on a valueSep or at the container end
+                
+                if( )                
+                
+                if( false === autoIndex )
+                    values[key] = value
+                else    
+                    values[] = value
+                    
+                autoIndex = false
+                searchType = 1
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,120 @@
+Brainstorm
+=================
+2015-05-08
+
+
+
+
+Maintenant que l'editableLine est en place, cela nous facilite l'implémentation d'un dialogue.
+
+Un dialogue serait à la base: une question, suivi d'une editableLine.
+
+
+
+Questions pour la conception:
+
+1. quel symbole pour terminer le dialogue ?
+            - return
+            - y
+            - n
+            Dans le cas de y/n/..., est-ce que le symbole s'affiche ou pas.
+            
+            
+2. Comment est géré le retour à la ligne suivant la réponse utilisateur, ou pas de retour à la ligne ?            
+3. Dans certains cas, affichage d'un texte parallèlle, par exemple la question:
+        
+            quel est votre animal préféré (tapez x pour voir la liste de tous les animaux) ?
+            
+            Si l'utilisateur tape x, doit-on réafficher la question en-dessous ou pas ?
+            Comment cela est-t'il géré ?
+            
+4. Validation de l'entrée utilisateur, que faire en cas de résultat non valide.
+
+5. Peut-on sortir du dialogue avec escape?, sans sortir du programme ? 
+6. Comment peut-on chaîner les dialogues ?
+        
+        
+        
+        
+
+Réponses ou éléments de réponse:
+      
+6.    
+    Le piège ici est de faire tout en imbriqué,
+    Dialog->onEnd( callNextDialog )
+    
+        car même si le dialogue appelle la méthode keyboardListener.stopListening,
+        celle-ci ne sera pas effectuée avant que toute la chaîne soit finie,
+        donc ce n'est pas la bonne approche car elle ne correspond pas à la conception qu'on a en tant qu'humain,
+        enfin, intuitivement.
+        
+        
+        On peut utiliser les observers,
+            poster un observer à la fin qui met à jour le nom du prochain dialog à exécuter ?
+            et qui reçoit le nom d'un dialog qui vient de se finir.
+             
+            
+            
+            
+            Dialog
+                mixed execute
+                        Chaque dialogue utilise en interne son propre keyboardListener,
+                        et renvoie la réponse du dialogue (comme ça on peut assigner facilement les valeurs dans le mode formulaire).
+                        Le seul moyen pour un dialogue d'indiquer une erreur sont les exceptions.
+                
+            Form
+                execute
+                    vars = []
+                    foreach Dialog as name => dialog
+                            vars[name] = dialog->execute()           
+                    // vars ready...
+                    
+                    
+5. ce n'est plus géré au niveau du dialogue, mais avec d'autres observers, executés avant?
+                    
+4. lancer une exception à la fin.
+    Pour la répétition:
+            on peut soit:
+                - clear la réponse de l'user et expect une new one
+                - reposer la question, éventuellement afficher pourquoi la donnée n'est pas correcte
+                - afficher le hint (pq pb?) en-dessous, tout en laissant le prompt au-dessus ?
+                            et le hint disparaît lorsque le dialogue valide (compliqué?)
+                            
+                            
+            L'affichage du hint peut se faire sur la même ligne, ou sur une autre.
+            La question reposée peut dépendre du nombre de répétitions:
+            
+                    C'est votre quatrième essai, veuillez recommencer:
+                    
+            Mais le hint à priori ne dépend pas de cette donnée, à moins que cette donnée soit utilisée pour modifier le hint:
+                    
+                    (essai 1) Le nom doit comporter au moins 2 caractères, vous en avez fourni un seul.
+                    (essai 2) Bon tu tapes 2 caractères connard ?!
+                    
+                    
+                    
+            Utiliser ValidatorInterface ou un callback équivalent?        
+            Mais le ValidatorInterface n'est pas au courant du nombre de répétitions.
+                    
+                                
+
+
+
+Dialog
+    Je pense que l'"astuce" est de ne pas essayer de gérer la validation:
+    le dialog.execute renvoie la réponse de l'utilisateur,
+    à partir de là, on PEUT ajouter de la validation si on veut, mais par défaut, non.
+    
+    
+    
+    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                        
+                    
+             
+             
+             

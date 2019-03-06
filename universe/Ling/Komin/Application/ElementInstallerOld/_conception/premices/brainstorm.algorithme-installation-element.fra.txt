@@ -1,0 +1,430 @@
+Brainstorm
+===============
+2015-04-20
+
+
+
+
+
+Algorithme d'installation d'un élément (EIA).
+                mon saint graal du moment.
+                
+                
+                
+                
+Lorsqu'on installe un élément, on connaît son nom, son type, et éventuellement sa version.
+
+
+install ( type, name, ?version )
+
+
+
+
+
+
+            
+            
+            
+            
+            
+            
+- is already installed in application ? (1)
+----- yes: end
+----- no: (2)
+        création du download map:
+            on cherche dans les meta repositories,
+            puis on parse récursivement les dépendances, 
+                    pour chaque dépendance, on vérifie également si elle est installée ou pas dans l'application
+                    avant d'aller la chercher dans les meta repositories.
+                    
+            Issues:
+                - A-t'on pu résoudre toutes les dépendances ?
+                
+        download:
+            le download map obtenu par la phase précédente contient donc uniquement (par défaut) les dépendances à télécharger
+            qui ne sont pas déjà installées dans l'application.
+            On utilise le downloader pour résoudre le protocole de téléchargement des ressources.
+            
+            Les ressources atterissent dans un dossier tmpDir.
+                    Par défaut, ces ressources ne sont pas stockées dans un dossier setup qui pourrait être réutilisé plus tard.
+                    
+        install:
+            à la fin de la phase de download, on obtient un tableau qui indique les infos (dont le chemin dans tmpDir) des éléments
+            à installer, dans l'ordre (si cela fait une différence).
+            
+            On utilise l'Installer pour installer ces zip (ou autre).
+                
+                
+                
+
+
+
+
+        
+1.
+    La toute première chose à faire c'est de savoir si l'élément est déjà installé dans l'application.
+    Si oui, ce n'est pas la peine d'aller plus loin.
+            Certains clients peuvent quand même poser la question, mais à partir de maintenant j'arrête 
+            d'écrire les alternatives possibles pour les clients, car sinon je vais m'éparpiller.
+
+             
+
+2.
+    S'il n'est pas dans l'application, on va chercher à l'installer en utilisant les steps suivants:
+    
+            1. création du download map
+            2. download
+            3. install
+            
+            
+3.
+    Bon ben en fait ça a l'air simple comme ça,
+    je pense que je cherchais trop à imaginer toutes les configs possible de client et du coup je m'embrouillais, et je ne faisais plus la différence
+    entre l'algorithme épuré de base et ce qui appartenait à la config. 
+    
+    
+    
+    
+    
+    
+    
+Problèmes
+-----------------
+    
+    
+Interprétation de 3mr ou pas ?
+
+Cela dépend des capacités du client.
+Certes.
+Comment ferait un client pour accepter la notation 3mr ?
+
+Pour répondre à cela, je dirais qu'un client fait partie du même écosystème que le
+repository, et qu'il est tout à fait possible qu'un repository et un client n'aient pas les mêmes facultés.
+Ainsi, dans le pire des cas, on a un client rm3 qui essaie de communiquer avec un repository qui comprend uniquement 3m.
+
+Dans ce cas, le synopsis devrait ressembler à ceci:
+
+    le client demande au repository si la version
+     
+            2.* est disponible.
+            
+        Si le repository ne comprend pas cette notation, il va dire que non.
+        Si le client sait que le repository ne comprend pas cette notation,
+        il pourrait recourir à la technique fastidieuse (impratiquable) suivante:
+        
+            appeller la ressource 2.9.9, puis 2.9.8, etc...
+            Jusqu'à épuisement des possibilités, ou match.
+
+
+On peut imaginer un scénario où les repositories sont tenus de déclarer leur capabilities (par l'interface),
+et un client peut être configuré pour skipper un repository qui n'offrirait pas certaines capabilities.
+
+
+Si le repository comprend 3mr, évidemment, tout devient plus simple, car les deux acteurs parlent le même language.
+
+    Ainsi le client demande les meta de 2.*, et le serveur lui répond false, ou lui donne les méta de la version 
+    la plus élevée ayant pour chiffre majeur 2.
+    
+    
+
+Vouloir imposer 3mr comme language de notation universel, même au sein de mes objets, ne me paraît pas prudent (manque d'ouverture),
+bien que cela résoudrait tous ces problèmes de synchronisation d'un coup.
+On va donc continuer à pratiquer la possibilité de choisir le système de versionnage.
+Pour être plus précis, le design de mes objets devrait permettre d'utiliser tout vns;
+cependant, une question vient:
+    au sein d'un même type d'élément, est-il envisageable, ou intéressant, d'avoir la possibilité 
+    de mixer plusieurs vns ?
+    
+        Par exemple un élément de version 1.4.5,
+        et un autre de version squeezy, 
+        et un autre de version 1.4.2.0054
+    
+    Probablement créer un vns plus souple englobant les vns à mixer est une meilleure idée ?
+    
+    Ce système où chaque auteur peut choisir son vns était mon idée de départ,
+    je vais donc essayer de l'implémenter en surmontant les difficultés de design que cela implique.
+    
+    Partant de cette contrainte, on en arrive à trouver que l'auteur de l'élément est RESPONSABLE
+    de fournir les mécanismes relatifs à la compatibilité et à permettant les résolutions de dépendances.
+    
+    
+    
+    Pour installer un élément E(squeezy), on tape install (squeezy).
+    Dans la section dependencies de meta, on a:
+    
+            dependencies:
+                    E:squeezy   (notation ElementId:version)
+                    
+                    
+    On voit qu'on n'a qu'une possibilité, et tout est très simple.
+    Finalement, plus la notation est complexe (comme 3mr), plus tout devient compliqué (logique).
+    
+    Pour installer E(1.4.2.0054), on peut taper install(1.4.2.0054).
+    Imaginons que l'auteur utilise un vns qui ne tienne pas compte d'éventuels problèmes de compatibilité.
+    Dans les meta, on aura:
+    
+            dependencies:
+                    E:1.4.2.0054
+    
+    
+    Il y a-t'il un problème là-dedans ?
+    Peut être ?
+    Si la même application utilise un autre élément qui dépend de E, mais dans une version différente:
+    
+            dependencies:
+                    E:1.6.5.1549
+                        
+    Alors comment doit réagir l'application hôte ?
+        - télécharger les deux versions                             
+        - télécharger juste la dernière                             
+        - dire qu'il y a un conflit et laisser l'humain résoudre le conflit
+                                     
+                                     
+    La troisième option n'est pas ce que nous cherchons lors de la conception, car notre but est justement
+    d'en faire le moins possible et de se laisser guider par un processus d'install des éléments automatisé tant que se peut.
+    
+    La première option semble irréalisable, car les deux versions de l'élément entrerait probablement en conflit.
+    
+    Il nous reste la dernière option: télécharger la dernière version.
+    Encore faut-il pouvoir déterminer la dernière.
+    Dans ce cas, ça va, car c'est numérique et incrémenté naturellement.
+    
+    Dans le cas du système squeezy, l'auteur doit indiquer l'ordre de succession, d'une manière ou d'une autre
+    (sinon c'est l'humain qui doit le faire et on veut éviter cela).
+    
+    
+    Ensuite, que se passe-t'il en cas de conflit de compatibilité ?
+    Prenons 3mr pour exemple avec deux éléments:
+        
+        
+        Element A:
+            dependencies:
+                    - E:1.4.5
+        Element B:
+            dependencies:
+                    - E:2.2.0
+    
+    
+    C'est le genre de conflit que notre client ne peut pas résoudre: l'utilisateur saura dans ce cas la personne la plus 
+    compétente pour résoudre (ou pas) le problème.
+    
+    
+    
+    Dans les deux derniers exemples, on a survolé la notion de compatibilité sans l'utiliser explicitement.
+    Reprenons ces exemples (un peu modifiés):
+    
+    Exemple 1:
+        Element A:
+                    dependencies:
+                            E:1.4.2.0054    
+        Element B:
+                    dependencies:
+                            E:1.6.5.1549
+    
+    Exemple 2:
+        Element A:
+            dependencies:
+                    - E:1.4.5
+        Element B:
+            dependencies:
+                    - E:2.2.0    
+    
+
+    Dans ces 2 exemples, si on utilise un système de compatibilité ascendante totale, alors la solution (pour le client)
+    en cas de conflit est d'installer la dernière version.
+    Il n'y a pas d'ambiguïté si on admet que toutes les versions sont développées en compatibilité ascendante.
+    
+    C'est peut être une solution en soi ?
+    L'impression que 3m essaie de pallier à la non adhérence des auteurs d'éléments à ce système "parfait" qui résoud pas
+    mal de problèmes de compatibilités.
+    C'est une solution si on le dit dès le départ.
+    On pourrait passer le numéro de version dans le nom de l'élément plutôt que dans le nom de version.
+    
+    C'est à dire:
+        un élément E qui passerait en version 2 s'appellerait en fait E2.
+        Puis on dirait que tout élément doit être développé en compatibilité ascendante (tous les tests passent d'une version à l'autre).
+        Gardons cette solution (que j'aime bien sémantiquement) de côté.
+        
+    
+    En fait, la plupart des problèmes de compatibilité auxquels je suis confronté dans ce document viennent de là.
+    L'auteur, dans la mauvaise conception, accepte dès le départ la possibilité que son élément présente des risques d'incompatibilité
+    avec lui-même, et utilise des notations comme 3m pour indiquer cela.
+    C'est le bordel, si je puis me permettre.
+    Mais il semble que c'est un peu comme ça que ce soit développé les éléments versionnables sur internet,
+    probablement dans le souci d'économiser des noms.
+    Il est également vrai qu'on conserve un peu mieux son identité avec ce système.
+    
+    
+    
+    En fait je pense à un autre système, dans lequel on aurait deux numéros de version plutôt qu'un seul.
+    Un pour indiquer la compatibilité, et un autre pour indiquer la version interne.
+    La nuance de cette approche avec 3m par exemple, est qu'il est possible de conserver des vns n'utilisant pas une notation
+    numérique sans que cela fasse bizarre.
+    
+    Je m'explique.
+    Soit double le nom du vns que je viens d'inventer dans le paragraphe ci-dessus.
+    On pourrait se dire que finalement 3m fait la même chose, sauf que le chiffre indiquant la compatibilité
+    est incorporé (pour 3m) dans le numéro de version.
+     
+    Avec 3m, si l'élément voulait appeler sa version squeezy ou wheezy,
+    on aurait les numéros de versions suivants (par exemple):
+    
+        - 1.squeezy
+        - 1.wheezy
+        - 2.squeezy
+        - 2.wheezy
+    
+    Bon en fait ça passe (ce n'est pas si bizarre que ça).
+    Mon idée était d'avoir deux numéros séparés:
+    
+            - compatibilityNumber: 1
+            - versionNumber: squeezy
+    
+    Ok, mais qu'est-ce que cela nous apporterait d'utiliser une telle notation ?
+    Qu'apporte une telle notation, ou une notation comme 3m qui représente la compatibilité par un identifiant ?
+    
+    On peut se permettre de dépendre d'une plage d'éléments plutôt que d'un élément unique.
+    Par exemple:
+    
+            Element A:
+                dependencies:
+                        E:1.4+      (dépend de toute version entre 1.4.0 et 2.0.0)
+                        
+                        
+    Est-ce que cela a un intérêt ?
+    Est-ce que cela a un intérêt de dépendre d'une plage de versions plutôt que d'une version en particulier ?
+                            
+                            
+                            
+                            
+                        
+    
+    
+    
+    
+    
+    
+    
+     
+     
+     
+     
+        
+        
+        
+        
+        
+        
+    
+    
+    
+    
+    
+    
+    
+                 
+                        
+                        
+                        
+                        
+    
+    Rôles de l'auteur d'un élément
+    -------------------------------------
+    - Indiquer l'ordre de succession en cas d'utilisation d'un vns dont le passage d'une version à la suivante ne peut pas se résoudre
+        par comparaison numérique.
+        
+        
+    
+     
+     
+     
+    
+    
+    
+
+
+
+
+
+
+
+
+
+    Lorsqu'on installe un élément,
+        doit-on être exact, ou peut-on utiliser un range tel que E(1.4+)?
+        Dans le fichier de meta, une dépendance est-elle exprimée de manière exacte ou par range ?
+        
+        
+            
+            Théoriquement, 
+            pour le fichier de meta, 
+                il doit être possible de spécifier un range dans le passé:
+                
+                    dependencies:
+                        komin/base: 1.2 -> 1.6
+                        
+                    Mais si on applique le principe de compatibilité ascendante, 
+                    l'exemple ci-dessus est implicitement toujours vrai.
+                    On pourrait réduire à une version fixe ?
+                    
+                    dependencies:
+                        komin/base: 1.2
+    
+                    Mais si une version 1.4 était disponible on la raterait, alors qu'elle serait compatible
+                    et plus adaptée (plus récente) ?
+                    
+                    L'utilisation d'un plus pourrait-t'il faire l'affaire ?
+    
+                    dependencies:
+                        komin/base: 1.2+
+                        
+                        
+    
+    
+    
+Si on peut spécifier un 3mr?, 
+    alors comment le stock peut-il discarder les repositories ?
+    
+    
+    
+    
+Si on peut exprimer une dépendance avec 3mr ? ,
+    alors revoir la notion de compatibilité de 3m ?
+    
+    
+    
+    
+    D'après le principe de compatibilité ascendante,
+    un élément 3m V+1 est compatible avec la version V si le chiffre majeur n'est pas modifié.
+    
+    
+    Donc un élément en version 1.8.6 sera compatible avec 1.4.5 qui sera compatible avec 1.1, par exemple.
+    
+    
+    
+    
+           "
+            Autre exemple, si un élément A possède une dépendance vers B en version V.
+            Si un peu plus tard A évolue et a besoin d'utiliser l'élément B en version V+1,
+            alors la compatibilité est cassée.
+            "
+            
+            
+            Même si B(V+1) est compatible avec B(V) ?
+                non, dans ce cas effectivement la compatibilité n'est pas cassée.
+                
+                => 
+                Un élément A est compatible avec un élément A-1 si lorsqu'on substitue
+                A à A-1 on n'observe aucune régression au niveau des tests unitaires de A-1.
+                
+            
+            
+                    
+                    
+            
+            
+            
+    
+    
+    
+    

@@ -1,0 +1,73 @@
+Brainstorm
+=================
+2015-05-07
+
+
+
+
+Le keyboard listener permet d'écouter les frappes du clavier.
+On peut également écrire les frappes programmatiquement.
+On est également capable de stocker les frappes en vue d'une analyse ultérieure.
+
+
+
+Contraintes liées à notre implémentation:
+
+    1. notre implémentation sera liée à STDIN.
+    
+        L'une des contraintes que cela implique est la suivante:
+            Si un autre programme ferme STDIN, il n'est plus possible de le rouvrir.
+            Cela signifie que keyboard listener ne fonctionne normalement que tant que
+            STDIN n'est pas fermé.
+    
+    2. Nous utilisons l'utilitaire stty pour désactiver l'affichage,
+            de manière à donner une totale liberté aux observers (voir plus bas).
+            
+            Par conséquent, notre implémentation ne fonctionnera pas sur 
+            les machines qui n'ont pas le programme stty (probablement windows?).
+             
+        
+            
+        
+        
+
+
+
+KeyboardListener
+    -> listen ()
+            écoute les frappes du clavier de l'utilisateur
+            
+            
+    -> write ( expression )
+            écrit l'expression dans STDIN.
+            Les observers voient l'information écrite également.
+    
+    -> setObserver ( Observer, index=null )
+            grâce à cette méthode, on peut gérer le stockage des données,
+            et bien d'autres choses.
+            
+    -> stopListening ()
+            n'écoute plus les frappes du clavier de l'utilisateur.
+            On peut utiliser à nouveau listen après et ainsi de suite.
+            
+    
+    
+    
+    Un observer peut être un callback ou un objet KeyboardListenerObserver.
+    Les paramètres sont les mêmes pour les 2 types d'éléments:
+    
+    
+            -> notify ( string, KeyboardListener, fromRead=true )
+            
+                    - string, l'expression écrite (programmatiquement), 
+                                    ou le caractère tapé par l'utilisateur
+                    - KeyboardListener, l'instance courante.
+                                Cela permet de stopper le keyboardListener,
+                                    ou d'utiliser sa méthode write.
+                    - fromRead: indique la provenance des données:
+                                    - true: tapées par l'utilisateur                                                                
+                                    - false: écrite programmatiquement via la méthode write du keyboardListener                                                                
+                                     
+            
+    
+                        

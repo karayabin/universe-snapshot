@@ -1,0 +1,8 @@
+[app]/class-controllers/{ModuleName}
+[app]/config/modules/{ModuleName}
+[app]/config/morphic/{ModuleName}
+[app]/config/upload-profiles/{ModuleName}
+[app]/scripts/modules/{ModuleName}
+[app]/service/{ModuleName}
+[app]/store/{ModuleName}
+[app]/www/modules/{ModuleName}

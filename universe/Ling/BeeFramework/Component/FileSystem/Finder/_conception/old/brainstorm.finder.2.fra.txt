@@ -1,0 +1,247 @@
+Brainstorm
+================
+2015-04-26
+
+
+
+
+Le finder est un outil permettant de rechercher des ressources (fichiers, dossiers, liens) sur un système de fichiers donné.
+
+
+
+Synopsis:
+        Finder::create( srcDir )
+        
+        ** choix du type de ressource à chercher **
+                
+            ->directories( followLinks=true )   (@1)
+            ->files( followLinks=true )
+            ->links( followLinks=true )
+            
+            
+            
+            
+            
+            
+
+            
+            
+Réflections
+---------------  
+          
+          
+@1:  Suivre ou ne pas suivre les liens ?
+
+
+    Voici notre arborescence de travail:
+    
+        - myDir
+        ----- dir1
+        --------- file1.txt
+        --------- toDir -> /myDir/dir2
+        --------- toFile -> /myDir/dir2/file2.txt
+        --------- toBroken -> /myDir/dir2/nope.txt
+        ----- dir2
+        --------- file2.txt
+        ?--------- toDirRecursion -> /myDir/dir1
+        ----- dir3
+        --------- subDir3a
+        
+
+    ### Inclusion des éléments de type liens ? 
+    
+    Si on fait une recherche avec 
+            
+            f(/myDir)->directories(false)
+            
+            on doit trouver les dossiers contenus récursivement dans /myDir.
+            Si on ignore le problème de récursion (toDirRecursion),
+            on s'attend logiquement à avoir les chemins relatifs suivants:
+            
+                - dir1
+                - ?toDir
+                - dir2
+                - dir3
+                - subDir3a
+                
+                
+                L'interrogation est sur toDir: du point de vue de php, c'est à la fois un directory et un link,
+                alors doit-on l'incorporer dans notre résultat ?
+                
+                
+            
+    ### Quels chemins va-t'on obtenir en suivant les liens ? 
+    
+    Si on fait une recherche avec 
+            
+            f(/myDir)->files(true)
+            
+            on doit trouver les dossiers contenus récursivement dans /myDir.
+            Si on ignore le problème de récursion (toDirRecursion),
+            on s'attend logiquement à avoir les chemins relatifs suivants:
+            
+                - dir1/file1.txt
+                - ?dir1/toDir/file2.txt (accès par toDir)
+                - ?dir1/toDir/file2.txt (accès par toFile)
+                
+                
+                L'interrogation est ici sur le chemin relatif, que doit-on avoir parmi:
+                
+                        - dir1/toDir/file2.txt
+                        - dir1/dir2/file2.txt
+                        - dir2/file2.txt
+                        
+                        
+                Peut être que les 3 sont intéressants.
+                
+                Le premier permet de tester qu'une ressource est bien atteinte via un certain chemin
+                (on pourrait vouloir affecter certaines restrictions si l'utilisateur essaie d'accéder à une ressource via 
+                un certain chemin par exemple); le nom du lien est utilisé comme symbole d'entrée vers le dossier pointé par le lien.
+                
+                Le second est une variante du premier mais c'est le nom réel du dossier qui est utilisé comme porte d'entrée
+                vers le dossier pointé par le lien.
+                
+                Le troisième est un chemin relatif à partir du dossier de recherche.
+                
+                Dans tous les cas, le chemin absolu doit toujours disponible, même si on ne l'utilise pas dans ces exemples.
+                
+                
+                
+                Il en va de même pour un lien vers un fichier existant.
+                Dans le cas de la deuxième interrogation, qui à priori, a la même notation que la première.
+                L'interrogation est encore une fois sur le chemin relatif, voici les choix de base que l'on a:
+                
+                        - dir1/toFile
+                        - dir1/toFile/file2.txt
+                        - dir1/toFile/dir2/file2.txt
+                        - dir1/dir2/file2.txt
+                        - dir1/file2.txt
+                
+                
+                Notons tout de suite que si dir1 contenait un fichier nommé file2.txt, ce serait une source de conflit
+                potentielle pour les patterns.
+                
+                
+                Mmm, on voit là pas mal de problèmes.
+                Le chemin relatif est important, il nous le faut pour dessiner des arborescences par exemple.
+                Cependant, avoir accès à l'information: est-ce qu'un lien a été suivi, et par quel(s) chemin(s)
+                peut également être important.
+                
+                Il nous faut une nomenclature plus précise (voir plus bas) afin de ne pas faire n'importe quoi.
+                
+                
+                
+Nomenclature pour la recherche d'une ressource au sein d'un système de fichiers donné               
+==========================================================================================
+
+Soit FS le système de fichiers donné.
+Soit R le dossier de recherche mère.
+
+
+L'outil finder permet de trouver des ressources dans FS(R).
+
+Une ressource a un type unique qui peut être:
+
+- un fichier
+- un dossier
+- un lien (inclue les liens cassés)
+
+Note:
+    contrairement à php qui autorise une ressource à appartenir à 2 catégories en même temps (dossier et lien, ou fichier et lien),
+    ici une ressource n'appartient qu'à un seul type à la fois.
+    Par contre, un lien (non cassé) pointe vers une autre ressource.
+    
+Etant donné qu'un lien peut pointer vers un autre lien, on a la notion de cible finale du lien.
+Cette cible finale est un dossier ou bien un fichier.
+
+
+Parallèllement à l'inclusion des liens ou pas dans le jeu de résultats, on peut demander de suivre les liens ou pas.
+
+
+
+
+Note 2:
+    Au niveau de l'implémentation du finder, on pourrait cumuler les différents types de ressources à chercher:
+            finder->directories()->links()
+    Par défaut, nous conseillons que le finder cherche uniquement des dossiers ou fichiers, mais pas les liens.
+    C'est à dire explicitement:                
+            finder->directories()->files()
+            
+
+
+Le finder renvoie un tableau contenant des objets basés sur SplFileInfo (voir la doc de php),
+mais avec quelques propriétés supplémentaires:
+
+
+- links: array
+    Comme nous l'avons détecté pendant notre analyse, il serait intéressant d'avoir l'information (si elle existe)
+    des liens suivis, ou pas.
+    Pour chaque lien suivi, on aurait une entrée dans le tableau links.
+    
+    Cette entrée serait un tableau avec les infos suivantes:
+        
+        - name: baseName du lien
+        - path: chemin absolu du lien
+        - target: string: la cible du lien telle que spécifiée lors de la création du lien
+        
+        
+    Note:
+        un lien suivi est un lien (non cassé) rencontré sur le chemin du dossier de recherche (exclus) vers 
+        la cible (exclus).
+        Cela veut dire que même si le dossier de recherche est atteint par un lien, 
+        ce lien ne figure pas dans ce tableau.
+        
+        Métaphoriquement, on peut voir un lien comme une porte.
+        Un lien suivi est une porte qu'on a pu ouvrir.
+        
+        
+    
+- relativePath: le chemin relatif de la ressource, en utilisant éventuellement la notation deux 
+                    points consécutifs (..) pour remonter d'un répertoire.
+                        
+                        
+- symbolicPath:
+    Cette notation est un compromis entre le chemin relatif et l'accès à l'information: est-ce qu'un lien a été suivi ou pas.
+    Si aucun lien n'a été suivi, alors cette notation est strictement égale au chemin relatif.
+    Si au moins un lien a été suivi, alors la notation est la suivante:
+    
+                
+                notation: <entryPath> "->" <finalTarget>
+                - entryPath: string, chemin relatif pointant vers le premier lien rencontré
+                - finalTarget: le baseName de la cible finale du lien
+
+        Exemple:
+
+            - dir1/toFile -> file2.txt
+             
+    
+- level: int, 
+    le nombre de dossiers rencontrés, en partant du dossier parent exclus,
+    et pour arriver à la cible exclus.
+    
+    C'est à dire que les enfants directs du dossier de recherche
+    sont au niveau 0.
+             
+             
+            
+
+
+                
+                
+                
+                
+                
+                
+                                                                                 
+                                                                                 
+                                                                                        
+                                                                            
+                                                                            
+                        
+                
+                
+            
+            
+          
+          
+          

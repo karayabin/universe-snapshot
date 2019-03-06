@@ -1,0 +1,70 @@
+Brainstorm
+=================
+2015-05-05
+
+
+
+
+
+
+Lorsque l'on créé un client dont le but est d'installer automatiquement des modules,
+on est à un moment donné confronté à la réflection suivante:
+
+    - est-ce que notre client doit essayer de résoudre les problèmes de compatibilité ?
+    
+    
+La réponse courte est non.
+La réponse longue est ce qui suit.
+    
+Du point de vue du client, le pb concret est le conflit de dépendances (aussi appelé le problème des dépendances
+parallèlles).
+Ce problème peut être schématisé de la sorte:
+
+    
+    A -> B
+    A -> C
+    B -> E:1.0
+    C -> E:1.4
+    
+    Quelle version choisir entre E:1.0 et E:1.4 ?
+    La réponse est toujours: la dernière version.
+    
+        
+        
+    Vouloir créer un client plus sophistiqué est à mon avis une erreur.
+    Voici l'erreur que j'ai faite.
+    Par exemple:
+    
+    A -> B
+    A -> C
+    B -> E:2.0
+    C -> E:1.4
+        
+    Je m'étais dit que peut être dans ce cas, si on définit que la version 2 est totalement incompatible
+    avec la version 1.4, alors le client peut réagir différemment.
+    Cela permet d'avoir un client plus "intelligent" (en apparence seulement), ou du moins avec plus d'options.
+    Le problème de cette conception est que la version E:2.0 est dans un sens toujours compatible avec la version 1.4.
+    
+    En fait, si on réfléchit un peu sur la compatibilité, on trouve qu'un module A est toujours compatible avec lui-même,
+    sinon il ne s'appellerait plus A.
+    Php est un bon exemple de cela, on a eu les version 4, 5n, et bientôt 6 peut être ?
+    La version 5 reste compatible avec A, malgré les nombreuses évolutions et différences entre les 2.
+    
+    Une autre manière de constater que notre client ne doit pas tenter de résoudre des problèmes de compatibilité
+    est de comprendre que pour résoudre un problème de compatibilité, il faut un module, mais également le code
+    qui l'utilise.
+    Sans ces 2 éléments, on ne peut raisonnablement pas résoudre le problème de compatibilité.
+    Le client n'a aucun de ces éléments à sa disposition et est donc incapable de résoudre un problème de compatibilité.
+    De la même manière, un système de nommage de versions ne doit pas essayer de résoudre les problèmes d'incompatibilité,
+    car le module ne connaît pas l'application dans laquelle il sera utilisé.
+    
+    Résoudre les problèmes de compatibilité est une tâche qui revient au maintainer d'une application et à personne d'autre.
+    
+    
+    
+    
+    
+    
+    
+    
+    

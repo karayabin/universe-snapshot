@@ -1,0 +1,68 @@
+Brainstorm
+=================
+2015-05-07
+
+
+
+Maintenant que nous avons le symbolic code observer, il va être plus facile pour nous de créer un
+observer qui émule le comportement d'une ligne de saisie.
+
+La ligne de saisie permettra à l'utilisateur d'éditer du texte:
+
+    il aura bien sûr la possibilité d'entrer des caractères,
+    mais également de déplacer le curseur à gauche ou à droite,
+    d'appuyer sur tab.
+    
+    
+    Par extension, on peut prévoir que certains raccourcis clavier soient utiliser pour 
+    exécuter des opérations un peu plus avancées comme le copier/coller, ou retour au début de la ligne.
+    
+    
+    
+    
+    
+    Notons que parmi les difficultés que notre ligne doit surmonter, on aura:
+            - prise en compte de la taille de la fenêtre du terminal pour l'affichage d'une longue ligne
+                        qui dépasserait les bords de l'écran.
+                        En fait, cela est géré automatiquement, mais en être conscient c'est toujours bien.
+                        
+                        
+            - prise en compte du fait que l'utilisateur peut insérer du texte programmatiquement via keyboardListener.write.
+                        
+            
+            - la ligne ne commence pas forcément au début de la ligne.
+                    C'est souvent le cas quand on pose une question en ligne: la réponse est écrite
+                    après la question, sur la même ligne.
+                    
+                    Cette dernière contrainte influence notre design:
+                    on appellera une méthode start, ou mark,
+                    afin de mémoriser la position de départ de la ligne,
+                    position à partir de laquelle sont effectués les calculs d'affichage de la ligne.
+            
+            
+            
+Notre stratégie sera de créer un objet EditableLine qui contiendra le contenu de la ligne à tout instant.
+Chaque insertion de caractère/expression mettra à jour la ligne.
+Les fonctions del/suppr permettent de supprimer un caractère et de repositionner le curseur.
+De même, les flèches droite et gauche repositionnent le curseur.
+Un système de raccourcis sera lié à notre système.
+Il y a principalement 2 types de fonctions offertes par les raccourcis:
+    
+        - repositionnement du curseur (début/fin)
+        - insertion/suppression? (copier coller)
+        
+Pour les mouvements de curseur, notre stratégie sera de mémoriser AVANT CHAQUE frappe la position du curseur,
+puis d'écrire tout le contenu de la ligne, puis de repositionner le curseur, en accord avec la fonction appelée.        
+    
+    
+Note: afin de gérer les mouvements aux limites de l'écran (passage d'une ligne à l'autre),
+on doit détecter les dimensions du terminal. Pour ce faire, nous utilisons le programme tput.
+Notre implémentation de la ligne dépend donc de ce programme.
+    
+    
+            
+EditableLineObserver
+    
+EditableLine
+    
+    

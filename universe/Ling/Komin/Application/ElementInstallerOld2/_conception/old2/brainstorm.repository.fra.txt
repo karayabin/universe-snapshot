@@ -1,0 +1,109 @@
+Brainstorm
+==================
+2015-05-22
+
+
+
+
+Un repository est à la base un objet qui stocke les éléments et permet leur distribution.
+
+
+
+Du fait que certains éléments peuvent avoir des dépendances vers d'autres éléments,
+le repository est capable de délivrer les dépendances d'un élément, de manière à ce qu'un client comme notre installateur
+ait l'opportunité de résoudre les dépendances en amont (et ainsi éviter quelques requêtes http).
+De plus, certains éléments étant payants, le repository doit aussi fournir le prix afin que le client puisse faire un "devis"
+précis à l'utilisateur.
+
+
+
+Un repository qui stocke des éléments payants est capable de:
+ 
+- permettre à l'utilisateur d'un client (comme notre installateur) de l'acheter 
+- de redistribuer les gains aux créateurs de l'élément, selon les modalités définies 
+
+
+
+Repository
+
+- array             getPriceAndDependencies ( elementId )
+                        Renvoie un tableau contenant:
+                            price: le prix en euros (fixé par le repository) de l'élément, sans tenir compte du prix éventuel des dépendances
+                            dependencies: un tableau contenant les elementId de chaque dépendance
+                            
+                            
+                                                
+                    
+                                                
+                    
+- string|false      getBundlePath ( elementId, array parameters = [] )
+                        Renvoie le chemin vers un fichier zip, au protocole https:// pour un repository distant, 
+                        ou file:// pour un repository local.
+                        Le tableau de parameters est avant tout créé par rapport au paiement.
+                        Les stratégies de paiement peuvent être différentes d'un repository à l'autre et impliquer d'autres requêtes https.
+                    
+                    
+                
+
+
+
+
+
+
+
+Note à l'attention des utilisateurs sur le prix d'un bundle
+----------------------------------------------------------------
+
+Attention, un bundle peut avoir des dépendances vers un élément payant.
+L'auteur d'un tel bundle fixe simplement le prix de son bundle, ce qui n'inclue pas les dépendances payantes
+que son bundle pourrait avoir.
+
+En général, les repositories proposant une interface graphique affichent bien le prix total, en tenant compte des dépendances.
+
+Cependant, si on utilise strictement l'api d'un repository,
+il est tout à fait possible qu'après avoir acheté un bundle, l'utilisateur doive encore acheter d'autres bundles pour faire
+fonctionner l'élément.
+Heureusement, notre installateur résoud toutes les dépendances avant le premier téléchargement de bundle,
+et est donc capable d'afficher le prix total que l'utilisateur devrait payer s'il voulait acquérir cet élément.
+
+
+
+
+Stratégies de paiement
+----------------------------
+
+
+### virtual coin
+
+    Une stratégie simple et assez directe est d'utiliser une monnaie virtuelle, proposée par le repository.
+    L'utilisateur achète d'abord quelques coins via une interface en laquelle il a confiance (probablement un navigateur web).
+    Ensuite, il fournit simplement ses identifiants (habituellement son pseudo et mot de passe), et l'installateur
+    utilise une api proposée par le repository qui permet l'achat via https.
+    En général, il me semble qu'utiliser un identifiant à 3 éléments est préférable qu'un identifiant classique à 2 éléments,
+    pour réduire le nombre de cas de force brute.
+    Cela ne sera pas très gênant puisqu'on pourra stocker les identifiants dans la config de notre installateur.
+    On pourrait donc avoir de très longs identifiants, ou bien un identifiant comportant de nombreux éléments,
+    améliorant la sécurité du système, sans pour autant ralentir l'achat.
+    
+    Cette technique a l'avantage de permettre l'acquisition d'un bundle en une seule requête https.
+    
+    
+    Note:
+        les repositories peuvent aussi proposer des achats de coin via la console, ce qui serait assez pratique.
+        Il faut cependant que les utilisateurs fassent confiance à la console.
+        
+        
+    Note 2:
+        les repositories devraient permettre la consultation de solde, afin que les clients comme notre installateur puissent
+        fournir une interface des plus agréables à l'utilisateur.
+        
+        
+        
+        
+        
+        
+        
+    
+    
+
+

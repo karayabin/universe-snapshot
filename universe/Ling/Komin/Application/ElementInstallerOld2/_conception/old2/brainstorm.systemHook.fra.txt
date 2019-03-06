@@ -1,0 +1,24 @@
+Brainstorm
+==================
+2015-05-22
+
+
+
+Certains installateurs peuvent avoir besoin d'une instance d'un système (application, ou système hôte d'un certain type d'élément)
+pour installer les éléments correctement.
+Dans ce document, nous proposons une technique qui permet de fournir cette instance du système.
+
+
+
+- un script noté par défaut systemHook.php (par défaut), et dont le contenu instancie le contenu et la met dans une variable $system (par défaut).
+
+        Ainsi, un installateur, s'il connaît l'emplacement du systemHook.php, peut faire un require_once de ce fichier,
+        puis l'utiliser à bon essient pour installer l'élément.
+        
+        
+        
+Il y a donc 2 caractéristiques nécessaires:
+        
+- emplacement du systemHook        
+- nom de la variable représentant le système instancié        
+        

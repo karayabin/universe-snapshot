@@ -1,0 +1,154 @@
+Brainstorm
+==================
+2015-05-20
+
+
+
+
+
+
+
+Ce système a pour but l'installation d'éléments dans des applications.
+
+En plus d'un système "classique" d'import d'éléments, nos buts sont:
+
+
+- gestion de plusieurs types d'éléments différents:
+            un module, un widget, un package, ...
+            
+- gestion des éléments payants
+- possibilité de tout importer dans un dossier local pour faciliter la portabilité de l'instance de l'application
+- possibilité de détecter les éléments installés en local de manière à travailler de manière optimisée pour un environnement donné
+- utilisation d'un fichier de config intuitif qui contient tous les éléments, afin d'avoir la carte des éléments de l'application centralisée à un seul endroit
+- création d'une commande qui permet de reparser ce fichier de config à tout moment, de manière à vérifier que tout fonctionne bien lors d'une migration
+- gestion simple des dépendances (importation de l'élément ayant la version la plus récente en cas de conflit)
+
+
+
+
+
+
+
+
+
+
+
+
+Algo:
+
+    - can i install the element ?    @1
+    ----- no
+    ----- yes  @2
+    
+
+
+
+
+
+
+@1
+Le but est d'automatiser l'installation des éléments.
+La première chose à faire est de se demander si on PEUT installer l'élément ou pas.
+En effet, l'installation d'un élément dépend d'un installer.
+Tous les installers n'ont pas les mêmes capacités.
+On ne va pas télécharger un élément si on sait qu'on ne peut pas l'installer après.
+Donc, la première question est: peut-on installer l'élément ou pas.
+
+
+Cela dépend du type de l'élément et de l'installateur.
+Nous pouvons essayer de minimiser ce problème en trouvant une technique d'installation générique et en fournissant l'installateur adéquat,
+mais il reste toujours possible que certaines applications aient des besoins particuliers.
+
+
+
+@2 Installation d'un élément
+---------------------------------
+
+Afin de faciliter l'installation, nous allons proposer la convention suivante par défaut.
+
+Les éléments sont transmis sous forme de fichiers zip nommés bundles.
+Zip car c'est un format très commun, et surtout compressé, donc moins lourd.
+Un autre avantage: un seul fichier à télécharger lors d'un download.
+
+La structure du bundle (fichier au format zip):
+
+Le bundle est composé de deux parties:
+
+- meta.yml
+- fichiers d'installation de l'élément
+
+
+Le fichier de meta est utilisé par notre système, et contient les informations générales sur l'élément.
+Sa structure est détaillée dans le fichier doc.metaFile.
+Concrètement, ce fichier contient les informations de dépendances que notre système utilise à bon essient.
+Ce fichier n'est pas fait pour contenir les informations d'installation, bien qu'un installateur puisse décider de 
+piocher qq infos dans le metaFile s'il le souhaite.
+
+Le format babyYaml est choisi pour son côté concis.
+Le fait d'utiliser un metaFile permet de répartir le travail de gestion des dépendances sur plusieurs serveurs.
+
+Le metaFile ne contient pas les informations de téléchargement de l'élément.
+En effet, un élément n'est pas censé connaître le système par lequel il est distribué.
+
+Par convention, le nom du fichier bundle est un nom unique, qui est l'équivalent de l'elementId de l'élément mais en version nom de fichier
+(caractères "bizarres" transformés en dash, et dashs consécutifs réduits à un dash, la méthode BeeFramework.Bat.SanitizeTool.sanitizeFileName est utilisée).
+De plus, les trois éléments type, name et version sont séparés par deux dashes.
+
+Cela permet d'avoir un nom de fichier explicite.
+Cependant, nous déconseillons d'utiliser le nom de fichier pour en déduire les informations de type, nom et version.
+
+
+L'installateur peut installer un bundle, c'est même son rôle.
+Cela permet de diviser les tâches d'importation du bundle (recherche sur internet et download) de celle de l'installation.
+
+
+
+
+Proposition de design:
+
+ElementInstaller
+- void  install ( bundlePath )
+
+
+?EmbeddedElementInstaller extends ElementInstaller       
+?WiseElementInstaller extends ElementInstaller       
+- bool  canInstall ( type )
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,59 @@
+ProcessLogger
+==================
+2015-05-21
+
+
+
+Ceci est un logger destiné à être utilisé par un process.
+
+
+
+
+ProcessLogger
+
+
+    Les "context" permettent de passer les informations de contexte,
+    au cas où l'utilisateur du process en aurait besoin.
+    
+    
+    Les "message" doivent être une string ou implémenter __toString().
+    De plus, il est possible d'utiliser les informations du contexte 
+    dans le message en utilisant la notation {foo} pour indiquer la valeur
+    de la clé foo.
+    
+    Si le message référence une exception, c'est la trace de cette exception
+    qui sera utilisée.
+    Si le message référence un array ou une autre valeur non scalaire, 
+    c'est la version string de cet array qui sera 
+    utilisée (la méthode VarTool::toString sera utilisée).
+    
+    De plus, les "message", dans leur version avec les tags non convertis,
+    acceptent la notation miniMl, qui permet l'utilisation
+    de tags html simples, comme <bold>, <red>, etc...
+    
+    Les implémenteurs doivent donc stripper ces tags pour une 
+    utilisation non visuelle, et les interpréter pour 
+    une utilisation visuelle.
+        
+    
+            
+    
+    
+
+
+- log ( level, message, array context=[] )
+
+- debug ( message, array context=[] )
+                        informations de débugguage
+- notice ( message, array context=[] )
+                        événement normal
+- warning ( message, array context=[] )
+                        événement gênant, mais qui n'est pas une erreur
+- error ( message, array context=[] )
+                        erreur trouvée, mais qui n'interrompt pas le script immédiatement
+- critical ( message, array context=[] )
+                        une erreur qui devrait interrompre le script immédiatement.
+- success ( message, array context=[] )
+                        notification de succès
+
+

@@ -1,0 +1,57 @@
+Conception
+==============
+2015-01-20
+
+
+
+
+Bon en fait, je pense qu'utiliser une bdd est le plus simple.
+
+Ici, on va se concentrer uniquement sur l'organisation des fichiers, pas la recherche.
+
+
+Et, bien qu'il y a de nombreuses façons d'indexer des fichiers, 
+je viens de penser à une qui me convient, et je pesne qu'elle convient pour un nombre raisonnable
+(pas trop grand) de fichiers: l'indexage de chaque lettre du fichier.
+
+
+
+Cela ne fonctionne que pour les systèmes dont le nom du fichier ne contient pas de caractères trop bizarres.
+On peut simplement remplacer ces caractères par des dash ou autre en interne.
+
+
+
+Le principe est très simple:
+Notre fichier est toujours? accompagné d'un fichier de meta.
+On doit donner un identifiant à cet ensemble (fichier+fichier de meta),
+ou par défaut le nom du fichier sans l'extension est utilisé.
+
+
+    Par exexmple si on a un fichier dont l'identifiant est komin/base, qui comprend:
+    - un fichier komin-base.php
+    - accompagné d'un fichier de meta komin-base.meta.txt
+    
+    
+    on les trouvera ici:
+    
+    
+    [root]/k/o/m/i/n/-/b/a/s/e/komin-base.php
+    [root]/k/o/m/i/n/-/b/a/s/e/komin-base.meta.txt
+    
+    
+    
+    
+    
+    
+L'outil pourrait se résumer à cela:
+    
+    
+    string          FileStorage::putFile ( file, fileMeta, elementId=null )
+                        Renvoie l'elementId
+                        
+    path|false      FileStorage::getFileMeta ( elementId )
+    path|false      FileStorage::getFile (  elementId )
+    
+    
+    
+La question est: comment s'appelle l'ensemble (file + file meta) ?    

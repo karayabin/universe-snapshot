@@ -1,0 +1,41 @@
+Conception
+===================
+2015-04-17
+
+
+
+
+Baby Dash est une notation pour un fichier de configuration simple.
+Cette syntaxe ressemble à celle de babyYaml, mais est plus épurée.
+
+ 
+- par défaut, le mode multiligne n'est pas activé
+- les commentaires commencent avec le symbole #
+- par défaut les sequences et mappings sont désactivés
+
+
+- pour créer une clé associative, il faut la faire suivre du symbole deux-points(:).
+
+
+
+Exemple:
+
+    - doo
+    - foo
+    ----- koo
+    - moo:
+    ----- 
+    ----- koo
+    - hoo:
+    - ok
+    
+    
+    Est converti en tableau php:
+    
+    [
+        0: doo,
+        1: [0: koo],
+        moo: [0: null, 1: koo],
+        hoo: null,
+        2: ok,
+    ]

@@ -1,0 +1,15 @@
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="attachment-boundary"
+
+--attachment-boundary
+{attachmentBody}
+
+
+
+{attachments}
+
+
+
+--attachment-boundary--
+
+

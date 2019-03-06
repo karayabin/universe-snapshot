@@ -1,0 +1,429 @@
+Scalp
+===============
+2015-05-28
+
+
+
+
+
+Ce document décrit une stratégie d'importation d'éléments dans une application.
+
+
+Les différents acteurs de ce système, dont le nom est tiré, sont:
+
+- server (repository)
+- client
+- application
+- local repository
+- proxy repository
+
+
+
+Synopsis
+--------------
+
+
+0. Configuration du fichier client.yml:     L'utilisateur configure le fichier de configuration du client une fois pour toutes par machine
+1. Intention de l'utilisateur:              L'utilisateur va demander l'importation de un ou plusieurs éléments par le biais du client
+2. Collecte des définitions:                Le client va collecter récursivement les définitions de chaque élément, en utilisant en priorité les définitions locales
+3. Affichage du devis:                      Phase optionnelle: si l'un au moins des éléments est payant, le client affiche un devis configurable à l'utilisateur
+4. Téléchargement:                          Une fois en possession de toutes les définitions, le client télécharge les bundles nécessaires
+5. Installation:                            Enfin le client lance la phase d'installation des bundles
+
+
+
+
+Les éléments
+------------------
+
+Sont transmis sous forme de bundles.
+Un bundle est un fichier zip qui contient les fichiers permettant d'installer/désinstaller l'élément, ainsi qu'un 
+fichier meta.yml récapitulant les infos de l'élément.
+Une fois l'élément installé, ce fichier meta.yml est toujours disponible à la racine du dossier de l'élément,
+et est utilisé pour la détection d'un élément par le client (ne pas l'effacer en pensant qu'il ne sert à rien).
+
+
+Une caractéristique importante du système est que les dépendances d'un élément dans une version donnée n'évoluent pas au fil du temps.
+C'est à dire que les dépendances indiquent l'état à un instant t d'un élément.
+Cet état est figé par un numéro de version, et les dépendances avec.
+
+
+
+
+
+La collecte des définitions
+--------------------------------
+
+Une définition est à l'origine un tableau contenant les informations permettant de télécharger le bundle pour un élément donné:
+
+- elementId: 
+----- price: prix en euros de l'élément seul (sans les dépendances)
+----- dependencies: tableau des dépendances directes
+
+
+Une définition peut contenir plusieurs entrées, chaque entrée représentant un élément différent.
+
+    
+Lors de la collecte des définitions, le client doit rappatrier récursivement les définitions pour chaque élément impliqué dans le processus
+d'installation, c'est à dire tous les éléments demandés par l'utilisateur, ainsi que leurs dépendances, ainsi que les dépendances des
+dépendances, etc...
+
+Comme on peut l'imaginer, la phase de collecte des définitions peut donc être très coûteuse en termes de nombre de requêtes http,
+à cause des cascades potentielles des dépendances.
+
+Une solution possible pour réduire le nombre de ces requêtes potentielles aurait été de demander aux repositories de résoudre les 
+dépendances lui-même, afin d'avoir moins de requêtes.
+Cependant, ce n'est pas la solution que nous avons choisie, car elle fait beaucoup travailler les repositories au lieu de faire travailler la machine locale.
+(Certains disent également que cette solution n'est pas simple conceptuellement.)?
+ 
+Pour pallier au nombre important de requêtes, nous utilisons plusieurs stratégies parallèlles:
+  
+  
+    - tout d'abord, le client est capable de demander à un repository les définitions de plusieurs éléments en une seule requête
+    - ensuite, avant de faire une requête http, le client cherche d'abord à trouver la définition sur la machine (le poste local).
+                
+                
+                Cette sous-phase, que nous pouvons appeler introspection, est composée des étapes suivantes:
+    
+                - recherche dans l'application
+                
+                            Toute application a un dossier root.
+                            Note:
+                                Par défaut le client considère que le dossier dans lequel il est exécuté est 
+                                justement le dossier root de l'application.
+                                
+                            Le client peut accéder aux dépendances d'un élement installé via le fichier meta.yml,
+                            car il connaît l'emplacement de ce fichier (et pour cause c'est lui qui installe les éléments).
+                            Si $rootDir représente le dossier root d'une application, les éléments sont organisés comme ceci:
+                             
+                                - $rootDir:
+                                ----- elements:
+                                --------- $type:
+                                ------------- ($elementPath avec les points convertis en slashes, donc profondeur variable):
+                                ----------------- meta.yml
+                                
+                                Bien que le numéro de version ait été éludé lors de l'installation, le client peut le retrouver en ouvrant 
+                                le fichier meta.yml, qui contient également les dépendances (et le prix?).
+                            
+                            
+                - recherche dans le local repository (aka stock)
+                            
+                            Certaines bees développent en partageant les éléments entre leurs différentes applications.
+                            Pour ce faire, certaines bees utilisent des alias, et d'autres utilisent la technique de l'autoload alveolus.
+                            Que ce soit par l'utilisation de l'une de ces techniques ou par une autre, le fait est qu'il est tout à fait possible
+                            qu'une application utilise différentes bibliothèques d'éléments.
+                            
+                            Ces bibliothèques forment ensemble ce qu'on appelle le local repository,
+                            c'est à dire (souvent) des bibliothèques partagées entre les différentes applications de la bee.
+                            
+                            Comme ces techniques ne sont pas standardisées, le client ne connaît pas l'emplacement de ces bibliothèques
+                            et l'utilisateur doit les configurer manuellement pendant la phase de configuration du client.
+                            Attention, chaque application peut potentiellement utiliser des bibliothèques situées à des emplacements différents,
+                            même si en général les bibliothèques partagées sont situées à un seul endroit sur la machine.
+                            
+                            Une fois que le client connaît l'emplacement de ces bibliothèques, il peut essayer de récupérer les infos d'un élément donné,
+                            en utilisant la même technique (arborescence relative standardisée) que pour la recherche dans l'application.
+                            
+                            
+                - recherche dans le proxy repository
+                            
+                            Le proxy repository est un dossier interne géré par le client, et qui stocke les définitions de tous les bundles téléchargés depuis 
+                            le repository distant, justement dans le but de réduire le nombre de requêtes http au serveur.
+                            Ces définitions sous la forme d'un gros fichier babyYaml qui contient les définitions de tous les éléments téléchargés depuis
+                            le repository distant.
+                            
+                            La structure du fichier ressemble à cela:
+                            
+                                - $elementId:
+                                ----- price: 0
+                                ----- dependencies: 
+                                --------- module.komin.base@1.0.0 
+                                --------- ...                       
+                            
+                            
+                            
+                Enfin si l'élément n'est toujours pas trouvé, le client ira le télécharger sur le web repository.
+                Les paramètres permettant au client de télécharger un éléments ou bien sa définition sont indiquées
+                dans la config du client par défaut, et ne devraient en général jamais être modifiées par une bee.
+                
+                Lorsque le web repository renvoie une définition, la structure des données dépend du fait que l'utilisateur
+                soit connecté ou pas.
+                La requête du client contient les paramètres suivants:
+                
+                    - definition: 1
+                    - elements: tableau des éléments dont on veut la définition
+                    - ?user:    # credentials de l'utilisateur 
+                    - ?pass1: 
+                    - ?pass2: 
+                
+                
+                Dans tous les cas, la réponse est renvoyée dans le format json?
+                
+                        pour un utilisateur non connecté, la structure est:
+                    
+                            - elementId: 
+                            ----- price
+                            ----- dependencies
+                            
+                        pour un utilisateur connecté, la structure est:
+                    
+                            - elementId: 
+                            ----- price
+                            ----- dependencies
+                            ----- isBought: bool
+                
+                Cette dernière information, isBought, permet au client de créer un devis personnalisé et très précis.
+                En fait, afin d'éviter que notre client puisse renvoyer un devis qui n'est qu'une estimation du prix réel,
+                le web repository obligera le client à être connecté dès lors qu'un au moins des éléments est payant.
+                (est-ce une bonne idée?)
+                
+                Le message d'erreur suivant sera affiché si le client tente de récupérer une définition pour un élément
+                payant, sans fournir les credentials de l'utilisateur:
+                
+                    E_CREDENTIALS_REQUIRED: at least one of the elements you've asked for is charged, you must provide credentials in order to fulfil this request 
+                
+                
+                
+                
+                
+                
+                
+                
+Avec cette stratégie, on a donc diminué le nombre de requêtes http nécessaires pour obtenir récursivement toutes les 
+définitions des éléments à installer lors d'une phase d'installation d'élément.
+                
+    
+    
+
+                    
+                    
+    
+Affichage du devis
+---------------------
+    
+Pendant la phase de collecte, le client a pu récupérer les prix pour chaque élément et dépendance.
+Le client est donc capable d'afficher un devis à l'utilisateur.
+
+Cela nous amène à réfléchir sur les problèmes suivants:
+    - est-ce que le prix d'un élément peut évoluer ?
+            et si oui, c'est problématique, car il faut mettre à jour les prix.
+            La réponse est heureusement non, par pour un élément donné (dans une version donnée).
+            Ce système, bien qu'il puisse paraître non adapté à la demande de l'utilisateur, a l'avantage d'être simple 
+            conceptuellement, et de promouvoir le concept de l'état stable d'un élément à un instant t,
+            qui est une des pierres angulaires du système.
+            Si l'utilisateur souhaite changer son prix, besoin tout à fait légitime, il doit changer le numéro de version.
+            
+            Afin d'éviter de faire croire aux utilisateurs que cette nouvelle version apporte de nouvelles fonctionnalités,
+            par convention, on ajoute une lettre de l'alphabet au numéro de version modifié.
+                    Par exemple, un élément en version 1.45.2 qui change de prix deviendrait 1.45.2b, puis 1.45.2c, etc...
+                    
+            Cette astuce permet à notre client de savoir que 2 versions sont fonctionnellement identiques
+            et de ne pas télécharger la version 1.45.2c si le client a déjà la version 1.45.2 par exemple.
+                                
+            Le renommage de la version suite à un changement de prix est géré par le repository distant lui-même,
+            de manière à ce que l'auteur de l'élément ne puisse pas se tromper.
+            Note:
+                peut être que le repository distant limitera le nombre possible de modifications de prix, et peut être
+                que cela ne sera pas autorisé du tout.
+                                
+            
+            Par conséquent, si le prix d'un élément ne peut pas évoluer, le devis est toujours à jour au niveau des prix.         
+    
+         
+
+
+Si ce devis requiert un paiement, l'utilisateur devra valider cette phase de paiement pour pouvoir télécharger les bundles correspondants.
+Le mécanisme général de paiement est décrit plus en détails dans la section téléchargement de ce document.
+
+
+
+Téléchargement, et stratégie de paiement
+---------------------------------------------
+
+Note sur l'unicité du repository
+---
+    Commençons à noter qu'il n'y a volontairement qu'un seul repository, éventuellement clôné à différents endroits.
+    Ainsi, les prix sont fixes d'un repository à l'autre, et le repository web répond bien sémantiquement au besoin d'origine qui est 
+    de permettre aux auteurs d'éléments de partager leurs créations via un système de distribution.
+    S'il y avait plusieurs repository à gérer, cela serait plus compliqué pour tout le monde.
+    
+    
+Le téléchargement est initié par le client, et satisfait par le repository distant.
+Il y a plusieurs modalités de téléchargement, en fonction:
+
+    - du nombre d'éléments à télécharger
+    - du prix total des éléments
+   
+
+Le repository distant, dans le but de faciliter les import d'éléments,
+permet l'achat à distance de ceux-ci.
+La stratégie mise en place à cet égard est basée sur l'achat de crédits virtuels en amont, et est décrite ci-dessous.
+ 
+ 
+
+Voici le synopsis de téléchargement d'un élément via notre client:
+
+    - 0. Le client prépare sa requête.
+                    La stratégie prévue est que le client ne fasse qu'une requête, quelque soit le nombre d'éléments à télécharger,
+                    afin de réduire le nombre de requêtes http.
+                    
+    - 1. Le client envoie la requête via https au serveur (repository distant).
+                Les paramètres de la requête sont toujours passés via POST (plutôt que GET),
+                car cette technique permet potentiellement de passer un plus grand nombre d'éléments.
+                Voici les paramètres POST à fournir:
+                        
+                        - download: true 
+                        - elements: tableau des elementId à downloader 
+                
+                
+                Si le tableau elements ne contient qu'un seul élément, le repository renverra un bundle.
+                S'il contient plusieurs éléments, le repository renverra un bundleContainer.
+                    Le bundleContainer est un fichier zip qui contient tous les bundles, un par élément demandé dans la requête.
+                    Note:
+                        le serveur met en cache les bundleContainer afin de servir le client plus rapidement
+                    
+                    
+                Si la requête implique un paiement, on parle de transactionBundle (indépendamment du fait que 
+                ce soit un bundle ou un bundleContainer).
+                La transmission du transactionBundle est soumise à des modalités particulières décrites plus bas dans cette même section.                     
+                    
+                
+                Si aucun des éléments demandés n'est payant, le server renvoie directement le bundle, ou bundleContainer au client, 
+                et le téléchargement est immédiat.
+                
+                
+                
+                Délivrement d'un transactionBundle
+                -------------------------------------
+                
+                Si le coût estimé de l'ensemble des éléments est supérieur à 0, le mécanisme ci-dessous s'applique: 
+                
+                
+                1. Le client doit effectuer une requête qui contient les credentials de l'utilisateur, ainsi la requête pour un transactionBundle
+                        est la suivante:
+                        
+                            - download: true 
+                            - elements: tableau des elementId à downloader 
+                            - user: string 
+                            - pass: string 
+                            - ?pass2: string 
+                        
+                        
+                    
+                    Au préalable, l'utilisateur devra avoir acheter des crédits virtuels sur le repository via un moyen de son choix.
+                    Achat via un client, ou via l'interface web.
+                    
+                    Note:
+                        d'autres stratégies de paiement pourraient être implémentées, mais pour l'instant c'est celle là que komin> a implémenté
+                        en priorité.
+                        
+
+                2. A la réception de cette première requête, le serveur se pose les questions suivantes:
+                        
+                            - est-ce que l'authentification de l'utilisateur a réussi ?
+                                    En cas d'erreur, le texte suivant est renvoyé:
+                                            E_AUTH: invalid user credentials
+                                            
+                            - est-ce que tous les éléments demandés par le client existent ?
+                                    Le repository interrompt le processus au premier élément non trouvé, avec le message:
+                                                                                                                                                                                                                   
+                                    E_UNKNOWN_ELEMENT: unknown element: $elementId
+                                    
+                                            
+                            - est-ce que l'utilisateur a assez de crédits pour acheter l'ensemble des éléments ?
+                            
+                                    Remarques:
+                                        - le serveur est assez "intelligent" pour empêcher l'achat du même élément                                         
+                                        - une transaction est atomique, on achète tous les éléments de la requête, ou aucun
+                                        
+                                    
+                                    En cas d'erreur, le texte suivant est renvoyé:
+                                            E_INSUFFICIENT_BALANCE: your balance is to low to afford this transaction bundle
+                                            
+                                            
+                3. Si toutes les conditions sont remplies, le serveur effectue encore les phases suivantes:
+                                                           
+                        - affichage de l'url de download, par le message suivant:
+                                                                                    
+                                S_DOWNLOAD_URL: $downloadUrl   # self destructive
+                                
+                        - si l'url est appelée, alors seulement le serveur valide la transaction:
+                                        - mise à jour des informations du compte (transfert des crédits, association de l'élément à l'utilisateur)
+                                        - suppression de l'url, qui est auto-destructive
+                                
+                
+                        Cette stratégie en deux temps permet de s'assurer que le client a bien demandé le téléchargement 
+                        du bundle (ou bundleContainer).
+                        
+                        
+                        Note: on pourrait aller plus loin et ajouter un système de post vérification des checksums, afin 
+                                de vérifier la non-altération des données, mais ça commence à devenir conceptuellement compliqué,
+                                et le but de tout cela n'est que de se prémunir des plaintes éventuelles d'utilisateurs de mauvaise foi
+                                qui prétendraient avoir un pb avec l'élément téléchargé.
+                                Dans ce cas, on peut aussi argumenter et dire que l'utilisateur de mauvaise foi trouvera toujours un
+                                mensonge qu'on n'aura pas pu montrer comme tel.
+                                Nous préférons régler ces pb à l'amiable plutôt que de complexifier le système de base  
+                                et d'en pénaliser tous ses utilisateurs, dont la majorité (espérons-le) sont de bonne foi.
+                        
+                                Autrement dit, nous ne croyons pas à l'altération des données pendant un téléchargement (tcp/ip a déjà fait
+                                ses preuves).
+                           
+                           
+
+    
+    
+Installation
+--------------------
+
+Une fois que le client a rappatrié les bundle/bundleContainer, il peut lancer l'installation de ceux-ci.
+L'installation d'un élément dépend de son type.
+Le processus exact est décrit ailleurs.
+
+
+
+
+
+ElementId, et conventions
+--------------------------------
+        
+L'elementId est une notation qui permet de cibler un élément de manière unique.
+            
+        
+elementId: <type> <.> <elementPath> <@> <version>
+Avec:
+    - type: le type de l'élément, par exemple plugin, a-plugin, b-plugin, kominWidget, etc...
+                Les caractères autorisés sont: [a-zA-Z0-9_-]
+    - elementPath: 
+                (aka name)
+                Il représente le chemin menant au dossier root de l'élément.
+                    Ce chemin doit être unique pour le type donné.
+                    Les caractères autorisés sont: [a-zA-Z0-9._]
+                
+                    Le point fait office de séparateur de dossier.
+                
+                    Ainsi, si on convertit tous les points en slashes, on doit obtenir 
+                    l'arborescence exacte menant au dossier "root" de l'élément (le numéro de version 
+                    est toujours implicite dans le système tel que conçu par komin>).
+                
+                
+    - version: l'identifiant de version.
+                Par convention, on utilise la notation 3m,
+                ou bien le nom dev pour symboliser la version en cours de développement.
+                
+                Les caractères autorisés sont: [a-zA-Z0-9_.-]
+                Si l'élément n'utilise pas de système de versionnage, il doit trouver 
+                un numéro de version factice, par convention: none.
+                            
+                                            
+                Pour l'instant, l'implémentation du tag @last (le nom de version est last),
+                qui aurait signifié: la dernière version hormis la version de développement,
+                a été refusée afin de réduire le nombre de requêtes http.
+                De plus, au niveau du code, c'est un peu moins risqué de laisser l'utilisateur
+                contrôler manuellement la mise à jour des versions, car la compatibilité d'une
+                version à l'autre est difficile à estimer avec précision.
+                Notre philosophie pour l'instant est donc: si tu as une version qui fonctionne actuellement,
+                estimes-toi heureux; tu changeras de version quand tu en éprouveras le besoin.
+                      
+                      
+                      
+               

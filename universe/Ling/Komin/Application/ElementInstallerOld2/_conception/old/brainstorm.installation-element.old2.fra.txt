@@ -1,0 +1,235 @@
+Brainstorm
+==================
+2015-05-20
+
+
+
+
+Installation d'un élément
+-----------------------------
+
+Trouvons qq outils génériques qui nous aideront pour l'installation des éléments.
+
+Avant toute chose, précisons qu'ici nous parlons pour l'instant d'installation d'un élément sans ses dépendances.
+L'installation d'un élément avec ses dépendances est au autre processus plus complexe qui utilise le système d'installation que nous décrivons ici.
+Afin de distinguer les deux, nous utiliserons les termes:
+
+- installation de l'élément seul, ou installation brute
+- installation de l'élément avec ses dépendances, ou installation sophistiquée
+
+
+
+
+
+InstallTool
+    injectFiles ( srcDir, dstDir )
+    
+    
+Ceci serait un outil qui permettrait de mapper un pan d'arborescence dans une autre, une sorte de merge pour les arborescences.    
+En cas de fichier existant trouvé, on pourra choisir le comportement, par défaut on écrase si la nouvelle version a un mtime plus récent.
+
+Pour les éléments qui sont bien organisés au niveau du système de fichiers, comme des modules oop bsr0 par exemple, le plus gros du travail est fait
+juste avec un appel à la méthode injectFiles.
+La méthodologie serait de mettre dans le bundle les fichiers depuis un root (à définir au niveau du type d'élément),
+dans le cas d'un beeModule, le dossier contenant tous les vendors par exemple.
+
+beeModule sera un module oop bsr0.
+
+L'avantage de cette technique, c'est qu'on peut installer un package en plusieurs modules, sans modifier l'arborescence du package,
+un peu comme un puzzle qu'on remplit au fur et à mesure de nos besoins.
+
+Pour l'instant le synopsis serait d'installer le module dans un dossier vendors au niveau de l'application.
+C'est bien, mais quelles autres options pourrions nous avoir ?
+
+
+- changer le dstDir,
+        comme ça on pourrait installer les beeModules directement dans notre alveolus par exemple ?
+        On pourrait aussi vouloir faire du alias switch, mais peut être que dans ce cas il faudrait des outils plus spécialisés (afin de ne pas tout mélanger)
+
+
+
+
+InstallerInterface
+------------------------
+
+Comme nous l'avons dit plus tôt, l'installation d'un élément dépend de la capacité de l'installer à l'installer.
+Chaque créateur de type d'élément peut avoir des besoins spécifiques.
+C'est pourquoi c'est au créateur que revient la tâche de créer et rendre disponible son installer.
+
+Comme nous souhaitons automatiser ce processus d'installation, nous souhaitons que l'installation se fasse depuis un objet que nous aurons
+créé.
+Afin que les créateurs puissent proposer leurs systèmes, nous proposons une interface qui accepte tous les systèmes.
+
+Le synopsis, du point de vue de l'utilisateur, est que, avant de pouvoir installer un type d'élement,
+il doit télécharger l'installateur adéquat, et faire en sorte qu'il soit reconnu par notre installer.
+
+Notre interface est la suivante:
+
+ElementInstallerInterface
+        install ( bundlePath )
+                bundlePath est le chemin vers le dossier décompressé du bundle.
+                Ce dossier contient donc le fichier meta.yml, et les fichiers d'installation.
+                
+                Lance des exceptions quand quelque chose va mal.
+                
+WithMonitorElementInstallerInterface extends ElementInstallerInterface
+        setMonitor ( Monitor )
+        
+                si l'installer utilise cette interface, il peut renvoyer des messages à la sortie (terminal, browser, ...).
+                Cela peut être utile pour donner des indications sur l'avancement de l'installation, 
+                mais on ne souhaite pas forcer les créateurs à l'utiliser.
+                
+                
+                
+                
+Notre installer implémente également cette interface, mais agit comme un hub dans lequel on injecte les autres installateurs concrets.
+Notre hub lit le type dans le fichier de metas, puis en fonction du type, appelle l'installateur adéquat.
+
+Afin de prendre en compte l'évolution possible de la structure du metaFile, nous allons l'encapsuler dans une interface.
+
+Comme pour notre installer, on prendra en compte le fait que le meta peut être dans plusieurs versions différentes.
+Heureusement, par définition, un metaFile est tenu de fournir les informations dont notre système a besoin.
+
+Nous fournirons une interface meta simple pour l'utilisateur:
+
+MetaFile
+   
+    -> getMetaVersion
+    -> getType
+    -> getName
+    -> getVersion
+    -> getDependencies
+
+qui sera un hub utilisant des objets WritableMetaFile:
+
+WritableMetaFile extends MetaFile
+
+    -> setMetaArray ( array metaArray )
+
+    
+    
+ProcessLogger
+------------------
+    
+Lors de l'installation d'un élément, l'installateur pourra lancer des exceptions pour indiquer que qq chose s'est mal déroulé.
+Alternativement, si l'installateur souhaite communiquer de manière plus intense avec notre installateur, il pourra le faire via l'objet ProcessLogger,
+créé par notre système, et distribué à tous les installateurs qui implémentent l'interface ProcessLoggerAware.
+
+
+
+Installation info
+--------------------
+
+Lors de l'installation d'un élément, un installateur aura également besoin de différentes infos, comme par exemple:
+
+- dans quel(s) dossier(s) doit-on installer l'élément ?
+- doit-on insérer des données dans une bdd ?
+- doit-on demander des informations supplémentaires appartenant à l'instance de l'application cible ?
+- ... et bien d'autres encore
+
+
+Ces informations dépendent du type de l'élément installé.
+La stratégie que nous utilisons est la suivante:
+
+
+
+
+- les informations d'installation sont transmises via un tableau de variables nommé installVars    
+- un installateur connaît à l'avance le nom des variables dont il a besoin pour fonctionner
+- notre système s'occupe de remplir le tableau installVars en fonction des données à sa disposition, 
+        et de faire le lien avec l'installateur concret.
+        Si notre système détecte que des variables manquent, une erreur est lancée le plus tôt possible.
+
+- notre système fournit des noms de variables standard 
+- afin de favoriser la cohésion entre les installations d'éléments de type différents, 
+            chaque créateur de type d'élément devrait utiliser au maximum les variables standard plutôt que de créer de nouvelles
+            variables à chaque fois.
+- il est possible de créer un fichier de config installer.yml qui permet de contrôler le comportement de notre installateur,
+            et qui contient entre autres toutes les variables par type
+
+
+
+installer.yml
+-----------------------
+
+- installVars:
+----- rootDir: string|array, si c'est un array, c'est un tableau de type => rootDir (string)
+
+
+
+elements.yml
+--------------
+
+- elements:
+----- $type:
+--------- $elementId
+
+
+
+
+
+Les variables standard
+----------------------------
+
+Voici la liste des définitions des variables standard.
+Pour assigner une valeur à une variable, si un mécanisme est indiqué dans la définition, il doit être utilisé.
+Sinon, ou si l'application de ce mécanisme n'a pas réussi à assigner concrètement une valeur à la variable, alors
+le mécanisme par défaut défini plus bas s'applique à toutes les variables.
+
+- rootDir:
+        représente le dossier de l'application, ou bien le dossier cible de l'installation.
+         
+        Si un fichier elements.yml est utilisé, alors rootDir
+        prend la valeur du dossier contenant le fichier elements.yml.
+        Si rootDir est lancé sur un bundle, alors rootDir prend la valeur du dossier contenant le bundle.
+        
+    
+    
+Mécanisme d'assignation de valeur pout toute variable standard:
+
+    Si l'installateur en ligne de commande le permet, toutes les variables standard peuvent être passées via 
+    la ligne de commande.
+    Sinon, les valeurs de installer.yml sont utilisées.
+    
+    
+    
+    
+    
+          
+         
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+            
+            
+            
+            
+                    
+                    
+        
+
+
+
+

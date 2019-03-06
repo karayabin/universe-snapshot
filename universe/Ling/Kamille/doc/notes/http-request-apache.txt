@@ -1,0 +1,39 @@
+http://kamille/uu?pou
+
+
+array(32) {
+  ["REDIRECT_STATUS"] => string(3) "200"
+  ["HTTP_HOST"] => string(7) "kamille"
+  ["HTTP_USER_AGENT"] => string(82) "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:51.0) Gecko/20100101 Firefox/51.0"
+  ["HTTP_ACCEPT"] => string(63) "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+  ["HTTP_ACCEPT_LANGUAGE"] => string(14) "en-GB,en;q=0.5"
+  ["HTTP_ACCEPT_ENCODING"] => string(13) "gzip, deflate"
+  ["HTTP_CONNECTION"] => string(10) "keep-alive"
+  ["HTTP_UPGRADE_INSECURE_REQUESTS"] => string(1) "1"
+  ["PATH"] => string(29) "/usr/bin:/bin:/usr/sbin:/sbin"
+  ["SERVER_SIGNATURE"] => string(0) ""
+  ["SERVER_SOFTWARE"] => string(139) "Apache/2.2.31 (Unix) mod_wsgi/3.5 Python/2.7.13 PHP/7.1.1 mod_ssl/2.2.31 OpenSSL/1.0.2j DAV/2 mod_fastcgi/2.4.6 mod_perl/2.0.9 Perl/v5.24.0"
+  ["SERVER_NAME"] => string(7) "kamille"
+  ["SERVER_ADDR"] => string(9) "127.0.0.1"
+  ["SERVER_PORT"] => string(2) "80"
+  ["REMOTE_ADDR"] => string(9) "127.0.0.1"
+  ["DOCUMENT_ROOT"] => string(22) "/myphp/kamille/app/www"
+  ["SERVER_ADMIN"] => string(32) "webmaster@dummy-host.example.com"
+  ["SCRIPT_FILENAME"] => string(32) "/myphp/kamille/app/www/index.php"
+  ["REMOTE_PORT"] => string(5) "50677"
+  ["REDIRECT_QUERY_STRING"] => string(3) "pou"
+  ["REDIRECT_URL"] => string(3) "/uu"
+  ["GATEWAY_INTERFACE"] => string(7) "CGI/1.1"
+  ["SERVER_PROTOCOL"] => string(8) "HTTP/1.1"
+  ["REQUEST_METHOD"] => string(3) "GET"
+  ["QUERY_STRING"] => string(3) "pou"
+  ["REQUEST_URI"] => string(7) "/uu?pou"
+  ["SCRIPT_NAME"] => string(10) "/index.php"
+  ["PHP_SELF"] => string(10) "/index.php"
+  ["REQUEST_TIME_FLOAT"] => float(1488384572.28)
+  ["REQUEST_TIME"] => int(1488384572)
+  ["argv"] => array(1) {
+    [0] => string(3) "pou"
+  }
+  ["argc"] => int(1)
+}

@@ -1,0 +1,112 @@
+Implémentation notes
+========================
+2015-05-29
+
+
+
+
+
+
+                               
+Guide technique pour les interactions client -> web repository 
+=================================================================
+   
+Ceci est la version synthétique de ce qui a été dit dans ce document.
+                        
+                     
+Rules:
+- un utilisateur qui possède un compte doit passer ses credentials à chaque requête
+       Cette règle est utilisée:
+               - pendant la phase de collecte des définitions, pour récupérer l'information isBought,
+                       qui permet au client d'afficher un devis accurate.
+                                               
+                                           
+                                     
+                
+Les messages suivants peuvent toujours être renvoyés:
+                
+                
+        E_NO_ACTION: nothing to do
+        E_INTERNAL_ERROR: an internal error, please retry later
+          
+          
+                
+Fetch definition:
+--------------------
+    
+    Input: (POST, https)
+        - definition: 1
+        - elements:
+        - ?user:    
+        - ?pass1: 
+        - ?pass2:
+            
+    Output: (json)
+               
+        E_AUTH: invalid user credentials
+        E_MALFORMED_ELEMENT_ID: malformed element id: $elementId  
+          
+        
+                       
+        - elementId: 
+        ----- price
+        ----- dependencies
+        ----- isBought: bool       
+            
+            
+                    
+                    
+            
+           
+                
+Ask for bundles:
+-----------------
+                
+    Input: (POST, https)                
+        - download: 1
+        - elements:  
+        - user:  
+        - pass:  
+        - pass2:                  
+                
+    Output: (json)
+                    
+        E_AUTH: invalid user credentials
+        E_MALFORMED_ELEMENT_ID: invalid element id: $elementId
+        E_UNKNOWN_ELEMENT: unknown element: $elementId
+        E_INSUFFICIENT_BALANCE: your balance is to low to afford this transaction bundle
+                     
+        S_DOWNLOAD_URL: $downloadUrl
+        
+        Note:
+            seuls les éléments payants sont enregistrés dans la table user_bought_element? (performances)
+        
+        une download_url unique est enregistrée dans la table user_bought_element,
+        les valeurs acquisition_date et acquisition_price sont nulles.
+         
+        
+                                                               
+                
+Download bundle:
+-------------------
+                
+    Input: (GET, https, url=$downloadUrl)
+                    
+    les valeurs acquisition_date et acquisition_price prennent une valeur concrète..
+                                                                     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

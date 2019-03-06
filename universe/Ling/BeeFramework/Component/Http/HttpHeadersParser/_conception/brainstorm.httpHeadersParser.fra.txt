@@ -1,0 +1,12 @@
+Brainstorm
+==================
+2015-06-10
+
+
+
+Cet objet vient du besoin de parser des headers qu'on obtient de manière brute avec un client comme curl par exemple.
+Par exemple, on voudrait avoir des méthodes qui nous donnent directement l'accès à certaines infos comme:
+
+- le code de la réponse
+- le content-type
+

@@ -1,0 +1,6 @@
+jquery:
+http://code.jquery.com/jquery-2.1.4.min.js
+
+fake:
+/libs/assetloader/demo/fake/js/fake.js
+/libs/assetloader/demo/fake/css/fake.css

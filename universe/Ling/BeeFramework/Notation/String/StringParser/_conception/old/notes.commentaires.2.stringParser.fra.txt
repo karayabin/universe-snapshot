@@ -1,0 +1,28 @@
+Notes
+=============
+2015-05-15
+
+
+
+Un commentaire est un texte qu'on ajoute à l'attention de l'utilisateur.
+Sémantiquement parlant, il ne fait pas partie d'un élément, on le placera à côté, et à droite pour être plus précis.
+
+C'est à dire qu'un symbole de début de commentaire n'a pas sa place à l'intérieur d'un container, ni à l'intérieur
+d'une quotedString (le symbole peut être trouvé mais il est alors interprété comme littéral, et pas comme début de commentaire),
+et ni à l'intérieur d'un hybride.
+
+
+Ce serait donc une erreur d'essayer de le détecter à l'intérieur d'un de ces éléments.
+Plutôt, on devrait essayer de le traiter depuis l'extérieur, c'est à dire une fois que le match du discoverer a fini.
+
+
+Cette partie rentre en conflit avec la rétro-validation, qui parse également ce qui est situé après le match du discoverer.
+
+
+
+
+Il me semble qu'un outil sémantiquement intéressant serait un multipleDiscoverer, 
+dont le but serait de ne trouver qu'une seule valeur, mais en testant  discoverers, et en prenant en compte la rétro-validation 
+et la gestion des commentaires.
+
+

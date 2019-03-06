@@ -1,0 +1,334 @@
+Braintstorm
+===================
+2015-06-18
+
+
+
+Ce crawler a été conçu avec pour but modeste de trouver qq informations dans un document html.
+Lorsqu'on fait du scraping, on peut utiliser cet outil pour accéder rapidement aux éléments que l'on souhaite.
+
+
+
+La rapidité de cet objet vient du fait que l'interface principale ne propose que des méthodes potentiellement
+utiles par rapport à l'activité de scraping.
+Inspirée en partie de la notation css3Selectors/jquery, on peut également utiliser les xPath pour une plus grande
+souplesse. 
+
+
+
+    
+
+Collection
+
+    C'est l'objet principal permettant d'effectuer des recherches, et de parcourir les éléments trouvés.
+    Il propose 2 méthodes de recherche:
+            - la notation xpath 
+            - la notation crawlerQuery (notre notation maison inspirée de jquery/css3 selectors)
+             
+    Le principe est identique pour les 2 méthodes: elles renvoient une Collection, qui est mise à jour à chaque nouvelle recherche.
+    La collection peut être parcourue avec la méthode each.
+    
+    
+
+    static fromContext ( context )
+                C'est le constructeur de la classe.
+                Le contexte peut être:
+                    - un BDomElement
+                    - une string: le code html représentant le document servant de contexte                           
+                                
+                                
+    
+    Collection  find (crawlerQuery, context=null): cherche les éléments matchant la crawlerQuery donnée, et renvoie le résultat sous
+                                            forme de Collection.
+                                                        Techniquement, une nouvelle collection est créée à chaque fois.
+                                            
+                                            Si le context est passé, il sera utilisé à la place du contexte par défaut.
+                                            Le contexte par défaut est déterminé en fonction des éléments contenus dans la collection actuelle.
+                                            
+                                            S'il n'y a aucun élément, le contexte sera le contexte passé au moment du constructeur (le dom document ou bien un élément dom),
+                                            sinon, s'il y a au moins un élément, la recherche sera lancée pour chacun des éléments de la collection,
+                                            et le contexte de recherche sera l'élément en cours d'itération.
+                                            
+                                            
+    Collection  xpath (xPathQuery, context=null): comme find, mais utilise la notation xPath 1.0
+    
+                                                
+                                                
+    each ( BDomElement )
+            C'est la méthode prévue pour parcourir les éléments de la collection, plutôt qu'un foreach,
+            bien que cela soit strictement équivalent en termes de fonctionalité.
+            
+            
+            
+            
+            
+BDomElement
+    string      getName: renvoie le nom de l'élément, par exemple div, ou p, ou textarea...                    
+    string      getHtml: renvoie le code html (outer html) de l'élément                    
+    string      getInnerHtml: renvoie le code html (inner html) de l'élément                    
+    string      getCollapsedText (deep=true): renvoie le texte collapsé de l'élément.
+                                                    Un texte collapsé est un texte trimmé, et dont les whiteSpaces (blancs)
+                                                    multiples (consécutifs) sont remplacés par un seule espace.
+                                                    
+                                                    Si l'option deep vaut true, le texte de tous les enfants sera incorporé.
+                                                    Si l'option deep vaut false, seul le premier noeud de texte de l'élément sera utilisé
+    string      getText (deep=true): renvoie le texte tel que vu par le dom.
+    array       getAttributes (): renvoie un tableau contenant attrName => attrValue
+    bool        hasAttribute (name): renvoie si l'élément contient l'attribut dont le nom est donné
+    string      getAttribute (name, defaul=null): renvoie la valeur d'un attribut
+    DomElement  getDomElement (): renvoie l'objet php DomElement encapsulé par le wrapper BDomElement
+                                                    
+                                                    
+    
+    
+    
+crawlerQuery
+----------------
+C'est une notation assez simple, mais qui permet tout de même d'accéder rapidement à la plupart des éléments d'une page html:
+
+Les éléments suivants sont utilisés:
+
+Selector                    Example                 Example Description
+-----------------------------------------------------------------------------------------------------------------------------------------
+.class                      .intro                  Sélectionne tous les éléments avec class="intro"
+#id                         #firstname              Sélectionne tous les éléments avec id="firstname", normalement, il n'y en a qu'un
+*                           *                       Sélectionne tous les éléments 
+element                     p                       Sélectionne tous les éléments <p> 
+element,element             div, p                  Sélectionne tous les éléments <div> ET tous les éléments <p> 
+element element             div p                   Sélectionne tous les éléments <p> situés à l'intérieur des éléments <div> 
+element>element             div > p                 Sélectionne tous les éléments <p> ayant pour parent un élément <div> 
+element+element             div + p                 Sélectionne tous les éléments <p> frères (siblings) situés directement après les éléments <div> 
+element~element             div ~ p                 Sélectionne tous les éléments <p> frères (siblings) situés après les éléments <div>  
+[attribute]                 [target]                Sélectionne tous les éléments qui possèdent l'attribut target  
+[attribute=value]           [target=_blank]         Sélectionne tous les éléments avec target="_blank"  
+[attribute!=value]          [target!=_blank]        Sélectionne tous les éléments dont l'attribute target ne vaut pas l'expression "_blank"  
+[attribute*=value]          [title*=flower]         Sélectionne tous les éléments avec l'attribut title contenant l'expression "flower"
+[attribute^=value]          [href^=https]           Sélectionne tous les éléments dont l'attribut href commence par l'expression "https"
+[attribute$=value]          [href$=".pdf"]          Sélectionne tous les éléments dont l'attribut href se termine par l'expression ".pdf"
+
+:not(selector)              :not(p)                 Sélectionne tous les éléments qui ne sont pas un élément <p>
+:first                      p:first                 Sélectionne le premier élément <p> trouvé
+:last                       p:last                  Sélectionne le dernier élément <p> trouvé
+:nth                        p:nth(2)                Sélectionne le deuxième élément <p> trouvé
+:contains                   p:contains(hello)       Sélectionne tous les éléments <p> qui contiennent dont le premier noeud enfant contient le texte "hello"
+:containsAll                p:containsAll(hello)    Sélectionne tous les éléments <p> qui contiennent le texte "hello"
+
+
+:first-of-type              p:first-of-type         Sélectionne tous les éléments <p> qui sont les premiers éléments <p> de leur parent
+:last-of-type               p:last-of-type          Sélectionne tous les éléments <p> qui sont les derniers éléments <p> de leur parent
+:nth-of-type                p:nth-of-type(2)        Sélectionne tous les éléments <p> qui sont le deuxième élément <p> de leur parent
+:nth-last-of-type           p:nth-last-of-type(2)   Sélectionne tous les éléments <p> qui sont le deuxième élément <p> de leur parent, mais en partant de la fin
+
+??
+# not implemented yet (too complex)
+    :first-child                p:first-child           Sélectionne tous les éléments <p> qui sont les premiers enfants de leur parent
+    :last-child                 p:last-child            Sélectionne tous les éléments <p> qui sont les derniers enfants de leur parent
+    :nth-child(n)               p:nth-child(2)          Sélectionne tous les éléments <p> qui sont le deuxième enfant de leur parent
+    :nth-last-child(n)          p:nth-last-child(2)     Sélectionne tous les éléments <p> qui sont le deuxième enfant de leur parent, mais en partant de la fin
+
+
+
+
+Todo:
+    Collection
+            exclude( filter )
+            parent( )
+            ancestors ( filterSelector )
+            firstMatchingAncestor ( filterSelector )
+
+
+
+
+
+Implémentation du parser de crawlerQuery
+-------------------------------------------------
+
+Pour les notations qui s'interprétent linéairement de gauche à droite,
+une technique de parsage simple est la suivante:
+
+- tokenization
+        On transforme chaque élément de notre notation en token
+- envoi des erreurs de syntaxe
+- analyse des tokens et envoi des erreurs de grammaire
+- interprétation de la grammaire
+        C'est un peu la même chose que l'étape précédente, mais on produit une valeur ou bien exécute un résultat en plus
+
+
+Je pense pouvoir abstraire un système réutilisable de Tokenizer, tel que:
+ 
+        array Tokenizer.tokenize ( notation )
+                    Renvoie un tableau de tokenInfo,
+                    chaque tokenInfo étant un tableau avec les entrées suivantes:
+                            0: tokenId, l'identifiant du token
+                            1: tokenValue, la valeur du token
+                            
+                            
+                    
+Cela me permet de travailler directement avec le tableau de tokens renvoyé par cette méthode tokenize.
+                    
+                    
+La première étape est donc d'identifier les tokens et de définir la grammaire.
+Voici le résultat de ma réflexion:
+                    
+
+tokens
+-------------
+    
+    tokenId                     symbole/regex                     description
+-------------------------------------------------------------------------------------------    
+    dot                         .                           permet d'introduire une classe  .myClass
+    sharp                       #                           permet d'introduire une id  #myId
+    entityName                  [A-z0-9_-]+                 permet de représenter un des éléments suivants: 
+                                                                            - tag xhtml
+                                                                            - nom d'un attribut
+    comma                       ,                           permet de séparer plusieurs matches
+    space                       <blank>+                    permet d'indiquer une hiérarchie entre le parent à gauche du space, et l'enfant à droite
+    greaterThan                 >                           permet de créer la relation element > element
+    plus                        +                           permet de créer la relation element + element
+    tilde                       ~                           permet de créer la relation element ~ element
+    openingBracket              [                           permet d'introduire la notation des attributs
+    closingBracket              ]                           permet de terminer la notation des attributs
+    equalOperator               =                           permet de tester l'égalité entre un attribut et une expression
+    notEqualOperator            !=                          permet de tester la non égalité entre un attribut et une expression
+    containsOperator            *=                          permet de tester qu'un attribut contient une expression
+    startsWithOperator          ^=                          permet de tester qu'un attribut commence par une expression
+    endsWithOperator            $=                          permet de tester qu'un attribut se termine par une expression
+    quoted                      <quotedString>              permet de représenter la deuxième opérande lors d'un test sur un attribut
+    notFunction                 :not                        permet de créer une fonction not
+    openingParenthesis          (                           permet d'ouvrir les arguments d'une fonction (not, nth, contains, ...)
+    closingParenthesis          )                           permet de clore les arguments d'une fonction (not, nth, contains, ...)
+    
+                                                            # les 3 tokens ci-dessous s'appliquent à la totalité de la collection uniquement,
+                                                            ou dans le contexte du :not dans lequel ils sont enfermés.
+                                                                
+    firstSelector               :first                      permet de réduire la collection courante à son premier élément 
+    lastSelector                :last                       permet de réduire la collection courante à son dernier élément
+    ?nthFunction                :nth                        permet de réduire la collection courante à son nième élément
+    
+    containsFunction            :contains                   permet d'ajouter la contrainte de contenance de texte à un élément
+    containsAllFunction         :containsAll                permet d'ajouter la contrainte de contenance de texte récursif à un élément
+    firstChildSelector          :first-child                filtre chaque élément de la collection et ne conserve que ceux qui sont les premiers enfants de leur parent
+    lastChildSelector           :last-child                 filtre chaque élément de la collection et ne conserve que ceux qui sont les derniers enfants de leur parent
+    nthChildSelector            :nth-child                  filtre chaque élément de la collection et ne conserve que ceux qui sont les nième enfants de leur parent
+    nthChildLastSelector        :nth-last-child             filtre chaque élément de la collection et ne conserve que ceux qui sont les nième enfants de leur parent, en partant de la fin
+    
+    firstOfTypeSelector         :first-of-type              filtre chaque élément de la collection et ne conserve que ceux les premiers éléments pour le type donné
+    lastOfTypeSelector          :last-of-type               filtre chaque élément de la collection et ne conserve que ceux les derniers éléments pour le type donné
+    nthOfTypeSelector           :nth-of-type                filtre chaque élément de la collection et ne conserve que ceux les nième éléments pour le type donné
+    nthLastOfTypeSelector       :nth-last-of-type           filtre chaque élément de la collection et ne conserve que ceux les nième éléments pour le type donné, en partant de la fin
+    
+    
+Description de la notation
+-------------------------    
+                                                       
+                                                                            
+                                                                            
+- notation: <phrase>
+- phrase: <elementSelector> ( <comma> <elementSelector>) *
+- elementSelector: <atomicSelector> ( <elementOperator> <atomicSelector> )*                                                                             
+- atomicSelector: <entitySelector>? ( <elementFilters> )*                     
+- elementFilters: <attributePack> | <notFilter> | <containsFilter> | <containsAllFilter> | <positionFilter>
+
+
+- entitySelector: ((<classSelector> | <idSelector> | <elementName>) (<classSelector>)* ) |  <*>
+- classSelector: <dot> <entityName>                       
+- idSelector: <sharp> <entityName>                       
+- elementName: [A-z_][A-z0-9_]*                       
+- attributePack: <openingBracket> <attributeName> <attributePredicate>? <closingBracket>
+- attributePredicate: <attributeOperator> <attributeOperand>
+- attributeOperator: <equalOperator> | <notEqualOperator> | <containsOperator> | <startsWithOperator> | <endsWithOperator>
+- attributeOperand: <quotedString> | <entityName>
+- attributeName: <entityName>
+- elementOperator: <space> | <greaterThan> | <plus> | <tilde>                    
+- notFilter: <:not> <openingParenthesis> <notNotation> <closingParenthesis>                    
+- containsFilter: <:contains> <openingParenthesis> <text> <closingParenthesis>                    
+- containsAllFilter: <:containsAll> <openingParenthesis> <text> <closingParenthesis>
+- text: <quotedString> | <entityName>
+- positionFilter: <:first> | <:last> | <:first-child> | <:last-child> | <:first-of-type> | <:last-of-type> | <positionFunction>
+- positionFunction: <positionFunctionName> <openingParenthesis> <number> <closingParenthesis>
+- positionFunctionName: <:nth> | <:nth-child> | <nth-last-child> | <nth-of-type> | <nth-last-of-type>
+- number: [0-9]+                   
+- notNotation: comme <notation>, mais ne peut pas contenir un autre notFilter,
+                        c'est à dire que :not n'est pas récursif.
+                    
+                    
+                    
+Notes complémentaires:
+
+1. atomicSelector: si l'<entitySelector> est omis, alors un <entitySelector> implicite avec
+    la valeur *  est utilisé.
+2. atomicSelector: plusieurs elementFilters peuvent être utilisés pour filtrer le match courant.
+3. entitySelector: pour les répétitions des entityName, le symbole <sharp> ne peut être répété qu'une fois,
+                            mais le symbole <dot> peut être utilisé plusieurs fois.
+                            
+4.  Le not n'est pas récursif (pas de not à l'intérieur d'un autre not).
+    Le not n'accepte pas les filtres de collection: last, first (à la place, il sont interprétés comme last-of-type et first-of-type respectivement)
+    Le not ne s'applique qu'au niveau d'un elementSelector, pas au niveau d'une phrase.
+        
+        
+                    
+                   
+                   
+                    
+                    
+                    
+                    
+                    
+                    
+Notes sur les limitations de notre approche
+------------------------------------------
+
+Notre système est basé sur les objets DOM (DOMDocument, DOMNode, etc...) php, et xpath et hérite donc des limitations de ces systèmes.
+Notamment, au niveau de DOMDocument.
+DOMDocument essaie de fixer le html qui n'est pas well-formed, mais il distingue une deuxième forme de mauvais html qu'il dénote par mauvais markup dans la doc
+(http://php.net/manual/en/domdocument.loadhtml.php, section Errors/Exceptions)
+Lorsqu'un document html contient un mauvais markup, ce markup n'est pas fixé, et un warning est envoyé.
+
+
+
+Voici un exemple de mauvais markup:
+ 
+     <p id="thep">
+        <ul class="moo"></ul>		
+     </p>
+     
+     
+     
+L'élément ul ne peut pas être contenu dans un p.
+Malheureusement, au niveau de la sélection des éléments, les conséquences sont dramatiques:
+     
+Soit le code valide suivant:
+ 
+     <div id="thep">
+        <ul class="moo"></ul>		
+     </div>
+     
+On peut utiliser le sélecteur: div#thep ul.moo  
+     pour accéder au ul.
+     
+Cependant, si on reprend notre code contenant le mauvais markup:
+                    
+     <p id="thep">
+        <ul class="moo"></ul>		
+     </p>
+             
+     alors le sélecteur: p#thep ul.moo renverra une chaîne vide
+                       
+Oops.
+On n'a malheureusement donc pas le choix que d'être conscient de ces particularités si on souhaite utiliser notre système.
+                       
+                       
+             
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script src="/libs/vswitch/js/vswitch.js"></script>
+	<title>Html page</title>
+	<style>
+
+		.surface {
+			display: flex;
+		}
+
+		.block {
+			width: 100px;
+			height: 100px;
+		}
+
+		.block.red {
+			background: red;
+		}
+
+		.block.green {
+			background: green;
+		}
+
+		.block.blue {
+			background: blue;
+		}
+
+		.block.yellow {
+			background: yellow;
+		}
+
+		.block.purple {
+			background: purple;
+		}
+
+		.view {
+			display: none;
+		}
+
+		.surface.green .green,
+		.surface.red .red,
+		.surface.blue .blue,
+		.surface.yellow .yellow,
+		.surface.purple .purple {
+			display: block;
+		}
+
+
+	</style>
+</head>
+
+<body>
+
+
+<div class="surface red">
+
+	<div class="view block red"></div>
+	<div class="view block green"></div>
+	<div class="view block blue"></div>
+	<div class="view block yellow"></div>
+	<div class="view block purple"></div>
+
+</div>
+
+<div>
+	<button id="show_all">Display all</button>
+	<button id="hide_all">Hide all</button>
+	<button id="toggle_green">Toggle green</button>
+	<button id="toggle_red">Toggle red</button>
+	<button id="toggle_blue">Toggle blue</button>
+	<button id="toggle_yellow">Toggle yellow</button>
+	<button id="toggle_purple">Toggle purple</button>
+	<button id="ki_red_blue_yellow">Kick in red blue yellow</button>
+	<button id="ko_red_green_purple">Kick out red green purple</button>
+	<button id="toggle_red_yellow_purple">Toggle red yellow purple</button>
+</div>
+
+
+<script>
+	$(document).ready(function () {
+		var jSurface = $('.surface');
+		var oswitch = new vswitch(jSurface, [
+			'red',
+			'green',
+			'blue',
+			'yellow',
+			'purple',
+		]);
+
+
+		$('#show_all').click(function () {
+			oswitch.kickIn("red green blue yellow purple");
+		});
+		$('#hide_all').click(function () {
+			oswitch.kickOut("red green blue yellow purple");
+		});
+		$('#toggle_green').click(function () {
+			oswitch.toggle("green");
+		});
+		$('#toggle_red').click(function () {
+			oswitch.toggle("red");
+		});
+		$('#toggle_blue').click(function () {
+			oswitch.toggle("blue");
+		});
+		$('#toggle_yellow').click(function () {
+			oswitch.toggle("yellow");
+		});
+		$('#toggle_purple').click(function () {
+			oswitch.toggle("purple");
+		});
+		$('#ki_red_blue_yellow').click(function () {
+			oswitch.kickIn(["red", "blue", "yellow"]);
+		});
+		$('#ko_red_green_purple').click(function () {
+			oswitch.kickOut(["red", "green", "purple"]);
+		});
+		$('#toggle_red_yellow_purple').click(function () {
+			oswitch.toggle('red yellow purple');
+		});
+
+
+	});
+</script>
+</body>
+</html>

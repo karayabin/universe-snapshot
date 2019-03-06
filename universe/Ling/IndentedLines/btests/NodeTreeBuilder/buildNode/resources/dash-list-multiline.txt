@@ -1,0 +1,7 @@
+- a: apple
+- b: banana
+- c: <
+    This is a comment.
+    And a second line.
+>
+- l: lemon

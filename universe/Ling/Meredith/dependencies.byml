@@ -1,0 +1,10 @@
+dependencies: 
+    Ling: 
+        - Bat
+        - QuickPdo
+        - Tim
+        - StringFormatter
+        - SuspiciousException
+    
+
+post_install: []

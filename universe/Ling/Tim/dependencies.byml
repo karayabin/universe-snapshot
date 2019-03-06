@@ -1,0 +1,6 @@
+dependencies: 
+    Ling: 
+        - Jquery
+    
+
+post_install: []

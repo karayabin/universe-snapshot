@@ -1,0 +1,17 @@
+Notes
+=============
+2015-05-12
+
+
+
+
+
+
+L'un des problèmes rencontrés lors de l'implémentation de la récursion
+est le fait que si on passe la même instance d'un SequenceDiscoverer par exemple à lui-même,
+on a des conflits avec les propriétés values.
+ 
+Le fait de clôner, même superficiellement le SequenceDiscoverer permet de créer deux
+tableaux values différents.
+Peut être qu'on a des problèmes avec plus d'interactions entre les éléments, 
+ou pas si on utilise des modèles pour chaque container ?

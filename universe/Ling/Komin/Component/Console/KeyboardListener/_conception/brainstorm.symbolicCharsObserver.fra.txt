@@ -1,0 +1,86 @@
+Brainstorm
+=================
+2015-05-07
+
+
+
+
+Maintenant que notre keyboardListener est stable,
+nous voudrions pouvoir utiliser des caractères plus intuitifs pour les humains.
+Par exemple, la flèche de droite par défaut est la combinaison des caractères suivants (du moins sur mon mac):
+
+    \033[C
+    
+    
+Ce serait bcp plus simple si on pouvait détecter l'expression right par exemple.
+    
+    
+C'est le but de cet observer que de traduire les séquences bizarres en symboles humains.
+Il est donc probable que cet observer soit utilisé comme base par de nombreux autres.
+    
+C'est pourquoi il aurait lui-même ses propres observers à qui il transmettra les symboles humains.
+    
+    
+    
+Voici une proposition de liste de symboles:     
+    
+Il me semble que les correspondances exactes entre les séquences de caractères et les symboles
+dépendent de la machine (une contrainte à prendre en compte lors de l'implémentation):
+
+Voici ceux de mon mac:
+             * Mac set for french keyboard
+             * model A1243
+             * Id: 0x8403
+             * Version: 98.33
+
+
+    '\033' => 'escape',
+    '\033[3~' => 'suppr',
+    '\177' => 'delete',
+    '\t' => 'tab',
+    '\n' => 'return',
+    '\033[A' => 'up',
+    '\033[B' => 'down',
+    '\033[C' => 'right',
+    '\033[D' => 'left',
+
+    '\033[Z' => 's+tab',
+
+    // controls
+    '\000' => 'c+@',
+    '\001' => 'c+a',
+    '\005' => 'c+e',
+    '\022' => 'c+r',
+    '\024' => 'c+t',
+    '\025' => 'c+u',
+    '\020' => 'c+p',
+    '\004' => 'c+d',
+    '\006' => 'c+f',
+    '\a' => 'c+g',
+    '\b' => 'c+h',
+    '\v' => 'c+k',
+    '\f' => 'c+l',
+    '\027' => 'c+w',
+    '\030' => 'c+x',
+    '\002' => 'c+b',
+    '\016' => 'c+n',
+
+
+    // functions
+    '\033OP' => 'f1',
+    '\033OQ' => 'f2',
+    '\033OR' => 'f3',
+    '\033OS' => 'f4',
+    '\033[15~' => 'f5',
+    '\033[17~' => 'f6',
+    '\033[18~' => 'f7',
+    '\033[19~' => 'f8',
+    '\033[20~' => 'f9',
+    '\033[21~' => 'f10',
+    '\033[23~' => 'f11',
+    '\033[24~' => 'f12',
+        
+        
+        
+        
+        

@@ -1,0 +1,181 @@
+Brainstorm
+======================
+2015-05-06
+
+
+
+
+
+
+
+
+Algorithme du client d'installation des modules (avec gestion des dépendances)
+======================================================
+par lingtalfi
+
+
+
+
+
+Le client peut prendre en input:
+    - un dossier de bundles
+    - un bundle
+    - un searchPattern
+    - un array de searchPattern
+    
+    
+        
+        
+
+        
+        
+        
+
+1. Fetch metas, le but de cette phase est de rappatrier récursivement tous les metas de chaque input.
+
+        Note: quelles que soient nos précautions, il est toujours possible qu'on ait à télécharger plusieurs 
+                fois des metas d'un même module pour des versions différentes (car on ne connaît pas toutes les dépendances
+                à l'avance).
+                Nous ne combattrons donc pas ce phénomène et nous jouerons au contraire la carte de la simplicité
+                de conception représentée sous forme d'un fetch meta récursif, et naïf.
+                
+                
+                
+        
+        On créé un tableau $allMeta qui contiendra:
+                    commonName => array:  (nommé info en interne)
+                                    versionId: string
+                                    meta: array des meta
+                                    bundle: null|string, chemin du bundle, ou null si le module ne vient pas d'un bundle
+                                    repo: null|string, nom du repository duquel provient la meta, ou null si le module ne vient pas d'une meta
+                                    ?vns: string 
+        
+        
+        La structure de ce tableau nous permettra, lors de la phase de download, et en cas de conflits de version, 
+        de comparer les versions avant de télécharger les bundles, et éventuellement de skipper un ou plusieurs téléchargements.
+        De plus, on est au courant des modules provenant des bundles, pour lesquels une simple copie sera suffisante (et non pas
+        un téléchargement).
+                        
+        Les entrées peuvent être de deux types:
+        
+                - bundle
+                - searchPattern
+                
+        Parmi les searchPattern, on distingue encore 2 types:
+                    - searchPattern canonical
+                    - searchPattern lastVersion
+                    
+        Notons également que si un module déclare des dependencies, celles-ci sont par définition 
+            de type searchPattern canonical.
+            
+        Nous utiliserons ce fait et créerons une méthode fetchCanonicalMeta qui sera récursive,
+        et qui fera le gros du travail.
+        
+        Notre premier but est donc d'arriver à créer un premier tableau qui résoud les bundles
+        et les searchPattern de type lastVersion, de manière à ce qu'on puisse ensuite lancer la phase
+        de fetchCanonicalMeta.
+        
+        
+        
+        A - init all meta
+        
+            
+            On parse tous les bundles d'abord.
+            D'un bundle, on peut extraire les userMeta et en déduire un canonicalName.
+            Si le canonicalName est en stock, on le skip, sinon
+            si une version plus récente existe, on skip,
+            mais si la version du bundle est le plus récente, il devient la version officielle (éventuellement remplace une
+            version plus ancienne) dans le tableau allMeta.
+            
+                                                      
+            Ensuite, on parse les searchPattern.                
+            Pour les searchPattern canonical, on procède de la même manière que pour les bundles,
+            c'est à dire qu'on insère le module à allMeta seulement si sa version est la plus récente.
+            
+                     
+                     
+            Pour les searchPattern lastVersion, 
+            la démarche est la même, sauf qu'on doit en plus trouver le numéro concret de version,
+            pour cela, on va demander aux repositories.
+            On utilisera les metas du premier repository qui peut nous fournir une réponse.
+                        Note:
+                                au niveau de la conception, cette approche est la plus rapide,
+                                mais également la moins logique.
+                                L'approche la plus logique serait de contacter tous les repositories
+                                un par un, et de collecter les dernières versions de chaque repository,
+                                pour enfin pouvoir analyser toutes ces dernières versions et choisir 
+                                effectivement laquelle est vraiment la dernière.
+                                Le client pourrait proposer le choix entre les deux approches,
+                                ou bien choisir uniquement la deuxième (ou juste la première, mais ce n'est
+                                pas recommandé).
+            Ensuite, on utilise la même logique que pour les entrées précédentes.
+                        
+                        
+            A la fin de cette phase, on a donc un tableau allMeta, contenant toutes les meta originelles (provenant de l'input)
+            qui ne sont pas en stock dans leur version la plus récente, mais dont aucune dépendance n'est résolue,
+            
+                                                
+                                                
+        B - resolve all meta (canonical)                                                
+        
+            Cette phase consiste à résoudre les dépendances récursivement.
+            On scanne le tableau allMeta actuel, et pour chaque module,
+            on regarde s'il a des dépendances.
+            Si c'est le cas, pour chaque dépendance on parse récursivement le canonicalName.
+            Si la dépendance est en stock, on skip.
+            Sinon, on regarde si le module est dans allMeta.
+            Si le module n'est pas dans allMeta, ou si le module est dans allMeta mais que la version est plus récente
+            que celle actuellement stockée dans allMeta, on remplace la version.
+                    Concrètement, techniquement on remplace le numéro de version immédiatement pour éviter qu'un appel imbriqué
+                    puisse croire que la version la plus récente est l'ancienne.
+                    En gros, cela permet de faire un check avec des données à jour.
+                    Puis, on ajoute les meta, et on parse les dépendances récursivement.
+            
+            
+            
+            A la fin de cette phase, on a le tableau des metas des éléments que l'on souhaite installer,
+            qui ne sont pas en stock, et dont les conflits de versions sont normalement résolus.
+            
+        
+        
+    A tout moment pendant cette première phase, si après avoir essayé tous les repo, 
+    on n'a toujours pas pu télécharger le meta, en fc de la config:
+    
+            - ignore
+            - abort
+            - ask user
+                            
+        
+                            
+2. Download des bundles.
+        
+        On créé un dossier temporaire tmpBundleDir que l'on supprimera à la fin du processus d'installation.
+        
+        On parse notre tableau allMeta,
+        si le module vient d'un bundle, on le copie dans tmpBundleDir.
+        Si le module ne vient pas d'un bundle, on utilise les downloadInfo pour télécharger le bundle.
+                                        
+                                        
+        On se retrouve avec un dossier tmpBundles contenant tous les bundles à installer.
+        Les flags
+                    
+            - ignore
+            - abort
+            - ask user
+            
+        sont également utilisés dans cette phase en cas de bundle non trouvé dans les repos.            
+        
+        
+                                    
+4. Install
+        On appelle l'installer qui installe tous les bundles.
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        

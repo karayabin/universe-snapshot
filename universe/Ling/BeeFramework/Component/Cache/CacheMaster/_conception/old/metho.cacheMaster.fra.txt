@@ -1,0 +1,50 @@
+CacheMaster
+=================
+2014-08-22
+
+
+
+Dans ce document, je décris une méthode générale pour cacher des objets différents.
+
+L'un des principes de base avec cette méthode est qu'il n'y a qu'une seule instance de cache
+partagée pour toute l'application, une sorte de CacheMaster si on peut dire.
+
+La conception est assez simple: visualisez un gérant de boutique, appelons-le cacheMaster,
+et le service que ce cacheMaster propose est de stocker des data pour vous.
+
+Vous arrivez avec une donnée à mettre en cache, et vous la passez simplement au cacheMaster, en donnant votre nom.
+Vous pouvez également passer des meta data si vous le souhaitez.
+Ces meta data pourront vous aider à déterminer la validité de votre data.
+Le cacheMaster se charge de stocker la data (et éventuellement la meta data) dans sa grosse armoire, à l'arrière de sa boutique.
+
+Le cache est permanent, c'est à dire que vous pouvez éteindre votre ordinateur et revenir dans l'application,
+et votre data sera toujours en stock dans la boutique du cacheMaster.
+
+A tout moment, vous pouvez vous présenter avec votre nom et demander la data correspondante.
+
+Voici les avantages que je vois à cette approche:
+
+
+- on peut stocker n'importe quelle data sans avoir besoin de se soucier du type, c'est le cacheMaster qui
+            se débrouille.
+- l'emplacement du stockage n'est défini qu'une fois, au moment de l'instanciation du cacheMaster,
+            ce qui permet de ne pas avoir à se soucier de OÙ les data seront stockées.
+- le test de validité, s'il existe, est la responsabilité de l'utilisateur, et non du cacheMaster.
+        (Cela allège le code du CacheMaster et donne toute la souplesse souhaitée à l'utilisateur.)
+
+
+
+L'interface est donc très simple:
+
+- bool          store( name, data, metaData=null )
+                        Cette méthode renvoie true en cas de succès, et false en cas d'erreur.
+
+- bool          hasData ( name )
+- mixed         retrieveMeta ( name )
+- mixed|false   retrieveData ( name, includeMeta=false )
+                        Cette méthode renvoie false si la data n'existe pas.
+                        Si includeMeta vaut true et que la data existe, elle renvoie le tableau [data, metaData].
+                        Si includeMeta vaut false et que la data existe, elle renvoie data.
+
+
+Ces méthodes n'ont normalement pas besoin de lancer d'exceptions, sauf store.

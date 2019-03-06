@@ -1,0 +1,6 @@
+0: apple
+# this is a comment
+5: # this is a comment too
+    banana
+name: cherry
+yellow: lemon

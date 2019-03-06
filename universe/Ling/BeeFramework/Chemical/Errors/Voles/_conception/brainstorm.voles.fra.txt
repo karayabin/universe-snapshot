@@ -1,0 +1,70 @@
+Brainstorm
+====================
+2015-05-24
+
+
+
+Même si ça sonne un peu triste à dire comme ça, le pain quotidien du développeur ce sont les erreurs (et les problèmes).
+
+Comment réagir face aux erreurs donc ?
+
+
+    Cela dépend de où on se trouve.
+    Si on code un module (classe), alors on est au niveau d'un objet.
+    On peut avoir une vision plus grande et coder pour une application,
+    mais ici, on ne s'intéressera qu'aux erreurs au niveau d'un objet (à chaque jour suffit sa peine).
+    
+    
+    Voici une stratégie qui permet à un dev de gagner un peu de temps, en appelant un trait pour bénéficier 
+    de quelques méthodes mettant en place un système de gestion d'erreur pour la classe:
+    
+    
+    voles:
+            versatile object level error strategy
+            
+            
+    Le but est qu'on puisse switcher (en cas d'erreur) entre:
+                        - lancer une exception
+                        - retourner false et laisser le client récupérer les erreurs via une méthode getErrors que l'on fournit
+                        
+                        
+    Les problèmes que cette stratégie essaie de résoudre sont:
+                        - comment choisir l'exception qui est lancée
+                        - dans certains cas, forcer le mode sans exceptions.
+                        
+                  
+                        
+                        
+    Implémentation:
+                            
+        trait:
+            + self      setErrorMode ( string )
+                                string peut être soit:
+                                            - quiet  (renvoie false, lors de l'appel à la fonction error)
+                                            - strict (lance une exception, lors de l'appel à la fonction error)
+                                            
+                                            Par défaut, le mode est strict.
+                                            
+            + array     getErrors()
+                                Pour l'utilisateur qui utilise le mode quiet (ou même strict d'ailleurs, s'il a rattrapé l'exception),
+                                il peut accéder aux erreurs ici.
+            
+            - self      setDefaultException( string )
+                                Ici, on peut choisir l'exception qui sera lancée par défaut.
+                                
+            
+            - false     error( msg, allowException=1, exception=null )
+                                En fonction du mode, lancera une exception ou pas.
+                                Dans tous les cas, le msg est stocké dans les erreurs, accessible via getErrors.
+                                
+                                Un exception n'est lancée que si allowException vaut 1 et que errorMode vaut strict.   
+                                On peut aussi utiliser true/false, mais 1/0 est plus rapide à écrire.
+                                
+                                exception permet de passer une instance d'exception.
+                                Cela peut être pratique dans certains cas où on a besoin de configurer l'exception.
+                                
+                                
+            
+Les méthodes setDefaultException et error sont protected,
+car si elles étaient private, un enfant ne pourrait pas réutiliser notre trait.            
+            

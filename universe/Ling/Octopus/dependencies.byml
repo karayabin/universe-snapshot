@@ -1,0 +1,7 @@
+dependencies: 
+    Ling: 
+        - SicTools
+        - ClassCreator
+    
+
+post_install: []

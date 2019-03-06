@@ -1,0 +1,7 @@
+dependencies: 
+    Ling: 
+        - Bat
+        - SitemapBuilderBox
+    
+
+post_install: []

@@ -1,0 +1,212 @@
+Brainstorm
+=================
+2015-06-04
+
+
+
+
+Biscotte: bee service code translator
+
+
+
+Cette notation permet d'écrire le code php d'initialisation des services à partir d'un tableau php.
+Biscotte est utilisée par les service containers.
+
+
+
+
+
+instanciation  (<instantiationCode>)
+----------------
+
+
+Il y a deux types de code d'instanciation: un code non statique, et un code statique.
+
+Code non statique:
+
+- _class: Foo\MyClass
+- ?_args: array of <inlineArg>
+- ?_calls: array of <methodCall>
+
+
+Code statique:
+
+- _static: Foo\MyClass::myMethod
+- ?_args: array of <inlineArg>
+- ?_calls: array of <methodCall>
+
+
+
+inlineArg
+---------------
+
+chaque argument peut être l'un des éléments suivants:
+
+- array: un tableau, contenant des <inlineArg>     
+- superScalar: une chaîne de caractère, ou un int ou un float, ou un booléen ou null
+- resultOf: un élément de type <resultOf> qui permet de passer le résultat d'une méthode appelée sur un service ou une méthode php statique.
+                    Un élément de type resultOf peut être intégré dans une string si sa valeur de retour est également de type string.
+- serviceRef: une string de type <serviceRef> qui permet de passer un service.
+                    Souvent, un service spécial nommé container permet l'accès au service container.
+- parameterRef: une string de type <parameterRef>, celle-ci peut être intégrée dans une string si la valeur référencée est une string
+- onTheFlyInstantiationCode: une string de type <instantiationCode>.
+                        Dans ce cas, le service n'est pas attachée au service container, mais l'instance créée est utilisée comme argument.
+           
+        
+
+
+resultOf
+--------------
+
+Cet élément accepte deux notations possibles: une en string, et une en tableau.
+Les notations sont récursives.
+Les arguments sont des <inlineArg>.
+
+
+Notation string (stand alone):
+    
+    - @myService->method ( doo, daa )
+    - My\Vendor\FooClass::getKeys ( 1, true, bla, @myservice, @myMailService->getMailer() )
+    
+    
+Notation tableau (stand alone):
+    
+    - 
+    ----- _resultOf: @myService->method 
+    ----- _args: 
+    --------- doo 
+    --------- daa
+    - 
+    ----- _resultOf: My\Vendor\FooClass::getKeys 
+    ----- _args: 
+    --------- 1
+    --------- true 
+    --------- @myservice 
+    --------- 0:
+    ------------- _resultOf: @myMailService->getMailer
+    ------------- _args: <emptyArray>
+     
+     
+Notation string (inline):
+    
+    - I like @myService->method ( doo, daa ) to be hot and @myWord->say( smooth )     
+  
+Notation tableau (inline):
+    
+    - 
+    ----- _concat: 
+    --------- "I like " 
+    ---------  
+    ------------- _resultOf: @myService->method 
+    ------------- _args: 
+    ----------------- doo 
+    ----------------- daa
+    --------- " to be hot and " 
+    ---------  
+    ------------- _resultOf: @myWord->say 
+    ------------- _args: 
+    ----------------- smooth
+     
+
+Note: 
+    pour l'instant il n'y a pas de système d'échappement pour la notation resultOf.        
+     
+     
+     
+serviceRef
+---------------
+    
+Une référence vers un service.
+    
+    - @myService.address
+    - @doo.foo.mail.controller
+    - @doo.foo.mail.controller+
+                Dans cet exemple, le plus final indique qu'une nouvelle instance est requise.
+                
+
+Le mot-clé container est reservé et est une référence vers le service container:
+                        
+    - @container  // référence vers le service container                        
+    
+    
+    
+methodCall
+---------------
+
+Cet élément accepte deux notations possibles: une en string, et une en tableau.
+Cette notation n'est pas récursive.
+(Par contre, elle accepte des resultOf qui eux sont récursifs.)
+Les arguments sont des <inlineArg>.
+
+
+
+Notation string:
+    
+    - _calls:
+    ----- myMethod ( doo, daa )
+    ----- getKeys ( 1, true, bla, @myservice, @myMailService->getMailer() )
+    
+    
+Notation tableau:
+    
+    - _calls
+    ----- 0:  
+    --------- _method: myMethod 
+    --------- _args:  
+    ------------- doo 
+    ------------- daa
+    ----- 1:  
+    --------- _method: getKeys 
+    --------- _args: 
+    ------------- 1
+    ------------- true 
+    ------------- @myservice 
+    ------------- 0:
+    ----------------- _resultOf: @myMailService->getMailer
+    ----------------- _args: <emptyArray>
+     
+
+
+parameterRef
+-------------------
+
+Une référence vers un paramètre associé au service container.
+Note: tous les services containers n'ont pas forcément des paramètres, mais en général c'est le cas.
+
+- §my.param§
+- §vendor.mail.maintainerEmail§
+
+
+La notation bdot est utilisée.
+Un paramètre est une candyString, et le symbole d'empaquettage par défaut est §. 
+
+
+
+
+Echappement de caractères spéciaux
+--------------------------------------
+
+### Echappement des références aux services.
+
+    Si les deux premiers caractères sont \@, biscotte les convertit en @.
+    
+    - @myService.address            est considérée comme une référence à un service
+    - @myService not really         est considérée comme une chaîne de caractère 
+    - \@myService.address           est considérée comme la chaîne de caractère "@myService.address"
+    - \@myService not really        est considérée comme la chaîne de caractère "@myService not really"
+    - not at all \@myService        est considérée comme la chaîne de caractère "not at all \@myService"
+
+
+
+
+Notes personnelles
+----------------------
+
+Les chaînes resultOf et serviceCall n'ont pas de système d'échappement,
+ce qui signifie qu'on ne peut pas les écrire de manière littérale.
+Je ne pense pas que c'est un gros problème, et pour éviter de complexifier le parser, 
+c'est pourquoi je ne l'ai pas traité, attendant de voir le problème concret arriver.
+
+
+
+

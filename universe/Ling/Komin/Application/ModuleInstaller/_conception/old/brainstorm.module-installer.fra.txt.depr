@@ -1,0 +1,194 @@
+Brainstorm
+======================
+2015-05-04
+
+
+
+
+
+
+
+
+
+Le but est d'accélerer le temps d'installation des modules.
+L'installation d'un module comprend l'installation des dépendances.
+
+Un client est plus rapide qu'un humain car:
+
+- il connaît la liste des repositories
+- il est en contact avec un installateur qui permet l'installation du module directement dans l'application
+- il est capable d'installer une liste de modules 
+- pour chaque module, il est capable de détecter la liste des dépendances, et d'installer les nouveaux modules dans la foulée
+
+
+C'est donc un système automatisé d'installation de module que nous cherchons à mettre en place.
+Pour cela, nous aurons besoin:
+
+
+- Client: l'interface utilisateur pour installer les modules
+- Installer: un objet capable d'installer un module dans une application spécifique.
+- Repository: contient des modules
+
+
+
+
+
+
+Repository:
+
+    (peut avoir d'autres méthodes, mais nous listons celles qui concernent ce contexte uniquement)
+    
+    array|false         getModuleMeta( moduleCanonicalName )
+                            renvoie le tableau des serverMeta correspondant au module donné,
+                            ou false si une erreur survient.
+
+    bool                hasModule( moduleSearchPattern )
+    false|array         getModuleVersions( moduleCommonName )
+                                renvoie le tableau des versions du module, s'il existe (ou false sinon)
+    
+
+    C'est tout ?
+        oui, car nous souhaitons avoir un système ouvert dans lequel le vns n'est pas fixé à l'avance.
+        C'est le client qui résoud les dépendances des modules.
+        Certes, cela fera plus de requêtes au serveur, mais c'est le prix à payer pour avoir des rôles bien séparés:
+        le repository n'est pas lié à un vns en particulier.
+        Une variante serait ceci:
+                array           getModuleMeta( moduleCanonicalName, vnsId )
+                Cela permettrait de diminuer le nb de requêtes au prix d'une certaine complexité de conception.
+                Mais nous préférons la solution la plus simple, et la moins performante, citée dessus.
+                
+                
+Client:
+
+
+    Le but principal
+    ----------------------
+
+    peut lire un fichier elements.yml situé au niveau de la racine de l'application par exemple.
+    Ce fichier est organisé par types.
+    L'un des types peut être un definition.
+    
+    Prenons un exemple pour illustrer l'intérêt du type definition.
+    Tout d'abord voici une maquette fictive de elements.yml sans le type definition:
+    
+            
+            types:
+                modules: (tel que proposé par le mee@bee le vns est 3m, la notation avec range est permise)
+                    - komin.base
+                    - arachnophoBeeFramework.apiSnapshot@1.2
+                    - pragmatik.crud@*
+                    - ... longue liste
+                    
+                leeCms: (le vns est en compatibilité ascendante pure par exemple, donc pas besoin de numéro de versions)
+                    - slidy.sliderOne
+                    - atomic.pixelator
+                    - banners.random
+                    - ... longue liste
+                    
+                    
+    
+    
+    La définition serait un alias permettant d'installer plusieurs features d'un coup.
+    Principalement conçu pour installer un système de base en une ligne.
+    Souvent, les utilisateurs utilisent un seul système de base à partir duquel ils ajoutent des modules et autres.
+    Par exemple, un utilisateur de leeCms pourrait tirer avantage de la définition comme ceci:
+    
+            
+            types:
+                definition: (tel que proposé par xxx, pas de numéro de version (irrelevant?), juste des alias)
+                    - beeForLee
+                    - leeBasics
+            
+    L'utilisateur pourrait créer ses propres définitions très simplement            
+            types:
+                definition: 
+                    - beeForLee
+                    - myLeePlugins
+                    
+                    
+    La définition est tout de même un moduleType (spécial certes) interprété par un repository.
+   
+
+
+    Gestion des dépendances - fonctionnement interne
+    ----------------------------
+    Globalement, le client charge d'abord toutes les metas, 
+    cela lui permet d'avoir toutes les infos nécessaires pour traiter les problèmes de dépendances,
+    qui sont solubles ou pas.
+    Le comportement du client face à un pb de compatibilité (puisque c'est le plus gros pb de tout le système),
+    est déterminé par sa config.
+            On imagine une config permettant de définir un mode:
+                            - auto (no questions at all)
+                            - manual (ask all questions)
+                            - array, tableau qui permet de configurer manuellement, (ou par preset?,) chaque nuance offerte par le client
+    Une fois les dépendances traitées, le client finit par avoir une liste des modules à importer.
+    
+    Il passe donc ensuite à la phase de téléchargement dont le but est de mettre tous les bundles 
+    à importer dans un dossier de téléchargement temporaire.
+    
+    Finalement, il appelle l'installer sur chaque bundle.
+    
+    
+    
+    
+    Le stock
+    ----------------
+    Certains clients peuvent utiliser un objet stock.
+    Le but du stock est d'éviter au client de chercher des modules qui sont déjà installés dans l'application.
+    Le stock est concrètement lié à un objet qui est capable de lister les modules de l'application.
+    Lors de la phase de collecte des dépendances du client (chargement des métas), si un module est en stock, il est skippé.
+    
+
+
+
+
+
+
+
+
+
+Nomenclature:            
+
+
+- moduleSearchPattern: <moduleCommonName> | <moduleCanonicalName>
+- moduleCommonName: <moduleType> <:> <moduleId>
+- moduleType: le type de module, sorte de namespace en fc duquel sont déterminées de nombreuses choses. [a-Z_0-9-]+
+- moduleId: l'identifiant unique du module dans le contexte d'un moduleType  [a-Z_][a-Z_0-9.-]*
+- moduleCanonicalName: <moduleCommonName> <:> <moduleVersionId>
+- moduleVersionId: l'identifiant unique d'une version du module dans le contexte d'un moduleId  [a-Z_0-9.-]+
+
+
+
+- userMeta: array contenant les informations fournies par l'utilisateur lorsqu'il enregistre un nouveau module.
+                Ce tableau contient au minimum les infos suivantes:
+                
+        - type: le type du module
+        - id: l'identifiant du module
+        - ?versionId: l'identifiant de version du module, si le module utilise un vns
+        - ?price: le prix du module
+        - ?payAt: un tableau indiquant comment payer l'auteur du module (seulement si price est renseigné)
+        - ... d'autres infos, en fonction du moduleType
+        
+                                
+- serverMeta: array contenant au minimum les userMeta, plus les infos suivantes, rajoutées par le serveur.
+                    Le serveur fait une copie des userMeta, et ajoute des infos:
+                            - cela évite d'ouvrir le zip qui contient les userMeta (performances du serveur)
+                            - cela lui permet de créer dynamiquement ou pas les download info 
+                            
+----- download: une url ou un tableau d'informations permettant de télécharger le bundle.
+----- ?publicationDate: la date de publication du module
+                    
+
+- bundle: fichier au format zip contenant:
+                    - le fichier userMeta
+                    - les fichiers d'installation du module                    
+                    
+                    
+- module: au sens large: tout élément qui encapsule une fonctionnalité et que l'on 
+                peut exporter/importer dans une application modulaire.                    
+                    
+                    
+                    
+                    
+                    
+                    

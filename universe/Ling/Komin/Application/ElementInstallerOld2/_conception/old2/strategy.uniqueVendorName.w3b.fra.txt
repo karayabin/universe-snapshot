@@ -1,0 +1,56 @@
+Strategy
+=================
+2015-05-21
+
+
+
+Pour chaque élément, la même problématique revient: comment nommer l'élément de manière à ce qu'on puisse l'identifier
+de manière unique.
+
+Dans ce document, nous proposons une solution nommée uniqueVendorName.
+
+
+
+Utilisation d'un nom de vendeur
+----------------------------------
+
+Le nom de vendeur est utilisé comme la marque de fabrique d'un développeur ou groupe de développement (désigné dev ci-après).
+Ce nom de vendeur peut être réutilisé pour différents types d'éléments, à la manière d'un namespace au sein duquel le dev
+fait ce qu'il veut.
+
+
+Unicité du nom de vendeur
+----------------------------
+
+Le dev n'ayant aucune visibilité sur les productions des autres dev, il faut un organisme (de confiance) qui soit capable
+de tenir à jour la liste des noms de vendeurs.
+Cet organisme sera le w3b.
+
+
+Une des principales missions du w3b est de faire autorité pour toutes les questions qui mettent en jeu des problèmes
+de confiance. 
+Pour les noms de vendeur, le w3b devra enregistrer les noms de vendeur, et les associer à un email.
+Les emails ne seront pas accessibles au grand public, mais utilisés par des repositories officiels, c'est à dire dignes
+de la confiance du w3b.
+Ces repositories sont toujours créés à l'initiative du w3b; personne hormis le w3b n'est habilité à créer un repository officiel.
+
+
+
+Ces repositories ont besoin de l'adresse email afin de vérifier l'identité d'un dev qui essaie de mettre à 
+jour un élément (ajout/modification/etc...).
+ 
+ 
+Ainsi, le synopsis qui découle de ce design est que le dev s'enregistre au niveau d'un repository officiel,
+puis à partir de là peut commencer à mettre à jour ses éléments.
+ 
+Pour des raisons pratiques (pour le dev), c'est le repository officiel effectue l'enregistrement du nom de vendeur auprès du w3b.
+Ainsi, le dev n'a pas à s'inscrire à deux endroits différents.
+
+Afin de mieux servir la communauté, les repositories officiels peuvent s'échanger les données, agissant ainsi comme des miroirs
+servant les éléments d'un seul dépôt unique.
+
+
+
+
+
+

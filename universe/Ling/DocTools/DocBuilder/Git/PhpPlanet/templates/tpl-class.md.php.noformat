@@ -1,0 +1,74 @@
+<?php
+
+use Ling\DocTools\Info\ClassInfo;
+
+/**
+ * @var $class ClassInfo
+ */
+
+$class = $z['classInfo'];
+?>
+[Back to the <?php echo $z['planetName']; ?> api](<?php echo $z['planetUrl']; ?>)
+
+
+
+The <?php echo $class->getShortName(); ?> class
+================
+<?php echo $z['projectStartDate']; ?> --> <?php echo $z['date'] . PHP_EOL; ?>
+
+
+
+
+
+Introduction
+============
+
+<?php echo $class->getComment()->getMainText(); ?>
+
+
+Class synopsis
+==============
+
+
+<?php echo $z['classSynopsisWidget']; ?>
+
+
+
+
+<?php if ($class->hasProperties()): ?>
+Properties
+=============
+
+<?php echo $z['classPropertiesWidget']; ?>
+<?php endif; ?>
+
+
+Methods
+==============
+
+<?php echo $z['classMethodsWidget']; ?>
+
+
+<?php if($zz->hasInsert('examples')): ?>
+Examples
+==========
+
+<?php foreach($zz->getInserts('examples') as $content): ?>
+<?php echo $content; ?>
+<?php endforeach; ?>
+<?php endif; ?>
+
+
+
+Location
+=============
+<?php echo $class->getName(); ?>
+
+
+
+<?php if($z['hasMultipleClasses']): ?>
+SeeAlso
+==============
+<?php echo $z['classPrevNextWidget']; ?>
+
+<?php endif; ?>

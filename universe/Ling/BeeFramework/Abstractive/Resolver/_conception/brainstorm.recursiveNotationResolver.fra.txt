@@ -1,0 +1,38 @@
+Brainstorm
+======================
+2015-05-15
+
+
+
+
+
+Parfois, on a besoin d'interpréter une notation qui s'appelle récursivement.
+Cette classe est un système simple qui aide pour la mise en place de l'implémentation d'un tel système.
+
+
+
+Resolver
+    le but du résolveur est de détecter s'il s'applique à la valeur v donnée,
+    et si c'est le cas, modifie v, et renvoie true.
+    Sinon, il renvoie false.
+    
+    
+    
+    
+    bool    resolve ( &v )
+                    renvoie true si v est modifiée.
+                    False sinon
+                    
+                    
+                    
+                    
+RecursiveResolver
+
+    bool    resolve ( &v )
+                En interne, cette méthode refait un tour de tous les resolvers tant qu'au moins un resolver a modifié v.
+                
+    self    setResolver ( Resolver )
+    
+    
+                            
+    

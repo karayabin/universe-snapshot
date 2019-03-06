@@ -1,0 +1,7 @@
+dependencies: 
+    Ling: 
+        - Bat
+        - ThumbnailTools
+    
+
+post_install: []

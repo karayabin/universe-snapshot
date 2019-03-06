@@ -1,0 +1,36 @@
+Brainstorm
+==================
+2015-04-20
+
+
+
+
+L'élément meta contient les informations d'un élément.
+Il peut y avoir plusieurs types d'éléments,
+aussi nous devons rester assez général.
+
+
+
+
+
+Version 1
+------------------------------------------------------------------------------------------
+
+- ElementMeta:
+----- id: string, identifiant unique de l'élément dans le contexte de son type
+----- type: string, le type de l'élément
+----- version: string, la version de l'élément
+----- download: string|array, les informations permettant de télécharger l'élément.
+                                Si c'est une string, c'est une url.
+----- ?dependencies: array, indique les dépendances de l'élément vers d'autres éléments.
+                            Une notation possible est:
+                            
+                            - <elementName> <:> <version>
+                            
+                            
+                
+                                
+----- ?author: mixed, informations sur l'auteur.
+                        En général, une string représentant le nom de l'auteur.
+                        
+----- ?..., l'auteur peut ajouter autant d'info qu'il veut                        

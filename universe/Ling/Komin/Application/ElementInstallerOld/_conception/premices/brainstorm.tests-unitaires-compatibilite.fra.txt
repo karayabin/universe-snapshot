@@ -1,0 +1,302 @@
+Brainstorm
+==================
+2015-04-21
+
+
+
+
+
+
+L'intérêt des tests unitaires ?
+------------------------------------
+
+Ecrire des tests pour tester simultanément plusieurs parties d'un code lors de son implémentation
+est certainement utile.
+
+Cependant, une interrogation me vient quant à l'utilité des tests unitaires dans l'optique
+de "prouver" que le code fonctionne à des personnes tierces.
+Notamment, une idée que j'avais eue pour déterminer la compatibilité d'une version X+1 par d'un élément E
+par rapport à la version X était de couvrir le code à 100% avec des tests unitaires, de manière à ce
+qu'au passage à la nouvelle version, si tous les tests passaient, ce serait une preuve que le code de la nouvelle
+version est compatible avec l'ancienne.
+
+Avec le peu de recul que j'ai, il me semble que cette intuition ne s'avère pas aussi efficace qu'elle en avait l'air.
+
+Si on observe l'évolution du language php, leurs auteurs avancent dans les versions en indiquant ce qui est deprecated,
+ils s'y prennent assez à l'avance pour qu'il n'y a pas de mauvaise surprise.
+Leur système fonctionne.
+Les utilisateurs de php se fient à la documentation pour comprendre le fonctionnement des méthodes, et non pas sur des 
+tests unitaires, si bien que par analogie, j'ai l'impression que les tests unitaires utilisés comme preuve qu'un code
+fonctionne n'a pas d'intérêt dans ce contexte et n'apporte rien d'autre qu'une duplication de code et du temps perdu.
+
+Quant à la compatibilité, il me semble que s'il est probablement possible de la mesurer d'une manière ou une autre,
+les auteurs humains s'en sortent bien pour juger exactement à quel moment une librairie doit changer de 
+version majeure (dans une perspective 3m).
+Ce choix est basé probablement sur l'observation de l'api: une api qui a subi trop de remaniements, suppression et autres
+est une bonne candidate pour changer de numéro de version majeur.
+
+
+
+
+Laisser les auteurs avancer comme ils le sentent
+---------------------------------------------------
+
+Ce qui nous amène au point de vue suivant: le numéro de version est totalement subjectif,
+et est décidé par l'auteur de l'élément.
+
+Cependant, par convention, on essaie plus ou moins d'adhérer à des règles comme 3m.
+D'ailleurs, 3m est assez précis (mais peut être pas adapté finalement) au niveau des règles d'évolution
+d'une version à l'autre.
+3m à revoir donc.
+
+
+
+A quoi nous servirait la compatibilité ?
+----------------------------------------------
+
+Et la compatibilité dans tout cela, est-ce une valeur utile ?
+Si un élément ne pouvait pas dépendre d'un autre, la compatibilité aurait la même valeur que la compatibilité
+d'une version php à une autre.
+Mais php est un le language qu'on utilise directement dans le code.
+
+Pour un élément de type package, ou librairie, il s'agit également de code, et le maintainer de 
+l'application devrait éventuellement modifier son propre code et l'adapter aux nouvelles versions non compatibles.
+Pour différentes versions compatibles (ayant le même numéro majeur de version), le code devrait être en grande 
+partie réutilisable tel quel.
+
+
+Pour des éléments de type widget que l'on injecte, peut être que les dépendances fonctionnent un peu différemment,
+étant plus en relation avec d'autres objets tel que le système (cms ou autre) dans lequel ils sont utilisés.
+
+Quoiqu'il en soit, si les éléments étaient tous autonomes, on n'aurait pas de gros soucis de compatibilité,
+ou du moins, les soucis éventuels seraient assez isolés pour qu'on puisse les traiter sereinement.
+
+
+
+Cependant, il m'est déjà arrivé d'avoir des problèmes de compatibilité entre différentes versions de jquery.
+Comment cela est possible ?
+
+Un plugin (jquery) X utilise une version 1.7.4 et un autre utilise la version 1.9.0 par exemple.
+Dans ce cas, soit on a la chance de trouver une version compatible qui fonctionne avec les deux plugins (et dans
+ce cas on n'a que deux plugins), soit on doit trouver un autre plugin si cela est impossible, ou remanier une partie du code
+d'un plugin pour faire l'adaptation manuellement.
+C'est le maximum de tracas qu'on a avec les problèmes de conflits de librairie.
+
+
+Alors il y a t'il une solution à ce genre de problèmes, ou bien la solution manuelle est toujours la meilleure ?
+-------------------------------------------------------------------------------------------------------------------
+
+
+Le problème des dépendances parallèlles
+------------------------------------------
+
+Avant de répondre, faisons un test, on part d'un fichier de meta suivant:
+
+element A:
+    dependencies:
+            B:1.0.0
+            
+            
+Dans ce cas, l'élément A dépend de l'élément B en version 1.0.0.
+Ok.
+Si B évolue, rien ne nous oblige à utiliser les nouvelles versions.
+Vient le jour où on utilise 2 éléments, A et C.
+            
+            
+
+A:
+    dependencies:
+            B:1.0.0
+C:
+    dependencies:
+            B:1.4.0
+    
+            
+Aha!        
+Si on part du principe qu'on ne peut pas importer les deux versions dans notre application,
+car il y aurait un conflit entre les deux versions, alors il faut en choisir une seule.
+L'humain est probablement la personne la plus apte à choisir, mais si on voulait automatiser un peu,
+on choisirait automatiquement la dernière version, probablement ?
+En tous cas dans ce cas, oui, car le numéro de version majeur est 1 dans les deux cas donc on peut faire
+l'assertion que l'auteur de l'élément utilise 3m (peut être même qu'on peut le voir dans les meta de manière explicite),
+et dans ce cas, le numéro majeur indique que l'auteur de l'élément pense que la version 1.4.0 est à peu près compatible 
+avec la version 1.0.0.
+
+
+Si on va un peu plus loin:
+
+A:
+    dependencies:
+            B:1.0.0
+C:
+    dependencies:
+            B:1.4.0
+D:
+    dependencies:
+            B:2.0.0
+            
+            
+On se retrouve avec un conflit que seul l'humain peut raisonnablement résoudre.
+En tant que robot, on peut donc automatiser le cas du premier exemple, c'est à dire:
+lorsque deux éléments A et B utilisés par notre application utilisent un élément E dans au moins deux versions 
+compatibles différentes, on peut choisir automatiquement la dernière version de E en pariant 
+qu'elle fonctionnera pour les deux éléments A et B.
+
+
+
+Appellons cela le problème des dépendances parallèlles.
+Le problème des dépendances parallèlles est le seul problème que je vois pour l'instant lié aux dépendances
+des éléments entre eux.
+
+
+
+La notation peut-elle aider à résoudre des problèmes ?
+--------------------------------------------------------
+
+Voyons maintenant si on peut résoudre qq problèmes à l'aide de la notation des versions.
+Lorsqu'on écrit un élément, on écrit également les meta associées.
+
+C'est à dire que si j'écris un élément A, je sais très bien de quels autres éléments il dépend.
+Il se peut par exemple que A dépende de B en version 1.0.0.
+Puis, même si c'est un cas probablement rare, il se peut que pour une raison x je constate, longtemps
+après la publication de A, que A fonctionne avec toutes les version 1.* de B sauf la 1.4.4.
+
+Est-ce qu'on doit prendre ce cas en considération ?
+Si oui, est-ce que je pourrais utiliser une notation pour indiquer: tous les éléments sauf celui-là, par exemple:
+
+
+A:
+    dependencies:
+            B:1.*, ~1.4.4    
+
+Si cela me semble une idée théoriquement intéressante, j'ai l'impression que dans la pratique c'est trop compliqué 
+à mettre en place, dans le sens où l'auteur de A a déjà publié son élément depuis belle lurette, et utiliser ce 
+genre de notation serait un peu comme l'obliger à être constamment conscient des évolutions des dépendances.
+
+A priori, je dirais que ce n'est pas son problème, et que le fait d'indiquer uniquement la version qui a fonctionné
+pendant la phase de développement est l'idée la plus pure et simple sémantiquement, et celle qui permet
+de résoudre les problèmes plus simplement par la suite.
+Donc non, mauvaise idée.
+
+De la même manière, on peut discréditer toutes les notations associées, telles que:
+
+
+
+A:
+    dependencies:
+            B:1.*       (imprécis)   
+            B:1.4+       (pas mon problème)   
+            >=B:1.4       (idem)
+               
+De telle manière que l'on peut écrire une sorte de règle simple:
+pour l'écriture des dépendances, l'auteur d'un élément doit indiquer uniquement et précisément la version
+qu'il a utilisée pendant le développement.
+C'est à dire:
+
+A:
+    dependencies:
+            B:1.4.2   
+            C:squeezy   
+
+
+
+Le reste, c'est le travail du client installer, ou de l'humain maitainer.
+Encore une fois, dans le cas de 3m, on serait capable de résoudre le conflit de dépendances parallèlles ssi
+les différentes versions sont compatibles (même numéro de version majeur) entre elles.
+
+
+Cela résoud pour l'instant tous mes problèmes.
+Et je peux continuer la réflexion sur un client qui installe tous les éléments utilisés dans l'application en une fois.
+C'est à dire, par exemple un fichier qui listerait tous les éléments (et leurs dépendances) utilisés dans l'application.
+
+
+Ce client est légèrement du client qui n'installe qu'un seul élément à la fois.
+En effet, le client qui doit installer plusieurs éléments peut prendre en considération les conflits de dépendances
+parallèlles au niveau de la lecture du fichier de configuration.
+
+Cela nous amène à un niveau potentiel de désynchronisation entre les dépendances écrites dans le fichier de conf
+et les dépendances réellement utilisées.
+Par exemple, si notre fichier contient ceci:
+
+
+A:
+    dependencies:
+            B:1.4.2   
+            C:squeezy   
+
+F:
+    dependencies:
+            B:1.6.3   
+            C:squeezy   
+
+
+
+Concernant l'élément B, seule la version 1.6.3 sera réellement utilisée.
+En fait, je me suis trompé.
+
+
+
+Elements wishlist
+--------------------------
+
+Dans le fichier de conf, on n'aura justement pas les dépendances, mais juste le nom des éléments que l'on souhaite installer,
+comme ceci:
+
+
+- A:1.4.2
+- F:1.6.1
+
+
+Appelons cette liste elements wishlist.
+Je préfère encore une fois rester sur la simplicité et dire que le maintainer doit spécifier précisément
+le nom de la version qu'il souhaite utiliser pour chaque élément.
+Bien que des notations comme 1.4.* ou 1.2+ ou >=1 puisse sembler un plus,
+elles ajoutent de la complexité au système général, 
+et je préfère les laisser de côté tant qu'un besoin plus concret ne se fait pas ressentir.
+
+
+Par contre, le fait que le client puisse indiquer la liste des dépendances concrètement utilisées
+me paraît plus intéressante pour le débugguage.
+
+
+
+Toutefois, il y a le cas des mises à jour qui joue en la faveur d'une notation appropriée.
+
+ 
+
+
+
+
+
+
+
+
+
+En conclusion, il semblerait qu'en relâchant ma volonté initiale initiale de contrôler en détails le passage
+d'une version à une autre, un système cohérent commence à se dessiner.
+L'expérimentation concrète apportera ses lumières sur ce système théorique et dévoilera si oui ou non tout 
+fonctionne de la même manière que sur le papier.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

@@ -1,0 +1,17 @@
+$redColor: red;
+
+.uk-form-controls {
+  .uk-inline {
+    // fix icon overflowing the input
+    .uk-form-icon {
+      height: 37px;
+    }
+  }
+
+  .parsley-errors-list {
+    color: $redColor;
+  }
+}
+
+
+
