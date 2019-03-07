@@ -73,6 +73,22 @@ Returns <?php echo $z['methodReturnType'] . "." . PHP_EOL; ?>
 <?php endif; ?>
 
 
+<?php if($methodInfo->hasThrownExceptions()): ?>
+Exceptions thrown
+================
+
+<?php
+$oExceptions = $methodInfo->getThrownExceptions();
+foreach($oExceptions as $oException): ?>
+- [<?php echo $oException->getShortName(); ?>](<?php echo $oException->getUrl(); ?>).&nbsp;
+<?php $text = $oException->getText(); ?>
+<?php if ($text): ?>
+<?php echo $text; ?>
+<?php endif; ?>
+
+<?php endforeach; ?>
+<?php endif; ?>
+
 
 
 

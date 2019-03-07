@@ -19,7 +19,8 @@ Summary
     - [The property var tag](#the-property-var-tag)
     - [The method param tag](#the-method-param-tag)
     - [The method return tag](#the-method-return-tag)
-    
+    - [The method throws tag](#the-method-throws-tag)
+
 - [Inline functions](#inline-functions)
 
 
@@ -257,10 +258,11 @@ List of block-level tags
 
 
 - Expandable block-level tags
-    - var: the property var tag (see [the property var tag section](#the-property-var-tag) for more info).
-    - param: the method param tag (see [the method param tag section](#the-method-param-tag) for more info).
-    - return: indicates the return type of a function. See the [the method return tag section](#the-method-return-tag) for more info. 
-    
+    - var: the property var tag (see [the property var tag section](#the-property-var-tag) for more info). This tag applies only to properties.
+    - param: the method param tag (see [the method param tag section](#the-method-param-tag) for more info). This tag applies only to methods.
+    - return: indicates the return type of a function. See the [the method return tag section](#the-method-return-tag) for more info. This tag applies only to methods.
+    - throws: indicates that an exception is thrown. This tag applies only to methods.
+
 - Non-expandable block-level tags
     - seeClass: should translate to a link to another class.
                 The **value** is the class name.
@@ -494,6 +496,65 @@ Following are examples of the method return tag notation (they are all valid):
  * 
  */            
 ```    
+
+
+
+
+
+
+
+The method throws tag
+---------------
+
+The @throws tag is used in methods doc comment to indicate what exceptions can potentially
+be thrown by the method.
+
+
+The @throws tag can be set multiple times for a given method.
+
+
+To get the best out of the automation tool (that will generate the docs for us),
+it should be formatted like this:
+
+- ```<@throws> <exceptionClassName> (<.> <description>)?```
+
+With:
+
+- @throws: the string "@throws"
+- exceptionClassName: a class name, either using the fully qualified notation (the class name preceded by a backslash),
+    or using an explicit alias which should be defined in the use statements, or an implicit alias is assumed otherwise
+    (meaning the namespace of the class is prepended to the exceptionClassName to get the fully qualified class name).
+
+- description: a description sentence, with proper case and punctuation.
+
+Any complementary descriptive text should be set on the next lines in the doc comment, and use proper case and punctuation.
+
+
+
+
+
+Here is an example of how to use the @throws tag:
+
+
+```php
+/**
+
+ * @throws \Exception
+ *
+ * @throws \MyGalaxy\MyPlanet\Exception\MyException
+ *
+ * @throws \MyGalaxy\MyPlanet\Exception\MyException. When something wrong happens.
+ *
+ * @throws \MyGalaxy\MyPlanet\Exception\MyException. When something wrong happens.
+ * Or something else happens.
+ * Or even something else happens.
+ *
+ * @throws MyException
+ * Note: this assumes that MyException is defined as an alias in the use statements,
+ * or that the MyException exists under the declaring class' namespace.
+ *
+ */
+```
 
 
 

@@ -419,11 +419,11 @@ A full concrete working example
 <?php
 
 
-use Ling\Kamille\Ling\Z;
-use Ling\Kamille\Mvc\Layout\HtmlLayout;
-use Ling\Kamille\Mvc\LayoutProxy\DebugLayoutProxy;
-use Ling\Kamille\Mvc\Loader\FileLoader;
-use Ling\Kamille\Mvc\Renderer\PhpLayoutRenderer;
+use Kamille\Ling\Z;
+use Kamille\Mvc\Layout\HtmlLayout;
+use Kamille\Mvc\LayoutProxy\DebugLayoutProxy;
+use Kamille\Mvc\Loader\FileLoader;
+use Kamille\Mvc\Renderer\PhpLayoutRenderer;
 use Ling\KamilleWidgets\FormWidget\FormWidget;
 use Ling\KamilleWidgets\FormWidget\Kris\KrisFormWidget;
 use Ling\KamilleWidgets\FormWidget\Kris\TemplateHelper\TemplateHelper;

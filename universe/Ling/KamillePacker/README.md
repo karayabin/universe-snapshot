@@ -41,7 +41,7 @@ WidgetPacker example
 ```php
 <?php
 
-use Ling\Kamille\Architecture\ApplicationParameters\ApplicationParameters;
+use Kamille\Architecture\ApplicationParameters\ApplicationParameters;
 use Ling\KamillePacker\Config\Config;
 use Ling\KamillePacker\WidgetPacker\WidgetPacker;
 
@@ -63,7 +63,7 @@ ModulePacker example
 ```php
 <?php
 
-use Ling\Kamille\Architecture\ApplicationParameters\ApplicationParameters;
+use Kamille\Architecture\ApplicationParameters\ApplicationParameters;
 use Ling\KamillePacker\Config\Config;
 use Ling\KamillePacker\ModulePacker\ModulePacker;
 require_once __DIR__ . "/../boot.php";

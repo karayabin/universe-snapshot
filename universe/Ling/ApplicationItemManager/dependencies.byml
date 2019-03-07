@@ -1,9 +1,0 @@
-dependencies: 
-    Ling: 
-        - Bat
-        - Output
-        - Program
-        - CommandLineInput
-    
-
-post_install: []

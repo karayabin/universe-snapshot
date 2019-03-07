@@ -28,7 +28,8 @@ interface WidgetInterface
      * Returns the rendered widget.
      *
      * @return string
-     * @throws BadWidgetConfigurationException when the widget cannot render properly.
+     * @throws BadWidgetConfigurationException
+     * when the widget cannot render properly.
      */
     public function render();
 }

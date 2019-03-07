@@ -498,7 +498,6 @@ class ClassSynopsisWidget extends Widget
     /**
      * Returns the properly indented dash for body elements (methods, properties, inherited properties, ...).
      *
-     * @param $title
      * @return string
      * @throws BadWidgetConfigurationException
      */

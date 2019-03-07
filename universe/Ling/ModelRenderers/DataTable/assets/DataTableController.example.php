@@ -6,8 +6,8 @@ namespace Controller\DataTable;
 
 use Core\Controller\ApplicationController;
 use Core\Services\X;
-use Ling\Kamille\Architecture\Response\Web\JsonResponse;
-use Ling\Kamille\Services\XLog;
+use Kamille\Architecture\Response\Web\JsonResponse;
+use Kamille\Services\XLog;
 use Ling\ModelRenderers\DataTable\DataTableRenderer;
 use Ling\ModelRenderers\Renderer\ModelAwareRendererInterface;
 use Ling\Models\DataTable\DataTableModel;

@@ -25,7 +25,7 @@ Or just download it and place it where you want otherwise.
 
 Summary
 =======
-- [UniverseTools api](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/UniverseTools.md) (generated with [DocTools](https://github.com/lingtalfi/DocTools))
+- [UniverseTools api](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools.md) (generated with [DocTools](https://github.com/lingtalfi/DocTools))
 
 
 
@@ -36,10 +36,19 @@ Summary
 History Log
 ==============
 
+- 1.10.1 -- 2019-03-07
+
+    - fix DependencyTool::parseDumpDependencies returning the current planet as a dependency
+
+- 1.10.0 -- 2019-03-07
+
+    - update DependencyTool::parseDumpDependencies, now returns the dependency.byml content as a string
+    - fix PlanetTool::getClassNames to read bsr-1 classes
+
 - 1.9.0 -- 2019-03-06
 
     - update tools to be compliant with new bsr-1 system
-    
+
 - 1.8.0 -- 2019-03-05
 
     - fix DependencyTool::parseDumpDependencies parsing scripts when it should not

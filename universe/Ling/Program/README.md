@@ -39,14 +39,14 @@ Here is a simple program to demonstrate how to use this class.
 <?php
 
 
-use Ling\ApplicationItemManager\Importer\GithubImporter;
-use Ling\ApplicationItemManager\Installer\KamilleWidgetInstaller;
-use Ling\ApplicationItemManager\ItemList\KamilleWidgetsItemList;
-use Ling\ApplicationItemManager\LingApplicationItemManager;
-use Ling\ApplicationItemManager\Program\ApplicationItemManagerProgram;
+use ApplicationItemManager\Importer\GithubImporter;
+use ApplicationItemManager\Installer\KamilleWidgetInstaller;
+use ApplicationItemManager\ItemList\KamilleWidgetsItemList;
+use ApplicationItemManager\LingApplicationItemManager;
+use ApplicationItemManager\Program\ApplicationItemManagerProgram;
 use Ling\CommandLineInput\CommandLineInputInterface;
 use Ling\CommandLineInput\ProgramOutputAwareCommandLineInput;
-use Ling\Kamille\Architecture\ApplicationParameters\ApplicationParameters;
+use Kamille\Architecture\ApplicationParameters\ApplicationParameters;
 use Ling\Output\ProgramOutput;
 use Ling\Output\ProgramOutputInterface;
 use Ling\Program\Program;

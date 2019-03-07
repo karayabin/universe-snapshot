@@ -6,7 +6,7 @@ namespace Ling\SafeUploader\Tool;
 
 use Ling\Bat\FileSystemTool;
 use Ling\Bat\SessionTool;
-use Ling\Kamille\Services\XConfig;
+use Kamille\Services\XConfig;
 
 class SafeUploaderHelperTool
 {

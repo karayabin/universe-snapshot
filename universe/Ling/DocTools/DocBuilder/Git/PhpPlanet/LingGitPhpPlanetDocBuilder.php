@@ -6,6 +6,7 @@ namespace Ling\DocTools\DocBuilder\Git\PhpPlanet;
 
 use Ling\DocTools\CopyModule\CopyModule;
 use Ling\DocTools\DocBuilder\DocBuilder;
+use Ling\DocTools\Exception\DocToolsException;
 use Ling\DocTools\GeneratedDocStyle\DefaultGeneratedDocStyle;
 use Ling\DocTools\GeneratedDocStyle\GeneratedDocStyleInterface;
 use Ling\DocTools\Helper\MethodHelper;
@@ -275,6 +276,7 @@ class LingGitPhpPlanetDocBuilder extends DocBuilder
 
 
         $parser = new PlanetParser();
+        $parser->setGeneratedItemsToUrl($generatedItems2Url);
         $parser->setNotationInterpreter($interpreter);
         $parser->setReport($report);
 
@@ -321,7 +323,7 @@ class LingGitPhpPlanetDocBuilder extends DocBuilder
     /**
      * Builds the planet page.
      *
-     * @throws \DocTools\Exception\DocToolsException
+     * @throws DocToolsException
      */
     private function buildPlanetPage()
     {
@@ -339,6 +341,7 @@ class LingGitPhpPlanetDocBuilder extends DocBuilder
             "display_method_description" => true, // default: true
             "method_description_mode" => "mixed", // default: mixed
             "method_description_format" => 'The {method} method', // default: The {method} method
+            "sort_by_shortname" => false, // default: false
         ]);
         $tocList->setPlanetInfo($planetInfo);
 
@@ -346,6 +349,7 @@ class LingGitPhpPlanetDocBuilder extends DocBuilder
         $depSection->setPlanetInfo($planetInfo);
 
         $planetName = $planetInfo->getName();
+
 
 
         $tplPlanet = __DIR__ . "/templates/tpl-planet.md.php";
@@ -368,7 +372,7 @@ class LingGitPhpPlanetDocBuilder extends DocBuilder
      * Builds a class page.
      *
      * @param ClassInfo $classInfo
-     * @throws \DocTools\Exception\DocToolsException
+     * @throws \Ling\DocTools\Exception\DocToolsException
      */
     private function buildClassPage(ClassInfo $classInfo)
     {
@@ -423,7 +427,7 @@ class LingGitPhpPlanetDocBuilder extends DocBuilder
      *
      * @param ClassInfo $classInfo
      * @param MethodInfo $methodInfo
-     * @throws \DocTools\Exception\DocToolsException
+     * @throws DocToolsException
      * @throws \ReflectionException
      */
     private function buildMethodPage(ClassInfo $classInfo, MethodInfo $methodInfo)

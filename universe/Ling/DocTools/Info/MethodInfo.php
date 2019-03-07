@@ -4,8 +4,6 @@
 namespace Ling\DocTools\Info;
 
 
-
-
 /**
  * The MethodInfo class represents information about a method (of a class).
  */
@@ -43,7 +41,7 @@ class MethodInfo implements InfoInterface
      * This property holds the return type of the method.
      * The return type is given by the "@return" tag.
      *
-     * See @class(DocTools\Helper\CommentHelper)::$propertyReturnTagTypes for more info.
+     * See @class(Ling\DocTools\Helper\CommentHelper)::$propertyReturnTagTypes for more info.
      *
      * The default value is void.
      *
@@ -75,6 +73,17 @@ class MethodInfo implements InfoInterface
      */
     protected $parameters;
 
+    /**
+     * This property holds the array of thrownExceptions for this method.
+     * Thrown exceptions are read from the "@throws" tags.
+     *
+     * It's an array of @object(ThrownExceptionInfo).
+     *
+     *
+     * @var array
+     */
+    protected $thrownExceptions;
+
 
     /**
      * Builds the MethodInfo instance.
@@ -89,6 +98,7 @@ class MethodInfo implements InfoInterface
         $this->returnType = "void";
         $this->returnDescription = "";
         $this->parameters = [];
+        $this->thrownExceptions = [];
     }
 
     /**
@@ -285,7 +295,36 @@ class MethodInfo implements InfoInterface
         return $this->returnDescription;
     }
 
+    /**
+     * Returns the thrownExceptions of this instance.
+     *
+     * @return array
+     */
+    public function getThrownExceptions(): array
+    {
+        return $this->thrownExceptions;
+    }
 
+
+    /**
+     * Returns whether this methodInfo contains thrownExceptions.
+     *
+     * @return bool
+     */
+    public function hasThrownExceptions(): bool
+    {
+        return (count($this->thrownExceptions) > 0);
+    }
+
+    /**
+     * Sets the thrownExceptions.
+     *
+     * @param array $thrownExceptions
+     */
+    public function setThrownExceptions(array $thrownExceptions)
+    {
+        $this->thrownExceptions = $thrownExceptions;
+    }
 
 
 }

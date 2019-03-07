@@ -8,7 +8,7 @@ use Ling\DirScanner\YorgDirScannerTool;
 
 /**
  * The TemplateWizard class.
- * It's invoked by the @class(DocTools\Page\PageUtil) object and passed to the templates, so that they can
+ * It's invoked by the @class(Ling\DocTools\Page\PageUtil) object and passed to the templates, so that they can
  * do things like:
  *
  * - insert content dynamically

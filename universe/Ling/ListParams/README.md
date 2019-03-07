@@ -66,7 +66,7 @@ namespace Controller\Ekom\Front\Customer;
 
 
 use Controller\Ekom\Front\CustomerController;
-use Ling\Kamille\Utils\Claws\ClawsWidget;
+use Kamille\Utils\Claws\ClawsWidget;
 use Module\Ekom\Api\EkomApi;
 
 
@@ -274,7 +274,7 @@ Here is my concrete code used in the example:
 <?php
 
 
-use Ling\Kamille\Utils\ThemeHelper\KamilleThemeHelper;
+use Kamille\Utils\ThemeHelper\KamilleThemeHelper;
 use Ling\ListParams\ListBundle\ListBundleInterface;
 
 use Module\ThisApp\Ekom\View\Customer\InvoiceTemplateRenderer;
@@ -370,7 +370,7 @@ namespace Module\ThisApp\Ekom\View;
 
 
 
-use Ling\Kamille\Utils\ThemeHelper\KamilleThemeHelper;
+use Kamille\Utils\ThemeHelper\KamilleThemeHelper;
 
 
 /**

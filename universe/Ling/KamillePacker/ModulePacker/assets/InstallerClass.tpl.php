@@ -6,7 +6,7 @@ namespace Module\{Name};
 
 
 
-use Ling\Kamille\Module\KamilleModule;
+use Kamille\Module\KamilleModule;
 
 class {Name}Module extends KamilleModule
 {

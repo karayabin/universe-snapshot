@@ -48,7 +48,7 @@ header('content-type: text/plain');
 
 echo PhpFile::create()
     ->addUseStatement(<<<EEE
-use Ling\Kamille\Utils\Morphic\Helper\MorphicHelper;
+use Kamille\Utils\Morphic\Helper\MorphicHelper;
 use Module\Ekom\Back\User\EkomNullosUser;
 use Ling\SokoForm\Form\SokoFormInterface;
 use Ling\SokoForm\Form\SokoForm;
@@ -75,7 +75,7 @@ EEE
 
 <?php
 
-use Ling\Kamille\Utils\Morphic\Helper\MorphicHelper;
+use Kamille\Utils\Morphic\Helper\MorphicHelper;
 use Module\Ekom\Back\User\EkomNullosUser;
 use Ling\SokoForm\Form\SokoFormInterface;
 use Ling\SokoForm\Form\SokoForm;

@@ -116,6 +116,16 @@ class CommentInfo implements InfoInterface
      */
     protected $seeItems;
 
+    /**
+     * This property holds the includeReferences for this instance.
+     * If the comment used either the "@overrides" or "@implementation" tag,
+     * then this property contains the array of the parent class (long) names used to resolve those tags.
+     *
+     *
+     * @var array
+     */
+    protected $includeReferences;
+
 
     /**
      * Builds the CommentInfo instance.
@@ -128,6 +138,7 @@ class CommentInfo implements InfoInterface
         $this->mainText = null;
         $this->tags = [];
         $this->seeItems = [];
+        $this->includeReferences = [];
     }
 
 
@@ -355,6 +366,28 @@ class CommentInfo implements InfoInterface
     public function setSeeItems(array $seeItems)
     {
         $this->seeItems = $seeItems;
+        return $this;
+    }
+
+    /**
+     * Returns the includeReferences of this instance.
+     *
+     * @return array
+     */
+    public function getIncludeReferences(): array
+    {
+        return $this->includeReferences;
+    }
+
+    /**
+     * Sets the includeReferences.
+     *
+     * @param array $includeReferences
+     * @return $this
+     */
+    public function setIncludeReferences(array $includeReferences)
+    {
+        $this->includeReferences = $includeReferences;
         return $this;
     }
 

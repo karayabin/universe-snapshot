@@ -17,7 +17,7 @@ class PlanetTool
 
 
     /**
-     * Parses the given directory recursively and returns an array containing the names of all @kw(bsr-0) classes found.
+     * Parses the given directory recursively and returns an array containing the names of all @kw(bsr-1) classes found.
      *
      * Example:
      * -----------
@@ -25,7 +25,7 @@ class PlanetTool
      * The following code:
      *
      * ```php
-     * $planetDir = "/komin/jin_site_demo/universe/UniverseTools";
+     * $planetDir = "/komin/jin_site_demo/universe/Ling/UniverseTools";
      * az(PlanetTool::getClassNames($planetDir));
      * ```
      *
@@ -34,16 +34,15 @@ class PlanetTool
      *
      * ```html
      * array(3) {
-     * [0] => string(28) "UniverseTools\DependencyTool"
-     * [1] => string(46) "UniverseTools\Exception\UniverseToolsException"
-     * [2] => string(24) "UniverseTools\PlanetTool"
+     * [0] => string(33) "Ling\UniverseTools\DependencyTool"
+     * [1] => string(51) "Ling\UniverseTools\Exception\UniverseToolsException"
+     * [2] => string(29) "Ling\UniverseTools\PlanetTool"
      * }
      *
      * ```
      *
      *
      *
-     * @see https://github.com/lingtalfi/BumbleBee/blob/master/Autoload/convention.bsr0.eng.md
      *
      * @param $planetDir
      * @return array
@@ -55,23 +54,29 @@ class PlanetTool
             throw new UniverseToolsException("Dir not found: $planetDir");
         }
 
-        $classNames = [];
-        $dirName = basename($planetDir);
+        $pInfo = PlanetTool::getGalaxyNamePlanetNameByDir($planetDir);
+        if (false !== $pInfo) {
+            list($galaxy, $planetName) = $pInfo;
+            $classNames = [];
+            $dirName = basename($planetDir);
 
 
-        $files = YorgDirScannerTool::getFilesWithExtension($planetDir, 'php', false, true, true);
-        foreach ($files as $file) {
-            $relativeClassName = str_replace('/', '\\', substr($file, 0, -4));
-            $className = $dirName . '\\' . $relativeClassName;
-            try {
-                $class = new \ReflectionClass($className);
-                $classNames[] = $className;
+            $files = YorgDirScannerTool::getFilesWithExtension($planetDir, 'php', false, true, true);
+            foreach ($files as $file) {
+                $relativeClassName = str_replace('/', '\\', substr($file, 0, -4));
+                $className = $galaxy . '\\' . $dirName . '\\' . $relativeClassName;
+                try {
+                    $class = new \ReflectionClass($className);
+                    $classNames[] = $className;
 
-            } catch (\ReflectionException $e) {
+                } catch (\ReflectionException $e) {
 
+                }
             }
+            return $classNames;
+        } else {
+            throw new UniverseToolsException("Invalid planet directory. A valid planet dir should be of the form /my/universe/\$galaxyName/\$shortPlanetName.");
         }
-        return $classNames;
     }
 
 
@@ -123,13 +128,13 @@ class PlanetTool
      * Returns false if the given $planetName is invalid.
      *
      *
-     * @param string $planetName
+     * @param string $longPlanetName
      * The long planet name (galaxy/planetShortName).
      * @return array|false
      */
-    public static function getGalaxyNamePlanetNameByPlanetName(string $planetName)
+    public static function getGalaxyNamePlanetNameByPlanetName(string $longPlanetName)
     {
-        $p = explode("/", $planetName);
+        $p = explode("/", $longPlanetName);
         if (2 === count($p)) {
             return $p;
         }

@@ -7,13 +7,16 @@ namespace Ling\DocTools\ClassParser;
 use Ling\Bat\ClassTool;
 use Ling\Bat\DebugTool;
 use Ling\DocTools\Exception\ClassParserException;
+use Ling\DocTools\Helper\ClassNameHelper;
 use Ling\DocTools\Helper\CommentHelper;
+use Ling\DocTools\Helper\TagHelper;
 use Ling\DocTools\Info\ClassInfo;
 use Ling\DocTools\Info\CommentInfo;
 use Ling\DocTools\Info\InfoInterface;
 use Ling\DocTools\Info\MethodInfo;
 use Ling\DocTools\Info\ParameterInfo;
 use Ling\DocTools\Info\PropertyInfo;
+use Ling\DocTools\Info\ThrownExceptionInfo;
 use Ling\DocTools\Interpreter\NotationInterpreterInterface;
 use Ling\DocTools\Report\ReportInterface;
 use Ling\TokenFun\TokenFinder\Tool\TokenFinderTool;
@@ -68,6 +71,13 @@ class ClassParser implements ClassParserInterface
 
 
     /**
+     * This property holds the array of className and/or className::methodName => url.
+     * @var array
+     */
+    protected $generatedItems2Url;
+
+
+    /**
      * This property holds the \Reflection instance of the class currently being parsed.
      * It's an internal property, as denoted with the underscore prefix.
      *
@@ -104,6 +114,7 @@ class ClassParser implements ClassParserInterface
         $this->resolveInlineTags = true;
         $this->notationInterpreter = null;
         $this->_useStatements = null;
+        $this->generatedItems2Url = [];
     }
 
 
@@ -306,6 +317,12 @@ class ClassParser implements ClassParserInterface
             $docComment = $method->getDocComment();
             $comment = $this->parseDocComment($docComment, "method");
 
+
+
+
+            $thrownExceptions = [];
+
+
             if ($comment->isEmpty()) {
                 if (null !== $this->report) {
                     $this->report->addMethodWithoutComment($name, $methodVisibility);
@@ -324,6 +341,38 @@ class ClassParser implements ClassParserInterface
                         }
                     }
                 }
+
+
+                if ($comment->hasTag("throws")) {
+
+
+                    $tags = $comment->getTagsByName("throws");
+                    foreach ($tags as $tag) {
+
+                        list($tagDef, $tagCom) = TagHelper::getTagInfo($tag);
+
+
+                        $classInfo = ClassNameHelper::getClassNameInfo($tagDef, $method->getDeclaringClass(), $this->generatedItems2Url, $comment->getIncludeReferences());
+                        if (false !== $classInfo) {
+                            $oException = new ThrownExceptionInfo();
+                            $oException->setText($tagCom);
+                            $oException->setShortName($classInfo[0]);
+                            $oException->setLongName($classInfo[1]);
+                            $oException->setUrl($classInfo[2]);
+                            $thrownExceptions[] = $oException;
+
+
+                        } else {
+                            if (null !== $this->report) {
+                                $this->report->addUnresolvedClassReference($className, "@throws $tagDef, method " . $method->getName() . ' (hint from ClassParser)');
+                            }
+                        }
+                    }
+
+
+                }
+
+
             }
 
 
@@ -418,6 +467,7 @@ class ClassParser implements ClassParserInterface
             $oMethod->setReturnDescription($returnDescription);
             $oMethod->setSignature($signature);
             $oMethod->setVisibility($methodVisibility);
+            $oMethod->setThrownExceptions($thrownExceptions);
             $oClass->addMethod($oMethod);
 
 
@@ -590,6 +640,18 @@ class ClassParser implements ClassParserInterface
         $this->notationInterpreter = $notationInterpreter;
     }
 
+    /**
+     * Sets the generatedItems2Url.
+     *
+     * @param array $generatedItems2Url
+     */
+    public function setGeneratedItemsToUrl(array $generatedItems2Url)
+    {
+        $this->generatedItems2Url = $generatedItems2Url;
+    }
+
+
+
 
     //--------------------------------------------
     //
@@ -619,16 +681,17 @@ class ClassParser implements ClassParserInterface
      * - method
      *
      * @return CommentInfo
-     * @throws \ReflectionException
      */
     protected function parseDocComment(string $rawComment, string $elementType)
     {
 
+        $includeReferences = [];
         if ("method" === $elementType) {
             /**
              * First expand @implementation and @overrides tags recursively
              */
-            $rawComment = $this->expandIncludes($rawComment);
+            $resolved = false;
+            $rawComment = $this->expandIncludes($rawComment,  $resolved, $includeReferences);
         }
 
 
@@ -741,6 +804,7 @@ class ClassParser implements ClassParserInterface
             ->setFirstSentence($firstSentence)
             ->setRawText($rawText)
             ->setMainText($mainText)
+            ->setIncludeReferences($includeReferences)
             ->setTags($tags);
 
 
@@ -897,18 +961,21 @@ class ClassParser implements ClassParserInterface
      *
      *
      * @param string $rawContent
+     *
      * @param bool $resolved
      * Whether the "@implementation tag" or "@overrides tag" has been expanded at least once.
      *
+     * @param array $includeReferences
+     * An array of the class names participating to the "@override/@implementation" tags resolution chain.
+     *
      * @return string
-     * @throws \ReflectionException
      */
-    private function expandIncludes(string $rawContent, &$resolved = false)
+    private function expandIncludes(string $rawContent,  &$resolved = false, array &$includeReferences = [])
     {
         //--------------------------------------------
         // IMPLEMENTATION
         //--------------------------------------------
-        return preg_replace_callback('!^\s*\*\s*@(implementation|overrides)\s*$!m', function ($match) use (&$resolved) {
+        return preg_replace_callback('!^\s*\*\s*@(implementation|overrides)\s*$!m', function ($match) use (&$resolved, &$includeReferences) {
 
             $word = $match[1];
 
@@ -932,7 +999,8 @@ class ClassParser implements ClassParserInterface
                         $parentDocComment = $parentMethod->getDocComment();
                         $parentDocComment = substr($parentDocComment, 3, -2);
                         $resolved = true;
-                        return $this->expandIncludes($parentDocComment, $resolved);
+                        $includeReferences[] = $interface->getName();
+                        return $this->expandIncludes($parentDocComment,  $resolved, $includeReferences);
                         break;
                     }
                 }
@@ -947,7 +1015,8 @@ class ClassParser implements ClassParserInterface
                             $parentDocComment = $parentMethod->getDocComment();
                             $parentDocComment = substr($parentDocComment, 3, -2);
                             $resolved = true;
-                            return $this->expandIncludes($parentDocComment, $resolved);
+                            $includeReferences[] = $abstractParent->getName();
+                            return $this->expandIncludes($parentDocComment,  $resolved, $includeReferences);
                             break;
                         }
                     }
@@ -982,7 +1051,8 @@ class ClassParser implements ClassParserInterface
                             $parentDocComment = $parentMethod->getDocComment();
                             $parentDocComment = substr($parentDocComment, 3, -2);
                             $resolved = true;
-                            return $this->expandIncludes($parentDocComment, $resolved);
+                            $includeReferences[] = $parent->getName();
+                            return $this->expandIncludes($parentDocComment,  $resolved, $includeReferences);
                         }
                     }
                 }

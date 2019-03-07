@@ -1,6 +1,6 @@
 Universe dependencies
 =====================
-2019-02-08 --> 2019-02-26
+2019-02-08 --> 2019-03-07
 
 
 
@@ -16,14 +16,14 @@ Compared to the old system, it allows to:
 
 
 
-The **dependencies.byml** file ([babyYaml](https://github.com/lingtalfi/BabyYaml) format) should be placed at the root of each planet using dependencies,
+The **dependencies.byml** file ([babyYaml](https://github.com/lingtalfi/BabyYaml) format) should be placed at the root of each planet having dependencies,
 and the syntax prototype looks like this:
 
 
 
 ```yml
 dependencies:
-    ling:
+    Ling:
         - Bat
         - ArrayToString
     git:
@@ -51,8 +51,8 @@ post_install:
 
 Note for implementors: the **post_install**'s move action is fictive, it's not part of the system yet.
 
-- dependencies: contains all dependencies for the planet  
-    - ling: a galaxy identifier (for planets from the ling galaxy).
+- dependencies: contains all dependencies for the (hosting) planet
+    - Ling: a galaxy identifier (for planets from the Ling galaxy).
         - Bat: use the last version of Bat available.
         - ArrayToString: use the last version of ArrayToString available
             
@@ -60,7 +60,7 @@ Note for implementors: the **post_install**'s move action is fictive, it's not p
         - https://github.com/tecnickcom/tcpdf: use the last version of the tcpdf repository (not a planet) should be used.
         
 
-- ... more download techniques might be added in the future
+- ... more dependency systems (aka download techniques) might be added in the future
 
 - post_install: contains extra actions to perform once all dependencies have been downloaded.
     This is an array of key/value pairs.
@@ -91,18 +91,12 @@ The dependency system indicates how to download the package.
 In the case of a planet (i.e. if the package to download is a planet), then we call it a galaxy identifier, 
 since it's aesthetically/semantically more pleasing to the ears (i.e. it makes sense to group planets into galaxies in the universe nomenclature).
 
-However, the galaxy identifier is not really like a namespace for planets, because all planets merge in the same universe.
-So each planet name must be unique in relation to the universe, and so two planets in the universe can't have the same name, 
-even if they come from different galaxies. 
-
-Note: that's because otherwise we would have to deal with multiple autoloaders, which would probably be more complicated. 
-
 
 
 Planet
 --------
 
-A [BSR-0](https://github.com/lingtalfi/BumbleBee/blob/master/Autoload/convention.bsr0.eng.md) package.
+A [BSR-1](https://github.com/lingtalfi/TheScientist/blob/master/bsr-1.md) package.
 
 
 

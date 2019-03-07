@@ -42,7 +42,7 @@ class PropertyInfo implements InfoInterface
     /**
      * This property holds the type of the property.
      * The type is given by the "@var" tag.
-     * See @class(DocTools\Helper\CommentHelper)::$propertyVarTagTypes for more info.
+     * See @class(Ling\DocTools\Helper\CommentHelper)::$propertyVarTagTypes for more info.
      *
      *
      * @var string

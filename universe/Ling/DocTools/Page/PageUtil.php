@@ -94,7 +94,7 @@ class PageUtil
      * @param string $template
      * @param array $variables
      * @throws DocToolsException
-     * @throws \DocTools\Exception\BadWidgetConfigurationException
+     * @throws \Ling\DocTools\Exception\BadWidgetConfigurationException
      */
     public function createPage(string $file, string $template, array $variables)
     {

@@ -34,7 +34,7 @@ class Output implements OutputInterface
 
     /**
      * This property holds the formatter to use for this instance.
-     * The default value is the @class(CliTools\Formatter\BashtmlFormatter).
+     * The default value is the @class(Ling\CliTools\Formatter\BashtmlFormatter).
      *
      *
      * @var FormatterInterface

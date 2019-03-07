@@ -5,7 +5,7 @@ namespace Ling\FormModel;
 
 
 use Ling\FormModel\Group\GroupInterface;
-use Ling\Kamille\Architecture\Controller\ControllerInterface;
+use Kamille\Architecture\Controller\ControllerInterface;
 
 /**
  * https://github.com/lingtalfi/form-modelization

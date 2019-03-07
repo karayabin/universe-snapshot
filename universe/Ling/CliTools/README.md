@@ -26,7 +26,7 @@ Or just download it and place it where you want otherwise.
 
 Summary
 ===========
-- [CliTools api](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools.md) (generated with [DocTools](https://github.com/lingtalfi/DocTools))
+- [CliTools api](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools.md) (generated with [DocTools](https://github.com/lingtalfi/DocTools))
 - [Overview](#overview) 
 - [History log](#history-log) 
 

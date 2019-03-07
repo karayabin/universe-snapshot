@@ -63,6 +63,13 @@ class PlanetParser implements GenericParserInterface
      */
     protected $notationInterpreter;
 
+    /**
+     * This property holds the array of className and/or className::methodName => url.
+     * @var array
+     */
+    protected $generatedItems2Url;
+
+
 
     /**
      * Builds the PlanetParser instance.
@@ -73,6 +80,7 @@ class PlanetParser implements GenericParserInterface
         $this->resolveInlineTags = true;
         $this->notationInterpreter = null;
         $this->report = null;
+        $this->generatedItems2Url = [];
     }
 
 
@@ -102,26 +110,35 @@ class PlanetParser implements GenericParserInterface
             $classParser = new ClassParser();
             $classParser->setResolveInlineTags($this->resolveInlineTags);
             $classParser->setNotationlInterpreter($notationInterpreter);
+            $classParser->setGeneratedItemsToUrl($this->generatedItems2Url);
             if (null !== $this->report) {
                 $classParser->setReport($this->report);
             }
 
 
-            $planetInfo = new PlanetInfo();
-            $planetInfo->setName(basename($planetDir));
+            $pInfo = PlanetTool::getGalaxyNamePlanetNameByDir($planetDir);
+            if (false !== $pInfo) {
+
+                list($galaxy, $planetShortName) = $pInfo;
+                $planetName = $galaxy . "/" . $planetShortName;
+
+                $planetInfo = new PlanetInfo();
+                $planetInfo->setName($planetName);
 
 
-            $planetInfo->setDependencies(DependencyTool::getDependencyList($planetDir));
-            foreach ($classes as $class) {
-                $classInfo = $classParser->parse($class);
-                $planetInfo->addClass($classInfo);
+                $planetInfo->setDependencies(DependencyTool::getDependencyList($planetDir));
+                foreach ($classes as $class) {
+                    $classInfo = $classParser->parse($class);
+                    $planetInfo->addClass($classInfo);
+                }
+
+
+                return $planetInfo;
+            } else {
+                throw new PlanetParserException("Invalid planet dir. See the bsr-1 document for more info: https://github.com/lingtalfi/TheScientist/blob/master/bsr-1.md.");
             }
 
-
-            return $planetInfo;
-
-        }
-        else {
+        } else {
             throw new PlanetParserException("Planet dir not found: $planetDir");
         }
     }
@@ -136,6 +153,18 @@ class PlanetParser implements GenericParserInterface
     {
         $this->classParser = $classParser;
     }
+
+    /**
+     * Sets the generatedItems2Url.
+     *
+     * @param array $generatedItems2Url
+     */
+    public function setGeneratedItemsToUrl(array $generatedItems2Url)
+    {
+        $this->generatedItems2Url = $generatedItems2Url;
+    }
+
+
 
 
     /**

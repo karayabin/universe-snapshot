@@ -39,7 +39,7 @@ class PngTextUtil
      *
      * @param string $text
      * @param array $options
-     * @throws \Bat\Exception\BatException
+     * @throws \Ling\Bat\Exception\BatException
      * @throws WebBoxException
      */
     public static function displayPngText(string $text, array $options = []): void

@@ -114,6 +114,7 @@ class PlanetTocListWidget extends Widget
         $report = $this->options['report'] ?? null;
 
         $display_class_description = $this->options['display_class_description'] ?? true;
+        $sort_by_shortname = $this->options['sort_by_shortname'] ?? false;
         $class_description_mode = $this->options['class_description_mode'] ?? 'mixed';
         $class_description_format = $this->options['class_description_format'] ?? 'The {short} class';
 
@@ -135,16 +136,22 @@ class PlanetTocListWidget extends Widget
             $classes = $this->planetInfo->getClasses();
 
 
-            foreach ($classes as $class) {
+            if (true === $sort_by_shortname) {
+                usort($classes, function (ClassInfo $a, ClassInfo $b) {
+                    return $a->getShortName() > $b->getShortName();
+                });
+            }
+
+
+            foreach ($classes as $k => $class) {
 
 
                 /**
                  * @var ClassInfo $class
                  */
-
                 $className = $class->getName();
 
-                if(null !== $report){
+                if (null !== $report) {
                     $report->setCurrentContext($className);
                 }
 
@@ -154,8 +161,7 @@ class PlanetTocListWidget extends Widget
                     $classShortName = $class->getShortName();
                     $link = '[' . $classShortName . '](' . $classUrl . ')';
                     $s .= '- ' . $link;
-                }
-                else {
+                } else {
                     if (null !== $report) {
                         $report->addUnresolvedClassReference($className, "PlanetTocListWidget");
                     }
@@ -200,8 +206,7 @@ class PlanetTocListWidget extends Widget
 
                             $url = $generatedItems2Url[$methodLongName];
                             $s .= '[' . $methodString . '](' . $url . ')';
-                        }
-                        else {
+                        } else {
                             if (null !== $report) {
                                 $report->addUnresolvedMethodReference($className, $methodName, "PlanetTocListWidget");
                             }
@@ -223,6 +228,7 @@ class PlanetTocListWidget extends Widget
                     }
                 }
             }
+
 
         }
 

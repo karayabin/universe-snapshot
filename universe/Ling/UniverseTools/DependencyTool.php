@@ -21,34 +21,25 @@ class DependencyTool
 {
 
     /**
-     * A method to help creating the **dependencies.byml** file.
+     * A method to help creating the @concept(dependencies.byml file).
      *
      *
-     * Parses the planet's [BSR-0](https://github.com/lingtalfi/BumbleBee/blob/master/Autoload/convention.bsr0.eng.md) classes
-     * and returns a list of dependencies to put in the dependencies.byml * at the root of your planet.
+     * Parses the use statements of all the @page(BSR-1) classes
+     * found in the planet, and displays the content of a basic **dependencies.byml** file out of it.
      *
-     * For each dependency, this method will create a new line formatted like this:
-     *
-     * - dependencyName: *
-     *
-     * Note: this is the notation for the universe @keyword(dependency system).
-     * Other dependency systems are not supported yet.
-     *
-     *
-     * Note2: This method only works if there is an effective bsr-0 autoloader in place.
-     * Note3: This method works by parsing the use statements in your classes, so make sure to clean your import use statements
+     * Note: This method only works if there is an effective bsr-1 autoloader in place.
+     * Note2: This method works by parsing the use statements in your classes, so make sure to clean your import use statements
      *      before running this method.
      *
      *
      *
      * @param string $planetDir . The directory path of the planet to scan.
-     * @param string $br = <br>. The string to use as the carriage return.
      *
      *
      * @return string
      * @throws UniverseToolsException
      */
-    public static function parseDumpDependencies(string $planetDir, $br = '<br>')
+    public static function parseDumpDependencies(string $planetDir)
     {
         if (false === is_dir($planetDir)) {
             throw new UniverseToolsException("Dir not found: $planetDir");
@@ -56,61 +47,83 @@ class DependencyTool
 
         $allUseStatements = [];
 
-        $planetName = basename($planetDir);
-        $files = YorgDirScannerTool::getFilesWithExtension($planetDir, 'php', false, true, true);
 
-        foreach ($files as $file) {
-            $content = file_get_contents($planetDir . "/" . $file);
+        $pInfo = PlanetTool::getGalaxyNamePlanetNameByDir($planetDir);
+        if (false !== $pInfo) {
 
-            /**
-             * Filtering scripts starting with:
-             *
-             * ```txt
-             * #!/usr/bin/env php
-             * <?php
-             * ```
-             *
-             */
-            if (0 === strpos($content, '<?')) {
+            list($galaxy, $planetName) = $pInfo;
+            $files = YorgDirScannerTool::getFilesWithExtension($planetDir, 'php', false, true, true);
 
-                $classPath = $planetName . "/" . substr($file, 0, -4);
-                $className = str_replace('/', '\\', $classPath);
-                $classFile = $planetDir . "/" . $file;
+            foreach ($files as $file) {
+
+                $content = file_get_contents($planetDir . "/" . $file);
+
+                /**
+                 * Filtering scripts starting with:
+                 *
+                 * ```txt
+                 * #!/usr/bin/env php
+                 * <?php
+                 * ```
+                 *
+                 */
+                if (0 === strpos($content, '<?')) {
+
+                    $classPath = $galaxy . "/" . $planetName . "/" . substr($file, 0, -4);
+                    $className = str_replace('/', '\\', $classPath);
+                    $classFile = $planetDir . "/" . $file;
 
 
-                try {
-                    $o = new \ReflectionClass($className);
+                    try {
 
-                    $tokens = token_get_all(file_get_contents($classFile));
-                    $useStatements = TokenFinderTool::getUseDependencies($tokens);
+                        $o = new \ReflectionClass($className);
 
-                    // filtering out internal use statements (statements referencing a class inside the planet being parsed)
-                    $useStatements = array_filter($useStatements, function ($v) use ($planetName) {
-                        if (0 === strpos($v, $planetName . "\\")) {
-                            return false;
-                        }
-                        return true;
-                    });
-                    $allUseStatements = array_merge($allUseStatements, $useStatements);
+                        $tokens = token_get_all(file_get_contents($classFile));
+                        $useStatements = TokenFinderTool::getUseDependencies($tokens);
 
-                } catch (\ReflectionException $e) {
-                    // not a bsr-0 class
-                    continue;
+                        // filtering out internal use statements (statements referencing a class inside the planet being parsed)
+                        $useStatements = array_filter($useStatements, function ($v) use ($planetName, $galaxy) {
+                            if (0 === strpos($v, $galaxy . "\\" . $planetName . "\\")) {
+                                return false;
+                            }
+                            return true;
+                        });
+                        $allUseStatements = array_merge($allUseStatements, $useStatements);
+
+                    } catch (\ReflectionException $e) {
+                        // not a bsr-0 class
+                        continue;
+                    }
+
                 }
 
             }
 
+
+            // reducing use statements to planet names
+            $galaxies = [];
+            foreach ($allUseStatements as $statement) {
+                $parts = explode('\\', $statement);
+                $galaxy = $parts[0];
+                $planet = $parts[1];
+                if (false === array_key_exists($galaxy, $galaxies)) {
+                    $galaxies[$galaxy] = [];
+                }
+                if (false === in_array($planet, $galaxies[$galaxy], true)) {
+                    $galaxies[$galaxy][] = $planet;
+                }
+            }
+            $conf = [
+                "dependencies" => $galaxies,
+                "post_install" => [],
+            ];
+
+            return BabyYamlUtil::getBabyYamlString($conf) . PHP_EOL;
+
+
+        } else {
+            throw new UniverseToolsException("Invalid planet dir. A valid planet dir should be of the form /my/universe/\$galaxyName/\$shortPlanetName.");
         }
-
-
-        // reducing use statements to planet names
-        $lines = [];
-        foreach ($allUseStatements as $statement) {
-            $lines[] = explode('\\', $statement)[0] . ': *';
-        }
-        $lines = array_unique($lines);
-
-        return implode($br, $lines);
     }
 
 
@@ -252,7 +265,7 @@ class DependencyTool
         $target = $dependencyItem[1];
 
         switch ($dependencySystem) {
-            case "ling":
+            case "Ling":
                 return "https://github.com/karayabin/universe-snapshot/tree/master/universe/Ling/$target";
                 break;
             case "git":

@@ -5,7 +5,7 @@ namespace Ling\FormTools\Validation;
 
 use Ling\FormTools\Validation\Exception\OnTheFlyFormValidatorException;
 use Ling\FormTools\Validation\Message\OnTheFlyFormValidatorMessageInterface;
-use Ling\Kamille\Services\XLog;
+use Kamille\Services\XLog;
 
 
 /**

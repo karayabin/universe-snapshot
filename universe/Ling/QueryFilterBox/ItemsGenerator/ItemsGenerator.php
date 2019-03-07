@@ -4,7 +4,7 @@
 namespace Ling\QueryFilterBox\ItemsGenerator;
 
 
-use Ling\Kamille\Services\XLog;
+use Kamille\Services\XLog;
 use Ling\QueryFilterBox\Query\Query;
 use Ling\QueryFilterBox\Query\QueryInterface;
 use Ling\QueryFilterBox\QueryFilterBox\QueryFilterBoxInterface;

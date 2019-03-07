@@ -32,7 +32,7 @@ QuickNav
 ===========
 
 
-- [DocTools api](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools.md)
+- [DocTools api](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools.md) (generated with DocTools)
 - [What is DocTools](#what-is-doctools)
 - [How to use?](#how-to-use)
 - [Why documentation is important](#why-documentation-is-important)
@@ -124,7 +124,7 @@ $doc = "$git/doc";
 $api = $doc . "/api";
 
 
-$planetDir = "/komin/jin_site_demo/universe/DocTools";
+$planetDir = "/komin/jin_site_demo/universe/Ling/DocTools";
 
 
 $builder = new LingGitPhpPlanetDocBuilder();
@@ -147,7 +147,7 @@ $builder->prepare([
      *
      */
     "reportIgnore" => [
-        "DocTools\Translator\ParseDownTranslator",
+        "Ling\DocTools\Translator\ParseDownTranslator",
     ],
     /**
      * Your project start date.
@@ -638,6 +638,11 @@ This includes:
 History Log
 =============
     
+- 1.5.0 -- 2019-03-07
+
+    - Update DocTools to work with new bsr-1 system
+    - Add support for "@throws" tag
+
 - 1.4.0 -- 2019-02-27
 
     - add MethodPrevNextWidget and ClassPrevNextWidgets

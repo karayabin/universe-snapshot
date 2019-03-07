@@ -38,25 +38,26 @@ We also generate a page for the planet itself.
 
 We try to use the most natural filesystem mapping possible, and therefore came up with the structure below.
 
-Our example uses two files from the **DocTools** planet:
+Our example uses two files from the **Ling/DocTools** planet:
 
-- DocTools/ClassParser/ClassParser.php
-- DocTools/Exception/PlanetParserException.php
+- Ling/DocTools/ClassParser/ClassParser.php
+- Ling/DocTools/Exception/PlanetParserException.php
 
 
 
 ```txt
 - $docRoot/
     $generatedClassDirectoryName/           # default=classes
-        - DocTools.md                       # this file contains the planet general documentation (in this case DocTools)
-        - DocTools/                         # this directory contains all the classes related to the planet (in this case DocTools) 
-            - ClassParser/
-                - ClassParser.md
-                - ClassParser/                  # this directory contains the (user defined) methods of this class
-                    - parse.md
-    
-            - Exception/
-                - PlanetParserException.md
+        - Ling/
+            - DocTools.md                       # this file contains the planet general documentation (in this case DocTools)
+            - DocTools/                         # this directory contains all the classes related to the planet (in this case DocTools)
+                - ClassParser/
+                    - ClassParser.md
+                    - ClassParser/                  # this directory contains the (user defined) methods of this class
+                        - parse.md
+
+                - Exception/
+                    - PlanetParserException.md
 ```
 
 Note: in the example above we used the markdown file type, but the same logic applies for html (or any other file type).

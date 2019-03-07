@@ -29,14 +29,14 @@ Example in a [kamille](https://github.com/lingtalfi/kamille) app.
 <?php
 
 
-use Ling\Kamille\Architecture\ApplicationParameters\ApplicationParameters;
-use Ling\Kamille\Ling\Z;
-use Ling\Kamille\Mvc\Layout\HtmlLayout;
-use Ling\Kamille\Mvc\LayoutProxy\LawsLayoutProxy;
-use Ling\Kamille\Mvc\Loader\FileLoader;
-use Ling\Kamille\Mvc\Position\Position;
-use Ling\Kamille\Mvc\Renderer\PhpLayoutRenderer;
-use Ling\Kamille\Mvc\Widget\Widget;
+use Kamille\Architecture\ApplicationParameters\ApplicationParameters;
+use Kamille\Ling\Z;
+use Kamille\Mvc\Layout\HtmlLayout;
+use Kamille\Mvc\LayoutProxy\LawsLayoutProxy;
+use Kamille\Mvc\Loader\FileLoader;
+use Kamille\Mvc\Position\Position;
+use Kamille\Mvc\Renderer\PhpLayoutRenderer;
+use Kamille\Mvc\Widget\Widget;
 use Ling\Logger\Listener\FileLoggerListener;
 use Ling\Logger\Logger;
 
@@ -60,7 +60,7 @@ Example with a formatter to display the date:
 <?php
 
 
-use Ling\Kamille\Architecture\ApplicationParameters\ApplicationParameters;
+use Kamille\Architecture\ApplicationParameters\ApplicationParameters;
 use Ling\Logger\Formatter\TagFormatter;
 use Ling\Logger\Listener\FileLoggerListener;
 use Ling\Logger\Logger;

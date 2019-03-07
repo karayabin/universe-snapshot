@@ -307,7 +307,7 @@ Your EkomApi class looks like this so far:
 
 namespace Module\Ekom\Api;
 
-use Ling\Kamille\Services\XLog;
+use Kamille\Services\XLog;
 
 
 class EkomApi extends GeneratedEkomApi

@@ -179,7 +179,7 @@ Note: I'm using kamille framework here, but you obviously can adapt this code to
 
 <?php
 
-use Ling\Kamille\Utils\ThemeHelper\KamilleThemeHelper;
+use Kamille\Utils\ThemeHelper\KamilleThemeHelper;
 use Ling\OnTheFlyForm\Helper\OnTheFlyFormHelper;
 use Theme\LeeTheme;
 

@@ -29,11 +29,11 @@ interface ClassParserInterface extends GenericParserInterface
     /**
      * Returns a ClassInfo object from the given $className.
      * Note that this method overrides a method of the same name
-     * defined in the parent interface: DocTools\GenericParser\GenericParserInterface.
+     * defined in the parent interface @class(Ling\DocTools\GenericParser\GenericParserInterface).
      *
      *
      *
-     * @seeClass DocTools\Info\ClassInfo
+     * @seeClass Ling\DocTools\Info\ClassInfo
      * @param string $className
      * @return InfoInterface
      * @throws ClassParserException
@@ -46,7 +46,7 @@ interface ClassParserInterface extends GenericParserInterface
      * The parser report is only available after the parse method has been called.
      *
      * @seeMethod parse
-     * @seeClass DocTools\Report\ReportInterface
+     * @seeClass Ling\DocTools\Report\ReportInterface
      *
      * @return ReportInterface
      */
