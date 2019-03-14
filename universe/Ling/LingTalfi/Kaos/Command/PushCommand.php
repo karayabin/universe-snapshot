@@ -24,7 +24,7 @@ use Ling\UniverseTools\PlanetTool;
  * - Updates/creates the dependencies.byml file if necessary
  * - Builds the doc, if there is a corresponding LingTalfi/DocBuilder object.
  * - Pushes the planet to github.com.
- * - If the version number is greater than before, executes the PackAndPushUniTool command (see the @object(PackAndPushUniTool) class for more details).
+ * - If the version number is greater than before, executes the PackAndPushUniTool command (see the @object(PackAndPushUniToolCommand) class for more details).
  *
  *
  * Note: this command assumes that the planet dir represents a planet only if it contains a README.md file with a **History Log** section.
@@ -34,6 +34,7 @@ use Ling\UniverseTools\PlanetTool;
  * ----------------
  *
  * - ?planet-dir=string. The path to the planet directory to push. If not set, will use the current directory.
+ * - -n: no packing. If set, the PackAndPushUniTool command will NOT be executed.
  *
  *
  */
@@ -51,6 +52,9 @@ class PushCommand extends KaosGenericCommand
 
 
         $planetDir = $input->getOption('planet-dir');
+        $noPacking = $input->hasFlag('n');
+
+
         if (null === $planetDir) {
             $planetDir = $this->application->getCurrentDirectory();
         }
@@ -157,13 +161,15 @@ class PushCommand extends KaosGenericCommand
                                 //--------------------------------------------
                                 // REPACK AND PUSH UNI TOOL
                                 //--------------------------------------------
-                                if (true === $newVersionAvailable) {
+                                if (false === $noPacking) {
+                                    if (true === $newVersionAvailable) {
 
-                                    $myInput = new ArrayInput();
-                                    $myInput->setItems([
-                                        ":packpushuni" => true,
-                                    ]);
-                                    $this->application->run($myInput, $output);
+                                        $myInput = new ArrayInput();
+                                        $myInput->setItems([
+                                            ":packpushuni" => true,
+                                        ]);
+                                        $this->application->run($myInput, $output);
+                                    }
                                 }
 
 

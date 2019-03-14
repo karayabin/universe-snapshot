@@ -7,7 +7,7 @@ ClassInfo::getProperties
 
 
 
-ClassInfo::getProperties — Returns an array of [PropertyInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/PropertyInfo.md).
+ClassInfo::getProperties — Returns an array of [PropertyInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/PropertyInfo.md).
 
 
 
@@ -21,7 +21,7 @@ public [ClassInfo::getProperties](https://github.com/lingtalfi/DocTools/blob/mas
 
 
 
-Returns an array of [PropertyInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/PropertyInfo.md).
+Returns an array of [PropertyInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/PropertyInfo.md).
 
 
 

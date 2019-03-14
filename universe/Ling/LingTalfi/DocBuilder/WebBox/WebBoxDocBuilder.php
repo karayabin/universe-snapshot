@@ -8,6 +8,10 @@ use Ling\DocTools\DocBuilder\Git\PhpPlanet\LingGitPhpPlanetDocBuilder;
 use Ling\DocTools\Exception\DocBuilderException;
 use Ling\DocTools\Translator\ParseDownTranslator;
 
+
+/**
+ * The WebBoxDocBuilder class.
+ */
 class WebBoxDocBuilder
 {
 

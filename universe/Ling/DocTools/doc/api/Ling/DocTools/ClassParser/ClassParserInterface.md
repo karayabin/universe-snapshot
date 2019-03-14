@@ -4,7 +4,7 @@
 
 The ClassParserInterface class
 ================
-2019-02-21 --> 2019-03-13
+2019-02-21 --> 2019-03-14
 
 
 
@@ -16,7 +16,7 @@ Introduction
 
 The ClassParserInterface interface represents a class parser.
 
-A class parser will parse a class and return a [ClassInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/ClassInfo.md) object, which gives us info
+A class parser will parse a class and return a [ClassInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/ClassInfo.md) object, which gives us info
 about the class, such as its name,  its comment, its properties, its methods, ...
 
 

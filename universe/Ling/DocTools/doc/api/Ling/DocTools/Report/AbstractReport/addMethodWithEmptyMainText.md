@@ -7,7 +7,7 @@ AbstractReport::addMethodWithEmptyMainText
 
 
 
-AbstractReport::addMethodWithEmptyMainText — Adds a method with an empty [main text](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/CommentInfo.md#the-doc-comment-structure).
+AbstractReport::addMethodWithEmptyMainText — Adds a method with an empty [main text](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/CommentInfo.md#the-doc-comment-structure).
 
 
 
@@ -21,7 +21,7 @@ public [AbstractReport::addMethodWithEmptyMainText](https://github.com/lingtalfi
 
 
 
-Adds a method with an empty [main text](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/CommentInfo.md#the-doc-comment-structure).
+Adds a method with an empty [main text](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/CommentInfo.md#the-doc-comment-structure).
 
 
 

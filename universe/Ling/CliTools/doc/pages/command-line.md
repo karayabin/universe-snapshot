@@ -32,6 +32,6 @@ A command line is composed of 3 types of components:
 From that definition above, many implementations are possible.
 In this planet, the implementations of this command line are:
 
-- the [CommandLineInput](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Input/CommandLineInput.md)
+- the [CommandLineInput](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Input/CommandLineInput.md)
 
 

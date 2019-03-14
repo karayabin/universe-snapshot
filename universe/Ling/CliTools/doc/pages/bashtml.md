@@ -141,4 +141,4 @@ Here is the tag list of the bashtml language.
 Related tools
 ----------------
 
-See the [BashtmlFormatter](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Formatter/BashtmlFormatter.md) for a concrete implementation of the bashtml language.
+See the [BashtmlFormatter](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Formatter/BashtmlFormatter.md) for a concrete implementation of the bashtml language.

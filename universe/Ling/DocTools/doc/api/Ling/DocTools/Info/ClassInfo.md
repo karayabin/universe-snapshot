@@ -4,7 +4,7 @@
 
 The ClassInfo class
 ================
-2019-02-21 --> 2019-03-13
+2019-02-21 --> 2019-03-14
 
 
 
@@ -65,19 +65,19 @@ Properties
 
 - <span id="property-comment"><b>comment</b></span>
 
-    This property holds a [commentInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/CommentInfo.md) object.
+    This property holds a [commentInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/CommentInfo.md) object.
     
     
 
 - <span id="property-properties"><b>properties</b></span>
 
-    This property holds an array of [PropertyInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/PropertyInfo.md) objects.
+    This property holds an array of [PropertyInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/PropertyInfo.md) objects.
     
     
 
 - <span id="property-methods"><b>methods</b></span>
 
-    This property holds an array of [MethodInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/MethodInfo.md) objects.
+    This property holds an array of [MethodInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/MethodInfo.md) objects.
     
     
 
@@ -118,9 +118,9 @@ Methods
 
 - [ClassInfo::__construct](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/ClassInfo/__construct.md) &ndash; Builds the ClassInfo instance.
 - [ClassInfo::getComment](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/ClassInfo/getComment.md) &ndash; Returns the comment, or null if the comment doesn't exist.
-- [ClassInfo::getProperties](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/ClassInfo/getProperties.md) &ndash; Returns an array of [PropertyInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/PropertyInfo.md).
-- [ClassInfo::getMethods](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/ClassInfo/getMethods.md) &ndash; Returns an array of [MethodInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/MethodInfo.md).
-- [ClassInfo::getOwnMethods](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/ClassInfo/getOwnMethods.md) &ndash; Returns the list of [MethodInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/MethodInfo.md) declared by this class (i.e.
+- [ClassInfo::getProperties](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/ClassInfo/getProperties.md) &ndash; Returns an array of [PropertyInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/PropertyInfo.md).
+- [ClassInfo::getMethods](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/ClassInfo/getMethods.md) &ndash; Returns an array of [MethodInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/MethodInfo.md).
+- [ClassInfo::getOwnMethods](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/ClassInfo/getOwnMethods.md) &ndash; Returns the list of [MethodInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/MethodInfo.md) declared by this class (i.e.
 - [ClassInfo::setComment](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/ClassInfo/setComment.md) &ndash; Sets the comment.
 - [ClassInfo::addProperty](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/ClassInfo/addProperty.md) &ndash; Adds a property.
 - [ClassInfo::addMethod](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/ClassInfo/addMethod.md) &ndash; Adds a method to this classInfo instance.

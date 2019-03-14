@@ -232,7 +232,6 @@ class LingGitPhpPlanetDocBuilder extends DocBuilder
         $this->_generatedDocStyle = $generatedDocStyle;
         $planetName = basename($this->planetDir);
 
-
         //--------------------------------------------
         // GeneratedItems2Url
         //--------------------------------------------

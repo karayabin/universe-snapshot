@@ -4,7 +4,7 @@
 
 The ApplicationException class
 ================
-2019-02-26 --> 2019-03-13
+2019-02-26 --> 2019-03-14
 
 
 
@@ -14,7 +14,7 @@ The ApplicationException class
 Introduction
 ============
 
-The ApplicationException exception is thrown when a problem occurs in the [Application](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Program/Application.md) class.
+The ApplicationException exception is thrown when a problem occurs in the [Application](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Program/Application.md) class.
 
 
 

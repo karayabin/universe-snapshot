@@ -4,7 +4,7 @@
 
 The CommentHelper class
 ================
-2019-02-21 --> 2019-03-13
+2019-02-21 --> 2019-03-14
 
 
 
@@ -15,7 +15,7 @@ Introduction
 ============
 
 The CommentHelper class.
-This is a generic helper class to help with the comments (doc comments, or [CommentInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/CommentInfo.md)).
+This is a generic helper class to help with the comments (doc comments, or [CommentInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/CommentInfo.md)).
 
 
 

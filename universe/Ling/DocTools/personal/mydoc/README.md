@@ -642,6 +642,10 @@ This includes:
 History Log
 =============
     
+- 1.5.2 -- 2019-03-14
+
+    - update ClassParser: now better handling for unresolved throws tags
+
 - 1.5.1 -- 2019-03-13
 
     - CopyModule: add moveReadMeTo option

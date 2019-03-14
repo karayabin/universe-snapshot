@@ -7,7 +7,7 @@ ClassInfo::getMethods
 
 
 
-ClassInfo::getMethods — Returns an array of [MethodInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/MethodInfo.md).
+ClassInfo::getMethods — Returns an array of [MethodInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/MethodInfo.md).
 
 
 
@@ -21,7 +21,7 @@ public [ClassInfo::getMethods](https://github.com/lingtalfi/DocTools/blob/master
 
 
 
-Returns an array of [MethodInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/MethodInfo.md).
+Returns an array of [MethodInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/MethodInfo.md).
 
 
 

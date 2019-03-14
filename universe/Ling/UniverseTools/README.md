@@ -36,6 +36,10 @@ Summary
 History Log
 ==============
 
+- 1.11.1 -- 2019-03-14
+
+    - fix PlanetTool::getClassNames parsing scripts as classes
+
 - 1.11.0 -- 2019-03-13
 
     - add MetaInfoTool::writeInfo method

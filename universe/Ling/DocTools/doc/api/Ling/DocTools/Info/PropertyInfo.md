@@ -4,7 +4,7 @@
 
 The PropertyInfo class
 ================
-2019-02-21 --> 2019-03-13
+2019-02-21 --> 2019-03-14
 
 
 
@@ -101,7 +101,7 @@ Methods
 ==============
 
 - [PropertyInfo::__construct](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/PropertyInfo/__construct.md) &ndash; Builds the PropertyInfo instance.
-- [PropertyInfo::getComment](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/PropertyInfo/getComment.md) &ndash; Returns the [CommentInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/CommentInfo.md) instance for this property.
+- [PropertyInfo::getComment](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/PropertyInfo/getComment.md) &ndash; Returns the [CommentInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/CommentInfo.md) instance for this property.
 - [PropertyInfo::setComment](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/PropertyInfo/setComment.md) &ndash; Sets the comment.
 - [PropertyInfo::getName](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/PropertyInfo/getName.md) &ndash; Returns the name of this property.
 - [PropertyInfo::setName](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/PropertyInfo/setName.md) &ndash; Sets the name of this property.

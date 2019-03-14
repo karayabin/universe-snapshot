@@ -45,9 +45,13 @@ class ClassNameHelper
      * @param array $includeReferences
      * Array of long class names referenced by the "@implementation" or "@overrides" tags, if used at all.
      *
+     * @param string|null $useStatementFound
+     * If the method returns false, but a use statement was matching, then this use statement (which is a class long name)
+     * will feed the $useStatementFound argument.
+     *
      * @return false|array
      */
-    public static function getClassNameInfo(string $className, \ReflectionClass $class, array $generatedItems2Url, array $includeReferences)
+    public static function getClassNameInfo(string $className, \ReflectionClass $class, array $generatedItems2Url, array $includeReferences, &$useStatementFound = null)
     {
 
         $longName = false;
@@ -82,6 +86,7 @@ class ClassNameHelper
                     $p = explode('\\', $statement);
                     $unqualifiedName = array_pop($p);
                     if ($className === $unqualifiedName) {
+                        $useStatementFound = $statement;
                         if (array_key_exists($statement, $generatedItems2Url)) {
                             $match = true;
                             $url = $generatedItems2Url[$statement];
@@ -134,6 +139,7 @@ class ClassNameHelper
                                     $p = explode('\\', $statement);
                                     $unqualifiedName = array_pop($p);
                                     if ($className === $unqualifiedName) {
+                                        $useStatementFound = $statement;
                                         if (array_key_exists($statement, $generatedItems2Url)) {
                                             $match = true;
                                             $url = $generatedItems2Url[$statement];

@@ -4,7 +4,7 @@
 
 The Application class
 ================
-2019-02-26 --> 2019-03-13
+2019-02-26 --> 2019-03-14
 
 
 
@@ -24,7 +24,7 @@ When we call an application via the terminal, the first parameter is always an a
 
 If you use this class, it is recommended that your command classes complain by throwing exceptions.
 That's because exceptions will be caught by this class for free and will be logged if a logger instance
-is attached to the program (see more details in the [AbstractProgram class](https://github.com/lingtalfi/CliTools/blob/master/doc/apiCliTools/Program/AbstractProgram.md)).
+is attached to the program (see more details in the [AbstractProgram class](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Program/AbstractProgram.md)).
 
 And so it's a good idea to re-use what's already in place.
 

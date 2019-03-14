@@ -12,10 +12,24 @@ use Ling\UniverseTools\MetaInfoTool;
 use Ling\UniverseTools\PlanetTool;
 
 
+/**
+ * The UpdateAllPlanetsTool class.
+ */
 class UpdateAllPlanetsTool
 {
 
 
+    /**
+     * If for some reason you loose all your .git directories in your local server,
+     * you can use this method to "repair" that.
+     *
+     *
+     * This method will reclone every planets based on my github repo https://github.com/lingtalfi.
+     *
+     *
+     *
+     * @throws \Ling\UniverseTools\Exception\UniverseToolsException
+     */
     public static function recloneAll()
     {
         $universeDir = "/myphp/universe";
@@ -42,6 +56,14 @@ class UpdateAllPlanetsTool
     }
 
 
+    /**
+     *
+     * An old method I used to push all planets to github.
+     * Note: now there is the better PushCommand.
+     * Todo: create a pushAll command instead of this method.
+     *
+     * @throws \Ling\UniverseTools\Exception\UniverseToolsException
+     */
     public static function updateAllPlanets()
     {
         $universeDir = "/myphp/universe";
@@ -59,6 +81,10 @@ class UpdateAllPlanetsTool
     //--------------------------------------------
     //
     //--------------------------------------------
+    /**
+     * An old method I used to update links when when I introduced the galaxy concept into the universe.
+     * Should not be used anymore but I keep it just in case.
+     */
     public static function alterLinks()
     {
         //--------------------------------------------
@@ -78,6 +104,15 @@ class UpdateAllPlanetsTool
         }
     }
 
+    /**
+     * An old script I used when galaxies were introduced to the universe,
+     * to convert the old system with package-info.yml to meta-info.byml and dependencies.byml...
+     *
+     * Should not be used anymore, but I keep it here just in case.
+     *
+     *
+     * @throws \Ling\UniverseTools\Exception\UniverseToolsException
+     */
     public static function alter()
     {
 

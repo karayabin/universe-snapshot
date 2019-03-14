@@ -75,7 +75,7 @@ class PushUniverseSnapshotCommand extends KaosGenericCommand
         passthru("cd \"$universeSnapshotDir\"; git pp");
 
 
-        H::info(H::i($indentLevel) . "The <b>universe snapshot</b> has been successfully deployed to github.com." . PHP_EOL, $output);
+        H::success(H::i($indentLevel) . "The <b>universe snapshot</b> has been successfully deployed to github.com." . PHP_EOL, $output);
 
     }
 

@@ -23,7 +23,7 @@ This command does the following (for the given planet):
 - Updates/creates the dependencies.byml file if necessary
 - Builds the doc, if there is a corresponding LingTalfi/DocBuilder object.
 - Pushes the planet to github.com.
-- If the version number is greater than before, executes the PackAndPushUniTool command (see the PackAndPushUniTool class for more details).
+- If the version number is greater than before, executes the PackAndPushUniTool command (see the [PackAndPushUniToolCommand](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Command/PackAndPushUniToolCommand.md) class for more details).
 
 
 Note: this command assumes that the planet dir represents a planet only if it contains a README.md file with a **History Log** section.
@@ -33,6 +33,7 @@ Options, flags
 ----------------
 
 - ?planet-dir=string. The path to the planet directory to push. If not set, will use the current directory.
+- -n: no packing. If set, the PackAndPushUniTool command will NOT be executed.
 
 
 
@@ -40,7 +41,7 @@ Class synopsis
 ==============
 
 
-class <span class="pl-k">PushCommand</span> extends [KaosGenericCommand](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Command/KaosGenericCommand.md) implements CommandInterface {
+class <span class="pl-k">PushCommand</span> extends [KaosGenericCommand](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Command/KaosGenericCommand.md) implements [CommandInterface](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Command/CommandInterface.md) {
 
 - Inherited properties
     - protected [Ling\LingTalfi\Kaos\Application\KaosApplication](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Application/KaosApplication.md) [KaosGenericCommand::$application](#property-application) ;
@@ -77,4 +78,4 @@ Ling\LingTalfi\Kaos\Command\PushCommand
 
 SeeAlso
 ==============
-Previous class: [PackAndPushUniToolCommand](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Command/PackAndPushUniToolCommand.md)<br>Next class: [KaosException](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Exception/KaosException.md)<br>
+Previous class: [PackAndPushUniToolCommand](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Command/PackAndPushUniToolCommand.md)<br>Next class: [PushUniverseSnapshotCommand](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Command/PushUniverseSnapshotCommand.md)<br>

@@ -8,6 +8,9 @@ use Ling\DocTools\DocBuilder\Git\PhpPlanet\LingGitPhpPlanetDocBuilder;
 use Ling\DocTools\Exception\DocBuilderException;
 use Ling\DocTools\Translator\ParseDownTranslator;
 
+/**
+ * The DocToolsDocBuilder class.
+ */
 class DocToolsDocBuilder
 {
 
@@ -176,36 +179,36 @@ class DocToolsDocBuilder
                 //--------------------------------------------
                 // API
                 //--------------------------------------------
-                "api" => $api . '/DocTools.md',
-                "ClassInfo" => $api . '/DocTools/Info/ClassInfo.md',
-                "CommentInfo" => $api . '/DocTools/Info/CommentInfo.md',
-                "main text" => $api . '/DocTools/Info/CommentInfo.md#the-doc-comment-structure',
-                "comment main text" => $api . '/DocTools/Info/CommentInfo.md#the-doc-comment-structure',
-                "commentInfo" => $api . '/DocTools/Info/CommentInfo.md',
-                "PropertyInfo" => $api . '/DocTools/Info/PropertyInfo.md',
-                "MethodInfo" => $api . '/DocTools/Info/MethodInfo.md',
-                "PlanetInfo" => $api . '/DocTools/Info/PlanetInfo.md',
-                "LingGitPhpPlanetDocBuilder" => $api . '/DocTools/DocBuilder/Git/PhpPlanet/LingGitPhpPlanetDocBuilder.md',
-                "copy module" => $api . '/DocTools/CopyModule/CopyModuleInterface.md',
-                "CopyModule" => $api . '/DocTools/CopyModule/CopyModuleInterface.md',
-                "DocBuilder" => $api . '/DocTools/DocBuilder/DocBuilder.md',
-                "ClassParserInterface" => $api . '/DocTools/ClassParser/ClassParserInterface.md',
-                "ClassParser" => $api . '/DocTools/ClassParser/ClassParser.md',
-                "PlanetParser" => $api . '/DocTools/PlanetParser/PlanetParser.md',
-                "DocToolInterpreter" => $api . '/DocTools/Interpreter/DocToolInterpreter.md',
-                "PlanetTocListWidget" => $api . '/DocTools/Widget/PlanetTocList/PlanetTocListWidget.md',
-                "ParseDownTranslator class page" => $api . '/DocTools/Translator/ParseDownTranslator.md',
-                "report" => $api . '/DocTools/Report/ReportInterface.md',
-                "ReportInterface" => $api . '/DocTools/Report/ReportInterface.md',
-                "HtmlReport" => $api . '/DocTools/Report/HtmlReport.md',
-                "parser" => $api . '/DocTools/GenericParser/GenericParserInterface.md',
-                "planet parser" => $api . '/DocTools/PlanetParser/PlanetParser.md',
-                "class parser" => $api . '/DocTools/ClassParser/ClassParser.md',
-                "GeneratedDocStyleInterface" => $api . '/DocTools/GeneratedDocStyle/GeneratedDocStyleInterface.md',
-                "PageUtil" => $api . '/DocTools/Page/PageUtil.md',
-                "wizard object" => $api . '/DocTools/TemplateWizard/TemplateWizard.md',
-                "TemplateWizard" => $api . '/DocTools/TemplateWizard/TemplateWizard.md',
-                "ThrownExceptionInfo" => $api . '/DocTools/Info/ThrownExceptionInfo.md',
+                "api" => $api . '/Ling/DocTools.md',
+                "ClassInfo" => $api . '/Ling/DocTools/Info/ClassInfo.md',
+                "CommentInfo" => $api . '/Ling/DocTools/Info/CommentInfo.md',
+                "main text" => $api . '/Ling/DocTools/Info/CommentInfo.md#the-doc-comment-structure',
+                "comment main text" => $api . '/Ling/DocTools/Info/CommentInfo.md#the-doc-comment-structure',
+                "commentInfo" => $api . '/Ling/DocTools/Info/CommentInfo.md',
+                "PropertyInfo" => $api . '/Ling/DocTools/Info/PropertyInfo.md',
+                "MethodInfo" => $api . '/Ling/DocTools/Info/MethodInfo.md',
+                "PlanetInfo" => $api . '/Ling/DocTools/Info/PlanetInfo.md',
+                "LingGitPhpPlanetDocBuilder" => $api . '/Ling/DocTools/DocBuilder/Git/PhpPlanet/LingGitPhpPlanetDocBuilder.md',
+                "copy module" => $api . '/Ling/DocTools/CopyModule/CopyModuleInterface.md',
+                "CopyModule" => $api . '/Ling/DocTools/CopyModule/CopyModuleInterface.md',
+                "DocBuilder" => $api . '/Ling/DocTools/DocBuilder/DocBuilder.md',
+                "ClassParserInterface" => $api . '/Ling/DocTools/ClassParser/ClassParserInterface.md',
+                "ClassParser" => $api . '/Ling/DocTools/ClassParser/ClassParser.md',
+                "PlanetParser" => $api . '/Ling/DocTools/PlanetParser/PlanetParser.md',
+                "DocToolInterpreter" => $api . '/Ling/DocTools/Interpreter/DocToolInterpreter.md',
+                "PlanetTocListWidget" => $api . '/Ling/DocTools/Widget/PlanetTocList/PlanetTocListWidget.md',
+                "ParseDownTranslator class page" => $api . '/Ling/DocTools/Translator/ParseDownTranslator.md',
+                "report" => $api . '/Ling/DocTools/Report/ReportInterface.md',
+                "ReportInterface" => $api . '/Ling/DocTools/Report/ReportInterface.md',
+                "HtmlReport" => $api . '/Ling/DocTools/Report/HtmlReport.md',
+                "parser" => $api . '/Ling/DocTools/GenericParser/GenericParserInterface.md',
+                "planet parser" => $api . '/Ling/DocTools/PlanetParser/PlanetParser.md',
+                "class parser" => $api . '/Ling/DocTools/ClassParser/ClassParser.md',
+                "GeneratedDocStyleInterface" => $api . '/Ling/DocTools/GeneratedDocStyle/GeneratedDocStyleInterface.md',
+                "PageUtil" => $api . '/Ling/DocTools/Page/PageUtil.md',
+                "wizard object" => $api . '/Ling/DocTools/TemplateWizard/TemplateWizard.md',
+                "TemplateWizard" => $api . '/Ling/DocTools/TemplateWizard/TemplateWizard.md',
+                "ThrownExceptionInfo" => $api . '/Ling/DocTools/Info/ThrownExceptionInfo.md',
             ],
             /**
              * An array of external classes to url.

@@ -7,7 +7,7 @@ AbstractReport::addPropertyWithEmptyMainText
 
 
 
-AbstractReport::addPropertyWithEmptyMainText — Adds a property with an empty [main text](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/CommentInfo.md#the-doc-comment-structure).
+AbstractReport::addPropertyWithEmptyMainText — Adds a property with an empty [main text](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/CommentInfo.md#the-doc-comment-structure).
 
 
 
@@ -21,7 +21,7 @@ public [AbstractReport::addPropertyWithEmptyMainText](https://github.com/lingtal
 
 
 
-Adds a property with an empty [main text](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/CommentInfo.md#the-doc-comment-structure).
+Adds a property with an empty [main text](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/CommentInfo.md#the-doc-comment-structure).
 
 
 

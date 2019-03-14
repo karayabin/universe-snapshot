@@ -7,7 +7,7 @@ UpdateAllPlanetsTool::alterLinks
 
 
 
-UpdateAllPlanetsTool::alterLinks — 
+UpdateAllPlanetsTool::alterLinks — An old method I used to update links when when I introduced the galaxy concept into the universe.
 
 
 
@@ -21,7 +21,8 @@ public static [UpdateAllPlanetsTool::alterLinks](https://github.com/lingtalfi/Li
 
 
 
-
+An old method I used to update links when when I introduced the galaxy concept into the universe.
+Should not be used anymore but I keep it just in case.
 
 
 

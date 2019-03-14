@@ -4,7 +4,7 @@
 
 The MethodInfo class
 ================
-2019-02-21 --> 2019-03-13
+2019-02-21 --> 2019-03-14
 
 
 
@@ -75,7 +75,7 @@ Properties
 
 - <span id="property-comment"><b>comment</b></span>
 
-    This property holds a <[CommentInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/CommentInfo.md) instance.
+    This property holds a <[CommentInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/CommentInfo.md) instance.
     
     
 
@@ -125,7 +125,7 @@ Properties
     This property holds the array of thrownExceptions for this method.
     Thrown exceptions are read from the "@throws" tags.
     
-    It's an array of [ThrownExceptionInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/ThrownExceptionInfo.md).
+    It's an array of [ThrownExceptionInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/ThrownExceptionInfo.md).
     
     
 
@@ -137,7 +137,7 @@ Methods
 - [MethodInfo::__construct](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/MethodInfo/__construct.md) &ndash; Builds the MethodInfo instance.
 - [MethodInfo::getVisibility](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/MethodInfo/getVisibility.md) &ndash; Returns the visibility of the method.
 - [MethodInfo::setVisibility](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/MethodInfo/setVisibility.md) &ndash; Sets the visibility for this method.
-- [MethodInfo::getComment](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/MethodInfo/getComment.md) &ndash; Returns the [CommentInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/CommentInfo.md) instance.
+- [MethodInfo::getComment](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/MethodInfo/getComment.md) &ndash; Returns the [CommentInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/CommentInfo.md) instance.
 - [MethodInfo::setComment](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/MethodInfo/setComment.md) &ndash; Sets the comment for this instance.
 - [MethodInfo::getSignature](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/MethodInfo/getSignature.md) &ndash; Returns the signature of this method.
 - [MethodInfo::setSignature](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/MethodInfo/setSignature.md) &ndash; Sets the signature.

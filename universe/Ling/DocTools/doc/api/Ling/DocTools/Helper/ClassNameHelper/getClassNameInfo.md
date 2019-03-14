@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [ClassNameHelper::getClassNameInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Helper/ClassNameHelper/getClassNameInfo.md)(string $className, [\ReflectionClass](http://php.net/manual/en/class.reflectionclass.php) $class, array $generatedItems2Url, array $includeReferences) : false | array
+public static [ClassNameHelper::getClassNameInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Helper/ClassNameHelper/getClassNameInfo.md)(string $className, [\ReflectionClass](http://php.net/manual/en/class.reflectionclass.php) $class, array $generatedItems2Url, array $includeReferences, &$useStatementFound = null) : false | array
 
 
 
@@ -63,6 +63,11 @@ Parameters
 - includeReferences
 
     Array of long class names referenced by the "@implementation" or "@overrides" tags, if used at all.
+
+- useStatementFound
+
+    If the method returns false, but a use statement was matching, then this use statement (which is a class long name)
+will feed the $useStatementFound argument.
 
 
 Return values

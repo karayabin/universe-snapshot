@@ -4,7 +4,7 @@
 
 The Output class
 ================
-2019-02-26 --> 2019-03-13
+2019-02-26 --> 2019-03-14
 
 
 
@@ -18,8 +18,8 @@ The Output class.
 This is a basic implementation of the output interface.
 
 
-This output has a default [bashtml formatter](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Formatter/BashtmlFormatter.md),
-which can be turned off by manually setting a [dumb formatter](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Formatter/DumbFormatter.md) using
+This output has a default [bashtml formatter](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Formatter/BashtmlFormatter.md),
+which can be turned off by manually setting a [dumb formatter](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Formatter/DumbFormatter.md) using
 the setFormatter method.
 
 

@@ -7,7 +7,7 @@ UpdateAllPlanetsTool::updateAllPlanets
 
 
 
-UpdateAllPlanetsTool::updateAllPlanets — 
+UpdateAllPlanetsTool::updateAllPlanets — An old method I used to push all planets to github.
 
 
 
@@ -21,7 +21,9 @@ public static [UpdateAllPlanetsTool::updateAllPlanets](https://github.com/lingta
 
 
 
-
+An old method I used to push all planets to github.
+Note: now there is the better PushCommand.
+Todo: create a pushAll command instead of this method.
 
 
 
@@ -37,6 +39,11 @@ Return values
 
 Returns void.
 
+
+Exceptions thrown
+================
+
+- [UniverseToolsException](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/Exception/UniverseToolsException.md).&nbsp;
 
 
 

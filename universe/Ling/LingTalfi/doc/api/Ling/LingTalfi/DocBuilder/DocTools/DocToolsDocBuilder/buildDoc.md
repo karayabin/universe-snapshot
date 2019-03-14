@@ -59,6 +59,11 @@ Return values
 Returns void.
 
 
+Exceptions thrown
+================
+
+- [DocBuilderException](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Exception/DocBuilderException.md).&nbsp;
+
 
 
 

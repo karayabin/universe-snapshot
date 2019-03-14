@@ -4,7 +4,7 @@
 
 The LingGitPhpPlanetDocBuilder class
 ================
-2019-02-21 --> 2019-03-13
+2019-02-21 --> 2019-03-14
 
 
 
@@ -99,19 +99,19 @@ Properties
 
 - <span id="property-copyModuleSrc"><b>copyModuleSrc</b></span>
 
-    This property holds the [copy module](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/CopyModule/CopyModuleInterface.md) source for this instance.
+    This property holds the [copy module](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/CopyModule/CopyModuleInterface.md) source for this instance.
     
     
 
 - <span id="property-copyModuleDst"><b>copyModuleDst</b></span>
 
-    This property holds the [copy module](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/CopyModule/CopyModuleInterface.md) destination for this instance.
+    This property holds the [copy module](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/CopyModule/CopyModuleInterface.md) destination for this instance.
     
     
 
 - <span id="property-copyModuleOptions"><b>copyModuleOptions</b></span>
 
-    This property holds the [copy module](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/CopyModule/CopyModuleInterface.md) options for this instance.
+    This property holds the [copy module](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/CopyModule/CopyModuleInterface.md) options for this instance.
     
     
 

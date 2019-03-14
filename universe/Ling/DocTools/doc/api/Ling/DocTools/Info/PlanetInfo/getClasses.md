@@ -7,7 +7,7 @@ PlanetInfo::getClasses
 
 
 
-PlanetInfo::getClasses — Returns the array of [ClassInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/ClassInfo.md) instances found in this planet.
+PlanetInfo::getClasses — Returns the array of [ClassInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/ClassInfo.md) instances found in this planet.
 
 
 
@@ -21,7 +21,7 @@ public [PlanetInfo::getClasses](https://github.com/lingtalfi/DocTools/blob/maste
 
 
 
-Returns the array of [ClassInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/ClassInfo.md) instances found in this planet.
+Returns the array of [ClassInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/ClassInfo.md) instances found in this planet.
 
 
 

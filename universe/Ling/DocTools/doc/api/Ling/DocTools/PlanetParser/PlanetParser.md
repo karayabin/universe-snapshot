@@ -4,7 +4,7 @@
 
 The PlanetParser class
 ================
-2019-02-21 --> 2019-03-13
+2019-02-21 --> 2019-03-14
 
 
 
@@ -57,7 +57,7 @@ Properties
 
 - <span id="property-classParser"><b>classParser</b></span>
 
-    This property holds a [ClassParserInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/ClassParser/ClassParserInterface.md) instance.
+    This property holds a [ClassParserInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/ClassParser/ClassParserInterface.md) instance.
     
     
 

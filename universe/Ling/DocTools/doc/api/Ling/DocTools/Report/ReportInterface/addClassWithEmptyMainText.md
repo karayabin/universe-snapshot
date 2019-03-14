@@ -7,7 +7,7 @@ ReportInterface::addClassWithEmptyMainText
 
 
 
-ReportInterface::addClassWithEmptyMainText — Adds a class with an empty [main text](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/CommentInfo.md#the-doc-comment-structure).
+ReportInterface::addClassWithEmptyMainText — Adds a class with an empty [main text](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/CommentInfo.md#the-doc-comment-structure).
 
 
 
@@ -21,7 +21,7 @@ abstract public [ReportInterface::addClassWithEmptyMainText](https://github.com/
 
 
 
-Adds a class with an empty [main text](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/CommentInfo.md#the-doc-comment-structure).
+Adds a class with an empty [main text](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/CommentInfo.md#the-doc-comment-structure).
 
 
 

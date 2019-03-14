@@ -63,14 +63,29 @@ class PlanetTool
 
             $files = YorgDirScannerTool::getFilesWithExtension($planetDir, 'php', false, true, true);
             foreach ($files as $file) {
-                $relativeClassName = str_replace('/', '\\', substr($file, 0, -4));
-                $className = $galaxy . '\\' . $dirName . '\\' . $relativeClassName;
-                try {
-                    $class = new \ReflectionClass($className);
-                    $classNames[] = $className;
 
-                } catch (\ReflectionException $e) {
+                $absFile = $planetDir . "/" . $file;
+                $content = file_get_contents($absFile);
+                /**
+                 * filtering scripts starting with
+                 *
+                 *      #!/usr/bin/env php
+                 *
+                 *
+                 */
+                if ('<?php' === substr($content, 0, 5)) {
 
+
+                    $relativeClassName = str_replace('/', '\\', substr($file, 0, -4));
+                    $className = $galaxy . '\\' . $dirName . '\\' . $relativeClassName;
+                    try {
+
+                        $class = new \ReflectionClass($className);
+                        $classNames[] = $className;
+
+                    } catch (\ReflectionException $e) {
+
+                    }
                 }
             }
             return $classNames;

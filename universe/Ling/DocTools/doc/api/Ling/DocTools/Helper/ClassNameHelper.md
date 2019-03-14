@@ -4,7 +4,7 @@
 
 The ClassNameHelper class
 ================
-2019-02-21 --> 2019-03-13
+2019-02-21 --> 2019-03-14
 
 
 
@@ -26,7 +26,7 @@ Class synopsis
 class <span class="pl-k">ClassNameHelper</span>  {
 
 - Methods
-    - public static [getClassNameInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Helper/ClassNameHelper/getClassNameInfo.md)(string $className, [\ReflectionClass](http://php.net/manual/en/class.reflectionclass.php) $class, array $generatedItems2Url, array $includeReferences) : false | array
+    - public static [getClassNameInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Helper/ClassNameHelper/getClassNameInfo.md)(string $className, [\ReflectionClass](http://php.net/manual/en/class.reflectionclass.php) $class, array $generatedItems2Url, array $includeReferences, &$useStatementFound = null) : false | array
 
 }
 

@@ -4,7 +4,7 @@
 
 The ProgramInterface class
 ================
-2019-02-26 --> 2019-03-13
+2019-02-26 --> 2019-03-14
 
 
 
@@ -85,12 +85,12 @@ in bashtml (which is more user-friendly):
 - bashtml:   ```This word is <red>red</red>.```
 
 
-So, I personally will use bashtml for all my programs/applications, but you could use any kind of [formatter](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Formatter/FormatterInterface.md)
+So, I personally will use bashtml for all my programs/applications, but you could use any kind of [formatter](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Formatter/FormatterInterface.md)
 that you like.
 
 
 
-All programs have one thing in common, they have a [run method](https://github.com/lingtalfi/CliTools/blob/master/doc/apiCliTools/Program/ProgramInterface/run.md) which has two arguments:
+All programs have one thing in common, they have a [run method](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Program/ProgramInterface/run.md) which has two arguments:
 
 
 - run ( InputInterface $input, OutputInterface $output )

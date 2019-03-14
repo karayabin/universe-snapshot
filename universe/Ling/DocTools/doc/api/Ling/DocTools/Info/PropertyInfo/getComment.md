@@ -7,7 +7,7 @@ PropertyInfo::getComment
 
 
 
-PropertyInfo::getComment — Returns the [CommentInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/CommentInfo.md) instance for this property.
+PropertyInfo::getComment — Returns the [CommentInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/CommentInfo.md) instance for this property.
 
 
 
@@ -21,7 +21,7 @@ public [PropertyInfo::getComment](https://github.com/lingtalfi/DocTools/blob/mas
 
 
 
-Returns the [CommentInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/CommentInfo.md) instance for this property.
+Returns the [CommentInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/CommentInfo.md) instance for this property.
 
 
 

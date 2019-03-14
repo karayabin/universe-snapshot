@@ -7,7 +7,7 @@ UpdateAllPlanetsTool::alter
 
 
 
-UpdateAllPlanetsTool::alter — 
+UpdateAllPlanetsTool::alter — to convert the old system with package-info.yml to meta-info.byml and dependencies.byml...
 
 
 
@@ -21,7 +21,10 @@ public static [UpdateAllPlanetsTool::alter](https://github.com/lingtalfi/LingTal
 
 
 
+An old script I used when galaxies were introduced to the universe,
+to convert the old system with package-info.yml to meta-info.byml and dependencies.byml...
 
+Should not be used anymore, but I keep it here just in case.
 
 
 
@@ -37,6 +40,11 @@ Return values
 
 Returns void.
 
+
+Exceptions thrown
+================
+
+- [UniverseToolsException](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/Exception/UniverseToolsException.md).&nbsp;
 
 
 

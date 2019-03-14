@@ -7,7 +7,7 @@ UpdateAllPlanetsTool::recloneAll
 
 
 
-UpdateAllPlanetsTool::recloneAll — 
+UpdateAllPlanetsTool::recloneAll — you can use this method to "repair" that.
 
 
 
@@ -21,7 +21,11 @@ public static [UpdateAllPlanetsTool::recloneAll](https://github.com/lingtalfi/Li
 
 
 
+If for some reason you loose all your .git directories in your local server,
+you can use this method to "repair" that.
 
+
+This method will reclone every planets based on my github repo https://github.com/lingtalfi.
 
 
 
@@ -37,6 +41,11 @@ Return values
 
 Returns void.
 
+
+Exceptions thrown
+================
+
+- [UniverseToolsException](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/Exception/UniverseToolsException.md).&nbsp;
 
 
 

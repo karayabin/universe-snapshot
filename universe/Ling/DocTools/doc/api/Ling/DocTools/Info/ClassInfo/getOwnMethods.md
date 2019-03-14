@@ -7,7 +7,7 @@ ClassInfo::getOwnMethods
 
 
 
-ClassInfo::getOwnMethods — Returns the list of [MethodInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/MethodInfo.md) declared by this class (i.e.
+ClassInfo::getOwnMethods — Returns the list of [MethodInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/MethodInfo.md) declared by this class (i.e.
 
 
 
@@ -21,7 +21,7 @@ public [ClassInfo::getOwnMethods](https://github.com/lingtalfi/DocTools/blob/mas
 
 
 
-Returns the list of [MethodInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/MethodInfo.md) declared by this class (i.e. not inherited).
+Returns the list of [MethodInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/MethodInfo.md) declared by this class (i.e. not inherited).
 
 
 

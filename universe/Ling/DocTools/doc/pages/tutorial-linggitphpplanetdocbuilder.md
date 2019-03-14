@@ -15,7 +15,7 @@ Summary
 Intro
 =======
 
-In this tutorial we will explore how the LingGitPhpPlanetDocBuilder [DocBuilder](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/DocBuilder/DocBuilder.md) was built.
+In this tutorial we will explore how the LingGitPhpPlanetDocBuilder [DocBuilder](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/DocBuilder/DocBuilder.md) was built.
 
 
 This **DocBuilder** creates a documentation for a planet (just the name of a package in the [universe](https://github.com/karayabin/universe-snapshot)) in the style of the [php.net](http://php.net/) documentation for classes,
@@ -108,12 +108,12 @@ You know that you want a "class synopsis widget" which will display the signatur
 of a given class, but how do you get this signature and all the properties and methods of a class?
 
 
-Well, that's when the concept of [parser](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/GenericParser/GenericParserInterface.md) comes in.
+Well, that's when the concept of [parser](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/GenericParser/GenericParserInterface.md) comes in.
 
 A parser will parse a planet or a class, and gives you all the information you need to feed your widgets.
 
 I'll spare you the implementation details of a parser, but there are basically two parsers: 
-a [planet parser](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/PlanetParser/PlanetParser.md) and a [class parser](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/ClassParser/ClassParser.md).
+a [planet parser](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/PlanetParser/PlanetParser.md) and a [class parser](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/ClassParser/ClassParser.md).
 
 
 For the doc builder we are trying to build here, the planet parser will be more appropriate.
@@ -134,9 +134,9 @@ A parser not only will give information about an element, but it will also repor
 that occurs. 
 
 
-So we need to give a [ReportInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Report/ReportInterface.md) to our planet parser.
+So we need to give a [ReportInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface.md) to our planet parser.
 
-We will choose the [HtmlReport](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Report/HtmlReport.md), because it can be displayed as html, and so it would be a graphical help
+We will choose the [HtmlReport](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/HtmlReport.md), because it can be displayed as html, and so it would be a graphical help
 while building our doc.
 
 
@@ -166,7 +166,7 @@ Because of this design decision, a parser also does interpret the docTool markup
 
 Note: you can use another markup language if you want, but the docTool markup language is the default.
 
-In order for the parser to interpret the docTool markup language, we use the [DocToolInterpreter](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Interpreter/DocToolInterpreter.md) object.
+In order for the parser to interpret the docTool markup language, we use the [DocToolInterpreter](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Interpreter/DocToolInterpreter.md) object.
 
 
 So our parser will look like this:
@@ -249,7 +249,7 @@ This line:
 $generatedItems2Url[$className] = $generatedDocStyle->getClassUrl($planetName, $generatedClassBaseUrl, $className);
 ```
 
-makes use of the generatedDocStyle variable, which holds a [GeneratedDocStyleInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/GeneratedDocStyle/GeneratedDocStyleInterface.md).
+makes use of the generatedDocStyle variable, which holds a [GeneratedDocStyleInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/GeneratedDocStyle/GeneratedDocStyleInterface.md).
  
 Basically, the getClassUrl method returns a class url based on your organizational preferences.
 
@@ -344,7 +344,7 @@ Building the pages
 Building the pages is done inside the **buildDoc** method.
 
 As you can see from the following code, we first generate the pages, then use
-the [copy module](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/CopyModule/CopyModuleInterface.md) to copy the documentation and interpret the [inline functions](https://github.com/lingtalfi/DocTools/blob/master/doc/pages/doctool-markup-language.md#inline-functions)
+the [copy module](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/CopyModule/CopyModuleInterface.md) to copy the documentation and interpret the [inline functions](https://github.com/lingtalfi/DocTools/blob/master/doc/pages/doctool-markup-language.md#inline-functions)
 globally.
 
 
@@ -445,7 +445,7 @@ Our template is:
 
 
 
-And we use the [PageUtil](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Page/PageUtil.md) object to create the page based on that template.
+And we use the [PageUtil](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Page/PageUtil.md) object to create the page based on that template.
 
 
 The template contains the following:
@@ -504,7 +504,7 @@ So, this is the end of this tutorial.
 Hopefully that might help you a bit and give you the keys on how to build your own docs.
 
 
-For more details, please refer to the [api](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools.md).
+For more details, please refer to the [api](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools.md).
 
 
 

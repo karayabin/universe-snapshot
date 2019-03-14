@@ -318,8 +318,6 @@ class ClassParser implements ClassParserInterface
             $comment = $this->parseDocComment($docComment, "method");
 
 
-
-
             $thrownExceptions = [];
 
 
@@ -352,7 +350,9 @@ class ClassParser implements ClassParserInterface
                         list($tagDef, $tagCom) = TagHelper::getTagInfo($tag);
 
 
-                        $classInfo = ClassNameHelper::getClassNameInfo($tagDef, $method->getDeclaringClass(), $this->generatedItems2Url, $comment->getIncludeReferences());
+                        $useStatementFound = null;
+                        $classInfo = ClassNameHelper::getClassNameInfo($tagDef, $method->getDeclaringClass(), $this->generatedItems2Url, $comment->getIncludeReferences(), $useStatementFound);
+
                         if (false !== $classInfo) {
                             $oException = new ThrownExceptionInfo();
                             $oException->setText($tagCom);
@@ -364,7 +364,8 @@ class ClassParser implements ClassParserInterface
 
                         } else {
                             if (null !== $this->report) {
-                                $this->report->addUnresolvedClassReference($className, "@throws $tagDef, method " . $method->getName() . ' (hint from ClassParser)');
+                                $theClassName = (null !== $useStatementFound) ? $useStatementFound : "$tagDef";
+                                $this->report->addUnresolvedClassReference($theClassName, "@throws $tagDef, method " . $method->getName() . ' (hint from ClassParser)');
                             }
                         }
                     }
@@ -691,7 +692,7 @@ class ClassParser implements ClassParserInterface
              * First expand @implementation and @overrides tags recursively
              */
             $resolved = false;
-            $rawComment = $this->expandIncludes($rawComment,  $resolved, $includeReferences);
+            $rawComment = $this->expandIncludes($rawComment, $resolved, $includeReferences);
         }
 
 
@@ -970,7 +971,7 @@ class ClassParser implements ClassParserInterface
      *
      * @return string
      */
-    private function expandIncludes(string $rawContent,  &$resolved = false, array &$includeReferences = [])
+    private function expandIncludes(string $rawContent, &$resolved = false, array &$includeReferences = [])
     {
         //--------------------------------------------
         // IMPLEMENTATION
@@ -1000,7 +1001,7 @@ class ClassParser implements ClassParserInterface
                         $parentDocComment = substr($parentDocComment, 3, -2);
                         $resolved = true;
                         $includeReferences[] = $interface->getName();
-                        return $this->expandIncludes($parentDocComment,  $resolved, $includeReferences);
+                        return $this->expandIncludes($parentDocComment, $resolved, $includeReferences);
                         break;
                     }
                 }
@@ -1016,7 +1017,7 @@ class ClassParser implements ClassParserInterface
                             $parentDocComment = substr($parentDocComment, 3, -2);
                             $resolved = true;
                             $includeReferences[] = $abstractParent->getName();
-                            return $this->expandIncludes($parentDocComment,  $resolved, $includeReferences);
+                            return $this->expandIncludes($parentDocComment, $resolved, $includeReferences);
                             break;
                         }
                     }
@@ -1052,7 +1053,7 @@ class ClassParser implements ClassParserInterface
                             $parentDocComment = substr($parentDocComment, 3, -2);
                             $resolved = true;
                             $includeReferences[] = $parent->getName();
-                            return $this->expandIncludes($parentDocComment,  $resolved, $includeReferences);
+                            return $this->expandIncludes($parentDocComment, $resolved, $includeReferences);
                         }
                     }
                 }

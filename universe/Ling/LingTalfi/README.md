@@ -35,6 +35,10 @@ Or just download it and place it where you want otherwise.
 History Log
 =============
 
+- 1.2.0 -- 2019-03-14
+
+    - add PushUniverseSnapshotCommand
+
 - 1.1.1 -- 2019-03-14
 
     - fix PushCommand git command potentially not being executed from the right directory

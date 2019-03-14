@@ -4,7 +4,7 @@
 
 The CommandInterface class
 ================
-2019-02-26 --> 2019-03-13
+2019-02-26 --> 2019-03-14
 
 
 
@@ -15,7 +15,7 @@ Introduction
 ============
 
 The CommandInterface interface.
-A command is like a sub-program of an [application](https://github.com/lingtalfi/CliTools/blob/master/doc/api/CliTools/Program/Application.md).
+A command is like a sub-program of an [application](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Program/Application.md).
 
 A command is stand-alone, and participates to make the application more modular.
 

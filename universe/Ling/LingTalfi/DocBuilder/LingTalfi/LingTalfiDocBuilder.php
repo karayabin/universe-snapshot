@@ -8,6 +8,10 @@ use Ling\DocTools\DocBuilder\Git\PhpPlanet\LingGitPhpPlanetDocBuilder;
 use Ling\DocTools\Exception\DocBuilderException;
 use Ling\DocTools\Translator\ParseDownTranslator;
 
+
+/**
+ * The LingTalfiDocBuilder class.
+ */
 class LingTalfiDocBuilder
 {
 
@@ -73,7 +77,6 @@ class LingTalfiDocBuilder
              *
              */
             "reportIgnore" => [
-//                "Ling\DocTools\Translator\ParseDownTranslator",
             ],
             /**
              * Your project start date.
@@ -139,24 +142,7 @@ class LingTalfiDocBuilder
              * This map in particular is the one used for the whole DocTools planet documentation (pages and api).
              */
             "keyWord2UrlMap" => [
-//                "the command line page" => $doc . '/pages/command-line.md',
-//                "bashtml language" => $doc . '/pages/bashtml.md',
-//                "bashtml" => $doc . '/pages/bashtml.md',
-//                //
-//                "application" => $api . '/LingTalfi/Program/Application.md',
-//                "Application" => $api . '/LingTalfi/Program/Application.md',
-//                "array input" => $api . '/LingTalfi/Input/ArrayInput.md',
-//                "command line input" => $api . '/LingTalfi/Input/CommandLineInput.md',
-//                "CommandLineInput" => $api . '/LingTalfi/Input/CommandLineInput.md',
-//                "bashtml formatter" => $api . '/LingTalfi/Formatter/BashtmlFormatter.md',
-//                "BashtmlFormatter" => $api . '/LingTalfi/Formatter/BashtmlFormatter.md',
-//                "dumb formatter" => $api . '/LingTalfi/Formatter/DumbFormatter.md',
-//                "formatter" => $api . '/LingTalfi/Formatter/FormatterInterface.md',
-//                "AbstractProgram class" => $api . "LingTalfi/Program/AbstractProgram.md",
-//                //
-//                "run method" => $api . "LingTalfi/Program/ProgramInterface/run.md",
-//                //
-//                "logger" => "https://github.com/lingtalfi/UniversalLogger",
+                "PackAndPushUniToolCommand" => "https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Command/PackAndPushUniToolCommand.md",
             ],
             /**
              * An array of external classes to url.
@@ -168,7 +154,19 @@ class LingTalfiDocBuilder
              * in the class synopsis.
              */
             "externalClass2Url" => [
-//                "Ling\UniversalLogger\UniversalLoggerInterface" => "https://github.com/lingtalfi/UniversalLogger",
+                "Ling\DocTools\Exception\DocBuilderException" => "https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Exception/DocBuilderException.md",
+                "Ling\UniverseTools\Exception\UniverseToolsException" => "https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/Exception/UniverseToolsException.md",
+                "Ling\CliTools\Program\Application" => "https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Program/Application.md",
+                "Ling\CliTools\Program\ProgramInterface" => "https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Program/ProgramInterface.md",
+                "Ling\UniversalLogger\UniversalLoggerInterface" => "https://github.com/lingtalfi/UniversalLogger/blob/master/UniversalLoggerInterface.php",
+                "Ling\CliTools\Command\CommandInterface" => "https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Command/CommandInterface.md",
+                "Ling\CliTools\Program\Application::registerCommand" => "https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Program/Application/registerCommand.md",
+                "Ling\CliTools\Program\AbstractProgram::setLogger" => "https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Program/AbstractProgram/setLogger.md",
+                "Ling\CliTools\Program\AbstractProgram::setLoggerChannel" => "https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Program/AbstractProgram/setLoggerChannel.md",
+                "Ling\CliTools\Program\AbstractProgram::setErrorIsVerbose" => "https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Program/AbstractProgram/setErrorIsVerbose.md",
+                "Ling\CliTools\Program\AbstractProgram::run" => "https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Program/AbstractProgram/run.md",
+                "Ling\CliTools\Command\CommandInterface::run" => "https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Command/CommandInterface/run.md",
+                "Ling\CliTools\Program\Application::runProgram" => "https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Program/Application/runProgram.md",
             ],
         ];
 
@@ -196,9 +194,9 @@ class LingTalfiDocBuilder
             ]);
         }
 
-
         $builder = new LingGitPhpPlanetDocBuilder();
         $builder->prepare($options);
+
         /**
          * This will create the generated documentation (aka api in the @kw(Lizard scheme)),
          * and since we've defined a @kw(copy module), it will also copy the whole doc to another location.

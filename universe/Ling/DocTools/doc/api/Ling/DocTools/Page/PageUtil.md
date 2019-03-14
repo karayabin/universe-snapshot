@@ -4,7 +4,7 @@
 
 The PageUtil class
 ================
-2019-02-21 --> 2019-03-13
+2019-02-21 --> 2019-03-14
 
 
 
@@ -15,7 +15,7 @@ Introduction
 ============
 
 The PageUtil class is a tool to create pages of your documentation.
-You will need this tool when creating your own [DocBuilder](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/DocBuilder/DocBuilder.md).
+You will need this tool when creating your own [DocBuilder](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/DocBuilder/DocBuilder.md).
 
 
 

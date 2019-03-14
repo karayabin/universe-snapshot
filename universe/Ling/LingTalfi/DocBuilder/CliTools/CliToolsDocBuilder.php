@@ -8,6 +8,10 @@ use Ling\DocTools\DocBuilder\Git\PhpPlanet\LingGitPhpPlanetDocBuilder;
 use Ling\DocTools\Exception\DocBuilderException;
 use Ling\DocTools\Translator\ParseDownTranslator;
 
+
+/**
+ * The CliToolsDocBuilder class.
+ */
 class CliToolsDocBuilder
 {
 
@@ -146,18 +150,18 @@ class CliToolsDocBuilder
                 "bashtml language" => $doc . '/pages/bashtml.md',
                 "bashtml" => $doc . '/pages/bashtml.md',
                 //
-                "application" => $api . '/CliTools/Program/Application.md',
-                "Application" => $api . '/CliTools/Program/Application.md',
-                "array input" => $api . '/CliTools/Input/ArrayInput.md',
-                "command line input" => $api . '/CliTools/Input/CommandLineInput.md',
-                "CommandLineInput" => $api . '/CliTools/Input/CommandLineInput.md',
-                "bashtml formatter" => $api . '/CliTools/Formatter/BashtmlFormatter.md',
-                "BashtmlFormatter" => $api . '/CliTools/Formatter/BashtmlFormatter.md',
-                "dumb formatter" => $api . '/CliTools/Formatter/DumbFormatter.md',
-                "formatter" => $api . '/CliTools/Formatter/FormatterInterface.md',
-                "AbstractProgram class" => $api . "CliTools/Program/AbstractProgram.md",
+                "application" => $api . '/Ling/CliTools/Program/Application.md',
+                "Application" => $api . '/Ling/CliTools/Program/Application.md',
+                "array input" => $api . '/Ling/CliTools/Input/ArrayInput.md',
+                "command line input" => $api . '/Ling/CliTools/Input/CommandLineInput.md',
+                "CommandLineInput" => $api . '/Ling/CliTools/Input/CommandLineInput.md',
+                "bashtml formatter" => $api . '/Ling/CliTools/Formatter/BashtmlFormatter.md',
+                "BashtmlFormatter" => $api . '/Ling/CliTools/Formatter/BashtmlFormatter.md',
+                "dumb formatter" => $api . '/Ling/CliTools/Formatter/DumbFormatter.md',
+                "formatter" => $api . '/Ling/CliTools/Formatter/FormatterInterface.md',
+                "AbstractProgram class" => $api . "/Ling/CliTools/Program/AbstractProgram.md",
                 //
-                "run method" => $api . "CliTools/Program/ProgramInterface/run.md",
+                "run method" => $api . "/Ling/CliTools/Program/ProgramInterface/run.md",
                 //
                 "logger" => "https://github.com/lingtalfi/UniversalLogger",
             ],

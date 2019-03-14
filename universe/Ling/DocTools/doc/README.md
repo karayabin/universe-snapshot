@@ -62,7 +62,7 @@ DocTools provides 4 main components:
 - a **parser**, which scans a code base and returns information out of it (like the class names, the method names, the properties, the comments, the doc comment tags, ...)
 - a **report page**: an html page which tells you what's missing in your doc (for instance class XX doesn't have a comment, or this property of this class doesn't declare the "@var" tag, ...)
 - a **docTool syntax**: which extends the markdown syntax so that we can create documentation more intuitively
-- a **documentation generator**: aka [DocBuilder](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/DocBuilder/DocBuilder.md) which creates the documentation pages for you, based on a templates/widgets system that you create for your needs 
+- a **documentation generator**: aka [DocBuilder](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/DocBuilder/DocBuilder.md) which creates the documentation pages for you, based on a templates/widgets system that you create for your needs 
 
 
 
@@ -76,7 +76,7 @@ How to use?
 ==============
 
 If you just want to generate a php style documentation for git (markdown) like the [DocTools api here](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools.md),
-then your fastest option is probably to just re-use the [LingGitPhpPlanetDocBuilder](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/DocBuilder/Git/PhpPlanet/LingGitPhpPlanetDocBuilder.md) [DocBuilder](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/DocBuilder/DocBuilder.md) that I made.
+then your fastest option is probably to just re-use the [LingGitPhpPlanetDocBuilder](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/DocBuilder/Git/PhpPlanet/LingGitPhpPlanetDocBuilder.md) [DocBuilder](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/DocBuilder/DocBuilder.md) that I made.
 
 Copy paste the code below, and adapt the options to your project.
 
@@ -142,7 +142,7 @@ $builder->prepare([
     /**
      * An array of classes to ignore.
      * You would put any classes used by your planet, but external to your planet.
-     * That's because they will be scanned by the Parser and generate errors in the [report](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Report/ReportInterface.md).
+     * That's because they will be scanned by the Parser and generate errors in the [report](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface.md).
      * By referencing theme here, they would be scanned, but not generate errors in the report.
      *
      */
@@ -158,7 +158,7 @@ $builder->prepare([
     "projectStartDate" => "2019-02-21",
 
     /**
-     * [CopyModule](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/CopyModule/CopyModuleInterface.md).
+     * [CopyModule](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/CopyModule/CopyModuleInterface.md).
      * To copy the whole documentation from one place to another, and interpreting [inline functions](https://github.com/lingtalfi/DocTools/blob/master/doc/pages/doctool-markup-language.md#inline-functions)
      * during the transfer.
      * This is usually the last part of the DocTools generation process: it happens after the doc is generated,
@@ -296,7 +296,7 @@ $builder->prepare([
     /**
      * An array of external classes to url.
      * This will be used by some widgets to create links to that class when appropriate.
-     * For instance, on the [ParseDownTranslator class page](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Translator/ParseDownTranslator.md), the class synopsis shows that the
+     * For instance, on the [ParseDownTranslator class page](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Translator/ParseDownTranslator.md), the class synopsis shows that the
      * ParseDownTranslator class extends the external Parsedown class.
      *
      * And so because the Parsedown class is referenced in the array below, it can be converted to a link
@@ -308,12 +308,12 @@ $builder->prepare([
 ]);
 /**
  * This will create the generated documentation (aka api in the [Lizard scheme](https://github.com/lingtalfi/DocTools/blob/master/README.md#lizard-scheme)),
- * and since we've defined a [copy module](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/CopyModule/CopyModuleInterface.md), it will also copy the whole doc to another location.
+ * and since we've defined a [copy module](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/CopyModule/CopyModuleInterface.md), it will also copy the whole doc to another location.
  */
 $builder->buildDoc();
 
 /**
- * This displays the [report](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Report/ReportInterface.md).
+ * This displays the [report](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface.md).
  */
 $builder->showReport();
 ```
@@ -327,8 +327,8 @@ every (or most of the) DocTools objects.
 A good place to start is this documentation: 
 
 - Reading this page, and reading [classes comments](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools.md) can give you some insights of how DocTools is wired
-- Also, you can investigate the [LingGitPhpPlanetDocBuilder](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/DocBuilder/Git/PhpPlanet/LingGitPhpPlanetDocBuilder.md) object promoted by the above example code. 
-    This will give you an idea of how a [DocBuilder](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/DocBuilder/DocBuilder.md) could be implemented, so that you can implement your own.
+- Also, you can investigate the [LingGitPhpPlanetDocBuilder](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/DocBuilder/Git/PhpPlanet/LingGitPhpPlanetDocBuilder.md) object promoted by the above example code. 
+    This will give you an idea of how a [DocBuilder](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/DocBuilder/DocBuilder.md) could be implemented, so that you can implement your own.
 - Check out the [tutorials section](#tutorials), which might also help you getting started. 
 
 
@@ -514,14 +514,14 @@ Methods
 
 The **$z** variable is how we access the variable information in our template.
 
-The information is available to use after we've parsed the code, using a [ClassParser](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/ClassParser/ClassParser.md)
-or a [PlanetParser](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/PlanetParser/PlanetParser.md).
+The information is available to use after we've parsed the code, using a [ClassParser](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/ClassParser/ClassParser.md)
+or a [PlanetParser](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/PlanetParser/PlanetParser.md).
 
 
-The [PageUtil](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Page/PageUtil.md) object is responsible for rendering templates.
+The [PageUtil](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Page/PageUtil.md) object is responsible for rendering templates.
 
 
-The [LingGitPhpPlanetDocBuilder](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/DocBuilder/Git/PhpPlanet/LingGitPhpPlanetDocBuilder.md) object builds a documentation based on templates.
+The [LingGitPhpPlanetDocBuilder](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/DocBuilder/Git/PhpPlanet/LingGitPhpPlanetDocBuilder.md) object builds a documentation based on templates.
 
 
 Another way to inject content in a template is to use [inserts](#inserts).
@@ -612,7 +612,7 @@ A long method name has the following notation:
 - ```<class name> <::> <method name>```
 
 
-The **generatedItems2Url** array contains mostly the map of items generated with the parsers ([PlanetParser](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/PlanetParser/PlanetParser.md) and or [ClassParser](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/ClassParser/ClassParser.md)),
+The **generatedItems2Url** array contains mostly the map of items generated with the parsers ([PlanetParser](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/PlanetParser/PlanetParser.md) and or [ClassParser](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/ClassParser/ClassParser.md)),
 but by extension it also contains all items which need to be converted to url at some point (including external classes used by your 
 product, and php built-in classes used by your product). 
 
@@ -622,8 +622,8 @@ The **generatedItems2Url** array is used by any objects which need to resolve a 
 
 This includes:
 
-- the [DocToolInterpreter](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Interpreter/DocToolInterpreter.md) 
-- some widgets, like the [PlanetTocListWidget](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Widget/PlanetTocList/PlanetTocListWidget.md) widget for instance 
+- the [DocToolInterpreter](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Interpreter/DocToolInterpreter.md) 
+- some widgets, like the [PlanetTocListWidget](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Widget/PlanetTocList/PlanetTocListWidget.md) widget for instance 
 
 
 
@@ -642,6 +642,10 @@ This includes:
 History Log
 =============
     
+- 1.5.2 -- 2019-03-14
+
+    - update ClassParser: now better handling for unresolved throws tags
+
 - 1.5.1 -- 2019-03-13
 
     - CopyModule: add moveReadMeTo option

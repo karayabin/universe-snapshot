@@ -7,7 +7,7 @@ MethodInfo::getComment
 
 
 
-MethodInfo::getComment — Returns the [CommentInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/CommentInfo.md) instance.
+MethodInfo::getComment — Returns the [CommentInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/CommentInfo.md) instance.
 
 
 
@@ -21,7 +21,7 @@ public [MethodInfo::getComment](https://github.com/lingtalfi/DocTools/blob/maste
 
 
 
-Returns the [CommentInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/CommentInfo.md) instance.
+Returns the [CommentInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/CommentInfo.md) instance.
 
 
 

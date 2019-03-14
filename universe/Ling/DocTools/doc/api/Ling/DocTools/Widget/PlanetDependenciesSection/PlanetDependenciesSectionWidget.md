@@ -4,7 +4,7 @@
 
 The PlanetDependenciesSectionWidget class
 ================
-2019-02-21 --> 2019-03-13
+2019-02-21 --> 2019-03-14
 
 
 
@@ -49,7 +49,7 @@ Properties
 
 - <span id="property-planetInfo"><b>planetInfo</b></span>
 
-    This property holds a [PlanetInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/PlanetInfo.md) instance.
+    This property holds a [PlanetInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/PlanetInfo.md) instance.
     
     
 

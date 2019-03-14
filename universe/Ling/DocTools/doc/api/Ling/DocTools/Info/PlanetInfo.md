@@ -4,7 +4,7 @@
 
 The PlanetInfo class
 ================
-2019-02-21 --> 2019-03-13
+2019-02-21 --> 2019-03-14
 
 
 
@@ -59,7 +59,7 @@ Properties
 
 - <span id="property-classes"><b>classes</b></span>
 
-    This property holds an array of [ClassInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/ClassInfo.md) instances.
+    This property holds an array of [ClassInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/ClassInfo.md) instances.
     
     
 
@@ -77,7 +77,7 @@ Methods
 - [PlanetInfo::__construct](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/PlanetInfo/__construct.md) &ndash; Builds the PlanetInfo instance.
 - [PlanetInfo::getDependencies](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/PlanetInfo/getDependencies.md) &ndash; Returns the array of dependencies to other planets.
 - [PlanetInfo::setDependencies](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/PlanetInfo/setDependencies.md) &ndash; Sets the dependencies for this instance.
-- [PlanetInfo::getClasses](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/PlanetInfo/getClasses.md) &ndash; Returns the array of [ClassInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools/Info/ClassInfo.md) instances found in this planet.
+- [PlanetInfo::getClasses](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/PlanetInfo/getClasses.md) &ndash; Returns the array of [ClassInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/ClassInfo.md) instances found in this planet.
 - [PlanetInfo::addClass](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/PlanetInfo/addClass.md) &ndash; Adds a class to this instance.
 - [PlanetInfo::getClass](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/PlanetInfo/getClass.md) &ndash; or null otherwise.
 - [PlanetInfo::getName](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/PlanetInfo/getName.md) &ndash; Returns the name of the planet.

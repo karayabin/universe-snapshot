@@ -8,6 +8,9 @@ use Ling\DocTools\DocBuilder\Git\PhpPlanet\LingGitPhpPlanetDocBuilder;
 use Ling\DocTools\Exception\DocBuilderException;
 use Ling\DocTools\Translator\ParseDownTranslator;
 
+/**
+ * The UniverseToolsDocBuilder class.
+ */
 class UniverseToolsDocBuilder
 {
 
