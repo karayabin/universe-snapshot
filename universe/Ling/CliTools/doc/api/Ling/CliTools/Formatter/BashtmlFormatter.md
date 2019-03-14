@@ -4,7 +4,7 @@
 
 The BashtmlFormatter class
 ================
-2019-02-26 --> 2019-03-07
+2019-02-26 --> 2019-03-13
 
 
 
@@ -45,6 +45,7 @@ You can also extend this class to create your own tags.
 - error
 - (specials)
 - bold
+- b (alias for bold)
 - dim
 - underlined
 - blink

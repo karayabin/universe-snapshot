@@ -4,7 +4,7 @@
 
 The AbstractInput class
 ================
-2019-02-26 --> 2019-03-07
+2019-02-26 --> 2019-03-13
 
 
 
@@ -94,4 +94,4 @@ Ling\CliTools\Input\AbstractInput
 
 SeeAlso
 ==============
-Previous class: [QuestionHelper](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Helper/QuestionHelper.md)<br>Next class: [ArrayInput](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Input/ArrayInput.md)<br>
+Previous class: [VirginiaMessageHelper](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Helper/VirginiaMessageHelper.md)<br>Next class: [ArrayInput](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Input/ArrayInput.md)<br>

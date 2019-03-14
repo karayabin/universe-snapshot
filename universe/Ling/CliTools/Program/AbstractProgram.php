@@ -128,7 +128,7 @@ abstract class AbstractProgram implements ProgramInterface
         } catch (\Exception $e) {
 
             if (true === $this->errorIsVerbose) {
-                $errMsg = $e->getTraceAsString();
+                $errMsg = (string)$e;
             } else {
                 $errMsg = $e->getMessage();
             }

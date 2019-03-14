@@ -1,0 +1,11 @@
+dependencies: 
+    Ling: 
+        - BabyYaml
+        - Bat
+        - CliTools
+        - Octopus
+        - UniverseTools
+        - DirScanner
+    
+
+post_install: []

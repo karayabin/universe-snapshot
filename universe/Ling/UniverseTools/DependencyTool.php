@@ -4,6 +4,7 @@ namespace Ling\UniverseTools;
 
 
 use Ling\BabyYaml\BabyYamlUtil;
+use Ling\Bat\FileSystemTool;
 use Ling\DirScanner\YorgDirScannerTool;
 use Ling\TokenFun\TokenFinder\Tool\TokenFinderTool;
 use Ling\UniverseTools\Exception\UniverseToolsException;
@@ -277,4 +278,18 @@ class DependencyTool
         }
     }
 
+
+    /**
+     * Writes the dependencies.byml file at the root of the given $planetDir.
+     *
+     * @param string $planetDir
+     * @throws UniverseToolsException
+     * @return bool
+     */
+    public static function writeDependencies(string $planetDir)
+    {
+        $dependencyFile = $planetDir . "/dependencies.byml";
+        $dependenciesString = self::parseDumpDependencies($planetDir);
+        return FileSystemTool::mkfile($dependencyFile, $dependenciesString);
+    }
 }

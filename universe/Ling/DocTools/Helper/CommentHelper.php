@@ -37,7 +37,7 @@ class CommentHelper
 
     /**
      * This property holds the php types (i.e. not including custom user class) allowed
-     * for a @return tag in DocTools.
+     * for a "@return" tag in DocTools.
      *
      *
      * @var array
@@ -46,6 +46,7 @@ class CommentHelper
     public static $propertyReturnTagTypes = [
         'int',
         'mixed',
+        'object',
         'float',
         'bool',
         'false',

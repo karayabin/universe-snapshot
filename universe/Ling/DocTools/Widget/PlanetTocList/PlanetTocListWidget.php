@@ -208,7 +208,7 @@ class PlanetTocListWidget extends Widget
                             $s .= '[' . $methodString . '](' . $url . ')';
                         } else {
                             if (null !== $report) {
-                                $report->addUnresolvedMethodReference($className, $methodName, "PlanetTocListWidget");
+                                $report->addUnresolvedMethodReference($className, $methodLongName, "PlanetTocListWidget");
                             }
                             $s .= $methodString;
                         }

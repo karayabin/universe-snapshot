@@ -36,6 +36,7 @@ namespace Ling\CliTools\Formatter;
  *      - error
  * - (specials)
  *      - bold
+ *      - b (alias for bold)
  *      - dim
  *      - underlined
  *      - blink
@@ -186,6 +187,7 @@ class BashtmlFormatter implements FormatterInterface
             //--------------------------------------------
             // SPECIALS
             //--------------------------------------------
+            'b' => '1',
             'bold' => '1',
             'dim' => '2',
             'underlined' => '4',

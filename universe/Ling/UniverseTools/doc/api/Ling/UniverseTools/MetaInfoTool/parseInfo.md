@@ -48,10 +48,11 @@ Returns array.
 
 
 
+
 See Also
 ================
 
 The [MetaInfoTool](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/MetaInfoTool.md) class.
 
-
+Next method: [writeInfo](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/MetaInfoTool/writeInfo.md)<br>
 

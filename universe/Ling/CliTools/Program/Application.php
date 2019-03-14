@@ -92,7 +92,7 @@ class Application extends AbstractProgram
                         throw new ApplicationException("The given instance is not a CliTools\Command\CommandInterface");
                     }
                 } catch (\Error $e) {
-                    throw new ApplicationException("The $commandClassName command class cannot be instantiated.");
+                    throw new ApplicationException($e->getMessage());
                 }
 
 

@@ -23,6 +23,7 @@ class CopyModule implements CopyModuleInterface
     public function copy(string $sourceDir, string $destinationDir, NotationInterpreterInterface $interpreter, ReportInterface $report = null, array $options = []): void
     {
 
+        $moveReadMeTo = $options['moveReadMeTo'] ?? null;
         $filter = $options['filter'] ?? [];
         if (false === is_array($filter)) {
             $filter = [$filter];
@@ -55,10 +56,21 @@ class CopyModule implements CopyModuleInterface
                 FileSystemTool::mkfile($newPath, $newContent);
 
             }
-        }
-        else {
+
+
+            if ($moveReadMeTo) {
+
+                $readMeSrc = $destinationDir . "/README.md";
+                if (file_exists($readMeSrc)) {
+                    FileSystemTool::copyFile($readMeSrc, $moveReadMeTo);
+                }
+            }
+
+
+        } else {
             throw new CopyModuleException("Argument sourceDir is not a directory: $sourceDir");
         }
+
 
     }
 

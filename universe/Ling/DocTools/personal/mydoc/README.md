@@ -178,6 +178,10 @@ $builder->prepare([
      * and so interpreting inline functions on this page is a bad idea.
      */
     "copyModuleOptions" => [
+        /**
+         * If set, will also move the README.md at the root of copyModuleDst (if any) to the given path
+         */
+        "moveReadMeTo" => $planetDir . "/README.md",
         "filter" => [
             "doctool-markup-language.md",
         ],
@@ -638,6 +642,15 @@ This includes:
 History Log
 =============
     
+- 1.5.1 -- 2019-03-13
+
+    - CopyModule: add moveReadMeTo option
+    - CommentHelper: add object as a return property
+
+- 1.5.0 -- 2019-03-07
+
+    - Update DocTools to work with new bsr-1 system
+
 - 1.5.0 -- 2019-03-07
 
     - Update DocTools to work with new bsr-1 system

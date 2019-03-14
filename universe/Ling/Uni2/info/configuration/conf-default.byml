@@ -1,0 +1,9 @@
+local_server:
+    root_dir: null
+    is_active: 1
+
+automatic_updates:
+    is_active: 1
+    frequency: 5
+
+clean_items: .git, .gitignore

@@ -1,6 +1,9 @@
 dependencies: 
     Ling: 
         - BabyYaml
+        - Bat
+        - DirScanner
+        - TokenFun
     
 
 post_install: []

@@ -4,7 +4,7 @@
 
 The CommentHelper class
 ================
-2019-02-21 --> 2019-03-07
+2019-02-21 --> 2019-03-13
 
 
 
@@ -27,7 +27,7 @@ class <span class="pl-k">CommentHelper</span>  {
 
 - Properties
     - public static array [$propertyVarTagTypes](#property-propertyVarTagTypes) = ['int','float','bool','mixed','null','array','callable','string'] ;
-    - public static array [$propertyReturnTagTypes](#property-propertyReturnTagTypes) = ['int','mixed','float','bool','false','true','null','array','callable','string','void'] ;
+    - public static array [$propertyReturnTagTypes](#property-propertyReturnTagTypes) = ['int','mixed','object','float','bool','false','true','null','array','callable','string','void'] ;
 
 - Methods
     - public static [displaySeeAlsoItemsSentence](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Helper/CommentHelper/displaySeeAlsoItemsSentence.md)([Ling\DocTools\Info\CommentInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/CommentInfo.md) $comment) : string | null
@@ -50,7 +50,7 @@ Properties
 - <span id="property-propertyReturnTagTypes"><b>propertyReturnTagTypes</b></span>
 
     This property holds the php types (i.e. not including custom user class) allowed
-    for a @return tag in DocTools.
+    for a "@return" tag in DocTools.
     
     
 

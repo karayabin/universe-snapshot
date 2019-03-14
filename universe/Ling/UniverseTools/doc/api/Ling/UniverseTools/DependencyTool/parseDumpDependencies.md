@@ -49,6 +49,12 @@ Return values
 Returns string.
 
 
+Exceptions thrown
+================
+
+- [UniverseToolsException](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/Exception/UniverseToolsException.md).&nbsp;
+
+
 
 
 

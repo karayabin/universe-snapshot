@@ -4,7 +4,7 @@
 
 The QuestionHelper class
 ================
-2019-02-26 --> 2019-03-07
+2019-02-26 --> 2019-03-13
 
 
 
@@ -52,4 +52,4 @@ Ling\CliTools\Helper\QuestionHelper
 
 SeeAlso
 ==============
-Previous class: [FormatterInterface](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Formatter/FormatterInterface.md)<br>Next class: [AbstractInput](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Input/AbstractInput.md)<br>
+Previous class: [FormatterInterface](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Formatter/FormatterInterface.md)<br>Next class: [VirginiaMessageHelper](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Helper/VirginiaMessageHelper.md)<br>

@@ -36,6 +36,11 @@ Summary
 History Log
 ==============
 
+- 1.11.0 -- 2019-03-13
+
+    - add MetaInfoTool::writeInfo method
+    - add DependencyTool::writeDependencies method
+
 - 1.10.1 -- 2019-03-07
 
     - fix DependencyTool::parseDumpDependencies returning the current planet as a dependency

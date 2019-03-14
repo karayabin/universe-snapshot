@@ -4,6 +4,7 @@ namespace Ling\UniverseTools;
 
 
 use Ling\BabyYaml\BabyYamlUtil;
+use Ling\Bat\FileSystemTool;
 
 /**
  * The MetaInfoTool class.
@@ -39,6 +40,20 @@ class MetaInfoTool
             }
         }
         return $ret;
+    }
+
+
+    /**
+     * Writes the given meta $info to the meta-info.byml file of the given $planetDir.
+     *
+     * @param string $planetDir
+     * @param array $info
+     * @return bool
+     */
+    public static function writeInfo(string $planetDir, array $info)
+    {
+        $metaFile = $planetDir . "/meta-info.byml";
+        return FileSystemTool::mkfile($metaFile, BabyYamlUtil::getBabyYamlString($info));
     }
 
 }

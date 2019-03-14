@@ -1,0 +1,12 @@
+dependencies: 
+    Ling: 
+        - DocTools
+        - CliTools
+        - BabyYaml
+        - Bat
+        - Uni2
+        - UniverseTools
+        - DirScanner
+    
+
+post_install: []
