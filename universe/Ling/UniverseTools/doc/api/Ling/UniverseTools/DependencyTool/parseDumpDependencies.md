@@ -58,6 +58,29 @@ Exceptions thrown
 
 
 
+Examples
+================
+
+Example 1: Simple parseDumpDependencies example
+---------------
+
+The following code:
+
+```php
+$planetDir = "/komin/jin_site_demo/universe/UniverseTools";
+echo DependencyTool::parseDumpDependencies($planetDir);
+```
+
+
+
+Will output:
+
+```html
+BabyYaml: *
+DirScanner: *
+TokenFun: *
+```
+
 
 
 See Also

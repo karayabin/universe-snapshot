@@ -33,7 +33,7 @@ class KaosApplication extends Application
     private $baseIndentLevel;
 
     /**
-     * Builds the UniToolApplication instance.
+     * Builds the KaosApplication instance.
      */
     public function __construct()
     {
@@ -41,6 +41,7 @@ class KaosApplication extends Application
 
         $this->currentDirectory = getcwd();
         $this->baseIndentLevel = 0;
+        $this->registerCommand("Ling\LingTalfi\Kaos\Command\InitializePlanetCommand", "init");
         $this->registerCommand("Ling\LingTalfi\Kaos\Command\PackAndPushUniToolCommand", "packpushuni");
         $this->registerCommand("Ling\LingTalfi\Kaos\Command\PushCommand", "push");
         $this->registerCommand("Ling\LingTalfi\Kaos\Command\PushUniverseSnapshotCommand", "pushuni");

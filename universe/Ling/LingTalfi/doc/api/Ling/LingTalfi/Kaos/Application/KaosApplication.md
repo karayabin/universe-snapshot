@@ -140,4 +140,4 @@ Ling\LingTalfi\Kaos\Application\KaosApplication
 
 SeeAlso
 ==============
-Previous class: [WebBoxDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/WebBox/WebBoxDocBuilder.md)<br>Next class: [KaosGenericCommand](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Command/KaosGenericCommand.md)<br>
+Previous class: [WebBoxDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/WebBox/WebBoxDocBuilder.md)<br>Next class: [InitializePlanetCommand](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Command/InitializePlanetCommand.md)<br>

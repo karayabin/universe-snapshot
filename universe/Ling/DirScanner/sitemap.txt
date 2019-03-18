@@ -1,0 +1,2 @@
+https://github.com/lingtalfi/DirScanner/blob/master/README.md
+https://github.com/lingtalfi/DirScanner/blob/master/YorgDirScannerTool.md

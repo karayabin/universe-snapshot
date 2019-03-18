@@ -3,8 +3,6 @@ LingTalfi
 2019-03-13
 
 
-CURRENTLY UNDER DEVELOPMENT...
-
 
 
 Personal tools put in this public repo to help fighting memory loss, and for convenience.
@@ -34,6 +32,19 @@ Or just download it and place it where you want otherwise.
 
 History Log
 =============
+
+- 1.3.2 -- 2019-03-14
+
+    - update DocBuilders new insert dir is now personal/mydoc/inserts
+
+- 1.3.1 -- 2019-03-14
+
+    - update PushCommand now displays the sitemap ping google response inline
+
+- 1.3.0 -- 2019-03-14
+
+    - add InitializePlanetCommand
+    - update PushCommand now creates a sitemap and ask google to crawl it
 
 - 1.2.0 -- 2019-03-14
 

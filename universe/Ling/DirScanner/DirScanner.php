@@ -29,15 +29,15 @@ class DirScanner
 
     /**
      * Scan a directory, and collect items (using to the given callable) along the way.
-     * 
+     *
      * @param $dir
      * @param $callable :   mixed  function ( str:path, str:relativePath, int:level )
      *
      *                              level starts at 0.
-     *                              Any value except that the callback returns (except the null value) will 
+     *                              Any value except that the callback returns (except the null value) will
      *                              be appended to the returned array.
      *                              The null value is not collected.
-     * 
+     *
      *
      * @return array of what the callback returns (except if it is null)
      */
@@ -51,16 +51,13 @@ class DirScanner
                     $this->rootDir = $dir;
                     $relDir = null;
                     $this->doScanDir($dir, $relDir, $callable, 0, $ret);
-                }
-                else {
+                } else {
                     throw new \RuntimeException("Dir not found: $dir");
                 }
-            }
-            else {
+            } else {
                 throw new \InvalidArgumentException(sprintf("dir argument must be of type string, %s given", gettype($dir)));
             }
-        }
-        else {
+        } else {
             throw new \InvalidArgumentException(sprintf("callable argument must be a callable, %s given", gettype($callable)));
         }
         return $ret;
@@ -86,15 +83,17 @@ class DirScanner
                     $path = $dir . '/' . $file;
                     if (null !== $relDir) {
                         $rPath = $relDir . '/' . $file;
-                    }
-                    else {
+                    } else {
                         $rPath = $file;
                     }
-                    if (null !== ($res = call_user_func($callable, $path, $rPath, $level))) {
+
+                    $skipDir = false;
+                    if (null !== ($res = call_user_func_array($callable, [$path, $rPath, $level, &$skipDir]))) {
                         $ret[] = $res;
                     }
-                    
+
                     if (is_dir($path) &&
+                        false === $skipDir &&
                         (
                             !is_link($path) ||
                             true === $this->followLinks
@@ -104,8 +103,7 @@ class DirScanner
                     }
                 }
             }
-        }
-        else {
+        } else {
             $this->error("dir does not exist: $dir");
         }
     }

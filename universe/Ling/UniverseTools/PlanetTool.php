@@ -62,8 +62,8 @@ class PlanetTool
 
 
             $files = YorgDirScannerTool::getFilesWithExtension($planetDir, 'php', false, true, true);
-            foreach ($files as $file) {
 
+            foreach ($files as $file) {
                 $absFile = $planetDir . "/" . $file;
                 $content = file_get_contents($absFile);
                 /**

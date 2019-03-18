@@ -119,10 +119,11 @@ class PageUtil
         //--------------------------------------------
         $z["date"] = date("Y-m-d") . PHP_EOL;
 
-
         //--------------------------------------------
         // WIZARD
         //--------------------------------------------
+
+
         $insertDir = null;
         if (null !== $this->insertsRootDir) {
             $insertFileAbs = $this->insertsRootDir . "/" . $file;
@@ -131,8 +132,8 @@ class PageUtil
                 $insertDir = null;
             }
         }
-        $wizard = new TemplateWizard($insertDir);
 
+        $wizard = new TemplateWizard($insertDir);
 
         //--------------------------------------------
         //

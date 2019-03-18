@@ -22,14 +22,14 @@ abstract class KaosGenericCommand implements CommandInterface
 
 
     /**
-     * This property holds the UniToolApplication instance.
+     * This property holds the KaosApplication instance.
      * @var KaosApplication
      */
     protected $application;
 
 
     /**
-     * Builds the UniToolGenericCommand instance.
+     * Builds the KaosGenericCommand instance.
      */
     public function __construct()
     {

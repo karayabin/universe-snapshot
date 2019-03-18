@@ -50,4 +50,4 @@ Ling\LingTalfi\DocBuilder\Uni2\Uni2DocBuilder
 
 SeeAlso
 ==============
-Previous class: [LingTalfiDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/LingTalfi/LingTalfiDocBuilder.md)<br>Next class: [UniverseToolsDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/UniverseTools/UniverseToolsDocBuilder.md)<br>
+Previous class: [SimpleCurlDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/SimpleCurl/SimpleCurlDocBuilder.md)<br>Next class: [UniverseToolsDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/UniverseTools/UniverseToolsDocBuilder.md)<br>

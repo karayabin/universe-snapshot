@@ -50,4 +50,4 @@ Ling\LingTalfi\DocBuilder\LingTalfi\LingTalfiDocBuilder
 
 SeeAlso
 ==============
-Previous class: [DocToolsDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/DocTools/DocToolsDocBuilder.md)<br>Next class: [Uni2DocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Uni2/Uni2DocBuilder.md)<br>
+Previous class: [DocToolsDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/DocTools/DocToolsDocBuilder.md)<br>Next class: [PlanetSitemapDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/PlanetSitemap/PlanetSitemapDocBuilder.md)<br>

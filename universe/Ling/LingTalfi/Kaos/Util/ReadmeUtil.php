@@ -4,6 +4,8 @@
 namespace Ling\LingTalfi\Kaos\Util;
 
 
+use Ling\Bat\FileSystemTool;
+
 /**
  * The ReadmeUtil class.
  */
@@ -23,6 +25,40 @@ class ReadmeUtil
     public function __construct()
     {
         $this->errors = [];
+    }
+
+
+    /**
+     * Writes a basic README file at the given location, and returns whether the creation of the file
+     * was successful.
+     *
+     *
+     *
+     * @param $readmeFile
+     * @param array $tags
+     * Must contains the following tags:
+     *
+     * - galaxy: the name of the galaxy
+     * - planet: the name of the planet
+     * - ?date: the starting (mysql) date of the project (the current date will be used by default)
+     *
+     *
+     * @return bool
+     */
+    public function createBasicReadmeFile($readmeFile, array $tags)
+    {
+        $tpl = __DIR__ . "/../assets/README.tpl.md";
+        $content = file_get_contents($tpl);
+        $content = str_replace([
+            "Ling",
+            "WebBox",
+            "2019-02-22",
+        ], [
+            $tags['galaxy'] ?? "Ling",
+            $tags['planet'] ?? "WebBox",
+            $tags['date'] ?? date('Y-m-d'),
+        ], $content);
+        return FileSystemTool::mkfile($readmeFile, $content);
     }
 
 

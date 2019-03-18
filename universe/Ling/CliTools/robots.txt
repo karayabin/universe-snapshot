@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://raw.githubusercontent.com/lingtalfi/CliTools/master/sitemap.txt

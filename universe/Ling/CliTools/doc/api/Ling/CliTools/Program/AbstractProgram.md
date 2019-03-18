@@ -107,7 +107,77 @@ Methods
 - [AbstractProgram::runProgram](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Program/AbstractProgram/runProgram.md) &ndash; Runs the program.
 
 
+Examples
+==========
 
+Example 1: The make coffee program example.
+-------------------------------------------
+
+
+
+```php
+#!/usr/bin/env php
+<?php
+
+
+use Ling\CliTools\Input\ArrayInput;
+use Ling\CliTools\Input\InputInterface;
+use Ling\CliTools\Output\Output;
+use Ling\CliTools\Output\OutputInterface;
+use Ling\CliTools\Program\AbstractProgram;
+
+require_once __DIR__ . "/../universe/bigbang.php"; // activate universe
+
+
+class MakeCoffeeProgram extends AbstractProgram
+{
+
+    protected function runProgram(InputInterface $input, OutputInterface $output)
+    {
+        $s = "";
+        if (false === $input->hasFlag("please")) {
+            $s = "Nah, I don't feel like doing anything today!";
+        } else {
+            $nbSugars = $input->getOption("sugars", 0);
+            $type = $input->getOption("type", "regular");
+
+
+            $s = "Making $type coffee with $nbSugars sugars";
+            if ($input->hasFlag("fast")) {
+                $s .= ", asap";
+            }
+            $s .= ".";
+        }
+        $output->write($s . PHP_EOL);
+    }
+
+}
+
+
+$input = new ArrayInput();
+$input->setItems([
+    "sugars" => 2,
+    "type" => "black",
+    "-fast" => true,
+    "-please" => true,
+]);
+$output = new Output();
+$program = new MakeCoffeeProgram();
+$program->run($input, $output);
+```
+
+
+By executing the above example from the command line:
+
+```bash
+php -f program.php
+```
+
+We get the following result:
+
+```bash
+Making black coffee with 2 sugars, asap.
+```
 
 
 Location

@@ -73,6 +73,14 @@ and the [Symfony/Console](https://github.com/symfony/symfony/tree/master/src/Sym
 History Log
 =================
     
+- 1.5.2 -- 2019-03-14
+
+    - fixed documentation missing keyword
+
+- 1.5.1 -- 2019-03-14
+
+    - fixed documentation missing inserts
+
 - 1.5.0 -- 2019-03-13
 
     - add VirginiaMessageHelper class

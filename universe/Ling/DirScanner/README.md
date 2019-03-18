@@ -137,6 +137,10 @@ $dirs = YorgDirScannerTool::getDirs("/path/to/dir");
 History Log
 ------------------
     
+- 1.8.0 -- 2019-03-18
+
+    - update DirScanner, now can filter dirs early
+
 - 1.7.0 -- 2018-06-15
 
     - add YorgDirScannerTool.getFilesWithPrefix method

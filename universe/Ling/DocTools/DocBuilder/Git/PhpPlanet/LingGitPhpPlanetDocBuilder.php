@@ -310,8 +310,10 @@ class LingGitPhpPlanetDocBuilder extends DocBuilder
         // COPY DOC
         //--------------------------------------------
         if (null !== $this->copyModuleSrc) {
-            $o = new CopyModule();
-            $o->copy($this->copyModuleSrc, $this->copyModuleDst, $this->_interpreter, $this->report, $this->copyModuleOptions);
+            if (is_dir($this->copyModuleSrc)) {
+                $o = new CopyModule();
+                $o->copy($this->copyModuleSrc, $this->copyModuleDst, $this->_interpreter, $this->report, $this->copyModuleOptions);
+            }
         }
     }
 
@@ -348,7 +350,6 @@ class LingGitPhpPlanetDocBuilder extends DocBuilder
         $depSection->setPlanetInfo($planetInfo);
 
         $planetName = $planetInfo->getName();
-
 
 
         $tplPlanet = __DIR__ . "/templates/tpl-planet.md.php";

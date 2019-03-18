@@ -130,7 +130,7 @@ class CliToolsDocBuilder
             /**
              * The base directory for the @kw(inserts).
              */
-            "insertsBaseDir" => "$planetDir/doc/inserts",
+            "insertsBaseDir" => "$planetDir/personal/mydoc/inserts",
             /**
              * The base url for the generated documentation api (this maps to the generatedClassBaseDir defined above).
              */
@@ -164,6 +164,7 @@ class CliToolsDocBuilder
                 "run method" => $api . "/Ling/CliTools/Program/ProgramInterface/run.md",
                 //
                 "logger" => "https://github.com/lingtalfi/UniversalLogger",
+                "the Uni2 planet" => "https://github.com/lingtalfi/Uni2",
             ],
             /**
              * An array of external classes to url.

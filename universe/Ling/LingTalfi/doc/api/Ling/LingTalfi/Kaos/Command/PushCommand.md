@@ -22,7 +22,9 @@ This command does the following (for the given planet):
 - Updates the version in meta-info.byml based on the **History Log** section in the README.md, or create it if necessary.
 - Updates/creates the dependencies.byml file if necessary
 - Builds the doc, if there is a corresponding LingTalfi/DocBuilder object.
+- Creates/updates the sitemap.txt and robot.txt
 - Pushes the planet to github.com.
+- Ask google to crawl the sitemap.
 - If the version number is greater than before, executes the PackAndPushUniTool command (see the [PackAndPushUniToolCommand](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Command/PackAndPushUniToolCommand.md) class for more details).
 
 
