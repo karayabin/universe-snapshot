@@ -4,7 +4,7 @@
 
 The KaosGenericCommand class
 ================
-2019-03-13 --> 2019-03-14
+2019-03-13 --> 2019-03-18
 
 
 
@@ -47,7 +47,7 @@ Properties
 
 - <span id="property-application"><b>application</b></span>
 
-    This property holds the UniToolApplication instance.
+    This property holds the KaosApplication instance.
     
     
 
@@ -56,7 +56,7 @@ Properties
 Methods
 ==============
 
-- [KaosGenericCommand::__construct](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Command/KaosGenericCommand/__construct.md) &ndash; Builds the UniToolGenericCommand instance.
+- [KaosGenericCommand::__construct](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Command/KaosGenericCommand/__construct.md) &ndash; Builds the KaosGenericCommand instance.
 - [KaosGenericCommand::setApplication](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Command/KaosGenericCommand/setApplication.md) &ndash; Sets the application.
 - [CommandInterface::run](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Command/CommandInterface/run.md) &ndash; Runs the command.
 

@@ -7,7 +7,7 @@ KaosApplication::__construct
 
 
 
-KaosApplication::__construct — Builds the UniToolApplication instance.
+KaosApplication::__construct — Builds the KaosApplication instance.
 
 
 
@@ -21,7 +21,7 @@ public [KaosApplication::__construct](https://github.com/lingtalfi/LingTalfi/blo
 
 
 
-Builds the UniToolApplication instance.
+Builds the KaosApplication instance.
 
 
 

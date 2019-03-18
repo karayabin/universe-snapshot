@@ -2,10 +2,10 @@ dependencies:
     Ling: 
         - DocTools
         - CliTools
+        - Uni2
         - Bat
         - UniverseTools
         - BabyYaml
-        - Uni2
         - PlanetSitemap
         - SimpleCurl
         - DirScanner

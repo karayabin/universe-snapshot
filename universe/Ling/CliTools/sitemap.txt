@@ -74,6 +74,14 @@ https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Program/
 https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Program/Application.md
 https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Program/ProgramInterface/run.md
 https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Program/ProgramInterface.md
+https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Util/TableUtil/__construct.md
+https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Util/TableUtil/getColumnWidths.md
+https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Util/TableUtil/render.md
+https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Util/TableUtil/setHeaders.md
+https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Util/TableUtil/setOptions.md
+https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Util/TableUtil/setRows.md
+https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Util/TableUtil/writeRow.md
+https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Util/TableUtil.md
 https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools.md
 https://github.com/lingtalfi/CliTools/blob/master/doc/pages/bashtml.md
 https://github.com/lingtalfi/CliTools/blob/master/doc/pages/command-line.md

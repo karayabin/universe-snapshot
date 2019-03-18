@@ -182,7 +182,7 @@ galaxies:
             post_install: []
         
         CliTools: 
-            version: 1.5.2
+            version: 1.7.0
             dependencies: 
                 Ling: 
                     - UniversalLogger
@@ -296,7 +296,7 @@ galaxies:
             post_install: []
         
         DirScanner: 
-            version: 1.7.0
+            version: 1.8.0
             dependencies: 
                 Ling: 
                     - Bat
@@ -606,15 +606,15 @@ galaxies:
             post_install: []
         
         LingTalfi: 
-            version: 1.3.2
+            version: 1.5.0
             dependencies: 
                 Ling: 
                     - DocTools
                     - CliTools
+                    - Uni2
                     - Bat
                     - UniverseTools
                     - BabyYaml
-                    - Uni2
                     - PlanetSitemap
                     - SimpleCurl
                     - DirScanner

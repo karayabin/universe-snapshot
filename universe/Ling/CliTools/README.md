@@ -73,6 +73,15 @@ and the [Symfony/Console](https://github.com/symfony/symfony/tree/master/src/Sym
 History Log
 =================
     
+- 1.7.0 -- 2019-03-18
+
+    - update TableUtil, add use_row_separator option
+    - update TableUtil, now handles table without headers
+
+- 1.6.0 -- 2019-03-18
+
+    - add TableUtil
+
 - 1.5.2 -- 2019-03-14
 
     - fixed documentation missing keyword

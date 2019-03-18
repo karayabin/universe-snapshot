@@ -1,6 +1,6 @@
 Ling/CliTools
 ================
-2019-02-26 --> 2019-03-14
+2019-02-26 --> 2019-03-18
 
 
 
@@ -92,6 +92,12 @@ Table of contents
     - [AbstractProgram::run](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Program/AbstractProgram/run.md) &ndash; Starts the interactive program.
 - [ProgramInterface](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Program/ProgramInterface.md) &ndash; The ProgramInterface interface.
     - [ProgramInterface::run](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Program/ProgramInterface/run.md) &ndash; Starts the interactive program.
+- [TableUtil](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Util/TableUtil.md) &ndash; The TableUtil class.
+    - [TableUtil::__construct](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Util/TableUtil/__construct.md) &ndash; Builds the TableUtil instance.
+    - [TableUtil::setHeaders](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Util/TableUtil/setHeaders.md) &ndash; Sets the headers.
+    - [TableUtil::setOptions](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Util/TableUtil/setOptions.md) &ndash; Sets the options.
+    - [TableUtil::setRows](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Util/TableUtil/setRows.md) &ndash; Sets the rows.
+    - [TableUtil::render](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Util/TableUtil/render.md) &ndash; Writes a html like table to the given $output.
 
 
 Dependencies

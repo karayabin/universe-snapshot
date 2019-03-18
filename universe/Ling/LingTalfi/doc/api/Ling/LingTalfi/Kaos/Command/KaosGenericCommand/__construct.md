@@ -7,7 +7,7 @@ KaosGenericCommand::__construct
 
 
 
-KaosGenericCommand::__construct — Builds the UniToolGenericCommand instance.
+KaosGenericCommand::__construct — Builds the KaosGenericCommand instance.
 
 
 
@@ -21,7 +21,7 @@ public [KaosGenericCommand::__construct](https://github.com/lingtalfi/LingTalfi/
 
 
 
-Builds the UniToolGenericCommand instance.
+Builds the KaosGenericCommand instance.
 
 
 

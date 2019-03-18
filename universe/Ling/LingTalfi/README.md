@@ -33,6 +33,19 @@ Or just download it and place it where you want otherwise.
 History Log
 =============
 
+- 1.5.0 -- 2019-03-18
+
+    - add HelpCommand
+
+- 1.4.0 -- 2019-03-18
+
+    - update PackAndPushUniToolCommand now creates links to planets if they come from Ling galaxy
+
+- 1.3.3 -- 2019-03-18
+
+    - fix PushCommand stops if no DocBuilder is found
+    - fix PackAndPushUniToolCommand stops if errors are found by DependencyMasterBuilderUtil
+
 - 1.3.2 -- 2019-03-14
 
     - update DocBuilders new insert dir is now personal/mydoc/inserts
