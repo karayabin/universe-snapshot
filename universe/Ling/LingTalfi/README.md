@@ -33,6 +33,10 @@ Or just download it and place it where you want otherwise.
 History Log
 =============
 
+- 1.6.0 -- 2019-03-18
+
+    - add ProjectInfoDocBuilder
+
 - 1.5.0 -- 2019-03-18
 
     - add HelpCommand

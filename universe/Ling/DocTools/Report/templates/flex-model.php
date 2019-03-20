@@ -204,6 +204,9 @@ function displayMenuSection($title, array $menuItems)
 <main class="wrapper">
     <section class="content">
 
+        <!-- TODO TEXTS -->
+        <?php displayWidgets($z['todoTextsWidgets']); ?>
+
         <!-- MISSING COMMENTS -->
         <?php displayWidgets($z['missingCommentsWidgets']); ?>
 
@@ -230,6 +233,7 @@ function displayMenuSection($title, array $menuItems)
     <nav id="navigation">
 
 
+        <?php displayMenuSection("Todo texts", $z['todoTextsMenuItems']); ?>
         <?php displayMenuSection("Missing comments", $z['missingCommentsMenuItems']); ?>
         <?php displayMenuSection("Missing tags", $z['missingTagsMenuItems']); ?>
         <?php displayMenuSection("Empty main text", $z['emptyMainTextMenuItems']); ?>

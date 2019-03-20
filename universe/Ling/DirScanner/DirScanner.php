@@ -5,7 +5,8 @@ namespace Ling\DirScanner;
 
 
 /**
- * DirScanner
+ * The DirScanner class.
+ *
  * @author Lingtalfi
  * 2015-11-03
  *
@@ -13,33 +14,56 @@ namespace Ling\DirScanner;
 class DirScanner
 {
 
+    /**
+     * This property holds the rootDir for this instance.
+     * @var string
+     */
     private $rootDir;
+
+    /**
+     * This property holds the followLinks for this instance.
+     * Whether to follow symlinks directories.
+     *
+     * @var bool = false
+     */
     private $followLinks;
 
+
+    /**
+     * Builds the DirScanner instance.
+     */
     public function __construct()
     {
         $this->followLinks = false;
     }
 
 
+    /**
+     * A static way of instantiating the class.
+     *
+     * @return DirScanner
+     */
     public static function create()
     {
         return new static();
     }
 
     /**
-     * Scan a directory, and collect items (using to the given callable) along the way.
+     * Scans a directory, and collect items (using to the given callable) along the way.
      *
      * @param $dir
-     * @param $callable :   mixed  function ( str:path, str:relativePath, int:level )
+     * @param $callable :   mixed  function ( str:path, str:relativePath, int:level, bool:&skipDir )
      *
      *                              level starts at 0.
      *                              Any value except that the callback returns (except the null value) will
      *                              be appended to the returned array.
      *                              The null value is not collected.
+     *                              If the skipDir variable is set to true and the item is a directory,
+     *                              then the directory will be skipped recursively.
      *
      *
-     * @return array of what the callback returns (except if it is null)
+     * @return array
+     * Array of whatever was returned by the callback (except if it is null)
      */
     public function scanDir($dir, $callable)
     {
@@ -63,7 +87,14 @@ class DirScanner
         return $ret;
     }
 
-    public function setFollowLinks($followLinks)
+
+    /**
+     * Sets the followLinks property for this instance.
+     *
+     * @param bool $followLinks
+     * @return $this
+     */
+    public function setFollowLinks(bool $followLinks)
     {
         $this->followLinks = (bool)$followLinks;
         return $this;
@@ -74,6 +105,17 @@ class DirScanner
     //------------------------------------------------------------------------------/
     // 
     //------------------------------------------------------------------------------/
+    /**
+     * The working horse behind the scanDir method.
+     * It will scan the directory recursively, and collect information along the way.
+     *
+     *
+     * @param $dir
+     * @param $relDir
+     * @param $callable
+     * @param $level
+     * @param array $ret
+     */
     private function doScanDir($dir, $relDir, $callable, $level, array &$ret)
     {
         if (file_exists($dir)) {
@@ -109,6 +151,15 @@ class DirScanner
     }
 
 
+    //--------------------------------------------
+    //
+    //--------------------------------------------
+    /**
+     * Throws a runtime exception.
+     *
+     * @param $msg
+     * @throws \RuntimeException
+     */
     protected function error($msg)
     {
         throw new \RuntimeException($msg);

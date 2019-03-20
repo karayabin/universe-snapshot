@@ -71,6 +71,11 @@ Here is a screenshot of the report page:
 ![docTools report page](http://lingtalfi.com/img/universe/DocTools/doctools-report.png)
 
 
+And another one with the todo detection (since 1.6.0):
+
+![docTools report page with todo](http://lingtalfi.com/img/universe/DocTools/doctools-report-with-todo.png)
+
+
 
 How to use?
 ==============
@@ -642,6 +647,11 @@ This includes:
 History Log
 =============
     
+- 1.6.0 -- 2019-03-20
+
+    - update: reports now parses "todo:" expressions in doc comments
+    - add spl exceptions detection in PhpClassHelper
+
 - 1.5.2 -- 2019-03-14
 
     - update ClassParser: now better handling for unresolved throws tags

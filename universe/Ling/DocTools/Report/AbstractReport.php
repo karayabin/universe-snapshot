@@ -206,6 +206,18 @@ abstract class AbstractReport implements ReportInterface
 
 
     /**
+     * This property holds an array of todo texts.
+     *
+     * @var array
+     * - 0: todo text
+     * - 1: location hint (indicates where to find the todo text)
+     * - 2: context (generally class name) where it was written
+     *
+     */
+    protected $todoTexts;
+
+
+    /**
      *
      * This property holds an array of the properties with an empty main text.
      *
@@ -279,6 +291,7 @@ abstract class AbstractReport implements ReportInterface
 
         //
         $this->classesWithEmptyMainText = [];
+        $this->todoTexts = [];
         $this->propertiesWithEmptyMainText = [];
         $this->methodsWithEmptyMainText = [];
 
@@ -528,6 +541,21 @@ abstract class AbstractReport implements ReportInterface
         if (false === in_array($this->currentContext, $this->ignore, true)) {
             $this->classesWithEmptyMainText[] = [
                 $className,
+                $this->currentContext,
+            ];
+        }
+    }
+
+
+    /**
+     * @implementation
+     */
+    public function addTodoText(string $todoText, string $hint)
+    {
+        if (false === in_array($this->currentContext, $this->ignore, true)) {
+            $this->todoTexts[] = [
+                $todoText,
+                $hint,
                 $this->currentContext,
             ];
         }

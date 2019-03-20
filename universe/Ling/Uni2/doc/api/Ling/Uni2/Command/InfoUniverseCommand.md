@@ -4,7 +4,7 @@
 
 The InfoUniverseCommand class
 ================
-2019-03-12 --> 2019-03-14
+2019-03-12 --> 2019-03-19
 
 
 
@@ -72,4 +72,4 @@ Ling\Uni2\Command\InfoUniverseCommand
 
 SeeAlso
 ==============
-Previous class: [InfoApplicationCommand](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Command/InfoApplicationCommand.md)<br>Next class: [PackUni2Command](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Command/Internal/PackUni2Command.md)<br>
+Previous class: [InfoApplicationCommand](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Command/InfoApplicationCommand.md)<br>Next class: [InitLocalServerCommand](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Command/InitLocalServerCommand.md)<br>

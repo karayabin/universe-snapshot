@@ -4,7 +4,7 @@
 
 The HtmlReport class
 ================
-2019-02-21 --> 2019-03-14
+2019-02-21 --> 2019-03-20
 
 
 
@@ -48,6 +48,7 @@ class <span class="pl-k">HtmlReport</span> extends [AbstractReport](https://gith
     - protected array [AbstractReport::$unresolvedClassReferences](#property-unresolvedClassReferences) ;
     - protected array [AbstractReport::$unresolvedMethodReferences](#property-unresolvedMethodReferences) ;
     - protected array [AbstractReport::$classesWithEmptyMainText](#property-classesWithEmptyMainText) ;
+    - protected array [AbstractReport::$todoTexts](#property-todoTexts) ;
     - protected array [AbstractReport::$propertiesWithEmptyMainText](#property-propertiesWithEmptyMainText) ;
     - protected array [AbstractReport::$methodsWithEmptyMainText](#property-methodsWithEmptyMainText) ;
     - protected array [AbstractReport::$ignore](#property-ignore) ;
@@ -79,6 +80,7 @@ class <span class="pl-k">HtmlReport</span> extends [AbstractReport](https://gith
     - public [AbstractReport::addUnresolvedClassReference](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/AbstractReport/addUnresolvedClassReference.md)(string $className, string $hint = null) : void
     - public [AbstractReport::addUnresolvedMethodReference](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/AbstractReport/addUnresolvedMethodReference.md)(string $className, string $methodName, string $hint = null) : void
     - public [AbstractReport::addClassWithEmptyMainText](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/AbstractReport/addClassWithEmptyMainText.md)(string $className) : void
+    - public [AbstractReport::addTodoText](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/AbstractReport/addTodoText.md)(string $todoText, string $hint) : mixed
     - public [AbstractReport::addPropertyWithEmptyMainText](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/AbstractReport/addPropertyWithEmptyMainText.md)(string $className, string $propertyName) : void
     - public [AbstractReport::addMethodWithEmptyMainText](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/AbstractReport/addMethodWithEmptyMainText.md)(string $className, string $methodName) : void
 
@@ -251,6 +253,12 @@ Properties
     
     
 
+- <span id="property-todoTexts"><b>todoTexts</b></span>
+
+    This property holds an array of todo texts.
+    
+    
+
 - <span id="property-propertiesWithEmptyMainText"><b>propertiesWithEmptyMainText</b></span>
 
     This property holds an array of the properties with an empty main text.
@@ -307,6 +315,7 @@ Methods
 - [AbstractReport::addUnresolvedClassReference](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/AbstractReport/addUnresolvedClassReference.md) &ndash; Adds an unresolved class reference.
 - [AbstractReport::addUnresolvedMethodReference](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/AbstractReport/addUnresolvedMethodReference.md) &ndash; Adds an unresolved method reference.
 - [AbstractReport::addClassWithEmptyMainText](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/AbstractReport/addClassWithEmptyMainText.md) &ndash; Adds a class with an empty [main text](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/CommentInfo.md#the-doc-comment-structure).
+- [AbstractReport::addTodoText](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/AbstractReport/addTodoText.md) &ndash; Adds a todo text.
 - [AbstractReport::addPropertyWithEmptyMainText](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/AbstractReport/addPropertyWithEmptyMainText.md) &ndash; Adds a property with an empty [main text](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/CommentInfo.md#the-doc-comment-structure).
 - [AbstractReport::addMethodWithEmptyMainText](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/AbstractReport/addMethodWithEmptyMainText.md) &ndash; Adds a method with an empty [main text](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/CommentInfo.md#the-doc-comment-structure).
 

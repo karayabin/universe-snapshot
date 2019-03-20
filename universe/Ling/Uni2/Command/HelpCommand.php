@@ -44,6 +44,9 @@ class HelpCommand extends UniToolGenericCommand
         $infoApplication = $this->n('info');
         $infoUniverse = $this->n('info-universe');
 
+
+        $initLocal = $this->n('init-local');
+
         $listplanet = $this->n('listplanet');
 
         $map = $this->n('map');
@@ -145,6 +148,8 @@ class HelpCommand extends UniToolGenericCommand
         $output->write("- $infoUniverse : displays information about the universe (the number of galaxies, the number of planets, and the percentage of planets having dependencies)." . PHP_EOL);
         $output->write(H::s(1) . "Also displays similar information for each galaxy." . PHP_EOL);
 
+
+        $output->write("- $initLocal : creates the <b>bigbang.php</b> at the root of the local server if it doesn't already exist." . PHP_EOL);
 
         $output->write("- $listplanet: displays the list of planets of the current application." . PHP_EOL);
         $output->write(H::j(1) . $this->o("-v") . ": displays the version number next to the planet names." . PHP_EOL);

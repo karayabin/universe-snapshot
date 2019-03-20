@@ -16,6 +16,8 @@ Table of contents
     - [LingTalfiDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/LingTalfi/LingTalfiDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the LingTalfi planet.
 - [PlanetSitemapDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/PlanetSitemap/PlanetSitemapDocBuilder.md) &ndash; The PlanetSitemapDocBuilder class.
     - [PlanetSitemapDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/PlanetSitemap/PlanetSitemapDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the PlanetSitemap planet.
+- [ProjectInfoDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/ProjectInfo/ProjectInfoDocBuilder.md) &ndash; The ProjectInfoDocBuilder class.
+    - [ProjectInfoDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/ProjectInfo/ProjectInfoDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the ProjectInfo planet.
 - [SimpleCurlDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/SimpleCurl/SimpleCurlDocBuilder.md) &ndash; The SimpleCurlDocBuilder class.
     - [SimpleCurlDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/SimpleCurl/SimpleCurlDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the SimpleCurl planet.
 - [Uni2DocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Uni2/Uni2DocBuilder.md) &ndash; The Uni2DocBuilder class.
@@ -74,10 +76,10 @@ Dependencies
 ============
 - [DocTools](https://github.com/karayabin/universe-snapshot/tree/master/universe/Ling/DocTools)
 - [CliTools](https://github.com/karayabin/universe-snapshot/tree/master/universe/Ling/CliTools)
-- [Uni2](https://github.com/karayabin/universe-snapshot/tree/master/universe/Ling/Uni2)
 - [Bat](https://github.com/karayabin/universe-snapshot/tree/master/universe/Ling/Bat)
 - [UniverseTools](https://github.com/karayabin/universe-snapshot/tree/master/universe/Ling/UniverseTools)
 - [BabyYaml](https://github.com/karayabin/universe-snapshot/tree/master/universe/Ling/BabyYaml)
+- [Uni2](https://github.com/karayabin/universe-snapshot/tree/master/universe/Ling/Uni2)
 - [PlanetSitemap](https://github.com/karayabin/universe-snapshot/tree/master/universe/Ling/PlanetSitemap)
 - [SimpleCurl](https://github.com/karayabin/universe-snapshot/tree/master/universe/Ling/SimpleCurl)
 - [DirScanner](https://github.com/karayabin/universe-snapshot/tree/master/universe/Ling/DirScanner)

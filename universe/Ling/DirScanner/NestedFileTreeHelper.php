@@ -4,12 +4,17 @@
 namespace Ling\DirScanner;
 
 
+/**
+ * The NestedFileTreeHelper class.
+ */
 class NestedFileTreeHelper
 {
 
 
     /**
-     * Return a nested structure from a directory.
+     * Returns a nested structure from a directory.
+     *
+     *
      * The default nested structure item looks like this:
      * - name: name of the file
      * - path: absolute path to the file,
@@ -22,7 +27,7 @@ class NestedFileTreeHelper
      *
      *
      *
-     * @param $dir , the base directory to scan
+     * @param string $dir , the base directory to scan
      * @param array $options ,
      *      - followSymlinks: bool=false, whether or not to follow symlinks on dirs
      *      - recursive: bool=true, whether or not to use recursion (if not, only the root level will be scanned)
@@ -35,7 +40,7 @@ class NestedFileTreeHelper
      *
      * @return array
      */
-    public static function getNestedFileTree($dir, array $options = [])
+    public static function getNestedFileTree(string $dir, array $options = [])
     {
         $relativePath = $options['relativePath'] ?? false;
         if (true === $relativePath) {
@@ -50,6 +55,13 @@ class NestedFileTreeHelper
     //--------------------------------------------
     //
     //--------------------------------------------
+    /**
+     * The working horse behind the getNestedFileTree method.
+     *
+     * @param string $dir
+     * @param array $options
+     * @return array
+     */
     private static function doIterate(string $dir, array $options = [])
     {
         $followSymlinks = $options['followSymlinks'] ?? false;

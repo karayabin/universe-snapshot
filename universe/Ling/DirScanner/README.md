@@ -24,6 +24,16 @@ uni import Ling/DirScanner
 
 
 
+Summary
+==========
+- [DirScanner api](https://github.com/lingtalfi/DirScanner/blob/master/doc/api/Ling/DirScanner.md) (generated with [DocTools](https://github.com/lingtalfi/DocTools))
+- [How to use](#how-to-use)
+- [More examples](#more-examples)
+- [History Log](#history-log)
+
+
+
+
 
 
 How to use
@@ -78,12 +88,13 @@ else {
 ### The callable
 
 ```
-void    f (str:path, str:relativePath, int:level)
+void    f (str:path, str:relativePath, int:level, bool:&skipDir)
 ```
 
 - path: full path to the entry being scanned
 - relativePath: relative path starting from the root directory 
 - level: deepness starting at 0 for the first level 
+- skipDir: bool=false. Set this to true to skip the directory and its content (recursively)
 
 
 
@@ -137,6 +148,10 @@ $dirs = YorgDirScannerTool::getDirs("/path/to/dir");
 History Log
 ------------------
     
+- 1.9.0 -- 2019-03-20
+
+    - add YorgDirScannerTool::getFilesIgnore method
+
 - 1.8.0 -- 2019-03-18
 
     - update DirScanner, now can filter dirs early

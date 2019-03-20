@@ -1,0 +1,8 @@
+dependencies: 
+    Ling: 
+        - Bat
+        - DirScanner
+        - TokenFun
+    
+
+post_install: []

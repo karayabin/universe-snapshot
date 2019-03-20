@@ -173,6 +173,10 @@ class UniToolApplication extends Application
         $this->registerCommand("Ling\Uni2\Command\InfoApplicationCommand", "info");
         $this->registerCommand("Ling\Uni2\Command\InfoUniverseCommand", "info-universe");
 
+
+        $this->registerCommand("Ling\Uni2\Command\InitLocalServerCommand", "init-local");
+
+
         $this->registerCommand("Ling\Uni2\Command\ListPlanetCommand", "listplanet");
 
         $this->registerCommand("Ling\Uni2\Command\CreateMapCommand", "map");

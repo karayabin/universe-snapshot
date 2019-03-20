@@ -4,7 +4,7 @@
 
 The PackUni2Command class
 ================
-2019-03-12 --> 2019-03-14
+2019-03-12 --> 2019-03-19
 
 
 
@@ -88,4 +88,4 @@ Ling\Uni2\Command\Internal\PackUni2Command
 
 SeeAlso
 ==============
-Previous class: [InfoUniverseCommand](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Command/InfoUniverseCommand.md)<br>Next class: [ListPlanetCommand](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Command/ListPlanetCommand.md)<br>
+Previous class: [InitLocalServerCommand](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Command/InitLocalServerCommand.md)<br>Next class: [ListPlanetCommand](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Command/ListPlanetCommand.md)<br>

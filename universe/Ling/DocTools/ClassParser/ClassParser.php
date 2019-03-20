@@ -159,7 +159,7 @@ class ClassParser implements ClassParserInterface
         // COMMENT
         //--------------------------------------------
         $docComment = $class->getDocComment();
-        $comment = $this->parseDocComment($docComment, 'class');
+        $comment = $this->parseDocComment($docComment, 'class', $className);
 
         if ($comment->isEmpty()) {
             if (null !== $this->report) {
@@ -185,7 +185,7 @@ class ClassParser implements ClassParserInterface
             $propertyVisibility = $this->getPropertyVisibility($property);
 
             $docComment = $property->getDocComment();
-            $comment = $this->parseDocComment($docComment, 'property');
+            $comment = $this->parseDocComment($docComment, 'property', $className . ".$name");
 
             if ($comment->isEmpty()) {
                 if (null !== $this->report) {
@@ -315,7 +315,7 @@ class ClassParser implements ClassParserInterface
 
 
             $docComment = $method->getDocComment();
-            $comment = $this->parseDocComment($docComment, "method");
+            $comment = $this->parseDocComment($docComment, "method", $className . "::$name");
 
 
             $thrownExceptions = [];
@@ -675,15 +675,18 @@ class ClassParser implements ClassParserInterface
      *
      *
      * @param string $rawComment
-     * @param string $elementType .
+     * @param string $elementType
      * The type of the element the comment is written for, can be one of:
      * - class
      * - property (class property)
      * - method
      *
+     * @param string $elementId
+     * An element identifier
+     *
      * @return CommentInfo
      */
-    protected function parseDocComment(string $rawComment, string $elementType)
+    protected function parseDocComment(string $rawComment, string $elementType, string $elementId)
     {
 
         $includeReferences = [];
@@ -693,6 +696,17 @@ class ClassParser implements ClassParserInterface
              */
             $resolved = false;
             $rawComment = $this->expandIncludes($rawComment, $resolved, $includeReferences);
+        }
+
+
+        //--------------------------------------------
+        // TODOS...
+        //--------------------------------------------
+        if (preg_match('!todo:(.*)!i', $rawComment, $match)) {
+            $todoText = trim($match[1]);
+            if (null !== $this->report) {
+                $this->report->addTodoText($todoText, $elementType . ": $elementId");
+            }
         }
 
 

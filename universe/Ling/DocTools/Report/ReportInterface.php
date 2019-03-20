@@ -292,6 +292,17 @@ interface ReportInterface
     public function addClassWithEmptyMainText(string $className);
 
     /**
+     * Adds a todo text.
+     * Note: the todo keyword is not case sensitive, but it must
+     * be followed directly by a colon (:) (without space in between).
+     *
+     * @param string $todoText
+     * @param string $hint
+     * @return mixed
+     */
+    public function addTodoText(string $todoText, string $hint);
+
+    /**
      * Adds a property with an empty @kw(main text).
      *
      * @param string $className . The name of the culprit class.

@@ -84,6 +84,24 @@ class HtmlReport extends AbstractReport
 
 
         //--------------------------------------------
+        // TODO TEXTS
+        //--------------------------------------------
+        $nbTodoTexts = count($this->todoTexts);
+
+        $todoTextsMenuItems = [
+            'todo-texts' => ["Todo texts", $nbTodoTexts, true],
+        ];
+        $todoTextWidget = $this->getTableSection(
+            "Todo texts",
+            "todo-texts",
+            ["Text", "Location", 'Context'],
+            $this->todoTexts
+        );
+
+
+
+
+        //--------------------------------------------
         // MISSING COMMENTS
         //--------------------------------------------
         $nbClassesWithoutComment = count($this->classesWithoutComment);
@@ -389,6 +407,11 @@ class HtmlReport extends AbstractReport
         $tpl = $this->template;
         $o = new ZeusTemplateEngine();
         return $o->renderByPath($tpl, [
+            // todo texts
+            "todoTextsMenuItems" => $todoTextsMenuItems,
+            "todoTextsWidgets" => [
+                $todoTextWidget,
+            ],
             // missing comments
             "missingCommentsMenuItems" => $missingCommentsMenuItems,
             "missingCommentsWidgets" => [

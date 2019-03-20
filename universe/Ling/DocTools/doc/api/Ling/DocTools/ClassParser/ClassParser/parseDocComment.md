@@ -16,7 +16,7 @@ Description
 ================
 
 
-protected [ClassParser::parseDocComment](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/ClassParser/ClassParser/parseDocComment.md)(string $rawComment, string $elementType) : [CommentInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/CommentInfo.md)
+protected [ClassParser::parseDocComment](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/ClassParser/ClassParser/parseDocComment.md)(string $rawComment, string $elementType, string $elementId) : [CommentInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/CommentInfo.md)
 
 
 
@@ -49,6 +49,10 @@ Parameters
 - class
 - property (class property)
 - method
+
+- elementId
+
+    An element identifier
 
 
 Return values

@@ -4,7 +4,7 @@
 
 The AbstractReport class
 ================
-2019-02-21 --> 2019-03-14
+2019-02-21 --> 2019-03-20
 
 
 
@@ -41,6 +41,7 @@ abstract class <span class="pl-k">AbstractReport</span> implements [ReportInterf
     - protected array [$unresolvedClassReferences](#property-unresolvedClassReferences) ;
     - protected array [$unresolvedMethodReferences](#property-unresolvedMethodReferences) ;
     - protected array [$classesWithEmptyMainText](#property-classesWithEmptyMainText) ;
+    - protected array [$todoTexts](#property-todoTexts) ;
     - protected array [$propertiesWithEmptyMainText](#property-propertiesWithEmptyMainText) ;
     - protected array [$methodsWithEmptyMainText](#property-methodsWithEmptyMainText) ;
     - protected array [$ignore](#property-ignore) ;
@@ -66,6 +67,7 @@ abstract class <span class="pl-k">AbstractReport</span> implements [ReportInterf
     - public [addUnresolvedClassReference](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/AbstractReport/addUnresolvedClassReference.md)(string $className, string $hint = null) : void
     - public [addUnresolvedMethodReference](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/AbstractReport/addUnresolvedMethodReference.md)(string $className, string $methodName, string $hint = null) : void
     - public [addClassWithEmptyMainText](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/AbstractReport/addClassWithEmptyMainText.md)(string $className) : void
+    - public [addTodoText](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/AbstractReport/addTodoText.md)(string $todoText, string $hint) : mixed
     - public [addPropertyWithEmptyMainText](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/AbstractReport/addPropertyWithEmptyMainText.md)(string $className, string $propertyName) : void
     - public [addMethodWithEmptyMainText](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/AbstractReport/addMethodWithEmptyMainText.md)(string $className, string $methodName) : void
 
@@ -227,6 +229,12 @@ Properties
     
     
 
+- <span id="property-todoTexts"><b>todoTexts</b></span>
+
+    This property holds an array of todo texts.
+    
+    
+
 - <span id="property-propertiesWithEmptyMainText"><b>propertiesWithEmptyMainText</b></span>
 
     This property holds an array of the properties with an empty main text.
@@ -279,6 +287,7 @@ Methods
 - [AbstractReport::addUnresolvedClassReference](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/AbstractReport/addUnresolvedClassReference.md) &ndash; Adds an unresolved class reference.
 - [AbstractReport::addUnresolvedMethodReference](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/AbstractReport/addUnresolvedMethodReference.md) &ndash; Adds an unresolved method reference.
 - [AbstractReport::addClassWithEmptyMainText](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/AbstractReport/addClassWithEmptyMainText.md) &ndash; Adds a class with an empty [main text](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/CommentInfo.md#the-doc-comment-structure).
+- [AbstractReport::addTodoText](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/AbstractReport/addTodoText.md) &ndash; Adds a todo text.
 - [AbstractReport::addPropertyWithEmptyMainText](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/AbstractReport/addPropertyWithEmptyMainText.md) &ndash; Adds a property with an empty [main text](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/CommentInfo.md#the-doc-comment-structure).
 - [AbstractReport::addMethodWithEmptyMainText](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/AbstractReport/addMethodWithEmptyMainText.md) &ndash; Adds a method with an empty [main text](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/CommentInfo.md#the-doc-comment-structure).
 - [ReportInterface::__toString](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface/__toString.md) &ndash; Builds and returns the rendered report as a string.

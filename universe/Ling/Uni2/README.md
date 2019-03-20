@@ -869,6 +869,10 @@ When triggered, the upgrade process does the following steps:
 History Log
 =============
 
+- 1.2.0 -- 2019-03-19
+
+    - add InitLocalServerCommand
+
 - 1.1.0 -- 2019-03-13
 
     - add DependencyMasterDiffUtil class

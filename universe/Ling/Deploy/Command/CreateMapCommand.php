@@ -4,15 +4,23 @@
 namespace Ling\Deploy\Command;
 
 
+use Ling\Bat\BDotTool;
+use Ling\Bat\FileSystemTool;
 use Ling\CliTools\Helper\VirginiaMessageHelper as H;
 use Ling\CliTools\Input\InputInterface;
 use Ling\CliTools\Output\OutputInterface;
-use Ling\DirScanner\YorgDirScannerTool;
+use Ling\DirScanner\DirScanner;
 
 /**
  * The CreateMapCommand class.
  *
  * This command creates a map for the current site.
+ *
+ * Options
+ * ----------
+ * - word=string. The word used in the sentence: "Creating $word to <b>$mapFile</b>.",
+ *              which is the first sentence displayed by this command.
+ *              This option allows other commands to customize this command message.
  *
  *
  */
@@ -27,36 +35,86 @@ class CreateMapCommand extends DeployGenericCommand
     {
 
 
-        $mapFile = "/komin/jin_site_demo/tmp/map.txt";
-        $dir = "/komin/jin_site_demo";
-        $files = YorgDirScannerTool::getFiles($dir, true, false);
-        foreach($files as $file){
-            a($file);
+        $indentLevel = $this->application->getBaseIndentLevel();
+        $applicationDir = $this->application->getProjectDirectory();
+        $mapFile = $this->application->getMapPath();
+        $conf = $this->application->getConf($output);
+        $word = $input->getOption("word", "map");
+
+
+        $mapConf = BDotTool::getDotValue("map-conf", $conf);
+
+
+        //--------------------------------------------
+        //
+        //--------------------------------------------
+        H::info(H::i($indentLevel) . "Creating $word to <b>$mapFile</b>...", $output);
+
+
+        $lines = [];
+
+
+        if (file_exists($applicationDir)) {
+
+
+            $files = $this->collectFiles($applicationDir, $mapConf);
+
+            $heavyExtensions = ["mp4"];
+            foreach ($files as $file) {
+                $baseName = basename($file);
+                $lastPos = strrpos($baseName, '.');
+                if (false !== $lastPos) {
+                    $ext = strtolower(substr($baseName, $lastPos + 1));
+                    $absFile = $applicationDir . "/" . $file;
+                    if (false === in_array($ext, $heavyExtensions, true)) {
+                        $lines[] = $file . '::' . hash_file("haval160,4", $absFile);
+                    } else {
+                        $size = filesize($absFile);
+                        $lines[] = $file . ' : ' . $size;
+                    }
+                }
+            }
         }
 
-
-
-        az("jjj");
-        $indentLevel = $this->application->getBaseIndentLevel();
-        $createDocBuilder = $input->hasFlag('d');
-
-
-        $appDir = $this->application->getCurrentDirectory();
-
-
-        if (false !== $pInfo) {
-
-            list($galaxyName, $planetName) = $pInfo;
-
-            H::info(H::i($indentLevel) . "Initializing planet <blue>$galaxyName/$planetName</blue>:" . PHP_EOL, $output);
-
-
+        if (true === FileSystemTool::mkfile($mapFile, implode(PHP_EOL, $lines))) {
+            $output->write("<success>ok</success>." . PHP_EOL);
         } else {
-            H::error(H::i($indentLevel) . "Invalid planet directory: <bold>$planetDir</bold>." . PHP_EOL, $output);
+            $output->write("<error>oops</error>." . PHP_EOL);
+            H::error(H::i($indentLevel) . "Could not create the map file." . PHP_EOL, $output);
         }
 
 
     }
 
+
+
+    //--------------------------------------------
+    //
+    //--------------------------------------------
+    protected function collectFiles(string $applicationDir, array $mapConf)
+    {
+        $ignoreHidden = $mapConf['ignoreHidden'];
+        $ignore = $mapConf['ignore'];
+
+        $files = [];
+        DirScanner::create()->setFollowLinks(false)->scanDir($applicationDir, function ($path, $rPath, $level, &$skipDir) use ($ignoreHidden, $ignore, &$files) {
+            $fileName = basename($rPath);
+
+            //--------------------------------------------
+            // SKIP IGNORE
+            //--------------------------------------------
+            if (
+                '.deploy' === $fileName ||
+                in_array($fileName, $ignore) ||
+                (true === $ignoreHidden && '.' === substr($fileName, 0, 1))
+            ) {
+                $skipDir = true;
+                return null;
+            }
+            $files[] = $rPath;
+        });
+
+        return $files;
+    }
 
 }

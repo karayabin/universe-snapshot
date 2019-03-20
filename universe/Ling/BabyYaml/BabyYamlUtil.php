@@ -76,7 +76,7 @@ class BabyYamlUtil
      * @param string $file
      * @return void
      */
-    public static function writeFile(array $data, string $file): void
+    public static function writeFile(array $data, string $file)
     {
         self::getWInst()->export($data, $file);
     }

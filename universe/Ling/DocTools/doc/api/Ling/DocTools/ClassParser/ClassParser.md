@@ -4,7 +4,7 @@
 
 The ClassParser class
 ================
-2019-02-21 --> 2019-03-14
+2019-02-21 --> 2019-03-20
 
 
 
@@ -56,7 +56,7 @@ class <span class="pl-k">ClassParser</span> implements [ClassParserInterface](ht
     - public [setReport](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/ClassParser/ClassParser/setReport.md)([Ling\DocTools\Report\ReportInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface.md) $report) : void
     - public [setNotationlInterpreter](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/ClassParser/ClassParser/setNotationlInterpreter.md)([Ling\DocTools\Interpreter\NotationInterpreterInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Interpreter/NotationInterpreterInterface.md) $notationInterpreter) : void
     - public [setGeneratedItemsToUrl](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/ClassParser/ClassParser/setGeneratedItemsToUrl.md)(array $generatedItems2Url) : void
-    - protected [parseDocComment](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/ClassParser/ClassParser/parseDocComment.md)(string $rawComment, string $elementType) : [CommentInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/CommentInfo.md)
+    - protected [parseDocComment](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/ClassParser/ClassParser/parseDocComment.md)(string $rawComment, string $elementType, string $elementId) : [CommentInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/CommentInfo.md)
     - protected [getPropertySignature](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/ClassParser/ClassParser/getPropertySignature.md)([\ReflectionProperty](http://php.net/manual/en/class.reflectionproperty.php) $property) : string
     - protected [getMethodSignature](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/ClassParser/ClassParser/getMethodSignature.md)([\ReflectionMethod](http://php.net/manual/en/class.reflectionmethod.php) $method) : string
     - protected [getClassSignature](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/ClassParser/ClassParser/getClassSignature.md)([\ReflectionClass](http://php.net/manual/en/class.reflectionclass.php) $class) : string
