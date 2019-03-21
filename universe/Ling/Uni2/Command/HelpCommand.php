@@ -48,6 +48,7 @@ class HelpCommand extends UniToolGenericCommand
         $initLocal = $this->n('init-local');
 
         $listplanet = $this->n('listplanet');
+        $liststore = $this->n('liststore');
 
         $map = $this->n('map');
 
@@ -152,6 +153,10 @@ class HelpCommand extends UniToolGenericCommand
         $output->write("- $initLocal : creates the <b>bigbang.php</b> at the root of the local server if it doesn't already exist." . PHP_EOL);
 
         $output->write("- $listplanet: displays the list of planets of the current application." . PHP_EOL);
+        $output->write(H::j(1) . $this->o("-v") . ": displays the version number next to the planet names." . PHP_EOL);
+
+
+        $output->write("- $liststore: displays the list of planets of the local server." . PHP_EOL);
         $output->write(H::j(1) . $this->o("-v") . ": displays the version number next to the planet names." . PHP_EOL);
 
 

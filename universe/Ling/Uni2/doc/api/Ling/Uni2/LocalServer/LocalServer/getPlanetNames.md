@@ -16,12 +16,17 @@ Description
 ================
 
 
-public [LocalServer::getPlanetNames](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/LocalServer/LocalServer/getPlanetNames.md)(array $galaxies) : array
+public [LocalServer::getPlanetNames](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/LocalServer/LocalServer/getPlanetNames.md)(array $galaxies, bool $useVersionNumber = false) : array
 
 
 
 
 Returns an array containing all the planet long names for the given galaxies.
+If the $useVersionNumber argument is set to true, will return an array of items,
+each item being:
+
+- 0: long planet name
+- 1: version number (or undefined if not set)
 
 
 
@@ -33,6 +38,10 @@ Parameters
 - galaxies
 
     Array of galaxy names.
+
+- useVersionNumber
+
+    
 
 
 Return values

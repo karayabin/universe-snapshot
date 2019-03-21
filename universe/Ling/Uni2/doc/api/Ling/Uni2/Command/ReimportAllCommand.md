@@ -4,7 +4,7 @@
 
 The ReimportAllCommand class
 ================
-2019-03-12 --> 2019-03-19
+2019-03-12 --> 2019-03-21
 
 
 
@@ -102,4 +102,4 @@ Ling\Uni2\Command\ReimportAllCommand
 
 SeeAlso
 ==============
-Previous class: [ListPlanetCommand](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Command/ListPlanetCommand.md)<br>Next class: [ReimportCommand](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Command/ReimportCommand.md)<br>
+Previous class: [ListStoreCommand](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Command/ListStoreCommand.md)<br>Next class: [ReimportCommand](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Command/ReimportCommand.md)<br>

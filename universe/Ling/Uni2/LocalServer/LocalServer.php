@@ -8,6 +8,7 @@ use Ling\Bat\FileSystemTool;
 use Ling\DirScanner\DirScanner;
 use Ling\DirScanner\YorgDirScannerTool;
 use Ling\Uni2\Exception\Uni2Exception;
+use Ling\UniverseTools\MetaInfoTool;
 
 /**
  * The LocalServer class.
@@ -237,14 +238,23 @@ class LocalServer
 
     /**
      * Returns an array containing all the planet long names for the given galaxies.
+     * If the $useVersionNumber argument is set to true, will return an array of items,
+     * each item being:
+     *
+     * - 0: long planet name
+     * - 1: version number (or undefined if not set)
+     *
+     *
      *
      * @param array $galaxies
      * Array of galaxy names.
      *
+     * @param bool $useVersionNumber = false
+     *
      * @return array
      * @throws Uni2Exception. When the root dir is not set.
      */
-    public function getPlanetNames(array $galaxies)
+    public function getPlanetNames(array $galaxies, bool $useVersionNumber = false): array
     {
         if (null === $this->rootDir) {
             throw new Uni2Exception("Root dir not set");
@@ -256,7 +266,19 @@ class LocalServer
                 $planetDirs = YorgDirScannerTool::getDirs($galaxyDir);
                 foreach ($planetDirs as $planetDir) {
                     $planetShortName = basename($planetDir);
-                    $ret[] = $galaxy . "/" . $planetShortName;
+                    $planetLongName = $galaxy . "/" . $planetShortName;
+
+                    if (false === $useVersionNumber) {
+                        $ret[] = $planetLongName;
+                    } else {
+
+                        $meta = MetaInfoTool::parseInfo($planetDir);
+                        $version = $meta['version'] ?? 'undefined';
+                        $ret[] = [
+                            $planetLongName,
+                            $version,
+                        ];
+                    }
                 }
             }
         }

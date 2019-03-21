@@ -4,7 +4,7 @@
 
 The ListPlanetCommand class
 ================
-2019-03-12 --> 2019-03-19
+2019-03-12 --> 2019-03-21
 
 
 
@@ -88,4 +88,4 @@ Ling\Uni2\Command\ListPlanetCommand
 
 SeeAlso
 ==============
-Previous class: [PackUni2Command](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Command/Internal/PackUni2Command.md)<br>Next class: [ReimportAllCommand](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Command/ReimportAllCommand.md)<br>
+Previous class: [PackUni2Command](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Command/Internal/PackUni2Command.md)<br>Next class: [ListStoreCommand](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Command/ListStoreCommand.md)<br>

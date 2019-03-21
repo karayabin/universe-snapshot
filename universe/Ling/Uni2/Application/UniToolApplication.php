@@ -178,6 +178,7 @@ class UniToolApplication extends Application
 
 
         $this->registerCommand("Ling\Uni2\Command\ListPlanetCommand", "listplanet");
+        $this->registerCommand("Ling\Uni2\Command\ListStoreCommand", "liststore");
 
         $this->registerCommand("Ling\Uni2\Command\CreateMapCommand", "map");
 

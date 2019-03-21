@@ -148,6 +148,10 @@ $dirs = YorgDirScannerTool::getDirs("/path/to/dir");
 History Log
 ------------------
     
+- 1.10.0 -- 2019-03-21
+
+    - add YorgDirScannerTool::getFilesIgnoreMore method
+
 - 1.9.0 -- 2019-03-20
 
     - add YorgDirScannerTool::getFilesIgnore method

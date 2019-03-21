@@ -29,14 +29,16 @@ class DiffUtil
      * @param string $mapPathSource
      * @param string $mapPathDest
      * @param array $options
-     * - ignore: list of file names to ignore
+     * - ignoreName: list of file/directory names to ignore
+     * - ignorePath: list of file/directory relative paths to ignore
      *
      *
      * @return array
      */
     public function getDiffMap(string $mapPathSource, string $mapPathDest, array $options = [])
     {
-        $ignore = $options['ignore'] ?? [];
+        $ignoreName = $options['ignoreName'] ?? [];
+        $ignorePath = $options['ignorePath'] ?? [];
         $linesSource = file($mapPathSource, \FILE_IGNORE_NEW_LINES);
         $linesDest = file($mapPathDest, \FILE_IGNORE_NEW_LINES);
 
@@ -68,14 +70,16 @@ class DiffUtil
         // ADD & REPLACE
         //--------------------------------------------
         foreach ($source as $rpath => $hashId) {
-            $base = basename($rpath);
-            if (false === in_array($base, $ignore)) {
+            if (false === in_array($rpath, $ignorePath)) {
+                $base = basename($rpath);
+                if (false === in_array($base, $ignoreName)) {
 
-                if (false === array_key_exists($rpath, $dest)) {
-                    $add[] = $rpath;
-                } else {
-                    if ($hashId !== $dest[$rpath]) {
-                        $replace[] = $rpath;
+                    if (false === array_key_exists($rpath, $dest)) {
+                        $add[] = $rpath;
+                    } else {
+                        if ($hashId !== $dest[$rpath]) {
+                            $replace[] = $rpath;
+                        }
                     }
                 }
             }
@@ -85,10 +89,12 @@ class DiffUtil
         // REMOVE
         //--------------------------------------------
         foreach ($dest as $rpath => $hashId) {
-            $base = basename($rpath);
-            if (false === in_array($base, $ignore)) {
-                if (false === array_key_exists($rpath, $source)) {
-                    $remove[] = $rpath;
+            if (false === in_array($rpath, $ignorePath)) {
+                $base = basename($rpath);
+                if (false === in_array($base, $ignoreName)) {
+                    if (false === array_key_exists($rpath, $source)) {
+                        $remove[] = $rpath;
+                    }
                 }
             }
         }

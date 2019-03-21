@@ -1,6 +1,6 @@
 Ling/DirScanner
 ================
-2019-03-20 --> 2019-03-20
+2019-03-20 --> 2019-03-21
 
 
 
@@ -20,6 +20,7 @@ Table of contents
     - [YorgDirScannerTool::getEntries](https://github.com/lingtalfi/DirScanner/blob/master/doc/api/Ling/DirScanner/YorgDirScannerTool/getEntries.md) &ndash; Return the list of entries (files or dirs) of a given folder.
     - [YorgDirScannerTool::getFiles](https://github.com/lingtalfi/DirScanner/blob/master/doc/api/Ling/DirScanner/YorgDirScannerTool/getFiles.md) &ndash; Return the list of files (not dirs) of a given folder.
     - [YorgDirScannerTool::getFilesIgnore](https://github.com/lingtalfi/DirScanner/blob/master/doc/api/Ling/DirScanner/YorgDirScannerTool/getFilesIgnore.md) &ndash; Returns the list of files (not dirs) which name aren't in the $ignore array.
+    - [YorgDirScannerTool::getFilesIgnoreMore](https://github.com/lingtalfi/DirScanner/blob/master/doc/api/Ling/DirScanner/YorgDirScannerTool/getFilesIgnoreMore.md) &ndash; Same as getFilesIgnore, but also allows to ignore files by relative paths.
     - [YorgDirScannerTool::getFilesWithPrefix](https://github.com/lingtalfi/DirScanner/blob/master/doc/api/Ling/DirScanner/YorgDirScannerTool/getFilesWithPrefix.md) &ndash; Returns the list of files which name start with the given $prefix.
     - [YorgDirScannerTool::getFilesWithExtension](https://github.com/lingtalfi/DirScanner/blob/master/doc/api/Ling/DirScanner/YorgDirScannerTool/getFilesWithExtension.md) &ndash; Return the list of files (not dirs) having the given $extension(s).
 

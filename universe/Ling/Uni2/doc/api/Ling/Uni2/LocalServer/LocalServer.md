@@ -4,7 +4,7 @@
 
 The LocalServer class
 ================
-2019-03-12 --> 2019-03-19
+2019-03-12 --> 2019-03-21
 
 
 
@@ -44,7 +44,7 @@ class <span class="pl-k">LocalServer</span>  {
     - public [replaceItem](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/LocalServer/LocalServer/replaceItem.md)(string $localServerRelativeSrcDir, string $applicationDstDir) : bool
     - public [importItem](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/LocalServer/LocalServer/importItem.md)(string $sourceDir, string $localServerRelativeDestDir, bool $isPlanet) : bool
     - public [getNonPlanetItemsDirectoryList](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/LocalServer/LocalServer/getNonPlanetItemsDirectoryList.md)() : array
-    - public [getPlanetNames](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/LocalServer/LocalServer/getPlanetNames.md)(array $galaxies) : array
+    - public [getPlanetNames](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/LocalServer/LocalServer/getPlanetNames.md)(array $galaxies, bool $useVersionNumber = false) : array
 
 }
 

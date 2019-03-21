@@ -69,7 +69,7 @@ zip
 
 
 ```php
-bool    zip ( str:source, str:zipFileName )
+bool    zip ( str:source, str:zipFileName, array:options )
 ```
 
 Creates a zip file from the given source, and returns whether the operation was successful.
@@ -78,6 +78,58 @@ Note: this method creates the necessary subdirectories for the zip file if neces
 Returns false if something went wrong (extension zip not loaded for instance).
 
 
+Options:
+- ignoreHidden: bool=false. Whether to ignore files/dirs which name starts with a dot (.), provided that the given source is a directory.
+- ignoreName: array=[]. An array of file/directory names to ignore (provided that the given source is a directory).
+    If a directory matches, the entire directory and its content will be ignored recursively.
+- ignorePath: array=[]. An array of file/directory relative paths to ignore (provided that the given source is a directory).
+         If a directory matches, the entire directory and its content will be ignored recursively.
+         Note: a relative path doesn't start with a slash.
+
 ```php
 ZipTool::zip(__DIR__ . "/my_dir", "my_dir.zip");
+```
+
+
+
+zipByPaths
+---
+2019-03-21
+
+
+```php
+bool    zipByPaths ( str:dstZipFile, str:rootDir, array:relativePaths, array:&errors=[], array:&failed=[] )
+```
+
+Creates a zip archive based on the given relative paths,
+and returns whether the operation was a success.
+
+
+### Parameters
+
+- dstZipFile: The name (path) of the zip file to create.
+- rootDir: The root dir, base of all relative paths.
+- $relativePaths: An array of relative paths (relative to the given $rootDir) to include in the archive.
+    If the relative path is a directory, the directory will be included in the archive with its content (recursively).
+- errors: An array of errors that might occur.
+- failed: An array of file relative paths which transfer to the archive failed.
+
+
+
+```php
+$base = "/komin/jin_site_demo/class";
+$files = [
+    "dir1",
+    "dir2/.htaccess",
+    "Maurice.php",
+];
+
+$zipDst = "/tmp/myzip.zip";
+$errors = [];
+$failed = [];
+a(ZipTool::zipByPaths($zipDst, $base, $files, $errors, $failed));
+a($errors);
+a($failed);
+
+
 ```

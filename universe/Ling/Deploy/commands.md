@@ -20,6 +20,8 @@ push/fetch
 push (remote=$remote)?
     Updates the **remote** application so that it looks like the **site** application.
     It uses the **diff** command under the hood.
+    The ignore and ignoreHidden keys of the map-conf of the site will be used to define which files
+    will be sent over to the remote.
 
 
 
@@ -65,9 +67,13 @@ Default configuration
 map-conf:
     ignoreHidden: bool=true. Whether to ignore any file/directory starting with dot (.).
 
-    # array of names to ignore.
+    # array of file/directory names to ignore.
     # If the entry is a directory, its content will be ignored recursively.
-   ignore: []
+   ignoreName: []
+
+   # array of file/directory relative paths to ignore.
+   # If the entry is a directory, its content will be ignored recursively.
+   ignorePath: []
 
 ```
 

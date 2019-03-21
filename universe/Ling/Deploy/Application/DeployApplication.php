@@ -5,6 +5,7 @@ namespace Ling\Deploy\Application;
 
 
 use Ling\BabyYaml\BabyYamlUtil;
+use Ling\Bat\BDotTool;
 use Ling\CliTools\Command\CommandInterface;
 use Ling\CliTools\Helper\VirginiaMessageHelper as H;
 use Ling\CliTools\Input\InputInterface;
@@ -54,6 +55,7 @@ class DeployApplication extends Application
 
         $this->projectDirectory = getcwd();
         $this->baseIndentLevel = 0;
+        $this->registerCommand("Ling\Deploy\Command\ShowConfCommand", "conf");
         $this->registerCommand("Ling\Deploy\Command\DiffCommand", "diff");
         $this->registerCommand("Ling\Deploy\Command\HelpCommand", "help");
         $this->registerCommand("Ling\Deploy\Command\CreateMapCommand", "map");
@@ -93,23 +95,23 @@ class DeployApplication extends Application
      * ```txt
      * map-conf:
      *      ignoreHidden: true
-     *      ignore: []
+     *      ignoreNames: []
+     *      ignorePaths: []
      * ```
-     * TODO: continue the map...
      *
      *
      *
      * @return array
      */
-    public function getConf(OutputInterface $output)
+    public function getConf(OutputInterface $output, int $indentLevel = 0)
     {
-        $confFile = $this->projectDirectory . "/.deploy/conf.byml";
+        $confFile = $this->getConfPath();
         $ret = [];
         if (file_exists($confFile)) {
             $ret = BabyYamlUtil::readFile($confFile);
         } else {
             if (false === $this->hasConf()) {
-                H::warning("Warning! Configuration file not found (<b>.deploy/conf.byml</b>). I will use default values instead." . PHP_EOL, $output);
+                H::warning(H::i($indentLevel) . "Warning! Configuration file not found (<b>$confFile</b>). I will use default values instead." . PHP_EOL, $output);
             }
         }
 
@@ -117,8 +119,12 @@ class DeployApplication extends Application
             $ret['map-conf'] = [];
         }
 
-        if (false === array_key_exists('ignore', $ret['map-conf'])) {
-            $ret['map-conf']['ignore'] = [];
+        if (false === array_key_exists('ignoreName', $ret['map-conf'])) {
+            $ret['map-conf']['ignoreName'] = [];
+        }
+
+        if (false === array_key_exists('ignorePath', $ret['map-conf'])) {
+            $ret['map-conf']['ignorePath'] = [];
         }
 
         if (false === array_key_exists('ignoreHidden', $ret['map-conf'])) {
@@ -127,6 +133,57 @@ class DeployApplication extends Application
 
 
         return $ret;
+    }
+
+
+    /**
+     * Returns a "valid" remote configuration array, based on the configuration file of the **site**.
+     * Returns false in case of failure (if the remote conf doesn't exist).
+     *
+     * Note: the remote conf is valid if it contains the following info:
+     *
+     * - ssh_config_id
+     * - root_dir
+     *
+     * See @page(the configuration file) for more info.
+     *
+     *
+     * @param string $remote
+     * @param OutputInterface $output
+     * @param int $indentLevel
+     * @return array|bool
+     */
+    public function getRemoteConf(string $remote, OutputInterface $output, int $indentLevel = 0)
+    {
+        $conf = $this->getConf($output, $indentLevel);
+        $remoteConf = BDotTool::getDotValue("remotes.$remote", $conf);
+        if (null !== $remoteConf) {
+            $remoteSshConfigId = $remoteConf['ssh_config_id'] ?? null;
+            $remoteRootDir = $remoteConf['root_dir'] ?? null;
+            if (null !== $remoteSshConfigId) {
+                if (null !== $remoteRootDir) {
+                    return $remoteConf;
+                } else {
+                    H::error(H::i($indentLevel) . "Incomplete configuration for remote <b>$remote</b>: <b>root_dir</b> key not found. Cannot connect to ssh remote." . PHP_EOL, $output);
+                }
+            } else {
+                H::error(H::i($indentLevel) . "Incomplete configuration for remote <b>$remote</b>: <b>ssh_config_id</b> key not found. Cannot connect to ssh remote." . PHP_EOL, $output);
+            }
+
+        } else {
+            H::error(H::i($indentLevel) . "No configuration found for remote <b>$remote</b>." . PHP_EOL, $output);
+        }
+        return false;
+    }
+
+
+    /**
+     * Returns the path to the configuration file.
+     * @return string
+     */
+    public function getConfPath()
+    {
+        return $this->projectDirectory . "/.deploy/conf.byml";
     }
 
 

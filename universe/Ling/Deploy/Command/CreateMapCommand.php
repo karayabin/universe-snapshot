@@ -9,7 +9,7 @@ use Ling\Bat\FileSystemTool;
 use Ling\CliTools\Helper\VirginiaMessageHelper as H;
 use Ling\CliTools\Input\InputInterface;
 use Ling\CliTools\Output\OutputInterface;
-use Ling\DirScanner\DirScanner;
+use Ling\DirScanner\YorgDirScannerTool;
 
 /**
  * The CreateMapCommand class.
@@ -38,7 +38,7 @@ class CreateMapCommand extends DeployGenericCommand
         $indentLevel = $this->application->getBaseIndentLevel();
         $applicationDir = $this->application->getProjectDirectory();
         $mapFile = $this->application->getMapPath();
-        $conf = $this->application->getConf($output);
+        $conf = $this->application->getConf($output, $indentLevel);
         $word = $input->getOption("word", "map");
 
 
@@ -94,25 +94,11 @@ class CreateMapCommand extends DeployGenericCommand
     protected function collectFiles(string $applicationDir, array $mapConf)
     {
         $ignoreHidden = $mapConf['ignoreHidden'];
-        $ignore = $mapConf['ignore'];
+        $ignoreName = $mapConf['ignoreName'];
+        $ignorePath = $mapConf['ignorePath'];
+        $ignore[] = ".deploy";
 
-        $files = [];
-        DirScanner::create()->setFollowLinks(false)->scanDir($applicationDir, function ($path, $rPath, $level, &$skipDir) use ($ignoreHidden, $ignore, &$files) {
-            $fileName = basename($rPath);
-
-            //--------------------------------------------
-            // SKIP IGNORE
-            //--------------------------------------------
-            if (
-                '.deploy' === $fileName ||
-                in_array($fileName, $ignore) ||
-                (true === $ignoreHidden && '.' === substr($fileName, 0, 1))
-            ) {
-                $skipDir = true;
-                return null;
-            }
-            $files[] = $rPath;
-        });
+        $files = YorgDirScannerTool::getFilesIgnoreMore($applicationDir, $ignoreName, $ignorePath, true, true, false, $ignoreHidden);
 
         return $files;
     }

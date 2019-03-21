@@ -139,7 +139,10 @@ Commands list:
 - info : displays information about the current application (the number of galaxies, the number of planets, and the percentage of planets having dependencies).
 - info-universe : displays information about the universe (the number of galaxies, the number of planets, and the percentage of planets having dependencies).
     Also displays similar information for each galaxy.
+- init-local : creates the bigbang.php at the root of the local server if it doesn't already exist.
 - listplanet: displays the list of planets of the current application.
+    - -v: displays the version number next to the planet names.
+- liststore: displays the list of planets of the local server.
     - -v: displays the version number next to the planet names.
 - map ?$mapPath: creates a map file to be used by the import-map, reimport-map and store-map commands.
     The map is created at the $mapPath location if provided, or at the root of the application's universe directory otherwise.
@@ -868,6 +871,10 @@ When triggered, the upgrade process does the following steps:
 
 History Log
 =============
+
+- 1.3.0 -- 2019-03-21
+
+    - add ListStoreCommand
 
 - 1.2.0 -- 2019-03-19
 

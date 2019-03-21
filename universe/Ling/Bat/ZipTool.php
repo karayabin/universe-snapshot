@@ -3,6 +3,7 @@
 namespace Ling\Bat;
 
 use Ling\Bat\Exception\BatException;
+use Ling\DirScanner\YorgDirScannerTool;
 
 /**
  * The ZipTool class.
@@ -95,12 +96,26 @@ class ZipTool
      *
      *
      *
-     * @param $source : the entry to add to the zip. It can be either a file or a directory
-     * @param $zipFileName : the filename of the zip file
+     * @param string $source
+     * The entry to add to the zip. It can be either a file or a directory
+     *
+     * @param string $zipFileName
+     * The filename of the zip file
+     *
+     * @param array $options
+     * - ignoreHidden: bool=false. Whether to ignore files/dirs which name starts with a dot (.), provided that the given source is a directory.
+     * - ignoreName: array=[]. An array of file/directory names to ignore (provided that the given source is a directory).
+     *          If a directory matches, the entire directory and its content will be ignored recursively.
+     *
+     * - ignorePath: array=[]. An array of file/directory relative paths to ignore (provided that the given source is a directory).
+     *          If a directory matches, the entire directory and its content will be ignored recursively.
+     *          Note: a relative path doesn't start with a slash.
+     *
+     *
      * @return bool
      * @throws BatException
      */
-    public static function zip($source, $zipFileName)
+    public static function zip(string $source, string $zipFileName, array $options = [])
     {
         if (false === extension_loaded('zip')) {
             throw new BatException("Extension not loaded: zip");
@@ -109,6 +124,11 @@ class ZipTool
         if (false === file_exists($source)) {
             throw new BatException("File doesn't exist: $source");
         }
+
+
+        $ignoreHidden = $options['ignoreHidden'] ?? false;
+        $ignoreName = $options['ignoreName'] ?? [];
+        $ignorePath = $options['ignorePath'] ?? [];
 
 
         $dir = dirname($zipFileName);
@@ -123,24 +143,22 @@ class ZipTool
         $source = str_replace('\\', '/', realpath($source));
 
         if (is_dir($source) === true) {
-            $files = new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator($source), \RecursiveIteratorIterator::SELF_FIRST);
+
+
+            $files = YorgDirScannerTool::getFilesIgnoreMore($source, $ignoreName, $ignorePath, true, false, false, $ignoreHidden);
 
             foreach ($files as $file) {
                 $file = str_replace('\\', '/', $file);
-
-                // Ignore "." and ".." folders
-                if (in_array(substr($file, strrpos($file, '/') + 1), array('.', '..'))) {
-                    continue;
-                }
-
                 $file = realpath($file);
 
-                if (is_dir($file) === true) {
+                if (true === is_dir($file)) {
                     $zip->addEmptyDir(str_replace($source . '/', '', $file . '/'));
                 } else if (is_file($file) === true) {
                     $zip->addFromString(str_replace($source . '/', '', $file), file_get_contents($file));
                 }
+
             }
+
         } else if (is_file($source) === true) {
             $zip->addFromString(basename($source), file_get_contents($source));
         }
@@ -149,51 +167,123 @@ class ZipTool
     }
 
 
+    /**
+     * Creates a zip archive based on the given relative paths,
+     * and returns whether the operation was a success.
+     *
+     *
+     *
+     *
+     * @param string $dstZipFile
+     * The name (path) of the zip file to create.
+     *
+     *
+     * @param string $rootDir
+     * The root dir, base of all relative paths.
+     *
+     * @param array $relativePaths
+     * An array of relative paths (relative to the given $rootDir) to include in the archive.
+     * If the relative path is a directory, the directory will be included in the archive with its content (recursively).
+     *
+     * @param array $errors
+     * An array of errors that might occur.
+     *
+     * @param array $failed
+     * An array of file relative paths which transfer to the archive failed.
+     *
+     *
+     * @return bool
+     * @throws BatException
+     */
+    public static function zipByPaths(string $dstZipFile, string $rootDir, array $relativePaths, array &$errors = [], array &$failed = []): bool
+    {
 
-//    /**
-//     * Extract the archive as the given target directory.
-//     *
-//     * @param $archive
-//     * @param $targetDir , if null, will be the archive name without the .zip extension
-//     * @return bool, whether or not the archive could be extracted inside the target directory
-//     * @throws \Exception when it doesn't know how to handle the case
-//     */
-//    public static function unzipOld($archive, $targetDir = null)
-//    {
-//        $unzip = exec('which unzip');
-//        if ('' !== $unzip) {
-//            $tmpDir = FileSystemTool::tempDir();
-//            $cmd = 'unzip "' . str_replace('"', '\"', $archive) . '" -d"' . str_replace('"', '\"', $tmpDir) . '"';
-//            $output = [];
-//            $ret = false;
-//            exec($cmd, $output, $ret);
-//            if (0 === $ret) {
-//                $files = scandir($tmpDir);
-//                foreach ($files as $f) {
-//                    if ('.' !== $f && '..' !== $f) {
-//                        $dir = $tmpDir . "/" . $f;
-//                        if (is_dir($dir)) {
-//                            if (null === $targetDir) {
-//                                $targetDirectory = dirname($archive);
-//                                $name = pathinfo($archive, PATHINFO_FILENAME);
-//                                $targetDir = $targetDirectory . "/" . $name;
-//                            }
-//                        }
-//                        FileSystemTool::remove($targetDir);
-//                        FileSystemTool::mkdir(dirname($targetDir), 0777, true);
-//                        $ret = rename($dir, $targetDir);
-//                        FileSystemTool::remove($tmpDir);
-//                        return $ret;
-//                    }
-//                }
-//            } else {
-//                throw new \Exception("unzip command error: " . implode(PHP_EOL, $output));
-//            }
-//        } else {
-//            // new handlers here...
-//            throw new \Exception("Don't know how to handle the unzip on this machine yet");
-//        }
-//        return false;
-//    }
-//
+        if (false === extension_loaded('zip')) {
+            throw new BatException("Extension not loaded: zip");
+        }
+
+
+        $zip = new \ZipArchive();
+        $res = $zip->open($dstZipFile, \ZipArchive::CREATE);
+        if (true === $res) {
+            foreach ($relativePaths as $rpath) {
+                $apath = $rootDir . "/" . $rpath;
+                if (is_file($apath)) {
+                    $res = $zip->addFile($apath, $rpath);
+                    if (false === $res) {
+                        $failed[] = $rpath;
+                    }
+                } elseif (is_dir($apath)) {
+                    $files = YorgDirScannerTool::getFiles($apath, true, true, false, false);
+                    foreach ($files as $_rpath) {
+                        $newRpath = "$rpath/$_rpath";
+                        $apath = $rootDir . "/" . $newRpath;
+                        $res = $zip->addFile($apath, $newRpath);
+                        if (false === $res) {
+                            $failed[] = $newRpath;
+                        }
+                    }
+                } else {
+                    $failed[] = $rpath;
+                }
+            }
+
+            $res = $zip->close();
+            return $res;
+
+        } else {
+            $errors[] = "A ZipArchive error occurred: " . self::zipArchiveErrCodeToHumanMsg($res);
+        }
+
+        return false;
+    }
+
+
+    /**
+     *
+     * Returns the human message associated with the given zipArchive error code.
+     *
+     *
+     * http://php.net/manual/en/ziparchive.open.php
+     * last check: 2019-03-21
+     *
+     * @param int $errCode
+     * @return string
+     */
+    private static function zipArchiveErrCodeToHumanMsg(int $errCode): string
+    {
+
+        switch ($errCode) {
+            case \ZipArchive::ER_EXISTS:
+                return "File already exists.";
+                break;
+            case \ZipArchive::ER_INCONS:
+                return " Zip archive inconsistent.";
+                break;
+            case \ZipArchive::ER_INVAL:
+                return "Invalid argument.";
+                break;
+            case \ZipArchive::ER_MEMORY:
+                return "Mailoc failure.";
+                break;
+            case \ZipArchive::ER_NOENT:
+                return "No such file.";
+                break;
+            case \ZipArchive::ER_NOZIP:
+                return "Not a zip archive.";
+                break;
+            case \ZipArchive::ER_OPEN:
+                return "Can't open file.";
+                break;
+            case \ZipArchive::ER_READ:
+                return "Read error.";
+                break;
+            case \ZipArchive::ER_SEEK:
+                return "Seek error.";
+                break;
+            default:
+                return "Unknown error.";
+                break;
+        }
+    }
 }
