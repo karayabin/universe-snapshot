@@ -87,7 +87,7 @@ class Application extends AbstractProgram
 
 
                     if ($instance instanceof CommandInterface) {
-                        $instance->run($input, $output);
+                        return $instance->run($input, $output);
                     } else {
                         throw new ApplicationException("The given instance is not a CliTools\Command\CommandInterface");
                     }

@@ -22,7 +22,7 @@ class BufferedOutput extends Output
      */
     public function write(string $message)
     {
-        $this->messages[] = $message;
+        $this->messages[] = $this->formatter->format($message);
     }
 
 

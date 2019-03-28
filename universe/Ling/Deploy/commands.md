@@ -1,3 +1,7 @@
+Centralized manager to deploy your web apps on remote machines.
+
+
+
 map
     Creates the map for the files of the site.
     The map is the list of the files (not including directories) in the application, along with their hash id.
@@ -31,9 +35,26 @@ push (remote=$remote)?
 
 Requirements
 ============
-php 7.0+
+php 7.0+ with zip extension
 scp
 ssh
+mysql
+mysqldump
+
+
+
+mysql related commands were tested successfully on:
+- macOSX Ver 8.0.13
+- ubuntu Ver 5.7.18
+
+
+mysql distant
+---------------
+This worked:
+
+ssh -t kom "mysql -uroot -p -e 'show databases;'"
+ssh -t kom "mysql -uroot -p < /home/ling/websites/jin_test/.deploy/tmp.sql"
+
 
 
 
@@ -53,6 +74,12 @@ Structure
 --------- diff-remove.txt           # created temporarily by the diff command with flag -f. Usually removed by another command.
 --------- diff-replace.txt          # created temporarily by the diff command with flag -f. Usually removed by another command.
 --------- app.zip                   # created temporarily by the push command with flag -z. Usually removed after use.
+--------- remote-map.txt            # created temporarily by the diff command. Contains the remote map.
+--------- zip-map.txt               # created temporarily by the fetch command. Contains a merge of the diff-add and diff-replace maps.
+--------- tmp.sql                   # temporary sql statements to execute on the remote. Usually removed by a command after usage.
+--------- tmp-conf.byml             # temporary conf created by some commands. Usually, it's removed after usage.
+--------- tmp-conf.cnf              # temporary conf created by some commands. Usually, it's removed after usage.
+--------- backup-db.zip             # temporary archive created by the **fetch-backup-db** command.
 ----- ...application files
 ````
 
@@ -86,19 +113,27 @@ Configuration memo
 
 backup-files-conf:
     use_zip: 1
+
 sync-db-conf:
     # Creates a backup of the remote database (on the remote machine) before it's replaced by the site database
     backup_remote: 1
 
 databases:
-    my_db:
-        type: mysql
-        password: pueofjA1,kD
-        ?remote_password: if not set same as (local) password
+    test-local:
+        name: test
+        pass: blabla
+        file: basic.sql
+    test-mini:
+        name: test
+        pass: blabla2
+        file: basic.sql
 
-sync-files-conf:
-    not_uploaded: (to the remote) A list of entries to not remove from the remote.
-    not_removed: (from the remote) A list of entries to not upload to the remote.
+
+map-conf:
+    ignoreHidden: true
+    ignoreName: []
+    ignorePath: []
+
 
 
 remotes:

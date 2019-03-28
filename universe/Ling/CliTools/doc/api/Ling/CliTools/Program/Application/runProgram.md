@@ -7,7 +7,7 @@ Application::runProgram
 
 
 
-Application::runProgram — Runs the program.
+Application::runProgram — Runs the program, and returns the exit status.
 
 
 
@@ -16,12 +16,12 @@ Description
 ================
 
 
-protected [Application::runProgram](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Program/Application/runProgram.md)([Ling\CliTools\Input\InputInterface](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Input/InputInterface.md) $input, [Ling\CliTools\Output\OutputInterface](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Output/OutputInterface.md) $output) : void
+protected [Application::runProgram](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Program/Application/runProgram.md)([Ling\CliTools\Input\InputInterface](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Input/InputInterface.md) $input, [Ling\CliTools\Output\OutputInterface](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Output/OutputInterface.md) $output) : int | null
 
 
 
 
-Runs the program.
+Runs the program, and returns the exit status.
 
 Note: This method was written with the intent to be overridden by the user (i.e you should override this method in a sub-class).
 
@@ -43,8 +43,9 @@ Parameters
 Return values
 ================
 
-Returns void.
-
+Returns int | null.
+The exit status.
+If null is returned, 0 should be assumed.
 
 
 

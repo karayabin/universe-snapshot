@@ -4,7 +4,6 @@
 namespace Ling\Deploy\Command;
 
 
-use Ling\Bat\BDotTool;
 use Ling\Bat\ConsoleTool;
 use Ling\Bat\FileSystemTool;
 use Ling\CliTools\Helper\VirginiaMessageHelper as H;
@@ -12,12 +11,22 @@ use Ling\CliTools\Input\ArrayInput;
 use Ling\CliTools\Input\InputInterface;
 use Ling\CliTools\Output\OutputInterface;
 use Ling\Deploy\Application\DeployApplication;
+use Ling\Deploy\Helper\DiffHelper;
 use Ling\Deploy\Util\DiffUtil;
 
 /**
  * The DiffCommand class.
  *
- * This command displays the diff between the current site map and the given remote's map.
+ * This command displays the differences to have the site files mirrored on the remote.
+ *
+ * The differences are composed of 3 sections:
+ *
+ * - add: the files present in the site, not on the remote
+ * - remove: the files present in the remote, not on the site
+ * - replace: the files present in both the site and the remote, but they have a difference (i.e. their hash_id differs)
+ *
+ *
+ * The diff command uses the @object(CreateMapCommand) under the hood.
  * The maps are recreated on the fly every time.
  *
  * Symlinks are not followed.
@@ -46,6 +55,20 @@ use Ling\Deploy\Util\DiffUtil;
 class DiffCommand extends DeployGenericCommand
 {
 
+    protected $sentenceCreateDiff;
+    protected $reverse;
+
+
+    /**
+     * @overrides
+     */
+    public function __construct()
+    {
+        parent::__construct();
+        $this->sentenceCreateDiff = "Creating diff between current site and remote:";
+        $this->reverse = false;
+    }
+
 
     /**
      * @implementation
@@ -53,134 +76,117 @@ class DiffCommand extends DeployGenericCommand
     public function run(InputInterface $input, OutputInterface $output)
     {
 
+        $createFiles = $input->hasFlag('f');
+
 
         $indentLevel = $this->application->getBaseIndentLevel();
+        $conf = $this->application->getProjectConf();
 
-
-        $conf = $this->application->getConf($output, $indentLevel);
-        $appDir = $this->application->getProjectDirectory();
-        $mapConf = BDotTool::getDotValue("map-conf", $conf);
+        $appDir = $conf['root_dir'];
+        $mapConf = $conf["map-conf"];
         $ignoreName = $mapConf['ignoreName'];
         $ignorePath = $mapConf['ignorePath'];
 
-        $remote = $input->getOption('remote', null);
-        $createFiles = $input->hasFlag('f');
 
-        if (null !== $remote) {
-
-
-            $remoteConf = $this->application->getRemoteConf($remote, $output, $indentLevel);
-            $remoteSshConfigId = $remoteConf['ssh_config_id'];
-            $remoteRootDir = $remoteConf['root_dir'];
+        $remoteSshConfigId = $conf['ssh_config_id'];
+        $remoteRootDir = $conf['remote_root_dir'];
 
 
-            H::info(H::i($indentLevel) . "Creating diff between current site and remote <b>$remote</b>:" . PHP_EOL, $output);
+        H::info(H::i($indentLevel) . $this->sentenceCreateDiff . PHP_EOL, $output);
+
+
+        //--------------------------------------------
+        // CREATING LOCAL MAP
+        //--------------------------------------------
+        $appInput = new ArrayInput();
+        $appInput->setItems([
+            ":map" => true,
+            "p" => $this->application->getProjectIdentifier(),
+            "word" => "local map",
+            "indent" => $indentLevel + 1,
+        ]);
+        $app = new DeployApplication();
+        $app->run($appInput, $output);
+
+
+        //--------------------------------------------
+        // CREATING REMOTE MAP
+        //--------------------------------------------
+        H::info(H::i($indentLevel + 1) . "Executing the <b>map</b> command on the remote:" . PHP_EOL, $output);
+        $appInput = new ArrayInput();
+        $appInput->setItems([
+            ":map" => true,
+            "p" => $this->application->getProjectIdentifier(),
+            "word" => "remote  map",
+            "-r" => true,
+            "indent" => $indentLevel + 2,
+        ]);
+        $app = new DeployApplication();
+        $app->run($appInput, $output);
+
+
+        //--------------------------------------------
+        //
+        //--------------------------------------------
+        H::info(H::i($indentLevel + 1) . "Downloading remote map...", $output);
+        $tmpFile = $appDir . "/.deploy/remote-map.txt";
+        $mapBackCmd = "scp -q $remoteSshConfigId:$remoteRootDir/.deploy/map.txt \"$tmpFile\"";
+        if (true === ConsoleTool::exec($mapBackCmd)) {
+            $output->write("<success>ok</success>." . PHP_EOL);
 
 
             //--------------------------------------------
-            // CREATING LOCAL MAP
+            // CREATING THE DIFF
             //--------------------------------------------
-            $appInput = new ArrayInput();
-            $appInput->setItems([
-                ":map" => true,
-                "dir" => $appDir,
-                "word" => "local map",
-                "indent" => $indentLevel + 1,
+            H::info(H::i($indentLevel + 1) . "Creating diff map (from $tmpFile)...", $output);
+            $src = $appDir . "/.deploy/map.txt";
+            $util = new DiffUtil();
+
+
+            if (false === $this->reverse) {
+                $theSourceFile = $src;
+                $theDestFile = $tmpFile;
+            } else {
+                $theSourceFile = $tmpFile;
+                $theDestFile = $src;
+
+            }
+            $diffMap = $util->getDiffMap($theSourceFile, $theDestFile, [
+                "ignoreName" => $ignoreName,
+                "ignorePath" => $ignorePath,
             ]);
-            $app = new DeployApplication();
-            $app->run($appInput, $output);
+            $output->write("<success>ok</success>." . PHP_EOL);
 
 
-            //--------------------------------------------
-            // CREATING REMOTE MAP
-            //--------------------------------------------
-            H::info(H::i($indentLevel + 1) . "Creating remote map...", $output);
-            $mapCmd = "ssh $remoteSshConfigId deploy map dir=\"$remoteRootDir\" > /dev/null";
-            $mapCmd = "ssh $remoteSshConfigId deploy map dir=\"$remoteRootDir\"";
-            if (true === ConsoleTool::exec($mapCmd)) {
-                $output->write("<success>ok</success>." . PHP_EOL);
+            $add = $diffMap['add'];
+            $remove = $diffMap['remove'];
+            $replace = $diffMap['replace'];
 
+            if (false === $createFiles) {
 
-                H::info(H::i($indentLevel + 1) . "Downloading remote map...", $output);
-                $tmpFile = FileSystemTool::mkTmpFile("");
-                $mapBackCmd = "scp -q $remoteSshConfigId:$remoteRootDir/.deploy/map.txt \"$tmpFile\"";
-                if (true === ConsoleTool::exec($mapBackCmd)) {
-                    $output->write("<success>ok</success>." . PHP_EOL);
-
-
-                    //--------------------------------------------
-                    // CREATING THE DIFF
-                    //--------------------------------------------
-                    H::info(H::i($indentLevel + 1) . "Creating diff map (from $tmpFile)...", $output);
-                    $src = $appDir . "/.deploy/map.txt";
-                    $util = new DiffUtil();
-                    $diffMap = $util->getDiffMap($src, $tmpFile, [
-                        "ignoreName" => $ignoreName,
-                        "ignorePath" => $ignorePath,
-                    ]);
-                    $output->write("<success>ok</success>." . PHP_EOL);
-
-
-                    $add = $diffMap['add'];
-                    $remove = $diffMap['remove'];
-                    $replace = $diffMap['replace'];
-
-                    if (false === $createFiles) {
-
-                        //--------------------------------------------
-                        // DISPLAYING THE DIFF TO THE SCREEN...
-                        //--------------------------------------------
-
-
-                        $output->write("Add" . PHP_EOL);
-                        $output->write(str_repeat('-', 14) . PHP_EOL);
-                        foreach ($add as $item) {
-                            $output->write('- ' . $item . PHP_EOL);
-                        }
-
-
-                        $output->write(PHP_EOL);
-                        $output->write("Remove" . PHP_EOL);
-                        $output->write(str_repeat('-', 14) . PHP_EOL);
-                        foreach ($remove as $item) {
-                            $output->write('- ' . $item . PHP_EOL);
-                        }
-
-
-                        $output->write(PHP_EOL);
-                        $output->write("Replace" . PHP_EOL);
-                        $output->write(str_repeat('-', 14) . PHP_EOL);
-                        foreach ($replace as $item) {
-                            $output->write('- ' . $item . PHP_EOL);
-                        }
-                    } else {
-                        //--------------------------------------------
-                        // ...OR CREATING THE FILES
-                        //--------------------------------------------
-                        $addFile = $appDir . '/.deploy/diff-add.txt';
-                        $removeFile = $appDir . '/.deploy/diff-remove.txt';
-                        $replaceFile = $appDir . '/.deploy/diff-replace.txt';
-                        FileSystemTool::mkfile($addFile, implode(PHP_EOL, $add));
-                        FileSystemTool::mkfile($removeFile, implode(PHP_EOL, $remove));
-                        FileSystemTool::mkfile($replaceFile, implode(PHP_EOL, $replace));
-                    }
-
-
-                } else {
-                    $output->write("<error>oops</error>." . PHP_EOL);
-                    H::error(H::i($indentLevel + 2) . "Couldn't download the remote map. The command <b>$mapBackCmd</b> failed." . PHP_EOL, $output);
-                }
+                DiffHelper::showDiff($output, $add, $remove, $replace);
+                $output->write(PHP_EOL);
 
 
             } else {
-                $output->write("<error>oops</error>." . PHP_EOL);
-                H::error(H::i($indentLevel + 2) . "Couldn't create the remote map. The command <b>$mapCmd</b> failed." . PHP_EOL, $output);
+                //--------------------------------------------
+                // ...OR CREATING THE FILES
+                //--------------------------------------------
+                $addFile = $appDir . '/.deploy/diff-add.txt';
+                $removeFile = $appDir . '/.deploy/diff-remove.txt';
+                $replaceFile = $appDir . '/.deploy/diff-replace.txt';
+                FileSystemTool::mkfile($addFile, implode(PHP_EOL, $add));
+                FileSystemTool::mkfile($removeFile, implode(PHP_EOL, $remove));
+                FileSystemTool::mkfile($replaceFile, implode(PHP_EOL, $replace));
             }
 
 
         } else {
-            H::error(H::i($indentLevel) . "Missing option: <b>remote</b>." . PHP_EOL, $output);
+            $output->write("<error>oops</error>." . PHP_EOL);
+            H::error(H::i($indentLevel + 2) . "Couldn't download the remote map. The command <b>$mapBackCmd</b> failed." . PHP_EOL, $output);
         }
+
+
     }
 
 }

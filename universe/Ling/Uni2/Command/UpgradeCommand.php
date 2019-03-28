@@ -4,6 +4,7 @@
 namespace Ling\Uni2\Command;
 
 
+use Ling\Bat\ConsoleTool;
 use Ling\CliTools\Input\ArrayInput;
 use Ling\CliTools\Input\InputInterface;
 use Ling\CliTools\Output\OutputInterface;
@@ -14,6 +15,12 @@ use Ling\Uni2\Helper\OutputHelper as H;
  * The UpgradeCommand class.
  *
  * This class implements the upgrade system defined in the @page(uni-tool upgrade system document).
+ *
+ *
+ * Flags
+ * ----------
+ * -f: forces the command to reinstall the uni-tool.
+ *
  *
  */
 class UpgradeCommand extends UniToolGenericCommand
@@ -33,22 +40,28 @@ class UpgradeCommand extends UniToolGenericCommand
 
         $indentLevel = $this->application->getBaseIndent();
         $appDir = $this->application->checkApplicationDir();
-
+        $force = $input->hasFlag('f');
 
 
         //--------------------------------------------
         // UPDATING DEPENDENCY MASTER FILE (if necessary)
         //--------------------------------------------
         $version = $this->application->getUniToolLocalVersionNumber();
-        if (true === $this->application->isUniToolOutdated()) {
+        $isOutdated = $this->application->isUniToolOutdated();
+        if (true === $force || true === $isOutdated) {
             $webVersion = $this->application->getUniToolWebVersionNumber();
 
-            H::discover(H::i($indentLevel) . "A newer version of the uni-tool was found ($version --> $webVersion)." . PHP_EOL, $output);
-            H::info(H::i($indentLevel + 1) . "Creating local copy of the dependency-master.byml from the web...", $output);
+            if (true === $isOutdated) {
+                H::discover(H::i($indentLevel) . "A newer version of the uni-tool was found ($version --> $webVersion)." . PHP_EOL, $output);
+            }
 
 
-            if (true === $this->application->copyDependencyMasterFileFromWeb()) {
-                $output->write("<success>ok.</success>" . PHP_EOL);
+            H::info(H::i($indentLevel + 1) . "Reinstalling the new <b>uni-tool</b> from the web." . PHP_EOL, $output);
+
+
+            $cmd = 'temp_file=$(mktemp); curl -fsSL https://raw.githubusercontent.com/lingtalfi/universe-naive-importer/master/installer.php > $temp_file; sudo php -f $temp_file;';
+
+            if (true === ConsoleTool::passThru($cmd)) {
 
 
                 H::info(H::i($indentLevel + 1) . 'Updating local info...', $output);

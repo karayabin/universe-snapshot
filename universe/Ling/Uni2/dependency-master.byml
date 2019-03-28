@@ -112,7 +112,7 @@ galaxies:
             post_install: []
         
         Bat: 
-            version: 1.161
+            version: 1.164
             dependencies: 
                 Ling: 
                     - ArrayToString
@@ -187,7 +187,7 @@ galaxies:
             post_install: []
         
         CliTools: 
-            version: 1.7.0
+            version: 1.10.0
             dependencies: 
                 Ling: 
                     - UniversalLogger
@@ -301,7 +301,7 @@ galaxies:
             post_install: []
         
         DirScanner: 
-            version: 1.10.0
+            version: 1.11.1
             dependencies: []
             post_install: []
         
@@ -1241,7 +1241,7 @@ galaxies:
             post_install: []
         
         Uni2: 
-            version: 1.3.0
+            version: 1.5.0
             dependencies: 
                 Ling: 
                     - BabyYaml

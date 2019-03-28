@@ -4,7 +4,7 @@
 
 The YorgDirScannerTool class
 ================
-2019-03-20 --> 2019-03-21
+2019-03-20 --> 2019-03-26
 
 
 
@@ -25,13 +25,13 @@ Class synopsis
 class <span class="pl-k">YorgDirScannerTool</span>  {
 
 - Methods
-    - public static [getDirs](https://github.com/lingtalfi/DirScanner/blob/master/doc/api/Ling/DirScanner/YorgDirScannerTool/getDirs.md)(string $dir, bool $recursive = false, bool $relativePath = false, bool $followSymlinks = false, bool $ignoreHidden = true) : array
-    - public static [getEntries](https://github.com/lingtalfi/DirScanner/blob/master/doc/api/Ling/DirScanner/YorgDirScannerTool/getEntries.md)(string $dir, bool $recursive = false, bool $relativePath = false, bool $followSymlinks = false, bool $ignoreHidden = true) : array
-    - public static [getFiles](https://github.com/lingtalfi/DirScanner/blob/master/doc/api/Ling/DirScanner/YorgDirScannerTool/getFiles.md)(string $dir, bool $recursive = false, bool $relativePath = false, bool $followSymlinks = false, bool $ignoreHidden = true) : array
-    - public static [getFilesIgnore](https://github.com/lingtalfi/DirScanner/blob/master/doc/api/Ling/DirScanner/YorgDirScannerTool/getFilesIgnore.md)(string $dir, array $ignore = [], bool $recursive = false, bool $relativePath = false, bool $followSymlinks = false, bool $ignoreHidden = false) : array
-    - public static [getFilesIgnoreMore](https://github.com/lingtalfi/DirScanner/blob/master/doc/api/Ling/DirScanner/YorgDirScannerTool/getFilesIgnoreMore.md)(string $dir, array $ignoreNames = [], $ignorePaths = [], bool $recursive = false, bool $relativePath = false, bool $followSymlinks = false, bool $ignoreHidden = false) : array
-    - public static [getFilesWithPrefix](https://github.com/lingtalfi/DirScanner/blob/master/doc/api/Ling/DirScanner/YorgDirScannerTool/getFilesWithPrefix.md)(string $dir, string $prefix, bool $recursive = false, bool $relativePath = false, bool $followSymlinks = false, bool $ignoreHidden = true) : array
-    - public static [getFilesWithExtension](https://github.com/lingtalfi/DirScanner/blob/master/doc/api/Ling/DirScanner/YorgDirScannerTool/getFilesWithExtension.md)(string $dir, $extension = null, bool $extensionCaseSensitive = false, bool $recursive = false, bool $relativePath = false, bool $followSymlinks = false, bool $ignoreHidden = true) : array
+    - public static [getDirs](https://github.com/lingtalfi/DirScanner/blob/master/doc/api/Ling/DirScanner/YorgDirScannerTool/getDirs.md)(string $dir, bool $recursive = false, bool $relativePath = false, bool $followSymlinks = false, int $ignoreHidden = 1) : array
+    - public static [getEntries](https://github.com/lingtalfi/DirScanner/blob/master/doc/api/Ling/DirScanner/YorgDirScannerTool/getEntries.md)(string $dir, bool $recursive = false, bool $relativePath = false, bool $followSymlinks = false, int $ignoreHidden = 1) : array
+    - public static [getFiles](https://github.com/lingtalfi/DirScanner/blob/master/doc/api/Ling/DirScanner/YorgDirScannerTool/getFiles.md)(string $dir, bool $recursive = false, bool $relativePath = false, bool $followSymlinks = false, int $ignoreHidden = 1) : array
+    - public static [getFilesIgnore](https://github.com/lingtalfi/DirScanner/blob/master/doc/api/Ling/DirScanner/YorgDirScannerTool/getFilesIgnore.md)(string $dir, array $ignore = [], bool $recursive = false, bool $relativePath = false, bool $followSymlinks = false, int $ignoreHidden = 1) : array
+    - public static [getFilesIgnoreMore](https://github.com/lingtalfi/DirScanner/blob/master/doc/api/Ling/DirScanner/YorgDirScannerTool/getFilesIgnoreMore.md)(string $dir, array $ignoreNames = [], $ignorePaths = [], bool $recursive = false, bool $relativePath = false, bool $followSymlinks = false, int $ignoreHidden = 1) : array
+    - public static [getFilesWithPrefix](https://github.com/lingtalfi/DirScanner/blob/master/doc/api/Ling/DirScanner/YorgDirScannerTool/getFilesWithPrefix.md)(string $dir, string $prefix, bool $recursive = false, bool $relativePath = false, bool $followSymlinks = false, int $ignoreHidden = 1) : array
+    - public static [getFilesWithExtension](https://github.com/lingtalfi/DirScanner/blob/master/doc/api/Ling/DirScanner/YorgDirScannerTool/getFilesWithExtension.md)(string $dir, $extension = null, bool $extensionCaseSensitive = false, bool $recursive = false, bool $relativePath = false, bool $followSymlinks = false, int $ignoreHidden = 1) : array
 
 }
 

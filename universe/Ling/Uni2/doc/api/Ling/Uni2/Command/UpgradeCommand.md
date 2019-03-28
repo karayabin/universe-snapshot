@@ -19,6 +19,11 @@ The UpgradeCommand class.
 This class implements the upgrade system defined in the [uni-tool upgrade system document](https://github.com/lingtalfi/Uni2/blob/master/README.md#the-upgrade-system).
 
 
+Flags
+----------
+-f: forces the command to reinstall the uni-tool.
+
+
 
 Class synopsis
 ==============
@@ -30,7 +35,7 @@ class <span class="pl-k">UpgradeCommand</span> extends [UniToolGenericCommand](h
     - protected [Ling\Uni2\Application\UniToolApplication](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Application/UniToolApplication.md) [UniToolGenericCommand::$application](#property-application) ;
 
 - Methods
-    - public [run](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Command/UpgradeCommand/run.md)(Ling\CliTools\Input\InputInterface $input, Ling\CliTools\Output\OutputInterface $output) : void
+    - public [run](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Command/UpgradeCommand/run.md)(Ling\CliTools\Input\InputInterface $input, Ling\CliTools\Output\OutputInterface $output) : int
 
 - Inherited methods
     - public [UniToolGenericCommand::__construct](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Command/UniToolGenericCommand/__construct.md)() : void

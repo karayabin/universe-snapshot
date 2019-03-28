@@ -35,7 +35,9 @@ interface CommandInterface
      *
      * @param InputInterface $input
      * @param OutputInterface $output
-     * @return void
+     * @return int
+     * The exit status.
+     * If null, 0 should be assumed.
      */
     public function run(InputInterface $input, OutputInterface $output);
 }

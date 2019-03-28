@@ -26,20 +26,25 @@ class YorgDirScannerTool
      *
      * @param bool $followSymlinks = false
      *
-     * @param bool $ignoreHidden = true
-     * Whether to ignore files/directories which name starts with a dot (.).
+     * @param int $ignoreHidden = 1
+     * Do we ignore entries starting with a dot (.)?
+     * - 0: do not ignore hidden entries
+     * - 1: ignore hidden directories
+     * - 2: ignore hidden directories and files
+     *
      * If a directory is ignored, its content is ignored recursively.
+     *
      * @return array
      *
      */
-    public static function getDirs(string $dir, bool $recursive = false, bool $relativePath = false, bool $followSymlinks = false, bool $ignoreHidden = true): array
+    public static function getDirs(string $dir, bool $recursive = false, bool $relativePath = false, bool $followSymlinks = false, int $ignoreHidden = 1): array
     {
         return DirScanner::create()->setFollowLinks($followSymlinks)->scanDir($dir, function ($path, $rPath, $level, &$skipDir) use ($relativePath, $recursive, $ignoreHidden) {
             if (0 === $level || true === $recursive) {
                 if (is_dir($path)) {
 
                     $baseName = basename($rPath);
-                    if (true === $ignoreHidden && 0 === strpos($baseName, '.')) {
+                    if (1 === $ignoreHidden && 0 === strpos($baseName, '.')) {
                         $skipDir = true;
                         return null;
                     }
@@ -65,22 +70,33 @@ class YorgDirScannerTool
      * whether to return the results as relative path or absolute paths (default).
      *
      * @param bool $followSymlinks = false
-     * @param bool $ignoreHidden = true
-     * Whether to ignore files/directories which name starts with a dot (.).
+     *
+     * @param int $ignoreHidden = 1
+     * Do we ignore entries starting with a dot (.)?
+     * - 0: do not ignore hidden entries
+     * - 1: ignore hidden directories
+     * - 2: ignore hidden directories and files
+     *
      * If a directory is ignored, its content is ignored recursively.
+     *
      * @return array
      *
      */
-    public static function getEntries(string $dir, bool $recursive = false, bool $relativePath = false, bool $followSymlinks = false, bool $ignoreHidden = true): array
+    public static function getEntries(string $dir, bool $recursive = false, bool $relativePath = false, bool $followSymlinks = false, int $ignoreHidden = 1): array
     {
         return DirScanner::create()->setFollowLinks($followSymlinks)->scanDir($dir, function ($path, $rPath, $level, &$skipDir) use ($relativePath, $recursive, $ignoreHidden) {
             if (0 === $level || true === $recursive) {
 
 
                 $baseName = basename($rPath);
-                if (true === $ignoreHidden && 0 === strpos($baseName, '.')) {
-                    $skipDir = true;
-                    return null;
+                if ($ignoreHidden > 0 && 0 === strpos($baseName, '.')) {
+                    if (
+                        is_dir($path) ||
+                        (is_file($path) && 2 === $ignoreHidden)
+                    ) {
+                        $skipDir = true;
+                        return null;
+                    }
                 }
 
                 if (true === $relativePath) {
@@ -102,22 +118,33 @@ class YorgDirScannerTool
      *
      * @param bool $followSymlinks = false
      *
-     * @param bool $ignoreHidden = true
-     * Whether to ignore files/directories which name starts with a dot (.).
+     *
+     * @param int $ignoreHidden = 1
+     * Do we ignore entries starting with a dot (.)?
+     * - 0: do not ignore hidden entries
+     * - 1: ignore hidden directories
+     * - 2: ignore hidden directories and files
+     *
      * If a directory is ignored, its content is ignored recursively.
+     *
      * @return array
      *
      */
-    public static function getFiles(string $dir, bool $recursive = false, bool $relativePath = false, bool $followSymlinks = false, bool $ignoreHidden = true): array
+    public static function getFiles(string $dir, bool $recursive = false, bool $relativePath = false, bool $followSymlinks = false, int $ignoreHidden = 1): array
     {
         return DirScanner::create()->setFollowLinks($followSymlinks)->scanDir($dir, function ($path, $rPath, $level, &$skipDir) use ($relativePath, $recursive, $ignoreHidden) {
             if (0 === $level || true === $recursive) {
 
 
                 $fileName = basename($rPath);
-                if (true === $ignoreHidden && 0 === strpos($fileName, '.')) {
-                    $skipDir = true;
-                    return null;
+                if ($ignoreHidden > 0 && 0 === strpos($fileName, '.')) {
+                    if (
+                        is_dir($path) ||
+                        (is_file($path) && 2 === $ignoreHidden)
+                    ) {
+                        $skipDir = true;
+                        return null;
+                    }
                 }
 
                 if (is_file($path)) {
@@ -156,22 +183,31 @@ class YorgDirScannerTool
      * @param bool $followSymlinks = false
      * Whether to follow symlinks (directories).
      *
-     * @param bool $ignoreHidden = false
-     * Whether to ignore files/directories which name starts with a dot (.).
+     * @param int $ignoreHidden = 1
+     * Do we ignore entries starting with a dot (.)?
+     * - 0: do not ignore hidden entries
+     * - 1: ignore hidden directories
+     * - 2: ignore hidden directories and files
+     *
      * If a directory is ignored, its content is ignored recursively.
      *
      *
      * @return array
      */
-    public static function getFilesIgnore(string $dir, array $ignore = [], bool $recursive = false, bool $relativePath = false, bool $followSymlinks = false, bool $ignoreHidden = false): array
+    public static function getFilesIgnore(string $dir, array $ignore = [], bool $recursive = false, bool $relativePath = false, bool $followSymlinks = false, int $ignoreHidden = 1): array
     {
         return DirScanner::create()->setFollowLinks($followSymlinks)->scanDir($dir, function ($path, $rPath, $level, &$skipDir) use ($relativePath, $recursive, $ignore, $ignoreHidden) {
             if (0 === $level || true === $recursive) {
                 $baseName = basename($rPath);
 
-                if (true === $ignoreHidden && 0 === strpos($baseName, '.')) {
-                    $skipDir = true;
-                    return null;
+                if ($ignoreHidden > 0 && 0 === strpos($baseName, '.')) {
+                    if (
+                        is_dir($path) ||
+                        (is_file($path) && 2 === $ignoreHidden)
+                    ) {
+                        $skipDir = true;
+                        return null;
+                    }
                 }
 
 
@@ -214,21 +250,30 @@ class YorgDirScannerTool
      * @param bool $relativePath = false
      * @param bool $followSymlinks = false
      *
-     * @param bool $ignoreHidden = false
-     * Whether to ignore files/directories which name starts with a dot (.).
+     * @param int $ignoreHidden = 1
+     * Do we ignore entries starting with a dot (.)?
+     * - 0: do not ignore hidden entries
+     * - 1: ignore hidden directories
+     * - 2: ignore hidden directories and files
+     *
      * If a directory is ignored, its content is ignored recursively.
      *
      * @return array
      */
-    public static function getFilesIgnoreMore(string $dir, array $ignoreNames = [], $ignorePaths = [], bool $recursive = false, bool $relativePath = false, bool $followSymlinks = false, bool $ignoreHidden = false): array
+    public static function getFilesIgnoreMore(string $dir, array $ignoreNames = [], $ignorePaths = [], bool $recursive = false, bool $relativePath = false, bool $followSymlinks = false, int $ignoreHidden = 1): array
     {
         return DirScanner::create()->setFollowLinks($followSymlinks)->scanDir($dir, function ($path, $rPath, $level, &$skipDir) use ($relativePath, $recursive, $ignoreNames, $ignorePaths, $ignoreHidden) {
             if (0 === $level || true === $recursive) {
                 $baseName = basename($rPath);
 
-                if (true === $ignoreHidden && 0 === strpos($baseName, '.')) {
-                    $skipDir = true;
-                    return null;
+                if ($ignoreHidden > 0 && 0 === strpos($baseName, '.')) {
+                    if (
+                        is_dir($path) ||
+                        (is_file($path) && 2 === $ignoreHidden)
+                    ) {
+                        $skipDir = true;
+                        return null;
+                    }
                 }
 
 
@@ -264,22 +309,31 @@ class YorgDirScannerTool
      * Whether to return absolute paths (by default), or relative paths.
      * @param bool $followSymlinks = false
      *
-     * @param bool $ignoreHidden = true
-     * Whether to ignore files/directories which name starts with a dot (.).
+     * @param int $ignoreHidden = 1
+     * Do we ignore entries starting with a dot (.)?
+     * - 0: do not ignore hidden entries
+     * - 1: ignore hidden directories
+     * - 2: ignore hidden directories and files
+     *
      * If a directory is ignored, its content is ignored recursively.
      *
      * @return array
      */
-    public static function getFilesWithPrefix(string $dir, string $prefix, bool $recursive = false, bool $relativePath = false, bool $followSymlinks = false, bool $ignoreHidden = true): array
+    public static function getFilesWithPrefix(string $dir, string $prefix, bool $recursive = false, bool $relativePath = false, bool $followSymlinks = false, int $ignoreHidden = 1): array
     {
         return DirScanner::create()->setFollowLinks($followSymlinks)->scanDir($dir, function ($path, $rPath, $level, &$skipDir) use ($prefix, $relativePath, $recursive, $ignoreHidden) {
             if (0 === $level || true === $recursive) {
 
 
                 $baseName = basename($rPath);
-                if (true === $ignoreHidden && 0 === strpos($baseName, '.')) {
-                    $skipDir = true;
-                    return null;
+                if ($ignoreHidden > 0 && 0 === strpos($baseName, '.')) {
+                    if (
+                        is_dir($path) ||
+                        (is_file($path) && 2 === $ignoreHidden)
+                    ) {
+                        $skipDir = true;
+                        return null;
+                    }
                 }
 
 
@@ -316,14 +370,19 @@ class YorgDirScannerTool
      *
      * @param bool $followSymlinks = false
      *
-     * @param bool $ignoreHidden = true
-     * Whether to ignore files/directories which name starts with a dot (.).
+     * @param int $ignoreHidden = 1
+     * Do we ignore entries starting with a dot (.)?
+     * - 0: do not ignore hidden entries
+     * - 1: ignore hidden directories
+     * - 2: ignore hidden directories and files
+     *
      * If a directory is ignored, its content is ignored recursively.
+     *
      * @return array
      *
      */
     public static function getFilesWithExtension(string $dir, $extension = null, bool $extensionCaseSensitive = false, bool $recursive = false,
-                                                 bool $relativePath = false, bool $followSymlinks = false, bool $ignoreHidden = true): array
+                                                 bool $relativePath = false, bool $followSymlinks = false, int $ignoreHidden = 1): array
     {
         if (is_string($extension)) {
             $extension = [$extension];
@@ -332,9 +391,14 @@ class YorgDirScannerTool
             if (0 === $level || true === $recursive) {
 
                 $fileName = basename($rPath);
-                if (true === $ignoreHidden && 0 === strpos($fileName, '.')) {
-                    $skipDir = true;
-                    return null;
+                if ($ignoreHidden > 0 && 0 === strpos($fileName, '.')) {
+                    if (
+                        is_dir($path) ||
+                        (is_file($path) && 2 === $ignoreHidden)
+                    ) {
+                        $skipDir = true;
+                        return null;
+                    }
                 }
 
 

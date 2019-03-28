@@ -29,7 +29,7 @@ class <span class="pl-k">HelpCommand</span> extends [UniToolGenericCommand](http
     - protected [Ling\Uni2\Application\UniToolApplication](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Application/UniToolApplication.md) [UniToolGenericCommand::$application](#property-application) ;
 
 - Methods
-    - public [run](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Command/HelpCommand/run.md)(Ling\CliTools\Input\InputInterface $input, Ling\CliTools\Output\OutputInterface $output) : void
+    - public [run](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Command/HelpCommand/run.md)(Ling\CliTools\Input\InputInterface $input, Ling\CliTools\Output\OutputInterface $output) : int
     - private [n](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Command/HelpCommand/n.md)(string $commandName) : string
     - private [o](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Command/HelpCommand/o.md)(string $option) : string
     - private [d](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Command/HelpCommand/d.md)(string $option) : string

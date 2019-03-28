@@ -60,11 +60,16 @@ class ZipTool
      * @param $target =null
      *
      * @return bool
+     * @throws BatException
      */
     public static function unzip($zipFile, $target = null)
     {
-        if (!extension_loaded('zip') || !file_exists($zipFile)) {
-            return false;
+        if (false === extension_loaded('zip')) {
+            throw new BatException("Extension not loaded: zip");
+        }
+
+        if (false === file_exists($zipFile)) {
+            throw new BatException("File doesn't exist: $zipFile");
         }
 
         if (null === $target) {
@@ -89,6 +94,8 @@ class ZipTool
      * Source can be either a simple file or a directory (in which case all it will be added recursively to the zip file).
      * Note: this method creates the necessary subdirectories for the zip file if necessary.
      *
+     *
+     * If the zip file already exists, it will be overwritten.
      *
      *
      * Source:
@@ -131,6 +138,9 @@ class ZipTool
         $ignorePath = $options['ignorePath'] ?? [];
 
 
+
+
+
         $dir = dirname($zipFileName);
         FileSystemTool::mkdir($dir);
 
@@ -167,9 +177,13 @@ class ZipTool
     }
 
 
+
+
     /**
      * Creates a zip archive based on the given relative paths,
      * and returns whether the operation was a success.
+     *
+     * If the file exists, it will be overwritten.
      *
      *
      *
@@ -195,6 +209,7 @@ class ZipTool
      * @return bool
      * @throws BatException
      */
+
     public static function zipByPaths(string $dstZipFile, string $rootDir, array $relativePaths, array &$errors = [], array &$failed = []): bool
     {
 
@@ -204,6 +219,12 @@ class ZipTool
 
 
         $zip = new \ZipArchive();
+
+
+        FileSystemTool::remove($dstZipFile);
+
+
+
         $res = $zip->open($dstZipFile, \ZipArchive::CREATE);
         if (true === $res) {
             foreach ($relativePaths as $rpath) {

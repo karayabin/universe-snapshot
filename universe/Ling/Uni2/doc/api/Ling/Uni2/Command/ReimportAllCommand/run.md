@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [ReimportAllCommand::run](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Command/ReimportAllCommand/run.md)(Ling\CliTools\Input\InputInterface $input, Ling\CliTools\Output\OutputInterface $output) : void
+public [ReimportAllCommand::run](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Command/ReimportAllCommand/run.md)(Ling\CliTools\Input\InputInterface $input, Ling\CliTools\Output\OutputInterface $output) : int
 
 
 
@@ -48,8 +48,9 @@ Parameters
 Return values
 ================
 
-Returns void.
-
+Returns int.
+The exit status.
+If null, 0 should be assumed.
 
 
 

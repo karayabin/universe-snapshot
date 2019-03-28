@@ -76,6 +76,21 @@ abstract class AbstractProgram implements ProgramInterface
 
 
     /**
+     * This property holds the useExitStatus for this instance.
+     *
+     * If true, the run command will call the php exit function with the exit code returned by the runProgram method,
+     * or 1 if an error occurred (an exception was thrown).
+     * If false, the exit function will not be called.
+     *
+     *
+     *
+     *
+     * @var bool = false
+     */
+    protected $useExitStatus;
+
+
+    /**
      * Builds the AbstractProgram instance.
      */
     public function __construct()
@@ -83,6 +98,7 @@ abstract class AbstractProgram implements ProgramInterface
         $this->logger = null;
         $this->loggerChannel = "error";
         $this->errorIsVerbose = false;
+        $this->useExitStatus = false;
     }
 
     /**
@@ -115,6 +131,16 @@ abstract class AbstractProgram implements ProgramInterface
         $this->errorIsVerbose = $errorIsVerbose;
     }
 
+    /**
+     * Sets the useExitStatus.
+     *
+     * @param bool $useExitStatus
+     */
+    public function setUseExitStatus(bool $useExitStatus)
+    {
+        $this->useExitStatus = $useExitStatus;
+    }
+
 
     /**
      * @implementation
@@ -123,10 +149,11 @@ abstract class AbstractProgram implements ProgramInterface
     {
         try {
 
-            $this->runProgram($input, $output);
+            $exitCode = $this->runProgram($input, $output);
 
         } catch (\Exception $e) {
 
+            $exitCode = 1;
             if (true === $this->errorIsVerbose) {
                 $errMsg = (string)$e;
             } else {
@@ -139,17 +166,26 @@ abstract class AbstractProgram implements ProgramInterface
                 $this->logger->log($errMsg, $this->loggerChannel);
             }
         }
+
+
+        if (true === $this->useExitStatus) {
+            exit((int)$exitCode);
+        }
     }
 
 
     /**
-     * Runs the program.
+     * Runs the program, and returns the exit status.
+     *
      *
      * @param InputInterface $input
      * @param OutputInterface $output
      *
      * @overrideMe
-     * @return void
+     *
+     * @return int|null
+     * The exit status.
+     * If null is returned, 0 should be assumed.
      */
     abstract protected function runProgram(InputInterface $input, OutputInterface $output);
 

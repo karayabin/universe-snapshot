@@ -7,7 +7,6 @@ namespace Ling\Deploy\Application;
 use Ling\BabyYaml\BabyYamlUtil;
 use Ling\Bat\BDotTool;
 use Ling\CliTools\Command\CommandInterface;
-use Ling\CliTools\Helper\VirginiaMessageHelper as H;
 use Ling\CliTools\Input\InputInterface;
 use Ling\CliTools\Output\OutputInterface;
 use Ling\CliTools\Program\Application;
@@ -22,7 +21,11 @@ use Ling\Deploy\Exception\DeployException;
  * General options (apply to all commands)
  * ------------
  *
- * - ?dir=$dir. Sets the project directory. If not set, the default is the current directory;
+ * - ?dir=$dir. Sets the project directory. If not set, the default is the current directory.
+ * - -x: if set, the x flag will tell the application to use the exit status system.
+ *          This means that after a command is executed, the exit function of php is called
+ *          with the status code returned by the command (0 by default).
+ * - ?indent=int. Sets the base indent level for the command.
  *
  *
  *
@@ -35,10 +38,10 @@ class DeployApplication extends Application
 
 
     /**
-     * This property holds the projectDirectory.
-     * @var string
+     * This property holds the identifier of the current project.
+     * @var string = null
      */
-    private $projectDirectory;
+    private $projectIdentifier;
 
     /**
      * This property holds the base indent level for this instance.
@@ -53,24 +56,35 @@ class DeployApplication extends Application
     {
         parent::__construct();
 
-        $this->projectDirectory = getcwd();
+        $this->projectIdentifier = null;
         $this->baseIndentLevel = 0;
+        $this->registerCommand("Ling\Deploy\Command\BackupDatabaseCommand", "backup-db");
+        $this->registerCommand("Ling\Deploy\Command\CleanBackupDatabaseCommand", "clean-backup-db");
+
         $this->registerCommand("Ling\Deploy\Command\ShowConfCommand", "conf");
+        $this->registerCommand("Ling\Deploy\Command\CreateDatabaseCommand", "create-db");
+
         $this->registerCommand("Ling\Deploy\Command\DiffCommand", "diff");
+        $this->registerCommand("Ling\Deploy\Command\DiffBackCommand", "diffback");
+
+        $this->registerCommand("Ling\Deploy\Command\DropDatabaseCommand", "drop-db");
+
+        $this->registerCommand("Ling\Deploy\Command\FetchCommand", "fetch");
+        $this->registerCommand("Ling\Deploy\Command\FetchBackupDatabaseCommand", "fetch-backup-db");
+
         $this->registerCommand("Ling\Deploy\Command\HelpCommand", "help");
+        $this->registerCommand("Ling\Deploy\Command\ListBackupDatabaseCommand", "list-backup-db");
         $this->registerCommand("Ling\Deploy\Command\CreateMapCommand", "map");
         $this->registerCommand("Ling\Deploy\Command\PushCommand", "push");
+        $this->registerCommand("Ling\Deploy\Command\PushBackupDatabaseCommand", "push-backup-db");
+        $this->registerCommand("Ling\Deploy\Command\RemoveFilesCommand", "remove");
 
-    }
+        $this->registerCommand("Ling\Deploy\Command\RestoreBackupDatabaseCommand", "restore-backup-db");
 
-    /**
-     * Returns the projectDirectory of this instance.
-     *
-     * @return string
-     */
-    public function getProjectDirectory(): string
-    {
-        return $this->projectDirectory;
+        $this->registerCommand("Ling\Deploy\Command\UnzipCommand", "unzip");
+        $this->registerCommand("Ling\Deploy\Command\ZipFilesCommand", "zip");
+        $this->registerCommand("Ling\Deploy\Command\ZipBackupCommand", "zip-backup");
+
     }
 
 
@@ -84,13 +98,44 @@ class DeployApplication extends Application
         return $this->baseIndentLevel;
     }
 
+    /**
+     * Returns the projectIdentifier of this instance.
+     *
+     * @return string
+     */
+    public function getProjectIdentifier(): string
+    {
+        return $this->projectIdentifier;
+    }
+
 
     /**
-     * Returns the configuration for the current project.
+     * Returns the configuration array for the current project.
      *
-     * The configuration is stored in the **.deploy/conf.byml** file at the root of the application.
-     * It it's incomplete, or if no such file exists, the default configuration will be used as a fallback.
-     * The default configuration is the following (see the documentation for more details):
+     * It is assumed that the project is defined.
+     * If not, an exception will be thrown.
+     *
+     *
+     * All projects configuration is stored in one centralized file:
+     *
+     *  ~/.deploy/deploy-conf.byml
+     *
+     *
+     * Exceptions will be thrown if this file doesn't exist.
+     * Exceptions will also be thrown if the file exist but the project identifier is not configured.
+     * Exceptions will also be thrown if the mandatory project configuration keys are not found. Those mandatory
+     * configuration keys are:
+     *
+     * - root_dir: the root path to the project application on the local machine
+     * - ssh_config_id: the ssh identifier of the **~/.ssh/config** file to use to connect through the remote project via ssh
+     * - remote_root_id: the root path to the project application on the remote machine
+     *
+     *
+     * The returned configuration array is always merged with default values, so that
+     * the maintainer of the project doesn't have to type explicitly all option key/value pairs.
+     *
+     *
+     * The default configuration for a project is the following (see the documentation for more details):
      *
      * ```txt
      * map-conf:
@@ -102,99 +147,79 @@ class DeployApplication extends Application
      *
      *
      * @return array
+     * @throws DeployException
      */
-    public function getConf(OutputInterface $output, int $indentLevel = 0)
+    public function getProjectConf()
     {
-        $confFile = $this->getConfPath();
-        $ret = [];
-        if (file_exists($confFile)) {
-            $ret = BabyYamlUtil::readFile($confFile);
-        } else {
-            if (false === $this->hasConf()) {
-                H::warning(H::i($indentLevel) . "Warning! Configuration file not found (<b>$confFile</b>). I will use default values instead." . PHP_EOL, $output);
-            }
-        }
+        if (null !== $this->projectIdentifier) {
 
-        if (false === array_key_exists('map-conf', $ret)) {
-            $ret['map-conf'] = [];
-        }
+            $conf = $this->getConf();
+            $projectConf = BDotTool::getDotValue('projects.' . $this->projectIdentifier, $conf);
+            if (null !== $projectConf) {
 
-        if (false === array_key_exists('ignoreName', $ret['map-conf'])) {
-            $ret['map-conf']['ignoreName'] = [];
-        }
-
-        if (false === array_key_exists('ignorePath', $ret['map-conf'])) {
-            $ret['map-conf']['ignorePath'] = [];
-        }
-
-        if (false === array_key_exists('ignoreHidden', $ret['map-conf'])) {
-            $ret['map-conf']['ignoreHidden'] = true;
-        }
+                if (array_key_exists('root_dir', $projectConf)) {
+                    if (array_key_exists('ssh_config_id', $projectConf)) {
+                        if (array_key_exists('remote_root_dir', $projectConf)) {
 
 
-        return $ret;
-    }
+                            if (false === array_key_exists('map-conf', $projectConf)) {
+                                $projectConf['map-conf'] = [];
+                            }
 
+                            if (false === array_key_exists('ignoreName', $projectConf['map-conf'])) {
+                                $projectConf['map-conf']['ignoreName'] = [];
+                            }
 
-    /**
-     * Returns a "valid" remote configuration array, based on the configuration file of the **site**.
-     * Returns false in case of failure (if the remote conf doesn't exist).
-     *
-     * Note: the remote conf is valid if it contains the following info:
-     *
-     * - ssh_config_id
-     * - root_dir
-     *
-     * See @page(the configuration file) for more info.
-     *
-     *
-     * @param string $remote
-     * @param OutputInterface $output
-     * @param int $indentLevel
-     * @return array|bool
-     */
-    public function getRemoteConf(string $remote, OutputInterface $output, int $indentLevel = 0)
-    {
-        $conf = $this->getConf($output, $indentLevel);
-        $remoteConf = BDotTool::getDotValue("remotes.$remote", $conf);
-        if (null !== $remoteConf) {
-            $remoteSshConfigId = $remoteConf['ssh_config_id'] ?? null;
-            $remoteRootDir = $remoteConf['root_dir'] ?? null;
-            if (null !== $remoteSshConfigId) {
-                if (null !== $remoteRootDir) {
-                    return $remoteConf;
+                            if (false === array_key_exists('ignorePath', $projectConf['map-conf'])) {
+                                $projectConf['map-conf']['ignorePath'] = [];
+                            }
+
+                            if (false === array_key_exists('ignoreHidden', $projectConf['map-conf'])) {
+                                $projectConf['map-conf']['ignoreHidden'] = true;
+                            }
+                            return $projectConf;
+                        } else {
+                            throw new DeployException("<b>remote_root_dir</b> configuration key missing for project <b>" . $this->projectIdentifier . "</b>.");
+                        }
+                    } else {
+                        throw new DeployException("<b>ssh_config_id</b> configuration key missing for project <b>" . $this->projectIdentifier . "</b>.");
+                    }
                 } else {
-                    H::error(H::i($indentLevel) . "Incomplete configuration for remote <b>$remote</b>: <b>root_dir</b> key not found. Cannot connect to ssh remote." . PHP_EOL, $output);
+                    throw new DeployException("<b>root_dir</b> configuration key missing for project <b>" . $this->projectIdentifier . "</b>.");
                 }
             } else {
-                H::error(H::i($indentLevel) . "Incomplete configuration for remote <b>$remote</b>: <b>ssh_config_id</b> key not found. Cannot connect to ssh remote." . PHP_EOL, $output);
+                throw new DeployException("Project <b>" . $this->projectIdentifier . "</b> was not defined in the configuration file.");
             }
 
         } else {
-            H::error(H::i($indentLevel) . "No configuration found for remote <b>$remote</b>." . PHP_EOL, $output);
+            throw new DeployException("The project identifier is not defined.");
         }
-        return false;
     }
 
 
     /**
-     * Returns the path to the configuration file.
+     * Returns the configuration array
+     * @return array
+     * @throws DeployException
+     */
+    public function getConf()
+    {
+        $confFile = $this->getConfPath();
+        if (file_exists($confFile)) {
+            return BabyYamlUtil::readFile($confFile);
+        } else {
+            throw new DeployException("The deploy configuration file was not found in <b>$confFile</b>.");
+        }
+    }
+
+    /**
+     * Returns the path to the @concept(configuration file).
      * @return string
      */
     public function getConfPath()
     {
-        return $this->projectDirectory . "/.deploy/conf.byml";
-    }
-
-
-    /**
-     * Returns the path to the map file for this application.
-     *
-     * @return string
-     */
-    public function getMapPath()
-    {
-        return $this->projectDirectory . "/.deploy/map.txt";
+        return "/komin/jin_site_demo/tmp/deploy.conf.byml";
+        return "~/.deploy/deploy-conf.byml";
     }
 
 
@@ -204,14 +229,20 @@ class DeployApplication extends Application
     public function run(InputInterface $input, OutputInterface $output)
     {
 
-        if (null !== ($dir = $input->getOption("dir"))) {
-            $this->projectDirectory = $dir;
+        if (null !== ($projectId = $input->getOption("p"))) {
+            $this->projectIdentifier = $projectId;
         }
 
 
         if (null !== ($indent = $input->getOption("indent"))) {
             $this->baseIndentLevel = $indent;
         }
+
+        if (true === $input->hasFlag("x")) {
+            $this->setUseExitStatus(true);
+        }
+
+
         //--------------------------------------------
         //
         //--------------------------------------------
@@ -235,16 +266,6 @@ class DeployApplication extends Application
         }
     }
 
-
-
-    //--------------------------------------------
-    //
-    //--------------------------------------------
-    protected function hasConf()
-    {
-        $confFile = $this->projectDirectory . "/.deploy/conf.byml";
-        return file_exists($confFile);
-    }
 
 }
 

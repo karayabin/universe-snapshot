@@ -80,6 +80,18 @@ Dependencies
 History Log
 ------------------
     
+- 1.164 -- 2019-03-28
+
+    - add FileTool::prepend method
+
+- 1.163 -- 2019-03-27
+
+    - fix ZipTool::zip and ZipTool::zipByPaths now overwrite the zip file if it exists (rather than appending to the existing archive)
+
+- 1.162 -- 2019-03-21
+
+    - update ZipTool::unzip method, now throws BatException if the zip archive doesn't exist
+
 - 1.161 -- 2019-03-21
 
     - add ConsoleTool::passThru method
