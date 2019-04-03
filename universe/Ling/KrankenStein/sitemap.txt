@@ -1,0 +1,7 @@
+https://github.com/lingtalfi/KrankenStein/blob/master/README.md
+https://github.com/lingtalfi/KrankenStein/blob/master/doc/api/Ling/KrankenStein/Exception/KrankenSteinException.md
+https://github.com/lingtalfi/KrankenStein/blob/master/doc/api/Ling/KrankenStein/KrankenSteinTool/executeOneShot.md
+https://github.com/lingtalfi/KrankenStein/blob/master/doc/api/Ling/KrankenStein/KrankenSteinTool/getArgsFromArgString.md
+https://github.com/lingtalfi/KrankenStein/blob/master/doc/api/Ling/KrankenStein/KrankenSteinTool/isOneShot.md
+https://github.com/lingtalfi/KrankenStein/blob/master/doc/api/Ling/KrankenStein/KrankenSteinTool.md
+https://github.com/lingtalfi/KrankenStein/blob/master/doc/api/Ling/KrankenStein.md

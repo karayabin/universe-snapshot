@@ -142,7 +142,7 @@ class ArrayExportUtil
             $file = __DIR__ . '/SymbolsManager/' . $class . '.php';
             if (file_exists($file)) {
                 require_once $file;
-                $class = 'BabyYaml\Helper\ArrayExportUtil\SymbolsManager\\' . $class;
+                $class = 'Ling\BabyYaml\Helper\ArrayExportUtil\SymbolsManager\\' . $class;
                 $this->symbolsManager = new $class();
             }
             else {

@@ -4,7 +4,7 @@
 
 The KaosGenericCommand class
 ================
-2019-03-13 --> 2019-03-18
+2019-03-13 --> 2019-04-03
 
 
 
@@ -35,7 +35,7 @@ abstract class <span class="pl-k">KaosGenericCommand</span> implements [CommandI
     - public [setApplication](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Command/KaosGenericCommand/setApplication.md)([Ling\LingTalfi\Kaos\Application\KaosApplication](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Application/KaosApplication.md) $application) : void
 
 - Inherited methods
-    - abstract public [CommandInterface::run](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Command/CommandInterface/run.md)(Ling\CliTools\Input\InputInterface $input, Ling\CliTools\Output\OutputInterface $output) : void
+    - abstract public [CommandInterface::run](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Command/CommandInterface/run.md)(Ling\CliTools\Input\InputInterface $input, Ling\CliTools\Output\OutputInterface $output) : int
 
 }
 

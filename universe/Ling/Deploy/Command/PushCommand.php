@@ -226,11 +226,14 @@ class PushCommand extends DeployGenericCommand
                 'rPathsRemove' => $rPathsRemove,
                 'removeFile' => $removeFile,
             ], $output);
+            return 0;
+
 
         } else {
             H::error(H::i($indentLevel) . "Invalid mode: <b>$invalidMode</b>." . PHP_EOL, $output);
         }
 
+        return 2;
     }
 
 

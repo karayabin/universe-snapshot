@@ -29,7 +29,7 @@ use Ling\Deploy\Helper\RemoteConfHelper;
  *      If the path is a directory, it will be zipped recursively.
  *
  * - dst=$path. The path to the zip archive to create.
- * - conf=$path. The path to a proxy conf file used temporarily on the remote.
+ * - ?conf=$path. The path to a proxy conf file used temporarily on the remote.
  *      This option is used internally and you shouldn't use it manually.
  *
  * - -r: the remote flag. If set, this command will be called on the remote (over ssh) instead of the current site.
@@ -81,7 +81,9 @@ class ZipFilesCommand extends DeployGenericCommand
                         ], $remoteSshConfigId, $appDir, $dstTmpConf, $output, $indentLevel)) {
                         H::info(H::i($indentLevel) . "Calling <b>zip</b> command on remote:" . PHP_EOL, $output);
                         $cmd = "ssh $remoteSshConfigId deploy conf=\"$dstTmpConf\" zip src=\"$src\" dst=\"$dst\" indent=" . ($indentLevel + 1);
-                        ConsoleTool::passThru($cmd);
+                        if(true===ConsoleTool::passThru($cmd)){
+                            return 0;
+                        }
                     }
 
 

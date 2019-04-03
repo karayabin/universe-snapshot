@@ -627,6 +627,10 @@ The implementation is messy and without documentation, but it works.
 History Log
 ===============
     
+- 1.2.2 -- 2019-04-02
+
+    - fix InlineArgsArrayExportUtilSymbolsManager not found
+
 - 1.2.1 -- 2019-03-19
 
     - downgrade BabyYamlUtil::writeFile method, removing void return type (php7.1) so that it's compliant with php 7.0

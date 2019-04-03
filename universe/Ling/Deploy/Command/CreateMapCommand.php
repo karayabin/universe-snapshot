@@ -9,8 +9,8 @@ use Ling\Bat\FileSystemTool;
 use Ling\CliTools\Helper\VirginiaMessageHelper as H;
 use Ling\CliTools\Input\InputInterface;
 use Ling\CliTools\Output\OutputInterface;
+use Ling\Deploy\Helper\MapHelper;
 use Ling\Deploy\Helper\RemoteConfHelper;
-use Ling\DirScanner\YorgDirScannerTool;
 
 /**
  * The CreateMapCommand class.
@@ -76,7 +76,9 @@ class CreateMapCommand extends DeployGenericCommand
 
                 $sDisplay = (true === $displayOnScreen) ? '-d' : '';
                 $mapCmd = "ssh $remoteSshConfigId deploy -x map $sDisplay conf=\"$dstTmpConf\" indent=" . ($indentLevel + 1);
-                ConsoleTool::passThru($mapCmd);
+                if (true === ConsoleTool::passThru($mapCmd)) {
+                    return 0;
+                }
             }
 
 
@@ -101,7 +103,7 @@ class CreateMapCommand extends DeployGenericCommand
             if (file_exists($applicationDir)) {
 
 
-                $files = $this->collectFiles($applicationDir, $mapConf);
+                $files = MapHelper::collectFiles($applicationDir, $mapConf);
 
 
                 $heavyExtensions = ["mp4"];
@@ -144,20 +146,5 @@ class CreateMapCommand extends DeployGenericCommand
         return 10;
     }
 
-
-
-    //--------------------------------------------
-    //
-    //--------------------------------------------
-    protected function collectFiles(string $applicationDir, array $mapConf)
-    {
-        $ignoreHidden = $mapConf['ignoreHidden'];
-        $ignoreName = $mapConf['ignoreName'];
-        $ignorePath = $mapConf['ignorePath'];
-        $ignore[] = ".deploy";
-
-        $files = YorgDirScannerTool::getFilesIgnoreMore($applicationDir, $ignoreName, $ignorePath, true, true, false, $ignoreHidden);
-        return $files;
-    }
 
 }

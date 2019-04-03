@@ -59,7 +59,9 @@ class DeployApplication extends Application
         $this->projectIdentifier = null;
         $this->baseIndentLevel = 0;
         $this->registerCommand("Ling\Deploy\Command\BackupDatabaseCommand", "backup-db");
+        $this->registerCommand("Ling\Deploy\Command\BackupFilesCommand", "backup-files");
         $this->registerCommand("Ling\Deploy\Command\CleanBackupDatabaseCommand", "clean-backup-db");
+        $this->registerCommand("Ling\Deploy\Command\CleanBackupFilesCommand", "clean-backup-files");
 
         $this->registerCommand("Ling\Deploy\Command\ShowConfCommand", "conf");
         $this->registerCommand("Ling\Deploy\Command\CreateDatabaseCommand", "create-db");
@@ -70,20 +72,31 @@ class DeployApplication extends Application
         $this->registerCommand("Ling\Deploy\Command\DropDatabaseCommand", "drop-db");
 
         $this->registerCommand("Ling\Deploy\Command\FetchCommand", "fetch");
+        $this->registerCommand("Ling\Deploy\Command\FetchDatabaseCommand", "fetch-db");
+        $this->registerCommand("Ling\Deploy\Command\FetchCommand", "fetch-files");
         $this->registerCommand("Ling\Deploy\Command\FetchBackupDatabaseCommand", "fetch-backup-db");
+        $this->registerCommand("Ling\Deploy\Command\FetchBackupFilesCommand", "fetch-backup-files");
 
         $this->registerCommand("Ling\Deploy\Command\HelpCommand", "help");
         $this->registerCommand("Ling\Deploy\Command\ListBackupDatabaseCommand", "list-backup-db");
+        $this->registerCommand("Ling\Deploy\Command\ListBackupFilesCommand", "list-backup-files");
         $this->registerCommand("Ling\Deploy\Command\CreateMapCommand", "map");
         $this->registerCommand("Ling\Deploy\Command\PushCommand", "push");
         $this->registerCommand("Ling\Deploy\Command\PushBackupDatabaseCommand", "push-backup-db");
+        $this->registerCommand("Ling\Deploy\Command\PushBackupFilesCommand", "push-backup-files");
+        $this->registerCommand("Ling\Deploy\Command\PushDatabaseCommand", "push-db");
+        $this->registerCommand("Ling\Deploy\Command\PushCommand", "push-files");
         $this->registerCommand("Ling\Deploy\Command\RemoveFilesCommand", "remove");
+        $this->registerCommand("Ling\Deploy\Command\RemoveFilesByNameCommand", "remove-files-by-name");
 
         $this->registerCommand("Ling\Deploy\Command\RestoreBackupDatabaseCommand", "restore-backup-db");
+        $this->registerCommand("Ling\Deploy\Command\RestoreBackupFilesCommand", "restore-backup-files");
 
         $this->registerCommand("Ling\Deploy\Command\UnzipCommand", "unzip");
         $this->registerCommand("Ling\Deploy\Command\ZipFilesCommand", "zip");
         $this->registerCommand("Ling\Deploy\Command\ZipBackupCommand", "zip-backup");
+        $this->registerCommand("Ling\Deploy\Command\ZipBackupDatabaseCommand", "zip-backup-db");
+        $this->registerCommand("Ling\Deploy\Command\ZipBackupFilesCommand", "zip-backup-files");
 
     }
 
@@ -219,7 +232,7 @@ class DeployApplication extends Application
     public function getConfPath()
     {
         return "/komin/jin_site_demo/tmp/deploy.conf.byml";
-        return "~/.deploy/deploy-conf.byml";
+        return "~/.deploy/deploy.conf.byml";
     }
 
 
@@ -228,6 +241,10 @@ class DeployApplication extends Application
      */
     public function run(InputInterface $input, OutputInterface $output)
     {
+
+        $conf = $this->getConf();
+        $dateTimeZone = BDotTool::getDotValue("settings.date_time_zone", $conf, "Europe/Paris");
+        date_default_timezone_set($dateTimeZone);
 
         if (null !== ($projectId = $input->getOption("p"))) {
             $this->projectIdentifier = $projectId;

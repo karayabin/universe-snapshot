@@ -5,9 +5,11 @@ namespace Ling\LingTalfi\Kaos\Command;
 
 
 use Ling\Bat\FileSystemTool;
+use Ling\Bat\StringTool;
 use Ling\CliTools\Helper\VirginiaMessageHelper as H;
 use Ling\CliTools\Input\InputInterface;
 use Ling\CliTools\Output\OutputInterface;
+use Ling\DirScanner\YorgDirScannerTool;
 use Ling\LingTalfi\Kaos\Util\ReadmeUtil;
 use Ling\UniverseTools\PlanetTool;
 
@@ -90,10 +92,95 @@ class InitializePlanetCommand extends KaosGenericCommand
                 H::info(H::i($indentLevel + 1) . "Creating <b>README.md</b> file...", $output);
                 $readMeUtil = new ReadmeUtil();
 
+
+                if ('Ling' === $galaxyName) {
+
+                    $repoUrl = "https://github.com/lingtalfi";
+
+                    //--------------------------------------------
+                    // add docTools pages in the summary
+                    //--------------------------------------------
+                    $summaryLinks = "";
+
+
+                    $pagesDir = $dstDir . "/personal/mydoc/pages";
+                    if (is_dir($pagesDir)) {
+                        $s = '';
+                        $pageFiles = YorgDirScannerTool::getFilesWithExtension($pagesDir, "md", false, true, true);
+                        if ($pageFiles) {
+                            $s .= "- Pages" . PHP_EOL;
+                            foreach ($pageFiles as $relPath) {
+                                $text = StringTool::humanizeFileName(basename($relPath), true);
+                                $url = "$repoUrl/$planetName/blob/master/doc/pages/$relPath";
+                                $s .= "    - [$text]($url)" . PHP_EOL;
+                            }
+                        }
+                        $summaryLinks = $s;
+                    }
+
+
+                    //--------------------------------------------
+                    // Adding docTools examples into the summary
+                    //--------------------------------------------
+                    $insertDir = $dstDir . "/personal/mydoc/inserts/$galaxyName/$planetName";
+                    if (is_dir($insertDir)) {
+
+                        $allInserts = YorgDirScannerTool::getFilesWithExtension($insertDir, "md", false, true, true);
+                        $allInserts = array_filter($allInserts, function ($rpath) {
+                            return ('examples' === basename(dirname($rpath)));
+                        });
+
+                        // group by dirnames
+                        $groups = [];
+                        foreach ($allInserts as $rpath) {
+                            $stripped = str_replace('/examples/', '/', $rpath);
+                            $dir = dirname($stripped);
+                            $file = basename($stripped);
+
+                            $p = explode('/', $dir);
+                            $last = $p[count($p) - 1];
+                            if (ctype_lower(substr($last, 0, 1))) {
+                                $method = array_pop($p);
+                                $dir = implode('\\', $p) . ".$method";
+                            } else {
+                                $dir = implode('\\', $p);
+                            }
+                            $dir = $planetName . "\\" . $dir;
+                            if (false === array_key_exists($dir, $groups)) {
+                                $groups[$dir] = [];
+                            }
+                            $groups[$dir][] = [$file, $rpath];
+                        }
+                        if ($groups) {
+
+                            $s = "- Examples" . PHP_EOL;
+                            foreach ($groups as $groupName => $fileInfos) {
+                                $s .= "    - $groupName" . PHP_EOL;
+                                foreach ($fileInfos as $fileInfo) {
+                                    list($fileName, $relPath) = $fileInfo;
+
+                                    if (preg_match('!^([0-9]+)\.(.*)!', $fileName, $match)) {
+                                        $text = $match[1] . "." . " " . StringTool::humanizeFileName($match[2], true);
+                                    } else {
+                                        $text = StringTool::humanizeFileName($fileName, true);
+                                    }
+
+
+                                    $url = "$repoUrl/$planetName/blob/master/doc/inserts/$galaxyName/$planetName/$relPath";
+                                    $s .= "        - [$text]($url)" . PHP_EOL;
+                                }
+                            }
+                            $summaryLinks .= $s;
+                        }
+                    }
+                }
+
+
                 if (true === $readMeUtil->createBasicReadmeFile($readMeDst, [
                         "galaxy" => $galaxyName,
                         "planet" => $planetName,
                         "date" => date("Y-m-d"),
+                        "summaryLinks" => $summaryLinks,
                     ])) {
 
                     $output->write('<success>ok</success>' . PHP_EOL);

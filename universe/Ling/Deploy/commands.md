@@ -2,30 +2,55 @@ Centralized manager to deploy your web apps on remote machines.
 
 
 
-map
-    Creates the map for the files of the site.
-    The map is the list of the files (not including directories) in the application, along with their hash id.
-    See hash id definition for more details.
-    The symlinks are not followed (for the sake of simplicity).
-    Also, the .deploy directory is always ignored (it's a reserved directory name for the deploy system).
 
 
 
 
-diff remote=$remote
-    Internal command to show the differences between the **site** map and the **remote** map.
-    Those maps are created on the fly.
+
+
+    /**
+     * TODO HERE,
+     * then do
+     *
+     *      backup-db ?name=structure1 ?-r
+     *      fetch-backup-db ?name=_last
+     *      push-backup-db ?name=_last
+     *      restore-backup-db ?name=_last ?-r
+     *
+     *      fetch-db: combines
+     *          - backup-db -r: save the remote db, default name=_last
+     *          - fetch-backup-db:  repatriate the distant db backup to the local machine, default name=_last
+     *          - restore-backup-db: remove the local db and replace it with the backup, default name=_last
+     *
+     *      push-db: same
+     *
+     *
+     * Then do backups (same as backup-db...)
+     *
+     *      backup-files
+     *      fetch-backup-files
+     *      push-backup-files
+     *      restore-backup-files
+     *
+     *
+     * Then do backups (combining backup-db + backup-files)
+     *
+     * Then do solution for cron calls on remote:
+     *      - create-cron-deploy ?
+     *              remote/.deploy/cron-deploy.sh
+     *              remote/.deploy/cron-deploy-universe
+     *              remote/.deploy/cron-deploy-conf.byml
+     *
+     * Then do interactive console
+     *
+     *
+     *
+     * Then do video...
+     *
+     */
 
 
 
-push/fetch
-
-
-push (remote=$remote)?
-    Updates the **remote** application so that it looks like the **site** application.
-    It uses the **diff** command under the hood.
-    The ignore and ignoreHidden keys of the map-conf of the site will be used to define which files
-    will be sent over to the remote.
 
 
 
@@ -69,7 +94,6 @@ Structure
 --------- backup-all/               # contains the backup files created by the backup-all command
 --------- backup-db/                # contains the backup files created by the backup-db command
 --------- map.txt                   # contains the files map created by the map command
---------- conf.byml                 # the configuration file
 --------- diff-add.txt              # created temporarily by the diff command with flag -f. Usually removed by another command.
 --------- diff-remove.txt           # created temporarily by the diff command with flag -f. Usually removed by another command.
 --------- diff-replace.txt          # created temporarily by the diff command with flag -f. Usually removed by another command.
@@ -80,6 +104,7 @@ Structure
 --------- tmp-conf.byml             # temporary conf created by some commands. Usually, it's removed after usage.
 --------- tmp-conf.cnf              # temporary conf created by some commands. Usually, it's removed after usage.
 --------- backup-db.zip             # temporary archive created by the **fetch-backup-db** command.
+--------- tmp-list.txt              # temporary file created by the some commands.
 ----- ...application files
 ````
 
@@ -123,6 +148,7 @@ databases:
         name: test
         pass: blabla
         file: basic.sql
+        collate: utf8mb4_general_ci
     test-mini:
         name: test
         pass: blabla2

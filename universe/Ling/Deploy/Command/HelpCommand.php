@@ -65,13 +65,32 @@ class HelpCommand extends DeployGenericCommand
             $output->write(str_repeat('-', 17) . PHP_EOL);
             $output->write(PHP_EOL);
 
-            foreach ($this->callbacks as $callback) {
+            $callbacks = $this->getCallbacks();
+            foreach ($callbacks as $callback) {
+                call_user_func($callback);
+            }
+
+
+            $output->write(PHP_EOL);
+            $output->write("<bold>Tools list</bold>:" . PHP_EOL);
+            $output->write(str_repeat('-', 17) . PHP_EOL);
+            $output->write(PHP_EOL);
+
+            $callbacks = $this->getCallbacks('tools');
+            foreach ($callbacks as $callback) {
                 call_user_func($callback);
             }
         } else {
-            if (array_key_exists($command, $this->callbacks)) {
-                call_user_func($this->callbacks[$command]);
-            } else {
+
+            $found = false;
+            foreach ($this->callbacks as $id => $callbacks) {
+                if (array_key_exists($command, $callbacks)) {
+                    $found = true;
+                    call_user_func($callbacks[$command]);
+                }
+            }
+
+            if (false === $found) {
                 H::error(H::i($indentLevel) . "The command <b>$command</b> doesn't exist." . PHP_EOL, $output);
             }
         }
@@ -85,14 +104,34 @@ class HelpCommand extends DeployGenericCommand
     //
     //--------------------------------------------
     /**
+     * Returns the callbacks of the given $identifier group.
+     *
+     * @param string|null $identifier
+     * @return mixed
+     */
+    protected function getCallbacks(string $identifier = null)
+    {
+        if (null === $identifier) {
+            $identifier = '_default';
+        }
+        return $this->callbacks[$identifier];
+    }
+
+
+    /**
      * Registers the callback for the given command name.
      *
      * @param string $commandName
      * @param callable $function
+     * @param string|null $identifier
+     * An identifier to organize callbacks by groups.
      */
-    protected function registerCallback(string $commandName, callable $function)
+    protected function registerCallback(string $commandName, callable $function, string $identifier = null)
     {
-        $this->callbacks[$commandName] = $function;
+        if (null === $identifier) {
+            $identifier = '_default';
+        }
+        $this->callbacks[$identifier][$commandName] = $function;
     }
 
     /**
@@ -104,7 +143,9 @@ class HelpCommand extends DeployGenericCommand
     {
 
         $backupDb = $this->n('backup-db');
+        $backupFiles = $this->n('backup-files');
         $cleanBackupDb = $this->n('clean-backup-db');
+        $cleanBackupFiles = $this->n('clean-backup-files');
         $conf = $this->n('conf');
         $createDb = $this->n('create-db');
         $diff = $this->n('diff');
@@ -112,15 +153,27 @@ class HelpCommand extends DeployGenericCommand
         $dropDb = $this->n('drop-db');
         $fetch = $this->n('fetch');
         $fetchBackupDb = $this->n('fetch-backup-db');
+        $fetchBackupFiles = $this->n('fetch-backup-files');
+        $fetchDb = $this->n('fetch-db');
+        $fetchFiles = $this->n('fetch-files');
         $help = $this->n('help');
         $listBackupDb = $this->n('list-backup-db');
+        $listBackupFiles = $this->n('list-backup-files');
         $map = $this->n('map');
         $push = $this->n('push');
         $pushBackupDb = $this->n('push-backup-db');
+        $pushBackupFiles = $this->n('push-backup-files');
+        $pushDb = $this->n('push-db');
+        $pushFiles = $this->n('push-files');
         $remove = $this->n('remove');
+        $removeFilesByName = $this->n('remove-files-by-name');
+        $restoreBackupDb = $this->n('restore-backup-db');
+        $restoreBackupFiles = $this->n('restore-backup-files');
         $unzip = $this->n('unzip');
         $zip = $this->n('zip');
         $zipBackup = $this->n('zip-backup');
+        $zipBackupDb = $this->n('zip-backup-db');
+        $zipBackupFiles = $this->n('zip-backup-files');
 
 
         $format = 'white:bgBlack';
@@ -152,11 +205,21 @@ class HelpCommand extends DeployGenericCommand
             $output->write("- $backupDb: creates the backup(s) for the database(s) specified in the <b>configuration file</b>." . PHP_EOL);
             $output->write(H::s(1) . "Backups are stored here: <b>\$project_root_dir/.deploy/backup-db/\$database_identifier/\$backup_name</b>." . PHP_EOL);
             $output->write(H::s(1) . "By default, it will backup every database defined for the project. This can be changed with the <b>db</b> option." . PHP_EOL);
-            $output->write(H::j(1) . $this->o("db=\$identifier") . ": the identifier of the database to backup. It can also be a comma separated list of identifiers." . PHP_EOL);
-            $output->write(H::j(1) . $this->o("name=\$backup_name") . ": sets the name of the backup. Otherwise, the default name will be based on the datetime (i.e. 2019-03-26__08-49-17.sql)." . PHP_EOL);
+            $output->write(H::j(1) . $this->o("?db=\$identifier") . ": the identifier of the database to backup. It can also be a comma separated list of identifiers." . PHP_EOL);
+            $output->write(H::j(1) . $this->o("?name=\$backup_name") . ": sets the name of the backup. Otherwise, the default name will be based on the datetime (i.e. 2019-03-26__08-49-17.sql)." . PHP_EOL);
             $output->write(H::s(2) . "The <b>.sql</b> extension will be appended automatically if not specified." . PHP_EOL);
             $output->write(H::j(1) . $this->o("-r") . ": remote flag. If set, the command will operate on the remote rather than on the site." . PHP_EOL);
             $output->write(H::j(1) . $this->o("-s") . ": secure flag. If set, forces the command to prompt you with the database(s) password(s). Otherwise, a technique involving temporary files and the mysqldump --defaults-extra-file option is used." . PHP_EOL);
+            $output->write(H::j(1) . $this->o("-o") . ": open flag. If set, and if you are on a mac, will open the backup directory(ies) in the Finder after they are created." . PHP_EOL);
+        });
+
+
+        $this->registerCallback('backup-files', function () use ($backupFiles, $output) {
+            $output->write("- $backupFiles: creates a backup of the files of the application." . PHP_EOL);
+            $output->write(H::s(1) . "Backups are stored here: <b>\$project_root_dir/.deploy/backup-files/\$backup_name</b>." . PHP_EOL);
+            $output->write(H::j(1) . $this->o("?name=\$backup_name") . ": sets the name of the backup. Otherwise, the default name will be based on the datetime (i.e. 2019-03-26__08-49-17.zip)." . PHP_EOL);
+            $output->write(H::s(2) . "The <b>.zip</b> extension will be appended automatically if not specified." . PHP_EOL);
+            $output->write(H::j(1) . $this->o("-r") . ": remote flag. If set, the command will operate on the remote rather than on the site." . PHP_EOL);
             $output->write(H::j(1) . $this->o("-o") . ": open flag. If set, and if you are on a mac, will open the backup directory(ies) in the Finder after they are created." . PHP_EOL);
         });
 
@@ -165,9 +228,19 @@ class HelpCommand extends DeployGenericCommand
             $output->write("- $cleanBackupDb: deletes database backups of the project." . PHP_EOL);
             $output->write(H::j(1) . $this->o("-r") . ": remote flag. If set, the command will operate on the remote rather than on the site." . PHP_EOL);
             $output->write(H::j(1) . $this->o("-d") . ": delete flag. If set, remove ALL the database backups. This flag has precedence over any other options." . PHP_EOL);
-            $output->write(H::j(1) . $this->o("db=\$identifiers") . ": comma separated list of database identifiers. It represents the database identifiers to operate on." . PHP_EOL);
-            $output->write(H::j(1) . $this->o("keep=\$number") . ": defines the number of non-named database backups to keep (all other older non-named backups will be removed)." . PHP_EOL);
-            $output->write(H::j(1) . $this->o("name=\$names") . ": the comma separated list of backup names to delete. Note: the \".sql\" extension is appended automatically if omitted." . PHP_EOL);
+            $output->write(H::j(1) . $this->o("?db=\$identifiers") . ": comma separated list of database identifiers. It represents the database identifiers to operate on." . PHP_EOL);
+            $output->write(H::j(1) . $this->o("?keep=\$number") . ": defines the number of non-named database backups to keep (all other older non-named backups will be removed)." . PHP_EOL);
+            $output->write(H::j(1) . $this->o("?names=\$names") . ": the comma separated list of backup names to delete. Note: the \".sql\" extension is appended automatically if omitted." . PHP_EOL);
+            $output->write(H::s(2) . "Spaces between the comma an the names are allowed." . PHP_EOL);
+        });
+
+
+        $this->registerCallback('clean-backup-files', function () use ($cleanBackupFiles, $output) {
+            $output->write("- $cleanBackupFiles: deletes files backups of the project." . PHP_EOL);
+            $output->write(H::j(1) . $this->o("-r") . ": remote flag. If set, the command will operate on the remote rather than on the site." . PHP_EOL);
+            $output->write(H::j(1) . $this->o("-d") . ": delete flag. If set, remove ALL the files backups. This flag has precedence over any other options." . PHP_EOL);
+            $output->write(H::j(1) . $this->o("?keep=\$number") . ": defines the number of non-named files backups to keep (all other older non-named backups will be removed)." . PHP_EOL);
+            $output->write(H::j(1) . $this->o("?names=\$names") . ": the comma separated list of backup names to delete. Note: the \".zip\" extension is appended automatically if omitted." . PHP_EOL);
             $output->write(H::s(2) . "Spaces between the comma an the names are allowed." . PHP_EOL);
         });
 
@@ -181,7 +254,7 @@ class HelpCommand extends DeployGenericCommand
             $output->write("- $createDb: creates database(s) along with their user(s), as specified in the <b>configuration file</b>." . PHP_EOL);
             $output->write(H::s(1) . "By default, all databases listed in the configuration are created." . PHP_EOL);
             $output->write(H::s(1) . "To create a single database, or a selected set of specified databases, use the <b>db</b> option." . PHP_EOL);
-            $output->write(H::j(1) . $this->o("db=\$identifier") . ": the identifier of the database to create. It can also be a comma separated list of identifiers." . PHP_EOL);
+            $output->write(H::j(1) . $this->o("?db=\$identifier") . ": the identifier of the database to create. It can also be a comma separated list of identifiers." . PHP_EOL);
             $output->write(H::s(2) . "Note: the identifier refers to a key in the <b>databases</b> section of the <b>configuration file</b>." . PHP_EOL);
             $output->write(H::j(1) . $this->o("-r") . ": remote flag. If set, the command will operate on the remote rather than on the site." . PHP_EOL);
             $output->write(H::j(1) . $this->o("-f") . ": force flag. If set, forces the recreation of the database(s) and user(s) by deleting them before re-creating them." . PHP_EOL);
@@ -206,7 +279,7 @@ class HelpCommand extends DeployGenericCommand
 
         $this->registerCallback('drop-db', function () use ($dropDb, $output) {
             $output->write("- $dropDb: drops the database(s) of the project." . PHP_EOL);
-            $output->write(H::j(1) . $this->o("db=\$identifier") . ": the identifier of the database to drop. It can also be a comma separated list of identifiers." . PHP_EOL);
+            $output->write(H::j(1) . $this->o("?db=\$identifier") . ": the identifier of the database to drop. It can also be a comma separated list of identifiers." . PHP_EOL);
             $output->write(H::s(2) . "Note: the identifier refers to a key in the <b>databases</b> section of the <b>configuration file</b>." . PHP_EOL);
             $output->write(H::j(1) . $this->o("-r") . ": remote flag. If set, the command will operate on the remote rather than on the site." . PHP_EOL);
             $output->write(H::j(1) . $this->o("-u") . ": user flag. If set, the command will also drop the user." . PHP_EOL);
@@ -214,18 +287,39 @@ class HelpCommand extends DeployGenericCommand
         });
 
 
-        $this->registerCallback('fetch', function () use ($fetch, $output) {
-            $output->write("- $fetch: same as the <b>push</b> command, but in the opposite direction (i.e. the <b>site</b> is mirrored using the <b>remote</b> as the model." . PHP_EOL);
+        $this->registerCallback('fetch', function () use ($fetch, $fetchFiles, $output) {
+            $output->write("- $fetch: an alias of the <b>$fetchFiles</b> command." . PHP_EOL);
         });
 
 
         $this->registerCallback('fetch-backup-db', function () use ($fetchBackupDb, $output) {
             $output->write("- $fetchBackupDb: repatriates database backups from the remote to the local project." . PHP_EOL);
             $output->write(H::s(1) . "By default, it repatriates every single database backup." . PHP_EOL);
-            $output->write(H::j(1) . $this->o('?name=$names') . ": the comma separated list of backup names to repatriate." . PHP_EOL);
+            $output->write(H::j(1) . $this->o('?names=$names') . ": the comma separated list of backup names to repatriate." . PHP_EOL);
             $output->write(H::s(2) . "Note: the <b>.sql</b> extension is appended automatically if omitted." . PHP_EOL);
         });
 
+
+        $this->registerCallback('fetch-backup-files', function () use ($fetchBackupFiles, $output) {
+            $output->write("- $fetchBackupFiles: repatriates files backups from the remote to the local project." . PHP_EOL);
+            $output->write(H::s(1) . "By default, it repatriates all files backups." . PHP_EOL);
+            $output->write(H::j(1) . $this->o('?names=$names') . ": the comma separated list of backup names to repatriate." . PHP_EOL);
+            $output->write(H::s(2) . "Note: the <b>.zip</b> extension is appended automatically if omitted." . PHP_EOL);
+        });
+
+
+        $this->registerCallback('fetch-db', function () use ($fetchDb, $output) {
+            $output->write("- $fetchDb: copies the remote database to the local machine." . PHP_EOL);
+            $output->write(H::j(1) . $this->o('?db=$identifiers') . ": the comma separated list of database identifiers to process." . PHP_EOL);
+            $output->write(H::j(1) . $this->o('-s') . ": secure flag. If set, this command will prompt the user for required database password(s)." . PHP_EOL);
+            $output->write(H::j(1) . $this->o('-k') . ": keep flag. If set, this command will not drop the database before restoring the backup." . PHP_EOL);
+        });
+
+
+
+        $this->registerCallback('fetch-files', function () use ($fetchFiles, $output) {
+            $output->write("- $fetchFiles: same as the <b>push</b> command, but in the opposite direction (i.e. the <b>site</b> is mirrored using the <b>remote</b> as the model." . PHP_EOL);
+        });
 
 
 
@@ -243,6 +337,13 @@ class HelpCommand extends DeployGenericCommand
         });
 
 
+        $this->registerCallback('list-backup-files', function () use ($listBackupFiles, $output) {
+            $output->write("- $listBackupFiles: lists the files backups of the application." . PHP_EOL);
+            $output->write(H::j(1) . $this->o("-r") . ": remote flag. If set, the command will operate on the remote rather than on the site." . PHP_EOL);
+
+        });
+
+
         $this->registerCallback('map', function () use ($map, $output) {
             $output->write("- $map: creates a map of the current application." . PHP_EOL);
             $output->write(H::s(1) . "The map will be created at <b>\$root_dir/.deploy/map.txt</b>." . PHP_EOL);
@@ -252,8 +353,43 @@ class HelpCommand extends DeployGenericCommand
         });
 
 
-        $this->registerCallback('push', function () use ($push, $output) {
-            $output->write("- $push: pushes the current <b>site</b> to the <b>remote</b>." . PHP_EOL);
+        $this->registerCallback('push', function () use ($push, $pushFiles, $output) {
+            $output->write("- $push: an alias of the <b>$pushFiles</b> command." . PHP_EOL);
+        });
+
+
+        $this->registerCallback('push-backup-db', function () use ($pushBackupDb, $output) {
+            $output->write("- $pushBackupDb: pushes database backups from the local project to the remote." . PHP_EOL);
+            $output->write(H::s(1) . "By default, it pushes every single database backup." . PHP_EOL);
+            $output->write(H::j(1) . $this->o('?names=$names') . ": the comma separated list of backup names to push." . PHP_EOL);
+            $output->write(H::s(2) . "Note: the <b>.sql</b> extension is appended automatically if omitted." . PHP_EOL);
+            $output->write(H::j(1) . $this->o('?last=$number') . ": the max number of most recent backups (per database identifier) to push." . PHP_EOL);
+            $output->write(H::s(2) . "If the <b>names</b> option is set, the <b>last</b> option will be ignored." . PHP_EOL);
+            $output->write(H::j(1) . $this->o('?db=$database_identifiers') . ": a comma separated list of database identifiers to use." . PHP_EOL);
+            $output->write(H::s(2) . "This is used as a pre-filter and is always executed before the <b>names</b> and <b>last</b> options." . PHP_EOL);
+        });
+
+
+        $this->registerCallback('push-backup-files', function () use ($pushBackupFiles, $output) {
+            $output->write("- $pushBackupFiles: pushes files backups from the local project to the remote." . PHP_EOL);
+            $output->write(H::s(1) . "By default, it pushes all files backups." . PHP_EOL);
+            $output->write(H::j(1) . $this->o('?names=$names') . ": the comma separated list of backup names to push." . PHP_EOL);
+            $output->write(H::s(2) . "Note: the <b>.zip</b> extension is appended automatically if omitted." . PHP_EOL);
+            $output->write(H::j(1) . $this->o('?last=$number') . ": the max number of most recent backups to push." . PHP_EOL);
+            $output->write(H::s(2) . "If the <b>names</b> option is set, the <b>last</b> option will be ignored." . PHP_EOL);
+        });
+
+
+        $this->registerCallback('push-db', function () use ($pushDb, $output) {
+            $output->write("- $pushDb: pushes the current database(s) from the local machine to the remote." . PHP_EOL);
+            $output->write(H::j(1) . $this->o('?db=$database_identifiers') . ": a comma separated list of database identifiers to use." . PHP_EOL);
+            $output->write(H::j(1) . $this->o('-s') . ": secure flag. If set, this command will prompt the user for required database password(s)." . PHP_EOL);
+            $output->write(H::j(1) . $this->o('-k') . ": keep flag. If set, this command will not drop the database before restoring the backup." . PHP_EOL);
+        });
+
+
+        $this->registerCallback('push-files', function () use ($pushFiles, $output) {
+            $output->write("- $pushFiles: pushes the current <b>site</b> to the <b>remote</b>." . PHP_EOL);
             $output->write(H::s(1) . "By default, it mirrors the current site to the remote (i.e. files can be removed on the remote)." . PHP_EOL);
             $output->write(H::s(1) . "More control on this behaviour gan be gained using the <b>mode</b> option." . PHP_EOL);
             $output->write(H::j(1) . $this->o("-z") . ": zip. Use a zip archive for transferring files to add. This is faster than the default one by one method." . PHP_EOL);
@@ -270,22 +406,48 @@ class HelpCommand extends DeployGenericCommand
         });
 
 
-        $this->registerCallback('push-backup-db', function () use ($pushBackupDb, $output) {
-            $output->write("- $pushBackupDb: pushes database backups from the local project to the remote." . PHP_EOL);
-            $output->write(H::s(1) . "By default, it pushes every single database backup." . PHP_EOL);
-            $output->write(H::j(1) . $this->o('?name=$names') . ": the comma separated list of backup names to push." . PHP_EOL);
-            $output->write(H::s(2) . "Note: the <b>.sql</b> extension is appended automatically if omitted." . PHP_EOL);
+        $this->registerCallback('restore-backup-db', function () use ($restoreBackupDb, $output) {
+            $output->write("- $restoreBackupDb: restores database backups." . PHP_EOL);
+            $output->write(H::s(1) . "By default, it will restore every last non-named backup found in every database identifier." . PHP_EOL);
+            $output->write(H::s(1) . "By default, this operation will drop the database before applying the backup." . PHP_EOL);
+            $output->write(H::j(1) . $this->o('?name=$name') . ": the name of the database backup to restore." . PHP_EOL);
+            $output->write(H::s(2) . "The \".sql\" extension is appended automatically if necessary." . PHP_EOL);
+            $output->write(H::j(1) . $this->o('?db=$identifiers') . ": the comma separated list of database identifiers to process." . PHP_EOL);
+            $output->write(H::j(1) . $this->o('-r') . ": remote. If set, the command will operate on the remote rather than on the site." . PHP_EOL);
+            $output->write(H::j(1) . $this->o('-s') . ": secure. If set, this command will prompt the user for required database password(s)." . PHP_EOL);
+            $output->write(H::j(1) . $this->o('-k') . ": keep. If set, this command will not drop the database before restoring the backup." . PHP_EOL);
         });
 
 
+        $this->registerCallback('restore-backup-files', function () use ($restoreBackupFiles, $output) {
+            $output->write("- $restoreBackupFiles: restores files backups." . PHP_EOL);
+            $output->write(H::s(1) . "By default, it will restore the last non-named backup found." . PHP_EOL);
+            $output->write(H::s(1) . "By default, this operation will remove the application files before extracting the backup." . PHP_EOL);
+            $output->write(H::j(1) . $this->o('?name=$name') . ": the name of the files backup to restore." . PHP_EOL);
+            $output->write(H::s(2) . "The \".zip\" extension is appended automatically if necessary." . PHP_EOL);
+            $output->write(H::j(1) . $this->o('-r') . ": remote. If set, the command will operate on the remote rather than on the site." . PHP_EOL);
+            $output->write(H::j(1) . $this->o('-k') . ": keep. If set, this command will not remove the application files before extracting the backup." . PHP_EOL);
+        });
 
+
+        //--------------------------------------------
+        // TOOLS
+        //--------------------------------------------
         $this->registerCallback('remove', function () use ($remove, $output) {
             $output->write("- $remove " . $this->o('src=$path') . ": removes files listed in a source file." . PHP_EOL);
             $output->write(H::s(1) . "The source file contains a list of relative paths to remove, one per line." . PHP_EOL);
             $output->write(H::s(1) . "The paths are relative to the current site's root dir, or, if the remote flag is set, relative to the remote's root dir." . PHP_EOL);
             $output->write(H::s(1) . "If the path is a directory, it will be ignored (design by security, to prevent removing entire directories)." . PHP_EOL);
             $output->write(H::j(1) . $this->o('-r') . ": remote. If set, the command will operate on the remote rather than on the site." . PHP_EOL);
-        });
+        }, 'tools');
+
+
+        $this->registerCallback('remove-files-by-name', function () use ($removeFilesByName, $output) {
+            $output->write("- $removeFilesByName " . $this->o('dir=$path') . " " . $this->o('names=$names') . ": removes files by name." . PHP_EOL);
+            $output->write(H::j(1) . $this->o('dir=$path') . ": the path of the root dir containing the files to remove." . PHP_EOL);
+            $output->write(H::j(1) . $this->o('names=$names') . ": the comma separated list of file names to remove." . PHP_EOL);
+            $output->write(H::j(1) . $this->o('-r') . ": remote. If set, the command will operate on the remote rather than on the site." . PHP_EOL);
+        }, 'tools');
 
 
         $this->registerCallback('unzip', function () use ($unzip, $output) {
@@ -293,7 +455,7 @@ class HelpCommand extends DeployGenericCommand
             $output->write(H::s(1) . "Note: this doesn't remove existing files." . PHP_EOL);
             $output->write(H::s(1) . "However, if a file already exists, it will be overwritten." . PHP_EOL);
             $output->write(H::j(1) . $this->o('-r') . ": the remote flag. If set, this command will be called on the remote (over ssh) instead of the current site." . PHP_EOL);
-        });
+        }, 'tools');
 
 
         $this->registerCallback('zip', function () use ($zip, $output) {
@@ -304,15 +466,38 @@ class HelpCommand extends DeployGenericCommand
             $output->write(H::s(2) . "If the path is a directory, it will be zipped recursively." . PHP_EOL);
             $output->write(H::j(1) . $this->o('dst=$path') . ": the path to the zip archive to create." . PHP_EOL);
             $output->write(H::j(1) . $this->o('-r') . ": remote flag. If set, the command will operate on the remote rather than on the site." . PHP_EOL);
-        });
+        }, 'tools');
 
 
         $this->registerCallback('zip-backup', function () use ($zipBackup, $output) {
-            $output->write("- $zipBackup: creates a zip archive containing the selected backup files." . PHP_EOL);
+            $output->write("- $zipBackup " . $this->o('dir=$path') . " " . $this->o('dst=$path') . " " . $this->o('ext=$extension') . ": creates a zip archive containing the selected backup files." . PHP_EOL);
             $output->write(H::j(1) . $this->o('dir=$path') . ": the backup directory path." . PHP_EOL);
+            $output->write(H::j(1) . $this->o('dst=$path') . ": the path to the zip archive to create." . PHP_EOL);
             $output->write(H::j(1) . $this->o('ext=$extension') . ": the extension to append to the backup name (if omitted)." . PHP_EOL);
-            $output->write(H::j(1) . $this->o('?name=$names') . ": the comma separated list of backup names to put in the archive." . PHP_EOL);
-        });
+            $output->write(H::j(1) . $this->o('?names=$names') . ": the comma separated list of backup names to put in the archive." . PHP_EOL);
+        }, 'tools');
+
+
+        $this->registerCallback('zip-backup-db', function () use ($zipBackupDb, $output) {
+            $output->write("- $zipBackupDb " . $this->o('dir=$path') . " " . $this->o('dst=$path') . " " . $this->o('ext=$extension') . ": creates a zip archive containing database backups, based on provided filtering criteria." . PHP_EOL);
+            $output->write(H::j(1) . $this->o('dir=$path') . ": the backup directory path." . PHP_EOL);
+            $output->write(H::j(1) . $this->o('dst=$path') . ": the path to the zip archive to create." . PHP_EOL);
+            $output->write(H::j(1) . $this->o('ext=$extension') . ": the extension to append to the backup name (if omitted)." . PHP_EOL);
+            $output->write(H::j(1) . $this->o('?names=$names') . ": the comma separated list of backup names to put in the archive." . PHP_EOL);
+            $output->write(H::j(1) . $this->o('?last=$number') . ": indicates the (max) number of non-named backups (per database identifier) to push." . PHP_EOL);
+            $output->write(H::j(1) . $this->o('?db=$database_identifiers') . ": a comma separated list of database identifiers to put in the archive." . PHP_EOL);
+        }, 'tools');
+
+
+        $this->registerCallback('zip-backup-files', function () use ($zipBackupFiles, $output) {
+            $output->write("- $zipBackupFiles " . $this->o('dir=$path') . " " . $this->o('dst=$path') . " " . $this->o('ext=$extension') . ": creates a zip archive containing files backups, based on provided filtering criteria." . PHP_EOL);
+            $output->write(H::j(1) . $this->o('dir=$path') . ": the backup directory path." . PHP_EOL);
+            $output->write(H::j(1) . $this->o('dst=$path') . ": the path to the zip archive to create." . PHP_EOL);
+            $output->write(H::j(1) . $this->o('ext=$extension') . ": the extension to append to the backup name (if omitted)." . PHP_EOL);
+            $output->write(H::j(1) . $this->o('?names=$names') . ": the comma separated list of backup names to put in the archive." . PHP_EOL);
+            $output->write(H::j(1) . $this->o('?last=$number') . ": indicates the (max) number of non-named backups to push." . PHP_EOL);
+        }, 'tools');
+
     }
 
 

@@ -269,5 +269,6 @@ class FetchCommand extends PushCommand
             }
 
         }
+        return 0;
     }
 }

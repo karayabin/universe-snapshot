@@ -3,12 +3,12 @@ dependencies:
         - DocTools
         - CliTools
         - Bat
+        - DirScanner
         - UniverseTools
         - BabyYaml
         - Uni2
         - PlanetSitemap
         - SimpleCurl
-        - DirScanner
     
 
 post_install: []

@@ -40,7 +40,7 @@ use Ling\Deploy\Helper\RemoteConfHelper;
  *
  * Options, flags
  * ------------
- * - db=$identifier: the identifier of the database(s) to drop. It can also be a comma separated list of identifiers.
+ * - ?db=$identifier: the identifier of the database(s) to drop. It can also be a comma separated list of identifiers.
  *      Note: the identifier refers to a key in the **databases** section of the @page(configuration file).
  *
  * - -r: remote flag. If set, the command will operate on the remote rather than on the site.
@@ -92,7 +92,9 @@ class DropDatabaseCommand extends DeployGenericCommand
                 $sDb = (null !== $dbOption) ? 'db=' . $dbOption : '';
                 $sUser = (true === $userFlag) ? '-u' : '';
                 $cmd = "ssh -t $remoteSshConfigId deploy -x drop-db $sSecure $sUser $sDb conf=\"$dstTmpConf\" indent=" . ($indentLevel + 1);
-                ConsoleTool::passThru($cmd);
+                if (true === ConsoleTool::passThru($cmd)) {
+                    return 0;
+                }
             }
 
 
@@ -195,6 +197,7 @@ EEE;
                         H::info(H::i($indentLevel) . "Dropping users <b>" . implode('</b>, <b>', $usersList) . "</b>. This operation requires root database password." . PHP_EOL, $output);
                         if (true === ConsoleTool::passThru($cmd)) {
                             H::success(H::i($indentLevel) . "The user(s) were successfully dropped." . PHP_EOL, $output);
+                            return 0;
                         } else {
                             H::error(H::i($indentLevel) . "The user(s) couldn't be dropped." . PHP_EOL, $output);
                         }
@@ -205,7 +208,7 @@ EEE;
             }
 
         }
-
+        return 2;
     }
 
 

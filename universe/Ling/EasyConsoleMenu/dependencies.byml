@@ -1,0 +1,9 @@
+dependencies: 
+    Ling: 
+        - BabyYaml
+        - Bat
+        - CliTools
+        - KrankenStein
+    
+
+post_install: []

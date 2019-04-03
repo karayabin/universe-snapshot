@@ -28,8 +28,8 @@ use Ling\DirScanner\YorgDirScannerTool;
  * - dir=$path: the backup directory path
  * - dst=$path: the path to the zip archive to create.
  *          Note: necessary folders will be created.
- * - name=$names: the comma separated list of backup names to put in the archive
  * - ext=$extension: the extension to append to the backup name (if omitted)
+ * - ?names=$names: the comma separated list of backup names to put in the archive
  *
  *
  *
@@ -45,7 +45,7 @@ class ZipBackupCommand extends DeployGenericCommand
     {
         $dir = $input->getOption('dir', null);
         $dst = $input->getOption('dst', null);
-        $name = $input->getOption('name', null);
+        $name = $input->getOption('names', null);
         $ext = $input->getOption('ext', null);
 
         $indentLevel = $this->application->getBaseIndentLevel();

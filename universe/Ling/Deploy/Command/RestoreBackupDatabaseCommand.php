@@ -4,6 +4,7 @@
 namespace Ling\Deploy\Command;
 
 
+use Ling\Bat\BDotTool;
 use Ling\Bat\ConsoleTool;
 use Ling\Bat\FileSystemTool;
 use Ling\Bat\FileTool;
@@ -55,48 +56,6 @@ class RestoreBackupDatabaseCommand extends DeployGenericCommand
 {
 
     /**
-     * TODO HERE,
-     * then do
-     *
-     *      backup-db ?name=structure1 ?-r
-     *      fetch-backup-db ?name=_last
-     *      push-backup-db ?name=_last
-     *      restore-backup-db ?name=_last ?-r
-     *
-     *      fetch-db: combines
-     *          - backup-db -r: save the remote db, default name=_last
-     *          - fetch-backup-db:  repatriate the distant db backup to the local machine, default name=_last
-     *          - restore-backup-db: remove the local db and replace it with the backup, default name=_last
-     *
-     *      push-db: same
-     *
-     *
-     * Then do backups (same as backup-db...)
-     *
-     *      backup-files
-     *      fetch-backup-files
-     *      push-backup-files
-     *      restore-backup-files
-     *
-     *
-     * Then do backups (combining backup-db + backup-files)
-     *
-     * Then do solution for cron calls on remote:
-     *      - create-cron-deploy ?
-     *              remote/.deploy/cron-deploy.sh
-     *              remote/.deploy/cron-deploy-universe
-     *              remote/.deploy/cron-deploy-conf.byml
-     *
-     * Then do interactive console
-     *
-     *
-     *
-     * Then do video...
-     *
-     */
-
-
-    /**
      * @implementation
      */
     public function run(InputInterface $input, OutputInterface $output)
@@ -136,12 +95,14 @@ class RestoreBackupDatabaseCommand extends DeployGenericCommand
                 H::info(H::i($indentLevel) . "Calling <b>restore-backup-db</b> command on <b>remote</b>:" . PHP_EOL, $output);
 
                 $sSecure = (true === $secureFlag) ? '-s' : '';
-                $sKeep = (true === $secureFlag) ? '-k' : '';
+                $sKeep = (true === $keepFlag) ? '-k' : '';
                 $sDb = (null !== $dbOption) ? 'db=' . $dbOption : '';
                 $sName = (null !== $nameOption) ? 'name=' . $nameOption : '';
 
                 $cmd = "ssh $remoteSshConfigId deploy -x restore-backup-db $sSecure $sKeep $sDb $sName conf=\"$dstTmpConf\" indent=" . ($indentLevel + 1);
-                ConsoleTool::passThru($cmd);
+                if (true === ConsoleTool::passThru($cmd)) {
+                    return 0;
+                }
             }
 
 
@@ -259,11 +220,19 @@ class RestoreBackupDatabaseCommand extends DeployGenericCommand
                     H::info(H::i($indentLevel) . "Restoring backup <b>$file</b> for database <b>$name</b> and user <b>$user</b>:" . PHP_EOL, $output);
 
 
+                    // drop database trick?
                     if (false === $keepFlag) {
                         $tmpSql = $applicationDir . '/.deploy/tmp.sql';
                         copy($file, $tmpSql);
                         $file = $tmpSql;
                         FileTool::prepend($file, 'drop database if exists `' . $name . '`;' . PHP_EOL);
+                    }
+
+
+                    // collate trick?
+                    $collate = BDotTool::getDotValue("$dbIdentifier.collate", $databasesConf);
+                    if (null !== $collate) {
+                        MysqlHelper::alterCollate($file, $collate);
                     }
 
 
@@ -305,9 +274,13 @@ EEE;
 
 
                 }
+
+                return 0;
             }
         }
 
+
+        return 2;
 
     }
 }

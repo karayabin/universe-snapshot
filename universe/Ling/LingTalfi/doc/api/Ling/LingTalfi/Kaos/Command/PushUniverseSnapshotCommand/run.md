@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [PushUniverseSnapshotCommand::run](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Command/PushUniverseSnapshotCommand/run.md)(Ling\CliTools\Input\InputInterface $input, Ling\CliTools\Output\OutputInterface $output) : void
+public [PushUniverseSnapshotCommand::run](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Command/PushUniverseSnapshotCommand/run.md)(Ling\CliTools\Input\InputInterface $input, Ling\CliTools\Output\OutputInterface $output) : int
 
 
 
@@ -48,8 +48,9 @@ Parameters
 Return values
 ================
 
-Returns void.
-
+Returns int.
+The exit status.
+If null, 0 should be assumed.
 
 
 

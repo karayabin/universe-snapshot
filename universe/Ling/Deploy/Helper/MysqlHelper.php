@@ -8,6 +8,7 @@ use Ling\Bat\ConsoleTool;
 use Ling\Bat\FileSystemTool;
 use Ling\CliTools\Helper\VirginiaMessageHelper as H;
 use Ling\CliTools\Output\OutputInterface;
+use Ling\Deploy\Exception\DeployException;
 
 
 /**
@@ -120,6 +121,27 @@ class MysqlHelper
             }
         }
         return false;
+    }
+
+
+    /**
+     * Replaces the collations found in the given $file with the given $newCollation.
+     *
+     *
+     * @param string $file
+     * @param string $newCollation
+     * @throws DeployException
+     */
+    public static function alterCollate(string $file, string $newCollation)
+    {
+        if (is_file($file)) {
+            $content = file_get_contents($file);
+            $newContent = preg_replace('!(COLLATE(?: |=))([a-zA-Z_0-9]*)!', "$1" . $newCollation, $content);
+
+            FileSystemTool::mkfile($file, $newContent);
+        } else {
+            throw new DeployException("MysqlHelper: this is not a file: $file");
+        }
     }
 
 }

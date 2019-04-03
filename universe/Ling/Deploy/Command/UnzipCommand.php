@@ -43,14 +43,8 @@ class UnzipCommand extends DeployGenericCommand
         $indentLevel = $this->application->getBaseIndentLevel();
 
 
-
-
-
-
         if (null !== $src) {
             if (null !== $dst) {
-
-
 
 
                 if (true === $useRemote) {
@@ -62,7 +56,9 @@ class UnzipCommand extends DeployGenericCommand
 
                     H::info(H::i($indentLevel) . "Calling <b>unzip</b> command on remote:" . PHP_EOL, $output);
                     $cmd = "ssh $remoteSshConfigId deploy unzip src=\"$src\" dst=\"$dst\" indent=" . ($indentLevel + 1);
-                    ConsoleTool::passThru($cmd);
+                    if (true === ConsoleTool::passThru($cmd)) {
+                        return 0;
+                    }
 
 
                 } else {
@@ -83,7 +79,7 @@ class UnzipCommand extends DeployGenericCommand
                             if (is_dir($macOsDir)) {
                                 FileSystemTool::remove($macOsDir);
                             }
-
+                            return 0;
 
                         } else {
                             $output->write('<error>oops</error>.' . PHP_EOL);
@@ -100,5 +96,6 @@ class UnzipCommand extends DeployGenericCommand
         } else {
             H::error(H::i($indentLevel) . "Missing option: <b>src</b>." . PHP_EOL, $output);
         }
+        return 2;
     }
 }

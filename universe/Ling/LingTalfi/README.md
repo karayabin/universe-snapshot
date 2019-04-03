@@ -33,6 +33,10 @@ Or just download it and place it where you want otherwise.
 History Log
 =============
 
+- 1.7.0 -- 2019-04-03
+
+    - update "Kaos init -d command", now includes pages and inserts links in the README.md file.
+    
 - 1.6.0 -- 2019-03-18
 
     - add ProjectInfoDocBuilder

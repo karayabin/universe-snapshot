@@ -1,6 +1,6 @@
 Ling/LingTalfi
 ================
-2019-03-13 --> 2019-03-18
+2019-03-13 --> 2019-04-03
 
 
 
@@ -10,8 +10,14 @@ Table of contents
 
 - [CliToolsDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/CliTools/CliToolsDocBuilder.md) &ndash; The CliToolsDocBuilder class.
     - [CliToolsDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/CliTools/CliToolsDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the CliTools planet.
+- [DirScannerDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/DirScanner/DirScannerDocBuilder.md) &ndash; The DirScannerDocBuilder class.
+    - [DirScannerDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/DirScanner/DirScannerDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the DirScanner planet.
 - [DocToolsDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/DocTools/DocToolsDocBuilder.md) &ndash; The DocToolsDocBuilder class.
     - [DocToolsDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/DocTools/DocToolsDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the DocTools planet.
+- [EasyConsoleMenuDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/EasyConsoleMenu/EasyConsoleMenuDocBuilder.md) &ndash; The EasyConsoleMenuDocBuilder class.
+    - [EasyConsoleMenuDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/EasyConsoleMenu/EasyConsoleMenuDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the EasyConsoleMenu planet.
+- [KrankenSteinDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/KrankenStein/KrankenSteinDocBuilder.md) &ndash; The KrankenSteinDocBuilder class.
+    - [KrankenSteinDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/KrankenStein/KrankenSteinDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the KrankenStein planet.
 - [LingTalfiDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/LingTalfi/LingTalfiDocBuilder.md) &ndash; The LingTalfiDocBuilder class.
     - [LingTalfiDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/LingTalfi/LingTalfiDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the LingTalfi planet.
 - [PlanetSitemapDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/PlanetSitemap/PlanetSitemapDocBuilder.md) &ndash; The PlanetSitemapDocBuilder class.
@@ -34,6 +40,7 @@ Table of contents
     - [AbstractProgram::setLogger](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Program/AbstractProgram/setLogger.md) &ndash; Sets the logger.
     - [AbstractProgram::setLoggerChannel](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Program/AbstractProgram/setLoggerChannel.md) &ndash; Sets the loggerChannel.
     - [AbstractProgram::setErrorIsVerbose](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Program/AbstractProgram/setErrorIsVerbose.md) &ndash; Sets the errorIsVerbose.
+    - AbstractProgram::setUseExitStatus &ndash; Sets the useExitStatus.
     - [AbstractProgram::run](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Program/AbstractProgram/run.md) &ndash; Starts the interactive program.
 - [HelpCommand](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Command/HelpCommand.md) &ndash; The HelpCommand class.
     - [HelpCommand::run](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Command/HelpCommand/run.md) &ndash; Runs the command.
@@ -77,11 +84,11 @@ Dependencies
 - [DocTools](https://github.com/karayabin/universe-snapshot/tree/master/universe/Ling/DocTools)
 - [CliTools](https://github.com/karayabin/universe-snapshot/tree/master/universe/Ling/CliTools)
 - [Bat](https://github.com/karayabin/universe-snapshot/tree/master/universe/Ling/Bat)
+- [DirScanner](https://github.com/karayabin/universe-snapshot/tree/master/universe/Ling/DirScanner)
 - [UniverseTools](https://github.com/karayabin/universe-snapshot/tree/master/universe/Ling/UniverseTools)
 - [BabyYaml](https://github.com/karayabin/universe-snapshot/tree/master/universe/Ling/BabyYaml)
 - [Uni2](https://github.com/karayabin/universe-snapshot/tree/master/universe/Ling/Uni2)
 - [PlanetSitemap](https://github.com/karayabin/universe-snapshot/tree/master/universe/Ling/PlanetSitemap)
 - [SimpleCurl](https://github.com/karayabin/universe-snapshot/tree/master/universe/Ling/SimpleCurl)
-- [DirScanner](https://github.com/karayabin/universe-snapshot/tree/master/universe/Ling/DirScanner)
 
 

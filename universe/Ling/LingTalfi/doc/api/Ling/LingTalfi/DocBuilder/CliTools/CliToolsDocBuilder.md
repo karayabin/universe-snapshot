@@ -4,7 +4,7 @@
 
 The CliToolsDocBuilder class
 ================
-2019-03-13 --> 2019-03-18
+2019-03-13 --> 2019-04-03
 
 
 
@@ -50,4 +50,4 @@ Ling\LingTalfi\DocBuilder\CliTools\CliToolsDocBuilder
 
 SeeAlso
 ==============
-Next class: [DocToolsDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/DocTools/DocToolsDocBuilder.md)<br>
+Next class: [DirScannerDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/DirScanner/DirScannerDocBuilder.md)<br>

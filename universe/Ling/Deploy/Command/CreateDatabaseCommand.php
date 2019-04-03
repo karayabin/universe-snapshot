@@ -65,7 +65,7 @@ use Ling\Deploy\Helper\RemoteConfHelper;
  *
  * Options, flags
  * ------------
- * - db=$identifier: the identifier of the database(s) to create. It can also be a comma separated list of identifiers.
+ * - ?db=$identifier: the identifier of the database(s) to create. It can also be a comma separated list of identifiers.
  *      Note: the identifier refers to a key in the **databases** section of the @page(configuration file).
  *
  * - -r: remote flag. If set, the command will operate on the remote rather than on the site.
@@ -117,7 +117,9 @@ class CreateDatabaseCommand extends DeployGenericCommand
                 $sDb = (null !== $dbOption) ? 'db=' . $dbOption : '';
                 $sForce = (true === $forceFlag) ? '-f' : '';
                 $cmd = "ssh -t $remoteSshConfigId deploy -x create-db $sForce $sDb conf=\"$dstTmpConf\" indent=" . ($indentLevel + 1);
-                ConsoleTool::passThru($cmd);
+                if(true===ConsoleTool::passThru($cmd)){
+                    return 0;
+                }
             }
 
 
@@ -190,6 +192,7 @@ EEE;
                         $cmd = 'mysql -uroot -p < "' . $tmpFile . '"';
                         if (true === ConsoleTool::passThru($cmd)) {
                             H::success(H::i($indentLevel) . "The sql statement was successfully executed." . PHP_EOL, $output);
+                            return 0;
                         } else {
                             H::error(H::i($indentLevel) . "The sql statement couldn't be executed properly." . PHP_EOL, $output);
                         }
@@ -203,6 +206,7 @@ EEE;
             }
 
         }
+        return 2;
     }
 
 

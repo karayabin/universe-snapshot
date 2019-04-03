@@ -4,7 +4,7 @@
 
 The LingTalfiDocBuilder class
 ================
-2019-03-13 --> 2019-03-18
+2019-03-13 --> 2019-04-03
 
 
 
@@ -50,4 +50,4 @@ Ling\LingTalfi\DocBuilder\LingTalfi\LingTalfiDocBuilder
 
 SeeAlso
 ==============
-Previous class: [DocToolsDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/DocTools/DocToolsDocBuilder.md)<br>Next class: [PlanetSitemapDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/PlanetSitemap/PlanetSitemapDocBuilder.md)<br>
+Previous class: [KrankenSteinDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/KrankenStein/KrankenSteinDocBuilder.md)<br>Next class: [PlanetSitemapDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/PlanetSitemap/PlanetSitemapDocBuilder.md)<br>

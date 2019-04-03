@@ -53,10 +53,12 @@ class ReadmeUtil
             "Ling",
             "WebBox",
             "2019-02-22",
+            "__summary_links__",
         ], [
             $tags['galaxy'] ?? "Ling",
             $tags['planet'] ?? "WebBox",
             $tags['date'] ?? date('Y-m-d'),
+            $tags['summaryLinks'] ?? "",
         ], $content);
         return FileSystemTool::mkfile($readmeFile, $content);
     }

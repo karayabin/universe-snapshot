@@ -70,7 +70,9 @@ class RemoveFilesCommand extends DeployGenericCommand
                     ], $remoteSshConfigId, $appDir, $dstTmpConf, $output, $indentLevel)) {
                     H::info(H::i($indentLevel) . "Calling <b>remove</b> command on <b>remote</b>:" . PHP_EOL, $output);
                     $mapCmd = "ssh $remoteSshConfigId deploy -x remove conf=\"$dstTmpConf\" indent=" . ($indentLevel + 1);
-                    ConsoleTool::passThru($mapCmd);
+                    if (true === ConsoleTool::passThru($mapCmd)) {
+                        return 0;
+                    }
                 }
 
             } else {
@@ -98,6 +100,8 @@ class RemoveFilesCommand extends DeployGenericCommand
                     }
 
 
+                    return 0;
+
                 } else {
                     $output->write('<error>oops</error>.' . PHP_EOL);
                     H::error(H::i($indentLevel + 1) . "The src file doesn't exist: <b>$src</b>. Aborting." . PHP_EOL, $output);
@@ -106,5 +110,6 @@ class RemoveFilesCommand extends DeployGenericCommand
         } else {
             H::error(H::i($indentLevel) . "Missing option: <b>src</b>." . PHP_EOL, $output);
         }
+        return 2;
     }
 }

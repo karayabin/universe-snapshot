@@ -180,12 +180,14 @@ class DiffCommand extends DeployGenericCommand
                 FileSystemTool::mkfile($replaceFile, implode(PHP_EOL, $replace));
             }
 
+            return 0;
 
         } else {
             $output->write("<error>oops</error>." . PHP_EOL);
             H::error(H::i($indentLevel + 2) . "Couldn't download the remote map. The command <b>$mapBackCmd</b> failed." . PHP_EOL, $output);
         }
 
+        return 2;
 
     }
 

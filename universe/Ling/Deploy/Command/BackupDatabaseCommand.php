@@ -124,9 +124,12 @@ class BackupDatabaseCommand extends DeployGenericCommand
                 H::info(H::i($indentLevel) . "Calling <b>backup-db</b> command on <b>remote</b>:" . PHP_EOL, $output);
 
                 $sSecure = (true === $secureFlag) ? '-s' : '';
-                $sDb = (null !== $dbOption) ? 'db=' . $dbOption : '';
-                $cmd = "ssh $remoteSshConfigId deploy -x backup-db $sSecure $sDb conf=\"$dstTmpConf\" indent=" . ($indentLevel + 1);
-                ConsoleTool::passThru($cmd);
+                $sDb = (null !== $dbOption) ? 'db="' . $dbOption . '"' : '';
+                $sName = (null !== $backupName) ? 'name="' . $backupName . '"' : '';
+                $cmd = "ssh $remoteSshConfigId deploy -x backup-db $sSecure $sDb $sName conf=\"$dstTmpConf\" indent=" . ($indentLevel + 1);
+                if (true === ConsoleTool::passThru($cmd)) {
+                    return 0;
+                }
             }
 
 
@@ -205,11 +208,12 @@ EEE;
                         FileSystemTool::remove($tmpConfPath);
                     }
                 }
+                return 0;
             }
 
 
         }
 
-
+        return 6;
     }
 }
