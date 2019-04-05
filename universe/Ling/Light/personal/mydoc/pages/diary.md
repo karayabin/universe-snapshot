@@ -287,6 +287,97 @@ so that the app maintainer can safely create a service conf file which name star
 to put all her services in it. 
 
 
+While I'm at the service container: how do we overwrite "plugins" configuration?
+
+An idea that attracts me is the one of creating a zzz.byml file in the config/services, and to override the configuration
+services from there. The benefits of doing so are:
+
+- we don't touch the original services config files, which might be rewritten every time plugin planets are re-imported
+- the zzz naming ensures that the file is read last, thus overriding any other files.
+- we don't need to create a special system (like a separate variables injection like in Jin, or an dedicated override system),
+    we just re-use what's already there at our advantage
+
+So, quite tricky, but quite simple really.
+
+
+
+Ok, now with the routing system.
+I believe there are three main steps in every routing system:
+
+- registering the routes
+- finding the matching route
+- interpreting the matching route to get our html view
+
+
+
+About finding the matching route, I can re-use the RouterInterface system, which basically
+matches the route against a HttpRequest.
+
+Now there are multiple "vectors" against which an HttpRequest can be compared.
+The default router provided should use the uri and the method (get, post), which are the most
+common. The default router would provide only static matching for uri.
+
+For dynamic routes, I should create a plugin planet: Light_DynamicRouter,
+in which I can re-use the RoutineRouter from Jin, which basically uses all vectors (ip, GET, POST,
+port, ..., plus features a complex pattern matching syntax for uri).
+The Light_DynamicRouter should also provide more simple pattern matching syntaxes, so that
+the user can choose a dynamic router depending on the route complexity she needs.
+
+
+
+### Plugin subscribing to other plugins
+
+For the service container, a question that arose was: how does a plugin/planet subscribe to a service 
+provided by another plugin planet.
+It occurred to me that the way I like to resolve this problem is by using array branching, long before 
+the services are compiled.
+
+I was thinking about this:
+
+In the SicTool planet, a SicFileCombinerUtil, which would have the ability to parse this kind of syntax:
+
+```yaml
+$autoInit.method:
+    - abcdef
+    
+```
+
+The idea being: any key that starts with a dollar will be stored in memory and injected later.
+This simple mechanism allows for lazy subscription between services of different planets, as long as a planet
+knows the service it wants to subscribe to.
+
+However, there is one drawback: the code gets more abstract, and so less simple in a way, because you don't know,
+when you call a service, what's exactly in your array (unless you dump the services configuration, which should
+be a tool's option by the way).
+
+So I would generally advise against using this technique, however, if it's inevitable, I would recommend this 
+array branching implementation, because it's very cheap and logical. 
+    
+An idea which would use this object would be an initializer service, which would be called by the Light application
+at the very beginning of the run method, just after the HttpRequest is created.
+
+There are so many services that could be created at that moment that I believe it's a better idea
+to delegate all the service instantiation to plugins rather than doing an if block per service.
+
+Examples of services which could be using that initializer hook could be:
+
+- logging the http request (like a custom apache log)
+- configuring a whole website (for instance a blog, or e-commerce) by adding the necessary error handlers 
+    and routes to the Light instance...
+- adding just an error handler for the 404 error (the Light code error triggered when no route matches).
+
+As we can see, the need for adding error handlers potentially overlaps between plugins, which
+makes this initializer idea an even better candidate.
+
+
+
+... 
+TODO: next, make the Light_DynamicRouter plugin (extending the default Light Router)
+         
+    
+     
+
+
 
 
 

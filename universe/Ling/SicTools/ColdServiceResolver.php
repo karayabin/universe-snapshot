@@ -138,7 +138,7 @@ class ColdServiceResolver
 
         $constructorArgs = $sicBlock['constructor_args'] ?? null;
         if (is_array($constructorArgs) && $constructorArgs) {
-            $realArgs = $this->resolveArgs($constructorArgs);
+            $realArgs = $this->resolveArgs(array_values($constructorArgs));
             $args = $this->argsToString($realArgs);
 
         }
@@ -157,7 +157,7 @@ class ColdServiceResolver
                     if (empty($args)) {
                         $args = [];
                     }
-                    $realArgs = $this->resolveArgs($args);
+                    $realArgs = $this->resolveArgs(array_values($args));
                     $args = $this->argsToString($realArgs);
 
 
@@ -185,7 +185,7 @@ class ColdServiceResolver
                             $args = [];
                         }
 
-                        $realArgs = $this->resolveArgs($args);
+                        $realArgs = $this->resolveArgs(array_values($args));
                         $args = $this->argsToString($realArgs);
 
                         $s = '$' . $varName . "->$methodName($args);";

@@ -539,6 +539,7 @@ class ImportUtil
      * @param UniToolApplication $application
      * @param int $indentLevel
      * @param OutputInterface $output
+     * @throws \Exception
      */
     protected function handlePostInstallDirectives(array $postInstall, string $galaxy, string $planetName, UniToolApplication $application, int $indentLevel, OutputInterface $output)
     {
@@ -552,6 +553,7 @@ class ImportUtil
                         'indentLevel' => $indentLevel + 2,
                         'application' => $application,
                         'planetName' => $planetName,
+                        'planetDir' => $application->getUniverseDirectory() . "/$galaxy/$planetName",
                     ]);
                 }
 

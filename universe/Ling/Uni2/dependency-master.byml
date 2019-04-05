@@ -632,6 +632,40 @@ galaxies:
             
             post_install: []
         
+        Light: 
+            version: 1.0.0
+            dependencies: 
+                Ling: 
+                    - SicTools
+                    - Bat
+                    - DirScanner
+                    - Octopus
+                    - PhpUploadFileFix
+                
+            
+            post_install: []
+        
+        Light_Initializer: 
+            version: 1.0.0
+            dependencies: 
+                Ling: 
+                    - Light
+                
+            
+            post_install: 
+                map: true
+            
+        
+        Light_PrettyError: 
+            version: 1.0.0
+            dependencies: []
+            post_install: 
+                map: true
+                composer: 
+                    - require filp/whoops
+                
+            
+        
         LinearFile: 
             version: 1.0.0
             dependencies: []
@@ -1082,10 +1116,13 @@ galaxies:
             post_install: []
         
         SicTools: 
-            version: 1.1.0
+            version: 1.2.1
             dependencies: 
                 Ling: 
                     - ArrayToString
+                    - BabyYaml
+                    - Bat
+                    - DirScanner
                 
             
             post_install: []
@@ -1272,7 +1309,7 @@ galaxies:
             post_install: []
         
         Uni2: 
-            version: 1.7.0
+            version: 1.9.0
             dependencies: 
                 Ling: 
                     - BabyYaml
@@ -1305,7 +1342,7 @@ galaxies:
             post_install: []
         
         UniverseTools: 
-            version: 1.12.1
+            version: 1.14.0
             dependencies: 
                 Ling: 
                     - BabyYaml

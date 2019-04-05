@@ -62,6 +62,11 @@ Return values
 Returns void.
 
 
+Exceptions thrown
+================
+
+- [Exception](http://php.net/manual/en/class.exception.php).&nbsp;
+
 
 
 

@@ -1,0 +1,4 @@
+https://github.com/lingtalfi/SicTools/blob/master/README.md
+https://github.com/lingtalfi/SicTools/blob/master/doc/ColdServiceResolver.md
+https://github.com/lingtalfi/SicTools/blob/master/doc/HotServiceResolver.md
+https://github.com/lingtalfi/SicTools/blob/master/doc/SicTool.md

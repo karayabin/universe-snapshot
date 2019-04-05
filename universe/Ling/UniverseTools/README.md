@@ -36,6 +36,14 @@ Summary
 History Log
 ==============
 
+- 1.14.0 -- 2019-04-05
+
+    - update DependencyTool::getDependencyHomeUrl now uses my lingtalfi repository instead of karayabin universe
+    
+- 1.13.0 -- 2019-04-05
+
+    - update DependencyTool::writeDependencies now keeps existing post_install directives
+    
 - 1.12.1 -- 2019-04-03
 
     - fix DependencyTool::parseDumpDependencies considering Traits as Classes.

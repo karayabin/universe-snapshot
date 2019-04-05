@@ -38,13 +38,15 @@ class DependencyTool
      * @param array $conf
      * A reference to the configuration array created, which has the following structure:
      * - dependencies: array of galaxyName => planets (list of planet names)
-     * - post_install: empty array
+     * - post_install: the given $postInstall array
+     *
+     * @param array $postInstall
      *
      *
      * @return string
      * @throws UniverseToolsException
      */
-    public static function parseDumpDependencies(string $planetDir, array &$conf = [])
+    public static function parseDumpDependencies(string $planetDir, array &$conf = [], array $postInstall = [])
     {
         if (false === is_dir($planetDir)) {
             throw new UniverseToolsException("Dir not found: $planetDir");
@@ -126,7 +128,7 @@ class DependencyTool
             }
             $conf = [
                 "dependencies" => $galaxies,
-                "post_install" => [],
+                "post_install" => $postInstall,
             ];
 
             return BabyYamlUtil::getBabyYamlString($conf) . PHP_EOL;
@@ -277,7 +279,7 @@ class DependencyTool
 
         switch ($dependencySystem) {
             case "Ling":
-                return "https://github.com/karayabin/universe-snapshot/tree/master/universe/Ling/$target";
+                return "https://github.com/lingtalfi/$target";
                 break;
             case "git":
                 return $target;
@@ -299,7 +301,13 @@ class DependencyTool
     public static function writeDependencies(string $planetDir)
     {
         $dependencyFile = $planetDir . "/dependencies.byml";
-        $dependenciesString = self::parseDumpDependencies($planetDir);
+        $postInstall = [];
+        $conf = [];
+        if (file_exists($dependencyFile)) {
+            $conf = BabyYamlUtil::readFile($dependencyFile);
+            $postInstall = $conf['post_install'] ?? [];
+        }
+        $dependenciesString = self::parseDumpDependencies($planetDir, $conf, $postInstall);
         return FileSystemTool::mkfile($dependencyFile, $dependenciesString);
     }
 }

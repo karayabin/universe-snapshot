@@ -4,9 +4,7 @@
 namespace Ling\Light\Helper;
 
 
-use Ling\BabyYaml\BabyYamlUtil;
-use Ling\Bat\ArrayTool;
-use Ling\DirScanner\YorgDirScannerTool;
+use Ling\SicTools\Util\SicFileCombinerUtil;
 
 /**
  * The ConfigurationHelper class.
@@ -24,17 +22,10 @@ class ConfigurationHelper
      *
      * @param string $directory
      * @return array
+     * @throws \Exception
      */
     public static function getCombinedConf(string $directory): array
     {
-        $ret = [];
-        if (is_dir($directory)) {
-            $files = YorgDirScannerTool::getFilesWithExtension($directory, "byml", false, true, false);
-            foreach ($files as $file) {
-                $fileConf = BabyYamlUtil::readFile($file);
-                $ret = ArrayTool::arrayMergeReplaceRecursive([$ret, $fileConf]);
-            }
-        }
-        return $ret;
+        return SicFileCombinerUtil::combine($directory);
     }
 }

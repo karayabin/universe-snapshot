@@ -1,0 +1,6 @@
+dependencies: []
+post_install: 
+    map: true
+    composer: 
+        - require filp/whoops
+    

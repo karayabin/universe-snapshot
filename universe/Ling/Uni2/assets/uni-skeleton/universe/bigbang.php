@@ -18,6 +18,16 @@ if (is_dir($classDir)) {
 ButineurAutoloader::getInst()->start();
 
 
+
+//--------------------------------------------
+// COMPOSER PLUGIN
+//--------------------------------------------
+$composerFile = __DIR__ . "/../vendor/autoload.php";
+if (file_exists($composerFile)) {
+    require_once $composerFile;
+}
+
+
 //------------------------------------------------------------------------------/
 // BONUS FUNCTIONS, SO HANDFUL... (a huge time saver in the end)
 //------------------------------------------------------------------------------/

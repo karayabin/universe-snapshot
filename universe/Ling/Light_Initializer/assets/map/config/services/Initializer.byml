@@ -1,0 +1,5 @@
+initializer:
+    instance: Ling\Light_Initializer\Util\LightInitializerUtil
+    methods:
+        setInitializers:
+            initializers: []

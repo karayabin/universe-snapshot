@@ -1,6 +1,6 @@
 Ling/UniverseTools
 ================
-2019-02-26 --> 2019-04-03
+2019-02-26 --> 2019-04-05
 
 
 
@@ -27,9 +27,9 @@ Table of contents
 
 Dependencies
 ============
-- [BabyYaml](https://github.com/karayabin/universe-snapshot/tree/master/universe/Ling/BabyYaml)
-- [Bat](https://github.com/karayabin/universe-snapshot/tree/master/universe/Ling/Bat)
-- [DirScanner](https://github.com/karayabin/universe-snapshot/tree/master/universe/Ling/DirScanner)
-- [TokenFun](https://github.com/karayabin/universe-snapshot/tree/master/universe/Ling/TokenFun)
+- [BabyYaml](https://github.com/lingtalfi/BabyYaml)
+- [Bat](https://github.com/lingtalfi/Bat)
+- [DirScanner](https://github.com/lingtalfi/DirScanner)
+- [TokenFun](https://github.com/lingtalfi/TokenFun)
 
 

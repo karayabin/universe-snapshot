@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [DependencyTool::parseDumpDependencies](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/DependencyTool/parseDumpDependencies.md)(string $planetDir, array &$conf = []) : string
+public static [DependencyTool::parseDumpDependencies](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/DependencyTool/parseDumpDependencies.md)(string $planetDir, array &$conf = [], array $postInstall = []) : string
 
 
 
@@ -46,7 +46,11 @@ Parameters
 
     A reference to the configuration array created, which has the following structure:
 - dependencies: array of galaxyName => planets (list of planet names)
-- post_install: empty array
+- post_install: the given $postInstall array
+
+- postInstall
+
+    
 
 
 Return values

@@ -24,6 +24,23 @@ public [PostInstallDirectiveHandler::handleDirective](https://github.com/lingtal
 Handles a the given post install directive.
 
 
+The following directives have been implemented:
+
+```txt
+- handler: array. Delegates the handling to another class.
+----- name: string. The class name of the handler to call.
+----- ?options: array. An array of options to pass to the handler.
+- composer: array of composer commands without the composer prefix. For instance:
+----- require filp/whoops
+- map: string|null. Will map a directory found inside the installed planet to the application root directory.
+By default: if null, the map value will be: "assets/map".
+This means that all files found inside the "assets/map" directory at the root of the installed planet
+will be copied to (and overwriting existing files with the same names) the application root directory.
+
+
+```
+
+
 
 
 Parameters
@@ -38,7 +55,7 @@ Parameters
 
     The post install directive configuration.
 It can be a string or an array and depends on the type.
-See the @(post install directive configuration page) for more info.
+See the @page(post install directives page) for more info.
 
 - output
 
@@ -59,6 +76,11 @@ Return values
 
 Returns void.
 
+
+Exceptions thrown
+================
+
+- [Exception](http://php.net/manual/en/class.exception.php).&nbsp;
 
 
 
