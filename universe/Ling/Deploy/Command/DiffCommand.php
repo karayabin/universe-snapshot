@@ -55,7 +55,20 @@ use Ling\Deploy\Util\DiffUtil;
 class DiffCommand extends DeployGenericCommand
 {
 
+    /**
+     * This property holds the sentenceCreateDiff for this instance.
+     * An informative sentence to display on the console.
+     * @var string
+     */
     protected $sentenceCreateDiff;
+
+    /**
+     * This property holds the reverse for this instance.
+     * If false (by default), the diff is a map to transform the remote into the local application.
+     * If true, the diff is a map to transform the local application into the remote application.
+     *
+     * @var bool = false
+     */
     protected $reverse;
 
 

@@ -36,6 +36,14 @@ Summary
 History Log
 ==============
 
+- 1.12.1 -- 2019-04-03
+
+    - fix DependencyTool::parseDumpDependencies considering Traits as Classes.
+    
+- 1.12.0 -- 2019-04-03
+
+    - update DependencyTool::parseDumpDependencies, add the conf argument.
+    
 - 1.11.3 -- 2019-03-14
 
     - fix documentation missing inserts (forgot galaxy prefix)

@@ -48,6 +48,10 @@ class PushBackupFilesCommand extends AbstractBackupCommand
      */
     protected $exitCode;
 
+
+    /**
+     * Builds the PushBackupFilesCommand instance.
+     */
     public function __construct()
     {
         parent::__construct();

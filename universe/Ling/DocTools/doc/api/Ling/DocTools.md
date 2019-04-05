@@ -1,6 +1,6 @@
 Ling/DocTools
 ================
-2019-02-21 --> 2019-03-20
+2019-02-21 --> 2019-04-04
 
 
 
@@ -55,6 +55,8 @@ Table of contents
     - [GenericParserInterface::parse](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/GenericParser/GenericParserInterface/parse.md) &ndash; Parses the given $element and returns a [Ling\DocTools\Info\InfoInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/InfoInterface.md) object.
 - [ClassNameHelper](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Helper/ClassNameHelper.md) &ndash; The ClassNameHelper class.
     - [ClassNameHelper::getClassNameInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Helper/ClassNameHelper/getClassNameInfo.md) &ndash; Returns an array of info corresponding to the given $className, or returns false if the url cannot be found.
+- [ClassParserHelper](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Helper/ClassParserHelper.md) &ndash; The ClassParserHelper class.
+    - [ClassParserHelper::getAncestorClassesWithMethod](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Helper/ClassParserHelper/getAncestorClassesWithMethod.md) &ndash; Returns the \ReflectionClass of the ancestors (of the given $class) having the given $method.
 - [CommentHelper](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Helper/CommentHelper.md) &ndash; The CommentHelper class.
     - [CommentHelper::displaySeeAlsoItemsSentence](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Helper/CommentHelper/displaySeeAlsoItemsSentence.md) &ndash; Returns a human sentence out of the see items collected into the given CommentInfo instance.
 - [MethodHelper](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Helper/MethodHelper.md) &ndash; The MethodHelper class.

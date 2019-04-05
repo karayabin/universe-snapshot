@@ -522,7 +522,7 @@ abstract class AbstractReport implements ReportInterface
      */
     public function addUnresolvedMethodReference(string $className, string $methodName, string $hint = null)
     {
-        if (false === in_array($this->currentContext, $this->ignore, true)) {
+        if (false === in_array($className, $this->ignore, true)) {
             $this->unresolvedMethodReferences[] = [
                 $className,
                 $methodName,

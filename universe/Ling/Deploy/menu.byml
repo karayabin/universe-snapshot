@@ -17,8 +17,7 @@ settings:
 
 
 
-variables:
-    deploy_conf_path: /komin/jin_site_demo/tmp/deploy.conf.byml
+variables: []
 
 
 steps:
@@ -29,7 +28,7 @@ steps:
     # --------------------------------------
     choose_project:
         msg: Choose a project:
-        dynamic_choices: Ling\Deploy\Helper\EasyConsoleMenuHelper::getProjectsList(${deploy_conf_path})
+        dynamic_choices: Ling\Deploy\Helper\EasyConsoleMenuHelper::getProjectsList()
         store_as: project
         goto: choose_action
 

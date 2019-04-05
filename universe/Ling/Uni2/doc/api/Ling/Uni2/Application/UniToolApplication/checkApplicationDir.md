@@ -55,5 +55,5 @@ See Also
 
 The [UniToolApplication](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Application/UniToolApplication.md) class.
 
-Previous method: [getUniverseDirectory](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Application/UniToolApplication/getUniverseDirectory.md)<br>Next method: [checkUniverseDirectory](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Application/UniToolApplication/checkUniverseDirectory.md)<br>
+Previous method: [getUniverseDirectoryName](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Application/UniToolApplication/getUniverseDirectoryName.md)<br>Next method: [checkUniverseDirectory](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Application/UniToolApplication/checkUniverseDirectory.md)<br>
 

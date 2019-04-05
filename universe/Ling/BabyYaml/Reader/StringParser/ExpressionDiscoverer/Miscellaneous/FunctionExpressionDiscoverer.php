@@ -8,6 +8,7 @@ use Ling\BabyYaml\Reader\StringParser\ExpressionDiscoverer\Container\ValueContai
 use Ling\BabyYaml\Reader\StringParser\ExpressionDiscoverer\HybridExpressionDiscoverer;
 use Ling\BabyYaml\Reader\StringParser\ExpressionDiscoverer\SimpleQuoteExpressionDiscoverer;
 use Ling\BabyYaml\Reader\StringParser\ExpressionDiscovererModel\ExpressionDiscovererModel;
+use Ling\BabyYaml\Reader\StringIterator\StringIteratorInterface;
 
 
 /**

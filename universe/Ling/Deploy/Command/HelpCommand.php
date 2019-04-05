@@ -36,6 +36,10 @@ class HelpCommand extends DeployGenericCommand
      */
     protected $headerCallback;
 
+
+    /**
+     * Builds the HelpCommand instance.
+     */
     public function __construct()
     {
         parent::__construct();
@@ -157,6 +161,8 @@ class HelpCommand extends DeployGenericCommand
         $fetchDb = $this->n('fetch-db');
         $fetchFiles = $this->n('fetch-files');
         $help = $this->n('help');
+        $interactive = $this->n('i');
+
         $listBackupDb = $this->n('list-backup-db');
         $listBackupFiles = $this->n('list-backup-files');
         $map = $this->n('map');
@@ -316,17 +322,20 @@ class HelpCommand extends DeployGenericCommand
         });
 
 
-
         $this->registerCallback('fetch-files', function () use ($fetchFiles, $output) {
             $output->write("- $fetchFiles: same as the <b>push</b> command, but in the opposite direction (i.e. the <b>site</b> is mirrored using the <b>remote</b> as the model." . PHP_EOL);
         });
-
 
 
         $this->registerCallback('help', function () use ($help, $output) {
             $output->write("- $help " . $this->o('?$command') . ": displays this help message." . PHP_EOL);
             $output->write(H::s(1) . "If the command parameter is passed, will display the help only for that command." . PHP_EOL);
 
+        });
+
+
+        $this->registerCallback('i', function () use ($interactive, $output) {
+            $output->write("- $interactive: enters the interactive mode." . PHP_EOL);
         });
 
 

@@ -1,7 +1,4 @@
 dependencies: 
-    ClassicMonitorTrait: 
-        - null
-    
     Ling: 
         - Bat
     

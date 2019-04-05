@@ -53,6 +53,9 @@ class BaseCleanBackupCommand extends DeployGenericCommand
     protected $useDbFilter;
 
 
+    /**
+     * Builds the BaseCleanBackupCommand instance.
+     */
     public function __construct()
     {
         parent::__construct();

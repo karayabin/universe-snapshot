@@ -4,7 +4,7 @@
 
 The OutputHelper class
 ================
-2019-03-12 --> 2019-03-21
+2019-03-12 --> 2019-04-03
 
 
 
@@ -67,4 +67,4 @@ Ling\Uni2\Helper\OutputHelper
 
 SeeAlso
 ==============
-Previous class: [DependencyMasterHelper](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Helper/DependencyMasterHelper.md)<br>Next class: [LocalServer](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/LocalServer/LocalServer.md)<br>
+Previous class: [MapHelper](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Helper/MapHelper.md)<br>Next class: [LocalServer](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/LocalServer/LocalServer.md)<br>

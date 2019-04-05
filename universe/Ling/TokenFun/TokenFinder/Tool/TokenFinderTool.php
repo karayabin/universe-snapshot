@@ -321,4 +321,23 @@ class TokenFinderTool
         sort($ret);
         return $ret;
     }
+
+
+    /**
+     * Returns an array of all the use statements used by the given reflection classes.
+     *
+     * @param \ReflectionClass[] $reflectionClasses
+     * @return array
+     */
+    public static function getUseDependenciesByReflectionClasses(array $reflectionClasses)
+    {
+        $ret = [];
+        foreach ($reflectionClasses as $class) {
+            $tokens = token_get_all(file_get_contents($class->getFileName()));
+            $ret = array_merge($ret, TokenFinderTool::getUseDependencies($tokens));
+        }
+        $ret = array_unique($ret);
+        sort($ret);
+        return $ret;
+    }
 }

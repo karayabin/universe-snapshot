@@ -44,6 +44,9 @@ class ZipBackupDatabaseCommand extends AbstractBackupDatabaseCommand
      */
     protected $exitCode;
 
+    /**
+     * Builds the ZipBackupDatabaseCommand instance.
+     */
     public function __construct()
     {
         parent::__construct();

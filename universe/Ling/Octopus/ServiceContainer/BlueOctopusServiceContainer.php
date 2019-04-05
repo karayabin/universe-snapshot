@@ -4,8 +4,6 @@ namespace Ling\Octopus\ServiceContainer;
 
 
 use Ling\Octopus\Exception\OctopusServiceErrorException;
-use Ling\SicTools\HotServiceResolver;
-use Ling\SicTools\SicTool;
 
 /**
  *
@@ -74,7 +72,7 @@ class BlueOctopusServiceContainer implements OctopusServiceContainerInterface
     /**
      * @implementation
      */
-    public function get($service)
+    public function get(string $service)
     {
 
         // cache available?
@@ -97,6 +95,15 @@ class BlueOctopusServiceContainer implements OctopusServiceContainerInterface
         }
     }
 
+    /**
+     *
+     * @implementation
+     */
+    public function has(string $service): bool
+    {
+        $methodName = self::getMethodName($service);
+        return method_exists($this, $methodName);
+    }
 
     /**
      * Converts the given service name into a method name (the name of the method in charge of returning the service).

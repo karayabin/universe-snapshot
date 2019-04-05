@@ -57,6 +57,9 @@ class BackupFilesFetcherUtil
     protected $extension;
 
 
+    /**
+     * Builds the BackupFilesFetcherUtil instance.
+     */
     public function __construct()
     {
         $this->last = null;

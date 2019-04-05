@@ -1,0 +1,3 @@
+https://github.com/lingtalfi/Octopus/blob/master/README.md
+https://github.com/lingtalfi/Octopus/blob/master/doc/BlueOctopusServiceContainer.md
+https://github.com/lingtalfi/Octopus/blob/master/doc/RedOctopusServiceContainer.md

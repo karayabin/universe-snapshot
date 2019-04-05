@@ -113,7 +113,7 @@ class DarkBlueOctopusServiceContainerBuilder extends ColdServiceResolver
         $profile = $options['profile'] ?? null;
         $namespace = $options['namespace'] ?? null;
         $useStatements = $options['useStatements'] ?? [
-                'Octopus\ServiceContainer\BlueOctopusServiceContainer',
+                'Ling\Octopus\ServiceContainer\BlueOctopusServiceContainer',
             ];
         $comment = $options['comment'] ?? $this->getDefaultComment();
         $signature = $options['signature'] ?? 'class DarkBlueOctopusServiceContainer extends BlueOctopusServiceContainer';

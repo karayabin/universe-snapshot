@@ -86,6 +86,7 @@ class HelpCommand extends UniToolGenericCommand
         $output->write("The following options apply to all the commands." . PHP_EOL);
         $output->write(PHP_EOL);
         $output->write(H::j(1) . $this->o("application-dir=\$path") . ": sets the application directory to use. If not set, the current directory will be used." . PHP_EOL);
+        $output->write(H::j(1) . $this->o("universe-dir-name=\$name") . ": sets the name of the universe directory. If not set, the default \"universe\" name will be used." . PHP_EOL);
         $output->write(H::j(1) . $this->o("-e") . ": error verbose mode. When an error occurs, the whole exception trace is displayed." . PHP_EOL);
         $output->write(H::j(1) . $this->o("indent=\$number") . ": sets the base indentation level used by most commands." . PHP_EOL);
 

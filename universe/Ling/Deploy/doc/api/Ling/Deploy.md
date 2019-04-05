@@ -1,0 +1,237 @@
+Ling/Deploy
+================
+2019-04-03 --> 2019-04-04
+
+
+
+
+Table of contents
+===========
+
+- [DeployApplication](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Application/DeployApplication.md) &ndash; The DeployApplication class.
+    - [DeployApplication::__construct](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Application/DeployApplication/__construct.md) &ndash; Builds the DeployApplication instance.
+    - [DeployApplication::getBaseIndentLevel](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Application/DeployApplication/getBaseIndentLevel.md) &ndash; Returns the baseIndentLevel of this instance.
+    - [DeployApplication::getProjectIdentifier](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Application/DeployApplication/getProjectIdentifier.md) &ndash; Returns the projectIdentifier of this instance.
+    - [DeployApplication::setConfPath](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Application/DeployApplication/setConfPath.md) &ndash; Sets the confPath.
+    - [DeployApplication::setProjectIdentifier](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Application/DeployApplication/setProjectIdentifier.md) &ndash; Sets the projectIdentifier.
+    - [DeployApplication::getProjectConf](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Application/DeployApplication/getProjectConf.md) &ndash; Returns the configuration array for the current project.
+    - [DeployApplication::getConf](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Application/DeployApplication/getConf.md) &ndash; The getConf method
+    - [DeployApplication::getConfPath](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Application/DeployApplication/getConfPath.md) &ndash; Returns the path to the [configuration file](https://github.com/lingtalfi/Deploy/blob/master/README.md#the-configuration-file).
+    - [DeployApplication::runProgram](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Application/DeployApplication/runProgram.md) &ndash; Runs the program, and returns the exit status.
+    - Application::registerCommand &ndash; Registers a command with the given aliases.
+    - AbstractProgram::setLogger &ndash; Sets the logger.
+    - AbstractProgram::setLoggerChannel &ndash; Sets the loggerChannel.
+    - AbstractProgram::setErrorIsVerbose &ndash; Sets the errorIsVerbose.
+    - AbstractProgram::setUseExitStatus &ndash; Sets the useExitStatus.
+    - AbstractProgram::run &ndash; Starts the interactive program.
+- [AbstractBackupCommand](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/AbstractBackupCommand.md) &ndash; The AbstractBackupCommand class.
+    - [AbstractBackupCommand::__construct](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/AbstractBackupCommand/__construct.md) &ndash; Builds the DeployGenericCommand instance.
+    - [AbstractBackupCommand::createArchive](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/AbstractBackupCommand/createArchive.md) &ndash; and returns whether the zip creation was successful.
+    - [DeployGenericCommand::setApplication](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/DeployGenericCommand/setApplication.md) &ndash; Sets the application.
+    - CommandInterface::run &ndash; Runs the command.
+- [AbstractBackupDatabaseCommand](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/AbstractBackupDatabaseCommand.md) &ndash; The AbstractBackupDatabaseCommand class.
+    - [AbstractBackupDatabaseCommand::__construct](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/AbstractBackupDatabaseCommand/__construct.md) &ndash; Builds the DeployGenericCommand instance.
+    - [AbstractBackupCommand::createArchive](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/AbstractBackupCommand/createArchive.md) &ndash; and returns whether the zip creation was successful.
+    - [DeployGenericCommand::setApplication](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/DeployGenericCommand/setApplication.md) &ndash; Sets the application.
+    - CommandInterface::run &ndash; Runs the command.
+- [BackupDatabaseCommand](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/BackupDatabaseCommand.md) &ndash; The BackupDatabaseCommand class.
+    - [BackupDatabaseCommand::run](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/BackupDatabaseCommand/run.md) &ndash; Runs the command.
+    - [DeployGenericCommand::__construct](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/DeployGenericCommand/__construct.md) &ndash; Builds the DeployGenericCommand instance.
+    - [DeployGenericCommand::setApplication](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/DeployGenericCommand/setApplication.md) &ndash; Sets the application.
+- [BackupFilesCommand](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/BackupFilesCommand.md) &ndash; The BackupFilesCommand class.
+    - [BackupFilesCommand::run](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/BackupFilesCommand/run.md) &ndash; Runs the command.
+    - [DeployGenericCommand::__construct](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/DeployGenericCommand/__construct.md) &ndash; Builds the DeployGenericCommand instance.
+    - [DeployGenericCommand::setApplication](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/DeployGenericCommand/setApplication.md) &ndash; Sets the application.
+- [BaseCleanBackupCommand](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/BaseCleanBackupCommand.md) &ndash; The BaseCleanBackupCommand class.
+    - [BaseCleanBackupCommand::__construct](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/BaseCleanBackupCommand/__construct.md) &ndash; Builds the BaseCleanBackupCommand instance.
+    - [BaseCleanBackupCommand::run](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/BaseCleanBackupCommand/run.md) &ndash; Runs the command.
+    - [DeployGenericCommand::setApplication](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/DeployGenericCommand/setApplication.md) &ndash; Sets the application.
+- [BaseListBackupCommand](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/BaseListBackupCommand.md) &ndash; The BaseListBackupCommand class.
+    - [BaseListBackupCommand::run](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/BaseListBackupCommand/run.md) &ndash; Runs the command.
+    - [DeployGenericCommand::__construct](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/DeployGenericCommand/__construct.md) &ndash; Builds the DeployGenericCommand instance.
+    - [DeployGenericCommand::setApplication](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/DeployGenericCommand/setApplication.md) &ndash; Sets the application.
+- [CleanBackupDatabaseCommand](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/CleanBackupDatabaseCommand.md) &ndash; The CleanBackupDatabaseCommand class.
+    - [CleanBackupDatabaseCommand::__construct](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/CleanBackupDatabaseCommand/__construct.md) &ndash; Builds the CleanBackupDatabaseCommand instance.
+    - [BaseCleanBackupCommand::run](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/BaseCleanBackupCommand/run.md) &ndash; Runs the command.
+    - [DeployGenericCommand::setApplication](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/DeployGenericCommand/setApplication.md) &ndash; Sets the application.
+- [CleanBackupFilesCommand](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/CleanBackupFilesCommand.md) &ndash; The CleanBackupFilesCommand class.
+    - [CleanBackupFilesCommand::__construct](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/CleanBackupFilesCommand/__construct.md) &ndash; Builds the CleanBackupFilesCommand instance.
+    - [BaseCleanBackupCommand::run](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/BaseCleanBackupCommand/run.md) &ndash; Runs the command.
+    - [DeployGenericCommand::setApplication](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/DeployGenericCommand/setApplication.md) &ndash; Sets the application.
+- [CreateDatabaseCommand](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/CreateDatabaseCommand.md) &ndash; The CreateDatabaseCommand class.
+    - [CreateDatabaseCommand::run](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/CreateDatabaseCommand/run.md) &ndash; Runs the command.
+    - [DeployGenericCommand::__construct](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/DeployGenericCommand/__construct.md) &ndash; Builds the DeployGenericCommand instance.
+    - [DeployGenericCommand::setApplication](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/DeployGenericCommand/setApplication.md) &ndash; Sets the application.
+- [CreateMapCommand](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/CreateMapCommand.md) &ndash; The CreateMapCommand class.
+    - [CreateMapCommand::run](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/CreateMapCommand/run.md) &ndash; Runs the command.
+    - [DeployGenericCommand::__construct](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/DeployGenericCommand/__construct.md) &ndash; Builds the DeployGenericCommand instance.
+    - [DeployGenericCommand::setApplication](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/DeployGenericCommand/setApplication.md) &ndash; Sets the application.
+- [CronDeployCommand](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/CronDeployCommand.md) &ndash; The CronDeployCommand class.
+    - [CronDeployCommand::run](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/CronDeployCommand/run.md) &ndash; Runs the command.
+    - [DeployGenericCommand::__construct](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/DeployGenericCommand/__construct.md) &ndash; Builds the DeployGenericCommand instance.
+    - [DeployGenericCommand::setApplication](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/DeployGenericCommand/setApplication.md) &ndash; Sets the application.
+- [DeployGenericCommand](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/DeployGenericCommand.md) &ndash; The DeployGenericCommand class.
+    - [DeployGenericCommand::__construct](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/DeployGenericCommand/__construct.md) &ndash; Builds the DeployGenericCommand instance.
+    - [DeployGenericCommand::setApplication](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/DeployGenericCommand/setApplication.md) &ndash; Sets the application.
+    - CommandInterface::run &ndash; Runs the command.
+- [DiffBackCommand](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/DiffBackCommand.md) &ndash; The DiffBackCommand class.
+    - [DiffBackCommand::__construct](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/DiffBackCommand/__construct.md) &ndash; Builds the DeployGenericCommand instance.
+    - [DiffCommand::run](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/DiffCommand/run.md) &ndash; Runs the command.
+    - [DeployGenericCommand::setApplication](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/DeployGenericCommand/setApplication.md) &ndash; Sets the application.
+- [DiffCommand](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/DiffCommand.md) &ndash; The DiffCommand class.
+    - [DiffCommand::__construct](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/DiffCommand/__construct.md) &ndash; Builds the DeployGenericCommand instance.
+    - [DiffCommand::run](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/DiffCommand/run.md) &ndash; Runs the command.
+    - [DeployGenericCommand::setApplication](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/DeployGenericCommand/setApplication.md) &ndash; Sets the application.
+- [DropDatabaseCommand](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/DropDatabaseCommand.md) &ndash; The DropDatabaseCommand class.
+    - [DropDatabaseCommand::run](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/DropDatabaseCommand/run.md) &ndash; Runs the command.
+    - [DeployGenericCommand::__construct](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/DeployGenericCommand/__construct.md) &ndash; Builds the DeployGenericCommand instance.
+    - [DeployGenericCommand::setApplication](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/DeployGenericCommand/setApplication.md) &ndash; Sets the application.
+- [EnterInteractiveModeCommand](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/EnterInteractiveModeCommand.md) &ndash; The EnterInteractiveModeCommand class.
+    - [EnterInteractiveModeCommand::run](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/EnterInteractiveModeCommand/run.md) &ndash; Runs the command.
+    - [DeployGenericCommand::__construct](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/DeployGenericCommand/__construct.md) &ndash; Builds the DeployGenericCommand instance.
+    - [DeployGenericCommand::setApplication](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/DeployGenericCommand/setApplication.md) &ndash; Sets the application.
+- [FetchBackupDatabaseCommand](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/FetchBackupDatabaseCommand.md) &ndash; The FetchBackupDatabaseCommand class.
+    - [FetchBackupDatabaseCommand::run](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/FetchBackupDatabaseCommand/run.md) &ndash; Runs the command.
+    - [DeployGenericCommand::__construct](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/DeployGenericCommand/__construct.md) &ndash; Builds the DeployGenericCommand instance.
+    - [DeployGenericCommand::setApplication](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/DeployGenericCommand/setApplication.md) &ndash; Sets the application.
+- [FetchBackupFilesCommand](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/FetchBackupFilesCommand.md) &ndash; The FetchBackupFilesCommand class.
+    - [FetchBackupFilesCommand::run](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/FetchBackupFilesCommand/run.md) &ndash; Runs the command.
+    - [DeployGenericCommand::__construct](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/DeployGenericCommand/__construct.md) &ndash; Builds the DeployGenericCommand instance.
+    - [DeployGenericCommand::setApplication](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/DeployGenericCommand/setApplication.md) &ndash; Sets the application.
+- [FetchCommand](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/FetchCommand.md) &ndash; The FetchCommand class.
+    - [FetchCommand::__construct](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/FetchCommand/__construct.md) &ndash; Builds the DeployGenericCommand instance.
+    - [PushCommand::run](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/PushCommand/run.md) &ndash; Runs the command.
+    - [DeployGenericCommand::setApplication](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/DeployGenericCommand/setApplication.md) &ndash; Sets the application.
+- [FetchDatabaseCommand](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/FetchDatabaseCommand.md) &ndash; The FetchDatabaseCommand class.
+    - [FetchDatabaseCommand::run](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/FetchDatabaseCommand/run.md) &ndash; Runs the command.
+    - [DeployGenericCommand::__construct](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/DeployGenericCommand/__construct.md) &ndash; Builds the DeployGenericCommand instance.
+    - [DeployGenericCommand::setApplication](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/DeployGenericCommand/setApplication.md) &ndash; Sets the application.
+- [HelpCommand](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/HelpCommand.md) &ndash; The HelpCommand class.
+    - [HelpCommand::__construct](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/HelpCommand/__construct.md) &ndash; Builds the HelpCommand instance.
+    - [HelpCommand::run](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/HelpCommand/run.md) &ndash; Runs the command.
+    - [DeployGenericCommand::setApplication](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/DeployGenericCommand/setApplication.md) &ndash; Sets the application.
+- [ListBackupDatabaseCommand](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/ListBackupDatabaseCommand.md) &ndash; The ListBackupDatabaseCommand class.
+    - [ListBackupDatabaseCommand::__construct](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/ListBackupDatabaseCommand/__construct.md) &ndash; Builds the ListBackupDatabaseCommand instance.
+    - [BaseListBackupCommand::run](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/BaseListBackupCommand/run.md) &ndash; Runs the command.
+    - [DeployGenericCommand::setApplication](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/DeployGenericCommand/setApplication.md) &ndash; Sets the application.
+- [ListBackupFilesCommand](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/ListBackupFilesCommand.md) &ndash; The ListBackupFilesCommand class.
+    - [ListBackupFilesCommand::__construct](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/ListBackupFilesCommand/__construct.md) &ndash; Builds the ListBackupFilesCommand instance.
+    - [BaseListBackupCommand::run](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/BaseListBackupCommand/run.md) &ndash; Runs the command.
+    - [DeployGenericCommand::setApplication](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/DeployGenericCommand/setApplication.md) &ndash; Sets the application.
+- [PushBackupDatabaseCommand](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/PushBackupDatabaseCommand.md) &ndash; The PushBackupDatabaseCommand class.
+    - [PushBackupDatabaseCommand::__construct](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/PushBackupDatabaseCommand/__construct.md) &ndash; Builds the PushBackupDatabaseCommand instance.
+    - [PushBackupDatabaseCommand::run](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/PushBackupDatabaseCommand/run.md) &ndash; Runs the command.
+    - [AbstractBackupCommand::createArchive](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/AbstractBackupCommand/createArchive.md) &ndash; and returns whether the zip creation was successful.
+    - [DeployGenericCommand::setApplication](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/DeployGenericCommand/setApplication.md) &ndash; Sets the application.
+- [PushBackupFilesCommand](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/PushBackupFilesCommand.md) &ndash; The PushBackupFilesCommand class.
+    - [PushBackupFilesCommand::__construct](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/PushBackupFilesCommand/__construct.md) &ndash; Builds the PushBackupFilesCommand instance.
+    - [PushBackupFilesCommand::run](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/PushBackupFilesCommand/run.md) &ndash; Runs the command.
+    - [AbstractBackupCommand::createArchive](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/AbstractBackupCommand/createArchive.md) &ndash; and returns whether the zip creation was successful.
+    - [DeployGenericCommand::setApplication](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/DeployGenericCommand/setApplication.md) &ndash; Sets the application.
+- [PushCommand](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/PushCommand.md) &ndash; The PushCommand class.
+    - [PushCommand::__construct](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/PushCommand/__construct.md) &ndash; Builds the DeployGenericCommand instance.
+    - [PushCommand::run](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/PushCommand/run.md) &ndash; Runs the command.
+    - [DeployGenericCommand::setApplication](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/DeployGenericCommand/setApplication.md) &ndash; Sets the application.
+- [PushDatabaseCommand](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/PushDatabaseCommand.md) &ndash; The PushDatabaseCommand class.
+    - [PushDatabaseCommand::run](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/PushDatabaseCommand/run.md) &ndash; Runs the command.
+    - [DeployGenericCommand::__construct](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/DeployGenericCommand/__construct.md) &ndash; Builds the DeployGenericCommand instance.
+    - [DeployGenericCommand::setApplication](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/DeployGenericCommand/setApplication.md) &ndash; Sets the application.
+- [RemoveFilesByNameCommand](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/RemoveFilesByNameCommand.md) &ndash; The RemoveFilesByNameCommand class.
+    - [RemoveFilesByNameCommand::run](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/RemoveFilesByNameCommand/run.md) &ndash; Runs the command.
+    - [DeployGenericCommand::__construct](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/DeployGenericCommand/__construct.md) &ndash; Builds the DeployGenericCommand instance.
+    - [DeployGenericCommand::setApplication](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/DeployGenericCommand/setApplication.md) &ndash; Sets the application.
+- [RemoveFilesCommand](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/RemoveFilesCommand.md) &ndash; The RemoveFilesCommand class.
+    - [RemoveFilesCommand::run](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/RemoveFilesCommand/run.md) &ndash; Runs the command.
+    - [DeployGenericCommand::__construct](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/DeployGenericCommand/__construct.md) &ndash; Builds the DeployGenericCommand instance.
+    - [DeployGenericCommand::setApplication](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/DeployGenericCommand/setApplication.md) &ndash; Sets the application.
+- [RestoreBackupDatabaseCommand](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/RestoreBackupDatabaseCommand.md) &ndash; The RestoreBackupDatabaseCommand class.
+    - [RestoreBackupDatabaseCommand::run](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/RestoreBackupDatabaseCommand/run.md) &ndash; Runs the command.
+    - [DeployGenericCommand::__construct](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/DeployGenericCommand/__construct.md) &ndash; Builds the DeployGenericCommand instance.
+    - [DeployGenericCommand::setApplication](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/DeployGenericCommand/setApplication.md) &ndash; Sets the application.
+- [RestoreBackupFilesCommand](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/RestoreBackupFilesCommand.md) &ndash; The RestoreBackupFilesCommand class.
+    - [RestoreBackupFilesCommand::run](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/RestoreBackupFilesCommand/run.md) &ndash; Runs the command.
+    - [DeployGenericCommand::__construct](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/DeployGenericCommand/__construct.md) &ndash; Builds the DeployGenericCommand instance.
+    - [DeployGenericCommand::setApplication](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/DeployGenericCommand/setApplication.md) &ndash; Sets the application.
+- [ShowConfCommand](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/ShowConfCommand.md) &ndash; The ShowConfCommand class.
+    - [ShowConfCommand::run](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/ShowConfCommand/run.md) &ndash; Runs the command.
+    - [DeployGenericCommand::__construct](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/DeployGenericCommand/__construct.md) &ndash; Builds the DeployGenericCommand instance.
+    - [DeployGenericCommand::setApplication](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/DeployGenericCommand/setApplication.md) &ndash; Sets the application.
+- [UnzipCommand](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/UnzipCommand.md) &ndash; The UnzipCommand class.
+    - [UnzipCommand::run](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/UnzipCommand/run.md) &ndash; Runs the command.
+    - [DeployGenericCommand::__construct](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/DeployGenericCommand/__construct.md) &ndash; Builds the DeployGenericCommand instance.
+    - [DeployGenericCommand::setApplication](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/DeployGenericCommand/setApplication.md) &ndash; Sets the application.
+- [ZipBackupCommand](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/ZipBackupCommand.md) &ndash; The ZipBackupCommand class.
+    - [ZipBackupCommand::run](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/ZipBackupCommand/run.md) &ndash; Runs the command.
+    - [DeployGenericCommand::__construct](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/DeployGenericCommand/__construct.md) &ndash; Builds the DeployGenericCommand instance.
+    - [DeployGenericCommand::setApplication](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/DeployGenericCommand/setApplication.md) &ndash; Sets the application.
+- [ZipBackupDatabaseCommand](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/ZipBackupDatabaseCommand.md) &ndash; The ZipBackupDatabaseCommand class.
+    - [ZipBackupDatabaseCommand::__construct](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/ZipBackupDatabaseCommand/__construct.md) &ndash; Builds the ZipBackupDatabaseCommand instance.
+    - [ZipBackupDatabaseCommand::run](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/ZipBackupDatabaseCommand/run.md) &ndash; Runs the command.
+    - [ZipBackupDatabaseCommand::onArchiveReady](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/ZipBackupDatabaseCommand/onArchiveReady.md) &ndash; A hook executed once the zip archive is successfully created.
+    - [AbstractBackupCommand::createArchive](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/AbstractBackupCommand/createArchive.md) &ndash; and returns whether the zip creation was successful.
+    - [DeployGenericCommand::setApplication](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/DeployGenericCommand/setApplication.md) &ndash; Sets the application.
+- [ZipBackupFilesCommand](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/ZipBackupFilesCommand.md) &ndash; The ZipBackupFilesCommand class.
+    - [ZipBackupFilesCommand::__construct](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/ZipBackupFilesCommand/__construct.md) &ndash; Builds the ZipBackupFilesCommand instance.
+    - [ZipBackupFilesCommand::run](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/ZipBackupFilesCommand/run.md) &ndash; Runs the command.
+    - [ZipBackupFilesCommand::onArchiveReady](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/ZipBackupFilesCommand/onArchiveReady.md) &ndash; A hook executed once the zip archive is successfully created.
+    - [AbstractBackupCommand::createArchive](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/AbstractBackupCommand/createArchive.md) &ndash; and returns whether the zip creation was successful.
+    - [DeployGenericCommand::setApplication](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/DeployGenericCommand/setApplication.md) &ndash; Sets the application.
+- [ZipFilesCommand](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/ZipFilesCommand.md) &ndash; The ZipFilesCommand class.
+    - [ZipFilesCommand::run](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/ZipFilesCommand/run.md) &ndash; Runs the command.
+    - [DeployGenericCommand::__construct](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/DeployGenericCommand/__construct.md) &ndash; Builds the DeployGenericCommand instance.
+    - [DeployGenericCommand::setApplication](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/DeployGenericCommand/setApplication.md) &ndash; Sets the application.
+- [DeployException](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Exception/DeployException.md) &ndash; The DeployException class.
+- [BackupHelper](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Helper/BackupHelper.md) &ndash; The BackupHelper class.
+    - [BackupHelper::getNamedNonNamedBackups](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Helper/BackupHelper/getNamedNonNamedBackups.md) &ndash; Returns an array of named and non-named backups for the given $backupDir.
+- [DiffHelper](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Helper/DiffHelper.md) &ndash; The DiffHelper class.
+    - [DiffHelper::showDiff](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Helper/DiffHelper/showDiff.md) &ndash; Displays the [diff](https://github.com/lingtalfi/Deploy/blob/master/README.md#the-general-implementation-behind-files-synchronization) to the console screen.
+- [EasyConsoleMenuHelper](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Helper/EasyConsoleMenuHelper.md) &ndash; The EasyConsoleMenuHelper class.
+    - [EasyConsoleMenuHelper::getProjectsList](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Helper/EasyConsoleMenuHelper/getProjectsList.md) &ndash; Returns the projects names list.
+    - [EasyConsoleMenuHelper::getDatabaseIdentifiers](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Helper/EasyConsoleMenuHelper/getDatabaseIdentifiers.md) &ndash; Returns the database identifiers for the given project.
+- [FilesHelper](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Helper/FilesHelper.md) &ndash; The FilesHelper class.
+    - [FilesHelper::removeFilesByName](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Helper/FilesHelper/removeFilesByName.md) &ndash; Removes files by their names.
+    - [FilesHelper::getApplicationFiles](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Helper/FilesHelper/getApplicationFiles.md) &ndash; Returns all the application files, excluding the .deploy directory and its content.
+- [MapHelper](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Helper/MapHelper.md) &ndash; The MapHelper class.
+    - [MapHelper::collectFiles](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Helper/MapHelper/collectFiles.md) &ndash; Returns an array of relative paths of the application files matching the given mapConf.
+- [MysqlHelper](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Helper/MysqlHelper.md) &ndash; The MysqlHelper class.
+    - [MysqlHelper::getDatabasesConfigurationInfo](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Helper/MysqlHelper/getDatabasesConfigurationInfo.md) &ndash; and returns an array of databaseIdentifier => info item for every database identifier, or false if an error occurred.
+    - [MysqlHelper::getVersionNumber](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Helper/MysqlHelper/getVersionNumber.md) &ndash; number can't be obtained.
+    - [MysqlHelper::alterCollate](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Helper/MysqlHelper/alterCollate.md) &ndash; Replaces the collations found in the given $file with the given $newCollation.
+- [OptionHelper](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Helper/OptionHelper.md) &ndash; The OptionHelper class.
+    - [OptionHelper::csvToArray](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Helper/OptionHelper/csvToArray.md) &ndash; Returns an array of trimmed components of the given csv string.
+- [Quoter](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Helper/Quoter.md) &ndash; The Quoter class.
+    - [Quoter::scpEscapeSpace](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Helper/Quoter/scpEscapeSpace.md) &ndash; Escape spaces for scp paths.
+- [RemoteConfHelper](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Helper/RemoteConfHelper.md) &ndash; The RemoteConfHelper class.
+    - [RemoteConfHelper::readConfByFile](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Helper/RemoteConfHelper/readConfByFile.md) &ndash; Returns the configuration array corresponding to the given $confPath.
+    - [RemoteConfHelper::pushConf](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Helper/RemoteConfHelper/pushConf.md) &ndash; and returns whether the result was successful.
+- [ScpHelper](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Helper/ScpHelper.md) &ndash; The ScpHelper class.
+    - [ScpHelper::push](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Helper/ScpHelper/push.md) &ndash; and returns whether the transfer was successful.
+    - [ScpHelper::fetch](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Helper/ScpHelper/fetch.md) &ndash; and returns whether the transfer was successful.
+- [BackupFilesFetcherUtil](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Util/BackupFilesFetcherUtil.md) &ndash; The BackupFilesFetcherUtil class.
+    - [BackupFilesFetcherUtil::__construct](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Util/BackupFilesFetcherUtil/__construct.md) &ndash; Builds the BackupFilesFetcherUtil instance.
+    - [BackupFilesFetcherUtil::setLast](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Util/BackupFilesFetcherUtil/setLast.md) &ndash; Sets the last option.
+    - [BackupFilesFetcherUtil::setNames](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Util/BackupFilesFetcherUtil/setNames.md) &ndash; or by using an array.
+    - [BackupFilesFetcherUtil::setBackupDir](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Util/BackupFilesFetcherUtil/setBackupDir.md) &ndash; Sets the backupDir.
+    - [BackupFilesFetcherUtil::setExtension](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Util/BackupFilesFetcherUtil/setExtension.md) &ndash; Sets the extension.
+    - [BackupFilesFetcherUtil::fetch](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Util/BackupFilesFetcherUtil/fetch.md) &ndash; Returns the array of backup files matching this instance's criteria.
+- [DbBackupFilesFetcherUtil](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Util/DbBackupFilesFetcherUtil.md) &ndash; The DbBackupFilesFetcherUtil class.
+    - [DbBackupFilesFetcherUtil::__construct](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Util/DbBackupFilesFetcherUtil/__construct.md) &ndash; Builds the DbBackupFilesFetcherUtil instance.
+    - [DbBackupFilesFetcherUtil::setDatabaseIdentifiers](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Util/DbBackupFilesFetcherUtil/setDatabaseIdentifiers.md) &ndash; or by using an array.
+    - [BackupFilesFetcherUtil::setLast](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Util/BackupFilesFetcherUtil/setLast.md) &ndash; Sets the last option.
+    - [BackupFilesFetcherUtil::setNames](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Util/BackupFilesFetcherUtil/setNames.md) &ndash; or by using an array.
+    - [BackupFilesFetcherUtil::setBackupDir](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Util/BackupFilesFetcherUtil/setBackupDir.md) &ndash; Sets the backupDir.
+    - [BackupFilesFetcherUtil::setExtension](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Util/BackupFilesFetcherUtil/setExtension.md) &ndash; Sets the extension.
+    - [BackupFilesFetcherUtil::fetch](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Util/BackupFilesFetcherUtil/fetch.md) &ndash; Returns the array of backup files matching this instance's criteria.
+- [DiffUtil](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Util/DiffUtil.md) &ndash; The DiffUtil class.
+    - [DiffUtil::getDiffMap](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Util/DiffUtil/getDiffMap.md) &ndash; Compares the two maps which paths are given, and returns a diff map array.
+
+
+Dependencies
+============
+- [BabyYaml](https://github.com/karayabin/universe-snapshot/tree/master/universe/Ling/BabyYaml)
+- [Bat](https://github.com/karayabin/universe-snapshot/tree/master/universe/Ling/Bat)
+- [CliTools](https://github.com/karayabin/universe-snapshot/tree/master/universe/Ling/CliTools)
+- [DirScanner](https://github.com/karayabin/universe-snapshot/tree/master/universe/Ling/DirScanner)
+- [EasyConsoleMenu](https://github.com/karayabin/universe-snapshot/tree/master/universe/Ling/EasyConsoleMenu)
+
+

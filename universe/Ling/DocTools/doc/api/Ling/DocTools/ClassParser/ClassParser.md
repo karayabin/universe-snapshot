@@ -4,7 +4,7 @@
 
 The ClassParser class
 ================
-2019-02-21 --> 2019-03-20
+2019-02-21 --> 2019-04-04
 
 
 
@@ -46,6 +46,8 @@ class <span class="pl-k">ClassParser</span> implements [ClassParserInterface](ht
     - protected array [$generatedItems2Url](#property-generatedItems2Url) ;
     - protected [\ReflectionClass](http://php.net/manual/en/class.reflectionclass.php) [$_reflectionClass](#property-_reflectionClass) ;
     - protected string [$_method](#property-_method) ;
+    - protected [\ReflectionClass](http://php.net/manual/en/class.reflectionclass.php) [$_expandReflectionClass](#property-_expandReflectionClass) ;
+    - protected string [$_expandMethod](#property-_expandMethod) ;
     - protected array [$_useStatements](#property-_useStatements) ;
 
 - Methods
@@ -112,6 +114,20 @@ Properties
     This property holds the name of the method currently being parsed.
     
     It's an internal property, as denoted with the underscore prefix.
+    
+    
+
+- <span id="property-_expandReflectionClass"><b>_expandReflectionClass</b></span>
+
+    This property holds the _expandReflectionClass for this instance.
+    It's an internal variable used to help the expandIncludes method.
+    
+    
+
+- <span id="property-_expandMethod"><b>_expandMethod</b></span>
+
+    This property holds the _expandMethod for this instance.
+    It's an internal variable used to help the expandIncludes method.
     
     
 

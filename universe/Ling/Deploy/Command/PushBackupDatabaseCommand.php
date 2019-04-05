@@ -54,6 +54,10 @@ class PushBackupDatabaseCommand extends AbstractBackupDatabaseCommand
      */
     protected $exitCode;
 
+
+    /**
+     * Builds the PushBackupDatabaseCommand instance.
+     */
     public function __construct()
     {
         parent::__construct();

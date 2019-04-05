@@ -4,7 +4,7 @@
 
 The UniToolApplication class
 ================
-2019-03-12 --> 2019-03-21
+2019-03-12 --> 2019-04-03
 
 
 
@@ -31,6 +31,7 @@ The following options apply at this application level and can be passed via the 
 
 Options:
 - --application-dir: the path to the application dir to use. The default value is the current directory.
+- --universe-dir-name: the name of the universe directory (by default: universe).
 
 
 
@@ -56,10 +57,10 @@ class <span class="pl-k">UniToolApplication</span> extends [Application](https:/
 - Properties
     - protected string [$currentDirectory](#property-currentDirectory) ;
     - private string [$applicationDir](#property-applicationDir) ;
+    - private string [$universeDirName](#property-universeDirName) ;
     - private string [$confFile](#property-confFile) ;
     - private string [$infoFile](#property-infoFile) ;
     - private array [$dependencyMasterConf](#property-dependencyMasterConf) ;
-    - private [Ling\Uni2\DependencySystemImporter\DependencySystemImporterInterface[]](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/DependencySystemImporter/DependencySystemImporterInterface.md) [$importers](#property-importers) ;
     - private [Ling\Uni2\LocalServer\LocalServer](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/LocalServer/LocalServer.md) [$localServer](#property-localServer) ;
     - private int [$baseIndent](#property-baseIndent) ;
     - private [Ling\Octopus\ServiceContainer\OctopusServiceContainerInterface](https://github.com/lingtalfi/Octopus/blob/master/ServiceContainer/OctopusServiceContainerInterface.php) [$container](#property-container) ;
@@ -77,6 +78,7 @@ class <span class="pl-k">UniToolApplication</span> extends [Application](https:/
     - public [getUniverseDependenciesDir](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Application/UniToolApplication/getUniverseDependenciesDir.md)() : string
     - public [getImporter](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Application/UniToolApplication/getImporter.md)(string $dependencySystemName) : null | object
     - public [getUniverseDirectory](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Application/UniToolApplication/getUniverseDirectory.md)() : string
+    - public [getUniverseDirectoryName](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Application/UniToolApplication/getUniverseDirectoryName.md)() : string
     - public [checkApplicationDir](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Application/UniToolApplication/checkApplicationDir.md)() : string
     - public [checkUniverseDirectory](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Application/UniToolApplication/checkUniverseDirectory.md)() : string
     - public [bootUniverse](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Application/UniToolApplication/bootUniverse.md)(Ling\CliTools\Output\OutputInterface $output) : void
@@ -104,7 +106,7 @@ class <span class="pl-k">UniToolApplication</span> extends [Application](https:/
     - public [AbstractProgram::setLogger](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Program/AbstractProgram/setLogger.md)([Ling\UniversalLogger\UniversalLoggerInterface](https://github.com/lingtalfi/UniversalLogger/blob/master/UniversalLoggerInterface.php) $logger) : void
     - public [AbstractProgram::setLoggerChannel](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Program/AbstractProgram/setLoggerChannel.md)(string $loggerChannel) : void
     - public [AbstractProgram::setErrorIsVerbose](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Program/AbstractProgram/setErrorIsVerbose.md)(bool $errorIsVerbose) : void
-    - public AbstractProgram::setUseExitStatus(bool $useExitStatus) : void
+    - public [AbstractProgram::setUseExitStatus](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Program/AbstractProgram/setUseExitStatus.md)(bool $useExitStatus) : void
 
 }
 
@@ -132,6 +134,13 @@ Properties
     
     
 
+- <span id="property-universeDirName"><b>universeDirName</b></span>
+
+    This property holds the universeDirName for this instance.
+    The default value is: "universe"
+    
+    
+
 - <span id="property-confFile"><b>confFile</b></span>
 
     This property holds the path to the configuration file.
@@ -151,13 +160,6 @@ Properties
 
     This property holds the dependencyMasterConf for this instance.
     This is a cache for the dependency master array.
-    
-    
-
-- <span id="property-importers"><b>importers</b></span>
-
-    This property holds an array of the available importers for this instance.
-    It's an array of dependencySystemName => DependencySystemImporterInterface.
     
     
 
@@ -245,6 +247,7 @@ Methods
 - [UniToolApplication::getUniverseDependenciesDir](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Application/UniToolApplication/getUniverseDependenciesDir.md) &ndash; Returns the universe dependencies directory.
 - [UniToolApplication::getImporter](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Application/UniToolApplication/getImporter.md) &ndash; or null if not defined.
 - [UniToolApplication::getUniverseDirectory](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Application/UniToolApplication/getUniverseDirectory.md) &ndash; Returns the location of a valid universe directory.
+- [UniToolApplication::getUniverseDirectoryName](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Application/UniToolApplication/getUniverseDirectoryName.md) &ndash; Returns the name of the universe directory.
 - [UniToolApplication::checkApplicationDir](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Application/UniToolApplication/checkApplicationDir.md) &ndash; Returns the application directory if it actually exists.
 - [UniToolApplication::checkUniverseDirectory](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Application/UniToolApplication/checkUniverseDirectory.md) &ndash; Returns the universe directory if it actually exists.
 - [UniToolApplication::bootUniverse](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Application/UniToolApplication/bootUniverse.md) &ndash; Ensure that the universe exists under the current application directory.
@@ -270,7 +273,7 @@ Methods
 - [AbstractProgram::setLogger](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Program/AbstractProgram/setLogger.md) &ndash; Sets the logger.
 - [AbstractProgram::setLoggerChannel](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Program/AbstractProgram/setLoggerChannel.md) &ndash; Sets the loggerChannel.
 - [AbstractProgram::setErrorIsVerbose](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Program/AbstractProgram/setErrorIsVerbose.md) &ndash; Sets the errorIsVerbose.
-- AbstractProgram::setUseExitStatus &ndash; Sets the useExitStatus.
+- [AbstractProgram::setUseExitStatus](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Program/AbstractProgram/setUseExitStatus.md) &ndash; Sets the useExitStatus.
 
 
 

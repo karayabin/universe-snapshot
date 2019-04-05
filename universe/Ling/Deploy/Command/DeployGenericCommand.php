@@ -6,7 +6,6 @@ namespace Ling\Deploy\Command;
 
 use Ling\CliTools\Command\CommandInterface;
 use Ling\Deploy\Application\DeployApplication;
-use Ling\LingTalfi\Kaos\Application\KaosApplication;
 
 
 

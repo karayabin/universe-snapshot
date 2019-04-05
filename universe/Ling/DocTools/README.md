@@ -647,6 +647,11 @@ This includes:
 History Log
 =============
     
+- 1.6.1 -- 2019-04-04
+
+    - fix ClassParser erroneous return type with @implementation/@overrides tags
+    - fix AbstractReport::addUnresolvedMethodReference not taking into account reportIgnore correctly 
+    
 - 1.6.0 -- 2019-03-20
 
     - update: reports now parses "todo:" expressions in doc comments

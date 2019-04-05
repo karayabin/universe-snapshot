@@ -58,6 +58,8 @@ https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/GenericP
 https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/GenericParser/GenericParserInterface.md
 https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Helper/ClassNameHelper/getClassNameInfo.md
 https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Helper/ClassNameHelper.md
+https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Helper/ClassParserHelper/getAncestorClassesWithMethod.md
+https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Helper/ClassParserHelper.md
 https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Helper/CommentHelper/displaySeeAlsoItemsSentence.md
 https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Helper/CommentHelper.md
 https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Helper/MethodHelper/getMethodReturnType.md

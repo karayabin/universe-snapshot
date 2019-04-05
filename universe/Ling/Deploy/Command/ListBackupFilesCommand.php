@@ -32,6 +32,9 @@ use Ling\DirScanner\YorgDirScannerTool;
 class ListBackupFilesCommand extends BaseListBackupCommand
 {
 
+    /**
+     * Builds the ListBackupFilesCommand instance.
+     */
     public function __construct()
     {
         parent::__construct();

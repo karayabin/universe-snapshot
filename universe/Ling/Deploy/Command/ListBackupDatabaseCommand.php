@@ -24,6 +24,10 @@ namespace Ling\Deploy\Command;
 class ListBackupDatabaseCommand extends BaseListBackupCommand
 {
 
+
+    /**
+     * Builds the ListBackupDatabaseCommand instance.
+     */
     public function __construct()
     {
         parent::__construct();

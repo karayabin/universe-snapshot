@@ -114,7 +114,7 @@ class ImportUtil
 
 
                 $appDir = $application->getApplicationDir();
-                $appUniverseDir = $appDir . "/universe";
+                $appUniverseDir = $appDir . "/" . $application->getUniverseDirectoryName();
                 $planetDir = $appUniverseDir . "/$longPlanetName";
 
 
@@ -234,7 +234,7 @@ class ImportUtil
 
         $depMaster = $this->application->getDependencyMasterConf();
         $appDir = $this->application->getApplicationDir();
-        $appUniverseDir = $appDir . "/universe";
+        $appUniverseDir = $appDir . "/" . $this->application->getUniverseDirectoryName();
         $appUniverseDependenciesDir = $appDir . "/universe-dependencies";
         $galaxies = DependencyMasterHelper::getGalaxies($depMaster);
         $isPlanet = (in_array($dependencySystem, $galaxies, true));

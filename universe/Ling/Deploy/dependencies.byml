@@ -1,0 +1,10 @@
+dependencies: 
+    Ling: 
+        - BabyYaml
+        - Bat
+        - CliTools
+        - DirScanner
+        - EasyConsoleMenu
+    
+
+post_install: []

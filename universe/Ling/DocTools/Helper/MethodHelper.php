@@ -122,7 +122,7 @@ class MethodHelper
         }
         else {
             if (null !== $report) {
-                $report->addUnresolvedMethodReference($className, $methodName, "MethodHelper::getMethodSignature");
+                $report->addUnresolvedMethodReference($className, $methodLongName, "MethodHelper::getMethodSignature");
             }
 
             if (true === $showDeclaringClass) {

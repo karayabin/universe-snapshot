@@ -1,6 +1,6 @@
 Ling/Uni2
 ================
-2019-03-12 --> 2019-03-21
+2019-03-12 --> 2019-04-03
 
 
 
@@ -14,6 +14,7 @@ Table of contents
     - [UniToolApplication::getUniverseDependenciesDir](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Application/UniToolApplication/getUniverseDependenciesDir.md) &ndash; Returns the universe dependencies directory.
     - [UniToolApplication::getImporter](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Application/UniToolApplication/getImporter.md) &ndash; or null if not defined.
     - [UniToolApplication::getUniverseDirectory](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Application/UniToolApplication/getUniverseDirectory.md) &ndash; Returns the location of a valid universe directory.
+    - [UniToolApplication::getUniverseDirectoryName](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Application/UniToolApplication/getUniverseDirectoryName.md) &ndash; Returns the name of the universe directory.
     - [UniToolApplication::checkApplicationDir](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Application/UniToolApplication/checkApplicationDir.md) &ndash; Returns the application directory if it actually exists.
     - [UniToolApplication::checkUniverseDirectory](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Application/UniToolApplication/checkUniverseDirectory.md) &ndash; Returns the universe directory if it actually exists.
     - [UniToolApplication::bootUniverse](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Application/UniToolApplication/bootUniverse.md) &ndash; Ensure that the universe exists under the current application directory.
@@ -36,7 +37,7 @@ Table of contents
     - [AbstractProgram::setLogger](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Program/AbstractProgram/setLogger.md) &ndash; Sets the logger.
     - [AbstractProgram::setLoggerChannel](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Program/AbstractProgram/setLoggerChannel.md) &ndash; Sets the loggerChannel.
     - [AbstractProgram::setErrorIsVerbose](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Program/AbstractProgram/setErrorIsVerbose.md) &ndash; Sets the errorIsVerbose.
-    - AbstractProgram::setUseExitStatus &ndash; Sets the useExitStatus.
+    - [AbstractProgram::setUseExitStatus](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Program/AbstractProgram/setUseExitStatus.md) &ndash; Sets the useExitStatus.
 - [CheckCommand](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Command/CheckCommand.md) &ndash; The CheckCommand class.
     - [CheckCommand::run](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Command/CheckCommand/run.md) &ndash; Runs the command.
     - [UniToolGenericCommand::__construct](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Command/UniToolGenericCommand/__construct.md) &ndash; Builds the UniToolGenericCommand instance.
@@ -200,6 +201,9 @@ Table of contents
     - [DependencyMasterHelper::getGalaxies](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Helper/DependencyMasterHelper/getGalaxies.md) &ndash; Returns the names of the galaxies present in the dependency master array.
     - [DependencyMasterHelper::getPlanetItem](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Helper/DependencyMasterHelper/getPlanetItem.md) &ndash; or false otherwise (if the planet is not referenced in the dependency master array, or the planet name is invalid).
     - [DependencyMasterHelper::getDependencyMapByPlanetName](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Helper/DependencyMasterHelper/getDependencyMapByPlanetName.md) &ndash; and returns a dependency map array.
+- [MapHelper](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Helper/MapHelper.md) &ndash; The MapHelper class.
+    - [MapHelper::getMapEntries](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Helper/MapHelper/getMapEntries.md) &ndash; of the dependencies for the planet which dir is given.
+    - [MapHelper::createMap](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Helper/MapHelper/createMap.md) &ndash; Creates the map of dependencies for the planet $planetDir at the given $dstFile location.
 - [OutputHelper](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Helper/OutputHelper.md) &ndash; The OutputHelper class.
     - [VirginiaMessageHelper::success](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Helper/VirginiaMessageHelper/success.md) &ndash; Writes a success message to the output.
     - [VirginiaMessageHelper::info](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Helper/VirginiaMessageHelper/info.md) &ndash; Writes an info message to the output.

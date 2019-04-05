@@ -27,7 +27,12 @@ class ScpHelper
     {
         $dstDir = dirname($dstPath);
         $dstPath = Quoter::scpEscapeSpace($dstPath);
-        $cmd = "ssh $sshConfigId 'mkdir -p \"$dstDir\"' && scp -Cq \"$srcPath\" $sshConfigId:\"$dstPath\"";
+
+        $sRecursive = "";
+        if (is_dir($srcPath)) {
+            $sRecursive = "-r";
+        }
+        $cmd = "ssh $sshConfigId 'mkdir -p \"$dstDir\"' && scp -Cq $sRecursive \"$srcPath\" $sshConfigId:\"$dstPath\"";
         return ConsoleTool::passThru($cmd);
     }
 

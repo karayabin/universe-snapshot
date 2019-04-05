@@ -51,6 +51,8 @@ class EasyConsoleMenuHelper
         if (null === $deployConfPath) {
             $deployConfPath = FileSystemTool::resolveTilde("~/.deploy/deploy.conf.byml");
         }
+
+
         if (is_file($deployConfPath)) {
             $conf = BabyYamlUtil::readFile($deployConfPath);
             $found = false;
@@ -70,30 +72,4 @@ class EasyConsoleMenuHelper
         }
     }
 
-
-    public static function getFilesBackupList(bool $isRemote, string $project, string $deployConfPath = null)
-    {
-        if (null === $deployConfPath) {
-            $deployConfPath = FileSystemTool::resolveTilde("~/.deploy/deploy.conf.byml");
-        }
-        if (is_file($deployConfPath)) {
-            $conf = BabyYamlUtil::readFile($deployConfPath);
-            $found = false;
-            $projectConf = BDotTool::getDotValue("projects.$project", $conf, [], $found);
-            if (true === $found) {
-
-                $ret = [];
-                $rootDir = $projectConf['root_dir'];
-                $backupDir = $rootDir . "/.deploy/backup-files";
-                if (is_dir($backupDir)) {
-                    BackupHelper::getBackupFilesList();
-                }
-                return $ret;
-            } else {
-                throw new DeployException("Project not found: $project in $deployConfPath.");
-            }
-        } else {
-            throw new DeployException("This is not a file: $deployConfPath.");
-        }
-    }
 }

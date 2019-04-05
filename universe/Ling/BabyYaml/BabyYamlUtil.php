@@ -74,11 +74,11 @@ class BabyYamlUtil
      *
      * @param array $data
      * @param string $file
-     * @return void
+     * @return bool
      */
-    public static function writeFile(array $data, string $file)
+    public static function writeFile(array $data, string $file): bool
     {
-        self::getWInst()->export($data, $file);
+        return self::getWInst()->export($data, $file);
     }
 
 

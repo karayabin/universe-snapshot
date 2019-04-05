@@ -35,12 +35,16 @@ class DependencyTool
      *
      *
      * @param string $planetDir . The directory path of the planet to scan.
+     * @param array $conf
+     * A reference to the configuration array created, which has the following structure:
+     * - dependencies: array of galaxyName => planets (list of planet names)
+     * - post_install: empty array
      *
      *
      * @return string
      * @throws UniverseToolsException
      */
-    public static function parseDumpDependencies(string $planetDir)
+    public static function parseDumpDependencies(string $planetDir, array &$conf = [])
     {
         if (false === is_dir($planetDir)) {
             throw new UniverseToolsException("Dir not found: $planetDir");
@@ -105,6 +109,12 @@ class DependencyTool
             $galaxies = [];
             foreach ($allUseStatements as $statement) {
                 $parts = explode('\\', $statement);
+
+                if (1 === count($parts)) { // assuming it's a trait
+                    continue;
+                }
+
+
                 $galaxy = $parts[0];
                 $planet = $parts[1];
                 if (false === array_key_exists($galaxy, $galaxies)) {
@@ -283,8 +293,8 @@ class DependencyTool
      * Writes the dependencies.byml file at the root of the given $planetDir.
      *
      * @param string $planetDir
-     * @throws UniverseToolsException
      * @return bool
+     * @throws UniverseToolsException
      */
     public static function writeDependencies(string $planetDir)
     {

@@ -160,6 +160,7 @@ class PushCommand extends DeployGenericCommand
             $parseRemove = true;
             $parseReplace = true;
 
+
             if (in_array('add', $modes, true)) {
                 if (false === file_exists($addFile)) {
                     $parseAdd = false;

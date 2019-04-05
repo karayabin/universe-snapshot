@@ -4,7 +4,7 @@
 
 The ClassNameHelper class
 ================
-2019-02-21 --> 2019-03-20
+2019-02-21 --> 2019-04-04
 
 
 
@@ -51,4 +51,4 @@ Ling\DocTools\Helper\ClassNameHelper
 
 SeeAlso
 ==============
-Previous class: [GenericParserInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/GenericParser/GenericParserInterface.md)<br>Next class: [CommentHelper](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Helper/CommentHelper.md)<br>
+Previous class: [GenericParserInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/GenericParser/GenericParserInterface.md)<br>Next class: [ClassParserHelper](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Helper/ClassParserHelper.md)<br>

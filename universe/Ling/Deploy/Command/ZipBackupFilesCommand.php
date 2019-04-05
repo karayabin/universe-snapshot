@@ -43,6 +43,10 @@ class ZipBackupFilesCommand extends AbstractBackupCommand
      */
     protected $exitCode;
 
+
+    /**
+     * Builds the ZipBackupFilesCommand instance.
+     */
     public function __construct()
     {
         parent::__construct();

@@ -8,6 +8,7 @@ use Ling\Bat\ClassTool;
 use Ling\Bat\DebugTool;
 use Ling\DocTools\Exception\ClassParserException;
 use Ling\DocTools\Helper\ClassNameHelper;
+use Ling\DocTools\Helper\ClassParserHelper;
 use Ling\DocTools\Helper\CommentHelper;
 use Ling\DocTools\Helper\TagHelper;
 use Ling\DocTools\Info\ClassInfo;
@@ -85,6 +86,7 @@ class ClassParser implements ClassParserInterface
      */
     protected $_reflectionClass;
 
+
     /**
      * This property holds the name of the method currently being parsed.
      *
@@ -94,6 +96,20 @@ class ClassParser implements ClassParserInterface
      */
     protected $_method;
 
+
+    /**
+     * This property holds the _expandReflectionClass for this instance.
+     * It's an internal variable used to help the expandIncludes method.
+     * @var \ReflectionClass
+     */
+    protected $_expandReflectionClass;
+
+    /**
+     * This property holds the _expandMethod for this instance.
+     * It's an internal variable used to help the expandIncludes method.
+     * @var string
+     */
+    protected $_expandMethod;
 
     /**
      * This property holds the array of use statements found in the class file..
@@ -160,6 +176,7 @@ class ClassParser implements ClassParserInterface
         //--------------------------------------------
         $docComment = $class->getDocComment();
         $comment = $this->parseDocComment($docComment, 'class', $className);
+
 
         if ($comment->isEmpty()) {
             if (null !== $this->report) {
@@ -311,6 +328,7 @@ class ClassParser implements ClassParserInterface
 
             $name = $method->getName();
             $this->_method = $name;
+            $this->_expandMethod = $name;
             $methodVisibility = $this->getMethodVisibility($method);
 
 
@@ -380,6 +398,9 @@ class ClassParser implements ClassParserInterface
             $signature = $this->getMethodSignature($method);
 
 
+            //--------------------------------------------
+            // RETURN TYPE
+            //--------------------------------------------
             $returnType = "void";
             $returnDescription = "";
             $tagContent = $comment->getTagByName("return");
@@ -403,6 +424,7 @@ class ClassParser implements ClassParserInterface
 
                             $methodClass = $method->getDeclaringClass();
 
+
                             if ('$this' === $v) {
                                 $v = $methodClass->getName();
                             } else {
@@ -418,11 +440,17 @@ class ClassParser implements ClassParserInterface
                                 /**
                                  * This is a user defined class, using an unqualified class name (aka class short name),
                                  * we need to lookup the use statements to get the (fully qualified) class name.
+                                 *
+                                 * Also, sometimes the class uses an "@overrides" or an "@implementation" tag,
+                                 * in which case the "@return" tag is provided by a parent class.
+                                 *
+                                 * So our technique is to get all the use statements not only of the current class,
+                                 * but also of all parent class (and or interfaces) which own the same method name.
+                                 *
                                  */
-                                $tokens = token_get_all(file_get_contents($methodClass->getFileName()));
-                                $this->_useStatements = TokenFinderTool::getUseDependencies($tokens);
-
-
+                                $classes = ClassParserHelper::getAncestorClassesWithMethod($methodClass, $method->getName());
+                                $classes[] = $methodClass;
+                                $this->_useStatements = TokenFinderTool::getUseDependenciesByReflectionClasses($classes);
                                 $useStatementHasMatched = false;
                                 foreach ($this->_useStatements as $statement) {
                                     $p = explode('\\', $statement);
@@ -458,7 +486,6 @@ class ClassParser implements ClassParserInterface
                 });
                 $returnType = implode("|", $types);
             }
-
 
             $oMethod = new MethodInfo();
             $oMethod->setComment($comment);
@@ -688,7 +715,7 @@ class ClassParser implements ClassParserInterface
      */
     protected function parseDocComment(string $rawComment, string $elementType, string $elementId)
     {
-
+        $this->_expandReflectionClass = $this->_reflectionClass;
         $includeReferences = [];
         if ("method" === $elementType) {
             /**
@@ -1000,9 +1027,8 @@ class ClassParser implements ClassParserInterface
             if ('implementation' === $word) {
 
                 $parentMainText = null;
-                $class = $this->_reflectionClass;
-                $method = $this->_method;
-
+                $class = $this->_expandReflectionClass;
+                $method = $this->_expandMethod;
 
                 /**
                  * First try interfaces
@@ -1010,6 +1036,8 @@ class ClassParser implements ClassParserInterface
                 $interfaces = $class->getInterfaces();
                 foreach ($interfaces as $interface) {
                     if ($interface->hasMethod($method)) {
+
+                        $this->_expandReflectionClass = $interface;
                         $parentMethod = $interface->getMethod($method);
                         $parentDocComment = $parentMethod->getDocComment();
                         $parentDocComment = substr($parentDocComment, 3, -2);
@@ -1022,18 +1050,20 @@ class ClassParser implements ClassParserInterface
                 /**
                  * Then try abstract classes
                  */
-                if (false === $resolved) {
-                    $abstractParents = ClassTool::getAbstractAncestors($class);
-                    foreach ($abstractParents as $abstractParent) {
-                        if ($abstractParent->hasMethod($method)) {
-                            $parentMethod = $abstractParent->getMethod($method);
-                            $parentDocComment = $parentMethod->getDocComment();
-                            $parentDocComment = substr($parentDocComment, 3, -2);
-                            $resolved = true;
-                            $includeReferences[] = $abstractParent->getName();
-                            return $this->expandIncludes($parentDocComment, $resolved, $includeReferences);
-                            break;
-                        }
+
+                $abstractParents = ClassTool::getAbstractAncestors($class);
+                foreach ($abstractParents as $abstractParent) {
+                    if ($abstractParent->hasMethod($method)) {
+
+
+                        $this->_expandReflectionClass = $abstractParent;
+                        $parentMethod = $abstractParent->getMethod($method);
+                        $parentDocComment = $parentMethod->getDocComment();
+                        $parentDocComment = substr($parentDocComment, 3, -2);
+                        $resolved = true;
+                        $includeReferences[] = $abstractParent->getName();
+                        return $this->expandIncludes($parentDocComment, $resolved, $includeReferences);
+                        break;
                     }
                 }
 
@@ -1043,32 +1073,30 @@ class ClassParser implements ClassParserInterface
                         $this->report->addUnresolvedImplementationTag($method);
                     }
                 }
-
             }
             //--------------------------------------------
             // @OVERRIDES
             //--------------------------------------------
             else {
                 $parentMainText = null;
-                $class = $this->_reflectionClass;
-                $method = $this->_method;
+                $class = $this->_expandReflectionClass;
+                $method = $this->_expandMethod;
+
 
                 /**
                  * Then try abstract classes
                  */
-                if (false === $resolved) {
+                $parent = $class->getParentClass();
+                if ($parent instanceof \ReflectionClass) {
+                    if ($parent->hasMethod($method)) {
+                        $this->_expandReflectionClass = $parent;
 
-
-                    $parent = $class->getParentClass();
-                    if ($parent instanceof \ReflectionClass) {
-                        if ($parent->hasMethod($method)) {
-                            $parentMethod = $parent->getMethod($method);
-                            $parentDocComment = $parentMethod->getDocComment();
-                            $parentDocComment = substr($parentDocComment, 3, -2);
-                            $resolved = true;
-                            $includeReferences[] = $parent->getName();
-                            return $this->expandIncludes($parentDocComment, $resolved, $includeReferences);
-                        }
+                        $parentMethod = $parent->getMethod($method);
+                        $parentDocComment = $parentMethod->getDocComment();
+                        $parentDocComment = substr($parentDocComment, 3, -2);
+                        $resolved = true;
+                        $includeReferences[] = $parent->getName();
+                        return $this->expandIncludes($parentDocComment, $resolved, $includeReferences);
                     }
                 }
 

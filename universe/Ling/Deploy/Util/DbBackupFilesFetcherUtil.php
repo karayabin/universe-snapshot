@@ -58,6 +58,9 @@ class DbBackupFilesFetcherUtil extends BackupFilesFetcherUtil
     protected $databaseIdentifiers;
 
 
+    /**
+     * Builds the DbBackupFilesFetcherUtil instance.
+     */
     public function __construct()
     {
         parent::__construct();

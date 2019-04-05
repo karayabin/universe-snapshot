@@ -6,6 +6,7 @@ namespace Ling\Deploy\Application;
 
 use Ling\BabyYaml\BabyYamlUtil;
 use Ling\Bat\BDotTool;
+use Ling\Bat\FileSystemTool;
 use Ling\CliTools\Command\CommandInterface;
 use Ling\CliTools\Input\InputInterface;
 use Ling\CliTools\Output\OutputInterface;
@@ -50,6 +51,12 @@ class DeployApplication extends Application
     private $baseIndentLevel;
 
     /**
+     * This property holds the confPath for this instance.
+     * @var string=null
+     */
+    private $confPath;
+
+    /**
      * Builds the DeployApplication instance.
      */
     public function __construct()
@@ -58,6 +65,7 @@ class DeployApplication extends Application
 
         $this->projectIdentifier = null;
         $this->baseIndentLevel = 0;
+        $this->confPath = null;
         $this->registerCommand("Ling\Deploy\Command\BackupDatabaseCommand", "backup-db");
         $this->registerCommand("Ling\Deploy\Command\BackupFilesCommand", "backup-files");
         $this->registerCommand("Ling\Deploy\Command\CleanBackupDatabaseCommand", "clean-backup-db");
@@ -65,6 +73,8 @@ class DeployApplication extends Application
 
         $this->registerCommand("Ling\Deploy\Command\ShowConfCommand", "conf");
         $this->registerCommand("Ling\Deploy\Command\CreateDatabaseCommand", "create-db");
+
+        $this->registerCommand("Ling\Deploy\Command\CronDeployCommand", "cron-deploy");
 
         $this->registerCommand("Ling\Deploy\Command\DiffCommand", "diff");
         $this->registerCommand("Ling\Deploy\Command\DiffBackCommand", "diffback");
@@ -78,6 +88,10 @@ class DeployApplication extends Application
         $this->registerCommand("Ling\Deploy\Command\FetchBackupFilesCommand", "fetch-backup-files");
 
         $this->registerCommand("Ling\Deploy\Command\HelpCommand", "help");
+
+
+        $this->registerCommand("Ling\Deploy\Command\EnterInteractiveModeCommand", "i");
+
         $this->registerCommand("Ling\Deploy\Command\ListBackupDatabaseCommand", "list-backup-db");
         $this->registerCommand("Ling\Deploy\Command\ListBackupFilesCommand", "list-backup-files");
         $this->registerCommand("Ling\Deploy\Command\CreateMapCommand", "map");
@@ -121,6 +135,26 @@ class DeployApplication extends Application
         return $this->projectIdentifier;
     }
 
+    /**
+     * Sets the confPath.
+     *
+     * @param string $confPath
+     */
+    public function setConfPath(string $confPath)
+    {
+        $this->confPath = $confPath;
+    }
+
+    /**
+     * Sets the projectIdentifier.
+     *
+     * @param string $projectIdentifier
+     */
+    public function setProjectIdentifier(string $projectIdentifier)
+    {
+        $this->projectIdentifier = $projectIdentifier;
+    }
+
 
     /**
      * Returns the configuration array for the current project.
@@ -152,7 +186,7 @@ class DeployApplication extends Application
      *
      * ```txt
      * map-conf:
-     *      ignoreHidden: true
+     *      ignoreHidden: 1
      *      ignoreNames: []
      *      ignorePaths: []
      * ```
@@ -188,7 +222,7 @@ class DeployApplication extends Application
                             }
 
                             if (false === array_key_exists('ignoreHidden', $projectConf['map-conf'])) {
-                                $projectConf['map-conf']['ignoreHidden'] = true;
+                                $projectConf['map-conf']['ignoreHidden'] = 1;
                             }
                             return $projectConf;
                         } else {
@@ -231,20 +265,30 @@ class DeployApplication extends Application
      */
     public function getConfPath()
     {
-        return "/komin/jin_site_demo/tmp/deploy.conf.byml";
-        return "~/.deploy/deploy.conf.byml";
+        $confPath = $this->confPath;
+        if (null === $confPath) {
+            return FileSystemTool::resolveTilde("~/.deploy/deploy.conf.byml");
+        } else {
+            return $confPath;
+        }
     }
+
 
 
     /**
      * @overrides
      */
-    public function run(InputInterface $input, OutputInterface $output)
+    public function runProgram(InputInterface $input, OutputInterface $output)
     {
 
-        $conf = $this->getConf();
-        $dateTimeZone = BDotTool::getDotValue("settings.date_time_zone", $conf, "Europe/Paris");
-        date_default_timezone_set($dateTimeZone);
+        $confPath = $this->getConfPath();
+        if (file_exists($confPath)) {
+            $conf = BabyYamlUtil::readFile($confPath);
+            $dateTimeZone = BDotTool::getDotValue("settings.date_time_zone", $conf, "Europe/Paris");
+            date_default_timezone_set($dateTimeZone);
+        }
+
+
 
         if (null !== ($projectId = $input->getOption("p"))) {
             $this->projectIdentifier = $projectId;
@@ -263,7 +307,7 @@ class DeployApplication extends Application
         //--------------------------------------------
         //
         //--------------------------------------------
-        parent::run($input, $output);
+        parent::runProgram($input, $output);
     }
 
 

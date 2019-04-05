@@ -58,6 +58,10 @@ namespace Ling\Deploy\Command;
  */
 class CleanBackupDatabaseCommand extends BaseCleanBackupCommand
 {
+
+    /**
+     * Builds the CleanBackupDatabaseCommand instance.
+     */
     public function __construct()
     {
         parent::__construct();

@@ -16,7 +16,6 @@ use Ling\Octopus\Exception\OctopusServiceErrorException;
 use Ling\Octopus\ServiceContainer\OctopusServiceContainerInterface;
 use Ling\Octopus\ServiceContainer\RedOctopusServiceContainer;
 use Ling\Uni2\Command\UniToolGenericCommand;
-use Ling\Uni2\DependencySystemImporter\DependencySystemImporterInterface;
 use Ling\Uni2\Exception\Uni2Exception;
 use Ling\Uni2\Helper\OutputHelper as H;
 use Ling\Uni2\LocalServer\LocalServer;
@@ -40,6 +39,7 @@ use Ling\Uni2\LocalServer\LocalServer;
  *
  * Options:
  * - --application-dir: the path to the application dir to use. The default value is the current directory.
+ * - --universe-dir-name: the name of the universe directory (by default: universe).
  *
  *
  *
@@ -84,6 +84,13 @@ class UniToolApplication extends Application
     private $applicationDir;
 
     /**
+     * This property holds the universeDirName for this instance.
+     * The default value is: "universe"
+     * @var string
+     */
+    private $universeDirName;
+
+    /**
      * This property holds the path to the configuration file.
      * See the @object(configuration command) for more info.
      *
@@ -109,13 +116,6 @@ class UniToolApplication extends Application
     private $dependencyMasterConf;
 
 
-    /**
-     * This property holds an array of the available importers for this instance.
-     * It's an array of dependencySystemName => DependencySystemImporterInterface.
-     *
-     * @var DependencySystemImporterInterface[]
-     */
-    private $importers;
 
     /**
      * This property holds the localServer for this instance.
@@ -152,6 +152,7 @@ class UniToolApplication extends Application
         $this->baseIndent = 0;
         $this->currentDirectory = getcwd();
         $this->applicationDir = null;
+        $this->universeDirName = "universe";
         $this->dependencyMasterConf = null;
         $this->localServer = null;
         $this->confFile = __DIR__ . "/../info/configuration/conf.byml";
@@ -267,8 +268,19 @@ class UniToolApplication extends Application
      */
     public function getUniverseDirectory()
     {
-        $universeDir = $this->getApplicationDir() . "/universe";
+        $universeDir = $this->getApplicationDir() . "/" . $this->universeDirName;
         return $universeDir;
+    }
+
+
+    /**
+     * Returns the name of the universe directory.
+     *
+     * @return string
+     */
+    public function getUniverseDirectoryName()
+    {
+        return $this->universeDirName;
     }
 
 
@@ -303,7 +315,7 @@ class UniToolApplication extends Application
      */
     public function checkUniverseDirectory()
     {
-        $universeDir = $this->getApplicationDir() . "/universe";
+        $universeDir = $this->getApplicationDir() . "/" . $this->universeDirName;
         if (false === is_dir($universeDir)) {
             throw new Uni2Exception("The universe directory (" . $universeDir . ") is not a directory. You must create the universe directory at the root of your application directory.");
         }
@@ -354,6 +366,7 @@ class UniToolApplication extends Application
                 ":import" => true,
                 ":Ling/BumbleBee" => true,
                 "application-dir" => $this->applicationDir,
+                "universe-dir-name" => $this->universeDirName,
                 "-n" => true,
                 "indent" => 1,
             ]);
@@ -632,6 +645,7 @@ class UniToolApplication extends Application
                 $myInput = new ArrayInput();
                 $myInput->setItems([
                     "application-dir" => $this->checkApplicationDir(),
+                    "universe-dir-name" => $this->universeDirName,
                     ":upgrade" => true,
                     "indent" => $indentLevel + 1,
                 ]);
@@ -654,8 +668,10 @@ class UniToolApplication extends Application
         // APPLICATION DIR
         //--------------------------------------------
         $appDir = $input->getOption("application-dir");
+        $universeDirName = $input->getOption("universe-dir-name");
         $this->baseIndent = $input->getOption("indent", 0);
         $errorVerbose = $input->hasFlag("e");
+
         if ($errorVerbose) {
             $this->setErrorIsVerbose(true);
         }
@@ -667,6 +683,11 @@ class UniToolApplication extends Application
             }
         }
         $this->applicationDir = $appDir;
+
+
+        if (null !== $universeDirName) {
+            $this->universeDirName = $universeDirName;
+        }
 
         //--------------------------------------------
         //

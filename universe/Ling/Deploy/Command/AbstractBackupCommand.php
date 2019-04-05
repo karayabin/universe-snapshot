@@ -177,6 +177,7 @@ abstract class AbstractBackupCommand extends DeployGenericCommand
     /**
      * Returns the FetcherUtil instance to use by this command.
      *
+     * @param InputInterface $input
      * @return BackupFilesFetcherUtil
      */
     protected function getFetcherUtilInstance(InputInterface $input)

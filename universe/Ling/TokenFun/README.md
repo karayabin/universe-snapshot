@@ -184,6 +184,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.2.0 -- 2019-04-04
+
+    - add TokenFinderTool::getUseDependenciesByReflectionClasses method
+    
 - 1.1.0 -- 2017-03-23
 
     - add TokenFinderTool::getInterfaces and TokenFinderTool::getParentClassName methods

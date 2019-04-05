@@ -120,7 +120,10 @@ class ClassMethodsWidget extends Widget
             }
             else {
                 if (null !== $this->report) {
-                    $this->report->addUnresolvedMethodReference($className, $methodFullName, "ClassMethodsWidget");
+                    $p = explode("::", $methodFullName);
+                    $_class = $p[0];
+                    $_method = $p[1];
+                    $this->report->addUnresolvedMethodReference($_class, $_method, "ClassMethodsWidget");
                 }
             }
 

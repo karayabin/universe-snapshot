@@ -4,7 +4,7 @@
 
 The DependencyMasterHelper class
 ================
-2019-03-12 --> 2019-03-21
+2019-03-12 --> 2019-04-03
 
 
 
@@ -59,4 +59,4 @@ Ling\Uni2\Helper\DependencyMasterHelper
 
 SeeAlso
 ==============
-Previous class: [Uni2Exception](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Exception/Uni2Exception.md)<br>Next class: [OutputHelper](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Helper/OutputHelper.md)<br>
+Previous class: [Uni2Exception](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Exception/Uni2Exception.md)<br>Next class: [MapHelper](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Helper/MapHelper.md)<br>

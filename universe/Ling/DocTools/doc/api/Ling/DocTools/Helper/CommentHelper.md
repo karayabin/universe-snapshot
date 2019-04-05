@@ -4,7 +4,7 @@
 
 The CommentHelper class
 ================
-2019-02-21 --> 2019-03-20
+2019-02-21 --> 2019-04-04
 
 
 
@@ -72,4 +72,4 @@ Ling\DocTools\Helper\CommentHelper
 
 SeeAlso
 ==============
-Previous class: [ClassNameHelper](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Helper/ClassNameHelper.md)<br>Next class: [MethodHelper](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Helper/MethodHelper.md)<br>
+Previous class: [ClassParserHelper](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Helper/ClassParserHelper.md)<br>Next class: [MethodHelper](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Helper/MethodHelper.md)<br>

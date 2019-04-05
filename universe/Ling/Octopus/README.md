@@ -89,6 +89,14 @@ Octopus comes with two versions:
 History Log
 ------------------
 
+- 1.2.1 -- 2019-04-04
+
+    - fix DarkBlueOctopusServiceContainerBuilder creating use statements without Ling galaxy prefix
+    
+- 1.2.0 -- 2019-04-04
+
+    - add OctopusServiceContainerInterface->has method
+    
 - 1.1.0 -- 2019-02-07
 
     - Octopus\ServiceContainerBuilder\DarkBlueOctopusServiceContainerBuilder can now parse the @service notation

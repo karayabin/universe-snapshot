@@ -95,7 +95,7 @@ class RedOctopusServiceContainer extends HotServiceResolver implements OctopusSe
      *
      * @implementation
      */
-    public function get($service)
+    public function get(string $service)
     {
 
         // cache available?
@@ -117,6 +117,18 @@ class RedOctopusServiceContainer extends HotServiceResolver implements OctopusSe
             throw new OctopusServiceErrorException("Service not found: $service");
         }
     }
+
+
+    /**
+     *
+     * @implementation
+     */
+    public function has(string $service): bool
+    {
+        return array_key_exists($service, $this->sicBlocks);
+    }
+
+
 
 
     //--------------------------------------------
