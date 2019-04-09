@@ -41,6 +41,10 @@ Summary
 History Log
 ------------------
 
+- 1.3.0 -- 2019-04-09
+
+    - update SicFileCombinerUtil class, now uses the concepts of lazy override and variable references
+    
 - 1.2.1 -- 2019-04-05
 
     - fix ColdServiceResolver not turning associative arrays into numerical arrays when calling them as constructor/method arguments

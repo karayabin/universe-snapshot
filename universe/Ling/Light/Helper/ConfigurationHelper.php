@@ -26,6 +26,7 @@ class ConfigurationHelper
      */
     public static function getCombinedConf(string $directory): array
     {
-        return SicFileCombinerUtil::combine($directory);
+        $util = new SicFileCombinerUtil();
+        return $util->combine($directory);
     }
 }

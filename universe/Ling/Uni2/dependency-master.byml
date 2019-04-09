@@ -657,14 +657,29 @@ galaxies:
             
         
         Light_PrettyError: 
-            version: 1.0.0
-            dependencies: []
+            version: 1.2.0
+            dependencies: 
+                Ling: 
+                    - Light
+                    - Light_Initializer
+                    - UniversalTemplateEngine
+                
+            
             post_install: 
                 map: true
                 composer: 
                     - require filp/whoops
                 
             
+        
+        Light_ZephyrTemplate: 
+            version: 1.0.0
+            dependencies: 
+                Ling: 
+                    - ZephyrTemplateEngine
+                
+            
+            post_install: []
         
         LinearFile: 
             version: 1.0.0
@@ -1116,7 +1131,7 @@ galaxies:
             post_install: []
         
         SicTools: 
-            version: 1.2.1
+            version: 1.3.0
             dependencies: 
                 Ling: 
                     - ArrayToString
@@ -1337,12 +1352,12 @@ galaxies:
             post_install: []
         
         UniversalTemplateEngine: 
-            version: 1.0.0
+            version: 1.1.0
             dependencies: []
             post_install: []
         
         UniverseTools: 
-            version: 1.14.0
+            version: 1.15.1
             dependencies: 
                 Ling: 
                     - BabyYaml
@@ -1428,8 +1443,17 @@ galaxies:
             dependencies: []
             post_install: []
         
+        ZephyrTemplateEngine: 
+            version: 1.0.0
+            dependencies: 
+                Ling: 
+                    - UniversalTemplateEngine
+                
+            
+            post_install: []
+        
         ZeusTemplateEngine: 
-            version: 1.2.0
+            version: 1.3.0
             dependencies: 
                 Ling: 
                     - UniversalTemplateEngine

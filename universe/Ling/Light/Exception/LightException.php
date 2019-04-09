@@ -22,6 +22,14 @@ class LightException extends \Exception
      */
     protected $lightErrorCode;
 
+
+    /**
+     * Builds the LightException instance.
+     * @param string $message
+     * @param string|null $lightErrorCode
+     * @param int $code
+     * @param Throwable|null $previous
+     */
     public function __construct($message = "", string $lightErrorCode = null, $code = 0, Throwable $previous = null)
     {
         parent::__construct($message, $code, $previous);

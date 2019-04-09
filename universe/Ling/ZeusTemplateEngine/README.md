@@ -138,7 +138,11 @@ With:
 History Log
 ------------------
 
-- 1.2.0 -- 2019-2-12
+- 1.3.0 -- 2019-04-09
+
+    - update ZeusTemplateEngine->render method according to the interface
+    
+- 1.2.0 -- 2019-02-12
 
     - add ZeusTemplateEngine\ZeusTemplateEngine->renderByPath method
     

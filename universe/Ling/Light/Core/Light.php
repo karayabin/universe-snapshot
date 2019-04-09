@@ -7,11 +7,82 @@ namespace Ling\Light\Core;
 use Ling\Light\Exception\LightException;
 use Ling\Light\Http\HttpRequest;
 use Ling\Light\Http\HttpResponse;
+use Ling\Light\Http\HttpResponseInterface;
 use Ling\Light\Router\LightRouter;
+use Ling\Light\ServiceContainer\LightDummyServiceContainer;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
 
 /**
  * The Light class.
+ *
+ *
+ * The Light class has a **run** method, which handles the web application.
+ * Basically, you just call the **run** method, and web pages will automatically be printed on the screen for you.
+ * But of course, you need to configure the Light instance before you can see anything.
+ *
+ * There are two main concepts to grasp when working with the Light instance:
+ *
+ * - routes
+ * - error handlers
+ *
+ *
+ * Routes
+ * -----------
+ * A route binds the http request to a controller.
+ * So in other words, when the web user types something in the url bar of her browser (for instance http://your_site.com/home),
+ * then the route does the job of deciding which controller should handle this request.
+ *
+ * A controller is just a function that returns a response (generally an html web page).
+ *
+ *
+ *
+ * Error handlers
+ * ----------------
+ * Often, especially during the development phase, things go wrong: a route doesn't match, or a controller fails because
+ * some parameters are missing, etc...
+ *
+ * Whenever a failure happens, an exception is thrown.
+ * The Light instance intercepts that and ask whether an error handler can handle this error (which usually has an error type associated with it).
+ *
+ * Note: the error handlers are registered by you (or some plugins you've installed).
+ *
+ * If an error handler can handle the error, it will. Usually, it will either display a pretty error message,
+ * or redirect to a default page.
+ *
+ * If no error handlers was able to handle the error, then the Light instance has a fallback mechanism for that:
+ * it will display a 500 internal server error.
+ * And if you set the debug mode=true, it will print a debug page showing the exception trace instead.
+ *
+ *
+ * Those concepts are the fundamental ideas behind the Light instance.
+ *
+ *
+ *
+ * The service container
+ * ----------------
+ * The service container is a very important object in a Light application.
+ *
+ * The philosophy of Light is to start your application from scratch, and build it progressively by adding the blocks
+ * of functionality you need.
+ *
+ * The service container helps implementing this idea: it's a container where each plugin can provide its own services.
+ *
+ * And so when you install a plugin, it automatically adds its services to the services container, thus bringing to
+ * the application the functionality you need.
+ *
+ *
+ * The service container is the central piece in a Light application.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  */
 class Light
 {
@@ -97,6 +168,20 @@ class Light
         $this->container = $container;
     }
 
+    /**
+     * Returns the services container of this instance.
+     * If no instance was set, it returns a dummy container.
+     *
+     * @return LightServiceContainerInterface
+     */
+    public function getContainer(): LightServiceContainerInterface
+    {
+        if (null === $this->container) {
+            return new LightDummyServiceContainer();
+        }
+        return $this->container;
+    }
+
 
     /**
      * Registers a route item for this Light instance.
@@ -124,14 +209,41 @@ class Light
 
 
     /**
+     * Registers a error handler callback.
+     *
+     * The error handler callback is a callback with the following signature:
+     *
+     * ```txt
+     *      function errorHandler ( $errorType, \Exception $e, &$response = null )
+     * ```
+     *
+     * The error handler callback should handle the given exception if necessary (i.e. if it can
+     * handle this errorType} and set the response to either a string or an HttpResponseInterface.
+     *
+     * Note: multiple error handlers will be in concurrence for handling a given error, and the first
+     * handler to return a response will be used (i.e. subsequent handlers will be discarded).
+     *
+     * Note: the errorType might be null.
+     *
+     *
+     *
+     *
+     *
+     * @param callable $errorHandler
+     */
+    public function registerErrorHandler(callable $errorHandler)
+    {
+        $this->errorHandlers[] = $errorHandler;
+    }
+
+    /**
      * Runs the Light web application.
      */
     public function run()
     {
 
         $httpRequest = HttpRequest::createFromEnv();
-
-
+        $response = null;
 
 
         if (null !== $this->container) {
@@ -140,7 +252,6 @@ class Light
                 $initializer->initialize($this, $httpRequest);
             }
         }
-
 
 
         try {
@@ -169,7 +280,7 @@ class Light
                     $result = $router->match($httpRequest, $this->routes);
                     if (false !== $result) {
 
-
+az($result);
                         //--------------------------------------------
                         // NOW INTERPRETING THE ROUTE
                         //--------------------------------------------
@@ -215,19 +326,39 @@ class Light
 
             $washHandled = false;
             foreach ($this->errorHandlers as $errorHandler) {
-
+                if (null === $response) {
+                    call_user_func_array($errorHandler, [$lightErrorCode, $e, &$response]);
+                    if (null !== $response) {
+                        $washHandled = true;
+                        break;
+                    }
+                }
             }
 
 
             if (false === $washHandled) {
                 if (false === $this->debug) {
-                    $this->showInternalServerErrorPage();
+                    $response = $this->renderInternalServerErrorPage();
 
                 } else {
-                    $this->showDebugPage($e);
+                    $response = $this->renderDebugPage($e);
                 }
             }
         }
+
+
+        //--------------------------------------------
+        // DISPLAYING THE RESPONSE IF ANY
+        //--------------------------------------------
+        if (null !== $response) {
+            if (is_string($response)) {
+                $response = new HttpResponse($response);
+            }
+            if ($response instanceof HttpResponseInterface) {
+                $response->send();
+            }
+        }
+
 
     }
 
@@ -237,30 +368,34 @@ class Light
     //
     //--------------------------------------------
     /**
-     * Displays the debug page.
+     * Renders (returns the html code of) the debug page.
      * You should override this method if you need a more sophisticated/fancy display.
      *
      * @param \Exception $e
-     * @overrideMe
+     * @return string|HttpResponseInterface
      * @throws \Exception
      */
-    protected function showDebugPage(\Exception $e)
+    protected function renderDebugPage(\Exception $e)
     {
+
+        $response = null;
 
         $handled = false;
         if (null !== $this->container) {
             if ($this->container->has("prettyDebugPage")) {
                 $handled = true;
-                $this->container->get("prettyDebugPage")->print($e);
+                $response = $this->container->get("prettyDebugPage")->renderPage($e);
             }
         }
 
 
         if (false === $handled) {
+            ob_start();
             echo '<h1>An error occurred -- debug mode</h1>';
             echo nl2br((string)$e);
+            $response = ob_get_clean();
         }
-
+        return $response;
     }
 
 
@@ -270,13 +405,14 @@ class Light
      *
      * You should override this method if you want a more fancy display.
      *
+     * @return string|HttpResponseInterface
      * @overrideMe
      */
-    protected function showInternalServerErrorPage()
+    protected function renderInternalServerErrorPage()
     {
         $response = new HttpResponse("
             <h1>Internal server error</h1>
             <p>The server encountered an internal error misconfiguration and was unable to complete your request.</p>", 500);
-        $response->send();
+        return $response;
     }
 }

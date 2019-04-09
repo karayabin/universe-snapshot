@@ -1,0 +1,9 @@
+zephyr_template_vars:
+    root_dir: /override_me     # set this to your application directory
+
+
+template:
+    instance: Ling\Light_ZephyrTemplate\LightZephyrTemplate
+    methods:
+        setDirectory:
+            root_dir: ${zephyr_template_vars.root_dir}

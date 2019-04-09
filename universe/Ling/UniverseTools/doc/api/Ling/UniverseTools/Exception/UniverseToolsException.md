@@ -4,7 +4,7 @@
 
 The UniverseToolsException class
 ================
-2019-02-26 --> 2019-04-05
+2019-02-26 --> 2019-04-08
 
 
 
@@ -52,4 +52,4 @@ Ling\UniverseTools\Exception\UniverseToolsException
 
 SeeAlso
 ==============
-Previous class: [DependencyTool](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/DependencyTool.md)<br>Next class: [MetaInfoTool](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/MetaInfoTool.md)<br>
+Previous class: [DependencyTool](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/DependencyTool.md)<br>Next class: [GalaxyTool](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/GalaxyTool.md)<br>

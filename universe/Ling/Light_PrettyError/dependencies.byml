@@ -1,4 +1,10 @@
-dependencies: []
+dependencies: 
+    Ling: 
+        - Light
+        - Light_Initializer
+        - UniversalTemplateEngine
+    
+
 post_install: 
     map: true
     composer: 

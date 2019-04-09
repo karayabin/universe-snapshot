@@ -1,0 +1,14 @@
+prettyDebugPage:
+    instance: Ling\Light_PrettyError\Util\PrettyDebugPageUtil
+
+
+
+# --------------------------------------
+# hooks
+# --------------------------------------
+$initializer.methods.setInitializers.initializers:
+    -
+        instance: Ling\Light_PrettyError\Initializer\PrettyErrorInitializer
+
+
+

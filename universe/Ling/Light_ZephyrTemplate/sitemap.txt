@@ -1,0 +1,3 @@
+https://github.com/lingtalfi/Light_ZephyrTemplate/blob/master/README.md
+https://github.com/lingtalfi/Light_ZephyrTemplate/blob/master/doc/api/Ling/Light_ZephyrTemplate/LightZephyrTemplate.md
+https://github.com/lingtalfi/Light_ZephyrTemplate/blob/master/doc/api/Ling/Light_ZephyrTemplate.md

@@ -36,6 +36,14 @@ Summary
 History Log
 ==============
 
+- 1.15.1 -- 2019-04-08
+
+    - fix DependencyTool::parseDumpDependencies taking into account non galaxies
+    
+- 1.15.0 -- 2019-04-08
+
+    - add GalaxyTool class
+    
 - 1.14.0 -- 2019-04-05
 
     - update DependencyTool::getDependencyHomeUrl now uses my lingtalfi repository instead of karayabin universe

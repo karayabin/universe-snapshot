@@ -7,7 +7,7 @@ namespace Ling\Light\Http;
 /**
  * The HttpResponse class.
  */
-class HttpResponse
+class HttpResponse implements HttpResponseInterface
 {
     /**
      * This property holds a map of http status code => description.

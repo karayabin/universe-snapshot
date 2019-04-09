@@ -52,7 +52,7 @@ class ZeusTemplateEngine implements UniversalTemplateEngineInterface
      * @param array $variables
      * @return false|string
      */
-    public function render($resourceId, array $variables = [])
+    public function render(string $resourceId, array $variables = [])
     {
         $p = explode(":", $resourceId, 2);
         if (2 === count($p)) {

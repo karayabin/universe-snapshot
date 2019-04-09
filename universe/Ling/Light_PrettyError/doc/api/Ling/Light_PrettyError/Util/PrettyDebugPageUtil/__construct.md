@@ -49,5 +49,5 @@ See Also
 
 The [PrettyDebugPageUtil](https://github.com/lingtalfi/Light_PrettyError/blob/master/doc/api/Ling/Light_PrettyError/Util/PrettyDebugPageUtil.md) class.
 
-Next method: [print](https://github.com/lingtalfi/Light_PrettyError/blob/master/doc/api/Ling/Light_PrettyError/Util/PrettyDebugPageUtil/print.md)<br>
+Next method: [renderPage](https://github.com/lingtalfi/Light_PrettyError/blob/master/doc/api/Ling/Light_PrettyError/Util/PrettyDebugPageUtil/renderPage.md)<br>
 
