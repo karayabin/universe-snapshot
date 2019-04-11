@@ -60,6 +60,7 @@ class ButineurAutoloader extends BeeAutoloader
     protected function butineurAutoload($className, &$stopPropagation)
     {
         foreach ($this->locations as $location => $prefix) {
+
             /**
              * If the prefix is given, the className must start with this prefix
              */

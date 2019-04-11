@@ -62,7 +62,7 @@ Basically, those services will improve the visual appearance for:
 - the 404 error page (error of type 404)
 
 
-The **initializer** service is provided by the [Light_Initializer planet](https://github.com/lingtalfi/Light_Initializer), on which this planet depends.
+The **initializer** service is provided by the [Light_Initializer planet](https://github.com/lingtalfi/Light_Initializer), which this planet depends on.
 
 
 The [PrettyErrorInitializer](https://github.com/lingtalfi/Light_PrettyError/blob/master/doc/api/Ling/Light_PrettyError/Initializer/PrettyErrorInitializer.md) class will

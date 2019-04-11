@@ -1,0 +1,17 @@
+reverse_router:
+    instance: Ling\Light_ReverseRouter\ReverseRouter
+
+
+
+# --------------------------------------
+# hooks
+# --------------------------------------
+$initializer.methods.setInitializers.initializers:
+    - @service(reverse_router)
+
+
+
+
+
+
+

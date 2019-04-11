@@ -4,7 +4,7 @@
 
 The ConfigurationHelper class
 ================
-2019-04-09 --> 2019-04-09
+2019-04-09 --> 2019-04-10
 
 
 
@@ -50,4 +50,4 @@ Ling\Light\Helper\ConfigurationHelper
 
 SeeAlso
 ==============
-Previous class: [LightException](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Exception/LightException.md)<br>Next class: [EnvironmentHelper](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/EnvironmentHelper.md)<br>
+Previous class: [LightException](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Exception/LightException.md)<br>Next class: [ControllerHelper](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ControllerHelper.md)<br>

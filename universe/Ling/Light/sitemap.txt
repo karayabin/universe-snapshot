@@ -1,6 +1,8 @@
 https://github.com/lingtalfi/Light/blob/master/README.md
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/__construct.md
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/getContainer.md
+https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/getControllerArgs.md
+https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/getRoutes.md
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/registerErrorHandler.md
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/registerRoute.md
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/renderDebugPage.md
@@ -14,6 +16,8 @@ https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Exception/Ligh
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Exception/LightException.md
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ConfigurationHelper/getCombinedConf.md
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ConfigurationHelper.md
+https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ControllerHelper/getControllerArgsInfo.md
+https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ControllerHelper.md
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/EnvironmentHelper/getEnvironment.md
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/EnvironmentHelper/isDev.md
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/EnvironmentHelper.md
@@ -70,6 +74,8 @@ https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRespo
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponse.md
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponseInterface/send.md
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponseInterface.md
+https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ReverseRouter/LightReverseRouterInterface/getUrl.md
+https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ReverseRouter/LightReverseRouterInterface.md
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Router/LightRouter/__construct.md
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Router/LightRouter/match.md
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Router/LightRouter/matchRequirements.md
@@ -90,4 +96,7 @@ https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContain
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light.md
 https://github.com/lingtalfi/Light/blob/master/doc/pages/diary.md
 https://github.com/lingtalfi/Light/blob/master/doc/pages/light-application-recommended-structure.md
+https://github.com/lingtalfi/Light/blob/master/doc/pages/light-general-philosophy.md
 https://github.com/lingtalfi/Light/blob/master/doc/pages/plugin.md
+https://github.com/lingtalfi/Light/blob/master/doc/pages/route.md
+https://github.com/lingtalfi/Light/blob/master/doc/pages/sic-cheatsheet.md

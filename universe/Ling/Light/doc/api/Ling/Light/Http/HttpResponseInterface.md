@@ -4,7 +4,7 @@
 
 The HttpResponseInterface class
 ================
-2019-04-09 --> 2019-04-09
+2019-04-09 --> 2019-04-10
 
 
 
@@ -50,4 +50,4 @@ Ling\Light\Http\HttpResponseInterface
 
 SeeAlso
 ==============
-Previous class: [HttpResponse](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponse.md)<br>Next class: [LightRouter](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Router/LightRouter.md)<br>
+Previous class: [HttpResponse](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponse.md)<br>Next class: [LightReverseRouterInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ReverseRouter/LightReverseRouterInterface.md)<br>

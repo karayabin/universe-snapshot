@@ -5,7 +5,9 @@ namespace Ling\Light\Core;
 
 
 use Ling\Light\Exception\LightException;
+use Ling\Light\Helper\ControllerHelper;
 use Ling\Light\Http\HttpRequest;
+use Ling\Light\Http\HttpRequestInterface;
 use Ling\Light\Http\HttpResponse;
 use Ling\Light\Http\HttpResponseInterface;
 use Ling\Light\Router\LightRouter;
@@ -184,27 +186,72 @@ class Light
 
 
     /**
-     * Registers a route item for this Light instance.
-     *
-     * The route can be dynamic or static.
-     * The viewCallback can be many things:
-     *
-     * - a php callback
+     * Registers a route item, as defined in @page(the route page).
      *
      *
      *
-     * @param string $route
-     * @param $viewCallback
-     * @param array $options
+     * @param string $pattern
+     * A string to match against the uri.
+     * By default, it has to match the uri exactly in order for the route to match.
+     * However, third-party plugins can add their own features to the syntax (for instance, a plugin could allow the
+     * pattern to use dynamic routes which would create variables).
+     *
+     *
+     * @param $controller
+     *
+     * The controller is a php callback by default.
+     * However, plugins can use the controller argument as they want (for instance it could be a string representing
+     * a Controller object to invoke).
+     *
+     * Note: in the end though (after being interpreted by third party plugins), the controller will resolve into a callback form.
+     *
+     * @param string|null $name
+     * If the route name is not defined, it will default to the given pattern.
+     * Note: route names should be unique.
+     *
+     *
+     * @param array $requirements
+     * An array of requirements to test against the http request.
+     * While the pattern argument is tested against the http request's uri path,
+     * the requirements argument is used to test the other properties of the http request.
+     *
+     * If one requirement fails, the route will not match.
+     * Third party plugins can be creative and enhance the requirements syntax/feature as they want.
+     *
+     *
+     * @param array $urlParams
+     * An array of key/value pairs representing the potential variables to inject into the controller callback.
+     *
      */
-    public function registerRoute(string $route, $viewCallback, array $options = [])
+
+    /**
+     */
+    public function registerRoute(string $pattern, $controller, string $name = null, array $requirements = [], array $urlParams = [])
     {
-        $routeName = $options['routeName'] ?? $route;
+
+        $routeName = (null !== $name) ? $name : $pattern;
+
         $this->routes[$routeName] = [
-            'pattern' => $route,
-            'viewCallback' => $viewCallback,
-            'options' => $options,
+            'name' => $routeName,
+            'pattern' => $pattern,
+            'controller' => $controller,
+            'requirements' => $requirements,
+            'url_params' => $urlParams,
         ];
+    }
+
+    /**
+     * Returns the routes of this instance.
+     * It's an array of route name => route.
+     *
+     * A route is an array which structure is defined in @page(the route page).
+     *
+     *
+     * @return array
+     */
+    public function getRoutes(): array
+    {
+        return $this->routes;
     }
 
 
@@ -268,6 +315,7 @@ class Light
                     $router = null;
                     if (null !== $this->container) {
                         if ($this->container->has("router")) {
+                            // todo: dynamic routers, see RoutineRouter...
                             $router = $this->container->get("router");
                         }
                     }
@@ -277,33 +325,33 @@ class Light
                     }
 
 
-                    $result = $router->match($httpRequest, $this->routes);
-                    if (false !== $result) {
-
-az($result);
-                        //--------------------------------------------
-                        // NOW INTERPRETING THE ROUTE
-                        //--------------------------------------------
+                    $route = $router->match($httpRequest, $this->routes);
+                    if (false !== $route) {
 
 
                         //--------------------------------------------
-                        // RANDOM THOUGHTS
+                        // NOW RESOLVING THE CONTROLLER
                         //--------------------------------------------
-//                        // todo: encapsulate below in method
-//                        // todo: NO, do all this by service: Light_Router, and settings in the service conf of
-//                        // Light_Router, not in Light.
-//                        // In other words, Light by itself only provides static level,
-//                        // to add dynamic routes, we need the Light_Router plugin
-//                        $this->settings['route_matching_algo'] = "static"; // default
-//                        // static
-//                        // apple (dynamic level one)
-//                        // banana (dynamic level two...)
-//                        // cherry...
-//                        foreach ($this->routes as $routeName => $routeItem) {
-//                            list($route, $viewCallback, $options) = $routeItem;
-//                        }
+                        $controller = $route['controller'];
 
 
+                        //--------------------------------------------
+                        // CALLING THE CONTROLLER
+                        //--------------------------------------------
+                        if (is_callable($controller)) {
+
+
+
+                            // we need to inject variables in the controller
+                            $controllerArgs = $this->getControllerArgs($controller, $route, $httpRequest);
+                            $response = call_user_func_array($controller, $controllerArgs);
+
+
+                        } else {
+                            $routeName = $route['name'];
+                            $type = gettype($controller);
+                            throw new LightException("The given controller is not a callable for route $routeName, $type given.");
+                        }
                     } else {
                         throw new LightException("No route matches", "404");
                     }
@@ -414,5 +462,72 @@ az($result);
             <h1>Internal server error</h1>
             <p>The server encountered an internal error misconfiguration and was unable to complete your request.</p>", 500);
         return $response;
+    }
+
+
+    //--------------------------------------------
+    //
+    //--------------------------------------------
+    /**
+     * Returns the controller arguments to use when invoking the controller.
+     *
+     * Basically, the arguments are the variables defined in the route.vars,
+     * or if not found, the default value of the argument if any.
+     *
+     * The special hint types for the Light instance and the HttpRequestInterface can be used
+     * as an alternative to inject the light instance and the http request instance respectively.
+     *
+     *
+     *
+     *
+     * @param $controller
+     * @param array $route
+     * @param HttpRequestInterface $httpRequest
+     * @return array
+     * @throws LightException
+     * @throws \ReflectionException
+     */
+    private function getControllerArgs($controller, array $route, HttpRequestInterface $httpRequest)
+    {
+        $controllerArgs = [];
+        $routeUrlParams = $route['url_params'];
+        $controllerArgsInfo = ControllerHelper::getControllerArgsInfo($controller);
+        foreach ($controllerArgsInfo as $argName => $info) {
+            list($hasDefaultValue, $defaultValue, $hintType) = $info;
+            if (array_key_exists($argName, $routeUrlParams)) {
+                $controllerArgs[] = $routeUrlParams[$argName];
+            } elseif (true === $hasDefaultValue) {
+                $controllerArgs[] = $defaultValue;
+            } else {
+
+                /**
+                 * Special types
+                 * ----------
+                 * The following types can be injected directly by the light instance, without consulting the route system.
+                 * The user injects them by prefixing the right hint type to its argument
+                 *
+                 * - Ling\Light\Core\Light
+                 * - Ling\Light\Http\HttpRequestInterface
+                 *
+                 *
+                 *
+                 */
+                $specialTypes = [
+                    "Ling\Light\Core\Light",
+                    "Ling\Light\Http\HttpRequestInterface",
+                ];
+                if (in_array($hintType, $specialTypes, true)) {
+                    if ("Ling\Light\Core\Light" === $hintType) {
+                        $controllerArgs[] = $this;
+                    } elseif ("Ling\Light\Http\HttpRequestInterface" === $hintType) {
+                        $controllerArgs[] = $httpRequest;
+                    }
+                } else {
+                    $routeName = $route['name'];
+                    throw new LightException("The controller for route $routeName defined a mandatory argument $argName, but no value was provided by the route for this argument.");
+                }
+            }
+        }
+        return $controllerArgs;
     }
 }

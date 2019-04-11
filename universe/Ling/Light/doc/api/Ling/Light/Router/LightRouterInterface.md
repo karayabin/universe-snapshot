@@ -4,7 +4,7 @@
 
 The LightRouterInterface class
 ================
-2019-04-09 --> 2019-04-09
+2019-04-09 --> 2019-04-10
 
 
 
@@ -15,6 +15,10 @@ Introduction
 ============
 
 The LightRouterInterface interface.
+
+
+The router in the Light framework is the object which chooses the controller to execute, based on the http request.
+The controller being just a function which usually renders an html page.
 
 
 

@@ -7,7 +7,7 @@ Light::registerRoute
 
 
 
-Light::registerRoute — Registers a route item for this Light instance.
+Light::registerRoute — 
 
 
 
@@ -16,17 +16,12 @@ Description
 ================
 
 
-public [Light::registerRoute](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/registerRoute.md)(string $route, ?$viewCallback, array $options = []) : void
+public [Light::registerRoute](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/registerRoute.md)(string $pattern, ?$controller, string $name = null, array $requirements = [], array $urlParams = []) : void
 
 
 
 
-Registers a route item for this Light instance.
 
-The route can be dynamic or static.
-The viewCallback can be many things:
-
-- a php callback
 
 
 
@@ -34,18 +29,6 @@ The viewCallback can be many things:
 Parameters
 ================
 
-
-- route
-
-    
-
-- viewCallback
-
-    
-
-- options
-
-    
 
 
 Return values
@@ -65,5 +48,5 @@ See Also
 
 The [Light](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light.md) class.
 
-Previous method: [getContainer](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/getContainer.md)<br>Next method: [registerErrorHandler](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/registerErrorHandler.md)<br>
+Previous method: [getContainer](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/getContainer.md)<br>Next method: [getRoutes](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/getRoutes.md)<br>
 
