@@ -139,6 +139,16 @@ class ChloroformDocBuilder
              */
             "keyWord2UrlMap" => [
 //                "the command line page" => $doc . '/pages/command-line.md',
+                "field id section" => $doc . "/pages/chloroform-discussion.md#the-field-id",
+                "field id" => $doc . "/pages/chloroform-discussion.md#the-field-id",
+                "the field ids" => $doc . "/pages/chloroform-discussion.md#the-field-id",
+                "the postedData section" => $doc . "/pages/chloroform-discussion.md#the-posted-data",
+                "the PhpUploadFileFix planet" => "https://github.com/lingtalfi/PhpUploadFileFix",
+                "FieldInterface->toArray method" => $api . "/Ling/Chloroform/Field/FieldInterface/toArray.md",
+                "ValidatorConfig object" => $api . "/Ling/Chloroform/Validator/ValidatorConfig.md",
+                "ConvertTool::convertHumanSizeToBytes" => "https://github.com/lingtalfi/Bat/blob/master/ConvertTool.md#converthumansizetobytes",
+                "Bat planet" => "https://github.com/lingtalfi/Bat",
+                "chloroform discussion" => $doc . "/pages/chloroform-discussion.md",
             ],
             /**
              * An array of external classes to url.

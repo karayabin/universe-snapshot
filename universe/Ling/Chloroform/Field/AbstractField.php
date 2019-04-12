@@ -69,6 +69,26 @@ abstract class AbstractField implements FieldInterface
     protected $validators;
 
     /**
+     * This property holds the properties for this instance.
+     * @var array
+     */
+    protected $properties;
+
+
+    /**
+     * This property holds the valueIsScalar for this instance.
+     * Whether the value is scalar (including null) or an array.
+     * By default, all fields are scalar.
+     * The author of a field must manually call the setIsScalar method to change
+     * this for her field if necessary (at least for now).
+     *
+     *
+     * @var bool = true
+     */
+    protected $valueIsScalar;
+
+
+    /**
      * Builds the AbstractField instance.
      *
      *
@@ -86,14 +106,22 @@ abstract class AbstractField implements FieldInterface
      * - errorName (if not set, derived from the label)
      * - value
      *
+     * It can also contain other properties that a field wants to provide to the rendering objects.
+     * For instance: class, cols (for text area), ...
      *
      *
      *
-     * @param array $options
+     *
+     * @param array $properties
      */
     public function __construct(array $properties = [])
     {
 
+        // quick save
+        $this->properties = $properties;
+
+
+        $this->valueIsScalar = true;
         $this->label = $properties['label'] ?? null;
         $this->hint = $properties['hint'] ?? null;
         $this->value = $properties['value'] ?? null;
@@ -106,7 +134,7 @@ abstract class AbstractField implements FieldInterface
         if (array_key_exists("errorName", $properties)) {
             $this->errorName = $properties['errorName'];
         } else {
-            $this->errorName = FieldHelper::getDefaultErrorNameByLabel($this->label);
+            $this->errorName = FieldHelper::getDefaultErrorNameByLabelOrId($this->label, $this->id);
         }
         $this->errors = [];
         $this->validators = [];
@@ -155,7 +183,7 @@ abstract class AbstractField implements FieldInterface
 
             foreach ($this->validators as $validator) {
                 $error = null;
-                if (false === $validator->test($value, $fieldName, $error)) {
+                if (false === $validator->test($value, $fieldName, $this, $error)) {
                     /**
                      * Note: we don't break after the first failing test, we
                      * let the view sort it out.
@@ -186,6 +214,7 @@ abstract class AbstractField implements FieldInterface
     public function setValue($value)
     {
         $this->value = $value;
+        return $this;
     }
 
 
@@ -203,15 +232,16 @@ abstract class AbstractField implements FieldInterface
      */
     public function toArray(): array
     {
-        return [
+        return array_merge($this->properties, [
             "id" => $this->id,
             "label" => $this->label,
             "hint" => $this->hint,
             "errorName" => $this->errorName,
             "value" => $this->getValue(),
-            "htmlName" => $this->id,
+            "htmlName" => FieldHelper::getHtmlNameById($this->id, $this->valueIsScalar),
             "errors" => $this->errors,
-        ];
+            "className" => get_called_class(),
+        ]);
     }
 
     //--------------------------------------------
@@ -221,40 +251,48 @@ abstract class AbstractField implements FieldInterface
      * Sets the id.
      *
      * @param string $id
+     * @return $this
      */
     public function setId(string $id)
     {
         $this->id = $id;
+        return $this;
     }
 
     /**
      * Sets the label.
      *
      * @param string $label
+     * @return $this
      */
     public function setLabel(string $label)
     {
         $this->label = $label;
+        return $this;
     }
 
     /**
      * Sets the hint.
      *
      * @param string $hint
+     * @return $this
      */
     public function setHint(string $hint)
     {
         $this->hint = $hint;
+        return $this;
     }
 
     /**
      * Sets the errorName.
      *
      * @param string $errorName
+     * @return $this
      */
     public function setErrorName(string $errorName)
     {
         $this->errorName = $errorName;
+        return $this;
     }
 
 
@@ -268,9 +306,23 @@ abstract class AbstractField implements FieldInterface
     /**
      * Adds an error message to this instance.
      * @param string $errorMessage
+     * @return $this
      */
     protected function addError(string $errorMessage)
     {
         $this->errors[] = $errorMessage;
+        return $this;
     }
+
+
+    /**
+     * Sets the valueIsScalar.
+     * @param bool $valueIsScalar
+     */
+    protected function setValueIsScalar(bool $valueIsScalar)
+    {
+        $this->valueIsScalar = $valueIsScalar;
+    }
+
+
 }

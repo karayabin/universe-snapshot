@@ -1,0 +1,63 @@
+[Back to the Ling/Chloroform api](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform.md)<br>
+[Back to the Ling\Chloroform\Helper\FieldHelper class](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Helper/FieldHelper.md)
+
+
+FieldHelper::getHtmlNameById
+================
+
+
+
+FieldHelper::getHtmlNameById — Returns the html name from a field id.
+
+
+
+
+Description
+================
+
+
+public static [FieldHelper::getHtmlNameById](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Helper/FieldHelper/getHtmlNameById.md)(string $fieldId, bool $isScalar = true) : string
+
+
+
+
+Returns the html name from a field id.
+
+So for instance, first_name becomes first_name,
+and colors.red becomes colors[red].
+
+
+
+
+Parameters
+================
+
+
+- fieldId
+
+    
+
+- isScalar
+
+    
+
+
+Return values
+================
+
+Returns string.
+
+
+
+
+
+
+
+
+See Also
+================
+
+The [FieldHelper](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Helper/FieldHelper.md) class.
+
+Previous method: [getFieldValue](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Helper/FieldHelper/getFieldValue.md)<br>
+

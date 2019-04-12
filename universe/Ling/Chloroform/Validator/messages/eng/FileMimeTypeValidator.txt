@@ -1,0 +1,1 @@
+main: The mime type of the file for field {fieldName} must be one of {allowedMimeTypes} (the current file mime type is {mimeType})

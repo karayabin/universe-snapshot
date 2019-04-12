@@ -169,6 +169,17 @@ galaxies:
             dependencies: []
             post_install: []
         
+        Chloroform: 
+            version: 1.0.0
+            dependencies: 
+                Ling: 
+                    - CSRFTools
+                    - PhpUploadFileFix
+                    - Bat
+                
+            
+            post_install: []
+        
         Chronos: 
             version: 1.0.0
             dependencies: []

@@ -4,6 +4,8 @@
 namespace Ling\Chloroform\Validator;
 
 
+use Ling\Chloroform\Field\FieldInterface;
+
 /**
  * The ValidatorInterface interface.
  */
@@ -24,10 +26,18 @@ interface ValidatorInterface
      *
      *
      *
+     * Note: having both the fieldName (which is the error name) and the field is redundant on purpose.
+     * That's because most of the validators will only need the fieldName.
+     * In some rare cases though, the validator would benefit having access to the original field instance.
+     * This is the case for CSRFValidator, which would drain the csrf token from the CSRFField.
+     *
+     *
+     *
      * @param $value
      * @param string $fieldName
+     * @param FieldInterface $field
      * @param string|null $error
      * @return bool
      */
-    public function test($value, string $fieldName, string &$error = null): bool;
+    public function test($value, string $fieldName, FieldInterface $field, string &$error = null): bool;
 }

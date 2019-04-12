@@ -111,7 +111,6 @@ class CSRFProtector
             $identifier = 'default';
         }
 
-
         if (array_key_exists($identifier, $_SESSION[$this->sessionName])) {
 
             if (false === $validatesOnSamePage) {

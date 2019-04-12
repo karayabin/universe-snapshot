@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Chloroform\Exception;
+namespace Ling\Chloroform\Exception;
 
 
 /**

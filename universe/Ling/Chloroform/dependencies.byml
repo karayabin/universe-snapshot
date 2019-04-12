@@ -1,0 +1,8 @@
+dependencies: 
+    Ling: 
+        - CSRFTools
+        - PhpUploadFileFix
+        - Bat
+    
+
+post_install: []

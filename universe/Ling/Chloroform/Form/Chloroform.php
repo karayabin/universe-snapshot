@@ -4,8 +4,10 @@
 namespace Ling\Chloroform\Form;
 
 
-use Chloroform\Exception\ChloroformException;
+use Ling\Chloroform\Exception\ChloroformException;
 use Ling\Chloroform\Field\FieldInterface;
+use Ling\Chloroform\Field\FormAwareFieldInterface;
+use Ling\Chloroform\Field\PostedDataAwareFieldInterface;
 use Ling\Chloroform\FormNotification\FormNotificationInterface;
 use Ling\Chloroform\Helper\FieldHelper;
 use Ling\Chloroform\Validator\ValidatorInterface;
@@ -102,6 +104,7 @@ class Chloroform
 
         $validates = true;
         foreach ($this->fields as $id => $field) {
+
             if (false === $field->validates($postedData, true)) {
                 /**
                  * Note: we don't break the loop to ensure that all the fields
@@ -171,6 +174,12 @@ class Chloroform
      */
     public function addField(FieldInterface $field, array $validators = [])
     {
+
+
+        if ($field instanceof FormAwareFieldInterface) {
+            $field->setForm($this);
+        }
+
         foreach ($validators as $validator) {
             $field->addValidator($validator);
         }

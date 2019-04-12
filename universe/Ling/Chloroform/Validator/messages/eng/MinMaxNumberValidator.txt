@@ -1,0 +1,3 @@
+min: The {fieldName} must be greater than or equal to {min} (you wrote {number})
+max: The {fieldName} must be less then or equal to {max} (you wrote {number})
+between: The {fieldName} must be comprised between {min} and {max} inclusive (you wrote {number})

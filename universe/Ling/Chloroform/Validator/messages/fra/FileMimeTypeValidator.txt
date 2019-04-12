@@ -1,0 +1,1 @@
+main: Le type mime du fichier pour le champ {fieldName} doit être l'un des types suivant: {allowedMimeTypes} (le type mime du fichier actuel est {mimeType})

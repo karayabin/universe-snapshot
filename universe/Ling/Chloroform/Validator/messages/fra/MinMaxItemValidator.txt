@@ -1,0 +1,3 @@
+min: Vous devez choisir au moins {min} items pour le champ "{fieldName}"
+max: Vous devez choisir au plus {max} items pour le champ "{fieldName}"
+between: Vous devez choisir au moins {min} items et au plus {max} items pour le champ "{fieldName}"

@@ -28,14 +28,20 @@ class FieldHelper
 
     /**
      * Returns the default error name (the name of the field when
-     * used in an error message) from the given label.
+     * used in an error message) from the given label and id.
      *
-     * @param string $label
+     * At least one of the label or id should be not null in order for this method to work properly.
+     *
+     * @param string|null $label
+     * @param string|null $id
      * @return string
      */
-    public static function getDefaultErrorNameByLabel(string $label)
+    public static function getDefaultErrorNameByLabelOrId(string $label = null, string $id = null)
     {
-        return strtolower($label);
+        if (null !== $label) {
+            return strtolower($label);
+        }
+        return strtolower(preg_replace('!\s+!', ' ', str_replace('_', ' ', $id)));
     }
 
 
@@ -66,14 +72,18 @@ class FieldHelper
      *
      *
      * @param string $fieldId
+     * @param bool $isScalar = true
      * @return string
      */
-    public static function getHtmlNameById(string $fieldId): string
+    public static function getHtmlNameById(string $fieldId, bool $isScalar = true): string
     {
         $p = explode(".", $fieldId);
         $s = array_shift($p);
         if ($p) {
             $s .= '[' . implode('][', $p) . ']';
+        }
+        if (false === $isScalar) {
+            $s .= '[]';
         }
         return $s;
     }

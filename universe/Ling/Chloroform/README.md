@@ -1,0 +1,542 @@
+Chloroform
+===========
+2019-04-12
+
+
+
+Another form library for php.
+
+
+This is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
+
+
+Install
+==========
+Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
+```bash
+uni import Ling/Chloroform
+```
+
+Or just download it and place it where you want otherwise.
+
+
+
+
+
+
+Summary
+===========
+- [Chloroform api](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform.md) (generated with [DocTools](https://github.com/lingtalfi/DocTools))
+- [How to use](#how-to-use)
+    - [Example #1: the simplest form](#example-1-the-simplest-form)
+    - [Example #2: a simple form with custom validation](#example-2-a-simple-form-with-custom-validation)
+    - [Example #3: a simple form with validation](#example-3-a-simple-form-with-validation)
+    - [Example #4: Changing the validation error message](#example-4-changing-the-validation-error-message)
+    - [Example #5: CSRF protection](#example-5-csrf-protection)
+- [The available fields](#the-available-fields)    
+- [The available validators](#the-available-validators)    
+- [Rendering the form](#rendering-the-form)    
+- Pages
+    - [Chloroform diary](https://github.com/lingtalfi/Chloroform/blob/master/doc/pages/chloroform-diary.md)
+    - [Chloroform discussion](https://github.com/lingtalfi/Chloroform/blob/master/doc/pages/chloroform-discussion.md)
+
+
+
+
+
+How to use
+========
+
+
+Example #1: the simplest form
+-----------
+
+```php
+
+//--------------------------------------------
+// Creating the form
+//--------------------------------------------
+$form = new Chloroform();
+$form->addField(StringField::create("First name"));
+
+
+
+
+
+//--------------------------------------------
+// Posting the form and validating data
+//--------------------------------------------
+if (true === $form->isPosted()) {
+    if (true === $form->validates()) {
+        $form->addNotification(SuccessFormNotification::create("ok"));
+        // do something with $postedData;
+        $postedData = $form->getPostedData();
+    } else {
+        $form->addNotification(ErrorFormNotification::create("There was a problem."));
+    }
+} else {
+    $valuesFromDb = []; // get the values from the database if necessary...
+    $form->injectValues($valuesFromDb);
+}
+
+
+//--------------------------------------------
+// Template part
+//--------------------------------------------
+a($form->toArray());
+?>
+    <form method="post" action="">
+        <label>
+            First name
+            <input type="text" name="first_name"/>
+        </label>
+
+        <input type="submit" value="Submit"/>
+    </form>
+<?php
+
+```
+
+
+The toArray method will output something like this (after submitting the form without typing anything):
+
+```html
+array(3) {
+  ["notifications"] => array(1) {
+    [0] => array(2) {
+      ["type"] => string(7) "success"
+      ["message"] => string(2) "ok"
+    }
+  }
+  ["fields"] => array(1) {
+    ["first_name"] => array(8) {
+      ["label"] => string(10) "First name"
+      ["id"] => string(10) "first_name"
+      ["hint"] => NULL
+      ["errorName"] => string(10) "first name"
+      ["value"] => string(0) ""
+      ["htmlName"] => string(10) "first_name"
+      ["errors"] => array(0) {
+      }
+      ["className"] => string(33) "Ling\Chloroform\Field\StringField"
+    }
+  }
+  ["errors"] => array(0) {
+  }
+}
+
+```
+
+
+Example #2: a simple form with custom validation
+---------
+
+With the following code:
+
+
+```php
+
+//--------------------------------------------
+// Creating the form
+//--------------------------------------------
+$form = new Chloroform();
+$form->addField(StringField::create("First name"), [
+    CustomValidator::create(function ($value, string $fieldName, FieldInterface $field, string &$error = null) {
+        $error = "Nul, t'es nul!";
+        return false;
+    })
+]);
+
+
+
+//--------------------------------------------
+// Posting the form and validating data
+//--------------------------------------------
+if (true === $form->isPosted()) {
+    if (true === $form->validates()) {
+        $form->addNotification(SuccessFormNotification::create("ok"));
+        // do something with $postedData;
+        $postedData = $form->getPostedData();
+    } else {
+        $form->addNotification(ErrorFormNotification::create("There was a problem."));
+    }
+} else {
+    $valuesFromDb = []; // get the values from the database if necessary...
+    $form->injectValues($valuesFromDb);
+}
+
+
+//--------------------------------------------
+// Template part
+//--------------------------------------------
+a($form->toArray());
+?>
+    <form method="post" action="">
+        <label>
+            First name
+            <input type="text" name="first_name"/>
+        </label>
+
+        <input type="submit" value="Submit"/>
+    </form>
+<?php
+
+```
+
+
+
+
+The toArray method will output something like this (after submitting the form without typing anything):
+
+```html
+array(3) {
+  ["notifications"] => array(1) {
+    [0] => array(2) {
+      ["type"] => string(5) "error"
+      ["message"] => string(20) "There was a problem."
+    }
+  }
+  ["fields"] => array(1) {
+    ["first_name"] => array(8) {
+      ["label"] => string(10) "First name"
+      ["id"] => string(10) "first_name"
+      ["hint"] => NULL
+      ["errorName"] => string(10) "first name"
+      ["value"] => string(0) ""
+      ["htmlName"] => string(10) "first_name"
+      ["errors"] => array(1) {
+        [0] => string(14) "Nul, t'es nul!"
+      }
+      ["className"] => string(33) "Ling\Chloroform\Field\StringField"
+    }
+  }
+  ["errors"] => array(1) {
+    ["first_name"] => array(1) {
+      [0] => string(14) "Nul, t'es nul!"
+    }
+  }
+}
+```
+
+
+
+
+Example #3: a simple form with validation
+---------
+
+With the following code:
+
+```php
+//--------------------------------------------
+// Creating the form
+//--------------------------------------------
+$form = new Chloroform();
+$form->addField(StringField::create("First name"), [RequiredValidator::create(), MinMaxCharValidator::create()->setMin(3)]);
+
+
+
+//--------------------------------------------
+// Posting the form and validating data
+//--------------------------------------------
+if (true === $form->isPosted()) {
+    if (true === $form->validates()) {
+        $form->addNotification(SuccessFormNotification::create("ok"));
+        // do something with $postedData;
+        $postedData = $form->getPostedData();
+    } else {
+        $form->addNotification(ErrorFormNotification::create("There was a problem."));
+    }
+} else {
+    $valuesFromDb = []; // get the values from the database if necessary...
+    $form->injectValues($valuesFromDb);
+}
+
+
+//--------------------------------------------
+// Template part
+//--------------------------------------------
+a($form->toArray());
+?>
+    <form method="post" action="">
+        <label>
+            First name
+            <input type="text" name="first_name"/>
+        </label>
+
+        <input type="submit" value="Submit"/>
+    </form>
+<?php
+
+```
+
+The toArray method will output something like this (after submitting the form without typing anything):
+
+
+```html
+array(3) {
+  ["notifications"] => array(1) {
+    [0] => array(2) {
+      ["type"] => string(5) "error"
+      ["message"] => string(20) "There was a problem."
+    }
+  }
+  ["fields"] => array(1) {
+    ["first_name"] => array(8) {
+      ["label"] => string(10) "First name"
+      ["id"] => string(10) "first_name"
+      ["hint"] => NULL
+      ["errorName"] => string(10) "first name"
+      ["value"] => string(0) ""
+      ["htmlName"] => string(10) "first_name"
+      ["errors"] => array(2) {
+        [0] => string(26) "The first name is required"
+        [1] => string(64) "The first name must contain at least 3 chars (you wrote 0 chars)"
+      }
+      ["className"] => string(33) "Ling\Chloroform\Field\StringField"
+    }
+  }
+  ["errors"] => array(1) {
+    ["first_name"] => array(2) {
+      [0] => string(26) "The first name is required"
+      [1] => string(64) "The first name must contain at least 3 chars (you wrote 0 chars)"
+    }
+  }
+}
+
+```
+
+
+Example #4: Changing the validation error message
+---------
+
+With the following code:
+
+```php
+//--------------------------------------------
+// Creating the form
+//--------------------------------------------
+$form = new Chloroform();
+$form->addField(StringField::create("First name"), [MinMaxCharValidator::create()->setMin(3)->setErrorMessage("Yo, the {fieldName} must contain at least {min} chars", "min")]);
+
+
+
+//--------------------------------------------
+// Posting the form and validating data
+//--------------------------------------------
+if (true === $form->isPosted()) {
+    if (true === $form->validates()) {
+        $form->addNotification(SuccessFormNotification::create("ok"));
+        // do something with $postedData;
+        $postedData = $form->getPostedData();
+    } else {
+        $form->addNotification(ErrorFormNotification::create("There was a problem."));
+    }
+} else {
+    $valuesFromDb = []; // get the values from the database if necessary...
+    $form->injectValues($valuesFromDb);
+}
+
+
+//--------------------------------------------
+// Template part
+//--------------------------------------------
+a($form->toArray());
+?>
+<form method="post" action="">
+    <label>
+        First name
+        <input type="text" name="first_name"/>
+    </label>
+
+    <input type="submit" value="Submit"/>
+</form>
+<?php 
+
+
+```
+
+
+The toArray method will output something like this (after submitting the form without typing anything):
+
+
+```html
+
+array(3) {
+  ["notifications"] => array(1) {
+    [0] => array(2) {
+      ["type"] => string(5) "error"
+      ["message"] => string(20) "There was a problem."
+    }
+  }
+  ["fields"] => array(1) {
+    ["first_name"] => array(8) {
+      ["label"] => string(10) "First name"
+      ["id"] => string(10) "first_name"
+      ["hint"] => NULL
+      ["errorName"] => string(10) "first name"
+      ["value"] => string(0) ""
+      ["htmlName"] => string(10) "first_name"
+      ["errors"] => array(1) {
+        [0] => string(48) "Yo, the first name must contain at least 3 chars"
+      }
+      ["className"] => string(33) "Ling\Chloroform\Field\StringField"
+    }
+  }
+  ["errors"] => array(1) {
+    ["first_name"] => array(1) {
+      [0] => string(48) "Yo, the first name must contain at least 3 chars"
+    }
+  }
+}
+
+```
+
+
+
+
+
+Example #5: CSRF protection
+--------------
+
+With the following code:
+
+```php
+//--------------------------------------------
+// Creating the form
+//--------------------------------------------
+$form = new Chloroform();
+$form->addField(CSRFField::create("csrf_token"), [CSRFValidator::create()]);
+
+
+//--------------------------------------------
+// Posting the form and validating data
+//--------------------------------------------
+if (true === $form->isPosted()) {
+    if (true === $form->validates()) {
+        $form->addNotification(SuccessFormNotification::create("ok"));
+        // do something with $postedData;
+        $postedData = $form->getPostedData();
+    } else {
+        $form->addNotification(ErrorFormNotification::create("There was a problem."));
+    }
+} else {
+    $valuesFromDb = []; // get the values from the database if necessary...
+    $form->injectValues($valuesFromDb);
+}
+
+
+//--------------------------------------------
+// Template part
+//--------------------------------------------
+$formArray = $form->toArray();
+a($formArray);
+
+
+?>
+    <form method="post" action="">
+        <label>
+            CSRF token (usually would be hidden)
+            <input type="text" name="csrf_token" value="<?php echo $formArray['fields']['csrf_token']['value']; ?>"/>
+        </label>
+
+        <input type="submit" value="Submit"/>
+    </form>
+<?php
+
+```
+
+
+The toArray method will output something like this (after submitting the form without typing anything):
+
+
+```html
+array(3) {
+  ["notifications"] => array(1) {
+    [0] => array(2) {
+      ["type"] => string(7) "success"
+      ["message"] => string(2) "ok"
+    }
+  }
+  ["fields"] => array(1) {
+    ["csrf_token"] => array(8) {
+      ["id"] => string(10) "csrf_token"
+      ["label"] => NULL
+      ["hint"] => NULL
+      ["errorName"] => string(10) "csrf token"
+      ["value"] => string(32) "7232d0e4be82a363286e3e7c50fe5268"
+      ["htmlName"] => string(10) "csrf_token"
+      ["errors"] => array(0) {
+      }
+      ["className"] => string(31) "Ling\Chloroform\Field\CSRFField"
+    }
+  }
+  ["errors"] => array(0) {
+  }
+}
+
+
+```
+
+
+The available fields
+===========
+
+- StringField: is generally represented by an input tag of type text.
+- TextField: is generally represented by a textarea tag.
+- NumberField: is generally represented by an input tag of type number.
+- HiddenField: is generally represented by an input tag of type hidden.
+- CSRFField: is generally represented by an input tag of type hidden.
+- ColorField: used to capture an rgb color (like #cc0057 for instance).
+- DateField: used to capture a date (like 2019-04-10 for instance).
+- TimeField: used to capture a time (like 05:06:17 for instance).
+- DateTimeField: used to capture a datetime (like 2019-04-10 05:06:17 for instance).
+- SelectField: is generally represented by a html select tag.
+- CheckboxField: is generally represented by some html input tags of type checkbox.
+- RadioField: is generally represented by some html input tags of type radio.
+- FileField: is generally represented by an html input tag of type file.
+- PasswordField: is generally represented by an html input tag of type password.
+
+
+
+The available validators
+============
+
+- CSRFValidator: works in tandem with the CSRFField, provides csrf protection based on the [CSRFTools planet](https://github.com/lingtalfi/CSRFTools).
+- CustomValidator: to create your own validator.
+- MinMaxCharValidator: check that a field has more than, less than, or between x and y number of characters (works with StringField, TextField).
+- MinMaxNumberValidator: check that the field value is has more than, less than, or comprised between x and y (works with NumberField).
+- MinMaxDateValidator: check that the date is comprised inside some defined boundaries (works with DateField, DateTimeField, TimeField).
+- MinMaxItemValidator: check that the user chose a certain number of items (works with SelectField with multiple on, CheckboxField).
+- MinMaxFileSizeValidator: check that the file size of the posted file is within the defined boundaries (works with FileField).
+- FileMimeTypeValidator: check that the file mime type is allowed (works with FileField).
+- RequiredValidator: check that the string version of the value is not the empty string (works with all fields).
+- PasswordConfirmValidator: check that the password matches the value of a password confirm field (works with PasswordField).
+
+
+
+
+Rendering the form
+=============
+
+The Chloroform planet doesn't provide Renderer classes.
+
+That's because I wanted to have a clean separation between the form validation logic and the form rendering logic.
+
+You can render a Chloroform manually (without using a renderer), just by playing with the **$form->toArray** method.
+
+I will create at least one renderer class later and post a link  here when it's ready.
+ 
+So, come back in a few weeks for that.
+
+
+
+
+
+
+
+History Log
+=============
+
+- 1.0.0 -- 2019-04-12
+
+    - initial commit

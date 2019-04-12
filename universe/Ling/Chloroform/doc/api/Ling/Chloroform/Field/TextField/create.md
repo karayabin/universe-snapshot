@@ -1,0 +1,60 @@
+[Back to the Ling/Chloroform api](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform.md)<br>
+[Back to the Ling\Chloroform\Field\TextField class](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/TextField.md)
+
+
+TextField::create
+================
+
+
+
+TextField::create — Builds and returns the instance.
+
+
+
+
+Description
+================
+
+
+public static [TextField::create](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/TextField/create.md)(string $label, array $properties = []) : [TextField](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/TextField.md)
+
+
+
+
+Builds and returns the instance.
+
+
+
+
+Parameters
+================
+
+
+- label
+
+    
+
+- properties
+
+    
+
+
+Return values
+================
+
+Returns [TextField](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/TextField.md).
+
+
+
+
+
+
+
+
+See Also
+================
+
+The [TextField](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/TextField.md) class.
+
+Next method: [getValue](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/TextField/getValue.md)<br>
+

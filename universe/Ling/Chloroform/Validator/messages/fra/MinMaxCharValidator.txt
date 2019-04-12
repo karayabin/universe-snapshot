@@ -1,0 +1,3 @@
+min: Le champ {fieldName} doit comporter au moins {min} caractères (vous avez tapé {number} caractères)
+max: Le champ {fieldName} doit comporter au plus {max} caractères (vous avez tapé {number} caractères)
+between: Le champ {fieldName} doit comporter entre {min} et {max} caractères (vous avez tapé {number} caractères)

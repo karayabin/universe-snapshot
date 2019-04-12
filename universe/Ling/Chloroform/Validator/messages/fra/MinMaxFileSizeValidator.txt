@@ -1,0 +1,3 @@
+min: La taille de fichier pour le champ {fieldName} doit être supérieure ou égale à {min} (la taille actuelle est {number})
+max: La taille de fichier pour le champ {fieldName} doit être inférieure ou égale à {max} (la taille actuelle est {number})
+between: La taille de fichier pour le champ {fieldName} doit être comprise entre {min} et {max} (la taille actuelle est {number})

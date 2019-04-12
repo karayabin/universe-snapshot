@@ -4,6 +4,8 @@
 namespace Ling\Chloroform\Validator;
 
 
+use Ling\Chloroform\Field\FieldInterface;
+
 /**
  * The CustomValidator class.
  * You can use this class to create custom validators.
@@ -48,8 +50,8 @@ class CustomValidator implements ValidatorInterface
     /**
      * @implementation
      */
-    public function test($value, string $fieldName, string &$error = null): bool
+    public function test($value, string $fieldName, FieldInterface $field, string &$error = null): bool
     {
-        return call_user_func_array($this->testCallback, [$value, $fieldName, &$error]);
+        return call_user_func_array($this->testCallback, [$value, $fieldName, $field, &$error]);
     }
 }

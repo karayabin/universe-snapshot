@@ -36,17 +36,17 @@ interface FieldInterface
      * Errors should then be retrieved using the getErrors method.
      *
      *
-     * If the injectValue flag is set to true, the value will be injected into the field.
+     * If the injectValues flag is set to true, the value will be injected into the field.
      *
      *
      *
      * @param array $postedData
-     * @param bool $injectValue = true
+     * @param bool $injectValues = true
      *
      *
      * @return bool
      */
-    public function validates(array $postedData, bool $injectValue = true): bool;
+    public function validates(array $postedData, bool $injectValues = true): bool;
 
 
     /**
@@ -67,6 +67,7 @@ interface FieldInterface
      * Sets the value for this instance.
      *
      * @param $value
+     * @return $this
      */
     public function setValue($value);
 
@@ -91,6 +92,7 @@ interface FieldInterface
      * - value: mixed                # the value of the field. Could be null, an array or a scalar.
      * - htmlName: string            # the html name (often used in the name attribute of html tags)
      * - errors: array               # the error messages. Each error message is a string.
+     * - className: string           # the name of the field class (this is addressed to renderers, so that they know how to render the field)
      * ```
      *
      *

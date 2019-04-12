@@ -1,0 +1,3 @@
+min: Le champ {fieldName} doit être plus grand que ou égal à {min} (vous avez tapé {number})
+max: Le champ {fieldName} doit être plus petit que ou égal à {max} (vous avez tapé {number})
+between: Le champ {fieldName} doit être compris entre {min} et {max} inclus (vous avez tapé {number})

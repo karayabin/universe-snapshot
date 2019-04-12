@@ -1,0 +1,3 @@
+min: The {fieldName} must contain at least {min} chars (you wrote {number} chars)
+max: The {fieldName} must contain at most {max} chars (you wrote {number} chars)
+between: The {fieldName} must contain at least {min} chars and at most {max} chars (you wrote {number} chars)
