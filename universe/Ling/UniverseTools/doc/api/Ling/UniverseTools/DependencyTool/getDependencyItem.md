@@ -32,8 +32,8 @@ If the dependencies.byml file does not exist, an array will be returned.
 The returned array has the following structure:
 
 - dependencies:
-0: dependency system / galaxy identifier
-1: the dependency identifier (name or url, ...)
+     0: dependency system / galaxy identifier
+     1: the dependency identifier (name or url, ...)
 - post_install: array of post install directives
 
 

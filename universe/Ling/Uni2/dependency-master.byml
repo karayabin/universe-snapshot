@@ -660,9 +660,10 @@ galaxies:
             post_install: []
         
         Kit: 
-            version: 1.2.0
+            version: 1.3.0
             dependencies: 
                 Ling: 
+                    - BabyYaml
                     - HtmlPageTools
                 
             
@@ -675,6 +676,16 @@ galaxies:
                     - Kit
                     - ZephyrTemplateEngine
                     - HtmlPageTools
+                
+            
+            post_install: []
+        
+        Kit_PrototypeWidget: 
+            version: 1.0.0
+            dependencies: 
+                Ling: 
+                    - HtmlPageTools
+                    - Kit
                 
             
             post_install: []
@@ -711,6 +722,17 @@ galaxies:
             dependencies: 
                 Ling: 
                     - Light
+                
+            
+            post_install: 
+                map: true
+            
+        
+        Light_Kit: 
+            version: 1.0.0
+            dependencies: 
+                Ling: 
+                    - Kit
                 
             
             post_install: 
@@ -758,7 +780,7 @@ galaxies:
             post_install: []
         
         LingTalfi: 
-            version: 1.7.0
+            version: 1.8.0
             dependencies: 
                 Ling: 
                     - DocTools
@@ -1202,7 +1224,7 @@ galaxies:
             post_install: []
         
         SicTools: 
-            version: 1.4.0
+            version: 1.4.2
             dependencies: 
                 Ling: 
                     - ArrayToString
@@ -1428,7 +1450,7 @@ galaxies:
             post_install: []
         
         UniverseTools: 
-            version: 1.15.1
+            version: 1.16.0
             dependencies: 
                 Ling: 
                     - BabyYaml

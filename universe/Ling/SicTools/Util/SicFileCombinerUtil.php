@@ -13,7 +13,37 @@ use Ling\SicTools\Exception\SicToolsException;
 /**
  * The SicFileCombinerUtil class.
  *
- * The idea of a "combiner" is that the configuration array is broken into multiple files.
+ *
+ * Overview
+ * =========
+ * Prerequisites: Know what the @page(sic notation) is.
+ *
+ * The goal of the sic combiner (this class) is to provide a sic array (i.e. an array using the sic notation),
+ * which usually serves as the configuration of a service container.
+ *
+ * However with the sic combiner, you can merge multiple sic configuration files altogether to create one united big sic array.
+ * So the sic combiner is like a blender in which you can put all your configuration files, and you get one combined sic array
+ * in the end.
+ *
+ * Now because multiple files are merged together, they kind of communicate with each other.
+ * And so the sic combiner provides some features to organize this communication.
+ *
+ *
+ * Be aware that the sic combiner works at the array level, BEFORE the sic notation is actually processed.
+ * In other words, you start with multiple @page(babyYaml) files which basically contain arrays,
+ * you assemble them using the sic combiner, which in the end gives you one big array.
+ *
+ * Once you have this big array, you can interpret it as a sic array to feed your service container, but this
+ * last step is outside the scope of the sic combiner object: the sic combiner only merges arrays together, and is
+ * not aware of the sic notation.
+ *
+ *
+ *
+ *
+ * Sic combiner features
+ * =========
+ * So again, the idea of a "combiner" is that the configuration array is broken into multiple files.
+ *
  * Typically, this is what happens naturally in an environment with plugins: each plugin brings
  * a part of the configuration in the form of one or multiple files; each plugin owns one or more files.
  *
@@ -31,7 +61,7 @@ use Ling\SicTools\Exception\SicToolsException;
  * The exception being you can't override a numerical key (which indicates a numeric array which always calls for
  * a merge operation).
  *
- * See the @ref(ArrayTool::arrayMergeReplaceRecursive) method for more info.
+ * See the @page(ArrayTool::arrayMergeReplaceRecursive) method for more info.
  *
  * Apart from providing that default algorithm, the extra-value brought by this combiner is that it allows syntax additions.
  *
@@ -43,7 +73,7 @@ use Ling\SicTools\Exception\SicToolsException;
  *
  *
  * Lazy override variables
- * ============
+ * ---------
  *
  * Ams is a variant based upon the arrayMergeReplaceRecursive algorithm; its goal is to address some limitations
  * of the arrayMergeReplaceRecursive algorithm.
@@ -139,7 +169,7 @@ use Ling\SicTools\Exception\SicToolsException;
  *
  *
  * Variable references
- * ============
+ * -------
  *
  * A variable reference is just a reference to a (previously declared) lazy override variable.
  * *
@@ -381,24 +411,31 @@ class SicFileCombinerUtil
                 if (is_string($v)) {
                     if (false !== strpos($v, $this->variableSymbol . '{')) {
                         if (preg_match('!\\' . $this->variableSymbol . '\{([^\}]+)\}!', $v, $match)) {
-                            $dotPathsWithVars[$match[1]] = $dotPath;
+
+                            $varName = $match[1];
+                            if (array_key_exists($varName, $this->environmentVariables)) {
+                                $replace = $this->environmentVariables[$varName];
+                                if (is_string($replace)) {
+                                    $v = str_replace('${' . $varName . '}', $replace, $v);
+                                } else {
+                                    /**
+                                     * It's probably an array
+                                     */
+                                    throw new SicToolsException("SicFileCombinerUtil: environment variables cannot be arrays."); // for now
+                                }
+                            } else {
+                                $dotPathsWithVars[$match[1]] = $dotPath;
+                            }
                         }
                     }
                 }
             });
 
 
-
             foreach ($dotPathsWithVars as $src => $target) {
 
-
-                if (array_key_exists($src, $this->environmentVariables)) {
-                    $srcFound = true;
-                    $srcValue = $this->environmentVariables[$src];
-                } else {
-                    $srcFound = false;
-                    $srcValue = BDotTool::getDotValue($src, $ret, null, $srcFound);
-                }
+                $srcFound = false;
+                $srcValue = BDotTool::getDotValue($src, $ret, null, $srcFound);
 
 
                 if (true === $srcFound) {

@@ -11,6 +11,7 @@ Conception notes
  * [About type](#about-type)
 * [A Babyyaml implementation of the kit configuration array](#a-babyyaml-implementation-of-the-kit-configuration-array)
 * [Database vs BabyYaml?](#database-vs-babyyaml)
+* [Capturing the zones](#capturing-the-zones)
 
          
          
@@ -196,6 +197,59 @@ but doesn't remove the corresponding zone in the configuration, the zone will be
 a performance cost depending on the widgets in the zone).
 
 In other words, with this conception, any zone configured in the configuration file will be processed.
+
+
+
+
+Implementing the ConfStorage object
+---------------
+2019-04-25
+
+As I said earlier in the [Database vs BabyYaml? section](#database-vs-babyyaml), I intend to test both systems: 
+babyYaml and database, to see which one stands better.
+
+This means I have to create an abstraction layer in the meantime for accessing the configuration (even
+if I personally just use the BabyYaml version).
+
+So, as far as getting the information, I believe only one method will be necessary: getPageConf, which returns
+the whole page conf as described earlier.
+
+Now what about writing data?
+
+My goal being to create a website builder, meaning basically the user will operate a gui, which in turn will
+update the pages configuration.
+
+So in other words we need to be able to WRITE to the page configuration programmatically.
+
+If it was only for BabyYaml, we could basically retrieve the whole page conf, and then target the particular 
+data that we want to update using the Bdot access tools.
+
+However, databases are organized differently, and methods like this one:
+
+```yaml
+- update(zones.$zoneName.$widgetIndex.name, $newName)
+```
+
+will not work.
+
+So I believe the common denominator left is to create one method per gui action, basically.
+
+So, if the user can change the page label via the gui, then we need a changePageLabel method, etc...
+
+To update a widget, we will use the concept of widget id, which is the page.zone.widgetIndex combo.
+Note that the widget name doesn't matter.
+
+As I said, I'm not 100% sure if I want to use a database for kit, so I will start with a simple interface
+with just the getPageConf method, and add the setters when I need them, so that if I don't need it, I didn't 
+waste too much time for nothing.
+
+
+
+
+ 
+
+
+
 
 
 

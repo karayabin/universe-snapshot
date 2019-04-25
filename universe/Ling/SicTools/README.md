@@ -26,6 +26,8 @@ Or just download it and place it where you want otherwise.
 Summary
 =======
 
+
+- [SicTools api](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools.md) (generated with [DocTools](https://github.com/lingtalfi/DocTools))
 - [HotServiceResolver](https://github.com/lingtalfi/SicTools/blob/master/doc/HotServiceResolver.md)
 - [ColdServiceResolver](https://github.com/lingtalfi/SicTools/blob/master/doc/ColdServiceResolver.md)
 - [SicTool](https://github.com/lingtalfi/SicTools/blob/master/doc/SicTool.md)
@@ -40,6 +42,14 @@ Summary
 
 History Log
 ------------------
+
+- 1.4.2 -- 2019-04-25
+
+    - fix SicFileCombinerUtil->combine method handling environment variables incorrectly
+    
+- 1.4.1 -- 2019-04-25
+
+    - add docTools doc
 
 - 1.4.0 -- 2019-04-25
 

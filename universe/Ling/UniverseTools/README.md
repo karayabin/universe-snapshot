@@ -36,6 +36,10 @@ Summary
 History Log
 ==============
 
+- 1.16.0 -- 2019-04-25
+
+    - add DependencyTool::writeDependencies $postInstall parameter
+    
 - 1.15.1 -- 2019-04-08
 
     - fix DependencyTool::parseDumpDependencies taking into account non galaxies

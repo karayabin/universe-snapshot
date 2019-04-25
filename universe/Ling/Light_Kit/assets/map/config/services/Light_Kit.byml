@@ -1,0 +1,29 @@
+kit:
+    instance: Ling\Light_Kit\PageRenderer\LightKitPageRenderer
+    methods:
+        configure:
+            settings:
+                application_dir: ${app_dir}
+        setConfStorage:
+            -
+                instance: Ling\Kit\ConfStorage\BabyYamlConfStorage
+                methods:
+                    setRootDir:
+                        rootDir: ${app_dir}/config/kit/pages
+
+    methods_collection:
+        -
+            method: registerWidgetHandler
+            args:
+                - picasso
+                -
+                    instance: Ling\Kit_PicassoWidget\WidgetHandler\PicassoWidgetHandler
+        -
+            method: registerWidgetHandler
+            args:
+                - prototype
+                -
+                    instance: Ling\Kit_PrototypeWidget\WidgetHandler\PrototypeWidgetHandler
+                    methods:
+                        setRootDir:
+                            appDir: ${app_dir}

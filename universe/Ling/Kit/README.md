@@ -89,7 +89,7 @@ layout: $layoutRelPath          # The relative path to the layout file for this 
 layout_vars: []                 # an array of layout vars that will be accessible to the layout (a layout might be configured to some degree by such variables, depending on the layout)
 zones:
     $zoneName:                  # note: the zone name is called from the layout file 
-        -   
+        -                           # this array is the widget configuration array
             name: $widgetName       # the widget name
             type: $widgetType       # the widget type
             ?active: $bool          # whether to use the widget, defaults to true
@@ -130,6 +130,7 @@ Related
 ========
 
 - [Kit_PicassoWidget](https://github.com/lingtalfi/Kit_PicassoWidget): a widget type 
+- [Kit_PrototypeWidget](https://github.com/lingtalfi/Kit_PrototypeWidget): a widget type 
 
 
 
@@ -138,6 +139,10 @@ Related
 History Log
 =============
 
+- 1.3.0 -- 2019-04-25
+
+    - add ConfStorageInterface
+    
 - 1.2.0 -- 2019-04-24
 
     - fix KitPageRenderer->printPage calling top and bottom parts BEFORE the widgets configuring the Copilot

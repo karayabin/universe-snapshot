@@ -123,7 +123,18 @@ class PushCommand extends KaosGenericCommand
 
                     try {
 
-                        if (true === DependencyTool::writeDependencies($planetDir)) {
+
+                        /**
+                         * We add the map if detected
+                         */
+                        $mapDir = $planetDir . "/assets/map";
+                        $postInstall = [];
+                        if (is_dir($mapDir)) {
+                            $postInstall['map'] = true;
+                        }
+
+
+                        if (true === DependencyTool::writeDependencies($planetDir, $postInstall)) {
                             $output->write('<success>ok</success>' . PHP_EOL);
 
 

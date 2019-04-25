@@ -28,17 +28,20 @@ class ColdServiceResolver
      * See sic notation for more info.
      *
      * @link https://github.com/lingtalfi/NotationFan/blob/master/sic.md#examples
+     * @var string
      */
     private $passKey;
 
     /**
      * Sets the base variable name, which is used to create the service's references inside the code.
+     * @var string
      */
     private $baseVariableName;
 
     /**
      * An auto-incremented number appended to the baseVariableName property to give the actual unique variable name
      * used in the code.
+     * @var int
      */
     private $cpt;
 
@@ -80,7 +83,8 @@ class ColdServiceResolver
      * @link https://github.com/lingtalfi/NotationFan/blob/master/sic.md#examples
      *
      * @param array $sicBlock
-     * @return false|string, false is returned when the given array IS NOT a sic block (or a sic block with the pass key defined)
+     * @return false|string
+     * False is returned when the given array IS NOT a sic block (or a sic block with the pass key defined)
      *
      *
      */
@@ -392,7 +396,7 @@ class ColdServiceResolver
      *
      *
      * @param array $realArgs
-     * @return string|string[]|null
+     * @return string|array|null
      */
     private function argsToString(array $realArgs)
     {

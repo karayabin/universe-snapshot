@@ -1,0 +1,7 @@
+dependencies: 
+    Ling: 
+        - HtmlPageTools
+        - Kit
+    
+
+post_install: []

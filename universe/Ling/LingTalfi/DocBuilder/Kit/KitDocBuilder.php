@@ -141,6 +141,7 @@ class KitDocBuilder
 //                "the command line page" => $doc . '/pages/command-line.md',
                 "HtmlPageCopilot documentation" => 'https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot.md',
                 "page configuration array" => $git . '/README.md#the-kit-configuration-array',
+                "babyYaml" => 'https://github.com/lingtalfi/BabyYaml',
             ],
             /**
              * An array of external classes to url.

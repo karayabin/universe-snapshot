@@ -36,8 +36,8 @@ The following code:
 
 ```php
 $item = [
-"ling",
-"Bat",
+     "ling",
+     "Bat",
 ];
 az(DependencyTool::getDependencyHomeUrl($item)); // string(71) "https://github.com/karayabin/universe-snapshot/tree/master/universe/Ling/Bat"
 ```

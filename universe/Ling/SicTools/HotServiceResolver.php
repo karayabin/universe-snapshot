@@ -27,10 +27,14 @@ class HotServiceResolver
      * See sic notation for more info.
      *
      * @link https://github.com/lingtalfi/NotationFan/blob/master/sic.md#examples
+     * @var string
      */
     private $passKey;
 
 
+    /**
+     * Builds the HotServiceResolver instance.
+     */
     public function __construct()
     {
         $this->passKey = '__pass__';
@@ -51,8 +55,10 @@ class HotServiceResolver
      *
      *
      * @param array $sicBlock
-     * @return false|object|array, false is returned when the given array IS NOT a sic block (or a sic block with the pass key defined)
-     * @throws SicBlockWillNotResolveException when the sic block will not resolve
+     * @return false|object|array
+     * False is returned when the given array IS NOT a sic block (or a sic block with the pass key defined)
+     * @throws SicBlockWillNotResolveException
+     * When the sic block will not resolve
      *
      *
      */

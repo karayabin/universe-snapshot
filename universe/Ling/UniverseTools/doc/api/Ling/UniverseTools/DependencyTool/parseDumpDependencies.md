@@ -29,7 +29,7 @@ found in the planet, and displays the content of a basic **dependencies.byml** f
 
 Note: This method only works if there is an effective bsr-1 autoloader in place.
 Note2: This method works by parsing the use statements in your classes, so make sure to clean your import use statements
-before running this method.
+     before running this method.
 
 
 

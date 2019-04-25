@@ -299,20 +299,27 @@ class DependencyTool
     /**
      * Writes the dependencies.byml file at the root of the given $planetDir.
      *
+     * If the postInstall array is passed, it will be merged with any existing post install directives that might
+     * already be there (which might happen if the dependency file already exists).
+     *
      * @param string $planetDir
+     * @param array $postInstall
      * @return bool
      * @throws UniverseToolsException
      */
-    public static function writeDependencies(string $planetDir)
+    public static function writeDependencies(string $planetDir, array $postInstall = [])
     {
         $dependencyFile = $planetDir . "/dependencies.byml";
-        $postInstall = [];
+        $_postInstall = [];
         $conf = [];
         if (file_exists($dependencyFile)) {
             $conf = BabyYamlUtil::readFile($dependencyFile);
-            $postInstall = $conf['post_install'] ?? [];
+            $_postInstall = $conf['post_install'] ?? [];
         }
-        $dependenciesString = self::parseDumpDependencies($planetDir, $conf, $postInstall);
+
+        $_postInstall = array_merge($_postInstall, $postInstall);
+
+        $dependenciesString = self::parseDumpDependencies($planetDir, $conf, $_postInstall);
         return FileSystemTool::mkfile($dependencyFile, $dependenciesString);
     }
 }

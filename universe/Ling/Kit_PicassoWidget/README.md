@@ -182,7 +182,7 @@ Related
 ========
 
 - [Kit](https://github.com/lingtalfi/Kit): the widget rendering system 
-
+- [Kit_PrototypeWidget](https://github.com/lingtalfi/Kit_PrototypeWidget): another widget type
 
 
 History Log
