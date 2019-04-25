@@ -71,6 +71,8 @@ https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/List
 https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/ListBackupDatabaseCommand.md
 https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/ListBackupFilesCommand/__construct.md
 https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/ListBackupFilesCommand.md
+https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/OpenConfCommand/run.md
+https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/OpenConfCommand.md
 https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/PushBackupDatabaseCommand/__construct.md
 https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/PushBackupDatabaseCommand/onArchiveReady.md
 https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/PushBackupDatabaseCommand/run.md

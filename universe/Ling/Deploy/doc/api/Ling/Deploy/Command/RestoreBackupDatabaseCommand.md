@@ -4,7 +4,7 @@
 
 The RestoreBackupDatabaseCommand class
 ================
-2019-04-03 --> 2019-04-04
+2019-04-03 --> 2019-04-18
 
 
 
@@ -41,7 +41,7 @@ If you want to not drop the database, use the **-k** flag.
 Options, flags
 ------------
 - name=$name: the name of the database backup to restore.
-The ".sql" extension is appended automatically if necessary.
+         The ".sql" extension is appended automatically if necessary.
 - db=$identifier: the comma separated list of database identifiers to process.
 - -r: remote flag. If set, the operation will be executed on the remote rather than on the local application.
 - -s: secure flag. If set, this command will prompt the user for required database password(s).

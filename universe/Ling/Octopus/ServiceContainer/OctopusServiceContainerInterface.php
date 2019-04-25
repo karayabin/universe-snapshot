@@ -30,6 +30,14 @@ interface OctopusServiceContainerInterface
      * @return bool
      */
     public function has(string $service): bool;
+
+
+    /**
+     * Returns the list of all service names for this instance.
+     *
+     * @return array
+     */
+    public function all(): array;
 }
 
 

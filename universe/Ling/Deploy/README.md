@@ -370,6 +370,14 @@ Mysql related commands were tested successfully on:
 History Log
 =============
 
+- 1.1.1 -- 2019-04-18
+
+    - fix typo in MapHelper->collectFiles
+    
+- 1.1.0 -- 2019-04-18
+
+    - add the openconf command
+    
 - 1.0.0 -- 2019-04-03
 
     - initial commit

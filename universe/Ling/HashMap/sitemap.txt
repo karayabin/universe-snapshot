@@ -1,0 +1,11 @@
+https://github.com/lingtalfi/HashMap/blob/master/README.md
+https://github.com/lingtalfi/HashMap/blob/master/doc/api/Ling/HashMap/Exception/HashMapException.md
+https://github.com/lingtalfi/HashMap/blob/master/doc/api/Ling/HashMap/Util/HashMapUtil/__construct.md
+https://github.com/lingtalfi/HashMap/blob/master/doc/api/Ling/HashMap/Util/HashMapUtil/createMap.md
+https://github.com/lingtalfi/HashMap/blob/master/doc/api/Ling/HashMap/Util/HashMapUtil/setIgnoreHidden.md
+https://github.com/lingtalfi/HashMap/blob/master/doc/api/Ling/HashMap/Util/HashMapUtil/setIgnoreNames.md
+https://github.com/lingtalfi/HashMap/blob/master/doc/api/Ling/HashMap/Util/HashMapUtil/setIgnorePaths.md
+https://github.com/lingtalfi/HashMap/blob/master/doc/api/Ling/HashMap/Util/HashMapUtil/setPaths.md
+https://github.com/lingtalfi/HashMap/blob/master/doc/api/Ling/HashMap/Util/HashMapUtil/setRootDir.md
+https://github.com/lingtalfi/HashMap/blob/master/doc/api/Ling/HashMap/Util/HashMapUtil.md
+https://github.com/lingtalfi/HashMap/blob/master/doc/api/Ling/HashMap.md

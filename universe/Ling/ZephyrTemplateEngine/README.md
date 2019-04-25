@@ -97,6 +97,10 @@ echo $o->renderByPath($tpl, [
 History Log
 =============
 
+- 1.1.0 -- 2019-04-24
+
+    - add ZephyrTemplateEngine->renderFile method 
+    
 - 1.0.0 -- 2019-04-09
 
     - initial commit

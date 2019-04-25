@@ -4,7 +4,7 @@
 
 The CreateDatabaseCommand class
 ================
-2019-04-03 --> 2019-04-04
+2019-04-03 --> 2019-04-18
 
 
 
@@ -43,20 +43,20 @@ Now this problem is fixed, but I keep this error below as a reminder.
 After playing for a while with this command, at some point it started to behave weirdly, and I've got the following
 error (on mac: mysql  Ver 8.0.13 for osx10.12 on x86_64 (Homebrew)):
 
-dp p=komin create-db
-ERROR 1410 (42000) at line 3: You are not allowed to create a user with GRANT
+     dp p=komin create-db
+     ERROR 1410 (42000) at line 3: You are not allowed to create a user with GRANT
 
 Alternately, on the remote server I've got a similarly weird error (on ubuntu: mysql  Ver 14.14 Distrib 5.7.18, for Linux (x86_64) using  EditLine wrapper):
 
-dp p=komin create-db -r
-ERROR 1133 (42000) at line 7: Can't find any matching row in the user table
+     dp p=komin create-db -r
+     ERROR 1133 (42000) at line 7: Can't find any matching row in the user table
 
 
 That's a stupid error, since it worked just fine before, anyway...
 The work around I find in this case was just to use the -f flag and it magically worked:
 
-dp p=komin create-db -f     # for local site
-dp p=komin create-db -rf    # for remote
+     dp p=komin create-db -f     # for local site
+     dp p=komin create-db -rf    # for remote
 
 After that, the first command started to work normally again.
 I guess the -f option did some cleaning. Weird...
@@ -67,7 +67,7 @@ Note: dp is an alias of deploy on my machine.
 Options, flags
 ------------
 - ?db=$identifier: the identifier of the database(s) to create. It can also be a comma separated list of identifiers.
-Note: the identifier refers to a key in the **databases** section of the [configuration file](https://github.com/lingtalfi/Deploy/blob/master/README.md#the-configuration-file).
+     Note: the identifier refers to a key in the **databases** section of the [configuration file](https://github.com/lingtalfi/Deploy/blob/master/README.md#the-configuration-file).
 
 - -r: remote flag. If set, the command will operate on the remote rather than on the site.
 - -f: force the recreation of the database(s) and user(s) by deleting them before re-creating them.

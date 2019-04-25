@@ -38,10 +38,12 @@ class FileMimeTypeValidator extends AbstractValidator
      * Sets the allowedMimeTypes.
      *
      * @param array $allowedMimeTypes
+     * @return $this
      */
     public function setMimeTypes(array $allowedMimeTypes)
     {
         $this->allowedMimeTypes = $allowedMimeTypes;
+        return $this;
     }
 
 
@@ -58,8 +60,18 @@ class FileMimeTypeValidator extends AbstractValidator
             throw new ChloroformException("This validator only works with a file array containing the type key.");
         }
 
+        if (false === array_key_exists('error', $value)) {
+            throw new ChloroformException("This validator only works with a file array containing the type error.");
+        }
+
         if (empty($this->allowedMimeTypes)) {
             throw new ChloroformException("The allowedMimeTypes array cannot be empty. Use the setMimeTypes method.");
+        }
+
+
+        if (\UPLOAD_ERR_NO_FILE === $value['error']) {
+            // if the file wasn't uploaded, we validate (it's not the wrong mime type)
+            return true;
         }
 
 
@@ -75,5 +87,16 @@ class FileMimeTypeValidator extends AbstractValidator
             return false;
         }
         return true;
+    }
+
+
+    /**
+     * @overrides
+     */
+    public function toArray(): array
+    {
+        return array_merge(parent::toArray(), [
+            "allowed_mime_types" => $this->allowedMimeTypes,
+        ]);
     }
 }

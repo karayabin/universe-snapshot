@@ -4,7 +4,7 @@
 
 The ZipBackupFilesCommand class
 ================
-2019-04-03 --> 2019-04-04
+2019-04-03 --> 2019-04-18
 
 
 
@@ -29,7 +29,7 @@ Options
 
 - dir=$path: the backup directory path
 - dst=$path: the path to the zip archive to create.
-Note: necessary folders will be created.
+         Note: necessary folders will be created.
 - ext=$extension: the extension to append to the backup name (if omitted)
 
 - ?names=$names: the comma separated list of backup names to put in the archive

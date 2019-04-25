@@ -8,7 +8,7 @@ WORK IN PROGRESS, COME BACK IN A FEW MONTHS...
 
 
 A light framework for creating web apps.
-This superseded the [Jin](https://github.com/lingtalfi/Jin) framework. 
+This supersedes the [Jin](https://github.com/lingtalfi/Jin) framework. 
 
 
 This is part of the [universe framework](https://github.com/karayabin/universe-snapshot).

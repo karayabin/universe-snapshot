@@ -4,7 +4,7 @@
 
 The DropDatabaseCommand class
 ================
-2019-04-03 --> 2019-04-04
+2019-04-03 --> 2019-04-18
 
 
 
@@ -42,7 +42,7 @@ and so you will be prompted for the password of the root user (of the database).
 Options, flags
 ------------
 - ?db=$identifier: the identifier of the database(s) to drop. It can also be a comma separated list of identifiers.
-Note: the identifier refers to a key in the **databases** section of the [configuration file](https://github.com/lingtalfi/Deploy/blob/master/README.md#the-configuration-file).
+     Note: the identifier refers to a key in the **databases** section of the [configuration file](https://github.com/lingtalfi/Deploy/blob/master/README.md#the-configuration-file).
 
 - -r: remote flag. If set, the command will operate on the remote rather than on the site.
 - -u: user flag. If set, the command will also drop the user.

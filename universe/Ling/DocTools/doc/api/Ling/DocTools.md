@@ -1,6 +1,6 @@
 Ling/DocTools
 ================
-2019-02-21 --> 2019-04-04
+2019-02-21 --> 2019-04-18
 
 
 
@@ -347,13 +347,13 @@ Table of contents
 
 Dependencies
 ============
-- [Bat](https://github.com/karayabin/universe-snapshot/tree/master/universe/Ling/Bat)
-- [TokenFun](https://github.com/karayabin/universe-snapshot/tree/master/universe/Ling/TokenFun)
-- [DirScanner](https://github.com/karayabin/universe-snapshot/tree/master/universe/Ling/DirScanner)
-- [UniverseTools](https://github.com/karayabin/universe-snapshot/tree/master/universe/Ling/UniverseTools)
-- [ArrayToString](https://github.com/karayabin/universe-snapshot/tree/master/universe/Ling/ArrayToString)
-- [ArrayToTable](https://github.com/karayabin/universe-snapshot/tree/master/universe/Ling/ArrayToTable)
-- [ZeusTemplateEngine](https://github.com/karayabin/universe-snapshot/tree/master/universe/Ling/ZeusTemplateEngine)
-- [ParseDown](https://github.com/karayabin/universe-snapshot/tree/master/universe/Ling/ParseDown)
+- [Bat](https://github.com/lingtalfi/Bat)
+- [TokenFun](https://github.com/lingtalfi/TokenFun)
+- [DirScanner](https://github.com/lingtalfi/DirScanner)
+- [UniverseTools](https://github.com/lingtalfi/UniverseTools)
+- [ArrayToString](https://github.com/lingtalfi/ArrayToString)
+- [ArrayToTable](https://github.com/lingtalfi/ArrayToTable)
+- [ZeusTemplateEngine](https://github.com/lingtalfi/ZeusTemplateEngine)
+- [ParseDown](https://github.com/lingtalfi/ParseDown)
 
 

@@ -4,7 +4,7 @@
 
 The CreateMapCommand class
 ================
-2019-04-03 --> 2019-04-04
+2019-04-03 --> 2019-04-18
 
 
 
@@ -26,14 +26,14 @@ If the **-r** flag is set, the operation will be executed on the remote.
 Options
 ----------
 - -r: remote. If set,  executes the operation on the remote.
-In this case, the map will be located at **$remote_root_dir/.deploy/map.txt**
+     In this case, the map will be located at **$remote_root_dir/.deploy/map.txt**
 - -d: display on screen. If set, the map will also be displayed on the screen.
 
 - conf=$confPath: a proxy conf to use instead of the project conf. This is used internally. You shouldn't need that option.
 
 - word=string. The word used in the sentence: "Creating $word to <b>$mapFile</b>.",
-which is the first sentence displayed by this command.
-This option allows other commands to customize this command message.
+             which is the first sentence displayed by this command.
+             This option allows other commands to customize this command message.
 
 
 

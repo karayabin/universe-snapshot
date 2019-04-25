@@ -50,7 +50,7 @@ class SelectField extends AbstractField
      * The properties is the same array as the properties from the parent class,
      * with the following additions:
      *
-     * - multiple: bool=false. Whether to use the html multiple attribute on the select tag.
+     * - ?multiple: bool=false. Whether to use the html multiple attribute on the select tag.
      *      Note: if multiple is false, the value will be a string, and if mulitple is true,
      *      the value will be an array.
      *
@@ -87,11 +87,6 @@ class SelectField extends AbstractField
      */
     public function toArray(): array
     {
-        $multiple = $this->properties["multiple"] ?? false;
-        if (true === $multiple) {
-            $this->setValueIsScalar(false);
-        }
-
         return array_merge(parent::toArray(), [
             "items" => $this->items,
         ]);

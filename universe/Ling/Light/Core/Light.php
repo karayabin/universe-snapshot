@@ -341,7 +341,6 @@ class Light
                         if (is_callable($controller)) {
 
 
-
                             // we need to inject variables in the controller
                             $controllerArgs = $this->getControllerArgs($controller, $route, $httpRequest);
                             $response = call_user_func_array($controller, $controllerArgs);
@@ -508,6 +507,7 @@ class Light
                  *
                  * - Ling\Light\Core\Light
                  * - Ling\Light\Http\HttpRequestInterface
+                 * - Ling\Light\ServiceContainer\LightServiceContainerInterface
                  *
                  *
                  *
@@ -515,12 +515,15 @@ class Light
                 $specialTypes = [
                     "Ling\Light\Core\Light",
                     "Ling\Light\Http\HttpRequestInterface",
+                    "Ling\Light\ServiceContainer\LightServiceContainerInterface",
                 ];
                 if (in_array($hintType, $specialTypes, true)) {
                     if ("Ling\Light\Core\Light" === $hintType) {
                         $controllerArgs[] = $this;
                     } elseif ("Ling\Light\Http\HttpRequestInterface" === $hintType) {
                         $controllerArgs[] = $httpRequest;
+                    } elseif ("Ling\Light\ServiceContainer\LightServiceContainerInterface" === $hintType) {
+                        $controllerArgs[] = $this->getContainer();
                     }
                 } else {
                     $routeName = $route['name'];

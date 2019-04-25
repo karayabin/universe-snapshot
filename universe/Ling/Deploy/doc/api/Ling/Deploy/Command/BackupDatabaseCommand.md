@@ -4,7 +4,7 @@
 
 The BackupDatabaseCommand class
 ================
-2019-04-03 --> 2019-04-04
+2019-04-03 --> 2019-04-18
 
 
 
@@ -26,7 +26,7 @@ And to restore a backup, you also need the user password.
 
 Backups for databases are stored at the project level, at:
 
-$project_root_dir/.deploy/backup-db/$database_identifier/$backup_name
+     $project_root_dir/.deploy/backup-db/$database_identifier/$backup_name
 
 By default, all databases of the project are backed up (each database identifier leading to the creation of one backup file).
 To specify which subset of databases to backup, use the **db** option.
@@ -41,7 +41,7 @@ Use the -r flag to operate on the remote.
 
 The default backup name will be based on the date and will look like this:
 
-2019-03-26__08-49-17.sql
+     2019-03-26__08-49-17.sql
 
 (this is basically the datetime)
 

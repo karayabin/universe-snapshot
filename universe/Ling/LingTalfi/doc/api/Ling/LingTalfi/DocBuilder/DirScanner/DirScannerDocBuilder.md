@@ -4,7 +4,7 @@
 
 The DirScannerDocBuilder class
 ================
-2019-03-13 --> 2019-04-03
+2019-03-13 --> 2019-04-25
 
 
 
@@ -50,4 +50,4 @@ Ling\LingTalfi\DocBuilder\DirScanner\DirScannerDocBuilder
 
 SeeAlso
 ==============
-Previous class: [CliToolsDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/CliTools/CliToolsDocBuilder.md)<br>Next class: [DocToolsDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/DocTools/DocToolsDocBuilder.md)<br>
+Previous class: [DeployDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Deploy/DeployDocBuilder.md)<br>Next class: [DocToolsDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/DocTools/DocToolsDocBuilder.md)<br>

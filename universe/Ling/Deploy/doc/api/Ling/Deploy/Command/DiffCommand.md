@@ -4,7 +4,7 @@
 
 The DiffCommand class
 ================
-2019-04-03 --> 2019-04-04
+2019-04-03 --> 2019-04-18
 
 
 
@@ -34,7 +34,7 @@ Each map is created using its own configuration: the map on the site is created 
 whereas the remote map is created using the **map-conf** section of the remote's conf.
 
 As a way to have more control from the site (rather than the remote), the diff command also reuses the
-ignore** key of the **map-conf** section of the site's conf.
+**ignore** key of the **map-conf** section of the site's conf.
 
 
 
@@ -43,10 +43,10 @@ ignore** key of the **map-conf** section of the site's conf.
 Flags
 ------------
 - -f: files. If this flag is set, the diff command will write the diff to 3 files instead of displaying it
-to the screen. The 3 files are:
-- $app/.deploy/diff-add.txt
-- $app/.deploy/diff-remove.txt
-- $app/.deploy/diff-replace.txt
+         to the screen. The 3 files are:
+             - $app/.deploy/diff-add.txt
+             - $app/.deploy/diff-remove.txt
+             - $app/.deploy/diff-replace.txt
 
 
 

@@ -4,7 +4,7 @@
 
 The DocBuilder class
 ================
-2019-02-21 --> 2019-04-04
+2019-02-21 --> 2019-04-18
 
 
 
@@ -23,7 +23,7 @@ The main idea is that you create a DocBuilder class tailored to your needs (enca
 for documentation generation), so that in production you can just call the builder any time you want to generate your documentation
 with a few lines of code.
 
-
+*
 This is arguably the most important object in the DocTools planet as it's your interface to generate your documentation.
 
 There is no particular rule about how code should be organized inside a DocBuilder, but the classes from the DocTools planet

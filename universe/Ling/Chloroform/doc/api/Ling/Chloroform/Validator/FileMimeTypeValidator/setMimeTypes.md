@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [FileMimeTypeValidator::setMimeTypes](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Validator/FileMimeTypeValidator/setMimeTypes.md)(array $allowedMimeTypes) : void
+public [FileMimeTypeValidator::setMimeTypes](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Validator/FileMimeTypeValidator/setMimeTypes.md)(array $allowedMimeTypes) : [FileMimeTypeValidator](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Validator/FileMimeTypeValidator.md)
 
 
 
@@ -38,7 +38,7 @@ Parameters
 Return values
 ================
 
-Returns void.
+Returns [FileMimeTypeValidator](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Validator/FileMimeTypeValidator.md).
 
 
 

@@ -4,7 +4,7 @@
 
 The AbstractBackupDatabaseCommand class
 ================
-2019-04-03 --> 2019-04-04
+2019-04-03 --> 2019-04-18
 
 
 
@@ -25,8 +25,8 @@ but it adds the following extra criteria:
 - the **db** option
 
 The **db** option defines which database identifiers will be parsed (database backups are
-organized by database identifiers).
-This option is executed before the **name** and **last** option.
+     organized by database identifiers).
+     This option is executed before the **name** and **last** option.
 
 
 Also, the **last** option allows you to define the number of the non-named backups PER DATABASE IDENTIFIER to archive.

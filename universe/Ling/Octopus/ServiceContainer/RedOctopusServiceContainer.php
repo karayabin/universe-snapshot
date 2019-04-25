@@ -129,6 +129,16 @@ class RedOctopusServiceContainer extends HotServiceResolver implements OctopusSe
     }
 
 
+    /**
+     *
+     * @implementation
+     */
+    public function all(): array
+    {
+        return array_keys($this->sicBlocks);
+    }
+
+
 
 
     //--------------------------------------------

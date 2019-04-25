@@ -166,6 +166,7 @@ class HelpCommand extends DeployGenericCommand
         $listBackupDb = $this->n('list-backup-db');
         $listBackupFiles = $this->n('list-backup-files');
         $map = $this->n('map');
+        $openConf = $this->n('openconf');
         $push = $this->n('push');
         $pushBackupDb = $this->n('push-backup-db');
         $pushBackupFiles = $this->n('push-backup-files');
@@ -359,6 +360,11 @@ class HelpCommand extends DeployGenericCommand
             $output->write(H::j(1) . $this->o("-r") . ": remote. Executes the operation on the remote." . PHP_EOL);
             $output->write(H::s(2) . "In this case, the map will be located at <b>\$remote_root_dir/.deploy/map.txt</b>." . PHP_EOL);
             $output->write(H::j(1) . $this->o("-d") . ": display on screen. If set, also displays the map on the console screen." . PHP_EOL);
+        });
+
+
+        $this->registerCallback('openconf', function () use ($openConf, $output) {
+            $output->write("- $openConf: opens the global configuration. Only works on mac." . PHP_EOL);
         });
 
 

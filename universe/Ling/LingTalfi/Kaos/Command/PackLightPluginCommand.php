@@ -17,11 +17,23 @@ use Ling\CliTools\Output\OutputInterface;
  * to the map directory of the Light plugin, so that the Light plugin planet can then use the
  * post_install.map = true directive in its dependencies.byml file.
  *
+ * It is assumed that you are calling this command from the light plugin directory (i.e.
+ * the current working directory should be the light plugin directory/planet).
+ *
+ *
  * It copies the following, based on a plugin named Light_MyPlugin (for instance):
  *
  * - $app/config/services/Light_MyPlugin.byml
  * - $app/templates/Light_MyPlugin/
  * - $app/www/plugins/Light_MyPlugin/
+ *
+ *
+ *
+ *
+ * Options
+ * ------------
+ *
+ * - a: the application dir path
  *
  *
  *

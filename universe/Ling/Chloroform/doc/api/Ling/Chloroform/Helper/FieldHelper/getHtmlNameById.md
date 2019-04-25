@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [FieldHelper::getHtmlNameById](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Helper/FieldHelper/getHtmlNameById.md)(string $fieldId, bool $isScalar = true) : string
+public static [FieldHelper::getHtmlNameById](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Helper/FieldHelper/getHtmlNameById.md)(string $fieldId) : string
 
 
 
@@ -34,10 +34,6 @@ Parameters
 
 
 - fieldId
-
-    
-
-- isScalar
 
     
 

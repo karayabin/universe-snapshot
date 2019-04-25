@@ -72,18 +72,14 @@ class FieldHelper
      *
      *
      * @param string $fieldId
-     * @param bool $isScalar = true
      * @return string
      */
-    public static function getHtmlNameById(string $fieldId, bool $isScalar = true): string
+    public static function getHtmlNameById(string $fieldId): string
     {
         $p = explode(".", $fieldId);
         $s = array_shift($p);
         if ($p) {
             $s .= '[' . implode('][', $p) . ']';
-        }
-        if (false === $isScalar) {
-            $s .= '[]';
         }
         return $s;
     }

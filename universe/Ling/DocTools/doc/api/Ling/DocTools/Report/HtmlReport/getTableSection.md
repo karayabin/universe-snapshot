@@ -60,13 +60,13 @@ Return values
 
 Returns array.
 - type: string. The type of widget.
-Available types:
-- table
-- title: string. The widget title.
-- id: string. The identifier of the widget: it's basically the anchor of the widget title,
-without the starting pound symbol (#).
-- ?table: string. Only used if type=table. The html of the table.
-- ?nbItems: int. Only if type=table. The number of items of the table.
+             Available types:
+                 - table
+     - title: string. The widget title.
+     - id: string. The identifier of the widget: it's basically the anchor of the widget title,
+             without the starting pound symbol (#).
+     - ?table: string. Only used if type=table. The html of the table.
+     - ?nbItems: int. Only if type=table. The number of items of the table.
 
 
 

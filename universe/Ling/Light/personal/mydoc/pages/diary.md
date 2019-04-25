@@ -554,7 +554,39 @@ prefix.
 
 
 
+Template system
+-----------
+2019-04-25
 
+
+Jinja? 
+As I said, no, not jinja.
+
+Trying to follow-up with this diary file. 
+So for the template system, I'll use a system based on Kit (https://github.com/lingtalfi/Kit).
+
+Today I'm going to create it (at least that's the plan), it will be called Light_Kit, and basically it provides a kit service, which represents 
+a KitPageRenderer object, so that we can basically do this from our controller:
+
+
+```php
+
+function myController(LightServiceContainerInterface $service){
+    return $service->get("kit")->render ( "page_one" );
+}
+```  
+
+
+
+And the "page_one" is actually a page name, configured in the kit configuration.
+I plan to put all page configuration (at least with the babyYaml implementation) in a **config/kit/pages** directory,
+so that plugins know where to inject their pages. 
+
+The layout root_dir would be the app_dir, so that it's agnostic (plugin authors will have total freedom as to where
+they put their layout).
+
+And because of the kit design, widgets structure is already handled (the widget dir, at least for PicassoWidget, is next
+to the widget class).
 
 
 

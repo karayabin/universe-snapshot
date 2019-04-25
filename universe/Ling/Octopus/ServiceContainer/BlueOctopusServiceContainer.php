@@ -105,16 +105,57 @@ class BlueOctopusServiceContainer implements OctopusServiceContainerInterface
         return method_exists($this, $methodName);
     }
 
+
+    /**
+     * @implementation
+     */
+    public function all(): array
+    {
+        $methods = get_class_methods($this);
+        $ownMethods = [
+            "__construct",
+            "get",
+            "has",
+            "all",
+            "getMethodName",
+            "getServiceName",
+        ];
+
+        $methods = array_filter($methods, function ($method) use ($ownMethods) {
+            return (false === in_array($method, $ownMethods, true));
+        });
+
+
+        return array_map(function ($method) {
+            return self::getServiceName($method);
+        }, $methods);
+    }
+
+
     /**
      * Converts the given service name into a method name (the name of the method in charge of returning the service).
      *
      *
      *
-     * @param $serviceName
+     * @param string $serviceName
      * @return string
      */
-    public static function getMethodName($serviceName)
+    public static function getMethodName(string $serviceName)
     {
-        return strtolower(str_replace('.', '_', $serviceName));
+        return str_replace('.', '__', $serviceName);
+    }
+
+
+    /**
+     * Returns the service name from the given method name.
+     *
+     *
+     *
+     * @param string $methodName
+     * @return string
+     */
+    public static function getServiceName(string $methodName)
+    {
+        return str_replace('__', '.', $methodName);
     }
 }

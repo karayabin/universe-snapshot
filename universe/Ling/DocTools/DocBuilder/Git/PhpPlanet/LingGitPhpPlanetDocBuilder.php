@@ -444,11 +444,15 @@ class LingGitPhpPlanetDocBuilder extends DocBuilder
             $this->report
         ]);
 
+
         $methodReturnType = MethodHelper::getMethodReturnType($methodInfo, $this->_generatedItems2Url, $this->report);
 
 
         $classLink = $classInfo->getShortName();
         $className = $classInfo->getName();
+
+
+
         if (array_key_exists($className, $this->_generatedItems2Url)) {
             $classLink = '[' . $classLink . '](' . $this->_generatedItems2Url[$className] . ')';
         } else {

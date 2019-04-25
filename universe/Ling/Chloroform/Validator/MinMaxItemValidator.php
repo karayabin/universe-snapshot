@@ -23,31 +23,8 @@ use Ling\Chloroform\Field\FieldInterface;
  *
  *
  */
-class MinMaxItemValidator extends AbstractValidator
+class MinMaxItemValidator extends AbstractMinMaxValidator
 {
-
-
-    /**
-     * This property holds the min for this instance.
-     * @var int = null
-     */
-    protected $min;
-
-    /**
-     * This property holds the max for this instance.
-     * @var int = null
-     */
-    protected $max;
-
-    /**
-     * @overrides
-     */
-    public function __construct()
-    {
-        parent::__construct();
-        $this->min = null;
-        $this->max = null;
-    }
 
     /**
      * Sets the min.

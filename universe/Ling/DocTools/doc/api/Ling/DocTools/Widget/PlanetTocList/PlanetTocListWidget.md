@@ -4,7 +4,7 @@
 
 The PlanetTocListWidget class
 ================
-2019-02-21 --> 2019-04-04
+2019-02-21 --> 2019-04-18
 
 
 
@@ -28,42 +28,42 @@ Options
 - ?display_class_description: bool=true, whether to display the short class description next to the generated class links.
 
 - ?class_description_mode: string=mixed (first_line | first_sentence | format_text | mixed).
-Defines what the class description is (this option is only relevant if the display_class_description option is set to true).
-The possible modes are:
-- first_line: this will display the first line of the class' (doc block) comment. If the class has no comment,
-this displays an empty string.
-- first_sentence: this will display the first sentence of the class' (doc block) comment. If the class has no comment,
-this displays an empty string.
-- format_text: this will display a formatted text defined with the class_description_format option.
-- mixed: first try the first_sentence, and if empty use the format_text mode (as a fallback).
-This is the default value.
+         Defines what the class description is (this option is only relevant if the display_class_description option is set to true).
+         The possible modes are:
+             - first_line: this will display the first line of the class' (doc block) comment. If the class has no comment,
+                         this displays an empty string.
+             - first_sentence: this will display the first sentence of the class' (doc block) comment. If the class has no comment,
+                         this displays an empty string.
+             - format_text: this will display a formatted text defined with the class_description_format option.
+             - mixed: first try the first_sentence, and if empty use the format_text mode (as a fallback).
+                     This is the default value.
 
 
 - ?class_description_format: string, the default text to display as the class description.
-Is only relevant when display_class_description=true and class_description_use_class_comment_first_line=false
-Default value: "The {short} class".
-The following tags can be used:
-- {class}: the class name
-- {short}: the short class name
+             Is only relevant when display_class_description=true and class_description_use_class_comment_first_line=false
+             Default value: "The {short} class".
+             The following tags can be used:
+                 - {class}: the class name
+                 - {short}: the short class name
 
 - ?display_methods: bool=true, whether to display the methods. If false, only the class links will be generated.
 - ?methods_filter: string|array=public. A string or array of flags indicating which type of methods to return.
-The available flags are:
-- public
-- protected
-- private
+                 The available flags are:
+                     - public
+                     - protected
+                     - private
 
 - ?display_method_description: bool=true. Whether to display the short method description next to the generated method links.
-Is only relevant if display_methods is set to true.
+         Is only relevant if display_methods is set to true.
 
 - ?method_description_mode: string=mixed (first_line | first_sentence | format_text | mixed).
-Same as the class_description_mode option, but for methods.
+         Same as the class_description_mode option, but for methods.
 
 
 - ?method_description_format: string, same as class_description_format, but for methods.
-Default value: "The {method} method".
-The following tags can be used:
-- {method}: the method name
+             Default value: "The {method} method".
+             The following tags can be used:
+                 - {method}: the method name
 
 
 

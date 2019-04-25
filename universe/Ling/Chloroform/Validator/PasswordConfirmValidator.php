@@ -77,4 +77,17 @@ class PasswordConfirmValidator extends AbstractValidator
             throw new ChloroformException("This validator only works with a PasswordField.");
         }
     }
+
+
+    /**
+     * @overrides
+     */
+    public function toArray(): array
+    {
+        return array_merge(parent::toArray(), [
+            "other_field_id" => $this->otherFieldId,
+        ]);
+    }
+
+
 }

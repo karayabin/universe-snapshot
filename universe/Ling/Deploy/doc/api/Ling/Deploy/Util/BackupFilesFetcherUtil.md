@@ -4,7 +4,7 @@
 
 The BackupFilesFetcherUtil class
 ================
-2019-04-03 --> 2019-04-04
+2019-04-03 --> 2019-04-18
 
 
 
@@ -20,10 +20,10 @@ This class helps retrieving backup files, depending on some criteria passed by t
 The possible criteria are:
 
 - names: array. An array of backup names. If set, the resulting collection will only contain the backup files which name
-match those of the array. This criteria has precedence over the **last** criteria.
+             match those of the array. This criteria has precedence over the **last** criteria.
 - last: int>0.  The max number of (most recent) non-named backups to return.
-If set, the resulting collection will contain the n most recent non-named backups (with n=last).
-This criterion is only effective if the **names** criterion is not set.
+             If set, the resulting collection will contain the n most recent non-named backups (with n=last).
+             This criterion is only effective if the **names** criterion is not set.
 
 
 

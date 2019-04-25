@@ -4,7 +4,7 @@
 
 The FieldHelper class
 ================
-2019-04-10 --> 2019-04-12
+2019-04-10 --> 2019-04-18
 
 
 
@@ -28,7 +28,7 @@ class <span class="pl-k">FieldHelper</span>  {
     - public static [getDefaultIdByLabel](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Helper/FieldHelper/getDefaultIdByLabel.md)(string $label) : string
     - public static [getDefaultErrorNameByLabelOrId](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Helper/FieldHelper/getDefaultErrorNameByLabelOrId.md)(string $label = null, string $id = null) : string
     - public static [getFieldValue](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Helper/FieldHelper/getFieldValue.md)(string $fieldId, array $values) : mixed | null
-    - public static [getHtmlNameById](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Helper/FieldHelper/getHtmlNameById.md)(string $fieldId, bool $isScalar = true) : string
+    - public static [getHtmlNameById](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Helper/FieldHelper/getHtmlNameById.md)(string $fieldId) : string
 
 }
 
@@ -56,4 +56,4 @@ Ling\Chloroform\Helper\FieldHelper
 
 SeeAlso
 ==============
-Previous class: [WarningFormNotification](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/FormNotification/WarningFormNotification.md)<br>Next class: [AbstractValidator](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Validator/AbstractValidator.md)<br>
+Previous class: [WarningFormNotification](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/FormNotification/WarningFormNotification.md)<br>Next class: [ChloroformRendererInterface](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Renderer/ChloroformRendererInterface.md)<br>

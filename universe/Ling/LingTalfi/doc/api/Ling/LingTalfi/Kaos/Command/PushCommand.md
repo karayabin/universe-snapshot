@@ -4,7 +4,7 @@
 
 The PushCommand class
 ================
-2019-03-13 --> 2019-04-03
+2019-03-13 --> 2019-04-25
 
 
 
@@ -80,4 +80,4 @@ Ling\LingTalfi\Kaos\Command\PushCommand
 
 SeeAlso
 ==============
-Previous class: [PackAndPushUniToolCommand](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Command/PackAndPushUniToolCommand.md)<br>Next class: [PushUniverseSnapshotCommand](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Command/PushUniverseSnapshotCommand.md)<br>
+Previous class: [PackLightPluginCommand](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Command/PackLightPluginCommand.md)<br>Next class: [PushUniverseSnapshotCommand](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Command/PushUniverseSnapshotCommand.md)<br>

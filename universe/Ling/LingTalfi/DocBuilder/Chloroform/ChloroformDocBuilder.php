@@ -149,6 +149,7 @@ class ChloroformDocBuilder
                 "ConvertTool::convertHumanSizeToBytes" => "https://github.com/lingtalfi/Bat/blob/master/ConvertTool.md#converthumansizetobytes",
                 "Bat planet" => "https://github.com/lingtalfi/Bat",
                 "chloroform discussion" => $doc . "/pages/chloroform-discussion.md",
+                "Chloroform toArray" => $api . "/Ling/Chloroform/Form/Chloroform/toArray.md",
             ],
             /**
              * An array of external classes to url.
@@ -181,7 +182,7 @@ class ChloroformDocBuilder
                  * Uncomment the lines below to see my settings for local test mode.
                  */
 
-                "generatedClassBaseDir" =>  "/komin/jin_site_demo/www-doc/api",
+                "generatedClassBaseDir" => "/komin/jin_site_demo/www-doc/api",
                 "generatedClassBaseUrl" => "http://jindoc/api",
                 "mode" => "html", // md|html
                 "markdownTranslator" => new ParseDownTranslator(),

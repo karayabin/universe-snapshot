@@ -4,7 +4,7 @@
 
 The RemoveFilesCommand class
 ================
-2019-04-03 --> 2019-04-04
+2019-04-03 --> 2019-04-18
 
 
 
@@ -22,9 +22,9 @@ Removes files listed in a source file.
 Options
 ------------
 - src=$path. The path to the source file.
-The source file contains a list of relative paths to remove, one per line.
-The paths are relative to the current site's root dir, or, if the remote option is set, relative to the remote's root dir.
-If the path is a directory, it will be ignored (design by security, to prevent removing entire directories).
+     The source file contains a list of relative paths to remove, one per line.
+     The paths are relative to the current site's root dir, or, if the remote option is set, relative to the remote's root dir.
+     If the path is a directory, it will be ignored (design by security, to prevent removing entire directories).
 
 
 - -r: remote. If set, the command will operate on the remote rather than on the site.

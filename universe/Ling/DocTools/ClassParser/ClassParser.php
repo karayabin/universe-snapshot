@@ -333,8 +333,9 @@ class ClassParser implements ClassParserInterface
 
 
             $docComment = $method->getDocComment();
-            $comment = $this->parseDocComment($docComment, "method", $className . "::$name");
 
+
+            $comment = $this->parseDocComment($docComment, "method", $className . "::$name");
 
             $thrownExceptions = [];
 
@@ -750,7 +751,17 @@ class ClassParser implements ClassParserInterface
 
         foreach ($lines as $line) {
 
-            $line = ltrim($line, '* ');
+
+            /**
+             * Conserve the indentation, AND trims the first space character so that @tags are correctly interpreted.
+             * Note: with this implementation, the user needs to write a block tag at the very beginning of the
+             * line (if she puts two spaces in front of the @ symbol, it will not be parsed as a tag).
+             */
+            $line = ltrim(ltrim($line), '*');
+            if (' ' === substr($line, 0, 1)) {
+                $line = substr($line, 1);
+            }
+
             $rawLines[] = $line;
 
 

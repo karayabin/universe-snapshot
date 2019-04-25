@@ -4,7 +4,7 @@
 
 The KaosApplication class
 ================
-2019-03-13 --> 2019-04-03
+2019-03-13 --> 2019-04-25
 
 
 
@@ -107,11 +107,11 @@ Properties
     
     
     If true:
-    - the error message displayed to the console screen is the traceAsString of the exception.
-    - the message sent to the log is also the traceAsString of the exception.
+         - the error message displayed to the console screen is the traceAsString of the exception.
+         - the message sent to the log is also the traceAsString of the exception.
     if false:
-    - the error message displayed to the console screen is the exception message.
-    - the message sent to the log is also the exception message.
+         - the error message displayed to the console screen is the exception message.
+         - the message sent to the log is also the exception message.
     
     
 
@@ -153,4 +153,4 @@ Ling\LingTalfi\Kaos\Application\KaosApplication
 
 SeeAlso
 ==============
-Previous class: [WebBoxDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/WebBox/WebBoxDocBuilder.md)<br>Next class: [HelpCommand](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Command/HelpCommand.md)<br>
+Previous class: [ZephyrTemplateEngineDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/ZephyrTemplateEngine/ZephyrTemplateEngineDocBuilder.md)<br>Next class: [HelpCommand](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Command/HelpCommand.md)<br>

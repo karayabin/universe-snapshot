@@ -4,7 +4,7 @@
 
 The CleanBackupDatabaseCommand class
 ================
-2019-04-03 --> 2019-04-04
+2019-04-03 --> 2019-04-18
 
 
 
@@ -61,7 +61,7 @@ Options, flags
 - ?keep=$number: defines the number of non-named database backups to keep (all other older non-named backups will be removed).
 - ?db=$database_identifier: comma separated list of database identifiers. It represents the database identifiers to operate on.
 - ?names=$names: the comma separated list of backup names to delete. Note: the ".sql" extension is appended automatically if omitted.
-Spaces between the comma an the names are allowed.
+                 Spaces between the comma an the names are allowed.
 
 
 

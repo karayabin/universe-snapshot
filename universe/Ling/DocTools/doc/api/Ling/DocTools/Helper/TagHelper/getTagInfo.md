@@ -26,7 +26,7 @@ The returned array contains the following entries:
 
 - 0: string. The tag definition: the tag string until it is stopped by either a dot or a newline character.
 - 1: string. The tag comment text: it is composed of everything on the first line that follows the first dot character found,
-plus all the subsequent lines (if any). It is an empty string by default
+     plus all the subsequent lines (if any). It is an empty string by default
 
 
 

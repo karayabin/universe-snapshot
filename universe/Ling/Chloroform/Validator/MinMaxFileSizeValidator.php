@@ -29,31 +29,9 @@ use Ling\Chloroform\Field\FieldInterface;
  *
  *
  */
-class MinMaxFileSizeValidator extends AbstractValidator
+class MinMaxFileSizeValidator extends AbstractMinMaxValidator
 {
 
-
-    /**
-     * This property holds the min for this instance.
-     * @var mixed = null
-     */
-    protected $min;
-
-    /**
-     * This property holds the max for this instance.
-     * @var mixed = null
-     */
-    protected $max;
-
-    /**
-     * @overrides
-     */
-    public function __construct()
-    {
-        parent::__construct();
-        $this->min = null;
-        $this->max = null;
-    }
 
     /**
      * Sets the min.

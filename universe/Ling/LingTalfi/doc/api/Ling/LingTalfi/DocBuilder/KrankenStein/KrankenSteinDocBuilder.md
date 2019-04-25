@@ -4,7 +4,7 @@
 
 The KrankenSteinDocBuilder class
 ================
-2019-03-13 --> 2019-04-03
+2019-03-13 --> 2019-04-25
 
 
 
@@ -50,4 +50,4 @@ Ling\LingTalfi\DocBuilder\KrankenStein\KrankenSteinDocBuilder
 
 SeeAlso
 ==============
-Previous class: [EasyConsoleMenuDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/EasyConsoleMenu/EasyConsoleMenuDocBuilder.md)<br>Next class: [LingTalfiDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/LingTalfi/LingTalfiDocBuilder.md)<br>
+Previous class: [Kit_PicassoWidgetDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Kit_PicassoWidget/Kit_PicassoWidgetDocBuilder.md)<br>Next class: [LightDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light/LightDocBuilder.md)<br>

@@ -31,7 +31,7 @@ The content of this method should generally:
 - use the setReport method to define a parser report (DocTools\Report\ReportInterface).
 
 - trigger the parser to obtain the info object (DocTools\Info\InfoInterface) and fill the report.
-The info object should be stored and re-used in the buildDoc method.
+     The info object should be stored and re-used in the buildDoc method.
 
 
 

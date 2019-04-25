@@ -1,0 +1,8 @@
+dependencies: 
+    Ling: 
+        - Kit
+        - ZephyrTemplateEngine
+        - HtmlPageTools
+    
+
+post_install: []

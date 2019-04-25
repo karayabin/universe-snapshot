@@ -4,7 +4,7 @@
 
 The FetchCommand class
 ================
-2019-04-03 --> 2019-04-04
+2019-04-03 --> 2019-04-18
 
 
 
@@ -29,23 +29,23 @@ Flags
 ----------
 
 -z: zip. Use a zip archive for transferring files to add. This is faster than the default one by one method.
-However, you don't have the file details shown with the default method.
+         However, you don't have the file details shown with the default method.
 
 
 Options
 ------------
 
 - ?mode=add,remove,replace.
-A comma separated list (extra space allowed) of the operation names to execute.
-The default value is: add,replace,remove.
-The possible operations are:
-- add: will add the files that are present in remote but not in files
-- replace: will replace the files in site that are present in both the remote and the site (but were modified)
-- remove: will remove the files in site that are not present in remote
+     A comma separated list (extra space allowed) of the operation names to execute.
+     The default value is: add,replace,remove.
+     The possible operations are:
+         - add: will add the files that are present in remote but not in files
+         - replace: will replace the files in site that are present in both the remote and the site (but were modified)
+         - remove: will remove the files in site that are not present in remote
 
-By default, all three operations are executed.
-So for instance, if you just want to download the files from the remote to the site without removing any
-files on the site, you can use "mode=add,replace" or "mode=add".
+     By default, all three operations are executed.
+     So for instance, if you just want to download the files from the remote to the site without removing any
+     files on the site, you can use "mode=add,replace" or "mode=add".
 
 
 

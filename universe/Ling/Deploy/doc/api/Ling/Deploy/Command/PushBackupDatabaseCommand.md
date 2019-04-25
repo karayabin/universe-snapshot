@@ -4,7 +4,7 @@
 
 The PushBackupDatabaseCommand class
 ================
-2019-04-03 --> 2019-04-04
+2019-04-03 --> 2019-04-18
 
 
 
@@ -30,8 +30,8 @@ If the **name** option is defined, the last option will be ignored.
 The **name** option allows you to specify the name(s) of the database backups to push.
 The **last** option allows you to define the number of the non-named backups (per database identifier) to push.
 The **db** option defines which database identifiers will be parsed (database backups are
-organized by database identifiers).
-This option is executed before the **name** and **last** option.
+     organized by database identifiers).
+     This option is executed before the **name** and **last** option.
 
 
 This operation will overwrite existing files.
@@ -41,7 +41,7 @@ This operation will overwrite existing files.
 Options, flags
 ------------
 - names=$names: the comma separated list of backup names to upload. Note: the ".sql" extension is appended automatically if omitted.
-Spaces between the comma an the names are allowed.
+                 Spaces between the comma an the names are allowed.
 - last=$number: indicates the (max) number of non-named backups (per database identifier) to push.
 - db=$database_identifiers: a comma separated list of database identifiers to parse.
 
@@ -126,4 +126,4 @@ Ling\Deploy\Command\PushBackupDatabaseCommand
 
 SeeAlso
 ==============
-Previous class: [ListBackupFilesCommand](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/ListBackupFilesCommand.md)<br>Next class: [PushBackupFilesCommand](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/PushBackupFilesCommand.md)<br>
+Previous class: [OpenConfCommand](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/OpenConfCommand.md)<br>Next class: [PushBackupFilesCommand](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/PushBackupFilesCommand.md)<br>

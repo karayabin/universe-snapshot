@@ -27,6 +27,9 @@ class CSRFValidator extends AbstractValidator
     {
         if ($field instanceof CSRFField) {
 
+            if (null === $value) {
+                $value = "";
+            }
             /**
              * Note: Chloroform implementation of CSRF token doesn't follow the recommendations
              * of the [CSRFTools](https://github.com/lingtalfi/CSRFTools#how-to).

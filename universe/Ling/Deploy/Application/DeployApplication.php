@@ -95,6 +95,9 @@ class DeployApplication extends Application
         $this->registerCommand("Ling\Deploy\Command\ListBackupDatabaseCommand", "list-backup-db");
         $this->registerCommand("Ling\Deploy\Command\ListBackupFilesCommand", "list-backup-files");
         $this->registerCommand("Ling\Deploy\Command\CreateMapCommand", "map");
+
+        $this->registerCommand("Ling\Deploy\Command\OpenConfCommand", "openconf");
+
         $this->registerCommand("Ling\Deploy\Command\PushCommand", "push");
         $this->registerCommand("Ling\Deploy\Command\PushBackupDatabaseCommand", "push-backup-db");
         $this->registerCommand("Ling\Deploy\Command\PushBackupFilesCommand", "push-backup-files");

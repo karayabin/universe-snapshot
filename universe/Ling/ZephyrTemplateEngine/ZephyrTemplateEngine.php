@@ -47,11 +47,7 @@ class ZephyrTemplateEngine implements UniversalTemplateEngineInterface
 
         if (null !== $this->directory) {
             $path = $this->directory . "/" . $resourceId;
-            if (is_file($path)) {
-                return $this->interpret($path, $variables);
-            } else {
-                $this->addError("file not found: $path.");
-            }
+            return $this->renderFile($path, $variables);
         } else {
             $this->addError("the directory is not set.");
         }
@@ -59,6 +55,23 @@ class ZephyrTemplateEngine implements UniversalTemplateEngineInterface
     }
 
 
+    /**
+     * Parses the file identified and returns its interpreted content (by injecting the variables in it).
+     * If false is returned, the errors are accessible via the getErrors method.
+     *
+     * @param string $filePath
+     * @param array $variables
+     * @return false|string
+     */
+    public function renderFile(string $filePath, array $variables = [])
+    {
+        if (is_file($filePath)) {
+            return $this->interpret($filePath, $variables);
+        } else {
+            $this->addError("file not found: $filePath.");
+        }
+        return false;
+    }
 
 
     /**

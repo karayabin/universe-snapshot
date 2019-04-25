@@ -4,7 +4,7 @@
 
 The DiffBackCommand class
 ================
-2019-04-03 --> 2019-04-04
+2019-04-03 --> 2019-04-18
 
 
 
@@ -22,10 +22,10 @@ Same as the [DiffCommand](https://github.com/lingtalfi/Deploy/blob/master/doc/ap
 Flags
 ------------
 - -f: files. If this flag is set, the diff command will write the diff to 3 files instead of displaying it
-to the screen. The 3 files are:
-- $app/.deploy/diff-add.txt
-- $app/.deploy/diff-remove.txt
-- $app/.deploy/diff-replace.txt
+         to the screen. The 3 files are:
+             - $app/.deploy/diff-add.txt
+             - $app/.deploy/diff-remove.txt
+             - $app/.deploy/diff-replace.txt
 
 
 

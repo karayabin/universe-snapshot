@@ -28,15 +28,15 @@ The blueprint looks like this:
 
 ```yaml
 notifications:
--
-type: string, the type of notification (success, info, warning, error)
-msg: string, the message of the notification
+     -
+         type: string, the type of notification (success, info, warning, error)
+         msg: string, the message of the notification
 errors: a summary of the form errors (for the templates to use).
-It's actually nothing more than the fields errors put altogether here.
+         It's actually nothing more than the fields errors put altogether here.
 
 fields:
--
-the array version of the field (see the [FieldInterface->toArray method](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/FieldInterface/toArray.md) for more info)
+     -
+         the array version of the field (see the [FieldInterface->toArray method](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/FieldInterface/toArray.md) for more info)
 
 ```
 

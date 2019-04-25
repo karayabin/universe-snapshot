@@ -4,7 +4,7 @@
 
 The PackAndPushUniToolCommand class
 ================
-2019-03-13 --> 2019-04-03
+2019-03-13 --> 2019-04-25
 
 
 
@@ -19,7 +19,7 @@ The PackAndPushUniToolCommand class.
 This command does the following:
 
 - It builds the dependency master by parsing all planets in the local server (/myphp/universe).
-The dependency master file is first written at the Uni2 planet root.
+         The dependency master file is first written at the Uni2 planet root.
 - It rebuilds the universe-meta.byml file and also put it at the root of the Uni2 planet.
 - Packs the uni directory of the universe-naive-importer planet (using the private:pack command of the uni tool).
 - Copy the dependency master and universe meta files to the universe-naive-importer root.
@@ -71,4 +71,4 @@ Ling\LingTalfi\Kaos\Command\PackAndPushUniToolCommand
 
 SeeAlso
 ==============
-Previous class: [KaosGenericCommand](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Command/KaosGenericCommand.md)<br>Next class: [PushCommand](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Command/PushCommand.md)<br>
+Previous class: [KaosGenericCommand](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Command/KaosGenericCommand.md)<br>Next class: [PackLightPluginCommand](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Command/PackLightPluginCommand.md)<br>

@@ -1,0 +1,53 @@
+[Back to the Ling/LingTalfi api](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi.md)
+
+
+
+The Kit_PicassoWidgetDocBuilder class
+================
+2019-03-13 --> 2019-04-25
+
+
+
+
+
+
+Introduction
+============
+
+The Kit_PicassoWidgetDocBuilder class.
+
+
+
+Class synopsis
+==============
+
+
+class <span class="pl-k">Kit_PicassoWidgetDocBuilder</span>  {
+
+- Methods
+    - public static [buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Kit_PicassoWidget/Kit_PicassoWidgetDocBuilder/buildDoc.md)($htmlMode = false) : void
+
+}
+
+
+
+
+
+
+Methods
+==============
+
+- [Kit_PicassoWidgetDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Kit_PicassoWidget/Kit_PicassoWidgetDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the Kit_PicassoWidget planet.
+
+
+
+
+
+Location
+=============
+Ling\LingTalfi\DocBuilder\Kit_PicassoWidget\Kit_PicassoWidgetDocBuilder
+
+
+SeeAlso
+==============
+Previous class: [KitDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Kit/KitDocBuilder.md)<br>Next class: [KrankenSteinDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/KrankenStein/KrankenSteinDocBuilder.md)<br>

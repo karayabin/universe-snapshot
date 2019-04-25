@@ -4,7 +4,7 @@
 
 The ZephyrTemplateEngine class
 ================
-2019-04-09 --> 2019-04-09
+2019-04-09 --> 2019-04-24
 
 
 
@@ -31,6 +31,7 @@ class <span class="pl-k">ZephyrTemplateEngine</span> implements [UniversalTempla
 - Methods
     - public [__construct](https://github.com/lingtalfi/ZephyrTemplateEngine/blob/master/doc/api/Ling/ZephyrTemplateEngine/ZephyrTemplateEngine/__construct.md)() : void
     - public [render](https://github.com/lingtalfi/ZephyrTemplateEngine/blob/master/doc/api/Ling/ZephyrTemplateEngine/ZephyrTemplateEngine/render.md)(string $resourceId, array $variables = []) : false | string
+    - public [renderFile](https://github.com/lingtalfi/ZephyrTemplateEngine/blob/master/doc/api/Ling/ZephyrTemplateEngine/ZephyrTemplateEngine/renderFile.md)(string $filePath, array $variables = []) : false | string
     - public [getErrors](https://github.com/lingtalfi/ZephyrTemplateEngine/blob/master/doc/api/Ling/ZephyrTemplateEngine/ZephyrTemplateEngine/getErrors.md)() : array
     - public [setDirectory](https://github.com/lingtalfi/ZephyrTemplateEngine/blob/master/doc/api/Ling/ZephyrTemplateEngine/ZephyrTemplateEngine/setDirectory.md)(string $directory) : void
     - protected [interpret](https://github.com/lingtalfi/ZephyrTemplateEngine/blob/master/doc/api/Ling/ZephyrTemplateEngine/ZephyrTemplateEngine/interpret.md)(string $___path, array $z) : false | string
@@ -63,6 +64,7 @@ Methods
 
 - [ZephyrTemplateEngine::__construct](https://github.com/lingtalfi/ZephyrTemplateEngine/blob/master/doc/api/Ling/ZephyrTemplateEngine/ZephyrTemplateEngine/__construct.md) &ndash; Builds the ZephyrTemplateEngine instance.
 - [ZephyrTemplateEngine::render](https://github.com/lingtalfi/ZephyrTemplateEngine/blob/master/doc/api/Ling/ZephyrTemplateEngine/ZephyrTemplateEngine/render.md) &ndash; Parses the template identified by $resourceId and returns the interpreted template (the template with the variables injected in it).
+- [ZephyrTemplateEngine::renderFile](https://github.com/lingtalfi/ZephyrTemplateEngine/blob/master/doc/api/Ling/ZephyrTemplateEngine/ZephyrTemplateEngine/renderFile.md) &ndash; Parses the file identified and returns its interpreted content (by injecting the variables in it).
 - [ZephyrTemplateEngine::getErrors](https://github.com/lingtalfi/ZephyrTemplateEngine/blob/master/doc/api/Ling/ZephyrTemplateEngine/ZephyrTemplateEngine/getErrors.md) &ndash; Returns the errors of this instance.
 - [ZephyrTemplateEngine::setDirectory](https://github.com/lingtalfi/ZephyrTemplateEngine/blob/master/doc/api/Ling/ZephyrTemplateEngine/ZephyrTemplateEngine/setDirectory.md) &ndash; Sets the directory.
 - [ZephyrTemplateEngine::interpret](https://github.com/lingtalfi/ZephyrTemplateEngine/blob/master/doc/api/Ling/ZephyrTemplateEngine/ZephyrTemplateEngine/interpret.md) &ndash; and returns the resulting html code.

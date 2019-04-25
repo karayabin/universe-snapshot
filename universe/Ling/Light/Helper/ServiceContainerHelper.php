@@ -115,7 +115,9 @@ class ServiceContainerHelper
         $servicesConf = [];
         $servicesConfDir = $appDir . "/config/services";
         if (is_dir($servicesConfDir)) {
-            $servicesConf = ConfigurationHelper::getCombinedConf($servicesConfDir);
+            $servicesConf = ConfigurationHelper::getCombinedConf($servicesConfDir, [
+                "app_dir" => realpath($appDir),
+            ]);
         }
         return $servicesConf;
     }

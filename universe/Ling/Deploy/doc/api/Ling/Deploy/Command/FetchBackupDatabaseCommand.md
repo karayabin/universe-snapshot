@@ -4,7 +4,7 @@
 
 The FetchBackupDatabaseCommand class
 ================
-2019-04-03 --> 2019-04-04
+2019-04-03 --> 2019-04-18
 
 
 
@@ -30,8 +30,8 @@ If the **name** option is defined, the last option will be ignored.
 The **name** option allows you to specify the name(s) of the database backups to fetch.
 The **last** option allows you to define the number of the non-named backups (per database identifier) to fetch.
 The **db** option defines which database identifiers will be parsed (database backups are
-organized by database identifiers).
-This option is executed before the **name** and **last** option.
+     organized by database identifiers).
+     This option is executed before the **name** and **last** option.
 
 
 This operation will overwrite existing files.
@@ -41,7 +41,7 @@ This operation will overwrite existing files.
 Options, flags
 ------------
 - name=$names: the comma separated list of backup names to repatriate. Note: the ".sql" extension is appended automatically if omitted.
-Spaces between the comma an the names are allowed.
+                 Spaces between the comma an the names are allowed.
 - last=$number: indicates the (max) number of non-named backups (per database identifier) to fetch.
 - db=$database_identifiers: a comma separated list of database identifiers to parse.
 

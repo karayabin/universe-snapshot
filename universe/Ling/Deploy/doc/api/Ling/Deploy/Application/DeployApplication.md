@@ -4,7 +4,7 @@
 
 The DeployApplication class
 ================
-2019-04-03 --> 2019-04-04
+2019-04-03 --> 2019-04-18
 
 
 
@@ -23,8 +23,8 @@ General options (apply to all commands)
 
 - ?dir=$dir. Sets the project directory. If not set, the default is the current directory.
 - -x: if set, the x flag will tell the application to use the exit status system.
-This means that after a command is executed, the exit function of php is called
-with the status code returned by the command (0 by default).
+         This means that after a command is executed, the exit function of php is called
+         with the status code returned by the command (0 by default).
 - ?indent=int. Sets the base indent level for the command.
 
 
@@ -128,11 +128,11 @@ Properties
     
     
     If true:
-    - the error message displayed to the console screen is the traceAsString of the exception.
-    - the message sent to the log is also the traceAsString of the exception.
+         - the error message displayed to the console screen is the traceAsString of the exception.
+         - the message sent to the log is also the traceAsString of the exception.
     if false:
-    - the error message displayed to the console screen is the exception message.
-    - the message sent to the log is also the exception message.
+         - the error message displayed to the console screen is the exception message.
+         - the message sent to the log is also the exception message.
     
     
 

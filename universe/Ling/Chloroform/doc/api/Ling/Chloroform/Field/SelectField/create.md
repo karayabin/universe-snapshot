@@ -27,9 +27,9 @@ Builds and returns the instance.
 The properties is the same array as the properties from the parent class,
 with the following additions:
 
-- multiple: bool=false. Whether to use the html multiple attribute on the select tag.
-Note: if multiple is false, the value will be a string, and if mulitple is true,
-the value will be an array.
+- ?multiple: bool=false. Whether to use the html multiple attribute on the select tag.
+     Note: if multiple is false, the value will be a string, and if mulitple is true,
+     the value will be an array.
 
 
 

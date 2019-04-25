@@ -234,13 +234,6 @@ use Ling\SicTools\Exception\SicToolsException;
  *
  *
  *
- *
- *
- *
- *
- *
- *
- *
  */
 class SicFileCombinerUtil
 {
@@ -264,6 +257,19 @@ class SicFileCombinerUtil
      */
     protected $variableSymbol;
 
+    /**
+     * This property holds the environmentVariables for this instance.
+     *
+     * It's an array of key => value.
+     * It represents some extra variables that are always available to the configuration files.
+     * You can access their values like regular variables using the ${var} notation (by default).
+     *
+     *
+     *
+     * @var array
+     */
+    protected $environmentVariables;
+
 
     /**
      * Builds the SicFileCombinerUtil instance.
@@ -272,6 +278,7 @@ class SicFileCombinerUtil
     {
         $this->lazyOverrideSymbol = '$';
         $this->variableSymbol = '$';
+        $this->environmentVariables = [];
     }
 
     /**
@@ -292,6 +299,18 @@ class SicFileCombinerUtil
     public function setVariableSymbol(string $variableSymbol)
     {
         $this->variableSymbol = $variableSymbol;
+    }
+
+    /**
+     * Sets the environmentVariables.
+     *
+     * @param array $environmentVariables
+     * @return $this
+     */
+    public function setEnvironmentVariables(array $environmentVariables)
+    {
+        $this->environmentVariables = $environmentVariables;
+        return $this;
     }
 
 
@@ -323,7 +342,6 @@ class SicFileCombinerUtil
                 }
                 $ret = ArrayTool::arrayMergeReplaceRecursive([$ret, $fileConf]);
             }
-
 
             //--------------------------------------------
             // Now inject the lazy overrides variables
@@ -370,9 +388,19 @@ class SicFileCombinerUtil
             });
 
 
+
             foreach ($dotPathsWithVars as $src => $target) {
-                $srcFound = false;
-                $srcValue = BDotTool::getDotValue($src, $ret, null, $srcFound);
+
+
+                if (array_key_exists($src, $this->environmentVariables)) {
+                    $srcFound = true;
+                    $srcValue = $this->environmentVariables[$src];
+                } else {
+                    $srcFound = false;
+                    $srcValue = BDotTool::getDotValue($src, $ret, null, $srcFound);
+                }
+
+
                 if (true === $srcFound) {
 
                     $targetFound = false;

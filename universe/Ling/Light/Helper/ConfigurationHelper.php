@@ -21,12 +21,14 @@ class ConfigurationHelper
      *
      *
      * @param string $directory
+     * @param array $environmentVariables
      * @return array
      * @throws \Exception
      */
-    public static function getCombinedConf(string $directory): array
+    public static function getCombinedConf(string $directory, array $environmentVariables = []): array
     {
         $util = new SicFileCombinerUtil();
+        $util->setEnvironmentVariables($environmentVariables);
         return $util->combine($directory);
     }
 }

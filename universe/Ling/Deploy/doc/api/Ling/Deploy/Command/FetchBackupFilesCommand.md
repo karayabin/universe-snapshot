@@ -4,7 +4,7 @@
 
 The FetchBackupFilesCommand class
 ================
-2019-04-03 --> 2019-04-04
+2019-04-03 --> 2019-04-18
 
 
 
@@ -36,7 +36,7 @@ This operation will overwrite existing files.
 Options, flags
 ------------
 - name=$names: the comma separated list of backup names to repatriate. Note: the ".zip" extension is appended automatically if omitted.
-Spaces between the comma an the names are allowed.
+                 Spaces between the comma an the names are allowed.
 - last=$number: indicates the (max) number of non-named backups to fetch.
 
 

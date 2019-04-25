@@ -41,7 +41,6 @@ class CheckboxField extends AbstractField
     public function __construct(array $properties = [])
     {
         parent::__construct($properties);
-        $this->setValueIsScalar(false);
         $this->items = [];
     }
 

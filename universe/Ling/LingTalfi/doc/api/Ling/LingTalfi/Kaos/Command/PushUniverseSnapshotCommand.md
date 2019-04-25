@@ -4,7 +4,7 @@
 
 The PushUniverseSnapshotCommand class
 ================
-2019-03-13 --> 2019-04-03
+2019-03-13 --> 2019-04-25
 
 
 
@@ -20,7 +20,7 @@ This command does the following:
 
 - It replaces the universe snapshot (/myphp/universe-snapshot/universe directory) with the local server universe (/myphp/universe/).
 - It cleans the universe snapshot's universe directory from .git files (that's a restriction of github.com I believe, that you can't have
-nested .git directories in a .git repo)
+             nested .git directories in a .git repo)
 - It pushes the universe snapshot to github.com.
 
 

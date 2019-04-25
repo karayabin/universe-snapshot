@@ -27,7 +27,7 @@ class MapHelper
         $ignoreHidden = $mapConf['ignoreHidden'];
         $ignoreName = $mapConf['ignoreName'];
         $ignorePath = $mapConf['ignorePath'];
-        $ignore[] = ".deploy";
+        $ignoreName[] = ".deploy";
 
         $files = YorgDirScannerTool::getFilesIgnoreMore($applicationDir, $ignoreName, $ignorePath, true, true, false, $ignoreHidden);
         return $files;

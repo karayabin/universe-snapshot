@@ -33,7 +33,7 @@ Parameters
 - options
 
     - useSeeItems: bool=true. Whether to display a human "see also items" sentence when available.
-Note: it's available if the tags "@seeClass" or "@seeMethod" have been used.
+     Note: it's available if the tags "@seeClass" or "@seeMethod" have been used.
 
 
 Return values

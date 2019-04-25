@@ -647,6 +647,10 @@ This includes:
 History Log
 =============
     
+- 1.6.2 -- 2019-04-18
+
+    - fix ClassParser stripping indentation in doc comments
+    
 - 1.6.1 -- 2019-04-04
 
     - fix ClassParser erroneous return type with @implementation/@overrides tags

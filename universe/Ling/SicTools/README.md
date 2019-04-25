@@ -41,6 +41,10 @@ Summary
 History Log
 ------------------
 
+- 1.4.0 -- 2019-04-25
+
+    - add SicFileCombinerUtil->setEnvironmentVariables method
+    
 - 1.3.0 -- 2019-04-09
 
     - update SicFileCombinerUtil class, now uses the concepts of lazy override and variable references

@@ -54,6 +54,19 @@ abstract class AbstractValidator implements ValidatorInterface
 
 
     /**
+     * @implementation
+     */
+    public function toArray(): array
+    {
+        return [
+            "name" => get_called_class(),
+            "custom_messages" => $this->customMessages,
+            "messages" => $this->getMessages(),
+        ];
+    }
+
+
+    /**
      * Overrides a default error message, and returns this instance (for chaining).
      *
      * The errorMessage can use the same tags as the replaced default error message (i.e. {fieldName}, {min}, ...).
@@ -112,24 +125,21 @@ abstract class AbstractValidator implements ValidatorInterface
         if (array_key_exists($msgId, $this->customMessages)) {
             $errorMsg = $this->customMessages[$msgId];
         } else {
+
             $validatorName = ClassTool::getShortName($this);
             $messagesFile = $this->messagesDir . "/$validatorName.txt";
-            if (file_exists($messagesFile)) {
-                $lines = file($messagesFile, FILE_SKIP_EMPTY_LINES | FILE_IGNORE_NEW_LINES);
-                $found = false;
-                foreach ($lines as $line) {
-                    if (0 === strpos($line, $msgId . ':')) {
-                        $p = explode(":", $line, 2);
-                        $errorMsg = trim($p[1]);
-                        $found = true;
-                        break;
-                    }
+            $lines = $this->getMessages();
+            $found = false;
+            foreach ($lines as $line) {
+                if (0 === strpos($line, $msgId . ':')) {
+                    $p = explode(":", $line, 2);
+                    $errorMsg = trim($p[1]);
+                    $found = true;
+                    break;
                 }
-                if (false === $found) {
-                    throw new ChloroformException("Message id not found: $msgId in $messagesFile");
-                }
-            } else {
-                throw new ChloroformException("Message file not found: $messagesFile");
+            }
+            if (false === $found) {
+                throw new ChloroformException("Message id not found: $msgId in $messagesFile");
             }
         }
 
@@ -141,6 +151,53 @@ abstract class AbstractValidator implements ValidatorInterface
         $values = array_values($variables);
 
         return str_replace($keys, $values, $errorMsg);
+    }
+
+
+    /**
+     * Returns an array of the lines of the error messages file for this validator.
+     *
+     *
+     * The returned array structure depends on the $identifierAsKey argument.
+     *
+     * If false, each entry of the array is a line of the messages file.
+     * Note: in the messages file, a line looks like this:
+     *
+     *
+     * ```txt
+     * $identifier: $message
+     * ```
+     *
+     *
+     * If true, each entry of the array is actually a pair of key/value, where the
+     * key is the identifier, and the value is the message.
+     *
+     *
+     *
+     *
+     * @param bool $identifierAsKey = false
+     * @return array
+     * @throws ChloroformException
+     */
+    protected function getMessages(bool $identifierAsKey = false): array
+    {
+        $validatorName = ClassTool::getShortName($this);
+        $messagesFile = $this->messagesDir . "/$validatorName.txt";
+        if (file_exists($messagesFile)) {
+            $lines = file($messagesFile, FILE_SKIP_EMPTY_LINES | FILE_IGNORE_NEW_LINES);
+            if (false === $identifierAsKey) {
+                return $lines;
+            } else {
+                $ret = [];
+                foreach ($lines as $line) {
+                    $p = explode(":", $line, 2);
+                    $ret[$p[0]] = trim($p[1]);
+                }
+                return $ret;
+            }
+        } else {
+            throw new ChloroformException("Message file not found: $messagesFile");
+        }
     }
 
 

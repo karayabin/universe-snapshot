@@ -29,7 +29,7 @@ If not, an exception will be thrown.
 
 All projects configuration is stored in one centralized file:
 
-~/.deploy/deploy-conf.byml
+ ~/.deploy/deploy-conf.byml
 
 
 Exceptions will be thrown if this file doesn't exist.
@@ -50,9 +50,9 @@ The default configuration for a project is the following (see the documentation 
 
 ```txt
 map-conf:
-ignoreHidden: 1
-ignoreNames: []
-ignorePaths: []
+     ignoreHidden: 1
+     ignoreNames: []
+     ignorePaths: []
 ```
 
 

@@ -4,7 +4,7 @@
 
 The CommentInfo class
 ================
-2019-02-21 --> 2019-04-04
+2019-02-21 --> 2019-04-18
 
 
 
@@ -145,9 +145,9 @@ Properties
     The array structure is:
     
     - type: the type of seeItem amongst:
-    - class: the class name (i.e. Jin\Log\Logger)
-    - method: the method name, either using the method name (if the method is in the same class), or the
-    long method name (i.e. className::methodName) if the method is not in the same class.
+         - class: the class name (i.e. Jin\Log\Logger)
+         - method: the method name, either using the method name (if the method is in the same class), or the
+                 long method name (i.e. className::methodName) if the method is not in the same class.
     - declaringClass: the declaring class name (used to reference a method in the same class)
     - value: the value, depending on the type (either the class name or the method (long)? name
     

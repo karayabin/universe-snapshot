@@ -4,7 +4,7 @@
 
 The InitializePlanetCommand class
 ================
-2019-03-13 --> 2019-04-03
+2019-03-13 --> 2019-04-25
 
 
 
@@ -20,8 +20,8 @@ This command does the following (for the given planet):
 
 
 - if the current planet is not in the local server yet:
-- copy the current planet to the local server in /myphp/universe
-- replace the current planet with a symlink to the local server version
+     - copy the current planet to the local server in /myphp/universe
+     - replace the current planet with a symlink to the local server version
 - create a default README.md file at the root of the planet
 - if the -d option is set, create a DocBuilder class for the given planet in myphp/universe/Ling/LingTalfi/DocBuilder
 

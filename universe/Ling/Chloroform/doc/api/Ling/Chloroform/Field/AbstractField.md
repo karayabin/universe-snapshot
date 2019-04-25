@@ -4,7 +4,7 @@
 
 The AbstractField class
 ================
-2019-04-10 --> 2019-04-12
+2019-04-10 --> 2019-04-18
 
 
 
@@ -33,7 +33,6 @@ abstract class <span class="pl-k">AbstractField</span> implements [FieldInterfac
     - protected array [$errors](#property-errors) ;
     - protected [Ling\Chloroform\Validator\ValidatorInterface[]](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Validator/ValidatorInterface.md) [$validators](#property-validators) ;
     - protected array [$properties](#property-properties) ;
-    - protected bool [$valueIsScalar](#property-valueIsScalar) ;
 
 - Methods
     - public [__construct](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/AbstractField/__construct.md)(array $properties = []) : void
@@ -49,7 +48,6 @@ abstract class <span class="pl-k">AbstractField</span> implements [FieldInterfac
     - public [setHint](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/AbstractField/setHint.md)(string $hint) : [AbstractField](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/AbstractField.md)
     - public [setErrorName](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/AbstractField/setErrorName.md)(string $errorName) : [AbstractField](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/AbstractField.md)
     - protected [addError](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/AbstractField/addError.md)(string $errorMessage) : [AbstractField](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/AbstractField.md)
-    - protected [setValueIsScalar](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/AbstractField/setValueIsScalar.md)(bool $valueIsScalar) : void
 
 }
 
@@ -116,16 +114,6 @@ Properties
     
     
 
-- <span id="property-valueIsScalar"><b>valueIsScalar</b></span>
-
-    This property holds the valueIsScalar for this instance.
-    Whether the value is scalar (including null) or an array.
-    By default, all fields are scalar.
-    The author of a field must manually call the setIsScalar method to change
-    this for her field if necessary (at least for now).
-    
-    
-
 
 
 Methods
@@ -144,7 +132,6 @@ Methods
 - [AbstractField::setHint](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/AbstractField/setHint.md) &ndash; Sets the hint.
 - [AbstractField::setErrorName](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/AbstractField/setErrorName.md) &ndash; Sets the errorName.
 - [AbstractField::addError](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/AbstractField/addError.md) &ndash; Adds an error message to this instance.
-- [AbstractField::setValueIsScalar](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/AbstractField/setValueIsScalar.md) &ndash; Sets the valueIsScalar.
 
 
 

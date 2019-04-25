@@ -29,6 +29,7 @@ class HelpCommand extends KaosGenericCommand
 
 
         $init = $this->n('init');
+        $packLightMap = $this->n('packlightmap');
         $packPushUni = $this->n('packpushuni');
         $push = $this->n('push');
         $pushUni = $this->n('pushuni');
@@ -60,6 +61,16 @@ class HelpCommand extends KaosGenericCommand
         $output->write(H::s(1) . "- Place the planet to the local server (if it's not there already), and create a link back to the current directory." . PHP_EOL);
         $output->write(H::s(1) . "- Create a default <b>README.md</b> file." . PHP_EOL);
         $output->write(H::j(1) . $this->o("-d") . ": docBuilder. With this option, will also create a default <b>docBuilder</b> class if it doesn't exist already." . PHP_EOL);
+
+
+        $output->write("- $packLightMap: copies some special files from the application to the map directory of the Light plugin." . PHP_EOL);
+        $output->write(H::s(1) . "So that the Light plugin planet can then use the post_install.map = true directive in its dependencies.byml file" . PHP_EOL);
+        $output->write(H::s(1) . "It is assumed that you are calling this command from the light plugin directory (i.e. the current working directory should be the light plugin directory/planet)." . PHP_EOL);
+        $output->write(H::s(1) . "The following locations will be repatriated (for a plugin named Light_MyPlugin):" . PHP_EOL);
+        $output->write(H::s(2) . "- \$app/config/services/Light_MyPlugin.byml" . PHP_EOL);
+        $output->write(H::s(2) . "- \$app/templates/Light_MyPlugin/" . PHP_EOL);
+        $output->write(H::s(2) . "- \$app/www/plugins/Light_MyPlugin/" . PHP_EOL);
+        $output->write(H::j(1) . $this->o('a=$application_dir') . ": the path to the application dir." . PHP_EOL);
 
 
         $output->write("- $packPushUni: recreates the <b>uni-tool</b> (aka universe naive importer) and pushes the new version to <b>github.com</b>." . PHP_EOL);

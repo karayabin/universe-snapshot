@@ -54,4 +54,16 @@ class CustomValidator implements ValidatorInterface
     {
         return call_user_func_array($this->testCallback, [$value, $fieldName, $field, &$error]);
     }
+
+
+    /**
+     * @implementation
+     */
+    public function toArray(): array
+    {
+        return [
+            "name" => get_called_class(),
+        ];
+    }
+
 }

@@ -4,7 +4,7 @@
 
 The ZipFilesCommand class
 ================
-2019-04-03 --> 2019-04-04
+2019-04-03 --> 2019-04-18
 
 
 
@@ -24,13 +24,13 @@ A zip utility to zip files listed in a source file.
 Options
 ------------
 - src=$path. The path to the source file.
-The source file contains a list of relative paths to remove, one per line.
-The paths are relative to the current site's root dir, or, if the remote option is set, relative to the remote's root dir.
-If the path is a directory, it will be zipped recursively.
+     The source file contains a list of relative paths to remove, one per line.
+     The paths are relative to the current site's root dir, or, if the remote option is set, relative to the remote's root dir.
+     If the path is a directory, it will be zipped recursively.
 
 - dst=$path. The path to the zip archive to create.
 - ?conf=$path. The path to a proxy conf file used temporarily on the remote.
-This option is used internally and you shouldn't use it manually.
+     This option is used internally and you shouldn't use it manually.
 
 - -r: the remote flag. If set, this command will be called on the remote (over ssh) instead of the current site.
 

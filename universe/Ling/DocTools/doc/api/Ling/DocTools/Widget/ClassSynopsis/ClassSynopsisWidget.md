@@ -4,7 +4,7 @@
 
 The ClassSynopsisWidget class
 ================
-2019-02-21 --> 2019-04-04
+2019-02-21 --> 2019-04-18
 
 
 
@@ -23,9 +23,9 @@ It tries to reproduce the following widget:
 Options
 ----------
 - bodyStyle: string = indented (indented|flat).
-The style of the body. Possible values are:
-- flat: the section title and its elements are at the same indentation level (root)
-- indented: (default) the section title is a list at level 0, and the elements are children of that list (level 1)
+     The style of the body. Possible values are:
+         - flat: the section title and its elements are at the same indentation level (root)
+         - indented: (default) the section title is a list at level 0, and the elements are children of that list (level 1)
 
 
 
@@ -93,10 +93,10 @@ Properties
     This property holds the style to apply to the widget.
     The following values are available:
     - flat: the section titles (properties, methods) are written with doc comments, and the actual elements (properties, methods)
-    are written as top level elements of a list
+         are written as top level elements of a list
     
     - indented: the section titles are written as top level elements of a list, and the actual elements are their children (nested list elements).
-    This is the default value
+         This is the default value
     
     
 

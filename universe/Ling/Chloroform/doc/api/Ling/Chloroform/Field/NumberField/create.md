@@ -26,9 +26,9 @@ Builds and returns the instance.
 The $properties are the same as the one defined in the parent class,
 with the following additions:
 
-- min: specifies the minimum value allowed
-- max: specifies the maximum value allowed
-- step: specifies the legal number intervals
+- ?min: specifies the minimum value allowed
+- ?max: specifies the maximum value allowed
+- ?step: specifies the legal number intervals
 
 
 

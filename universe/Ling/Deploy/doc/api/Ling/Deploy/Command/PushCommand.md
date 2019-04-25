@@ -4,7 +4,7 @@
 
 The PushCommand class
 ================
-2019-04-03 --> 2019-04-04
+2019-04-03 --> 2019-04-18
 
 
 
@@ -26,23 +26,23 @@ Flags
 ----------
 
 -z: zip. Use a zip archive for transferring files. This is much faster than the default one by one method.
-However, you don't have the progress/details over the transferred files.
+         However, you don't have the progress/details over the transferred files.
 
 
 Options
 ------------
 
 - ?mode=add,remove,replace.
-A comma separated list (extra space allowed) of the operation names to execute.
-The default value is: add,replace,remove.
-The possible operations are:
-- add: will add the files that are present in the local application but not in the remote
-- replace: will replace the files in the remote that are present in both the local application and the remote (but were modified)
-- remove: will remove the files in the remote that are not present in the local application
+     A comma separated list (extra space allowed) of the operation names to execute.
+     The default value is: add,replace,remove.
+     The possible operations are:
+         - add: will add the files that are present in the local application but not in the remote
+         - replace: will replace the files in the remote that are present in both the local application and the remote (but were modified)
+         - remove: will remove the files in the remote that are not present in the local application
 
-By default, all three operations are executed.
-So for instance, if you just want to upload the files from the local application to the remote without removing any
-files on the remote, you can use "mode=add,replace" or "mode=add".
+     By default, all three operations are executed.
+     So for instance, if you just want to upload the files from the local application to the remote without removing any
+     files on the remote, you can use "mode=add,replace" or "mode=add".
 
 
 

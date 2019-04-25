@@ -4,7 +4,7 @@
 
 The TimeField class
 ================
-2019-04-10 --> 2019-04-12
+2019-04-10 --> 2019-04-18
 
 
 
@@ -46,7 +46,6 @@ class <span class="pl-k">TimeField</span> extends [AbstractField](https://github
     - protected array [AbstractField::$errors](#property-errors) ;
     - protected [Ling\Chloroform\Validator\ValidatorInterface[]](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Validator/ValidatorInterface.md) [AbstractField::$validators](#property-validators) ;
     - protected array [AbstractField::$properties](#property-properties) ;
-    - protected bool [AbstractField::$valueIsScalar](#property-valueIsScalar) ;
 
 - Methods
     - public static [create](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/TimeField/create.md)(string $label, array $properties = []) : [TimeField](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/TimeField.md)
@@ -65,7 +64,6 @@ class <span class="pl-k">TimeField</span> extends [AbstractField](https://github
     - public [AbstractField::setHint](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/AbstractField/setHint.md)(string $hint) : [AbstractField](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/AbstractField.md)
     - public [AbstractField::setErrorName](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/AbstractField/setErrorName.md)(string $errorName) : [AbstractField](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/AbstractField.md)
     - protected [AbstractField::addError](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/AbstractField/addError.md)(string $errorMessage) : [AbstractField](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/AbstractField.md)
-    - protected [AbstractField::setValueIsScalar](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/AbstractField/setValueIsScalar.md)(bool $valueIsScalar) : void
 
 }
 
@@ -91,7 +89,6 @@ Methods
 - [AbstractField::setHint](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/AbstractField/setHint.md) &ndash; Sets the hint.
 - [AbstractField::setErrorName](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/AbstractField/setErrorName.md) &ndash; Sets the errorName.
 - [AbstractField::addError](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/AbstractField/addError.md) &ndash; Adds an error message to this instance.
-- [AbstractField::setValueIsScalar](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/AbstractField/setValueIsScalar.md) &ndash; Sets the valueIsScalar.
 
 
 

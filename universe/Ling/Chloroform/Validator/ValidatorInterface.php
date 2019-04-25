@@ -40,4 +40,22 @@ interface ValidatorInterface
      * @return bool
      */
     public function test($value, string $fieldName, FieldInterface $field, string &$error = null): bool;
+
+
+    /**
+     * Returns the array version of a validator.
+     *
+     * The goal is to provide enough information to a renderer, so that a renderer could provide a
+     * javascript based validation that would do the same job as the server side validation.
+     *
+     *
+     * It is recommended that the array contains at least the following properties if it can:
+     *
+     * - name: name of the validator class
+     *
+     *
+     *
+     * @return array
+     */
+    public function toArray(): array;
 }

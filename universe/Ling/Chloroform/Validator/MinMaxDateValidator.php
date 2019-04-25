@@ -17,36 +17,15 @@ use Ling\Chloroform\Field\FieldInterface;
  * If both min and max are set: validates only if the date given by the user is comprised between $min and $max (both included).
  *
  * This validator also works for datetime and/or time.
+ * The format for a date would be yyyy-mm-dd for instance.
+ *
  *
  *
  */
-class MinMaxDateValidator extends AbstractValidator
+class MinMaxDateValidator extends AbstractMinMaxValidator
 {
 
 
-    /**
-     * This property holds the min for this instance.
-     * The format is yyyy-mm-dd.
-     * @var string
-     */
-    protected $min;
-
-    /**
-     * This property holds the max for this instance.
-     * The format is yyyy-mm-dd.
-     * @var string
-     */
-    protected $max;
-
-    /**
-     * @overrides
-     */
-    public function __construct()
-    {
-        parent::__construct();
-        $this->min = null;
-        $this->max = null;
-    }
 
     /**
      * Sets the min date.

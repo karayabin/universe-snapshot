@@ -4,7 +4,7 @@
 
 The CleanBackupFilesCommand class
 ================
-2019-04-03 --> 2019-04-04
+2019-04-03 --> 2019-04-18
 
 
 
@@ -58,7 +58,7 @@ Options, flags
 - -d: delete flag. If set, remove ALL the files backups. This flag has precedence over any other options.
 - ?keep=$number: defines the number of non-named files backups to keep (all other older non-named backups will be removed)
 - ?names=$names: the comma separated list of backup names to delete. Note: the ".zip" extension is appended automatically if omitted.
-Spaces between the comma an the names are allowed.
+                 Spaces between the comma an the names are allowed.
 
 
 

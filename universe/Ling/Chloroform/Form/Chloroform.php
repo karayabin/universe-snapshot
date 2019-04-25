@@ -4,12 +4,11 @@
 namespace Ling\Chloroform\Form;
 
 
+use Ling\Bat\BDotTool;
 use Ling\Chloroform\Exception\ChloroformException;
 use Ling\Chloroform\Field\FieldInterface;
 use Ling\Chloroform\Field\FormAwareFieldInterface;
-use Ling\Chloroform\Field\PostedDataAwareFieldInterface;
 use Ling\Chloroform\FormNotification\FormNotificationInterface;
-use Ling\Chloroform\Helper\FieldHelper;
 use Ling\Chloroform\Validator\ValidatorInterface;
 use Ling\PhpUploadFileFix\PhpUploadFileFixTool;
 
@@ -160,8 +159,11 @@ class Chloroform
     public function injectValues(array $values)
     {
         foreach ($this->fields as $fieldId => $field) {
-            $value = FieldHelper::getFieldValue($fieldId, $values);
-            $field->setValue($value);
+            $found = false;
+            $value = BDotTool::getDotValue($fieldId, $values, null, $found);
+            if (true === $found) {
+                $field->setValue($value);
+            }
         }
     }
 

@@ -4,7 +4,7 @@
 
 The RestoreBackupFilesCommand class
 ================
-2019-04-03 --> 2019-04-04
+2019-04-03 --> 2019-04-18
 
 
 
@@ -33,7 +33,7 @@ application, use the **-k** flag.
 Options, flags
 ------------
 - name=$name: the name of the database backup to restore.
-The ".zip" extension is appended automatically if necessary.
+         The ".zip" extension is appended automatically if necessary.
 - -r: remote flag. If set, the operation will be executed on the remote rather than on the local application.
 - -k: keep flag. If set, this command will not remove the application files before restoring the backup.
 

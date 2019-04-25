@@ -1,0 +1,69 @@
+[Back to the Ling/Kit_PicassoWidget api](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/api/Ling/Kit_PicassoWidget.md)<br>
+[Back to the Ling\Kit_PicassoWidget\WidgetHandler\PicassoWidgetHandler class](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/api/Ling/Kit_PicassoWidget/WidgetHandler/PicassoWidgetHandler.md)
+
+
+PicassoWidgetHandler::error
+================
+
+
+
+PicassoWidgetHandler::error — Throws an useful error message.
+
+
+
+
+Description
+================
+
+
+protected [PicassoWidgetHandler::error](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/api/Ling/Kit_PicassoWidget/WidgetHandler/PicassoWidgetHandler/error.md)(string $msg, array $widgetConf, array $debug) : void
+
+
+
+
+Throws an useful error message.
+
+
+
+
+Parameters
+================
+
+
+- msg
+
+    
+
+- widgetConf
+
+    
+
+- debug
+
+    
+
+
+Return values
+================
+
+Returns void.
+
+
+Exceptions thrown
+================
+
+- [PicassoWidgetException](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/api/Ling/Kit_PicassoWidget/Exception/PicassoWidgetException.md).&nbsp;
+
+
+
+
+
+
+
+See Also
+================
+
+The [PicassoWidgetHandler](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/api/Ling/Kit_PicassoWidget/WidgetHandler/PicassoWidgetHandler.md) class.
+
+Previous method: [handle](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/api/Ling/Kit_PicassoWidget/WidgetHandler/PicassoWidgetHandler/handle.md)<br>
+

@@ -23,6 +23,11 @@ public static [TextField::create](https://github.com/lingtalfi/Chloroform/blob/m
 
 Builds and returns the instance.
 
+The $properties are the same as the one defined in the parent class,
+with the following additions:
+
+- rows: the number of rows of the textarea
+
 
 
 

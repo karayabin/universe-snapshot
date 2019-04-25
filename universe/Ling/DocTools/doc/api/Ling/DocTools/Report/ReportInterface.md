@@ -4,7 +4,7 @@
 
 The ReportInterface class
 ================
-2019-02-21 --> 2019-04-04
+2019-02-21 --> 2019-04-18
 
 
 
@@ -75,17 +75,17 @@ Inline functions
 ---------------
 - unresolved @keyword: calls to the keyword [inline function](https://github.com/lingtalfi/DocTools/blob/master/doc/pages/doctool-markup-language.md#inline-functions) which didn't resolve, and what function was used.
 - unresolved @class: calls to the class [inline function](https://github.com/lingtalfi/DocTools/blob/master/doc/pages/doctool-markup-language.md#inline-functions) which didn't resolve.
-Note that this can create doublons with the "unresolved class references".
+         Note that this can create doublons with the "unresolved class references".
 - unknown functions: the names of the unknown [inline functions](https://github.com/lingtalfi/DocTools/blob/master/doc/pages/doctool-markup-language.md#inline-functions) used by the client.
 - inline functions usage: this is a statistical data showing the inline functions used in your documentation, and how many times they have been used.
 - inline functions usage details: this is the expanded version of the "inline function usage" data, showing the inline functions used along with the arguments
-they were called with.
+     they were called with.
 
 
 Block-level tags
 ------------------
 - unresolved @implementation: the names of the methods using an unresolved ["@implementation" tag](https://github.com/lingtalfi/DocTools/blob/master/doc/pages/doctool-markup-language.md#block-level-tags) (no abstract
-parent or interface class with the same method name was found).
+     parent or interface class with the same method name was found).
 
 - unresolved @overrides: the names of the methods using an unresolved ["@overrides" tag](https://github.com/lingtalfi/DocTools/blob/master/doc/pages/doctool-markup-language.md#block-level-tags) (no ancestor class with the same method name was found)
 - block-level tags usage: this is a statistical data showing the block-level tags used in your documentation, and how many times they have been used.

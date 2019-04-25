@@ -75,18 +75,6 @@ abstract class AbstractField implements FieldInterface
     protected $properties;
 
 
-    /**
-     * This property holds the valueIsScalar for this instance.
-     * Whether the value is scalar (including null) or an array.
-     * By default, all fields are scalar.
-     * The author of a field must manually call the setIsScalar method to change
-     * this for her field if necessary (at least for now).
-     *
-     *
-     * @var bool = true
-     */
-    protected $valueIsScalar;
-
 
     /**
      * Builds the AbstractField instance.
@@ -121,7 +109,6 @@ abstract class AbstractField implements FieldInterface
         $this->properties = $properties;
 
 
-        $this->valueIsScalar = true;
         $this->label = $properties['label'] ?? null;
         $this->hint = $properties['hint'] ?? null;
         $this->value = $properties['value'] ?? null;
@@ -232,15 +219,22 @@ abstract class AbstractField implements FieldInterface
      */
     public function toArray(): array
     {
+
+        $validators = [];
+        foreach ($this->validators as $validator) {
+            $validators[] = $validator->toArray();
+        }
+
         return array_merge($this->properties, [
             "id" => $this->id,
             "label" => $this->label,
             "hint" => $this->hint,
             "errorName" => $this->errorName,
             "value" => $this->getValue(),
-            "htmlName" => FieldHelper::getHtmlNameById($this->id, $this->valueIsScalar),
+            "htmlName" => FieldHelper::getHtmlNameById($this->id),
             "errors" => $this->errors,
             "className" => get_called_class(),
+            "validators" => $validators,
         ]);
     }
 
@@ -313,16 +307,4 @@ abstract class AbstractField implements FieldInterface
         $this->errors[] = $errorMessage;
         return $this;
     }
-
-
-    /**
-     * Sets the valueIsScalar.
-     * @param bool $valueIsScalar
-     */
-    protected function setValueIsScalar(bool $valueIsScalar)
-    {
-        $this->valueIsScalar = $valueIsScalar;
-    }
-
-
 }

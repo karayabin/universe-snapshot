@@ -1,6 +1,6 @@
 Ling/Deploy
 ================
-2019-04-03 --> 2019-04-04
+2019-04-03 --> 2019-04-18
 
 
 
@@ -118,6 +118,10 @@ Table of contents
     - [ListBackupFilesCommand::__construct](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/ListBackupFilesCommand/__construct.md) &ndash; Builds the ListBackupFilesCommand instance.
     - [BaseListBackupCommand::run](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/BaseListBackupCommand/run.md) &ndash; Runs the command.
     - [DeployGenericCommand::setApplication](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/DeployGenericCommand/setApplication.md) &ndash; Sets the application.
+- [OpenConfCommand](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/OpenConfCommand.md) &ndash; The OpenConfCommand class.
+    - [OpenConfCommand::run](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/OpenConfCommand/run.md) &ndash; Runs the command.
+    - [DeployGenericCommand::__construct](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/DeployGenericCommand/__construct.md) &ndash; Builds the DeployGenericCommand instance.
+    - [DeployGenericCommand::setApplication](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/DeployGenericCommand/setApplication.md) &ndash; Sets the application.
 - [PushBackupDatabaseCommand](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/PushBackupDatabaseCommand.md) &ndash; The PushBackupDatabaseCommand class.
     - [PushBackupDatabaseCommand::__construct](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/PushBackupDatabaseCommand/__construct.md) &ndash; Builds the PushBackupDatabaseCommand instance.
     - [PushBackupDatabaseCommand::run](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/PushBackupDatabaseCommand/run.md) &ndash; Runs the command.
@@ -228,10 +232,10 @@ Table of contents
 
 Dependencies
 ============
-- [BabyYaml](https://github.com/karayabin/universe-snapshot/tree/master/universe/Ling/BabyYaml)
-- [Bat](https://github.com/karayabin/universe-snapshot/tree/master/universe/Ling/Bat)
-- [CliTools](https://github.com/karayabin/universe-snapshot/tree/master/universe/Ling/CliTools)
-- [DirScanner](https://github.com/karayabin/universe-snapshot/tree/master/universe/Ling/DirScanner)
-- [EasyConsoleMenu](https://github.com/karayabin/universe-snapshot/tree/master/universe/Ling/EasyConsoleMenu)
+- [BabyYaml](https://github.com/lingtalfi/BabyYaml)
+- [Bat](https://github.com/lingtalfi/Bat)
+- [CliTools](https://github.com/lingtalfi/CliTools)
+- [DirScanner](https://github.com/lingtalfi/DirScanner)
+- [EasyConsoleMenu](https://github.com/lingtalfi/EasyConsoleMenu)
 
 
