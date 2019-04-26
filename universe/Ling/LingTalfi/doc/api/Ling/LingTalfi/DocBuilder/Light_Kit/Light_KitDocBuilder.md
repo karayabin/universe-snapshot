@@ -4,7 +4,7 @@
 
 The Light_KitDocBuilder class
 ================
-2019-03-13 --> 2019-04-25
+2019-03-13 --> 2019-04-26
 
 
 
@@ -50,4 +50,4 @@ Ling\LingTalfi\DocBuilder\Light_Kit\Light_KitDocBuilder
 
 SeeAlso
 ==============
-Previous class: [Light_InitializerDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Initializer/Light_InitializerDocBuilder.md)<br>Next class: [Light_PrettyErrorDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_PrettyError/Light_PrettyErrorDocBuilder.md)<br>
+Previous class: [Light_InitializerDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Initializer/Light_InitializerDocBuilder.md)<br>Next class: [Light_Kit_BootstrapWidgetLibraryDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Kit_BootstrapWidgetLibrary/Light_Kit_BootstrapWidgetLibraryDocBuilder.md)<br>

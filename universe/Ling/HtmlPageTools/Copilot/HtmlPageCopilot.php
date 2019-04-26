@@ -134,6 +134,15 @@ class HtmlPageCopilot
     }
 
     /**
+     * Returns whether the title was defined.
+     * @return bool
+     */
+    public function hasTitle(): bool
+    {
+        return ("" !== $this->title);
+    }
+
+    /**
      * Sets the description.
      *
      * @param string $description
@@ -151,6 +160,15 @@ class HtmlPageCopilot
     public function getDescription(): string
     {
         return $this->description;
+    }
+
+    /**
+     * Returns whether the description was defined.
+     * @return bool
+     */
+    public function hasDescription(): bool
+    {
+        return ("" !== $this->description);
     }
 
 

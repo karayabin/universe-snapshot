@@ -24,6 +24,7 @@ use Ling\CliTools\Output\OutputInterface;
  * It copies the following, based on a plugin named Light_MyPlugin (for instance):
  *
  * - $app/config/services/Light_MyPlugin.byml
+ * - $app/config/kit/pages/Light_MyPlugin/
  * - $app/templates/Light_MyPlugin/
  * - $app/www/plugins/Light_MyPlugin/
  *
@@ -77,6 +78,7 @@ class PackLightPluginCommand extends KaosGenericCommand
 
             $items = [
                 "config/services/$pluginName.byml",
+                "config/kit/pages/$pluginName",
                 "templates/$pluginName",
                 "www/plugins/$pluginName",
             ];

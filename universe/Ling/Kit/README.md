@@ -84,16 +84,22 @@ Here is the configuration for a given page (variables are preceded with the doll
 
 ```yaml
 
-label: $pageLabel               # The human name for the page. It is used in error messages.                 
-layout: $layoutRelPath          # The relative path to the layout file for this page. The path is relative to a root which shall be defined in the general configuration of kit.
-layout_vars: []                 # an array of layout vars that will be accessible to the layout (a layout might be configured to some degree by such variables, depending on the layout)
+label: $pageLabel                           # The human name for the page. It is used in error messages.                 
+layout: $layoutRelPath                      # The relative path to the layout file for this page. The path is relative to a root which shall be defined in the general configuration of kit.
+layout_vars: []                             # optional, an array of layout vars that will be accessible to the layout (a layout might be configured to some degree by such variables, depending on the layout)
+
+title: This is the title of the page        # optional but strongly recommended, the seo title (the title tag)
+description: <                              # optional but strongly recommended, the seo description (the meta description tag)
+    This is the description of the page
+>
+
 zones:
-    $zoneName:                  # note: the zone name is called from the layout file 
-        -                           # this array is the widget configuration array
-            name: $widgetName       # the widget name
-            type: $widgetType       # the widget type
-            ?active: $bool          # whether to use the widget, defaults to true
-            ...                     # any other configuration value that you want 
+    $zoneName:                              # note: the zone name is called from the layout file 
+        -                                   # this array is the widget configuration array
+            name: $widgetName               # the widget name
+            type: $widgetType               # the widget type
+            ?active: $bool                  # whether to use the widget, defaults to true
+            ...                             # any other configuration value that you want 
             
 ```
 
@@ -139,6 +145,10 @@ Related
 History Log
 =============
 
+- 1.4.0 -- 2019-04-26
+
+    - add title and description to the kit configuration array 
+    
 - 1.3.0 -- 2019-04-25
 
     - add ConfStorageInterface

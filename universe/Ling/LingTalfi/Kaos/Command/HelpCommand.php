@@ -67,6 +67,7 @@ class HelpCommand extends KaosGenericCommand
         $output->write(H::s(1) . "So that the Light plugin planet can then use the post_install.map = true directive in its dependencies.byml file" . PHP_EOL);
         $output->write(H::s(1) . "It is assumed that you are calling this command from the light plugin directory (i.e. the current working directory should be the light plugin directory/planet)." . PHP_EOL);
         $output->write(H::s(1) . "The following locations will be repatriated (for a plugin named Light_MyPlugin):" . PHP_EOL);
+        $output->write(H::s(2) . "- \$app/config/kit/pages/Light_MyPlugin" . PHP_EOL);
         $output->write(H::s(2) . "- \$app/config/services/Light_MyPlugin.byml" . PHP_EOL);
         $output->write(H::s(2) . "- \$app/templates/Light_MyPlugin/" . PHP_EOL);
         $output->write(H::s(2) . "- \$app/www/plugins/Light_MyPlugin/" . PHP_EOL);

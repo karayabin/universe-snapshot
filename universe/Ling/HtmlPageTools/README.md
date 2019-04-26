@@ -38,6 +38,10 @@ Summary
 History Log
 =============
 
+- 1.1.0 -- 2019-04-26
+
+    - add hasTitle and hasDescription methods to HtmlPageCopilot
+    
 - 1.0.0 -- 2019-04-24
 
     - initial commit

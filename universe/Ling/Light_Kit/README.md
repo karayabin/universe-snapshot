@@ -164,11 +164,16 @@ So for instance we have this kind of structure:
 ----- page_one.byml
 ----- page_two.byml
 ----- ...
+----- $pluginName/                  # for instance $pluginName = Light_Kit_MySite
+--------- page_three.byml
+--------- page_xxx.byml
 ``` 
 
 
 
 Now the name of the file without the **.byml** extension is the actual page name.
+
+Note: 
 
 
 

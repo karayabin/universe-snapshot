@@ -33,6 +33,10 @@ Or just download it and place it where you want otherwise.
 History Log
 =============
 
+- 1.9.0 -- 2019-04-26
+
+    - update Kaos packlightmap command, now repatriates config/kit/pages/$LightPlugin directory
+
 - 1.8.0 -- 2019-04-25
 
     - update Kaos push command, now automatically adds the map post_install directive to the dependency file if the assets/map dir exists

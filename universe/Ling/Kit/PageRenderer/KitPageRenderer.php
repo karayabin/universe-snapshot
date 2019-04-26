@@ -206,8 +206,24 @@ class KitPageRenderer
 
                 if (file_exists($layout)) {
 
+
+                    /**
+                     * Basic page configuration.
+                     * Note: the user shall also be able to define the robots meta tag in the same
+                     * way that she defined the title and/or the description.
+                     *
+                     */
+                    if (array_key_exists("title", $this->pageConf)) {
+                        $this->copilot->setTitle($this->pageConf['title']);
+                    }
+                    if (array_key_exists("description", $this->pageConf)) {
+                        $this->copilot->setDescription($this->pageConf['description']);
+                    }
+
+
                     // let the widgets configure the copilot
                     $this->captureZones();
+
 
                     /**
                      * Now that the copilot is configured, we can call the layout, which will in turn
