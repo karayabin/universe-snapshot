@@ -1,6 +1,7 @@
 dependencies: 
     Ling: 
         - Kit
+        - Bat
         - ZephyrTemplateEngine
         - HtmlPageTools
     

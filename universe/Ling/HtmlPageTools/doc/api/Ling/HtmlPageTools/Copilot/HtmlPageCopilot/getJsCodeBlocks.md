@@ -23,7 +23,7 @@ public [HtmlPageCopilot::getJsCodeBlocks](https://github.com/lingtalfi/HtmlPageT
 
 Returns the jsCodeBlocks of this instance.
 It's an array of strings (js code blocks).
-Note: a code block doesn't include the script tag: a js code block is pure javascript.
+Note: a js code block doesn't include the script tag: a js code block is pure javascript.
 
 
 
@@ -51,5 +51,5 @@ See Also
 
 The [HtmlPageCopilot](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot.md) class.
 
-Previous method: [addJsCodeBlock](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot/addJsCodeBlock.md)<br>Next method: [addBodyTagClass](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot/addBodyTagClass.md)<br>
+Previous method: [addCssCodeBlock](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot/addCssCodeBlock.md)<br>Next method: [getCssCodeBlocks](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot/getCssCodeBlocks.md)<br>
 

@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [Chloroform::getField](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform/getField.md)(string $fieldId) : [FieldInterface](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/FieldInterface.md)
+public [Chloroform::getField](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform/getField.md)(string $fieldId) : Ling\Chloroform\Field\FieldInterface
 
 
 
@@ -38,7 +38,7 @@ Parameters
 Return values
 ================
 
-Returns [FieldInterface](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/FieldInterface.md).
+Returns Ling\Chloroform\Field\FieldInterface.
 
 
 Exceptions thrown

@@ -1,0 +1,39 @@
+label: Blogen dashboard
+layout: templates/Light_Kit_Demo/layouts/blogen/prototype/blogen_two_columns_layout.php
+layout_vars: []
+
+title: Blogen Dashboard
+description: <
+    This is the blogen dashboard from the Blogen theme, created by Brad Traversy, and implemented with the Light_Kit plugin from the Light framework.
+>
+
+zones:
+    top_zone:
+        -
+            name: blogen_navbar
+            type: prototype
+            template: templates/Light_Kit_Demo/widgets/prototype/blogen/blogen_navbar.php
+        -
+            name: blogen_monochrome_icon_header-dashboard
+            type: prototype
+            template: templates/Light_Kit_Demo/widgets/prototype/blogen/blogen_monochrome_icon_header-dashboard.php
+        -
+            name: blogen_header_with_modal_action_buttons
+            type: prototype
+            template: templates/Light_Kit_Demo/widgets/prototype/blogen/blogen_header_with_modal_action_buttons.php
+    main_column:
+        -
+            name: blogen_admin_table
+            type: prototype
+            template: templates/Light_Kit_Demo/widgets/prototype/blogen/blogen_admin_table.php
+    sidebar:
+        -
+            name: blogen_sidebar_icon_cards
+            type: prototype
+            template: templates/Light_Kit_Demo/widgets/prototype/blogen/blogen_sidebar_icon_cards.php
+
+    bottom_zone:
+        -
+            name: blogen_footer
+            type: prototype
+            template: templates/Light_Kit_Demo/widgets/prototype/blogen/blogen_footer.php

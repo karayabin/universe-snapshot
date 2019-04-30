@@ -4,6 +4,7 @@ namespace Ling\UniverseTools;
 
 
 use Ling\DirScanner\YorgDirScannerTool;
+use Ling\TokenFun\TokenFinder\Tool\TokenFinderTool;
 use Ling\UniverseTools\Exception\UniverseToolsException;
 
 /**
@@ -78,14 +79,22 @@ class PlanetTool
 
                     $relativeClassName = str_replace('/', '\\', substr($file, 0, -4));
                     $className = $galaxy . '\\' . $dirName . '\\' . $relativeClassName;
-                    try {
 
-                        $class = new \ReflectionClass($className);
-                        $classNames[] = $className;
 
-                    } catch (\ReflectionException $e) {
+                    $tokens = token_get_all(file_get_contents($absFile));
+                    $_classNames = TokenFinderTool::getClassNames($tokens);
+                    if ($_classNames) { // ensure that the file contains a class
+
+                        try {
+
+                            $class = new \ReflectionClass($className);
+                            $classNames[] = $className;
+
+                        } catch (\ReflectionException $e) {
+                        }
 
                     }
+
                 }
             }
             return $classNames;

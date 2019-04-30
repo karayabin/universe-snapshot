@@ -578,15 +578,24 @@ The available validators
 Rendering the form
 =============
 
-The Chloroform planet doesn't provide Renderer classes.
+The Chloroform planet doesn't provide Renderer classes by default.
 
 That's because I wanted to have a clean separation between the form validation logic and the form rendering logic.
 
 You can render a Chloroform manually (without using a renderer), just by playing with the **$form->toArray** method.
 
-I will create at least one renderer class later and post a link  here when it's ready.
+Or, you can use an external renderer, such as the Chloroform_Hydrogen renderer.
+
+Here is a list of known chloroform renderers:
+
+
+- [Chloroform_HydrogenRenderer](https://github.com/lingtalfi/Chloroform_HydrogenRenderer)
+
+
+
+
  
-So, come back in a few weeks for that.
+
 
 
 
@@ -597,6 +606,10 @@ So, come back in a few weeks for that.
 History Log
 =============
 
+- 1.6.8 -- 2019-04-29
+
+    - add README link to Chloroform_HydrogenRenderer
+    
 - 1.6.7 -- 2019-04-18
 
     - fix FileMimeTypeValidator test failing if file was not uploaded

@@ -468,3 +468,48 @@ so that the application body content will just need to handle the content INSIDE
 
 Let's do that.
 
+
+
+More about css
+-----------
+2019-04-29
+
+In a widget oriented application (WOA), how do you handle css?
+
+A common idea is to create one stylesheet, that contains the whole css code for the theme. 
+And so all css code, be it specific to widgets or not, would be there.
+
+However, one of the thing on my agenda is to create a website builder, which means that the user will effectively compose
+a website by adding/removing widgets on the fly, whenever and wherever she sees fit.
+
+So how do we handle css in this case?
+
+An intuitive idea is the following:
+
+- first, all widgets register their specific css code to the copilot
+- then, the application retrieves all those css code blocks and generates a "widgets-compiled.css" stylesheet.
+
+
+Another idea is to create a css stylesheet that would encompass the styles of all widgets: those already created,
+and those yet to be created. 
+But I don't like this idea too much, because it constrains somehow the freedom/creativity of the webdev, as far as
+the design is concerned. 
+
+
+We can't deny that some widgets might have some specific css needs, just as some of them require some specific js init,
+and so the first solution seems to me to be the more appealing.
+
+In some cases, we can get away with writing the css code inline, along with the html code for the widget,
+but this gives us a parasited html code, which can be more or less a big deal, depending on how purist you are with html/css separation.
+
+Anyway, it's always a fallback option to write the css code directly with the html code of the widget, but I wanted to provide
+the option of doing the html/css separation "the right way", for those who want to do so, and so by implementing this feature
+in the copilot, I'm doing the first step in that direction.
+
+Since we already have an addJsCodeBlock method, I will add an addCssCodeBlock method, just for the sake of consistency and intuitiveness. 
+
+ 
+
+
+
+

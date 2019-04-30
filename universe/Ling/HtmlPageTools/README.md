@@ -38,6 +38,10 @@ Summary
 History Log
 =============
 
+- 1.2.0 -- 2019-04-29
+
+    - add cssCodeBlock concept, and the addCssCodeBlock and getCssCodeBlocks methods
+    
 - 1.1.0 -- 2019-04-26
 
     - add hasTitle and hasDescription methods to HtmlPageCopilot

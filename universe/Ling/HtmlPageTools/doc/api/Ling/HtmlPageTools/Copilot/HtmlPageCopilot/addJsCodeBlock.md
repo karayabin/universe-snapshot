@@ -22,7 +22,7 @@ public [HtmlPageCopilot::addJsCodeBlock](https://github.com/lingtalfi/HtmlPageTo
 
 
 Adds a js code block to this instance.
-Note: a code block doesn't include the script tag: a js code block is pure javascript.
+Note: a js code block doesn't include the script tag: a js code block is pure javascript.
 
 
 
@@ -53,5 +53,5 @@ See Also
 
 The [HtmlPageCopilot](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot.md) class.
 
-Previous method: [getJsLibraries](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot/getJsLibraries.md)<br>Next method: [getJsCodeBlocks](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot/getJsCodeBlocks.md)<br>
+Previous method: [getJsLibraries](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot/getJsLibraries.md)<br>Next method: [addCssCodeBlock](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot/addCssCodeBlock.md)<br>
 

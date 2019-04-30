@@ -37,6 +37,8 @@ use Ling\Kit_PicassoWidget\Widget\PicassoWidget;
  * --------- default.php       # just an example, can be any name really...
  * ----- js-init/
  * --------- default.js        # can be any name, but it's the same name as a template
+ * ----- css/                  # this directory contains the css code blocks to add to the chosen template
+ * --------- default.css       # can be any name, but it's the same name as a template
  * ```
  *
  *
@@ -44,6 +46,12 @@ use Ling\Kit_PicassoWidget\Widget\PicassoWidget;
  * The files in the "js-init" directory are automatically loaded as js code blocks via @page(the HtmlPageCopilot).
  * Those js files are used to initialize the widget. For instance, if your widget displays a lightbox gallery,
  * it might use a jquery snippet to initialize the gallery.
+ *
+ * The files in the "css" directory are automatically loaded as css code blocks via @page(the HtmlPageCopilot).
+ * Those css files shall be compiled into one "widget-compiled.css" (or another name) file by the host application,
+ * so that the css code of widgets can be nicely separated from the html code.
+ *
+ *
  *
  *
  *
@@ -114,6 +122,18 @@ class PicassoWidgetHandler implements WidgetHandlerInterface
                                 $codeBlock = file_get_contents($jsInitFile);
                                 $copilot->addJsCodeBlock($codeBlock);
                             }
+
+
+                            //--------------------------------------------
+                            // REGISTERING CSS CODE BLOCKS
+                            //--------------------------------------------
+                            $cssCodeBlockFile = $widgetDir . "/css/$templateName.css";
+                            if (file_exists($cssCodeBlockFile)) {
+                                $codeBlock = file_get_contents($cssCodeBlockFile);
+                                $copilot->addCssCodeBlock($codeBlock);
+                            }
+
+
 
 
                             return $content;

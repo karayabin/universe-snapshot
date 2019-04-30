@@ -46,7 +46,12 @@ So, here is the configuration array for the picasso widget:
 ```yaml
 className: $theClassName        # for instance Ling\MyFirstPicassoWidget\MyFirstPicassoWidget 
 template: $templateName         # for instance: default.php, or prototype.php. This is the path to the template file, relative to the widget/templates directory next to the widget instance.
-vars: array                     # An array of variables for the front widget to use
+?attr:                          # An array of html attributes to add to the widget's outer tag
+    id: my_id
+    class: my_class my_class2
+    data-example-value: 668
+?vars: array                    # An array of variables for the front widget to use
+
 ``` 
 
 
@@ -86,6 +91,8 @@ Here is the **widget** directory structure:
 --------- default.php       # just an example, can be any name really...
 ----- js-init/
 --------- default.js        # can be any name, but it's the same name as a template
+----- css/                  # this directory contains the css code blocks to add to the chosen template
+--------- default.css       # can be any name, but it's the same name as a template
 ```
 
 
@@ -93,6 +100,8 @@ Notes:
 - because of this design, a planet can provide multiple Picasso widgets.
 - the **js-init** directory contains any [js code block](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot.md#property-jsCodeBlocks) that you want to inject in your html page.
 - the files contained in the **js-init** directory must have the same name than the template being used (with the **.js** extension instead).
+- the **css** directory contains any [css code block](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot.md#property-cssCodeBlocks) that you want to inject in an external css stylesheet.
+- the files contained in the **css** directory must have the same name than the template being used (with the **.css** extension instead).
 
 
 
@@ -149,6 +158,11 @@ zones:
             active: true
             className: ZeroWidget
             template: default.php
+            ?attr:
+                id: my_id
+                class: my_class my_class2
+                data-example-value: 668
+                
 ```
 
 
@@ -188,6 +202,14 @@ Related
 History Log
 =============
 
+- 1.2.0 -- 2019-04-30
+
+    - add attr property to the widget configuration array
+    
+- 1.1.0 -- 2019-04-29
+
+    - update PicassoWidgetHandler, now handles css code blocks
+    
 - 1.0.0 -- 2019-04-24
 
     - initial commit

@@ -170,7 +170,7 @@ galaxies:
             post_install: []
         
         Chloroform: 
-            version: 1.6.7
+            version: 1.6.8
             dependencies: 
                 Ling: 
                     - CSRFTools
@@ -500,7 +500,7 @@ galaxies:
             post_install: []
         
         HtmlPageTools: 
-            version: 1.1.0
+            version: 1.2.0
             dependencies: []
             post_install: []
         
@@ -670,10 +670,11 @@ galaxies:
             post_install: []
         
         Kit_PicassoWidget: 
-            version: 1.0.0
+            version: 1.2.0
             dependencies: 
                 Ling: 
                     - Kit
+                    - Bat
                     - ZephyrTemplateEngine
                     - HtmlPageTools
                 
@@ -745,11 +746,16 @@ galaxies:
             post_install: []
         
         Light_Kit_Demo: 
-            version: 0.1.0
+            version: 0.4.0
             dependencies: []
             post_install: 
                 map: true
             
+        
+        Light_Kit_WebsiteBuilder: 
+            version: 1.0.0
+            dependencies: []
+            post_install: []
         
         Light_PrettyError: 
             version: 1.2.0
@@ -1462,7 +1468,7 @@ galaxies:
             post_install: []
         
         UniverseTools: 
-            version: 1.16.0
+            version: 1.16.2
             dependencies: 
                 Ling: 
                     - BabyYaml

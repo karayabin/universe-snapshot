@@ -8,6 +8,7 @@ Conception notes
     * [A planet can provide multiple widgets](#a-planet-can-provide-multiple-widgets)
     * [Using templates](#using-templates)
     * [Using js-init files](#using-js-init-files)
+    * [Using css decorator files](#using-css-decorator-files)
     * [The picasso widget configuration array](#the-picasso-widget-configuration-array)
 
 
@@ -33,6 +34,8 @@ The php class must extend the PicassoWidget class, and must contain a widget dir
 --------- default.php       # just an example, can be any name really...
 ----- js-init/
 --------- default.js        # can be any name, but it's the same name as a template
+----- css/                  # this directory contains the css code blocks to add to the chosen template
+--------- default.css       # can be any name, but it's the same name as a template
 ```
 
 
@@ -41,6 +44,7 @@ So the main ideas here are:
 - a [planet](https://github.com/karayabin/universe-snapshot) can provide multiple widgets
 - the use of templates
 - the use of js-init files
+- the use of css decorator files
 
 
 ###  A planet can provide multiple widgets
@@ -84,6 +88,29 @@ One drawback is:
 But as always, I tend to prefer simple things over fancy ones, so I opted for the first mechanism (at least for now). 
 
 
+
+### Using css decorator files
+
+A widget template might have specific needs in terms of css.
+
+It's always possible to write the css code directly inside the template, since html allows the style tag to be written anywhere.
+
+However, Picasso widgets provides another option for those who prefer to have the widgets css code in an external stylesheet.
+
+Basically, if you put a css file in the **widget/css** dir, the content of the css file will be memorized and written to a css file
+called by the host application (obviously, your host application needs to be aware of that mechanism and implement it, otherwise
+this wouldn't work).
+
+So the idea with this system is that all widgets are parsed at once, and so the css code of all widgets get memorized, 
+and is then written to one **widget-compiled.css** file (by the host application).
+
+With this technique, your css code is nicely separated from the html code.
+
+ 
+
+
+
+
 ### The picasso widget configuration array
 
 So, here is the configuration array for the picasso widget:
@@ -92,6 +119,11 @@ So, here is the configuration array for the picasso widget:
 className: $theClassName        # for instance Ling\MyFirstPicassoWidget\MyFirstPicassoWidget 
 template: $templateName         # for instance: default.php, or prototype.php. This is the path to the template file, relative to the widget/templates directory next to the widget instance.
 vars: array                     # An array of variables for the front widget to use
+?attr:                          # An array of html attributes to add to the widget's outer tag
+    id: my_id
+    class: my_class my_class2
+    data-example-value: 668
+
 ``` 
 
 
@@ -104,3 +136,14 @@ Because today I use php extension, but I don't know about tomorrow.
 Now since Picasso is the first widget system, I believe I will include it with Kit, so that the newbie user doesn't have to
 fetch for a Picasso planet when she doesn't even know about kit (hopefully this is not a design flaw right there).
 Actually you know what, I won't include it in Kit, because Kit is already complex enough by itself.
+
+
+
+2019-04-30: I've just added the attr property. I believe it should not be included in the (front) vars. Actually, 
+I'm not even sure if having vars is a good idea, but let's keep it for now...
+
+attr is more a cosmetic thing, and hence it's part of the widget root configuration properties.
+The attr parameter was originally implemented to facilitate the implementation of the website-builder system, as
+described in my [conception notes](https://github.com/lingtalfi/Light_Kit_WebsiteBuilder/blob/master/doc/pages/conception-notes.md).
+
+

@@ -139,6 +139,26 @@ class PushCommand extends KaosGenericCommand
 
 
                             //--------------------------------------------
+                            // LIGHT PACKING
+                            //--------------------------------------------
+                            // aborted because of hard reference to the application dir
+//                            if ('Ling' === $galaxyName && "Light_" === substr($planetName, 0, 6)) {
+//                                if (array_key_exists('map', $postInstall)) {
+//
+//                                    az($this->application->getCurrentDirectory());
+//
+//                                    H::info(H::i($indentLevel + 1) . "Light plugin with map assets detected, calling <b>kaos packlightmap</b> command.", $output);
+//                                    $myInput = new ArrayInput();
+//                                    $myInput->setItems([
+//                                        ":packlightmap" => true,
+//                                        "a" => "/komin/jin_site_demo",
+//                                    ]);
+//                                    $this->application->run($myInput, $output);
+//                                }
+//                            }
+
+
+                            //--------------------------------------------
                             // DOC BUILDER
                             //--------------------------------------------
                             $docBuilderClass = "Ling\LingTalfi\DocBuilder\\$planetName\\$planetName" . "DocBuilder";

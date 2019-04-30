@@ -4,7 +4,7 @@
 
 The PicassoWidgetHandler class
 ================
-2019-04-24 --> 2019-04-24
+2019-04-24 --> 2019-04-30
 
 
 
@@ -41,6 +41,8 @@ This directory has the following structure:
 --------- default.php       # just an example, can be any name really...
 ----- js-init/
 --------- default.js        # can be any name, but it's the same name as a template
+----- css/                  # this directory contains the css code blocks to add to the chosen template
+--------- default.css       # can be any name, but it's the same name as a template
 ```
 
 
@@ -48,6 +50,10 @@ The files in the "templates" directory are the available templates for this widg
 The files in the "js-init" directory are automatically loaded as js code blocks via [the HtmlPageCopilot](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot.md).
 Those js files are used to initialize the widget. For instance, if your widget displays a lightbox gallery,
 it might use a jquery snippet to initialize the gallery.
+
+The files in the "css" directory are automatically loaded as css code blocks via [the HtmlPageCopilot](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot.md).
+Those css files shall be compiled into one "widget-compiled.css" (or another name) file by the host application,
+so that the css code of widgets can be nicely separated from the html code.
 
 
 

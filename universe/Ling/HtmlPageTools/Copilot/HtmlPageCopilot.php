@@ -73,11 +73,21 @@ class HtmlPageCopilot
      * This property holds the jsCodeBlocks for this instance.
      * It's an array of javascript blocks of code.
      *
-     * Note: a code block doesn't include the script tag: a js code block is pure javascript.
+     * Note: a js code block doesn't include the script tag: a js code block is pure javascript.
      *
      * @var array
      */
     protected $jsCodeBlocks;
+
+    /**
+     * This property holds the cssCodeBlocks for this instance.
+     * It's an array of css blocks of code.
+     *
+     * Note: a css code block doesn't include the style tag: a css code block is pure css.
+     *
+     * @var array
+     */
+    protected $cssCodeBlocks;
 
     /**
      * This property holds the bodyTagClasses for this instance.
@@ -109,6 +119,7 @@ class HtmlPageCopilot
         $this->cssLibraries = [];
         $this->jsLibraries = [];
         $this->jsCodeBlocks = [];
+        $this->cssCodeBlocks = [];
         $this->bodyTagClasses = [];
         $this->bodyTagAttributes = [];
     }
@@ -265,7 +276,7 @@ class HtmlPageCopilot
 
     /**
      * Adds a js code block to this instance.
-     * Note: a code block doesn't include the script tag: a js code block is pure javascript.
+     * Note: a js code block doesn't include the script tag: a js code block is pure javascript.
      *
      * @param string $codeBlock
      */
@@ -275,15 +286,38 @@ class HtmlPageCopilot
     }
 
     /**
+     * Adds a css code block to this instance.
+     * Note: a css code block doesn't include the style tag: a css code block is pure css.
+     *
+     * @param string $codeBlock
+     */
+    public function addCssCodeBlock(string $codeBlock)
+    {
+        $this->cssCodeBlocks[] = $codeBlock;
+    }
+
+    /**
      * Returns the jsCodeBlocks of this instance.
      * It's an array of strings (js code blocks).
-     * Note: a code block doesn't include the script tag: a js code block is pure javascript.
+     * Note: a js code block doesn't include the script tag: a js code block is pure javascript.
      *
      * @return array
      */
     public function getJsCodeBlocks(): array
     {
         return $this->jsCodeBlocks;
+    }
+
+    /**
+     * Returns the cssCodeBlocks of this instance.
+     * It's an array of strings (css code blocks).
+     * Note: a css code block doesn't include the style tag: a css code block is pure css.
+     *
+     * @return array
+     */
+    public function getCssCodeBlocks(): array
+    {
+        return $this->cssCodeBlocks;
     }
 
 

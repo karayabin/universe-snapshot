@@ -1,0 +1,35 @@
+label: Glozzom about us page
+layout: templates/Light_Kit_Demo/layouts/glozzom/prototype/glozzom_about_layout.php
+layout_vars: []
+
+title: Glozzom about us
+description: <
+    This is the about us page of the Glozzom multiple pages theme, created by Brad Traversy, and implemented with the Light_Kit plugin from the Light framework.
+>
+
+zones:
+    main_zone:
+        -
+            name: glozzom_main_nav
+            type: prototype
+            template: templates/Light_Kit_Demo/widgets/prototype/glozzom/glozzom_main_nav.php
+        -
+            name: glozzom_parallax_header-about
+            type: prototype
+            template: templates/Light_Kit_Demo/widgets/prototype/glozzom/glozzom_parallax_header-about.php
+        -
+            name: glozzom_two_columns_teaser_with_overflowing_image
+            type: prototype
+            template: templates/Light_Kit_Demo/widgets/prototype/glozzom/glozzom_two_columns_teaser_with_overflowing_image.php
+        -
+            name: glozzom_three_columns_colored_icon_cards
+            type: prototype
+            template: templates/Light_Kit_Demo/widgets/prototype/glozzom/glozzom_three_columns_colored_icon_cards.php
+        -
+            name: glozzom_slick_testimonial_carousel
+            type: prototype
+            template: templates/Light_Kit_Demo/widgets/prototype/glozzom/glozzom_slick_testimonial_carousel.php
+        -
+            name: glozzom_simple_copyright_footer
+            type: prototype
+            template: templates/Light_Kit_Demo/widgets/prototype/glozzom/glozzom_simple_copyright_footer.php

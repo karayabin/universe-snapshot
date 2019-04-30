@@ -66,6 +66,7 @@ class DependencyTool
 
                 $content = file_get_contents($planetDir . "/" . $file);
 
+
                 /**
                  * Filtering scripts starting with:
                  *
@@ -84,19 +85,27 @@ class DependencyTool
 
                     try {
 
-                        $o = new \ReflectionClass($className);
 
                         $tokens = token_get_all(file_get_contents($classFile));
-                        $useStatements = TokenFinderTool::getUseDependencies($tokens);
+                        $classNames = TokenFinderTool::getClassNames($tokens);
 
-                        // filtering out internal use statements (statements referencing a class inside the planet being parsed)
-                        $useStatements = array_filter($useStatements, function ($v) use ($planetName, $galaxy) {
-                            if (0 === strpos($v, $galaxy . "\\" . $planetName . "\\")) {
-                                return false;
-                            }
-                            return true;
-                        });
-                        $allUseStatements = array_merge($allUseStatements, $useStatements);
+                        if ($classNames) { // ensure that the file contains a class
+
+
+                            $useStatements = TokenFinderTool::getUseDependencies($tokens);
+
+
+                            $o = new \ReflectionClass($className);
+
+                            // filtering out internal use statements (statements referencing a class inside the planet being parsed)
+                            $useStatements = array_filter($useStatements, function ($v) use ($planetName, $galaxy) {
+                                if (0 === strpos($v, $galaxy . "\\" . $planetName . "\\")) {
+                                    return false;
+                                }
+                                return true;
+                            });
+                            $allUseStatements = array_merge($allUseStatements, $useStatements);
+                        }
 
                     } catch (\ReflectionException $e) {
                         // not a bsr-0 class

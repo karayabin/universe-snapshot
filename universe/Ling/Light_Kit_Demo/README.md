@@ -36,18 +36,19 @@ Summary
 What is this?
 ============
 
-This is my first [Light_Kit](https://github.com/lingtalfi/Light_Kit) demo.
 
+TODO...
 
-My intention is to create 5 websites using the Light_Kit planet.
+In this repo, I've created 5 demo websites with [Light_Kit](https://github.com/lingtalfi/Light_Kit), as to demonstrate how one
+can use Light_Kit to build websites.
 
-The 5 websites use bootstrap.
+There are actually 5 websites, all created by Brad Traversy in his course [Bootstrap 4 From Scratch With 5 Projects ](https://www.udemy.com/bootstrap-4-from-scratch-with-5-projects/).
 
+The 5 websites are use Bootstrap 4 and are responsive.
 
-The credits for those 5 websites actually goes to Brad Traversy, the author of the course [Bootstrap 4 From Scratch With 5 Projects ](https://www.udemy.com/bootstrap-4-from-scratch-with-5-projects/),
-which I followed on udemy.com, and from which I learned how to use bootstrap 4. 
+Browse those TODO...
 
-I can only recommend this course for any web developer who wants to learn bootstrap 4.
+ 
 
 Now the Light_Kit planet is not limited to creating bootstrap themes, but I wanted to start simple first, and so bootstrap appeared to me as a good starting point.
 
@@ -86,6 +87,18 @@ Once you've done that, you have the complete code.
 History Log
 =============
 
+- 0.4.0 -- 2019-04-29
+
+    - adjust active navigation item  
+    
+- 0.3.0 -- 2019-04-29
+
+    - adjust paths for multi-pages prototypes  
+    
+- 0.2.0 -- 2019-04-29
+
+    - add prototypes for 5 projects 
+    
 - 0.1.0 -- 2019-04-26
 
     - add assets for looplab prototype version 

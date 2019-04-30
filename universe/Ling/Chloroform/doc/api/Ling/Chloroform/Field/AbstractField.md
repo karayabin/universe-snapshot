@@ -4,7 +4,7 @@
 
 The AbstractField class
 ================
-2019-04-10 --> 2019-04-18
+2019-04-10 --> 2019-04-29
 
 
 
@@ -22,7 +22,7 @@ Class synopsis
 ==============
 
 
-abstract class <span class="pl-k">AbstractField</span> implements [FieldInterface](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/FieldInterface.md) {
+abstract class <span class="pl-k">AbstractField</span> implements FieldInterface {
 
 - Properties
     - protected string [$id](#property-id) ;
@@ -31,13 +31,13 @@ abstract class <span class="pl-k">AbstractField</span> implements [FieldInterfac
     - protected string [$errorName](#property-errorName) ;
     - protected mixed|null [$value](#property-value) ;
     - protected array [$errors](#property-errors) ;
-    - protected [Ling\Chloroform\Validator\ValidatorInterface[]](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Validator/ValidatorInterface.md) [$validators](#property-validators) ;
+    - protected Ling\Chloroform\Validator\ValidatorInterface[] [$validators](#property-validators) ;
     - protected array [$properties](#property-properties) ;
 
 - Methods
     - public [__construct](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/AbstractField/__construct.md)(array $properties = []) : void
     - public [getId](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/AbstractField/getId.md)() : string
-    - public [addValidator](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/AbstractField/addValidator.md)([Ling\Chloroform\Validator\ValidatorInterface](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Validator/ValidatorInterface.md) $validator) : mixed
+    - public [addValidator](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/AbstractField/addValidator.md)(Ling\Chloroform\Validator\ValidatorInterface $validator) : mixed
     - public [validates](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/AbstractField/validates.md)(array $postedData, bool $injectValues = true) : bool
     - public [getErrors](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/AbstractField/getErrors.md)() : array
     - public [setValue](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/AbstractField/setValue.md)(?$value) : [AbstractField](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/AbstractField.md)

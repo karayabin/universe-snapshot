@@ -1,0 +1,47 @@
+label: Glozzom home page
+layout: templates/Light_Kit_Demo/layouts/glozzom/prototype/glozzom_home_layout.php
+layout_vars: []
+
+title: Glozzom home
+description: <
+    This is the home page of the Glozzom multiple pages theme, created by Brad Traversy, and implemented with the Light_Kit plugin from the Light framework.
+>
+
+zones:
+    main_zone:
+        -
+            name: glozzom_main_nav
+            type: prototype
+            template: templates/Light_Kit_Demo/widgets/prototype/glozzom/glozzom_main_nav.php
+        -
+            name: glozzom_showcase_carousel
+            type: prototype
+            template: templates/Light_Kit_Demo/widgets/prototype/glozzom/glozzom_showcase_carousel.php
+        -
+            name: glozzom_three_columns_icon_teaser
+            type: prototype
+            template: templates/Light_Kit_Demo/widgets/prototype/glozzom/glozzom_three_columns_icon_teaser.php
+        -
+            name: glozzom_parallax_header
+            type: prototype
+            template: templates/Light_Kit_Demo/widgets/prototype/glozzom/glozzom_parallax_header.php
+        -
+            name: glozzom_two_columns_teaser
+            type: prototype
+            template: templates/Light_Kit_Demo/widgets/prototype/glozzom/glozzom_two_columns_teaser.php
+        -
+            name: glozzom_parallax_video_trigger_header
+            type: prototype
+            template: templates/Light_Kit_Demo/widgets/prototype/glozzom/glozzom_parallax_video_trigger_header.php
+        -
+            name: glozzom_three_columns_photo_gallery
+            type: prototype
+            template: templates/Light_Kit_Demo/widgets/prototype/glozzom/glozzom_three_columns_photo_gallery.php
+        -
+            name: glozzom_newsletter_signup_header
+            type: prototype
+            template: templates/Light_Kit_Demo/widgets/prototype/glozzom/glozzom_newsletter_signup_header.php
+        -
+            name: glozzom_simple_copyright_footer
+            type: prototype
+            template: templates/Light_Kit_Demo/widgets/prototype/glozzom/glozzom_simple_copyright_footer.php

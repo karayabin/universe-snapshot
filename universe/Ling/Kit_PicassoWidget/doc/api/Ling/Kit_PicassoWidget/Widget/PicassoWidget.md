@@ -4,7 +4,7 @@
 
 The PicassoWidget class
 ================
-2019-04-24 --> 2019-04-24
+2019-04-24 --> 2019-04-30
 
 
 
@@ -26,15 +26,18 @@ class <span class="pl-k">PicassoWidget</span> extends [ZephyrTemplateEngine](htt
 
 - Properties
     - protected array [$libraries](#property-libraries) ;
+    - protected array [$attr](#property-attr) ;
 
 - Methods
     - public [__construct](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/api/Ling/Kit_PicassoWidget/Widget/PicassoWidget/__construct.md)() : void
     - public [getLibraries](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/api/Ling/Kit_PicassoWidget/Widget/PicassoWidget/getLibraries.md)() : array
+    - public [renderFile](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/api/Ling/Kit_PicassoWidget/Widget/PicassoWidget/renderFile.md)(string $filePath, array $variables = []) : false | string
+    - protected [getAttributesHtml](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/api/Ling/Kit_PicassoWidget/Widget/PicassoWidget/getAttributesHtml.md)(bool $excludeClass = true) : string
+    - protected [getCssClass](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/api/Ling/Kit_PicassoWidget/Widget/PicassoWidget/getCssClass.md)() : string
     - protected [registerLibrary](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/api/Ling/Kit_PicassoWidget/Widget/PicassoWidget/registerLibrary.md)(string $libraryName, array $css, array $js) : void
 
 - Inherited methods
     - public ZephyrTemplateEngine::render(string $resourceId, array $variables = []) : false | string
-    - public ZephyrTemplateEngine::renderFile(string $filePath, array $variables = []) : false | string
     - public ZephyrTemplateEngine::getErrors() : array
     - public ZephyrTemplateEngine::setDirectory(string $directory) : void
     - protected ZephyrTemplateEngine::interpret(string $___path, array $z) : false | string
@@ -61,6 +64,18 @@ Properties
     
     
 
+- <span id="property-attr"><b>attr</b></span>
+
+    This property holds the attr for this instance.
+    This is an array of html attributes to add to the widget's outer tag.
+    
+    For instance:
+    - id: my_id
+    - class: my_class1 my_class2
+    - data-example-value: 668
+    
+    
+
 
 
 Methods
@@ -68,9 +83,11 @@ Methods
 
 - [PicassoWidget::__construct](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/api/Ling/Kit_PicassoWidget/Widget/PicassoWidget/__construct.md) &ndash; Builds the PicassoWidget instance.
 - [PicassoWidget::getLibraries](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/api/Ling/Kit_PicassoWidget/Widget/PicassoWidget/getLibraries.md) &ndash; Returns the libraries of this instance.
+- [PicassoWidget::renderFile](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/api/Ling/Kit_PicassoWidget/Widget/PicassoWidget/renderFile.md) &ndash; Parses the file identified and returns its interpreted content (by injecting the variables in it).
+- [PicassoWidget::getAttributesHtml](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/api/Ling/Kit_PicassoWidget/Widget/PicassoWidget/getAttributesHtml.md) &ndash; Returns the string of html attributes defined in the widget attributes (attr property in the [widget configuration array](https://github.com/lingtalfi/Kit_PicassoWidget#the-picasso-widget-array)).
+- [PicassoWidget::getCssClass](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/api/Ling/Kit_PicassoWidget/Widget/PicassoWidget/getCssClass.md) &ndash; 
 - [PicassoWidget::registerLibrary](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/api/Ling/Kit_PicassoWidget/Widget/PicassoWidget/registerLibrary.md) &ndash; Registers an (external) library that this widget uses.
 - ZephyrTemplateEngine::render &ndash; Parses the template identified by $resourceId and returns the interpreted template (the template with the variables injected in it).
-- ZephyrTemplateEngine::renderFile &ndash; Parses the file identified and returns its interpreted content (by injecting the variables in it).
 - ZephyrTemplateEngine::getErrors &ndash; Returns the errors of this instance.
 - ZephyrTemplateEngine::setDirectory &ndash; Sets the directory.
 - ZephyrTemplateEngine::interpret &ndash; and returns the resulting html code.

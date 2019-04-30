@@ -1,0 +1,31 @@
+label: Blogen posts
+layout: templates/Light_Kit_Demo/layouts/blogen/prototype/blogen_one_column_layout.php
+layout_vars: []
+
+title: Blogen posts
+description: <
+    This is the blogen posts page from the Blogen theme, created by Brad Traversy, and implemented with the Light_Kit plugin from the Light framework.
+>
+
+zones:
+    main_zone:
+        -
+            name: blogen_navbar
+            type: prototype
+            template: templates/Light_Kit_Demo/widgets/prototype/blogen/blogen_navbar.php
+        -
+            name: blogen_monochrome_icon_header-posts
+            type: prototype
+            template: templates/Light_Kit_Demo/widgets/prototype/blogen/blogen_monochrome_icon_header-posts.php
+        -
+            name: blogen_search_header
+            type: prototype
+            template: templates/Light_Kit_Demo/widgets/prototype/blogen/blogen_search_header.php
+        -
+            name: blogen_admin_table-posts
+            type: prototype
+            template: templates/Light_Kit_Demo/widgets/prototype/blogen/blogen_admin_table-posts.php
+        -
+            name: blogen_footer
+            type: prototype
+            template: templates/Light_Kit_Demo/widgets/prototype/blogen/blogen_footer.php
