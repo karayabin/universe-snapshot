@@ -4,7 +4,7 @@
 
 The CSRFField class
 ================
-2019-04-10 --> 2019-04-29
+2019-04-10 --> 2019-04-30
 
 
 
@@ -22,7 +22,7 @@ Class synopsis
 ==============
 
 
-class <span class="pl-k">CSRFField</span> extends [HiddenField](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/HiddenField.md) implements FieldInterface {
+class <span class="pl-k">CSRFField</span> extends [HiddenField](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/HiddenField.md) implements [FieldInterface](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/FieldInterface.md) {
 
 - Properties
     - protected string [$CSRFIdentifier](#property-CSRFIdentifier) ;
@@ -35,7 +35,7 @@ class <span class="pl-k">CSRFField</span> extends [HiddenField](https://github.c
     - protected string [AbstractField::$errorName](#property-errorName) ;
     - protected mixed|null [AbstractField::$value](#property-value) ;
     - protected array [AbstractField::$errors](#property-errors) ;
-    - protected Ling\Chloroform\Validator\ValidatorInterface[] [AbstractField::$validators](#property-validators) ;
+    - protected [Ling\Chloroform\Validator\ValidatorInterface[]](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Validator/ValidatorInterface.md) [AbstractField::$validators](#property-validators) ;
     - protected array [AbstractField::$properties](#property-properties) ;
 
 - Methods
@@ -47,7 +47,7 @@ class <span class="pl-k">CSRFField</span> extends [HiddenField](https://github.c
 - Inherited methods
     - public static [HiddenField::create](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/HiddenField/create.md)(string $id, array $properties = []) : [HiddenField](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/HiddenField.md)
     - public [AbstractField::getId](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/AbstractField/getId.md)() : string
-    - public [AbstractField::addValidator](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/AbstractField/addValidator.md)(Ling\Chloroform\Validator\ValidatorInterface $validator) : mixed
+    - public [AbstractField::addValidator](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/AbstractField/addValidator.md)([Ling\Chloroform\Validator\ValidatorInterface](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Validator/ValidatorInterface.md) $validator) : mixed
     - public [AbstractField::validates](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/AbstractField/validates.md)(array $postedData, bool $injectValues = true) : bool
     - public [AbstractField::getErrors](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/AbstractField/getErrors.md)() : array
     - public [AbstractField::setValue](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/AbstractField/setValue.md)(?$value) : [AbstractField](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/AbstractField.md)

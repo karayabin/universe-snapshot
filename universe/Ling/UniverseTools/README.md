@@ -36,6 +36,11 @@ Summary
 History Log
 ==============
 
+- 1.16.3 -- 2019-04-30
+
+    - fix PlanetTool::getClassNames not taking into account interfaces
+    - fix DependencyTool::parseDumpDependencies not taking into account interfaces
+    
 - 1.16.2 -- 2019-04-29
 
     - fix PlanetTool::getClassNames typo

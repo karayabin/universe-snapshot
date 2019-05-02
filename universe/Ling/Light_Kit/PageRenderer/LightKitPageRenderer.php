@@ -6,6 +6,8 @@ namespace Ling\Light_Kit\PageRenderer;
 
 use Ling\Kit\ConfStorage\ConfStorageInterface;
 use Ling\Kit\PageRenderer\KitPageRenderer;
+use Ling\Light\ServiceContainer\LightDummyServiceContainer;
+use Ling\Light\ServiceContainer\LightServiceContainerInterface;
 use Ling\Light_Kit\Exception\LightKitException;
 
 
@@ -29,6 +31,18 @@ class LightKitPageRenderer extends KitPageRenderer
      */
     protected $confStorage;
 
+    /**
+     * This property holds the pageName for this instance.
+     * @var string
+     */
+    protected $pageName;
+
+    /**
+     * This property holds the container for this instance.
+     * @var LightServiceContainerInterface
+     */
+    protected $container;
+
 
     /**
      * Builds the LightKitPageRenderer instance.
@@ -37,6 +51,8 @@ class LightKitPageRenderer extends KitPageRenderer
     {
         parent::__construct();
         $this->applicationDir = null;
+        $this->pageName = null;
+        $this->container = null;
     }
 
     /**
@@ -49,6 +65,16 @@ class LightKitPageRenderer extends KitPageRenderer
     {
         $this->confStorage = $confStorage;
         return $this;
+    }
+
+    /**
+     * Sets the container.
+     *
+     * @param LightServiceContainerInterface $container
+     */
+    public function setContainer(LightServiceContainerInterface $container)
+    {
+        $this->container = $container;
     }
 
 
@@ -100,9 +126,7 @@ class LightKitPageRenderer extends KitPageRenderer
                     //--------------------------------------------
                     // CONFIGURATION
                     //--------------------------------------------
-                    /**
-                     * Note: the registerWidgetHandler calls are done from the service configuration directly.
-                     */
+                    $this->pageName = $pageName;
                     $this->setPageConf($pageConf);
 
 
@@ -123,4 +147,20 @@ class LightKitPageRenderer extends KitPageRenderer
     }
 
 
+    //--------------------------------------------
+    // METHODS FOR LAYOUT
+    //--------------------------------------------
+    /**
+     * Returns a light service container instance.
+     * If no container is set, a dummy container is created on the fly and returned on subsequent calls.
+     *
+     * @return LightServiceContainerInterface
+     */
+    protected function getContainer(): LightServiceContainerInterface
+    {
+        if (null === $this->container) {
+            $this->container = new LightDummyServiceContainer();
+        }
+        return $this->container;
+    }
 }

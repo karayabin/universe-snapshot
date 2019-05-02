@@ -4,7 +4,7 @@
 
 The LightServiceContainerInterface class
 ================
-2019-04-09 --> 2019-04-10
+2019-04-09 --> 2019-05-02
 
 
 
@@ -27,6 +27,7 @@ abstract class <span class="pl-k">LightServiceContainerInterface</span> implemen
 - Inherited methods
     - abstract public OctopusServiceContainerInterface::get(string $service) : object
     - abstract public OctopusServiceContainerInterface::has(string $service) : bool
+    - abstract public OctopusServiceContainerInterface::all() : array
 
 }
 
@@ -40,6 +41,7 @@ Methods
 
 - OctopusServiceContainerInterface::get &ndash; Returns the service which name is given.
 - OctopusServiceContainerInterface::has &ndash; 
+- OctopusServiceContainerInterface::all &ndash; Returns the list of all service names for this instance.
 
 
 

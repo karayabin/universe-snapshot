@@ -44,6 +44,7 @@ class PicassoWidget extends ZephyrTemplateEngine
     protected $attr;
 
 
+
     /**
      * Builds the PicassoWidget instance.
      */
@@ -74,7 +75,6 @@ class PicassoWidget extends ZephyrTemplateEngine
         }
         return parent::renderFile($filePath, $variables);
     }
-
 
 
 

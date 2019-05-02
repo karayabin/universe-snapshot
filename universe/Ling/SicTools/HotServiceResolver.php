@@ -65,8 +65,6 @@ class HotServiceResolver
     public function getService(array $sicBlock)
     {
         if (true === SicTool::isSicBlock($sicBlock, $this->passKey)) {
-
-
             $service = null;
 
             //--------------------------------------------

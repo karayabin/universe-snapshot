@@ -89,6 +89,10 @@ Octopus comes with two versions:
 History Log
 ------------------
 
+- 1.4.0 -- 2019-05-02
+
+    - add @container() notation for red and blue octopuses
+    
 - 1.3.0 -- 2019-04-18
 
     - add OctopusServiceContainerInterface->all method

@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [KitPageRenderer::registerWidgetHandler](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer/registerWidgetHandler.md)(string $type, [Ling\Kit\WidgetHandler\WidgetHandlerInterface](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/WidgetHandler/WidgetHandlerInterface.md) $handler) : void
+public [KitPageRenderer::registerWidgetHandler](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer/registerWidgetHandler.md)(string $type, Ling\Kit\WidgetHandler\WidgetHandlerInterface $handler) : void
 
 
 

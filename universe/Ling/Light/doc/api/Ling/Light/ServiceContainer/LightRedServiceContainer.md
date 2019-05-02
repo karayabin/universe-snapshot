@@ -4,7 +4,7 @@
 
 The LightRedServiceContainer class
 ================
-2019-04-09 --> 2019-04-10
+2019-04-09 --> 2019-05-02
 
 
 
@@ -29,10 +29,11 @@ class <span class="pl-k">LightRedServiceContainer</span> extends RedOctopusServi
     - public RedOctopusServiceContainer::build(array $config) : void
     - public RedOctopusServiceContainer::get(string $service) : object
     - public RedOctopusServiceContainer::has(string $service) : bool
+    - public RedOctopusServiceContainer::all() : array
     - protected RedOctopusServiceContainer::resolveCustomNotation(?$value, &$isCustomNotation = false) : mixed
     - protected RedOctopusServiceContainer::registerServices(array $conf, array &$breadcrumb) : void
     - protected RedOctopusServiceContainer::getServiceName(?$key, array $breadcrumb) : string
-    - public HotServiceResolver::getService(array $sicBlock) : false | object | Ling\SicTools\array, false is returned when the given array IS NOT a sic block (or a sic block with the pass key defined)
+    - public HotServiceResolver::getService(array $sicBlock) : false | object | array
     - private HotServiceResolver::resolveArgs(array $args) : array
 
 }
@@ -49,6 +50,7 @@ Methods
 - RedOctopusServiceContainer::build &ndash; found in the given (sic) config.
 - RedOctopusServiceContainer::get &ndash; Returns the service (class instance) which name is given.
 - RedOctopusServiceContainer::has &ndash; 
+- RedOctopusServiceContainer::all &ndash; Returns the list of all service names for this instance.
 - RedOctopusServiceContainer::resolveCustomNotation &ndash; Parses the given value as a custom notation and returns the interpreted result.
 - RedOctopusServiceContainer::registerServices &ndash; Parses the given $conf array and registers the services.
 - RedOctopusServiceContainer::getServiceName &ndash; Returns the service name based on its position in the configuration array.

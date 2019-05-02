@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [Chloroform::getNotifications](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform/getNotifications.md)() : Ling\Chloroform\FormNotification\FormNotificationInterface[]
+public [Chloroform::getNotifications](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform/getNotifications.md)() : [FormNotificationInterface[]](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/FormNotification/FormNotificationInterface.md)
 
 
 
@@ -35,7 +35,7 @@ This method has no parameters.
 Return values
 ================
 
-Returns Ling\Chloroform\FormNotification\FormNotificationInterface[].
+Returns [FormNotificationInterface[]](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/FormNotification/FormNotificationInterface.md).
 
 
 

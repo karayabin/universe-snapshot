@@ -81,7 +81,6 @@ class PolyExpressionDiscoverer extends ExpressionDiscoverer
      */
     public function parse($string, $pos = 0)
     {
-
         // reset
         $this->pos = false;
         $this->value = null;

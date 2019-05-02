@@ -4,7 +4,7 @@
 
 The HtmlPageCopilot class
 ================
-2019-04-24 --> 2019-04-29
+2019-04-24 --> 2019-05-02
 
 
 
@@ -189,4 +189,4 @@ Ling\HtmlPageTools\Copilot\HtmlPageCopilot
 
 SeeAlso
 ==============
-Next class: [HtmlPageException](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Exception/HtmlPageException.md)<br>
+Next class: [CssFileGeneratorInterface](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/CssFileGenerator/CssFileGeneratorInterface.md)<br>

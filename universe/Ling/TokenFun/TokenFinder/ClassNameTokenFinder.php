@@ -19,7 +19,7 @@ use Ling\TokenFun\Tool\TokenTool;
  *          class Doo{
  *              // ...
  *          }
- * 
+ *
  * It will also match Traits.
  *
  *
@@ -31,6 +31,36 @@ class ClassNameTokenFinder extends RecursiveTokenFinder
 
 
     protected $namespace;
+
+    /**
+     * This property holds the includeInterface for this instance.
+     *
+     * @var bool=false
+     */
+    protected $includeInterface;
+
+
+    /**
+     * Builds the ClassNameTokenFinder instance.
+     */
+    public function __construct()
+    {
+        parent::__construct();
+        $this->includeInterface = false;
+    }
+
+    /**
+     * Sets the includeInterface.
+     *
+     * @param bool $includeInterface
+     * @return $this
+     */
+    public function setIncludeInterface(bool $includeInterface)
+    {
+        $this->includeInterface = $includeInterface;
+        return $this;
+    }
+
 
     /**
      * @return array of match
@@ -46,14 +76,18 @@ class ClassNameTokenFinder extends RecursiveTokenFinder
         $ret = [];
         $tai = new TokenArrayIterator($tokens);
         $start = null;
+        $matchArray = [T_CLASS, T_TRAIT];
+        if (true === $this->includeInterface) {
+            $matchArray[] = T_INTERFACE;
+        }
+
         while ($tai->valid()) {
             $cur = $tai->current();
             if (null === $start) {
-                if (TokenTool::match([T_CLASS, T_TRAIT], $cur)) {
+                if (TokenTool::match($matchArray, $cur)) {
                     $start = $tai->key();
                 }
-            }
-            else {
+            } else {
 
                 $found = false;
                 TokenArrayIteratorTool::skipWhiteSpaces($tai);

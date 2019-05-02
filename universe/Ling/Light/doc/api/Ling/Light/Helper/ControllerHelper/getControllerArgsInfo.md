@@ -25,9 +25,9 @@ Returns an array of controller args corresponding to the given controller.
 
 The controller args is an array of parameterName => item,
 each item having the following structure:
-- 0: hasDefaultValue, bool. Whether the argument has a default value (i.e. if there is an equal symbol in the parameter definition).
-- 1: defaultValue, mixed=null. If hasDefaultValue is true, the actual default value for this parameter.
-- 2: hint: mixed=null. The hint type if any (bool, string, int, an object, ...)
+     - 0: hasDefaultValue, bool. Whether the argument has a default value (i.e. if there is an equal symbol in the parameter definition).
+     - 1: defaultValue, mixed=null. If hasDefaultValue is true, the actual default value for this parameter.
+     - 2: hint: mixed=null. The hint type if any (bool, string, int, an object, ...)
 
 
 

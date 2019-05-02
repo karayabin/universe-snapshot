@@ -4,7 +4,7 @@
 
 The LightKitPageRenderer class
 ================
-2019-04-25 --> 2019-04-25
+2019-04-25 --> 2019-05-02
 
 
 
@@ -27,6 +27,8 @@ class <span class="pl-k">LightKitPageRenderer</span> extends [KitPageRenderer](h
 - Properties
     - protected string [$applicationDir](#property-applicationDir) ;
     - protected [Ling\Kit\ConfStorage\ConfStorageInterface](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/ConfStorage/ConfStorageInterface.md) [$confStorage](#property-confStorage) ;
+    - protected string [$pageName](#property-pageName) ;
+    - protected Ling\Light\ServiceContainer\LightServiceContainerInterface [$container](#property-container) ;
 
 - Inherited properties
     - protected [Ling\Kit\WidgetHandler\WidgetHandlerInterface[]](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/WidgetHandler/WidgetHandlerInterface.md) [KitPageRenderer::$widgetHandlers](#property-widgetHandlers) ;
@@ -36,12 +38,15 @@ class <span class="pl-k">LightKitPageRenderer</span> extends [KitPageRenderer](h
     - protected callable [KitPageRenderer::$errorHandler](#property-errorHandler) ;
     - protected array [KitPageRenderer::$zones](#property-zones) ;
     - protected string [KitPageRenderer::$layoutRootDir](#property-layoutRootDir) ;
+    - protected Ling\Kit\WidgetConfDecorator\WidgetConfDecoratorInterface[] [KitPageRenderer::$widgetConfDecorators](#property-widgetConfDecorators) ;
 
 - Methods
     - public [__construct](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageRenderer/LightKitPageRenderer/__construct.md)() : void
     - public [setConfStorage](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageRenderer/LightKitPageRenderer/setConfStorage.md)([Ling\Kit\ConfStorage\ConfStorageInterface](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/ConfStorage/ConfStorageInterface.md) $confStorage) : [LightKitPageRenderer](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageRenderer/LightKitPageRenderer.md)
+    - public [setContainer](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageRenderer/LightKitPageRenderer/setContainer.md)(Ling\Light\ServiceContainer\LightServiceContainerInterface $container) : void
     - public [configure](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageRenderer/LightKitPageRenderer/configure.md)(array $settings) : void
     - public [renderPage](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageRenderer/LightKitPageRenderer/renderPage.md)(string $pageName) : string
+    - protected [getContainer](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageRenderer/LightKitPageRenderer/getContainer.md)() : Ling\Light\ServiceContainer\LightServiceContainerInterface
 
 - Inherited methods
     - public KitPageRenderer::setPageConf(array $pageConf) : void
@@ -49,6 +54,7 @@ class <span class="pl-k">LightKitPageRenderer</span> extends [KitPageRenderer](h
     - public KitPageRenderer::setErrorHandler(callable $errorHandler) : void
     - public KitPageRenderer::registerWidgetHandler(string $type, [Ling\Kit\WidgetHandler\WidgetHandlerInterface](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/WidgetHandler/WidgetHandlerInterface.md) $handler) : void
     - public KitPageRenderer::setLayoutRootDir(string $layoutRootDir) : [KitPageRenderer](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer.md)
+    - public KitPageRenderer::addWidgetConfDecorator(Ling\Kit\WidgetConfDecorator\WidgetConfDecoratorInterface $decorator) : void
     - public KitPageRenderer::printPage() : void
     - public KitPageRenderer::printZone(string $zoneName) : void
     - protected KitPageRenderer::captureZones() : void
@@ -70,6 +76,18 @@ Properties
 - <span id="property-confStorage"><b>confStorage</b></span>
 
     This property holds the confStorage for this instance.
+    
+    
+
+- <span id="property-pageName"><b>pageName</b></span>
+
+    This property holds the pageName for this instance.
+    
+    
+
+- <span id="property-container"><b>container</b></span>
+
+    This property holds the container for this instance.
     
     
 
@@ -142,6 +160,13 @@ Properties
     
     
 
+- <span id="property-widgetConfDecorators"><b>widgetConfDecorators</b></span>
+
+    This property holds the widgetConfDecorators for this instance.
+    It's an array of WidgetConfDecoratorInterface instances.
+    
+    
+
 
 
 Methods
@@ -149,13 +174,16 @@ Methods
 
 - [LightKitPageRenderer::__construct](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageRenderer/LightKitPageRenderer/__construct.md) &ndash; Builds the LightKitPageRenderer instance.
 - [LightKitPageRenderer::setConfStorage](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageRenderer/LightKitPageRenderer/setConfStorage.md) &ndash; Sets the confStorage.
+- [LightKitPageRenderer::setContainer](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageRenderer/LightKitPageRenderer/setContainer.md) &ndash; Sets the container.
 - [LightKitPageRenderer::configure](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageRenderer/LightKitPageRenderer/configure.md) &ndash; Configures thi instance.
 - [LightKitPageRenderer::renderPage](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageRenderer/LightKitPageRenderer/renderPage.md) &ndash; Renders the given page.
+- [LightKitPageRenderer::getContainer](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageRenderer/LightKitPageRenderer/getContainer.md) &ndash; Returns a light service container instance.
 - KitPageRenderer::setPageConf &ndash; Sets the pageConf.
 - KitPageRenderer::setStrictMode &ndash; Sets the strictMode.
 - KitPageRenderer::setErrorHandler &ndash; Sets the errorHandler.
 - KitPageRenderer::registerWidgetHandler &ndash; Registers a widget handler for the given (widget) type.
 - KitPageRenderer::setLayoutRootDir &ndash; Sets the layoutRootDir.
+- KitPageRenderer::addWidgetConfDecorator &ndash; Adds a widget configuration decorator to this instance.
 - KitPageRenderer::printPage &ndash; Prints the page.
 - KitPageRenderer::printZone &ndash; Prints a zone.
 - KitPageRenderer::captureZones &ndash; Captures the zones defined in the configuration and stores them temporarily.

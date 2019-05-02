@@ -15,18 +15,30 @@ use Ling\Kit_PicassoWidget\Widget\PicassoWidget;
  * This class can render a widget from a widgetConf array.
  * A widgetConf array has the following structure:
  *
+ * ```yaml
  * - className: string, the name of the widget class. Example: Ling\Kit_PicassoWidget\Widget\ExamplePicassoWidget
+ * - ?widgetDir: string, the path to the widget directory. If not set, the widget directory is a directory named "widget" found next to the file containing the widget class.
+ *              If set, and the path is relative (i.e. not starting with a slash),
+ *              then the path is relative to the widgetBaseDir (set using the setWidgetBaseDir method of this class)
  * - template: string, the relative path of the template to use.
  *      A picasso widget always uses a template to displays itself.
- *      The path is relative to the "widget/templates" directory next to the widget instance
- * vars: array, an array of variables for the front widget to use
+ *      The path is relative to the "$widgetDir/templates" directory.
+ * - ?attr: an array of html attributes to add on the widget's outer tag. Example:
+ *      - id: my_id
+ *      - class: my_class my_class2
+ *      - data-example-value: 668
+ * ```
+ *
  *
  *
  *
  * The widget directory
  * ---------------
  *
- * With the Picasso system, there is always a widget directory next to the Picasso widget class.
+ * With the Picasso system, we use a widget directory.
+ * By default, the widget directory is next to the Picasso widget class file.
+ * It can be changed using the **widgetDir** property of the widget configuration array.
+ *
  * This directory has the following structure:
  *
  *
@@ -61,6 +73,37 @@ class PicassoWidgetHandler implements WidgetHandlerInterface
 
 
     /**
+     * This property holds the widgetBaseDir for this instance.
+     * This is the absolute path to the widget base directory,
+     * which is used when the widgetConf specifies a relative widgetDir property.
+     * See more information in the class description.
+     *
+     *
+     * @var string
+     */
+    protected $widgetBaseDir;
+
+
+    /**
+     * Builds the PicassoWidgetHandler instance.
+     */
+    public function __construct()
+    {
+        $this->widgetBaseDir = "";
+    }
+
+    /**
+     * Sets the widgetBaseDir.
+     *
+     * @param string $widgetBaseDir
+     */
+    public function setWidgetBaseDir(string $widgetBaseDir)
+    {
+        $this->widgetBaseDir = $widgetBaseDir;
+    }
+
+
+    /**
      * @implementation
      */
     public function handle(array $widgetConf, HtmlPageCopilot $copilot, array $debug): string
@@ -77,9 +120,22 @@ class PicassoWidgetHandler implements WidgetHandlerInterface
                     $instance = $class->newInstance();
                     if ($instance instanceof PicassoWidget) {
 
-                        $file = $class->getFileName();
-                        $dir = dirname($file);
-                        $widgetDir = $dir . "/widget";
+
+                        //--------------------------------------------
+                        // FINDING THE WIDGET DIR
+                        //--------------------------------------------
+                        if (array_key_exists("widgetDir", $widgetConf)) {
+                            $widgetDir = $widgetConf['widgetDir'];
+                            if ('/' !== substr($widgetDir, 0, 1)) {
+                                $widgetDir = $this->widgetBaseDir . "/" . $widgetDir;
+                            }
+                        } else {
+                            $file = $class->getFileName();
+                            $dir = dirname($file);
+                            $widgetDir = $dir . "/widget";
+                        }
+
+
                         $templateFileName = str_replace('..', '', $template); // preventing escalating the filesystem
                         $templateDir = $widgetDir . '/templates';
                         $templateFile = $templateDir . '/' . $templateFileName;
@@ -113,10 +169,12 @@ class PicassoWidgetHandler implements WidgetHandlerInterface
                             }
 
 
+                            $templateName = explode(".", $templateFileName)[0];
+
+
                             //--------------------------------------------
                             // REGISTERING JS INIT CODE BLOCKS
                             //--------------------------------------------
-                            $templateName = explode(".", $templateFileName)[0];
                             $jsInitFile = $widgetDir . "/js-init/$templateName.js";
                             if (file_exists($jsInitFile)) {
                                 $codeBlock = file_get_contents($jsInitFile);
@@ -127,13 +185,18 @@ class PicassoWidgetHandler implements WidgetHandlerInterface
                             //--------------------------------------------
                             // REGISTERING CSS CODE BLOCKS
                             //--------------------------------------------
-                            $cssCodeBlockFile = $widgetDir . "/css/$templateName.css";
-                            if (file_exists($cssCodeBlockFile)) {
-                                $codeBlock = file_get_contents($cssCodeBlockFile);
-                                $copilot->addCssCodeBlock($codeBlock);
+                            if (array_key_exists("skin", $widgetConf)) {
+                                $skin = $widgetConf['skin'];
+                            } else {
+                                $skin = $templateName;
                             }
-
-
+                            if (null !== $skin) {
+                                $cssCodeBlockFile = $widgetDir . "/css/$skin.css";
+                                if (file_exists($cssCodeBlockFile)) {
+                                    $codeBlock = file_get_contents($cssCodeBlockFile);
+                                    $copilot->addCssCodeBlock($codeBlock);
+                                }
+                            }
 
 
                             return $content;

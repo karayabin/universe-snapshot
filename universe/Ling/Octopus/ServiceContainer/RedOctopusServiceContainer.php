@@ -150,7 +150,10 @@ class RedOctopusServiceContainer extends HotServiceResolver implements OctopusSe
     protected function resolveCustomNotation($value, &$isCustomNotation = false)
     {
         if (is_string($value)) { // value could be anything
-            if (
+            if ('@container()' === $value) {
+                $isCustomNotation = true;
+                return $this;
+            } elseif (
                 0 === strpos($value, '@s')
                 && preg_match('!@service\(([a-zA-Z._0-9]*)\)!', $value, $match)
             ) {

@@ -4,7 +4,7 @@
 
 The Chloroform class
 ================
-2019-04-10 --> 2019-04-29
+2019-04-10 --> 2019-04-30
 
 
 
@@ -25,8 +25,8 @@ Class synopsis
 class <span class="pl-k">Chloroform</span>  {
 
 - Properties
-    - protected Ling\Chloroform\Field\FieldInterface[] [$fields](#property-fields) ;
-    - protected Ling\Chloroform\FormNotification\FormNotificationInterface[] [$notifications](#property-notifications) ;
+    - protected [Ling\Chloroform\Field\FieldInterface[]](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/FieldInterface.md) [$fields](#property-fields) ;
+    - protected [Ling\Chloroform\FormNotification\FormNotificationInterface[]](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/FormNotification/FormNotificationInterface.md) [$notifications](#property-notifications) ;
     - private array [$_postedData](#property-_postedData) ;
 
 - Methods
@@ -34,12 +34,12 @@ class <span class="pl-k">Chloroform</span>  {
     - public [isPosted](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform/isPosted.md)() : bool
     - public [getPostedData](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform/getPostedData.md)() : array
     - public [validates](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform/validates.md)() : bool
-    - public [getFields](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform/getFields.md)() : Ling\Chloroform\Field\FieldInterface[]
-    - public [getField](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform/getField.md)(string $fieldId) : Ling\Chloroform\Field\FieldInterface
+    - public [getFields](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform/getFields.md)() : [FieldInterface[]](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/FieldInterface.md)
+    - public [getField](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform/getField.md)(string $fieldId) : [FieldInterface](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/FieldInterface.md)
     - public [injectValues](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform/injectValues.md)(array $values) : void
-    - public [addField](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform/addField.md)(Ling\Chloroform\Field\FieldInterface $field, array $validators = []) : void
-    - public [addNotification](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform/addNotification.md)(Ling\Chloroform\FormNotification\FormNotificationInterface $notification) : void
-    - public [getNotifications](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform/getNotifications.md)() : Ling\Chloroform\FormNotification\FormNotificationInterface[]
+    - public [addField](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform/addField.md)([Ling\Chloroform\Field\FieldInterface](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/FieldInterface.md) $field, array $validators = []) : void
+    - public [addNotification](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform/addNotification.md)([Ling\Chloroform\FormNotification\FormNotificationInterface](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/FormNotification/FormNotificationInterface.md) $notification) : void
+    - public [getNotifications](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform/getNotifications.md)() : [FormNotificationInterface[]](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/FormNotification/FormNotificationInterface.md)
     - public [toArray](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform/toArray.md)() : array
     - protected [createPostedData](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform/createPostedData.md)() : array
 

@@ -87,7 +87,9 @@ class DependencyTool
 
 
                         $tokens = token_get_all(file_get_contents($classFile));
-                        $classNames = TokenFinderTool::getClassNames($tokens);
+                        $classNames = TokenFinderTool::getClassNames($tokens, true, [
+                            "includeInterfaces" => true,
+                        ]);
 
                         if ($classNames) { // ensure that the file contains a class
 

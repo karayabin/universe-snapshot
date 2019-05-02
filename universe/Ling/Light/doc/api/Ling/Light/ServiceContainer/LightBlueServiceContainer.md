@@ -4,7 +4,7 @@
 
 The LightBlueServiceContainer class
 ================
-2019-04-09 --> 2019-04-10
+2019-04-09 --> 2019-05-02
 
 
 
@@ -28,7 +28,9 @@ class <span class="pl-k">LightBlueServiceContainer</span> extends BlueOctopusSer
     - public BlueOctopusServiceContainer::__construct() : void
     - public BlueOctopusServiceContainer::get(string $service) : object
     - public BlueOctopusServiceContainer::has(string $service) : bool
-    - public static BlueOctopusServiceContainer::getMethodName(?$serviceName) : string
+    - public BlueOctopusServiceContainer::all() : array
+    - public static BlueOctopusServiceContainer::getMethodName(string $serviceName) : string
+    - public static BlueOctopusServiceContainer::getServiceName(string $methodName) : string
 
 }
 
@@ -43,7 +45,9 @@ Methods
 - BlueOctopusServiceContainer::__construct &ndash; Builds the service container.
 - BlueOctopusServiceContainer::get &ndash; Returns the service which name is given.
 - BlueOctopusServiceContainer::has &ndash; 
+- BlueOctopusServiceContainer::all &ndash; Returns the list of all service names for this instance.
 - BlueOctopusServiceContainer::getMethodName &ndash; Converts the given service name into a method name (the name of the method in charge of returning the service).
+- BlueOctopusServiceContainer::getServiceName &ndash; Returns the service name from the given method name.
 
 
 

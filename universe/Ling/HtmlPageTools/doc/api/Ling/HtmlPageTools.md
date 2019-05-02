@@ -1,6 +1,6 @@
 Ling/HtmlPageTools
 ================
-2019-04-24 --> 2019-04-29
+2019-04-24 --> 2019-05-02
 
 
 
@@ -30,6 +30,8 @@ Table of contents
     - [HtmlPageCopilot::addBodyTagClass](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot/addBodyTagClass.md) &ndash; Adds a css class (or space separated css classes) to the body tag.
     - [HtmlPageCopilot::setBodyTagAttribute](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot/setBodyTagAttribute.md) &ndash; Sets a body tag attribute.
     - [HtmlPageCopilot::getBodyTagAttributes](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot/getBodyTagAttributes.md) &ndash; Returns the array of all body tag attributes, including the class attribute (if set).
+- [CssFileGeneratorInterface](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/CssFileGenerator/CssFileGeneratorInterface.md) &ndash; The CssFileGeneratorInterface interface.
+    - [CssFileGeneratorInterface::generate](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/CssFileGenerator/CssFileGeneratorInterface/generate.md) &ndash; and returns the url to this css file.
 - [HtmlPageException](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Exception/HtmlPageException.md) &ndash; The HtmlPageException class.
 - [HtmlPageRenderer](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Renderer/HtmlPageRenderer.md) &ndash; The HtmlPageRenderer class.
     - [HtmlPageRenderer::__construct](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Renderer/HtmlPageRenderer/__construct.md) &ndash; Builds the HtmlPageRenderer instance.

@@ -4,7 +4,7 @@
 
 The BabyYamlConfStorage class
 ================
-2019-04-24 --> 2019-04-26
+2019-04-24 --> 2019-04-30
 
 
 
@@ -46,7 +46,7 @@ Class synopsis
 ==============
 
 
-class <span class="pl-k">BabyYamlConfStorage</span> implements [ConfStorageInterface](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/ConfStorage/ConfStorageInterface.md) {
+class <span class="pl-k">BabyYamlConfStorage</span> implements ConfStorageInterface {
 
 - Properties
     - protected array [$errors](#property-errors) ;
@@ -103,4 +103,4 @@ Ling\Kit\ConfStorage\BabyYamlConfStorage
 
 SeeAlso
 ==============
-Next class: [ConfStorageInterface](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/ConfStorage/ConfStorageInterface.md)<br>
+Next class: [KitException](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/Exception/KitException.md)<br>

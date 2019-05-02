@@ -45,12 +45,21 @@ So, here is the configuration array for the picasso widget:
 
 ```yaml
 className: $theClassName        # for instance Ling\MyFirstPicassoWidget\MyFirstPicassoWidget 
-template: $templateName         # for instance: default.php, or prototype.php. This is the path to the template file, relative to the widget/templates directory next to the widget instance.
+?widgetDir: $widgetDir          # absolute path to the widget directory. If not set, the widget directory is a directory named "widget" found next to the file containing the widget class.
+                                # If set, and the path is relative (i.e. not starting with a slash),
+                                # then the path is relative to the widgetBaseDir (set using the setWidgetBaseDir method of the PicassoWidgetHandler class)
+template: $templateName         # for instance: default.php, or prototype.php. This is the path to the template file, relative to the $widgetDir/templates directory
+# The css skin to use. 
+# If the skin property doesn't exist, it defaults to the template name. 
+# If it's defined, it indicates which skin to use.
+# If null, this means use no skin at all (the user probably wants to take care of the css by herself)
+?skin: null  
+?vars:                          # An array of variables to pass to the template
+    my_value: 667 
 ?attr:                          # An array of html attributes to add to the widget's outer tag
     id: my_id
     class: my_class my_class2
     data-example-value: 668
-?vars: array                    # An array of variables for the front widget to use
 
 ``` 
 
@@ -79,7 +88,7 @@ $kit->registerWidgetHandler('picasso', new PicassoWidgetHandler());
 The Picasso file structure
 ----------
 
-The Picasso file structure is contained in a directory named **widget**, which resides right next to the class file (the
+The Picasso file structure is contained in a **widget** directory, which by default is named **widget**, and resides right next to the class file (the
 file containing the class defined in the Picasso widget array via the **className** property).
 
 Here is the **widget** directory structure:
@@ -94,6 +103,9 @@ Here is the **widget** directory structure:
 ----- css/                  # this directory contains the css code blocks to add to the chosen template
 --------- default.css       # can be any name, but it's the same name as a template
 ```
+
+
+Note: the **widget** directory can be placed anywhere using the **widgetDir** directive of the widget configuration array.
 
 
 Notes:
@@ -158,6 +170,9 @@ zones:
             active: true
             className: ZeroWidget
             template: default.php
+            ?skin: null
+            ?vars:  
+                my_value: 668
             ?attr:
                 id: my_id
                 class: my_class my_class2
@@ -187,7 +202,7 @@ zones:
 ```
 
 
-Note: the **widget** directory must be declared next to the file where the
+Note: the **widget** directory is (by default) declared next to the file where the
 Widget class was declared (**index.php** in this very particular case).
 
 
@@ -202,6 +217,31 @@ Related
 History Log
 =============
 
+- 1.8.0 -- 2019-05-02
+
+    - add the skin concept (and implementation)
+    
+- 1.7.0 -- 2019-05-02
+
+    - add VariableDescriptionDocWriterUtil
+    
+- 1.6.0 -- 2019-04-30
+
+    - add WidgetConfAwarePicassoWidgetInterface interface
+    - reintroducting the vars property into the widget configuration array
+    
+- 1.5.0 -- 2019-04-30
+
+    - add the widget base dir concept (and implementation)
+    
+- 1.4.0 -- 2019-04-30
+
+    - add the widgetDir directive to the widget configuration array
+    
+- 1.3.0 -- 2019-04-30
+
+    - remove vars property from the widget configuration array
+    
 - 1.2.0 -- 2019-04-30
 
     - add attr property to the widget configuration array

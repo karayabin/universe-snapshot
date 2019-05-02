@@ -16,12 +16,12 @@ Description
 ================
 
 
-public [LightDummyServiceContainer::has](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightDummyServiceContainer/has.md)(string $service) : void
+public [LightDummyServiceContainer::has](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightDummyServiceContainer/has.md)(string $service) : bool
 
 
 
 
-
+Returns whether the service container has the given service
 
 
 
@@ -30,11 +30,15 @@ Parameters
 ================
 
 
+- service
+
+    
+
 
 Return values
 ================
 
-Returns void.
+Returns bool.
 
 
 
@@ -48,5 +52,5 @@ See Also
 
 The [LightDummyServiceContainer](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightDummyServiceContainer.md) class.
 
-Previous method: [get](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightDummyServiceContainer/get.md)<br>
+Previous method: [get](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightDummyServiceContainer/get.md)<br>Next method: [all](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightDummyServiceContainer/all.md)<br>
 

@@ -128,8 +128,39 @@ to capture the precise widget area.
 
 
 
+Integration in a Light application
+===============
 
 
+
+Following the [Light application recommended structure](https://github.com/lingtalfi/Light/blob/master/doc/pages/light-application-recommended-structure.md),
+it makes sense to put our widget templates in the **$app/templates/Light_Kit_BootstrapWidgetLibrary** directory.
+
+Our library will probably only use [Picasso widgets](https://github.com/lingtalfi/Kit_PicassoWidget),
+and so for the sake of simplicity, we will put all our "widget" directory structure in the **$app/templates/Light_Kit_BootstrapWidgetLibrary** directory,
+rather than trying to separate the "widget" directory files in perhaps more semantically accurate locations.
+
+
+Now the **widgetDir** property of the [picasso widget configuration array](https://github.com/lingtalfi/Kit_PicassoWidget#the-picasso-widget-array)
+is meant to be overridden by the user for quick testing, so we cannot monopolize it.
+But we still need to advertise the Picasso widgets that we will be using, by default, a widget directory of our own, and not the
+directory next to the widget class file.
+
+
+So we can basically do something like this: set the **widgetDir** value only if it's not already set by the user.
+
+This approach simply requires a kit widget conf decorator that this planet could provide.
+But for now, the widget conf decorator approach is considered too risky, and so we will require the dev
+to manually write the widgetDir (this should contribute to a more robust application in the end). 
+
+And so the widget classes will be located in this planet's repository, in:
+
+- Light_Kit_BootstrapWidgetLibrary/Widget/Picasso/MainNavWidget.php for instance
+
+
+And, the "widget" directories will be copied to the light app in:
+
+- templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/MainNavWidget for instance (so this directory IS the widget dir)
 
 
 

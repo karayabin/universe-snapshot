@@ -627,6 +627,10 @@ The implementation is messy and without documentation, but it works.
 History Log
 ===============
     
+- 1.3.2 -- 2019-05-02
+
+    - fix BabyYamlUtil::readFile interpreting the value of a multiline
+    
 - 1.3.1 -- 2019-04-03
 
     - fix FunctionExpressionDiscoverer declaration problem

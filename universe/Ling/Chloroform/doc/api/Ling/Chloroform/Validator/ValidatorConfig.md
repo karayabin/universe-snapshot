@@ -4,7 +4,7 @@
 
 The ValidatorConfig class
 ================
-2019-04-10 --> 2019-04-29
+2019-04-10 --> 2019-04-30
 
 
 
@@ -59,4 +59,4 @@ Ling\Chloroform\Validator\ValidatorConfig
 
 SeeAlso
 ==============
-Previous class: [RequiredValidator](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Validator/RequiredValidator.md)<br>
+Previous class: [RequiredValidator](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Validator/RequiredValidator.md)<br>Next class: [ValidatorInterface](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Validator/ValidatorInterface.md)<br>

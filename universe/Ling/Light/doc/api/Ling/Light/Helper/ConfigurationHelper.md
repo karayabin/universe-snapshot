@@ -4,7 +4,7 @@
 
 The ConfigurationHelper class
 ================
-2019-04-09 --> 2019-04-10
+2019-04-09 --> 2019-05-02
 
 
 
@@ -25,7 +25,7 @@ Class synopsis
 class <span class="pl-k">ConfigurationHelper</span>  {
 
 - Methods
-    - public static [getCombinedConf](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ConfigurationHelper/getCombinedConf.md)(string $directory) : array
+    - public static [getCombinedConf](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ConfigurationHelper/getCombinedConf.md)(string $directory, array $environmentVariables = []) : array
 
 }
 

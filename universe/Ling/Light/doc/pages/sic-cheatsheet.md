@@ -12,9 +12,22 @@ Here is a cheatsheet of the special notations available:
 Summary
 ============
 
+- [environment variables](#environment-variables)
 - [Lazy override](#lazy-override)
 - [variable references](#variable-references)
 - [service references](#service-references)
+
+
+
+
+Environment variables
+----------
+
+First of all, the following variables are always available in the services configuration files (thanks to the 
+addition of the environment variables system in the [SicFileCombinerUtil object](https://github.com/lingtalfi/SicTools/blob/master/Util/SicFileCombinerUtil.php)):
+
+
+- ${app_dir}: the absolute path to the application directory 
 
 
 

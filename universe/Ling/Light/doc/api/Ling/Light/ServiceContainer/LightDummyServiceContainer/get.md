@@ -7,7 +7,7 @@ LightDummyServiceContainer::get
 
 
 
-LightDummyServiceContainer::get — 
+LightDummyServiceContainer::get — Returns the service which name is given.
 
 
 
@@ -16,12 +16,14 @@ Description
 ================
 
 
-public [LightDummyServiceContainer::get](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightDummyServiceContainer/get.md)(string $service) : void
+public [LightDummyServiceContainer::get](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightDummyServiceContainer/get.md)(string $service) : object
 
 
 
 
+Returns the service which name is given.
 
+Note: a service is an object (i.e. an instance).
 
 
 
@@ -30,11 +32,15 @@ Parameters
 ================
 
 
+- service
+
+    
+
 
 Return values
 ================
 
-Returns void.
+Returns object.
 
 
 

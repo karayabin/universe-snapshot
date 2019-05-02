@@ -209,6 +209,11 @@ $light->registerRoute("/", function (LightServiceContainerInterface $service) {
 History Log
 =============
 
+- 1.1.0 -- 2019-05-02
+
+    - add LightKitCssFileGenerator
+    - update LightKitPageRenderer, now is container aware
+    
 - 1.0.0 -- 2019-04-25
 
     - initial commit

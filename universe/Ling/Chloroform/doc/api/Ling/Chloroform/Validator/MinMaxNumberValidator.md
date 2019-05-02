@@ -4,7 +4,7 @@
 
 The MinMaxNumberValidator class
 ================
-2019-04-10 --> 2019-04-29
+2019-04-10 --> 2019-04-30
 
 
 
@@ -28,7 +28,7 @@ Class synopsis
 ==============
 
 
-class <span class="pl-k">MinMaxNumberValidator</span> extends [AbstractMinMaxValidator](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Validator/AbstractMinMaxValidator.md) implements ValidatorInterface {
+class <span class="pl-k">MinMaxNumberValidator</span> extends [AbstractMinMaxValidator](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Validator/AbstractMinMaxValidator.md) implements [ValidatorInterface](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Validator/ValidatorInterface.md) {
 
 - Inherited properties
     - protected mixed [AbstractMinMaxValidator::$min](#property-min) ;
@@ -39,7 +39,7 @@ class <span class="pl-k">MinMaxNumberValidator</span> extends [AbstractMinMaxVal
 - Methods
     - public [setMin](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Validator/MinMaxNumberValidator/setMin.md)(int $min) : [MinMaxNumberValidator](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Validator/MinMaxNumberValidator.md)
     - public [setMax](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Validator/MinMaxNumberValidator/setMax.md)(int $max) : [MinMaxNumberValidator](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Validator/MinMaxNumberValidator.md)
-    - public [test](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Validator/MinMaxNumberValidator/test.md)(?$value, string $fieldName, Ling\Chloroform\Field\FieldInterface $field, string &$error = null) : bool
+    - public [test](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Validator/MinMaxNumberValidator/test.md)(?$value, string $fieldName, [Ling\Chloroform\Field\FieldInterface](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/FieldInterface.md) $field, string &$error = null) : bool
 
 - Inherited methods
     - public [AbstractMinMaxValidator::__construct](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Validator/AbstractMinMaxValidator/__construct.md)() : void

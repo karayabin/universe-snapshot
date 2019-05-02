@@ -82,8 +82,12 @@ class PlanetTool
 
 
                     $tokens = token_get_all(file_get_contents($absFile));
-                    $_classNames = TokenFinderTool::getClassNames($tokens);
-                    if ($_classNames) { // ensure that the file contains a class
+                    $_items = TokenFinderTool::getClassNames($tokens, true, [
+                        "includeInterfaces" => true,
+                    ]);
+
+
+                    if ($_items) { // ensure that the file contains a class
 
                         try {
 
@@ -92,7 +96,6 @@ class PlanetTool
 
                         } catch (\ReflectionException $e) {
                         }
-
                     }
 
                 }

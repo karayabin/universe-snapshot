@@ -7,6 +7,7 @@ namespace Ling\LingTalfi\DocBuilder\Light_Kit_BootstrapWidgetLibrary;
 use Ling\DocTools\DocBuilder\Git\PhpPlanet\LingGitPhpPlanetDocBuilder;
 use Ling\DocTools\Exception\DocBuilderException;
 use Ling\DocTools\Translator\ParseDownTranslator;
+use Ling\Kit_PicassoWidget\Util\VariableDescriptionDocWriterUtil;
 
 
 /**
@@ -171,7 +172,7 @@ class Light_Kit_BootstrapWidgetLibraryDocBuilder
                  * Uncomment the lines below to see my settings for local test mode.
                  */
 
-                "generatedClassBaseDir" =>  "/komin/jin_site_demo/www-doc/api",
+                "generatedClassBaseDir" => "/komin/jin_site_demo/www-doc/api",
                 "generatedClassBaseUrl" => "http://jindoc/api",
                 "mode" => "html", // md|html
                 "markdownTranslator" => new ParseDownTranslator(),
@@ -179,6 +180,24 @@ class Light_Kit_BootstrapWidgetLibraryDocBuilder
         }
 
 
+        //--------------------------------------------
+        // GENERATING WIDGET VARIABLES DESCRIPTION DOCUMENTATION BEFORE DOC BUILDER...
+        //--------------------------------------------
+        $out = "/komin/jin_site_demo/universe/Ling/Light_Kit_BootstrapWidgetLibrary/personal/mydoc/pages/widget-variables-description.md";
+        $descrDir = "/komin/jin_site_demo/universe/Ling/Light_Kit_BootstrapWidgetLibrary/assets";
+        $imgDir = "/komin/lingtalfi.com/app/www/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots";
+        $o = new VariableDescriptionDocWriterUtil();
+        $o->setVariablesDescriptionDir($descrDir);
+        $o->setImgBaseDir($imgDir);
+        $o->setImgBaseUrl("http://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots");
+        $o->setDocumentDate("2019-05-01");
+        $o->setDocumentTitle("Bootstrap Widget Library");
+        $o->writeDoc($out);
+
+
+        //--------------------------------------------
+        // DOC BUILDER
+        //--------------------------------------------
         $builder = new LingGitPhpPlanetDocBuilder();
         $builder->prepare($options);
         /**

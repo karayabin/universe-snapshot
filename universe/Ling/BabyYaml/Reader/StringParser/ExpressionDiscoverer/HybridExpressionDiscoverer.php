@@ -64,7 +64,6 @@ class HybridExpressionDiscoverer extends ExpressionDiscoverer implements GreedyE
     public function parse($string, $pos = 0)
     {
         $value = null;
-
         /**
          * Handling comments forehand
          */
@@ -90,12 +89,14 @@ class HybridExpressionDiscoverer extends ExpressionDiscoverer implements GreedyE
             if (false !== $symbolPos = StringTool::strposMultiple($string, $this->symbols, $pos)) {
                 $value = trim(mb_substr($string, $pos, $symbolPos - $pos));
                 $pos = $symbolPos - 1;
+
             }
             else {
                 $sub = mb_substr($string, $pos);
                 $value = trim($sub);
                 $pos = mb_strlen($string) - 1;
             }
+
         }
 
 

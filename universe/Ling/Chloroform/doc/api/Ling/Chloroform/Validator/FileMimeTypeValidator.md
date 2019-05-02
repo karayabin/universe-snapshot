@@ -4,7 +4,7 @@
 
 The FileMimeTypeValidator class
 ================
-2019-04-10 --> 2019-04-29
+2019-04-10 --> 2019-04-30
 
 
 
@@ -23,7 +23,7 @@ Class synopsis
 ==============
 
 
-class <span class="pl-k">FileMimeTypeValidator</span> extends [AbstractValidator](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Validator/AbstractValidator.md) implements ValidatorInterface {
+class <span class="pl-k">FileMimeTypeValidator</span> extends [AbstractValidator](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Validator/AbstractValidator.md) implements [ValidatorInterface](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Validator/ValidatorInterface.md) {
 
 - Properties
     - protected array [$allowedMimeTypes](#property-allowedMimeTypes) ;
@@ -35,7 +35,7 @@ class <span class="pl-k">FileMimeTypeValidator</span> extends [AbstractValidator
 - Methods
     - public [__construct](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Validator/FileMimeTypeValidator/__construct.md)() : void
     - public [setMimeTypes](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Validator/FileMimeTypeValidator/setMimeTypes.md)(array $allowedMimeTypes) : [FileMimeTypeValidator](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Validator/FileMimeTypeValidator.md)
-    - public [test](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Validator/FileMimeTypeValidator/test.md)(?$value, string $fieldName, Ling\Chloroform\Field\FieldInterface $field, string &$error = null) : bool
+    - public [test](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Validator/FileMimeTypeValidator/test.md)(?$value, string $fieldName, [Ling\Chloroform\Field\FieldInterface](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/FieldInterface.md) $field, string &$error = null) : bool
     - public [toArray](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Validator/FileMimeTypeValidator/toArray.md)() : array
 
 - Inherited methods

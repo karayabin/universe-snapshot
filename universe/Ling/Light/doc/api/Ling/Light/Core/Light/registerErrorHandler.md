@@ -26,7 +26,7 @@ Registers a error handler callback.
 The error handler callback is a callback with the following signature:
 
 ```txt
-function errorHandler ( $errorType, \Exception $e, &$response = null )
+     function errorHandler ( $errorType, \Exception $e, &$response = null )
 ```
 
 The error handler callback should handle the given exception if necessary (i.e. if it can

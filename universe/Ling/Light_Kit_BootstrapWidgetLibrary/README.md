@@ -35,6 +35,7 @@ Summary
 - [Light_Kit_BootstrapWidgetLibrary api](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary.md) (generated with [DocTools](https://github.com/lingtalfi/DocTools))
 - Pages
     - [Conception notes](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/pages/conception-notes.md)
+    - [Widget Documentation](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/pages/widget-variables-description.md)
 
 
 
@@ -44,6 +45,14 @@ Summary
 History Log
 =============
 
+- 0.1.1 -- 2019-05-02
+
+    - fix widget documentation
+    
+- 0.1.0 -- 2019-05-02
+
+    - adding widget documentation
+    
 - 0.0.0 -- 2019-04-26
 
     - initial commit

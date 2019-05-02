@@ -138,24 +138,31 @@ class PushCommand extends KaosGenericCommand
                             $output->write('<success>ok</success>' . PHP_EOL);
 
 
+                            $currentPwd = exec("pwd");
                             //--------------------------------------------
                             // LIGHT PACKING
                             //--------------------------------------------
-                            // aborted because of hard reference to the application dir
-//                            if ('Ling' === $galaxyName && "Light_" === substr($planetName, 0, 6)) {
-//                                if (array_key_exists('map', $postInstall)) {
-//
-//                                    az($this->application->getCurrentDirectory());
-//
-//                                    H::info(H::i($indentLevel + 1) . "Light plugin with map assets detected, calling <b>kaos packlightmap</b> command.", $output);
-//                                    $myInput = new ArrayInput();
-//                                    $myInput->setItems([
-//                                        ":packlightmap" => true,
-//                                        "a" => "/komin/jin_site_demo",
-//                                    ]);
-//                                    $this->application->run($myInput, $output);
-//                                }
-//                            }
+                            if ('Ling' === $galaxyName && "Light_" === substr($planetName, 0, 6)) {
+                                $currentUniverseDir = dirname(dirname($currentPwd));
+                                $p = explode('/', $currentUniverseDir);
+                                $currentUniverseDirName = array_pop($p);
+                                if ('universe' === $currentUniverseDirName) {
+
+                                    $theAppDir = implode('/', $p);
+
+                                    if (array_key_exists('map', $postInstall)) {
+
+
+                                        H::info(H::i($indentLevel + 1) . "Light plugin with map assets detected, calling <b>kaos packlightmap</b> command.", $output);
+                                        $myInput = new ArrayInput();
+                                        $myInput->setItems([
+                                            ":packlightmap" => true,
+                                            "a" => $theAppDir,
+                                        ]);
+                                        $this->application->run($myInput, $output);
+                                    }
+                                }
+                            }
 
 
                             //--------------------------------------------

@@ -10,6 +10,8 @@ kit:
                 methods:
                     setRootDir:
                         rootDir: ${app_dir}/config/kit/pages
+        setContainer:
+            container: @container()
 
     methods_collection:
         -
@@ -18,6 +20,9 @@ kit:
                 - picasso
                 -
                     instance: Ling\Kit_PicassoWidget\WidgetHandler\PicassoWidgetHandler
+                    methods:
+                        setWidgetBaseDir:
+                            dir: ${app_dir}
         -
             method: registerWidgetHandler
             args:
@@ -27,3 +32,10 @@ kit:
                     methods:
                         setRootDir:
                             appDir: ${app_dir}
+
+
+kit_css_file_generator:
+    instance: Ling\Light_Kit\CssFileGenerator\LightKitCssFileGenerator
+    constructor_args:
+        rootDir: ${app_dir}/www
+        format: css/tmp/$identifier-compiled-widgets.css

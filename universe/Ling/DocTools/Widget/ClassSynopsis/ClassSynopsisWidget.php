@@ -183,6 +183,7 @@ class ClassSynopsisWidget extends Widget
                     $s .= ', ';
                 }
 
+
                 $classUrl = $this->getClassUrl($interface, $originalClassName . ' implements');
                 $className = $interface->getShortName();
                 if (false === $interface->isUserDefined()) {
@@ -331,6 +332,7 @@ class ClassSynopsisWidget extends Widget
         if (false === $class->isUserDefined()) {
             $className = "\\" . $className;
         }
+
 
         if (array_key_exists($className, $this->generatedItems2Url)) {
             return $this->generatedItems2Url[$className];

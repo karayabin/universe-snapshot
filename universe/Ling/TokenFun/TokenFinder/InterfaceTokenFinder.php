@@ -14,9 +14,9 @@ use Ling\TokenFun\Tool\TokenTool;
  *
  *
  * It assumes that the php code is valid.
- * If finds the className after the extends keyword, like for instance if the given code is
+ * If finds the className after the implements keyword, like for instance if the given code is
  *
- *          class Doo extends Poo {
+ *          class Doo implements Poo {
  *              // ...
  *          }
  *

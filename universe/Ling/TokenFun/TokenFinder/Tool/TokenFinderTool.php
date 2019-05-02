@@ -48,12 +48,21 @@ class TokenFinderTool
 
 
     /**
+     *
+     * Options:
+     * - includeInterfaces: bool=false, whether to include interfaces
+     *
+     *
      * @return array of class names found, prefixed with namespace if $withNamespaces=true
+     *
      */
-    public static function getClassNames(array $tokens, $withNamespaces = true)
+    public static function getClassNames(array $tokens, $withNamespaces = true, array $options = [])
     {
         $ret = [];
         $o = new ClassNameTokenFinder();
+        $includeInterface = $options['includeInterfaces'] ?? false;
+        $o->setIncludeInterface($includeInterface);
+
         $matches = $o->find($tokens);
         if ($matches) {
             $ret = $matches;
@@ -112,9 +121,13 @@ class TokenFinderTool
         }
     }
 
+
     /**
-     * @return array, the names of the interfaces if any,
+     * @return array, the names of the implemented interfaces (search for the "CCC implements XXX" expression) if any,
      * and include the full name if $fullName is set to true.
+     *
+     *
+     *
      *
      * When fullName is true, it tries to see if there is a use statement matching
      * the interface class name, and returns it if it exists.

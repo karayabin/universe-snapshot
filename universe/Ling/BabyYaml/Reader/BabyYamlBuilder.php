@@ -286,6 +286,7 @@ class BabyYamlBuilder
             if (true === $muliLineMode) {
                 // is it the end of multiLine mode ?
                 if (true === $multiLineDelimiter->isEnd($line)) {
+
                     $this->processMultiLines($multiLines, $multiLineCompiler);
 
                     // reset multi line mode to start back in normal mode
@@ -319,6 +320,7 @@ class BabyYamlBuilder
                             if (true === $useMultiline && true === $multiLineDelimiter->isBegin($lineContent)) {
                                 // starting a new multiLine ? let's store the Node for later resolving
                                 $this->multiLineNode = $currentNode;
+                                $this->multiLineNode->setIsMultiLine(true);
                                 $this->multiLineLevel = $level;
                                 $muliLineMode = true;
                                 // the script must goes on, so that the multi-line Node will be at the right place in the node tree

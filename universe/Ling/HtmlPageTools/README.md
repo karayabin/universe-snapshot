@@ -38,6 +38,14 @@ Summary
 History Log
 =============
 
+- 1.4.0 -- 2019-05-02
+
+    - update CssFileGeneratorInterface now has a copilot argument
+    
+- 1.3.0 -- 2019-05-02
+
+    - add CssFileGeneratorInterface
+    
 - 1.2.0 -- 2019-04-29
 
     - add cssCodeBlock concept, and the addCssCodeBlock and getCssCodeBlocks methods

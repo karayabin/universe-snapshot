@@ -43,6 +43,10 @@ Summary
 History Log
 =============
 
-- 1.0.0 -- 2019-04-05
+- 0.1.0 -- 2019-05-02
+
+    - update LightDummyServiceContainer with the all method
+    
+- 0.0.0 -- 2019-04-05
 
     - initial commit

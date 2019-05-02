@@ -1,6 +1,6 @@
 Ling/Light
 ================
-2019-04-09 --> 2019-04-10
+2019-04-09 --> 2019-05-02
 
 
 
@@ -82,19 +82,24 @@ Table of contents
     - BlueOctopusServiceContainer::__construct &ndash; Builds the service container.
     - BlueOctopusServiceContainer::get &ndash; Returns the service which name is given.
     - BlueOctopusServiceContainer::has &ndash; The has method
+    - BlueOctopusServiceContainer::all &ndash; Returns the list of all service names for this instance.
     - BlueOctopusServiceContainer::getMethodName &ndash; Converts the given service name into a method name (the name of the method in charge of returning the service).
+    - BlueOctopusServiceContainer::getServiceName &ndash; Returns the service name from the given method name.
 - [LightDummyServiceContainer](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightDummyServiceContainer.md) &ndash; The LightDummyServiceContainer class.
-    - [LightDummyServiceContainer::get](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightDummyServiceContainer/get.md) &ndash; The get method
+    - [LightDummyServiceContainer::get](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightDummyServiceContainer/get.md) &ndash; Returns the service which name is given.
     - [LightDummyServiceContainer::has](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightDummyServiceContainer/has.md) &ndash; The has method
+    - [LightDummyServiceContainer::all](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightDummyServiceContainer/all.md) &ndash; Returns the list of all service names for this instance.
 - [LightRedServiceContainer](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightRedServiceContainer.md) &ndash; The LightRedServiceContainer class.
     - RedOctopusServiceContainer::__construct &ndash; Builds the red octopus instance.
     - RedOctopusServiceContainer::build &ndash; found in the given (sic) config.
     - RedOctopusServiceContainer::get &ndash; Returns the service (class instance) which name is given.
     - RedOctopusServiceContainer::has &ndash; The has method
+    - RedOctopusServiceContainer::all &ndash; Returns the list of all service names for this instance.
     - HotServiceResolver::getService &ndash; Returns the service (an instance of a class) defined in the given sic block.
 - [LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) &ndash; The LightServiceContainerInterface interface.
     - OctopusServiceContainerInterface::get &ndash; Returns the service which name is given.
     - OctopusServiceContainerInterface::has &ndash; The has method
+    - OctopusServiceContainerInterface::all &ndash; Returns the list of all service names for this instance.
 
 
 Dependencies

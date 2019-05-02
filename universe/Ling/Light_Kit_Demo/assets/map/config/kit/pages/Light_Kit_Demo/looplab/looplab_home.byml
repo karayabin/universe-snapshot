@@ -1,0 +1,86 @@
+label: LoopLab main page
+layout: templates/Light_Kit_Demo/layouts/looplab/prototype/looplab_main_layout.php
+layout_vars: []
+
+title: LoopLab one page theme
+description: <
+    This is the LoopLab one page theme, created by Brad Traversy, and implemented with the Light_Kit plugin from the Light framework.
+>
+
+zones:
+    main_zone:
+        -
+            name: main_nav
+            type: picasso
+            className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\MainNavWidget
+            widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/MainNavWidget
+            template: default.php
+            vars:
+                title: LoopLab
+
+                # Whether the top nav is fixed on the top
+                fixed_top: true
+
+                # the string to put in the href attribute of the title link.
+                # It can be an anchor if necessary
+                # The default value is slash
+                title_url: /
+
+                # If not set, the title will not use a logo
+                # If set, the title_logo must define all parameters as the example below
+#                title_logo:
+#                    url: /plugins/Light_Kit_Demo/mizuxe/img/mlogo.png
+#                    width: 50
+#                    height: 50
+#                    alt: Mizuxe logo
+                expand_size: sm # at which size does the burger menu expand (sm | md | lg) = sm
+                links:
+                    -
+                        text: Home
+                        url: "#home"
+                    -
+                        text: Explore
+                        url: "#explore-head-section"
+                    -
+                        text: Create
+                        url: "#create-head-section"
+                    -
+                        text: Share
+                        url: "#share-head-section"
+
+
+                links_align_right: bool=false # if only links are used (i.e. not links2, whether to align them to the right (default is they aligned to the left)
+                links2: []
+        -
+            name: looplab_two_columns_signup_form
+            type: prototype
+            template: templates/Light_Kit_Demo/widgets/prototype/looplab/looplab_two_columns_signup_form.php
+        -
+            name: looplab_monochrome_header
+            type: prototype
+            template: templates/Light_Kit_Demo/widgets/prototype/looplab/looplab_monochrome_header.php
+        -
+            name: looplab_two_columns_teaser
+            type: prototype
+            template: templates/Light_Kit_Demo/widgets/prototype/looplab/looplab_two_columns_teaser.php
+        -
+            name: looplab_monochrome_header
+            type: prototype
+            template: templates/Light_Kit_Demo/widgets/prototype/looplab/looplab_monochrome_header-passion.php
+        -
+            name: looplab_two_columns_teaser
+            type: prototype
+            template: templates/Light_Kit_Demo/widgets/prototype/looplab/looplab_two_columns_teaser-passion.php
+
+        -
+            name: looplab_monochrome_header
+            type: prototype
+            template: templates/Light_Kit_Demo/widgets/prototype/looplab/looplab_monochrome_header-share.php
+        -
+            name: looplab_two_columns_teaser
+            type: prototype
+            template: templates/Light_Kit_Demo/widgets/prototype/looplab/looplab_two_columns_teaser-share.php
+        -
+            name: looplab_footer_with_contact_us_button
+            type: prototype
+            template: templates/Light_Kit_Demo/widgets/prototype/looplab/looplab_footer_with_contact_us_button.php

@@ -35,4 +35,11 @@ interface NodeInterface
     public function getKey();
 
     public function setKey($key);
+
+    /**
+     *
+     * Returns whether the node is multiline.
+     * @return bool
+     */
+    public function isMultiline();
 }

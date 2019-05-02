@@ -33,6 +33,10 @@ Or just download it and place it where you want otherwise.
 History Log
 =============
 
+- 1.10.0 -- 2019-05-02
+
+    - update Kaos push command, now automatically calls packlightmap for Light plugins
+    
 - 1.9.0 -- 2019-04-26
 
     - update Kaos packlightmap command, now repatriates config/kit/pages/$LightPlugin directory

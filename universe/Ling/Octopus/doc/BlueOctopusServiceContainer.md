@@ -30,6 +30,7 @@ Summary
 
 - [How to use?](#how-to-use)
 - [Using the service function](#using-the-service-function)
+- [Using the container function](#using-the-container-function)
 - [Customizing the generator](#customizing-the-generator)
 - [Errors](#errors)
 - [Related](#related)
@@ -241,6 +242,62 @@ string(3) "boy"
 
 ```
 
+
+
+Using the container function
+=============
+
+The blue octopuses built with the **Octopus\ServiceContainerBuilder\DarkBlueOctopusServiceContainerBuilder** class
+provide a **@container** function, which allows to reference the service container instance.
+
+The function notation is the following:
+
+- @container()
+
+
+Note that there is no space in the notation.
+
+
+The following code demonstrates the use of the **@container()** notation.
+
+
+This code:
+
+```php
+class MyApp
+{
+    public function __construct(DarkBlueOctopusServiceContainer $container)
+    {
+        a("ok");
+    }
+}
+$conf = [
+    "my_app" => [
+        "instance" => "MyApp",
+        "constructor_args" => ['@container()'],
+    ],
+];
+$file = "/tmp/MyServiceContainer.php";
+$o = new DarkBlueOctopusServiceContainerBuilder();
+$o->setSicConfig($conf);
+$o->build($file);
+
+
+include_once $file;
+$sc = new DarkBlueOctopusServiceContainer();
+$sc->get("my_app");
+az();
+```
+
+
+
+Will output:
+
+```html
+string(2) "ok"
+
+
+```
 
 
 

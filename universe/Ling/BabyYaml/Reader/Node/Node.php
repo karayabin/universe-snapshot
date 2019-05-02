@@ -1,13 +1,12 @@
 <?php
 
 
-
 namespace Ling\BabyYaml\Reader\Node;
 
 /**
  * Node
  * @author Lingtalfi
- * 2015-02-27
+ * 2015-02-27 --> 2019-05-02
  *
  */
 class Node implements NodeInterface
@@ -16,20 +15,25 @@ class Node implements NodeInterface
     protected $key;
     protected $value;
     protected $children;
+    protected $isMultiline;
 
     function __construct($value = '', $key = null)
     {
+        $this->isMultiline = false;
         if (is_string($value)) {
             $this->key = $key;
             $this->value = $value;
             $this->children = [];
-        }
-        else {
+        } else {
             throw new \InvalidArgumentException("The value argument must be a string");
         }
     }
 
 
+    public function setIsMultiLine($isMultiline)
+    {
+        $this->isMultiline = $isMultiline;
+    }
 
 
 
@@ -75,6 +79,14 @@ class Node implements NodeInterface
     public function setKey($key)
     {
         $this->key = $key;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isMultiline()
+    {
+        return $this->isMultiline;
     }
 
 

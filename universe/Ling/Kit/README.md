@@ -145,6 +145,10 @@ Related
 History Log
 =============
 
+- 1.5.0 -- 2019-04-30
+
+    - add the idea (with commented implementation) for widget conf decorators  
+    
 - 1.4.0 -- 2019-04-26
 
     - add title and description to the kit configuration array 

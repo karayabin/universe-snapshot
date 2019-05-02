@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [Chloroform::addField](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform/addField.md)(Ling\Chloroform\Field\FieldInterface $field, array $validators = []) : void
+public [Chloroform::addField](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform/addField.md)([Ling\Chloroform\Field\FieldInterface](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/FieldInterface.md) $field, array $validators = []) : void
 
 
 

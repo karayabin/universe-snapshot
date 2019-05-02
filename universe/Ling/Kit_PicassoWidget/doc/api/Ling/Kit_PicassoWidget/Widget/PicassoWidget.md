@@ -4,7 +4,7 @@
 
 The PicassoWidget class
 ================
-2019-04-24 --> 2019-04-30
+2019-04-24 --> 2019-05-02
 
 
 
@@ -104,4 +104,4 @@ Ling\Kit_PicassoWidget\Widget\PicassoWidget
 
 SeeAlso
 ==============
-Previous class: [PicassoWidgetException](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/api/Ling/Kit_PicassoWidget/Exception/PicassoWidgetException.md)<br>Next class: [PicassoWidgetHandler](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/api/Ling/Kit_PicassoWidget/WidgetHandler/PicassoWidgetHandler.md)<br>
+Previous class: [VariableDescriptionDocWriterUtil](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/api/Ling/Kit_PicassoWidget/Util/VariableDescriptionDocWriterUtil.md)<br>Next class: [WidgetConfAwarePicassoWidget](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/api/Ling/Kit_PicassoWidget/Widget/WidgetConfAwarePicassoWidget.md)<br>

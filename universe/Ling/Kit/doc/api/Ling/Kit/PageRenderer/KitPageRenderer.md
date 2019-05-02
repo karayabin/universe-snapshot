@@ -4,7 +4,7 @@
 
 The KitPageRenderer class
 ================
-2019-04-24 --> 2019-04-26
+2019-04-24 --> 2019-04-30
 
 
 
@@ -46,21 +46,23 @@ Class synopsis
 class <span class="pl-k">KitPageRenderer</span>  {
 
 - Properties
-    - protected [Ling\Kit\WidgetHandler\WidgetHandlerInterface[]](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/WidgetHandler/WidgetHandlerInterface.md) [$widgetHandlers](#property-widgetHandlers) ;
+    - protected Ling\Kit\WidgetHandler\WidgetHandlerInterface[] [$widgetHandlers](#property-widgetHandlers) ;
     - protected array [$pageConf](#property-pageConf) ;
     - protected [Ling\HtmlPageTools\Copilot\HtmlPageCopilot](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot.md) [$copilot](#property-copilot) ;
     - protected bool [$strictMode](#property-strictMode) ;
     - protected callable [$errorHandler](#property-errorHandler) ;
     - protected array [$zones](#property-zones) ;
     - protected string [$layoutRootDir](#property-layoutRootDir) ;
+    - protected Ling\Kit\WidgetConfDecorator\WidgetConfDecoratorInterface[] [$widgetConfDecorators](#property-widgetConfDecorators) ;
 
 - Methods
     - public [__construct](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer/__construct.md)() : void
     - public [setPageConf](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer/setPageConf.md)(array $pageConf) : void
     - public [setStrictMode](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer/setStrictMode.md)(bool $strictMode) : [KitPageRenderer](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer.md)
     - public [setErrorHandler](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer/setErrorHandler.md)(callable $errorHandler) : void
-    - public [registerWidgetHandler](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer/registerWidgetHandler.md)(string $type, [Ling\Kit\WidgetHandler\WidgetHandlerInterface](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/WidgetHandler/WidgetHandlerInterface.md) $handler) : void
+    - public [registerWidgetHandler](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer/registerWidgetHandler.md)(string $type, Ling\Kit\WidgetHandler\WidgetHandlerInterface $handler) : void
     - public [setLayoutRootDir](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer/setLayoutRootDir.md)(string $layoutRootDir) : [KitPageRenderer](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer.md)
+    - public [addWidgetConfDecorator](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer/addWidgetConfDecorator.md)(Ling\Kit\WidgetConfDecorator\WidgetConfDecoratorInterface $decorator) : void
     - public [printPage](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer/printPage.md)() : void
     - public [printZone](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer/printZone.md)(string $zoneName) : void
     - protected [captureZones](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer/captureZones.md)() : void
@@ -142,6 +144,13 @@ Properties
     
     
 
+- <span id="property-widgetConfDecorators"><b>widgetConfDecorators</b></span>
+
+    This property holds the widgetConfDecorators for this instance.
+    It's an array of WidgetConfDecoratorInterface instances.
+    
+    
+
 
 
 Methods
@@ -153,6 +162,7 @@ Methods
 - [KitPageRenderer::setErrorHandler](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer/setErrorHandler.md) &ndash; Sets the errorHandler.
 - [KitPageRenderer::registerWidgetHandler](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer/registerWidgetHandler.md) &ndash; Registers a widget handler for the given (widget) type.
 - [KitPageRenderer::setLayoutRootDir](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer/setLayoutRootDir.md) &ndash; Sets the layoutRootDir.
+- [KitPageRenderer::addWidgetConfDecorator](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer/addWidgetConfDecorator.md) &ndash; Adds a widget configuration decorator to this instance.
 - [KitPageRenderer::printPage](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer/printPage.md) &ndash; Prints the page.
 - [KitPageRenderer::printZone](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer/printZone.md) &ndash; Prints a zone.
 - [KitPageRenderer::captureZones](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer/captureZones.md) &ndash; Captures the zones defined in the configuration and stores them temporarily.
@@ -168,4 +178,4 @@ Ling\Kit\PageRenderer\KitPageRenderer
 
 SeeAlso
 ==============
-Previous class: [KitException](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/Exception/KitException.md)<br>Next class: [KitWidgetInterface](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/Widget/KitWidgetInterface.md)<br>
+Previous class: [KitException](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/Exception/KitException.md)<br>

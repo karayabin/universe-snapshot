@@ -26,13 +26,13 @@ Returns an instance of a service container according to the given options.
 The options is an array with the following structure:
 
 - type: string. Defines the type of service container to return.
-- red: will return a RedOctopusServiceContainer
-- blue: (default value) will return a BlueOctopusServiceContainer.
+     - red: will return a RedOctopusServiceContainer
+     - blue: (default value) will return a BlueOctopusServiceContainer.
 - blueMode: string. Defines how the blue service container is re-created  (only applies if type=blue).
-- create: will re-create the service container every time
-- frozen: (default value) will never re-create the service container once it exists
-- auto: if the environment is dev: will recreate the service container only if the service configuration
-has changed, and if environment is not dev, then will use the frozen mode.
+     - create: will re-create the service container every time
+     - frozen: (default value) will never re-create the service container once it exists
+     - auto: if the environment is dev: will recreate the service container only if the service configuration
+             has changed, and if environment is not dev, then will use the frozen mode.
 
 
 

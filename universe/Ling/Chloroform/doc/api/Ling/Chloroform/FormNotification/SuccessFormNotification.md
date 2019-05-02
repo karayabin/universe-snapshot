@@ -4,7 +4,7 @@
 
 The SuccessFormNotification class
 ================
-2019-04-10 --> 2019-04-29
+2019-04-10 --> 2019-04-30
 
 
 
@@ -22,7 +22,7 @@ Class synopsis
 ==============
 
 
-class <span class="pl-k">SuccessFormNotification</span> extends [FormNotification](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/FormNotification/FormNotification.md) implements FormNotificationInterface {
+class <span class="pl-k">SuccessFormNotification</span> extends [FormNotification](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/FormNotification/FormNotification.md) implements [FormNotificationInterface](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/FormNotification/FormNotificationInterface.md) {
 
 - Inherited properties
     - protected string [FormNotification::$type](#property-type) ;

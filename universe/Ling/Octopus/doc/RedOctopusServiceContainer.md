@@ -18,6 +18,7 @@ Summary
     - [Example #3: playing with sic notation](#example-3-playing-with-sic-notation)
     - [Example #4: The same instance is re-used on subsequent calls](#example-4-the-same-instance-is-re-used-on-subsequent-calls)
     - [Example #5: referencing a service using the @services function](#example-5-referencing-a-service-using-the-services-function)
+    - [Example #6: the @container() function](#example-6-the-container-function)
 - [Errors](#errors)
 - [Related](#related)
 
@@ -234,6 +235,48 @@ Will output:
 string(7) "adopted"
 
 ```
+
+
+Example #6: the @container() function
+---------------
+
+We can reference the container instance using the **@container()** notation.
+
+The following code:
+
+```php
+class MyApp
+{
+    public function setContainer(RedOctopusServiceContainer $container)
+    {
+        a("ok");
+    }
+}
+
+$config = [
+    "my_app" => [
+        "instance" => "MyApp",
+        "methods" => [
+            "setContainer" => ['@container()'],
+        ],
+    ],
+];
+
+
+$sc = new RedOctopusServiceContainer();
+$sc->build($config);
+$sc->get("my_app");
+```
+
+
+Will output:
+
+```html
+string(2) "ok"
+```
+
+
+
 
 
 Errors

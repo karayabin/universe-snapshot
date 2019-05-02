@@ -143,6 +143,7 @@ class Kit_PicassoWidgetDocBuilder
                 "the HtmlPageCopilot" => 'https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot.md',
                 "HtmlPageCopilot documentation" => 'https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot.md',
                 "widget configuration array" => 'https://github.com/lingtalfi/Kit_PicassoWidget#the-picasso-widget-array',
+                "the widget configuration array" => 'https://github.com/lingtalfi/Kit_PicassoWidget#the-picasso-widget-array',
             ],
             /**
              * An array of external classes to url.

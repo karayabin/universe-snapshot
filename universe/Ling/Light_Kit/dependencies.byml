@@ -1,7 +1,10 @@
 dependencies: 
     Ling: 
+        - Bat
+        - HtmlPageTools
         - Kit
+        - Light
     
 
-post_install:
+post_install: 
     map: true

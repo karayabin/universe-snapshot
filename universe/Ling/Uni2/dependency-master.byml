@@ -95,7 +95,7 @@ galaxies:
             post_install: []
         
         BabyYaml: 
-            version: 1.3.1
+            version: 1.3.2
             dependencies: 
                 Ling: 
                     - Bat
@@ -500,7 +500,7 @@ galaxies:
             post_install: []
         
         HtmlPageTools: 
-            version: 1.2.0
+            version: 1.4.0
             dependencies: []
             post_install: []
         
@@ -660,7 +660,7 @@ galaxies:
             post_install: []
         
         Kit: 
-            version: 1.4.0
+            version: 1.5.0
             dependencies: 
                 Ling: 
                     - BabyYaml
@@ -670,11 +670,13 @@ galaxies:
             post_install: []
         
         Kit_PicassoWidget: 
-            version: 1.2.0
+            version: 1.8.0
             dependencies: 
                 Ling: 
                     - Kit
+                    - BabyYaml
                     - Bat
+                    - DirScanner
                     - ZephyrTemplateEngine
                     - HtmlPageTools
                 
@@ -706,7 +708,7 @@ galaxies:
             post_install: []
         
         Light: 
-            version: 1.0.0
+            version: 0.1.0
             dependencies: 
                 Ling: 
                     - SicTools
@@ -730,10 +732,13 @@ galaxies:
             
         
         Light_Kit: 
-            version: 1.0.0
+            version: 1.1.0
             dependencies: 
                 Ling: 
+                    - Bat
+                    - HtmlPageTools
                     - Kit
+                    - Light
                 
             
             post_install: 
@@ -741,12 +746,16 @@ galaxies:
             
         
         Light_Kit_BootstrapWidgetLibrary: 
-            version: 0.0.0
-            dependencies: []
+            version: 0.1.1
+            dependencies: 
+                Ling: 
+                    - Kit_PicassoWidget
+                
+            
             post_install: []
         
         Light_Kit_Demo: 
-            version: 0.4.0
+            version: 0.5.0
             dependencies: []
             post_install: 
                 map: true
@@ -798,10 +807,11 @@ galaxies:
             post_install: []
         
         LingTalfi: 
-            version: 1.9.0
+            version: 1.10.0
             dependencies: 
                 Ling: 
                     - DocTools
+                    - Kit_PicassoWidget
                     - CliTools
                     - Bat
                     - DirScanner
@@ -944,7 +954,7 @@ galaxies:
             post_install: []
         
         Octopus: 
-            version: 1.3.0
+            version: 1.4.0
             dependencies: 
                 Ling: 
                     - SicTools
@@ -1393,7 +1403,7 @@ galaxies:
             post_install: []
         
         TokenFun: 
-            version: 1.2.0
+            version: 1.3.0
             dependencies: 
                 Ling: 
                     - Bat
@@ -1468,7 +1478,7 @@ galaxies:
             post_install: []
         
         UniverseTools: 
-            version: 1.16.2
+            version: 1.16.3
             dependencies: 
                 Ling: 
                     - BabyYaml

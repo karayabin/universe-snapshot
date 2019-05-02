@@ -6,6 +6,7 @@ namespace Ling\Kit\PageRenderer;
 
 use Ling\HtmlPageTools\Copilot\HtmlPageCopilot;
 use Ling\Kit\Exception\KitException;
+use Ling\Kit\WidgetConfDecorator\WidgetConfDecoratorInterface;
 use Ling\Kit\WidgetHandler\WidgetHandlerInterface;
 
 /**
@@ -116,6 +117,14 @@ class KitPageRenderer
      */
     protected $layoutRootDir;
 
+    /**
+     * This property holds the widgetConfDecorators for this instance.
+     * It's an array of WidgetConfDecoratorInterface instances.
+     *
+     * @var WidgetConfDecoratorInterface[]
+     */
+    protected $widgetConfDecorators;
+
 
     /**
      * Builds the KitPageRenderer instance.
@@ -129,6 +138,7 @@ class KitPageRenderer
         $this->errorHandler = null;
         $this->zones = [];
         $this->layoutRootDir = null;
+        $this->widgetConfDecorators = [];
     }
 
     /**
@@ -185,6 +195,17 @@ class KitPageRenderer
     {
         $this->layoutRootDir = $layoutRootDir;
         return $this;
+    }
+
+
+    /**
+     * Adds a widget configuration decorator to this instance.
+     *
+     * @param WidgetConfDecoratorInterface $decorator
+     */
+    public function addWidgetConfDecorator(WidgetConfDecoratorInterface $decorator)
+    {
+        $this->widgetConfDecorators[] = $decorator;
     }
 
 
@@ -292,6 +313,26 @@ class KitPageRenderer
             $s = '';
 
             foreach ($widgets as $widgetConf) {
+
+
+                //--------------------------------------------
+                // DECORATE THE WIDGET CONFIGURATION
+                //--------------------------------------------
+                /**
+                 * Not implemented yet, because judged too dangerous for design:
+                 * by letting external tools update the widget configuration,
+                 * your stored widget configuration become less readable: because what you see is NOT what you get.
+                 * Before using this feature, be absolutely sure that you can't decorate the widget configuration manually.
+                 *
+                 */
+//                foreach ($this->widgetConfDecorators as $decorator) {
+//                    $decorator->decorate($widgetConf);
+//                }
+
+
+                //--------------------------------------------
+                // PROCESS THE WIDGET CONFIGURATION
+                //--------------------------------------------
                 $active = $widgetConf['active'] ?? true;
                 if (true === $active) {
                     $type = $widgetConf['type'];

@@ -1,6 +1,7 @@
 dependencies: 
     Ling: 
         - DocTools
+        - Kit_PicassoWidget
         - CliTools
         - Bat
         - DirScanner

@@ -1,6 +1,6 @@
 Ling/LingTalfi
 ================
-2019-03-13 --> 2019-04-26
+2019-03-13 --> 2019-05-02
 
 
 
@@ -46,6 +46,8 @@ Table of contents
     - [Light_Kit_BootstrapWidgetLibraryDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Kit_BootstrapWidgetLibrary/Light_Kit_BootstrapWidgetLibraryDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the Light_Kit_BootstrapWidgetLibrary planet.
 - [Light_Kit_DemoDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Kit_Demo/Light_Kit_DemoDocBuilder.md) &ndash; The Light_Kit_DemoDocBuilder class.
     - [Light_Kit_DemoDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Kit_Demo/Light_Kit_DemoDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the Light_Kit_Demo planet.
+- [Light_Kit_WebsiteBuilderDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Kit_WebsiteBuilder/Light_Kit_WebsiteBuilderDocBuilder.md) &ndash; The Light_Kit_WebsiteBuilderDocBuilder class.
+    - [Light_Kit_WebsiteBuilderDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Kit_WebsiteBuilder/Light_Kit_WebsiteBuilderDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the Light_Kit_WebsiteBuilder planet.
 - [Light_PrettyErrorDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_PrettyError/Light_PrettyErrorDocBuilder.md) &ndash; The Light_PrettyErrorDocBuilder class.
     - [Light_PrettyErrorDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_PrettyError/Light_PrettyErrorDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the Light_PrettyError planet.
 - [Light_ReverseRouterDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_ReverseRouter/Light_ReverseRouterDocBuilder.md) &ndash; The Light_ReverseRouterDocBuilder class.
@@ -124,6 +126,7 @@ Table of contents
 Dependencies
 ============
 - [DocTools](https://github.com/lingtalfi/DocTools)
+- [Kit_PicassoWidget](https://github.com/lingtalfi/Kit_PicassoWidget)
 - [CliTools](https://github.com/lingtalfi/CliTools)
 - [Bat](https://github.com/lingtalfi/Bat)
 - [DirScanner](https://github.com/lingtalfi/DirScanner)

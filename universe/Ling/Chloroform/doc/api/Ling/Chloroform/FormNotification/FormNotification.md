@@ -4,7 +4,7 @@
 
 The FormNotification class
 ================
-2019-04-10 --> 2019-04-29
+2019-04-10 --> 2019-04-30
 
 
 
@@ -22,7 +22,7 @@ Class synopsis
 ==============
 
 
-class <span class="pl-k">FormNotification</span> implements FormNotificationInterface {
+class <span class="pl-k">FormNotification</span> implements [FormNotificationInterface](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/FormNotification/FormNotificationInterface.md) {
 
 - Properties
     - protected string [$type](#property-type) ;
@@ -73,4 +73,4 @@ Ling\Chloroform\FormNotification\FormNotification
 
 SeeAlso
 ==============
-Previous class: [ErrorFormNotification](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/FormNotification/ErrorFormNotification.md)<br>Next class: [InfoFormNotification](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/FormNotification/InfoFormNotification.md)<br>
+Previous class: [ErrorFormNotification](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/FormNotification/ErrorFormNotification.md)<br>Next class: [FormNotificationInterface](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/FormNotification/FormNotificationInterface.md)<br>
