@@ -102,6 +102,13 @@ class VariableDescriptionDocWriterUtil
     protected $pageTpl;
 
     /**
+     * This property holds the widgetsBaseDir for this instance.
+     * The path to the directory containing all @page(widget directories).
+     * @var string
+     */
+    protected $widgetsBaseDir;
+
+    /**
      * Builds the VariableDescriptionDocWriterUtil instance.
      */
     public function __construct()
@@ -113,6 +120,7 @@ class VariableDescriptionDocWriterUtil
         $this->documentTitle = null;
         $this->widgetTpl = __DIR__ . "/tpl/widget-doc-widget.tpl.php";
         $this->pageTpl = __DIR__ . "/tpl/widget-doc-page.tpl.php";
+        $this->widgetsBaseDir = null;
     }
 
     /**
@@ -144,6 +152,17 @@ class VariableDescriptionDocWriterUtil
     {
         $this->imgBaseUrl = $imgBaseUrl;
     }
+
+    /**
+     * Sets the widgetsBaseDir.
+     *
+     * @param string $widgetsBaseDir
+     */
+    public function setWidgetsBaseDir(string $widgetsBaseDir)
+    {
+        $this->widgetsBaseDir = $widgetsBaseDir;
+    }
+
 
     /**
      * Sets the documentDate.
@@ -181,51 +200,61 @@ class VariableDescriptionDocWriterUtil
                 if (null !== $this->imgBaseUrl) {
                     if (null !== $this->documentDate) {
                         if (null !== $this->documentTitle) {
-                            if (is_dir($this->variablesDescriptionDir)) {
-                                if (is_dir($this->imgBaseDir)) {
-
-                                    $content = file_get_contents($this->pageTpl);
-                                    $sWidgets = "";
-                                    $summary = '';
+                            if (null !== $this->widgetsBaseDir) {
 
 
-                                    $rpaths = YorgDirScannerTool::getFilesWithExtension($this->variablesDescriptionDir, "vars_descr.byml", false, true, true);
-                                    foreach ($rpaths as $rpath) {
+                                if (is_dir($this->variablesDescriptionDir)) {
+                                    if (is_dir($this->imgBaseDir)) {
+                                        if (is_dir($this->widgetsBaseDir)) {
 
-                                        $apath = $this->variablesDescriptionDir . "/" . $rpath;
-                                        $arr = BabyYamlUtil::readFile($apath);
-                                        $widgetName = $arr['name'];
-                                        $sWidgets .= $this->renderWidget($arr);
+                                            $content = file_get_contents($this->pageTpl);
+                                            $sWidgets = "";
+                                            $summary = '';
 
 
-                                        //--------------------------------------------
-                                        // SUMMARY
-                                        //--------------------------------------------
-                                        $anchor = CaseTool::toDash($widgetName);
-                                        $summary .= "- [$widgetName](#$anchor)" . PHP_EOL;
+                                            $rpaths = YorgDirScannerTool::getFilesWithExtension($this->variablesDescriptionDir, "vars_descr.byml", false, true, true);
+                                            foreach ($rpaths as $rpath) {
+
+                                                $apath = $this->variablesDescriptionDir . "/" . $rpath;
+                                                $arr = BabyYamlUtil::readFile($apath);
+                                                $widgetName = $arr['name'];
+                                                $sWidgets .= $this->renderWidget($arr);
+
+
+                                                //--------------------------------------------
+                                                // SUMMARY
+                                                //--------------------------------------------
+                                                $anchor = CaseTool::toDash($widgetName);
+                                                $summary .= "- [$widgetName](#$anchor)" . PHP_EOL;
+                                            }
+
+
+                                            $content = str_replace([
+                                                '${title}',
+                                                '${date}',
+                                                '${summary}',
+                                                '${widgets}',
+                                            ], [
+                                                $this->documentTitle,
+                                                $this->documentDate,
+                                                $summary,
+                                                $sWidgets,
+                                            ], $content);
+
+                                            return FileSystemTool::mkfile($file, $content);
+
+
+                                        } else {
+                                            $this->error("The widgetsBaseDir is not a directory: $this->widgetsBaseDir.");
+                                        }
+                                    } else {
+                                        $this->error("The imgBaseDir is not a directory: $this->imgBaseDir.");
                                     }
-
-
-                                    $content = str_replace([
-                                        '${title}',
-                                        '${date}',
-                                        '${summary}',
-                                        '${widgets}',
-                                    ], [
-                                        $this->documentTitle,
-                                        $this->documentDate,
-                                        $summary,
-                                        $sWidgets,
-                                    ], $content);
-
-                                    return FileSystemTool::mkfile($file, $content);
-
-
                                 } else {
-                                    $this->error("The imgBaseDir is not a directory: $this->imgBaseDir.");
+                                    $this->error("The variablesDescriptionDir is not a directory: $this->variablesDescriptionDir.");
                                 }
                             } else {
-                                $this->error("The variablesDescriptionDir is not a directory: $this->variablesDescriptionDir.");
+                                $this->error("The widgetsBaseDir is not set.");
                             }
                         } else {
                             $this->error("The documentTitle is not set.");
@@ -258,25 +287,57 @@ class VariableDescriptionDocWriterUtil
     {
         $content = file_get_contents($this->widgetTpl);
         $widgetName = $arr['name'];
+        $dashWidgetName = CaseTool::toDash($widgetName);
         $widgetDescription = $arr['description'];
         $screenShotList = $this->renderScreenshotList($widgetName);
         $widgetVarsDescriptionList = $this->renderWidgetVariablesDescriptionList($arr['vars']);
+
+
         $widgetExample = $arr['example'] ?? "";
+        if (is_array($widgetExample)) {
+            $widgetExample = implode(', ', $widgetExample);
+        }
+        $templates = [];
+        $skins = [];
+        //--------------------------------------------
+        // WIDGET DIR
+        //--------------------------------------------
+        $widgetDir = $this->widgetsBaseDir . "/" . $widgetName;
+        if (is_dir($widgetDir)) {
+            $cssDir = $widgetDir . '/css';
+            $templatesDir = $widgetDir . '/templates';
+
+            if (is_dir($cssDir)) {
+                $skins = YorgDirScannerTool::getFilesWithExtension($cssDir, ["css", "css.php"], false, true, true);
+            }
+
+            if (is_dir($templatesDir)) {
+                $templates = YorgDirScannerTool::getFilesWithExtension($templatesDir, "php", false, true, true);
+            }
+        }
+        $sTemplates = implode(', ', $templates);
+        $sSkins = implode(', ', $skins);
 
 
         $widgetVars = $arr['vars'];
         return str_replace([
+            '${dashWidgetName}',
             '${widgetName}',
             '${widgetDescription}',
             '${screenshotList}',
             '${widgetVarsDescriptionList}',
             '${widgetExample}',
+            '${templates}',
+            '${skins}',
         ], [
+            $dashWidgetName,
             $widgetName,
             $widgetDescription,
             $screenShotList,
             $widgetVarsDescriptionList,
             $widgetExample,
+            $sTemplates,
+            $sSkins,
         ], $content);
     }
 

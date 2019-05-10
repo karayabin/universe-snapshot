@@ -78,6 +78,8 @@ kit:
                 methods:
                     setRootDir:
                         rootDir: ${app_dir}/config/kit/pages
+        setContainer:
+            container: @container()
 
     methods_collection:
         -
@@ -86,6 +88,13 @@ kit:
                 - picasso
                 -
                     instance: Ling\Kit_PicassoWidget\WidgetHandler\PicassoWidgetHandler
+                    constructor_args:
+                        options:
+                            showCssNuggetHeaders: true
+                            showJsNuggetHeaders: true
+                    methods:
+                        setWidgetBaseDir:
+                            dir: ${app_dir}
         -
             method: registerWidgetHandler
             args:
@@ -96,12 +105,19 @@ kit:
                         setRootDir:
                             appDir: ${app_dir}
 
+
+kit_css_file_generator:
+    instance: Ling\Light_Kit\CssFileGenerator\LightKitCssFileGenerator
+    constructor_args:
+        rootDir: ${app_dir}/www
+        format: css/tmp/$identifier-compiled-widgets.css
+
 ```
 
 Note: this file is injected automatically in your light app when you import the planet.
 
 
-So basically, Light_Kit provides the **kit** service.
+So basically, Light_Kit provides the **kit** service, and the **kit_css_file_generator** service.
  
 The **kit** service configuration is stored in babyYaml files (see the setConfStorage method).
 
@@ -138,8 +154,21 @@ $kit.methods_collection:
 
 
 
+What about the **kit_css_file_generator** service.
 
-So now that the service is configured, we need to add pages.
+This service is designed to be used inside a layout script. It basically allows you to create a css file concatenating
+all the css nuggets (aka css code blocks) provided by the widgets (collected during the parsing phase of the renderer).
+This file is created on the fly and can be referenced immediately as a stylesheet url (the href attribute of a link tag inside your head tag).
+
+ 
+
+
+
+
+
+
+
+So now that the services are configured, we need to add pages.
 
 Because we are using the babyYaml storage, this is done via page configuration files.
 
@@ -209,6 +238,14 @@ $light->registerRoute("/", function (LightServiceContainerInterface $service) {
 History Log
 =============
 
+- 1.3.0 -- 2019-05-03
+
+    - update service file, now aware of the showJsNuggetHeaders option
+    
+- 1.2.0 -- 2019-05-02
+
+    - update service file, now aware of the showCssNuggetHeaders option
+    
 - 1.1.0 -- 2019-05-02
 
     - add LightKitCssFileGenerator

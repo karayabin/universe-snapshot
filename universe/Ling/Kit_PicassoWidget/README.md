@@ -33,6 +33,7 @@ Summary
 - [The Picasso file structure](#the-picasso-file-structure)
 - [Example code](#example-code)
     - [File structure:](#file-structure)
+- [A concrete skin example](#the-picasso-file-structure)
 - [Related](#related)    
 - [History Log](#history-log)
 
@@ -56,10 +57,10 @@ template: $templateName         # for instance: default.php, or prototype.php. T
 ?skin: null  
 ?vars:                          # An array of variables to pass to the template
     my_value: 667 
-?attr:                          # An array of html attributes to add to the widget's outer tag
-    id: my_id
-    class: my_class my_class2
-    data-example-value: 668
+    ?attr:                          # An array of html attributes to add to the widget's outer tag
+        id: my_id
+        class: my_class my_class2
+        data-example-value: 668
 
 ``` 
 
@@ -100,8 +101,10 @@ Here is the **widget** directory structure:
 --------- default.php       # just an example, can be any name really...
 ----- js-init/
 --------- default.js        # can be any name, but it's the same name as a template
+--------- default.js.php    # use this instead of default.js to turn the file into a dynamic js nugget
 ----- css/                  # this directory contains the css code blocks to add to the chosen template
 --------- default.css       # can be any name, but it's the same name as a template
+--------- default.css.php   # use this instead of default.css to turn the file into a dynamic css nugget
 ```
 
 
@@ -111,9 +114,9 @@ Note: the **widget** directory can be placed anywhere using the **widgetDir** di
 Notes:
 - because of this design, a planet can provide multiple Picasso widgets.
 - the **js-init** directory contains any [js code block](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot.md#property-jsCodeBlocks) that you want to inject in your html page.
-- the files contained in the **js-init** directory must have the same name than the template being used (with the **.js** extension instead).
+- the files contained in the **js-init** directory must have the same name than the template being used (with the **.js** or **.js.php** extension instead). If the **.js.php** extension is used, it's [dynamic nugget](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/pages/conception-notes.md#dynamic-nuggets).
 - the **css** directory contains any [css code block](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot.md#property-cssCodeBlocks) that you want to inject in an external css stylesheet.
-- the files contained in the **css** directory must have the same name than the template being used (with the **.css** extension instead).
+- the files contained in the **css** directory must have the same name than the template being used (with the **.css** or **.css.php** extension instead). If the **.css.php** extension is used, it's [dynamic nugget](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/pages/conception-notes.md#dynamic-nuggets).
 
 
 
@@ -173,10 +176,10 @@ zones:
             ?skin: null
             ?vars:  
                 my_value: 668
-            ?attr:
-                id: my_id
-                class: my_class my_class2
-                data-example-value: 668
+                ?attr:
+                    id: my_id
+                    class: my_class my_class2
+                    data-example-value: 668
                 
 ```
 
@@ -207,16 +210,133 @@ Widget class was declared (**index.php** in this very particular case).
 
 
 
+
+A concrete skin example
+==============
+
+To use a skin, we recommend the following approach:
+
+- add the skin to your widget configuration, AND as a css class as well. 
+- then create your skin file, using the skin css class to write your rules  
+
+
+Here is an example widget configuration array using the **looplab-dark** skin that I want to create:
+
+```yaml
+
+# ...
+-
+    name: looplab_monochrome_header
+    type: picasso
+    className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\LoopLabMonoChromeHeaderWidget
+    widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/LoopLabMonoChromeHeaderWidget
+    template: default.php
+    skin: looplab-dark
+    vars:
+        attr:
+            class: looplab-dark
+        title: Explore
+        text: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente doloribus ut iure itaque quibusdam rem accusantium deserunt reprehenderit sunt minus.
+        button_url: '#'
+        button_class: btn btn-outline-secondary
+        button_text: Find Out More
+```
+                
+                
+Notice that I've written my **looplab-dark** skin in two different locations:
+
+- **skin**, to indicate that I want to include the skin file (named **looplab-dark.css** or **looplab-dark.css.php** in the **widget** dir)
+- **vars.attr.class**, to simply add the **looplab-dark** css class to my widget's container tag 
+
+
+Then, in my widget dir (in this case: **templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/LoopLabMonoChromeHeaderWidget**),
+I create my skin file: **css/looplab-dark.css**, with the following content (for instance):
+
+
+```css
+.kit-bwl-monochrome_header.looplab-dark {
+    background: #333;
+    color: #fff;
+}
+```
+
+Note: the **kit-bwl-monochrome_header** is hardcoded in the template, so I can always rely on it.
+
+By combining the widget's default class and the skin class, I can apply style on a widget instance basis rather than on a widget type.
+In other words, I can add the **looplab_monochrome_header** widget multiple times in my page, each time with a different skin.
+ 
+
+
+
+
+
+                
+                
+
 Related
 ========
 
 - [Kit](https://github.com/lingtalfi/Kit): the widget rendering system 
 - [Kit_PrototypeWidget](https://github.com/lingtalfi/Kit_PrototypeWidget): another widget type
+- [Light_Kit_BootstrapWidgetLibrary](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary): a widget library for the [Light framework](https://github.com/lingtalfi/Light), using picasso widgets
 
 
 History Log
 =============
 
+- 1.19.0 -- 2019-05-10
+
+    - update PicassoWidget->prepare method, now can transform the widget configuration array
+    
+- 1.18.1 -- 2019-05-10
+
+    - fix VariableDescriptionDocWriterUtil no carriage return after long example (typo)
+    
+- 1.18.0 -- 2019-05-06
+
+    - update VariableDescriptionDocWriterUtil, now example accepts array value
+    
+- 1.17.0 -- 2019-05-06
+
+    - update VariableDescriptionFileGeneratorUtil, now the default value for string is set with the actual value being used 
+    
+- 1.16.0 -- 2019-05-03
+
+    - add the PicassoWidget->prepare method 
+    
+- 1.15.0 -- 2019-05-03
+
+    - update VariableDescriptionDocWriterUtil now lists the skins and templates
+    
+- 1.14.1 -- 2019-05-03
+
+    - update documentation
+    
+- 1.14.0 -- 2019-05-03
+
+    - update VariableDescriptionFileGeneratorUtil, now the renderExample method indents the code with four spaces.
+    
+- 1.13.0 -- 2019-05-03
+
+    - update VariableDescriptionFileGeneratorUtil, now adds a specific description for attr variable.
+    
+- 1.12.0 -- 2019-05-03
+
+    - add VariableDescriptionFileGeneratorUtil
+    
+- 1.11.0 -- 2019-05-03
+
+    - update PicassoWidgetHandler: now handles dynamic nuggets
+    - update PicassoWidgetHandler: add constructor option $showJsNuggetHeaders
+    
+- 1.10.0 -- 2019-05-02
+
+    - update PicassoWidgetHandler: add constructor option $showCssNuggetHeaders
+    
+- 1.9.0 -- 2019-05-02
+
+    - update widget configuration array: attr is now part of the vars
+    
 - 1.8.0 -- 2019-05-02
 
     - add the skin concept (and implementation)

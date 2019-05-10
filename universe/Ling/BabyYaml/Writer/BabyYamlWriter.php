@@ -135,7 +135,7 @@ class BabyYamlWriter
                 }
                 $s .= $v . $this->eol();
             }
-            $s .= '>';
+            $s .= str_repeat(' ', $level * 4) . '>';
             $v = $s;
         } else {
             $v = $this->valueAdaptor->getValue($scalar);

@@ -7,11 +7,7 @@ use Ling\CliTools\Output\Output;
 use Ling\Deploy\Application\DeployApplication;
 
 
-if (file_exists('/home/ling/universe/bigbang.php')) {
-    require_once '/home/ling/universe/bigbang.php';
-} else {
-    require_once "/myphp/universe/bigbang.php"; // activate universe
-}
+require_once "/myphp/universe/bigbang.php"; // activate universe
 
 
 

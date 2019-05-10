@@ -101,6 +101,13 @@ Then all you need to do is type this command (perhaps prepend it with sudo if re
 ln -s /myphp/universe/Ling/Deploy/script/deploy.php /usr/local/bin/deploy
 ```
 
+Don't forget to make the script executable (otherwise you might have a permission denied):
+
+```bash
+sudo chmod u+x /myphp/universe/Ling/Deploy/script/deploy.php
+```
+
+
 If it worked, you should be able to type:
 
 ```bash

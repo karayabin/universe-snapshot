@@ -33,6 +33,10 @@ Or just download it and place it where you want otherwise.
 History Log
 =============
 
+- 1.11.0 -- 2019-05-03
+
+    - update Kaos push command now automatically repatriating asset map for light plugins
+    
 - 1.10.0 -- 2019-05-02
 
     - update Kaos push command, now automatically calls packlightmap for Light plugins

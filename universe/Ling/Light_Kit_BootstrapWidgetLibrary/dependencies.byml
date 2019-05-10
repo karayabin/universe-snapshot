@@ -1,6 +1,8 @@
 dependencies: 
     Ling: 
         - Kit_PicassoWidget
+        - HtmlPageTools
     
 
-post_install: []
+post_install: 
+    map: true

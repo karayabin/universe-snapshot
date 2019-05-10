@@ -36,9 +36,13 @@ class SingleCharMultiLineDelimiter implements MultiLineDelimiterInterface
         return ($this->startChar === $lastChar);
     }
 
-    public function isEnd($line)
+    public function isEnd($line, $nbIndentChars, $indentChar)
     {
-        return ($this->endChar === trim($line));
+        return (
+            $this->endChar === trim($line) &&
+            0 === strpos($line, str_repeat($indentChar, $nbIndentChars) . $this->endChar)
+        );
+
     }
 
 }

@@ -284,8 +284,10 @@ class BabyYamlBuilder
             // MULTI LINE MODE
             //------------------------------------------------------------------------------/
             if (true === $muliLineMode) {
+
                 // is it the end of multiLine mode ?
-                if (true === $multiLineDelimiter->isEnd($line)) {
+
+                if (true === $multiLineDelimiter->isEnd($line, $this->nbIndentCharPerLevel * $level, $this->indentChar)) {
 
                     $this->processMultiLines($multiLines, $multiLineCompiler);
 
@@ -413,7 +415,6 @@ class BabyYamlBuilder
             throw new \RuntimeException(sprintf("Unknown keyMode %s", $keyMode));
         }
     }
-
 
 
     /**

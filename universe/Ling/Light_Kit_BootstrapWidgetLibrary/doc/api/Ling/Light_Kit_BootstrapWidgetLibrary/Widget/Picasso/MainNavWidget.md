@@ -4,7 +4,7 @@
 
 The MainNavWidget class
 ================
-2019-04-26 --> 2019-05-02
+2019-04-26 --> 2019-05-10
 
 
 
@@ -14,7 +14,7 @@ The MainNavWidget class
 Introduction
 ============
 
-
+The MainNavWidget class.
 
 
 
@@ -27,6 +27,9 @@ class <span class="pl-k">MainNavWidget</span> extends PicassoWidget implements U
 - Inherited properties
     - protected array [PicassoWidget::$libraries](#property-libraries) ;
     - protected array [PicassoWidget::$attr](#property-attr) ;
+
+- Methods
+    - public [prepare](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/Widget/Picasso/MainNavWidget/prepare.md)(array $widgetConf, Ling\HtmlPageTools\Copilot\HtmlPageCopilot $copilot) : void
 
 - Inherited methods
     - public PicassoWidget::__construct() : void
@@ -51,6 +54,7 @@ class <span class="pl-k">MainNavWidget</span> extends PicassoWidget implements U
 Methods
 ==============
 
+- [MainNavWidget::prepare](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/Widget/Picasso/MainNavWidget/prepare.md) &ndash; Prepares the widget according to the given widget configuration.
 - PicassoWidget::__construct &ndash; Builds the PicassoWidget instance.
 - PicassoWidget::getLibraries &ndash; Returns the libraries of this instance.
 - PicassoWidget::renderFile &ndash; Parses the file identified and returns its interpreted content (by injecting the variables in it).
@@ -72,3 +76,6 @@ Location
 Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\MainNavWidget
 
 
+SeeAlso
+==============
+Previous class: [LoopLabTwoColumnsTeaserWidget](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/Widget/Picasso/LoopLabTwoColumnsTeaserWidget.md)<br>Next class: [MizuxeFourColumnsOurStaffWidget](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/Widget/Picasso/MizuxeFourColumnsOurStaffWidget.md)<br>

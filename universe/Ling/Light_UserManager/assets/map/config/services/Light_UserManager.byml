@@ -1,0 +1,6 @@
+user_manager:
+    instance: Ling\Light_UserManager\UserManager\DevUserManager
+    methods:
+        setUser:
+            user:
+                instance: Ling\Light_User\AdamLightUser

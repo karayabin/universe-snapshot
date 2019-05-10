@@ -1,0 +1,85 @@
+label: Mizuxe main page
+layout: templates/Light_Kit_Demo/layouts/mizuxe/mizuxe_main_layout.php
+layout_vars: []
+
+title: Mizuxe one page theme
+description: <
+    This is the Mizuxe one page theme, created by Brad Traversy, and implemented with the Light_Kit plugin from the Light framework.
+>
+
+zones:
+    main_zone:
+        -
+            name: mizuxe_large_main_nav_with_logo
+            type: picasso
+            className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\MainNavWidget
+            widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/MainNavWidget
+            template: default.php
+            skin: mizuxe-nav
+            vars:
+                attr:
+                    class: navbar-light fixed-top py-4 mizuxe-nav
+                title: Mizuxe
+                fixed_top: true
+                title_url: /
+                title_logo:
+                    url: /plugins/Light_Kit_Demo/mizuxe/img/mlogo.png
+                    width: 50
+                    height: 50
+                    alt: Mizuxe logo
+                expand_size: md
+                links:
+                    -
+                        text: Home
+                        url: "#home"
+                    -
+                        text: About
+                        url: "#about"
+
+                    -
+                        text: Meet The Authors
+                        url: "#authors"
+                    -
+                        text: Contact
+                        url: "#contact"
+                links_align_right: true
+        -
+            name: mizuxe_two_columns_teaser
+            type: picasso
+            className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\MizuxeTwoColumnsTeaserWidget
+            widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/MizuxeTwoColumnsTeaserWidget
+            template: default.php
+            vars:
+                attr:
+                    class: py-5
+
+
+        -
+            name: mizuxe_two_columns_teaser
+            type: prototype
+            template: templates/Light_Kit_Demo/widgets/prototype/mizuxe/mizuxe_two_columns_teaser.php
+        -
+            name: mizuxe_newsletter_signup_header
+            type: prototype
+            template: templates/Light_Kit_Demo/widgets/prototype/mizuxe/mizuxe_newsletter_signup_header.php
+        -
+            name: mizuxe_four_columns_card_teaser
+            type: prototype
+            template: templates/Light_Kit_Demo/widgets/prototype/mizuxe/mizuxe_four_columns_card_teaser.php
+        -
+            name: mizuxe_one_column_accordion_teaser
+            type: prototype
+            template: templates/Light_Kit_Demo/widgets/prototype/mizuxe/mizuxe_one_column_accordion_teaser.php
+        -
+            name: mizuxe_four_columns_our_staff_header
+            type: prototype
+            template: templates/Light_Kit_Demo/widgets/prototype/mizuxe/mizuxe_four_columns_our_staff_header.php
+
+        -
+            name: mizuxe_one_column_contact_form
+            type: prototype
+            template: templates/Light_Kit_Demo/widgets/prototype/mizuxe/mizuxe_one_column_contact_form.php
+        -
+            name: mizuxe_right_aligned_monochrome_footer
+            type: prototype
+            template: templates/Light_Kit_Demo/widgets/prototype/mizuxe/mizuxe_right_aligned_monochrome_footer.php

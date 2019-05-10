@@ -1,0 +1,74 @@
+name: MizuxeNewsletterSignupHeaderWidget
+description: <
+    MizuxeNewsletterSignupHeaderWidget is a bootstrap 4 widget.
+    It's an epurated newsletter signup form with two fields and a submit button.
+    The two fields are name and email.
+    We can disable the name field to only collect the email using the **field_name_active** property.
+
+>
+
+vars:
+    attr:
+        type: array
+        default_value: null
+        description: The attributes to add to the widget's container tag.
+        properties: 
+            class:
+                type: string
+                default_value: bg-dark text-white py-5
+                description: The css class to apply to the widget's container tag.
+                example: bg-dark text-white py-5
+    field_name_active:
+        type: bool
+        default_value: true
+        description: Whether to show the name field.
+    field_name_name:
+        type: string
+        default_value: name
+        description: The value of the name attribute for the **name** field.
+        example: name
+    field_name_label:
+        type: string
+        default_value: Enter Name
+        description: The label for the **name** field.
+        example: Enter Name
+    field_email_name:
+        type: string
+        default_value: email
+        description: The value of the name attribute for the **email** field.
+        example: email
+    field_email_label:
+        type: string
+        default_value: Enter Email
+        description: The label for the **email** field.
+        example: Enter Email
+    btn_class:
+        type: string
+        default_value: btn btn-primary btn-lg btn-block
+        description: The css class to use on the button.
+        example: btn btn-primary btn-lg btn-block
+    btn_icon:
+        type: string
+        default_value: fas fa-envelope-open
+        description: The css class of the button icon.
+        example: fas fa-envelope-open
+    btn_text:
+        type: string
+        default_value: Subscribe
+        description: The text of the button.
+        example: Subscribe
+
+
+example: <
+    attr: 
+        class: bg-dark text-white py-5
+    
+    field_name_active: true
+    field_name_name: name
+    field_name_label: Enter Name
+    field_email_name: email
+    field_email_label: Enter Email
+    btn_class: btn btn-primary btn-lg btn-block
+    btn_icon: fas fa-envelope-open
+    btn_text: Subscribe
+>

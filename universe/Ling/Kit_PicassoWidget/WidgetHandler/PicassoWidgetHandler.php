@@ -83,13 +83,36 @@ class PicassoWidgetHandler implements WidgetHandlerInterface
      */
     protected $widgetBaseDir;
 
+    /**
+     * This property holds the showCssNuggetHeaders for this instance.
+     * Whether or not to show some headers along with the css nuggets (aka css code blocks).
+     * This might be useful for debugging, if you print all your nuggets in a compiled file,
+     * to better spot the provenance for each nugget.
+     *
+     *
+     * @var bool = false
+     */
+    protected $showCssNuggetHeaders;
+
+    /**
+     * This property holds the showJsNuggetHeaders for this instance.
+     * Whether or not to show some headers along with the js nuggets (aka js init code blocks).
+     *
+     * This might be useful for debugging.
+     * @var bool = false
+     */
+    protected $showJsNuggetHeaders;
+
 
     /**
      * Builds the PicassoWidgetHandler instance.
+     * @param array $options
      */
-    public function __construct()
+    public function __construct(array $options = [])
     {
         $this->widgetBaseDir = "";
+        $this->showCssNuggetHeaders = $options['showCssNuggetHeaders'] ?? false;
+        $this->showJsNuggetHeaders = $options['showJsNuggetHeaders'] ?? false;
     }
 
     /**
@@ -122,6 +145,12 @@ class PicassoWidgetHandler implements WidgetHandlerInterface
 
 
                         //--------------------------------------------
+                        // PREPARE THE WIDGET
+                        //--------------------------------------------
+                        $instance->prepare($widgetConf, $copilot);
+
+
+                        //--------------------------------------------
                         // FINDING THE WIDGET DIR
                         //--------------------------------------------
                         if (array_key_exists("widgetDir", $widgetConf)) {
@@ -140,6 +169,15 @@ class PicassoWidgetHandler implements WidgetHandlerInterface
                         $templateDir = $widgetDir . '/templates';
                         $templateFile = $templateDir . '/' . $templateFileName;
                         if (is_file($templateFile)) {
+
+
+                            //--------------------------------------------
+                            // PRESETS
+                            //--------------------------------------------
+                            /**
+                             * todo: preset loader...
+                             */
+
 
 
                             //--------------------------------------------
@@ -173,17 +211,32 @@ class PicassoWidgetHandler implements WidgetHandlerInterface
 
 
                             //--------------------------------------------
-                            // REGISTERING JS INIT CODE BLOCKS
+                            // REGISTERING JS NUGGET (INIT CODE BLOCKS)
                             //--------------------------------------------
+                            $hasNugget = false;
                             $jsInitFile = $widgetDir . "/js-init/$templateName.js";
                             if (file_exists($jsInitFile)) {
+                                $hasNugget = true;
                                 $codeBlock = file_get_contents($jsInitFile);
+                            } else {
+                                $jsInitFile .= ".php";
+                                if (file_exists($jsInitFile)) {
+                                    $codeBlock = $instance->renderFile($jsInitFile, $widgetVars);
+                                    $hasNugget = true;
+                                }
+
+                            }
+
+                            if (true === $hasNugget) {
+                                if (true === $this->showJsNuggetHeaders) {
+                                    $codeBlock = "/** $className */" . PHP_EOL . $codeBlock;
+                                }
                                 $copilot->addJsCodeBlock($codeBlock);
                             }
 
 
                             //--------------------------------------------
-                            // REGISTERING CSS CODE BLOCKS
+                            // REGISTERING CSS NUGGETS (CODE BLOCKS)
                             //--------------------------------------------
                             if (array_key_exists("skin", $widgetConf)) {
                                 $skin = $widgetConf['skin'];
@@ -191,13 +244,28 @@ class PicassoWidgetHandler implements WidgetHandlerInterface
                                 $skin = $templateName;
                             }
                             if (null !== $skin) {
+                                // static nuggets
+                                $hasNugget = false;
                                 $cssCodeBlockFile = $widgetDir . "/css/$skin.css";
                                 if (file_exists($cssCodeBlockFile)) {
                                     $codeBlock = file_get_contents($cssCodeBlockFile);
+                                    $hasNugget = true;
+                                } else {
+                                    // dynamic nuggets
+                                    $cssCodeBlockFile .= ".php";
+                                    if (file_exists($cssCodeBlockFile)) {
+                                        $codeBlock = $instance->renderFile($cssCodeBlockFile, $widgetVars);
+                                        $hasNugget = true;
+                                    }
+                                }
+
+                                if (true === $hasNugget) {
+                                    if (true === $this->showCssNuggetHeaders) {
+                                        $codeBlock = "/** $className */" . PHP_EOL . $codeBlock;
+                                    }
                                     $copilot->addCssCodeBlock($codeBlock);
                                 }
                             }
-
 
                             return $content;
 

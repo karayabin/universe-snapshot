@@ -1,0 +1,135 @@
+name: LoopLabFooterWithContactUseButtonWidget
+description: <
+LoopLabFooterWithContactUseButtonWidget is a bootstrap 4 widget representing a footer with a button opening a "contact us" modal form.
+
+It's composed of two parts: the footer, and the form.
+
+The footer has a title, a text, and a button.
+
+In the footer text, you can use the $year variable to add an always up-to-date copyright year.
+
+The form has a title, some customizable fields, and a submit button.
+
+Each customizable field has a type which can be one of the following:
+
+- text: an input tag with type text
+- email: an input tag with type email
+- textarea: a textarea tag
+
+
+
+>
+
+vars:
+    attr:
+        type: array
+        default_value: null
+        description: The attributes to add to the widget's container tag.
+        properties: 
+            class:
+                type: string
+                default_value: ""
+                description: The css class to apply to the widget container tag. We recommend using bootstrap 4 css classes.
+                example: bg-dark
+    footer_title:
+        type: string
+        default_value: ""
+        description: The title of the footer.
+        example: LoopLab
+    footer_text:
+        type: string
+        default_value: ""
+        description: The text of the footer. You can use the **$year** variable to indicate the year dynamically.
+        example: Copyright &copy; $year
+    footer_button_class:
+        type: string
+        default_value: btn btn-primary
+        description: todo: here
+        example: btn btn-primary
+    footer_button_text:
+        type: string
+        default_value: Contact Us
+        description: The footer button text.
+        example: Contact Us
+    modal_title:
+        type: string
+        default_value: Contact Us
+        description: The modal form text.
+        example: Contact Us
+    modal_form_action:
+        type: string
+        default_value: ""
+        description: The value of the modal form **action** attribute.
+        example: 
+    modal_form_method:
+        type: string
+        default_value: post
+        description: The value of the modal form **method** attribute.
+        example: post
+    modal_fields:
+        type: item_list
+        default_value: []
+        description: A list of fields to display in the modal form.
+        item_properties: 
+            label:
+                type: string
+                default_value: ""
+                description: The label of the field.
+                example: Name
+            name:
+                type: string
+                default_value: ""
+                description: The value of the name attribute of the field.
+                example: name
+            type:
+                type: string
+                default_value: ""
+                description: The type of the field. See the possible value in the choices property.
+                choices:
+                    - text
+                    - email
+                    - textarea
+                example: text
+    modal_btn_text:
+        type: string
+        default_value: ""
+        description: The value of the modal form's submit button.
+        example: Submit
+    modal_btn_class:
+        type: string
+        default_value: btn btn-primary btn-block
+        description: The css class for the modal form's submit button.
+        example: btn btn-primary btn-block
+
+
+example: <
+    attr: 
+        class: bg-dark
+    
+    footer_title: LoopLab
+    footer_text: Copyright &copy; $year
+    footer_button_class: btn btn-primary
+    footer_button_text: Contact Us
+    modal_title: Contact Us
+    modal_form_action: ""
+    modal_form_method: post
+    modal_fields: 
+        - 
+            label: Name
+            name: name
+            type: text
+        
+        - 
+            label: Email
+            name: email
+            type: email
+        
+        - 
+            label: Message
+            name: message
+            type: textarea
+        
+    
+    modal_btn_text: Submit
+    modal_btn_class: btn btn-primary btn-block
+>

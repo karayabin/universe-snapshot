@@ -20,6 +20,10 @@ kit:
                 - picasso
                 -
                     instance: Ling\Kit_PicassoWidget\WidgetHandler\PicassoWidgetHandler
+                    constructor_args:
+                        options:
+                            showCssNuggetHeaders: true
+                            showJsNuggetHeaders: true
                     methods:
                         setWidgetBaseDir:
                             dir: ${app_dir}

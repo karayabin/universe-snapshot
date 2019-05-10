@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [PicassoWidgetHandler::__construct](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/api/Ling/Kit_PicassoWidget/WidgetHandler/PicassoWidgetHandler/__construct.md)() : void
+public [PicassoWidgetHandler::__construct](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/api/Ling/Kit_PicassoWidget/WidgetHandler/PicassoWidgetHandler/__construct.md)(array $options = []) : void
 
 
 
@@ -29,7 +29,10 @@ Builds the PicassoWidgetHandler instance.
 Parameters
 ================
 
-This method has no parameters.
+
+- options
+
+    
 
 
 Return values

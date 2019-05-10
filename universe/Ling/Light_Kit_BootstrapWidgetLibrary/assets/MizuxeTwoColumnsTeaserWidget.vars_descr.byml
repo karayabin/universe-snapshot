@@ -1,0 +1,131 @@
+name: MizuxeTwoColumnsTeaserWidget
+description: <
+
+MizuxeTwoColumnsTeaserWidget is a bootstrap 4 widget composed of three parts:
+
+- the teaser
+- the image
+- the background
+
+The teaser has a title, a text and a button with an icon.
+
+By default, the image only appears on large screens.
+You can make it appears on a different size using the **img_size_visible** property.
+
+The image will appear by default on the right of the text. This can be changed using the **img_on_right** property.
+
+The background is composed of a background image and a background overlay used as a tint.
+
+
+
+>
+
+vars:
+    attr:
+        type: array
+        default_value: null
+        description: The attributes to add to the widget's container tag.
+        properties: 
+            class:
+                type: string
+                default_value: ""
+                description: The css class to add to the widget container tag.
+                example: py-5
+    teaser_title:
+        type: string
+        default_value: No title
+        description: The title of the teaser.
+        example: Do What You Dream Of...
+    teaser_text:
+        type: string
+        default_value: ""
+        description: The text of the teaser.
+        example: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, voluptatibus?
+    teaser_text_align:
+        type: string
+        default_value: center
+        description: The align value for the teaser text. See the choices for the available values.
+        example: center
+        choices:
+            - center
+            - left
+            - right
+    teaser_button_text:
+        type: string
+        default_value: Read More
+        description: The text of the teaser button.
+        example: Read More
+    teaser_button_icon:
+        type: string
+        default_value: fas fa-arrow-right
+        description: The icon of the teaser button.
+        example: fas fa-arrow-right
+    teaser_button_class:
+        type: string
+        default_value: btn btn-outline-secondary btn-lg text-white
+        description: The css class of the teaser button.
+        example: btn btn-outline-secondary btn-lg text-white
+    teaser_button_url:
+        type: string
+        default_value: "#"
+        description: The url of the teaser button.
+        example: "#"
+    img_on_right:
+        type: bool
+        default_value: true
+        description: Whether to display the image on the right of the teaser.
+    img_size_visible:
+        type: string
+        default_value: lg
+        description: The screen size at which the image becomes visible. Use bootstrap 4 sizes.
+        example: lg
+        choices:
+            - sm
+            - md
+            - lg
+    img_src:
+        type: string
+        default_value: ""
+        description: The value of the src attribute of the img tag for the image.
+        example: /plugins/Light_Kit_Demo/mizuxe/img/book.png
+    img_alt:
+        type: string
+        default_value: ""
+        description: The value of the alt attribute of the img tag for the image.
+        example: Mizuxe Mountains Book
+    bg_style:
+        type: string
+        default_value: transparent
+        description: The value of the background css property for the background image.
+        example: url('/plugins/Light_Kit_Demo/mizuxe/img/mountains.jpg')
+    bg_overlay_style:
+        type: string
+        default_value: transparent
+        description: The value of the background css property for the background overlay.
+        example: rgba(50, 146, 166, 0.8);
+    bg_overlay_class:
+        type: string
+        default_value: ""
+        description: The css class to add to the background overlay.
+        example: text-white
+
+
+example: <
+    attr: 
+        class: py-5
+    
+    teaser_title: Do What You Dream Of...
+    teaser_text: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, voluptatibus?
+    teaser_text_align: center
+    teaser_button_text: Read More
+    teaser_button_icon: fas fa-arrow-right
+    teaser_button_class: btn btn-outline-secondary btn-lg text-white
+    teaser_button_url: "#"
+    img_on_right: true
+    img_size_visible: lg
+    img_src: /plugins/Light_Kit_Demo/mizuxe/img/book.png
+    img_alt: Mizuxe Mountains Book
+    bg_style: url('/plugins/Light_Kit_Demo/mizuxe/img/mountains.jpg')
+    bg_overlay_style: rgba(50, 146, 166, 0.8);
+    bg_overlay_class: text-white
+>

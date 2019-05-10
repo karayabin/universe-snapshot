@@ -1,8 +1,15 @@
 ${widgetName}
 ==============
 
-${widgetDescription}
 
+- [Screenshots](#${dashWidgetName}-screenshots)
+- [Templates and skins](#${dashWidgetName}-templates-and-skins)
+- [Example](#${dashWidgetName}-configuration-example)
+- [Variables descriptions](#${dashWidgetName}-variables-description)
+
+
+
+${widgetDescription}
 
 
 
@@ -14,11 +21,11 @@ ${widgetName} screenshots
 ${screenshotList}
 
 
-${widgetName} variables description
+
+${widgetName} templates and skins
 -----------
-
-${widgetVarsDescriptionList}
-
+- **Templates**: ${templates}
+- **Skins**: ${skins}
 
 
 ${widgetName} configuration example
@@ -27,6 +34,13 @@ ${widgetName} configuration example
 ```yaml
 ${widgetExample}
 ```
+
+
+
+${widgetName} variables description
+-----------
+
+${widgetVarsDescriptionList}
 
 
 

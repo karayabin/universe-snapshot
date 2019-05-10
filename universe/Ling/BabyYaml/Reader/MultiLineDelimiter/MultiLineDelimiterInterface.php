@@ -1,7 +1,6 @@
 <?php
 
 
-
 namespace Ling\BabyYaml\Reader\MultiLineDelimiter;
 
 
@@ -17,5 +16,5 @@ interface MultiLineDelimiterInterface
 
     public function isBegin($line);
 
-    public function isEnd($line);
+    public function isEnd($line, $nbIndentChars, $indentChar);
 }

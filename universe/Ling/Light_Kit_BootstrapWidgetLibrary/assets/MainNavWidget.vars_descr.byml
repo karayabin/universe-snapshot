@@ -5,8 +5,37 @@ description: <
     The MainNavWidget is a bootstrap 4 widget representing the top navigation on a website.
     You can configure the title of the nav with or without a logo, and you can create two separate
     sets of links, with various options for each link, such as adding an icon, or a dropdown menu.
+
+    You can also enable spyscroll and smooth scrolling to enhance your navigation if your theme is a one page theme.
+
 >
 vars:
+
+    attr:
+        type: array
+        default_value: null
+        description: The attributes to add to the widget's container tag.
+        properties:
+            class:
+                type: string
+                default_value: bg-light text-muted py-5
+                description: The css class to add to the widget container. We recommend using bootstrap css classes.
+                example: bg-dark navbar-dark looplab-nav
+            id:
+                type: string
+                default_value: ""
+                description: The css id to add to the widget container. It's required if you are using the spyscroll or the smooth scrolling feature.
+                example: main-nav
+
+    use_scrollspy:
+        type: bool
+        default_value: false
+        description: Whether to activate the scroll spy. If so, you must define a css id. See the bootstrap documentation for more info.
+
+    use_smooth_scrolling:
+        type: bool
+        default_value: false
+        description: Whether to smoothly scroll to the desired anchor when you the user clicks a link item (this only works on one page themes). To use this feature you must define a css id.
 
     title:
         type: string
@@ -99,65 +128,65 @@ vars:
 
 example: <
 
-title: LoopLab
+    title: LoopLab
 
-# Whether the top nav is fixed on the top
-fixed_top: true
+    # Whether the top nav is fixed on the top
+    fixed_top: true
 
-# the string to put in the href attribute of the title link.
-# It can be an anchor if necessary
-# The default value is slash
-title_url: /
+    # the string to put in the href attribute of the title link.
+    # It can be an anchor if necessary
+    # The default value is slash
+    title_url: /
 
-# If not set, the title will not use a logo
-# If set, the title_logo must define all parameters as the example below
-#title_logo:
-#    url: /plugins/Light_Kit_Demo/mizuxe/img/mlogo.png
-#    width: 50
-#    height: 50
-#    alt: Mizuxe logo
-expand_size: sm # at which size does the burger menu expand (sm | md | lg) = sm
-links:
-    -
-        text: Home
-        url: "#home"
-#        icon: fas fa-user
-    -
-        text: Explore
-        url: "#explore-head-section"
+    # If not set, the title will not use a logo
+    # If set, the title_logo must define all parameters as the example below
+    #title_logo:
+    #    url: /plugins/Light_Kit_Demo/mizuxe/img/mlogo.png
+    #    width: 50
+    #    height: 50
+    #    alt: Mizuxe logo
+    expand_size: sm # at which size does the burger menu expand (sm | md | lg) = sm
+    links:
+        -
+            text: Home
+            url: "#home"
+    #        icon: fas fa-user
+        -
+            text: Explore
+            url: "#explore-head-section"
 
-    -
-        text: Create
-        url: "#create-head-section"
-    -
-        text: Share
-        url: "#share-head-section"
+        -
+            text: Create
+            url: "#create-head-section"
+        -
+            text: Share
+            url: "#share-head-section"
 
-# An additional css class to add to all link items. Example: px-2
-#links_item_class: px-2
+    # An additional css class to add to all link items. Example: px-2
+    #links_item_class: px-2
 
-# Whether to push the links on the right. Note: if you use links2.
-links_align_right: false
+    # Whether to push the links on the right. Note: if you use links2.
+    links_align_right: false
 
-links2:
-    -
-        text: Welcome Ling
-        url: "#"
-        icon: fas fa-user
-        children:
-            -
-                text: Profile
-                url: "#create-head-section"
-                icon: fas fa-user-circle
-            -
-                text: Settings
-                url: "#create-head-section"
-                icon: fas fa-cog
-    -
-        text: Log out
-        url: "#share-head-section"
-        icon: fas fa-user-times
-links2_align_right: true
+    links2:
+        -
+            text: Welcome Ling
+            url: "#"
+            icon: fas fa-user
+            children:
+                -
+                    text: Profile
+                    url: "#create-head-section"
+                    icon: fas fa-user-circle
+                -
+                    text: Settings
+                    url: "#create-head-section"
+                    icon: fas fa-cog
+        -
+            text: Log out
+            url: "#share-head-section"
+            icon: fas fa-user-times
+    links2_align_right: true
 
 >
 

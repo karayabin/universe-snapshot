@@ -38,6 +38,10 @@ Summary
 History Log
 =============
 
+- 1.5.0 -- 2019-05-03
+
+    - add HtmlPageCopilot hasJsCodeBlocks method
+    
 - 1.4.0 -- 2019-05-02
 
     - update CssFileGeneratorInterface now has a copilot argument

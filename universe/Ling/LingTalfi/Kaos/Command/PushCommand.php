@@ -124,12 +124,18 @@ class PushCommand extends KaosGenericCommand
                     try {
 
 
+                        $isLightPlugin = false;
+                        if ('Ling' === $galaxyName && "Light_" === substr($planetName, 0, 6)) {
+                            $isLightPlugin = true;
+                        }
+
+
                         /**
                          * We add the map if detected
                          */
                         $mapDir = $planetDir . "/assets/map";
                         $postInstall = [];
-                        if (is_dir($mapDir)) {
+                        if (true === $isLightPlugin || is_dir($mapDir)) {
                             $postInstall['map'] = true;
                         }
 
@@ -142,7 +148,7 @@ class PushCommand extends KaosGenericCommand
                             //--------------------------------------------
                             // LIGHT PACKING
                             //--------------------------------------------
-                            if ('Ling' === $galaxyName && "Light_" === substr($planetName, 0, 6)) {
+                            if (true === $isLightPlugin) {
                                 $currentUniverseDir = dirname(dirname($currentPwd));
                                 $p = explode('/', $currentUniverseDir);
                                 $currentUniverseDirName = array_pop($p);

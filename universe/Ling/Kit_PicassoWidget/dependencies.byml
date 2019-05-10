@@ -4,8 +4,8 @@ dependencies:
         - BabyYaml
         - Bat
         - DirScanner
-        - ZephyrTemplateEngine
         - HtmlPageTools
+        - ZephyrTemplateEngine
     
 
 post_install: []

@@ -1,0 +1,12 @@
+https://github.com/lingtalfi/Light_User/blob/master/README.md
+https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/AdamLightUser/getIdentifier.md
+https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/AdamLightUser/hasRight.md
+https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/AdamLightUser/isValid.md
+https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/AdamLightUser.md
+https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightUserInterface/getIdentifier.md
+https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightUserInterface/hasRight.md
+https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightUserInterface/isValid.md
+https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightUserInterface.md
+https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User.md
+https://github.com/lingtalfi/Light_User/blob/master/doc/pages/conception-notes.md
+https://github.com/lingtalfi/Light_User/blob/master/doc/pages/conception.md

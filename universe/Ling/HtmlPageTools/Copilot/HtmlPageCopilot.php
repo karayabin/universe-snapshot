@@ -308,6 +308,16 @@ class HtmlPageCopilot
         return $this->jsCodeBlocks;
     }
 
+
+    /**
+     * Returns whether the instance has js code blocks.
+     * @return bool
+     */
+    public function hasJsCodeBlocks(): bool
+    {
+        return (count($this->jsCodeBlocks) > 0);
+    }
+
     /**
      * Returns the cssCodeBlocks of this instance.
      * It's an array of strings (css code blocks).

@@ -46,11 +46,15 @@ class BabyYamlWriterValueAdaptor
             /**
              * Does the string need protective quotes around it?
              *
-             * In this naive version, I will just say that if there is no double quote at all,
-             * then it doesn't need protection.
+             * In this version,
+             * - if it's a comment, it needs protection
+             * - if there is no double quote at all, then it doesn't need protection
              *
              */
-            if (false === strpos($value, '"')) {
+            if (
+                0 !== strpos($trim, '#') &&
+                false === strpos($value, '"')
+            ) {
                 return $value;
             }
 

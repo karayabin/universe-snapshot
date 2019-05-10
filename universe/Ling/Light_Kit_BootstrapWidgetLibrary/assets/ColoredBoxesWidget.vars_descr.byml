@@ -1,0 +1,120 @@
+name: ColoredBoxesWidget
+description: <
+    ColoredBoxesWidget is a bootstrap 4 widget used to display colored boxes.
+    We can change the number of columns using the **column_class** property.
+    Each box contains an optional icon, a title and a text.
+    We can change the css class and the background style for each box,
+    and align the text on the left, center or right.
+>
+
+vars:
+    attr:
+        type: array
+        default_value: null
+        description: The attributes to add to the widget's container tag.
+        properties: 
+            class:
+                type: string
+                default_value: py-5
+                description: The css class to add to the widget container tag.
+                example: py-5
+    column_class:
+        type: string
+        default_value: col-md-3
+        description: <
+            Defines the width and responsiveness of the columns containing the boxes.
+            This widget uses bootstrap 4 grid system: https://getbootstrap.com/docs/4.0/layout/grid/.
+        >
+        example: col-md-3
+    boxes:
+        type: item_list
+        default_value: []
+        description: An array of boxes.
+        item_properties: 
+            class:
+                type: string
+                default_value: ""
+                description: The css class to apply to the box outer container.
+                example:
+                    - border-primary mb-resp
+                    - bg-dark text-white
+                    - bg-primary mb-resp
+            text_align:
+                type: string
+                default_value: center
+                description: The alignment to apply to the box content (including title and text).
+                example: center
+                choices:
+                    - left
+                    - center
+                    - right
+            title:
+                type: string
+                default_value: No title
+                description: The title of the box.
+                example: Be Better
+            title_class:
+                type: string
+                default_value: ""
+                description: The css class to add to the title of the box.
+                example: text-primary
+            text:
+                type: string
+                default_value: ""
+                description: The text of the box
+                example: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, totam.
+            text_class:
+                type: string
+                default_value: ""
+                description: The css class to add to the text of the box.
+                example: text-muted
+            icon:
+                type: string
+                default_value: ""
+                description: The css class for the icon of the box. If empty, the icon will not be displayed.
+                example: fas fa-box fa-3x
+
+
+example: <
+    attr: 
+        class: py-5
+    
+    column_class: col-md-3
+    boxes: 
+        - 
+            class: border-primary mb-resp
+            text_align: center
+            title: Be Better
+            title_class: text-primary
+            text: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, totam.
+            text_class: text-muted
+            icon: ""
+        
+        - 
+            class: bg-primary mb-resp text-white
+            text_align: center
+            title: Be Smarter
+            title_class: ""
+            text: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, totam.
+            text_class: ""
+            icon: ""
+        
+        - 
+            class: border-primary mb-resp
+            text_align: center
+            title: Be Faster
+            title_class: text-primary
+            text: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, totam.
+            text_class: text-muted
+            icon: ""
+        
+        - 
+            class: bg-primary mb-resp text-white
+            text_align: center
+            title: Be Stronger
+            title_class: ""
+            text: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, totam.
+            text_class: ""
+            icon: ""
+        
+>

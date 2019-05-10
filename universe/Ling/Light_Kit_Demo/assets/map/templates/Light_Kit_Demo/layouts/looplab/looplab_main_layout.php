@@ -5,7 +5,13 @@
  * @var $this LightKitPageRenderer
  */
 
+
+use Ling\Bat\StringTool;
 use Ling\Light_Kit\PageRenderer\LightKitPageRenderer;
+
+
+$container = $this->getContainer();
+
 
 ?>
 <!DOCTYPE html>
@@ -22,15 +28,24 @@ use Ling\Light_Kit\PageRenderer\LightKitPageRenderer;
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
           integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
           crossorigin="anonymous">
+
+
+    <link rel="stylesheet"
+          href="<?php echo $container->get('kit_css_file_generator')->generate($this->copilot, $this->pageName); ?>">
+
+
     <link rel="stylesheet" href="css/style.css">
 
-    <?php if (true === $this->copilot->hasTitle()): ?><title><?php echo $this->copilot->getTitle(); ?></title><?php endif; ?>
+    <?php if (true === $this->copilot->hasTitle()): ?>
+        <title><?php echo $this->copilot->getTitle(); ?></title><?php endif; ?>
 
-    <?php if (true === $this->copilot->hasDescription()): ?><meta name="description" content="<?php echo htmlspecialchars($this->copilot->getDescription()); ?>"><?php endif; ?>
+    <?php if (true === $this->copilot->hasDescription()): ?>
+        <meta name="description"
+              content="<?php echo htmlspecialchars($this->copilot->getDescription()); ?>"><?php endif; ?>
 
 </head>
 
-<body data-spy="scroll" data-target="#main-nav" id="home">
+<body <?php echo StringTool::htmlAttributes($this->copilot->getBodyTagAttributes()); ?>>
 
 
 <?php $this->printZone("main_zone"); ?>
@@ -65,27 +80,22 @@ use Ling\Light_Kit\PageRenderer\LightKitPageRenderer;
         // Get the current year for the copyright
         $('#year').text(new Date().getFullYear());
 
-        // Init Scrollspy
-        $('body').scrollspy({target: '#main-nav'});
 
-
-        // Smooth Scrolling
-        $("#main-nav a").on('click', function (event) {
-            if (this.hash !== "") {
-                event.preventDefault();
-
-                const hash = this.hash;
-
-                $('html, body').animate({
-                    scrollTop: $(hash).offset().top
-                }, 800, function () {
-
-                    window.location.hash = hash;
-                });
-            }
-        });
     });
 </script>
+
+<?php if (true === $this->copilot->hasJsCodeBlocks()): ?>
+
+    <script>
+
+        <?php $blocks = $this->copilot->getJsCodeBlocks(); ?>
+        <?php foreach($blocks as $block): ?>
+        <?php echo $block; ?>
+        <?php endforeach; ?>
+
+    </script>
+
+<?php endif; ?>
 </body>
 
 </html>

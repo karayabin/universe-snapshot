@@ -1,0 +1,12 @@
+name: ${widgetClassName}
+description: <
+    todo: here
+    todo: here
+    todo: here
+>
+
+${vars}
+
+example: <
+${example}
+>

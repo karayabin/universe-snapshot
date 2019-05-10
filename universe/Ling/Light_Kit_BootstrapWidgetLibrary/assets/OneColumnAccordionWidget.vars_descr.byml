@@ -1,0 +1,134 @@
+name: OneColumnAccordionWidget
+description: <
+    OneColumnAccordionWidget is a bootstrap 4 widget composed of three parts:
+        - the title
+        - the text
+        - the accordion
+
+    We can show/hide each of those parts.
+
+    The accordion items can have icons.
+>
+
+vars:
+    attr:
+        type: array
+        default_value: null
+        description: The attributes to add to the widget's container tag.
+        properties: 
+            class:
+                type: string
+                default_value: py-5 text-center bg-light
+                description: The css class to add to the widget container tag.
+                example: py-5 text-center bg-light
+    title_visible:
+        type: bool
+        default_value: true
+        description: Whether to display the title.
+    title:
+        type: string
+        default_value: ""
+        description: The title.
+        example: Why This Book?
+    title_class:
+        type: string
+        default_value: text-primary pb-3
+        description: The css class of the title.
+        example: text-primary pb-3
+    text_visible:
+        type: bool
+        default_value: true
+        description: Whether to display the text.
+    text:
+        type: string
+        default_value: ""
+        description: The text below the title.
+        example: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda dolore laboriosam nisi reiciendis sint sunt?
+    text_class:
+        type: string
+        default_value: lead pb-3
+        description: The css class of the text.
+        example: lead pb-3
+    accordion_visible:
+        type: bool
+        default_value: true
+        description: Whether to display the accordion.
+    accordion_items:
+        type: item_list
+        default_value: []
+        description: An array of accordion items.
+        item_properties: 
+            icon:
+                type: string
+                default_value: ""
+                description: The css class of the icon. If empty, the icon won't be displayed.
+                example: fas fa-arrow-circle-down
+            title:
+                type: string
+                default_value: ""
+                description: The title of the accordion item.
+                example: Get Inspired
+            is_open:
+                type: bool
+                default_value: true
+                description: Whether to open the accordion item by default.
+            text:
+                type: string
+                default_value: ""
+                description: The text of the accordion item.
+                example: <
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium animi asperiores
+                    at culpa, deserunt ducimus facilis ipsa minima, obcaecati, quod reprehenderit
+                    repudiandae sed voluptates. Amet at autem commodi dicta dolore dolorum error esse et
+                    excepturi fugiat fugit labore laboriosam molestiae odit provident quisquam, repellendus
+                    ut vero vitae voluptas, voluptatem voluptatibus.
+                >
+
+example: <
+    attr: 
+        class: py-5 text-center bg-light
+    
+    title_visible: true
+    title: Why This Book?
+    title_class: text-primary pb-3
+    text_visible: true
+    text: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda dolore laboriosam nisi reiciendis sint sunt?
+    text_class: lead pb-3
+    accordion_visible: true
+    accordion_items: 
+        - 
+            icon: fas fa-arrow-circle-down
+            title: Get Inspired
+            is_open: true
+            text: <
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium animi asperiores
+                at culpa, deserunt ducimus facilis ipsa minima, obcaecati, quod reprehenderit
+                repudiandae sed voluptates. Amet at autem commodi dicta dolore dolorum error esse et
+                excepturi fugiat fugit labore laboriosam molestiae odit provident quisquam, repellendus
+                ut vero vitae voluptas, voluptatem voluptatibus.
+            >
+        - 
+            icon: fas fa-arrow-circle-down
+            title: Gain The Knowledge
+            is_open: false
+            text: <
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium animi asperiores
+                at culpa, deserunt ducimus facilis ipsa minima, obcaecati, quod reprehenderit
+                repudiandae sed voluptates. Amet at autem commodi dicta dolore dolorum error esse et
+                excepturi fugiat fugit labore laboriosam molestiae odit provident quisquam, repellendus
+                ut vero vitae voluptas, voluptatem voluptatibus.
+            >
+        
+        - 
+            icon: fas fa-arrow-circle-down
+            title: Open Your Mind
+            is_open: false
+            text: <
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium animi asperiores
+                at culpa, deserunt ducimus facilis ipsa minima, obcaecati, quod reprehenderit
+                repudiandae sed voluptates. Amet at autem commodi dicta dolore dolorum error esse et
+                excepturi fugiat fugit labore laboriosam molestiae odit provident quisquam, repellendus
+                ut vero vitae voluptas, voluptatem voluptatibus.
+            >
+        
+>
