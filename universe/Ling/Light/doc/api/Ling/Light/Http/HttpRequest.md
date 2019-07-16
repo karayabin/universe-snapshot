@@ -4,7 +4,7 @@
 
 The HttpRequest class
 ================
-2019-04-09 --> 2019-05-02
+2019-04-09 --> 2019-07-11
 
 
 
@@ -41,11 +41,11 @@ class <span class="pl-k">HttpRequest</span> implements [HttpRequestInterface](ht
     - protected int [$port](#property-port) ;
     - protected string [$ip](#property-ip) ;
     - protected string|null [$referer](#property-referer) ;
-    - protected  [$headers](#property-headers) ;
-    - protected  [$get](#property-get) ;
-    - protected  [$post](#property-post) ;
-    - protected  [$files](#property-files) ;
-    - protected  [$cookie](#property-cookie) ;
+    - protected array [$headers](#property-headers) ;
+    - protected array [$get](#property-get) ;
+    - protected array [$post](#property-post) ;
+    - protected array [$files](#property-files) ;
+    - protected array [$cookie](#property-cookie) ;
 
 - Methods
     - protected [__construct](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/__construct.md)() : void
@@ -159,25 +159,28 @@ Properties
 
 - <span id="property-get"><b>get</b></span>
 
-    
+    This property holds the initial $_GET array. It should be read only.
     
     
 
 - <span id="property-post"><b>post</b></span>
 
-    
+    This property holds the initial $_POST array. It should be read only.
     
     
 
 - <span id="property-files"><b>files</b></span>
 
-    
+    This property holds the initial flattened version with dots of the $_FILES array (see
+    https://github.com/karayabin/universe-snapshot/tree/master/planets/PhpUploadFileFix or the createFromEnv
+    method for more info).
+    It should be read only.
     
     
 
 - <span id="property-cookie"><b>cookie</b></span>
 
-    
+    This property holds the initial $_COOKIE array. It should be read only.
     
     
 
@@ -187,7 +190,7 @@ Methods
 ==============
 
 - [HttpRequest::__construct](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/__construct.md) &ndash; Builds the HttpRequest instance.
-- [HttpRequest::createFromEnv](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/createFromEnv.md) &ndash; 
+- [HttpRequest::createFromEnv](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/createFromEnv.md) &ndash; Returns the http request using the info provided by the webserver ($_SERVER environment variables).
 - [HttpRequest::getMethod](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/getMethod.md) &ndash; Returns the http method used for the request, in lower case.
 - [HttpRequest::getUri](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/getUri.md) &ndash; Returns the uri of the http request.
 - [HttpRequest::getUriPath](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/getUriPath.md) &ndash; Returns the uriPath of the http request.

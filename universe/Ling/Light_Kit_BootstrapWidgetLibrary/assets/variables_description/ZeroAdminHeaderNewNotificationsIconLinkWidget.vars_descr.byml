@@ -1,0 +1,69 @@
+name: ZeroAdminHeaderNewNotificationsIconLinkWidget
+description: <
+    ZeroAdminHeaderNewNotificationsIconLinkWidget is a bootstrap 4 widget for the ZeroAdminHeaderWidget widget
+    (https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/pages/widget-variables-description.md#zeroadminheaderwidget).
+
+    You can add it to the SUB_zeroadmin_header zone of ZeroAdminHeaderWidget.
+    It's an icon with badge and a dropdown pops out when you click on the icon.
+
+    The links of the dropdown display notifications.
+    There is a header text on top of those notifications, and a view all link at the bottom.
+
+    Each notification is composed of:
+
+    - a route
+    - a date (used to mark the message)
+    - an icon (optional)
+    - a text
+>
+
+vars:
+    icon:
+        type: string
+        default_value: ""
+        description: The icon of the dropdown link.
+        example: fas fa-bell
+    badge:
+        type: string
+        default_value: ""
+        description: The css class to apply to the badge.
+        example: badge badge-pill badge-danger
+    header_text_format:
+        type: string
+        default_value: ""
+        description: The format of the header text. Using %s as the placeholder for the number of notifications.
+        example: You have %s notifications
+    model:
+        type: array
+        default_value: none
+        description: The array of notifications. The example below uses the lazy reference resolver system from Light_Kit.
+        example: (::METHOD_CALL::)Ling\Light_Kit_Admin\DataExtractor\NotificationsDataExtractor->extractNewest(5)
+    view_all_link:
+        type: string
+        default_value: ""
+        description: <
+            The url leading to all the notifications. If empty, the "view all" link will not be displayed.
+            The example below uses the lazy reference resolver system from Light_Kit.
+        >
+        example: (::ROUTE::)/pages/u-issue-tracker
+    view_all_text:
+        type: string
+        default_value: View All notifications
+        description: The text of the "view all" link.
+        example: View All notifications
+
+
+example: <
+    name: zeroadmin_header_icon_link_new_notifications
+    type: picasso
+    className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\ZeroAdminHeaderNewNotificationsIconLinkWidget
+    widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ZeroAdminHeaderNewNotificationsIconLinkWidget
+    template: default.php
+    vars: 
+        icon: fas fa-bell
+        badge: badge badge-pill badge-danger
+        header_text_format: You have %s notifications
+        model: (::METHOD_CALL::)Ling\Light_Kit_Admin\DataExtractor\NotificationsDataExtractor->extractNewest(5)
+        view_all_link: (::ROUTE::)/pages/u-issue-tracker
+        view_all_text: View All notifications
+>

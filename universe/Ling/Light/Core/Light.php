@@ -118,7 +118,7 @@ class Light
 
     /**
      * This property holds the service container for this instance.
-     * @var LightServiceContainerInterface||null
+     * @var LightServiceContainerInterface|null
      */
     protected $container;
 
@@ -222,9 +222,6 @@ class Light
      * @param array $urlParams
      * An array of key/value pairs representing the potential variables to inject into the controller callback.
      *
-     */
-
-    /**
      */
     public function registerRoute(string $pattern, $controller, string $name = null, array $requirements = [], array $urlParams = [])
     {

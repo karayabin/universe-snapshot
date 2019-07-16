@@ -25,7 +25,7 @@ Tests the given httpRequest against the routes until one matches.
 If one route matches, it returns the matching route.
 If no route matches, it returns false.
 
-A route is just an array which structure is detailed on the route page.
+A route is just an array which structure is detailed on [the route page](https://github.com/lingtalfi/Light/blob/master/doc/pages/route.md).
 
 
 

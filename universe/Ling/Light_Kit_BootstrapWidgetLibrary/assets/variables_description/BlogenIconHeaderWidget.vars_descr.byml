@@ -1,0 +1,36 @@
+name: BlogenIconHeaderWidget
+description: <
+    BlogenIconHeaderWidget is a bootstrap 4 widget displaying a simple header.
+
+
+    The header is composed of an icon and a title, both of which being only displayed if they are not empty.
+
+>
+
+vars:
+    icon:
+        type: string
+        default_value: ""
+        description: The icon. If empty, will not be displayed.
+        example: fas fa-cog
+    title:
+        type: string
+        default_value: ""
+        description: The title. If empty, will not be displayed.
+        example: Dashboard
+
+
+example: <
+    name: blogen_icon_header
+    type: picasso
+    className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\BlogenIconHeaderWidget
+    widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/BlogenIconHeaderWidget
+    template: default.php
+    vars: 
+        attr: 
+            id: main-header
+            class: py-2 bg-primary text-white
+        
+        icon: fas fa-cog
+        title: Dashboard
+>

@@ -3,14 +3,14 @@ Light_Kit_Demo
 2019-04-25
 
 
-WORK IN PROGRESS, COME BACK IN A FEW MONTHS...
 
 
 
-Some demonstration of how to use Light_Kit with concrete websites.
+Some demonstration of how to create websites with [Light_Kit](https://github.com/lingtalfi/Light_Kit).
 
 
 This is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
+
 
 
 Install
@@ -44,7 +44,7 @@ Summary
 The demos
 ===========
 
-Checkout the [5 Light Kit demos](http://lingtalfi.com/Light_Kit_Demo).
+Checkout the [5 Light Kit demos](https://lingtalfi.com/Light_Kit_Demo).
 
 All the demos are themes created by Brad Traversy in this course [Bootstrap 4 From Scratch With 5 Projects ](https://www.udemy.com/bootstrap-4-from-scratch-with-5-projects/).
 
@@ -52,11 +52,11 @@ The 5 websites use Bootstrap 4 and are responsive.
 
 Their names are:
 
-- LoopLab
-- Mizuxe
-- Glozzom
-- Blogen
-- PortfolioGrid
+- [LoopLab](https://lingtalfi.com/Light_Kit_Demo?site=looplab)
+- [Mizuxe](https://lingtalfi.com/Light_Kit_Demo?site=mizuxe)
+- [Glozzom](https://lingtalfi.com/Light_Kit_Demo?site=glozzom)
+- [Blogen](https://lingtalfi.com/Light_Kit_Demo?site=blogen)
+- [PortfolioGrid](https://lingtalfi.com/Light_Kit_Demo?site=portfoliogrid)
 
 
 
@@ -76,14 +76,19 @@ The methodology I've used for those demos is the following:
 - then create the real website 
 
 
-The prototype website is using only prototype widgets.
-A prototype widget is just a static html widget, it's not administrable with php, so you can't change its variables.
-
-The real website is the version with working widgets (php driven widgets).
+The prototype website is using only [prototype widgets](https://github.com/lingtalfi/Kit_PrototypeWidget), whereas the real website use [picasso widgets](https://github.com/lingtalfi/Kit_PicassoWidget).
 
 
-The benefit for me to create a prototype version, is that I can show you the demos right now, without you
-having to wait for me to create all php widgets (which might take quite some time).
+The main difference is that a prototype widget is just a static html widget, it's not administrable with php, so you can't change its variables.
+
+However, it's faster to use prototype widgets when you want a preview of the website.
+
+For all demos, I used prototype widgets only, but the picasso widgets give the same visual results.
+
+
+
+Below, I will write a couple of notes about making a website using the prototype technique, and creating a website using the picasso widgets.
+
 
 
 
@@ -182,7 +187,43 @@ but that's just specific to my server, you can create one url per page if you wa
 The real website organization
 ==============
 
-Let's create the [LoopLab theme](http://lingtalfi/Light_Kit_Demo?site=looplab) using real widgets.
+Let's create the [LoopLab theme](http://lingtalfi/Light_Kit_Demo?site=looplab) using real [picasso widgets](https://github.com/lingtalfi/Kit_PicassoWidget).
+
+
+Before we start, let's say that all picasso widgets used for all demos can be found in the [Light_Kit_BootstrapWidgetLibrary repository](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary).
+
+
+- [web assets](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/tree/master/assets/map/www/plugins/Light_Kit_BootstrapWidgetLibrary)
+- [widget directories](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/tree/master/assets/map/templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso)
+- [widget classes](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/tree/master/Widget/Picasso)
+- [widget descriptions](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/pages/widget-variables-description.md)
+
+
+The only thing that is not there is the page configuration files and the layouts, which are stored inside the **Light_Kit_Demo** repository (this repository):
+
+- [page configuration files](https://github.com/lingtalfi/Light_Kit_Demo/tree/master/assets/map/config/kit/pages/Light_Kit_Demo)
+- [layouts](https://github.com/lingtalfi/Light_Kit_Demo/tree/master/assets/map/templates/Light_Kit_Demo/layouts)
+
+
+And so that being said, let's go over one example, and from that you should be able to work you way around for all demos (it's the same pattern every time).
+
+
+Speaking of pattern, here is what the general synopsis looks like:
+
+- the user browses a page
+- the webserver (nginx/apache/...) redirects it to the index.php which starts the Light application (more on that in the next section)
+- the Light application uses the kit service (from the [Light_Kit plugin](https://github.com/lingtalfi/Light_Kit)), and so basically 
+    calls the relevant page configuration (in all our examples, the page configuration is stored in babyYaml format, which makes it easier to discuss
+    and visualize, but keep in mind that the page configuration could come from a database as well, or any other medium actually).  
+- So the kit service being actually nothing but a [LightKitPageRenderer](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageRenderer/LightKitPageRenderer.md) instance,
+    it will be used to interpret (i.e. render) the given page configuration (using the renderPage method).
+- The result of the kit service's renderPage method is then displayed back to the screen, using the basic routing concept of the [Light](https://github.com/lingtalfi/Light) framework.
+
+
+Now there is a lot going on inside the **renderPage** method, so read the [Light_Kit](https://github.com/lingtalfi/Light_Kit) documentation for more in-depth info about that,
+and also read the documentation of the [picasso widget](https://github.com/lingtalfi/Kit_PicassoWidget), as it's the only type of widget used in all demos.
+
+
 
 
 
@@ -232,9 +273,11 @@ $light->run();
 The Light_Kit configuration
 -------------
 
-Here is the kit configuration I'm using.
 
-Reminder: the kit service is injected automatically in your app when you import the [Light_Kit planet](https://github.com/lingtalfi/Light_Kit).
+Here is the kit configuration I'm using (in **/my_app/config/services/Light_Kit.byml**).
+ 
+Reminder: the service configuration is injected automatically into your **Light** app when you import a **Light** plugin.
+
 
 ```yaml
 kit:
@@ -253,6 +296,11 @@ kit:
             container: @container()
 
     methods_collection:
+        -
+            method: addPageConfigurationTransformer
+            args:
+                -
+                    instance: Ling\Light_Kit\PageConfigurationTransformer\DynamicVariableTransformer
         -
             method: registerWidgetHandler
             args:
@@ -285,17 +333,45 @@ kit_css_file_generator:
 ```
 
 
-I pasted it here so that you can notice that I'm using a BabyYamlConfStorage, which rootDir is **${app_dir}/config/kit/pages**.
+So, I'm basically using the **LightKitPageRenderer** object as a service, using the **BabyYamlConfStorage** as the storage.
 
-That's important, because that's where the page files will be found.
+Note that the babyYaml storage is configured with a rootDir of **${app_dir}/config/kit/pages**.
+That's important, because that's where all the page configuration files will be found.
+
+
+Notice the use of the **DynamicVariableTransformer** instance, which allows for dynamic variables (used in the **blogen** demo to
+inject the name of the connected user into the top nav widget).
+
+
+At the end, we can see the use of a second service: **kit_css_file_generator**, which is used to compile the css code of all widgets into one file (arguably cleaner
+than every widget writing its own css code inline).
+
+
 
 
 The looplab_home page
 -----------
 
-From the **index.php**, we call the **Light_Kit_Demo/looplab/looplab_home** page.
 
-Now because of the kit service configuration we are using, this path resolves to **${app_dir}/config/kit/pages/Light_Kit_Demo/looplab/looplab_home.byml**.
+Now the page configuration.
+
+Again, since we use BabyYaml storage, it's stored in babyYaml files, but it could be also stored in a database as well. 
+
+
+The page configuration is very important for various reasons:
+
+- we choose the layout (which contains the zones)
+- we attach the widgets to the zones that we want
+- we configure the widgets 
+
+
+It's basically where the pages are created.
+
+
+Back to our demo: from the **index.php**, we call the **Light_Kit_Demo/looplab/looplab_home** page.
+
+Now because of our kit service configuration (the **rootDir** property from the previous section in particular, remember?), the page configuration path 
+resolves to **${app_dir}/config/kit/pages/Light_Kit_Demo/looplab/looplab_home.byml**.
 
 
 What follows is the content of that file:
@@ -390,7 +466,7 @@ zones:
                         type: password
                 form_submit_value: Submit
                 form_submit_class: btn btn-outline-light btn-block
-                background_style: url('/plugins/Light_Kit_Demo/looplab/img/home.jpg')
+                background_style: url('/plugins/Light_Kit_BootstrapWidgetLibrary/looplab/img/home.jpg')
 
         -
             name: looplab_monochrome_header
@@ -421,7 +497,7 @@ zones:
                     class: bg-light text-muted py-5
                 img_on_left: true
                 img_rounded: true
-                img_src: img/explore-section1.jpg
+                img_src: /plugins/Light_Kit_BootstrapWidgetLibrary/looplab/img/explore-section1.jpg
                 img_alt: Explore & Connect
                 teaser_title: Explore & Connect
                 teaser_text: Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore reiciendis, voluptate at alias laborum odit aliquidtempore perspiciatis repudiandae hic?
@@ -459,7 +535,7 @@ zones:
                     class: looplab-dark py-5
                 img_on_left: false
                 img_rounded: true
-                img_src: img/create-section1.jpg
+                img_src: /plugins/Light_Kit_BootstrapWidgetLibrary/looplab/img/create-section1.jpg
                 img_alt: Create Your Passion
                 teaser_title: Create Your Passion
                 teaser_text: Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore reiciendis, voluptate at alias laborum odit aliquidtempore perspiciatis repudiandae hic?
@@ -497,9 +573,11 @@ zones:
                     class: bg-light text-muted py-5
                 img_on_left: true
                 img_rounded: true
-                img_src: img/share-section1.jpg
+                img_src: /plugins/Light_Kit_BootstrapWidgetLibrary/looplab/img/share-section1.jpg
                 img_alt: Share What You Create
+                img_top_margin: 0px
                 teaser_title: Share What You Create
+                teaser_title_level: 3
                 teaser_text: Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore reiciendis, voluptate at alias laborum odit aliquidtempore perspiciatis repudiandae hic?
                 teaser_items:
                     -
@@ -545,25 +623,26 @@ zones:
 
 
 
+
 ```
 
+ 
+As you can see, there is quite a lot going on.
 
-A couple of things:
+But basically, it's all widget configuration, with some general page configuration at the top of the file.
 
-- all widgets are picasso widgets from the [light kit bootstrap widget library](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary). Read [the widgets documentation](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/pages/widget-variables-description.md) for more info about the widgets.
-- this is just the example page for the LoopLab theme, but it works the same for all other themes
-- you can find the page configuration files for all the themes in the [pages directory of this repository](https://github.com/lingtalfi/Light_Kit_Demo/tree/master/assets/map/config/kit/pages/Light_Kit_Demo)
-- more generally, you can find all source code for the demos in [the map directory of this repository](https://github.com/lingtalfi/Light_Kit_Demo/tree/master/assets/map)
+For more info about widget configuration, visit the [BootstrapLibrary widget documentation](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/pages/widget-variables-description.md).
+
 
  
 And that's it for the real website demo.
+
 With the page configuration above, we get the LoopLab theme.
 
 Now it's the same principle for all themes.
 
 
   
-Note: this planet is still a work in progress, and I'm currently working on the real websites versions for other demos.
 
 
 
@@ -588,7 +667,8 @@ use Ling\Light_Kit\PageRenderer\LightKitPageRenderer;
 
 
 $container = $this->getContainer();
-
+$jsLibs =  $this->copilot->getJsLibraries();
+$cssLibs =  $this->copilot->getCssLibraries();
 
 ?>
 <!DOCTYPE html>
@@ -607,8 +687,14 @@ $container = $this->getContainer();
           crossorigin="anonymous">
 
 
-    <link rel="stylesheet"
-          href="<?php echo $container->get('kit_css_file_generator')->generate($this->copilot, $this->pageName); ?>">
+    <?php foreach ($cssLibs as $url): ?>
+        <link rel="stylesheet" href="<?php echo htmlspecialchars($url); ?>">
+    <?php endforeach; ?>
+
+    <?php if (true === $this->copilot->hasCssCodeBlocks()): ?>
+        <link rel="stylesheet"
+              href="<?php echo $container->get('kit_css_file_generator')->generate($this->copilot, $this->pageName); ?>">
+    <?php endif; ?>
 
 
     <link rel="stylesheet" href="css/style.real.css">
@@ -628,7 +714,7 @@ $container = $this->getContainer();
 <?php $this->printZone("main_zone"); ?>
 
 
-<script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
         integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
@@ -637,7 +723,15 @@ $container = $this->getContainer();
         integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
         crossorigin="anonymous"></script>
 
+
+<?php foreach ($jsLibs as $url): ?>
+    <script src="<?php echo htmlspecialchars($url); ?>"></script>
+<?php endforeach; ?>
+
+
+
 <script>
+
 
     $(document).ready(function () {
 
@@ -680,10 +774,21 @@ $container = $this->getContainer();
 
 
 
+Hopefully you now know how to create websites using the **Light_Kit** plugin.
+
+Good luck!
+
+
+
+
 
 History Log
 =============
 
+- 1.0.0 -- 2019-05-17
+
+    - hello v1  
+    
 - 0.6.4 -- 2019-05-03
 
     - update README.md  

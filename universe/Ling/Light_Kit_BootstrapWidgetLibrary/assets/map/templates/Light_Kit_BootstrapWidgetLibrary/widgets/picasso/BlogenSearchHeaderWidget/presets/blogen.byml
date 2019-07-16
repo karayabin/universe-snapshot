@@ -1,0 +1,16 @@
+name: blogen_search_header
+type: picasso
+className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\BlogenSearchHeaderWidget
+widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/BlogenSearchHeaderWidget
+template: default.php
+vars:
+    attr:
+        id: search
+        class: py-4 mb-4 bg-light
+
+    form_action: ""
+    form_method: post
+    name: search
+    label: Search Posts...
+    btn_text: Search
+    btn_class: btn btn-primary

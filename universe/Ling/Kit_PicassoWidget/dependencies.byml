@@ -4,6 +4,8 @@ dependencies:
         - BabyYaml
         - Bat
         - DirScanner
+        - Light
+        - Light_Kit
         - HtmlPageTools
         - ZephyrTemplateEngine
     

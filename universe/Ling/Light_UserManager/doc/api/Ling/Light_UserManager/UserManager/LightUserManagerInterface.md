@@ -4,7 +4,7 @@
 
 The LightUserManagerInterface class
 ================
-2019-05-10 --> 2019-05-10
+2019-05-10 --> 2019-07-12
 
 
 
@@ -50,4 +50,4 @@ Ling\Light_UserManager\UserManager\LightUserManagerInterface
 
 SeeAlso
 ==============
-Previous class: [DevUserManager](https://github.com/lingtalfi/Light_UserManager/blob/master/doc/api/Ling/Light_UserManager/UserManager/DevUserManager.md)<br>
+Previous class: [DevUserManager](https://github.com/lingtalfi/Light_UserManager/blob/master/doc/api/Ling/Light_UserManager/UserManager/DevUserManager.md)<br>Next class: [WebsiteUserManager](https://github.com/lingtalfi/Light_UserManager/blob/master/doc/api/Ling/Light_UserManager/UserManager/WebsiteUserManager.md)<br>

@@ -24,7 +24,7 @@ public [Light::getRoutes](https://github.com/lingtalfi/Light/blob/master/doc/api
 Returns the routes of this instance.
 It's an array of route name => route.
 
-A route is an array which structure is defined in the route page.
+A route is an array which structure is defined in [the route page](https://github.com/lingtalfi/Light/blob/master/doc/pages/route.md).
 
 
 

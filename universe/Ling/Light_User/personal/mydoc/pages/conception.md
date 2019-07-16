@@ -80,3 +80,18 @@ in a database related to the user.
 
 Basically, the identifier is like the signature of the user.
 
+
+
+The concept of refreshing an user
+----------
+2019-07-11
+
+Often with users stored in the session, there is an expire time which is refreshed as long as the user
+visits a page.
+ 
+A refreshable user is an user which expiration time can be refreshed by calling the refresh method (with no arguments).
+Usually, the refresh method will be called near the top of the application logic, so that the refreshable
+user gets refreshed on every page.
+
+Note that we can call the refresh method on both a valid user and an invalid user.
+The refresh method will only refresh a valid user, and do nothing if it's called on an invalid (i.e. not connected) user.

@@ -330,6 +330,15 @@ class HtmlPageCopilot
         return $this->cssCodeBlocks;
     }
 
+    /**
+     * Returns whether the instance has css code blocks.
+     * @return bool
+     */
+    public function hasCssCodeBlocks(): bool
+    {
+        return (count($this->cssCodeBlocks) > 0);
+    }
+
 
     /**
      * Adds a css class (or space separated css classes) to the body tag.

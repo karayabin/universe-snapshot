@@ -4,12 +4,6 @@ Light_Kit_BootstrapWidgetLibrary
 
 
 
-WORK IN PROGRESS, COME BACK IN A FEW MONTHS...
-
-
-
-
-
 A bootstrap widget library for the [Light_Kit](https://github.com/lingtalfi/Light_Kit) planet. 
 
 
@@ -36,6 +30,7 @@ Summary
 - Pages
     - [Conception notes](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/pages/conception-notes.md)
     - [Widget Documentation](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/pages/widget-variables-description.md)
+    - [How to create a widget](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/pages/how-to-create-a-widget.md)
 
 
 
@@ -43,11 +38,178 @@ Summary
 Related
 =========
 - [Light_Kit_Demo](https://github.com/lingtalfi/Light_Kit_Demo/): a planet showing some demos made with Light_Kit_BootstrapWidgetLibrary. 
+- [Kit_PicassoWidget](https://github.com/lingtalfi/Kit_PicassoWidget): A type of widget for the kit system. 
+ 
 
 
 History Log
 =============
 
+
+- 1.6.0 -- 2019-07-16
+
+    - add ZeroAdminBreadcrumbWidget
+    
+- 1.5.0 -- 2019-07-16
+
+    - add ZeroAdminSidebarWidget
+    
+- 1.4.0 -- 2019-07-15
+
+    - add ZeroAdminHeaderProfileDropdownLinkWidget
+    
+- 1.3.0 -- 2019-07-15
+
+    - add ZeroAdminHeaderNewNotificationsIconLinkWidget
+    
+- 1.2.0 -- 2019-07-15
+
+    - add ZeroAdminHeaderNewMessagesIconLinkWidget
+    
+- 1.1.0 -- 2019-07-15
+
+    - add ZeroAdminHeaderWidget
+    
+- 1.0.0 -- 2019-05-17
+
+    - hello version 1
+    
+- 0.40.0 -- 2019-05-17
+
+    - add FooterWithButtonWidget
+    
+- 0.39.0 -- 2019-05-17
+
+    - rename MizuxeTwoColumnsContactFormWidget to MizuxeContactFormWidget
+    
+- 0.38.0 -- 2019-05-17
+
+    - add PortfolioGridThreeColumnsCardInfoWidget
+    
+- 0.37.0 -- 2019-05-17
+
+    - add ProgressBarWidget
+    
+- 0.36.0 -- 2019-05-17
+
+    - add PortfolioGridHeaderWithDescriptionWidget
+    
+- 0.35.0 -- 2019-05-17
+
+    - add PortfolioGridHeaderWithDescriptionWidget
+    
+- 0.34.0 -- 2019-05-16
+
+    - update BlogenFormWidget, add show_form property, and radio type
+    
+- 0.33.0 -- 2019-05-16
+
+    - add BlogenSidebarAvatarWithActionButtonsWidget
+    
+- 0.32.0 -- 2019-05-16
+
+    - add BlogenFormWidget
+    
+- 0.31.0 -- 2019-05-16
+
+    - add BlogenHeaderWithActionButtonsWidget
+    
+- 0.30.0 -- 2019-05-16
+
+    - add BlogenIconHeaderWidget
+    
+- 0.29.0 -- 2019-05-16
+
+    - add BlogenSidebarIconCardsWidget
+    
+- 0.28.0 -- 2019-05-16
+
+    - add BlogenAdminTableWidget
+    
+- 0.27.1 -- 2019-05-16
+
+    - cleaning doc
+    
+- 0.27.0 -- 2019-05-16
+
+    - add BlogenHeaderWithModalActionButtonsWidget
+    
+- 0.26.0 -- 2019-05-15
+
+    - add BlogenIconHeaderWidget
+    
+- 0.25.0 -- 2019-05-15
+
+    - add PeopleGridWidget
+
+- 0.24.0 -- 2019-05-15
+
+    - add ContactFormAndCompanyInfoWidget
+    
+- 0.23.0 -- 2019-05-14
+
+    - add BlogCardsWidget
+
+- 0.22.0 -- 2019-05-14
+
+    - add TwoColumnsAccordionWidget
+    
+- 0.21.0 -- 2019-05-14
+
+    - add GlozzomPricingTableWidget 
+    
+- 0.20.0 -- 2019-05-14
+
+    - add SlickTestimonialCarouselWidget 
+    
+- 0.19.0 -- 2019-05-14
+
+    - add NewsletterHeaderWidget 
+    
+- 0.18.0 -- 2019-05-14
+
+    - add PhotoGalleryWidget 
+    
+- 0.17.0 -- 2019-05-14
+
+    - add ParallaxHeaderWithVideoTriggerWidget 
+    
+- 0.16.0 -- 2019-05-14
+
+    - add GlozzomTwoColumnsTeaserWidget 
+    
+- 0.15.0 -- 2019-05-13
+
+    - add ParallaxHeaderWidget 
+    
+- 0.14.0 -- 2019-05-13
+
+    - add IconTeaserWidget 
+
+- 0.13.2 -- 2019-05-13
+
+    - update widget doc with more convoluted examples 
+    
+- 0.13.1 -- 2019-05-13
+
+    - update widget doc with "back to top" links 
+    
+- 0.13.0 -- 2019-05-13
+
+    - add ShowCaseCarouselWidget 
+    
+- 0.12.0 -- 2019-05-13
+
+    - update MainNavWidget, now link items can be active 
+    
+- 0.11.1 -- 2019-05-13
+
+    - update widget doc, now list presets
+    
+- 0.11.0 -- 2019-05-13
+
+    - add SimpleFooterWidget
+    
 - 0.10.0 -- 2019-05-10
 
     - add MizuxeTwoColumnsContactFormWidget

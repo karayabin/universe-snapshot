@@ -5,12 +5,13 @@
  * @var $this LightKitPageRenderer
  */
 
+use Ling\Bat\StringTool;
 use Ling\Light_Kit\PageRenderer\LightKitPageRenderer;
 
 
-
 $container = $this->getContainer();
-
+$jsLibs = $this->copilot->getJsLibraries();
+$cssLibs = $this->copilot->getCssLibraries();
 
 
 ?>
@@ -31,12 +32,25 @@ $container = $this->getContainer();
     <link rel="stylesheet" href="scss/bootstrap.css">
 
 
-    <link rel="stylesheet" href="<?php echo $container->get('kit_css_file_generator')->generate($this->copilot, $this->pageName); ?>">
+    <?php foreach ($cssLibs as $url): ?>
+        <link rel="stylesheet" href="<?php echo htmlspecialchars($url); ?>">
+    <?php endforeach; ?>
 
 
+    <?php if (true === $this->copilot->hasCssCodeBlocks()): ?>
+        <link rel="stylesheet"
+              href="<?php echo $container->get('kit_css_file_generator')->generate($this->copilot, $this->pageName); ?>">
+    <?php endif; ?>
 
 
-<!--    <link rel="stylesheet" href="css/style.real.css">-->
+    <style>
+        body {
+            margin-top: 105px;
+        }
+    </style>
+
+
+    <!--    <link rel="stylesheet" href="css/style.real.css">-->
 
     <?php if (true === $this->copilot->hasTitle()): ?>
         <title><?php echo $this->copilot->getTitle(); ?></title><?php endif; ?>
@@ -46,18 +60,14 @@ $container = $this->getContainer();
               content="<?php echo htmlspecialchars($this->copilot->getDescription()); ?>"><?php endif; ?>
 </head>
 
-<body id="home" data-spy="scroll" data-target="#main-nav">
 
+<body <?php echo StringTool::htmlAttributes($this->copilot->getBodyTagAttributes()); ?>>
 
 
 <?php $this->printZone("main_zone"); ?>
 
 
-
-
-
-
-<script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
         integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
@@ -66,30 +76,29 @@ $container = $this->getContainer();
         integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
         crossorigin="anonymous"></script>
 
+
+<?php foreach ($jsLibs as $url): ?>
+    <script src="<?php echo htmlspecialchars($url); ?>"></script>
+<?php endforeach; ?>
+
 <script>
     // Get the current year for the copyright
     $('#year').text(new Date().getFullYear());
 
-    $(document).ready(function () {
-        $('body').scrollspy({
-            target: '#main-nav',
-        });
-
-        // smooth scrolling
-        $('#main-nav a').on('click', function(e){
-            if(this.hash !== ''){
-                e.preventDefault();
-                const hash = this.hash;
-                $('html, body').animate({
-                    scrollTop: $(hash).offset().top
-                }, 900, function(){
-                    // add hash to the url after the scroll
-                    window.location.hash = hash;
-                });
-            }
-        });
-    });
 </script>
+
+<?php if (true === $this->copilot->hasJsCodeBlocks()): ?>
+
+    <script>
+
+        <?php $blocks = $this->copilot->getJsCodeBlocks(); ?>
+        <?php foreach($blocks as $block): ?>
+        <?php echo $block; ?>
+        <?php endforeach; ?>
+
+    </script>
+
+<?php endif; ?>
 </body>
 
 </html>

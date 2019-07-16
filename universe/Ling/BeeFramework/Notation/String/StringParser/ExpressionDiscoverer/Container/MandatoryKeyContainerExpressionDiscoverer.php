@@ -27,11 +27,11 @@ use Ling\BeeFramework\Notation\String\StringParser\Validator\ContainerValidator;
  * with the implicitKeys and implicitValues switches.
  *
  *
- * 
+ *
  *
  * Symbol that need quote protection
- * -------------------------------------- 
- * 
+ * --------------------------------------
+ *
  * The following symbols need quote protection to be used:
  * - for the key:
  *      - the keyValueSep symbol
@@ -41,22 +41,53 @@ use Ling\BeeFramework\Notation\String\StringParser\Validator\ContainerValidator;
  *
  *
  *
+ *
+ * 2019-07-03 Update
+ * ----------------------
+ * I needed optional keys for shortcode notation, so I added the optionalKey option.
+ * It basically allows to write values directly, without the "key=" prefix.
+ *
+ *
+ *
+ *
+ *
+ *
  */
 class MandatoryKeyContainerExpressionDiscoverer extends TriContainerExpressionDiscoverer
 {
 
+    /**
+     * This property holds the optionalKeys for this instance.
+     * @var bool
+     */
+    protected $optionalKeys;
+
+
     public function __construct()
     {
         parent::__construct();
+        $this->optionalKeys = true;
         $this->setMonitorMessagePrefix('Man: ');
     }
+
+    /**
+     * Sets the optionalKeys.
+     *
+     * @param bool $optionalKeys
+     */
+    public function setOptionalKeys(bool $optionalKeys)
+    {
+        $this->optionalKeys = $optionalKeys;
+    }
+
+
     final protected function getContainerSpecialSymbolsForKey()
     {
         // do not add valueSep here, or it's semantically not a mandatoryKey class anymore
         return [$this->getKeyValueSep()];
     }
-    
-    
+
+
     protected function parseContainer(StringIteratorInterface $it)
     {
         $string = $it->getString();
@@ -70,6 +101,7 @@ class MandatoryKeyContainerExpressionDiscoverer extends TriContainerExpressionDi
         $autoIndex = false;
         $allowImplicitKeys = $this->implicitKeys;
         $allowImplicitValues = $this->implicitValues;
+        $optionalKeys = $this->optionalKeys;
 
         $key = null;
         $lastWasSep = false;
@@ -92,8 +124,7 @@ class MandatoryKeyContainerExpressionDiscoverer extends TriContainerExpressionDi
                 $this->notice("Container end Found");
                 $this->adjustIteratorPosition($it);
                 return $values;
-            }
-            else {
+            } else {
                 if (1 === $searchType) {
                     $this->info("now searchType=$searchType");
 
@@ -105,13 +136,11 @@ class MandatoryKeyContainerExpressionDiscoverer extends TriContainerExpressionDi
                                 $autoIndex = true;
                             }
                             $searchType = 2;
-                        }
-                        else {
+                        } else {
                             $this->failure("kvSep was found, but no key was found, and implicit mode is off");
                             return false;
                         }
-                    }
-                    else {
+                    } else {
                         $this->notice("trying to parse key...");
                         $keyFound = false;
                         $k = $this->parseKey($it, $keyValidator, $string, $keyFound);
@@ -121,10 +150,16 @@ class MandatoryKeyContainerExpressionDiscoverer extends TriContainerExpressionDi
                             $it->next();
                             $this->skipNotSignificant($it);
                             $searchType = 2;
-                        }
-                        else {
+                        } else {
+
                             $this->notice("key not found");
-                            return false;
+
+                            if (true === $optionalKeys) {
+                                $searchType = 3;
+                                $autoIndex = true;
+                            } else {
+                                return false;
+                            }
                         }
                     }
 
@@ -137,9 +172,7 @@ class MandatoryKeyContainerExpressionDiscoverer extends TriContainerExpressionDi
                             $searchType = 3;
                             $this->next($this->getKeyValueSepLen(), $it);
                             $this->skipNotSignificant($it);
-                        }
-
-                        else {
+                        } else {
                             $this->failure("cursor should be in front of kvSep");
                             return false;
                         }
@@ -154,12 +187,10 @@ class MandatoryKeyContainerExpressionDiscoverer extends TriContainerExpressionDi
                             $this->notice("isValueSep or END");
                             if (true === $allowImplicitValues) {
                                 $value = $this->getDefaultImplicitValue();
-                            }
-                            else {
+                            } else {
                                 return false;
                             }
-                        }
-                        else {
+                        } else {
                             $this->notice("trying to parse value...");
                             $valueFound = false;
                             $v = $this->parseValue($it, $validator, $string, $len, $valueFound);
@@ -168,8 +199,7 @@ class MandatoryKeyContainerExpressionDiscoverer extends TriContainerExpressionDi
                                 $value = $v;
                                 $it->next();
                                 $this->skipNotSignificant($it);
-                            }
-                            else {
+                            } else {
                                 $this->notice("value not found");
                                 return false;
                             }
@@ -182,8 +212,7 @@ class MandatoryKeyContainerExpressionDiscoverer extends TriContainerExpressionDi
                         // at this point, the cursor should be on a valueSep or at the container end, or the end of the string
                         if (false === $autoIndex) {
                             $values[$key] = $value;
-                        }
-                        else {
+                        } else {
                             $values[] = $value;
                         }
 
@@ -213,7 +242,6 @@ class MandatoryKeyContainerExpressionDiscoverer extends TriContainerExpressionDi
 
         return false;
     }
-
 
 
 }

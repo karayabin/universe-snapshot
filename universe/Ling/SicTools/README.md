@@ -43,6 +43,10 @@ Summary
 History Log
 ------------------
 
+- 1.4.3 -- 2019-05-15
+
+    - fix SicFileCombinerUtil typo
+    
 - 1.4.2 -- 2019-04-25
 
     - fix SicFileCombinerUtil->combine method handling environment variables incorrectly

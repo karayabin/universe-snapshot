@@ -1,0 +1,126 @@
+name: PeopleGridWidget
+description: <
+    PeopleGridWidget is a bootstrap 4 widget displaying people profiles in a grid.
+
+    We can decide the grid dimensions and responsiveness using the "column_class", which takes a bootstrap 4 grid css class,
+    along with the "nb_profiles_per_row" property.
+
+    More info at: https://getbootstrap.com/docs/4.0/layout/grid/
+
+    The widget is composed of:
+
+    - a title
+    - a list of profiles
+
+    The title is optional, and will only be displayed if not empty.
+
+    Each profile is composed of:
+
+    - the image, which can be rounded or not using the "is_rounded" property
+    - the person name
+    - the person role
+
+    The person's name and role are optional and will only be displayed if not empty.
+
+
+>
+
+vars:
+    column_class:
+        type: string
+        default_value: col-md-3
+        description: The css class to apply to the columns containing the profiles. You should use bootstrap 4 grid css classes.
+        example: col-md-3
+    nb_profiles_per_row:
+        type: string
+        default_value: 4
+        description: The number of profiles per row. Adjust this parameter according to the value set in the "column_class" property.
+        example: 4
+    row_class:
+        type: string
+        default_value: mt-5
+        description: The css class to add on the non initial rows. Use this property to define the vertical spacing between rows.
+        example: mt-5
+    title:
+        type: string
+        default_value: ""
+        description: The title. If empty, will not be displayed.
+        example: Our Staff
+    profiles:
+        type: item_list
+        default_value: []
+        description: The array of profiles.
+        item_properties: 
+            img_url:
+                type: string
+                default_value: ""
+                description: The image for this profile.
+                example: /plugins/Light_Kit_Demo/glozzom/img/person1.jpg
+            img_alt:
+                type: string
+                default_value: ""
+                description: The alt attribute of the image for this profile.
+                example: Jane Doe
+            name:
+                type: string
+                default_value: ""
+                description: The name for this profile. If empty, will not be displayed.
+                example: Jane Doe
+            role:
+                type: string
+                default_value: ""
+                description: The role for this profile. If empty, will not be displayed.
+                example: Marketing Manager
+            is_rounded:
+                type: bool
+                default_value: true
+                description: Whether the profile image should be rounded.
+
+
+example: <
+    name: people_grid
+    type: picasso
+    active: true
+    className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\PeopleGridWidget
+    widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/PeopleGridWidget
+    template: default.php
+    vars: 
+        attr: 
+            id: staff
+            class: py-5 text-center bg-dark text-white
+        
+        column_class: col-md-3
+        nb_profiles_per_row: 4
+        row_class: mt-5
+        title: Our Staff
+        profiles: 
+            - 
+                img_url: /plugins/Light_Kit_Demo/glozzom/img/person1.jpg
+                img_alt: Jane Doe
+                name: Jane Doe
+                role: Marketing Manager
+                is_rounded: true
+            
+            - 
+                img_url: /plugins/Light_Kit_Demo/glozzom/img/person2.jpg
+                img_alt: Sara Williams
+                name: Sara Williams
+                role: Business Manager
+                is_rounded: true
+            
+            - 
+                img_url: /plugins/Light_Kit_Demo/glozzom/img/person3.jpg
+                img_alt: John Doe
+                name: John Doe
+                role: CEO
+                is_rounded: true
+            
+            - 
+                img_url: /plugins/Light_Kit_Demo/glozzom/img/person4.jpg
+                img_alt: Steve Smith
+                name: Steve Smith
+                role: Web Developer
+                is_rounded: true
+            
+        
+>

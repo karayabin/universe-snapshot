@@ -1,6 +1,7 @@
 ${widgetName}
 ==============
 
+[Back to top](#summary)
 
 - [Screenshots](#${dashWidgetName}-screenshots)
 - [Templates and skins](#${dashWidgetName}-templates-and-skins)
@@ -22,10 +23,11 @@ ${screenshotList}
 
 
 
-${widgetName} templates and skins
+${widgetName} templates, skins, presets
 -----------
 - **Templates**: ${templates}
 - **Skins**: ${skins}
+- **Presets**: ${presets}
 
 
 ${widgetName} configuration example

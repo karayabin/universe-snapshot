@@ -4,7 +4,7 @@
 
 The ConfigurationHelper class
 ================
-2019-04-09 --> 2019-05-02
+2019-04-09 --> 2019-07-11
 
 
 
@@ -37,7 +37,7 @@ class <span class="pl-k">ConfigurationHelper</span>  {
 Methods
 ==============
 
-- [ConfigurationHelper::getCombinedConf](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ConfigurationHelper/getCombinedConf.md) &ndash; Returns the merged configuration of all BabyYaml configuration files found in the given directory.
+- [ConfigurationHelper::getCombinedConf](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ConfigurationHelper/getCombinedConf.md) &ndash; Returns the merged configuration of all [BabyYaml](https://github.com/lingtalfi/BabyYaml) configuration files found in the given directory.
 
 
 

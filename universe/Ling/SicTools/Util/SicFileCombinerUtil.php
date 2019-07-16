@@ -416,7 +416,7 @@ class SicFileCombinerUtil
                             if (array_key_exists($varName, $this->environmentVariables)) {
                                 $replace = $this->environmentVariables[$varName];
                                 if (is_string($replace)) {
-                                    $v = str_replace('${' . $varName . '}', $replace, $v);
+                                    $v = str_replace($this->variableSymbol . '{' . $varName . '}', $replace, $v);
                                 } else {
                                     /**
                                      * It's probably an array

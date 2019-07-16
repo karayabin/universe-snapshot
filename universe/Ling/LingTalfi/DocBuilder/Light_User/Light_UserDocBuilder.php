@@ -140,6 +140,9 @@ class Light_UserDocBuilder
             "keyWord2UrlMap" => [
 //                "the command line page" => $doc . '/pages/command-line.md',
                 "conception page" => $doc . '/pages/conception.md',
+                "refreshable user" => $doc . '/pages/conception.md#the-concept-of-refreshing-an-user',
+                "refresh concept" => $doc . '/pages/conception.md#the-concept-of-refreshing-an-user',
+                "rights concept" => $doc . '/pages/conception.md#its-all-about-rights',
             ],
             /**
              * An array of external classes to url.

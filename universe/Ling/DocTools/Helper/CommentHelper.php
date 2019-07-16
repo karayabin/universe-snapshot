@@ -26,6 +26,7 @@ class CommentHelper
     public static $propertyVarTagTypes = [
         'int',
         'float',
+        'false',
         'bool',
         'mixed',
         'null',

@@ -39,6 +39,11 @@ Summary
 History Log
 =============
 
+- 1.1.0 -- 2019-07-13
+
+    - add WebsiteLightUser
+    - add RefreshableLightUserInterface
+    
 - 1.0.0 -- 2019-05-10
 
     - initial commit

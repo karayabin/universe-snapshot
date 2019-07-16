@@ -10,7 +10,7 @@
             </div>
             <div class="col-md-4">
                 <button class="btn btn-primary btn-lg btn-block">
-                    <i class="fas fa-envelope-open-o"></i>
+                    <i class="fas fa-envelope-open"></i>
                     Subscribe
                 </button>
             </div>

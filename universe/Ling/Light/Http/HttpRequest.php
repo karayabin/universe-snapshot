@@ -103,33 +103,34 @@ class HttpRequest implements HttpRequestInterface
      * - accept-encoding
      * - ...
      *
+     * @var array
      */
     protected $headers;
 
     /**
-     * @info This property holds the initial $_GET array. It should be read only.
-     * @type array
+     * This property holds the initial $_GET array. It should be read only.
+     * @var array
      */
     protected $get;
 
     /**
-     * @info This property holds the initial $_POST array. It should be read only.
-     * @type array
+     * This property holds the initial $_POST array. It should be read only.
+     * @var array
      */
     protected $post;
 
     /**
-     * @info This property holds the initial flattened version with dots of the $_FILES array (see
+     * This property holds the initial flattened version with dots of the $_FILES array (see
      * https://github.com/karayabin/universe-snapshot/tree/master/planets/PhpUploadFileFix or the createFromEnv
      * method for more info).
      * It should be read only.
-     * @type array
+     * @var array
      */
     protected $files;
 
     /**
-     * @info This property holds the initial $_COOKIE array. It should be read only.
-     * @type array
+     * This property holds the initial $_COOKIE array. It should be read only.
+     * @var array
      */
     protected $cookie;
 
@@ -143,7 +144,7 @@ class HttpRequest implements HttpRequestInterface
     }
 
     /**
-     * @info Returns the http request using the info provided by the webserver ($_SERVER environment variables).
+     * Returns the http request using the info provided by the webserver ($_SERVER environment variables).
      * @return HttpRequest
      */
     public static function createFromEnv()

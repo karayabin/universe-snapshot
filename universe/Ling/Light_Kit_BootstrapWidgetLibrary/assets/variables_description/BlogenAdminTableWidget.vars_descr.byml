@@ -1,0 +1,195 @@
+name: BlogenAdminTableWidget
+description: <
+    BlogenAdminTableWidget is a bootstrap 4 widget displaying an admin table.
+
+
+    The widget is composed of three parts:
+
+    - the title
+    - the table
+    - the pagination
+
+
+    The title is optional and is only displayed if not empty.
+
+    The table is composed of the following elements:
+
+    - columns: the array containing the label (or any html code) to write in the column headers of the table
+    - rows: the array containing the rows of values (any html code) to write in the cells of the table.
+
+    Each row is an array which must have the same length as the "columns" array (otherwise it won't work).
+    Note that the row values accept html code, which allows you to create not only text, but also custom buttons, or anything that you like.
+
+
+    By default, the pagination only shows up if there is more than one page.
+
+    We can force it to be always visible with the "pagination_always_visible" property.
+
+
+
+
+>
+
+vars:
+    title:
+        type: string
+        default_value: ""
+        description: The title. If empty, will not be displayed.
+        example: Latest Posts
+    table_class:
+        type: string
+        default_value: ""
+        description: The css class to apply to the table.
+        example: table-striped
+    table_head_class:
+        type: string
+        default_value: ""
+        description: The css class to apply to the table head.
+        example: thead-dark
+    columns:
+        type: string
+        default_value: []
+        description: The array of column labels (html is accepted).
+    rows:
+        type: string
+        default_value: []
+        description: <
+            The array of rows. Each row must have the same number of elements as the "columns" property (otherwise you
+            will have an erroneous table). Html code is accepted (so that you can create custom buttons for instance).
+        >
+    pagination_always_visible:
+        type: bool
+        default_value: false
+        description: Whether to show pagination even if there is only one page.
+    pagination_nb_pages:
+        type: string
+        default_value: 1
+        description: The number of pages.
+        example: 1
+    pagination_link_format:
+        type: string
+        default_value: ""
+        description: The format for the url of the page link. The {page} tag will be replaced by the actual page number.
+        example: /?page={page}
+    pagination_selected_page:
+        type: string
+        default_value: 1
+        description: The actual page number.
+        example: 1
+    pagination_show_prev:
+        type: bool
+        default_value: true
+        description: Whether to show the previous page button.
+    pagination_show_next:
+        type: bool
+        default_value: true
+        description: Whether to show the next page button.
+    pagination_prev_text:
+        type: string
+        default_value: Previous
+        description: The text for the previous page button.
+        example: Previous
+    pagination_next_text:
+        type: string
+        default_value: Next
+        description: The text for the next page button.
+        example: Next
+
+
+
+example: <
+    name: blogen_admin_table
+    type: picasso
+    className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\BlogenAdminTableWidget
+    widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/BlogenAdminTableWidget
+    template: default.php
+    vars: 
+        attr: 
+            id: posts
+        
+        title: Latest Posts
+        table_class: table-striped
+        table_head_class: thead-dark
+        columns: 
+            - "#"
+            - Title
+            - Category
+            - Date
+            - ""
+        
+        rows: 
+            - 
+                - 1
+                - Post One
+                - Web Development
+                - May 10 2018
+                - <
+                    <a href="/?page=details" class="btn btn-secondary">
+                        <i class="fas fa-angle-double-right"></i> Details
+                    </a>
+                >
+            
+            - 
+                - 2
+                - Post Two
+                - Tech Gadgets
+                - May 11 2018
+                - <
+                    <a href="/?page=details" class="btn btn-secondary">
+                        <i class="fas fa-angle-double-right"></i> Details
+                    </a>
+                >
+            
+            - 
+                - 3
+                - Post Three
+                - Web Development
+                - May 13 2018
+                - <
+                    <a href="/?page=details" class="btn btn-secondary">
+                        <i class="fas fa-angle-double-right"></i> Details
+                    </a>
+                >
+            
+            - 
+                - 4
+                - Post Four
+                - Business
+                - May 15 2018
+                - <
+                    <a href="/?page=details" class="btn btn-secondary">
+                        <i class="fas fa-angle-double-right"></i> Details
+                    </a>
+                >
+            
+            - 
+                - 5
+                - Post Five
+                - Web Development
+                - May 17 2018
+                - <
+                    <a href="/?page=details" class="btn btn-secondary">
+                        <i class="fas fa-angle-double-right"></i> Details
+                    </a>
+                >
+            
+            - 
+                - 6
+                - Post Six
+                - Health & Wellness
+                - May 20 2018
+                - <
+                    <a href="/?page=details" class="btn btn-secondary">
+                        <i class="fas fa-angle-double-right"></i> Details
+                    </a>
+                >
+            
+        pagination_always_visible: false
+        pagination_nb_pages: 1
+        pagination_link_format: /?page={page}
+        pagination_selected_page: 1
+        pagination_show_prev: true
+        pagination_show_next: true
+        pagination_prev_text: Previous
+        pagination_next_text: Next
+>

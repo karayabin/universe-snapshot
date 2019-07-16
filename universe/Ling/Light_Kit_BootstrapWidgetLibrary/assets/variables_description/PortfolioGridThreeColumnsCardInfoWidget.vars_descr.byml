@@ -1,0 +1,133 @@
+name: PortfolioGridThreeColumnsCardInfoWidget
+description: <
+    PortfolioGridThreeColumnsCardInfoWidget is a bootstrap 4 widget displaying some cards info.
+
+
+
+    The widget is composed of:
+
+    - a title
+    - a description
+    - the cards
+
+    Each card is composed of the following elements:
+
+    - the title
+    - the description
+    - the features
+    - the footer
+
+
+    It's possible to change the cards's column size and responsiveness using the bootstrap 4 grid css classes.
+
+    More on this at: https://getbootstrap.com/docs/4.0/layout/grid/.
+>
+
+vars:
+    title:
+        type: string
+        default_value: ""
+        description: The title. If empty, will not be displayed.
+        example: Where Have I Worked?
+    description:
+        type: string
+        default_value: ""
+        description: The description. If empty, will not be displayed.
+        example: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur nihil quasi qui, quibusdam similique voluptatem?
+    cards:
+        type: item_list
+        default_value: []
+        description: The array of cards.
+        item_properties: 
+            title:
+                type: string
+                default_value: ""
+                description: The title of the card. If empty, will not be displayed.
+                example: Devmasters
+            description:
+                type: string
+                default_value: ""
+                description: The description of the card. If empty, will not be displayed.
+                example: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, ratione?
+            features:
+                type: item_list
+                default_value: []
+                description: The array of features for this card.
+                item_properties: 
+                    class:
+                        type: string
+                        default_value: ""
+                        description: The css class to apply to this feature.
+                        example: p-2 mb-3 bg-dark text-white
+                    text:
+                        type: string
+                        default_value: ""
+                        description: The text of this feature.
+                        example: Position: Full Stack Developer
+            footer_text:
+                type: string
+                default_value: ""
+                description: The footer text for the card. If empty, will not be displayed.
+                example: Dates: 2015 - 2018
+
+
+example: <
+    name: portfoliogrid_three_columns_card_info
+    type: picasso
+    className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\PortfolioGridThreeColumnsCardInfoWidget
+    widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/PortfolioGridThreeColumnsCardInfoWidget
+    template: default.php
+    vars: 
+        attr: 
+            class: py-5
+        
+        title: Where Have I Worked?
+        description: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur nihil quasi qui, quibusdam similique voluptatem?
+        cards: 
+            - 
+                title: Devmasters
+                description: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, ratione?
+                features: 
+                    - 
+                        class: p-2 mb-3 bg-dark text-white
+                        text: Position: Full Stack Developer
+                    
+                    - 
+                        class: p-2 mb-3 bg-dark text-white
+                        text: Phone: (444) 444-4444
+                    
+                
+                footer_text: Dates: 2015 - 2018
+            
+            - 
+                title: 123 Designs
+                description: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, ratione?
+                features: 
+                    - 
+                        class: p-2 mb-3 bg-dark text-white
+                        text: Position: Web Designer
+                    
+                    - 
+                        class: p-2 mb-3 bg-dark text-white
+                        text: Phone: (222) 222-2222
+                    
+                
+                footer_text: Dates: 2013 - 2015
+            
+            - 
+                title: Web Designer Pros
+                description: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, ratione?
+                features: 
+                    - 
+                        class: p-2 mb-3 bg-dark text-white
+                        text: Position: Web Designer
+                    
+                    - 
+                        class: p-2 mb-3 bg-dark text-white
+                        text: Phone: (333) 333-3333
+                    
+                
+                footer_text: Dates: 2010 - 2013
+            
+        
+>

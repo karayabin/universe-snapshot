@@ -31,6 +31,7 @@ Summary
 - [How does it work?](#how-does-it-work)
 - [BabyYaml page configuration files](#babyyaml-page-configuration-files)
 - [Calling a page from your Light controller](#calling-a-page-from-your-light-controller)
+- [Conception notes](https://github.com/lingtalfi/Light_Kit/blob/master/doc/pages/conception-notes.md)
 - [History Log](#history-log)
 
 
@@ -238,6 +239,35 @@ $light->registerRoute("/", function (LightServiceContainerInterface $service) {
 History Log
 =============
 
+- 1.6.2 -- 2019-07-15
+
+    - add documentation for lazy reference resolver
+    
+- 1.6.1 -- 2019-07-11
+
+    - fix RouteResolver using inexisting router service
+    
+- 1.6.0 -- 2019-07-11
+
+    - LazyReferenceResolver now implements LightServiceContainerAwareInterface
+    - add RouteResolver
+    
+- 1.5.2 -- 2019-07-04
+
+    - fix LazyReferenceResolver bad array references
+    
+- 1.5.1 -- 2019-07-04
+
+    - fix LazyReferenceResolver having az references (forgot to remove them)
+    
+- 1.5.0 -- 2019-07-04
+
+    - added LazyReferenceResolver
+    
+- 1.4.0 -- 2019-05-15
+
+    - added the concept of [dynamic variables](https://github.com/lingtalfi/Light_Kit/tree/master/doc/pages/conception-notes.md#dynamic-variables) for LightKitPageRenderer
+    
 - 1.3.0 -- 2019-05-03
 
     - update service file, now aware of the showJsNuggetHeaders option

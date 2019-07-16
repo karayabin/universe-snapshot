@@ -1,0 +1,43 @@
+name: people_grid
+type: picasso
+active: true
+className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\PeopleGridWidget
+widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/PeopleGridWidget
+template: default.php
+vars:
+    attr:
+        id: staff
+        class: py-5 text-center bg-dark text-white
+
+    column_class: col-md-3
+    nb_profiles_per_row: 4
+    row_class: mt-5
+    title: Our Staff
+    profiles:
+        -
+            img_url: /plugins/Light_Kit_Demo/glozzom/img/person1.jpg
+            img_alt: Jane Doe
+            name: Jane Doe
+            role: Marketing Manager
+            is_rounded: true
+
+        -
+            img_url: /plugins/Light_Kit_Demo/glozzom/img/person2.jpg
+            img_alt: Sara Williams
+            name: Sara Williams
+            role: Business Manager
+            is_rounded: true
+
+        -
+            img_url: /plugins/Light_Kit_Demo/glozzom/img/person3.jpg
+            img_alt: John Doe
+            name: John Doe
+            role: CEO
+            is_rounded: true
+
+        -
+            img_url: /plugins/Light_Kit_Demo/glozzom/img/person4.jpg
+            img_alt: Steve Smith
+            name: Steve Smith
+            role: Web Developer
+            is_rounded: true

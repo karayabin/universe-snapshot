@@ -14,7 +14,7 @@ class HttpResponse implements HttpResponseInterface
      * The list below has last been checked on 2019-01-18.
      *
      * @link http://www.iana.org/assignments/http-status-codes/
-     *
+     * @var array
      *
      *
      */

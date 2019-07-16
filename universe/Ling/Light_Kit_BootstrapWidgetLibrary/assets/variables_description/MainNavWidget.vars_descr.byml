@@ -1,0 +1,181 @@
+
+
+name: MainNavWidget
+description: <
+    The MainNavWidget is a bootstrap 4 widget representing the top navigation on a website.
+    You can configure the title of the nav with or without a logo, and you can create two separate
+    sets of links, with various options for each link, such as adding an icon, or a dropdown menu.
+
+    You can also enable spyscroll and smooth scrolling to enhance your navigation if your theme is a one page theme.
+
+>
+vars:
+
+    attr:
+        type: array
+        default_value: []
+        description: The attributes to add to the widget's container tag.
+        properties:
+            class:
+                type: string
+                default_value: bg-light text-muted py-5
+                description: The css class to add to the widget container. We recommend using bootstrap css classes.
+                example: bg-dark navbar-dark looplab-nav
+            id:
+                type: string
+                default_value: ""
+                description: The css id to add to the widget container. It's required if you are using the spyscroll or the smooth scrolling feature.
+                example: main-nav
+
+    use_scrollspy:
+        type: bool
+        default_value: false
+        description: Whether to activate the scroll spy. If so, you must define a css id. See the bootstrap documentation for more info.
+
+    use_smooth_scrolling:
+        type: bool
+        default_value: false
+        description: Whether to smoothly scroll to the desired anchor when you the user clicks a link item (this only works on one page themes). To use this feature you must define a css id.
+
+    title:
+        type: string
+        default_value: null
+        description: The title of the nav widget. It's usually the name of the company or website.
+
+
+    title_logo:
+        type: array
+        default_value: []
+        description: Adds a logo to the title.
+        properties:
+            url:
+                type: string
+                default_value: null
+                description: The url of the logo image (the value to put into the src attribute of the img tag).
+            width:
+                type: string
+                default_value: 50
+                description: The width of the logo image.
+            height:
+                type: string
+                default_value: 50
+                description: The height of the logo image.
+            alt:
+                type: string
+                default_value: null
+                description: The value of the alt attribute of the logo img tag.
+
+
+    fixed_top:
+        type: bool
+        default_value: true
+        description: Whether the nav is fixed on the top, or scrolls along with the content.
+
+    title_url:
+        type: string
+        default_value: /
+        description: The string to put in the href attribute of the title link. It can be an anchor if necessary (starting with a hash symbol).
+
+
+    expand_size:
+        type: string
+        default_value: sm
+        description: Defines at which size does the burger menu expand.
+        choices:
+            - sm
+            - md
+            - lg
+
+
+    links:
+        type: item_list
+        default_value: []
+        description: An array of link items to display in the nav.
+        item_properties:
+            text:
+                type: string
+                default_value: null
+                description: The text of the link item.
+            url:
+                type: string
+                default_value: null
+                description: The url of the link item (anchors are accepted).
+            icon:
+                type: string
+                default_value: null
+                description: The css class for the icon.
+                example: fas fa-user
+            class:
+                type: string
+                default_value: ""
+                description: The css class to add to this specific link item. Note: it merges with the "links_item_class" property.
+                example: mr-3
+            active:
+                type: bool
+                default_value: false
+                description: Whether to add the active class to the item.
+                example: true
+            children:
+                alias_of: links
+
+
+    links_align_right:
+        type: bool
+        default_value: false
+        description: Whether to align the links to the right.
+
+    links_item_class:
+        type: string
+        default_value: null
+        description: An additional css class expression to add to all link items.
+        example: px-2
+
+
+    links2:
+        alias_of: links
+    links2_align_right:
+        alias_of: links_align_right
+    links2_item_class:
+        alias_of: links_item_class
+
+
+example: <
+    name: main_nav
+    type: picasso
+    className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\MainNavWidget
+    widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/MainNavWidget
+    template: default.php
+    skin: looplab-nav
+    vars:
+        attr:
+            id: main-nav
+            class: bg-dark navbar-dark looplab-nav
+
+        title: LoopLAB
+        fixed_top: true
+        use_scrollspy: true
+        use_smooth_scrolling: true
+        title_url: /
+        expand_size: sm
+        links:
+            -
+                text: Home
+                url: "#home"
+
+            -
+                text: Explore
+                url: "#explore-head-section"
+
+            -
+                text: Create
+                url: "#create-head-section"
+
+            -
+                text: Share
+                url: "#share-head-section"
+
+
+        links_align_right: true
+>
+
+

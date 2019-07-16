@@ -1,0 +1,98 @@
+name: ZeroAdminHeaderWidget
+description: <
+    ZeroAdmin header is a bootstrap 4 widget representing the header of an admin website based on the zeroadmin theme (https://www.templatemonster.com/admin-templates/zero-admin-template-82792.html).
+    The header is composed of various elements:
+
+    - the logo (aka brand image)
+    - the sidebar toggler (optional, the idea being that if your admin has a sidebar, you can toggle the sidebar on/off via this sidebar toggler)
+    - some plain links (optional)
+    - a subzone on the right (named SUB_zeroadmin_header) to add extra widgets
+
+    In the original zeroadmin theme, the subzone is filled with the following widgets (in this order):
+
+    - ZeroAdminHeaderNewMessagesIconLinkWidget
+    - ZeroAdminHeaderNewNotificationsIconLinkWidget
+    - ZeroAdminHeaderProfileDropdownLinkWidget
+
+>
+
+vars:
+    brand_link:
+        type: string
+        default_value: /
+        description: The url of the brand logo.
+        example: /
+    brand_img_src:
+        type: string
+        default_value: ""
+        description: The value of the src attribute of the brand logo image.
+        example: /plugins/Light_Kit_Admin/zeroadmin/img/zero-admin-logo4.png
+    brand_img_alt:
+        type: string
+        default_value: Logo
+        description: The value of the alt attribute of the brand logo image.
+        example: ZeroAdmin Logo
+    use_sidebar_toggler:
+        type: bool
+        default_value: true
+        description: Whether to show the sidebar toggler.
+    sidebar_toggler_id:
+        type: string
+        default_value: header-navbar-toggler
+        description: The css id of the navbar toggler, used to toggle a visually external sidebar.
+        example: header-navbar-toggler
+    plain_links:
+        type: item_list
+        default_value: []
+        description: A list of plain links to add to the header.
+        item_properties: 
+            url:
+                type: string
+                default_value: ""
+                description: The url of the link.
+                example: /dashboard
+            text:
+                type: string
+                default_value: Dashboard
+                description: The text of the link
+                example: Dashboard
+            icon:
+                type: string
+                default_value: ""
+                description: The icon of the link, or an empty string if the link doesn't use an icon.
+                example: fas fa-user
+
+
+example: <
+    name: zeroadmin_header
+    type: picasso
+    className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\ZeroAdminHeaderWidget
+    widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ZeroAdminHeaderWidget
+    template: default.php
+    vars: 
+        attr: 
+            id: main-header
+        
+        brand_link: /
+        brand_img_src: /plugins/Light_Kit_Admin/zeroadmin/img/zero-admin-logo4.png
+        brand_img_alt: ZeroAdmin Logo
+        use_sidebar_toggler: true
+        sidebar_toggler_id: header-navbar-toggler
+        plain_links: 
+            - 
+                url: (::ROUTE::)/dashboard
+                text: Dashboard
+                icon: fas fa-user
+            
+            - 
+                url: (::ROUTE::)/pages/u-contacts
+                text: Users
+                icon: ""
+            
+            - 
+                url: (::ROUTE::)/pages/b-settings
+                text: Settings
+                icon: ""
+            
+        
+>

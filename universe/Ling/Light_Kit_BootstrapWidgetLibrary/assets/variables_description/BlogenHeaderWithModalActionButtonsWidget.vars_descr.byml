@@ -1,0 +1,273 @@
+name: BlogenHeaderWithModalActionButtonsWidget
+description: <
+    BlogenHeaderWithModalActionButtonsWidget is a bootstrap 4 widget displaying a header with some buttons, each of which opening
+    a form in a modal popup.
+
+
+    The widget is composed of items.
+
+    Each item is composed of:
+
+    - a button
+    - a form (which is visible only when the user clicks on the button)
+
+
+    The button is composed of:
+
+    - an icon
+    - a text
+
+    The icon and the text are only displayed if not empty.
+
+
+    The form is composed of:
+
+    - a title
+    - some fields
+    - a submit button
+
+
+    We can choose the size and responsiveness of the buttons by using the "button_column_class" property for each item.
+
+    This property uses the bootstrap 4 grid system css classes.
+
+    More about that at: https://getbootstrap.com/docs/4.0/layout/grid/.
+
+
+    The fields of the form can have one of the following types:
+
+    - text (an input text)
+    - email (an input text of type email)
+    - list (a select tag)
+    - file (a file input)
+    - password (an input of type password)
+    - textarea
+    - textarea_ck (a textarea using the ckeditor js plugin)
+
+
+    Properties for the fields are:
+
+    - type
+    - name
+    - label
+    - value
+    - hint
+
+    The fields of type "list" have an extra "options" property.
+
+    The fields of type "file" have an extra "file_label" property.
+
+>
+
+vars:
+    items:
+        type: item_list
+        default_value: []
+        description: The array of items.
+        item_properties: 
+            button_column_class:
+                type: string
+                default_value: col-md-3
+                description: The css class to apply to the column containing this item's button.
+                example: col-md-3
+            button_icon:
+                type: string
+                default_value: ""
+                description: The icon inside the button of this item. If empty, will not be displayed.
+                example: fas fa-plus
+            button_class:
+                type: string
+                default_value: ""
+                description: The css class to apply to the button of this item.
+                example: btn btn-primary btn-block
+            button_text:
+                type: string
+                default_value: ""
+                description: The text of the button of this item. If empty, will not be displayed.
+                example: Add Post
+            modal_title_class:
+                type: string
+                default_value: ""
+                description: The css class to apply to the title of the modal.
+                example: bg-primary text-white
+            modal_title:
+                type: string
+                default_value: ""
+                description: The title of the modal.
+                example: Add Post
+            modal_form_action:
+                type: string
+                default_value: ""
+                description: The value of the action attribute of the modal's form.
+                example: 
+            modal_form_method:
+                type: string
+                default_value: post
+                description: The value of the method attribute of the modal's form.
+                example: post
+            modal_form_fields:
+                type: item_list
+                default_value: []
+                description: The array of fields for the modal's form.
+                item_properties: 
+                    type:
+                        type: string
+                        default_value: ""
+                        description: The type of the field.
+                        example: text
+                        choices:
+                            - text
+                            - email
+                            - list
+                            - file
+                            - password
+                            - textarea
+                            - textarea_ck
+                    name:
+                        type: string
+                        default_value: ""
+                        description: The name attribute of the field.
+                        example: title
+                    label:
+                        type: string
+                        default_value: ""
+                        description: The label of the field.
+                        example: title
+                    value:
+                        type: string
+                        default_value: ""
+                        description: The value of the field.
+                        example: 
+                    hint:
+                        type: string
+                        default_value: ""
+                        description: A hint for the field.
+                        example: Max Size 3mb
+            modal_form_submit_btn_text:
+                type: string
+                default_value: Submit
+                description: The text of the modal's form submit button.
+                example: Save Changes
+            modal_form_submit_btn_class:
+                type: string
+                default_value: ""
+                description: The css class to apply to the modal's form submit button.
+                example: btn btn-primary
+
+
+example: <
+    name: blogen_header_with_modal_action_buttons
+    type: picasso
+    className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\BlogenHeaderWithModalActionButtonsWidget
+    widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/BlogenHeaderWithModalActionButtonsWidget
+    template: default.php
+    vars: 
+        attr: 
+            id: actions
+            class: py-4 mb-4 bg-light
+        
+        items: 
+            - 
+                button_column_class: col-md-3
+                button_icon: fas fa-plus
+                button_class: btn btn-primary btn-block
+                button_text: Add Post
+                modal_title_class: bg-primary text-white
+                modal_title: Add Post
+                modal_form_action: ""
+                modal_form_method: post
+                modal_form_fields: 
+                    - 
+                        type: text
+                        name: title
+                        label: title
+                        value: ""
+                        hint: ""
+                    
+                    - 
+                        type: list
+                        name: category
+                        label: Category
+                        value: web
+                        hint: ""
+                        options: 
+                            web: Web Development
+                            tec: Tech Gadgets
+                            bus: Business
+                            hea: Health & Wellness
+                        
+                    
+                    - 
+                        type: file
+                        name: my_file
+                        label: Upload image
+                        file_label: Choose File
+                        value: ""
+                        hint: Max Size 3mb
+                    
+                    - 
+                        type: textarea_ck
+                        name: body
+                        label: Body
+                        value: ""
+                        hint: ""
+                    
+                
+                modal_form_submit_btn_text: Save Changes
+                modal_form_submit_btn_class: btn btn-primary
+            
+            - 
+                button_column_class: col-md-3
+                button_icon: fas fa-plus
+                button_class: btn btn-success btn-block
+                button_text: Add Category
+                modal_title_class: bg-success text-white
+                modal_title: Add Category
+                modal_form_action: ""
+                modal_form_method: post
+                modal_form_fields: 
+                    - 
+                        type: text
+                        name: title
+                        label: title
+                    
+                
+                modal_form_submit_btn_text: Save Changes
+                modal_form_submit_btn_class: btn btn-success
+            
+            - 
+                button_column_class: col-md-3
+                button_icon: fas fa-plus
+                button_class: btn btn-warning btn-block
+                button_text: Add User
+                modal_title_class: bg-warning text-white
+                modal_title: Add User
+                modal_form_action: ""
+                modal_form_method: post
+                modal_form_fields: 
+                    - 
+                        type: text
+                        name: name
+                        label: Name
+                    
+                    - 
+                        type: email
+                        name: email
+                        label: Email
+                    
+                    - 
+                        type: password
+                        name: password
+                        label: Password
+                    
+                    - 
+                        type: password
+                        name: confirm_password
+                        label: Confirm Password
+                    
+                
+                modal_form_submit_btn_text: Save Changes
+                modal_form_submit_btn_class: btn btn-warning
+            
+        
+>

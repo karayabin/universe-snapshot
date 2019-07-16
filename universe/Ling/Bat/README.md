@@ -44,6 +44,7 @@ Tools       |       Description
 [BDotTool]( https://github.com/lingtalfi/Bat/blob/master/BDotTool.md )          |       Tools for using bdot notation
 [CaseTool]( https://github.com/lingtalfi/Bat/blob/master/CaseTool.md )          |       Tools for converting a case to another
 [ClassTool]( https://github.com/lingtalfi/Bat/blob/master/ClassTool.md )          |       Tools for working with classes
+[ColorTool]( https://github.com/lingtalfi/Bat/blob/master/ColorTool.md )          |       Tools related to colors
 [ConsoleTool]( https://github.com/lingtalfi/Bat/blob/master/ConsoleTool.md )          |       Tools for working with console related tasks
 [ConvertTool]( https://github.com/lingtalfi/Bat/blob/master/ConvertTool.md )          |       Tools for working with conversion related tasks
 [DateTool]( https://github.com/lingtalfi/Bat/blob/master/DateTool.md )          |       Tools for working with dates
@@ -61,6 +62,8 @@ Tools       |       Description
 [PermTool](  https://github.com/lingtalfi/Bat/blob/master/PermTool.md )          |       Tool for permissions manipulation
 [RandomTool]( https://github.com/lingtalfi/Bat/blob/master/RandomTool.md )          |       Tools for manipulating random numbers
 [SessionTool]( https://github.com/lingtalfi/Bat/blob/master/SessionTool.md )          |       Tools for session manipulation
+[ShortCodeTool]( https://github.com/lingtalfi/Bat/blob/master/ShortCodeTool.md )          |       Tools for manipulating shortcodes
+[SmartCodeTool]( https://github.com/lingtalfi/Bat/blob/master/SmartCodeTool.md )          |       Tools for manipulating smart codes
 [StringTool]( https://github.com/lingtalfi/Bat/blob/master/StringTool.md )          |       Tools for string manipulation
 [UploadTool]( https://github.com/lingtalfi/Bat/blob/master/UploadTool.md )          |       Tools for helping with php file uploads
 [UriTool]( https://github.com/lingtalfi/Bat/blob/master/UriTool.md )          |       Tools for uri manipulation
@@ -80,6 +83,27 @@ Dependencies
 
 History Log
 ------------------
+    
+- 1.176 -- 2019-07-13
+
+    - add ArrayTool::objectToArray method
+    
+- 1.175 -- 2019-07-11
+
+    - add DateTool::getTimeElapsedString notFullLength option
+    
+- 1.174 -- 2019-07-04
+
+    - add ClassTool::executePhpMethod method
+    - add SmartCodeTool class
+    
+- 1.173 -- 2019-07-03
+
+    - add ShortCodeTool class
+    
+- 1.172 -- 2019-05-24
+
+    - add ColorTool class
     
 - 1.171 -- 2019-04-24
 

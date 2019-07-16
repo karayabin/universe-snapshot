@@ -1,0 +1,313 @@
+label: PortfolioGrid main page
+layout: templates/Light_Kit_Demo/layouts/portfoliogrid/portfoliogrid_main_layout.php
+layout_vars:
+    page_one_id: page_one
+    page_two_id: page_two
+    page_three_id: page_three
+    page_four_id: page_four
+    opened_page: four
+
+
+title: PortfolioGrid one page theme
+description: <
+    This is the PortfolioGrid one page theme, created by Brad Traversy, and implemented with the Light_Kit plugin from the Light framework.
+>
+
+zones:
+    header:
+        -
+            name: portfoliogrid_main_nav_header
+            type: picasso
+            className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\PortfolioGridMainNavHeaderWidget
+            widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/PortfolioGridMainNavHeaderWidget
+            template: default.php
+            vars:
+                attr:
+                    id: main-header
+                use_accordion: true
+                photo_url: /plugins/Light_Kit_Demo/portfoliogrid/img/person1.jpg
+                photo_alt: John Doe
+                name: John Doe
+                social_icons:
+                    -
+                        url: http://twitter.com
+                        icon: fab fa-twitter
+                    -
+                        url: http://facebook.com
+                        icon: fab fa-facebook
+                    -
+                        url: http://instagram.com
+                        icon: fab fa-instagram
+                    -
+                        url: http://github.com
+                        icon: fab fa-github
+                role: Experienced Full Stack Web Developer
+                links:
+                    -
+                        label: Home
+                        icon: fas fa-home fa-2x d-block
+                        url: "#page_one"
+                        class: bg-primary
+                    -
+                        label: Resume
+                        icon: fas fa-graduation-cap fa-2x d-block
+                        url: "#page_two"
+                        class: bg-success
+                    -
+                        label: Work
+                        icon: fas fa-folder-open fa-2x d-block
+                        url: "#page_three"
+                        class: bg-warning
+                    -
+                        label: Contact
+                        icon: fas fa-envelope fa-2x d-block
+                        url: "#page_four"
+                        class: bg-danger
+
+    page_one:
+        -
+            name: portfoliogrid_header_with_description
+            type: picasso
+            className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\PortfolioGridHeaderWithDescriptionWidget
+            widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/PortfolioGridHeaderWithDescriptionWidget
+            template: default.php
+            vars:
+                attr:
+                    class: bg-primary text-white py-5
+                title: Welcome To My Page
+                description: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta, provident?
+
+        -
+            name: progress_bar
+            type: picasso
+            className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\ProgressBarWidget
+            widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ProgressBarWidget
+            template: default.php
+            vars:
+                attr:
+                    class: py-5
+                title: Welcome To My Page
+                description: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta, provident?
+                progress_bars:
+                    -
+                        text: HTML 5
+                        percent: 100
+                        class: bg-success
+                    -
+                        text: CSS 3
+                        percent: 100
+                        class: bg-success
+                    -
+                        text: JavaScript
+                        percent: 90
+                        class: bg-success
+                    -
+                        text: PHP
+                        percent: 80
+                        class: bg-success
+                    -
+                        text: Python
+                        percent: 70
+                        class: bg-success
+
+
+    page_two:
+
+        -
+            name: portfoliogrid_header_with_description
+            type: picasso
+            className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\PortfolioGridHeaderWithDescriptionWidget
+            widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/PortfolioGridHeaderWithDescriptionWidget
+            template: default.php
+            vars:
+                attr:
+                    class: bg-success text-white py-5
+                title: My Resume
+                description: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta, provident?
+
+        -
+            name: portfoliogrid_three_columns_card_info
+            type: picasso
+            className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\PortfolioGridThreeColumnsCardInfoWidget
+            widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/PortfolioGridThreeColumnsCardInfoWidget
+            template: default.php
+            vars:
+                attr:
+                    class: py-5
+                title: Where Have I Worked?
+                description: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur nihil quasi qui, quibusdam similique voluptatem?
+                cards:
+                    -
+                        title: Devmasters
+                        description: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, ratione?
+                        features:
+                            -
+                                class: p-2 mb-3 bg-dark text-white
+                                text: Position: Full Stack Developer
+                            -
+                                class: p-2 mb-3 bg-dark text-white
+                                text: Phone: (444) 444-4444
+                        footer_text: Dates: 2015 - 2018
+                    -
+                        title: 123 Designs
+                        description: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, ratione?
+                        features:
+                            -
+                                class: p-2 mb-3 bg-dark text-white
+                                text: Position: Web Designer
+                            -
+                                class: p-2 mb-3 bg-dark text-white
+                                text: Phone: (222) 222-2222
+                        footer_text: Dates: 2013 - 2015
+                    -
+                        title: Web Designer Pros
+                        description: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, ratione?
+                        features:
+                            -
+                                class: p-2 mb-3 bg-dark text-white
+                                text: Position: Web Designer
+                            -
+                                class: p-2 mb-3 bg-dark text-white
+                                text: Phone: (333) 333-3333
+                        footer_text: Dates: 2010 - 2013
+
+
+
+    page_three:
+
+        -
+            name: portfoliogrid_header_with_description
+            type: picasso
+            className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\PortfolioGridHeaderWithDescriptionWidget
+            widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/PortfolioGridHeaderWithDescriptionWidget
+            template: default.php
+            vars:
+                attr:
+                    class: bg-warning text-white py-5
+                title: My Work
+                description: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta, provident?
+
+
+        -
+            name: photo_gallery
+            type: picasso
+            active: true
+            className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\PhotoGalleryWidget
+            widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/PhotoGalleryWidget
+            template: no-container.php
+            js: default
+            vars:
+                attr:
+                    id: gallery
+                    class: py-5 card card-body
+                title: What Have I Built?
+                title_level: 3
+                title_class: ""
+                text: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores expedita laborum mollitia nam non voluptates.
+                text_class: ""
+                column_class: col-md-3
+                nb_photos_per_row: 4
+                row_class: no-gutters
+                photos:
+                    -
+                        url: /plugins/Light_Kit_BootstrapWidgetLibrary/portfoliogrid/img/photo-1.jpg
+                        alt: photo-1
+                    -
+                        url: /plugins/Light_Kit_BootstrapWidgetLibrary/portfoliogrid/img/photo-2.jpg
+                        alt: photo-2
+                    -
+                        url: /plugins/Light_Kit_BootstrapWidgetLibrary/portfoliogrid/img/photo-3.jpg
+                        alt: photo-3
+                    -
+                        url: /plugins/Light_Kit_BootstrapWidgetLibrary/portfoliogrid/img/photo-4.jpg
+                        alt: photo-4
+                    -
+                        url: /plugins/Light_Kit_BootstrapWidgetLibrary/portfoliogrid/img/photo-5.jpg
+                        alt: photo-5
+                    -
+                        url: /plugins/Light_Kit_BootstrapWidgetLibrary/portfoliogrid/img/photo-6.jpg
+                        alt: photo-6
+                    -
+                        url: /plugins/Light_Kit_BootstrapWidgetLibrary/portfoliogrid/img/photo-7.jpg
+                        alt: photo-7
+                    -
+                        url: /plugins/Light_Kit_BootstrapWidgetLibrary/portfoliogrid/img/photo-8.jpg
+                        alt: photo-8
+
+
+    page_four:
+
+        -
+            name: portfoliogrid_header_with_description
+            type: picasso
+            className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\PortfolioGridHeaderWithDescriptionWidget
+            widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/PortfolioGridHeaderWithDescriptionWidget
+            template: default.php
+            vars:
+                attr:
+                    class: bg-danger text-white py-5
+                title: Contact
+                description: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta, provident?
+
+
+        -
+            name: mizuxe_contact_form
+            type: picasso
+            active: true
+            className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\MizuxeContactFormWidget
+            widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/MizuxeContactFormWidget
+            template: card.php
+            vars:
+                attr:
+                    class: py-5
+                show_image: false
+                image_url: ""
+                image_alt: our company logo
+                form_action: ""
+                form_method: post
+                form_title: Get In Touch
+                form_text: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur dolorum ea harum, nam quas voluptatem.
+                form_text_class: ""
+                form_fields:
+                    -
+                        icon: fas fa-user
+                        icon_wrapper_class: bg-danger text-white
+                        class: bg-dark text-white
+                        name: name
+                        label: Name
+                        type: text
+                    -
+                        icon: fas fa-envelope
+                        icon_wrapper_class: bg-danger text-white
+                        class: bg-dark text-white
+                        name: email
+                        label: Email
+                        type: email
+                    -
+                        icon: fas fa-pencil-alt
+                        icon_wrapper_class: bg-danger text-white
+                        class: bg-dark text-white
+                        name: message
+                        label: Message
+                        type: textarea
+                        rows: null
+                submit_btn_text: Submit
+                submit_btn_class: btn btn-danger btn-block btn-lg
+
+    footer:
+        -
+            name: footer_with_button
+            type: picasso
+            active: true
+            className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\FooterWithButtonWidget
+            widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/FooterWithButtonWidget
+            template: default.php
+            vars:
+                attr:
+                    id: main-footer
+                    class: p-5 bg-dark text-white
+                column_class: col-md-6
+                icon: fas fa-cloud
+                button_class: btn btn-outline-light
+                button_url: "#"
+                button_text: Download Resume

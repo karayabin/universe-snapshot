@@ -11,15 +11,11 @@
 
 namespace Ling\BeeFramework\Notation\String\StringParser\ExpressionDiscoverer\Container;
 
-use Ling\BeeFramework\Bat\ClassTool;
-use Ling\BeeFramework\Component\String\StringIterator\StringIterator;
 use Ling\BeeFramework\Component\String\StringIterator\StringIteratorInterface;
-use Ling\BeeFramework\Notation\String\StringParser\ExpressionDiscoverer\ExpressionDiscoverer;
 use Ling\BeeFramework\Notation\String\StringParser\ExpressionDiscoverer\GreedyExpressionDiscovererInterface;
 use Ling\BeeFramework\Notation\String\StringParser\ExpressionDiscoverer\Tool\ExpressionDiscovererTool;
 use Ling\BeeFramework\Notation\String\StringParser\ExpressionDiscovererModel\ExpressionDiscovererModelInterface;
 use Ling\BeeFramework\Notation\String\StringParser\Validator\ValidatorInterface;
-use Ling\Komin\Component\Monitor\Traits\ClassicMonitorTrait;
 
 
 /**
@@ -180,6 +176,11 @@ use Ling\Komin\Component\Monitor\Traits\ClassicMonitorTrait;
  *
  * Some symbols need quote protection.
  * See the concrete implementations to see which symbols exactly.
+ *
+ *
+ *
+ *
+ *
  *
  *
  */

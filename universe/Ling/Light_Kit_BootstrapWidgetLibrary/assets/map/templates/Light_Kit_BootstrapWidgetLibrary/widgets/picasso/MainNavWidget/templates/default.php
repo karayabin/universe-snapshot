@@ -9,12 +9,9 @@ use Ling\Kit_PicassoWidget\Widget\PicassoWidget;
 
 
 $title = $z['title'] ?? "No title";
-$titleLogo = $z['title_logo'] ?? null;
+$titleLogo = $z['title_logo'] ?? [];
 $fixedTop = $z['fixed_top'] ?? true;
 $titleUrl = $z['title_url'] ?? "/";
-
-
-
 
 
 $links = $z['links'] ?? [];
@@ -42,21 +39,29 @@ $linksCallback = function (array $links, array $options) {
 ">
 
         <?php foreach ($links as $item):
+            $active = $item['active'] ?? false;
             $children = $item['children'] ?? null;
+            $item_class = $item['class'] ?? '';
+
+            $sActive = (true === $active) ? 'active' : '';
+
             ?>
             <?php if (is_array($children)): ?>
-            <li class="nav-item dropdown <?php echo $links_item_class; ?>">
+            <li class="nav-item dropdown <?php echo $links_item_class; ?> <?php echo $item_class; ?> <?php echo $sActive; ?>">
                 <a href="<?php echo htmlspecialchars($item['url']); ?>"
                    class="nav-link dropdown-toggle" data-toggle="dropdown">
                     <?php if (array_key_exists("icon", $item) && $item['icon']): ?>
-                        <i class="<?php echo htmlspecialchars($item['icon']); ?>"></i>&nbsp;
+                        <i class="<?php echo htmlspecialchars($item['icon']); ?>"></i>
                     <?php endif; ?>
                     <?php echo $item['text']; ?></a>
                 <div class="dropdown-menu">
-                    <?php foreach ($children as $child): ?>
-                        <a href="<?php echo htmlspecialchars($child['url']); ?>" class="dropdown-item">
+                    <?php foreach ($children as $child):
+                        $child_class = $child['class'] ?? '';
+                        ?>
+                        <a href="<?php echo htmlspecialchars($child['url']); ?>"
+                           class="dropdown-item <?php echo htmlspecialchars($child_class); ?>">
                             <?php if (array_key_exists("icon", $child) && $child['icon']): ?>
-                                <i class="<?php echo htmlspecialchars($child['icon']); ?>"></i>&nbsp;
+                                <i class="<?php echo htmlspecialchars($child['icon']); ?>"></i>
                             <?php endif; ?>
                             <?php echo $child['text']; ?></a>
                         </a>
@@ -65,11 +70,11 @@ $linksCallback = function (array $links, array $options) {
             </li>
         <?php else: ?>
 
-            <li class="nav-item <?php echo $links_item_class; ?>">
+            <li class="nav-item <?php echo $links_item_class; ?> <?php echo $item_class; ?> <?php echo $sActive; ?>">
                 <a href="<?php echo htmlspecialchars($item['url']); ?>"
                    class="nav-link">
                     <?php if (array_key_exists("icon", $item) && $item['icon']): ?>
-                        <i class="<?php echo htmlspecialchars($item['icon']); ?>"></i>&nbsp;
+                        <i class="<?php echo htmlspecialchars($item['icon']); ?>"></i>
                     <?php endif; ?>
                     <?php echo $item['text']; ?></a>
             </li>
@@ -81,7 +86,6 @@ $linksCallback = function (array $links, array $options) {
 
 
 ?>
-
 
 
 <nav
@@ -98,7 +102,7 @@ fixed-top
     <?php echo $this->getAttributesHtml(); ?>
 >
     <div class="container">
-        <?php if (null === $titleLogo): ?>
+        <?php if (empty($titleLogo)): ?>
             <a href="<?php echo htmlspecialchars($titleUrl); ?>" class="navbar-brand"><?php echo $title; ?></a>
         <?php else: ?>
             <a href="<?php echo htmlspecialchars($titleUrl); ?>" class="navbar-brand">

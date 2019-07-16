@@ -4,7 +4,7 @@
 
 The WidgetHandlerInterface class
 ================
-2019-04-24 --> 2019-04-26
+2019-04-24 --> 2019-07-11
 
 
 
@@ -50,4 +50,4 @@ Ling\Kit\WidgetHandler\WidgetHandlerInterface
 
 SeeAlso
 ==============
-Previous class: [KitWidgetInterface](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/Widget/KitWidgetInterface.md)<br>
+Previous class: [WidgetConfDecoratorInterface](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/WidgetConfDecorator/WidgetConfDecoratorInterface.md)<br>

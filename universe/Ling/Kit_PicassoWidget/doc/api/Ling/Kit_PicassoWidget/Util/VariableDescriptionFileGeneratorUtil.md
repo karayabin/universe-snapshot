@@ -4,7 +4,7 @@
 
 The VariableDescriptionFileGeneratorUtil class
 ================
-2019-04-24 --> 2019-05-10
+2019-04-24 --> 2019-07-11
 
 
 
@@ -74,4 +74,4 @@ Ling\Kit_PicassoWidget\Util\VariableDescriptionFileGeneratorUtil
 
 SeeAlso
 ==============
-Previous class: [VariableDescriptionDocWriterUtil](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/api/Ling/Kit_PicassoWidget/Util/VariableDescriptionDocWriterUtil.md)<br>Next class: [PicassoWidget](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/api/Ling/Kit_PicassoWidget/Widget/PicassoWidget.md)<br>
+Previous class: [VariableDescriptionDocWriterUtil](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/api/Ling/Kit_PicassoWidget/Util/VariableDescriptionDocWriterUtil.md)<br>Next class: [EasyLightPicassoWidget](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/api/Ling/Kit_PicassoWidget/Widget/EasyLightPicassoWidget.md)<br>

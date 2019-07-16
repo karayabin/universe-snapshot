@@ -43,6 +43,11 @@ Return values
 Returns object.
 
 
+Exceptions thrown
+================
+
+- [OctopusServiceErrorException](https://github.com/lingtalfi/Octopus/blob/master/Exception/OctopusServiceErrorException.php).&nbsp;
+When a problem occur and the requested service cannot be returned
 
 
 

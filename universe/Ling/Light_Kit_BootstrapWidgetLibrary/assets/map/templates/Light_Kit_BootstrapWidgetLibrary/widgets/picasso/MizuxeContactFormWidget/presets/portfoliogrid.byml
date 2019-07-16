@@ -1,0 +1,42 @@
+name: mizuxe_contact_form
+type: picasso
+active: true
+className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\MizuxeContactFormWidget
+widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/MizuxeContactFormWidget
+template: card.php
+vars:
+    attr:
+        class: py-5
+    show_image: false
+    image_url: ""
+    image_alt: our company logo
+    form_action: ""
+    form_method: post
+    form_title: Get In Touch
+    form_text: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur dolorum ea harum, nam quas voluptatem.
+    form_text_class: ""
+    form_fields:
+        -
+            icon: fas fa-user
+            icon_wrapper_class: bg-danger text-white
+            class: bg-dark text-white
+            name: name
+            label: Name
+            type: text
+        -
+            icon: fas fa-envelope
+            icon_wrapper_class: bg-danger text-white
+            class: bg-dark text-white
+            name: email
+            label: Email
+            type: email
+        -
+            icon: fas fa-pencil-alt
+            icon_wrapper_class: bg-danger text-white
+            class: bg-dark text-white
+            name: message
+            label: Message
+            type: textarea
+            rows: null
+    submit_btn_text: Submit
+    submit_btn_class: btn btn-danger btn-block btn-lg

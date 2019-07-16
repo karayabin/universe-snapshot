@@ -1,0 +1,117 @@
+name: PhotoGalleryWidget
+description: <
+    PhotoGalleryWidget is a bootstrap 4 widget showing a photo gallery.
+
+    It uses the ekko plugin, so that when the user clicks a photo, the photo opens in a lightbox.
+
+    You can decide how many photos per row you want using the "nb_photos_per_row" property, along with the "columns_class" property,
+    which expects a bootstrap 4 grid css class. More info at: https://getbootstrap.com/docs/4.0/layout/grid/.
+
+
+    The gallery is composed of:
+
+    - a title
+    - a text
+    - the photos
+>
+
+vars:
+    title:
+        type: string
+        default_value: ""
+        description: The title of the photo gallery. If empty, it will not be displayed.
+        example: Photo Gallery
+    title_level:
+        type: number
+        default_value: 1
+        description: The importance level of the title, from 1 (the most important) to 6 (the least important).
+        example: 3
+    title_class:
+        type: string
+        default_value: ""
+        description: The css class to apply to the title of the photo gallery.
+        example: text-center
+    text:
+        type: string
+        default_value: ""
+        description: The text of the photo gallery. If empty, it will not be displayed.
+        example: Check out our photos
+    text_class:
+        type: string
+        default_value: ""
+        description: The css class to apply to the text of the photo gallery.
+        example: text-center
+    column_class:
+        type: string
+        default_value: col-md-4
+        description: The css class to apply to the columns containing the photos. You should use bootstrap 4 grid classes.
+        example: col-md-4
+    row_class:
+        type: string
+        default_value: mb-4
+        description: The css class to apply to the rows.
+        example:
+            - mb-4
+            - no-gutters
+
+    nb_photos_per_row:
+        type: string
+        default_value: 3
+        description: The number of photos per row. You may also want to adjust the "column_class" property accordingly.
+        example: 3
+    photos:
+        type: item_list
+        default_value: []
+        description: An array of the photos.
+        item_properties: 
+            url:
+                type: string
+                default_value: ""
+                description: The url of the photo.
+                example: /plugins/Light_Kit_BootstrapWidgetLibrary/glozzom/img/photo-1.jpg
+            alt:
+                type: string
+                default_value: ""
+                description: The value of the alt attribute for the photo.
+                example: photo-1
+
+
+example: <
+    name: photo_gallery
+    type: picasso
+    active: true
+    className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\PhotoGalleryWidget
+    widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/PhotoGalleryWidget
+    template: default.php
+    vars:
+        attr:
+            id: gallery
+            class: py-5
+        title: Photo Gallery
+        title_class: text-center
+        title_level: 1
+        text: Check out our photos
+        text_class: text-center
+        column_class: col-md-4
+        nb_photos_per_row: 3
+        photos:
+            -
+                url: /plugins/Light_Kit_BootstrapWidgetLibrary/glozzom/img/photo-1.jpg
+                alt: photo-1
+            -
+                url: /plugins/Light_Kit_BootstrapWidgetLibrary/glozzom/img/photo-2.jpg
+                alt: photo-2
+            -
+                url: /plugins/Light_Kit_BootstrapWidgetLibrary/glozzom/img/photo-3.jpg
+                alt: photo-3
+            -
+                url: /plugins/Light_Kit_BootstrapWidgetLibrary/glozzom/img/photo-4.jpg
+                alt: photo-4
+            -
+                url: /plugins/Light_Kit_BootstrapWidgetLibrary/glozzom/img/photo-5.jpg
+                alt: photo-5
+            -
+                url: /plugins/Light_Kit_BootstrapWidgetLibrary/glozzom/img/photo-6.jpg
+                alt: photo-6
+        
+>

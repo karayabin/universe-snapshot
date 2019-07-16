@@ -3,6 +3,7 @@ dependencies:
         - Bat
         - HtmlPageTools
         - Kit
+        - ArrayVariableResolver
         - Light
     
 

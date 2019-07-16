@@ -15,6 +15,27 @@ kit:
 
     methods_collection:
         -
+            method: addPageConfigurationTransformer
+            args:
+                -
+                    instance: Ling\Light_Kit\PageConfigurationTransformer\DynamicVariableTransformer
+        -
+            method: addPageConfigurationTransformer
+            args:
+                -
+                    instance: Ling\Light_Kit\PageConfigurationTransformer\LazyReferenceResolver
+                    methods:
+                        setResolvers:
+                            resolvers:
+                                METHOD_CALL:
+                                    instance: Ling\Light_Kit\PageConfigurationTransformer\LazyReferenceResolver\MethodCallResolver
+                                    callable_method: resolve
+                                ROUTE:
+                                    instance: Ling\Light_Kit\PageConfigurationTransformer\LazyReferenceResolver\RouteResolver
+                                    callable_method: resolve
+
+
+        -
             method: registerWidgetHandler
             args:
                 - picasso

@@ -1,0 +1,113 @@
+name: LoopLabTwoColumnsTeaserWidget
+description: <
+    LoopLabTwoColumnsTeaserWidget is a bootstrap 4 widget representing a two columns teaser header.
+    It's composed of two parts: the image and the teaser.
+    By default, the image is on the left.
+    You can change this using the **img_on_left** property.
+    If you don't want it rounded, set the **img_rounded** property to false.
+
+    You can also change the vertical position of the image using the "img_top_margin" property.
+
+    The teaser part contains a title, a text, and a list with an arbitrary number of items with icons.
+>
+
+vars:
+    attr:
+        type: array
+        default_value: []
+        description: The attributes to add to the widget's container tag.
+        properties: 
+            class:
+                type: string
+                default_value: bg-light text-muted py-5
+                description: The css class to add to the widget container. We recommend using bootstrap css classes.
+                example: bg-light text-muted py-5
+    img_on_left:
+        type: bool
+        default_value: true
+        description: Whether the image is on the left.
+    img_rounded:
+        type: bool
+        default_value: true
+        description: Whether the image is rounded.
+    img_src:
+        type: string
+        default_value: ""
+        description: The value of the src attribute of the img tag.
+        example: img/explore-section1.jpg
+    img_alt:
+        type: string
+        default_value: ""
+        description: The value of the alt attribute of the img tag.
+        example: Explore & Connect
+    img_top_margin:
+        type: string
+        default_value: 0px
+        description: The css margin-top value to apply to the image. This can be useful to quickly offset the image vertically for instance.
+        example: -50px
+    teaser_title:
+        type: string
+        default_value: ""
+        description: The teaser title.
+        example: Explore & Connect
+    teaser_title_level:
+        type: number
+        default_value: 3
+        description: The teaser title level, from 1 to 6, corresponding to h1 to h6.
+        example: 3
+        choices:
+            - 1
+            - 2
+            - 3
+            - 4
+            - 5
+            - 6
+    teaser_text:
+        type: string
+        default_value: ""
+        description: The teaser text, or an array of teaser texts (each item representing a paragraph for instance).
+        example: Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore reiciendis, voluptate at alias laborum odit aliquidtempore perspiciatis repudiandae hic?
+    teaser_items:
+        type: item_list
+        default_value: []
+        description: A list of teaser items.
+        item_properties: 
+            icon:
+                type: string
+                default_value: ""
+                description: The css class for the icon of the teaser item.
+                example: fas fa-check fa-2x
+            text:
+                type: string
+                default_value: ""
+                description: The text for the teaser item.
+                example: Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi distinctio iusto, perspiciatis mollitia natus harum?
+
+
+example: <
+    name: looplab_two_columns_teaser
+    type: picasso
+    className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\LoopLabTwoColumnsTeaserWidget
+    widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/LoopLabTwoColumnsTeaserWidget
+    template: default.php
+    vars:
+        attr:
+            class: bg-light text-muted py-5
+
+        img_on_left: true
+        img_rounded: true
+        img_src: img/explore-section1.jpg
+        img_alt: Explore & Connect
+        teaser_title: Explore & Connect
+        teaser_text: Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore reiciendis, voluptate at alias laborum odit aliquidtempore perspiciatis repudiandae hic?
+        teaser_items:
+            -
+                icon: fas fa-check fa-2x
+                text: Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi distinctio iusto, perspiciatis mollitia natus harum?
+
+            -
+                icon: fas fa-check fa-2x
+                text: Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi distinctio iusto, perspiciatis mollitia natus harum?
+
+
+>

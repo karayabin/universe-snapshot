@@ -11,7 +11,8 @@ use Ling\Light_Kit\PageRenderer\LightKitPageRenderer;
 
 
 $container = $this->getContainer();
-
+$jsLibs =  $this->copilot->getJsLibraries();
+$cssLibs =  $this->copilot->getCssLibraries();
 
 ?>
 <!DOCTYPE html>
@@ -30,11 +31,17 @@ $container = $this->getContainer();
           crossorigin="anonymous">
 
 
-    <link rel="stylesheet"
-          href="<?php echo $container->get('kit_css_file_generator')->generate($this->copilot, $this->pageName); ?>">
+    <?php foreach ($cssLibs as $url): ?>
+        <link rel="stylesheet" href="<?php echo htmlspecialchars($url); ?>">
+    <?php endforeach; ?>
+
+    <?php if (true === $this->copilot->hasCssCodeBlocks()): ?>
+        <link rel="stylesheet"
+              href="<?php echo $container->get('kit_css_file_generator')->generate($this->copilot, $this->pageName); ?>">
+    <?php endif; ?>
 
 
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.real.css">
 
     <?php if (true === $this->copilot->hasTitle()): ?>
         <title><?php echo $this->copilot->getTitle(); ?></title><?php endif; ?>
@@ -51,7 +58,7 @@ $container = $this->getContainer();
 <?php $this->printZone("main_zone"); ?>
 
 
-<script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
         integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
@@ -60,7 +67,15 @@ $container = $this->getContainer();
         integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
         crossorigin="anonymous"></script>
 
+
+<?php foreach ($jsLibs as $url): ?>
+    <script src="<?php echo htmlspecialchars($url); ?>"></script>
+<?php endforeach; ?>
+
+
+
 <script>
+
 
     $(document).ready(function () {
 

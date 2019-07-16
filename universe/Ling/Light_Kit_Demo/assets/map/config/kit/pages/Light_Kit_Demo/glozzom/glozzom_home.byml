@@ -1,0 +1,259 @@
+label: Glozzom home page
+layout: templates/Light_Kit_Demo/layouts/glozzom/glozzom_main_layout.php
+layout_vars: []
+
+title: Glozzom home
+description: <
+    This is the home page of the Glozzom multiple pages theme, created by Brad Traversy, and implemented with the Light_Kit plugin from the Light framework.
+>
+
+zones:
+    main_zone:
+        -
+            name: main_nav
+            type: picasso
+            className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\MainNavWidget
+            widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/MainNavWidget
+            template: default.php
+            skin: glozzom
+            vars:
+                attr:
+                    id: main-nav
+                    class: navbar-dark bg-dark skin-glozzom
+                title: Glozzom
+                fixed_top: false
+                title_url: /
+                expand_size: sm
+                links:
+                    -
+                        text: Home
+                        url: "?page=home"
+                        active: true
+                    -
+                        text: About
+                        url: "?page=about"
+                    -
+                        text: Services
+                        url: "?page=services"
+                    -
+                        text: Blog
+                        url: "?page=blog"
+                    -
+                        text: Contact
+                        url: "?page=contact"
+                links_align_right: true
+        -
+            name: glozzom_showcase_carousel
+            type: picasso
+            className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\ShowCaseCarouselWidget
+            widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ShowCaseCarouselWidget
+            template: default.php
+            vars:
+                attr:
+                    id: showcase
+                js:
+                    automatic_cycle: true
+                    interval: 6000
+                    pause_on_hover: true
+                show_nav_arrows: true
+                show_nav_indicators: true
+                captions_visible_size: sm
+                items:
+                    -
+                        img_url: /plugins/Light_Kit_Demo/glozzom/img/image1.jpg
+                        caption_align: right
+                        title: Heading One
+                        title_class: display-3
+                        text: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio dolore ea, harum itaque maiores nihil perferendis quae sint tempore voluptates?
+                        text_class: lead
+                        btn_text: Sign Up Now
+                        btn_url: "#"
+                        btn_class: "btn btn-danger btn-lg"
+                        active: true
+                    -
+                        img_url: /plugins/Light_Kit_BootstrapWidgetLibrary/glozzom/img/image2.jpg
+                        caption_align: center
+                        title: Heading Two
+                        title_class: display-3
+                        text: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio dolore ea, harum itaque maiores nihil perferendis quae sint tempore voluptates?
+                        text_class: lead
+                        btn_text: Learn More
+                        btn_url: "#"
+                        btn_class: "btn btn-primary btn-lg"
+                    -
+                        caption_align: right
+                        img_url: /plugins/Light_Kit_BootstrapWidgetLibrary/glozzom/img/image3.jpg
+                        title: Heading Three
+                        title_class: display-3
+                        text: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio dolore ea, harum itaque maiores nihil perferendis quae sint tempore voluptates?
+                        text_class: lead
+                        btn_text: Learn More
+                        btn_url: "#"
+                        btn_class: "btn btn-success btn-lg"
+
+
+        -
+            name: icon_teaser
+            type: picasso
+            active: true
+            className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\IconTeaserWidget
+            widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/IconTeaserWidget
+            template: default.php
+            vars:
+                attr:
+                    class: py-5
+                    id: home-icons
+
+                column_class: col-md-4
+                boxes:
+                    -
+                        class: mb-4 text-center
+                        icon: fas fa-cog fa-3x mb-2
+                        title: Turning Gears
+                        text: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque, dignissimos!
+
+                    -
+                        icon: fas fa-cloud fa-3x mb-2
+                        class: mb-4 text-center
+                        title: Sending Data
+                        text: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque, dignissimos!
+
+                    -
+                        icon: fas fa-cart-plus fa-3x mb-2
+                        class: mb-4 text-center
+                        title: Making Money
+                        text: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque, dignissimos!
+        -
+            name: parallax_header
+            type: picasso
+            active: true
+            className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\ParallaxHeaderWidget
+            widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ParallaxHeaderWidget
+            template: default.php
+            vars:
+                attr:
+                    id: home-heading
+                    class: p-5
+                background_url: /plugins/Light_Kit_BootstrapWidgetLibrary/glozzom/img/lights.jpg
+                background_height: 200px
+                background_position: 0px 0px
+                overlay_color: rgba(0,0,0,0.7)
+                title: Are You Ready To Get Started?
+                text: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad dolore illum in ipsum iste odio perferendis quia quidem quos sit?
+                text_class: d-none d-md-block
+
+        -
+            name: glozzom_two_columns_teaser
+            type: picasso
+            active: true
+            className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\GlozzomTwoColumnsTeaserWidget
+            widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/GlozzomTwoColumnsTeaserWidget
+            template: default.php
+            vars:
+                attr:
+                    id: info
+                    class: py-3
+                teaser_align_left: true
+                title: Lorem Ipsum
+                text: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur iure nisi numquam odio, omnis quas quis suscipit? Doloremque, ratione vel.
+                btn_url: ?page=about
+                btn_class: btn btn-outline-danger btn-lg
+                btn_text: Learn More
+                img_url: /plugins/Light_Kit_BootstrapWidgetLibrary/glozzom/img/laptop.png
+                img_alt: My laptop
+
+        -
+            name: parallax_header_with_video_trigger
+            type: picasso
+            active: true
+            className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\ParallaxHeaderWithVideoTriggerWidget
+            widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ParallaxHeaderWithVideoTriggerWidget
+            template: default.php
+            vars:
+                attr:
+                    id: video-play
+                video_url: https://www.youtube.com/embed/HnwsG9a5riA
+                background_url: /plugins/Light_Kit_BootstrapWidgetLibrary/glozzom/img/media.jpg
+                background_height: 200px
+                background_position: 0 -300px
+                overlay_color: rgba(0,0,0,0.7)
+                icon: fas fa-play fa-3x
+                text: See What We Do
+        -
+            name: photo_gallery
+            type: picasso
+            active: true
+            className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\PhotoGalleryWidget
+            widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/PhotoGalleryWidget
+            template: default.php
+            vars:
+                attr:
+                    id: gallery
+                    class: py-5
+                title: Photo Gallery
+                title_class: text-center
+                title_level: 1
+                text: Check out our photos
+                text_class: text-center
+                column_class: col-md-4
+                nb_photos_per_row: 3
+                photos:
+                    -
+                        url: /plugins/Light_Kit_BootstrapWidgetLibrary/glozzom/img/photo-1.jpg
+                        alt: photo-1
+                    -
+                        url: /plugins/Light_Kit_BootstrapWidgetLibrary/glozzom/img/photo-2.jpg
+                        alt: photo-2
+                    -
+                        url: /plugins/Light_Kit_BootstrapWidgetLibrary/glozzom/img/photo-3.jpg
+                        alt: photo-3
+                    -
+                        url: /plugins/Light_Kit_BootstrapWidgetLibrary/glozzom/img/photo-4.jpg
+                        alt: photo-4
+                    -
+                        url: /plugins/Light_Kit_BootstrapWidgetLibrary/glozzom/img/photo-5.jpg
+                        alt: photo-5
+                    -
+                        url: /plugins/Light_Kit_BootstrapWidgetLibrary/glozzom/img/photo-6.jpg
+                        alt: photo-6
+        -
+            name: newsletter_header
+            type: picasso
+            active: true
+            className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\NewsletterHeaderWidget
+            widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/NewsletterHeaderWidget
+            template: default.php
+            vars:
+                attr:
+                    id: newsletter
+                    class: text-center p-5 bg-dark text-white
+                title: Sign Up For Our Newsletter
+                text: Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusantium alias aliquam amet eaque laudantium officia optio quas tempora voluptatum.
+                fields:
+                    -
+                        type: text
+                        label: Enter Name
+                        name: name
+                    -
+                        type: email
+                        label: Enter Email
+                        name: email
+                btn_class: btn btn-primary mb-2
+                btn_text: Submit
+
+        -
+            name: simple_footer
+            type: picasso
+            active: true
+            className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\SimpleFooterWidget
+            widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/SimpleFooterWidget
+            template: default.php
+            skin: dark-skin
+            vars:
+                attr:
+                    class: text-center p-4 dark-skin
+                    id: main-footer
+
+                text_align: center
+                text_class: ""
+                text: Copyright &copy; $year Glozzom

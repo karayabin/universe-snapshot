@@ -1,0 +1,12 @@
+name: blogen_icon_header
+type: picasso
+className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\BlogenIconHeaderWidget
+widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/BlogenIconHeaderWidget
+template: default.php
+vars:
+    attr:
+        id: main-header
+        class: py-2 bg-primary text-white
+
+    icon: fas fa-cog
+    title: Dashboard

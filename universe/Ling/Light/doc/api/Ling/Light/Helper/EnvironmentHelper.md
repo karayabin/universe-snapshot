@@ -4,7 +4,7 @@
 
 The EnvironmentHelper class
 ================
-2019-04-09 --> 2019-05-02
+2019-04-09 --> 2019-07-11
 
 
 
@@ -52,4 +52,4 @@ Ling\Light\Helper\EnvironmentHelper
 
 SeeAlso
 ==============
-Previous class: [ControllerHelper](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ControllerHelper.md)<br>Next class: [ServiceContainerHelper](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ServiceContainerHelper.md)<br>
+Previous class: [ControllerHelper](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ControllerHelper.md)<br>Next class: [LightHelper](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/LightHelper.md)<br>

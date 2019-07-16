@@ -1,0 +1,70 @@
+name: ParallaxHeaderWithVideoTriggerWidget
+description: <
+    ParallaxHeaderWithVideoTriggerWidget is a bootstrap 4 widget allows us to show a youtube video.
+
+    It's composed of four parts:
+
+    - the background, which is a background image with a parallax effect
+    - the overlay, lays on top of the background image and tints/attenuates it
+    - the text and icon to trigger the video
+    - the video
+
+>
+
+vars:
+    video_url:
+        type: string
+        default_value: ""
+        description: The url of the video.
+        example: https://www.youtube.com/embed/HnwsG9a5riA
+    background_url:
+        type: string
+        default_value: ""
+        description: The url of the background image.
+        example: /plugins/Light_Kit_BootstrapWidgetLibrary/glozzom/img/media.jpg
+    background_height:
+        type: string
+        default_value: 200px
+        description: The height of the background image.
+        example: 200px
+    background_position:
+        type: string
+        default_value: 0 -300px
+        description: Use this to adjust the vertical position of the background. It expects the value of the css background-position property.
+        example: 0 -300px
+    overlay_color:
+        type: string
+        default_value: rgba(0,0,0,0.7)
+        description: The css background-color to apply to the overlay.
+        example: rgba(0,0,0,0.7)
+    icon:
+        type: string
+        default_value: fas fa-play fa-3x
+        description: The css class for the icon.
+        example: fas fa-play fa-3x
+    text:
+        type: string
+        default_value: ""
+        description: The text
+        example: See What We Do
+
+
+example: <
+    name: parallax_header_with_video_trigger
+    type: picasso
+    active: true
+    className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\ParallaxHeaderWithVideoTriggerWidget
+    widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ParallaxHeaderWithVideoTriggerWidget
+    template: default.php
+    vars: 
+        attr: 
+            id: video-play
+        
+        video_url: https://www.youtube.com/embed/HnwsG9a5riA
+        background_url: /plugins/Light_Kit_BootstrapWidgetLibrary/glozzom/img/media.jpg
+        background_height: 200px
+        background_position: 0 -300px
+        overlay_color: rgba(0,0,0,0.7)
+        icon: fas fa-play fa-3x
+        text: See What We Do
+>

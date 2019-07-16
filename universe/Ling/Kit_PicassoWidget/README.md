@@ -55,6 +55,11 @@ template: $templateName         # for instance: default.php, or prototype.php. T
 # If it's defined, it indicates which skin to use.
 # If null, this means use no skin at all (the user probably wants to take care of the css by herself)
 ?skin: null  
+# The js init file to use. 
+# If not defined, it defaults to the template name. 
+# If it's defined, it indicates the js init file to use.
+# If null, this means use no js init file at all (the user probably wants to take care of the js by herself)
+?js: null  
 ?vars:                          # An array of variables to pass to the template
     my_value: 667 
     ?attr:                          # An array of html attributes to add to the widget's outer tag
@@ -99,11 +104,11 @@ Here is the **widget** directory structure:
 ----- templates/            # this directory contains the templates available to this widget
 --------- prototype.php     # just an example, can be any name really...
 --------- default.php       # just an example, can be any name really...
------ js-init/
---------- default.js        # can be any name, but it's the same name as a template
---------- default.js.php    # use this instead of default.js to turn the file into a dynamic js nugget
+----- js/
+--------- default.js        # can be any name, but if it's the same name as a template, it's loaded automatically
+--------- default.js.php    # use this instead of default.js to turn the file into a dynamic js nugget (i.e. you can leverage the power of php to write your js files)
 ----- css/                  # this directory contains the css code blocks to add to the chosen template
---------- default.css       # can be any name, but it's the same name as a template
+--------- default.css       # can be any name, but if it's the same name as the chosen template, it's loaded automatically
 --------- default.css.php   # use this instead of default.css to turn the file into a dynamic css nugget
 ```
 
@@ -113,7 +118,7 @@ Note: the **widget** directory can be placed anywhere using the **widgetDir** di
 
 Notes:
 - because of this design, a planet can provide multiple Picasso widgets.
-- the **js-init** directory contains any [js code block](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot.md#property-jsCodeBlocks) that you want to inject in your html page.
+- the **js** directory contains any [js code block](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot.md#property-jsCodeBlocks) that you want to inject in your html page.
 - the files contained in the **js-init** directory must have the same name than the template being used (with the **.js** or **.js.php** extension instead). If the **.js.php** extension is used, it's [dynamic nugget](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/pages/conception-notes.md#dynamic-nuggets).
 - the **css** directory contains any [css code block](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot.md#property-cssCodeBlocks) that you want to inject in an external css stylesheet.
 - the files contained in the **css** directory must have the same name than the template being used (with the **.css** or **.css.php** extension instead). If the **.css.php** extension is used, it's [dynamic nugget](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/pages/conception-notes.md#dynamic-nuggets).
@@ -174,6 +179,7 @@ zones:
             className: ZeroWidget
             template: default.php
             ?skin: null
+            ?js: null
             ?vars:  
                 my_value: 668
                 ?attr:
@@ -283,6 +289,58 @@ Related
 
 History Log
 =============
+
+- 1.28.0 -- 2019-07-11
+
+    - add EasyLightPicassoWidget::getKitPageRenderer method
+
+- 1.27.0 -- 2019-07-04
+
+    - add EasyLightPicassoWidget class
+    
+- 1.26.3 -- 2019-07-04
+
+    - update the concept of dynamic data extraction in the conception notes
+    
+- 1.26.2 -- 2019-07-03
+
+    - adding the concept of dynamic data extraction in the conception notes again (updated wrong file last time)
+    
+- 1.26.1 -- 2019-07-03
+
+    - adding the concept of dynamic data extraction in the conception notes
+    
+- 1.26.0 -- 2019-05-17
+
+    - add the js var to the picasso widget array
+    
+- 1.25.0 -- 2019-05-17
+
+    - update PicassoWidgetHandler, now can pass the KitPageRendererInterface to widgets so that they can print zones
+    
+- 1.24.0 -- 2019-05-16
+
+    - update PicassoWidgetHandler, now passes the copilot to the widget instances automatically
+    
+- 1.23.0 -- 2019-05-13
+
+    - update widget structure, js-init directory becomes js directory
+    
+- 1.22.0 -- 2019-05-13
+
+    - update VariableDescriptionFileGeneratorUtil now generate more convoluted examples
+    
+- 1.21.0 -- 2019-05-13
+
+    - update VariableDescriptionDocWriterUtil now add "back to top" links
+
+- 1.20.1 -- 2019-05-13
+
+    - fix VariableDescriptionFileGeneratorUtil setting default value of null for arrays
+    
+- 1.20.0 -- 2019-05-13
+
+    - update VariableDescriptionDocWriterUtil, now lists the presets
 
 - 1.19.0 -- 2019-05-10
 

@@ -1,0 +1,148 @@
+name: BlogCardsWidget
+description: <
+    BlogCardsWidget is a bootstrap 4 widget representing a list of blog cards organized in columns.
+
+    We can decide the size of the columns using the "column_class" property, which uses the bootstrap 4 grid css classes
+    (more on that at: https://getbootstrap.com/docs/4.0/layout/grid/), along with the "nb_cards_per_row" property.
+
+    Each card is composed of set of elements amongst the following:
+
+    - an image
+    - a title
+    - a subtitle
+    - a text
+    - a quote
+    - a quote author
+
+    When an element is empty (for instance if we set the subtitle to an empty string), it is not displayed.
+>
+
+vars:
+    column_class:
+        type: string
+        default_value: col-md-4
+        description: The css class to apply to each column. Note: a column contain one card.
+        example: col-md-4
+    non_initial_row_class:
+        type: string
+        default_value: mt-2
+        description: The css class to apply to every row. Use this to define the vertical spacing between rows.
+        example: mt-2
+    nb_cards_per_row:
+        type: number
+        default_value: 3
+        description: The max number of cards per row.
+        example: 3
+    cards:
+        type: item_list
+        default_value: []
+        description: The array of cards.
+        item_properties: 
+            card_class:
+                type: string
+                default_value: ""
+                description: The css class to apply to this card's outer tag..
+                example: 
+            img_url:
+                type: string
+                default_value: ""
+                description: The url of the image of this card. If empty, the image will not be displayed.
+                example: /plugins/Light_Kit_BootstrapWidgetLibrary/glozzom/img/blog-photo-1.jpg
+            img_alt:
+                type: string
+                default_value: ""
+                description: The value of the alt attribute of the image for this card.
+                example: photo-1
+            title:
+                type: string
+                default_value: ""
+                description: The title of the card. If empty, will not be displayed.
+                example: Blog Post One
+            subtitle:
+                type: string
+                default_value: ""
+                description: The subtitle of the card. If empty, will not be displayed.
+                example: Written by Jeff on 05/20
+            text:
+                type: string
+                default_value: ""
+                description: The text of the card. If empty, will not be displayed.
+                example: <
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam harum illo itaque
+                    iusto pariatur rem? Distinctio praesentium rerum suscipit. Ab aspernatur, itaque magnam
+                    officiis optio quae quam repudiandae saepe tenetur?
+                >
+
+
+example: <
+    name: blog_cards
+    type: picasso
+    active: true
+    className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\BlogCardsWidget
+    widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/BlogCardsWidget
+    template: default.php
+    vars: 
+        attr: 
+            id: blog
+            class: py-3
+        
+        column_class: col-md-4
+        non_initial_row_class: mt-2
+        nb_cards_per_row: 3
+        cards: 
+            - 
+                card_class: ""
+                img_url: /plugins/Light_Kit_BootstrapWidgetLibrary/glozzom/img/blog-photo-1.jpg
+                img_alt: photo-1
+                title: Blog Post One
+                subtitle: Written by Jeff on 05/20
+                text: <
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam harum illo itaque
+                    iusto pariatur rem? Distinctio praesentium rerum suscipit. Ab aspernatur, itaque magnam
+                    officiis optio quae quam repudiandae saepe tenetur?
+                >
+            
+            - 
+                card_class: ""
+                img_url: /plugins/Light_Kit_BootstrapWidgetLibrary/glozzom/img/blog-photo-2.jpg
+                img_alt: photo-2
+                title: Blog Post Two
+                subtitle: Written by Karen on 05/22
+                text: <
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam harum illo itaque
+                    iusto pariatur rem? Distinctio praesentium rerum suscipit. Ab aspernatur, itaque magnam
+                    officiis optio quae quam repudiandae saepe tenetur?
+                >
+            
+            - 
+                card_class: ""
+                img_url: /plugins/Light_Kit_BootstrapWidgetLibrary/glozzom/img/blog-photo-3.jpg
+                img_alt: photo-3
+                title: Blog Post Three
+                subtitle: Written by Harry on 05/23
+                text: <
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam harum illo itaque
+                    iusto pariatur rem? Distinctio praesentium rerum suscipit. Ab aspernatur, itaque magnam
+                    officiis optio quae quam repudiandae saepe tenetur?
+                >
+            
+            - 
+                card_class: p-3
+                quote_text: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur deleniti exercitationem fugiat neque, pariatur ratione.
+                quote_author: "Someone Famous in <cite title=\"Source Title\">Source Title</cite>"
+                quote_author_class: text-muted
+            
+            - 
+                card_class: p-3 bg-danger text-white
+                quote_text: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur deleniti exercitationem fugiat neque, pariatur ratione.
+                quote_author: "Someone Famous in <cite title=\"Source Title\">Source Title</cite>"
+                quote_author_class: text-white
+            
+            - 
+                card_class: p-3
+                quote_text: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur deleniti exercitationem fugiat neque, pariatur ratione.
+                quote_author: "Someone Famous in <cite title=\"Source Title\">Source Title</cite>"
+                quote_author_class: text-muted
+            
+        
+>

@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [KitPageRenderer::addWidgetConfDecorator](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer/addWidgetConfDecorator.md)(Ling\Kit\WidgetConfDecorator\WidgetConfDecoratorInterface $decorator) : void
+public [KitPageRenderer::addWidgetConfDecorator](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer/addWidgetConfDecorator.md)([Ling\Kit\WidgetConfDecorator\WidgetConfDecoratorInterface](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/WidgetConfDecorator/WidgetConfDecoratorInterface.md) $decorator) : void
 
 
 

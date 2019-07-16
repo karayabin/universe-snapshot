@@ -4,7 +4,7 @@
 
 The LightBlueServiceContainer class
 ================
-2019-04-09 --> 2019-05-02
+2019-04-09 --> 2019-07-11
 
 
 
@@ -22,7 +22,7 @@ Class synopsis
 ==============
 
 
-class <span class="pl-k">LightBlueServiceContainer</span> extends BlueOctopusServiceContainer implements OctopusServiceContainerInterface, [LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) {
+class <span class="pl-k">LightBlueServiceContainer</span> extends [BlueOctopusServiceContainer](https://github.com/lingtalfi/Octopus/blob/master/ServiceContainer/BlueOctopusServiceContainer.php) implements [OctopusServiceContainerInterface](https://github.com/lingtalfi/Octopus/blob/master/ServiceContainer/OctopusServiceContainerInterface.php), [LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) {
 
 - Inherited methods
     - public BlueOctopusServiceContainer::__construct() : void

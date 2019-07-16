@@ -7,7 +7,7 @@ HttpRequest::createFromEnv
 
 
 
-HttpRequest::createFromEnv — 
+HttpRequest::createFromEnv — Returns the http request using the info provided by the webserver ($_SERVER environment variables).
 
 
 
@@ -21,7 +21,7 @@ public static [HttpRequest::createFromEnv](https://github.com/lingtalfi/Light/bl
 
 
 
-
+Returns the http request using the info provided by the webserver ($_SERVER environment variables).
 
 
 

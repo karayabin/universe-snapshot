@@ -1,0 +1,192 @@
+name: ShowCaseCarouselWidget
+description: <
+    The ShowCaseCarouselWidget is a bootstrap 4 widget representing a carousel with sliding items.
+
+    It uses the bootstrap 4 carousel component (more info at https://getbootstrap.com/docs/4.0/components/carousel/)
+
+    Each item by default is composed of the following elements:
+    - background image
+    - title
+    - text
+    - button
+
+    We can decide which item should be display first by adding the setting the "active" property of the desired item
+    to true.
+
+    By default, the textual elements of an item (the title, text and button) are only visible on small screens and larger (i.e. on
+    very small screens like mobile, they aren't visible, because they take too much space).
+
+    We can change the size at which the textual elements become visible using the "captions_visible_size" property.
+
+    Also, for the title, text and button of each item, if their text is empty they will not be displayed.
+
+    So for instance if the title of an item is empty, it will not be displayed for that item.
+    Same for the text and the button.
+
+
+    By default, the navigation between items occur automatically every 6 seconds.
+    It's possible to change the time an item stays on the showcase using the "js.interval" property,
+    and more generally it's possible to define the behaviour of the carousel using the properties inside the "js" property.
+
+    See the variables description for more details.
+
+    By default, the carousel has navigation arrows on the edges, and navigation indicators near the bottom of the carousel.
+    We can de-activate those by using the "show_nav_arrows" and "show_nav_indicators" properties.
+
+>
+
+vars:
+    js:
+        type: array
+        default_value: null
+        description: An array of parameters to define the behaviour of the javascript part of the slider.
+        properties: 
+            automatic_cycle:
+                type: bool
+                default_value: true
+                description: Whether to automatically cycles through the items. If not, the user needs to change the slide manually.
+            interval:
+                type: string
+                default_value: 6000
+                description: <
+                    The amount of time (in milliseconds) to delay between automatically cycling an item. This option is only
+                    relevant if the automatic_cycle option is set to true.
+                >
+                example: 6000
+            pause_on_hover:
+                type: bool
+                default_value: true
+                description: If true, the carousel will stop sliding as long as the user hovers her cursor on a carousel item.
+    show_nav_arrows:
+        type: bool
+        default_value: true
+        description: Whether to show the navigation arrows.
+    show_nav_indicators:
+        type: bool
+        default_value: true
+        description: Whether to show the navigation indicators.
+    captions_visible_size:
+        type: string
+        default_value: sm
+        description: The size at which the textual information of the slide should become visible (between small, medium and large).
+        example: sm
+        choices:
+            - sm
+            - md
+            - lg
+    items:
+        type: item_list
+        default_value: []
+        description: The items of the carousel.
+        item_properties: 
+            img_url:
+                type: string
+                default_value: ""
+                description: The url of the background image for this carousel item.
+                example: /plugins/Light_Kit_BootstrapWidgetLibrary/glozzom/img/image1.jpg
+            caption_align:
+                type: string
+                default_value: right
+                description: How to align the textual information (aka caption) of this carousel item.
+                example: right
+                choices:
+                    - left
+                    - center
+                    - right
+            title:
+                type: string
+                default_value: ""
+                description: The title for this carousel item. If this value is empty, the title will not be displayed.
+                example: Heading One
+            title_class:
+                type: string
+                default_value: display-3
+                description: The css class to apply to the title of this carousel item.
+                example: display-3
+            text:
+                type: string
+                default_value: ""
+                description: The text for this carousel item. If this value is empty, the text will not be displayed.
+                example: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio dolore ea, harum itaque maiores nihil perferendis quae sint tempore voluptates?
+            text_class:
+                type: string
+                default_value: lead
+                description: The css class to apply to the text of this carousel item.
+                example: lead
+            btn_text:
+                type: string
+                default_value: ""
+                description: The text for the button of this carousel item. If this value is empty, the button will not be displayed.
+                example:
+                    - Sign Up Now
+                    - Read More
+            btn_url:
+                type: string
+                default_value: #
+                description: The url of the button for this carousel item.
+                example: #
+            btn_class:
+                type: string
+                default_value: btn
+                description:  The css class to apply to the button for this carousel item.
+                example: btn btn-danger btn-lg
+            active:
+                type: bool
+                default_value: false
+                description: If true, indicates that this carousel item should be displayed first when the page opens.
+
+example: <
+    name: glozzom_showcase_carousel
+    type: picasso
+    className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\ShowCaseCarouselWidget
+    widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ShowCaseCarouselWidget
+    template: default.php
+    vars:
+        attr:
+            id: showcase
+
+        js:
+            automatic_cycle: true
+            interval: 6000
+            pause_on_hover: true
+
+        show_nav_arrows: true
+        show_nav_indicators: true
+        captions_visible_size: sm
+        items:
+            -
+                img_url: /plugins/Light_Kit_BootstrapWidgetLibrary/glozzom/img/image1.jpg
+                caption_align: right
+                title: Heading One
+                title_class: display-3
+                text: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio dolore ea, harum itaque maiores nihil perferendis quae sint tempore voluptates?
+                text_class: lead
+                btn_text: Sign Up Now
+                btn_url: "#"
+                btn_class: btn btn-danger btn-lg
+                active: true
+
+            -
+                img_url: /plugins/Light_Kit_BootstrapWidgetLibrary/glozzom/img/image2.jpg
+                caption_align: center
+                title: Heading Two
+                title_class: display-3
+                text: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio dolore ea, harum itaque maiores nihil perferendis quae sint tempore voluptates?
+                text_class: lead
+                btn_text: Learn More
+                btn_url: "#"
+                btn_class: btn btn-primary btn-lg
+
+            -
+                caption_align: right
+                img_url: /plugins/Light_Kit_BootstrapWidgetLibrary/glozzom/img/image3.jpg
+                title: Heading Three
+                title_class: display-3
+                text: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio dolore ea, harum itaque maiores nihil perferendis quae sint tempore voluptates?
+                text_class: lead
+                btn_text: Learn More
+                btn_url: "#"
+                btn_class: btn btn-success btn-lg
+
+        
+>

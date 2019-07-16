@@ -1,0 +1,16 @@
+name: footer_with_button
+type: picasso
+active: true
+className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\FooterWithButtonWidget
+widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/FooterWithButtonWidget
+template: default.php
+vars:
+    attr:
+        id: main-footer
+        class: p-5 bg-dark text-white
+
+    column_class: col-md-6
+    icon: fas fa-cloud
+    button_class: btn btn-outline-light
+    button_url: "#"
+    button_text: Download Resume

@@ -118,12 +118,13 @@ class DocToolInterpreter implements NotationInterpreterInterface
                     $seeMethod = $declaringClass . "::" . $seeMethod;
                 }
 
+
                 if (array_key_exists($seeMethod, $this->generatedItems2Url)) {
                     $url = $this->generatedItems2Url[$seeMethod];
                 }
                 else {
                     if (null !== $report) {
-                        $report->addUnresolvedMethodReference($declaringClass, $seeMethod, "seeMethod from $declaringClass");
+                        $report->addUnresolvedMethodReference($declaringClass, $seeMethod, "seeMethod from $declaringClass (from DocToolInterpreter)");
                     }
                 }
 

@@ -1,0 +1,155 @@
+label: Blogen settings
+layout: templates/Light_Kit_Demo/layouts/blogen/blogen_one_column_layout.php
+layout_vars: []
+
+title: Blogen settings
+description: <
+    This is the blogen settings page from the Blogen theme, created by Brad Traversy, and implemented with the Light_Kit plugin from the Light framework.
+>
+
+zones:
+    main_zone:
+        -
+            name: main_nav
+            type: picasso
+            className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\MainNavWidget
+            widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/MainNavWidget
+            template: default.php
+            vars:
+                attr:
+                    id: main-nav
+                    class: navbar-dark bg-dark p-0
+                title: Blogen
+                fixed_top: false
+                title_url: /
+                expand_size: sm
+                links_item_class: px-2
+                links:
+                    -
+                        text: Dashboard
+                        url: "?page=dashboard"
+                    -
+                        text: Posts
+                        url: "?page=posts"
+                    -
+                        text: Categories
+                        url: "?page=categories"
+                    -
+                        text: Users
+                        url: "?page=users"
+                links_align_right: false
+                links2:
+                    -
+                        text: Welcome ${userName}
+                        url: "#"
+                        active: false
+                        icon: fas fa-user
+                        class: mr-3
+                        children:
+                            -
+                                text: Profile
+                                url: "?page=profile"
+                                active: false
+                                icon: fas fa-user-circle
+                            -
+                                text: Settings
+                                url: "?page=settings"
+                                active: false
+                                icon: fas fa-cog
+
+                    -
+                        text: Logout
+                        url: "?page=login"
+                        active: false
+                        icon: fas fa-user-times
+
+                links2_align_right: true
+
+        -
+            name: blogen_icon_header
+            type: picasso
+            className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\BlogenIconHeaderWidget
+            widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/BlogenIconHeaderWidget
+            template: default.php
+            vars:
+                attr:
+                    id: main-header
+                    class: py-2 bg-primary text-white
+                icon: fas fa-cog
+                title: Settings
+
+        -
+            name: blogen_header_with_action_buttons
+            type: picasso
+            className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\BlogenHeaderWithActionButtonsWidget
+            widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/BlogenHeaderWithActionButtonsWidget
+            template: default.php
+            vars:
+                attr:
+                    id: actions
+                    class: py-4 mb-4 bg-light
+                column_class: col-md-3
+                buttons:
+                    -
+                        class: btn btn-light btn-block
+                        icon: fas fa-arrow-left
+                        url: /?page=dashboard
+                        text: Back To Dashboard
+                    -
+                        class: btn btn-success btn-block
+                        icon: fas fa-check
+                        url: /?page=dashboard
+                        text: Save Changes
+
+        -
+            name: blogen_form
+            type: picasso
+            className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\BlogenFormWidget
+            widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/BlogenFormWidget
+            template: fieldset.php
+            vars:
+                attr:
+                    id: settings
+                title: Edit Settings
+                title_class: bg-primary text-white
+                form_action: ""
+                form_method: post
+                form_fields:
+                    -
+                        type: radio
+                        name: allow_user_registration
+                        label: Allow User Registration
+                        value: yes
+                        hint: ""
+                        choices:
+                            yes: Yes
+                            no: No
+                    -
+                        type: radio
+                        name: homepage_format
+                        label: Homepage Format
+                        value: blog
+                        hint: ""
+                        choices:
+                            blog: Blog Page
+                            home: Homepage
+                show_submit_button: false
+                submit_button_wrapper_class: text-right
+                submit_btn_text: Save Changes
+                submit_btn_class: btn btn-primary
+
+        -
+            name: simple_footer
+            type: picasso
+            active: true
+            className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\SimpleFooterWidget
+            widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/SimpleFooterWidget
+            template: default.php
+            vars:
+                attr:
+                    id: main-footer
+                    class: bg-dark text-white mt-5 p-5
+
+                text_align: center
+                text_class: lead
+                text: Copyright &copy; $year Blogen

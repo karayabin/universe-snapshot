@@ -7,13 +7,16 @@ Conception notes
 * [Going deeper with widgets: the picasso widget](#going-deeper-with-widgets-the-picasso-widget)
     * [A planet can provide multiple widgets](#a-planet-can-provide-multiple-widgets)
     * [Using templates](#using-templates)
-    * [Using js-init files](#using-js-init-files)
+    * [Using js files](#using-js-files)
     * [Using css decorator files](#using-css-decorator-files)
     * [The picasso widget configuration array](#the-picasso-widget-configuration-array)
 * [The variables description idea](#the-variables-description-idea)
 * [The css skin idea](#the-css-skin-idea)
 * [Dynamic nuggets](#dynamic-nuggets)
 * [Presets](#presets)
+* [Aliases](#aliases)
+* [Caching](#caching)
+* [Passing dynamic data down the pipe](#passing-dynamic-data-down-the-pipe)
 
 
 
@@ -37,7 +40,7 @@ and is located right next to the php class, with the following structure:
 ----- templates/            # this directory contains the templates available to this widget
 --------- prototype.php     # just an example, can be any name really...
 --------- default.php       # just an example, can be any name really...
------ js-init/
+----- js/
 --------- default.js        # can be any name, but it's the same name as a template
 --------- default.js.php    # use this instead of default.js to turn the file into a dynamic js nugget
 ----- css/                  # this directory contains the css code blocks to add to the chosen template
@@ -58,7 +61,7 @@ So the main ideas here are:
 
 - a [planet](https://github.com/karayabin/universe-snapshot) can provide multiple widgets
 - the use of templates
-- the use of js-init files
+- the use of js files
 - the use of css decorator files
 
 
@@ -79,12 +82,12 @@ I decided to use templates for two reasons:
         and then make it dynamic using php code injection, and so starting by creating a prototype template (by copy-pasting
         from the original template model) is a methodology that I promote. 
 
-### Using js-init files
+### Using js files
 
 In the picasso approach, we like to put js scripts at the end of the html page, just before the closing body tag.
 In there, we also put the js code for the widgets that need such initialization code.
 
-The idea with the js-init files is that when the template is loaded, the initialization js code blocks are also automatically
+The idea with the js files is that when the template is loaded, the initialization js code blocks are also automatically
 loaded (via the use of the Copilot object from the [HtmlPageRenderer](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Renderer/HtmlPageRenderer.md)).
 
 The main benefit of using js-init files is that we use js files, and so the writing of initialization code is easy (because
@@ -93,7 +96,7 @@ your IDE will provide you with the correct js syntax highlighting).
 Now with this system, the js init file name must match the template name.
 
 
-Now if you need to leverage the power of php in your js nugget (aka js-init file), add the **.php** extension.
+Now if you need to leverage the power of php in your js nugget (aka js file), add the **.php** extension.
 This will turn your file into a [dynamic nugget](#dynamic-nuggets).
 
 
@@ -136,7 +139,12 @@ template: $templateName         # for instance: default.php, or prototype.php. T
 # If the skin property doesn't exist, it defaults to the template name. 
 # If it's defined, it indicates which skin to use.
 # If null, this means use no skin at all (the user probably wants to take care of the css by herself)
-?skin: null                         
+?skin: null   
+# The js init file to use. 
+# If not defined, it defaults to the template name. 
+# If it's defined, it indicates the js init file to use.
+# If null, this means use no js init file at all (the user probably wants to take care of the js by herself)
+?js: null                        
 ?vars:                          # An array of variables to pass to the template
     my_value: 667  
     ?attr:                          # An array of html attributes to add to the widget's outer tag
@@ -343,10 +351,168 @@ Whereas for built-in presets, I have no recommendation yet, but as far as Picass
 in the widget dir is a good idea (makes it easy for the maintainer to access the preset list if she wants to change something). 
  
 
+2019-05-11: Today it's a day off for me, but I just wanted to write some morning thoughts I had about presets, because they are VERY IMPORTANT.
+
+- PRESETS DON'T ADD ANY COST IN RUNTIME !!!
+
+A preset is like a copy paste operation that the user does during the configuration of her website.
+
+When the page is rendered, the preset is already written in the configuration and nobody can tell whether a preset was used or not.
+
+Usually in terms of implementation, we imagine a gui connected to a database, which provides the user with a list of presets.
+
+That works just fine with the database.
+
+With the babyYaml implementation, we can do the same if we write directly into the file, or we can just let the user copy paste
+the snippets manually (if I'm too lazy to implement the first idea), if that's ok with them. For instance, that's ok with me, because babyYaml is a developer format in the first place:
+it's a format for people who put their hands dirty, and so a copy paste is just a simple operation. 
+
+Ok, I'm out.
  
 
 
  
+Aliases
+-----------
+2019-05-14
+
+
+If I project myself in the future, and put myself in the shoes a a website builder user, creating her pages, 
+then at some point there is a functionality that the user should have: the possibility to create aliases.
+
+What does that mean?
+
+In simple terms, an alias is just a reference to something else.
+
+Apply this to widgets, and all the sudden you can create a widget once, and reference it as many times as you want,
+exactly like symbolic links on linux.
+
+What's the benefits of aliases for the user?
+
+The benefit is quite simple to understand: imagine that the user creates a multi-pages site.
+
+It's very likely that the footer will be the same. The main nav is could also be exactly the same (depending on whether the active
+link is set dynamically or statically via the configuration).
+
+So the benefit of aliases is that the user can modify ONCE the footer to get an updated footer on all the pages (using the footer) of her website.
+
+That sounds a very nice feature to have for the user.
+
+However I've something to say about that:
+
+implementing a real alias system would add more complexity to the kit thing, and at this point of development, I think I've had enough with complexity:
+the skin/js/nugget/presets system is already almost messy, and probably super powerful, and it needs (I believe) to be tested in the wild before any decision about adding new features
+can be made. 
+
+I want to first deploy the kit system with this messy system, so that I can adjust/fine-tune/clean-up the system first.
+
+And so I've found a possibly better solution than a real alias system: a fake alias system.
+
+That's how I want to implement it, because it doesn't add complexity to the kit picasso widget system.
+
+How does the fake alias system work?
+
+Well, in terms of gui, you can do something that looks like the real alias system, but in the background, rather than using real aliases,
+just let the computer copy the widget configuration on all pages.
+
+The effect is exactly the same, except that the computer has a very little tiny bit more to do than with real aliases, but the complexity of 
+the kit picasso widget is lower, which is totally worth it I believe.
+
+So, even if the kit picasso widget system was already clean, I would still go with the fake implementation because it maintains a low level of complexity.
+
+
+
+
+Caching
+-------------
+2019-05-16
+
+
+One of the most important topics in my opinion is the caching system you use.
+
+What follows is my two cents about implementing a caching system for PicassoWidget.
+
+The most efficient caching, if you can, is to cache the whole page. 
+
+But sometimes, this might not be an option. For instance, if the user is logged in,
+and the header nav has the name of the user in it, or if the left menu in the user account
+reflects the user items, etc...
+
+In those cases, it might still worth to implement a caching system based on the widgets rather
+than the whole page.
+
+Because the page load time might be faster if some widgets are cached (I believe).
+
+So, how do we go about implementing a widget based cache?
+
+Well, I thought of different solutions this morning, one of them being to render the whole
+page, then preg replace the dynamic ones, but that seemed not very practical and risky,
+and so I eventually came across another idea that I present to my future self as the one 
+I would like to be implemented.
+
+But before I go, quick reminder: in kit a widget has actually multiple parts (and that's the
+main difficulty): the widget itself, but also assets/nuggets registered via the copilot and
+which end in the head of the page, or at the bottom part just before the end body tag.
+
+So, potentially three parts (head, widget, body end).
+
+Now my idea is quite simple actually: cache 2 different files:
+
+- the widget file containing just the widget html code
+- an asset dependency file, containing the code which registers the assets to the copilot
+    (and not directly the assets), so that we get the opportunity to resolve assets conflicts.
+    
+So basically, the synopsis in this case (where the whole page can't be cached) is that
+each widget gets cached and gives 3 files (at most).
+
+And so when the application reads such a page, it basically does 3 if conditions per widget
+(which I believe is faster than interpreting the whole widget, and that's the the effective incentive
+of this idea), and if the file exists, they are included.
+
+
+In order to implement such a system, I believe that we need some kind of copilot that resets itself
+after each widget, so that we can cache the widget resources in the first place.
+But my job is over for today, the rest is left to the implementor.
+
+
+Also, I forgot to say, the widgets shouldn't use the copilot except for the assets;
+so they shouldn't for instance try to set the meta title, or other metas, or otherwise the system I described above
+needs to be adjusted (plus, it doesn't make much sense to set the meta title from a widget). 
+
+
+      
+
+
+
+
+Passing dynamic data down the pipe
+-------------
+2019-07-03
+
+
+When you want to inject dynamic data to a template, you can use a pageConfTransformer.
+
+The DynamicVariableTransformer allows you to create a variable from the controller and reference it in your template
+using the ${tag} notation. More details in the source code of the [LightKitPageRenderer:renderPage](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageRenderer/LightKitPageRenderer/renderPage.md) method.
+
+The LazyReference method call system alleviates the controller, and let you call any class directly from the template, 
+using a special notation.
+
+Note that the first technique has the most flexibility, since the controller potentially has access to any data it wants,
+whereas with the second technique, you are limited to what can be written in a string.
+I would recommend that you use the dynamic variable system for any data that belongs to an user, and optionally use
+the second technique when the data is anonymous and predictable.
+
+
+
+
+
+
+
+
+
+
+
 
 
 

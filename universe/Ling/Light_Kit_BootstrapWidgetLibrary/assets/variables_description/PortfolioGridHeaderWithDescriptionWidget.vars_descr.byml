@@ -1,0 +1,31 @@
+name: PortfolioGridHeaderWithDescriptionWidget
+description: <
+    PortfolioGridHeaderWithDescriptionWidget is a bootstrap 4 widget representing a header with a title and a description.
+>
+
+vars:
+    title:
+        type: string
+        default_value: ""
+        description: The title. If empty, will not be displayed.
+        example: Welcome To My Page
+    description:
+        type: string
+        default_value: ""
+        description: The description. If empty, will not be displayed.
+        example: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta, provident?
+
+
+example: <
+    name: portfoliogrid_header_with_description
+    type: picasso
+    className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\PortfolioGridHeaderWithDescriptionWidget
+    widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/PortfolioGridHeaderWithDescriptionWidget
+    template: default.php
+    vars: 
+        attr: 
+            class: bg-primary text-white py-5
+        
+        title: Welcome To My Page
+        description: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta, provident?
+>

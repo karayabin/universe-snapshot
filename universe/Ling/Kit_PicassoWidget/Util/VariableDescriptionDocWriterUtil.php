@@ -299,6 +299,7 @@ class VariableDescriptionDocWriterUtil
         }
         $templates = [];
         $skins = [];
+        $presets = [];
         //--------------------------------------------
         // WIDGET DIR
         //--------------------------------------------
@@ -306,6 +307,7 @@ class VariableDescriptionDocWriterUtil
         if (is_dir($widgetDir)) {
             $cssDir = $widgetDir . '/css';
             $templatesDir = $widgetDir . '/templates';
+            $presetsDir = $widgetDir . '/presets';
 
             if (is_dir($cssDir)) {
                 $skins = YorgDirScannerTool::getFilesWithExtension($cssDir, ["css", "css.php"], false, true, true);
@@ -314,9 +316,14 @@ class VariableDescriptionDocWriterUtil
             if (is_dir($templatesDir)) {
                 $templates = YorgDirScannerTool::getFilesWithExtension($templatesDir, "php", false, true, true);
             }
+
+            if (is_dir($presetsDir)) {
+                $presets = YorgDirScannerTool::getFilesWithExtension($presetsDir, "byml", false, true, true);
+            }
         }
         $sTemplates = implode(', ', $templates);
         $sSkins = implode(', ', $skins);
+        $sPresets = implode(', ', $presets);
 
 
         $widgetVars = $arr['vars'];
@@ -329,6 +336,7 @@ class VariableDescriptionDocWriterUtil
             '${widgetExample}',
             '${templates}',
             '${skins}',
+            '${presets}',
         ], [
             $dashWidgetName,
             $widgetName,
@@ -338,6 +346,7 @@ class VariableDescriptionDocWriterUtil
             $widgetExample,
             $sTemplates,
             $sSkins,
+            $sPresets,
         ], $content);
     }
 

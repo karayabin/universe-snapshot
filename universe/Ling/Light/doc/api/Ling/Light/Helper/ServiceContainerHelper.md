@@ -4,7 +4,7 @@
 
 The ServiceContainerHelper class
 ================
-2019-04-09 --> 2019-05-02
+2019-04-09 --> 2019-07-11
 
 
 
@@ -29,7 +29,7 @@ class <span class="pl-k">ServiceContainerHelper</span>  {
     - private static [getServicesConf](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ServiceContainerHelper/getServicesConf.md)(string $appDir) : array
     - private static [buildDarkBlueContainer](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ServiceContainerHelper/buildDarkBlueContainer.md)(string $appDir, array $conf) : void
     - private static [getDarkBlueContainerPath](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ServiceContainerHelper/getDarkBlueContainerPath.md)(string $appDir) : string
-    - private static [getDarkBlueInstance](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ServiceContainerHelper/getDarkBlueInstance.md)(string $appDir) : Ling\Octopus\ServiceContainer\BlueOctopusServiceContainer
+    - private static [getDarkBlueInstance](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ServiceContainerHelper/getDarkBlueInstance.md)(string $appDir) : [BlueOctopusServiceContainer](https://github.com/lingtalfi/Octopus/blob/master/ServiceContainer/BlueOctopusServiceContainer.php)
     - private static [createHashMap](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ServiceContainerHelper/createHashMap.md)(string $appDir, string $dstFile) : void
 
 }
@@ -60,4 +60,4 @@ Ling\Light\Helper\ServiceContainerHelper
 
 SeeAlso
 ==============
-Previous class: [EnvironmentHelper](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/EnvironmentHelper.md)<br>Next class: [HttpRequest](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest.md)<br>
+Previous class: [LightHelper](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/LightHelper.md)<br>Next class: [HttpRequest](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest.md)<br>

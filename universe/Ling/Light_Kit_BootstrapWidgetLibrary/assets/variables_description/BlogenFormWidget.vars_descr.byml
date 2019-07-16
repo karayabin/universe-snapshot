@@ -1,0 +1,204 @@
+name: BlogenFormWidget
+description: <
+    BlogenFormWidget is a bootstrap 4 widget representing a form.
+
+    The form is composed of:
+
+    - a title
+    - some fields
+    - a submit button
+
+
+    We can hide the submit button using the "show_submit_button" property.
+
+
+    The fields of the form can have one of the following types:
+
+    - text (an input text)
+    - email (an input text of type email)
+    - radio (an input text of type radio)
+    - list (a select tag)
+    - file (a file input)
+    - password (an input of type password)
+    - textarea
+    - textarea_ck (a textarea using the ckeditor js plugin)
+
+
+    Properties for the fields are:
+
+    - type
+    - name
+    - label
+    - value
+    - hint
+
+    The fields of type "list" have an extra "options" property.
+
+    The fields of type "file" have an extra "file_label" property.
+
+    The fields of type "radio" have an extra "choices" property.
+>
+
+
+
+vars:
+    title:
+        type: string
+        default_value: ""
+        description: The title. If empty, will not be displayed.
+        example: Edit Post
+    title_class:
+        type: string
+        default_value: ""
+        description: The css class to apply to the title.
+        example: bg-primary text-white
+    form_column_class:
+        type: string
+        default_value: col
+        description: <
+            The css class to apply to the column containing the form.
+            We can use this to shape the form's width and responsiveness.
+            You can use bootstrap 4 grid css classes.
+            More on that at: https://getbootstrap.com/docs/4.0/layout/grid/
+        >
+        example: col-md-6
+    form_action:
+        type: string
+        default_value: ""
+        description: The value of the action attribute of the form.
+        example: ""
+    form_method:
+        type: string
+        default_value: post
+        description: The value of the method attribute of the form.
+        example: post
+    form_fields:
+        type: item_list
+        default_value: []
+        description: The array of form fields.
+        item_properties: 
+            type:
+                type: string
+                default_value: ""
+                description: The type of field.
+                example: text
+                choices:
+                    - text
+                    - email
+                    - list
+                    - file
+                    - password
+                    - textarea
+                    - textarea_ck
+            name:
+                type: string
+                default_value: ""
+                description: The name attribute of the field.
+                example: title
+            label:
+                type: string
+                default_value: ""
+                description: The label of the field.
+                example: Title
+            value:
+                type: string
+                default_value: ""
+                description: The value of the field.
+                example: Post One
+            hint:
+                type: string
+                default_value: ""
+                description: The hint for the field.
+                example: Max Size 3mb
+            choices:
+                type: array
+                default_value: []
+                description: An array of value => label representing the choices for a field of type radio.
+                example: ""
+            options:
+                type: array
+                default_value: []
+                description: An array of value => label representing the choices for a field of type list.
+                example: ""
+            file_label:
+                type: string
+                default_value: ""
+                description: A message to display inside the input of type file.
+                example: Choose File
+    show_submit_button:
+        type: bool
+        default_value: true
+        description: Whether to show the submit button.
+        example: true
+    submit_button_wrapper_class:
+        type: string
+        default_value: ""
+        description: The css class to apply to the element wrapping the submit button (if any, depends on the template).
+        example: text-right
+    submit_btn_text:
+        type: string
+        default_value: Submit
+        description: The text of the submit button.
+        example: Save Changes
+    submit_btn_class:
+        type: string
+        default_value: ""
+        description: The css class to apply to the submit button.
+        example: btn btn-primary
+
+
+example: <
+    name: blogen_form
+    type: picasso
+    className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\BlogenFormWidget
+    widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/BlogenFormWidget
+    template: default.php
+    vars: 
+        attr: 
+            id: details
+        
+        title: Edit Post
+        title_class: bg-primary text-white
+        form_action: ""
+        form_method: post
+        form_fields: 
+            - 
+                type: text
+                name: title
+                label: Title
+                value: Post One
+                hint: ""
+            
+            - 
+                type: list
+                name: category
+                label: Category
+                value: web
+                hint: ""
+                options: 
+                    web: Web Development
+                    tec: Tech Gadgets
+                    bus: Business
+                    hea: Health & Wellness
+                
+            
+            - 
+                type: file
+                name: my_file
+                label: Upload image
+                file_label: Choose File
+                value: ""
+                hint: Max Size 3mb
+            
+            - 
+                type: textarea_ck
+                name: body
+                label: Body
+                value: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt harum possimus qui. Exercitationem ipsum itaque quis vitae! Ad animi aspernatur consequatur distinctio enim est expedita fuga in ipsum labore laboriosam maxime nobis quasi, quibusdam quidem recusandae tempore, tenetur totam veniam veritatis! Beatae culpa ea eius esse magni quae rem, voluptatibus.
+                hint: ""
+            
+        
+        footer_class: text-right
+        submit_btn_text: Save Changes
+        submit_btn_class: btn btn-primary
+>

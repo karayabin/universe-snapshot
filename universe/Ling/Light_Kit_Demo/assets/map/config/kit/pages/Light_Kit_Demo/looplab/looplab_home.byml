@@ -86,7 +86,7 @@ zones:
                         type: password
                 form_submit_value: Submit
                 form_submit_class: btn btn-outline-light btn-block
-                background_style: url('/plugins/Light_Kit_Demo/looplab/img/home.jpg')
+                background_style: url('/plugins/Light_Kit_BootstrapWidgetLibrary/looplab/img/home.jpg')
 
         -
             name: looplab_monochrome_header
@@ -117,7 +117,7 @@ zones:
                     class: bg-light text-muted py-5
                 img_on_left: true
                 img_rounded: true
-                img_src: img/explore-section1.jpg
+                img_src: /plugins/Light_Kit_BootstrapWidgetLibrary/looplab/img/explore-section1.jpg
                 img_alt: Explore & Connect
                 teaser_title: Explore & Connect
                 teaser_text: Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore reiciendis, voluptate at alias laborum odit aliquidtempore perspiciatis repudiandae hic?
@@ -155,7 +155,7 @@ zones:
                     class: looplab-dark py-5
                 img_on_left: false
                 img_rounded: true
-                img_src: img/create-section1.jpg
+                img_src: /plugins/Light_Kit_BootstrapWidgetLibrary/looplab/img/create-section1.jpg
                 img_alt: Create Your Passion
                 teaser_title: Create Your Passion
                 teaser_text: Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore reiciendis, voluptate at alias laborum odit aliquidtempore perspiciatis repudiandae hic?
@@ -193,9 +193,11 @@ zones:
                     class: bg-light text-muted py-5
                 img_on_left: true
                 img_rounded: true
-                img_src: img/share-section1.jpg
+                img_src: /plugins/Light_Kit_BootstrapWidgetLibrary/looplab/img/share-section1.jpg
                 img_alt: Share What You Create
+                img_top_margin: 0px
                 teaser_title: Share What You Create
+                teaser_title_level: 3
                 teaser_text: Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore reiciendis, voluptate at alias laborum odit aliquidtempore perspiciatis repudiandae hic?
                 teaser_items:
                     -

@@ -11,7 +11,6 @@
 
 namespace Ling\BeeFramework\Notation\String\ShortCode\Tool;
 
-use Ling\BeeFramework\Component\Error\CodifiedErrors\Tools\CodifiedErrorsTool;
 use Ling\BeeFramework\Notation\String\ShortCode\LineParser\ShortCodeLineParser;
 use Ling\BeeFramework\Notation\String\StringParser\ExpressionDiscoverer\Miscellaneous\ShortCodeExpressionDiscoverer;
 
@@ -52,6 +51,19 @@ use Ling\BeeFramework\Notation\String\StringParser\ExpressionDiscoverer\Miscella
  *          [0] => string(2) "mo"
  *      }
  * }
+ *
+ *
+ * Example2
+ * -------------
+ * 2019-07-04
+ *
+ * a(ShortCodeTool::parse('Maurice')); // [Maurice]
+ * a(ShortCodeTool::parse('Maurice, Jalabert')); // [Maurice, Jalabert]
+ * a(ShortCodeTool::parse('"Maurice, Jalabert"')); // 'Maurice, Jalabert'
+ * a(ShortCodeTool::parse('pancake=good, vegetables=bad')); // [pancake: good, vegetables: bad]
+ *
+ *
+ *
  *
  *
  * Shortcode notation

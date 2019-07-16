@@ -4,7 +4,7 @@
 
 The LightServiceContainerInterface class
 ================
-2019-04-09 --> 2019-05-02
+2019-04-09 --> 2019-07-11
 
 
 
@@ -22,7 +22,7 @@ Class synopsis
 ==============
 
 
-abstract class <span class="pl-k">LightServiceContainerInterface</span> implements OctopusServiceContainerInterface {
+abstract class <span class="pl-k">LightServiceContainerInterface</span> implements [OctopusServiceContainerInterface](https://github.com/lingtalfi/Octopus/blob/master/ServiceContainer/OctopusServiceContainerInterface.php) {
 
 - Inherited methods
     - abstract public OctopusServiceContainerInterface::get(string $service) : object
@@ -54,4 +54,4 @@ Ling\Light\ServiceContainer\LightServiceContainerInterface
 
 SeeAlso
 ==============
-Previous class: [LightRedServiceContainer](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightRedServiceContainer.md)<br>
+Previous class: [LightServiceContainerAwareInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerAwareInterface.md)<br>

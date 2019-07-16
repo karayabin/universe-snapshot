@@ -1,0 +1,86 @@
+name: IconTeaserWidget
+description: <
+    IconTeaserWidget is a bootstrap 4 widget to display some boxes with icons.
+    Each box is composed of 3 elements:
+    - icon
+    - title
+    - text
+
+    If an element is empty, it's not displayed.
+
+    We can choose how many boxes we want per line using the "column_class" property,
+    which takes a bootstrap 4 grid system css class as the input.
+
+    More info at https://getbootstrap.com/docs/4.0/layout/grid/
+>
+
+vars:
+    column_class:
+        type: string
+        default_value: col-md-4
+        description: <
+            The column size css class to apply. A bootstrap 4 grid css class (or a combination of css classes) is
+            expected, such as col-md-4, col-sd-3, col-lg-6, ...
+        >
+        example: col-md-4
+    boxes:
+        type: item_list
+        default_value: []
+        description: The array of boxes.
+        item_properties: 
+            class:
+                type: string
+                default_value: ""
+                description: The css class to apply to the box outer tag.
+                example: mb-4 text-center
+            icon:
+                type: string
+                default_value: ""
+                description: The css class of the icon of this box.
+                example: fas fa-cog fa-3x mb-2
+            title:
+                type: string
+                default_value: ""
+                description: The title for this box.
+                example: Turning Gears
+            text:
+                type: string
+                default_value: ""
+                description: The description for this box.
+                example: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque, dignissimos!
+
+
+example: <
+    name: icon_teaser
+    type: picasso
+    active: true
+    className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\IconTeaserWidget
+    widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/IconTeaserWidget
+    template: default.php
+    vars: 
+        attr: 
+            class: py-5
+            id: home-icons
+        
+        column_class: col-md-4
+        boxes: 
+            - 
+                class: mb-4 text-center
+                icon: fas fa-cog fa-3x mb-2
+                title: Turning Gears
+                text: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque, dignissimos!
+            
+            - 
+                icon: fas fa-cloud fa-3x mb-2
+                class: mb-4 text-center
+                title: Sending Data
+                text: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque, dignissimos!
+            
+            - 
+                icon: fas fa-cart-plus fa-3x mb-2
+                class: mb-4 text-center
+                title: Making Money
+                text: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque, dignissimos!
+            
+        
+>

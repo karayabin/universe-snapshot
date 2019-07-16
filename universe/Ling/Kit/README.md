@@ -145,6 +145,30 @@ Related
 History Log
 =============
 
+- 1.7.3 -- 2019-07-11
+
+    - add KitPageRendererInterface::countWidgets method  
+    
+- 1.7.2 -- 2019-05-17
+
+    - fix KitPageRenderer not handling printZone robustly  
+    
+- 1.7.1 -- 2019-05-17
+
+    - fix KitPageRendererAwareInterface not using KitPageRendererInterface  
+    
+- 1.7.0 -- 2019-05-17
+
+    - add KitPageRendererInterface  
+    
+- 1.6.0 -- 2019-05-17
+
+    - add KitPageRendererAwareInterface  
+    
+- 1.5.1 -- 2019-05-15
+
+    - update documentation for widget conf decorators  
+    
 - 1.5.0 -- 2019-04-30
 
     - add the idea (with commented implementation) for widget conf decorators  

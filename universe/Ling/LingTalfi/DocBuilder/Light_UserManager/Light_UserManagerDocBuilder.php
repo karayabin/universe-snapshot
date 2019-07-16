@@ -138,7 +138,7 @@ class Light_UserManagerDocBuilder
              * This map in particular is the one used for the whole DocTools planet documentation (pages and api).
              */
             "keyWord2UrlMap" => [
-//                "the command line page" => $doc . '/pages/command-line.md',
+                "WebsiteLightUser" => 'https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/WebsiteLightUser.md',
             ],
             /**
              * An array of external classes to url.

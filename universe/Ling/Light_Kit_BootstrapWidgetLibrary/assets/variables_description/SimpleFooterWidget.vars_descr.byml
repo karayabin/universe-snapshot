@@ -1,0 +1,58 @@
+name: SimpleFooterWidget
+description: <
+    SimpleFooterWidget is a bootstrap 4 widget representing a footer.
+
+    It is composed of a text, which we can align horizontally using the "text_align" property.
+
+    In the footer text, we can use the $year string, which will be replaced by the current year.
+
+>
+
+vars:
+    attr:
+        type: array
+        default_value: []
+        description: The attributes to add to the widget's container tag.
+        properties: 
+            class:
+                type: string
+                default_value: ""
+                description: The css class to apply to the widget container.
+                example: py-5 bg-primary text-white
+    text_align:
+        type: string
+        default_value: right
+        description: How to align the text of the widget.
+        example: right
+        choices:
+            - left
+            - center
+            - right
+    text_class:
+        type: string
+        default_value: lead
+        description: The css class to apply to the text of the widget.
+        example: lead
+    text:
+        type: string
+        default_value: Copyright &copy; $year
+        description: The text of the widget.
+        example: Copyright &copy; $year
+
+
+example: <
+    name: simple_footer
+    type: picasso
+    active: true
+    className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\SimpleFooterWidget
+    widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/SimpleFooterWidget
+    template: default.php
+    vars:
+        attr:
+            class: py-5 bg-primary text-white
+            id: main-footer
+
+        text_align: right
+        text_class: ""
+        text: Copyright &copy; $year
+>

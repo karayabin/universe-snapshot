@@ -16,7 +16,7 @@ Description
 ================
 
 
-protected [LightKitPageRenderer::getContainer](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageRenderer/LightKitPageRenderer/getContainer.md)() : Ling\Light\ServiceContainer\LightServiceContainerInterface
+public [LightKitPageRenderer::getContainer](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageRenderer/LightKitPageRenderer/getContainer.md)() : [LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md)
 
 
 
@@ -36,7 +36,7 @@ This method has no parameters.
 Return values
 ================
 
-Returns Ling\Light\ServiceContainer\LightServiceContainerInterface.
+Returns [LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md).
 
 
 

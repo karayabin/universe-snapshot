@@ -18,7 +18,8 @@ interface OctopusServiceContainerInterface
      *
      * @param string $service
      * @return object
-     * @throws OctopusServiceErrorException, when a problem occur and the requested service cannot be returned
+     * @throws OctopusServiceErrorException
+     * When a problem occur and the requested service cannot be returned
      *
      */
     public function get(string $service);

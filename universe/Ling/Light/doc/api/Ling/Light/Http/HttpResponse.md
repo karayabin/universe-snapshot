@@ -4,7 +4,7 @@
 
 The HttpResponse class
 ================
-2019-04-09 --> 2019-05-02
+2019-04-09 --> 2019-07-11
 
 
 
@@ -25,7 +25,7 @@ Class synopsis
 class <span class="pl-k">HttpResponse</span> implements [HttpResponseInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponseInterface.md) {
 
 - Properties
-    - private static  [$statusTexts](#property-statusTexts) = ['Continue','Switching Protocols','Processing','Early Hints','OK','Created','Accepted','Non-Authoritative Information','No Content','Reset Content','Partial Content','Multi-Status','Already Reported','IM Used','Multiple Choices','Moved Permanently','Found','See Other','Not Modified','Use Proxy','Temporary Redirect','Permanent Redirect','Bad Request','Unauthorized','Payment Required','Forbidden','Not Found','Method Not Allowed','Not Acceptable','Proxy Authentication Required','Request Timeout','Conflict','Gone','Length Required','Precondition Failed','Payload Too Large','URI Too Long','Unsupported Media Type','Range Not Satisfiable','Expectation Failed','Misdirected Request','Unprocessable Entity','Locked','Failed Dependency','Too Early','Upgrade Required','Precondition Required','Too Many Requests','Request Header Fields Too Large','Unavailable For Legal Reasons','Internal Server Error','Not Implemented','Bad Gateway','Service Unavailable','Gateway Timeout','HTTP Version Not Supported','Variant Also Negotiates (Experimental)','Insufficient Storage','Loop Detected','Not Extended','Network Authentication Required'] ;
+    - private static array [$statusTexts](#property-statusTexts) = ['Continue','Switching Protocols','Processing','Early Hints','OK','Created','Accepted','Non-Authoritative Information','No Content','Reset Content','Partial Content','Multi-Status','Already Reported','IM Used','Multiple Choices','Moved Permanently','Found','See Other','Not Modified','Use Proxy','Temporary Redirect','Permanent Redirect','Bad Request','Unauthorized','Payment Required','Forbidden','Not Found','Method Not Allowed','Not Acceptable','Proxy Authentication Required','Request Timeout','Conflict','Gone','Length Required','Precondition Failed','Payload Too Large','URI Too Long','Unsupported Media Type','Range Not Satisfiable','Expectation Failed','Misdirected Request','Unprocessable Entity','Locked','Failed Dependency','Too Early','Upgrade Required','Precondition Required','Too Many Requests','Request Header Fields Too Large','Unavailable For Legal Reasons','Internal Server Error','Not Implemented','Bad Gateway','Service Unavailable','Gateway Timeout','HTTP Version Not Supported','Variant Also Negotiates (Experimental)','Insufficient Storage','Loop Detected','Not Extended','Network Authentication Required'] ;
     - protected string [$body](#property-body) ;
     - protected int [$statusCode](#property-statusCode) ;
     - protected int [$httpVersion](#property-httpVersion) ;

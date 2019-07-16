@@ -4,7 +4,7 @@
 
 The LightKitCssFileGenerator class
 ================
-2019-04-25 --> 2019-05-03
+2019-04-25 --> 2019-07-15
 
 
 
@@ -24,7 +24,7 @@ Class synopsis
 ==============
 
 
-class <span class="pl-k">LightKitCssFileGenerator</span> implements CssFileGeneratorInterface {
+class <span class="pl-k">LightKitCssFileGenerator</span> implements [CssFileGeneratorInterface](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/CssFileGenerator/CssFileGeneratorInterface.md) {
 
 - Properties
     - protected string [$rootDir](#property-rootDir) ;

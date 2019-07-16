@@ -151,7 +151,7 @@ class ArrayExportUtil
             $file = __DIR__ . '/SymbolsManager/' . $class . '.php';
             if (file_exists($file)) {
                 require_once $file;
-                $class = 'BeeFramework\Component\Arrays\ArrayExportUtil\SymbolsManager\\' . $class;
+                $class = 'Ling\BeeFramework\Component\Arrays\ArrayExportUtil\SymbolsManager\\' . $class;
                 $this->symbolsManager = new $class();
             }
             else {

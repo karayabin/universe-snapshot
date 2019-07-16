@@ -1,0 +1,117 @@
+name: ZeroAdminHeaderProfileDropdownLinkWidget
+description: <
+    ZeroAdminHeaderProfileDropdownLinkWidget is a bootstrap 4 widget for the ZeroAdminHeaderWidget widget
+    (https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/pages/widget-variables-description.md#zeroadminheaderwidget).
+
+    You can add it to the SUB_zeroadmin_header zone of ZeroAdminHeaderWidget.
+    It's an avatar with a dropdown that pops out when you click on the avatar.
+
+    The links of the dropdown are capped with a header text.
+
+    Each link is composed of:
+
+    - an url
+    - an icon (optional)
+    - a text
+    - a badge (optional)
+>
+
+vars:
+    img_src:
+        type: string
+        default_value: ""
+        description: The value of the image src attribute of the avatar.
+        example: /plugins/Light_Kit_Admin/zeroadmin/img/avatars/photo-3.jpg
+    img_alt:
+        type: string
+        default_value: ""
+        description: <
+            The value of the image alt attribute of the avatar.
+            The following example uses the dynamic variable system provided by Light_Kit.
+        >
+        example: the avatar of ${pseudo}
+    pseudo:
+        type: string
+        default_value: ""
+        description: <
+            The pseudo of the admin user.
+            The following example uses the dynamic variable system provided by Light_Kit.
+        >
+        example: ${pseudo}
+    links:
+        type: item_list
+        default_value: []
+        description: The array of links.
+        item_properties:
+            url:
+                type: string
+                default_value: ""
+                description: <
+                    The url of the link.
+                    The following example uses the lazy reference resolver system provided by Light_Kit.
+                >
+                example: (::ROUTE::)/pages/u-profile
+            icon:
+                type: string
+                default_value: ""
+                description: The icon of the link. If empty, the icon won't be displayed.
+                example: fas fa-user
+            text:
+                type: string
+                default_value: ""
+                description: The text of the link.
+                example: Profile
+            badge_text:
+                type: string
+                default_value: ""
+                description: The text of the badge (if any).
+                example: 7
+            badge_class:
+                type: string
+                default_value: ""
+                description: The css class of the badge (if any).
+                example: badge-success
+
+
+example: <
+    name: zeroadmin_header_icon_link_profile_dropdown
+    type: picasso
+    className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\ZeroAdminHeaderProfileDropdownLinkWidget
+    widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ZeroAdminHeaderProfileDropdownLinkWidget
+    template: default.php
+    vars: 
+        attr: 
+            class: mr-3
+        img_src: /plugins/Light_Kit_Admin/zeroadmin/img/avatars/photo-3.jpg
+        img_alt: the avatar of ${pseudo}
+        pseudo: ${pseudo}
+        links: 
+            - 
+                url: (::ROUTE::)/pages/u-profile
+                icon: fas fa-user
+                text: Profile
+            
+            - 
+                url: (::ROUTE::)/pages/b-settings
+                icon: fas fa-cog
+                text: Settings
+            
+            - 
+                url: (::ROUTE::)/pages/m-inbox
+                icon: far fa-envelope
+                text: Messages
+                badge_text: 7
+                badge_class: badge-success
+            
+            - 
+                url: (::ROUTE::)/pages/b-faq
+                icon: far fa-question-circle
+                text: Help
+            
+            - 
+                url: (::ROUTE::)/pages/b-login
+                icon: fas fa-sign-out-alt
+                text: Logout
+            
+        
+>

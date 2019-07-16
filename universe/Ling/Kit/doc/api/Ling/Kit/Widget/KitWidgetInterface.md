@@ -4,7 +4,7 @@
 
 The KitWidgetInterface class
 ================
-2019-04-24 --> 2019-04-26
+2019-04-24 --> 2019-07-11
 
 
 
@@ -46,4 +46,4 @@ Ling\Kit\Widget\KitWidgetInterface
 
 SeeAlso
 ==============
-Previous class: [KitPageRenderer](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer.md)<br>Next class: [WidgetHandlerInterface](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/WidgetHandler/WidgetHandlerInterface.md)<br>
+Previous class: [KitPageRendererInterface](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRendererInterface.md)<br>Next class: [WidgetConfDecoratorInterface](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/WidgetConfDecorator/WidgetConfDecoratorInterface.md)<br>

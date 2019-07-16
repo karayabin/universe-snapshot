@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [LightKitPageRenderer::renderPage](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageRenderer/LightKitPageRenderer/renderPage.md)(string $pageName) : string
+public [LightKitPageRenderer::renderPage](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageRenderer/LightKitPageRenderer/renderPage.md)(string $pageName, array $dynamicVariables = []) : string
 
 
 
@@ -31,6 +31,10 @@ Parameters
 
 
 - pageName
+
+    
+
+- dynamicVariables
 
     
 

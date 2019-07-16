@@ -16,7 +16,7 @@ Description
 ================
 
 
-private static [ServiceContainerHelper::getDarkBlueInstance](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ServiceContainerHelper/getDarkBlueInstance.md)(string $appDir) : Ling\Octopus\ServiceContainer\BlueOctopusServiceContainer
+private static [ServiceContainerHelper::getDarkBlueInstance](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ServiceContainerHelper/getDarkBlueInstance.md)(string $appDir) : [BlueOctopusServiceContainer](https://github.com/lingtalfi/Octopus/blob/master/ServiceContainer/BlueOctopusServiceContainer.php)
 
 
 
@@ -38,7 +38,7 @@ Parameters
 Return values
 ================
 
-Returns Ling\Octopus\ServiceContainer\BlueOctopusServiceContainer.
+Returns [BlueOctopusServiceContainer](https://github.com/lingtalfi/Octopus/blob/master/ServiceContainer/BlueOctopusServiceContainer.php).
 
 
 

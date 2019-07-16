@@ -1,0 +1,92 @@
+name: ProgressBarWidget
+description: <
+    ProgressBarWidget is a bootstrap 4 widget displaying progress bars.
+
+
+    It's composed of the following elements:
+
+    - title
+    - description
+    - progress bars
+
+
+    Each progress bar is composed of:
+
+    - a text
+    - a bar
+
+>
+
+vars:
+    title:
+        type: string
+        default_value: ""
+        description: The title. If empty, will not be displayed.
+        example: Welcome To My Page
+    description:
+        type: string
+        default_value: ""
+        description: The description. If empty, will not be displayed.
+        example: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta, provident?
+    progress_bars:
+        type: item_list
+        default_value: []
+        description: The array of progress bars.
+        item_properties: 
+            text:
+                type: string
+                default_value: ""
+                description: The text of the progress bar.
+                example: HTML 5
+            percent:
+                type: string
+                default_value: ""
+                description: The percent of the progress bar.
+                example: 100
+            class:
+                type: string
+                default_value: ""
+                description: The css class to apply to the progress bar.
+                example: bg-success
+
+
+example: <
+    name: progress_bar
+    type: picasso
+    className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\ProgressBarWidget
+    widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ProgressBarWidget
+    template: default.php
+    vars: 
+        attr: 
+            class: py-5
+        
+        title: Welcome To My Page
+        description: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta, provident?
+        progress_bars: 
+            - 
+                text: HTML 5
+                percent: 100
+                class: bg-success
+            
+            - 
+                text: CSS 3
+                percent: 100
+                class: bg-success
+            
+            - 
+                text: JavaScript
+                percent: 90
+                class: bg-success
+            
+            - 
+                text: PHP
+                percent: 80
+                class: bg-success
+            
+            - 
+                text: Python
+                percent: 70
+                class: bg-success
+            
+        
+>

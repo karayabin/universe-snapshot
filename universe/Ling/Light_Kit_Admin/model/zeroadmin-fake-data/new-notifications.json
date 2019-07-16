@@ -1,0 +1,20 @@
+[
+  {
+    "route": "/pages/u-issue-tracker",
+    "icon": "fas fa-envelope fa-fw",
+    "text": "You have 10 messages",
+    "datetime": "2019-07-11 10:43:00"
+  },
+  {
+    "route": "/pages/u-issue-tracker",
+    "icon": "fas fa-upload fa-fw",
+    "text": "Server Rebooted",
+    "datetime": "2019-07-11 10:40:00"
+  },
+  {
+    "route": "/pages/u-issue-tracker",
+    "icon": "fas fa-user fa-fw",
+    "text": "2 New Subscribers",
+    "datetime": "2019-07-11 10:34:00"
+  }
+]

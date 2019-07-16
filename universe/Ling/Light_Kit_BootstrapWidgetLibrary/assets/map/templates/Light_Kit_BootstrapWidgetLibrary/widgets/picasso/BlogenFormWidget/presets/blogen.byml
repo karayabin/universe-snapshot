@@ -1,0 +1,53 @@
+name: blogen_form
+type: picasso
+className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\BlogenFormWidget
+widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/BlogenFormWidget
+template: default.php
+vars:
+    attr:
+        id: details
+
+    title: Edit Post
+    title_class: bg-primary text-white
+    form_action: ""
+    form_method: post
+    form_fields:
+        -
+            type: text
+            name: title
+            label: Title
+            value: Post One
+            hint: ""
+
+        -
+            type: list
+            name: category
+            label: Category
+            value: web
+            hint: ""
+            options:
+                web: Web Development
+                tec: Tech Gadgets
+                bus: Business
+                hea: Health & Wellness
+
+
+        -
+            type: file
+            name: my_file
+            label: Upload image
+            file_label: Choose File
+            value: ""
+            hint: Max Size 3mb
+
+        -
+            type: textarea_ck
+            name: body
+            label: Body
+            value: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt harum possimus qui. Exercitationem ipsum itaque quis vitae! Ad animi aspernatur consequatur distinctio enim est expedita fuga in ipsum labore laboriosam maxime nobis quasi, quibusdam quidem recusandae tempore, tenetur totam veniam veritatis! Beatae culpa ea eius esse magni quae rem, voluptatibus.
+            hint: ""
+
+
+    footer_class: text-right
+    submit_btn_text: Save Changes
+    submit_btn_class: btn btn-primary

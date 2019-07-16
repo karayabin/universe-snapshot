@@ -4,7 +4,7 @@
 
 The LightReverseRouterInterface class
 ================
-2019-04-09 --> 2019-05-02
+2019-04-09 --> 2019-07-11
 
 
 
@@ -25,7 +25,7 @@ page easily (because they aren't hardcoded in your application).
 
 
 
-See more information about the route in the route page.
+See more information about the route in [the route page](https://github.com/lingtalfi/Light/blob/master/doc/pages/route.md).
 
 
 

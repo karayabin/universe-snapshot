@@ -1,0 +1,20 @@
+name: blogen_sidebar_avatar_with_action_buttons
+type: picasso
+active: true
+className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\BlogenSidebarAvatarWithActionButtonsWidget
+widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/BlogenSidebarAvatarWithActionButtonsWidget
+template: default.php
+vars:
+    title: Your Avatar
+    img_src: /plugins/Light_Kit_Demo/blogen/img/avatar.png
+    img_alt: my_avatar
+    buttons:
+        -
+            class: btn btn-primary btn-block
+            url: "#"
+            text: Edit Image
+
+        -
+            class: btn btn-danger btn-block
+            url: "#"
+            text: Delete Image

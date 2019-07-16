@@ -1,0 +1,96 @@
+name: BlogenSidebarIconCardsWidget
+description: <
+    BlogenSidebarIconCardsWidget is a bootstrap 4 widget showing a vertical stack of icon cards.
+
+
+    Each card has the following components:
+
+    - title
+    - icon
+    - number
+    - button
+
+
+    All of them are optional (they are only displayed if not empty).
+>
+
+vars:
+    cards:
+        type: item_list
+        default_value: []
+        description: The array of cards.
+        item_properties: 
+            class:
+                type: string
+                default_value: ""
+                description: The css class to apply to the card.
+                example: text-center bg-primary text-white mb-3
+            title:
+                type: string
+                default_value: ""
+                description: The title of the card. If empty, will not be displayed.
+                example: Posts
+            icon:
+                type: string
+                default_value: ""
+                description: The icon of the card. If empty, will not be displayed.
+                example: fas fa-pencil-alt
+            number:
+                type: string
+                default_value: ""
+                description: The number of the card. If empty string, will not be displayed.
+                example: 6
+            btn_class:
+                type: string
+                default_value: ""
+                description: The css class to apply to the button of the card.
+                example: btn btn-outline-light btn-sm
+            btn_text:
+                type: string
+                default_value: ""
+                description: The text of the button of the card. If empty, will not be displayed.
+                example: View
+            btn_url:
+                type: string
+                default_value: ""
+                description: The url for the button of the card.
+                example: /?page=posts
+
+
+example: <
+    name: blogen_sidebar_icon_cards
+    type: picasso
+    className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\BlogenSidebarIconCardsWidget
+    widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/BlogenSidebarIconCardsWidget
+    template: default.php
+    vars: 
+        cards: 
+            - 
+                class: text-center bg-primary text-white mb-3
+                title: Posts
+                icon: fas fa-pencil-alt
+                number: 6
+                btn_class: btn btn-outline-light btn-sm
+                btn_text: View
+                btn_url: /?page=posts
+            
+            - 
+                class: text-center bg-success text-white mb-3
+                title: Categories
+                icon: fas fa-folder
+                number: 4
+                btn_class: btn btn-outline-light btn-sm
+                btn_text: View
+                btn_url: /?page=categories
+            
+            - 
+                class: text-center bg-warning text-white mb-3
+                title: Users
+                icon: fas fa-users
+                number: 4
+                btn_class: btn btn-outline-light btn-sm
+                btn_text: View
+                btn_url: /?page=users
+            
+        
+>

@@ -1,0 +1,150 @@
+name: TwoColumnsAccordionWidget
+description: <
+    TwoColumnsAccordionWidget is a bootstrap 4 widget representing two accordions next to each other.
+
+    There is a title at the top, and then two columns, each column containing one accordion.
+
+    Each accordion can contain any number of items.
+
+    Each item is composed of the following:
+    - title
+    - text
+
+
+    By default, when the page loads, every accordion item is closed, but we can have them opened using the is_open property of each item.
+>
+
+vars:
+    title:
+        type: string
+        default_value: ""
+        description: The top title.
+        example: Frequently Asked Question
+    one_items:
+        type: item_list
+        default_value: []
+        description: The array of items for accordion one (the left accordion).
+        item_properties: 
+            title:
+                type: string
+                default_value: ""
+                description: The title of the item.
+                example: Question One
+            text:
+                type: string
+                default_value: ""
+                description: The text of the item.
+                example: <
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquid aut deleniti dolor,
+                    esse facilis impedit iste maxime molestias nemo nihil non nostrum numquam odit
+                    reprehenderit tenetur voluptate. Asperiores assumenda aut consequuntur eum hic, labore
+                    libero provident quis saepe voluptatum.
+                >
+            is_open:
+                type: bool
+                default_value: false
+                description: Whether to open the item by default (when the page loads).
+    two_items:
+        type: item_list
+        default_value: []
+        description: The array of items for accordion two (the right accordion).
+        item_properties: 
+            title:
+                type: string
+                default_value: ""
+                description: The title of the item.
+                example: Question One
+            text:
+                type: string
+                default_value: ""
+                description: The text of the item.
+                example: <
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquid aut deleniti dolor,
+                    esse facilis impedit iste maxime molestias nemo nihil non nostrum numquam odit
+                    reprehenderit tenetur voluptate. Asperiores assumenda aut consequuntur eum hic, labore
+                    libero provident quis saepe voluptatum.
+                >
+            is_open:
+                type: bool
+                default_value: false
+                description: Whether to open the item by default (when the page loads).
+
+
+example: <
+    name: two_columns_accordion
+    type: picasso
+    active: true
+    className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\TwoColumnsAccordionWidget
+    widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/TwoColumnsAccordionWidget
+    template: default.php
+    vars: 
+        attr: 
+            id: faq
+            class: p-5 bg-dark text-white
+        
+        title: Frequently Asked Question
+        one_items: 
+            - 
+                title: Question One
+                text: <
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquid aut deleniti dolor,
+                    esse facilis impedit iste maxime molestias nemo nihil non nostrum numquam odit
+                    reprehenderit tenetur voluptate. Asperiores assumenda aut consequuntur eum hic, labore
+                    libero provident quis saepe voluptatum.
+                >
+                is_open: true
+            
+            - 
+                title: Question Two
+                text: <
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquid aut deleniti dolor,
+                    esse facilis impedit iste maxime molestias nemo nihil non nostrum numquam odit
+                    reprehenderit tenetur voluptate. Asperiores assumenda aut consequuntur eum hic, labore
+                    libero provident quis saepe voluptatum.
+                >
+                is_open: false
+            
+            - 
+                title: Question Three
+                text: <
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquid aut deleniti dolor,
+                    esse facilis impedit iste maxime molestias nemo nihil non nostrum numquam odit
+                    reprehenderit tenetur voluptate. Asperiores assumenda aut consequuntur eum hic, labore
+                    libero provident quis saepe voluptatum.
+                >
+                is_open: false
+            
+        
+        two_items: 
+            - 
+                title: Question Four
+                text: <
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquid aut deleniti dolor,
+                    esse facilis impedit iste maxime molestias nemo nihil non nostrum numquam odit
+                    reprehenderit tenetur voluptate. Asperiores assumenda aut consequuntur eum hic, labore
+                    libero provident quis saepe voluptatum.
+                >
+                is_open: false
+            
+            - 
+                title: Question Five
+                text: <
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquid aut deleniti dolor,
+                    esse facilis impedit iste maxime molestias nemo nihil non nostrum numquam odit
+                    reprehenderit tenetur voluptate. Asperiores assumenda aut consequuntur eum hic, labore
+                    libero provident quis saepe voluptatum.
+                >
+                is_open: false
+            
+            - 
+                title: Question Six
+                text: <
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquid aut deleniti dolor,
+                    esse facilis impedit iste maxime molestias nemo nihil non nostrum numquam odit
+                    reprehenderit tenetur voluptate. Asperiores assumenda aut consequuntur eum hic, labore
+                    libero provident quis saepe voluptatum.
+                >
+                is_open: false
+            
+        
+>

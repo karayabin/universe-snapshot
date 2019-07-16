@@ -4,7 +4,7 @@
 
 The CommentHelper class
 ================
-2019-02-21 --> 2019-04-18
+2019-02-21 --> 2019-07-12
 
 
 
@@ -26,7 +26,7 @@ Class synopsis
 class <span class="pl-k">CommentHelper</span>  {
 
 - Properties
-    - public static array [$propertyVarTagTypes](#property-propertyVarTagTypes) = ['int','float','bool','mixed','null','array','callable','string'] ;
+    - public static array [$propertyVarTagTypes](#property-propertyVarTagTypes) = ['int','float','false','bool','mixed','null','array','callable','string'] ;
     - public static array [$propertyReturnTagTypes](#property-propertyReturnTagTypes) = ['int','mixed','object','float','bool','false','true','null','array','callable','string','void'] ;
 
 - Methods

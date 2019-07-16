@@ -12,20 +12,33 @@ $imgOnLeft = $z['img_on_left'] ?? true;
 $imgRounded = $z['img_rounded'] ?? true;
 $imgAlt = $z['img_alt'] ?? "";
 $imgSrc = $z['img_src'] ?? "";
+$imgTopMargin = $z['img_top_margin'] ?? "0px";
 $teaserTitle = $z['teaser_title'] ?? "No title";
+$teaserTitleLevel = $z['teaser_title_level'] ?? "3";
 $teaserText = $z['teaser_text'] ?? "";
 $teaserItems = $z['teaser_items'] ?? [];
 
 
+// formatting
+if (false === is_array($teaserText)) {
+    $teaserText = [$teaserText];
+}
+$teaserTitleLevel = (int)$teaserTitleLevel;
+
+
+// functions
 $image = function () use (
     $imgRounded,
     $imgAlt,
+    $imgTopMargin,
     $imgSrc
 ) {
     ?>
     <div class="col-md-6">
         <img src="<?php echo htmlspecialchars($imgSrc); ?>" alt="<?php echo htmlspecialchars($imgAlt); ?>"
-             class="img-fluid mb-3 <?php echo ($imgRounded) ? "rounded-circle" : ''; ?>">
+             class="img-fluid mb-3 <?php echo ($imgRounded) ? "rounded-circle" : ''; ?>"
+             style="margin-top: <?php echo htmlspecialchars($imgTopMargin); ?>"
+        >
     </div>
     <?php
 };
@@ -33,13 +46,16 @@ $image = function () use (
 
 $teaser = function () use (
     $teaserTitle,
+    $teaserTitleLevel,
     $teaserText,
     $teaserItems
 ) {
     ?>
     <div class="col-md-6">
-        <h3><?php echo $teaserTitle; ?></h3>
-        <p><?php echo $teaserText; ?></p>
+        <h<?php echo $teaserTitleLevel; ?>><?php echo $teaserTitle; ?></h<?php echo $teaserTitleLevel; ?>>
+        <?php foreach ($teaserText as $text): ?>
+            <p><?php echo $text; ?></p>
+        <?php endforeach; ?>
         <?php foreach ($teaserItems as $item): ?>
             <div class="d-flex">
                 <div class="p-4 align-self-start">
@@ -54,7 +70,6 @@ $teaser = function () use (
 
 
 ?>
-
 
 
 <section class="kit-bwl-2c_teaser <?php echo htmlspecialchars($this->getCssClass()); ?>"

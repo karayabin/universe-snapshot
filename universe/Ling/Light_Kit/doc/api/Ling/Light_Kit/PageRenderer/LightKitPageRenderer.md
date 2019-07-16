@@ -4,7 +4,7 @@
 
 The LightKitPageRenderer class
 ================
-2019-04-25 --> 2019-05-03
+2019-04-25 --> 2019-07-15
 
 
 
@@ -22,13 +22,14 @@ Class synopsis
 ==============
 
 
-class <span class="pl-k">LightKitPageRenderer</span> extends [KitPageRenderer](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer.md)  {
+class <span class="pl-k">LightKitPageRenderer</span> extends [KitPageRenderer](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer.md) implements [KitPageRendererInterface](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRendererInterface.md) {
 
 - Properties
     - protected string [$applicationDir](#property-applicationDir) ;
     - protected [Ling\Kit\ConfStorage\ConfStorageInterface](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/ConfStorage/ConfStorageInterface.md) [$confStorage](#property-confStorage) ;
     - protected string [$pageName](#property-pageName) ;
-    - protected Ling\Light\ServiceContainer\LightServiceContainerInterface [$container](#property-container) ;
+    - protected [Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) [$container](#property-container) ;
+    - protected [Ling\Light_Kit\PageConfigurationTransformer\PageConfigurationTransformerInterface[]](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageConfigurationTransformer/PageConfigurationTransformerInterface.md) [$pageConfTransformers](#property-pageConfTransformers) ;
 
 - Inherited properties
     - protected [Ling\Kit\WidgetHandler\WidgetHandlerInterface[]](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/WidgetHandler/WidgetHandlerInterface.md) [KitPageRenderer::$widgetHandlers](#property-widgetHandlers) ;
@@ -37,27 +38,31 @@ class <span class="pl-k">LightKitPageRenderer</span> extends [KitPageRenderer](h
     - protected bool [KitPageRenderer::$strictMode](#property-strictMode) ;
     - protected callable [KitPageRenderer::$errorHandler](#property-errorHandler) ;
     - protected array [KitPageRenderer::$zones](#property-zones) ;
+    - protected array [KitPageRenderer::$widgetsCount](#property-widgetsCount) ;
     - protected string [KitPageRenderer::$layoutRootDir](#property-layoutRootDir) ;
-    - protected Ling\Kit\WidgetConfDecorator\WidgetConfDecoratorInterface[] [KitPageRenderer::$widgetConfDecorators](#property-widgetConfDecorators) ;
+    - protected [Ling\Kit\WidgetConfDecorator\WidgetConfDecoratorInterface[]](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/WidgetConfDecorator/WidgetConfDecoratorInterface.md) [KitPageRenderer::$widgetConfDecorators](#property-widgetConfDecorators) ;
 
 - Methods
     - public [__construct](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageRenderer/LightKitPageRenderer/__construct.md)() : void
     - public [setConfStorage](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageRenderer/LightKitPageRenderer/setConfStorage.md)([Ling\Kit\ConfStorage\ConfStorageInterface](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/ConfStorage/ConfStorageInterface.md) $confStorage) : [LightKitPageRenderer](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageRenderer/LightKitPageRenderer.md)
-    - public [setContainer](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageRenderer/LightKitPageRenderer/setContainer.md)(Ling\Light\ServiceContainer\LightServiceContainerInterface $container) : void
+    - public [setContainer](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageRenderer/LightKitPageRenderer/setContainer.md)([Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) $container) : void
+    - public [addPageConfigurationTransformer](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageRenderer/LightKitPageRenderer/addPageConfigurationTransformer.md)([Ling\Light_Kit\PageConfigurationTransformer\PageConfigurationTransformerInterface](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageConfigurationTransformer/PageConfigurationTransformerInterface.md) $transformer) : void
     - public [configure](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageRenderer/LightKitPageRenderer/configure.md)(array $settings) : void
-    - public [renderPage](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageRenderer/LightKitPageRenderer/renderPage.md)(string $pageName) : string
-    - protected [getContainer](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageRenderer/LightKitPageRenderer/getContainer.md)() : Ling\Light\ServiceContainer\LightServiceContainerInterface
+    - public [renderPage](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageRenderer/LightKitPageRenderer/renderPage.md)(string $pageName, array $dynamicVariables = []) : string
+    - public [getContainer](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageRenderer/LightKitPageRenderer/getContainer.md)() : [LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md)
 
 - Inherited methods
+    - public KitPageRenderer::countWidgets(string $zoneName) : int
     - public KitPageRenderer::setPageConf(array $pageConf) : void
     - public KitPageRenderer::setStrictMode(bool $strictMode) : [KitPageRenderer](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer.md)
     - public KitPageRenderer::setErrorHandler(callable $errorHandler) : void
     - public KitPageRenderer::registerWidgetHandler(string $type, [Ling\Kit\WidgetHandler\WidgetHandlerInterface](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/WidgetHandler/WidgetHandlerInterface.md) $handler) : void
     - public KitPageRenderer::setLayoutRootDir(string $layoutRootDir) : [KitPageRenderer](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer.md)
-    - public KitPageRenderer::addWidgetConfDecorator(Ling\Kit\WidgetConfDecorator\WidgetConfDecoratorInterface $decorator) : void
+    - public KitPageRenderer::addWidgetConfDecorator([Ling\Kit\WidgetConfDecorator\WidgetConfDecoratorInterface](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/WidgetConfDecorator/WidgetConfDecoratorInterface.md) $decorator) : void
     - public KitPageRenderer::printPage() : void
     - public KitPageRenderer::printZone(string $zoneName) : void
     - protected KitPageRenderer::captureZones() : void
+    - protected KitPageRenderer::captureZone(string $zoneName, array $widgets) : void
 
 }
 
@@ -88,6 +93,12 @@ Properties
 - <span id="property-container"><b>container</b></span>
 
     This property holds the container for this instance.
+    
+    
+
+- <span id="property-pageConfTransformers"><b>pageConfTransformers</b></span>
+
+    This property holds the array of pageConfTransformers for this instance.
     
     
 
@@ -152,6 +163,12 @@ Properties
     
     
 
+- <span id="property-widgetsCount"><b>widgetsCount</b></span>
+
+    This property holds the number of widgets per zone for this instance.
+    
+    
+
 - <span id="property-layoutRootDir"><b>layoutRootDir</b></span>
 
     This property holds the layoutRootDir for this instance.
@@ -175,9 +192,11 @@ Methods
 - [LightKitPageRenderer::__construct](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageRenderer/LightKitPageRenderer/__construct.md) &ndash; Builds the LightKitPageRenderer instance.
 - [LightKitPageRenderer::setConfStorage](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageRenderer/LightKitPageRenderer/setConfStorage.md) &ndash; Sets the confStorage.
 - [LightKitPageRenderer::setContainer](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageRenderer/LightKitPageRenderer/setContainer.md) &ndash; Sets the container.
+- [LightKitPageRenderer::addPageConfigurationTransformer](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageRenderer/LightKitPageRenderer/addPageConfigurationTransformer.md) &ndash; Adds a PageConfigurationTransformerInterface to this instance.
 - [LightKitPageRenderer::configure](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageRenderer/LightKitPageRenderer/configure.md) &ndash; Configures thi instance.
 - [LightKitPageRenderer::renderPage](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageRenderer/LightKitPageRenderer/renderPage.md) &ndash; Renders the given page.
 - [LightKitPageRenderer::getContainer](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageRenderer/LightKitPageRenderer/getContainer.md) &ndash; Returns a light service container instance.
+- KitPageRenderer::countWidgets &ndash; Returns the number of widgets for a given zone.
 - KitPageRenderer::setPageConf &ndash; Sets the pageConf.
 - KitPageRenderer::setStrictMode &ndash; Sets the strictMode.
 - KitPageRenderer::setErrorHandler &ndash; Sets the errorHandler.
@@ -187,6 +206,7 @@ Methods
 - KitPageRenderer::printPage &ndash; Prints the page.
 - KitPageRenderer::printZone &ndash; Prints a zone.
 - KitPageRenderer::captureZones &ndash; Captures the zones defined in the configuration and stores them temporarily.
+- KitPageRenderer::captureZone &ndash; The working horse method behind captureZones.
 
 
 
@@ -199,4 +219,4 @@ Ling\Light_Kit\PageRenderer\LightKitPageRenderer
 
 SeeAlso
 ==============
-Previous class: [LightKitException](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/Exception/LightKitException.md)<br>
+Previous class: [PageConfigurationTransformerInterface](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageConfigurationTransformer/PageConfigurationTransformerInterface.md)<br>

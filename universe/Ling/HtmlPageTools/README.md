@@ -38,6 +38,10 @@ Summary
 History Log
 =============
 
+- 1.6.0 -- 2019-05-14
+
+    - add HtmlPageCopilot hasCssCodeBlocks method
+    
 - 1.5.0 -- 2019-05-03
 
     - add HtmlPageCopilot hasJsCodeBlocks method

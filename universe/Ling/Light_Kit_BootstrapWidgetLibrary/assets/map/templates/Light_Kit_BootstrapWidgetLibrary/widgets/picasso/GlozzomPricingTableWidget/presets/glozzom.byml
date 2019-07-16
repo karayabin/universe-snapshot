@@ -1,0 +1,105 @@
+name: glozzom_pricing_table
+type: picasso
+active: true
+className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\GlozzomPricingTableWidget
+widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/GlozzomPricingTableWidget
+template: default.php
+vars:
+    attr:
+        id: services
+        class: py-5
+
+    column_class: col-md-4
+    boxes:
+        -
+            title: Service Plan One
+            price: $59.99/Month
+            description: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, voluptatibus.
+            features:
+                -
+                    icon: fas fa-check
+                    text: Feature One
+
+                -
+                    icon: fas fa-check
+                    text: Feature Two
+
+                -
+                    icon: fas fa-check
+                    text: Feature Three
+
+                -
+                    icon: fas fa-check
+                    text: Feature Four
+
+                -
+                    icon: fas fa-check
+                    text: Feature Five
+
+
+            btn_text: Get It
+            btn_class: btn btn-danger btn-block mt-2
+            btn_url: ""
+            footer_text: 1 Year Plan
+
+        -
+            title: Service Plan Two
+            price: $99.99/Month
+            description: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, voluptatibus.
+            features:
+                -
+                    icon: fas fa-check
+                    text: Feature One
+
+                -
+                    icon: fas fa-check
+                    text: Feature Two
+
+                -
+                    icon: fas fa-check
+                    text: Feature Three
+
+                -
+                    icon: fas fa-check
+                    text: Feature Four
+
+                -
+                    icon: fas fa-check
+                    text: Feature Five
+
+
+            btn_text: Get It
+            btn_class: btn btn-danger btn-block mt-2
+            btn_url: ""
+            footer_text: 1 Year Plan
+
+        -
+            title: Service Plan Three
+            price: $129.99/Month
+            description: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, voluptatibus.
+            features:
+                -
+                    icon: fas fa-check
+                    text: Feature One
+
+                -
+                    icon: fas fa-check
+                    text: Feature Two
+
+                -
+                    icon: fas fa-check
+                    text: Feature Three
+
+                -
+                    icon: fas fa-check
+                    text: Feature Four
+
+                -
+                    icon: fas fa-check
+                    text: Feature Five
+
+
+            btn_text: Get It
+            btn_class: btn btn-danger btn-block mt-2
+            btn_url: ""
+            footer_text: 1 Year Plan

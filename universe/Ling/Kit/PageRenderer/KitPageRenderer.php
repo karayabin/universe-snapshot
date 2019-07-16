@@ -37,7 +37,7 @@ use Ling\Kit\WidgetHandler\WidgetHandlerInterface;
  *
  *
  */
-class KitPageRenderer
+class KitPageRenderer implements KitPageRendererInterface
 {
 
     /**
@@ -107,6 +107,13 @@ class KitPageRenderer
      */
     protected $zones;
 
+
+    /**
+     * This property holds the number of widgets per zone for this instance.
+     * @var array
+     */
+    protected $widgetsCount;
+
     /**
      * This property holds the layoutRootDir for this instance.
      * The path to the directory containing all layouts used by this instance.
@@ -139,12 +146,24 @@ class KitPageRenderer
         $this->zones = [];
         $this->layoutRootDir = null;
         $this->widgetConfDecorators = [];
+        $this->widgetsCount = [];
     }
 
+
     /**
-     * Sets the pageConf.
-     *
-     * @param array $pageConf
+     * @implementation
+     */
+    public function countWidgets(string $zoneName)
+    {
+        if (array_key_exists($zoneName, $this->widgetsCount)) {
+            return $this->widgetsCount[$zoneName];
+        }
+        return 0;
+    }
+
+
+    /**
+     * @implementation
      */
     public function setPageConf(array $pageConf)
     {
@@ -210,11 +229,7 @@ class KitPageRenderer
 
 
     /**
-     *
-     * Prints the page.
-     *
-     *
-     * @throws KitException
+     * @implementation
      */
     public function printPage()
     {
@@ -223,7 +238,7 @@ class KitPageRenderer
 
                 $pageLabel = $this->pageConf['label'];
                 $layout = $this->layoutRootDir . "/" . $this->pageConf['layout'];
-                $layoutVars = $this->pageConf['layout_vars'] ?? [];
+
 
                 if (file_exists($layout)) {
 
@@ -242,7 +257,12 @@ class KitPageRenderer
                     }
 
 
-                    // let the widgets configure the copilot
+                    /**
+                     * Call the widgets.
+                     * They will:
+                     * - configure the copilot
+                     * - pre-cache the zones
+                     */
                     $this->captureZones();
 
 
@@ -267,15 +287,27 @@ class KitPageRenderer
 
 
     /**
-     * Prints a zone.
-     *
-     * @param string $zoneName
-     * @throws KitException
+     * @implementation
      */
     public function printZone(string $zoneName)
     {
         if (null !== $this->pageConf) {
             $pageLabel = $this->pageConf['label'];
+
+
+            /**
+             * This case occurs when a kit page renderer aware widget tries
+             * to print a zone which wasn't yet rendered.
+             */
+            if (false === array_key_exists($zoneName, $this->zones)) {
+                $zones = $this->pageConf['zones'] ?? [];
+                if (false === array_key_exists($zoneName, $zones)) {
+                    throw new KitException("You called an undefined zone: $zoneName in page $pageLabel.");
+                }
+                $this->captureZone($zoneName, $zones[$zoneName]);
+            }
+
+
             if (array_key_exists($zoneName, $this->zones)) {
                 echo $this->zones[$zoneName];
             } else {
@@ -290,6 +322,7 @@ class KitPageRenderer
     //--------------------------------------------
     //
     //--------------------------------------------
+
     /**
      * Captures the zones defined in the configuration and stores them temporarily.
      *
@@ -304,9 +337,30 @@ class KitPageRenderer
     protected function captureZones()
     {
         $zones = $this->pageConf['zones'] ?? [];
-        $pageLabel = $this->pageConf['label'];
-
         foreach ($zones as $zoneName => $widgets) {
+            $this->captureZone($zoneName, $widgets);
+        }
+    }
+
+
+    /**
+     * The working horse method behind captureZones.
+     * It's also used by the printZone method, in the case some widget implementing KitPageRendererAwareInterface
+     * do print a zone which is not yet rendered.
+     *
+     *
+     * @param string $zoneName
+     * @param array $widgets
+     * @throws KitException
+     */
+    protected function captureZone(string $zoneName, array $widgets)
+    {
+
+        $pageLabel = $this->pageConf['label'];
+        if (false === array_key_exists($zoneName, $this->zones)) {
+
+
+            $this->widgetsCount[$zoneName] = count($widgets);
 
 
             // capture the zone html code in s
@@ -338,6 +392,11 @@ class KitPageRenderer
                     $type = $widgetConf['type'];
                     if (array_key_exists($type, $this->widgetHandlers)) {
                         $handler = $this->widgetHandlers[$type];
+
+
+                        if ($handler instanceof KitPageRendererAwareInterface) {
+                            $handler->setKitPageRenderer($this);
+                        }
 
 
                         $debugArray = [
@@ -375,8 +434,7 @@ class KitPageRenderer
 
 
             $this->zones[$zoneName] = $s;
-
-
         }
     }
+
 }

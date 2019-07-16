@@ -1,0 +1,153 @@
+name: PortfolioGridMainNavHeaderWidget
+description: <
+    PortfolioGridMainNavHeaderWidget is a bootstrap 4 widget representing the main navigation header for a portfolio website.
+
+    The header contains the following element:
+
+    - the photo of the candidate on the left
+    - a zone on the right on the photo, containing:
+        - the name and social icons links (facebook, twitter, ...)
+        - the role of the candidate
+        - the links to the page, which by default use the accordion system
+
+
+    We can disable the accordion system with the "use_accordion" property.
+
+    If the accordion system is used, I recommend to use a special layout
+    which contains as many zones as there are accordion links.
+    Then the id attribute of the zones should correspond to the accordion links urls.
+
+    Other implementation of the accordion are possible, of course.
+
+
+
+
+>
+
+vars:
+    use_accordion:
+        type: bool
+        default_value: true
+        description: Whether to make links use accordion.
+    photo_url:
+        type: string
+        default_value: ""
+        description: The url of the photo.
+        example: /plugins/Light_Kit_Demo/portfoliogrid/img/person1.jpg
+    photo_alt:
+        type: string
+        default_value: ""
+        description: The alt attribute of the photo.
+        example: John Doe
+    name:
+        type: string
+        default_value: ""
+        description: The name.
+        example: John Doe
+    social_icons:
+        type: item_list
+        default_value: []
+        description: The array of social icons.
+        item_properties: 
+            url:
+                type: string
+                default_value: ""
+                description: The url of the social icon.
+                example: http://twitter.com
+            icon:
+                type: string
+                default_value: ""
+                description: The css class to apply to the social icon.
+                example: fab fa-twitter
+    role:
+        type: string
+        default_value: ""
+        description: The role.
+        example: Experienced Full Stack Web Developer
+    links:
+        type: item_list
+        default_value: []
+        description: The array of links. If you use the accordion system, you must prefix links with the hash symbol (#)
+        item_properties: 
+            label:
+                type: string
+                default_value: ""
+                description: The text of the link.
+                example: Home
+            icon:
+                type: string
+                default_value: ""
+                description: The css class for the icon of the link.
+                example: fas fa-home fa-2x d-block
+            url:
+                type: string
+                default_value: ""
+                description: The url of the link.
+                example: "#home"
+            class:
+                type: string
+                default_value: ""
+                description: The css class to apply to the link.
+                example: bg-primary
+
+
+example: <
+    name: portfoliogrid_main_nav_header
+    type: picasso
+    className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\PortfolioGridMainNavHeaderWidget
+    widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/PortfolioGridMainNavHeaderWidget
+    template: default.php
+    vars: 
+        attr: 
+            id: main-header
+        
+        use_accordion: true
+        photo_url: /plugins/Light_Kit_Demo/portfoliogrid/img/person1.jpg
+        photo_alt: John Doe
+        name: John Doe
+        social_icons: 
+            - 
+                url: http://twitter.com
+                icon: fab fa-twitter
+            
+            - 
+                url: http://facebook.com
+                icon: fab fa-facebook
+            
+            - 
+                url: http://instagram.com
+                icon: fab fa-instagram
+            
+            - 
+                url: http://github.com
+                icon: fab fa-github
+            
+        
+        role: Experienced Full Stack Web Developer
+        links: 
+            - 
+                label: Home
+                icon: fas fa-home fa-2x d-block
+                url: "#home"
+                class: bg-primary
+            
+            - 
+                label: Resume
+                icon: fas fa-graduation-cap fa-2x d-block
+                url: "#resume"
+                class: bg-success
+            
+            - 
+                label: Work
+                icon: fas fa-folder-open fa-2x d-block
+                url: "#work"
+                class: bg-warning
+            
+            - 
+                label: Contact
+                icon: fas fa-envelope fa-2x d-block
+                url: "#contact"
+                class: bg-danger
+            
+        
+>

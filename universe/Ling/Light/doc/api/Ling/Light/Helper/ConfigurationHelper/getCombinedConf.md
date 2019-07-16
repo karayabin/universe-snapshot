@@ -7,7 +7,7 @@ ConfigurationHelper::getCombinedConf
 
 
 
-ConfigurationHelper::getCombinedConf — Returns the merged configuration of all BabyYaml configuration files found in the given directory.
+ConfigurationHelper::getCombinedConf — Returns the merged configuration of all [BabyYaml](https://github.com/lingtalfi/BabyYaml) configuration files found in the given directory.
 
 
 
@@ -21,8 +21,8 @@ public static [ConfigurationHelper::getCombinedConf](https://github.com/lingtalf
 
 
 
-Returns the merged configuration of all BabyYaml configuration files found in the given directory.
-The merging uses the rules of the arrayMergeReplaceRecursive algorithm.
+Returns the merged configuration of all [BabyYaml](https://github.com/lingtalfi/BabyYaml) configuration files found in the given directory.
+The merging uses the rules of the [arrayMergeReplaceRecursive](https://github.com/lingtalfi/Bat/blob/master/ArrayTool.md#arraymergereplacerecursive) algorithm.
 
 
 

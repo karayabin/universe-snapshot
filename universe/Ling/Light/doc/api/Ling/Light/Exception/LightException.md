@@ -4,7 +4,7 @@
 
 The LightException class
 ================
-2019-04-09 --> 2019-05-02
+2019-04-09 --> 2019-07-11
 
 
 
@@ -49,7 +49,7 @@ Properties
 
     This property holds the lightErrorCode for this instance.
     It's a code that summarizes the error, and is meant to be handled by the error handlers
-    of the Light class.
+    of the [Light](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light.md) class.
     
     
 

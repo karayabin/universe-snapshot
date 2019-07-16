@@ -1,0 +1,145 @@
+label: Glozzom blog page
+layout: templates/Light_Kit_Demo/layouts/glozzom/glozzom_main_layout.php
+layout_vars: []
+
+title: Glozzom blog
+description: <
+    This is the blog page of the Glozzom multiple pages theme, created by Brad Traversy, and implemented with the Light_Kit plugin from the Light framework.
+>
+
+zones:
+    main_zone:
+        -
+            name: main_nav
+            type: picasso
+            className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\MainNavWidget
+            widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/MainNavWidget
+            template: default.php
+            skin: glozzom
+            vars:
+                attr:
+                    id: main-nav
+                    class: navbar-dark bg-dark skin-glozzom
+                title: Glozzom
+                fixed_top: false
+                title_url: /
+                expand_size: sm
+                links:
+                    -
+                        text: Home
+                        url: "?page=home"
+                    -
+                        text: About
+                        url: "?page=about"
+                    -
+                        text: Services
+                        url: "?page=services"
+                    -
+                        text: Blog
+                        url: "?page=blog"
+                        active: true
+                    -
+                        text: Contact
+                        url: "?page=contact"
+                links_align_right: true
+        -
+            name: parallax_header
+            type: picasso
+            active: true
+            className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\ParallaxHeaderWidget
+            widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ParallaxHeaderWidget
+            template: no-overlay.php
+            vars:
+                attr:
+                    id: page-header
+                background_url: /plugins/Light_Kit_BootstrapWidgetLibrary/glozzom/img/image1.jpg
+                background_height: 200px
+                background_position: 0px -360px
+                overlay_color: rgba(0,0,0,0.7)
+                title: Read Our Blog
+                text: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, odio.
+                text_class: ""
+
+
+        -
+            name: blog_cards
+            type: picasso
+            active: true
+            className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\BlogCardsWidget
+            widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/BlogCardsWidget
+            template: default.php
+            vars:
+                attr:
+                    id: blog
+                    class: py-3
+                column_class: col-md-4
+                non_initial_row_class: mt-2
+                nb_cards_per_row: 3
+                cards:
+                    -
+                        card_class: ""
+                        img_url: /plugins/Light_Kit_BootstrapWidgetLibrary/glozzom/img/blog-photo-1.jpg
+                        img_alt: photo-1
+                        title: Blog Post One
+                        subtitle: Written by Jeff on 05/20
+                        text: <
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam harum illo itaque
+                            iusto pariatur rem? Distinctio praesentium rerum suscipit. Ab aspernatur, itaque magnam
+                            officiis optio quae quam repudiandae saepe tenetur?
+                        >
+                    -
+                        card_class: ""
+                        img_url: /plugins/Light_Kit_BootstrapWidgetLibrary/glozzom/img/blog-photo-2.jpg
+                        img_alt: photo-2
+                        title: Blog Post Two
+                        subtitle: Written by Karen on 05/22
+                        text: <
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam harum illo itaque
+                            iusto pariatur rem? Distinctio praesentium rerum suscipit. Ab aspernatur, itaque magnam
+                            officiis optio quae quam repudiandae saepe tenetur?
+                        >
+
+                    -
+                        card_class: ""
+                        img_url: /plugins/Light_Kit_BootstrapWidgetLibrary/glozzom/img/blog-photo-3.jpg
+                        img_alt: photo-3
+                        title: Blog Post Three
+                        subtitle: Written by Harry on 05/23
+                        text: <
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam harum illo itaque
+                            iusto pariatur rem? Distinctio praesentium rerum suscipit. Ab aspernatur, itaque magnam
+                            officiis optio quae quam repudiandae saepe tenetur?
+                        >
+                    -
+                        card_class: p-3
+                        quote_text: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur deleniti exercitationem fugiat neque, pariatur ratione.
+                        quote_author: Someone Famous in <cite title="Source Title">Source Title</cite>
+                        quote_author_class: text-muted
+                    -
+                        card_class: p-3 bg-danger text-white
+                        quote_text: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur deleniti exercitationem fugiat neque, pariatur ratione.
+                        quote_author: Someone Famous in <cite title="Source Title">Source Title</cite>
+                        quote_author_class: text-white
+                    -
+                        card_class: p-3
+                        quote_text: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur deleniti exercitationem fugiat neque, pariatur ratione.
+                        quote_author: Someone Famous in <cite title="Source Title">Source Title</cite>
+                        quote_author_class: text-muted
+
+
+        -
+            name: simple_footer
+            type: picasso
+            active: true
+            className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\SimpleFooterWidget
+            widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/SimpleFooterWidget
+            template: default.php
+            skin: dark-skin
+            vars:
+                attr:
+                    class: text-center p-4 dark-skin
+                    id: main-footer
+
+                text_align: center
+                text_class: ""
+                text: Copyright &copy; $year Glozzom

@@ -647,6 +647,14 @@ This includes:
 History Log
 =============
     
+- 1.7.0 -- 2019-07-13
+
+    - CommentHelper::$propertyVarTagTypes now has "false" type
+    
+- 1.6.3 -- 2019-07-11
+
+    - enhance error message of DocToolInterpreter::interpretBlockLevelTags method for unresolved method
+    
 - 1.6.2 -- 2019-04-18
 
     - fix ClassParser stripping indentation in doc comments

@@ -50,10 +50,25 @@ use Ling\BeeFramework\Notation\String\StringParser\ExpressionDiscovererModel\Exp
  *
  * Implicit values are not allowed.
  *
- * 
- * With this implementation, it is assumed that the given str/pos combo IS actually a short code 
- * (i.e. there is no checking on the string, and it is directly parsed AS shortCode)
- * 
+ *
+ * With this implementation, it is assumed that the given str/pos combo IS actually a short code
+ * (i.e. there is no checking on the string, and it is directly parsed AS shortCode).
+ *
+ *
+ * 2019-07-04 UPDATE
+ * -------------------
+ * Now optional keys are allowed, and so this is now part of the shortcode default notation:
+ *
+ * a(ShortCodeTool::parse('Maurice')); // [Maurice]
+ * a(ShortCodeTool::parse('Maurice, Jalabert')); // [Maurice, Jalabert]
+ * a(ShortCodeTool::parse('"Maurice, Jalabert"')); // 'Maurice, Jalabert'
+ * a(ShortCodeTool::parse('pancake=good, vegetables=bad')); // [pancake: good, vegetables: bad]
+ *
+ *
+ *
+ *
+ *
+ *
  *
  */
 class ShortCodeExpressionDiscoverer extends MandatoryKeyContainerExpressionDiscoverer
@@ -101,6 +116,10 @@ class ShortCodeExpressionDiscoverer extends MandatoryKeyContainerExpressionDisco
 
     public function parse($string, $pos = 0)
     {
+
+
+//        $this->switchPowerButton(true);
+
         // reset
         $this->pos = false;
         $this->value = null;

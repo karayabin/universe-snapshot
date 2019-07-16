@@ -1,0 +1,184 @@
+name: LoopLabTwoColumnsSignupFormWidget
+description: <
+The LoopLabTwoColumnsSignupFormWidget is a bootstrap 4 widget representing a two columns signup form.
+
+The looplab two columns signup form widget is composed of three parts:
+- the teaser part
+- the form
+- the background
+
+By default, the teaser part will only appear for large screens (because for lower resolutions, we believe it's not readable enough).
+This can be customized using the teaser_visible_size property (default=lg).
+
+
+First, you decide if you want to show the teaser part with the showTeaser property.
+Then, you decide whether the form is on the right (by default) or on the left with the form_align_right property.
+
+Then, customize each part as you want.
+
+The teaser is composed of a title, and an arbitrary number of icons (which by default are checkboxes) along with some text.
+
+Then signup form is composed of a title, a subtitle, some fields including a submit button. Don't forget to
+set the action (attribute) of the form, to hook it with your application.
+
+
+
+
+
+More about the form fields
+--------
+The form fields are input tags. You can choose the type of the input amongst the following:
+
+- text
+- password
+
+The submit button has its own variables and is not considered as a regular form field.
+
+
+
+>
+
+vars:
+    showTeaser:
+        type: bool
+        default_value: true
+        description: Whether to show the teaser.
+    form_align_right:
+        type: bool
+        default_value: true
+        description: Whether to align the form to the right.
+    teaser_visible_size:
+        type: string
+        default_value: ""
+        description: The bootstrap size at which the teaser should start to be visible.
+        example: lg
+        choices:
+            - sm
+            - md
+            - lg
+    teaser_title:
+        type: string
+        default_value: ""
+        description: The teaser title.
+        example: Build <strong>social profiles</strong> and gain revenue <strong>profits</strong>
+    teaser_items:
+        type: item_list
+        default_value: []
+        description: An array of teaser items to display in the teaser.
+        item_properties: 
+            icon:
+                type: string
+                default_value: ""
+                description: The icon of the teaser item.
+                example: fas fa-check fa-2x
+            text:
+                type: string
+                default_value: ""
+                description: The text of the teaser item.
+                example: Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed, tempore iusto in minima facere dolorem!
+    form_title:
+        type: string
+        default_value: ""
+        description: The title of the form.
+        example: Sign up Today
+    form_subtitle:
+        type: string
+        default_value: ""
+        description: The subtitle of the form.
+        example: Please fill out this form to register
+    form_fields:
+        type: item_list
+        default_value: []
+        description: An array of the form fields (not including the submit button).
+        item_properties: 
+            name:
+                type: string
+                default_value: ""
+                description: The name attribute of the input tag for this field.
+                example: username
+            placeholder:
+                type: string
+                default_value: ""
+                description: The placeholder attribute of the input tag for this field.
+                example: Username
+            type:
+                type: string
+                default_value: ""
+                description: The type attribute of the input tag for this field.
+                example: text
+                choices:
+                    - text
+                    - password
+    form_submit_value:
+        type: string
+        default_value: ""
+        description: The value for the submit button.
+        example: Submit
+    form_submit_class:
+        type: string
+        default_value: ""
+        description: The css class for the submit button.
+        example: btn btn-outline-light btn-block
+    background_style:
+        type: string
+        default_value: ""
+        description: The background css value. Note, you can use a simple color, or an image.
+        example: url('/plugins/Light_Kit_BootstrapWidgetLibrary/looplab/img/home.jpg')
+
+
+example: <
+    name: looplab_two_columns_signup_form
+    type: picasso
+    className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\LoopLabTwoColumnsSignupFormWidget
+    widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/LoopLabTwoColumnsSignupFormWidget
+    template: default.php
+    vars:
+        attr:
+            id: home
+
+        showTeaser: true
+        form_align_right: false
+        teaser_visible_size: lg
+        teaser_title: Build <strong>social profiles</strong> and gain revenue <strong>profits</strong>
+        teaser_items:
+            -
+                icon: fas fa-check fa-2x
+                text: Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed, tempore iusto in minima facere dolorem!
+
+            -
+                icon: fas fa-check fa-2x
+                text: Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed, tempore iusto in minima facere dolorem!
+
+            -
+                icon: fas fa-check fa-2x
+                text: Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed, tempore iusto in minima facere dolorem!
+
+
+        form_title: Sign up Today
+        form_subtitle: Please fill out this form to register
+        form_fields:
+            -
+                name: username
+                placeholder: Username
+                type: text
+
+            -
+                name: email
+                placeholder: Email
+                type: text
+
+            -
+                name: password
+                placeholder: Password
+                type: password
+
+            -
+                name: confirm_password
+                placeholder: Confirm Password
+                type: password
+
+
+        form_submit_value: Submit
+        form_submit_class: btn btn-outline-light btn-block
+        background_style: url('/plugins/Light_Kit_BootstrapWidgetLibrary/looplab/img/home.jpg')
+>

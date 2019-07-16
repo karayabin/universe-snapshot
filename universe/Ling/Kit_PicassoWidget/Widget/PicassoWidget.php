@@ -44,6 +44,15 @@ class PicassoWidget extends ZephyrTemplateEngine
      */
     protected $attr;
 
+    /**
+     * This property holds the copilot for this instance.
+     * Sometimes, templates might need to access the copilot directly,
+     * hence the existence of this property.
+     *
+     * @var HtmlPageCopilot
+     */
+    protected $copilot;
+
 
     /**
      * Builds the PicassoWidget instance.
@@ -52,6 +61,7 @@ class PicassoWidget extends ZephyrTemplateEngine
     {
         $this->libraries = [];
         $this->attr = [];
+        $this->copilot = null;
     }
 
     /**
@@ -62,6 +72,16 @@ class PicassoWidget extends ZephyrTemplateEngine
     public function getLibraries(): array
     {
         return $this->libraries;
+    }
+
+    /**
+     * Sets the copilot.
+     *
+     * @param HtmlPageCopilot $copilot
+     */
+    public function setCopilot(HtmlPageCopilot $copilot)
+    {
+        $this->copilot = $copilot;
     }
 
 

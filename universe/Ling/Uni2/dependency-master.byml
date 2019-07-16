@@ -61,6 +61,15 @@ galaxies:
             
             post_install: []
         
+        ArrayVariableResolver: 
+            version: 1.1.0
+            dependencies: 
+                Ling: 
+                    - Bat
+                
+            
+            post_install: []
+        
         AssetLoader: 
             version: 1.6.0
             dependencies: []
@@ -109,12 +118,13 @@ galaxies:
             post_install: []
         
         Bat: 
-            version: 1.171
+            version: 1.176
             dependencies: 
                 Ling: 
                     - ArrayToString
                     - BeeFramework
                     - CopyDir
+                    - BabyYaml
                     - Tiphaine
                     - DirScanner
                 
@@ -140,7 +150,7 @@ galaxies:
             post_install: []
         
         BeeFramework: 
-            version: 1.0.1
+            version: 1.0.3
             dependencies: 
                 Ling: 
                     - Komin
@@ -365,7 +375,7 @@ galaxies:
             post_install: []
         
         DocTools: 
-            version: 1.6.2
+            version: 1.7.0
             dependencies: 
                 Ling: 
                     - Bat
@@ -500,7 +510,7 @@ galaxies:
             post_install: []
         
         HtmlPageTools: 
-            version: 1.5.0
+            version: 1.6.0
             dependencies: []
             post_install: []
         
@@ -660,7 +670,7 @@ galaxies:
             post_install: []
         
         Kit: 
-            version: 1.5.0
+            version: 1.7.3
             dependencies: 
                 Ling: 
                     - BabyYaml
@@ -670,13 +680,15 @@ galaxies:
             post_install: []
         
         Kit_PicassoWidget: 
-            version: 1.18.1
+            version: 1.28.0
             dependencies: 
                 Ling: 
                     - Kit
                     - BabyYaml
                     - Bat
                     - DirScanner
+                    - Light
+                    - Light_Kit
                     - HtmlPageTools
                     - ZephyrTemplateEngine
                 
@@ -708,7 +720,7 @@ galaxies:
             post_install: []
         
         Light: 
-            version: 0.1.0
+            version: 0.2.0
             dependencies: 
                 Ling: 
                     - SicTools
@@ -732,12 +744,13 @@ galaxies:
             
         
         Light_Kit: 
-            version: 1.3.0
+            version: 1.6.2
             dependencies: 
                 Ling: 
                     - Bat
                     - HtmlPageTools
                     - Kit
+                    - ArrayVariableResolver
                     - Light
                 
             
@@ -746,11 +759,13 @@ galaxies:
             
         
         Light_Kit_BootstrapWidgetLibrary: 
-            version: 0.10.0
+            version: 1.6.0
             dependencies: 
                 Ling: 
                     - Kit_PicassoWidget
                     - HtmlPageTools
+                    - Bat
+                    - BabyYaml
                 
             
             post_install: 
@@ -758,7 +773,7 @@ galaxies:
             
         
         Light_Kit_Demo: 
-            version: 0.6.4
+            version: 1.0.0
             dependencies: []
             post_install: 
                 map: true
@@ -796,14 +811,14 @@ galaxies:
             post_install: []
         
         Light_User: 
-            version: 1.0.0
+            version: 1.1.0
             dependencies: []
             post_install: 
                 map: true
             
         
         Light_UserManager: 
-            version: 1.0.0
+            version: 1.1.0
             dependencies: 
                 Ling: 
                     - Light_User
@@ -1273,7 +1288,7 @@ galaxies:
             post_install: []
         
         SicTools: 
-            version: 1.4.2
+            version: 1.4.3
             dependencies: 
                 Ling: 
                     - ArrayToString

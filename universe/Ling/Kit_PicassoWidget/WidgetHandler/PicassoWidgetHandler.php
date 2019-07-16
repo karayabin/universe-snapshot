@@ -4,6 +4,8 @@ namespace Ling\Kit_PicassoWidget\WidgetHandler;
 
 
 use Ling\HtmlPageTools\Copilot\HtmlPageCopilot;
+use Ling\Kit\PageRenderer\KitPageRendererAwareInterface;
+use Ling\Kit\PageRenderer\KitPageRendererInterface;
 use Ling\Kit\WidgetHandler\WidgetHandlerInterface;
 use Ling\Kit_PicassoWidget\Exception\PicassoWidgetException;
 use Ling\Kit_PicassoWidget\Widget\PicassoWidget;
@@ -23,10 +25,11 @@ use Ling\Kit_PicassoWidget\Widget\PicassoWidget;
  * - template: string, the relative path of the template to use.
  *      A picasso widget always uses a template to displays itself.
  *      The path is relative to the "$widgetDir/templates" directory.
- * - ?attr: an array of html attributes to add on the widget's outer tag. Example:
- *      - id: my_id
- *      - class: my_class my_class2
- *      - data-example-value: 668
+ * - vars: an array of variables to pass to the widget template
+ *     - ?attr: an array of html attributes to add on the widget's outer tag. Example:
+ *          - id: my_id
+ *          - class: my_class my_class2
+ *          - data-example-value: 668
  * ```
  *
  *
@@ -47,28 +50,37 @@ use Ling\Kit_PicassoWidget\Widget\PicassoWidget;
  * ----- templates/            # this directory contains the templates available for this widget
  * --------- prototype.php     # just an example, can be any name really...
  * --------- default.php       # just an example, can be any name really...
- * ----- js-init/
- * --------- default.js        # can be any name, but it's the same name as a template
- * ----- css/                  # this directory contains the css code blocks to add to the chosen template
- * --------- default.css       # can be any name, but it's the same name as a template
+ * ----- js/                   # this directory contains the js nuggets
+ *                             # If the js file has the same name as the template, it will be loaded automatically.
+ *                             # For instance, if the selected template is default.php, and there is a
+ *                             # js nugget named default.js or default.js.php (same as default.js but allows php code inside)
+ *                             # in the js directory, then this nugget will be loaded automatically as a js code block.
+ * --------- default.js        # an example js nugget.
+ * ----- css/                  # this directory contains the css nuggets to add to the chosen template.
+ * ----- css/                  # if the css nugget has the same name as the template, then it will be loaded automatically (same mechanism as the js nuggets).
+ * --------- default.css       # an example css nugget.
  * ```
  *
  *
  * The files in the "templates" directory are the available templates for this widget.
- * The files in the "js-init" directory are automatically loaded as js code blocks via @page(the HtmlPageCopilot).
+ * The files in the "js" directory are automatically loaded as js code blocks via @page(the HtmlPageCopilot).
+ * Those are also called js nuggets.
+ *
  * Those js files are used to initialize the widget. For instance, if your widget displays a lightbox gallery,
  * it might use a jquery snippet to initialize the gallery.
+ * If you need the power of php in your js file, just add the php extension (for instance default.js.php).
  *
  * The files in the "css" directory are automatically loaded as css code blocks via @page(the HtmlPageCopilot).
  * Those css files shall be compiled into one "widget-compiled.css" (or another name) file by the host application,
  * so that the css code of widgets can be nicely separated from the html code.
+ * Those css blocks are sometimes called css nuggets.
  *
  *
  *
  *
  *
  */
-class PicassoWidgetHandler implements WidgetHandlerInterface
+class PicassoWidgetHandler implements WidgetHandlerInterface, KitPageRendererAwareInterface
 {
 
 
@@ -103,6 +115,12 @@ class PicassoWidgetHandler implements WidgetHandlerInterface
      */
     protected $showJsNuggetHeaders;
 
+    /**
+     * This property holds the kitPageRenderer for this instance.
+     * @var KitPageRendererInterface
+     */
+    protected $kitPageRenderer;
+
 
     /**
      * Builds the PicassoWidgetHandler instance.
@@ -113,7 +131,18 @@ class PicassoWidgetHandler implements WidgetHandlerInterface
         $this->widgetBaseDir = "";
         $this->showCssNuggetHeaders = $options['showCssNuggetHeaders'] ?? false;
         $this->showJsNuggetHeaders = $options['showJsNuggetHeaders'] ?? false;
+        $this->kitPageRenderer = null;
     }
+
+
+    /**
+     * @implementation
+     */
+    public function setKitPageRenderer(KitPageRendererInterface $renderer)
+    {
+        $this->kitPageRenderer = $renderer;
+    }
+
 
     /**
      * Sets the widgetBaseDir.
@@ -145,6 +174,24 @@ class PicassoWidgetHandler implements WidgetHandlerInterface
 
 
                         //--------------------------------------------
+                        // SET THE COPILOT
+                        //--------------------------------------------
+                        /**
+                         * In some cases, it's practical for the templates to have
+                         * a direct access to a copilot instance.
+                         */
+                        $instance->setCopilot($copilot);
+
+
+                        //--------------------------------------------
+                        // SET THE KIT PAGE RENDERER
+                        //--------------------------------------------
+                        if ($instance instanceof KitPageRendererAwareInterface) {
+                            $instance->setKitPageRenderer($this->kitPageRenderer);
+                        }
+
+
+                        //--------------------------------------------
                         // PREPARE THE WIDGET
                         //--------------------------------------------
                         $instance->prepare($widgetConf, $copilot);
@@ -169,15 +216,6 @@ class PicassoWidgetHandler implements WidgetHandlerInterface
                         $templateDir = $widgetDir . '/templates';
                         $templateFile = $templateDir . '/' . $templateFileName;
                         if (is_file($templateFile)) {
-
-
-                            //--------------------------------------------
-                            // PRESETS
-                            //--------------------------------------------
-                            /**
-                             * todo: preset loader...
-                             */
-
 
 
                             //--------------------------------------------
@@ -213,25 +251,33 @@ class PicassoWidgetHandler implements WidgetHandlerInterface
                             //--------------------------------------------
                             // REGISTERING JS NUGGET (INIT CODE BLOCKS)
                             //--------------------------------------------
-                            $hasNugget = false;
-                            $jsInitFile = $widgetDir . "/js-init/$templateName.js";
-                            if (file_exists($jsInitFile)) {
-                                $hasNugget = true;
-                                $codeBlock = file_get_contents($jsInitFile);
+                            if (array_key_exists("js", $widgetConf)) {
+                                $jsNuggetName = $widgetConf['js'];
                             } else {
-                                $jsInitFile .= ".php";
-                                if (file_exists($jsInitFile)) {
-                                    $codeBlock = $instance->renderFile($jsInitFile, $widgetVars);
-                                    $hasNugget = true;
-                                }
-
+                                $jsNuggetName = $templateName;
                             }
+                            if (null !== $jsNuggetName) {
 
-                            if (true === $hasNugget) {
-                                if (true === $this->showJsNuggetHeaders) {
-                                    $codeBlock = "/** $className */" . PHP_EOL . $codeBlock;
+                                $hasNugget = false;
+                                $jsInitFile = $widgetDir . "/js/$jsNuggetName.js";
+                                if (file_exists($jsInitFile)) {
+                                    $hasNugget = true;
+                                    $codeBlock = file_get_contents($jsInitFile);
+                                } else {
+                                    $jsInitFile .= ".php";
+                                    if (file_exists($jsInitFile)) {
+                                        $codeBlock = $instance->renderFile($jsInitFile, $widgetVars);
+                                        $hasNugget = true;
+                                    }
+
                                 }
-                                $copilot->addJsCodeBlock($codeBlock);
+
+                                if (true === $hasNugget) {
+                                    if (true === $this->showJsNuggetHeaders) {
+                                        $codeBlock = "/** $className */" . PHP_EOL . $codeBlock;
+                                    }
+                                    $copilot->addJsCodeBlock($codeBlock);
+                                }
                             }
 
 
