@@ -68,6 +68,11 @@ Returns bool.
 
 
 
+Source Code
+===========
+See the source code for method [RemoteConfHelper::pushConf](https://github.com/lingtalfi/Deploy/blob/master/Helper/RemoteConfHelper.php#L54-L73)
+
+
 See Also
 ================
 

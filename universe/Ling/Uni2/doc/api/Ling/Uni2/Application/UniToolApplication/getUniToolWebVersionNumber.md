@@ -50,6 +50,11 @@ Exceptions thrown
 
 
 
+Source Code
+===========
+See the source code for method [UniToolApplication::getUniToolWebVersionNumber](https://github.com/lingtalfi/Uni2/blob/master/Application/UniToolApplication.php#L494-L503)
+
+
 See Also
 ================
 

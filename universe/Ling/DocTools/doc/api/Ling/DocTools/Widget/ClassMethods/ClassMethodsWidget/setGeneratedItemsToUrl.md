@@ -47,6 +47,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [ClassMethodsWidget::setGeneratedItemsToUrl](https://github.com/lingtalfi/DocTools/blob/master/Widget/ClassMethods/ClassMethodsWidget.php#L73-L76)
+
+
 See Also
 ================
 

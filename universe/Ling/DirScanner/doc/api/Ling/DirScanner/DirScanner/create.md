@@ -44,6 +44,11 @@ Returns [DirScanner](https://github.com/lingtalfi/DirScanner/blob/master/doc/api
 
 
 
+Source Code
+===========
+See the source code for method [DirScanner::create](https://github.com/lingtalfi/DirScanner/blob/master/DirScanner.php#L46-L49)
+
+
 See Also
 ================
 

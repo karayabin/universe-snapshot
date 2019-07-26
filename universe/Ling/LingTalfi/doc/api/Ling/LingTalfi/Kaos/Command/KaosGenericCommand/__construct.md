@@ -44,6 +44,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [KaosGenericCommand::__construct](https://github.com/lingtalfi/LingTalfi/blob/master/Kaos/Command/KaosGenericCommand.php#L34-L37)
+
+
 See Also
 ================
 

@@ -71,6 +71,11 @@ Exceptions thrown
 
 
 
+Source Code
+===========
+See the source code for method [WidgetHandlerInterface::handle](https://github.com/lingtalfi/Kit/blob/master/WidgetHandler/WidgetHandlerInterface.php#L39-L39)
+
+
 See Also
 ================
 

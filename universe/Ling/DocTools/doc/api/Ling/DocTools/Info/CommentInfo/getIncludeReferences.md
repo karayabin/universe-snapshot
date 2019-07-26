@@ -44,6 +44,11 @@ Returns array.
 
 
 
+Source Code
+===========
+See the source code for method [CommentInfo::getIncludeReferences](https://github.com/lingtalfi/DocTools/blob/master/Info/CommentInfo.php#L377-L380)
+
+
 See Also
 ================
 

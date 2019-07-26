@@ -51,6 +51,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [LightInitializerUtil::initialize](https://github.com/lingtalfi/Light_Initializer/blob/master/Util/LightInitializerUtil.php#L62-L67)
+
+
 See Also
 ================
 

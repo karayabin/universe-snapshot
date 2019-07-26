@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [HydrogenRenderer::printJsHandler](https://github.com/lingtalfi/Chloroform_HydrogenRenderer/blob/master/doc/api/Ling/Chloroform_HydrogenRenderer/HydrogenRenderer/printJsHandler.md)(string $cssId, array $fields, array $options) : void
+public [HydrogenRenderer::printJsHandler](https://github.com/lingtalfi/Chloroform_HydrogenRenderer/blob/master/doc/api/Ling/Chloroform_HydrogenRenderer/HydrogenRenderer/printJsHandler.md)(array $options = null) : void
 
 
 
@@ -40,14 +40,6 @@ Parameters
 ================
 
 
-- cssId
-
-    The form css id.
-
-- fields
-
-    
-
 - options
 
     
@@ -63,6 +55,11 @@ Returns void.
 
 
 
+
+
+Source Code
+===========
+See the source code for method [HydrogenRenderer::printJsHandler](https://github.com/lingtalfi/Chloroform_HydrogenRenderer/blob/master/HydrogenRenderer.php#L806-L826)
 
 
 See Also

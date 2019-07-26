@@ -47,6 +47,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [MethodInfo::setThrownExceptions](https://github.com/lingtalfi/DocTools/blob/master/Info/MethodInfo.php#L324-L327)
+
+
 See Also
 ================
 

@@ -44,6 +44,11 @@ Returns int.
 
 
 
+Source Code
+===========
+See the source code for method [HistoryInterface::count](https://github.com/lingtalfi/EasyConsoleMenu/blob/master/History/HistoryInterface.php#L50-L50)
+
+
 See Also
 ================
 

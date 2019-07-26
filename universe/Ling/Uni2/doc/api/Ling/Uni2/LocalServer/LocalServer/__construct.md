@@ -44,6 +44,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [LocalServer::__construct](https://github.com/lingtalfi/Uni2/blob/master/LocalServer/LocalServer.php#L41-L45)
+
+
 See Also
 ================
 

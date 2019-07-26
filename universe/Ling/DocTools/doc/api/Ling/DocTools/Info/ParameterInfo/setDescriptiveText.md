@@ -47,6 +47,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [ParameterInfo::setDescriptiveText](https://github.com/lingtalfi/DocTools/blob/master/Info/ParameterInfo.php#L154-L157)
+
+
 See Also
 ================
 

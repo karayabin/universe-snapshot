@@ -51,6 +51,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [AbstractBackupCommand::onArchiveReady](https://github.com/lingtalfi/Deploy/blob/master/Command/AbstractBackupCommand.php#L56-L56)
+
+
 See Also
 ================
 

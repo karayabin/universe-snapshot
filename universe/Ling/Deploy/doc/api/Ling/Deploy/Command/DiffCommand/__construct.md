@@ -44,6 +44,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [DiffCommand::__construct](https://github.com/lingtalfi/Deploy/blob/master/Command/DiffCommand.php#L78-L83)
+
+
 See Also
 ================
 

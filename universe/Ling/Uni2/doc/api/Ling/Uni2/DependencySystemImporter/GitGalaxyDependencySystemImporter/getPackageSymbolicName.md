@@ -65,6 +65,11 @@ Returns string.
 
 
 
+Source Code
+===========
+See the source code for method [GitGalaxyDependencySystemImporter::getPackageSymbolicName](https://github.com/lingtalfi/Uni2/blob/master/DependencySystemImporter/GitGalaxyDependencySystemImporter.php#L58-L61)
+
+
 See Also
 ================
 

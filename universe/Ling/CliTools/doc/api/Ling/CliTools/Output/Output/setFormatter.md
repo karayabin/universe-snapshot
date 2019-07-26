@@ -47,6 +47,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [Output::setFormatter](https://github.com/lingtalfi/CliTools/blob/master/Output/Output.php#L59-L62)
+
+
 See Also
 ================
 

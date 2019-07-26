@@ -4,7 +4,7 @@
 
 The UpgradeCommand class
 ================
-2019-03-12 --> 2019-04-05
+2019-03-12 --> 2019-07-18
 
 
 
@@ -61,7 +61,9 @@ Methods
 
 Location
 =============
-Ling\Uni2\Command\UpgradeCommand
+Ling\Uni2\Command\UpgradeCommand<br>
+See the source code of [Ling\Uni2\Command\UpgradeCommand](https://github.com/lingtalfi/Uni2/blob/master/Command/UpgradeCommand.php)
+
 
 
 SeeAlso

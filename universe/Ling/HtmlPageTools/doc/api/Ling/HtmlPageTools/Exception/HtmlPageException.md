@@ -4,7 +4,7 @@
 
 The HtmlPageException class
 ================
-2019-04-24 --> 2019-05-14
+2019-04-24 --> 2019-07-18
 
 
 
@@ -47,7 +47,9 @@ Methods
 
 Location
 =============
-Ling\HtmlPageTools\Exception\HtmlPageException
+Ling\HtmlPageTools\Exception\HtmlPageException<br>
+See the source code of [Ling\HtmlPageTools\Exception\HtmlPageException](https://github.com/lingtalfi/HtmlPageTools/blob/master/Exception/HtmlPageException.php)
+
 
 
 SeeAlso

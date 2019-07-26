@@ -48,6 +48,11 @@ Returns [SelectField](https://github.com/lingtalfi/Chloroform/blob/master/doc/ap
 
 
 
+Source Code
+===========
+See the source code for method [SelectField::setItems](https://github.com/lingtalfi/Chloroform/blob/master/Field/SelectField.php#L78-L82)
+
+
 See Also
 ================
 

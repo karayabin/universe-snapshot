@@ -1,6 +1,6 @@
 Ling/Kit
 ================
-2019-04-24 --> 2019-07-11
+2019-04-24 --> 2019-07-25
 
 
 
@@ -45,6 +45,8 @@ Table of contents
 Dependencies
 ============
 - [BabyYaml](https://github.com/lingtalfi/BabyYaml)
+- [Bat](https://github.com/lingtalfi/Bat)
+- [DirScanner](https://github.com/lingtalfi/DirScanner)
 - [HtmlPageTools](https://github.com/lingtalfi/HtmlPageTools)
 
 

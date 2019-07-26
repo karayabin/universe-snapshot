@@ -51,6 +51,11 @@ Returns bool.
 
 
 
+Source Code
+===========
+See the source code for method [StepsHistory::popUntil](https://github.com/lingtalfi/EasyConsoleMenu/blob/master/History/StepsHistory.php#L114-L127)
+
+
 See Also
 ================
 

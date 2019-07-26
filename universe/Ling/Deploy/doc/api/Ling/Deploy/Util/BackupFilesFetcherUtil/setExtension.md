@@ -47,6 +47,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [BackupFilesFetcherUtil::setExtension](https://github.com/lingtalfi/Deploy/blob/master/Util/BackupFilesFetcherUtil.php#L114-L117)
+
+
 See Also
 ================
 

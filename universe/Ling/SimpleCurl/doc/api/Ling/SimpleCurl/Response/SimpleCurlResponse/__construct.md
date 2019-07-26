@@ -44,6 +44,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [SimpleCurlResponse::__construct](https://github.com/lingtalfi/SimpleCurl/blob/master/Response/SimpleCurlResponse.php#L45-L50)
+
+
 See Also
 ================
 

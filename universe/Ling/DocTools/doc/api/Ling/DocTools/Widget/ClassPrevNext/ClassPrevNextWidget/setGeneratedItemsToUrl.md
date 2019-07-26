@@ -47,6 +47,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [ClassPrevNextWidget::setGeneratedItemsToUrl](https://github.com/lingtalfi/DocTools/blob/master/Widget/ClassPrevNext/ClassPrevNextWidget.php#L89-L92)
+
+
 See Also
 ================
 

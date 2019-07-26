@@ -47,6 +47,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [ClassSynopsisWidget::setGeneratedItems2Url](https://github.com/lingtalfi/DocTools/blob/master/Widget/ClassSynopsis/ClassSynopsisWidget.php#L92-L95)
+
+
 See Also
 ================
 

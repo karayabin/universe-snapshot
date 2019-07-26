@@ -47,6 +47,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [VariableDescriptionDocWriterUtil::setDocumentDate](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/Util/VariableDescriptionDocWriterUtil.php#L172-L175)
+
+
 See Also
 ================
 

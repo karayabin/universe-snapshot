@@ -47,6 +47,11 @@ Returns [CommentInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/
 
 
 
+Source Code
+===========
+See the source code for method [CommentInfo::setRawText](https://github.com/lingtalfi/DocTools/blob/master/Info/CommentInfo.php#L257-L261)
+
+
 See Also
 ================
 

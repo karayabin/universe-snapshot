@@ -44,6 +44,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [StoreCommand::__construct](https://github.com/lingtalfi/Uni2/blob/master/Command/StoreCommand.php#L49-L54)
+
+
 See Also
 ================
 

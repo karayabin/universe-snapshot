@@ -56,12 +56,14 @@ class CliToolsDocBuilder
         //--------------------------------------------
 
         $planetDir = "/myphp/universe/Ling/CliTools";
-        $git = "https://github.com/lingtalfi/CliTools/blob/master";
+        $gitRepoUrl = "https://github.com/lingtalfi/CliTools";
+        $git = $gitRepoUrl . "/blob/master";
         $doc = "$git/doc";
         $api = $doc . "/api";
 
 
         $options = [
+            "gitRepoUrl" => $gitRepoUrl,
             /**
              * Path to the planet dir that we want to generate the documentation for.
              */

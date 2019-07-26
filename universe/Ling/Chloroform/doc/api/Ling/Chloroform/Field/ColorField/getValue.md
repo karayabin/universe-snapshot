@@ -44,6 +44,11 @@ Returns mixed.
 
 
 
+Source Code
+===========
+See the source code for method [ColorField::getValue](https://github.com/lingtalfi/Chloroform/blob/master/Field/ColorField.php#L41-L44)
+
+
 See Also
 ================
 

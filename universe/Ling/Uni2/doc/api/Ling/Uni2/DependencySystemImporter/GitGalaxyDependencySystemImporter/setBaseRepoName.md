@@ -47,6 +47,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [GitGalaxyDependencySystemImporter::setBaseRepoName](https://github.com/lingtalfi/Uni2/blob/master/DependencySystemImporter/GitGalaxyDependencySystemImporter.php#L83-L86)
+
+
 See Also
 ================
 

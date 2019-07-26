@@ -68,6 +68,11 @@ Exceptions thrown
 
 
 
+Source Code
+===========
+See the source code for method [Light_KitDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Light_Kit/Light_KitDocBuilder.php#L44-L210)
+
+
 See Also
 ================
 

@@ -47,6 +47,11 @@ Returns mixed.
 
 
 
+Source Code
+===========
+See the source code for method [HelpCommand::getCallbacks](https://github.com/lingtalfi/Deploy/blob/master/Command/HelpCommand.php#L116-L122)
+
+
 See Also
 ================
 

@@ -64,6 +64,11 @@ Returns bool.
 
 
 
+Source Code
+===========
+See the source code for method [GitRepoDependencySystemImporter::importPackage](https://github.com/lingtalfi/Uni2/blob/master/DependencySystemImporter/GitRepoDependencySystemImporter.php#L43-L49)
+
+
 See Also
 ================
 

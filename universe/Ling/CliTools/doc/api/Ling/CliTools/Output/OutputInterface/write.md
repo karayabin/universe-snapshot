@@ -49,6 +49,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [OutputInterface::write](https://github.com/lingtalfi/CliTools/blob/master/Output/OutputInterface.php#L27-L27)
+
+
 See Also
 ================
 

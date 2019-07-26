@@ -65,6 +65,11 @@ Exceptions thrown
 
 
 
+Source Code
+===========
+See the source code for method [DependencyTool::getDependencyItem](https://github.com/lingtalfi/UniverseTools/blob/master/DependencyTool.php#L184-L206)
+
+
 See Also
 ================
 

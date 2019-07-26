@@ -4,7 +4,7 @@
 
 The HotServiceResolver class
 ================
-2019-04-25 --> 2019-05-15
+2019-04-25 --> 2019-07-18
 
 
 
@@ -69,7 +69,9 @@ Methods
 
 Location
 =============
-Ling\SicTools\HotServiceResolver
+Ling\SicTools\HotServiceResolver<br>
+See the source code of [Ling\SicTools\HotServiceResolver](https://github.com/lingtalfi/SicTools/blob/master/HotServiceResolver.php)
+
 
 
 SeeAlso

@@ -1,6 +1,6 @@
 Ling/ProjectInfo
 ================
-2019-03-18 --> 2019-03-18
+2019-03-18 --> 2019-07-18
 
 
 
@@ -16,8 +16,8 @@ Table of contents
 
 Dependencies
 ============
-- [Bat](https://github.com/karayabin/universe-snapshot/tree/master/universe/Ling/Bat)
-- [DirScanner](https://github.com/karayabin/universe-snapshot/tree/master/universe/Ling/DirScanner)
-- [TokenFun](https://github.com/karayabin/universe-snapshot/tree/master/universe/Ling/TokenFun)
+- [Bat](https://github.com/lingtalfi/Bat)
+- [DirScanner](https://github.com/lingtalfi/DirScanner)
+- [TokenFun](https://github.com/lingtalfi/TokenFun)
 
 

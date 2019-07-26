@@ -68,6 +68,11 @@ Exceptions thrown
 
 
 
+Source Code
+===========
+See the source code for method [CSRFToolsDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/CSRFTools/CSRFToolsDocBuilder.php#L44-L199)
+
+
 See Also
 ================
 

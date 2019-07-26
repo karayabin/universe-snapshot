@@ -47,6 +47,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [ReportInterface::addClassWithEmptyMainText](https://github.com/lingtalfi/DocTools/blob/master/Report/ReportInterface.php#L292-L292)
+
+
 See Also
 ================
 

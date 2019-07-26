@@ -65,6 +65,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [RadioField::__construct](https://github.com/lingtalfi/Chloroform/blob/master/Field/RadioField.php#L30-L34)
+
+
 See Also
 ================
 

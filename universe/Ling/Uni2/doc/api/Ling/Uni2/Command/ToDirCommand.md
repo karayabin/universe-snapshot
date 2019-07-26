@@ -4,7 +4,7 @@
 
 The ToDirCommand class
 ================
-2019-03-12 --> 2019-04-05
+2019-03-12 --> 2019-07-18
 
 
 
@@ -99,7 +99,9 @@ Methods
 
 Location
 =============
-Ling\Uni2\Command\ToDirCommand
+Ling\Uni2\Command\ToDirCommand<br>
+See the source code of [Ling\Uni2\Command\ToDirCommand](https://github.com/lingtalfi/Uni2/blob/master/Command/ToDirCommand.php)
+
 
 
 SeeAlso

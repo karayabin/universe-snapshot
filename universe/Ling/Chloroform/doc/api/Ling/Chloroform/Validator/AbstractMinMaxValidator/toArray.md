@@ -52,6 +52,11 @@ Returns array.
 
 
 
+Source Code
+===========
+See the source code for method [AbstractMinMaxValidator::toArray](https://github.com/lingtalfi/Chloroform/blob/master/Validator/AbstractMinMaxValidator.php#L42-L48)
+
+
 See Also
 ================
 

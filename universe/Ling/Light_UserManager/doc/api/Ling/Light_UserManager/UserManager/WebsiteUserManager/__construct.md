@@ -44,6 +44,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [WebsiteUserManager::__construct](https://github.com/lingtalfi/Light_UserManager/blob/master/UserManager/WebsiteUserManager.php#L40-L43)
+
+
 See Also
 ================
 

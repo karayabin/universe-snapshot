@@ -54,6 +54,11 @@ Returns string.
 
 
 
+Source Code
+===========
+See the source code for method [FieldHelper::getDefaultErrorNameByLabelOrId](https://github.com/lingtalfi/Chloroform/blob/master/Helper/FieldHelper.php#L39-L45)
+
+
 See Also
 ================
 

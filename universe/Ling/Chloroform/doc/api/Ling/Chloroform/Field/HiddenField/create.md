@@ -51,6 +51,11 @@ Returns [HiddenField](https://github.com/lingtalfi/Chloroform/blob/master/doc/ap
 
 
 
+Source Code
+===========
+See the source code for method [HiddenField::create](https://github.com/lingtalfi/Chloroform/blob/master/Field/HiddenField.php#L21-L25)
+
+
 See Also
 ================
 

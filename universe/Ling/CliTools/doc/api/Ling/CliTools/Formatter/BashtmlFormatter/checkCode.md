@@ -47,6 +47,11 @@ Returns bool.
 
 
 
+Source Code
+===========
+See the source code for method [BashtmlFormatter::checkCode](https://github.com/lingtalfi/CliTools/blob/master/Formatter/BashtmlFormatter.php#L373-L386)
+
+
 See Also
 ================
 

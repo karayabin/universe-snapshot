@@ -69,6 +69,11 @@ Exceptions thrown
 
 
 
+Source Code
+===========
+See the source code for method [MapHelper::createMap](https://github.com/lingtalfi/Uni2/blob/master/Helper/MapHelper.php#L67-L77)
+
+
 See Also
 ================
 

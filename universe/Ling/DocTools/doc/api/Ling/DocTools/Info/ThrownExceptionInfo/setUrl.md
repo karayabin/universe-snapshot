@@ -47,6 +47,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [ThrownExceptionInfo::setUrl](https://github.com/lingtalfi/DocTools/blob/master/Info/ThrownExceptionInfo.php#L109-L112)
+
+
 See Also
 ================
 

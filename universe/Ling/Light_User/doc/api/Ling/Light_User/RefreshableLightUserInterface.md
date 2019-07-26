@@ -4,7 +4,7 @@
 
 The RefreshableLightUserInterface class
 ================
-2019-05-10 --> 2019-07-12
+2019-05-10 --> 2019-07-19
 
 
 
@@ -54,7 +54,9 @@ Methods
 
 Location
 =============
-Ling\Light_User\RefreshableLightUserInterface
+Ling\Light_User\RefreshableLightUserInterface<br>
+See the source code of [Ling\Light_User\RefreshableLightUserInterface](https://github.com/lingtalfi/Light_User/blob/master/RefreshableLightUserInterface.php)
+
 
 
 SeeAlso

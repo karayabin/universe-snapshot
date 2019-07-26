@@ -51,6 +51,11 @@ Returns [DateField](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/
 
 
 
+Source Code
+===========
+See the source code for method [DateField::create](https://github.com/lingtalfi/Chloroform/blob/master/Field/DateField.php#L31-L35)
+
+
 See Also
 ================
 

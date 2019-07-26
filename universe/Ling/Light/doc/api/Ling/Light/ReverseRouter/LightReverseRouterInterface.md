@@ -4,7 +4,7 @@
 
 The LightReverseRouterInterface class
 ================
-2019-04-09 --> 2019-07-11
+2019-04-09 --> 2019-07-18
 
 
 
@@ -36,7 +36,7 @@ Class synopsis
 abstract class <span class="pl-k">LightReverseRouterInterface</span>  {
 
 - Methods
-    - abstract public [getUrl](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ReverseRouter/LightReverseRouterInterface/getUrl.md)(string $routeName, array $urlParameters = []) : string
+    - abstract public [getUrl](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ReverseRouter/LightReverseRouterInterface/getUrl.md)(string $routeName, array $urlParameters = [], bool $useAbsolute = null) : string
 
 }
 
@@ -56,7 +56,9 @@ Methods
 
 Location
 =============
-Ling\Light\ReverseRouter\LightReverseRouterInterface
+Ling\Light\ReverseRouter\LightReverseRouterInterface<br>
+See the source code of [Ling\Light\ReverseRouter\LightReverseRouterInterface](https://github.com/lingtalfi/Light/blob/master/ReverseRouter/LightReverseRouterInterface.php)
+
 
 
 SeeAlso

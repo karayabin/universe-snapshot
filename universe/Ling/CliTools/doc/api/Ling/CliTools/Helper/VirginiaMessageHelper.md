@@ -4,7 +4,7 @@
 
 The VirginiaMessageHelper class
 ================
-2019-02-26 --> 2019-03-26
+2019-02-26 --> 2019-07-18
 
 
 
@@ -125,7 +125,9 @@ H::info(H::j(0) . "formatting." . PHP_EOL, $out);
 
 Location
 =============
-Ling\CliTools\Helper\VirginiaMessageHelper
+Ling\CliTools\Helper\VirginiaMessageHelper<br>
+See the source code of [Ling\CliTools\Helper\VirginiaMessageHelper](https://github.com/lingtalfi/CliTools/blob/master/Helper/VirginiaMessageHelper.php)
+
 
 
 SeeAlso

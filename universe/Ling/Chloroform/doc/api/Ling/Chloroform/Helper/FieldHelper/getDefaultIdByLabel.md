@@ -47,6 +47,11 @@ Returns string.
 
 
 
+Source Code
+===========
+See the source code for method [FieldHelper::getDefaultIdByLabel](https://github.com/lingtalfi/Chloroform/blob/master/Helper/FieldHelper.php#L23-L26)
+
+
 See Also
 ================
 

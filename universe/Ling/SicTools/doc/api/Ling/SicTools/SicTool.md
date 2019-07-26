@@ -4,7 +4,7 @@
 
 The SicTool class
 ================
-2019-04-25 --> 2019-05-15
+2019-04-25 --> 2019-07-18
 
 
 
@@ -45,7 +45,9 @@ Methods
 
 Location
 =============
-Ling\SicTools\SicTool
+Ling\SicTools\SicTool<br>
+See the source code of [Ling\SicTools\SicTool](https://github.com/lingtalfi/SicTools/blob/master/SicTool.php)
+
 
 
 SeeAlso

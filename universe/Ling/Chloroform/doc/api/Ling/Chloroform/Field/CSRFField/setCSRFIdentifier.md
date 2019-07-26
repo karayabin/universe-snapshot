@@ -47,6 +47,11 @@ Returns [CSRFField](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/
 
 
 
+Source Code
+===========
+See the source code for method [CSRFField::setCSRFIdentifier](https://github.com/lingtalfi/Chloroform/blob/master/Field/CSRFField.php#L52-L56)
+
+
 See Also
 ================
 

@@ -53,6 +53,11 @@ Exceptions thrown
 
 
 
+Source Code
+===========
+See the source code for method [KrankenSteinTool::getArgsFromArgString](https://github.com/lingtalfi/KrankenStein/blob/master/KrankenSteinTool.php#L80-L83)
+
+
 See Also
 ================
 

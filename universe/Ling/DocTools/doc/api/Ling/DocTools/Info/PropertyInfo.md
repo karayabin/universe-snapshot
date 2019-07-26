@@ -4,7 +4,7 @@
 
 The PropertyInfo class
 ================
-2019-02-21 --> 2019-07-12
+2019-02-21 --> 2019-07-23
 
 
 
@@ -122,7 +122,9 @@ Methods
 
 Location
 =============
-Ling\DocTools\Info\PropertyInfo
+Ling\DocTools\Info\PropertyInfo<br>
+See the source code of [Ling\DocTools\Info\PropertyInfo](https://github.com/lingtalfi/DocTools/blob/master/Info/PropertyInfo.php)
+
 
 
 SeeAlso

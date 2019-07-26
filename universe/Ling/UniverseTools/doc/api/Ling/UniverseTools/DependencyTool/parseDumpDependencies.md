@@ -93,6 +93,11 @@ TokenFun: *
 
 
 
+Source Code
+===========
+See the source code for method [DependencyTool::parseDumpDependencies](https://github.com/lingtalfi/UniverseTools/blob/master/DependencyTool.php#L49-L155)
+
+
 See Also
 ================
 

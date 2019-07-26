@@ -44,6 +44,11 @@ Returns string | null.
 
 
 
+Source Code
+===========
+See the source code for method [ParameterInfo::getValueAlternatives](https://github.com/lingtalfi/DocTools/blob/master/Info/ParameterInfo.php#L124-L127)
+
+
 See Also
 ================
 

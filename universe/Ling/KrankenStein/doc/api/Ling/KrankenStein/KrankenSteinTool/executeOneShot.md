@@ -57,6 +57,11 @@ Exceptions thrown
 
 
 
+Source Code
+===========
+See the source code for method [KrankenSteinTool::executeOneShot](https://github.com/lingtalfi/KrankenStein/blob/master/KrankenSteinTool.php#L48-L69)
+
+
 See Also
 ================
 

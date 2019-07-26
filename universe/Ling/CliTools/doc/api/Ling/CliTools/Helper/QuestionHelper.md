@@ -4,7 +4,7 @@
 
 The QuestionHelper class
 ================
-2019-02-26 --> 2019-03-26
+2019-02-26 --> 2019-07-18
 
 
 
@@ -47,7 +47,9 @@ Methods
 
 Location
 =============
-Ling\CliTools\Helper\QuestionHelper
+Ling\CliTools\Helper\QuestionHelper<br>
+See the source code of [Ling\CliTools\Helper\QuestionHelper](https://github.com/lingtalfi/CliTools/blob/master/Helper/QuestionHelper.php)
+
 
 
 SeeAlso

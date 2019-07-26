@@ -56,12 +56,14 @@ class PlanetSitemapDocBuilder
         //--------------------------------------------
 
         $planetDir = "/myphp/universe/Ling/PlanetSitemap";
-        $git = "https://github.com/lingtalfi/PlanetSitemap/blob/master";
+        $gitRepoUrl = "https://github.com/lingtalfi/PlanetSitemap";
+        $git = $gitRepoUrl . "/blob/master";
         $doc = "$git/doc";
         $api = $doc . "/api";
 
 
         $options = [
+            "gitRepoUrl" => $gitRepoUrl,
             /**
              * Path to the planet dir that we want to generate the documentation for.
              */

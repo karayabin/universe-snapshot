@@ -51,6 +51,11 @@ Returns bool.
 
 
 
+Source Code
+===========
+See the source code for method [MetaInfoTool::writeInfo](https://github.com/lingtalfi/UniverseTools/blob/master/MetaInfoTool.php#L53-L57)
+
+
 See Also
 ================
 

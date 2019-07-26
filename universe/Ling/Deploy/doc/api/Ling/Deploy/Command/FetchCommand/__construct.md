@@ -44,6 +44,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [FetchCommand::__construct](https://github.com/lingtalfi/Deploy/blob/master/Command/FetchCommand.php#L59-L64)
+
+
 See Also
 ================
 

@@ -44,6 +44,11 @@ Returns [ReflectionProperty](http://php.net/manual/en/class.reflectionproperty.p
 
 
 
+Source Code
+===========
+See the source code for method [PropertyInfo::getReflectionProperty](https://github.com/lingtalfi/DocTools/blob/master/Info/PropertyInfo.php#L181-L184)
+
+
 See Also
 ================
 

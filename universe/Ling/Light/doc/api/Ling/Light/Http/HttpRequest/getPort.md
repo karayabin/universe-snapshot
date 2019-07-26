@@ -44,6 +44,11 @@ Returns int.
 
 
 
+Source Code
+===========
+See the source code for method [HttpRequest::getPort](https://github.com/lingtalfi/Light/blob/master/Http/HttpRequest.php#L277-L280)
+
+
 See Also
 ================
 

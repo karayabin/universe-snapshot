@@ -4,7 +4,7 @@
 
 The LightUserManagerException class
 ================
-2019-05-10 --> 2019-07-12
+2019-05-10 --> 2019-07-19
 
 
 
@@ -47,7 +47,9 @@ Methods
 
 Location
 =============
-Ling\Light_UserManager\Exception\LightUserManagerException
+Ling\Light_UserManager\Exception\LightUserManagerException<br>
+See the source code of [Ling\Light_UserManager\Exception\LightUserManagerException](https://github.com/lingtalfi/Light_UserManager/blob/master/Exception/LightUserManagerException.php)
+
 
 
 SeeAlso

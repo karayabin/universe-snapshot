@@ -52,6 +52,11 @@ Returns array.
 
 
 
+Source Code
+===========
+See the source code for method [PasswordValidator::toArray](https://github.com/lingtalfi/Chloroform/blob/master/Validator/PasswordValidator.php#L194-L203)
+
+
 See Also
 ================
 

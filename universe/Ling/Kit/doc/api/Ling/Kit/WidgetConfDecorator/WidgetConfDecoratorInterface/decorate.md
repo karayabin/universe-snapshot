@@ -47,6 +47,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [WidgetConfDecoratorInterface::decorate](https://github.com/lingtalfi/Kit/blob/master/WidgetConfDecorator/WidgetConfDecoratorInterface.php#L18-L18)
+
+
 See Also
 ================
 

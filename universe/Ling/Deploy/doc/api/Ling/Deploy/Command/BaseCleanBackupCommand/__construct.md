@@ -44,6 +44,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [BaseCleanBackupCommand::__construct](https://github.com/lingtalfi/Deploy/blob/master/Command/BaseCleanBackupCommand.php#L59-L66)
+
+
 See Also
 ================
 

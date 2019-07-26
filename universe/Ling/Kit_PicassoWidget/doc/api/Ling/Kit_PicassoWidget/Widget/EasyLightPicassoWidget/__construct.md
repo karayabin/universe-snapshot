@@ -44,6 +44,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [EasyLightPicassoWidget::__construct](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/Widget/EasyLightPicassoWidget.php#L41-L45)
+
+
 See Also
 ================
 

@@ -75,6 +75,11 @@ Returns bool.
 
 
 
+Source Code
+===========
+See the source code for method [FileMimeTypeValidator::test](https://github.com/lingtalfi/Chloroform/blob/master/Validator/FileMimeTypeValidator.php#L53-L90)
+
+
 See Also
 ================
 

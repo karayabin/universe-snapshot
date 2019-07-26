@@ -57,6 +57,11 @@ Returns bool.
 
 
 
+Source Code
+===========
+See the source code for method [AbstractField::validates](https://github.com/lingtalfi/Chloroform/blob/master/Field/AbstractField.php#L153-L186)
+
+
 See Also
 ================
 

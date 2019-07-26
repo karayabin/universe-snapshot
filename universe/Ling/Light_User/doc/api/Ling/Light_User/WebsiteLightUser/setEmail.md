@@ -47,6 +47,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [WebsiteLightUser::setEmail](https://github.com/lingtalfi/Light_User/blob/master/WebsiteLightUser.php#L214-L217)
+
+
 See Also
 ================
 

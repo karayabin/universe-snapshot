@@ -4,7 +4,7 @@
 
 The CommentInfo class
 ================
-2019-02-21 --> 2019-07-12
+2019-02-21 --> 2019-07-23
 
 
 
@@ -194,7 +194,9 @@ Methods
 
 Location
 =============
-Ling\DocTools\Info\CommentInfo
+Ling\DocTools\Info\CommentInfo<br>
+See the source code of [Ling\DocTools\Info\CommentInfo](https://github.com/lingtalfi/DocTools/blob/master/Info/CommentInfo.php)
+
 
 
 SeeAlso

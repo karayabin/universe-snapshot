@@ -49,6 +49,11 @@ Exceptions thrown
 
 
 
+Source Code
+===========
+See the source code for method [GalaxyTool::getKnownGalaxies](https://github.com/lingtalfi/UniverseTools/blob/master/GalaxyTool.php#L24-L39)
+
+
 See Also
 ================
 

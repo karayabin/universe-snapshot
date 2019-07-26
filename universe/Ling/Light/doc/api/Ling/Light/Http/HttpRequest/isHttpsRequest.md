@@ -44,6 +44,11 @@ Returns bool.
 
 
 
+Source Code
+===========
+See the source code for method [HttpRequest::isHttpsRequest](https://github.com/lingtalfi/Light/blob/master/Http/HttpRequest.php#L269-L272)
+
+
 See Also
 ================
 

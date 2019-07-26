@@ -64,6 +64,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [DirScanner::doScanDir](https://github.com/lingtalfi/DirScanner/blob/master/DirScanner.php#L119-L151)
+
+
 See Also
 ================
 

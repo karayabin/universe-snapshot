@@ -35,7 +35,11 @@ Summary
 
 History Log
 ------------------
-    
+
+- 1.0.1 -- 2019-07-18
+
+    - update docTools documentation, add links to source code for classes and methods
+
 - 1.0.0 -- 2019-02-22
 
     - initial commit

@@ -59,6 +59,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [DiffHelper::showDiff](https://github.com/lingtalfi/Deploy/blob/master/Helper/DiffHelper.php#L26-L53)
+
+
 See Also
 ================
 

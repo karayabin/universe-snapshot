@@ -4,7 +4,7 @@
 
 The DeployGenericCommand class
 ================
-2019-04-03 --> 2019-05-10
+2019-04-03 --> 2019-07-18
 
 
 
@@ -66,7 +66,9 @@ Methods
 
 Location
 =============
-Ling\Deploy\Command\DeployGenericCommand
+Ling\Deploy\Command\DeployGenericCommand<br>
+See the source code of [Ling\Deploy\Command\DeployGenericCommand](https://github.com/lingtalfi/Deploy/blob/master/Command/DeployGenericCommand.php)
+
 
 
 SeeAlso

@@ -44,6 +44,11 @@ Returns int.
 
 
 
+Source Code
+===========
+See the source code for method [StepsHistory::count](https://github.com/lingtalfi/EasyConsoleMenu/blob/master/History/StepsHistory.php#L78-L81)
+
+
 See Also
 ================
 

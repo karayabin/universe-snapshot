@@ -47,6 +47,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [DocToolInterpreter::setKeyword2UrlMap](https://github.com/lingtalfi/DocTools/blob/master/Interpreter/DocToolInterpreter.php#L161-L164)
+
+
 See Also
 ================
 

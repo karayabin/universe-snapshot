@@ -68,6 +68,11 @@ Exceptions thrown
 
 
 
+Source Code
+===========
+See the source code for method [SimpleCurlDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/SimpleCurl/SimpleCurlDocBuilder.php#L44-L199)
+
+
 See Also
 ================
 

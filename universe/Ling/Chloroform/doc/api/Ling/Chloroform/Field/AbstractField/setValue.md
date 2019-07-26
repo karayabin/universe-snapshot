@@ -47,6 +47,11 @@ Returns [AbstractField](https://github.com/lingtalfi/Chloroform/blob/master/doc/
 
 
 
+Source Code
+===========
+See the source code for method [AbstractField::setValue](https://github.com/lingtalfi/Chloroform/blob/master/Field/AbstractField.php#L201-L205)
+
+
 See Also
 ================
 

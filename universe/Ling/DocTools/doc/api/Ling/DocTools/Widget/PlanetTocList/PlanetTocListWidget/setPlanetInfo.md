@@ -47,6 +47,11 @@ Returns [PlanetTocListWidget](https://github.com/lingtalfi/DocTools/blob/master/
 
 
 
+Source Code
+===========
+See the source code for method [PlanetTocListWidget::setPlanetInfo](https://github.com/lingtalfi/DocTools/blob/master/Widget/PlanetTocList/PlanetTocListWidget.php#L97-L101)
+
+
 See Also
 ================
 

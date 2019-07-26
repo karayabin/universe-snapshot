@@ -47,6 +47,11 @@ Returns [SuccessFormNotification](https://github.com/lingtalfi/Chloroform/blob/m
 
 
 
+Source Code
+===========
+See the source code for method [SuccessFormNotification::create](https://github.com/lingtalfi/Chloroform/blob/master/FormNotification/SuccessFormNotification.php#L20-L23)
+
+
 See Also
 ================
 

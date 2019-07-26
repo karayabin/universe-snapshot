@@ -47,6 +47,11 @@ Returns [MinMaxFileSizeValidator](https://github.com/lingtalfi/Chloroform/blob/m
 
 
 
+Source Code
+===========
+See the source code for method [MinMaxFileSizeValidator::setMax](https://github.com/lingtalfi/Chloroform/blob/master/Validator/MinMaxFileSizeValidator.php#L54-L58)
+
+
 See Also
 ================
 

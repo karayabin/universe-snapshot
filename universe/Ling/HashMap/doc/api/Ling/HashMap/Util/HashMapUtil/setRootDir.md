@@ -47,6 +47,11 @@ Returns [HashMapUtil](https://github.com/lingtalfi/HashMap/blob/master/doc/api/L
 
 
 
+Source Code
+===========
+See the source code for method [HashMapUtil::setRootDir](https://github.com/lingtalfi/HashMap/blob/master/Util/HashMapUtil.php#L112-L116)
+
+
 See Also
 ================
 

@@ -67,6 +67,11 @@ Returns array.
 
 
 
+Source Code
+===========
+See the source code for method [YorgDirScannerTool::getFilesWithPrefix](https://github.com/lingtalfi/DirScanner/blob/master/YorgDirScannerTool.php#L322-L353)
+
+
 See Also
 ================
 

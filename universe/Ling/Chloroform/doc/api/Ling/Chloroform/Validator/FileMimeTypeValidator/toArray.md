@@ -52,6 +52,11 @@ Returns array.
 
 
 
+Source Code
+===========
+See the source code for method [FileMimeTypeValidator::toArray](https://github.com/lingtalfi/Chloroform/blob/master/Validator/FileMimeTypeValidator.php#L96-L101)
+
+
 See Also
 ================
 

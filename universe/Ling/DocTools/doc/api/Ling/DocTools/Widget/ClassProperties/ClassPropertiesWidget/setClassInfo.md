@@ -47,6 +47,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [ClassPropertiesWidget::setClassInfo](https://github.com/lingtalfi/DocTools/blob/master/Widget/ClassProperties/ClassPropertiesWidget.php#L46-L49)
+
+
 See Also
 ================
 

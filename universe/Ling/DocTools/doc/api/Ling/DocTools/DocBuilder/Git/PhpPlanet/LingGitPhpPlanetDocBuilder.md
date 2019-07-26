@@ -4,7 +4,7 @@
 
 The LingGitPhpPlanetDocBuilder class
 ================
-2019-02-21 --> 2019-07-12
+2019-02-21 --> 2019-07-23
 
 
 
@@ -36,6 +36,7 @@ class <span class="pl-k">LingGitPhpPlanetDocBuilder</span> extends [DocBuilder](
 
 - Properties
     - protected string [$projectStartDate](#property-projectStartDate) ;
+    - protected string [$projectRepoUrl](#property-projectRepoUrl) ;
     - protected string [$planetDir](#property-planetDir) ;
     - protected string [$generatedClassBaseDir](#property-generatedClassBaseDir) ;
     - protected string [$insertsBaseDir](#property-insertsBaseDir) ;
@@ -76,6 +77,13 @@ Properties
 
     This property holds the project start date for this instance.
     The date in mysql format (2019-02-21).
+    
+    
+
+- <span id="property-projectRepoUrl"><b>projectRepoUrl</b></span>
+
+    This property holds the projectRepoUrl for this instance.
+    It's the github repo url.
     
     
 
@@ -191,7 +199,9 @@ Methods
 
 Location
 =============
-Ling\DocTools\DocBuilder\Git\PhpPlanet\LingGitPhpPlanetDocBuilder
+Ling\DocTools\DocBuilder\Git\PhpPlanet\LingGitPhpPlanetDocBuilder<br>
+See the source code of [Ling\DocTools\DocBuilder\Git\PhpPlanet\LingGitPhpPlanetDocBuilder](https://github.com/lingtalfi/DocTools/blob/master/DocBuilder/Git/PhpPlanet/LingGitPhpPlanetDocBuilder.php)
+
 
 
 SeeAlso

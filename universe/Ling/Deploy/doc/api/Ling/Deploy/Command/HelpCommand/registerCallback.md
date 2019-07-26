@@ -55,6 +55,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [HelpCommand::registerCallback](https://github.com/lingtalfi/Deploy/blob/master/Command/HelpCommand.php#L133-L139)
+
+
 See Also
 ================
 

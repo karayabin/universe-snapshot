@@ -102,6 +102,11 @@ Examples
 <?php endif; ?>
 
 
+Source Code
+===========
+See the source code for method [<?php echo $methodFullName; ?>](<?php echo $z['methodSourceUrl']; ?>)
+
+
 See Also
 ================
 

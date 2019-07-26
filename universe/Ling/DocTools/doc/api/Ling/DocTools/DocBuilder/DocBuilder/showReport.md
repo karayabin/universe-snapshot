@@ -50,6 +50,11 @@ Exceptions thrown
 
 
 
+Source Code
+===========
+See the source code for method [DocBuilder::showReport](https://github.com/lingtalfi/DocTools/blob/master/DocBuilder/DocBuilder.php#L95-L101)
+
+
 See Also
 ================
 

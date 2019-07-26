@@ -63,6 +63,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [SimpleFooterWidget::prepare](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/Widget/Picasso/SimpleFooterWidget.php#L21-L28)
+
+
 See Also
 ================
 

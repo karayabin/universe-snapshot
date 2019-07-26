@@ -47,6 +47,11 @@ Returns [ClassInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Li
 
 
 
+Source Code
+===========
+See the source code for method [ClassInfo::setSignature](https://github.com/lingtalfi/DocTools/blob/master/Info/ClassInfo.php#L253-L257)
+
+
 See Also
 ================
 

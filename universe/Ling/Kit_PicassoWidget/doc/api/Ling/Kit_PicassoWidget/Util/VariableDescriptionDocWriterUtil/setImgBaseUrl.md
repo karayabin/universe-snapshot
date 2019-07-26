@@ -47,6 +47,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [VariableDescriptionDocWriterUtil::setImgBaseUrl](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/Util/VariableDescriptionDocWriterUtil.php#L151-L154)
+
+
 See Also
 ================
 

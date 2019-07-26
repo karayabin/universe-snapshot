@@ -49,6 +49,11 @@ Returns string.
 
 
 
+Source Code
+===========
+See the source code for method [VirginiaMessageHelper::i](https://github.com/lingtalfi/CliTools/blob/master/Helper/VirginiaMessageHelper.php#L155-L161)
+
+
 See Also
 ================
 

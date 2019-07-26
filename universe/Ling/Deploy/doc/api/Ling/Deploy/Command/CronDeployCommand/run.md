@@ -58,6 +58,11 @@ If null, 0 should be assumed.
 
 
 
+Source Code
+===========
+See the source code for method [CronDeployCommand::run](https://github.com/lingtalfi/Deploy/blob/master/Command/CronDeployCommand.php#L63-L158)
+
+
 See Also
 ================
 

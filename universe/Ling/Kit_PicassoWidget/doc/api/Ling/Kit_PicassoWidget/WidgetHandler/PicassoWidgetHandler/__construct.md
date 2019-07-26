@@ -47,6 +47,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [PicassoWidgetHandler::__construct](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/WidgetHandler/PicassoWidgetHandler.php#L129-L135)
+
+
 See Also
 ================
 

@@ -44,6 +44,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [UniToolGenericCommand::__construct](https://github.com/lingtalfi/Uni2/blob/master/Command/UniToolGenericCommand.php#L33-L36)
+
+
 See Also
 ================
 

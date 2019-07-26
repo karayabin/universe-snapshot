@@ -4,7 +4,7 @@
 
 The HistoryInterface class
 ================
-2019-04-02 --> 2019-04-03
+2019-04-02 --> 2019-07-18
 
 
 
@@ -61,7 +61,9 @@ Methods
 
 Location
 =============
-Ling\EasyConsoleMenu\History\HistoryInterface
+Ling\EasyConsoleMenu\History\HistoryInterface<br>
+See the source code of [Ling\EasyConsoleMenu\History\HistoryInterface](https://github.com/lingtalfi/EasyConsoleMenu/blob/master/History/HistoryInterface.php)
+
 
 
 SeeAlso

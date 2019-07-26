@@ -51,6 +51,11 @@ Returns [FileField](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/
 
 
 
+Source Code
+===========
+See the source code for method [FileField::create](https://github.com/lingtalfi/Chloroform/blob/master/Field/FileField.php#L37-L41)
+
+
 See Also
 ================
 

@@ -44,6 +44,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [AbstractMinMaxValidator::__construct](https://github.com/lingtalfi/Chloroform/blob/master/Validator/AbstractMinMaxValidator.php#L31-L36)
+
+
 See Also
 ================
 

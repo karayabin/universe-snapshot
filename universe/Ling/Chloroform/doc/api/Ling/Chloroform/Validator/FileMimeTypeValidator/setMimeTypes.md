@@ -47,6 +47,11 @@ Returns [FileMimeTypeValidator](https://github.com/lingtalfi/Chloroform/blob/mas
 
 
 
+Source Code
+===========
+See the source code for method [FileMimeTypeValidator::setMimeTypes](https://github.com/lingtalfi/Chloroform/blob/master/Validator/FileMimeTypeValidator.php#L43-L47)
+
+
 See Also
 ================
 

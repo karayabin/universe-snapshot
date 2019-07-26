@@ -48,6 +48,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [ReportInterface::addUnresolvedImplementationTag](https://github.com/lingtalfi/DocTools/blob/master/Report/ReportInterface.php#L184-L184)
+
+
 See Also
 ================
 

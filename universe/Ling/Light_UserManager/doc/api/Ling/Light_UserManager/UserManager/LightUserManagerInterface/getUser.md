@@ -49,6 +49,11 @@ Exceptions thrown
 
 
 
+Source Code
+===========
+See the source code for method [LightUserManagerInterface::getUser](https://github.com/lingtalfi/Light_UserManager/blob/master/UserManager/LightUserManagerInterface.php#L22-L22)
+
+
 See Also
 ================
 

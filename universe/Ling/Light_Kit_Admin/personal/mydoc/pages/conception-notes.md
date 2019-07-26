@@ -13,6 +13,9 @@ Summary
 - [One admin = one website](#one-admin--one-website)
 - [The built-in website builder: iframe or responsive builder?](#the-built-in-website-builder-iframe-or-responsive-builder)
 - [The attack plan](#the-attack-plan)
+- [Back with the admin prototype](#back-with-the-admin-prototype)
+- [The light kit admin features](#the-light-kit-admin-features)
+- [Error handling](#error-handling)
 
 
 
@@ -249,9 +252,97 @@ But zeroadmin doesn't have the configure/edit page widget yet, so I guess I will
 widgets for the admin).
 
 
+2019-07-18
+Now I'm back from vacation. I realize how long it will take to turn all the zeroadmin stuff into picasso widgets, and 
+I believe it's not worth it, because the zeroadmin stuff is not always based on concrete needs, but is just a demo theme.
+
+So rather than spending another month to do all the widgets, I decided to just implement them as I encounter a need for them.
+So the rest of the implementation will focus on trying to get the Light Kit Admin up and running. I envision a standalone admin application
+at first, with a functional login system.
+
+Reviewing my notes, I can see that the main idea was to also implement the website builder part. 
+I've got a dedicated Light_Kit_WebsiteBuilder repo waiting for that, so I'm not sure if I'll implement the website builder
+in Light_Kit_Admin or in Light_Kit_WebsiteBuilder. 
+
+But first, let's start with the basic admin stuff.
+   
+
+
+The light kit admin features
+---------------
+2019-07-18
+
+
+In this section I intend to list all features of the **Light Kit Admin** worth being aware of:
+
+### the login system
+
+Light_Kit_Admin comes with a login system based on the user_manager service (see the [LightUserManager repo](https://github.com/lingtalfi/Light_UserManager/) for more info).
+The user will be redirected to the login page, unless she is logged in.
+Once logged in, she will be able to log out using a dropdown menu in the header, or more generally a controller  
+will be dedicated to that.
+
+2019-07-19
+
+I've been thinking this morning, and I just figured out that the login system can be implemented with Controllers and the
+help of the application configuration from the [Light_ApplicationConfigurator](https://github.com/lingtalfi/Light_ApplicationConfigurator/) plugin.
+
+For instance, we create an AdminController with a dedicated render method used by all, and this render method actually redirects
+to the login page if the user is not connected.
+
+
+And so I want to discuss a bit this alternative to the firewall technique provided by the [Light_Firewall](https://github.com/lingtalfi/Light_Firewall/) plugin,
+which was my first idea/implementation of the login system.
+
+And so although at first the firewall technique might give the impression of giving us a 10000 feet away control over
+the redirection, whereas with the controller it seems that we are more stuck with hard code.
+
+However, with the application configuration concept, we can simply have the same flexibility with controllers, being
+controlled from the application configuration rather than from the firewall configuration.
+
+With the controllers we have one more benefit:  we don't need to parse the routes. 
+And so, as fas as the login system, it's faster (for the application) to use controllers.
+
+Now I'm not saying that the firewall is useless at all, but for the specific case of the login system, I personally 
+will have a preference to start with a controller based implementation, and see if it really works out in production.
+
+So again the implementation is quite simple: every controller that requires a login user extends the AdminController
+and uses the render method to which encapsulates both the kit rendering and the login logic.
+
+Also, often when the user visits a protected page **/A.html** and he is not logged in, she will be first redirected
+to the login page, and then when she logs in she is redirected back to **/A.html**.
+
+The login system of Light_Kit_Admin should provide an option for the (application) maintainer to do that.
+  
+
+
+
+
+
+Error handling
+-------------
+2019-07-23
+
+Handling errors is an important business, so I moved this section to its own page: [error-handling.md](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/pages/error-handling.md)
  
 
 
+
+The user
+-----------
+2019-07-26
+
+In LightKitAdmin, we use the [WebsiteLightUser](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/WebsiteLightUser.md),
+and we use the [user_database service](https://github.com/lingtalfi/Light_UserDatabase) and [user_manager service](https://github.com/lingtalfi/Light_UserManager/) to access it.
+
+When the database is first created, a root user is created with the following properties:
+
+- identifier/email: root
+- pseudo: root
+- password: root
+- avatar_url: /plugins/Light_Kit_Admin/img/avatars/root_avatar.png
+- rights: 
+    - *
 
 
 

@@ -47,6 +47,11 @@ Returns [MinMaxCharValidator](https://github.com/lingtalfi/Chloroform/blob/maste
 
 
 
+Source Code
+===========
+See the source code for method [MinMaxCharValidator::setMax](https://github.com/lingtalfi/Chloroform/blob/master/Validator/MinMaxCharValidator.php#L43-L47)
+
+
 See Also
 ================
 

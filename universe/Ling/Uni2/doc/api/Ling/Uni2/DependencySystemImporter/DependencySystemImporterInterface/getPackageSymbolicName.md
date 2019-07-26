@@ -65,6 +65,11 @@ Returns string.
 
 
 
+Source Code
+===========
+See the source code for method [DependencySystemImporterInterface::getPackageSymbolicName](https://github.com/lingtalfi/Uni2/blob/master/DependencySystemImporter/DependencySystemImporterInterface.php#L70-L70)
+
+
 See Also
 ================
 

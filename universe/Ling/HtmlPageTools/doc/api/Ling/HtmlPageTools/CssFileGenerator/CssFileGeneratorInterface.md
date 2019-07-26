@@ -4,7 +4,7 @@
 
 The CssFileGeneratorInterface class
 ================
-2019-04-24 --> 2019-05-14
+2019-04-24 --> 2019-07-18
 
 
 
@@ -50,7 +50,9 @@ Methods
 
 Location
 =============
-Ling\HtmlPageTools\CssFileGenerator\CssFileGeneratorInterface
+Ling\HtmlPageTools\CssFileGenerator\CssFileGeneratorInterface<br>
+See the source code of [Ling\HtmlPageTools\CssFileGenerator\CssFileGeneratorInterface](https://github.com/lingtalfi/HtmlPageTools/blob/master/CssFileGenerator/CssFileGeneratorInterface.php)
+
 
 
 SeeAlso

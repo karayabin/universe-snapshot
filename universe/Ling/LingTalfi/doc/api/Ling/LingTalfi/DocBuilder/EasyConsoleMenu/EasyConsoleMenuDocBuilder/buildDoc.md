@@ -68,6 +68,11 @@ Exceptions thrown
 
 
 
+Source Code
+===========
+See the source code for method [EasyConsoleMenuDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/EasyConsoleMenu/EasyConsoleMenuDocBuilder.php#L44-L205)
+
+
 See Also
 ================
 

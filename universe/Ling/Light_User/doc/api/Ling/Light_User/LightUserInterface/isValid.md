@@ -44,6 +44,11 @@ Returns bool.
 
 
 
+Source Code
+===========
+See the source code for method [LightUserInterface::isValid](https://github.com/lingtalfi/Light_User/blob/master/LightUserInterface.php#L19-L19)
+
+
 See Also
 ================
 

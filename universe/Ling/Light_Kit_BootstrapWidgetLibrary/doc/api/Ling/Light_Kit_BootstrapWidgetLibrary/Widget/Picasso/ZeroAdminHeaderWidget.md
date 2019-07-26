@@ -4,7 +4,7 @@
 
 The ZeroAdminHeaderWidget class
 ================
-2019-04-26 --> 2019-07-16
+2019-04-26 --> 2019-07-25
 
 
 
@@ -86,9 +86,11 @@ Methods
 
 Location
 =============
-Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\ZeroAdminHeaderWidget
+Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\ZeroAdminHeaderWidget<br>
+See the source code of [Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\ZeroAdminHeaderWidget](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/Widget/Picasso/ZeroAdminHeaderWidget.php)
+
 
 
 SeeAlso
 ==============
-Previous class: [ZeroAdminHeaderProfileDropdownLinkWidget](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/Widget/Picasso/ZeroAdminHeaderProfileDropdownLinkWidget.md)<br>Next class: [ZeroAdminSidebarWidget](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/Widget/Picasso/ZeroAdminSidebarWidget.md)<br>
+Previous class: [ZeroAdminHeaderProfileDropdownLinkWidget](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/Widget/Picasso/ZeroAdminHeaderProfileDropdownLinkWidget.md)<br>Next class: [ZeroAdminHeroGraphWidget](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/Widget/Picasso/ZeroAdminHeroGraphWidget.md)<br>

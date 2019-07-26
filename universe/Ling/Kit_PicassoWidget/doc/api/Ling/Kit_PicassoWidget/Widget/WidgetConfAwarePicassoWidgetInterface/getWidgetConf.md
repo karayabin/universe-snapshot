@@ -44,6 +44,11 @@ Returns array.
 
 
 
+Source Code
+===========
+See the source code for method [WidgetConfAwarePicassoWidgetInterface::getWidgetConf](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/Widget/WidgetConfAwarePicassoWidgetInterface.php#L30-L30)
+
+
 See Also
 ================
 

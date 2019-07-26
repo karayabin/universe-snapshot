@@ -4,7 +4,7 @@
 
 The OutputInterface class
 ================
-2019-02-26 --> 2019-03-26
+2019-02-26 --> 2019-07-18
 
 
 
@@ -48,7 +48,9 @@ Methods
 
 Location
 =============
-Ling\CliTools\Output\OutputInterface
+Ling\CliTools\Output\OutputInterface<br>
+See the source code of [Ling\CliTools\Output\OutputInterface](https://github.com/lingtalfi/CliTools/blob/master/Output/OutputInterface.php)
+
 
 
 SeeAlso

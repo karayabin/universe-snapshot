@@ -70,6 +70,11 @@ Exceptions thrown
 
 
 
+Source Code
+===========
+See the source code for method [CliToolsDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/CliTools/CliToolsDocBuilder.php#L51-L225)
+
+
 See Also
 ================
 

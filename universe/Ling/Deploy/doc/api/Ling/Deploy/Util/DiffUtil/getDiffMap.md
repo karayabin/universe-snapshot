@@ -67,6 +67,11 @@ Returns array.
 
 
 
+Source Code
+===========
+See the source code for method [DiffUtil::getDiffMap](https://github.com/lingtalfi/Deploy/blob/master/Util/DiffUtil.php#L38-L108)
+
+
 See Also
 ================
 

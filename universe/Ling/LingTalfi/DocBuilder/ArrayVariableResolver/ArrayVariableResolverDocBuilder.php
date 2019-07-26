@@ -48,12 +48,14 @@ class ArrayVariableResolverDocBuilder
         // DOC TOOLS: CREATE A DOCUMENTATION FOR A PHP PLANET FOR GIT (MARKDOWN)
         //--------------------------------------------
         $planetDir = "/myphp/universe/Ling/ArrayVariableResolver";
-        $git = "https://github.com/lingtalfi/ArrayVariableResolver/blob/master";
+        $gitRepoUrl = "https://github.com/lingtalfi/ArrayVariableResolver";
+        $git = $gitRepoUrl . "/blob/master";
         $doc = "$git/doc";
         $api = $doc . "/api";
 
 
         $options = [
+            "gitRepoUrl" => $gitRepoUrl,
             /**
              * Path to the planet dir that we want to generate the documentation for.
              */
@@ -171,7 +173,7 @@ class ArrayVariableResolverDocBuilder
                  * Uncomment the lines below to see my settings for local test mode.
                  */
 
-                "generatedClassBaseDir" =>  "/komin/jin_site_demo/www-doc/api",
+                "generatedClassBaseDir" => "/komin/jin_site_demo/www-doc/api",
                 "generatedClassBaseUrl" => "http://jindoc/api",
                 "mode" => "html", // md|html
                 "markdownTranslator" => new ParseDownTranslator(),

@@ -75,6 +75,11 @@ Returns bool.
 
 
 
+Source Code
+===========
+See the source code for method [MinMaxCharValidator::test](https://github.com/lingtalfi/Chloroform/blob/master/Validator/MinMaxCharValidator.php#L53-L92)
+
+
 See Also
 ================
 

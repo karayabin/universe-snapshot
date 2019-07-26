@@ -44,6 +44,11 @@ Returns string.
 
 
 
+Source Code
+===========
+See the source code for method [WebsiteLightUser::getEmail](https://github.com/lingtalfi/Light_User/blob/master/WebsiteLightUser.php#L204-L207)
+
+
 See Also
 ================
 

@@ -47,6 +47,11 @@ Returns string.
 
 
 
+Source Code
+===========
+See the source code for method [PicassoWidget::getAttributesHtml](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/Widget/PicassoWidget.php#L139-L149)
+
+
 See Also
 ================
 

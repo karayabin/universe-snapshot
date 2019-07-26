@@ -55,6 +55,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [PicassoWidget::registerLibrary](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/Widget/PicassoWidget.php#L173-L179)
+
+
 See Also
 ================
 

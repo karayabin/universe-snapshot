@@ -49,6 +49,11 @@ Returns string.
 
 
 
+Source Code
+===========
+See the source code for method [ClassParser::getMethodVisibility](https://github.com/lingtalfi/DocTools/blob/master/ClassParser/ClassParser.php#L932-L941)
+
+
 See Also
 ================
 

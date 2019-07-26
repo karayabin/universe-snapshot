@@ -44,6 +44,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [KaosApplication::__construct](https://github.com/lingtalfi/LingTalfi/blob/master/Kaos/Application/KaosApplication.php#L38-L51)
+
+
 See Also
 ================
 

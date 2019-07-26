@@ -44,6 +44,11 @@ Returns mixed.
 
 
 
+Source Code
+===========
+See the source code for method [TextField::getValue](https://github.com/lingtalfi/Chloroform/blob/master/Field/TextField.php#L36-L39)
+
+
 See Also
 ================
 

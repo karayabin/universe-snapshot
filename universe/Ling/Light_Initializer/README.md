@@ -61,7 +61,7 @@ Examples of use includes:
 - registering routes and/or error handlers using the Light instance
 
 
-An initializer must implements the [LightInitializerInterface](https://github.com/lingtalfi/Light_Initializer/blob/master/doc/api/Ling/Light_Initializer/Initializer/LightInitializerInterface.md) interface provided by this planet.
+An initializer must implement the [LightInitializerInterface](https://github.com/lingtalfi/Light_Initializer/blob/master/doc/api/Ling/Light_Initializer/Initializer/LightInitializerInterface.md) interface provided by this planet.
 
 
 
@@ -72,6 +72,18 @@ An initializer must implements the [LightInitializerInterface](https://github.co
 History Log
 =============
 
+- 1.1.2 -- 2019-07-18
+
+    - update docTools documentation, add links to source code for classes and methods
+    
+- 1.1.1 -- 2019-07-17
+
+    - removed response argument from LightInitializerInterface.initialize method
+    
+- 1.1.0 -- 2019-07-16
+
+    - add response argument to LightInitializerInterface.initialize method
+    
 - 1.0.0 -- 2019-04-05
 
     - initial commit

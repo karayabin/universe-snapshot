@@ -44,6 +44,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [AbstractBackupCommand::__construct](https://github.com/lingtalfi/Deploy/blob/master/Command/AbstractBackupCommand.php#L41-L46)
+
+
 See Also
 ================
 

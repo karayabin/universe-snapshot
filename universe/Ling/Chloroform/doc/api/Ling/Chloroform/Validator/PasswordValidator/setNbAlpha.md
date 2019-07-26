@@ -47,6 +47,11 @@ Returns [PasswordValidator](https://github.com/lingtalfi/Chloroform/blob/master/
 
 
 
+Source Code
+===========
+See the source code for method [PasswordValidator::setNbAlpha](https://github.com/lingtalfi/Chloroform/blob/master/Validator/PasswordValidator.php#L91-L95)
+
+
 See Also
 ================
 

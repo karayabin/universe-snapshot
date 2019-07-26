@@ -4,7 +4,7 @@
 
 The WidgetHandlerInterface class
 ================
-2019-04-24 --> 2019-07-11
+2019-04-24 --> 2019-07-25
 
 
 
@@ -45,7 +45,9 @@ Methods
 
 Location
 =============
-Ling\Kit\WidgetHandler\WidgetHandlerInterface
+Ling\Kit\WidgetHandler\WidgetHandlerInterface<br>
+See the source code of [Ling\Kit\WidgetHandler\WidgetHandlerInterface](https://github.com/lingtalfi/Kit/blob/master/WidgetHandler/WidgetHandlerInterface.php)
+
 
 
 SeeAlso

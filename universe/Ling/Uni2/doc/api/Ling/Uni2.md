@@ -1,6 +1,6 @@
 Ling/Uni2
 ================
-2019-03-12 --> 2019-04-05
+2019-03-12 --> 2019-07-18
 
 
 
@@ -244,11 +244,11 @@ Table of contents
 
 Dependencies
 ============
-- [BabyYaml](https://github.com/karayabin/universe-snapshot/tree/master/universe/Ling/BabyYaml)
-- [Bat](https://github.com/karayabin/universe-snapshot/tree/master/universe/Ling/Bat)
-- [CliTools](https://github.com/karayabin/universe-snapshot/tree/master/universe/Ling/CliTools)
-- [Octopus](https://github.com/karayabin/universe-snapshot/tree/master/universe/Ling/Octopus)
-- [UniverseTools](https://github.com/karayabin/universe-snapshot/tree/master/universe/Ling/UniverseTools)
-- [DirScanner](https://github.com/karayabin/universe-snapshot/tree/master/universe/Ling/DirScanner)
+- [BabyYaml](https://github.com/lingtalfi/BabyYaml)
+- [Bat](https://github.com/lingtalfi/Bat)
+- [CliTools](https://github.com/lingtalfi/CliTools)
+- [Octopus](https://github.com/lingtalfi/Octopus)
+- [UniverseTools](https://github.com/lingtalfi/UniverseTools)
+- [DirScanner](https://github.com/lingtalfi/DirScanner)
 
 

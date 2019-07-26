@@ -65,6 +65,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [CheckboxField::__construct](https://github.com/lingtalfi/Chloroform/blob/master/Field/CheckboxField.php#L41-L45)
+
+
 See Also
 ================
 

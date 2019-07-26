@@ -51,6 +51,11 @@ Returns array.
 
 
 
+Source Code
+===========
+See the source code for method [BackupFilesFetcherUtil::filterWithNames](https://github.com/lingtalfi/Deploy/blob/master/Util/BackupFilesFetcherUtil.php#L205-L211)
+
+
 See Also
 ================
 

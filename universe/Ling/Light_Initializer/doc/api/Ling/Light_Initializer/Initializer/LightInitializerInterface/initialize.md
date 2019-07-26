@@ -51,6 +51,11 @@ Returns mixed.
 
 
 
+Source Code
+===========
+See the source code for method [LightInitializerInterface::initialize](https://github.com/lingtalfi/Light_Initializer/blob/master/Initializer/LightInitializerInterface.php#L23-L23)
+
+
 See Also
 ================
 

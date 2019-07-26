@@ -4,7 +4,7 @@
 
 The UniverseToolsException class
 ================
-2019-02-26 --> 2019-04-30
+2019-02-26 --> 2019-07-18
 
 
 
@@ -47,7 +47,9 @@ Methods
 
 Location
 =============
-Ling\UniverseTools\Exception\UniverseToolsException
+Ling\UniverseTools\Exception\UniverseToolsException<br>
+See the source code of [Ling\UniverseTools\Exception\UniverseToolsException](https://github.com/lingtalfi/UniverseTools/blob/master/Exception/UniverseToolsException.php)
+
 
 
 SeeAlso

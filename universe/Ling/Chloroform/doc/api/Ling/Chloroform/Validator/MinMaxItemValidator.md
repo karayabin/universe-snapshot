@@ -4,7 +4,7 @@
 
 The MinMaxItemValidator class
 ================
-2019-04-10 --> 2019-04-30
+2019-04-10 --> 2019-07-26
 
 
 
@@ -80,7 +80,9 @@ Methods
 
 Location
 =============
-Ling\Chloroform\Validator\MinMaxItemValidator
+Ling\Chloroform\Validator\MinMaxItemValidator<br>
+See the source code of [Ling\Chloroform\Validator\MinMaxItemValidator](https://github.com/lingtalfi/Chloroform/blob/master/Validator/MinMaxItemValidator.php)
+
 
 
 SeeAlso

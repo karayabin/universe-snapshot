@@ -48,6 +48,11 @@ Returns string | false.
 
 
 
+Source Code
+===========
+See the source code for method [MenuExecutor::getFirstStepName](https://github.com/lingtalfi/EasyConsoleMenu/blob/master/MenuExecutor.php#L144-L158)
+
+
 See Also
 ================
 

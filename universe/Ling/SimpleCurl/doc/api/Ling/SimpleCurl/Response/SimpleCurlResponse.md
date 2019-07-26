@@ -4,7 +4,7 @@
 
 The SimpleCurlResponse class
 ================
-2019-03-14 --> 2019-03-14
+2019-03-14 --> 2019-07-18
 
 
 
@@ -91,7 +91,9 @@ Methods
 
 Location
 =============
-Ling\SimpleCurl\Response\SimpleCurlResponse
+Ling\SimpleCurl\Response\SimpleCurlResponse<br>
+See the source code of [Ling\SimpleCurl\Response\SimpleCurlResponse](https://github.com/lingtalfi/SimpleCurl/blob/master/Response/SimpleCurlResponse.php)
+
 
 
 SeeAlso

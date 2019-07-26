@@ -55,6 +55,11 @@ Returns mixed | null.
 
 
 
+Source Code
+===========
+See the source code for method [FieldHelper::getFieldValue](https://github.com/lingtalfi/Chloroform/blob/master/Helper/FieldHelper.php#L61-L64)
+
+
 See Also
 ================
 

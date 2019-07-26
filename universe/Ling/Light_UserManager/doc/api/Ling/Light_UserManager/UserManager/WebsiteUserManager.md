@@ -4,7 +4,7 @@
 
 The WebsiteUserManager class
 ================
-2019-05-10 --> 2019-07-12
+2019-05-10 --> 2019-07-19
 
 
 
@@ -35,6 +35,7 @@ class <span class="pl-k">WebsiteUserManager</span> implements [LightUserManagerI
     - public [__construct](https://github.com/lingtalfi/Light_UserManager/blob/master/doc/api/Ling/Light_UserManager/UserManager/WebsiteUserManager/__construct.md)() : void
     - public [getUser](https://github.com/lingtalfi/Light_UserManager/blob/master/doc/api/Ling/Light_UserManager/UserManager/WebsiteUserManager/getUser.md)() : [LightUserInterface](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightUserInterface.md)
     - public [setUser](https://github.com/lingtalfi/Light_UserManager/blob/master/doc/api/Ling/Light_UserManager/UserManager/WebsiteUserManager/setUser.md)([Ling\Light_User\LightUserInterface](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightUserInterface.md) $user) : void
+    - public [setUserOnce](https://github.com/lingtalfi/Light_UserManager/blob/master/doc/api/Ling/Light_UserManager/UserManager/WebsiteUserManager/setUserOnce.md)([Ling\Light_User\LightUserInterface](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightUserInterface.md) $user) : void
     - private [startPhpSession](https://github.com/lingtalfi/Light_UserManager/blob/master/doc/api/Ling/Light_UserManager/UserManager/WebsiteUserManager/startPhpSession.md)() : void
 
 }
@@ -61,6 +62,7 @@ Methods
 - [WebsiteUserManager::__construct](https://github.com/lingtalfi/Light_UserManager/blob/master/doc/api/Ling/Light_UserManager/UserManager/WebsiteUserManager/__construct.md) &ndash; Builds the WebsiteUserManager instance.
 - [WebsiteUserManager::getUser](https://github.com/lingtalfi/Light_UserManager/blob/master/doc/api/Ling/Light_UserManager/UserManager/WebsiteUserManager/getUser.md) &ndash; Returns a light user instance, according to the settings of this instance.
 - [WebsiteUserManager::setUser](https://github.com/lingtalfi/Light_UserManager/blob/master/doc/api/Ling/Light_UserManager/UserManager/WebsiteUserManager/setUser.md) &ndash; Sets the user.
+- [WebsiteUserManager::setUserOnce](https://github.com/lingtalfi/Light_UserManager/blob/master/doc/api/Ling/Light_UserManager/UserManager/WebsiteUserManager/setUserOnce.md) &ndash; Sets the user only if there is no user in the session.
 - [WebsiteUserManager::startPhpSession](https://github.com/lingtalfi/Light_UserManager/blob/master/doc/api/Ling/Light_UserManager/UserManager/WebsiteUserManager/startPhpSession.md) &ndash; Starts the php session if it's not already started.
 
 
@@ -69,7 +71,9 @@ Methods
 
 Location
 =============
-Ling\Light_UserManager\UserManager\WebsiteUserManager
+Ling\Light_UserManager\UserManager\WebsiteUserManager<br>
+See the source code of [Ling\Light_UserManager\UserManager\WebsiteUserManager](https://github.com/lingtalfi/Light_UserManager/blob/master/UserManager/WebsiteUserManager.php)
+
 
 
 SeeAlso

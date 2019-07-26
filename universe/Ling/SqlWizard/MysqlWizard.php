@@ -74,6 +74,7 @@ class MysqlWizard
      * This property holds the connection (php's \PDO instance) to the mysql database.
      *
      * Note: the error mode will always be set to exception.
+     * @var \PDO
      *
      */
     private $connection;
@@ -401,7 +402,7 @@ and CONSTRAINT_TYPE = 'FOREIGN KEY'
      *
      *
      * @param $table , the fullTable name (see class description for more info).
-     * @return array|false, false is returned if there is no primary key defined on this table.
+     * @return array|false. False is returned if there is no primary key defined on this table.
      * @throws NoConnectionException
      */
     public function getPrimaryKey($table)
@@ -452,6 +453,9 @@ and CONSTRAINT_TYPE = 'FOREIGN KEY'
      * - referenced_schema: string, the referenced database
      * - referenced_table: string, the referenced table
      * - referenced_columns: array of referenced column => referencing column
+     * @param $table
+     * @return array
+     * @throws \Exception
      *
      */
     public function getReferencedKeysInfo($table)

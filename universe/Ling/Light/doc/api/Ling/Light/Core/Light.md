@@ -4,7 +4,7 @@
 
 The Light class
 ================
-2019-04-09 --> 2019-07-11
+2019-04-09 --> 2019-07-18
 
 
 
@@ -95,7 +95,7 @@ class <span class="pl-k">Light</span>  {
     - public [setDebug](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/setDebug.md)(bool $debug) : void
     - public [setContainer](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/setContainer.md)([Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) $container) : void
     - public [getContainer](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/getContainer.md)() : [LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md)
-    - public [registerRoute](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/registerRoute.md)(string $pattern, ?$controller, string $name = null, array $requirements = [], array $urlParams = []) : void
+    - public [registerRoute](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/registerRoute.md)(string $pattern, ?$controller, string $name = null, array $requirements = [], array $urlParams = [], string $host = null, bool $isSecure = null) : void
     - public [getRoutes](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/getRoutes.md)() : array
     - public [registerErrorHandler](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/registerErrorHandler.md)(callable $errorHandler) : void
     - public [run](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/run.md)() : void
@@ -242,7 +242,9 @@ $light->run();
 
 Location
 =============
-Ling\Light\Core\Light
+Ling\Light\Core\Light<br>
+See the source code of [Ling\Light\Core\Light](https://github.com/lingtalfi/Light/blob/master/Core/Light.php)
+
 
 
 SeeAlso

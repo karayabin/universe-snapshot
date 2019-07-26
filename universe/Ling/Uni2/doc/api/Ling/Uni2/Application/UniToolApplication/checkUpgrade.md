@@ -53,6 +53,11 @@ Exceptions thrown
 
 
 
+Source Code
+===========
+See the source code for method [UniToolApplication::checkUpgrade](https://github.com/lingtalfi/Uni2/blob/master/Application/UniToolApplication.php#L607-L656)
+
+
 See Also
 ================
 

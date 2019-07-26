@@ -45,6 +45,11 @@ Returns array.
 
 
 
+Source Code
+===========
+See the source code for method [SimpleCurlResponse::getHeaders](https://github.com/lingtalfi/SimpleCurl/blob/master/Response/SimpleCurlResponse.php#L64-L67)
+
+
 See Also
 ================
 

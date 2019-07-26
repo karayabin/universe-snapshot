@@ -1,6 +1,6 @@
 Ling/LingTalfi
 ================
-2019-03-13 --> 2019-05-03
+2019-03-13 --> 2019-07-18
 
 
 
@@ -8,6 +8,8 @@ Ling/LingTalfi
 Table of contents
 ===========
 
+- [ArrayVariableResolverDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/ArrayVariableResolver/ArrayVariableResolverDocBuilder.md) &ndash; The ArrayVariableResolverDocBuilder class.
+    - [ArrayVariableResolverDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/ArrayVariableResolver/ArrayVariableResolverDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the ArrayVariableResolver planet.
 - [CSRFToolsDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/CSRFTools/CSRFToolsDocBuilder.md) &ndash; The CSRFToolsDocBuilder class.
     - [CSRFToolsDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/CSRFTools/CSRFToolsDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the CSRFTools planet.
 - [ChloroformDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Chloroform/ChloroformDocBuilder.md) &ndash; The ChloroformDocBuilder class.
@@ -38,20 +40,30 @@ Table of contents
     - [KrankenSteinDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/KrankenStein/KrankenSteinDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the KrankenStein planet.
 - [LightDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light/LightDocBuilder.md) &ndash; The LightDocBuilder class.
     - [LightDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light/LightDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the Light planet.
+- [Light_FirewallDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Firewall/Light_FirewallDocBuilder.md) &ndash; The Light_FirewallDocBuilder class.
+    - [Light_FirewallDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Firewall/Light_FirewallDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the Light_Firewall planet.
 - [Light_InitializerDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Initializer/Light_InitializerDocBuilder.md) &ndash; The Light_InitializerDocBuilder class.
     - [Light_InitializerDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Initializer/Light_InitializerDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the Light_Initializer planet.
 - [Light_KitDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Kit/Light_KitDocBuilder.md) &ndash; The Light_KitDocBuilder class.
     - [Light_KitDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Kit/Light_KitDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the Light_Kit planet.
+- [Light_Kit_AdminDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Kit_Admin/Light_Kit_AdminDocBuilder.md) &ndash; The Light_Kit_AdminDocBuilder class.
+    - [Light_Kit_AdminDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Kit_Admin/Light_Kit_AdminDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the Light_Kit_Admin planet.
 - [Light_Kit_BootstrapWidgetLibraryDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Kit_BootstrapWidgetLibrary/Light_Kit_BootstrapWidgetLibraryDocBuilder.md) &ndash; The Light_Kit_BootstrapWidgetLibraryDocBuilder class.
     - [Light_Kit_BootstrapWidgetLibraryDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Kit_BootstrapWidgetLibrary/Light_Kit_BootstrapWidgetLibraryDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the Light_Kit_BootstrapWidgetLibrary planet.
 - [Light_Kit_DemoDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Kit_Demo/Light_Kit_DemoDocBuilder.md) &ndash; The Light_Kit_DemoDocBuilder class.
     - [Light_Kit_DemoDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Kit_Demo/Light_Kit_DemoDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the Light_Kit_Demo planet.
 - [Light_Kit_WebsiteBuilderDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Kit_WebsiteBuilder/Light_Kit_WebsiteBuilderDocBuilder.md) &ndash; The Light_Kit_WebsiteBuilderDocBuilder class.
     - [Light_Kit_WebsiteBuilderDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Kit_WebsiteBuilder/Light_Kit_WebsiteBuilderDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the Light_Kit_WebsiteBuilder planet.
+- [Light_PrerouteHubDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_PrerouteHub/Light_PrerouteHubDocBuilder.md) &ndash; The Light_PrerouteHubDocBuilder class.
+    - [Light_PrerouteHubDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_PrerouteHub/Light_PrerouteHubDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the Light_PrerouteHub planet.
 - [Light_PrettyErrorDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_PrettyError/Light_PrettyErrorDocBuilder.md) &ndash; The Light_PrettyErrorDocBuilder class.
     - [Light_PrettyErrorDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_PrettyError/Light_PrettyErrorDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the Light_PrettyError planet.
 - [Light_ReverseRouterDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_ReverseRouter/Light_ReverseRouterDocBuilder.md) &ndash; The Light_ReverseRouterDocBuilder class.
     - [Light_ReverseRouterDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_ReverseRouter/Light_ReverseRouterDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the Light_ReverseRouter planet.
+- [Light_UserDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_User/Light_UserDocBuilder.md) &ndash; The Light_UserDocBuilder class.
+    - [Light_UserDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_User/Light_UserDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the Light_User planet.
+- [Light_UserManagerDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_UserManager/Light_UserManagerDocBuilder.md) &ndash; The Light_UserManagerDocBuilder class.
+    - [Light_UserManagerDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_UserManager/Light_UserManagerDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the Light_UserManager planet.
 - [Light_ZephyrTemplateDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_ZephyrTemplate/Light_ZephyrTemplateDocBuilder.md) &ndash; The Light_ZephyrTemplateDocBuilder class.
     - [Light_ZephyrTemplateDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_ZephyrTemplate/Light_ZephyrTemplateDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the Light_ZephyrTemplate planet.
 - [LingTalfiDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/LingTalfi/LingTalfiDocBuilder.md) &ndash; The LingTalfiDocBuilder class.

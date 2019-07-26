@@ -58,6 +58,11 @@ If null, 0 should be assumed.
 
 
 
+Source Code
+===========
+See the source code for method [DropDatabaseCommand::run](https://github.com/lingtalfi/Deploy/blob/master/Command/DropDatabaseCommand.php#L57-L212)
+
+
 See Also
 ================
 

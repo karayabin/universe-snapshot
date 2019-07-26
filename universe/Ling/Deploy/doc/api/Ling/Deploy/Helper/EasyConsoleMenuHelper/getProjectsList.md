@@ -52,6 +52,11 @@ Exceptions thrown
 
 
 
+Source Code
+===========
+See the source code for method [EasyConsoleMenuHelper::getProjectsList](https://github.com/lingtalfi/Deploy/blob/master/Helper/EasyConsoleMenuHelper.php#L26-L38)
+
+
 See Also
 ================
 

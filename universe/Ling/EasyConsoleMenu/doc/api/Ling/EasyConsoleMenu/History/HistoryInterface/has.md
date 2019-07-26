@@ -47,6 +47,11 @@ Returns bool.
 
 
 
+Source Code
+===========
+See the source code for method [HistoryInterface::has](https://github.com/lingtalfi/EasyConsoleMenu/blob/master/History/HistoryInterface.php#L70-L70)
+
+
 See Also
 ================
 

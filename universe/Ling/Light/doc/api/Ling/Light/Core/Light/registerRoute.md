@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [Light::registerRoute](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/registerRoute.md)(string $pattern, ?$controller, string $name = null, array $requirements = [], array $urlParams = []) : void
+public [Light::registerRoute](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/registerRoute.md)(string $pattern, ?$controller, string $name = null, array $requirements = [], array $urlParams = [], string $host = null, bool $isSecure = null) : void
 
 
 
@@ -63,6 +63,14 @@ Third party plugins can be creative and enhance the requirements syntax/feature 
 
     An array of key/value pairs representing the potential variables to inject into the controller callback.
 
+- host
+
+    The host associated to this route.
+
+- isSecure
+
+    Whether the https protocol or the http protocol is the preferred way to call this route.
+
 
 Return values
 ================
@@ -74,6 +82,11 @@ Returns void.
 
 
 
+
+
+Source Code
+===========
+See the source code for method [Light::registerRoute](https://github.com/lingtalfi/Light/blob/master/Core/Light.php#L232-L246)
 
 
 See Also

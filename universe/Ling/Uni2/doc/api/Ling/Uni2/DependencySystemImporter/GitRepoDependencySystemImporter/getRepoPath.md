@@ -47,6 +47,11 @@ Returns string.
 
 
 
+Source Code
+===========
+See the source code for method [GitRepoDependencySystemImporter::getRepoPath](https://github.com/lingtalfi/Uni2/blob/master/DependencySystemImporter/GitRepoDependencySystemImporter.php#L71-L76)
+
+
 See Also
 ================
 

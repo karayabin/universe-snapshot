@@ -73,6 +73,11 @@ Exceptions thrown
 
 
 
+Source Code
+===========
+See the source code for method [CopyModuleInterface::copy](https://github.com/lingtalfi/DocTools/blob/master/CopyModule/CopyModuleInterface.php#L43-L43)
+
+
 See Also
 ================
 

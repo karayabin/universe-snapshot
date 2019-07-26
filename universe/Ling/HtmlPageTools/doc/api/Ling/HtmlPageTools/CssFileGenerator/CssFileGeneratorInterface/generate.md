@@ -53,6 +53,11 @@ Returns string.
 
 
 
+Source Code
+===========
+See the source code for method [CssFileGeneratorInterface::generate](https://github.com/lingtalfi/HtmlPageTools/blob/master/CssFileGenerator/CssFileGeneratorInterface.php#L34-L34)
+
+
 See Also
 ================
 

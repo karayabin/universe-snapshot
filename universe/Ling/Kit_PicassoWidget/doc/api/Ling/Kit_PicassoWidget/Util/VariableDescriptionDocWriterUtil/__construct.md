@@ -44,6 +44,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [VariableDescriptionDocWriterUtil::__construct](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/Util/VariableDescriptionDocWriterUtil.php#L114-L124)
+
+
 See Also
 ================
 

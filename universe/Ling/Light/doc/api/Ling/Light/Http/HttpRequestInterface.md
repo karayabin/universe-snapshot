@@ -4,7 +4,7 @@
 
 The HttpRequestInterface class
 ================
-2019-04-09 --> 2019-07-11
+2019-04-09 --> 2019-07-18
 
 
 
@@ -77,7 +77,9 @@ Methods
 
 Location
 =============
-Ling\Light\Http\HttpRequestInterface
+Ling\Light\Http\HttpRequestInterface<br>
+See the source code of [Ling\Light\Http\HttpRequestInterface](https://github.com/lingtalfi/Light/blob/master/Http/HttpRequestInterface.php)
+
 
 
 SeeAlso

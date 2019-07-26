@@ -51,6 +51,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [FormNotification::__construct](https://github.com/lingtalfi/Chloroform/blob/master/FormNotification/FormNotification.php#L33-L37)
+
+
 See Also
 ================
 

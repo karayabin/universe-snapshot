@@ -4,7 +4,7 @@
 
 The PlanetParserException class
 ================
-2019-02-21 --> 2019-07-12
+2019-02-21 --> 2019-07-23
 
 
 
@@ -48,7 +48,9 @@ Methods
 
 Location
 =============
-Ling\DocTools\Exception\PlanetParserException
+Ling\DocTools\Exception\PlanetParserException<br>
+See the source code of [Ling\DocTools\Exception\PlanetParserException](https://github.com/lingtalfi/DocTools/blob/master/Exception/PlanetParserException.php)
+
 
 
 SeeAlso

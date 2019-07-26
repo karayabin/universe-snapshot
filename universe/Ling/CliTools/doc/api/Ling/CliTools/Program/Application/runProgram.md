@@ -53,6 +53,11 @@ If null is returned, 0 should be assumed.
 
 
 
+Source Code
+===========
+See the source code for method [Application::runProgram](https://github.com/lingtalfi/CliTools/blob/master/Program/Application.php#L78-L105)
+
+
 See Also
 ================
 

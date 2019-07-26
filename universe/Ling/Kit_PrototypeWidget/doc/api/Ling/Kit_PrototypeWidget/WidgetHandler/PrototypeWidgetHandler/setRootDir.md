@@ -47,6 +47,11 @@ Returns [PrototypeWidgetHandler](https://github.com/lingtalfi/Kit_PrototypeWidge
 
 
 
+Source Code
+===========
+See the source code for method [PrototypeWidgetHandler::setRootDir](https://github.com/lingtalfi/Kit_PrototypeWidget/blob/master/WidgetHandler/PrototypeWidgetHandler.php#L58-L62)
+
+
 See Also
 ================
 

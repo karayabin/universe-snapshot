@@ -44,6 +44,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [SlickTestimonialCarouselWidget::__construct](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/Widget/Picasso/SlickTestimonialCarouselWidget.php#L22-L31)
+
+
 See Also
 ================
 

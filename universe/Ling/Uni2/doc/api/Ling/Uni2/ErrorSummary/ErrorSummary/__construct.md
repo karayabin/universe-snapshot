@@ -44,6 +44,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [ErrorSummary::__construct](https://github.com/lingtalfi/Uni2/blob/master/ErrorSummary/ErrorSummary.php#L32-L35)
+
+
 See Also
 ================
 

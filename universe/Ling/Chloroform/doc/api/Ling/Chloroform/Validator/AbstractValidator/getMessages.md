@@ -67,6 +67,11 @@ Exceptions thrown
 
 
 
+Source Code
+===========
+See the source code for method [AbstractValidator::getMessages](https://github.com/lingtalfi/Chloroform/blob/master/Validator/AbstractValidator.php#L182-L201)
+
+
 See Also
 ================
 

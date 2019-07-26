@@ -44,6 +44,11 @@ Returns string.
 
 
 
+Source Code
+===========
+See the source code for method [EnvironmentHelper::getEnvironment](https://github.com/lingtalfi/Light/blob/master/Helper/EnvironmentHelper.php#L28-L31)
+
+
 See Also
 ================
 

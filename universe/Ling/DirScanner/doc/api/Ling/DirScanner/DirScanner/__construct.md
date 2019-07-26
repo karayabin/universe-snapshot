@@ -44,6 +44,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [DirScanner::__construct](https://github.com/lingtalfi/DirScanner/blob/master/DirScanner.php#L35-L38)
+
+
 See Also
 ================
 

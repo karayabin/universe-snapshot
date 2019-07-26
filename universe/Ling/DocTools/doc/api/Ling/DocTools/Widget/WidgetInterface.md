@@ -4,7 +4,7 @@
 
 The WidgetInterface class
 ================
-2019-02-21 --> 2019-07-12
+2019-02-21 --> 2019-07-23
 
 
 
@@ -55,7 +55,9 @@ Methods
 
 Location
 =============
-Ling\DocTools\Widget\WidgetInterface
+Ling\DocTools\Widget\WidgetInterface<br>
+See the source code of [Ling\DocTools\Widget\WidgetInterface](https://github.com/lingtalfi/DocTools/blob/master/Widget/WidgetInterface.php)
+
 
 
 SeeAlso

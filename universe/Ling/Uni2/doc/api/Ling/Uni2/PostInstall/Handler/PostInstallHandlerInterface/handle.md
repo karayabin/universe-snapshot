@@ -62,6 +62,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [PostInstallHandlerInterface::handle](https://github.com/lingtalfi/Uni2/blob/master/PostInstall/Handler/PostInstallHandlerInterface.php#L41-L41)
+
+
 See Also
 ================
 

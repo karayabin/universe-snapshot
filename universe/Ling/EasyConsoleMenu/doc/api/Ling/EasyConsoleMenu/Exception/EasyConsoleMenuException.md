@@ -4,7 +4,7 @@
 
 The EasyConsoleMenuException class
 ================
-2019-04-02 --> 2019-04-03
+2019-04-02 --> 2019-07-18
 
 
 
@@ -47,7 +47,9 @@ Methods
 
 Location
 =============
-Ling\EasyConsoleMenu\Exception\EasyConsoleMenuException
+Ling\EasyConsoleMenu\Exception\EasyConsoleMenuException<br>
+See the source code of [Ling\EasyConsoleMenu\Exception\EasyConsoleMenuException](https://github.com/lingtalfi/EasyConsoleMenu/blob/master/Exception/EasyConsoleMenuException.php)
+
 
 
 SeeAlso

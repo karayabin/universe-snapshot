@@ -4,7 +4,7 @@
 
 The ChloroformRendererInterface class
 ================
-2019-04-10 --> 2019-04-30
+2019-04-10 --> 2019-07-26
 
 
 
@@ -45,7 +45,9 @@ Methods
 
 Location
 =============
-Ling\Chloroform\Renderer\ChloroformRendererInterface
+Ling\Chloroform\Renderer\ChloroformRendererInterface<br>
+See the source code of [Ling\Chloroform\Renderer\ChloroformRendererInterface](https://github.com/lingtalfi/Chloroform/blob/master/Renderer/ChloroformRendererInterface.php)
+
 
 
 SeeAlso

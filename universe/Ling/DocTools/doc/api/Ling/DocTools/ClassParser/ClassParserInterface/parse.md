@@ -54,6 +54,11 @@ Exceptions thrown
 
 
 
+Source Code
+===========
+See the source code for method [ClassParserInterface::parse](https://github.com/lingtalfi/DocTools/blob/master/ClassParser/ClassParserInterface.php#L41-L41)
+
+
 See Also
 ================
 

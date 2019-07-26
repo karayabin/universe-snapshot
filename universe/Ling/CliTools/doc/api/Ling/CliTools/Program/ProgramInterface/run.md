@@ -51,6 +51,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [ProgramInterface::run](https://github.com/lingtalfi/CliTools/blob/master/Program/ProgramInterface.php#L119-L119)
+
+
 See Also
 ================
 

@@ -44,6 +44,11 @@ Returns string | false.
 
 
 
+Source Code
+===========
+See the source code for method [HistoryInterface::last](https://github.com/lingtalfi/EasyConsoleMenu/blob/master/History/HistoryInterface.php#L37-L37)
+
+
 See Also
 ================
 

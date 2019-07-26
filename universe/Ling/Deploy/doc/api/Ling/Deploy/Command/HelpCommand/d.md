@@ -47,6 +47,11 @@ Returns string.
 
 
 
+Source Code
+===========
+See the source code for method [HelpCommand::d](https://github.com/lingtalfi/Deploy/blob/master/Command/HelpCommand.php#L552-L555)
+
+
 See Also
 ================
 

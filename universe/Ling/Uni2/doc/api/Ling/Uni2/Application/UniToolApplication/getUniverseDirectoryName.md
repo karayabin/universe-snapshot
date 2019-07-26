@@ -44,6 +44,11 @@ Returns string.
 
 
 
+Source Code
+===========
+See the source code for method [UniToolApplication::getUniverseDirectoryName](https://github.com/lingtalfi/Uni2/blob/master/Application/UniToolApplication.php#L281-L284)
+
+
 See Also
 ================
 

@@ -44,6 +44,11 @@ Returns mixed.
 
 
 
+Source Code
+===========
+See the source code for method [NumberField::getValue](https://github.com/lingtalfi/Chloroform/blob/master/Field/NumberField.php#L39-L42)
+
+
 See Also
 ================
 

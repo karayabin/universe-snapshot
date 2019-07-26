@@ -48,6 +48,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [DeployApplication::onCommandInstantiated](https://github.com/lingtalfi/Deploy/blob/master/Application/DeployApplication.php#L324-L331)
+
+
 See Also
 ================
 

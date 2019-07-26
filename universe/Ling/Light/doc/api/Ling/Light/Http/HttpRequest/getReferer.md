@@ -44,6 +44,11 @@ Returns string | null.
 
 
 
+Source Code
+===========
+See the source code for method [HttpRequest::getReferer](https://github.com/lingtalfi/Light/blob/master/Http/HttpRequest.php#L293-L296)
+
+
 See Also
 ================
 

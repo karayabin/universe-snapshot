@@ -1,6 +1,6 @@
 Ling/EasyConsoleMenu
 ================
-2019-04-02 --> 2019-04-03
+2019-04-02 --> 2019-07-18
 
 
 
@@ -39,9 +39,9 @@ Table of contents
 
 Dependencies
 ============
-- [BabyYaml](https://github.com/karayabin/universe-snapshot/tree/master/universe/Ling/BabyYaml)
-- [Bat](https://github.com/karayabin/universe-snapshot/tree/master/universe/Ling/Bat)
-- [CliTools](https://github.com/karayabin/universe-snapshot/tree/master/universe/Ling/CliTools)
-- [KrankenStein](https://github.com/karayabin/universe-snapshot/tree/master/universe/Ling/KrankenStein)
+- [BabyYaml](https://github.com/lingtalfi/BabyYaml)
+- [Bat](https://github.com/lingtalfi/Bat)
+- [CliTools](https://github.com/lingtalfi/CliTools)
+- [KrankenStein](https://github.com/lingtalfi/KrankenStein)
 
 

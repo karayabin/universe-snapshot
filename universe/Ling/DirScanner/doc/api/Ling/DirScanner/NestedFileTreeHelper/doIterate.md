@@ -51,6 +51,11 @@ Returns array.
 
 
 
+Source Code
+===========
+See the source code for method [NestedFileTreeHelper::doIterate](https://github.com/lingtalfi/DirScanner/blob/master/NestedFileTreeHelper.php#L65-L137)
+
+
 See Also
 ================
 

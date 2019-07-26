@@ -48,6 +48,11 @@ Returns string | array | null.
 
 
 
+Source Code
+===========
+See the source code for method [ColdServiceResolver::argsToString](https://github.com/lingtalfi/SicTools/blob/master/ColdServiceResolver.php#L401-L405)
+
+
 See Also
 ================
 

@@ -30,6 +30,8 @@ https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/Service
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ServiceContainerHelper/getInstance.md
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ServiceContainerHelper/getServicesConf.md
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ServiceContainerHelper.md
+https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRedirectResponse/create.md
+https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRedirectResponse.md
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/__construct.md
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/createFromEnv.md
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/getCookie.md
@@ -102,6 +104,7 @@ https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light.md
 https://github.com/lingtalfi/Light/blob/master/doc/pages/diary.md
 https://github.com/lingtalfi/Light/blob/master/doc/pages/light-application-recommended-structure.md
 https://github.com/lingtalfi/Light/blob/master/doc/pages/light-general-philosophy.md
+https://github.com/lingtalfi/Light/blob/master/doc/pages/light-service-container.md
 https://github.com/lingtalfi/Light/blob/master/doc/pages/plugin.md
 https://github.com/lingtalfi/Light/blob/master/doc/pages/route.md
 https://github.com/lingtalfi/Light/blob/master/doc/pages/sic-cheatsheet.md

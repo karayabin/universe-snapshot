@@ -47,6 +47,11 @@ The info interface.
 
 
 
+Source Code
+===========
+See the source code for method [GenericParserInterface::parse](https://github.com/lingtalfi/DocTools/blob/master/GenericParser/GenericParserInterface.php#L24-L24)
+
+
 See Also
 ================
 

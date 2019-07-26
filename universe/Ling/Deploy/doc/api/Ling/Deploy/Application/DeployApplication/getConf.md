@@ -49,6 +49,11 @@ Exceptions thrown
 
 
 
+Source Code
+===========
+See the source code for method [DeployApplication::getConf](https://github.com/lingtalfi/Deploy/blob/master/Application/DeployApplication.php#L255-L263)
+
+
 See Also
 ================
 

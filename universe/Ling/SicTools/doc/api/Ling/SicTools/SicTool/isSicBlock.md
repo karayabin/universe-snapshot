@@ -51,6 +51,11 @@ Returns bool.
 
 
 
+Source Code
+===========
+See the source code for method [SicTool::isSicBlock](https://github.com/lingtalfi/SicTools/blob/master/SicTool.php#L24-L37)
+
+
 See Also
 ================
 

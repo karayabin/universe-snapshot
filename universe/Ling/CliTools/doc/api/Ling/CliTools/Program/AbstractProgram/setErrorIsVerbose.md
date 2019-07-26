@@ -47,6 +47,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [AbstractProgram::setErrorIsVerbose](https://github.com/lingtalfi/CliTools/blob/master/Program/AbstractProgram.php#L129-L132)
+
+
 See Also
 ================
 

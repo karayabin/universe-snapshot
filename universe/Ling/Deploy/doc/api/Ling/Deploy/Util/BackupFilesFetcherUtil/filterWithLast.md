@@ -51,6 +51,11 @@ Returns array.
 
 
 
+Source Code
+===========
+See the source code for method [BackupFilesFetcherUtil::filterWithLast](https://github.com/lingtalfi/Deploy/blob/master/Util/BackupFilesFetcherUtil.php#L221-L224)
+
+
 See Also
 ================
 

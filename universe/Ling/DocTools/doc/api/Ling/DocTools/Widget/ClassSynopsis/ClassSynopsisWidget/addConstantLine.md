@@ -60,6 +60,11 @@ Exceptions thrown
 
 
 
+Source Code
+===========
+See the source code for method [ClassSynopsisWidget::addConstantLine](https://github.com/lingtalfi/DocTools/blob/master/Widget/ClassSynopsis/ClassSynopsisWidget.php#L358-L372)
+
+
 See Also
 ================
 

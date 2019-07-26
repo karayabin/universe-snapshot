@@ -4,7 +4,7 @@
 
 The TemplateWizard class
 ================
-2019-02-21 --> 2019-07-12
+2019-02-21 --> 2019-07-23
 
 
 
@@ -113,7 +113,9 @@ Methods
 
 Location
 =============
-Ling\DocTools\TemplateWizard\TemplateWizard
+Ling\DocTools\TemplateWizard\TemplateWizard<br>
+See the source code of [Ling\DocTools\TemplateWizard\TemplateWizard](https://github.com/lingtalfi/DocTools/blob/master/TemplateWizard/TemplateWizard.php)
+
 
 
 SeeAlso

@@ -44,6 +44,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [ZipBackupFilesCommand::__construct](https://github.com/lingtalfi/Deploy/blob/master/Command/ZipBackupFilesCommand.php#L50-L54)
+
+
 See Also
 ================
 

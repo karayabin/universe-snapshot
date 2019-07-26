@@ -51,6 +51,11 @@ Returns mixed | null.
 
 
 
+Source Code
+===========
+See the source code for method [AbstractInput::getOption](https://github.com/lingtalfi/CliTools/blob/master/Input/AbstractInput.php#L73-L79)
+
+
 See Also
 ================
 

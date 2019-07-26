@@ -53,6 +53,11 @@ Exceptions thrown
 
 
 
+Source Code
+===========
+See the source code for method [SicFileCombinerUtil::combine](https://github.com/lingtalfi/SicTools/blob/master/Util/SicFileCombinerUtil.php#L355-L474)
+
+
 See Also
 ================
 

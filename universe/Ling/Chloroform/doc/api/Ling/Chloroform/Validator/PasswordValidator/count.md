@@ -48,6 +48,11 @@ Returns array.
 
 
 
+Source Code
+===========
+See the source code for method [PasswordValidator::count](https://github.com/lingtalfi/Chloroform/blob/master/Validator/PasswordValidator.php#L218-L252)
+
+
 See Also
 ================
 

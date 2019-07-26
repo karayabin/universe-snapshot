@@ -44,6 +44,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [UniToolApplication::__construct](https://github.com/lingtalfi/Uni2/blob/master/Application/UniToolApplication.php#L149-L217)
+
+
 See Also
 ================
 

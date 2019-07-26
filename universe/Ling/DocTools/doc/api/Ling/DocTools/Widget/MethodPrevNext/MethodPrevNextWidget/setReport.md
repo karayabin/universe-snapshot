@@ -47,6 +47,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [MethodPrevNextWidget::setReport](https://github.com/lingtalfi/DocTools/blob/master/Widget/MethodPrevNext/MethodPrevNextWidget.php#L98-L101)
+
+
 See Also
 ================
 

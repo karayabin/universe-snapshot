@@ -47,6 +47,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [TableUtil::setRows](https://github.com/lingtalfi/CliTools/blob/master/Util/TableUtil.php#L127-L130)
+
+
 See Also
 ================
 

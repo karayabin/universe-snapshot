@@ -47,6 +47,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [DynamicVariableTransformer::setVariables](https://github.com/lingtalfi/Light_Kit/blob/master/PageConfigurationTransformer/DynamicVariableTransformer.php#L102-L105)
+
+
 See Also
 ================
 

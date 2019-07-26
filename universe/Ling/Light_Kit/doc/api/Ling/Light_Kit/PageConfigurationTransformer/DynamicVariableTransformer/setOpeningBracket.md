@@ -47,6 +47,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [DynamicVariableTransformer::setOpeningBracket](https://github.com/lingtalfi/Light_Kit/blob/master/PageConfigurationTransformer/DynamicVariableTransformer.php#L80-L83)
+
+
 See Also
 ================
 

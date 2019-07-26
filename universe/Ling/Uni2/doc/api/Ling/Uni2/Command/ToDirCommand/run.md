@@ -58,6 +58,11 @@ If null, 0 should be assumed.
 
 
 
+Source Code
+===========
+See the source code for method [ToDirCommand::run](https://github.com/lingtalfi/Uni2/blob/master/Command/ToDirCommand.php#L76-L145)
+
+
 See Also
 ================
 

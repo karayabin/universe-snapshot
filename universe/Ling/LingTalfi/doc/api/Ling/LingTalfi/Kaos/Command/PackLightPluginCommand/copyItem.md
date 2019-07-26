@@ -43,6 +43,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [PackLightPluginCommand::copyItem](https://github.com/lingtalfi/LingTalfi/blob/master/Kaos/Command/PackLightPluginCommand.php#L99-L120)
+
+
 See Also
 ================
 

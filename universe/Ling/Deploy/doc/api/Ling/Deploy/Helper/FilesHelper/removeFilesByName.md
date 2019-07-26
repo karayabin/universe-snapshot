@@ -56,6 +56,11 @@ Exceptions thrown
 
 
 
+Source Code
+===========
+See the source code for method [FilesHelper::removeFilesByName](https://github.com/lingtalfi/Deploy/blob/master/Helper/FilesHelper.php#L24-L44)
+
+
 See Also
 ================
 

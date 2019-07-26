@@ -44,6 +44,11 @@ Returns [KitPageRendererInterface](https://github.com/lingtalfi/Kit/blob/master/
 
 
 
+Source Code
+===========
+See the source code for method [EasyLightPicassoWidget::getKitPageRenderer](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/Widget/EasyLightPicassoWidget.php#L61-L64)
+
+
 See Also
 ================
 

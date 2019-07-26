@@ -4,7 +4,7 @@
 
 The LightHelper class
 ================
-2019-04-09 --> 2019-07-11
+2019-04-09 --> 2019-07-18
 
 
 
@@ -45,7 +45,9 @@ Methods
 
 Location
 =============
-Ling\Light\Helper\LightHelper
+Ling\Light\Helper\LightHelper<br>
+See the source code of [Ling\Light\Helper\LightHelper](https://github.com/lingtalfi/Light/blob/master/Helper/LightHelper.php)
+
 
 
 SeeAlso

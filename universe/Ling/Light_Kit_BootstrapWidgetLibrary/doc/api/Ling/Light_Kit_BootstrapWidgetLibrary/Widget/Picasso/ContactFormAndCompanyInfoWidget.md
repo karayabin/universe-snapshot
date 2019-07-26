@@ -4,7 +4,7 @@
 
 The ContactFormAndCompanyInfoWidget class
 ================
-2019-04-26 --> 2019-07-16
+2019-04-26 --> 2019-07-25
 
 
 
@@ -74,7 +74,9 @@ Methods
 
 Location
 =============
-Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\ContactFormAndCompanyInfoWidget
+Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\ContactFormAndCompanyInfoWidget<br>
+See the source code of [Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\ContactFormAndCompanyInfoWidget](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/Widget/Picasso/ContactFormAndCompanyInfoWidget.php)
+
 
 
 SeeAlso

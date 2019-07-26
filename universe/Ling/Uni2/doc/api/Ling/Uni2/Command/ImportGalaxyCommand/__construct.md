@@ -44,6 +44,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [ImportGalaxyCommand::__construct](https://github.com/lingtalfi/Uni2/blob/master/Command/ImportGalaxyCommand.php#L26-L30)
+
+
 See Also
 ================
 

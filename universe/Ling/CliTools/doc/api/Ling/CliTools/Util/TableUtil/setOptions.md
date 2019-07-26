@@ -47,6 +47,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [TableUtil::setOptions](https://github.com/lingtalfi/CliTools/blob/master/Util/TableUtil.php#L116-L119)
+
+
 See Also
 ================
 

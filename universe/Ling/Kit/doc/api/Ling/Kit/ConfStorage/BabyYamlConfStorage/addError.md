@@ -47,6 +47,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [BabyYamlConfStorage::addError](https://github.com/lingtalfi/Kit/blob/master/ConfStorage/BabyYamlConfStorage.php#L168-L171)
+
+
 See Also
 ================
 

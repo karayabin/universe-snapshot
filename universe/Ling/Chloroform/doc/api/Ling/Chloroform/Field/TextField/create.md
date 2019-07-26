@@ -56,6 +56,11 @@ Returns [TextField](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/
 
 
 
+Source Code
+===========
+See the source code for method [TextField::create](https://github.com/lingtalfi/Chloroform/blob/master/Field/TextField.php#L26-L30)
+
+
 See Also
 ================
 

@@ -4,7 +4,7 @@
 
 The KitPageRenderer class
 ================
-2019-04-24 --> 2019-07-11
+2019-04-24 --> 2019-07-25
 
 
 
@@ -25,12 +25,12 @@ label: $pageLabel               # The human name for the page. It is used in err
 layout: $layoutRelPath          # The relative path to the layout file for this page. The path is relative to a root which shall be defined in the general configuration of kit.
 layout_vars: []                 # an array of layout vars that will be accessible to the layout (a layout might be configured to some degree by such variables, depending on the layout)
 zones:
-$zoneName:                  # note: the zone name is called from the layout file
--
-name: $widgetName       # the widget name
-type: $widgetType       # the widget type
-?active: $bool          # whether to use the widget, defaults to true
-...                     # any other configuration value that you want
+    $zoneName:                  # note: the zone name is called from the layout file
+        -
+            name: $widgetName       # the widget name
+            type: $widgetType       # the widget type
+            ?active: $bool          # whether to use the widget, defaults to true
+            ...                     # any other configuration value that you want
 
 ```
 
@@ -184,7 +184,9 @@ Methods
 
 Location
 =============
-Ling\Kit\PageRenderer\KitPageRenderer
+Ling\Kit\PageRenderer\KitPageRenderer<br>
+See the source code of [Ling\Kit\PageRenderer\KitPageRenderer](https://github.com/lingtalfi/Kit/blob/master/PageRenderer/KitPageRenderer.php)
+
 
 
 SeeAlso

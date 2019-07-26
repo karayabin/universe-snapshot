@@ -4,7 +4,7 @@
 
 The LoopLabTwoColumnsSignupFormWidget class
 ================
-2019-04-26 --> 2019-07-16
+2019-04-26 --> 2019-07-25
 
 
 
@@ -74,7 +74,9 @@ Methods
 
 Location
 =============
-Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\LoopLabTwoColumnsSignupFormWidget
+Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\LoopLabTwoColumnsSignupFormWidget<br>
+See the source code of [Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\LoopLabTwoColumnsSignupFormWidget](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/Widget/Picasso/LoopLabTwoColumnsSignupFormWidget.php)
+
 
 
 SeeAlso

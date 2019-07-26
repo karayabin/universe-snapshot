@@ -4,7 +4,7 @@
 
 The Light_InitializerDocBuilder class
 ================
-2019-03-13 --> 2019-05-03
+2019-03-13 --> 2019-07-18
 
 
 
@@ -45,9 +45,11 @@ Methods
 
 Location
 =============
-Ling\LingTalfi\DocBuilder\Light_Initializer\Light_InitializerDocBuilder
+Ling\LingTalfi\DocBuilder\Light_Initializer\Light_InitializerDocBuilder<br>
+See the source code of [Ling\LingTalfi\DocBuilder\Light_Initializer\Light_InitializerDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Light_Initializer/Light_InitializerDocBuilder.php)
+
 
 
 SeeAlso
 ==============
-Previous class: [LightDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light/LightDocBuilder.md)<br>Next class: [Light_KitDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Kit/Light_KitDocBuilder.md)<br>
+Previous class: [Light_FirewallDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Firewall/Light_FirewallDocBuilder.md)<br>Next class: [Light_KitDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Kit/Light_KitDocBuilder.md)<br>

@@ -45,6 +45,11 @@ Returns array.
 
 
 
+Source Code
+===========
+See the source code for method [InputInterface::getFlags](https://github.com/lingtalfi/CliTools/blob/master/Input/InputInterface.php#L72-L72)
+
+
 See Also
 ================
 

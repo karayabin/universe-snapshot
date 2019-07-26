@@ -4,7 +4,7 @@
 
 The ControllerHelper class
 ================
-2019-04-09 --> 2019-07-11
+2019-04-09 --> 2019-07-18
 
 
 
@@ -45,7 +45,9 @@ Methods
 
 Location
 =============
-Ling\Light\Helper\ControllerHelper
+Ling\Light\Helper\ControllerHelper<br>
+See the source code of [Ling\Light\Helper\ControllerHelper](https://github.com/lingtalfi/Light/blob/master/Helper/ControllerHelper.php)
+
 
 
 SeeAlso

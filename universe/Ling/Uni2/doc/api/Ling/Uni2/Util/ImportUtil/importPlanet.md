@@ -65,6 +65,11 @@ Exceptions thrown
 
 
 
+Source Code
+===========
+See the source code for method [ImportUtil::importPlanet](https://github.com/lingtalfi/Uni2/blob/master/Util/ImportUtil.php#L93-L132)
+
+
 See Also
 ================
 

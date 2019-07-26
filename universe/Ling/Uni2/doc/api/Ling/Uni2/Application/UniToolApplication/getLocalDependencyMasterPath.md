@@ -45,6 +45,11 @@ Returns string.
 
 
 
+Source Code
+===========
+See the source code for method [UniToolApplication::getLocalDependencyMasterPath](https://github.com/lingtalfi/Uni2/blob/master/Application/UniToolApplication.php#L566-L569)
+
+
 See Also
 ================
 

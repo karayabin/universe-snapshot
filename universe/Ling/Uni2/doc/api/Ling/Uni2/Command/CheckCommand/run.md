@@ -58,6 +58,11 @@ If null, 0 should be assumed.
 
 
 
+Source Code
+===========
+See the source code for method [CheckCommand::run](https://github.com/lingtalfi/Uni2/blob/master/Command/CheckCommand.php#L55-L197)
+
+
 See Also
 ================
 

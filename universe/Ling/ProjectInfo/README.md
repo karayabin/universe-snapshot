@@ -69,6 +69,10 @@ Now if it's called from a console, it will display something like this:
 History Log
 =============
 
+- 1.0.1 -- 2019-07-18
+
+    - update docTools documentation, add links to source code for classes and methods
+    
 - 1.0.0 -- 2019-03-18
 
     - initial commit

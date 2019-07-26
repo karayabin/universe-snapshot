@@ -124,7 +124,8 @@ require_once __DIR__ . "/../universe/bigbang.php"; // activate universe
  * on your local machine for ever :)
  */
 
-$git = "https://github.com/lingtalfi/DocTools/blob/master";
+$gitRepoUrl = "https://github.com/lingtalfi/DocTools";
+$git = $gitRepoUrl . "/blob/master";
 $doc = "$git/doc";
 $api = $doc . "/api";
 
@@ -134,6 +135,7 @@ $planetDir = "/komin/jin_site_demo/universe/Ling/DocTools";
 
 $builder = new LingGitPhpPlanetDocBuilder();
 $builder->prepare([
+    "gitRepoUrl" => $gitRepoUrl, 
     /**
      * Path to the planet dir that we want to generate the documentation for.
      */
@@ -646,6 +648,26 @@ This includes:
 
 History Log
 =============
+
+- 1.10.0 -- 2019-07-23
+
+    - update PhpClassHelper::getClasses2Urls now recognizes php pdoStatement class
+    
+- 1.9.0 -- 2019-07-22
+
+    - update PhpClassHelper::getClasses2Urls now recognizes php pdo and pdoException classes
+        
+- 1.8.2 -- 2019-07-18
+
+    - update docTools documentation, add links to source code for classes and methods
+        
+- 1.8.1 -- 2019-07-18
+
+    - fix LingGitPhpPlanetDocBuilder wrong formatting for class source code link 
+    
+- 1.8.0 -- 2019-07-18
+
+    - update LingGitPhpPlanetDocBuilder now supports source code links for class and method 
     
 - 1.7.0 -- 2019-07-13
 

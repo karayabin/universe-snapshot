@@ -222,8 +222,14 @@ class Light
      * @param array $urlParams
      * An array of key/value pairs representing the potential variables to inject into the controller callback.
      *
+     * @param string|null $host
+     * The host associated to this route.
+     *
+     * @param bool|null=null $isSecure
+     * Whether the https protocol or the http protocol is the preferred way to call this route.
+     *
      */
-    public function registerRoute(string $pattern, $controller, string $name = null, array $requirements = [], array $urlParams = [])
+    public function registerRoute(string $pattern, $controller, string $name = null, array $requirements = [], array $urlParams = [], string $host = null, bool $isSecure = null)
     {
 
         $routeName = (null !== $name) ? $name : $pattern;
@@ -234,6 +240,8 @@ class Light
             'controller' => $controller,
             'requirements' => $requirements,
             'url_params' => $urlParams,
+            'host' => $host,
+            "is_secure_protocol" => $isSecure,
         ];
     }
 
@@ -291,101 +299,146 @@ class Light
 
 
         if (null !== $this->container) {
+
+            //--------------------------------------------
+            // INITIALIZE PHASE
+            //--------------------------------------------
             if ($this->container->has("initializer")) {
                 $initializer = $this->container->get("initializer");
                 $initializer->initialize($this, $httpRequest);
             }
+
+
+            //--------------------------------------------
+            // PRE-ROUTE PHASE
+            //--------------------------------------------
+            if ($this->container->has("preroute_hub")) {
+                $prerouteHub = $this->container->get("preroute_hub");
+                $prerouteHub->run($this, $httpRequest, $response);
+            }
         }
 
 
-        try {
-            if (null !== $this->applicationDir) {
-                if (is_dir($this->applicationDir)) {
+        if (null === $response) {
+
+            try {
+                if (null !== $this->applicationDir) {
+                    if (is_dir($this->applicationDir)) {
 
 
-                    // route auto-registering plugins here...
+                        // route auto-registering plugins here...
 
 
-                    //--------------------------------------------
-                    // SEARCHING A MATCHING ROUTE
-                    //--------------------------------------------
-                    $router = null;
-                    if (null !== $this->container) {
-                        if ($this->container->has("router")) {
-                            // todo: dynamic routers, see RoutineRouter...
-                            $router = $this->container->get("router");
+                        //--------------------------------------------
+                        // SEARCHING A MATCHING ROUTE
+                        //--------------------------------------------
+                        $router = null;
+                        if (null !== $this->container) {
+                            if ($this->container->has("router")) {
+                                // todo: dynamic routers, see RoutineRouter...
+                                $router = $this->container->get("router");
+                            }
                         }
-                    }
 
-                    if (null === $router) {
-                        $router = new LightRouter();
-                    }
-
-
-                    $route = $router->match($httpRequest, $this->routes);
-                    if (false !== $route) {
+                        if (null === $router) {
+                            $router = new LightRouter();
+                        }
 
 
-                        //--------------------------------------------
-                        // NOW RESOLVING THE CONTROLLER
-                        //--------------------------------------------
-                        $controller = $route['controller'];
+                        $route = $router->match($httpRequest, $this->routes);
+                        if (false !== $route) {
 
 
-                        //--------------------------------------------
-                        // CALLING THE CONTROLLER
-                        //--------------------------------------------
-                        if (is_callable($controller)) {
+                            //--------------------------------------------
+                            // NOW RESOLVING THE CONTROLLER
+                            //--------------------------------------------
+                            $controller = $route['controller'];
+                            $instance = null;
+
+                            // if not a callable yet, we want to turn it into a callable
+                            if (false === is_callable($controller)) {
+                                if (is_string($controller)) {
+                                    /**
+                                     * We want to allow the following notations:
+                                     *
+                                     * - for non static method: MyVendor\Controller\MyController->myMethod
+                                     *
+                                     *
+                                     */
+                                    $p = explode('->', $controller);
+                                    if (2 === count($p)) {
+                                        $class = $p[0];
+                                        $method = $p[1];
+                                        $instance = new $class;
+                                        $controller = [$instance, $method];
+                                    }
+
+                                }
+                            }
 
 
-                            // we need to inject variables in the controller
-                            $controllerArgs = $this->getControllerArgs($controller, $route, $httpRequest);
-                            $response = call_user_func_array($controller, $controllerArgs);
+                            //--------------------------------------------
+                            // INJECT THE LIGHT APP FOR CONTROLLERS WHO WANT IT
+                            //--------------------------------------------
+                            if (null !== $instance && $instance instanceof LightAwareInterface) {
+                                $instance->setLight($this);
+                            }
 
 
+                            //--------------------------------------------
+                            // CALLING THE CONTROLLER
+                            //--------------------------------------------
+                            if (is_callable($controller)) {
+
+                                // we need to inject variables in the controller
+                                $controllerArgs = $this->getControllerArgs($controller, $route, $httpRequest);
+                                $response = call_user_func_array($controller, $controllerArgs);
+
+
+                            } else {
+                                $routeName = $route['name'];
+                                $type = gettype($controller);
+                                throw new LightException("The given controller is not a callable for route $routeName, $type given.");
+                            }
                         } else {
-                            $routeName = $route['name'];
-                            $type = gettype($controller);
-                            throw new LightException("The given controller is not a callable for route $routeName, $type given.");
+                            throw new LightException("No route matches", "404");
                         }
+
+
                     } else {
-                        throw new LightException("No route matches", "404");
+                        throw new LightException("Application dir does not exist: $this->applicationDir.");
                     }
-
-
                 } else {
-                    throw new LightException("Application dir does not exist: $this->applicationDir.");
+                    throw new LightException("Application dir not set.");
                 }
-            } else {
-                throw new LightException("Application dir not set.");
-            }
-        } catch (\Exception $e) {
+            } catch (\Exception $e) {
 
 
-            $lightErrorCode = null;
-            if ($e instanceof LightException) {
-                $lightErrorCode = $e->getLightErrorCode();
-            }
+                $lightErrorCode = null;
+                if ($e instanceof LightException) {
+                    $lightErrorCode = $e->getLightErrorCode();
+                }
 
 
-            $washHandled = false;
-            foreach ($this->errorHandlers as $errorHandler) {
-                if (null === $response) {
-                    call_user_func_array($errorHandler, [$lightErrorCode, $e, &$response]);
-                    if (null !== $response) {
-                        $washHandled = true;
-                        break;
+                $washHandled = false;
+                foreach ($this->errorHandlers as $errorHandler) {
+                    if (null === $response) {
+                        call_user_func_array($errorHandler, [$lightErrorCode, $e, &$response]);
+                        if (null !== $response) {
+                            $washHandled = true;
+                            break;
+                        }
                     }
                 }
-            }
 
 
-            if (false === $washHandled) {
-                if (false === $this->debug) {
-                    $response = $this->renderInternalServerErrorPage();
+                if (false === $washHandled) {
+                    if (false === $this->debug) {
+                        $response = $this->renderInternalServerErrorPage();
 
-                } else {
-                    $response = $this->renderDebugPage($e);
+                    } else {
+                        $response = $this->renderDebugPage($e);
+                    }
                 }
             }
         }

@@ -45,6 +45,11 @@ Returns string | false.
 
 
 
+Source Code
+===========
+See the source code for method [LightUserInterface::getIdentifier](https://github.com/lingtalfi/Light_User/blob/master/LightUserInterface.php#L28-L28)
+
+
 See Also
 ================
 

@@ -128,7 +128,7 @@ interface SimplePdoWrapperInterface
      * @param mixed $whereConds , same as update method (see update method for more info)
      * @param array $markers
      * @return mixed
-     * @seeMethod update
+     * @see update
      * @throws \PDOException
      * @throws NoPdoConnectionException
      */
@@ -187,7 +187,8 @@ interface SimplePdoWrapperInterface
      * @param callable $transactionCallback
      * @param \Exception|null $e
      * @return bool
-     * @throws NoPdoConnectionException when the connexion is not set
+     * @throws NoPdoConnectionException
+     * When the connexion is not set
      */
     public function transaction(callable $transactionCallback, \Exception &$e = null);
 
@@ -204,7 +205,8 @@ interface SimplePdoWrapperInterface
      * Returns the current pdo connexion.
      *
      * @return \PDO
-     * @throws NoPdoConnectionException when the connexion is not set
+     * @throws NoPdoConnectionException
+     * When the connexion is not set
      */
     public function getConnexion();
 
@@ -219,7 +221,8 @@ interface SimplePdoWrapperInterface
      *      - \PDO::ERRMODE_WARNING
      *      - \PDO::ERRMODE_EXCEPTION
      * @return mixed
-     * @throws NoPdoConnectionException when the connection is not defined.
+     * @throws NoPdoConnectionException
+     * When the connection is not defined.
      */
     public function setErrorMode($errorMode);
 
@@ -229,7 +232,7 @@ interface SimplePdoWrapperInterface
      * Note: the value is reinitialized to null on every method that queries a statement.
      *
      *
-     * @return null|array (http://php.net/manual/en/pdo.errorinfo.php)
+     * @return null|array. The pdo error info objects (http://php.net/manual/en/pdo.errorinfo.php)
      *      - 0: SQLSTATE error code (5 chars alphanumeric)
      *      - 1: Driver specific error code
      *      - 2: Driver specific error message

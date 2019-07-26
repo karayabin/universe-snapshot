@@ -44,6 +44,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [PageUtil::__construct](https://github.com/lingtalfi/DocTools/blob/master/Page/PageUtil.php#L50-L55)
+
+
 See Also
 ================
 

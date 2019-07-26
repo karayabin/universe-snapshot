@@ -52,6 +52,11 @@ Exceptions thrown
 
 
 
+Source Code
+===========
+See the source code for method [KitPageRenderer::printZone](https://github.com/lingtalfi/Kit/blob/master/PageRenderer/KitPageRenderer.php#L295-L322)
+
+
 See Also
 ================
 

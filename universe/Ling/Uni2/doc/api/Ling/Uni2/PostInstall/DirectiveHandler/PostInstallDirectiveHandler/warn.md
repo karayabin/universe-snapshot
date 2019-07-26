@@ -55,6 +55,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [PostInstallDirectiveHandler::warn](https://github.com/lingtalfi/Uni2/blob/master/PostInstall/DirectiveHandler/PostInstallDirectiveHandler.php#L228-L231)
+
+
 See Also
 ================
 

@@ -44,6 +44,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [ImportUtil::__construct](https://github.com/lingtalfi/Uni2/blob/master/Util/ImportUtil.php#L62-L66)
+
+
 See Also
 ================
 

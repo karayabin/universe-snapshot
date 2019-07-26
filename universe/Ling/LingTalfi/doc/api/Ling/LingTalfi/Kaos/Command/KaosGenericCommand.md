@@ -4,7 +4,7 @@
 
 The KaosGenericCommand class
 ================
-2019-03-13 --> 2019-05-03
+2019-03-13 --> 2019-07-18
 
 
 
@@ -66,7 +66,9 @@ Methods
 
 Location
 =============
-Ling\LingTalfi\Kaos\Command\KaosGenericCommand
+Ling\LingTalfi\Kaos\Command\KaosGenericCommand<br>
+See the source code of [Ling\LingTalfi\Kaos\Command\KaosGenericCommand](https://github.com/lingtalfi/LingTalfi/blob/master/Kaos/Command/KaosGenericCommand.php)
+
 
 
 SeeAlso

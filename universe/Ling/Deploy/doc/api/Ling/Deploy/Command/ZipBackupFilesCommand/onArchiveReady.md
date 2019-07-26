@@ -51,6 +51,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [ZipBackupFilesCommand::onArchiveReady](https://github.com/lingtalfi/Deploy/blob/master/Command/ZipBackupFilesCommand.php#L99-L102)
+
+
 See Also
 ================
 

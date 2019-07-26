@@ -44,6 +44,11 @@ Returns string | null.
 
 
 
+Source Code
+===========
+See the source code for method [SimpleCurlResponse::getBody](https://github.com/lingtalfi/SimpleCurl/blob/master/Response/SimpleCurlResponse.php#L73-L76)
+
+
 See Also
 ================
 

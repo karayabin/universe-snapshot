@@ -4,7 +4,7 @@
 
 The KrankenSteinTool class
 ================
-2019-04-02 --> 2019-04-02
+2019-04-02 --> 2019-07-18
 
 
 
@@ -61,7 +61,9 @@ Methods
 
 Location
 =============
-Ling\KrankenStein\KrankenSteinTool
+Ling\KrankenStein\KrankenSteinTool<br>
+See the source code of [Ling\KrankenStein\KrankenSteinTool](https://github.com/lingtalfi/KrankenStein/blob/master/KrankenSteinTool.php)
+
 
 
 SeeAlso

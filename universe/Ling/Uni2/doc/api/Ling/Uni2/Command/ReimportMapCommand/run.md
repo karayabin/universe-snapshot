@@ -58,6 +58,11 @@ If null, 0 should be assumed.
 
 
 
+Source Code
+===========
+See the source code for method [ReimportMapCommand::run](https://github.com/lingtalfi/Uni2/blob/master/Command/ReimportMapCommand.php#L110-L182)
+
+
 See Also
 ================
 

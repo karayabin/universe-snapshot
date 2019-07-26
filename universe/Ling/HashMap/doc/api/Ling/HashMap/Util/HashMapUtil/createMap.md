@@ -52,6 +52,11 @@ Exceptions thrown
 
 
 
+Source Code
+===========
+See the source code for method [HashMapUtil::createMap](https://github.com/lingtalfi/HashMap/blob/master/Util/HashMapUtil.php#L174-L229)
+
+
 See Also
 ================
 

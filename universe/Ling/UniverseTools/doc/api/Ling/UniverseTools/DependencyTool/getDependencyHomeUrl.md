@@ -78,6 +78,11 @@ When the dependency system is unknown to this class.
 
 
 
+Source Code
+===========
+See the source code for method [DependencyTool::getDependencyHomeUrl](https://github.com/lingtalfi/UniverseTools/blob/master/DependencyTool.php#L291-L307)
+
+
 See Also
 ================
 

@@ -4,7 +4,7 @@
 
 The SimpleCurl class
 ================
-2019-03-14 --> 2019-03-14
+2019-03-14 --> 2019-07-18
 
 
 
@@ -65,7 +65,9 @@ Methods
 
 Location
 =============
-Ling\SimpleCurl\SimpleCurl
+Ling\SimpleCurl\SimpleCurl<br>
+See the source code of [Ling\SimpleCurl\SimpleCurl](https://github.com/lingtalfi/SimpleCurl/blob/master/SimpleCurl.php)
+
 
 
 SeeAlso

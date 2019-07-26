@@ -32,22 +32,22 @@ Algorithm
 Here is the inner algorithm of this method in a nutshell.
 
 1. this method re-imports the given item.
-The reimporting steps are always the same:
-- it will first try to import the item from the local server
-- if the item is not in the local server, it will try to import it from the web.
-Also, if this step is successful, this method will try to make a local server copy of the item
-for the next time.
-- if it fails too, a warning is been displayed and the next item is processed
+     The reimporting steps are always the same:
+         - it will first try to import the item from the local server
+         - if the item is not in the local server, it will try to import it from the web.
+                 Also, if this step is successful, this method will try to make a local server copy of the item
+                 for the next time.
+         - if it fails too, a warning is been displayed and the next item is processed
 
 2. Then if it's a planet, it processes any dependencies that the item has.
-The dependency process is the following by default:
-- if the force flag is set, the dependency will be reimported no matter what
-- else, if the dependency already exists in the application and is up-to-date (i.e. it has the same
-version number than the version number in the [local dependency master file](https://github.com/lingtalfi/Uni2/blob/master/README.md#the-dependency-master-file)), then
-the dependency will not be reimported.
-- else, if the dependency doesn't exist in the application, or if it exists but is outdated,
-then it gets reimported.
-- if reimported, this whole algorithm is being reused from the beginning (starting back from step 1...).
+     The dependency process is the following by default:
+         - if the force flag is set, the dependency will be reimported no matter what
+         - else, if the dependency already exists in the application and is up-to-date (i.e. it has the same
+             version number than the version number in the [local dependency master file](https://github.com/lingtalfi/Uni2/blob/master/README.md#the-dependency-master-file)), then
+             the dependency will not be reimported.
+         - else, if the dependency doesn't exist in the application, or if it exists but is outdated,
+             then it gets reimported.
+         - if reimported, this whole algorithm is being reused from the beginning (starting back from step 1...).
 
 3. If the item is a planet and has post install directives, those are executed.
 
@@ -87,18 +87,18 @@ Warning: the old directory, if it exists, might be removed/replaced by the newly
 - forceMode: bool=false. In force mode, all items are reimported, even if their version number is the latest.
 - importMode: (only applies to planets)
 
-- reimport: the planet is imported if one of the following cases is true:
+     - reimport: the planet is imported if one of the following cases is true:
 
-- the planet does not exist in the application yet
-- the force flag is set to true
-- the planet exists in the application but there is a newer version available (defined in the local master dependency file)
+         - the planet does not exist in the application yet
+         - the force flag is set to true
+         - the planet exists in the application but there is a newer version available (defined in the local master dependency file)
 
-- import: the planet is imported if one of the following cases is true:
+     - import: the planet is imported if one of the following cases is true:
 
-- the planet does not exist in the application yet
-- the force flag is set to true
+         - the planet does not exist in the application yet
+         - the force flag is set to true
 
-- store: the planet is imported only in the local server
+     - store: the planet is imported only in the local server
 
 
 
@@ -127,6 +127,11 @@ Exceptions thrown
 
 
 
+
+
+Source Code
+===========
+See the source code for method [ImportUtil::importItem](https://github.com/lingtalfi/Uni2/blob/master/Util/ImportUtil.php#L222-L529)
 
 
 See Also

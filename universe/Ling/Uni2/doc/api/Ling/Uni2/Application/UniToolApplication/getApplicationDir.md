@@ -46,6 +46,11 @@ Returns string.
 
 
 
+Source Code
+===========
+See the source code for method [UniToolApplication::getApplicationDir](https://github.com/lingtalfi/Uni2/blob/master/Application/UniToolApplication.php#L227-L230)
+
+
 See Also
 ================
 

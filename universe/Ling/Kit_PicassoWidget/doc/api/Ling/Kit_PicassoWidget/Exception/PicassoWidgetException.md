@@ -4,7 +4,7 @@
 
 The PicassoWidgetException class
 ================
-2019-04-24 --> 2019-07-11
+2019-04-24 --> 2019-07-24
 
 
 
@@ -47,7 +47,9 @@ Methods
 
 Location
 =============
-Ling\Kit_PicassoWidget\Exception\PicassoWidgetException
+Ling\Kit_PicassoWidget\Exception\PicassoWidgetException<br>
+See the source code of [Ling\Kit_PicassoWidget\Exception\PicassoWidgetException](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/Exception/PicassoWidgetException.php)
+
 
 
 SeeAlso

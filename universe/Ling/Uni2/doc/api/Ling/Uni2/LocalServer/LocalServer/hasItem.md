@@ -56,6 +56,11 @@ When the root dir is not set.
 
 
 
+Source Code
+===========
+See the source code for method [LocalServer::hasItem](https://github.com/lingtalfi/Uni2/blob/master/LocalServer/LocalServer.php#L113-L121)
+
+
 See Also
 ================
 

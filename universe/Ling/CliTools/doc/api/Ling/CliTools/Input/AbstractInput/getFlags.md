@@ -45,6 +45,11 @@ Returns array.
 
 
 
+Source Code
+===========
+See the source code for method [AbstractInput::getFlags](https://github.com/lingtalfi/CliTools/blob/master/Input/AbstractInput.php#L111-L114)
+
+
 See Also
 ================
 

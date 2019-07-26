@@ -57,6 +57,11 @@ Returns [TimeField](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/
 
 
 
+Source Code
+===========
+See the source code for method [TimeField::create](https://github.com/lingtalfi/Chloroform/blob/master/Field/TimeField.php#L52-L59)
+
+
 See Also
 ================
 

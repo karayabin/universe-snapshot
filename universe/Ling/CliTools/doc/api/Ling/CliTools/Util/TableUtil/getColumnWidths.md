@@ -51,6 +51,11 @@ Returns array.
 
 
 
+Source Code
+===========
+See the source code for method [TableUtil::getColumnWidths](https://github.com/lingtalfi/CliTools/blob/master/Util/TableUtil.php#L242-L273)
+
+
 See Also
 ================
 

@@ -44,6 +44,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [PropertyInfo::__construct](https://github.com/lingtalfi/DocTools/blob/master/Info/PropertyInfo.php#L65-L73)
+
+
 See Also
 ================
 

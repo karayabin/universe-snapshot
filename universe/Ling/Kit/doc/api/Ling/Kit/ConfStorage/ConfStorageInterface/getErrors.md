@@ -44,6 +44,11 @@ Returns array.
 
 
 
+Source Code
+===========
+See the source code for method [ConfStorageInterface::getErrors](https://github.com/lingtalfi/Kit/blob/master/ConfStorage/ConfStorageInterface.php#L31-L31)
+
+
 See Also
 ================
 

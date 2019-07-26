@@ -4,7 +4,7 @@
 
 The PrototypeWidgetHandler class
 ================
-2019-04-25 --> 2019-04-25
+2019-04-25 --> 2019-07-18
 
 
 
@@ -79,7 +79,9 @@ Methods
 
 Location
 =============
-Ling\Kit_PrototypeWidget\WidgetHandler\PrototypeWidgetHandler
+Ling\Kit_PrototypeWidget\WidgetHandler\PrototypeWidgetHandler<br>
+See the source code of [Ling\Kit_PrototypeWidget\WidgetHandler\PrototypeWidgetHandler](https://github.com/lingtalfi/Kit_PrototypeWidget/blob/master/WidgetHandler/PrototypeWidgetHandler.php)
+
 
 
 SeeAlso

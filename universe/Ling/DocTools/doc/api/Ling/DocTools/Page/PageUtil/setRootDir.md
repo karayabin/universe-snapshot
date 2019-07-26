@@ -47,6 +47,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [PageUtil::setRootDir](https://github.com/lingtalfi/DocTools/blob/master/Page/PageUtil.php#L63-L66)
+
+
 See Also
 ================
 

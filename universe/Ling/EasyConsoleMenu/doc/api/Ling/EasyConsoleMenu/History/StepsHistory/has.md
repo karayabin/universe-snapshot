@@ -47,6 +47,11 @@ Returns bool.
 
 
 
+Source Code
+===========
+See the source code for method [StepsHistory::has](https://github.com/lingtalfi/EasyConsoleMenu/blob/master/History/StepsHistory.php#L105-L108)
+
+
 See Also
 ================
 

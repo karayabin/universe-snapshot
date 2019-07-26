@@ -45,6 +45,11 @@ Returns string | false.
 
 
 
+Source Code
+===========
+See the source code for method [MysqlHelper::getVersionNumber](https://github.com/lingtalfi/Deploy/blob/master/Helper/MysqlHelper.php#L114-L124)
+
+
 See Also
 ================
 

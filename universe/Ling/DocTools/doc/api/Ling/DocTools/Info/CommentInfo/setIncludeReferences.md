@@ -47,6 +47,11 @@ Returns [CommentInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/
 
 
 
+Source Code
+===========
+See the source code for method [CommentInfo::setIncludeReferences](https://github.com/lingtalfi/DocTools/blob/master/Info/CommentInfo.php#L388-L392)
+
+
 See Also
 ================
 

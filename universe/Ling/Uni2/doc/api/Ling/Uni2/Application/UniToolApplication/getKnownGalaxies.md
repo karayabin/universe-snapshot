@@ -45,6 +45,11 @@ An array of galaxy names.
 
 
 
+Source Code
+===========
+See the source code for method [UniToolApplication::getKnownGalaxies](https://github.com/lingtalfi/Uni2/blob/master/Application/UniToolApplication.php#L479-L483)
+
+
 See Also
 ================
 

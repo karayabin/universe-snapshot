@@ -55,6 +55,11 @@ Returns string.
 
 
 
+Source Code
+===========
+See the source code for method [VariableDescriptionFileGeneratorUtil::renderVar](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/Util/VariableDescriptionFileGeneratorUtil.php#L105-L194)
+
+
 See Also
 ================
 

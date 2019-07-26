@@ -50,6 +50,11 @@ Exceptions thrown
 
 
 
+Source Code
+===========
+See the source code for method [UniToolApplication::checkApplicationDir](https://github.com/lingtalfi/Uni2/blob/master/Application/UniToolApplication.php#L295-L306)
+
+
 See Also
 ================
 

@@ -4,7 +4,7 @@
 
 The LightRouter class
 ================
-2019-04-09 --> 2019-07-11
+2019-04-09 --> 2019-07-18
 
 
 
@@ -45,7 +45,9 @@ Methods
 
 Location
 =============
-Ling\Light\Router\LightRouter
+Ling\Light\Router\LightRouter<br>
+See the source code of [Ling\Light\Router\LightRouter](https://github.com/lingtalfi/Light/blob/master/Router/LightRouter.php)
+
 
 
 SeeAlso

@@ -75,6 +75,11 @@ Returns bool.
 
 
 
+Source Code
+===========
+See the source code for method [RequiredValidator::test](https://github.com/lingtalfi/Chloroform/blob/master/Validator/RequiredValidator.php#L28-L41)
+
+
 See Also
 ================
 

@@ -47,6 +47,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [SimpleCurlResponse::setBody](https://github.com/lingtalfi/SimpleCurl/blob/master/Response/SimpleCurlResponse.php#L106-L109)
+
+
 See Also
 ================
 

@@ -52,6 +52,11 @@ Exceptions thrown
 
 
 
+Source Code
+===========
+See the source code for method [HotServiceResolver::resolveArgs](https://github.com/lingtalfi/SicTools/blob/master/HotServiceResolver.php#L217-L240)
+
+
 See Also
 ================
 

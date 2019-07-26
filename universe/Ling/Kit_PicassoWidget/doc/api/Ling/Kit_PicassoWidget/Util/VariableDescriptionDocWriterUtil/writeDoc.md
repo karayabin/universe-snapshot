@@ -53,6 +53,11 @@ Exceptions thrown
 
 
 
+Source Code
+===========
+See the source code for method [VariableDescriptionDocWriterUtil::writeDoc](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/Util/VariableDescriptionDocWriterUtil.php#L196-L274)
+
+
 See Also
 ================
 

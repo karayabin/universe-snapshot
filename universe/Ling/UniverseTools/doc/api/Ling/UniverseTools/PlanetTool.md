@@ -4,7 +4,7 @@
 
 The PlanetTool class
 ================
-2019-02-26 --> 2019-04-30
+2019-02-26 --> 2019-07-18
 
 
 
@@ -53,7 +53,9 @@ Methods
 
 Location
 =============
-Ling\UniverseTools\PlanetTool
+Ling\UniverseTools\PlanetTool<br>
+See the source code of [Ling\UniverseTools\PlanetTool](https://github.com/lingtalfi/UniverseTools/blob/master/PlanetTool.php)
+
 
 
 SeeAlso

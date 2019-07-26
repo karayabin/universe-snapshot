@@ -4,7 +4,7 @@
 
 The SimpleCurlException class
 ================
-2019-03-14 --> 2019-03-14
+2019-03-14 --> 2019-07-18
 
 
 
@@ -47,7 +47,9 @@ Methods
 
 Location
 =============
-Ling\SimpleCurl\Exception\SimpleCurlException
+Ling\SimpleCurl\Exception\SimpleCurlException<br>
+See the source code of [Ling\SimpleCurl\Exception\SimpleCurlException](https://github.com/lingtalfi/SimpleCurl/blob/master/Exception/SimpleCurlException.php)
+
 
 
 SeeAlso

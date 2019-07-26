@@ -58,6 +58,11 @@ When something goes wrong.
 
 
 
+Source Code
+===========
+See the source code for method [LocalServer::replaceItem](https://github.com/lingtalfi/Uni2/blob/master/LocalServer/LocalServer.php#L160-L172)
+
+
 See Also
 ================
 

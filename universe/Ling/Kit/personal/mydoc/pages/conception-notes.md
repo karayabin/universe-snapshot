@@ -1,6 +1,6 @@
 Conception notes 
 ========
-2019-04-24
+2019-04-24 --> 2019-07-25
 
 
 
@@ -12,6 +12,7 @@ Conception notes
 * [A Babyyaml implementation of the kit configuration array](#a-babyyaml-implementation-of-the-kit-configuration-array)
 * [Database vs BabyYaml?](#database-vs-babyyaml)
 * [Capturing the zones](#capturing-the-zones)
+* [Implementing the ConfStorage object](#implementing-the-confstorage-object)
 
          
          
@@ -75,7 +76,8 @@ zones:
             type: $widgetType       # the widget type
             ?active: $bool          # whether to use the widget, defaults to true
             ...                     # any other configuration value that you want 
-            
+                         
+
 ```
 
 
@@ -247,14 +249,14 @@ waste too much time for nothing.
 
 
 
+Adding the bodyClass
+-------------
+2019-07-25
 
+I believe that we should be able to update the body tag css class from the page configuration,
+so that for instance we can re-use two times the same layout, but with a different css class on the body tag.
 
-
-
-
-
-
-
+So now the bodyClass property is treated by the KitPageRenderer. 
 
 
 

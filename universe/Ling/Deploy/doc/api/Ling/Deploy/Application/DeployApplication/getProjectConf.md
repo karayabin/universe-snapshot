@@ -81,6 +81,11 @@ Exceptions thrown
 
 
 
+Source Code
+===========
+See the source code for method [DeployApplication::getProjectConf](https://github.com/lingtalfi/Deploy/blob/master/Application/DeployApplication.php#L202-L247)
+
+
 See Also
 ================
 

@@ -45,6 +45,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [WebsiteLightUser::disconnect](https://github.com/lingtalfi/Light_User/blob/master/WebsiteLightUser.php#L188-L192)
+
+
 See Also
 ================
 

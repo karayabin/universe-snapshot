@@ -44,6 +44,11 @@ Returns [ReportInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/
 
 
 
+Source Code
+===========
+See the source code for method [PlanetParser::getReport](https://github.com/lingtalfi/DocTools/blob/master/PlanetParser/PlanetParser.php#L175-L178)
+
+
 See Also
 ================
 

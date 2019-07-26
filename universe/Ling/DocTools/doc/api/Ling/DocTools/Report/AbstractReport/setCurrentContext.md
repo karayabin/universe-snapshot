@@ -48,6 +48,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [AbstractReport::setCurrentContext](https://github.com/lingtalfi/DocTools/blob/master/Report/AbstractReport.php#L312-L315)
+
+
 See Also
 ================
 

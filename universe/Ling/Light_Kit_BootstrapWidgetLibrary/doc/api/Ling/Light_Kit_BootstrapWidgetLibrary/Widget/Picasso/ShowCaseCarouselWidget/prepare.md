@@ -63,6 +63,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [ShowCaseCarouselWidget::prepare](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/Widget/Picasso/ShowCaseCarouselWidget.php#L23-L26)
+
+
 See Also
 ================
 

@@ -4,7 +4,7 @@
 
 The AdamLightUser class
 ================
-2019-05-10 --> 2019-07-12
+2019-05-10 --> 2019-07-19
 
 
 
@@ -52,7 +52,9 @@ Methods
 
 Location
 =============
-Ling\Light_User\AdamLightUser
+Ling\Light_User\AdamLightUser<br>
+See the source code of [Ling\Light_User\AdamLightUser](https://github.com/lingtalfi/Light_User/blob/master/AdamLightUser.php)
+
 
 
 SeeAlso

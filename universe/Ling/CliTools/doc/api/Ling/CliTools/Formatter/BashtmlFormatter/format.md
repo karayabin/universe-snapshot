@@ -47,6 +47,11 @@ Returns string.
 
 
 
+Source Code
+===========
+See the source code for method [BashtmlFormatter::format](https://github.com/lingtalfi/CliTools/blob/master/Formatter/BashtmlFormatter.php#L241-L265)
+
+
 See Also
 ================
 

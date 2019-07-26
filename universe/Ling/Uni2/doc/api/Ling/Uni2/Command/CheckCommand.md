@@ -4,7 +4,7 @@
 
 The CheckCommand class
 ================
-2019-03-12 --> 2019-04-05
+2019-03-12 --> 2019-07-18
 
 
 
@@ -22,7 +22,7 @@ It will:
 
 - list the unresolved dependencies (for instance if planet A depends on planet B, but planet B is not in the application).
 - list all planets which don't have a valid **meta-info.byml** file at their root (valid means it contains at least the version number).
-See [the meta info file](https://github.com/lingtalfi/Uni2/blob/master/README.md#meta-infobyml) for more details.
+     See [the meta info file](https://github.com/lingtalfi/Uni2/blob/master/README.md#meta-infobyml) for more details.
 - list all planets which have dependencies which call unknown importers.
 
 
@@ -75,7 +75,9 @@ Methods
 
 Location
 =============
-Ling\Uni2\Command\CheckCommand
+Ling\Uni2\Command\CheckCommand<br>
+See the source code of [Ling\Uni2\Command\CheckCommand](https://github.com/lingtalfi/Uni2/blob/master/Command/CheckCommand.php)
+
 
 
 SeeAlso

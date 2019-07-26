@@ -73,6 +73,11 @@ Exceptions thrown
 
 
 
+Source Code
+===========
+See the source code for method [DependencyMasterHelper::collectDependenciesByPlanetName](https://github.com/lingtalfi/Uni2/blob/master/Helper/DependencyMasterHelper.php#L188-L249)
+
+
 See Also
 ================
 

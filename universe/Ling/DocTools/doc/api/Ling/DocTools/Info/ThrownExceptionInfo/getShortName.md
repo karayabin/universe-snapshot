@@ -44,6 +44,11 @@ Returns string.
 
 
 
+Source Code
+===========
+See the source code for method [ThrownExceptionInfo::getShortName](https://github.com/lingtalfi/DocTools/blob/master/Info/ThrownExceptionInfo.php#L59-L62)
+
+
 See Also
 ================
 

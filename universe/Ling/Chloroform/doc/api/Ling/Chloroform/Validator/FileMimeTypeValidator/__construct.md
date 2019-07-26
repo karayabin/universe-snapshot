@@ -44,6 +44,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [FileMimeTypeValidator::__construct](https://github.com/lingtalfi/Chloroform/blob/master/Validator/FileMimeTypeValidator.php#L31-L35)
+
+
 See Also
 ================
 

@@ -4,7 +4,7 @@
 
 The LightException class
 ================
-2019-04-09 --> 2019-07-11
+2019-04-09 --> 2019-07-18
 
 
 
@@ -91,7 +91,9 @@ Methods
 
 Location
 =============
-Ling\Light\Exception\LightException
+Ling\Light\Exception\LightException<br>
+See the source code of [Ling\Light\Exception\LightException](https://github.com/lingtalfi/Light/blob/master/Exception/LightException.php)
+
 
 
 SeeAlso

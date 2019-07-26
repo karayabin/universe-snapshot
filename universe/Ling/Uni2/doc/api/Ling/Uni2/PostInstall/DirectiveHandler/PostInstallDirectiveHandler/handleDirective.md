@@ -33,9 +33,9 @@ The following directives have been implemented:
 - composer: array of composer commands without the composer prefix. For instance:
 ----- require filp/whoops
 - map: string|null. Will map a directory found inside the installed planet to the application root directory.
-By default: if null, the map value will be: "assets/map".
-This means that all files found inside the "assets/map" directory at the root of the installed planet
-will be copied to (and overwriting existing files with the same names) the application root directory.
+         By default: if null, the map value will be: "assets/map".
+         This means that all files found inside the "assets/map" directory at the root of the installed planet
+         will be copied to (and overwriting existing files with the same names) the application root directory.
 
 
 ```
@@ -66,7 +66,7 @@ See the @page(post install directives page) for more info.
     An array of options.
 Available options are:
 - indentLevel: int = 0. The base indent level for all the output messages.
-All the output messages will be indented in relation with this base level.
+         All the output messages will be indented in relation with this base level.
 - application: Uni2\Application\UniToolApplication. The application instance.
 - planetName: string. The name of the planet being processed.
 
@@ -86,6 +86,11 @@ Exceptions thrown
 
 
 
+
+
+Source Code
+===========
+See the source code for method [PostInstallDirectiveHandler::handleDirective](https://github.com/lingtalfi/Uni2/blob/master/PostInstall/DirectiveHandler/PostInstallDirectiveHandler.php#L66-L158)
 
 
 See Also

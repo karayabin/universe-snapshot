@@ -44,6 +44,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [DeployApplication::__construct](https://github.com/lingtalfi/Deploy/blob/master/Application/DeployApplication.php#L62-L118)
+
+
 See Also
 ================
 

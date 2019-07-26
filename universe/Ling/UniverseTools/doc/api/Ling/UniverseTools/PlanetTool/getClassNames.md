@@ -74,6 +74,11 @@ Exceptions thrown
 
 
 
+Source Code
+===========
+See the source code for method [PlanetTool::getClassNames](https://github.com/lingtalfi/UniverseTools/blob/master/PlanetTool.php#L52-L107)
+
+
 See Also
 ================
 

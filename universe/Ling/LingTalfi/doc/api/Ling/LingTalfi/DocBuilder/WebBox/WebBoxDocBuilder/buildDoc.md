@@ -70,6 +70,11 @@ Exceptions thrown
 
 
 
+Source Code
+===========
+See the source code for method [WebBoxDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/WebBox/WebBoxDocBuilder.php#L51-L206)
+
+
 See Also
 ================
 

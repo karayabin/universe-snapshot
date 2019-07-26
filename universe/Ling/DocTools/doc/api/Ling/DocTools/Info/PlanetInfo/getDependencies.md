@@ -45,6 +45,11 @@ Returns array.
 
 
 
+Source Code
+===========
+See the source code for method [PlanetInfo::getDependencies](https://github.com/lingtalfi/DocTools/blob/master/Info/PlanetInfo.php#L55-L58)
+
+
 See Also
 ================
 

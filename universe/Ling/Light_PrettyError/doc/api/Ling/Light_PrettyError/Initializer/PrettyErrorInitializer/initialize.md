@@ -51,6 +51,11 @@ Returns mixed.
 
 
 
+Source Code
+===========
+See the source code for method [PrettyErrorInitializer::initialize](https://github.com/lingtalfi/Light_PrettyError/blob/master/Initializer/PrettyErrorInitializer.php#L24-L50)
+
+
 See Also
 ================
 

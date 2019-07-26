@@ -47,6 +47,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [ArrayVariableResolverUtil::setFirstSymbol](https://github.com/lingtalfi/ArrayVariableResolver/blob/master/ArrayVariableResolverUtil.php#L100-L103)
+
+
 See Also
 ================
 

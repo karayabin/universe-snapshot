@@ -47,6 +47,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [SimpleCurl::addError](https://github.com/lingtalfi/SimpleCurl/blob/master/SimpleCurl.php#L179-L182)
+
+
 See Also
 ================
 

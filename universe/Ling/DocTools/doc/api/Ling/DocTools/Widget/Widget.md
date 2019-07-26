@@ -4,7 +4,7 @@
 
 The Widget class
 ================
-2019-02-21 --> 2019-07-12
+2019-02-21 --> 2019-07-23
 
 
 
@@ -64,7 +64,9 @@ Methods
 
 Location
 =============
-Ling\DocTools\Widget\Widget
+Ling\DocTools\Widget\Widget<br>
+See the source code of [Ling\DocTools\Widget\Widget](https://github.com/lingtalfi/DocTools/blob/master/Widget/Widget.php)
+
 
 
 SeeAlso

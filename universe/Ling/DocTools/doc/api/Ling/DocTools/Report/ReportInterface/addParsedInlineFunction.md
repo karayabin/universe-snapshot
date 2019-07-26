@@ -52,6 +52,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [ReportInterface::addParsedInlineFunction](https://github.com/lingtalfi/DocTools/blob/master/Report/ReportInterface.php#L132-L132)
+
+
 See Also
 ================
 

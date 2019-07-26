@@ -51,6 +51,11 @@ Returns [PasswordField](https://github.com/lingtalfi/Chloroform/blob/master/doc/
 
 
 
+Source Code
+===========
+See the source code for method [PasswordField::create](https://github.com/lingtalfi/Chloroform/blob/master/Field/PasswordField.php#L31-L35)
+
+
 See Also
 ================
 

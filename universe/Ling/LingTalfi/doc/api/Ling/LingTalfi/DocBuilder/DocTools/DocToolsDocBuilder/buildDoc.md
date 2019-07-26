@@ -70,6 +70,11 @@ Exceptions thrown
 
 
 
+Source Code
+===========
+See the source code for method [DocToolsDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/DocTools/DocToolsDocBuilder.php#L50-L271)
+
+
 See Also
 ================
 

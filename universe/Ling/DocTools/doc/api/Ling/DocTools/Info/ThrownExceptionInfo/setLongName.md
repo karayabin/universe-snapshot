@@ -47,6 +47,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [ThrownExceptionInfo::setLongName](https://github.com/lingtalfi/DocTools/blob/master/Info/ThrownExceptionInfo.php#L89-L92)
+
+
 See Also
 ================
 

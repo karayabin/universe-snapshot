@@ -56,6 +56,11 @@ Exceptions thrown
 
 
 
+Source Code
+===========
+See the source code for method [PushCommand::onDiffReady](https://github.com/lingtalfi/Deploy/blob/master/Command/PushCommand.php#L248-L435)
+
+
 See Also
 ================
 

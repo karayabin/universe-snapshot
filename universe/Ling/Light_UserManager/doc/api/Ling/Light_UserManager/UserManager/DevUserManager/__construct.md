@@ -44,6 +44,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [DevUserManager::__construct](https://github.com/lingtalfi/Light_UserManager/blob/master/UserManager/DevUserManager.php#L33-L36)
+
+
 See Also
 ================
 

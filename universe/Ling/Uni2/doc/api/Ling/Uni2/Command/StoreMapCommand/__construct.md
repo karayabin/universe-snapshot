@@ -44,6 +44,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [StoreMapCommand::__construct](https://github.com/lingtalfi/Uni2/blob/master/Command/StoreMapCommand.php#L22-L27)
+
+
 See Also
 ================
 

@@ -4,7 +4,7 @@
 
 The FileMimeTypeValidator class
 ================
-2019-04-10 --> 2019-04-30
+2019-04-10 --> 2019-07-26
 
 
 
@@ -91,7 +91,9 @@ Methods
 
 Location
 =============
-Ling\Chloroform\Validator\FileMimeTypeValidator
+Ling\Chloroform\Validator\FileMimeTypeValidator<br>
+See the source code of [Ling\Chloroform\Validator\FileMimeTypeValidator](https://github.com/lingtalfi/Chloroform/blob/master/Validator/FileMimeTypeValidator.php)
+
 
 
 SeeAlso

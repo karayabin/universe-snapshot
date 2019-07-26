@@ -72,6 +72,11 @@ Exceptions thrown
 
 
 
+Source Code
+===========
+See the source code for method [AbstractBackupCommand::createArchive](https://github.com/lingtalfi/Deploy/blob/master/Command/AbstractBackupCommand.php#L86-L174)
+
+
 See Also
 ================
 

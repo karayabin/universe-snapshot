@@ -45,6 +45,11 @@ Returns string.
 
 
 
+Source Code
+===========
+See the source code for method [FieldInterface::getId](https://github.com/lingtalfi/Chloroform/blob/master/Field/FieldInterface.php#L20-L20)
+
+
 See Also
 ================
 

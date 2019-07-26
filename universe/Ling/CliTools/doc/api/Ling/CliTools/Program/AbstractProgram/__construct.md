@@ -44,6 +44,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [AbstractProgram::__construct](https://github.com/lingtalfi/CliTools/blob/master/Program/AbstractProgram.php#L96-L102)
+
+
 See Also
 ================
 

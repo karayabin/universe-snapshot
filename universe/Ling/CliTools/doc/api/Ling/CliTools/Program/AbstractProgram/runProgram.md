@@ -53,6 +53,11 @@ If null is returned, 0 should be assumed.
 
 
 
+Source Code
+===========
+See the source code for method [AbstractProgram::runProgram](https://github.com/lingtalfi/CliTools/blob/master/Program/AbstractProgram.php#L190-L190)
+
+
 See Also
 ================
 

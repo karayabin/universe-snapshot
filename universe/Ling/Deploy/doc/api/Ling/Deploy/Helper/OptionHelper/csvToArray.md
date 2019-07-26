@@ -47,6 +47,11 @@ Returns array.
 
 
 
+Source Code
+===========
+See the source code for method [OptionHelper::csvToArray](https://github.com/lingtalfi/Deploy/blob/master/Helper/OptionHelper.php#L20-L25)
+
+
 See Also
 ================
 

@@ -49,6 +49,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [HydrogenRenderer::printErrorSummary](https://github.com/lingtalfi/Chloroform_HydrogenRenderer/blob/master/HydrogenRenderer.php#L262-L295)
+
+
 See Also
 ================
 

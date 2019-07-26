@@ -54,6 +54,11 @@ Returns mixed.
 
 
 
+Source Code
+===========
+See the source code for method [UniToolApplication::getConfValue](https://github.com/lingtalfi/Uni2/blob/master/Application/UniToolApplication.php#L410-L414)
+
+
 See Also
 ================
 

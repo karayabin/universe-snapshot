@@ -1,6 +1,8 @@
 dependencies: 
     Ling: 
         - BabyYaml
+        - Bat
+        - DirScanner
         - HtmlPageTools
     
 

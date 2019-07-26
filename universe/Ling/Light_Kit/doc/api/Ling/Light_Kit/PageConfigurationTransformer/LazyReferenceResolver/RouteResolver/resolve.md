@@ -71,6 +71,11 @@ Exceptions thrown
 
 
 
+Source Code
+===========
+See the source code for method [RouteResolver::resolve](https://github.com/lingtalfi/Light_Kit/blob/master/PageConfigurationTransformer/LazyReferenceResolver/RouteResolver.php#L41-L50)
+
+
 See Also
 ================
 

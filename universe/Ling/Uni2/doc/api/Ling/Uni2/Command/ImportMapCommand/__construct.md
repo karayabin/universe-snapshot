@@ -44,6 +44,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [ImportMapCommand::__construct](https://github.com/lingtalfi/Uni2/blob/master/Command/ImportMapCommand.php#L22-L26)
+
+
 See Also
 ================
 

@@ -51,6 +51,11 @@ Exceptions thrown
 
 
 
+Source Code
+===========
+See the source code for method [UpdateAllPlanetsTool::updateAllPlanets](https://github.com/lingtalfi/LingTalfi/blob/master/Tools/UpdateAllPlanetsTool.php#L67-L77)
+
+
 See Also
 ================
 

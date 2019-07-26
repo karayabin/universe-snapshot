@@ -47,6 +47,11 @@ Returns [CustomValidator](https://github.com/lingtalfi/Chloroform/blob/master/do
 
 
 
+Source Code
+===========
+See the source code for method [CustomValidator::create](https://github.com/lingtalfi/Chloroform/blob/master/Validator/CustomValidator.php#L45-L48)
+
+
 See Also
 ================
 

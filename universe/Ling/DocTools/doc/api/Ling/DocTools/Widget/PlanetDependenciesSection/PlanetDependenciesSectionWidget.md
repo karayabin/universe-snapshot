@@ -4,7 +4,7 @@
 
 The PlanetDependenciesSectionWidget class
 ================
-2019-02-21 --> 2019-07-12
+2019-02-21 --> 2019-07-23
 
 
 
@@ -76,7 +76,9 @@ Methods
 
 Location
 =============
-Ling\DocTools\Widget\PlanetDependenciesSection\PlanetDependenciesSectionWidget
+Ling\DocTools\Widget\PlanetDependenciesSection\PlanetDependenciesSectionWidget<br>
+See the source code of [Ling\DocTools\Widget\PlanetDependenciesSection\PlanetDependenciesSectionWidget](https://github.com/lingtalfi/DocTools/blob/master/Widget/PlanetDependenciesSection/PlanetDependenciesSectionWidget.php)
+
 
 
 SeeAlso

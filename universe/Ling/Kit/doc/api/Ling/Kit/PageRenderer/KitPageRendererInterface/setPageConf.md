@@ -47,6 +47,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [KitPageRendererInterface::setPageConf](https://github.com/lingtalfi/Kit/blob/master/PageRenderer/KitPageRendererInterface.php#L22-L22)
+
+
 See Also
 ================
 

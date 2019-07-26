@@ -44,6 +44,11 @@ Returns string.
 
 
 
+Source Code
+===========
+See the source code for method [MethodInfo::getReturnDescription](https://github.com/lingtalfi/DocTools/blob/master/Info/MethodInfo.php#L293-L296)
+
+
 See Also
 ================
 

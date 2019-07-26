@@ -53,6 +53,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [ArrayInput::setItems](https://github.com/lingtalfi/CliTools/blob/master/Input/ArrayInput.php#L80-L97)
+
+
 See Also
 ================
 

@@ -4,7 +4,7 @@
 
 The FieldHelper class
 ================
-2019-04-10 --> 2019-04-30
+2019-04-10 --> 2019-07-26
 
 
 
@@ -51,7 +51,9 @@ Methods
 
 Location
 =============
-Ling\Chloroform\Helper\FieldHelper
+Ling\Chloroform\Helper\FieldHelper<br>
+See the source code of [Ling\Chloroform\Helper\FieldHelper](https://github.com/lingtalfi/Chloroform/blob/master/Helper/FieldHelper.php)
+
 
 
 SeeAlso

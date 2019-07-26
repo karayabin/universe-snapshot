@@ -44,6 +44,11 @@ Returns array.
 
 
 
+Source Code
+===========
+See the source code for method [WebsiteLightUser::getRights](https://github.com/lingtalfi/Light_User/blob/master/WebsiteLightUser.php#L324-L327)
+
+
 See Also
 ================
 

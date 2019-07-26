@@ -54,6 +54,11 @@ Exceptions thrown
 
 
 
+Source Code
+===========
+See the source code for method [HtmlPageRenderer::printBottom](https://github.com/lingtalfi/HtmlPageTools/blob/master/Renderer/HtmlPageRenderer.php#L123-L138)
+
+
 See Also
 ================
 

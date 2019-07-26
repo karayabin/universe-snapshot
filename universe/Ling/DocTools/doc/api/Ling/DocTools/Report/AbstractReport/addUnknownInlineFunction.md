@@ -47,6 +47,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [AbstractReport::addUnknownInlineFunction](https://github.com/lingtalfi/DocTools/blob/master/Report/AbstractReport.php#L360-L368)
+
+
 See Also
 ================
 

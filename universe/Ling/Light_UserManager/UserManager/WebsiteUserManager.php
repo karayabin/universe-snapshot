@@ -80,6 +80,23 @@ class WebsiteUserManager implements LightUserManagerInterface
         $_SESSION[$this->sessionKey] = $user;
     }
 
+    /**
+     * Sets the user only if there is no user in the session.
+     *
+     * This method can be useful for testing purpose,
+     * but in a prod app, you will generally not need it.
+     *
+     *
+     * @param LightUserInterface $user
+     */
+    public function setUserOnce(LightUserInterface $user)
+    {
+        $this->startPhpSession();
+        if (false === array_key_exists($this->sessionKey, $_SESSION)) {
+            $_SESSION[$this->sessionKey] = $user;
+        }
+    }
+
     //--------------------------------------------
     //
     //--------------------------------------------

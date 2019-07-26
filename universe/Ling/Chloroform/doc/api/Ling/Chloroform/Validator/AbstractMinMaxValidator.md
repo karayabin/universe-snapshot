@@ -4,7 +4,7 @@
 
 The AbstractMinMaxValidator class
 ================
-2019-04-10 --> 2019-04-30
+2019-04-10 --> 2019-07-26
 
 
 
@@ -97,7 +97,9 @@ Methods
 
 Location
 =============
-Ling\Chloroform\Validator\AbstractMinMaxValidator
+Ling\Chloroform\Validator\AbstractMinMaxValidator<br>
+See the source code of [Ling\Chloroform\Validator\AbstractMinMaxValidator](https://github.com/lingtalfi/Chloroform/blob/master/Validator/AbstractMinMaxValidator.php)
+
 
 
 SeeAlso

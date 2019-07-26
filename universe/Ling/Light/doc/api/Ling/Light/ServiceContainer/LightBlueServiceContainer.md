@@ -4,7 +4,7 @@
 
 The LightBlueServiceContainer class
 ================
-2019-04-09 --> 2019-07-11
+2019-04-09 --> 2019-07-18
 
 
 
@@ -55,7 +55,9 @@ Methods
 
 Location
 =============
-Ling\Light\ServiceContainer\LightBlueServiceContainer
+Ling\Light\ServiceContainer\LightBlueServiceContainer<br>
+See the source code of [Ling\Light\ServiceContainer\LightBlueServiceContainer](https://github.com/lingtalfi/Light/blob/master/ServiceContainer/LightBlueServiceContainer.php)
+
 
 
 SeeAlso

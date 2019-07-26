@@ -4,7 +4,7 @@
 
 The UnzipCommand class
 ================
-2019-04-03 --> 2019-05-10
+2019-04-03 --> 2019-07-18
 
 
 
@@ -66,7 +66,9 @@ Methods
 
 Location
 =============
-Ling\Deploy\Command\UnzipCommand
+Ling\Deploy\Command\UnzipCommand<br>
+See the source code of [Ling\Deploy\Command\UnzipCommand](https://github.com/lingtalfi/Deploy/blob/master/Command/UnzipCommand.php)
+
 
 
 SeeAlso

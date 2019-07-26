@@ -44,6 +44,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [AbstractInput::__construct](https://github.com/lingtalfi/CliTools/blob/master/Input/AbstractInput.php#L48-L53)
+
+
 See Also
 ================
 

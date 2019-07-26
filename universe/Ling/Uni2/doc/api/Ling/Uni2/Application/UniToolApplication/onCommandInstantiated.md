@@ -48,6 +48,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [UniToolApplication::onCommandInstantiated](https://github.com/lingtalfi/Uni2/blob/master/Application/UniToolApplication.php#L707-L714)
+
+
 See Also
 ================
 

@@ -4,7 +4,7 @@
 
 The WidgetConfAwarePicassoWidgetInterface class
 ================
-2019-04-24 --> 2019-07-11
+2019-04-24 --> 2019-07-24
 
 
 
@@ -50,7 +50,9 @@ Methods
 
 Location
 =============
-Ling\Kit_PicassoWidget\Widget\WidgetConfAwarePicassoWidgetInterface
+Ling\Kit_PicassoWidget\Widget\WidgetConfAwarePicassoWidgetInterface<br>
+See the source code of [Ling\Kit_PicassoWidget\Widget\WidgetConfAwarePicassoWidgetInterface](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/Widget/WidgetConfAwarePicassoWidgetInterface.php)
+
 
 
 SeeAlso

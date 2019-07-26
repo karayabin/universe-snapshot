@@ -47,6 +47,11 @@ Returns string.
 
 
 
+Source Code
+===========
+See the source code for method [DumbFormatter::format](https://github.com/lingtalfi/CliTools/blob/master/Formatter/DumbFormatter.php#L21-L24)
+
+
 See Also
 ================
 

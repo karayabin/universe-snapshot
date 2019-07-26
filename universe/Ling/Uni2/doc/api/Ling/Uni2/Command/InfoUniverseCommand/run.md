@@ -58,6 +58,11 @@ If null, 0 should be assumed.
 
 
 
+Source Code
+===========
+See the source code for method [InfoUniverseCommand::run](https://github.com/lingtalfi/Uni2/blob/master/Command/InfoUniverseCommand.php#L38-L81)
+
+
 See Also
 ================
 

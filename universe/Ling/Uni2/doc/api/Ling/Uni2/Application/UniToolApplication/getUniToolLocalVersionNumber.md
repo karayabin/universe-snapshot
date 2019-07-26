@@ -53,6 +53,11 @@ Exceptions thrown
 
 
 
+Source Code
+===========
+See the source code for method [UniToolApplication::getUniToolLocalVersionNumber](https://github.com/lingtalfi/Uni2/blob/master/Application/UniToolApplication.php#L519-L523)
+
+
 See Also
 ================
 

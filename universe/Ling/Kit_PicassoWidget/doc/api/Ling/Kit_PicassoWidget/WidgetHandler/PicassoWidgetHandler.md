@@ -4,7 +4,7 @@
 
 The PicassoWidgetHandler class
 ================
-2019-04-24 --> 2019-07-11
+2019-04-24 --> 2019-07-24
 
 
 
@@ -156,7 +156,9 @@ Methods
 
 Location
 =============
-Ling\Kit_PicassoWidget\WidgetHandler\PicassoWidgetHandler
+Ling\Kit_PicassoWidget\WidgetHandler\PicassoWidgetHandler<br>
+See the source code of [Ling\Kit_PicassoWidget\WidgetHandler\PicassoWidgetHandler](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/WidgetHandler/PicassoWidgetHandler.php)
+
 
 
 SeeAlso

@@ -1,0 +1,13 @@
+dependencies: 
+    Ling: 
+        - BabyYaml
+        - Light
+        - Light_Database
+        - Light_Initializer
+        - MysqlCreateTableUtil
+        - SimplePdoWrapper
+        - SqlWizard
+    
+
+post_install: 
+    map: true

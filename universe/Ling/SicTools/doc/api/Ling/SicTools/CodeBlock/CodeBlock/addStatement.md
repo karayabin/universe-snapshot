@@ -47,6 +47,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [CodeBlock::addStatement](https://github.com/lingtalfi/SicTools/blob/master/CodeBlock/CodeBlock.php#L33-L36)
+
+
 See Also
 ================
 

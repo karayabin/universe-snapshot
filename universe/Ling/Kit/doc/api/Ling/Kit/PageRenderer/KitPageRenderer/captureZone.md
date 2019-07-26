@@ -58,6 +58,11 @@ Exceptions thrown
 
 
 
+Source Code
+===========
+See the source code for method [KitPageRenderer::captureZone](https://github.com/lingtalfi/Kit/blob/master/PageRenderer/KitPageRenderer.php#L359-L441)
+
+
 See Also
 ================
 

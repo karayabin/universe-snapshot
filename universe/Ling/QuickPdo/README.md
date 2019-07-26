@@ -604,11 +604,21 @@ Then the results will look like this on the console:
 
 
  
+Related
+----------
+- [SimplePdoWrapper](https://github.com/lingtalfi/SimplePdoWrapper), the new pdo library (it's better than QuickPdo, but uses the same basis)
+
+
+
  
  
 History Log
 ------------------
 
+- 2.41.1 -- 2019-07-19
+
+    - update documentation, add related section
+    
 - 2.41.0 -- 2018-06-19
 
     - add QuickPdoStmtTool::likePrefix and likeSuffix methods

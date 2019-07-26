@@ -47,6 +47,11 @@ Returns [MinMaxNumberValidator](https://github.com/lingtalfi/Chloroform/blob/mas
 
 
 
+Source Code
+===========
+See the source code for method [MinMaxNumberValidator::setMin](https://github.com/lingtalfi/Chloroform/blob/master/Validator/MinMaxNumberValidator.php#L31-L35)
+
+
 See Also
 ================
 

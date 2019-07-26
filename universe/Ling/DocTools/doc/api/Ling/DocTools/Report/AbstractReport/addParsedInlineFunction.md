@@ -52,6 +52,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [AbstractReport::addParsedInlineFunction](https://github.com/lingtalfi/DocTools/blob/master/Report/AbstractReport.php#L331-L340)
+
+
 See Also
 ================
 

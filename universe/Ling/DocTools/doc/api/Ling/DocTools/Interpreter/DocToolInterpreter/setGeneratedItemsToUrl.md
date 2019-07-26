@@ -47,6 +47,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [DocToolInterpreter::setGeneratedItemsToUrl](https://github.com/lingtalfi/DocTools/blob/master/Interpreter/DocToolInterpreter.php#L151-L154)
+
+
 See Also
 ================
 

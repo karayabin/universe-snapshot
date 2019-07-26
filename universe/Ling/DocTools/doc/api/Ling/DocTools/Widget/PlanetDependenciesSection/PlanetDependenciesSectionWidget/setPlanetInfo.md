@@ -47,6 +47,11 @@ Returns [PlanetDependenciesSectionWidget](https://github.com/lingtalfi/DocTools/
 
 
 
+Source Code
+===========
+See the source code for method [PlanetDependenciesSectionWidget::setPlanetInfo](https://github.com/lingtalfi/DocTools/blob/master/Widget/PlanetDependenciesSection/PlanetDependenciesSectionWidget.php#L41-L45)
+
+
 See Also
 ================
 

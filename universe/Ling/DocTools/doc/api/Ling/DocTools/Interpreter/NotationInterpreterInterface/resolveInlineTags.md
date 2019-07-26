@@ -52,6 +52,11 @@ Returns string.
 
 
 
+Source Code
+===========
+See the source code for method [NotationInterpreterInterface::resolveInlineTags](https://github.com/lingtalfi/DocTools/blob/master/Interpreter/NotationInterpreterInterface.php#L28-L28)
+
+
 See Also
 ================
 

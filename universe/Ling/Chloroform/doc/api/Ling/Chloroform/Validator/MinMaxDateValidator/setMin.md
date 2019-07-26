@@ -47,6 +47,11 @@ Returns [MinMaxDateValidator](https://github.com/lingtalfi/Chloroform/blob/maste
 
 
 
+Source Code
+===========
+See the source code for method [MinMaxDateValidator::setMin](https://github.com/lingtalfi/Chloroform/blob/master/Validator/MinMaxDateValidator.php#L36-L40)
+
+
 See Also
 ================
 

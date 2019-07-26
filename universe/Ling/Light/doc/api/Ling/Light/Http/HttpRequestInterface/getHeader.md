@@ -51,6 +51,11 @@ Returns string | mixed.
 
 
 
+Source Code
+===========
+See the source code for method [HttpRequestInterface::getHeader](https://github.com/lingtalfi/Light/blob/master/Http/HttpRequestInterface.php#L124-L124)
+
+
 See Also
 ================
 

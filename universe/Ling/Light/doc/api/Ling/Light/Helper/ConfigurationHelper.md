@@ -4,7 +4,7 @@
 
 The ConfigurationHelper class
 ================
-2019-04-09 --> 2019-07-11
+2019-04-09 --> 2019-07-18
 
 
 
@@ -45,7 +45,9 @@ Methods
 
 Location
 =============
-Ling\Light\Helper\ConfigurationHelper
+Ling\Light\Helper\ConfigurationHelper<br>
+See the source code of [Ling\Light\Helper\ConfigurationHelper](https://github.com/lingtalfi/Light/blob/master/Helper/ConfigurationHelper.php)
+
 
 
 SeeAlso

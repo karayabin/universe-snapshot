@@ -47,6 +47,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [WidgetConfAwarePicassoWidgetInterface::setWidgetConf](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/Widget/WidgetConfAwarePicassoWidgetInterface.php#L22-L22)
+
+
 See Also
 ================
 

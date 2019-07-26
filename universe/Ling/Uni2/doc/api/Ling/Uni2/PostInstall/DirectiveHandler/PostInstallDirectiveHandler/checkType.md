@@ -64,6 +64,11 @@ Returns bool.
 
 
 
+Source Code
+===========
+See the source code for method [PostInstallDirectiveHandler::checkType](https://github.com/lingtalfi/Uni2/blob/master/PostInstall/DirectiveHandler/PostInstallDirectiveHandler.php#L183-L192)
+
+
 See Also
 ================
 

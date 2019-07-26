@@ -51,6 +51,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [ReportInterface::addUnresolvedClassReference](https://github.com/lingtalfi/DocTools/blob/master/Report/ReportInterface.php#L270-L270)
+
+
 See Also
 ================
 

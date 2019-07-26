@@ -7,7 +7,7 @@ Chloroform::getPostedData
 
 
 
-Chloroform::getPostedData — Returns an array of posted data.
+Chloroform::getPostedData — Returns an array of posted data (for this instance).
 
 
 
@@ -21,7 +21,7 @@ public [Chloroform::getPostedData](https://github.com/lingtalfi/Chloroform/blob/
 
 
 
-Returns an array of posted data.
+Returns an array of posted data (for this instance).
 
 The posted data is empty if no form was posted, and otherwise is the
 array described in [the postedData section](https://github.com/lingtalfi/Chloroform/blob/master/doc/pages/chloroform-discussion.md#the-posted-data).
@@ -48,6 +48,11 @@ Returns array.
 
 
 
+
+
+Source Code
+===========
+See the source code for method [Chloroform::getPostedData](https://github.com/lingtalfi/Chloroform/blob/master/Form/Chloroform.php#L114-L121)
 
 
 See Also

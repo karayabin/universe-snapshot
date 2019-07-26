@@ -4,7 +4,7 @@
 
 The BufferedOutput class
 ================
-2019-02-26 --> 2019-03-26
+2019-02-26 --> 2019-07-18
 
 
 
@@ -67,7 +67,9 @@ Methods
 
 Location
 =============
-Ling\CliTools\Output\BufferedOutput
+Ling\CliTools\Output\BufferedOutput<br>
+See the source code of [Ling\CliTools\Output\BufferedOutput](https://github.com/lingtalfi/CliTools/blob/master/Output/BufferedOutput.php)
+
 
 
 SeeAlso

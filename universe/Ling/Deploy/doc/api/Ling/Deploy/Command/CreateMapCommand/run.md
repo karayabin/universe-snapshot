@@ -58,6 +58,11 @@ If null, 0 should be assumed.
 
 
 
+Source Code
+===========
+See the source code for method [CreateMapCommand::run](https://github.com/lingtalfi/Deploy/blob/master/Command/CreateMapCommand.php#L46-L147)
+
+
 See Also
 ================
 

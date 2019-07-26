@@ -44,6 +44,11 @@ Returns array.
 
 
 
+Source Code
+===========
+See the source code for method [HistoryInterface::all](https://github.com/lingtalfi/EasyConsoleMenu/blob/master/History/HistoryInterface.php#L63-L63)
+
+
 See Also
 ================
 

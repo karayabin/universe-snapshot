@@ -47,6 +47,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [PlanetParser::setNotationInterpreter](https://github.com/lingtalfi/DocTools/blob/master/PlanetParser/PlanetParser.php#L207-L210)
+
+
 See Also
 ================
 

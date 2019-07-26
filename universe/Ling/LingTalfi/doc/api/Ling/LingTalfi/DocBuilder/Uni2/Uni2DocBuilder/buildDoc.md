@@ -70,6 +70,11 @@ Exceptions thrown
 
 
 
+Source Code
+===========
+See the source code for method [Uni2DocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Uni2/Uni2DocBuilder.php#L50-L282)
+
+
 See Also
 ================
 

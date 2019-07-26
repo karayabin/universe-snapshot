@@ -47,6 +47,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [MethodInfo::setReflectionMethod](https://github.com/lingtalfi/DocTools/blob/master/Info/MethodInfo.php#L210-L213)
+
+
 See Also
 ================
 

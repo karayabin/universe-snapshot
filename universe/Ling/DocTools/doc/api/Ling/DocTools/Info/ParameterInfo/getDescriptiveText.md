@@ -44,6 +44,11 @@ Returns string | null.
 
 
 
+Source Code
+===========
+See the source code for method [ParameterInfo::getDescriptiveText](https://github.com/lingtalfi/DocTools/blob/master/Info/ParameterInfo.php#L144-L147)
+
+
 See Also
 ================
 

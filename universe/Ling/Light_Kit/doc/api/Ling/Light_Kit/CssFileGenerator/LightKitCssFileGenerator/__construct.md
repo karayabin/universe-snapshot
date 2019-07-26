@@ -51,6 +51,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [LightKitCssFileGenerator::__construct](https://github.com/lingtalfi/Light_Kit/blob/master/CssFileGenerator/LightKitCssFileGenerator.php#L59-L67)
+
+
 See Also
 ================
 

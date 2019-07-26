@@ -55,6 +55,11 @@ Returns false | array.
 
 
 
+Source Code
+===========
+See the source code for method [LightRouter::match](https://github.com/lingtalfi/Light/blob/master/Router/LightRouter.php#L18-L27)
+
+
 See Also
 ================
 

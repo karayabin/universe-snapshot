@@ -49,10 +49,15 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [WebsiteUserManager::setUser](https://github.com/lingtalfi/Light_UserManager/blob/master/UserManager/WebsiteUserManager.php#L77-L81)
+
+
 See Also
 ================
 
 The [WebsiteUserManager](https://github.com/lingtalfi/Light_UserManager/blob/master/doc/api/Ling/Light_UserManager/UserManager/WebsiteUserManager.md) class.
 
-Previous method: [getUser](https://github.com/lingtalfi/Light_UserManager/blob/master/doc/api/Ling/Light_UserManager/UserManager/WebsiteUserManager/getUser.md)<br>Next method: [startPhpSession](https://github.com/lingtalfi/Light_UserManager/blob/master/doc/api/Ling/Light_UserManager/UserManager/WebsiteUserManager/startPhpSession.md)<br>
+Previous method: [getUser](https://github.com/lingtalfi/Light_UserManager/blob/master/doc/api/Ling/Light_UserManager/UserManager/WebsiteUserManager/getUser.md)<br>Next method: [setUserOnce](https://github.com/lingtalfi/Light_UserManager/blob/master/doc/api/Ling/Light_UserManager/UserManager/WebsiteUserManager/setUserOnce.md)<br>
 

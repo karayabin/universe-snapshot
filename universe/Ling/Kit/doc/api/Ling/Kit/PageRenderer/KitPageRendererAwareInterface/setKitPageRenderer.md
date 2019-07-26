@@ -47,6 +47,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [KitPageRendererAwareInterface::setKitPageRenderer](https://github.com/lingtalfi/Kit/blob/master/PageRenderer/KitPageRendererAwareInterface.php#L20-L20)
+
+
 See Also
 ================
 

@@ -3,4 +3,5 @@ dependencies:
         - ZephyrTemplateEngine
     
 
-post_install: []
+post_install: 
+    map: true

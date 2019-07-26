@@ -4,7 +4,7 @@
 
 The ProjectInfo class
 ================
-2019-03-18 --> 2019-03-18
+2019-03-18 --> 2019-07-18
 
 
 
@@ -90,6 +90,8 @@ However, if it's called from a console, it will display the following:
 
 Location
 =============
-Ling\ProjectInfo\ProjectInfo
+Ling\ProjectInfo\ProjectInfo<br>
+See the source code of [Ling\ProjectInfo\ProjectInfo](https://github.com/lingtalfi/ProjectInfo/blob/master/ProjectInfo.php)
+
 
 

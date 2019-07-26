@@ -44,6 +44,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [ZephyrTemplateEngine::__construct](https://github.com/lingtalfi/ZephyrTemplateEngine/blob/master/ZephyrTemplateEngine.php#L35-L39)
+
+
 See Also
 ================
 

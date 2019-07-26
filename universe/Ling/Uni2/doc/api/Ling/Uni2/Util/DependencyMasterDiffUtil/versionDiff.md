@@ -30,9 +30,9 @@ The returned array is an array of incrementItems:
 
 ```yaml
 $n:
-planet: $galaxyName/$planetName
-old_version: $olderVersionNumber|null (null if the old version doesn't exist: it's a new planet)
-new_version: $newerVersionNumber
+     planet: $galaxyName/$planetName
+     old_version: $olderVersionNumber|null (null if the old version doesn't exist: it's a new planet)
+     new_version: $newerVersionNumber
 ```
 
 
@@ -61,6 +61,11 @@ Returns array.
 
 
 
+
+
+Source Code
+===========
+See the source code for method [DependencyMasterDiffUtil::versionDiff](https://github.com/lingtalfi/Uni2/blob/master/Util/DependencyMasterDiffUtil.php#L41-L48)
 
 
 See Also

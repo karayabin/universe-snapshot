@@ -4,7 +4,7 @@
 
 The PackUni2Command class
 ================
-2019-03-12 --> 2019-04-05
+2019-03-12 --> 2019-07-18
 
 
 
@@ -41,9 +41,9 @@ Options
 Flags
 -----------
 - -f: force mode. By default, if a file exists at the path specified with the $path option,
-then the command does nothing (it aborts).
-To force the creation of the directory, set this flag: it will remove the **$path** directory/entry if
-it exists before creating the new directory.
+     then the command does nothing (it aborts).
+     To force the creation of the directory, set this flag: it will remove the **$path** directory/entry if
+     it exists before creating the new directory.
 
 
 
@@ -83,7 +83,9 @@ Methods
 
 Location
 =============
-Ling\Uni2\Command\Internal\PackUni2Command
+Ling\Uni2\Command\Internal\PackUni2Command<br>
+See the source code of [Ling\Uni2\Command\Internal\PackUni2Command](https://github.com/lingtalfi/Uni2/blob/master/Command/Internal/PackUni2Command.php)
+
 
 
 SeeAlso

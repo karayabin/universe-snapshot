@@ -36,6 +36,14 @@ Summary
 History Log
 =============
 
+- 1.1.2 -- 2019-07-23
+
+    - fix ArrayVariableResolverUtil->resolve not accepting null values as inline replacement 
+    
+- 1.1.1 -- 2019-07-18
+
+    - update docTools documentation, add links to source code for classes and methods
+    
 - 1.1.0 -- 2019-05-15
 
     - fix ArrayVariableResolverUtil accepting only one char length symbols

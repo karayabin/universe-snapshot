@@ -4,7 +4,7 @@
 
 The PrettyErrorInitializer class
 ================
-2019-04-05 --> 2019-04-09
+2019-04-05 --> 2019-07-18
 
 
 
@@ -45,7 +45,9 @@ Methods
 
 Location
 =============
-Ling\Light_PrettyError\Initializer\PrettyErrorInitializer
+Ling\Light_PrettyError\Initializer\PrettyErrorInitializer<br>
+See the source code of [Ling\Light_PrettyError\Initializer\PrettyErrorInitializer](https://github.com/lingtalfi/Light_PrettyError/blob/master/Initializer/PrettyErrorInitializer.php)
+
 
 
 SeeAlso

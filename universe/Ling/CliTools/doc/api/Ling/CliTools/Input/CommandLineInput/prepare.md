@@ -48,6 +48,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [CommandLineInput::prepare](https://github.com/lingtalfi/CliTools/blob/master/Input/CommandLineInput.php#L109-L157)
+
+
 See Also
 ================
 

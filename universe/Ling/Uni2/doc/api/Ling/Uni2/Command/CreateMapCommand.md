@@ -4,7 +4,7 @@
 
 The CreateMapCommand class
 ================
-2019-03-12 --> 2019-04-05
+2019-03-12 --> 2019-07-18
 
 
 
@@ -60,7 +60,7 @@ Options
 -----------
 
 - -f: force mode. By default, the command will not overwrite an existing map.
-To overwrite an existing map, set this flag.
+         To overwrite an existing map, set this flag.
 
 
 
@@ -100,7 +100,9 @@ Methods
 
 Location
 =============
-Ling\Uni2\Command\CreateMapCommand
+Ling\Uni2\Command\CreateMapCommand<br>
+See the source code of [Ling\Uni2\Command\CreateMapCommand](https://github.com/lingtalfi/Uni2/blob/master/Command/CreateMapCommand.php)
+
 
 
 SeeAlso

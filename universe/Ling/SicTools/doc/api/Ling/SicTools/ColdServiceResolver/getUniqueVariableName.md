@@ -44,6 +44,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [ColdServiceResolver::getUniqueVariableName](https://github.com/lingtalfi/SicTools/blob/master/ColdServiceResolver.php#L340-L343)
+
+
 See Also
 ================
 

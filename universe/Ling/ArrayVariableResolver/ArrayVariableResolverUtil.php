@@ -157,6 +157,10 @@ class ArrayVariableResolverUtil
                                 BDotTool::setDotValue($dotPath, $replace, $array);
                             } else {
                                 // inline mode, only string and number will render correctly
+
+                                if (null === $replace) { // convert null to empty string
+                                    $replace = "";
+                                }
                                 if (is_string($replace) || is_int($replace) || is_float($replace)) {
                                     $v = str_replace($this->firstSymbol . $this->openingBracket . $varName . $this->closingBracket, $replace, $v);
                                 } else {

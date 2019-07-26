@@ -51,6 +51,11 @@ Returns array.
 
 
 
+Source Code
+===========
+See the source code for method [HttpRequest::getHeaders](https://github.com/lingtalfi/Light/blob/master/Http/HttpRequest.php#L301-L304)
+
+
 See Also
 ================
 

@@ -44,6 +44,11 @@ Returns array.
 
 
 
+Source Code
+===========
+See the source code for method [SimpleCurl::getErrors](https://github.com/lingtalfi/SimpleCurl/blob/master/SimpleCurl.php#L60-L63)
+
+
 See Also
 ================
 

@@ -44,6 +44,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [StoreGalaxyCommand::__construct](https://github.com/lingtalfi/Uni2/blob/master/Command/StoreGalaxyCommand.php#L28-L33)
+
+
 See Also
 ================
 

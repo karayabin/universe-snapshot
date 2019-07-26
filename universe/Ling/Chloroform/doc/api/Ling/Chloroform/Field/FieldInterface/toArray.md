@@ -57,6 +57,11 @@ Returns array.
 
 
 
+Source Code
+===========
+See the source code for method [FieldInterface::toArray](https://github.com/lingtalfi/Chloroform/blob/master/Field/FieldInterface.php#L102-L102)
+
+
 See Also
 ================
 

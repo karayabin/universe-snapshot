@@ -47,6 +47,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [SimpleCurlResponse::setHeaders](https://github.com/lingtalfi/SimpleCurl/blob/master/Response/SimpleCurlResponse.php#L96-L99)
+
+
 See Also
 ================
 

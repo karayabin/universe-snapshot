@@ -4,7 +4,7 @@
 
 The GeneratedDocStyleInterface class
 ================
-2019-02-21 --> 2019-07-12
+2019-02-21 --> 2019-07-23
 
 
 
@@ -55,7 +55,9 @@ Methods
 
 Location
 =============
-Ling\DocTools\GeneratedDocStyle\GeneratedDocStyleInterface
+Ling\DocTools\GeneratedDocStyle\GeneratedDocStyleInterface<br>
+See the source code of [Ling\DocTools\GeneratedDocStyle\GeneratedDocStyleInterface](https://github.com/lingtalfi/DocTools/blob/master/GeneratedDocStyle/GeneratedDocStyleInterface.php)
+
 
 
 SeeAlso

@@ -53,6 +53,11 @@ Returns false | string.
 
 
 
+Source Code
+===========
+See the source code for method [DependencyMasterHelper::findGalaxyByPlanet](https://github.com/lingtalfi/Uni2/blob/master/Helper/DependencyMasterHelper.php#L29-L39)
+
+
 See Also
 ================
 

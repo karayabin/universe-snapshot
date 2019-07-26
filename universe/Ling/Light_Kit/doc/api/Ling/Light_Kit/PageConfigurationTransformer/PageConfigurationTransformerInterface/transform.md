@@ -47,6 +47,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [PageConfigurationTransformerInterface::transform](https://github.com/lingtalfi/Light_Kit/blob/master/PageConfigurationTransformer/PageConfigurationTransformerInterface.php#L20-L20)
+
+
 See Also
 ================
 

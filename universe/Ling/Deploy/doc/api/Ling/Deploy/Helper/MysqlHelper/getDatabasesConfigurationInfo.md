@@ -84,6 +84,11 @@ Returns array | false.
 
 
 
+Source Code
+===========
+See the source code for method [MysqlHelper::getDatabasesConfigurationInfo](https://github.com/lingtalfi/Deploy/blob/master/Helper/MysqlHelper.php#L58-L105)
+
+
 See Also
 ================
 

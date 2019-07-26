@@ -68,6 +68,11 @@ Exceptions thrown
 
 
 
+Source Code
+===========
+See the source code for method [Kit_PicassoWidgetDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Kit_PicassoWidget/Kit_PicassoWidgetDocBuilder.php#L44-L214)
+
+
 See Also
 ================
 

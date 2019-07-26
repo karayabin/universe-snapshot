@@ -57,7 +57,11 @@ Summary
 - [ZeroAdminHeaderNewNotificationsIconLinkWidget](#zeroadminheadernewnotificationsiconlinkwidget)
 - [ZeroAdminHeaderProfileDropdownLinkWidget](#zeroadminheaderprofiledropdownlinkwidget)
 - [ZeroAdminHeaderWidget](#zeroadminheaderwidget)
+- [ZeroAdminLoginFormWidget](#zeroadminloginformwidget)
+- [ZeroAdminNotificationAlertWidget](#zeroadminnotificationalertwidget)
+- [ZeroAdminNotificationToastWidget](#zeroadminnotificationtoastwidget)
 - [ZeroAdminSidebarWidget](#zeroadminsidebarwidget)
+- [ZeroAdminStatSummaryIconWidget](#zeroadminstatsummaryiconwidget)
 
 
 
@@ -99,7 +103,7 @@ When an element is empty (for instance if we set the subtitle to an empty string
 BlogCardsWidget screenshots
 ----------
 
-![Screenshot glozzom_three_columns_blog_cards.jpg](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/BlogCardsWidget/glozzom_three_columns_blog_cards.jpg)
+Image 1: glozzom_three_columns_blog_cards.jpg<br>![Screenshot glozzom_three_columns_blog_cards.jpg](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/BlogCardsWidget/glozzom_three_columns_blog_cards.jpg)
 
 
 
@@ -300,9 +304,9 @@ We can force it to be always visible with the "pagination_always_visible" proper
 BlogenAdminTableWidget screenshots
 ----------
 
-![Screenshot blogen_admin_table-with_pagination.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/BlogenAdminTableWidget/blogen_admin_table-with_pagination.png)
+Image 1: blogen_admin_table-with_pagination.png<br>![Screenshot blogen_admin_table-with_pagination.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/BlogenAdminTableWidget/blogen_admin_table-with_pagination.png)
 
-![Screenshot blogen_admin_table.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/BlogenAdminTableWidget/blogen_admin_table.png)
+Image 2: blogen_admin_table.png<br>![Screenshot blogen_admin_table.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/BlogenAdminTableWidget/blogen_admin_table.png)
 
 
 
@@ -545,9 +549,9 @@ The fields of type "radio" have an extra "choices" property.
 BlogenFormWidget screenshots
 ----------
 
-![Screenshot blogen_form-with_radio.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/BlogenFormWidget/blogen_form-with_radio.png)
+Image 1: blogen_form-with_radio.png<br>![Screenshot blogen_form-with_radio.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/BlogenFormWidget/blogen_form-with_radio.png)
 
-![Screenshot blogen_form.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/BlogenFormWidget/blogen_form.png)
+Image 2: blogen_form.png<br>![Screenshot blogen_form.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/BlogenFormWidget/blogen_form.png)
 
 
 
@@ -769,11 +773,11 @@ More info at: https://getbootstrap.com/docs/4.0/layout/grid/.
 BlogenHeaderWithActionButtonsWidget screenshots
 ----------
 
-![Screenshot blogen_header_with_back_link_and_action_buttons-alt.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/BlogenHeaderWithActionButtonsWidget/blogen_header_with_back_link_and_action_buttons-alt.png)
+Image 1: blogen_header_with_back_link_and_action_buttons-alt.png<br>![Screenshot blogen_header_with_back_link_and_action_buttons-alt.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/BlogenHeaderWithActionButtonsWidget/blogen_header_with_back_link_and_action_buttons-alt.png)
 
-![Screenshot blogen_header_with_back_link_and_action_buttons-alt2.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/BlogenHeaderWithActionButtonsWidget/blogen_header_with_back_link_and_action_buttons-alt2.png)
+Image 2: blogen_header_with_back_link_and_action_buttons-alt2.png<br>![Screenshot blogen_header_with_back_link_and_action_buttons-alt2.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/BlogenHeaderWithActionButtonsWidget/blogen_header_with_back_link_and_action_buttons-alt2.png)
 
-![Screenshot blogen_header_with_back_link_and_action_buttons.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/BlogenHeaderWithActionButtonsWidget/blogen_header_with_back_link_and_action_buttons.png)
+Image 3: blogen_header_with_back_link_and_action_buttons.png<br>![Screenshot blogen_header_with_back_link_and_action_buttons.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/BlogenHeaderWithActionButtonsWidget/blogen_header_with_back_link_and_action_buttons.png)
 
 
 
@@ -942,9 +946,9 @@ The fields of type "file" have an extra "file_label" property.
 BlogenHeaderWithModalActionButtonsWidget screenshots
 ----------
 
-![Screenshot blogen_header_with_modal_action_buttons-add_post_action.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/BlogenHeaderWithModalActionButtonsWidget/blogen_header_with_modal_action_buttons-add_post_action.png)
+Image 1: blogen_header_with_modal_action_buttons-add_post_action.png<br>![Screenshot blogen_header_with_modal_action_buttons-add_post_action.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/BlogenHeaderWithModalActionButtonsWidget/blogen_header_with_modal_action_buttons-add_post_action.png)
 
-![Screenshot blogen_header_with_modal_action_buttons.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/BlogenHeaderWithModalActionButtonsWidget/blogen_header_with_modal_action_buttons.png)
+Image 2: blogen_header_with_modal_action_buttons.png<br>![Screenshot blogen_header_with_modal_action_buttons.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/BlogenHeaderWithModalActionButtonsWidget/blogen_header_with_modal_action_buttons.png)
 
 
 
@@ -1207,7 +1211,7 @@ The header is composed of an icon and a title, both of which being only displaye
 BlogenIconHeaderWidget screenshots
 ----------
 
-![Screenshot blogen_monochrome_icon_header.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/BlogenIconHeaderWidget/blogen_monochrome_icon_header.png)
+Image 1: blogen_monochrome_icon_header.png<br>![Screenshot blogen_monochrome_icon_header.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/BlogenIconHeaderWidget/blogen_monochrome_icon_header.png)
 
 
 
@@ -1284,7 +1288,7 @@ It's composed of a search form with a submit button.
 BlogenSearchHeaderWidget screenshots
 ----------
 
-![Screenshot blogen_search_header.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/BlogenSearchHeaderWidget/blogen_search_header.png)
+Image 1: blogen_search_header.png<br>![Screenshot blogen_search_header.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/BlogenSearchHeaderWidget/blogen_search_header.png)
 
 
 
@@ -1394,7 +1398,7 @@ If any of the element is empty, it will not be displayed.
 BlogenSidebarAvatarWithActionButtonsWidget screenshots
 ----------
 
-![Screenshot blogen_sidebar_avatar_with_action_buttons.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/BlogenSidebarAvatarWithActionButtonsWidget/blogen_sidebar_avatar_with_action_buttons.png)
+Image 1: blogen_sidebar_avatar_with_action_buttons.png<br>![Screenshot blogen_sidebar_avatar_with_action_buttons.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/BlogenSidebarAvatarWithActionButtonsWidget/blogen_sidebar_avatar_with_action_buttons.png)
 
 
 
@@ -1514,7 +1518,7 @@ All of them are optional (they are only displayed if not empty).
 BlogenSidebarIconCardsWidget screenshots
 ----------
 
-![Screenshot blogen_sidebar_icon_cards.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/BlogenSidebarIconCardsWidget/blogen_sidebar_icon_cards.png)
+Image 1: blogen_sidebar_icon_cards.png<br>![Screenshot blogen_sidebar_icon_cards.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/BlogenSidebarIconCardsWidget/blogen_sidebar_icon_cards.png)
 
 
 
@@ -1645,9 +1649,9 @@ and align the text on the left, center or right.
 ColoredBoxesWidget screenshots
 ----------
 
-![Screenshot glozzom_three_columns_colored_icon_cards.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/ColoredBoxesWidget/glozzom_three_columns_colored_icon_cards.png)
+Image 1: glozzom_three_columns_colored_icon_cards.png<br>![Screenshot glozzom_three_columns_colored_icon_cards.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/ColoredBoxesWidget/glozzom_three_columns_colored_icon_cards.png)
 
-![Screenshot mizuxe_four_columns_card_teaser.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/ColoredBoxesWidget/mizuxe_four_columns_card_teaser.png)
+Image 2: mizuxe_four_columns_card_teaser.png<br>![Screenshot mizuxe_four_columns_card_teaser.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/ColoredBoxesWidget/mizuxe_four_columns_card_teaser.png)
 
 
 
@@ -1843,7 +1847,7 @@ Each field has a type which is one of the following:
 ContactFormAndCompanyInfoWidget screenshots
 ----------
 
-![Screenshot glozzom_two_columns_contact_form.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/ContactFormAndCompanyInfoWidget/glozzom_two_columns_contact_form.png)
+Image 1: glozzom_two_columns_contact_form.png<br>![Screenshot glozzom_two_columns_contact_form.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/ContactFormAndCompanyInfoWidget/glozzom_two_columns_contact_form.png)
 
 
 
@@ -2026,7 +2030,7 @@ FooterWithButtonWidget is a bootstrap 4 widget for a footer with just a button i
 FooterWithButtonWidget screenshots
 ----------
 
-![Screenshot portfoliogrid_footer_with_download_button.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/FooterWithButtonWidget/portfoliogrid_footer_with_download_button.png)
+Image 1: portfoliogrid_footer_with_download_button.png<br>![Screenshot portfoliogrid_footer_with_download_button.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/FooterWithButtonWidget/portfoliogrid_footer_with_download_button.png)
 
 
 
@@ -2143,7 +2147,7 @@ More info at: https://getbootstrap.com/docs/4.0/layout/grid/
 GlozzomPricingTableWidget screenshots
 ----------
 
-![Screenshot glozzom_three_columns_pricing_table.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/GlozzomPricingTableWidget/glozzom_three_columns_pricing_table.png)
+Image 1: glozzom_three_columns_pricing_table.png<br>![Screenshot glozzom_three_columns_pricing_table.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/GlozzomPricingTableWidget/glozzom_three_columns_pricing_table.png)
 
 
 
@@ -2380,7 +2384,7 @@ your title is an empty string, it will not be displayed. Same for the text and t
 GlozzomTwoColumnsTeaserWidget screenshots
 ----------
 
-![Screenshot glozzom_two_columns_teaser.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/GlozzomTwoColumnsTeaserWidget/glozzom_two_columns_teaser.png)
+Image 1: glozzom_two_columns_teaser.png<br>![Screenshot glozzom_two_columns_teaser.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/GlozzomTwoColumnsTeaserWidget/glozzom_two_columns_teaser.png)
 
 
 
@@ -2501,7 +2505,7 @@ More info at https://getbootstrap.com/docs/4.0/layout/grid/
 IconTeaserWidget screenshots
 ----------
 
-![Screenshot glozzom_three_columns_icon_teaser.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/IconTeaserWidget/glozzom_three_columns_icon_teaser.png)
+Image 1: glozzom_three_columns_icon_teaser.png<br>![Screenshot glozzom_three_columns_icon_teaser.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/IconTeaserWidget/glozzom_three_columns_icon_teaser.png)
 
 
 
@@ -2633,7 +2637,7 @@ Each customizable field has a type which can be one of the following:
 LoopLabFooterWithContactUseButtonWidget screenshots
 ----------
 
-![Screenshot looplab_footer_with_contact_us_button.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/LoopLabFooterWithContactUseButtonWidget/looplab_footer_with_contact_us_button.png)
+Image 1: looplab_footer_with_contact_us_button.png<br>![Screenshot looplab_footer_with_contact_us_button.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/LoopLabFooterWithContactUseButtonWidget/looplab_footer_with_contact_us_button.png)
 
 
 
@@ -2802,9 +2806,9 @@ We can change the background color using bootstrap css classes (or custom classe
 LoopLabMonoChromeHeaderWidget screenshots
 ----------
 
-![Screenshot looplab_monochrome_header-dark.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/LoopLabMonoChromeHeaderWidget/looplab_monochrome_header-dark.png)
+Image 1: looplab_monochrome_header-dark.png<br>![Screenshot looplab_monochrome_header-dark.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/LoopLabMonoChromeHeaderWidget/looplab_monochrome_header-dark.png)
 
-![Screenshot looplab_monochrome_header.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/LoopLabMonoChromeHeaderWidget/looplab_monochrome_header.png)
+Image 2: looplab_monochrome_header.png<br>![Screenshot looplab_monochrome_header.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/LoopLabMonoChromeHeaderWidget/looplab_monochrome_header.png)
 
 
 
@@ -2942,7 +2946,7 @@ The submit button has its own variables and is not considered as a regular form 
 LoopLabTwoColumnsSignupFormWidget screenshots
 ----------
 
-![Screenshot looplab_two_columns_signup_form.jpg](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/LoopLabTwoColumnsSignupFormWidget/looplab_two_columns_signup_form.jpg)
+Image 1: looplab_two_columns_signup_form.jpg<br>![Screenshot looplab_two_columns_signup_form.jpg](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/LoopLabTwoColumnsSignupFormWidget/looplab_two_columns_signup_form.jpg)
 
 
 
@@ -3141,13 +3145,13 @@ The teaser part contains a title, a text, and a list with an arbitrary number of
 LoopLabTwoColumnsTeaserWidget screenshots
 ----------
 
-![Screenshot glozzom_two_columns_teaser_with_overflowing_image.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/LoopLabTwoColumnsTeaserWidget/glozzom_two_columns_teaser_with_overflowing_image.png)
+Image 1: glozzom_two_columns_teaser_with_overflowing_image.png<br>![Screenshot glozzom_two_columns_teaser_with_overflowing_image.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/LoopLabTwoColumnsTeaserWidget/glozzom_two_columns_teaser_with_overflowing_image.png)
 
-![Screenshot looplab_two_columns_teaser-alt.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/LoopLabTwoColumnsTeaserWidget/looplab_two_columns_teaser-alt.png)
+Image 2: looplab_two_columns_teaser-alt.png<br>![Screenshot looplab_two_columns_teaser-alt.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/LoopLabTwoColumnsTeaserWidget/looplab_two_columns_teaser-alt.png)
 
-![Screenshot looplab_two_columns_teaser-dark.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/LoopLabTwoColumnsTeaserWidget/looplab_two_columns_teaser-dark.png)
+Image 3: looplab_two_columns_teaser-dark.png<br>![Screenshot looplab_two_columns_teaser-dark.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/LoopLabTwoColumnsTeaserWidget/looplab_two_columns_teaser-dark.png)
 
-![Screenshot looplab_two_columns_teaser.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/LoopLabTwoColumnsTeaserWidget/looplab_two_columns_teaser.png)
+Image 4: looplab_two_columns_teaser.png<br>![Screenshot looplab_two_columns_teaser.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/LoopLabTwoColumnsTeaserWidget/looplab_two_columns_teaser.png)
 
 
 
@@ -3299,7 +3303,7 @@ You can also enable spyscroll and smooth scrolling to enhance your navigation if
 MainNavWidget screenshots
 ----------
 
-![Screenshot MainNavWidget-01.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/MainNavWidget/MainNavWidget-01.png)
+Image 1: MainNavWidget-01.png<br>![Screenshot MainNavWidget-01.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/MainNavWidget/MainNavWidget-01.png)
 
 
 
@@ -3509,9 +3513,9 @@ The image can be hidden using the "show_image" property.
 MizuxeContactFormWidget screenshots
 ----------
 
-![Screenshot mizuxe_one_column_contact_form.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/MizuxeContactFormWidget/mizuxe_one_column_contact_form.png)
+Image 1: mizuxe_one_column_contact_form.png<br>![Screenshot mizuxe_one_column_contact_form.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/MizuxeContactFormWidget/mizuxe_one_column_contact_form.png)
 
-![Screenshot portfoliogrid_contact_form.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/MizuxeContactFormWidget/portfoliogrid_contact_form.png)
+Image 2: portfoliogrid_contact_form.png<br>![Screenshot portfoliogrid_contact_form.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/MizuxeContactFormWidget/portfoliogrid_contact_form.png)
 
 
 
@@ -3726,7 +3730,7 @@ See the grid system of bootstrap 4 for more details (https://getbootstrap.com/do
 MizuxeFourColumnsOurStaffWidget screenshots
 ----------
 
-![Screenshot mizuxe_four_columns_our_staff_header.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/MizuxeFourColumnsOurStaffWidget/mizuxe_four_columns_our_staff_header.png)
+Image 1: mizuxe_four_columns_our_staff_header.png<br>![Screenshot mizuxe_four_columns_our_staff_header.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/MizuxeFourColumnsOurStaffWidget/mizuxe_four_columns_our_staff_header.png)
 
 
 
@@ -3967,7 +3971,7 @@ We can disable the name field to only collect the email using the **field_name_a
 MizuxeNewsletterSignupHeaderWidget screenshots
 ----------
 
-![Screenshot mizuxe_newsletter_signup_header.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/MizuxeNewsletterSignupHeaderWidget/mizuxe_newsletter_signup_header.png)
+Image 1: mizuxe_newsletter_signup_header.png<br>![Screenshot mizuxe_newsletter_signup_header.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/MizuxeNewsletterSignupHeaderWidget/mizuxe_newsletter_signup_header.png)
 
 
 
@@ -4103,7 +4107,7 @@ The background is composed of a background image and a background overlay used a
 MizuxeTwoColumnsTeaserWidget screenshots
 ----------
 
-![Screenshot mizuxe_two_columns_teaser.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/MizuxeTwoColumnsTeaserWidget/mizuxe_two_columns_teaser.png)
+Image 1: mizuxe_two_columns_teaser.png<br>![Screenshot mizuxe_two_columns_teaser.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/MizuxeTwoColumnsTeaserWidget/mizuxe_two_columns_teaser.png)
 
 
 
@@ -4279,7 +4283,7 @@ is required.
 NewsletterHeaderWidget screenshots
 ----------
 
-![Screenshot glozzom_newsletter_signup_header.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/NewsletterHeaderWidget/glozzom_newsletter_signup_header.png)
+Image 1: glozzom_newsletter_signup_header.png<br>![Screenshot glozzom_newsletter_signup_header.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/NewsletterHeaderWidget/glozzom_newsletter_signup_header.png)
 
 
 
@@ -4408,7 +4412,7 @@ The accordion items can have icons.
 OneColumnAccordionWidget screenshots
 ----------
 
-![Screenshot mizuxe_one_column_accordion_teaser.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/OneColumnAccordionWidget/mizuxe_one_column_accordion_teaser.png)
+Image 1: mizuxe_one_column_accordion_teaser.png<br>![Screenshot mizuxe_one_column_accordion_teaser.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/OneColumnAccordionWidget/mizuxe_one_column_accordion_teaser.png)
 
 
 
@@ -4597,7 +4601,7 @@ If the text is empty, it will not be displayed.
 ParallaxHeaderWidget screenshots
 ----------
 
-![Screenshot glozzom_parallax_header.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/ParallaxHeaderWidget/glozzom_parallax_header.png)
+Image 1: glozzom_parallax_header.png<br>![Screenshot glozzom_parallax_header.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/ParallaxHeaderWidget/glozzom_parallax_header.png)
 
 
 
@@ -4709,7 +4713,7 @@ It's composed of four parts:
 ParallaxHeaderWithVideoTriggerWidget screenshots
 ----------
 
-![Screenshot glozzom_parallax_video_trigger_header.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/ParallaxHeaderWithVideoTriggerWidget/glozzom_parallax_video_trigger_header.png)
+Image 1: glozzom_parallax_video_trigger_header.png<br>![Screenshot glozzom_parallax_video_trigger_header.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/ParallaxHeaderWithVideoTriggerWidget/glozzom_parallax_video_trigger_header.png)
 
 
 
@@ -4835,7 +4839,7 @@ The person's name and role are optional and will only be displayed if not empty.
 PeopleGridWidget screenshots
 ----------
 
-![Screenshot glozzom_four_columns_our_staff_header.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/PeopleGridWidget/glozzom_four_columns_our_staff_header.png)
+Image 1: glozzom_four_columns_our_staff_header.png<br>![Screenshot glozzom_four_columns_our_staff_header.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/PeopleGridWidget/glozzom_four_columns_our_staff_header.png)
 
 
 
@@ -4993,7 +4997,7 @@ The gallery is composed of:
 PhotoGalleryWidget screenshots
 ----------
 
-![Screenshot glozzom_three_columns_photo_gallery.jpg](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/PhotoGalleryWidget/glozzom_three_columns_photo_gallery.jpg)
+Image 1: glozzom_three_columns_photo_gallery.jpg<br>![Screenshot glozzom_three_columns_photo_gallery.jpg](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/PhotoGalleryWidget/glozzom_three_columns_photo_gallery.jpg)
 
 
 
@@ -5139,7 +5143,7 @@ PortfolioGridHeaderWithDescriptionWidget is a bootstrap 4 widget representing a 
 PortfolioGridHeaderWithDescriptionWidget screenshots
 ----------
 
-![Screenshot portfoliogrid_monochrome_header.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/PortfolioGridHeaderWithDescriptionWidget/portfoliogrid_monochrome_header.png)
+Image 1: portfoliogrid_monochrome_header.png<br>![Screenshot portfoliogrid_monochrome_header.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/PortfolioGridHeaderWithDescriptionWidget/portfoliogrid_monochrome_header.png)
 
 
 
@@ -5233,7 +5237,7 @@ Other implementation of the accordion are possible, of course.
 PortfolioGridMainNavHeaderWidget screenshots
 ----------
 
-![Screenshot portfoliogrid_main_nav_header.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/PortfolioGridMainNavHeaderWidget/portfoliogrid_main_nav_header.png)
+Image 1: portfoliogrid_main_nav_header.png<br>![Screenshot portfoliogrid_main_nav_header.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/PortfolioGridMainNavHeaderWidget/portfoliogrid_main_nav_header.png)
 
 
 
@@ -5427,7 +5431,7 @@ More on this at: https://getbootstrap.com/docs/4.0/layout/grid/.
 PortfolioGridThreeColumnsCardInfoWidget screenshots
 ----------
 
-![Screenshot portfoliogrid_three_columns_card_info.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/PortfolioGridThreeColumnsCardInfoWidget/portfoliogrid_three_columns_card_info.png)
+Image 1: portfoliogrid_three_columns_card_info.png<br>![Screenshot portfoliogrid_three_columns_card_info.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/PortfolioGridThreeColumnsCardInfoWidget/portfoliogrid_three_columns_card_info.png)
 
 
 
@@ -5596,7 +5600,7 @@ Each progress bar is composed of:
 ProgressBarWidget screenshots
 ----------
 
-![Screenshot portfoliogrid_progress_bars.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/ProgressBarWidget/portfoliogrid_progress_bars.png)
+Image 1: portfoliogrid_progress_bars.png<br>![Screenshot portfoliogrid_progress_bars.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/ProgressBarWidget/portfoliogrid_progress_bars.png)
 
 
 
@@ -5748,7 +5752,7 @@ We can de-activate those by using the "show_nav_arrows" and "show_nav_indicators
 ShowCaseCarouselWidget screenshots
 ----------
 
-![Screenshot glozzom_showcase_carousel.jpg](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/ShowCaseCarouselWidget/glozzom_showcase_carousel.jpg)
+Image 1: glozzom_showcase_carousel.jpg<br>![Screenshot glozzom_showcase_carousel.jpg](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/ShowCaseCarouselWidget/glozzom_showcase_carousel.jpg)
 
 
 
@@ -5954,11 +5958,11 @@ In the footer text, we can use the $year string, which will be replaced by the c
 SimpleFooterWidget screenshots
 ----------
 
-![Screenshot blogen_footer.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/SimpleFooterWidget/blogen_footer.png)
+Image 1: blogen_footer.png<br>![Screenshot blogen_footer.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/SimpleFooterWidget/blogen_footer.png)
 
-![Screenshot glozzom_simple_copyright_footer.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/SimpleFooterWidget/glozzom_simple_copyright_footer.png)
+Image 2: glozzom_simple_copyright_footer.png<br>![Screenshot glozzom_simple_copyright_footer.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/SimpleFooterWidget/glozzom_simple_copyright_footer.png)
 
-![Screenshot mizuxe_right_aligned_monochrome_footer.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/SimpleFooterWidget/mizuxe_right_aligned_monochrome_footer.png)
+Image 3: mizuxe_right_aligned_monochrome_footer.png<br>![Screenshot mizuxe_right_aligned_monochrome_footer.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/SimpleFooterWidget/mizuxe_right_aligned_monochrome_footer.png)
 
 
 
@@ -6081,7 +6085,7 @@ Behind the scene, the slick js library is used: https://kenwheeler.github.io/sli
 SlickTestimonialCarouselWidget screenshots
 ----------
 
-![Screenshot glozzom_slick_testimonial_carousel.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/SlickTestimonialCarouselWidget/glozzom_slick_testimonial_carousel.png)
+Image 1: glozzom_slick_testimonial_carousel.png<br>![Screenshot glozzom_slick_testimonial_carousel.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/SlickTestimonialCarouselWidget/glozzom_slick_testimonial_carousel.png)
 
 
 
@@ -6201,7 +6205,7 @@ By default, when the page loads, every accordion item is closed, but we can have
 TwoColumnsAccordionWidget screenshots
 ----------
 
-![Screenshot glozzom_two_columns_accordion_faq.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/TwoColumnsAccordionWidget/glozzom_two_columns_accordion_faq.png)
+Image 1: glozzom_two_columns_accordion_faq.png<br>![Screenshot glozzom_two_columns_accordion_faq.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/TwoColumnsAccordionWidget/glozzom_two_columns_accordion_faq.png)
 
 
 
@@ -6392,9 +6396,9 @@ The optional extra links can have an icon.
 ZeroAdminBreadcrumbWidget screenshots
 ----------
 
-![Screenshot zeroadmin-breadcrumb-widget-in-context.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/ZeroAdminBreadcrumbWidget/zeroadmin-breadcrumb-widget-in-context.png)
+Image 1: zeroadmin-breadcrumb-widget-in-context.png<br>![Screenshot zeroadmin-breadcrumb-widget-in-context.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/ZeroAdminBreadcrumbWidget/zeroadmin-breadcrumb-widget-in-context.png)
 
-![Screenshot zeroadmin-breadcrumb-widget.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/ZeroAdminBreadcrumbWidget/zeroadmin-breadcrumb-widget.png)
+Image 2: zeroadmin-breadcrumb-widget.png<br>![Screenshot zeroadmin-breadcrumb-widget.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/ZeroAdminBreadcrumbWidget/zeroadmin-breadcrumb-widget.png)
 
 
 
@@ -6539,7 +6543,7 @@ Each link is actually a message composed of:
 ZeroAdminHeaderNewMessagesIconLinkWidget screenshots
 ----------
 
-![Screenshot zeroadmin-header-new-messages.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/ZeroAdminHeaderNewMessagesIconLinkWidget/zeroadmin-header-new-messages.png)
+Image 1: zeroadmin-header-new-messages.png<br>![Screenshot zeroadmin-header-new-messages.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/ZeroAdminHeaderNewMessagesIconLinkWidget/zeroadmin-header-new-messages.png)
 
 
 
@@ -6654,7 +6658,7 @@ Each notification is composed of:
 ZeroAdminHeaderNewNotificationsIconLinkWidget screenshots
 ----------
 
-![Screenshot zeroadmin-header-new-notifications.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/ZeroAdminHeaderNewNotificationsIconLinkWidget/zeroadmin-header-new-notifications.png)
+Image 1: zeroadmin-header-new-notifications.png<br>![Screenshot zeroadmin-header-new-notifications.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/ZeroAdminHeaderNewNotificationsIconLinkWidget/zeroadmin-header-new-notifications.png)
 
 
 
@@ -6762,7 +6766,7 @@ Each link is composed of:
 ZeroAdminHeaderProfileDropdownLinkWidget screenshots
 ----------
 
-![Screenshot zeroadmin-header-profile-dropdown.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/ZeroAdminHeaderProfileDropdownLinkWidget/zeroadmin-header-profile-dropdown.png)
+Image 1: zeroadmin-header-profile-dropdown.png<br>![Screenshot zeroadmin-header-profile-dropdown.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/ZeroAdminHeaderProfileDropdownLinkWidget/zeroadmin-header-profile-dropdown.png)
 
 
 
@@ -6915,7 +6919,7 @@ In the original zeroadmin theme, the subzone is filled with the following widget
 ZeroAdminHeaderWidget screenshots
 ----------
 
-![Screenshot zeroadmin_header.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/ZeroAdminHeaderWidget/zeroadmin_header.png)
+Image 1: zeroadmin_header.png<br>![Screenshot zeroadmin_header.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/ZeroAdminHeaderWidget/zeroadmin_header.png)
 
 
 
@@ -7021,6 +7025,427 @@ ZeroAdminHeaderWidget variables description
 
 
 
+ZeroAdminLoginFormWidget
+==============
+
+[Back to top](#summary)
+
+- [Screenshots](#zeroadminloginformwidget-screenshots)
+- [Templates and skins](#zeroadminloginformwidget-templates-and-skins)
+- [Example](#zeroadminloginformwidget-configuration-example)
+- [Variables descriptions](#zeroadminloginformwidget-variables-description)
+
+
+
+ZeroAdminLoginFormWidget is a bootstrap 4 widget representing a login form.
+The login form consists of:
+- a title
+- a subtitle
+- a username field
+- a password field
+- a login button
+- a forgot password link
+
+
+
+
+
+ZeroAdminLoginFormWidget screenshots
+----------
+
+Image 1: ZeroAdminLoginFormWidget-with-error.png<br>![Screenshot ZeroAdminLoginFormWidget-with-error.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/ZeroAdminLoginFormWidget/ZeroAdminLoginFormWidget-with-error.png)
+
+Image 2: ZeroAdminLoginFormWidget.png<br>![Screenshot ZeroAdminLoginFormWidget.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/ZeroAdminLoginFormWidget/ZeroAdminLoginFormWidget.png)
+
+
+
+
+
+ZeroAdminLoginFormWidget templates, skins, presets
+-----------
+- **Templates**: default.php
+- **Skins**: default.css, default.scss
+- **Presets**: 
+
+
+ZeroAdminLoginFormWidget configuration example
+----------------
+
+```yaml
+name: zeroadmin_login_form
+type: picasso
+className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\ZeroAdminLoginFormWidget
+widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ZeroAdminLoginFormWidget
+template: default.php
+vars:
+    form_method: post
+    form_action: ""
+    title: Login
+    subtitle: Sign In to your account
+    hidden_var: zeroadmin_login_form
+    field_username:
+        icon: fas fa-user
+        name: username
+        label: Username
+    field_password:
+        icon: fas fa-lock
+        name: password
+        label: Password
+    error_no_match_show: false
+    error_no_match_body: <strong>Nope!</strong> The provided credentials don't match an user in our database.
+    btn_submit:
+        class: btn btn-primary px-4
+        text: Login
+    use_link_forgot_password: true
+    link_forgot_password:
+        link: (::ROUTE::)/pages/b-forgot-password
+        text: Forgot password?
+
+```
+
+
+
+ZeroAdminLoginFormWidget variables description
+-----------
+
+- **form_method**
+    - **type**: string
+    - **default_value**: post
+    - **description**: The http method to send the form. Possible values are: "post" and "get".
+    - **example**: post
+- **form_action**
+    - **type**: string
+    - **default_value**: 
+    - **description**: The url the form data should be redirected to when the form is submitted.
+    - **example**: /login_form
+- **title**
+    - **type**: string
+    - **default_value**: Login
+    - **description**: The title of the form.
+    - **example**: Login
+- **subtitle**
+    - **type**: string
+    - **default_value**: Sign In to your account
+    - **description**: The subtitle of the form.
+    - **example**: Sign In to your account
+- **hidden_var**
+    - **type**: string
+    - **default_value**: zeroadmin_login_form
+    - **description**: The key of an additional variable passed along with the form data, to help the application
+in guessing which form was posted.
+    - **example**: zeroadmin_login_form
+- **field_username**
+    - **type**: array
+    - **default_value**
+    - **description**: The username field.
+    - **properties**
+        - **icon**
+            - **type**: string
+            - **default_value**: fas fa-user
+            - **description**: The css class for the icon of this field.
+            - **example**: fas fa-user
+        - **name**
+            - **type**: string
+            - **default_value**: username
+            - **description**: The html name attribute for the input of this field.
+            - **example**: username
+        - **label**
+            - **type**: string
+            - **default_value**: Username
+            - **description**: The label/placeholder to use for this field.
+            - **example**: Username
+        - **value**
+            - **type**: string
+            - **default_value**: 
+            - **description**: The value of this field.
+            - **example**: Maurice
+- **field_password**
+    - **type**: array
+    - **default_value**
+    - **description**: The password field.
+    - **properties**
+        - **icon**
+            - **type**: string
+            - **default_value**: fas fa-lock
+            - **description**: The css class for the icon of this field.
+            - **example**: fas fa-lock
+        - **name**
+            - **type**: string
+            - **default_value**: password
+            - **description**: The html name attribute for the input of this field.
+            - **example**: password
+        - **label**
+            - **type**: string
+            - **default_value**: Password
+            - **description**: The label/placeholder to use for this field.
+            - **example**: Password
+        - **value**
+            - **type**: string
+            - **default_value**: 
+            - **description**: The value of this field.
+            - **example**: MauricePassword
+- **error_no_match_show**
+    - **type**: bool
+    - **default_value**: false
+    - **description**: Whether to show the "error no match" error.
+- **error_no_match_body**
+    - **type**: string
+    - **default_value**: <strong>Nope!</strong> The provided credentials don't match an user in our database.
+    - **description**: The html body for the "error no match" error.
+    - **example**: <strong>Nope!</strong> The provided credentials don't match an user in our database.
+- **btn_submit**
+    - **type**: array
+    - **default_value**
+    - **description**: The submit button info.
+    - **properties**
+        - **class**
+            - **type**: string
+            - **default_value**: btn btn-primary px-4
+            - **description**: The css class to apply to the submit button.
+            - **example**: btn btn-primary px-4
+        - **text**
+            - **type**: string
+            - **default_value**: Login
+            - **description**: The text of the submit button.
+            - **example**: Login
+- **use_link_forgot_password**
+    - **type**: bool
+    - **default_value**: true
+    - **description**: Whether to show the "forgot password" link.
+- **link_forgot_password**
+    - **type**: array
+    - **default_value**
+    - **description**: The forgot password link.
+    - **properties**
+        - **link**
+            - **type**: string
+            - **default_value**: 
+            - **description**: The url of the link.
+            - **example**
+                - (::ROUTE::)/pages/b-forgot-password
+                - /forgot-password
+        - **text**
+            - **type**: string
+            - **default_value**: Forgot password?
+            - **description**: The text of the "forgot password" link.
+            - **example**: Forgot password?
+
+
+
+
+
+
+
+ZeroAdminNotificationAlertWidget
+==============
+
+[Back to top](#summary)
+
+- [Screenshots](#zeroadminnotificationalertwidget-screenshots)
+- [Templates and skins](#zeroadminnotificationalertwidget-templates-and-skins)
+- [Example](#zeroadminnotificationalertwidget-configuration-example)
+- [Variables descriptions](#zeroadminnotificationalertwidget-variables-description)
+
+
+
+ZeroAdmin NotificationAlert is a bootstrap 4 widget representing a notification alert for an admin website based on the zeroadmin theme (https://www.templatemonster.com/admin-templates/zero-admin-template-82792.html).
+An alert is composed of the following:
+- the title
+- the body
+
+We can decide whether the alert is dismissible.
+
+We can also set the alert class (to change the color of the alert for instance).
+
+For more info about alerts, please refer to the [bootstrap documentation for alerts](https://getbootstrap.com/docs/4.3/components/alerts/).
+
+
+
+
+
+
+ZeroAdminNotificationAlertWidget screenshots
+----------
+
+Image 1: ZeroAdminNotificationAlertWidget.png<br>![Screenshot ZeroAdminNotificationAlertWidget.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/ZeroAdminNotificationAlertWidget/ZeroAdminNotificationAlertWidget.png)
+
+Image 2: ZeroAdminNotificationAlertWidget_in_context.png<br>![Screenshot ZeroAdminNotificationAlertWidget_in_context.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/ZeroAdminNotificationAlertWidget/ZeroAdminNotificationAlertWidget_in_context.png)
+
+
+
+
+
+ZeroAdminNotificationAlertWidget templates, skins, presets
+-----------
+- **Templates**: default.php
+- **Skins**: 
+- **Presets**: 
+
+
+ZeroAdminNotificationAlertWidget configuration example
+----------------
+
+```yaml
+name: zeroadmin_notification_alert
+type: picasso
+className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\ZeroAdminNotificationAlertWidget
+widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ZeroAdminNotificationAlertWidget
+template: default.php
+vars:
+    alert_class: alert-primary
+    title: Well done!
+    body: A simple primary alert—check it out!
+    is_dismissible: true
+```
+
+
+
+ZeroAdminNotificationAlertWidget variables description
+-----------
+
+- **alert_class**
+    - **type**: string
+    - **default_value**: 
+    - **description**: The alert class.
+    - **example**: alert-primary
+- **title**
+    - **type**: string
+    - **default_value**: 
+    - **description**: The title of the alert.
+    - **example**: Well done!
+- **body**
+    - **type**: string
+    - **default_value**: 
+    - **description**: The html content of the alert representing the body.
+    - **example**: A simple primary alert—check it out!
+- **is_dismissible**
+    - **type**: bool
+    - **default_value**: true
+    - **description**: Whether the alert to be dismissible.
+
+
+
+
+
+
+
+ZeroAdminNotificationToastWidget
+==============
+
+[Back to top](#summary)
+
+- [Screenshots](#zeroadminnotificationtoastwidget-screenshots)
+- [Templates and skins](#zeroadminnotificationtoastwidget-templates-and-skins)
+- [Example](#zeroadminnotificationtoastwidget-configuration-example)
+- [Variables descriptions](#zeroadminnotificationtoastwidget-variables-description)
+
+
+
+ZeroAdmin ToastAlert is a bootstrap 4 widget representing a notification toast for an admin website based on the zeroadmin theme (https://www.templatemonster.com/admin-templates/zero-admin-template-82792.html).
+A toast is composed of the following:
+- the title
+- the icon
+- the body
+- the time string (for instance "11 mins ago")
+
+We can decide whether the toast is dismissible.
+For the icon, we can set the class, and the font color.
+
+Also we can specify the delay after which the toast disappears.
+
+
+
+
+
+
+ZeroAdminNotificationToastWidget screenshots
+----------
+
+Image 1: ZeroAdminNotificationToast.png<br>![Screenshot ZeroAdminNotificationToast.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/ZeroAdminNotificationToastWidget/ZeroAdminNotificationToast.png)
+
+Image 2: ZeroAdminNotificationToast_in_context.png<br>![Screenshot ZeroAdminNotificationToast_in_context.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/ZeroAdminNotificationToastWidget/ZeroAdminNotificationToast_in_context.png)
+
+
+
+
+
+ZeroAdminNotificationToastWidget templates, skins, presets
+-----------
+- **Templates**: default.php
+- **Skins**: 
+- **Presets**: 
+
+
+ZeroAdminNotificationToastWidget configuration example
+----------------
+
+```yaml
+name: zeroadmin_notification_toast
+type: picasso
+className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\ZeroAdminNotificationToastWidget
+widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ZeroAdminNotificationToastWidget
+template: default.php
+vars:
+    title: Bootstrap
+    icon: fas fa-square
+    icon_color: "#007bff"
+    body: Hello, world! This is a toast message.
+    time_string: 11 mins ago
+    is_dismissible: true
+    delay: 30000
+```
+
+
+
+ZeroAdminNotificationToastWidget variables description
+-----------
+
+- **title**
+    - **type**: string
+    - **default_value**: 
+    - **description**: The title of the toast. It empty, it will not be displayed.
+    - **example**: Bootstrap
+- **icon**
+    - **type**: string
+    - **default_value**: 
+    - **description**: The css class for the icon. If empty, the icon will not be displayed.
+    - **example**: fas fa-square
+- **icon_color**
+    - **type**: string
+    - **default_value**: 
+    - **description**: The css color for the icon. Note: the "color" css property will be used.
+We can also use the following special color codes:
+- success (green)
+- info (blue)
+- warning (yellow/orange)
+- error (red)
+    - **example**: 
+- **body**
+    - **type**: string
+    - **default_value**: 
+    - **description**: The body of the toast. You can use html.
+    - **example**: Hello, world! This is a toast message.
+- **time_string**
+    - **type**: string
+    - **default_value**: 
+    - **description**: The time string to display in the header (next to the title). If empty, it will not be displayed.
+    - **example**: 11 mins ago
+- **is_dismissible**
+    - **type**: bool
+    - **default_value**: true
+    - **description**: Whether the toast is dismissible.
+- **delay**
+    - **type**: string
+    - **default_value**: 30000
+    - **description**: The delay before the toast disappears.
+    - **example**: 30000
+
+
+
+
+
+
+
 ZeroAdminSidebarWidget
 ==============
 
@@ -7057,9 +7482,9 @@ The sidebar is composed of links, each of which having:
 ZeroAdminSidebarWidget screenshots
 ----------
 
-![Screenshot zeroadmin-sidebar-widget-in-context.gif](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/ZeroAdminSidebarWidget/zeroadmin-sidebar-widget-in-context.gif)
+Image 1: zeroadmin-sidebar-widget-in-context.gif<br>![Screenshot zeroadmin-sidebar-widget-in-context.gif](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/ZeroAdminSidebarWidget/zeroadmin-sidebar-widget-in-context.gif)
 
-![Screenshot zeroadmin-sidebar-widget.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/ZeroAdminSidebarWidget/zeroadmin-sidebar-widget.png)
+Image 2: zeroadmin-sidebar-widget.png<br>![Screenshot zeroadmin-sidebar-widget.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/ZeroAdminSidebarWidget/zeroadmin-sidebar-widget.png)
 
 
 
@@ -7584,6 +8009,151 @@ ZeroAdminSidebarWidget variables description
             - **type**: string
             - **default_value**
             - **description**: The array of children links (recursive array).
+
+
+
+
+
+
+
+ZeroAdminStatSummaryIconWidget
+==============
+
+[Back to top](#summary)
+
+- [Screenshots](#zeroadminstatsummaryiconwidget-screenshots)
+- [Templates and skins](#zeroadminstatsummaryiconwidget-templates-and-skins)
+- [Example](#zeroadminstatsummaryiconwidget-configuration-example)
+- [Variables descriptions](#zeroadminstatsummaryiconwidget-variables-description)
+
+
+
+ZeroAdminStatSummaryIconWidget is a bootstrap 4 widget representing simple stats summary cards with icons,
+in the style of the zeroadmin theme (https://www.templatemonster.com/admin-templates/zero-admin-template-82792.html).
+
+Each card is composed of:
+
+- an icon
+- a value (usually a numeric value)
+- a text (usually a category name)
+- a link at the bottom (optional)
+
+
+We can remove the padding around the icon to change the style a little bit,
+this is done setting the icon_padding to false.
+
+
+
+
+
+ZeroAdminStatSummaryIconWidget screenshots
+----------
+
+Image 1: zeroadmin-stat-summary-icon-widget.png<br>![Screenshot zeroadmin-stat-summary-icon-widget.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/ZeroAdminStatSummaryIconWidget/zeroadmin-stat-summary-icon-widget.png)
+
+
+
+
+
+ZeroAdminStatSummaryIconWidget templates, skins, presets
+-----------
+- **Templates**: default.php
+- **Skins**: 
+- **Presets**: 
+
+
+ZeroAdminStatSummaryIconWidget configuration example
+----------------
+
+```yaml
+name: zeroadmin_statsummaryicon
+type: picasso
+className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\ZeroAdminStatSummaryIconWidget
+widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ZeroAdminStatSummaryIconWidget
+template: default.php
+vars:
+    card_column_class: col-sm-6 col-xl-3 mb-3
+    cards:
+        -
+            icon: fas fa-cart-arrow-down bg-blue fa-2x
+            value: 1678
+            value_class: text-blue
+            text: Orders
+            link_text: View More
+            link_url: (::ROUTE::)/pages/u-project-detail
+            icon_padding: false
+
+        -
+            icon: fas fa-user-friends bg-yellow fa-2x
+            value: 78443
+            value_class: text-yellow
+            text: Users
+
+        -
+            icon: fas fa-dollar-sign bg-red fa-2x
+            value: $12.700,88
+            value_class: text-red
+            text: Revenue
+
+        -
+            icon: fas fa-car bg-green fa-2x
+            value: 654449
+            value_class: text-green
+            text: Visits
+
+
+```
+
+
+
+ZeroAdminStatSummaryIconWidget variables description
+-----------
+
+- **card_column_class**
+    - **type**: string
+    - **default_value**: col-sm-6 col-xl-3 mb-3
+    - **description**: The css class to apply to the widget container. We can use bootstrap responsive class to define the
+responsiveness of the cards.
+    - **example**: col-sm-6 col-xl-3 mb-3
+- **cards**
+    - **type**: item_list
+    - **default_value**
+    - **description**: The array of cards.
+    - **item_properties**
+        - **icon**
+            - **type**: string
+            - **default_value**: (mandatory)
+            - **description**: The css class to apply to the icon.
+            - **example**: fas fa-cart-arrow-down bg-blue fa-2x
+        - **value**
+            - **type**: string
+            - **default_value**: (mandatory)
+            - **description**: The value of the card (a text to display in the value placeholder).
+            - **example**: 1678
+        - **value_class**
+            - **type**: string
+            - **default_value**: 
+            - **description**: The css class to apply to the value of the card.
+            - **example**: text-blue
+        - **text**
+            - **type**: string
+            - **default_value**: 
+            - **description**: The text of the card.
+            - **example**: Orders
+        - **link_text**
+            - **type**: string
+            - **default_value**: 
+            - **description**: The text of the bottom link of the card. If empty, the bottom link will not be displayed.
+            - **example**: View More
+        - **link_url**
+            - **type**: string
+            - **default_value**: 
+            - **description**: The url of the bottom link of the card.
+            - **example**: (::ROUTE::)/pages/u-project-detail
+        - **icon_padding**
+            - **type**: bool
+            - **default_value**: true
+            - **description**: Whether to add padding around the icon.
 
 
 

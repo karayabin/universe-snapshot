@@ -53,6 +53,11 @@ False is returned when the given array IS NOT a sic block (or a sic block with t
 
 
 
+Source Code
+===========
+See the source code for method [ColdServiceResolver::getServicePhpCode](https://github.com/lingtalfi/SicTools/blob/master/ColdServiceResolver.php#L91-L116)
+
+
 See Also
 ================
 

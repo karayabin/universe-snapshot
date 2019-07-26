@@ -4,7 +4,7 @@
 
 The ParameterInfo class
 ================
-2019-02-21 --> 2019-07-12
+2019-02-21 --> 2019-07-23
 
 
 
@@ -105,7 +105,9 @@ Methods
 
 Location
 =============
-Ling\DocTools\Info\ParameterInfo
+Ling\DocTools\Info\ParameterInfo<br>
+See the source code of [Ling\DocTools\Info\ParameterInfo](https://github.com/lingtalfi/DocTools/blob/master/Info/ParameterInfo.php)
+
 
 
 SeeAlso

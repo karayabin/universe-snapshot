@@ -56,6 +56,11 @@ extra-properties:
 
 
 
+Source Code
+===========
+See the source code for method [DependencyMasterHelper::getPlanetItem](https://github.com/lingtalfi/Uni2/blob/master/Helper/DependencyMasterHelper.php#L73-L85)
+
+
 See Also
 ================
 

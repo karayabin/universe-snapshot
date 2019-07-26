@@ -75,6 +75,11 @@ Returns bool.
 
 
 
+Source Code
+===========
+See the source code for method [MinMaxItemValidator::test](https://github.com/lingtalfi/Chloroform/blob/master/Validator/MinMaxItemValidator.php#L57-L103)
+
+
 See Also
 ================
 

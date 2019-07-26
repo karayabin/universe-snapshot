@@ -60,6 +60,11 @@ Returns bool.
 
 
 
+Source Code
+===========
+See the source code for method [PostInstallDirectiveHandler::hasOptions](https://github.com/lingtalfi/Uni2/blob/master/PostInstall/DirectiveHandler/PostInstallDirectiveHandler.php#L209-L218)
+
+
 See Also
 ================
 

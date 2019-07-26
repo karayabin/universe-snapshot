@@ -47,6 +47,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [LazyReferenceResolver::setStrictMode](https://github.com/lingtalfi/Light_Kit/blob/master/PageConfigurationTransformer/LazyReferenceResolver.php#L65-L68)
+
+
 See Also
 ================
 

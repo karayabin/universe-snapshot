@@ -44,6 +44,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [ReimportCommand::__construct](https://github.com/lingtalfi/Uni2/blob/master/Command/ReimportCommand.php#L77-L82)
+
+
 See Also
 ================
 

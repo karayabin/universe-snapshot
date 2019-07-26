@@ -4,7 +4,7 @@
 
 The GalaxyTool class
 ================
-2019-02-26 --> 2019-04-30
+2019-02-26 --> 2019-07-18
 
 
 
@@ -45,7 +45,9 @@ Methods
 
 Location
 =============
-Ling\UniverseTools\GalaxyTool
+Ling\UniverseTools\GalaxyTool<br>
+See the source code of [Ling\UniverseTools\GalaxyTool](https://github.com/lingtalfi/UniverseTools/blob/master/GalaxyTool.php)
+
 
 
 SeeAlso

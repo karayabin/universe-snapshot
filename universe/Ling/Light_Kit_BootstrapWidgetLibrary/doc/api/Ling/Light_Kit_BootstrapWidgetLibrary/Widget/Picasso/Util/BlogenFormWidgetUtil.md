@@ -4,7 +4,7 @@
 
 The BlogenFormWidgetUtil class
 ================
-2019-04-26 --> 2019-07-16
+2019-04-26 --> 2019-07-25
 
 
 
@@ -47,7 +47,9 @@ Methods
 
 Location
 =============
-Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\Util\BlogenFormWidgetUtil
+Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\Util\BlogenFormWidgetUtil<br>
+See the source code of [Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\Util\BlogenFormWidgetUtil](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/Widget/Picasso/Util/BlogenFormWidgetUtil.php)
+
 
 
 SeeAlso

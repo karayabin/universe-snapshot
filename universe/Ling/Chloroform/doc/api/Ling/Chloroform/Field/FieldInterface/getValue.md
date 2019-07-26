@@ -44,6 +44,11 @@ Returns mixed.
 
 
 
+Source Code
+===========
+See the source code for method [FieldInterface::getValue](https://github.com/lingtalfi/Chloroform/blob/master/Field/FieldInterface.php#L79-L79)
+
+
 See Also
 ================
 

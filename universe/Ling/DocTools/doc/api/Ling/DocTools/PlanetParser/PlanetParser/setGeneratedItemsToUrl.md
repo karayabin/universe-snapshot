@@ -47,6 +47,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [PlanetParser::setGeneratedItemsToUrl](https://github.com/lingtalfi/DocTools/blob/master/PlanetParser/PlanetParser.php#L162-L165)
+
+
 See Also
 ================
 

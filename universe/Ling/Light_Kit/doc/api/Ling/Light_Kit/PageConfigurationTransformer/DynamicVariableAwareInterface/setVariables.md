@@ -47,6 +47,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [DynamicVariableAwareInterface::setVariables](https://github.com/lingtalfi/Light_Kit/blob/master/PageConfigurationTransformer/DynamicVariableAwareInterface.php#L19-L19)
+
+
 See Also
 ================
 

@@ -49,6 +49,11 @@ when the widget cannot render properly.
 
 
 
+Source Code
+===========
+See the source code for method [PlanetDependenciesSectionWidget::render](https://github.com/lingtalfi/DocTools/blob/master/Widget/PlanetDependenciesSection/PlanetDependenciesSectionWidget.php#L51-L110)
+
+
 See Also
 ================
 

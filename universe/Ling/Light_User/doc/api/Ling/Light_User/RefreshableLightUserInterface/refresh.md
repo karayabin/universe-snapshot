@@ -46,6 +46,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [RefreshableLightUserInterface::refresh](https://github.com/lingtalfi/Light_User/blob/master/RefreshableLightUserInterface.php#L23-L23)
+
+
 See Also
 ================
 

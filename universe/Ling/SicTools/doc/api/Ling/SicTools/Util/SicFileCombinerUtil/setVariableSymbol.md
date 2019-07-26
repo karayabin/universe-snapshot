@@ -47,6 +47,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [SicFileCombinerUtil::setVariableSymbol](https://github.com/lingtalfi/SicTools/blob/master/Util/SicFileCombinerUtil.php#L329-L332)
+
+
 See Also
 ================
 

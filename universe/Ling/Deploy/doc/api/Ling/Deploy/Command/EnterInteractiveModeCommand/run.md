@@ -58,6 +58,11 @@ If null, 0 should be assumed.
 
 
 
+Source Code
+===========
+See the source code for method [EnterInteractiveModeCommand::run](https://github.com/lingtalfi/Deploy/blob/master/Command/EnterInteractiveModeCommand.php#L26-L31)
+
+
 See Also
 ================
 

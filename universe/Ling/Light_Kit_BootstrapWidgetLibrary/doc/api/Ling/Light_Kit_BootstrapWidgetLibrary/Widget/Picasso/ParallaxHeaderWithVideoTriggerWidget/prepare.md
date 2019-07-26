@@ -63,6 +63,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [ParallaxHeaderWithVideoTriggerWidget::prepare](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/Widget/Picasso/ParallaxHeaderWithVideoTriggerWidget.php#L22-L25)
+
+
 See Also
 ================
 

@@ -47,12 +47,12 @@ With:
 - $dependencySystemName: the name of the dependency system
 - $packageName: the name of the package (aka packageImportName)
 - $version: the version of the package.
-If the package is a planet, this will be used in the reimport algorithm to decide whether or not to reimport the dependency.
-If the package is not a planet, this will be ignored and should be set to null.
+         If the package is a planet, this will be used in the reimport algorithm to decide whether or not to reimport the dependency.
+         If the package is not a planet, this will be ignored and should be set to null.
 
 - $packageId: the identifier of the package: $dependencySystemName.$packageName.
-In fact, by design it should only be a galaxyName.planetName combo, since non-planets are ignored by the uni-tool.
-However, we keep it open for now, just in case.
+         In fact, by design it should only be a galaxyName.planetName combo, since non-planets are ignored by the uni-tool.
+         However, we keep it open for now, just in case.
 
 
 The post_installs section contains the post install directives for the dependencies only (i.e. not the post_install
@@ -105,6 +105,11 @@ Exceptions thrown
 
 
 
+
+
+Source Code
+===========
+See the source code for method [DependencyMasterHelper::getDependencyMapByPlanetName](https://github.com/lingtalfi/Uni2/blob/master/Helper/DependencyMasterHelper.php#L154-L166)
 
 
 See Also

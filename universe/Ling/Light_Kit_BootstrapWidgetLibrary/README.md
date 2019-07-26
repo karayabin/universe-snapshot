@@ -45,7 +45,42 @@ Related
 History Log
 =============
 
+- 1.11.1 -- 2019-07-25
 
+    - fix ZeroAdminLoginFormWidget template not showing the hidden var
+
+- 1.11.0 -- 2019-07-25
+
+    - update ZeroAdminLoginFormWidget, add error_no_match_show, error_no_match_body, and value to the form fields
+    
+- 1.10.0 -- 2019-07-25
+
+    - add ZeroAdminLoginFormWidget
+
+- 1.9.1 -- 2019-07-25
+
+    - update ZeroAdminNotificationToastWidget, now understand color codes
+    
+- 1.9.0 -- 2019-07-25
+
+    - add ZeroAdminNotificationToastWidget
+    
+- 1.8.1 -- 2019-07-24
+
+    - update widget documentation with screenshot names.
+    
+- 1.8.0 -- 2019-07-24
+
+    - add ZeroAdminNotificationAlertWidget
+
+- 1.7.1 -- 2019-07-18
+
+    - update docTools documentation, add links to source code for classes and methods
+    
+- 1.7.0 -- 2019-07-16
+
+    - add ZeroAdminStatSummaryIconWidget
+    
 - 1.6.0 -- 2019-07-16
 
     - add ZeroAdminBreadcrumbWidget

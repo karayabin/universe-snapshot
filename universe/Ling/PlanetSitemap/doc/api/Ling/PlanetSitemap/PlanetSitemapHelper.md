@@ -4,7 +4,7 @@
 
 The PlanetSitemapHelper class
 ================
-2019-03-14 --> 2019-03-14
+2019-03-14 --> 2019-07-18
 
 
 
@@ -45,6 +45,8 @@ Methods
 
 Location
 =============
-Ling\PlanetSitemap\PlanetSitemapHelper
+Ling\PlanetSitemap\PlanetSitemapHelper<br>
+See the source code of [Ling\PlanetSitemap\PlanetSitemapHelper](https://github.com/lingtalfi/PlanetSitemap/blob/master/PlanetSitemapHelper.php)
+
 
 

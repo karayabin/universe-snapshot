@@ -58,6 +58,11 @@ If null, 0 should be assumed.
 
 
 
+Source Code
+===========
+See the source code for method [ToLinkCommand::run](https://github.com/lingtalfi/Uni2/blob/master/Command/ToLinkCommand.php#L70-L138)
+
+
 See Also
 ================
 

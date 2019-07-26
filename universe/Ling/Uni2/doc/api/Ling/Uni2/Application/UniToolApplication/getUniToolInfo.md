@@ -52,6 +52,11 @@ Exceptions thrown
 
 
 
+Source Code
+===========
+See the source code for method [UniToolApplication::getUniToolInfo](https://github.com/lingtalfi/Uni2/blob/master/Application/UniToolApplication.php#L726-L733)
+
+
 See Also
 ================
 

@@ -203,7 +203,31 @@ So for instance we have this kind of structure:
 
 Now the name of the file without the **.byml** extension is the actual page name.
 
-Note: 
+
+
+Now in some cases the same page configuration might be updated by multiple plugins.
+For instance, imagine the dashboard of an admin website, with some weather widget, or some stat widget brought by different plugins.
+
+
+The babyYaml way used by **Light_Kit** is to have a folder named like the page, inside of which plugins can put their own additions.
+Those added files must be in babyYaml format, and the idea is that they will be merged with the main configuration file.
+
+So for instance for the page_one page, we could have this:
+
+```txt
+- config/kit/pages/
+----- page_one.byml
+----- page_one/
+--------- Light_Plugin_ABC.byml
+--------- Light_Plugin_DEF.byml
+--------- ...
+```
+
+In the above example, the **Light_Plugin_ABC.byml** file (for instance) contain the configuration bits that the **Light_Plugin_ABC** plugin
+wants to add to the **page_one** page configuration.
+
+
+How exactly the files are merged is defined inside the [BabyYamlConfStorage](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/ConfStorage/BabyYamlConfStorage.md) class.
 
 
 
@@ -239,6 +263,26 @@ $light->registerRoute("/", function (LightServiceContainerInterface $service) {
 History Log
 =============
 
+- 1.7.2 -- 2019-07-26
+
+    - fix typo
+    
+- 1.7.1 -- 2019-07-26
+
+    - fix PageConfUpdator merging using ams algo instead of array_replace_recursive
+    
+- 1.7.0 -- 2019-07-25
+
+    - add PageConfUpdator
+    
+- 1.6.4 -- 2019-07-18
+
+    - update documentation for multiple plugins writing to the same babyYaml page configuration file
+    
+- 1.6.3 -- 2019-07-18
+
+    - update docTools documentation, add links to source code for classes and methods
+    
 - 1.6.2 -- 2019-07-15
 
     - add documentation for lazy reference resolver

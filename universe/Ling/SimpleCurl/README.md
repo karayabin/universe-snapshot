@@ -57,6 +57,10 @@ if (false !== $response = $curl->call($url)) {
 History Log
 =============
 
+- 1.0.3 -- 2019-07-18
+
+    - update docTools documentation, add links to source code for classes and methods
+    
 - 1.0.2 -- 2019-03-14
 
     - fix doc missing inserts

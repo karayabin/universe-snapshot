@@ -51,6 +51,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [ReportInterface::addParameterWithoutParamTag](https://github.com/lingtalfi/DocTools/blob/master/Report/ReportInterface.php#L257-L257)
+
+
 See Also
 ================
 

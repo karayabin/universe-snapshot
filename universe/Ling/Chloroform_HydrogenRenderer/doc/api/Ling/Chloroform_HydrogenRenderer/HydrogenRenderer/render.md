@@ -48,6 +48,11 @@ Returns string.
 
 
 
+Source Code
+===========
+See the source code for method [HydrogenRenderer::render](https://github.com/lingtalfi/Chloroform_HydrogenRenderer/blob/master/HydrogenRenderer.php#L182-L229)
+
+
 See Also
 ================
 

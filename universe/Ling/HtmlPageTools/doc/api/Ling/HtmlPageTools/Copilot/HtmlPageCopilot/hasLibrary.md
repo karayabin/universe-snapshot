@@ -47,6 +47,11 @@ Returns bool.
 
 
 
+Source Code
+===========
+See the source code for method [HtmlPageCopilot::hasLibrary](https://github.com/lingtalfi/HtmlPageTools/blob/master/Copilot/HtmlPageCopilot.php#L215-L218)
+
+
 See Also
 ================
 

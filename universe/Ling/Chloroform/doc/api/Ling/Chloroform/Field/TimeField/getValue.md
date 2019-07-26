@@ -44,6 +44,11 @@ Returns mixed.
 
 
 
+Source Code
+===========
+See the source code for method [TimeField::getValue](https://github.com/lingtalfi/Chloroform/blob/master/Field/TimeField.php#L65-L68)
+
+
 See Also
 ================
 

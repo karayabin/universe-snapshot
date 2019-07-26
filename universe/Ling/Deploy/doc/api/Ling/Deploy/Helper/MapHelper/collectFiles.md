@@ -52,6 +52,11 @@ Returns array.
 
 
 
+Source Code
+===========
+See the source code for method [MapHelper::collectFiles](https://github.com/lingtalfi/Deploy/blob/master/Helper/MapHelper.php#L25-L34)
+
+
 See Also
 ================
 

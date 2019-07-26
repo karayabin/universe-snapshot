@@ -23,3 +23,11 @@ A route is in fact a simple array with the following structure:
              So for static routes, this array is just empty. 
              This array can also be used to generate the url out of a (dynamic) route pattern (if you know what variables does a 
              route pattern contains).
+- host: string=null. The host associated to this route. This could be used in an application with subdomains for instance.
+    Null means that there is no particular host attached to this route, and so the host should be resolved to the current host,
+    no matter what it is. If your application uses different hosts, it is recommended to set this value explicitly (i.e. don't leave
+    it to null). The null value is only convenient for applications which are using only one host. 
+- is_secure_protocol: bool|null=null. Whether to use https or http protocol. If null, this means the route will use whatever 
+    protocol is the default at the moment when the route is called.  
+  
+

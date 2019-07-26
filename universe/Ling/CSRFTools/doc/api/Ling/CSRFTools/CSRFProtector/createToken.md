@@ -50,6 +50,11 @@ Returns string.
 
 
 
+Source Code
+===========
+See the source code for method [CSRFProtector::createToken](https://github.com/lingtalfi/CSRFTools/blob/master/CSRFProtector.php#L74-L87)
+
+
 See Also
 ================
 

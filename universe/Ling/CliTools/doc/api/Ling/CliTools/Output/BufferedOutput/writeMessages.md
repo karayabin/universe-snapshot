@@ -44,6 +44,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [BufferedOutput::writeMessages](https://github.com/lingtalfi/CliTools/blob/master/Output/BufferedOutput.php#L41-L49)
+
+
 See Also
 ================
 

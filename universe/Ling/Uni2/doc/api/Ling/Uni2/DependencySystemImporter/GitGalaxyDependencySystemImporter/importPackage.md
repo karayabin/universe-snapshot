@@ -64,6 +64,11 @@ Returns bool.
 
 
 
+Source Code
+===========
+See the source code for method [GitGalaxyDependencySystemImporter::importPackage](https://github.com/lingtalfi/Uni2/blob/master/DependencySystemImporter/GitGalaxyDependencySystemImporter.php#L67-L76)
+
+
 See Also
 ================
 

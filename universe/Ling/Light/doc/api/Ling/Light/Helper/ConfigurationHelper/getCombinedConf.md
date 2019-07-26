@@ -57,6 +57,11 @@ Exceptions thrown
 
 
 
+Source Code
+===========
+See the source code for method [ConfigurationHelper::getCombinedConf](https://github.com/lingtalfi/Light/blob/master/Helper/ConfigurationHelper.php#L28-L33)
+
+
 See Also
 ================
 

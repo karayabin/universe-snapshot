@@ -59,6 +59,11 @@ Returns string.
 
 
 
+Source Code
+===========
+See the source code for method [VariableHelper::resolveVariables](https://github.com/lingtalfi/EasyConsoleMenu/blob/master/Helper/VariableHelper.php#L28-L39)
+
+
 See Also
 ================
 

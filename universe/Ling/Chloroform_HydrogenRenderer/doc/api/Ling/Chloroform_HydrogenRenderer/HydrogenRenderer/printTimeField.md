@@ -53,6 +53,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [HydrogenRenderer::printTimeField](https://github.com/lingtalfi/Chloroform_HydrogenRenderer/blob/master/HydrogenRenderer.php#L493-L539)
+
+
 See Also
 ================
 

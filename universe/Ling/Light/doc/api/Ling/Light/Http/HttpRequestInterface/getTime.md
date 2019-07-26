@@ -47,6 +47,11 @@ Returns float.
 
 
 
+Source Code
+===========
+See the source code for method [HttpRequestInterface::getTime](https://github.com/lingtalfi/Light/blob/master/Http/HttpRequestInterface.php#L64-L64)
+
+
 See Also
 ================
 

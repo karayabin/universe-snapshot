@@ -4,7 +4,7 @@
 
 The CommandLineInput class
 ================
-2019-02-26 --> 2019-03-26
+2019-02-26 --> 2019-07-18
 
 
 
@@ -28,10 +28,10 @@ The command line is composed of white-space separated components:
 
 
 - **option**: an option contains an equal symbol (=). The key is the part on the left of the equal symbol, and the value is the part on the right.
-An option can start with two or more dashes, but not one dash (one dash is reserved for one-letter flags, see the "flags" entry for more details).
+     An option can start with two or more dashes, but not one dash (one dash is reserved for one-letter flags, see the "flags" entry for more details).
 - **parameter**: a parameter doesn't contain an equal symbol (=). A parameter doesn't start with a dash.
 - **flag**: a parameter doesn't contain an equal symbol (=). A parameter starts with a dash.
-If the flag starts with only one dash, then what follows is a one letter dash, or a combination of multiple one letter flags.
+             If the flag starts with only one dash, then what follows is a one letter dash, or a combination of multiple one letter flags.
 
 
 Notes:
@@ -121,7 +121,9 @@ Methods
 
 Location
 =============
-Ling\CliTools\Input\CommandLineInput
+Ling\CliTools\Input\CommandLineInput<br>
+See the source code of [Ling\CliTools\Input\CommandLineInput](https://github.com/lingtalfi/CliTools/blob/master/Input/CommandLineInput.php)
+
 
 
 SeeAlso

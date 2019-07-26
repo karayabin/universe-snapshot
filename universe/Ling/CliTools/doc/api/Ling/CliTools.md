@@ -1,6 +1,6 @@
 Ling/CliTools
 ================
-2019-02-26 --> 2019-03-26
+2019-02-26 --> 2019-07-18
 
 
 
@@ -12,7 +12,7 @@ Table of contents
     - [CommandInterface::run](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Command/CommandInterface/run.md) &ndash; Runs the command.
 - [ApplicationException](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Exception/ApplicationException.md) &ndash; The ApplicationException exception is thrown when a problem occurs in the [Application](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Program/Application.md) class.
 - [CliToolsException](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Exception/CliToolsException.md) &ndash; The base class for all CliTools exceptions.
-- [InvalidContextException](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Exception/InvalidContextException.md) &ndash; probably meaning that it was executed from a web context instead of a cli context.
+- [InvalidContextException](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Exception/InvalidContextException.md) &ndash;          probably meaning that it was executed from a web context instead of a cli context.
 - [BashtmlFormatter](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Formatter/BashtmlFormatter.md) &ndash; The BashtmlFormatter class.
     - [BashtmlFormatter::__construct](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Formatter/BashtmlFormatter/__construct.md) &ndash; Builds the BashtmlFormatter instance.
     - [BashtmlFormatter::format](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Formatter/BashtmlFormatter/format.md) &ndash; Parses the given $expression and returns its formatted/interpreted version.
@@ -104,6 +104,6 @@ Table of contents
 
 Dependencies
 ============
-- [UniversalLogger](https://github.com/karayabin/universe-snapshot/tree/master/universe/Ling/UniversalLogger)
+- [UniversalLogger](https://github.com/lingtalfi/UniversalLogger)
 
 

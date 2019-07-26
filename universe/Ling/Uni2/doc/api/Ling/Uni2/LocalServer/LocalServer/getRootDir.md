@@ -44,6 +44,11 @@ Returns string | null.
 
 
 
+Source Code
+===========
+See the source code for method [LocalServer::getRootDir](https://github.com/lingtalfi/Uni2/blob/master/LocalServer/LocalServer.php#L75-L78)
+
+
 See Also
 ================
 

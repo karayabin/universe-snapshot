@@ -4,7 +4,7 @@
 
 The MysqlHelper class
 ================
-2019-04-03 --> 2019-05-10
+2019-04-03 --> 2019-07-18
 
 
 
@@ -49,7 +49,9 @@ Methods
 
 Location
 =============
-Ling\Deploy\Helper\MysqlHelper
+Ling\Deploy\Helper\MysqlHelper<br>
+See the source code of [Ling\Deploy\Helper\MysqlHelper](https://github.com/lingtalfi/Deploy/blob/master/Helper/MysqlHelper.php)
+
 
 
 SeeAlso

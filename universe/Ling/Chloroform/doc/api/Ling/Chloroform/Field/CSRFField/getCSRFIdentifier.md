@@ -44,6 +44,11 @@ Returns string.
 
 
 
+Source Code
+===========
+See the source code for method [CSRFField::getCSRFIdentifier](https://github.com/lingtalfi/Chloroform/blob/master/Field/CSRFField.php#L63-L66)
+
+
 See Also
 ================
 

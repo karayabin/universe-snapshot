@@ -48,6 +48,11 @@ Returns string.
 
 
 
+Source Code
+===========
+See the source code for method [ChloroformRendererInterface::render](https://github.com/lingtalfi/Chloroform/blob/master/Renderer/ChloroformRendererInterface.php#L21-L21)
+
+
 See Also
 ================
 

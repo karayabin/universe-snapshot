@@ -47,6 +47,11 @@ Returns [SicFileCombinerUtil](https://github.com/lingtalfi/SicTools/blob/master/
 
 
 
+Source Code
+===========
+See the source code for method [SicFileCombinerUtil::setEnvironmentVariables](https://github.com/lingtalfi/SicTools/blob/master/Util/SicFileCombinerUtil.php#L340-L344)
+
+
 See Also
 ================
 

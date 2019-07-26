@@ -4,7 +4,7 @@
 
 The HttpResponseInterface class
 ================
-2019-04-09 --> 2019-07-11
+2019-04-09 --> 2019-07-18
 
 
 
@@ -45,7 +45,9 @@ Methods
 
 Location
 =============
-Ling\Light\Http\HttpResponseInterface
+Ling\Light\Http\HttpResponseInterface<br>
+See the source code of [Ling\Light\Http\HttpResponseInterface](https://github.com/lingtalfi/Light/blob/master/Http/HttpResponseInterface.php)
+
 
 
 SeeAlso

@@ -47,6 +47,11 @@ Returns null if the $tagName tag is not associated with this comment.
 
 
 
+Source Code
+===========
+See the source code for method [CommentInfo::getTagByName](https://github.com/lingtalfi/DocTools/blob/master/Info/CommentInfo.php#L231-L237)
+
+
 See Also
 ================
 

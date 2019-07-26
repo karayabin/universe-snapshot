@@ -4,7 +4,7 @@
 
 The LazyReferenceResolver class
 ================
-2019-04-25 --> 2019-07-15
+2019-04-25 --> 2019-07-26
 
 
 
@@ -83,7 +83,9 @@ Methods
 
 Location
 =============
-Ling\Light_Kit\PageConfigurationTransformer\LazyReferenceResolver
+Ling\Light_Kit\PageConfigurationTransformer\LazyReferenceResolver<br>
+See the source code of [Ling\Light_Kit\PageConfigurationTransformer\LazyReferenceResolver](https://github.com/lingtalfi/Light_Kit/blob/master/PageConfigurationTransformer/LazyReferenceResolver.php)
+
 
 
 SeeAlso

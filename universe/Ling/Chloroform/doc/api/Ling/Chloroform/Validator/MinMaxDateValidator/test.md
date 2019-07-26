@@ -75,6 +75,11 @@ Returns bool.
 
 
 
+Source Code
+===========
+See the source code for method [MinMaxDateValidator::test](https://github.com/lingtalfi/Chloroform/blob/master/Validator/MinMaxDateValidator.php#L58-L97)
+
+
 See Also
 ================
 

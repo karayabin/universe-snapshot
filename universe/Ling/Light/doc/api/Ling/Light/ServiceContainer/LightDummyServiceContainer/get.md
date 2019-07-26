@@ -54,6 +54,11 @@ When a problem occur and the requested service cannot be returned
 
 
 
+Source Code
+===========
+See the source code for method [LightDummyServiceContainer::get](https://github.com/lingtalfi/Light/blob/master/ServiceContainer/LightDummyServiceContainer.php#L18-L21)
+
+
 See Also
 ================
 

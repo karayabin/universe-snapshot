@@ -44,6 +44,11 @@ Returns string.
 
 
 
+Source Code
+===========
+See the source code for method [ParameterInfo::getType](https://github.com/lingtalfi/DocTools/blob/master/Info/ParameterInfo.php#L84-L87)
+
+
 See Also
 ================
 

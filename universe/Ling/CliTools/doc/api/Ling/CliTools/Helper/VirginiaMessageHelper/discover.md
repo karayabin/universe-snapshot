@@ -55,6 +55,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [VirginiaMessageHelper::discover](https://github.com/lingtalfi/CliTools/blob/master/Helper/VirginiaMessageHelper.php#L134-L143)
+
+
 See Also
 ================
 

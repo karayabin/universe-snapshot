@@ -51,6 +51,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [Chloroform::addField](https://github.com/lingtalfi/Chloroform/blob/master/Form/Chloroform.php#L213-L225)
+
+
 See Also
 ================
 

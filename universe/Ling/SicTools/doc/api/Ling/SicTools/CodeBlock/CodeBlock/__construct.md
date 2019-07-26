@@ -44,6 +44,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [CodeBlock::__construct](https://github.com/lingtalfi/SicTools/blob/master/CodeBlock/CodeBlock.php#L23-L26)
+
+
 See Also
 ================
 

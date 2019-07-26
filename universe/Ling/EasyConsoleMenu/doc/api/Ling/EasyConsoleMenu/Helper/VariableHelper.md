@@ -4,7 +4,7 @@
 
 The VariableHelper class
 ================
-2019-04-02 --> 2019-04-03
+2019-04-02 --> 2019-07-18
 
 
 
@@ -45,7 +45,9 @@ Methods
 
 Location
 =============
-Ling\EasyConsoleMenu\Helper\VariableHelper
+Ling\EasyConsoleMenu\Helper\VariableHelper<br>
+See the source code of [Ling\EasyConsoleMenu\Helper\VariableHelper](https://github.com/lingtalfi/EasyConsoleMenu/blob/master/Helper/VariableHelper.php)
+
 
 
 SeeAlso

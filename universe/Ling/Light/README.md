@@ -43,6 +43,43 @@ Summary
 History Log
 =============
 
+- 0.8.0 -- 2019-07-18
+
+    - add LightController
+    - add LightAwareInterface
+    
+- 0.7.3 -- 2019-07-18
+
+    - update LightReverseRouterInterface to reflect the new route concept
+
+- 0.7.2 -- 2019-07-18
+
+    - update route concept, the default protocol is now null instead of true
+    
+- 0.7.1 -- 2019-07-18
+
+    - update docTools documentation, add links to source code for classes and methods
+    
+- 0.7.0 -- 2019-07-17
+
+    - update Light instance to take into account the new LightInitializerInterface interface 
+    
+- 0.6.0 -- 2019-07-17
+
+    - add HttpRedirectResponse 
+    
+- 0.5.0 -- 2019-07-17
+
+    - update the route concept: now has the host and protocol bound to it 
+    
+- 0.4.0 -- 2019-07-17
+
+    - add service container documentation page
+    
+- 0.3.0 -- 2019-07-16
+
+    - update Light instance to take into account the new LightInitializerInterface interface
+    
 - 0.2.0 -- 2019-07-11
 
     - add LightServiceContainerAwareInterface

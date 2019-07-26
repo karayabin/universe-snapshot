@@ -4,7 +4,7 @@
 
 The PngTextUtil class
 ================
-2019-02-22 --> 2019-03-07
+2019-02-22 --> 2019-07-18
 
 
 
@@ -45,7 +45,9 @@ Methods
 
 Location
 =============
-Ling\WebBox\Image\PngTextUtil
+Ling\WebBox\Image\PngTextUtil<br>
+See the source code of [Ling\WebBox\Image\PngTextUtil](https://github.com/lingtalfi/WebBox/blob/master/Image/PngTextUtil.php)
+
 
 
 SeeAlso

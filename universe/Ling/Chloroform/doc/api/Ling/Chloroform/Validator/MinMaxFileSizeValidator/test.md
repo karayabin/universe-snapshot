@@ -75,6 +75,11 @@ Returns bool.
 
 
 
+Source Code
+===========
+See the source code for method [MinMaxFileSizeValidator::test](https://github.com/lingtalfi/Chloroform/blob/master/Validator/MinMaxFileSizeValidator.php#L64-L115)
+
+
 See Also
 ================
 

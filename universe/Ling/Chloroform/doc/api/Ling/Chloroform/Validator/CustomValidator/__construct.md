@@ -47,6 +47,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [CustomValidator::__construct](https://github.com/lingtalfi/Chloroform/blob/master/Validator/CustomValidator.php#L33-L36)
+
+
 See Also
 ================
 

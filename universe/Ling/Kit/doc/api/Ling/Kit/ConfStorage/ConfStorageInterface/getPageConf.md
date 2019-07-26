@@ -50,6 +50,11 @@ Returns array | false.
 
 
 
+Source Code
+===========
+See the source code for method [ConfStorageInterface::getPageConf](https://github.com/lingtalfi/Kit/blob/master/ConfStorage/ConfStorageInterface.php#L23-L23)
+
+
 See Also
 ================
 

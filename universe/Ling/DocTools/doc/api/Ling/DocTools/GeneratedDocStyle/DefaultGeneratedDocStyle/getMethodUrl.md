@@ -59,6 +59,11 @@ Returns string.
 
 
 
+Source Code
+===========
+See the source code for method [DefaultGeneratedDocStyle::getMethodUrl](https://github.com/lingtalfi/DocTools/blob/master/GeneratedDocStyle/DefaultGeneratedDocStyle.php#L55-L58)
+
+
 See Also
 ================
 

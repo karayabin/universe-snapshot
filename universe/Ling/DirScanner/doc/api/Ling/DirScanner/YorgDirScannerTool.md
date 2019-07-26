@@ -4,7 +4,7 @@
 
 The YorgDirScannerTool class
 ================
-2019-03-20 --> 2019-03-26
+2019-03-20 --> 2019-07-18
 
 
 
@@ -57,7 +57,9 @@ Methods
 
 Location
 =============
-Ling\DirScanner\YorgDirScannerTool
+Ling\DirScanner\YorgDirScannerTool<br>
+See the source code of [Ling\DirScanner\YorgDirScannerTool](https://github.com/lingtalfi/DirScanner/blob/master/YorgDirScannerTool.php)
+
 
 
 SeeAlso

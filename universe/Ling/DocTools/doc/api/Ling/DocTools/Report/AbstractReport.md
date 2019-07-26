@@ -4,7 +4,7 @@
 
 The AbstractReport class
 ================
-2019-02-21 --> 2019-07-12
+2019-02-21 --> 2019-07-23
 
 
 
@@ -298,7 +298,9 @@ Methods
 
 Location
 =============
-Ling\DocTools\Report\AbstractReport
+Ling\DocTools\Report\AbstractReport<br>
+See the source code of [Ling\DocTools\Report\AbstractReport](https://github.com/lingtalfi/DocTools/blob/master/Report/AbstractReport.php)
+
 
 
 SeeAlso

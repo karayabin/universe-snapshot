@@ -44,6 +44,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [Output::__construct](https://github.com/lingtalfi/CliTools/blob/master/Output/Output.php#L48-L52)
+
+
 See Also
 ================
 

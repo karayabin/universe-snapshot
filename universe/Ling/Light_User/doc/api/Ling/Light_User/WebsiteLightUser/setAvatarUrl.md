@@ -47,6 +47,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [WebsiteLightUser::setAvatarUrl](https://github.com/lingtalfi/Light_User/blob/master/WebsiteLightUser.php#L234-L237)
+
+
 See Also
 ================
 

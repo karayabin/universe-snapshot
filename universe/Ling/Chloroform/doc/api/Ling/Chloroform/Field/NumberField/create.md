@@ -58,6 +58,11 @@ Returns [NumberField](https://github.com/lingtalfi/Chloroform/blob/master/doc/ap
 
 
 
+Source Code
+===========
+See the source code for method [NumberField::create](https://github.com/lingtalfi/Chloroform/blob/master/Field/NumberField.php#L29-L33)
+
+
 See Also
 ================
 

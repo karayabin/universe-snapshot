@@ -52,6 +52,11 @@ Returns array.
 
 
 
+Source Code
+===========
+See the source code for method [AbstractValidator::toArray](https://github.com/lingtalfi/Chloroform/blob/master/Validator/AbstractValidator.php#L59-L66)
+
+
 See Also
 ================
 

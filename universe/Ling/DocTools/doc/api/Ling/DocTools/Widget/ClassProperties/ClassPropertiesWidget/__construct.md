@@ -44,6 +44,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [ClassPropertiesWidget::__construct](https://github.com/lingtalfi/DocTools/blob/master/Widget/ClassProperties/ClassPropertiesWidget.php#L35-L39)
+
+
 See Also
 ================
 

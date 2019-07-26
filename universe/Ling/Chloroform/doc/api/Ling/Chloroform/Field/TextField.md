@@ -4,7 +4,7 @@
 
 The TextField class
 ================
-2019-04-10 --> 2019-04-30
+2019-04-10 --> 2019-07-26
 
 
 
@@ -83,7 +83,9 @@ Methods
 
 Location
 =============
-Ling\Chloroform\Field\TextField
+Ling\Chloroform\Field\TextField<br>
+See the source code of [Ling\Chloroform\Field\TextField](https://github.com/lingtalfi/Chloroform/blob/master/Field/TextField.php)
+
 
 
 SeeAlso

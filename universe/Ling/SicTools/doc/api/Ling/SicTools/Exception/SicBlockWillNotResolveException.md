@@ -4,7 +4,7 @@
 
 The SicBlockWillNotResolveException class
 ================
-2019-04-25 --> 2019-05-15
+2019-04-25 --> 2019-07-18
 
 
 
@@ -51,7 +51,9 @@ Methods
 
 Location
 =============
-Ling\SicTools\Exception\SicBlockWillNotResolveException
+Ling\SicTools\Exception\SicBlockWillNotResolveException<br>
+See the source code of [Ling\SicTools\Exception\SicBlockWillNotResolveException](https://github.com/lingtalfi/SicTools/blob/master/Exception/SicBlockWillNotResolveException.php)
+
 
 
 SeeAlso

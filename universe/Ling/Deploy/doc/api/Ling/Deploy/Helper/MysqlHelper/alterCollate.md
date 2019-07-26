@@ -56,6 +56,11 @@ Exceptions thrown
 
 
 
+Source Code
+===========
+See the source code for method [MysqlHelper::alterCollate](https://github.com/lingtalfi/Deploy/blob/master/Helper/MysqlHelper.php#L135-L145)
+
+
 See Also
 ================
 

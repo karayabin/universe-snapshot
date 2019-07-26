@@ -44,6 +44,11 @@ Returns mixed.
 
 
 
+Source Code
+===========
+See the source code for method [HiddenField::getValue](https://github.com/lingtalfi/Chloroform/blob/master/Field/HiddenField.php#L31-L34)
+
+
 See Also
 ================
 

@@ -4,7 +4,7 @@
 
 The InputInterface class
 ================
-2019-02-26 --> 2019-03-26
+2019-02-26 --> 2019-07-18
 
 
 
@@ -61,7 +61,9 @@ Methods
 
 Location
 =============
-Ling\CliTools\Input\InputInterface
+Ling\CliTools\Input\InputInterface<br>
+See the source code of [Ling\CliTools\Input\InputInterface](https://github.com/lingtalfi/CliTools/blob/master/Input/InputInterface.php)
+
 
 
 SeeAlso

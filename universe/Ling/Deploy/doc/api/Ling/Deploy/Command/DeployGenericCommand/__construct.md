@@ -44,6 +44,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [DeployGenericCommand::__construct](https://github.com/lingtalfi/Deploy/blob/master/Command/DeployGenericCommand.php#L34-L37)
+
+
 See Also
 ================
 

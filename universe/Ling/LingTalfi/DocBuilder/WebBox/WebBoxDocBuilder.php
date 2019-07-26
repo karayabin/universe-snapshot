@@ -56,12 +56,14 @@ class WebBoxDocBuilder
         //--------------------------------------------
 
         $planetDir = "/myphp/universe/Ling/WebBox";
-        $git = "https://github.com/lingtalfi/WebBox/blob/master";
+        $gitRepoUrl = "https://github.com/lingtalfi/WebBox";
+        $git = $gitRepoUrl . "/blob/master";
         $doc = "$git/doc";
         $api = $doc . "/api";
 
 
         $options = [
+            "gitRepoUrl" => $gitRepoUrl,
             /**
              * Path to the planet dir that we want to generate the documentation for.
              */

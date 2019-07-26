@@ -58,6 +58,11 @@ If null, 0 should be assumed.
 
 
 
+Source Code
+===========
+See the source code for method [ConfCommand::run](https://github.com/lingtalfi/Uni2/blob/master/Command/ConfCommand.php#L66-L96)
+
+
 See Also
 ================
 

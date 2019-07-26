@@ -4,7 +4,7 @@
 
 The DirScanner class
 ================
-2019-03-20 --> 2019-03-26
+2019-03-20 --> 2019-07-18
 
 
 
@@ -75,7 +75,9 @@ Methods
 
 Location
 =============
-Ling\DirScanner\DirScanner
+Ling\DirScanner\DirScanner<br>
+See the source code of [Ling\DirScanner\DirScanner](https://github.com/lingtalfi/DirScanner/blob/master/DirScanner.php)
+
 
 
 SeeAlso

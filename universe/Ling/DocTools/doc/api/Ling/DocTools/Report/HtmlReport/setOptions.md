@@ -47,6 +47,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [HtmlReport::setOptions](https://github.com/lingtalfi/DocTools/blob/master/Report/HtmlReport.php#L68-L71)
+
+
 See Also
 ================
 

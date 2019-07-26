@@ -44,6 +44,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [ColdServiceResolver::__construct](https://github.com/lingtalfi/SicTools/blob/master/ColdServiceResolver.php#L64-L70)
+
+
 See Also
 ================
 

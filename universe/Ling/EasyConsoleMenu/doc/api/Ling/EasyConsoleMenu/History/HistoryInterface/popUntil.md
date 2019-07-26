@@ -51,6 +51,11 @@ Returns bool.
 
 
 
+Source Code
+===========
+See the source code for method [HistoryInterface::popUntil](https://github.com/lingtalfi/EasyConsoleMenu/blob/master/History/HistoryInterface.php#L82-L82)
+
+
 See Also
 ================
 

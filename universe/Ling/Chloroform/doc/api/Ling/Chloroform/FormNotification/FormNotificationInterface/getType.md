@@ -51,6 +51,11 @@ Returns string.
 
 
 
+Source Code
+===========
+See the source code for method [FormNotificationInterface::getType](https://github.com/lingtalfi/Chloroform/blob/master/FormNotification/FormNotificationInterface.php#L25-L25)
+
+
 See Also
 ================
 

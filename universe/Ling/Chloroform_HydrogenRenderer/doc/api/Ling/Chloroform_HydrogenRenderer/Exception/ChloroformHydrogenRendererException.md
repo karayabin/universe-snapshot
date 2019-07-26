@@ -4,7 +4,7 @@
 
 The ChloroformHydrogenRendererException class
 ================
-2019-04-15 --> 2019-04-18
+2019-04-15 --> 2019-07-26
 
 
 
@@ -47,7 +47,9 @@ Methods
 
 Location
 =============
-Ling\Chloroform_HydrogenRenderer\Exception\ChloroformHydrogenRendererException
+Ling\Chloroform_HydrogenRenderer\Exception\ChloroformHydrogenRendererException<br>
+See the source code of [Ling\Chloroform_HydrogenRenderer\Exception\ChloroformHydrogenRendererException](https://github.com/lingtalfi/Chloroform_HydrogenRenderer/blob/master/Exception/ChloroformHydrogenRendererException.php)
+
 
 
 SeeAlso

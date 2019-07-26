@@ -4,7 +4,7 @@
 
 The HtmlPageRenderer class
 ================
-2019-04-24 --> 2019-05-14
+2019-04-24 --> 2019-07-18
 
 
 
@@ -105,7 +105,9 @@ Methods
 
 Location
 =============
-Ling\HtmlPageTools\Renderer\HtmlPageRenderer
+Ling\HtmlPageTools\Renderer\HtmlPageRenderer<br>
+See the source code of [Ling\HtmlPageTools\Renderer\HtmlPageRenderer](https://github.com/lingtalfi/HtmlPageTools/blob/master/Renderer/HtmlPageRenderer.php)
+
 
 
 SeeAlso

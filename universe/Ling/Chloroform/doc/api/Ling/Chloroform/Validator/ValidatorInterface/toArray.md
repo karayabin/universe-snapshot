@@ -52,6 +52,11 @@ Returns array.
 
 
 
+Source Code
+===========
+See the source code for method [ValidatorInterface::toArray](https://github.com/lingtalfi/Chloroform/blob/master/Validator/ValidatorInterface.php#L60-L60)
+
+
 See Also
 ================
 

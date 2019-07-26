@@ -46,6 +46,11 @@ Returns array.
 
 
 
+Source Code
+===========
+See the source code for method [HtmlPageCopilot::getCssCodeBlocks](https://github.com/lingtalfi/HtmlPageTools/blob/master/Copilot/HtmlPageCopilot.php#L328-L331)
+
+
 See Also
 ================
 

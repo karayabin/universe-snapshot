@@ -7,6 +7,7 @@ Conception notes
 
 * [Dynamic variables](#dynamic-variables)
 * [Lazy reference resolver](#lazy-reference-resolver)
+* [Page conf update array](#page-conf-update-array)
 
 
 
@@ -79,6 +80,71 @@ As per now, the lazy reference resolver string must be the entire string and can
 We can use the lazy reference resolver system to inject any kind of data into a key: so an string, an array, an object, ...
 
 
+
+
+
+Page conf updator 
+---------------
+2019-07-25
+
+The page conf updator is the simplest way to update the page configuration array.
+
+It basically allows controllers to change the kit page configuration array on the fly.
+
+
+Why do we need this?
+
+In a Light kit application, the page logic is handled by controllers which then call 
+the LightKitPageRenderer->renderPage method.
+
+
+In other words, the controllers only have the renderPage method to communicate with the kit page configuration (which
+is responsible for setting all the layout and widgets of a page, in other words the kit page configuration controls
+all the gui part of the page).
+
+
+Now most of the time, the controllers don't need to communicate with the gui. In kit, the controllers call 
+a gui template, and that's it.
+
+However, what if the gui needs more interaction with the controller?
+
+This case happens with forms, where the controller will create form error messages and need to transmit them
+to the page configuration.
+
+In the previous state of things, we had page transformers (dynamic variables and lazy reference resolver), 
+but it turns out those are mostly useful to convert some data into another.
+
+Plus, setting a page transformer require some extra work; it needs to be registered, and we need to create
+a PageTransformer object, this is not an optimal solution.
+
+
+And so controllers need a more direct way to interact with the page configuration.
+
+PageConfUpdator is the solution to this problem.
+We could technically use a simple array, but the problem is that widgets being indexed numerically,
+updating a specific widget requires to know the index of the widget. 
+
+Usually, we know that index, suffices to look at the kit page configuration.
+
+However, there is a tiny risk that the page configuration has been modified dynamically, and so we need
+to take that risk into account when implementing a solution for this problem.
+
+So, the updator will basically allow us to update widget based on their names or other identifiers, rather
+than just the index.
+
+I would say that practically, on a per-day basis, I would probably use just the array style with indexes references
+(this mechanism is also provided by the updator), since it will be a little bit faster.
+
+And if ever I need to target a widget by something else than its index, then I know that I can always do it with
+the other capabilities of the updator.
+
+
+
+
+
+
+
+ 
 
 
 

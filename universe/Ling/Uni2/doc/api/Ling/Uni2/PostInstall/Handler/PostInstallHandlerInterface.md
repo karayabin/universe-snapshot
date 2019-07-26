@@ -4,7 +4,7 @@
 
 The PostInstallHandlerInterface class
 ================
-2019-03-12 --> 2019-04-05
+2019-03-12 --> 2019-07-18
 
 
 
@@ -51,7 +51,9 @@ Methods
 
 Location
 =============
-Ling\Uni2\PostInstall\Handler\PostInstallHandlerInterface
+Ling\Uni2\PostInstall\Handler\PostInstallHandlerInterface<br>
+See the source code of [Ling\Uni2\PostInstall\Handler\PostInstallHandlerInterface](https://github.com/lingtalfi/Uni2/blob/master/PostInstall/Handler/PostInstallHandlerInterface.php)
+
 
 
 SeeAlso

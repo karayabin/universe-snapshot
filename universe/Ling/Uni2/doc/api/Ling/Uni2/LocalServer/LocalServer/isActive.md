@@ -44,6 +44,11 @@ Returns bool.
 
 
 
+Source Code
+===========
+See the source code for method [LocalServer::isActive](https://github.com/lingtalfi/Uni2/blob/master/LocalServer/LocalServer.php#L97-L100)
+
+
 See Also
 ================
 

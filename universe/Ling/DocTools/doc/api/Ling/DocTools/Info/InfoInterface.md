@@ -4,7 +4,7 @@
 
 The InfoInterface class
 ================
-2019-02-21 --> 2019-07-12
+2019-02-21 --> 2019-07-23
 
 
 
@@ -45,7 +45,9 @@ Methods
 
 Location
 =============
-Ling\DocTools\Info\InfoInterface
+Ling\DocTools\Info\InfoInterface<br>
+See the source code of [Ling\DocTools\Info\InfoInterface](https://github.com/lingtalfi/DocTools/blob/master/Info/InfoInterface.php)
+
 
 
 SeeAlso

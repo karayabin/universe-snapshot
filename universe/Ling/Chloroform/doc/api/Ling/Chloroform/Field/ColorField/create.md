@@ -51,6 +51,11 @@ Returns [ColorField](https://github.com/lingtalfi/Chloroform/blob/master/doc/api
 
 
 
+Source Code
+===========
+See the source code for method [ColorField::create](https://github.com/lingtalfi/Chloroform/blob/master/Field/ColorField.php#L31-L35)
+
+
 See Also
 ================
 

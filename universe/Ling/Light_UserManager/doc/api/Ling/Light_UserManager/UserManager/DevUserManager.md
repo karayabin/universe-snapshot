@@ -4,7 +4,7 @@
 
 The DevUserManager class
 ================
-2019-05-10 --> 2019-07-12
+2019-05-10 --> 2019-07-19
 
 
 
@@ -64,7 +64,9 @@ Methods
 
 Location
 =============
-Ling\Light_UserManager\UserManager\DevUserManager
+Ling\Light_UserManager\UserManager\DevUserManager<br>
+See the source code of [Ling\Light_UserManager\UserManager\DevUserManager](https://github.com/lingtalfi/Light_UserManager/blob/master/UserManager/DevUserManager.php)
+
 
 
 SeeAlso

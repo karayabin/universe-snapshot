@@ -4,7 +4,7 @@
 
 The MapHelper class
 ================
-2019-03-12 --> 2019-04-05
+2019-03-12 --> 2019-07-18
 
 
 
@@ -47,7 +47,9 @@ Methods
 
 Location
 =============
-Ling\Uni2\Helper\MapHelper
+Ling\Uni2\Helper\MapHelper<br>
+See the source code of [Ling\Uni2\Helper\MapHelper](https://github.com/lingtalfi/Uni2/blob/master/Helper/MapHelper.php)
+
 
 
 SeeAlso

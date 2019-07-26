@@ -47,6 +47,11 @@ Returns [CommentInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/
 
 
 
+Source Code
+===========
+See the source code for method [CommentInfo::setSeeItems](https://github.com/lingtalfi/DocTools/blob/master/Info/CommentInfo.php#L366-L370)
+
+
 See Also
 ================
 

@@ -70,6 +70,11 @@ Returns mixed.
 
 
 
+Source Code
+===========
+See the source code for method [ColdServiceResolver::resolveCustomNotation](https://github.com/lingtalfi/SicTools/blob/master/ColdServiceResolver.php#L281-L284)
+
+
 See Also
 ================
 

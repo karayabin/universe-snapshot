@@ -40,6 +40,10 @@ Summary
 History Log
 ------------------
 
+- 1.1.0 -- 2019-07-23
+
+    - add MysqlSerializeTool
+    
 - 1.0.0 -- 2019-02-04
 
     - initial commit

@@ -44,6 +44,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [WidgetConfAwarePicassoWidget::__construct](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/Widget/WidgetConfAwarePicassoWidget.php#L31-L35)
+
+
 See Also
 ================
 

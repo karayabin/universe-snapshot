@@ -55,6 +55,11 @@ Returns [AbstractValidator](https://github.com/lingtalfi/Chloroform/blob/master/
 
 
 
+Source Code
+===========
+See the source code for method [AbstractValidator::setErrorMessage](https://github.com/lingtalfi/Chloroform/blob/master/Validator/AbstractValidator.php#L80-L87)
+
+
 See Also
 ================
 

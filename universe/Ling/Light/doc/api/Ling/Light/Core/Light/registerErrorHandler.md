@@ -61,6 +61,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [Light::registerErrorHandler](https://github.com/lingtalfi/Light/blob/master/Core/Light.php#L286-L289)
+
+
 See Also
 ================
 

@@ -44,6 +44,11 @@ Returns string.
 
 
 
+Source Code
+===========
+See the source code for method [HttpRequest::getIp](https://github.com/lingtalfi/Light/blob/master/Http/HttpRequest.php#L285-L288)
+
+
 See Also
 ================
 

@@ -44,6 +44,11 @@ Returns mixed.
 
 
 
+Source Code
+===========
+See the source code for method [PasswordField::getValue](https://github.com/lingtalfi/Chloroform/blob/master/Field/PasswordField.php#L41-L44)
+
+
 See Also
 ================
 

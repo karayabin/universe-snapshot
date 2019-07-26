@@ -44,6 +44,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [BashtmlFormatter::__construct](https://github.com/lingtalfi/CliTools/blob/master/Formatter/BashtmlFormatter.php#L177-L236)
+
+
 See Also
 ================
 

@@ -58,6 +58,11 @@ Exceptions thrown
 
 
 
+Source Code
+===========
+See the source code for method [UniToolApplication::bootUniverse](https://github.com/lingtalfi/Uni2/blob/master/Application/UniToolApplication.php#L338-L375)
+
+
 See Also
 ================
 

@@ -50,6 +50,11 @@ Exceptions thrown
 
 
 
+Source Code
+===========
+See the source code for method [UniToolApplication::checkUniverseDirectory](https://github.com/lingtalfi/Uni2/blob/master/Application/UniToolApplication.php#L316-L323)
+
+
 See Also
 ================
 

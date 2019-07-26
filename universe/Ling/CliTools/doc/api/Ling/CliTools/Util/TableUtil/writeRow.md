@@ -24,7 +24,7 @@ protected [TableUtil::writeRow](https://github.com/lingtalfi/CliTools/blob/maste
 Writes a table row to the given output.
 A table row looks like this:
 
-| 9971-5-0210-0 | A Tale of Two Cities  | Charles Dickens  |
+     | 9971-5-0210-0 | A Tale of Two Cities  | Charles Dickens  |
 
 
 
@@ -56,6 +56,11 @@ Returns void.
 
 
 
+
+
+Source Code
+===========
+See the source code for method [TableUtil::writeRow](https://github.com/lingtalfi/CliTools/blob/master/Util/TableUtil.php#L218-L233)
 
 
 See Also

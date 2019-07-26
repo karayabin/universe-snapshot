@@ -44,6 +44,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [MenuExecutor::__construct](https://github.com/lingtalfi/EasyConsoleMenu/blob/master/MenuExecutor.php#L59-L77)
+
+
 See Also
 ================
 

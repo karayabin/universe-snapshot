@@ -71,7 +71,31 @@ The **initializer** service is provided by the [Light_Initializer planet](https:
 
 History Log
 =============
+    
+- 1.4.0 -- 2019-07-18
 
+    - update ReverseRouter.getUrl to adapt the new LightReverseRouterInterface
+    
+- 1.3.2 -- 2019-07-18
+
+    - fix ReverseRouter.getUrl returning wrong implicit host for absolute url
+    
+- 1.3.1 -- 2019-07-18
+
+    - update docTools documentation, add links to source code for classes and methods
+        
+- 1.3.0 -- 2019-07-17
+
+    - update ReverseRouter class to adapt the new LightInitializerInterface
+    
+- 1.2.0 -- 2019-07-17
+
+    - update ReverseRouter class to adapt the new LightReverseRouterInterface
+    
+- 1.1.0 -- 2019-07-17
+
+    - update ReverseRouter class to adapt the new  LightInitializerInterface
+    
 - 1.0.0 -- 2019-04-10
 
     - initial commit

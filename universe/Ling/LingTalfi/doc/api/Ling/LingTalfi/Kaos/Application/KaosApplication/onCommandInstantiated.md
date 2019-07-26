@@ -48,6 +48,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [KaosApplication::onCommandInstantiated](https://github.com/lingtalfi/LingTalfi/blob/master/Kaos/Application/KaosApplication.php#L81-L88)
+
+
 See Also
 ================
 

@@ -44,6 +44,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [HttpResponse::send](https://github.com/lingtalfi/Light/blob/master/Http/HttpResponse.php#L130-L134)
+
+
 See Also
 ================
 

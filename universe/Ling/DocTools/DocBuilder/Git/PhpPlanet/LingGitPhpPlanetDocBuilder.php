@@ -57,6 +57,13 @@ class LingGitPhpPlanetDocBuilder extends DocBuilder
     protected $projectStartDate;
 
     /**
+     * This property holds the projectRepoUrl for this instance.
+     * It's the github repo url.
+     * @var string
+     */
+    protected $projectRepoUrl;
+
+    /**
      * This property holds the planet directory setting.
      * @var string
      */
@@ -165,6 +172,7 @@ class LingGitPhpPlanetDocBuilder extends DocBuilder
      * Settings (all mandatory except those prefixed with question mark):
      *
      * - planetDir: string. The location of the planet directory to parse.
+     * - gitRepoUrl: string. The url of the github project.
      * - ?reportIgnore: array. An array of class names to not include in the report if they fail.
      *              This might be useful in case your class extends an external class for instance.
      * - ?reportShowMethodsWithoutReturn: bool=true, whether to display methods without "@return" tag.
@@ -206,6 +214,7 @@ class LingGitPhpPlanetDocBuilder extends DocBuilder
     {
 
         $this->projectStartDate = $settings['projectStartDate'];
+        $this->projectRepoUrl = $settings['gitRepoUrl'];
         $this->planetDir = $settings['planetDir'];
         $this->generatedClassBaseDir = $settings['generatedClassBaseDir'];
         $this->insertsBaseDir = $settings['insertsBaseDir'];
@@ -377,6 +386,16 @@ class LingGitPhpPlanetDocBuilder extends DocBuilder
     private function buildClassPage(ClassInfo $classInfo)
     {
 
+        $gitBase = $this->projectRepoUrl . "/blob/master";
+
+
+        $className = $classInfo->getName();
+        $p = explode('\\', $className);
+        array_shift($p); // drop the universe name
+        array_shift($p); // drop the planet name
+        $classSourceUrl = $gitBase . "/" . implode("/", $p) . '.php';
+
+
 
         $planetName = $this->_planetInfo->getName();
 
@@ -409,6 +428,7 @@ class LingGitPhpPlanetDocBuilder extends DocBuilder
         $pageUtil->setRootDir($this->generatedClassBaseDir);
         $pageUtil->setInsertsRootDir($this->insertsBaseDir);
         $pageUtil->createPage($this->_generatedDocStyle->getClassPageRelativePath($planetName, $classInfo->getName()), $tplClass, [
+            "classSourceUrl" => $classSourceUrl,
             "classInfo" => $classInfo,
             "classSynopsisWidget" => $classSynopsisWidget,
             "classPropertiesWidget" => $classPropertiesWidget,
@@ -437,6 +457,19 @@ class LingGitPhpPlanetDocBuilder extends DocBuilder
         $filePath = $this->_generatedDocStyle->getMethodPageRelativePath($this->_planetInfo->getName(), $classInfo->getName(), $methodInfo->getName());
 
 
+        $gitBase = $this->projectRepoUrl . "/blob/master";
+        $className = $classInfo->getName();
+        $p = explode('\\', $className);
+        array_shift($p); // drop the universe name
+        array_shift($p); // drop the planet name
+        $classSourceUrl = $gitBase . "/" . implode("/", $p) . '.php';
+        $rMethod = $methodInfo->getReflectionMethod();
+        $startLine = $rMethod->getStartLine();
+        $endLine = $rMethod->getEndLine();
+        $methodSourceUrl = $classSourceUrl . "#L" . $startLine . "-L" . $endLine;
+
+
+
         $methodSignature = MethodHelper::getMethodSignature($methodInfo, $this->_generatedItems2Url, [
             [
                 "showDeclaringClass" => true,
@@ -450,7 +483,6 @@ class LingGitPhpPlanetDocBuilder extends DocBuilder
 
         $classLink = $classInfo->getShortName();
         $className = $classInfo->getName();
-
 
 
         if (array_key_exists($className, $this->_generatedItems2Url)) {
@@ -477,6 +509,7 @@ class LingGitPhpPlanetDocBuilder extends DocBuilder
         $pageUtil->setRootDir($this->generatedClassBaseDir);
         $pageUtil->setInsertsRootDir($this->insertsBaseDir);
         $pageUtil->createPage($filePath, $tplMethod, [
+            "methodSourceUrl" => $methodSourceUrl,
             "methodInfo" => $methodInfo,
             "methodSignature" => $methodSignature,
             "methodReturnType" => $methodReturnType,

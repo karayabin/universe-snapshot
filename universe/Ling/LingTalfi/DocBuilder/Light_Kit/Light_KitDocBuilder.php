@@ -48,12 +48,14 @@ class Light_KitDocBuilder
         // DOC TOOLS: CREATE A DOCUMENTATION FOR A PHP PLANET FOR GIT (MARKDOWN)
         //--------------------------------------------
         $planetDir = "/myphp/universe/Ling/Light_Kit";
-        $git = "https://github.com/lingtalfi/Light_Kit/blob/master";
+        $gitRepoUrl = "https://github.com/lingtalfi/Light_Kit";
+        $git = $gitRepoUrl . "/blob/master";
         $doc = "$git/doc";
         $api = $doc . "/api";
 
 
         $options = [
+            "gitRepoUrl" => $gitRepoUrl,
             /**
              * Path to the planet dir that we want to generate the documentation for.
              */
@@ -139,6 +141,7 @@ class Light_KitDocBuilder
              */
             "keyWord2UrlMap" => [
                 "page configuration array" => 'https://github.com/lingtalfi/Kit#the-kit-configuration-array',
+                "arrayMergeReplaceRecursive technique" => 'https://github.com/lingtalfi/Bat/blob/master/ArrayTool.md#arraymergereplacerecursive',
             ],
             /**
              * An array of external classes to url.

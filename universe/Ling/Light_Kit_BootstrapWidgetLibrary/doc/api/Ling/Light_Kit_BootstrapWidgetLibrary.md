@@ -1,6 +1,6 @@
 Ling/Light_Kit_BootstrapWidgetLibrary
 ================
-2019-04-26 --> 2019-07-16
+2019-04-26 --> 2019-07-25
 
 
 
@@ -422,7 +422,72 @@ Table of contents
     - ZephyrTemplateEngine::render &ndash; Parses the template identified by $resourceId and returns the interpreted template (the template with the variables injected in it).
     - ZephyrTemplateEngine::getErrors &ndash; Returns the errors of this instance.
     - ZephyrTemplateEngine::setDirectory &ndash; Sets the directory.
+- [ZeroAdminHeroGraphWidget](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/Widget/Picasso/ZeroAdminHeroGraphWidget.md) &ndash; The ZeroAdminHeroGraphWidget class.
+    - EasyLightPicassoWidget::__construct &ndash; Builds the EasyPicassoWidget instance.
+    - EasyLightPicassoWidget::setKitPageRenderer &ndash; Sets the KitPageRenderer instance.
+    - EasyLightPicassoWidget::getKitPageRenderer &ndash; The getKitPageRenderer method
+    - WidgetConfAwarePicassoWidget::setWidgetConf &ndash; Sets the widget configuration.
+    - WidgetConfAwarePicassoWidget::getWidgetConf &ndash; Returns the widget configuration.
+    - PicassoWidget::getLibraries &ndash; Returns the libraries of this instance.
+    - PicassoWidget::setCopilot &ndash; Sets the copilot.
+    - PicassoWidget::renderFile &ndash; Parses the file identified and returns its interpreted content (by injecting the variables in it).
+    - PicassoWidget::prepare &ndash; Prepares the widget according to the given widget configuration.
+    - ZephyrTemplateEngine::render &ndash; Parses the template identified by $resourceId and returns the interpreted template (the template with the variables injected in it).
+    - ZephyrTemplateEngine::getErrors &ndash; Returns the errors of this instance.
+    - ZephyrTemplateEngine::setDirectory &ndash; Sets the directory.
+- [ZeroAdminLoginFormWidget](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/Widget/Picasso/ZeroAdminLoginFormWidget.md) &ndash; The ZeroAdminLoginFormWidget class.
+    - EasyLightPicassoWidget::__construct &ndash; Builds the EasyPicassoWidget instance.
+    - EasyLightPicassoWidget::setKitPageRenderer &ndash; Sets the KitPageRenderer instance.
+    - EasyLightPicassoWidget::getKitPageRenderer &ndash; The getKitPageRenderer method
+    - WidgetConfAwarePicassoWidget::setWidgetConf &ndash; Sets the widget configuration.
+    - WidgetConfAwarePicassoWidget::getWidgetConf &ndash; Returns the widget configuration.
+    - PicassoWidget::getLibraries &ndash; Returns the libraries of this instance.
+    - PicassoWidget::setCopilot &ndash; Sets the copilot.
+    - PicassoWidget::renderFile &ndash; Parses the file identified and returns its interpreted content (by injecting the variables in it).
+    - PicassoWidget::prepare &ndash; Prepares the widget according to the given widget configuration.
+    - ZephyrTemplateEngine::render &ndash; Parses the template identified by $resourceId and returns the interpreted template (the template with the variables injected in it).
+    - ZephyrTemplateEngine::getErrors &ndash; Returns the errors of this instance.
+    - ZephyrTemplateEngine::setDirectory &ndash; Sets the directory.
+- [ZeroAdminNotificationAlertWidget](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/Widget/Picasso/ZeroAdminNotificationAlertWidget.md) &ndash; The ZeroAdminNotificationAlertWidget class.
+    - EasyLightPicassoWidget::__construct &ndash; Builds the EasyPicassoWidget instance.
+    - EasyLightPicassoWidget::setKitPageRenderer &ndash; Sets the KitPageRenderer instance.
+    - EasyLightPicassoWidget::getKitPageRenderer &ndash; The getKitPageRenderer method
+    - WidgetConfAwarePicassoWidget::setWidgetConf &ndash; Sets the widget configuration.
+    - WidgetConfAwarePicassoWidget::getWidgetConf &ndash; Returns the widget configuration.
+    - PicassoWidget::getLibraries &ndash; Returns the libraries of this instance.
+    - PicassoWidget::setCopilot &ndash; Sets the copilot.
+    - PicassoWidget::renderFile &ndash; Parses the file identified and returns its interpreted content (by injecting the variables in it).
+    - PicassoWidget::prepare &ndash; Prepares the widget according to the given widget configuration.
+    - ZephyrTemplateEngine::render &ndash; Parses the template identified by $resourceId and returns the interpreted template (the template with the variables injected in it).
+    - ZephyrTemplateEngine::getErrors &ndash; Returns the errors of this instance.
+    - ZephyrTemplateEngine::setDirectory &ndash; Sets the directory.
+- [ZeroAdminNotificationToastWidget](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/Widget/Picasso/ZeroAdminNotificationToastWidget.md) &ndash; The ZeroAdminNotificationToastWidget class.
+    - EasyLightPicassoWidget::__construct &ndash; Builds the EasyPicassoWidget instance.
+    - EasyLightPicassoWidget::setKitPageRenderer &ndash; Sets the KitPageRenderer instance.
+    - EasyLightPicassoWidget::getKitPageRenderer &ndash; The getKitPageRenderer method
+    - WidgetConfAwarePicassoWidget::setWidgetConf &ndash; Sets the widget configuration.
+    - WidgetConfAwarePicassoWidget::getWidgetConf &ndash; Returns the widget configuration.
+    - PicassoWidget::getLibraries &ndash; Returns the libraries of this instance.
+    - PicassoWidget::setCopilot &ndash; Sets the copilot.
+    - PicassoWidget::renderFile &ndash; Parses the file identified and returns its interpreted content (by injecting the variables in it).
+    - PicassoWidget::prepare &ndash; Prepares the widget according to the given widget configuration.
+    - ZephyrTemplateEngine::render &ndash; Parses the template identified by $resourceId and returns the interpreted template (the template with the variables injected in it).
+    - ZephyrTemplateEngine::getErrors &ndash; Returns the errors of this instance.
+    - ZephyrTemplateEngine::setDirectory &ndash; Sets the directory.
 - [ZeroAdminSidebarWidget](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/Widget/Picasso/ZeroAdminSidebarWidget.md) &ndash; The ZeroAdminSidebarWidget class.
+    - EasyLightPicassoWidget::__construct &ndash; Builds the EasyPicassoWidget instance.
+    - EasyLightPicassoWidget::setKitPageRenderer &ndash; Sets the KitPageRenderer instance.
+    - EasyLightPicassoWidget::getKitPageRenderer &ndash; The getKitPageRenderer method
+    - WidgetConfAwarePicassoWidget::setWidgetConf &ndash; Sets the widget configuration.
+    - WidgetConfAwarePicassoWidget::getWidgetConf &ndash; Returns the widget configuration.
+    - PicassoWidget::getLibraries &ndash; Returns the libraries of this instance.
+    - PicassoWidget::setCopilot &ndash; Sets the copilot.
+    - PicassoWidget::renderFile &ndash; Parses the file identified and returns its interpreted content (by injecting the variables in it).
+    - PicassoWidget::prepare &ndash; Prepares the widget according to the given widget configuration.
+    - ZephyrTemplateEngine::render &ndash; Parses the template identified by $resourceId and returns the interpreted template (the template with the variables injected in it).
+    - ZephyrTemplateEngine::getErrors &ndash; Returns the errors of this instance.
+    - ZephyrTemplateEngine::setDirectory &ndash; Sets the directory.
+- [ZeroAdminStatSummaryIconWidget](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/Widget/Picasso/ZeroAdminStatSummaryIconWidget.md) &ndash; The ZeroAdminStatSummaryIconWidget class.
     - EasyLightPicassoWidget::__construct &ndash; Builds the EasyPicassoWidget instance.
     - EasyLightPicassoWidget::setKitPageRenderer &ndash; Sets the KitPageRenderer instance.
     - EasyLightPicassoWidget::getKitPageRenderer &ndash; The getKitPageRenderer method

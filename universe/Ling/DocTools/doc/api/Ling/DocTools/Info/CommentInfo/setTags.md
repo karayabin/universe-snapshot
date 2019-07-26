@@ -47,6 +47,11 @@ Returns [CommentInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/
 
 
 
+Source Code
+===========
+See the source code for method [CommentInfo::setTags](https://github.com/lingtalfi/DocTools/blob/master/Info/CommentInfo.php#L283-L287)
+
+
 See Also
 ================
 

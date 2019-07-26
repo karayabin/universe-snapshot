@@ -53,6 +53,11 @@ If null is returned, 0 should be assumed.
 
 
 
+Source Code
+===========
+See the source code for method [DeployApplication::runProgram](https://github.com/lingtalfi/Deploy/blob/master/Application/DeployApplication.php#L284-L314)
+
+
 See Also
 ================
 

@@ -59,6 +59,10 @@ The **template** service can be used to render html using the [zephyr template e
 History Log
 =============
 
+- 1.1.1 -- 2019-07-18
+
+    - update docTools documentation, add links to source code for classes and methods
+    
 - 1.0.0 -- 2019-04-09
 
     - initial commit

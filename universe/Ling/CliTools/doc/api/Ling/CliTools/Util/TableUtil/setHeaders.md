@@ -47,6 +47,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [TableUtil::setHeaders](https://github.com/lingtalfi/CliTools/blob/master/Util/TableUtil.php#L106-L109)
+
+
 See Also
 ================
 

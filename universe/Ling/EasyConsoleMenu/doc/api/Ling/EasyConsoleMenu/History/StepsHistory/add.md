@@ -47,6 +47,11 @@ Returns mixed.
 
 
 
+Source Code
+===========
+See the source code for method [StepsHistory::add](https://github.com/lingtalfi/EasyConsoleMenu/blob/master/History/StepsHistory.php#L43-L46)
+
+
 See Also
 ================
 

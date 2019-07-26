@@ -45,6 +45,11 @@ Returns array.
 
 
 
+Source Code
+===========
+See the source code for method [InputInterface::getOptions](https://github.com/lingtalfi/CliTools/blob/master/Input/InputInterface.php#L62-L62)
+
+
 See Also
 ================
 

@@ -48,6 +48,11 @@ Returns string.
 
 
 
+Source Code
+===========
+See the source code for method [VariableDescriptionFileGeneratorUtil::renderVars](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/Util/VariableDescriptionFileGeneratorUtil.php#L87-L94)
+
+
 See Also
 ================
 

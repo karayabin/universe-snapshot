@@ -9,7 +9,8 @@ use Ling\Light\Http\HttpRequestInterface;
 /**
  * The LightInitializerInterface interface.
  */
-interface LightInitializerInterface{
+interface LightInitializerInterface
+{
 
 
     /**

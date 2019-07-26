@@ -47,6 +47,11 @@ Returns bool.
 
 
 
+Source Code
+===========
+See the source code for method [AbstractInput::hasFlag](https://github.com/lingtalfi/CliTools/blob/master/Input/AbstractInput.php#L62-L68)
+
+
 See Also
 ================
 

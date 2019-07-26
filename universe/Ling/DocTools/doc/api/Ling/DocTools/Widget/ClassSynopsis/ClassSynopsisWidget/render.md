@@ -49,6 +49,11 @@ when the widget cannot render properly.
 
 
 
+Source Code
+===========
+See the source code for method [ClassSynopsisWidget::render](https://github.com/lingtalfi/DocTools/blob/master/Widget/ClassSynopsis/ClassSynopsisWidget.php#L122-L315)
+
+
 See Also
 ================
 

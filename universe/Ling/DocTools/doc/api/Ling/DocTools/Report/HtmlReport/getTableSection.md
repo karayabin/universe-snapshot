@@ -74,6 +74,11 @@ Returns array.
 
 
 
+Source Code
+===========
+See the source code for method [HtmlReport::getTableSection](https://github.com/lingtalfi/DocTools/blob/master/Report/HtmlReport.php#L490-L512)
+
+
 See Also
 ================
 

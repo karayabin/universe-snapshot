@@ -47,6 +47,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [AbstractProgram::setLogger](https://github.com/lingtalfi/CliTools/blob/master/Program/AbstractProgram.php#L109-L112)
+
+
 See Also
 ================
 

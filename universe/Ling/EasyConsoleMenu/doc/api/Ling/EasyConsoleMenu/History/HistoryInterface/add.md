@@ -47,6 +47,11 @@ Returns mixed.
 
 
 
+Source Code
+===========
+See the source code for method [HistoryInterface::add](https://github.com/lingtalfi/EasyConsoleMenu/blob/master/History/HistoryInterface.php#L30-L30)
+
+
 See Also
 ================
 

@@ -47,6 +47,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [PropertyInfo::setReflectionProperty](https://github.com/lingtalfi/DocTools/blob/master/Info/PropertyInfo.php#L191-L194)
+
+
 See Also
 ================
 

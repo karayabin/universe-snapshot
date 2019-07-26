@@ -44,6 +44,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [BufferedOutput::reset](https://github.com/lingtalfi/CliTools/blob/master/Output/BufferedOutput.php#L32-L35)
+
+
 See Also
 ================
 

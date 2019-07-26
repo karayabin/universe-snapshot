@@ -44,6 +44,11 @@ Returns string.
 
 
 
+Source Code
+===========
+See the source code for method [DeployApplication::getProjectIdentifier](https://github.com/lingtalfi/Deploy/blob/master/Application/DeployApplication.php#L136-L139)
+
+
 See Also
 ================
 

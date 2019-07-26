@@ -47,6 +47,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [ParameterInfo::setName](https://github.com/lingtalfi/DocTools/blob/master/Info/ParameterInfo.php#L74-L77)
+
+
 See Also
 ================
 

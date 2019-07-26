@@ -45,6 +45,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [LingGitPhpPlanetDocBuilder::buildDoc](https://github.com/lingtalfi/DocTools/blob/master/DocBuilder/Git/PhpPlanet/LingGitPhpPlanetDocBuilder.php#L302-L327)
+
+
 See Also
 ================
 

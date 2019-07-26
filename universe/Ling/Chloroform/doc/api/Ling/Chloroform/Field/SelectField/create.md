@@ -59,6 +59,11 @@ Returns [SelectField](https://github.com/lingtalfi/Chloroform/blob/master/doc/ap
 
 
 
+Source Code
+===========
+See the source code for method [SelectField::create](https://github.com/lingtalfi/Chloroform/blob/master/Field/SelectField.php#L65-L69)
+
+
 See Also
 ================
 

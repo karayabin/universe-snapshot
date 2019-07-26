@@ -28,10 +28,10 @@ The special "(empty)" key contains files without extension (such as LICENCE for 
 There is also a special key: __extra_project_info__, which is an array with the following structure:
 
 - empty_extensions: array. The details for files with empty extensions.
-It's an array of "file name" => number of occurrences.
+         It's an array of "file name" => number of occurrences.
 - dir: string. The root directory.
 - weight_count: array of extension => total weight in mega bytes.
-Note: the extensions are the same as the extensions listed at the root of the info array.
+     Note: the extensions are the same as the extensions listed at the root of the info array.
 - nb_classes: int. The number of php classes found.
 - nb_php_files: int. The number of php files found.
 - nb_total_files: int. The total number of files found.
@@ -64,6 +64,11 @@ Returns array.
 
 
 
+
+
+Source Code
+===========
+See the source code for method [ProjectInfo::getInfo](https://github.com/lingtalfi/ProjectInfo/blob/master/ProjectInfo.php#L65-L170)
 
 
 See Also

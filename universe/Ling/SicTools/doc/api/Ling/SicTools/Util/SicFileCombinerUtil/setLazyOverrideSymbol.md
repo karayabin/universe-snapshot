@@ -47,6 +47,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [SicFileCombinerUtil::setLazyOverrideSymbol](https://github.com/lingtalfi/SicTools/blob/master/Util/SicFileCombinerUtil.php#L319-L322)
+
+
 See Also
 ================
 

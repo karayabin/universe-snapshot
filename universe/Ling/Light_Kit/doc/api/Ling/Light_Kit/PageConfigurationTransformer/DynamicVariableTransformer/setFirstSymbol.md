@@ -47,6 +47,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [DynamicVariableTransformer::setFirstSymbol](https://github.com/lingtalfi/Light_Kit/blob/master/PageConfigurationTransformer/DynamicVariableTransformer.php#L70-L73)
+
+
 See Also
 ================
 

@@ -4,7 +4,7 @@
 
 The ValidatorConfig class
 ================
-2019-04-10 --> 2019-04-30
+2019-04-10 --> 2019-07-26
 
 
 
@@ -54,7 +54,9 @@ Methods
 
 Location
 =============
-Ling\Chloroform\Validator\ValidatorConfig
+Ling\Chloroform\Validator\ValidatorConfig<br>
+See the source code of [Ling\Chloroform\Validator\ValidatorConfig](https://github.com/lingtalfi/Chloroform/blob/master/Validator/ValidatorConfig.php)
+
 
 
 SeeAlso

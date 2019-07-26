@@ -4,7 +4,7 @@
 
 The MinMaxCharValidator class
 ================
-2019-04-10 --> 2019-04-30
+2019-04-10 --> 2019-07-26
 
 
 
@@ -75,7 +75,9 @@ Methods
 
 Location
 =============
-Ling\Chloroform\Validator\MinMaxCharValidator
+Ling\Chloroform\Validator\MinMaxCharValidator<br>
+See the source code of [Ling\Chloroform\Validator\MinMaxCharValidator](https://github.com/lingtalfi/Chloroform/blob/master/Validator/MinMaxCharValidator.php)
+
 
 
 SeeAlso

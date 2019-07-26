@@ -58,6 +58,11 @@ If null, 0 should be assumed.
 
 
 
+Source Code
+===========
+See the source code for method [RemoveFilesCommand::run](https://github.com/lingtalfi/Deploy/blob/master/Command/RemoveFilesCommand.php#L40-L114)
+
+
 See Also
 ================
 

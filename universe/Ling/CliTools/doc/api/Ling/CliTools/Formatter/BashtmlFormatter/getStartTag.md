@@ -52,6 +52,11 @@ Returns false | string.
 
 
 
+Source Code
+===========
+See the source code for method [BashtmlFormatter::getStartTag](https://github.com/lingtalfi/CliTools/blob/master/Formatter/BashtmlFormatter.php#L305-L312)
+
+
 See Also
 ================
 

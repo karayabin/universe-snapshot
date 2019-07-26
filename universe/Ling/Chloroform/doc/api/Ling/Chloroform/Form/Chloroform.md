@@ -4,7 +4,7 @@
 
 The Chloroform class
 ================
-2019-04-10 --> 2019-04-30
+2019-04-10 --> 2019-07-26
 
 
 
@@ -28,9 +28,12 @@ class <span class="pl-k">Chloroform</span>  {
     - protected [Ling\Chloroform\Field\FieldInterface[]](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/FieldInterface.md) [$fields](#property-fields) ;
     - protected [Ling\Chloroform\FormNotification\FormNotificationInterface[]](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/FormNotification/FormNotificationInterface.md) [$notifications](#property-notifications) ;
     - private array [$_postedData](#property-_postedData) ;
+    - private bool [$_isPosted](#property-_isPosted) ;
+    - protected string [$formId](#property-formId) ;
 
 - Methods
     - public [__construct](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform/__construct.md)() : void
+    - public [setFormId](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform/setFormId.md)(string $formId) : void
     - public [isPosted](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform/isPosted.md)() : bool
     - public [getPostedData](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform/getPostedData.md)() : array
     - public [validates](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform/validates.md)() : bool
@@ -70,14 +73,29 @@ Properties
     
     
 
+- <span id="property-_isPosted"><b>_isPosted</b></span>
+
+    This property holds whether this form instance was posted.
+    
+    
+
+- <span id="property-formId"><b>formId</b></span>
+
+    This property holds the formId for this instance.
+    This is helpful if your page contains multiple forms, to differentiate
+    which form was actually submitted.
+    
+    
+
 
 
 Methods
 ==============
 
 - [Chloroform::__construct](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform/__construct.md) &ndash; Builds the Chloroform instance.
+- [Chloroform::setFormId](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform/setFormId.md) &ndash; Sets the formId.
 - [Chloroform::isPosted](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform/isPosted.md) &ndash; Returns whether this form instance was posted.
-- [Chloroform::getPostedData](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform/getPostedData.md) &ndash; Returns an array of posted data.
+- [Chloroform::getPostedData](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform/getPostedData.md) &ndash; Returns an array of posted data (for this instance).
 - [Chloroform::validates](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform/validates.md) &ndash; Returns whether all fields attached to this form validate.
 - [Chloroform::getFields](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform/getFields.md) &ndash; Returns the fields of this instance.
 - [Chloroform::getField](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform/getField.md) &ndash; Returns the field which id is given.
@@ -94,7 +112,9 @@ Methods
 
 Location
 =============
-Ling\Chloroform\Form\Chloroform
+Ling\Chloroform\Form\Chloroform<br>
+See the source code of [Ling\Chloroform\Form\Chloroform](https://github.com/lingtalfi/Chloroform/blob/master/Form/Chloroform.php)
+
 
 
 SeeAlso

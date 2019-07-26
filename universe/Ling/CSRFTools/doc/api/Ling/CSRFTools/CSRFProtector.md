@@ -4,7 +4,7 @@
 
 The CSRFProtector class
 ================
-2019-04-11 --> 2019-04-11
+2019-04-11 --> 2019-07-18
 
 
 
@@ -81,6 +81,8 @@ Methods
 
 Location
 =============
-Ling\CSRFTools\CSRFProtector
+Ling\CSRFTools\CSRFProtector<br>
+See the source code of [Ling\CSRFTools\CSRFProtector](https://github.com/lingtalfi/CSRFTools/blob/master/CSRFProtector.php)
+
 
 

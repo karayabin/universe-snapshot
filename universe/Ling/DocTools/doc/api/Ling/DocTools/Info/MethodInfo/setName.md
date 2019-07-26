@@ -47,6 +47,11 @@ Returns [MethodInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/L
 
 
 
+Source Code
+===========
+See the source code for method [MethodInfo::setName](https://github.com/lingtalfi/DocTools/blob/master/Info/MethodInfo.php#L190-L194)
+
+
 See Also
 ================
 

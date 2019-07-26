@@ -4,7 +4,7 @@
 
 The ArrayVariableResolverException class
 ================
-2019-05-15 --> 2019-05-15
+2019-05-15 --> 2019-07-23
 
 
 
@@ -47,7 +47,9 @@ Methods
 
 Location
 =============
-Ling\ArrayVariableResolver\Exception\ArrayVariableResolverException
+Ling\ArrayVariableResolver\Exception\ArrayVariableResolverException<br>
+See the source code of [Ling\ArrayVariableResolver\Exception\ArrayVariableResolverException](https://github.com/lingtalfi/ArrayVariableResolver/blob/master/Exception/ArrayVariableResolverException.php)
+
 
 
 SeeAlso

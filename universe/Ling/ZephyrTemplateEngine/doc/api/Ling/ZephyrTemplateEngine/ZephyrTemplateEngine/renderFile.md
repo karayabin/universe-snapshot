@@ -52,6 +52,11 @@ Returns false | string.
 
 
 
+Source Code
+===========
+See the source code for method [ZephyrTemplateEngine::renderFile](https://github.com/lingtalfi/ZephyrTemplateEngine/blob/master/ZephyrTemplateEngine.php#L66-L74)
+
+
 See Also
 ================
 

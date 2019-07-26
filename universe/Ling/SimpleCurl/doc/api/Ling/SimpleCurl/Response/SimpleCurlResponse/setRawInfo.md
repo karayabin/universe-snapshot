@@ -47,6 +47,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [SimpleCurlResponse::setRawInfo](https://github.com/lingtalfi/SimpleCurl/blob/master/Response/SimpleCurlResponse.php#L116-L119)
+
+
 See Also
 ================
 

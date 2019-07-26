@@ -4,7 +4,7 @@
 
 The KrankenSteinException class
 ================
-2019-04-02 --> 2019-04-02
+2019-04-02 --> 2019-07-18
 
 
 
@@ -47,7 +47,9 @@ Methods
 
 Location
 =============
-Ling\KrankenStein\Exception\KrankenSteinException
+Ling\KrankenStein\Exception\KrankenSteinException<br>
+See the source code of [Ling\KrankenStein\Exception\KrankenSteinException](https://github.com/lingtalfi/KrankenStein/blob/master/Exception/KrankenSteinException.php)
+
 
 
 SeeAlso

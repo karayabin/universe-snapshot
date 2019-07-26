@@ -44,6 +44,11 @@ Returns array.
 
 
 
+Source Code
+===========
+See the source code for method [HttpRequestInterface::getPost](https://github.com/lingtalfi/Light/blob/master/Http/HttpRequestInterface.php#L136-L136)
+
+
 See Also
 ================
 

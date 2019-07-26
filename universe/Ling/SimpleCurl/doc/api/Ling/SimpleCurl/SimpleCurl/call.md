@@ -184,6 +184,11 @@ string(1270) "<!doctype html>
 
 
 
+Source Code
+===========
+See the source code for method [SimpleCurl::call](https://github.com/lingtalfi/SimpleCurl/blob/master/SimpleCurl.php#L50-L53)
+
+
 See Also
 ================
 

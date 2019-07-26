@@ -44,6 +44,11 @@ Returns null.
 
 
 
+Source Code
+===========
+See the source code for method [MethodInfo::getName](https://github.com/lingtalfi/DocTools/blob/master/Info/MethodInfo.php#L178-L181)
+
+
 See Also
 ================
 

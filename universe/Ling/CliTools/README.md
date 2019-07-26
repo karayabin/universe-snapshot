@@ -72,7 +72,11 @@ and the [Symfony/Console](https://github.com/symfony/symfony/tree/master/src/Sym
 
 History Log
 =================
-    
+
+- 1.10.1 -- 2019-07-18
+
+    - update docTools documentation, add links to source code for classes and methods
+        
 - 1.10.0 -- 2019-03-26
 
     - fix BufferedOutput->write not using the formatter

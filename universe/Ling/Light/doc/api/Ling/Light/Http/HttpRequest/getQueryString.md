@@ -44,6 +44,11 @@ Returns string.
 
 
 
+Source Code
+===========
+See the source code for method [HttpRequest::getQueryString](https://github.com/lingtalfi/Light/blob/master/Http/HttpRequest.php#L232-L235)
+
+
 See Also
 ================
 

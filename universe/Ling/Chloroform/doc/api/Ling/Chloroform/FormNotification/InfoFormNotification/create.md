@@ -47,6 +47,11 @@ Returns [InfoFormNotification](https://github.com/lingtalfi/Chloroform/blob/mast
 
 
 
+Source Code
+===========
+See the source code for method [InfoFormNotification::create](https://github.com/lingtalfi/Chloroform/blob/master/FormNotification/InfoFormNotification.php#L20-L23)
+
+
 See Also
 ================
 

@@ -53,6 +53,11 @@ Returns string.
 
 
 
+Source Code
+===========
+See the source code for method [LightKitCssFileGenerator::generate](https://github.com/lingtalfi/Light_Kit/blob/master/CssFileGenerator/LightKitCssFileGenerator.php#L73-L87)
+
+
 See Also
 ================
 

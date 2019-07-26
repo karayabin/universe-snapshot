@@ -47,6 +47,11 @@ Returns string.
 
 
 
+Source Code
+===========
+See the source code for method [FormatterInterface::format](https://github.com/lingtalfi/CliTools/blob/master/Formatter/FormatterInterface.php#L23-L23)
+
+
 See Also
 ================
 

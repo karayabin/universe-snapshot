@@ -44,6 +44,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [Application::__construct](https://github.com/lingtalfi/CliTools/blob/master/Program/Application.php#L50-L54)
+
+
 See Also
 ================
 

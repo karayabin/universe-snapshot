@@ -47,6 +47,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [DevUserManager::setUser](https://github.com/lingtalfi/Light_UserManager/blob/master/UserManager/DevUserManager.php#L58-L61)
+
+
 See Also
 ================
 

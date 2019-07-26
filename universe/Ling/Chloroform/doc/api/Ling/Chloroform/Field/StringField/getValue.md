@@ -44,6 +44,11 @@ Returns mixed.
 
 
 
+Source Code
+===========
+See the source code for method [StringField::getValue](https://github.com/lingtalfi/Chloroform/blob/master/Field/StringField.php#L30-L33)
+
+
 See Also
 ================
 

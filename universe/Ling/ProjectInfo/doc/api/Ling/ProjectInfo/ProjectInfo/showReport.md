@@ -52,6 +52,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [ProjectInfo::showReport](https://github.com/lingtalfi/ProjectInfo/blob/master/ProjectInfo.php#L184-L194)
+
+
 See Also
 ================
 

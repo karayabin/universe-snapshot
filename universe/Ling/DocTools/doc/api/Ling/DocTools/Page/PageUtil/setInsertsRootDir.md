@@ -47,6 +47,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [PageUtil::setInsertsRootDir](https://github.com/lingtalfi/DocTools/blob/master/Page/PageUtil.php#L73-L76)
+
+
 See Also
 ================
 

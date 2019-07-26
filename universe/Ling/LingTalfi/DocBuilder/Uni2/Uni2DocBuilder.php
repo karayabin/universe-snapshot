@@ -55,12 +55,14 @@ class Uni2DocBuilder
         //--------------------------------------------
 
         $planetDir = "/myphp/universe/Ling/Uni2";
-        $git = "https://github.com/lingtalfi/Uni2/blob/master";
+        $gitRepoUrl = "https://github.com/lingtalfi/Uni2";
+        $git = $gitRepoUrl . "/blob/master";
         $doc = "$git/doc";
         $api = $doc . "/api";
 
 
         $options = [
+            "gitRepoUrl" => $gitRepoUrl,
             /**
              * Path to the planet dir that we want to generate the documentation for.
              */

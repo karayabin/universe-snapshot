@@ -44,6 +44,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [HistoryInterface::clear](https://github.com/lingtalfi/EasyConsoleMenu/blob/master/History/HistoryInterface.php#L55-L55)
+
+
 See Also
 ================
 

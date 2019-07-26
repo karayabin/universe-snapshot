@@ -71,6 +71,11 @@ Exceptions thrown
 
 
 
+Source Code
+===========
+See the source code for method [BackupHelper::getNamedNonNamedBackups](https://github.com/lingtalfi/Deploy/blob/master/Helper/BackupHelper.php#L43-L70)
+
+
 See Also
 ================
 

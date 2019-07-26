@@ -47,6 +47,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [LocalServer::setActive](https://github.com/lingtalfi/Uni2/blob/master/LocalServer/LocalServer.php#L86-L89)
+
+
 See Also
 ================
 

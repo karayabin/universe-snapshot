@@ -4,7 +4,7 @@
 
 The Chloroform_HydrogenRendererDocBuilder class
 ================
-2019-03-13 --> 2019-05-03
+2019-03-13 --> 2019-07-18
 
 
 
@@ -45,7 +45,9 @@ Methods
 
 Location
 =============
-Ling\LingTalfi\DocBuilder\Chloroform_HydrogenRenderer\Chloroform_HydrogenRendererDocBuilder
+Ling\LingTalfi\DocBuilder\Chloroform_HydrogenRenderer\Chloroform_HydrogenRendererDocBuilder<br>
+See the source code of [Ling\LingTalfi\DocBuilder\Chloroform_HydrogenRenderer\Chloroform_HydrogenRendererDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Chloroform_HydrogenRenderer/Chloroform_HydrogenRendererDocBuilder.php)
+
 
 
 SeeAlso

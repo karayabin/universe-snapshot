@@ -68,6 +68,11 @@ Exceptions thrown
 
 
 
+Source Code
+===========
+See the source code for method [DirScannerDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/DirScanner/DirScannerDocBuilder.php#L44-L199)
+
+
 See Also
 ================
 

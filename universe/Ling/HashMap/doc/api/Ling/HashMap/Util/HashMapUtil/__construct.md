@@ -44,6 +44,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [HashMapUtil::__construct](https://github.com/lingtalfi/HashMap/blob/master/Util/HashMapUtil.php#L97-L104)
+
+
 See Also
 ================
 

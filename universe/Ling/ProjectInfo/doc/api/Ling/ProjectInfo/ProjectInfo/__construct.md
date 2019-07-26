@@ -47,6 +47,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [ProjectInfo::__construct](https://github.com/lingtalfi/ProjectInfo/blob/master/ProjectInfo.php#L30-L33)
+
+
 See Also
 ================
 

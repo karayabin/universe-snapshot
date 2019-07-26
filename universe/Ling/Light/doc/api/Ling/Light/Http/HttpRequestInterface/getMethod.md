@@ -45,6 +45,11 @@ Returns string.
 
 
 
+Source Code
+===========
+See the source code for method [HttpRequestInterface::getMethod](https://github.com/lingtalfi/Light/blob/master/Http/HttpRequestInterface.php#L20-L20)
+
+
 See Also
 ================
 

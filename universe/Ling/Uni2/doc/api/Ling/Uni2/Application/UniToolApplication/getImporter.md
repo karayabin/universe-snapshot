@@ -48,6 +48,11 @@ Returns null | object.
 
 
 
+Source Code
+===========
+See the source code for method [UniToolApplication::getImporter](https://github.com/lingtalfi/Uni2/blob/master/Application/UniToolApplication.php#L252-L259)
+
+
 See Also
 ================
 

@@ -44,6 +44,11 @@ Returns string.
 
 
 
+Source Code
+===========
+See the source code for method [DeployApplication::getConfPath](https://github.com/lingtalfi/Deploy/blob/master/Application/DeployApplication.php#L269-L277)
+
+
 See Also
 ================
 

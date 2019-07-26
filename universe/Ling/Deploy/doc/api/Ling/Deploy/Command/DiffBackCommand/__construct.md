@@ -44,6 +44,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [DiffBackCommand::__construct](https://github.com/lingtalfi/Deploy/blob/master/Command/DiffBackCommand.php#L30-L35)
+
+
 See Also
 ================
 

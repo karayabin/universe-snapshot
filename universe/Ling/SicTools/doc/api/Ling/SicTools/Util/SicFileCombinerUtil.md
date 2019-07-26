@@ -4,7 +4,7 @@
 
 The SicFileCombinerUtil class
 ================
-2019-04-25 --> 2019-05-15
+2019-04-25 --> 2019-07-18
 
 
 
@@ -335,7 +335,9 @@ Methods
 
 Location
 =============
-Ling\SicTools\Util\SicFileCombinerUtil
+Ling\SicTools\Util\SicFileCombinerUtil<br>
+See the source code of [Ling\SicTools\Util\SicFileCombinerUtil](https://github.com/lingtalfi/SicTools/blob/master/Util/SicFileCombinerUtil.php)
+
 
 
 SeeAlso

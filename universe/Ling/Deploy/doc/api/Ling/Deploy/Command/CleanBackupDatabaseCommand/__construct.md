@@ -44,6 +44,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [CleanBackupDatabaseCommand::__construct](https://github.com/lingtalfi/Deploy/blob/master/Command/CleanBackupDatabaseCommand.php#L65-L72)
+
+
 See Also
 ================
 

@@ -51,6 +51,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [Chloroform::injectValues](https://github.com/lingtalfi/Chloroform/blob/master/Form/Chloroform.php#L195-L204)
+
+
 See Also
 ================
 

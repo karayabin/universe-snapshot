@@ -4,7 +4,7 @@
 
 The LightPrettyErrorException class
 ================
-2019-04-05 --> 2019-04-09
+2019-04-05 --> 2019-07-18
 
 
 
@@ -47,7 +47,9 @@ Methods
 
 Location
 =============
-Ling\Light_PrettyError\Exception\LightPrettyErrorException
+Ling\Light_PrettyError\Exception\LightPrettyErrorException<br>
+See the source code of [Ling\Light_PrettyError\Exception\LightPrettyErrorException](https://github.com/lingtalfi/Light_PrettyError/blob/master/Exception/LightPrettyErrorException.php)
+
 
 
 SeeAlso

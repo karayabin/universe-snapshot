@@ -44,6 +44,11 @@ Returns string.
 
 
 
+Source Code
+===========
+See the source code for method [PropertyInfo::getName](https://github.com/lingtalfi/DocTools/blob/master/Info/PropertyInfo.php#L102-L105)
+
+
 See Also
 ================
 

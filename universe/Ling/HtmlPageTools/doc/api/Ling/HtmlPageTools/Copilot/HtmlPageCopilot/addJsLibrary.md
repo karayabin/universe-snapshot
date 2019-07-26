@@ -52,6 +52,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [HtmlPageCopilot::addJsLibrary](https://github.com/lingtalfi/HtmlPageTools/blob/master/Copilot/HtmlPageCopilot.php#L257-L263)
+
+
 See Also
 ================
 

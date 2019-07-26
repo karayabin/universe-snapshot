@@ -47,6 +47,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [WebsiteLightUser::setPseudo](https://github.com/lingtalfi/Light_User/blob/master/WebsiteLightUser.php#L254-L257)
+
+
 See Also
 ================
 

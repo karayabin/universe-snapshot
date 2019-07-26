@@ -4,7 +4,7 @@
 
 The BashtmlFormatter class
 ================
-2019-02-26 --> 2019-03-26
+2019-02-26 --> 2019-07-18
 
 
 
@@ -39,54 +39,54 @@ You can also extend this class to create your own tags.
 
 
 - (logging)
-- success
-- info
-- warning
-- error
+     - success
+     - info
+     - warning
+     - error
 - (specials)
-- bold
-- b (alias for bold)
-- dim
-- underlined
-- blink
-- reverse
-- hidden
+     - bold
+     - b (alias for bold)
+     - dim
+     - underlined
+     - blink
+     - reverse
+     - hidden
 - (foreground colors)
-- default
-- black
-- red
-- green
-- yellow
-- blue
-- magenta
-- cyan
-- lightGray
-- darkGray
-- lightRed
-- lightGreen
-- lightYellow
-- lightBlue
-- lightMagenta
-- lightCyan
-- white
+     - default
+     - black
+     - red
+     - green
+     - yellow
+     - blue
+     - magenta
+     - cyan
+     - lightGray
+     - darkGray
+     - lightRed
+     - lightGreen
+     - lightYellow
+     - lightBlue
+     - lightMagenta
+     - lightCyan
+     - white
 - (background colors)
-- bgDefault
-- bgBlack
-- bgRed
-- bgGreen
-- bgYellow
-- bgBlue
-- bgMagenta
-- bgCyan
-- bgLightGray
-- bgDarkGray
-- bgLightRed
-- bgLightGreen
-- bgLightYellow
-- bgLightBlue
-- bgLightMagenta
-- bgLightCyan
-- bgWhite
+     - bgDefault
+     - bgBlack
+     - bgRed
+     - bgGreen
+     - bgYellow
+     - bgBlue
+     - bgMagenta
+     - bgCyan
+     - bgLightGray
+     - bgDarkGray
+     - bgLightRed
+     - bgLightGreen
+     - bgLightYellow
+     - bgLightBlue
+     - bgLightMagenta
+     - bgLightCyan
+     - bgWhite
 
 
 Nested tags will also work, as you would expect.
@@ -216,7 +216,9 @@ Methods
 
 Location
 =============
-Ling\CliTools\Formatter\BashtmlFormatter
+Ling\CliTools\Formatter\BashtmlFormatter<br>
+See the source code of [Ling\CliTools\Formatter\BashtmlFormatter](https://github.com/lingtalfi/CliTools/blob/master/Formatter/BashtmlFormatter.php)
+
 
 
 SeeAlso

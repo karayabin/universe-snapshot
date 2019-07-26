@@ -51,6 +51,11 @@ Returns string.
 
 
 
+Source Code
+===========
+See the source code for method [DefaultGeneratedDocStyle::getClassPageRelativePath](https://github.com/lingtalfi/DocTools/blob/master/GeneratedDocStyle/DefaultGeneratedDocStyle.php#L71-L74)
+
+
 See Also
 ================
 

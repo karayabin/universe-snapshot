@@ -4,7 +4,7 @@
 
 The HttpRequest class
 ================
-2019-04-09 --> 2019-07-11
+2019-04-09 --> 2019-07-18
 
 
 
@@ -215,9 +215,11 @@ Methods
 
 Location
 =============
-Ling\Light\Http\HttpRequest
+Ling\Light\Http\HttpRequest<br>
+See the source code of [Ling\Light\Http\HttpRequest](https://github.com/lingtalfi/Light/blob/master/Http/HttpRequest.php)
+
 
 
 SeeAlso
 ==============
-Previous class: [ServiceContainerHelper](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ServiceContainerHelper.md)<br>Next class: [HttpRequestInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface.md)<br>
+Previous class: [HttpRedirectResponse](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRedirectResponse.md)<br>Next class: [HttpRequestInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface.md)<br>

@@ -47,6 +47,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [ZephyrTemplateEngine::setDirectory](https://github.com/lingtalfi/ZephyrTemplateEngine/blob/master/ZephyrTemplateEngine.php#L91-L94)
+
+
 See Also
 ================
 

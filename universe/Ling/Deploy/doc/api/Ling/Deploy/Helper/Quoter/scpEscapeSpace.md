@@ -48,6 +48,11 @@ Returns mixed.
 
 
 
+Source Code
+===========
+See the source code for method [Quoter::scpEscapeSpace](https://github.com/lingtalfi/Deploy/blob/master/Helper/Quoter.php#L23-L26)
+
+
 See Also
 ================
 

@@ -45,6 +45,11 @@ Returns array.
 
 
 
+Source Code
+===========
+See the source code for method [AbstractInput::getOptions](https://github.com/lingtalfi/CliTools/blob/master/Input/AbstractInput.php#L103-L106)
+
+
 See Also
 ================
 

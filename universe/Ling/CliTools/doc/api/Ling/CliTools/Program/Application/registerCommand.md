@@ -51,6 +51,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [Application::registerCommand](https://github.com/lingtalfi/CliTools/blob/master/Program/Application.php#L65-L73)
+
+
 See Also
 ================
 

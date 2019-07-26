@@ -47,6 +47,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [WebsiteLightUser::setConnectTime](https://github.com/lingtalfi/Light_User/blob/master/WebsiteLightUser.php#L274-L277)
+
+
 See Also
 ================
 

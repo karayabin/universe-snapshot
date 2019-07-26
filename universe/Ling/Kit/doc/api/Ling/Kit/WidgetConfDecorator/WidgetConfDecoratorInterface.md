@@ -4,7 +4,7 @@
 
 The WidgetConfDecoratorInterface class
 ================
-2019-04-24 --> 2019-07-11
+2019-04-24 --> 2019-07-25
 
 
 
@@ -45,7 +45,9 @@ Methods
 
 Location
 =============
-Ling\Kit\WidgetConfDecorator\WidgetConfDecoratorInterface
+Ling\Kit\WidgetConfDecorator\WidgetConfDecoratorInterface<br>
+See the source code of [Ling\Kit\WidgetConfDecorator\WidgetConfDecoratorInterface](https://github.com/lingtalfi/Kit/blob/master/WidgetConfDecorator/WidgetConfDecoratorInterface.php)
+
 
 
 SeeAlso

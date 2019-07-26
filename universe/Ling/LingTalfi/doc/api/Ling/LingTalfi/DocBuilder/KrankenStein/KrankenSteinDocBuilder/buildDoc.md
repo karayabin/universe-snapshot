@@ -68,6 +68,11 @@ Exceptions thrown
 
 
 
+Source Code
+===========
+See the source code for method [KrankenSteinDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/KrankenStein/KrankenSteinDocBuilder.php#L44-L199)
+
+
 See Also
 ================
 

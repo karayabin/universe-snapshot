@@ -47,6 +47,11 @@ Returns string.
 
 
 
+Source Code
+===========
+See the source code for method [VariableDescriptionDocWriterUtil::renderScreenshotList](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/Util/VariableDescriptionDocWriterUtil.php#L360-L389)
+
+
 See Also
 ================
 

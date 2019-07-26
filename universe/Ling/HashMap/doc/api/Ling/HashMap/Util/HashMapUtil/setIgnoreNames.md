@@ -47,6 +47,11 @@ Returns [HashMapUtil](https://github.com/lingtalfi/HashMap/blob/master/doc/api/L
 
 
 
+Source Code
+===========
+See the source code for method [HashMapUtil::setIgnoreNames](https://github.com/lingtalfi/HashMap/blob/master/Util/HashMapUtil.php#L136-L140)
+
+
 See Also
 ================
 

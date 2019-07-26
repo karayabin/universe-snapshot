@@ -4,7 +4,7 @@
 
 The HashMapUtil class
 ================
-2019-04-18 --> 2019-04-18
+2019-04-18 --> 2019-07-18
 
 
 
@@ -135,7 +135,9 @@ Methods
 
 Location
 =============
-Ling\HashMap\Util\HashMapUtil
+Ling\HashMap\Util\HashMapUtil<br>
+See the source code of [Ling\HashMap\Util\HashMapUtil](https://github.com/lingtalfi/HashMap/blob/master/Util/HashMapUtil.php)
+
 
 
 SeeAlso

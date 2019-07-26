@@ -47,6 +47,11 @@ Returns string.
 
 
 
+Source Code
+===========
+See the source code for method [BashtmlFormatter::getFormatExpression](https://github.com/lingtalfi/CliTools/blob/master/Formatter/BashtmlFormatter.php#L341-L362)
+
+
 See Also
 ================
 

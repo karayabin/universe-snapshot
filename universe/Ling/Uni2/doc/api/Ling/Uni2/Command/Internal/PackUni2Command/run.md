@@ -58,6 +58,11 @@ If null, 0 should be assumed.
 
 
 
+Source Code
+===========
+See the source code for method [PackUni2Command::run](https://github.com/lingtalfi/Uni2/blob/master/Command/Internal/PackUni2Command.php#L57-L138)
+
+
 See Also
 ================
 

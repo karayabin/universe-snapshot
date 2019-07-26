@@ -4,7 +4,7 @@
 
 The StringField class
 ================
-2019-04-10 --> 2019-04-30
+2019-04-10 --> 2019-07-26
 
 
 
@@ -83,7 +83,9 @@ Methods
 
 Location
 =============
-Ling\Chloroform\Field\StringField
+Ling\Chloroform\Field\StringField<br>
+See the source code of [Ling\Chloroform\Field\StringField](https://github.com/lingtalfi/Chloroform/blob/master/Field/StringField.php)
+
 
 
 SeeAlso

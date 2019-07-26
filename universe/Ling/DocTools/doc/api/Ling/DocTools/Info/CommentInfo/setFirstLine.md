@@ -47,6 +47,11 @@ Returns [CommentInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/
 
 
 
+Source Code
+===========
+See the source code for method [CommentInfo::setFirstLine](https://github.com/lingtalfi/DocTools/blob/master/Info/CommentInfo.php#L306-L310)
+
+
 See Also
 ================
 

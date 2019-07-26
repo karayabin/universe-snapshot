@@ -56,6 +56,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [VirginiaMessageHelper::error](https://github.com/lingtalfi/CliTools/blob/master/Helper/VirginiaMessageHelper.php#L114-L123)
+
+
 See Also
 ================
 

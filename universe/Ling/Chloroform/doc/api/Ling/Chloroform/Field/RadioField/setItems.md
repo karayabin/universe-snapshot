@@ -48,6 +48,11 @@ Returns [RadioField](https://github.com/lingtalfi/Chloroform/blob/master/doc/api
 
 
 
+Source Code
+===========
+See the source code for method [RadioField::setItems](https://github.com/lingtalfi/Chloroform/blob/master/Field/RadioField.php#L60-L64)
+
+
 See Also
 ================
 

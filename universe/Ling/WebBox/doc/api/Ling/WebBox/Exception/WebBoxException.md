@@ -4,7 +4,7 @@
 
 The WebBoxException class
 ================
-2019-02-22 --> 2019-03-07
+2019-02-22 --> 2019-07-18
 
 
 
@@ -47,7 +47,9 @@ Methods
 
 Location
 =============
-Ling\WebBox\Exception\WebBoxException
+Ling\WebBox\Exception\WebBoxException<br>
+See the source code of [Ling\WebBox\Exception\WebBoxException](https://github.com/lingtalfi/WebBox/blob/master/Exception/WebBoxException.php)
+
 
 
 SeeAlso

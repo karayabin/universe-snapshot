@@ -4,7 +4,7 @@
 
 The ColorField class
 ================
-2019-04-10 --> 2019-04-30
+2019-04-10 --> 2019-07-26
 
 
 
@@ -87,7 +87,9 @@ Methods
 
 Location
 =============
-Ling\Chloroform\Field\ColorField
+Ling\Chloroform\Field\ColorField<br>
+See the source code of [Ling\Chloroform\Field\ColorField](https://github.com/lingtalfi/Chloroform/blob/master/Field/ColorField.php)
+
 
 
 SeeAlso

@@ -65,6 +65,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [SelectField::__construct](https://github.com/lingtalfi/Chloroform/blob/master/Field/SelectField.php#L38-L42)
+
+
 See Also
 ================
 

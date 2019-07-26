@@ -4,7 +4,7 @@
 
 The EnvironmentHelper class
 ================
-2019-04-09 --> 2019-07-11
+2019-04-09 --> 2019-07-18
 
 
 
@@ -47,7 +47,9 @@ Methods
 
 Location
 =============
-Ling\Light\Helper\EnvironmentHelper
+Ling\Light\Helper\EnvironmentHelper<br>
+See the source code of [Ling\Light\Helper\EnvironmentHelper](https://github.com/lingtalfi/Light/blob/master/Helper/EnvironmentHelper.php)
+
 
 
 SeeAlso

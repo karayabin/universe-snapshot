@@ -4,7 +4,7 @@
 
 The ClassPropertiesWidget class
 ================
-2019-02-21 --> 2019-07-12
+2019-02-21 --> 2019-07-23
 
 
 
@@ -78,7 +78,9 @@ Methods
 
 Location
 =============
-Ling\DocTools\Widget\ClassProperties\ClassPropertiesWidget
+Ling\DocTools\Widget\ClassProperties\ClassPropertiesWidget<br>
+See the source code of [Ling\DocTools\Widget\ClassProperties\ClassPropertiesWidget](https://github.com/lingtalfi/DocTools/blob/master/Widget/ClassProperties/ClassPropertiesWidget.php)
+
 
 
 SeeAlso

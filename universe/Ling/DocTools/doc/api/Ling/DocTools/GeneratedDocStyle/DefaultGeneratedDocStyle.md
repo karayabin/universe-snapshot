@@ -4,7 +4,7 @@
 
 The DefaultGeneratedDocStyle class
 ================
-2019-02-21 --> 2019-07-12
+2019-02-21 --> 2019-07-23
 
 
 
@@ -69,7 +69,9 @@ Methods
 
 Location
 =============
-Ling\DocTools\GeneratedDocStyle\DefaultGeneratedDocStyle
+Ling\DocTools\GeneratedDocStyle\DefaultGeneratedDocStyle<br>
+See the source code of [Ling\DocTools\GeneratedDocStyle\DefaultGeneratedDocStyle](https://github.com/lingtalfi/DocTools/blob/master/GeneratedDocStyle/DefaultGeneratedDocStyle.php)
+
 
 
 SeeAlso

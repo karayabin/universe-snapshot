@@ -48,12 +48,14 @@ class Light_InitializerDocBuilder
         // DOC TOOLS: CREATE A DOCUMENTATION FOR A PHP PLANET FOR GIT (MARKDOWN)
         //--------------------------------------------
         $planetDir = "/myphp/universe/Ling/Light_Initializer";
-        $git = "https://github.com/lingtalfi/Light_Initializer/blob/master";
+        $gitRepoUrl = "https://github.com/lingtalfi/Light_Initializer";
+        $git = $gitRepoUrl . "/blob/master";
         $doc = "$git/doc";
         $api = $doc . "/api";
 
 
         $options = [
+            "gitRepoUrl" => $gitRepoUrl,
             /**
              * Path to the planet dir that we want to generate the documentation for.
              */

@@ -63,6 +63,11 @@ Returns array.
 
 
 
+Source Code
+===========
+See the source code for method [YorgDirScannerTool::getFiles](https://github.com/lingtalfi/DirScanner/blob/master/YorgDirScannerTool.php#L133-L158)
+
+
 See Also
 ================
 

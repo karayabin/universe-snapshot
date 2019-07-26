@@ -4,7 +4,7 @@
 
 The HashMapException class
 ================
-2019-04-18 --> 2019-04-18
+2019-04-18 --> 2019-07-18
 
 
 
@@ -47,7 +47,9 @@ Methods
 
 Location
 =============
-Ling\HashMap\Exception\HashMapException
+Ling\HashMap\Exception\HashMapException<br>
+See the source code of [Ling\HashMap\Exception\HashMapException](https://github.com/lingtalfi/HashMap/blob/master/Exception/HashMapException.php)
+
 
 
 SeeAlso

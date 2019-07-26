@@ -57,6 +57,11 @@ Returns array.
 
 
 
+Source Code
+===========
+See the source code for method [RadioField::toArray](https://github.com/lingtalfi/Chloroform/blob/master/Field/RadioField.php#L70-L75)
+
+
 See Also
 ================
 

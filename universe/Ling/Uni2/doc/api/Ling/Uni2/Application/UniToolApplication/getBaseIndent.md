@@ -44,6 +44,11 @@ Returns int.
 
 
 
+Source Code
+===========
+See the source code for method [UniToolApplication::getBaseIndent](https://github.com/lingtalfi/Uni2/blob/master/Application/UniToolApplication.php#L576-L579)
+
+
 See Also
 ================
 

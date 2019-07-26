@@ -51,6 +51,11 @@ Array of whatever was returned by the callback (except if it is null)
 
 
 
+Source Code
+===========
+See the source code for method [DirScanner::scanDir](https://github.com/lingtalfi/DirScanner/blob/master/DirScanner.php#L68-L88)
+
+
 See Also
 ================
 

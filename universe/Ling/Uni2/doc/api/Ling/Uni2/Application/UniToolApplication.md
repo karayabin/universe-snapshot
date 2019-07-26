@@ -4,7 +4,7 @@
 
 The UniToolApplication class
 ================
-2019-03-12 --> 2019-04-05
+2019-03-12 --> 2019-07-18
 
 
 
@@ -219,11 +219,11 @@ Properties
     
     
     If true:
-    - the error message displayed to the console screen is the traceAsString of the exception.
-    - the message sent to the log is also the traceAsString of the exception.
+         - the error message displayed to the console screen is the traceAsString of the exception.
+         - the message sent to the log is also the traceAsString of the exception.
     if false:
-    - the error message displayed to the console screen is the exception message.
-    - the message sent to the log is also the exception message.
+         - the error message displayed to the console screen is the exception message.
+         - the message sent to the log is also the exception message.
     
     
 
@@ -281,7 +281,9 @@ Methods
 
 Location
 =============
-Ling\Uni2\Application\UniToolApplication
+Ling\Uni2\Application\UniToolApplication<br>
+See the source code of [Ling\Uni2\Application\UniToolApplication](https://github.com/lingtalfi/Uni2/blob/master/Application/UniToolApplication.php)
+
 
 
 SeeAlso

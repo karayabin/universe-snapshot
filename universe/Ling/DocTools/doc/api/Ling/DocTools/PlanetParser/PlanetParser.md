@@ -4,7 +4,7 @@
 
 The PlanetParser class
 ================
-2019-02-21 --> 2019-07-12
+2019-02-21 --> 2019-07-23
 
 
 
@@ -109,7 +109,9 @@ Methods
 
 Location
 =============
-Ling\DocTools\PlanetParser\PlanetParser
+Ling\DocTools\PlanetParser\PlanetParser<br>
+See the source code of [Ling\DocTools\PlanetParser\PlanetParser](https://github.com/lingtalfi/DocTools/blob/master/PlanetParser/PlanetParser.php)
+
 
 
 SeeAlso

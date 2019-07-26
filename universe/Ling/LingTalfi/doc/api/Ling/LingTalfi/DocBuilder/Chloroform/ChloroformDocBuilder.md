@@ -4,7 +4,7 @@
 
 The ChloroformDocBuilder class
 ================
-2019-03-13 --> 2019-05-03
+2019-03-13 --> 2019-07-18
 
 
 
@@ -45,7 +45,9 @@ Methods
 
 Location
 =============
-Ling\LingTalfi\DocBuilder\Chloroform\ChloroformDocBuilder
+Ling\LingTalfi\DocBuilder\Chloroform\ChloroformDocBuilder<br>
+See the source code of [Ling\LingTalfi\DocBuilder\Chloroform\ChloroformDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Chloroform/ChloroformDocBuilder.php)
+
 
 
 SeeAlso

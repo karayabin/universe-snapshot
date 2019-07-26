@@ -45,6 +45,7 @@ Parameters
     Settings (all mandatory except those prefixed with question mark):
 
 - planetDir: string. The location of the planet directory to parse.
+- gitRepoUrl: string. The url of the github project.
 - ?reportIgnore: array. An array of class names to not include in the report if they fail.
              This might be useful in case your class extends an external class for instance.
 - ?reportShowMethodsWithoutReturn: bool=true, whether to display methods without "@return" tag.
@@ -94,6 +95,11 @@ Exceptions thrown
 
 
 
+
+
+Source Code
+===========
+See the source code for method [LingGitPhpPlanetDocBuilder::prepare](https://github.com/lingtalfi/DocTools/blob/master/DocBuilder/Git/PhpPlanet/LingGitPhpPlanetDocBuilder.php#L213-L296)
 
 
 See Also

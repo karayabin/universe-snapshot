@@ -45,6 +45,11 @@ Returns array.
 
 
 
+Source Code
+===========
+See the source code for method [HttpRequestInterface::getFiles](https://github.com/lingtalfi/Light/blob/master/Http/HttpRequestInterface.php#L144-L144)
+
+
 See Also
 ================
 

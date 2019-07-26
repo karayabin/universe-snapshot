@@ -4,7 +4,7 @@
 
 The LightRedServiceContainer class
 ================
-2019-04-09 --> 2019-07-11
+2019-04-09 --> 2019-07-18
 
 
 
@@ -63,7 +63,9 @@ Methods
 
 Location
 =============
-Ling\Light\ServiceContainer\LightRedServiceContainer
+Ling\Light\ServiceContainer\LightRedServiceContainer<br>
+See the source code of [Ling\Light\ServiceContainer\LightRedServiceContainer](https://github.com/lingtalfi/Light/blob/master/ServiceContainer/LightRedServiceContainer.php)
+
 
 
 SeeAlso

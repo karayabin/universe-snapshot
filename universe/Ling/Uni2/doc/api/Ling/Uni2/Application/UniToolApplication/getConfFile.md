@@ -44,6 +44,11 @@ Returns string.
 
 
 
+Source Code
+===========
+See the source code for method [UniToolApplication::getConfFile](https://github.com/lingtalfi/Uni2/blob/master/Application/UniToolApplication.php#L382-L385)
+
+
 See Also
 ================
 

@@ -4,7 +4,7 @@
 
 The PageUtil class
 ================
-2019-02-21 --> 2019-07-12
+2019-02-21 --> 2019-07-23
 
 
 
@@ -85,7 +85,9 @@ Methods
 
 Location
 =============
-Ling\DocTools\Page\PageUtil
+Ling\DocTools\Page\PageUtil<br>
+See the source code of [Ling\DocTools\Page\PageUtil](https://github.com/lingtalfi/DocTools/blob/master/Page/PageUtil.php)
+
 
 
 SeeAlso

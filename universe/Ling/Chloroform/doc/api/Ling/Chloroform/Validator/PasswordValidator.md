@@ -4,7 +4,7 @@
 
 The PasswordValidator class
 ================
-2019-04-10 --> 2019-04-30
+2019-04-10 --> 2019-07-26
 
 
 
@@ -133,7 +133,9 @@ Methods
 
 Location
 =============
-Ling\Chloroform\Validator\PasswordValidator
+Ling\Chloroform\Validator\PasswordValidator<br>
+See the source code of [Ling\Chloroform\Validator\PasswordValidator](https://github.com/lingtalfi/Chloroform/blob/master/Validator/PasswordValidator.php)
+
 
 
 SeeAlso

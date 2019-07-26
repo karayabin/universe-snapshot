@@ -47,6 +47,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [BashtmlFormatter::removeParent](https://github.com/lingtalfi/CliTools/blob/master/Formatter/BashtmlFormatter.php#L287-L294)
+
+
 See Also
 ================
 

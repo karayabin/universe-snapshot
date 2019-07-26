@@ -44,6 +44,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [SicFileCombinerUtil::__construct](https://github.com/lingtalfi/SicTools/blob/master/Util/SicFileCombinerUtil.php#L307-L312)
+
+
 See Also
 ================
 

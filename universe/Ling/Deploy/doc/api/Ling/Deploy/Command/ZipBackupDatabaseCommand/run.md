@@ -58,6 +58,11 @@ If null, 0 should be assumed.
 
 
 
+Source Code
+===========
+See the source code for method [ZipBackupDatabaseCommand::run](https://github.com/lingtalfi/Deploy/blob/master/Command/ZipBackupDatabaseCommand.php#L59-L94)
+
+
 See Also
 ================
 

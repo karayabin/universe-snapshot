@@ -58,6 +58,11 @@ If null, 0 should be assumed.
 
 
 
+Source Code
+===========
+See the source code for method [DependencyMasterPathCommand::run](https://github.com/lingtalfi/Uni2/blob/master/Command/DependencyMasterPathCommand.php#L23-L32)
+
+
 See Also
 ================
 

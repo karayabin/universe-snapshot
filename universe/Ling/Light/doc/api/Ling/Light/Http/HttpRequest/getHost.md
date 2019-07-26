@@ -44,6 +44,11 @@ Returns string.
 
 
 
+Source Code
+===========
+See the source code for method [HttpRequest::getHost](https://github.com/lingtalfi/Light/blob/master/Http/HttpRequest.php#L261-L264)
+
+
 See Also
 ================
 

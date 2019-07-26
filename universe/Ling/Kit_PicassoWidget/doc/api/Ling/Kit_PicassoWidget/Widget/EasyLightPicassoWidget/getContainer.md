@@ -50,6 +50,11 @@ Exceptions thrown
 
 
 
+Source Code
+===========
+See the source code for method [EasyLightPicassoWidget::getContainer](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/Widget/EasyLightPicassoWidget.php#L74-L80)
+
+
 See Also
 ================
 

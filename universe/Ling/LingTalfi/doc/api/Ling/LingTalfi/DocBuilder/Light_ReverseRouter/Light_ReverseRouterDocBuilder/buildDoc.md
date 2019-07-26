@@ -68,6 +68,11 @@ Exceptions thrown
 
 
 
+Source Code
+===========
+See the source code for method [Light_ReverseRouterDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Light_ReverseRouter/Light_ReverseRouterDocBuilder.php#L44-L202)
+
+
 See Also
 ================
 

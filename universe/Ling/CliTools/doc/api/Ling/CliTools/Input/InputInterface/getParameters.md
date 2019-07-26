@@ -45,6 +45,11 @@ Returns array.
 
 
 
+Source Code
+===========
+See the source code for method [InputInterface::getParameters](https://github.com/lingtalfi/CliTools/blob/master/Input/InputInterface.php#L54-L54)
+
+
 See Also
 ================
 

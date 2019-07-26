@@ -4,7 +4,7 @@
 
 The AbstractProgram class
 ================
-2019-02-26 --> 2019-03-26
+2019-02-26 --> 2019-07-18
 
 
 
@@ -25,12 +25,12 @@ This program:
 
 - uses the [bashtml language](https://github.com/lingtalfi/CliTools/blob/master/doc/pages/bashtml.md) internally for all messages intended to be printed.
 - Catches all exceptions that might occur and displays them as errors (using the bashtml <error> tag) on the screen.
-If a [logger](https://github.com/lingtalfi/UniversalLogger) is set, will also log the exception.
+         If a [logger](https://github.com/lingtalfi/UniversalLogger) is set, will also log the exception.
 
-The verbosity of this type of error, as well as the verbosity of the log message is controlled
-by the $errorIsVerbose property.
+         The verbosity of this type of error, as well as the verbosity of the log message is controlled
+         by the $errorIsVerbose property.
 
-When a log message is sent, the channel used is the one defined with the $loggerChannel property.
+         When a log message is sent, the channel used is the one defined with the $loggerChannel property.
 
 
 
@@ -88,11 +88,11 @@ Properties
     
     
     If true:
-    - the error message displayed to the console screen is the traceAsString of the exception.
-    - the message sent to the log is also the traceAsString of the exception.
+         - the error message displayed to the console screen is the traceAsString of the exception.
+         - the message sent to the log is also the traceAsString of the exception.
     if false:
-    - the error message displayed to the console screen is the exception message.
-    - the message sent to the log is also the exception message.
+         - the error message displayed to the console screen is the exception message.
+         - the message sent to the log is also the exception message.
     
     
 
@@ -195,7 +195,9 @@ Making black coffee with 2 sugars, asap.
 
 Location
 =============
-Ling\CliTools\Program\AbstractProgram
+Ling\CliTools\Program\AbstractProgram<br>
+See the source code of [Ling\CliTools\Program\AbstractProgram](https://github.com/lingtalfi/CliTools/blob/master/Program/AbstractProgram.php)
+
 
 
 SeeAlso

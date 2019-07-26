@@ -47,6 +47,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [VariableDescriptionDocWriterUtil::setVariablesDescriptionDir](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/Util/VariableDescriptionDocWriterUtil.php#L131-L134)
+
+
 See Also
 ================
 

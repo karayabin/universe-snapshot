@@ -68,6 +68,11 @@ Exceptions thrown
 
 
 
+Source Code
+===========
+See the source code for method [Light_ZephyrTemplateDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Light_ZephyrTemplate/Light_ZephyrTemplateDocBuilder.php#L44-L202)
+
+
 See Also
 ================
 

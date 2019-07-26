@@ -52,6 +52,11 @@ Exceptions thrown
 
 
 
+Source Code
+===========
+See the source code for method [DirScanner::error](https://github.com/lingtalfi/DirScanner/blob/master/DirScanner.php#L163-L166)
+
+
 See Also
 ================
 

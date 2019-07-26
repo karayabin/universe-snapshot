@@ -1,0 +1,18 @@
+database:
+    instance: Ling\Light_Database\LightDatabasePdoWrapper
+    methods:
+        init:
+            settings: []
+
+
+# example of settings
+#$database.methods.init.settings:
+#    pdo_database: my_database
+#    pdo_user: my_user
+#    pdo_pass: my_pass
+#    pdo_options:
+#        persistent: true
+#        errmode: exception
+#        initCommand: SET NAMES 'UTF8'
+
+

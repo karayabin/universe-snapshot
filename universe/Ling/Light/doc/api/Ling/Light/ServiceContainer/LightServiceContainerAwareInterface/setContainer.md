@@ -47,6 +47,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [LightServiceContainerAwareInterface::setContainer](https://github.com/lingtalfi/Light/blob/master/ServiceContainer/LightServiceContainerAwareInterface.php#L19-L19)
+
+
 See Also
 ================
 

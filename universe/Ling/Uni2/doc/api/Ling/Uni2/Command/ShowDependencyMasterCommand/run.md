@@ -58,6 +58,11 @@ If null, 0 should be assumed.
 
 
 
+Source Code
+===========
+See the source code for method [ShowDependencyMasterCommand::run](https://github.com/lingtalfi/Uni2/blob/master/Command/ShowDependencyMasterCommand.php#L25-L35)
+
+
 See Also
 ================
 

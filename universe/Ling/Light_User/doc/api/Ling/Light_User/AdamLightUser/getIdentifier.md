@@ -45,6 +45,11 @@ Returns string | false.
 
 
 
+Source Code
+===========
+See the source code for method [AdamLightUser::getIdentifier](https://github.com/lingtalfi/Light_User/blob/master/AdamLightUser.php#L29-L32)
+
+
 See Also
 ================
 

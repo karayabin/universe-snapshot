@@ -77,6 +77,10 @@ a(KrankenSteinTool::isOneShot($str)); // true
 History Log
 =============
 
+- 1.0.1 -- 2019-07-18
+
+    - update docTools documentation, add links to source code for classes and methods
+    
 - 1.0.0 -- 2019-04-02
 
     - initial commit

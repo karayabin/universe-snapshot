@@ -4,7 +4,7 @@
 
 The CSRFField class
 ================
-2019-04-10 --> 2019-04-30
+2019-04-10 --> 2019-07-26
 
 
 
@@ -167,7 +167,9 @@ Methods
 
 Location
 =============
-Ling\Chloroform\Field\CSRFField
+Ling\Chloroform\Field\CSRFField<br>
+See the source code of [Ling\Chloroform\Field\CSRFField](https://github.com/lingtalfi/Chloroform/blob/master/Field/CSRFField.php)
+
 
 
 SeeAlso

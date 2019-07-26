@@ -4,7 +4,7 @@
 
 The CreateDependencyMasterCommand class
 ================
-2019-03-12 --> 2019-04-05
+2019-03-12 --> 2019-07-18
 
 
 
@@ -30,7 +30,7 @@ Flags
 --------
 
 - -s: use local server. By default, the dependency master file is created by parsing the planets of the application.
-The -s switch allows to create the file by parsing the planets from the local server.
+         The -s switch allows to create the file by parsing the planets from the local server.
 
 
 
@@ -70,7 +70,9 @@ Methods
 
 Location
 =============
-Ling\Uni2\Command\CreateDependencyMasterCommand
+Ling\Uni2\Command\CreateDependencyMasterCommand<br>
+See the source code of [Ling\Uni2\Command\CreateDependencyMasterCommand](https://github.com/lingtalfi/Uni2/blob/master/Command/CreateDependencyMasterCommand.php)
+
 
 
 SeeAlso

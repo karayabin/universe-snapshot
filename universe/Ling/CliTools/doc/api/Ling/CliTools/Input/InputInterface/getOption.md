@@ -51,6 +51,11 @@ Returns mixed | null.
 
 
 
+Source Code
+===========
+See the source code for method [InputInterface::getOption](https://github.com/lingtalfi/CliTools/blob/master/Input/InputInterface.php#L37-L37)
+
+
 See Also
 ================
 

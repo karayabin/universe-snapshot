@@ -44,6 +44,11 @@ Returns array.
 
 
 
+Source Code
+===========
+See the source code for method [UniToolApplication::getConf](https://github.com/lingtalfi/Uni2/blob/master/Application/UniToolApplication.php#L393-L396)
+
+
 See Also
 ================
 

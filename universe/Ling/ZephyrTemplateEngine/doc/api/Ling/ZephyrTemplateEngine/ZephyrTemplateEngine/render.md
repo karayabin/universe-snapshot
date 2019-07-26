@@ -52,6 +52,11 @@ False is returned in case something went wrong, in which case errors are accessi
 
 
 
+Source Code
+===========
+See the source code for method [ZephyrTemplateEngine::render](https://github.com/lingtalfi/ZephyrTemplateEngine/blob/master/ZephyrTemplateEngine.php#L45-L55)
+
+
 See Also
 ================
 

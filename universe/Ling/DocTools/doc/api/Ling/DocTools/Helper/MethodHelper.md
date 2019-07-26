@@ -4,7 +4,7 @@
 
 The MethodHelper class
 ================
-2019-02-21 --> 2019-07-12
+2019-02-21 --> 2019-07-23
 
 
 
@@ -48,7 +48,9 @@ Methods
 
 Location
 =============
-Ling\DocTools\Helper\MethodHelper
+Ling\DocTools\Helper\MethodHelper<br>
+See the source code of [Ling\DocTools\Helper\MethodHelper](https://github.com/lingtalfi/DocTools/blob/master/Helper/MethodHelper.php)
+
 
 
 SeeAlso

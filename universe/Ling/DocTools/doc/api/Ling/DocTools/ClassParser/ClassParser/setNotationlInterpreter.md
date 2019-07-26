@@ -47,6 +47,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [ClassParser::setNotationlInterpreter](https://github.com/lingtalfi/DocTools/blob/master/ClassParser/ClassParser.php#L667-L670)
+
+
 See Also
 ================
 

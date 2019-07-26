@@ -4,7 +4,7 @@
 
 The MinMaxDateValidator class
 ================
-2019-04-10 --> 2019-04-30
+2019-04-10 --> 2019-07-26
 
 
 
@@ -78,7 +78,9 @@ Methods
 
 Location
 =============
-Ling\Chloroform\Validator\MinMaxDateValidator
+Ling\Chloroform\Validator\MinMaxDateValidator<br>
+See the source code of [Ling\Chloroform\Validator\MinMaxDateValidator](https://github.com/lingtalfi/Chloroform/blob/master/Validator/MinMaxDateValidator.php)
+
 
 
 SeeAlso

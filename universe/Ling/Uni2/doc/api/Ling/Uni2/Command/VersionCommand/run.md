@@ -58,6 +58,11 @@ If null, 0 should be assumed.
 
 
 
+Source Code
+===========
+See the source code for method [VersionCommand::run](https://github.com/lingtalfi/Uni2/blob/master/Command/VersionCommand.php#L37-L42)
+
+
 See Also
 ================
 

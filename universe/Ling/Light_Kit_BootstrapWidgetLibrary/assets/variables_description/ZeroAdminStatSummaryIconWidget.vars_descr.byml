@@ -1,0 +1,105 @@
+name: ZeroAdminStatSummaryIconWidget
+description: <
+    ZeroAdminStatSummaryIconWidget is a bootstrap 4 widget representing simple stats summary cards with icons,
+    in the style of the zeroadmin theme (https://www.templatemonster.com/admin-templates/zero-admin-template-82792.html).
+
+    Each card is composed of:
+
+    - an icon
+    - a value (usually a numeric value)
+    - a text (usually a category name)
+    - a link at the bottom (optional)
+
+
+    We can remove the padding around the icon to change the style a little bit,
+    this is done setting the icon_padding to false.
+>
+
+vars:
+    card_column_class:
+        type: string
+        default_value: col-sm-6 col-xl-3 mb-3
+        description: <
+            The css class to apply to the widget container. We can use bootstrap responsive class to define the
+            responsiveness of the cards.
+        >
+        example: col-sm-6 col-xl-3 mb-3
+    cards:
+        type: item_list
+        default_value: []
+        description: The array of cards.
+        item_properties: 
+            icon:
+                type: string
+                default_value: (mandatory)
+                description: The css class to apply to the icon.
+                example: fas fa-cart-arrow-down bg-blue fa-2x
+            value:
+                type: string
+                default_value: (mandatory)
+                description: The value of the card (a text to display in the value placeholder).
+                example: 1678
+            value_class:
+                type: string
+                default_value: ""
+                description: The css class to apply to the value of the card.
+                example: text-blue
+            text:
+                type: string
+                default_value: ""
+                description: The text of the card.
+                example: Orders
+            link_text:
+                type: string
+                default_value: ""
+                description: The text of the bottom link of the card. If empty, the bottom link will not be displayed.
+                example: View More
+            link_url:
+                type: string
+                default_value: ""
+                description: The url of the bottom link of the card.
+                example: (::ROUTE::)/pages/u-project-detail
+            icon_padding:
+                type: bool
+                default_value: true
+                description: Whether to add padding around the icon.
+
+
+example: <
+    name: zeroadmin_statsummaryicon
+    type: picasso
+    className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\ZeroAdminStatSummaryIconWidget
+    widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ZeroAdminStatSummaryIconWidget
+    template: default.php
+    vars: 
+        card_column_class: col-sm-6 col-xl-3 mb-3
+        cards: 
+            - 
+                icon: fas fa-cart-arrow-down bg-blue fa-2x
+                value: 1678
+                value_class: text-blue
+                text: Orders
+                link_text: View More
+                link_url: (::ROUTE::)/pages/u-project-detail
+                icon_padding: false
+            
+            - 
+                icon: fas fa-user-friends bg-yellow fa-2x
+                value: 78443
+                value_class: text-yellow
+                text: Users
+            
+            - 
+                icon: fas fa-dollar-sign bg-red fa-2x
+                value: $12.700,88
+                value_class: text-red
+                text: Revenue
+            
+            - 
+                icon: fas fa-car bg-green fa-2x
+                value: 654449
+                value_class: text-green
+                text: Visits
+            
+        
+>

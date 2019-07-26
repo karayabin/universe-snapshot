@@ -54,6 +54,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [UniToolApplication::run](https://github.com/lingtalfi/Uni2/blob/master/Application/UniToolApplication.php#L664-L696)
+
+
 See Also
 ================
 

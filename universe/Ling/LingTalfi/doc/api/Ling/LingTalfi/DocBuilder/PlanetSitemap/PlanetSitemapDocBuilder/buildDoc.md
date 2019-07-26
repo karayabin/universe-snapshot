@@ -70,6 +70,11 @@ Exceptions thrown
 
 
 
+Source Code
+===========
+See the source code for method [PlanetSitemapDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/PlanetSitemap/PlanetSitemapDocBuilder.php#L51-L206)
+
+
 See Also
 ================
 

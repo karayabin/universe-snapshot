@@ -55,6 +55,11 @@ Returns string.
 
 
 
+Source Code
+===========
+See the source code for method [MenuExecutor::getUserChoice](https://github.com/lingtalfi/EasyConsoleMenu/blob/master/MenuExecutor.php#L388-L394)
+
+
 See Also
 ================
 

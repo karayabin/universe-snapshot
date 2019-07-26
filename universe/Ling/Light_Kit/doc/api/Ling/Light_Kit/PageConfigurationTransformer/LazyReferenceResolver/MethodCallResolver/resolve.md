@@ -63,6 +63,11 @@ Exceptions thrown
 
 
 
+Source Code
+===========
+See the source code for method [MethodCallResolver::resolve](https://github.com/lingtalfi/Light_Kit/blob/master/PageConfigurationTransformer/LazyReferenceResolver/MethodCallResolver.php#L33-L36)
+
+
 See Also
 ================
 

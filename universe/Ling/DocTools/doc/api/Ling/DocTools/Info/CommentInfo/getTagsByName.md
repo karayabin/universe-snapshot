@@ -47,6 +47,11 @@ Returns array.
 
 
 
+Source Code
+===========
+See the source code for method [CommentInfo::getTagsByName](https://github.com/lingtalfi/DocTools/blob/master/Info/CommentInfo.php#L220-L223)
+
+
 See Also
 ================
 

@@ -4,7 +4,7 @@
 
 The WarningFormNotification class
 ================
-2019-04-10 --> 2019-04-30
+2019-04-10 --> 2019-07-26
 
 
 
@@ -57,7 +57,9 @@ Methods
 
 Location
 =============
-Ling\Chloroform\FormNotification\WarningFormNotification
+Ling\Chloroform\FormNotification\WarningFormNotification<br>
+See the source code of [Ling\Chloroform\FormNotification\WarningFormNotification](https://github.com/lingtalfi/Chloroform/blob/master/FormNotification/WarningFormNotification.php)
+
 
 
 SeeAlso

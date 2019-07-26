@@ -49,6 +49,11 @@ Returns int.
 
 
 
+Source Code
+===========
+See the source code for method [KitPageRenderer::countWidgets](https://github.com/lingtalfi/Kit/blob/master/PageRenderer/KitPageRenderer.php#L156-L162)
+
+
 See Also
 ================
 

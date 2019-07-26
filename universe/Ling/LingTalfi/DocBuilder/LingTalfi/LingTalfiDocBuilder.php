@@ -53,12 +53,14 @@ class LingTalfiDocBuilder
         //--------------------------------------------
 
         $planetDir = "/myphp/universe/Ling/LingTalfi";
-        $git = "https://github.com/lingtalfi/LingTalfi/blob/master";
+        $gitRepoUrl = "https://github.com/lingtalfi/LingTalfi";
+        $git = $gitRepoUrl . "/blob/master";
         $doc = "$git/doc";
         $api = $doc . "/api";
 
 
         $options = [
+            "gitRepoUrl" => $gitRepoUrl,
             /**
              * Path to the planet dir that we want to generate the documentation for.
              */

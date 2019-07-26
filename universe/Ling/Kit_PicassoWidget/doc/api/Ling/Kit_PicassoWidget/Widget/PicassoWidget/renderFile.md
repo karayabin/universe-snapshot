@@ -52,6 +52,11 @@ Returns false | string.
 
 
 
+Source Code
+===========
+See the source code for method [PicassoWidget::renderFile](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/Widget/PicassoWidget.php#L91-L97)
+
+
 See Also
 ================
 

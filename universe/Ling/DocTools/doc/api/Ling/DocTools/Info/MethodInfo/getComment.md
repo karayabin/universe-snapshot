@@ -44,6 +44,11 @@ Returns [CommentInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/
 
 
 
+Source Code
+===========
+See the source code for method [MethodInfo::getComment](https://github.com/lingtalfi/DocTools/blob/master/Info/MethodInfo.php#L133-L136)
+
+
 See Also
 ================
 

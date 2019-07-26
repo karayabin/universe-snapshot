@@ -90,6 +90,11 @@ Exceptions thrown
 
 
 
+Source Code
+===========
+See the source code for method [DependencyMasterBuilderUtil::createDependencyMasterByUniverseDir](https://github.com/lingtalfi/Uni2/blob/master/Util/DependencyMasterBuilderUtil.php#L66-L115)
+
+
 See Also
 ================
 

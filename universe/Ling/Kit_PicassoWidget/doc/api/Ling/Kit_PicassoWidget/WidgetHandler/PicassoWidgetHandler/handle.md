@@ -71,6 +71,11 @@ Exceptions thrown
 
 
 
+Source Code
+===========
+See the source code for method [PicassoWidgetHandler::handle](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/WidgetHandler/PicassoWidgetHandler.php#L161-L335)
+
+
 See Also
 ================
 

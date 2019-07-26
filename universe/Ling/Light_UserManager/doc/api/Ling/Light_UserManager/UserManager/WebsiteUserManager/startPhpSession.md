@@ -44,10 +44,15 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [WebsiteUserManager::startPhpSession](https://github.com/lingtalfi/Light_UserManager/blob/master/UserManager/WebsiteUserManager.php#L107-L112)
+
+
 See Also
 ================
 
 The [WebsiteUserManager](https://github.com/lingtalfi/Light_UserManager/blob/master/doc/api/Ling/Light_UserManager/UserManager/WebsiteUserManager.md) class.
 
-Previous method: [setUser](https://github.com/lingtalfi/Light_UserManager/blob/master/doc/api/Ling/Light_UserManager/UserManager/WebsiteUserManager/setUser.md)<br>
+Previous method: [setUserOnce](https://github.com/lingtalfi/Light_UserManager/blob/master/doc/api/Ling/Light_UserManager/UserManager/WebsiteUserManager/setUserOnce.md)<br>
 

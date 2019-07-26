@@ -53,6 +53,11 @@ When the root dir is not set.
 
 
 
+Source Code
+===========
+See the source code for method [LocalServer::getNonPlanetItemsDirectoryList](https://github.com/lingtalfi/Uni2/blob/master/LocalServer/LocalServer.php#L221-L236)
+
+
 See Also
 ================
 

@@ -4,7 +4,7 @@
 
 The KitWidgetInterface class
 ================
-2019-04-24 --> 2019-07-11
+2019-04-24 --> 2019-07-25
 
 
 
@@ -41,7 +41,9 @@ Methods
 
 Location
 =============
-Ling\Kit\Widget\KitWidgetInterface
+Ling\Kit\Widget\KitWidgetInterface<br>
+See the source code of [Ling\Kit\Widget\KitWidgetInterface](https://github.com/lingtalfi/Kit/blob/master/Widget/KitWidgetInterface.php)
+
 
 
 SeeAlso

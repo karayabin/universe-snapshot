@@ -4,7 +4,7 @@
 
 The Output class
 ================
-2019-02-26 --> 2019-03-26
+2019-02-26 --> 2019-07-18
 
 
 
@@ -76,7 +76,9 @@ Methods
 
 Location
 =============
-Ling\CliTools\Output\Output
+Ling\CliTools\Output\Output<br>
+See the source code of [Ling\CliTools\Output\Output](https://github.com/lingtalfi/CliTools/blob/master/Output/Output.php)
+
 
 
 SeeAlso

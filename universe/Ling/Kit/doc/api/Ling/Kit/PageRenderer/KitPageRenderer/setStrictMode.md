@@ -47,6 +47,11 @@ Returns [KitPageRenderer](https://github.com/lingtalfi/Kit/blob/master/doc/api/L
 
 
 
+Source Code
+===========
+See the source code for method [KitPageRenderer::setStrictMode](https://github.com/lingtalfi/Kit/blob/master/PageRenderer/KitPageRenderer.php#L179-L183)
+
+
 See Also
 ================
 

@@ -47,6 +47,11 @@ Returns string.
 
 
 
+Source Code
+===========
+See the source code for method [HelpCommand::n](https://github.com/lingtalfi/LingTalfi/blob/master/Kaos/Command/HelpCommand.php#L103-L106)
+
+
 See Also
 ================
 

@@ -49,6 +49,11 @@ Returns array.
 
 
 
+Source Code
+===========
+See the source code for method [MetaInfoTool::parseInfo](https://github.com/lingtalfi/UniverseTools/blob/master/MetaInfoTool.php#L33-L43)
+
+
 See Also
 ================
 

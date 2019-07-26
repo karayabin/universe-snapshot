@@ -47,6 +47,11 @@ Returns bool.
 
 
 
+Source Code
+===========
+See the source code for method [CommentInfo::hasTag](https://github.com/lingtalfi/DocTools/blob/master/Info/CommentInfo.php#L245-L248)
+
+
 See Also
 ================
 

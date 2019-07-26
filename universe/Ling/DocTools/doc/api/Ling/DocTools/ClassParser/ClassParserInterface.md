@@ -4,7 +4,7 @@
 
 The ClassParserInterface class
 ================
-2019-02-21 --> 2019-07-12
+2019-02-21 --> 2019-07-23
 
 
 
@@ -56,7 +56,9 @@ Methods
 
 Location
 =============
-Ling\DocTools\ClassParser\ClassParserInterface
+Ling\DocTools\ClassParser\ClassParserInterface<br>
+See the source code of [Ling\DocTools\ClassParser\ClassParserInterface](https://github.com/lingtalfi/DocTools/blob/master/ClassParser/ClassParserInterface.php)
+
 
 
 SeeAlso

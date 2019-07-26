@@ -51,6 +51,11 @@ Returns [StringField](https://github.com/lingtalfi/Chloroform/blob/master/doc/ap
 
 
 
+Source Code
+===========
+See the source code for method [StringField::create](https://github.com/lingtalfi/Chloroform/blob/master/Field/StringField.php#L20-L24)
+
+
 See Also
 ================
 

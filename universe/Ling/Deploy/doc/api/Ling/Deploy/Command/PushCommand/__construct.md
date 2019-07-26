@@ -44,6 +44,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [PushCommand::__construct](https://github.com/lingtalfi/Deploy/blob/master/Command/PushCommand.php#L88-L93)
+
+
 See Also
 ================
 

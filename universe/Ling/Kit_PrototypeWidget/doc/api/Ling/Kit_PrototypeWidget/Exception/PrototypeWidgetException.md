@@ -4,7 +4,7 @@
 
 The PrototypeWidgetException class
 ================
-2019-04-25 --> 2019-04-25
+2019-04-25 --> 2019-07-18
 
 
 
@@ -47,7 +47,9 @@ Methods
 
 Location
 =============
-Ling\Kit_PrototypeWidget\Exception\PrototypeWidgetException
+Ling\Kit_PrototypeWidget\Exception\PrototypeWidgetException<br>
+See the source code of [Ling\Kit_PrototypeWidget\Exception\PrototypeWidgetException](https://github.com/lingtalfi/Kit_PrototypeWidget/blob/master/Exception/PrototypeWidgetException.php)
+
 
 
 SeeAlso

@@ -52,6 +52,11 @@ Exceptions thrown
 
 
 
+Source Code
+===========
+See the source code for method [ServiceContainerHelper::getServicesConf](https://github.com/lingtalfi/Light/blob/master/Helper/ServiceContainerHelper.php#L113-L123)
+
+
 See Also
 ================
 

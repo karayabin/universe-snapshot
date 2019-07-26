@@ -75,6 +75,11 @@ Returns bool.
 
 
 
+Source Code
+===========
+See the source code for method [CustomValidator::test](https://github.com/lingtalfi/Chloroform/blob/master/Validator/CustomValidator.php#L53-L56)
+
+
 See Also
 ================
 

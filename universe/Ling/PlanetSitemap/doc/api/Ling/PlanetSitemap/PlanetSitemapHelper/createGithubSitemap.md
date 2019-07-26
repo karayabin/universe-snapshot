@@ -31,7 +31,7 @@ If the file already exists it will be replaced.
 The method will proceed as follow:
 
 - if the planetDir contains the doc/api directory, it assumes that a [DocTools](https://github.com/lingtalfi/DocTools) doc is available,
-and will create an appropriate sitemap
+     and will create an appropriate sitemap
 - otherwise, it will parse all md files and create a sitemap entry for each of them
 
 
@@ -61,6 +61,11 @@ Returns bool.
 
 
 
+
+
+Source Code
+===========
+See the source code for method [PlanetSitemapHelper::createGithubSitemap](https://github.com/lingtalfi/PlanetSitemap/blob/master/PlanetSitemapHelper.php#L44-L98)
 
 
 See Also

@@ -44,6 +44,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [MethodInfo::__construct](https://github.com/lingtalfi/DocTools/blob/master/Info/MethodInfo.php#L91-L102)
+
+
 See Also
 ================
 

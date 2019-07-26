@@ -4,7 +4,7 @@
 
 The HttpResponse class
 ================
-2019-04-09 --> 2019-07-11
+2019-04-09 --> 2019-07-18
 
 
 
@@ -87,7 +87,9 @@ Methods
 
 Location
 =============
-Ling\Light\Http\HttpResponse
+Ling\Light\Http\HttpResponse<br>
+See the source code of [Ling\Light\Http\HttpResponse](https://github.com/lingtalfi/Light/blob/master/Http/HttpResponse.php)
+
 
 
 SeeAlso

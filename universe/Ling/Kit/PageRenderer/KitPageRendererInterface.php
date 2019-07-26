@@ -49,4 +49,5 @@ interface KitPageRendererInterface
      */
     public function countWidgets(string $zoneName);
 
+
 }

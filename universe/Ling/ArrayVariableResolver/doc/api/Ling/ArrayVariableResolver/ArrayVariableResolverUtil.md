@@ -4,7 +4,7 @@
 
 The ArrayVariableResolverUtil class
 ================
-2019-05-15 --> 2019-05-15
+2019-05-15 --> 2019-07-23
 
 
 
@@ -283,7 +283,9 @@ array(5) {
 
 Location
 =============
-Ling\ArrayVariableResolver\ArrayVariableResolverUtil
+Ling\ArrayVariableResolver\ArrayVariableResolverUtil<br>
+See the source code of [Ling\ArrayVariableResolver\ArrayVariableResolverUtil](https://github.com/lingtalfi/ArrayVariableResolver/blob/master/ArrayVariableResolverUtil.php)
+
 
 
 SeeAlso

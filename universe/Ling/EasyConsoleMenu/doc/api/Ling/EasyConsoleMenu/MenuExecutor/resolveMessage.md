@@ -52,6 +52,11 @@ Exceptions thrown
 
 
 
+Source Code
+===========
+See the source code for method [MenuExecutor::resolveMessage](https://github.com/lingtalfi/EasyConsoleMenu/blob/master/MenuExecutor.php#L441-L449)
+
+
 See Also
 ================
 

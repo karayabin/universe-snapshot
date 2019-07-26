@@ -4,7 +4,7 @@
 
 The SimpleCurlDocBuilder class
 ================
-2019-03-13 --> 2019-05-03
+2019-03-13 --> 2019-07-18
 
 
 
@@ -45,7 +45,9 @@ Methods
 
 Location
 =============
-Ling\LingTalfi\DocBuilder\SimpleCurl\SimpleCurlDocBuilder
+Ling\LingTalfi\DocBuilder\SimpleCurl\SimpleCurlDocBuilder<br>
+See the source code of [Ling\LingTalfi\DocBuilder\SimpleCurl\SimpleCurlDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/SimpleCurl/SimpleCurlDocBuilder.php)
+
 
 
 SeeAlso

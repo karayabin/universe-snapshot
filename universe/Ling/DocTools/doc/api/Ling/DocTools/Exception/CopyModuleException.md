@@ -4,7 +4,7 @@
 
 The CopyModuleException class
 ================
-2019-02-21 --> 2019-07-12
+2019-02-21 --> 2019-07-23
 
 
 
@@ -48,7 +48,9 @@ Methods
 
 Location
 =============
-Ling\DocTools\Exception\CopyModuleException
+Ling\DocTools\Exception\CopyModuleException<br>
+See the source code of [Ling\DocTools\Exception\CopyModuleException](https://github.com/lingtalfi/DocTools/blob/master/Exception/CopyModuleException.php)
+
 
 
 SeeAlso

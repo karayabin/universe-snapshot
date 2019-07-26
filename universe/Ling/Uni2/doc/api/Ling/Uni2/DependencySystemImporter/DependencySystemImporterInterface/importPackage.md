@@ -64,6 +64,11 @@ Returns bool.
 
 
 
+Source Code
+===========
+See the source code for method [DependencySystemImporterInterface::importPackage](https://github.com/lingtalfi/Uni2/blob/master/DependencySystemImporter/DependencySystemImporterInterface.php#L39-L39)
+
+
 See Also
 ================
 

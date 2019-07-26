@@ -47,6 +47,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [MethodInfo::setReturnDescription](https://github.com/lingtalfi/DocTools/blob/master/Info/MethodInfo.php#L251-L254)
+
+
 See Also
 ================
 

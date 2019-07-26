@@ -4,7 +4,7 @@
 
 The InvalidContextException class
 ================
-2019-02-26 --> 2019-03-26
+2019-02-26 --> 2019-07-18
 
 
 
@@ -17,7 +17,7 @@ Introduction
 The InvalidContextException exception is thrown in the following cases:
 
 - the CliTools\Io\Input object was not able to detect the argv key in the $_SERVER array,
-probably meaning that it was executed from a web context instead of a cli context.
+         probably meaning that it was executed from a web context instead of a cli context.
 
 
 
@@ -50,7 +50,9 @@ Methods
 
 Location
 =============
-Ling\CliTools\Exception\InvalidContextException
+Ling\CliTools\Exception\InvalidContextException<br>
+See the source code of [Ling\CliTools\Exception\InvalidContextException](https://github.com/lingtalfi/CliTools/blob/master/Exception/InvalidContextException.php)
+
 
 
 SeeAlso

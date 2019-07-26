@@ -4,7 +4,7 @@
 
 The FileField class
 ================
-2019-04-10 --> 2019-04-30
+2019-04-10 --> 2019-07-26
 
 
 
@@ -95,7 +95,9 @@ Methods
 
 Location
 =============
-Ling\Chloroform\Field\FileField
+Ling\Chloroform\Field\FileField<br>
+See the source code of [Ling\Chloroform\Field\FileField](https://github.com/lingtalfi/Chloroform/blob/master/Field/FileField.php)
+
 
 
 SeeAlso

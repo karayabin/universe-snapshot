@@ -4,7 +4,7 @@
 
 The LightUserInterface class
 ================
-2019-05-10 --> 2019-07-12
+2019-05-10 --> 2019-07-19
 
 
 
@@ -50,7 +50,9 @@ Methods
 
 Location
 =============
-Ling\Light_User\LightUserInterface
+Ling\Light_User\LightUserInterface<br>
+See the source code of [Ling\Light_User\LightUserInterface](https://github.com/lingtalfi/Light_User/blob/master/LightUserInterface.php)
+
 
 
 SeeAlso

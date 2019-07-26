@@ -47,6 +47,11 @@ Returns bool.
 
 
 
+Source Code
+===========
+See the source code for method [InputInterface::hasFlag](https://github.com/lingtalfi/CliTools/blob/master/Input/InputInterface.php#L45-L45)
+
+
 See Also
 ================
 

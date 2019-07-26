@@ -4,7 +4,7 @@
 
 The EasyLightPicassoWidget class
 ================
-2019-04-24 --> 2019-07-11
+2019-04-24 --> 2019-07-24
 
 
 
@@ -20,6 +20,11 @@ This class can help if you are working with the Light framework, using Light_Kit
 
 The idea of this class is to provide all available syntactic sugar, so that the developer who extend this class
 has all for free (at the cost of perhaps a small performance cost, if not all features are used).
+
+This includes:
+
+- access to the light service container (to all all services)
+- access to the light kit page renderer (to call sub-zones for instance)
 
 
 
@@ -143,7 +148,9 @@ Methods
 
 Location
 =============
-Ling\Kit_PicassoWidget\Widget\EasyLightPicassoWidget
+Ling\Kit_PicassoWidget\Widget\EasyLightPicassoWidget<br>
+See the source code of [Ling\Kit_PicassoWidget\Widget\EasyLightPicassoWidget](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/Widget/EasyLightPicassoWidget.php)
+
 
 
 SeeAlso

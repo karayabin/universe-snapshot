@@ -47,6 +47,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [ArrayVariableResolverUtil::setClosingBracket](https://github.com/lingtalfi/ArrayVariableResolver/blob/master/ArrayVariableResolverUtil.php#L120-L123)
+
+
 See Also
 ================
 

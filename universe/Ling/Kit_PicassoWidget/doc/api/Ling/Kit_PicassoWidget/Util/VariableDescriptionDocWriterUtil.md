@@ -4,7 +4,7 @@
 
 The VariableDescriptionDocWriterUtil class
 ================
-2019-04-24 --> 2019-07-11
+2019-04-24 --> 2019-07-24
 
 
 
@@ -166,7 +166,9 @@ $o->writeDoc($out);
 
 Location
 =============
-Ling\Kit_PicassoWidget\Util\VariableDescriptionDocWriterUtil
+Ling\Kit_PicassoWidget\Util\VariableDescriptionDocWriterUtil<br>
+See the source code of [Ling\Kit_PicassoWidget\Util\VariableDescriptionDocWriterUtil](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/Util/VariableDescriptionDocWriterUtil.php)
+
 
 
 SeeAlso

@@ -4,7 +4,7 @@
 
 The BabyYamlConfStorage class
 ================
-2019-04-24 --> 2019-07-11
+2019-04-24 --> 2019-07-25
 
 
 
@@ -39,6 +39,18 @@ then this class will search for the following file:
 
 The content of a page configuration file is defined in the kit documentation
 (see the [page configuration array](https://github.com/lingtalfi/Kit/blob/master/README.md#the-kit-configuration-array) for more info).
+
+
+Also, if a directory with the same name is found, all the .byml files found in it will be merged
+to the page configuration file. This allows third-party plugins to participate to the construction
+of the page.
+
+So for instance, we can have this kind of structure:
+
+- $rootDir/page_one.byml
+- $rootDir/page_one/MyPlugin_One.byml
+- $rootDir/page_one/MyPlugin_Two.byml
+- $rootDir/page_one/...
 
 
 
@@ -98,7 +110,9 @@ Methods
 
 Location
 =============
-Ling\Kit\ConfStorage\BabyYamlConfStorage
+Ling\Kit\ConfStorage\BabyYamlConfStorage<br>
+See the source code of [Ling\Kit\ConfStorage\BabyYamlConfStorage](https://github.com/lingtalfi/Kit/blob/master/ConfStorage/BabyYamlConfStorage.php)
+
 
 
 SeeAlso

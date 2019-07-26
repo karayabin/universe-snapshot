@@ -44,6 +44,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [PasswordValidator::__construct](https://github.com/lingtalfi/Chloroform/blob/master/Validator/PasswordValidator.php#L63-L71)
+
+
 See Also
 ================
 

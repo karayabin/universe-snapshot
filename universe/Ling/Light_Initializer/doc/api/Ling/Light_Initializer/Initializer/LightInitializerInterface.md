@@ -4,7 +4,7 @@
 
 The LightInitializerInterface class
 ================
-2019-04-05 --> 2019-04-09
+2019-04-05 --> 2019-07-18
 
 
 
@@ -45,7 +45,9 @@ Methods
 
 Location
 =============
-Ling\Light_Initializer\Initializer\LightInitializerInterface
+Ling\Light_Initializer\Initializer\LightInitializerInterface<br>
+See the source code of [Ling\Light_Initializer\Initializer\LightInitializerInterface](https://github.com/lingtalfi/Light_Initializer/blob/master/Initializer/LightInitializerInterface.php)
+
 
 
 SeeAlso

@@ -75,6 +75,11 @@ Returns array.
 
 
 
+Source Code
+===========
+See the source code for method [SimpleCurlResponseInterface::getRawInfo](https://github.com/lingtalfi/SimpleCurl/blob/master/Response/SimpleCurlResponseInterface.php#L87-L87)
+
+
 See Also
 ================
 

@@ -50,6 +50,11 @@ Returns string.
 
 
 
+Source Code
+===========
+See the source code for method [FieldHelper::getHtmlNameById](https://github.com/lingtalfi/Chloroform/blob/master/Helper/FieldHelper.php#L77-L85)
+
+
 See Also
 ================
 

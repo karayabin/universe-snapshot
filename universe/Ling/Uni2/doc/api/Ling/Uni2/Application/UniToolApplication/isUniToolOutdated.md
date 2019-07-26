@@ -59,6 +59,11 @@ Exceptions thrown
 
 
 
+Source Code
+===========
+See the source code for method [UniToolApplication::isUniToolOutdated](https://github.com/lingtalfi/Uni2/blob/master/Application/UniToolApplication.php#L544-L556)
+
+
 See Also
 ================
 

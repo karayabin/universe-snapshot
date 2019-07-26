@@ -4,7 +4,7 @@
 
 The DependencyMasterBuilderUtil class
 ================
-2019-03-12 --> 2019-04-05
+2019-03-12 --> 2019-07-18
 
 
 
@@ -48,7 +48,9 @@ Methods
 
 Location
 =============
-Ling\Uni2\Util\DependencyMasterBuilderUtil
+Ling\Uni2\Util\DependencyMasterBuilderUtil<br>
+See the source code of [Ling\Uni2\Util\DependencyMasterBuilderUtil](https://github.com/lingtalfi/Uni2/blob/master/Util/DependencyMasterBuilderUtil.php)
+
 
 
 SeeAlso

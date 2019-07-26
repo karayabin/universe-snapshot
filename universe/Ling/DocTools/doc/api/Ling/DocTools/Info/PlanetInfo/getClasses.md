@@ -44,6 +44,11 @@ Returns [ClassInfo[]](https://github.com/lingtalfi/DocTools/blob/master/doc/api/
 
 
 
+Source Code
+===========
+See the source code for method [PlanetInfo::getClasses](https://github.com/lingtalfi/DocTools/blob/master/Info/PlanetInfo.php#L78-L81)
+
+
 See Also
 ================
 

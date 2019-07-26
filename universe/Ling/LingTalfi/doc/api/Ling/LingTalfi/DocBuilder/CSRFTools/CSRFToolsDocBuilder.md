@@ -4,7 +4,7 @@
 
 The CSRFToolsDocBuilder class
 ================
-2019-03-13 --> 2019-05-03
+2019-03-13 --> 2019-07-18
 
 
 
@@ -45,9 +45,11 @@ Methods
 
 Location
 =============
-Ling\LingTalfi\DocBuilder\CSRFTools\CSRFToolsDocBuilder
+Ling\LingTalfi\DocBuilder\CSRFTools\CSRFToolsDocBuilder<br>
+See the source code of [Ling\LingTalfi\DocBuilder\CSRFTools\CSRFToolsDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/CSRFTools/CSRFToolsDocBuilder.php)
+
 
 
 SeeAlso
 ==============
-Next class: [ChloroformDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Chloroform/ChloroformDocBuilder.md)<br>
+Previous class: [ArrayVariableResolverDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/ArrayVariableResolver/ArrayVariableResolverDocBuilder.md)<br>Next class: [ChloroformDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Chloroform/ChloroformDocBuilder.md)<br>

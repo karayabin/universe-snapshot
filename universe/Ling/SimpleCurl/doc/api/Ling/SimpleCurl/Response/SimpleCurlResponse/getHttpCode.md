@@ -44,6 +44,11 @@ Returns int.
 
 
 
+Source Code
+===========
+See the source code for method [SimpleCurlResponse::getHttpCode](https://github.com/lingtalfi/SimpleCurl/blob/master/Response/SimpleCurlResponse.php#L56-L59)
+
+
 See Also
 ================
 

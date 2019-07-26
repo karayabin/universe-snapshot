@@ -4,7 +4,7 @@
 
 The MethodCallResolver class
 ================
-2019-04-25 --> 2019-07-15
+2019-04-25 --> 2019-07-26
 
 
 
@@ -45,7 +45,9 @@ Methods
 
 Location
 =============
-Ling\Light_Kit\PageConfigurationTransformer\LazyReferenceResolver\MethodCallResolver
+Ling\Light_Kit\PageConfigurationTransformer\LazyReferenceResolver\MethodCallResolver<br>
+See the source code of [Ling\Light_Kit\PageConfigurationTransformer\LazyReferenceResolver\MethodCallResolver](https://github.com/lingtalfi/Light_Kit/blob/master/PageConfigurationTransformer/LazyReferenceResolver/MethodCallResolver.php)
+
 
 
 SeeAlso

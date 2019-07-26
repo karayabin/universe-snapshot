@@ -53,6 +53,11 @@ Exceptions thrown
 
 
 
+Source Code
+===========
+See the source code for method [MapHelper::getMapEntries](https://github.com/lingtalfi/Uni2/blob/master/Helper/MapHelper.php#L26-L40)
+
+
 See Also
 ================
 

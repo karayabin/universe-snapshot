@@ -48,6 +48,11 @@ Returns array.
 
 
 
+Source Code
+===========
+See the source code for method [ClassParser::trimLines](https://github.com/lingtalfi/DocTools/blob/master/ClassParser/ClassParser.php#L977-L1004)
+
+
 See Also
 ================
 

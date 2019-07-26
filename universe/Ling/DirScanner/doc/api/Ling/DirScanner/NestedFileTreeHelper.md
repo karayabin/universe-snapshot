@@ -4,7 +4,7 @@
 
 The NestedFileTreeHelper class
 ================
-2019-03-20 --> 2019-03-26
+2019-03-20 --> 2019-07-18
 
 
 
@@ -47,7 +47,9 @@ Methods
 
 Location
 =============
-Ling\DirScanner\NestedFileTreeHelper
+Ling\DirScanner\NestedFileTreeHelper<br>
+See the source code of [Ling\DirScanner\NestedFileTreeHelper](https://github.com/lingtalfi/DirScanner/blob/master/NestedFileTreeHelper.php)
+
 
 
 SeeAlso

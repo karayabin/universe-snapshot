@@ -55,12 +55,14 @@ class UniverseToolsDocBuilder
         //--------------------------------------------
 
         $planetDir = "/myphp/universe/Ling/UniverseTools";
-        $git = "https://github.com/lingtalfi/UniverseTools/blob/master";
+        $gitRepoUrl = "https://github.com/lingtalfi/UniverseTools";
+        $git = $gitRepoUrl . "/blob/master";
         $doc = "$git/doc";
         $api = $doc . "/api";
 
 
         $options = [
+            "gitRepoUrl" => $gitRepoUrl,
             /**
              * Path to the planet dir that we want to generate the documentation for.
              */

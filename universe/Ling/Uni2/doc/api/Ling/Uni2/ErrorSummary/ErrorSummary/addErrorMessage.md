@@ -47,6 +47,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [ErrorSummary::addErrorMessage](https://github.com/lingtalfi/Uni2/blob/master/ErrorSummary/ErrorSummary.php#L43-L46)
+
+
 See Also
 ================
 

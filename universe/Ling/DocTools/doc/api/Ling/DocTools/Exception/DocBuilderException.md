@@ -4,7 +4,7 @@
 
 The DocBuilderException class
 ================
-2019-02-21 --> 2019-07-12
+2019-02-21 --> 2019-07-23
 
 
 
@@ -47,7 +47,9 @@ Methods
 
 Location
 =============
-Ling\DocTools\Exception\DocBuilderException
+Ling\DocTools\Exception\DocBuilderException<br>
+See the source code of [Ling\DocTools\Exception\DocBuilderException](https://github.com/lingtalfi/DocTools/blob/master/Exception/DocBuilderException.php)
+
 
 
 SeeAlso

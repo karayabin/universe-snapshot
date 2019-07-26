@@ -51,6 +51,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [ReportInterface::addPropertyWithoutComment](https://github.com/lingtalfi/DocTools/blob/master/Report/ReportInterface.php#L236-L236)
+
+
 See Also
 ================
 

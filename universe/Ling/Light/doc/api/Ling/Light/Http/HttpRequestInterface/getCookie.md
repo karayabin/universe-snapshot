@@ -44,6 +44,11 @@ Returns array.
 
 
 
+Source Code
+===========
+See the source code for method [HttpRequestInterface::getCookie](https://github.com/lingtalfi/Light/blob/master/Http/HttpRequestInterface.php#L150-L150)
+
+
 See Also
 ================
 

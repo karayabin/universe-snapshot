@@ -4,7 +4,7 @@
 
 The Application class
 ================
-2019-02-26 --> 2019-03-26
+2019-02-26 --> 2019-07-18
 
 
 
@@ -101,11 +101,11 @@ Properties
     
     
     If true:
-    - the error message displayed to the console screen is the traceAsString of the exception.
-    - the message sent to the log is also the traceAsString of the exception.
+         - the error message displayed to the console screen is the traceAsString of the exception.
+         - the message sent to the log is also the traceAsString of the exception.
     if false:
-    - the error message displayed to the console screen is the exception message.
-    - the message sent to the log is also the exception message.
+         - the error message displayed to the console screen is the exception message.
+         - the message sent to the log is also the exception message.
     
     
 
@@ -201,7 +201,9 @@ $program->run($input, $output); // I'm making some tea
 
 Location
 =============
-Ling\CliTools\Program\Application
+Ling\CliTools\Program\Application<br>
+See the source code of [Ling\CliTools\Program\Application](https://github.com/lingtalfi/CliTools/blob/master/Program/Application.php)
+
 
 
 SeeAlso

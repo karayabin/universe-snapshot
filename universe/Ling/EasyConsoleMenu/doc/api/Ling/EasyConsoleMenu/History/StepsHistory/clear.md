@@ -44,6 +44,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [StepsHistory::clear](https://github.com/lingtalfi/EasyConsoleMenu/blob/master/History/StepsHistory.php#L87-L90)
+
+
 See Also
 ================
 

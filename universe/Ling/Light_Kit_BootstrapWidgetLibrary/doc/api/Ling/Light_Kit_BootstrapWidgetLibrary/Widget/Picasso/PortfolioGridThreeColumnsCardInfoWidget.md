@@ -4,7 +4,7 @@
 
 The PortfolioGridThreeColumnsCardInfoWidget class
 ================
-2019-04-26 --> 2019-07-16
+2019-04-26 --> 2019-07-25
 
 
 
@@ -74,7 +74,9 @@ Methods
 
 Location
 =============
-Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\PortfolioGridThreeColumnsCardInfoWidget
+Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\PortfolioGridThreeColumnsCardInfoWidget<br>
+See the source code of [Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\PortfolioGridThreeColumnsCardInfoWidget](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/Widget/Picasso/PortfolioGridThreeColumnsCardInfoWidget.php)
+
 
 
 SeeAlso

@@ -44,6 +44,11 @@ Returns string.
 
 
 
+Source Code
+===========
+See the source code for method [KaosApplication::getCurrentDirectory](https://github.com/lingtalfi/LingTalfi/blob/master/Kaos/Application/KaosApplication.php#L58-L61)
+
+
 See Also
 ================
 

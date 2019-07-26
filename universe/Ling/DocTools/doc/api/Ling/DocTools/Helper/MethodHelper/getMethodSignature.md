@@ -64,6 +64,11 @@ Exceptions thrown
 
 
 
+Source Code
+===========
+See the source code for method [MethodHelper::getMethodSignature](https://github.com/lingtalfi/DocTools/blob/master/Helper/MethodHelper.php#L83-L227)
+
+
 See Also
 ================
 

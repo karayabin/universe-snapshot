@@ -4,7 +4,7 @@
 
 The SicToolsException class
 ================
-2019-04-25 --> 2019-05-15
+2019-04-25 --> 2019-07-18
 
 
 
@@ -47,7 +47,9 @@ Methods
 
 Location
 =============
-Ling\SicTools\Exception\SicToolsException
+Ling\SicTools\Exception\SicToolsException<br>
+See the source code of [Ling\SicTools\Exception\SicToolsException](https://github.com/lingtalfi/SicTools/blob/master/Exception/SicToolsException.php)
+
 
 
 SeeAlso

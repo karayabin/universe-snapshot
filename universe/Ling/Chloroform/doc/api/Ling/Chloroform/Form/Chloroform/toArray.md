@@ -27,6 +27,8 @@ The blueprint looks like this:
 
 
 ```yaml
+isPosted: bool, whether this form instance was submitted.
+
 notifications:
      -
          type: string, the type of notification (success, info, warning, error)
@@ -59,6 +61,11 @@ Returns array.
 
 
 
+
+
+Source Code
+===========
+See the source code for method [Chloroform::toArray](https://github.com/lingtalfi/Chloroform/blob/master/Form/Chloroform.php#L275-L311)
 
 
 See Also

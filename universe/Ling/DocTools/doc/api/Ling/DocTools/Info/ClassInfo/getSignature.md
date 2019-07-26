@@ -44,6 +44,11 @@ Returns null.
 
 
 
+Source Code
+===========
+See the source code for method [ClassInfo::getSignature](https://github.com/lingtalfi/DocTools/blob/master/Info/ClassInfo.php#L242-L245)
+
+
 See Also
 ================
 

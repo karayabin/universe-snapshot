@@ -30,15 +30,28 @@ Summary
 - Pages
     - [Conception notes](https://github.com/lingtalfi/Light_User/blob/master/doc/pages/conception-notes.md)
     - [Conception](https://github.com/lingtalfi/Light_User/blob/master/doc/pages/conception.md)
+- [Related](#related)
 
 
 
+Related
+=========
+- [Light_UserManager](https://github.com/lingtalfi/Light_UserManager/), a system for managing users in a Light application 
+- [Light_UserDatabase](https://github.com/lingtalfi/Light_UserDatabase), an user database for the Light framework 
 
 
 
 History Log
 =============
 
+- 1.1.2 -- 2019-07-19
+
+    - update documentation, add related section
+    
+- 1.1.1 -- 2019-07-18
+
+    - update docTools documentation, add links to source code for classes and methods
+    
 - 1.1.0 -- 2019-07-13
 
     - add WebsiteLightUser

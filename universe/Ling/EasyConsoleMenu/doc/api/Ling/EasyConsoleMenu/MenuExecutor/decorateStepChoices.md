@@ -51,6 +51,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [MenuExecutor::decorateStepChoices](https://github.com/lingtalfi/EasyConsoleMenu/blob/master/MenuExecutor.php#L404-L430)
+
+
 See Also
 ================
 

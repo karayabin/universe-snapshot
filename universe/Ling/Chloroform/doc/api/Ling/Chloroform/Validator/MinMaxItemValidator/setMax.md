@@ -47,6 +47,11 @@ Returns [MinMaxItemValidator](https://github.com/lingtalfi/Chloroform/blob/maste
 
 
 
+Source Code
+===========
+See the source code for method [MinMaxItemValidator::setMax](https://github.com/lingtalfi/Chloroform/blob/master/Validator/MinMaxItemValidator.php#L47-L51)
+
+
 See Also
 ================
 

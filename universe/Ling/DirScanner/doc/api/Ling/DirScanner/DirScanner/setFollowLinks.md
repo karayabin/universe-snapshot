@@ -47,6 +47,11 @@ Returns [DirScanner](https://github.com/lingtalfi/DirScanner/blob/master/doc/api
 
 
 
+Source Code
+===========
+See the source code for method [DirScanner::setFollowLinks](https://github.com/lingtalfi/DirScanner/blob/master/DirScanner.php#L97-L101)
+
+
 See Also
 ================
 

@@ -44,6 +44,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [HelpCommand::__construct](https://github.com/lingtalfi/Deploy/blob/master/Command/HelpCommand.php#L43-L48)
+
+
 See Also
 ================
 

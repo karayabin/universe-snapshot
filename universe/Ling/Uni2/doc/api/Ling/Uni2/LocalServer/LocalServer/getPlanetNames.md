@@ -61,6 +61,11 @@ When the root dir is not set.
 
 
 
+Source Code
+===========
+See the source code for method [LocalServer::getPlanetNames](https://github.com/lingtalfi/Uni2/blob/master/LocalServer/LocalServer.php#L257-L286)
+
+
 See Also
 ================
 

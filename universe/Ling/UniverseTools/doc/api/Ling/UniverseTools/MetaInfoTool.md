@@ -4,7 +4,7 @@
 
 The MetaInfoTool class
 ================
-2019-02-26 --> 2019-04-30
+2019-02-26 --> 2019-07-18
 
 
 
@@ -51,7 +51,9 @@ Methods
 
 Location
 =============
-Ling\UniverseTools\MetaInfoTool
+Ling\UniverseTools\MetaInfoTool<br>
+See the source code of [Ling\UniverseTools\MetaInfoTool](https://github.com/lingtalfi/UniverseTools/blob/master/MetaInfoTool.php)
+
 
 
 SeeAlso

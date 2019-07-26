@@ -44,6 +44,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [StepsHistory::__construct](https://github.com/lingtalfi/EasyConsoleMenu/blob/master/History/StepsHistory.php#L24-L27)
+
+
 See Also
 ================
 

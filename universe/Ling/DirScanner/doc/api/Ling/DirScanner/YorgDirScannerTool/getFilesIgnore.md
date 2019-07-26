@@ -69,6 +69,11 @@ Returns array.
 
 
 
+Source Code
+===========
+See the source code for method [YorgDirScannerTool::getFilesIgnore](https://github.com/lingtalfi/DirScanner/blob/master/YorgDirScannerTool.php#L197-L227)
+
+
 See Also
 ================
 

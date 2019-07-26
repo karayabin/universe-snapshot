@@ -4,7 +4,7 @@
 
 The VariableDescriptionFileGeneratorUtil class
 ================
-2019-04-24 --> 2019-07-11
+2019-04-24 --> 2019-07-24
 
 
 
@@ -69,7 +69,9 @@ $o->generate($pageConfFile, $outputDir);
 
 Location
 =============
-Ling\Kit_PicassoWidget\Util\VariableDescriptionFileGeneratorUtil
+Ling\Kit_PicassoWidget\Util\VariableDescriptionFileGeneratorUtil<br>
+See the source code of [Ling\Kit_PicassoWidget\Util\VariableDescriptionFileGeneratorUtil](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/Util/VariableDescriptionFileGeneratorUtil.php)
+
 
 
 SeeAlso

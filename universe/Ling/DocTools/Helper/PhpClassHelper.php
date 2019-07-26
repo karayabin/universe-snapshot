@@ -46,6 +46,10 @@ class PhpClassHelper
             '\\RuntimeException' => "http://php.net/manual/en/class.runtimeexception.php",
             '\\UnderflowException' => "http://php.net/manual/en/class.underflowexception.php",
             '\\UnexpectedValueException' => "http://php.net/manual/en/class.unexpectedvalueexception.php",
+            // PDO
+            '\\PDO' => "https://www.php.net/manual/en/class.pdo.php",
+            '\\PDOException' => "https://www.php.net/manual/en/class.pdoexception.php",
+            '\\PDOStatement' => "https://www.php.net/manual/en/class.pdostatement.php",
 
         ];
     }

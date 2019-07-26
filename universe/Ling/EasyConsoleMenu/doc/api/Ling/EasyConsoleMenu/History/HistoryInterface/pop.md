@@ -45,6 +45,11 @@ Returns string | false.
 
 
 
+Source Code
+===========
+See the source code for method [HistoryInterface::pop](https://github.com/lingtalfi/EasyConsoleMenu/blob/master/History/HistoryInterface.php#L20-L20)
+
+
 See Also
 ================
 

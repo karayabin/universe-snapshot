@@ -4,7 +4,7 @@
 
 The MarkdownTranslatorInterface class
 ================
-2019-02-21 --> 2019-07-12
+2019-02-21 --> 2019-07-23
 
 
 
@@ -46,7 +46,9 @@ Methods
 
 Location
 =============
-Ling\DocTools\Translator\MarkdownTranslatorInterface
+Ling\DocTools\Translator\MarkdownTranslatorInterface<br>
+See the source code of [Ling\DocTools\Translator\MarkdownTranslatorInterface](https://github.com/lingtalfi/DocTools/blob/master/Translator/MarkdownTranslatorInterface.php)
+
 
 
 SeeAlso

@@ -4,7 +4,7 @@
 
 The PeopleGridWidget class
 ================
-2019-04-26 --> 2019-07-16
+2019-04-26 --> 2019-07-25
 
 
 
@@ -74,7 +74,9 @@ Methods
 
 Location
 =============
-Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\PeopleGridWidget
+Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\PeopleGridWidget<br>
+See the source code of [Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\PeopleGridWidget](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/Widget/Picasso/PeopleGridWidget.php)
+
 
 
 SeeAlso

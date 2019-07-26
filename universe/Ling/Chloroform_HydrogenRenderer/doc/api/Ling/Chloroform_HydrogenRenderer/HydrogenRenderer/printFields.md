@@ -54,6 +54,11 @@ Exceptions thrown
 
 
 
+Source Code
+===========
+See the source code for method [HydrogenRenderer::printFields](https://github.com/lingtalfi/Chloroform_HydrogenRenderer/blob/master/HydrogenRenderer.php#L307-L361)
+
+
 See Also
 ================
 

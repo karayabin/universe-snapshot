@@ -45,6 +45,11 @@ Returns array.
 
 
 
+Source Code
+===========
+See the source code for method [UniToolApplication::getDependencyMasterConf](https://github.com/lingtalfi/Uni2/blob/master/Application/UniToolApplication.php#L457-L468)
+
+
 See Also
 ================
 

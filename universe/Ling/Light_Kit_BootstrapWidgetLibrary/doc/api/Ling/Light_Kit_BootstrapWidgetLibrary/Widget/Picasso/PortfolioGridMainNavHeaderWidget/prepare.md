@@ -63,6 +63,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [PortfolioGridMainNavHeaderWidget::prepare](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/Widget/Picasso/PortfolioGridMainNavHeaderWidget.php#L22-L26)
+
+
 See Also
 ================
 

@@ -47,6 +47,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [ColdServiceResolver::addCodeBlock](https://github.com/lingtalfi/SicTools/blob/master/ColdServiceResolver.php#L294-L297)
+
+
 See Also
 ================
 

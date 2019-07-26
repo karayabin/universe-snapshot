@@ -52,6 +52,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [MenuExecutor::executeMenu](https://github.com/lingtalfi/EasyConsoleMenu/blob/master/MenuExecutor.php#L87-L129)
+
+
 See Also
 ================
 

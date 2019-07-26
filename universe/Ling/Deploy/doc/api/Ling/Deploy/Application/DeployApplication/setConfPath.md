@@ -47,6 +47,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [DeployApplication::setConfPath](https://github.com/lingtalfi/Deploy/blob/master/Application/DeployApplication.php#L146-L149)
+
+
 See Also
 ================
 

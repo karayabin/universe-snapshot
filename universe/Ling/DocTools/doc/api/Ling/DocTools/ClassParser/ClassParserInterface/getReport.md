@@ -45,6 +45,11 @@ Returns [ReportInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/
 
 
 
+Source Code
+===========
+See the source code for method [ClassParserInterface::getReport](https://github.com/lingtalfi/DocTools/blob/master/ClassParser/ClassParserInterface.php#L53-L53)
+
+
 See Also
 ================
 

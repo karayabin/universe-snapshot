@@ -49,6 +49,11 @@ when the widget cannot render properly.
 
 
 
+Source Code
+===========
+See the source code for method [ClassPropertiesWidget::render](https://github.com/lingtalfi/DocTools/blob/master/Widget/ClassProperties/ClassPropertiesWidget.php#L54-L73)
+
+
 See Also
 ================
 

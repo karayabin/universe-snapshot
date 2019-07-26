@@ -63,6 +63,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [PicassoWidget::prepare](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/Widget/PicassoWidget.php#L122-L125)
+
+
 See Also
 ================
 

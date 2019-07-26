@@ -47,6 +47,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [KaosGenericCommand::setApplication](https://github.com/lingtalfi/LingTalfi/blob/master/Kaos/Command/KaosGenericCommand.php#L45-L48)
+
+
 See Also
 ================
 

@@ -4,7 +4,7 @@
 
 The StepsHistory class
 ================
-2019-04-02 --> 2019-04-03
+2019-04-02 --> 2019-07-18
 
 
 
@@ -75,7 +75,9 @@ Methods
 
 Location
 =============
-Ling\EasyConsoleMenu\History\StepsHistory
+Ling\EasyConsoleMenu\History\StepsHistory<br>
+See the source code of [Ling\EasyConsoleMenu\History\StepsHistory](https://github.com/lingtalfi/EasyConsoleMenu/blob/master/History/StepsHistory.php)
+
 
 
 SeeAlso

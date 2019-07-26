@@ -44,6 +44,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [HttpResponseInterface::send](https://github.com/lingtalfi/Light/blob/master/Http/HttpResponseInterface.php#L18-L18)
+
+
 See Also
 ================
 

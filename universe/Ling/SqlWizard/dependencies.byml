@@ -1,2 +1,6 @@
-dependencies: []
+dependencies: 
+    Ling: 
+        - SimplePdoWrapper
+    
+
 post_install: []

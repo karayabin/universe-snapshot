@@ -51,6 +51,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [PushBackupDatabaseCommand::onArchiveReady](https://github.com/lingtalfi/Deploy/blob/master/Command/PushBackupDatabaseCommand.php#L87-L122)
+
+
 See Also
 ================
 

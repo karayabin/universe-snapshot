@@ -47,6 +47,11 @@ Returns bool.
 
 
 
+Source Code
+===========
+See the source code for method [KrankenSteinTool::isOneShot](https://github.com/lingtalfi/KrankenStein/blob/master/KrankenSteinTool.php#L29-L35)
+
+
 See Also
 ================
 

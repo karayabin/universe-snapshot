@@ -4,7 +4,7 @@
 
 The LightKitException class
 ================
-2019-04-25 --> 2019-07-15
+2019-04-25 --> 2019-07-26
 
 
 
@@ -47,7 +47,9 @@ Methods
 
 Location
 =============
-Ling\Light_Kit\Exception\LightKitException
+Ling\Light_Kit\Exception\LightKitException<br>
+See the source code of [Ling\Light_Kit\Exception\LightKitException](https://github.com/lingtalfi/Light_Kit/blob/master/Exception/LightKitException.php)
+
 
 
 SeeAlso

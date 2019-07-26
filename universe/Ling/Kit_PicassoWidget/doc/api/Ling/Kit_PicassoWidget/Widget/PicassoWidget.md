@@ -4,7 +4,7 @@
 
 The PicassoWidget class
 ================
-2019-04-24 --> 2019-07-11
+2019-04-24 --> 2019-07-24
 
 
 
@@ -112,7 +112,9 @@ Methods
 
 Location
 =============
-Ling\Kit_PicassoWidget\Widget\PicassoWidget
+Ling\Kit_PicassoWidget\Widget\PicassoWidget<br>
+See the source code of [Ling\Kit_PicassoWidget\Widget\PicassoWidget](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/Widget/PicassoWidget.php)
+
 
 
 SeeAlso

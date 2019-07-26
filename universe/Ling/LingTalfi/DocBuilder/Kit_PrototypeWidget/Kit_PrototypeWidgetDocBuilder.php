@@ -48,12 +48,14 @@ class Kit_PrototypeWidgetDocBuilder
         // DOC TOOLS: CREATE A DOCUMENTATION FOR A PHP PLANET FOR GIT (MARKDOWN)
         //--------------------------------------------
         $planetDir = "/myphp/universe/Ling/Kit_PrototypeWidget";
-        $git = "https://github.com/lingtalfi/Kit_PrototypeWidget/blob/master";
+        $gitRepoUrl = "https://github.com/lingtalfi/Kit_PrototypeWidget";
+        $git = $gitRepoUrl . "/blob/master";
         $doc = "$git/doc";
         $api = $doc . "/api";
 
 
         $options = [
+            "gitRepoUrl" => $gitRepoUrl,
             /**
              * Path to the planet dir that we want to generate the documentation for.
              */

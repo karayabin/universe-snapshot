@@ -55,12 +55,14 @@ class DocToolsDocBuilder
         //--------------------------------------------
 
         $planetDir = "/myphp/universe/Ling/DocTools";
-        $git = "https://github.com/lingtalfi/DocTools/blob/master";
+        $gitRepoUrl = "https://github.com/lingtalfi/DocTools";
+        $git = $gitRepoUrl . "/blob/master";
         $doc = "$git/doc";
         $api = $doc . "/api";
 
 
         $options = [
+            "gitRepoUrl" => $gitRepoUrl,
             /**
              * Path to the planet dir that we want to generate the documentation for.
              */
@@ -80,6 +82,7 @@ class DocToolsDocBuilder
              */
             "reportIgnore" => [
                 "Ling\DocTools\Translator\ParseDownTranslator",
+                "Ling\ParseDown\Parsedown",
             ],
             /**
              * Your project start date.
@@ -221,6 +224,7 @@ class DocToolsDocBuilder
              */
             "externalClass2Url" => [
                 "Ling\ParseDown\Parsedown" => "https://github.com/lingtalfi/ParseDown",
+
             ],
         ];
 

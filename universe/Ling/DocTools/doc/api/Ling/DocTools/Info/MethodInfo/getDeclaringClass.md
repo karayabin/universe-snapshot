@@ -44,6 +44,11 @@ Returns string.
 
 
 
+Source Code
+===========
+See the source code for method [MethodInfo::getDeclaringClass](https://github.com/lingtalfi/DocTools/blob/master/Info/MethodInfo.php#L220-L223)
+
+
 See Also
 ================
 

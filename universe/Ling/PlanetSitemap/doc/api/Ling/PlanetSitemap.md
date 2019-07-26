@@ -1,6 +1,6 @@
 Ling/PlanetSitemap
 ================
-2019-03-14 --> 2019-03-14
+2019-03-14 --> 2019-07-18
 
 
 
@@ -14,7 +14,7 @@ Table of contents
 
 Dependencies
 ============
-- [Bat](https://github.com/karayabin/universe-snapshot/tree/master/universe/Ling/Bat)
-- [DirScanner](https://github.com/karayabin/universe-snapshot/tree/master/universe/Ling/DirScanner)
+- [Bat](https://github.com/lingtalfi/Bat)
+- [DirScanner](https://github.com/lingtalfi/DirScanner)
 
 

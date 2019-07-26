@@ -51,6 +51,11 @@ Returns array.
 
 
 
+Source Code
+===========
+See the source code for method [DependencyMasterDiffUtil::versionDiffByConf](https://github.com/lingtalfi/Uni2/blob/master/Util/DependencyMasterDiffUtil.php#L59-L86)
+
+
 See Also
 ================
 

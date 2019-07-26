@@ -4,7 +4,7 @@
 
 The DocToolInterpreter class
 ================
-2019-02-21 --> 2019-07-12
+2019-02-21 --> 2019-07-23
 
 
 
@@ -77,7 +77,9 @@ Methods
 
 Location
 =============
-Ling\DocTools\Interpreter\DocToolInterpreter
+Ling\DocTools\Interpreter\DocToolInterpreter<br>
+See the source code of [Ling\DocTools\Interpreter\DocToolInterpreter](https://github.com/lingtalfi/DocTools/blob/master/Interpreter/DocToolInterpreter.php)
+
 
 
 SeeAlso

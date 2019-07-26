@@ -63,6 +63,8 @@ Examples
 Location
 =============
 <?php echo $class->getName(); ?>
+<br>
+See the source code of [<?php echo $class->getName(); ?>](<?php echo $z['classSourceUrl']; ?>)
 
 
 

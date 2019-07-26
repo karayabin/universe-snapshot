@@ -54,6 +54,11 @@ Exceptions thrown
 
 
 
+Source Code
+===========
+See the source code for method [PlanetTool::getPlanetDirs](https://github.com/lingtalfi/UniverseTools/blob/master/PlanetTool.php#L120-L131)
+
+
 See Also
 ================
 

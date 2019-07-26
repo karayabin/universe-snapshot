@@ -5,6 +5,8 @@ namespace Ling\Kit\ConfStorage;
 
 
 use Ling\BabyYaml\BabyYamlUtil;
+use Ling\Bat\ArrayTool;
+use Ling\DirScanner\YorgDirScannerTool;
 use Ling\Kit\Exception\KitException;
 
 /**
@@ -33,6 +35,18 @@ use Ling\Kit\Exception\KitException;
  *
  * The content of a page configuration file is defined in the kit documentation
  * (see the @page(page configuration array) for more info).
+ *
+ *
+ * Also, if a directory with the same name is found, all the .byml files found in it will be merged
+ * to the page configuration file. This allows third-party plugins to participate to the construction
+ * of the page.
+ *
+ * So for instance, we can have this kind of structure:
+ *
+ * - $rootDir/page_one.byml
+ * - $rootDir/page_one/MyPlugin_One.byml
+ * - $rootDir/page_one/MyPlugin_Two.byml
+ * - $rootDir/page_one/...
  *
  *
  *
@@ -72,9 +86,32 @@ class BabyYamlConfStorage implements ConfStorageInterface
     public function getPageConf(string $pageName)
     {
         $this->init();
-        $pageFile = $this->rootDir . "/$pageName.byml";
+        $dir = $this->rootDir . "/$pageName";
+        $pageFile = $dir . ".byml";
         if (file_exists($pageFile)) {
-            return BabyYamlUtil::readFile($pageFile);
+            $conf = BabyYamlUtil::readFile($pageFile);
+            if (is_dir($dir)) {
+                /**
+                 * Allowing third-party plugins to tap into the page configuration.
+                 * This include:
+                 * - adding widgets to a zone
+                 * - replacing the widget template with a fancier one
+                 *
+                 *
+                 *
+                 *
+                 * We use the arrayMergeReplaceRecursive algorithm which fits our needs perfectly.
+                 *
+                 */
+                $additions = YorgDirScannerTool::getFilesWithExtension($dir, ".byml", false, true, false);
+                $allConf = [$conf];
+                foreach ($additions as $file) {
+                    $additionConf = BabyYamlUtil::readFile($file);
+                    $allConf[] = $additionConf;
+                }
+                $conf = ArrayTool::arrayMergeReplaceRecursive($allConf);
+            }
+            return $conf;
         } else {
             $this->addError("Page not found: $pageName");
         }

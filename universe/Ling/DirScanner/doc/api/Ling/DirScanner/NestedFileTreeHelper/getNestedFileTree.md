@@ -27,7 +27,7 @@ Returns a nested structure from a directory.
 The default nested structure item looks like this:
 - name: name of the file
 - path: absolute path to the file,
-or relative path if you set the relativePath option to true
+         or relative path if you set the relativePath option to true
 - children: array of nested structure items, recursively...
 - keyName: string=name, the key to use to reference the name
 - keyPath: string=path, the key to use to reference the path
@@ -59,6 +59,11 @@ Returns array.
 
 
 
+
+
+Source Code
+===========
+See the source code for method [NestedFileTreeHelper::getNestedFileTree](https://github.com/lingtalfi/DirScanner/blob/master/NestedFileTreeHelper.php#L43-L51)
 
 
 See Also

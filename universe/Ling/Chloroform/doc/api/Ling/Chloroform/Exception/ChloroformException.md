@@ -4,7 +4,7 @@
 
 The ChloroformException class
 ================
-2019-04-10 --> 2019-04-30
+2019-04-10 --> 2019-07-26
 
 
 
@@ -47,7 +47,9 @@ Methods
 
 Location
 =============
-Ling\Chloroform\Exception\ChloroformException
+Ling\Chloroform\Exception\ChloroformException<br>
+See the source code of [Ling\Chloroform\Exception\ChloroformException](https://github.com/lingtalfi/Chloroform/blob/master/Exception/ChloroformException.php)
+
 
 
 SeeAlso

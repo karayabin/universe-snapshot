@@ -44,6 +44,11 @@ Returns string | false.
 
 
 
+Source Code
+===========
+See the source code for method [StepsHistory::first](https://github.com/lingtalfi/EasyConsoleMenu/blob/master/History/StepsHistory.php#L65-L72)
+
+
 See Also
 ================
 

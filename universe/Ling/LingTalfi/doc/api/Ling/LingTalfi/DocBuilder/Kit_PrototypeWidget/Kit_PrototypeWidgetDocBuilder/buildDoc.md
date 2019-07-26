@@ -68,6 +68,11 @@ Exceptions thrown
 
 
 
+Source Code
+===========
+See the source code for method [Kit_PrototypeWidgetDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Kit_PrototypeWidget/Kit_PrototypeWidgetDocBuilder.php#L44-L202)
+
+
 See Also
 ================
 

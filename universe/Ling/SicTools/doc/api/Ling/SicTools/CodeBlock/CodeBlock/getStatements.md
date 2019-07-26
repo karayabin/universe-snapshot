@@ -44,6 +44,11 @@ Returns array.
 
 
 
+Source Code
+===========
+See the source code for method [CodeBlock::getStatements](https://github.com/lingtalfi/SicTools/blob/master/CodeBlock/CodeBlock.php#L43-L46)
+
+
 See Also
 ================
 

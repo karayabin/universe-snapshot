@@ -58,6 +58,11 @@ If null, 0 should be assumed.
 
 
 
+Source Code
+===========
+See the source code for method [UpgradeCommand::run](https://github.com/lingtalfi/Uni2/blob/master/Command/UpgradeCommand.php#L33-L118)
+
+
 See Also
 ================
 

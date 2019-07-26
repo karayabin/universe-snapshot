@@ -44,6 +44,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [AbstractValidator::__construct](https://github.com/lingtalfi/Chloroform/blob/master/Validator/AbstractValidator.php#L38-L42)
+
+
 See Also
 ================
 

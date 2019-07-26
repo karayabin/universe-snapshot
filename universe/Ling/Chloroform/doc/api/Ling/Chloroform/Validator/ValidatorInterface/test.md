@@ -75,6 +75,11 @@ Returns bool.
 
 
 
+Source Code
+===========
+See the source code for method [ValidatorInterface::test](https://github.com/lingtalfi/Chloroform/blob/master/Validator/ValidatorInterface.php#L42-L42)
+
+
 See Also
 ================
 

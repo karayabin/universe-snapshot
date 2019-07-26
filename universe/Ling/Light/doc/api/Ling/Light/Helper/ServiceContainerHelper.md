@@ -4,7 +4,7 @@
 
 The ServiceContainerHelper class
 ================
-2019-04-09 --> 2019-07-11
+2019-04-09 --> 2019-07-18
 
 
 
@@ -55,9 +55,11 @@ Methods
 
 Location
 =============
-Ling\Light\Helper\ServiceContainerHelper
+Ling\Light\Helper\ServiceContainerHelper<br>
+See the source code of [Ling\Light\Helper\ServiceContainerHelper](https://github.com/lingtalfi/Light/blob/master/Helper/ServiceContainerHelper.php)
+
 
 
 SeeAlso
 ==============
-Previous class: [LightHelper](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/LightHelper.md)<br>Next class: [HttpRequest](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest.md)<br>
+Previous class: [LightHelper](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/LightHelper.md)<br>Next class: [HttpRedirectResponse](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRedirectResponse.md)<br>

@@ -16,13 +16,14 @@ class SimplePdoWrapper implements SimplePdoWrapperInterface
 
     /**
      * This property holds the default fetch style value for the fetch and fetchAll methods.
+     * @var int
      */
     protected static $defaultFetchStyle = \PDO::FETCH_ASSOC;
 
 
     /**
      * This property holds the \PDO instance.
-     * @type \PDO|null
+     * @var \PDO|null
      */
     protected $connexion;
 
@@ -30,6 +31,7 @@ class SimplePdoWrapper implements SimplePdoWrapperInterface
     /**
      * This property holds the last query executed.
      * Note: the concrete class is responsible for updating this value.
+     * @var string
      *
      */
     protected $query;
@@ -38,12 +40,14 @@ class SimplePdoWrapper implements SimplePdoWrapperInterface
     /**
      * This property holds the queryObject, which is used to return the error info to the user when
      * a "query method" (see class description) is executed.
+     * @var \PDO|\PDOStatement
      */
     private $queryObject;
 
 
     /**
      * This property holds whether a transaction is active for this instance.
+     * @var bool
      */
     private $transactionActive;
 
@@ -106,7 +110,7 @@ class SimplePdoWrapper implements SimplePdoWrapperInterface
     /**
      * @implementation
      */
-    public function transaction(callable $transactionCallback, \Exception &$exception = null)
+    public function transaction(callable $transactionCallback, \Exception &$e = null)
     {
         $hasError = false;
 
@@ -353,6 +357,8 @@ class SimplePdoWrapper implements SimplePdoWrapperInterface
      *
      *
      * This query object will be used to return the current error for any query method.
+     *
+     * @param \PDO|\PDOStatement $queryObject
      *
      */
     protected function storeQueryObject($queryObject)

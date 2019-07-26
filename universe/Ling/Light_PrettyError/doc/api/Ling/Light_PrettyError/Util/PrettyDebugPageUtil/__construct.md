@@ -44,6 +44,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [PrettyDebugPageUtil::__construct](https://github.com/lingtalfi/Light_PrettyError/blob/master/Util/PrettyDebugPageUtil.php#L18-L21)
+
+
 See Also
 ================
 

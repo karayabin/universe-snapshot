@@ -52,6 +52,11 @@ Returns string.
 
 
 
+Source Code
+===========
+See the source code for method [DocToolInterpreter::resolveInlineTags](https://github.com/lingtalfi/DocTools/blob/master/Interpreter/DocToolInterpreter.php#L46-L73)
+
+
 See Also
 ================
 

@@ -4,7 +4,7 @@
 
 The GitGalaxyDependencySystemImporter class
 ================
-2019-03-12 --> 2019-04-05
+2019-03-12 --> 2019-07-18
 
 
 
@@ -85,7 +85,9 @@ Methods
 
 Location
 =============
-Ling\Uni2\DependencySystemImporter\GitGalaxyDependencySystemImporter
+Ling\Uni2\DependencySystemImporter\GitGalaxyDependencySystemImporter<br>
+See the source code of [Ling\Uni2\DependencySystemImporter\GitGalaxyDependencySystemImporter](https://github.com/lingtalfi/Uni2/blob/master/DependencySystemImporter/GitGalaxyDependencySystemImporter.php)
+
 
 
 SeeAlso

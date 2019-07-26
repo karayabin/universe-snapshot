@@ -44,6 +44,11 @@ Returns [AbstractValidator](https://github.com/lingtalfi/Chloroform/blob/master/
 
 
 
+Source Code
+===========
+See the source code for method [AbstractValidator::create](https://github.com/lingtalfi/Chloroform/blob/master/Validator/AbstractValidator.php#L50-L53)
+
+
 See Also
 ================
 

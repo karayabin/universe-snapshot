@@ -9,6 +9,8 @@ A basic renderer for [Chloroform](https://github.com/lingtalfi/Chloroform).
 
 This is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
 
+[Chloroform_HydrogenRenderer demo](https://lingtalfi.com/universe/Ling/Chloroform_HydrogenRenderer/prototype_php)
+
 
 Install
 ==========
@@ -32,6 +34,7 @@ Summary
     * [Implemented js validators](#implemented-js-validators)
 * [How to use](#how-to-use)
 * [Creating other renderers](#creating-other-renderers)
+* [Related](#related)
 * [History Log](#history-log)
 
 
@@ -40,6 +43,10 @@ Summary
 
 What is it?
 ============
+
+
+![screenshot](https://lingtalfi.com/img/universe/Chloroform_HydrogenRenderer/Chloroform_HydrogenRenderer.png)
+
 
 This is my first [Chloroform](https://github.com/lingtalfi/Chloroform) renderer attempt.
 
@@ -351,9 +358,40 @@ Depending on your css skills, you might get another look and feel quite easily.
 
 
 
+Related
+===========
+- [Chloroform](https://github.com/lingtalfi/Chloroform), the library to create the form structure
+- [Chloroform Helium renderer](https://github.com/lingtalfi/Chloroform_HeliumRenderer), a boostrap 4 renderer for chloroform
+
+
+
 History Log
 =============
 
+- 1.2.2 -- 2019-07-26
+
+    - update doc
+    
+- 1.2.1 -- 2019-07-26
+
+    - fix HydrogenRenderer->printJsHandler typo
+    
+- 1.2.0 -- 2019-07-26
+
+    - enhance HydrogenRenderer->printJsHandler for standalone call
+    
+- 1.1.0 -- 2019-07-26
+
+    - add HydrogenRenderer->renderPrintsJsHandler option
+    
+- 1.0.3 -- 2019-07-25
+
+    - update README.md
+    
+- 1.0.2 -- 2019-07-18
+
+    - update docTools documentation, add links to source code for classes and methods
+    
 - 1.0.1 -- 2019-04-18
 
     - add demo in the README.md file

@@ -70,6 +70,11 @@ Exceptions thrown
 
 
 
+Source Code
+===========
+See the source code for method [LingTalfiDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/LingTalfi/LingTalfiDocBuilder.php#L48-L216)
+
+
 See Also
 ================
 

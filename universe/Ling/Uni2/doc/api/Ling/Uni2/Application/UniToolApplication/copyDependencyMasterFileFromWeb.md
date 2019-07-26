@@ -47,6 +47,11 @@ Returns bool.
 
 
 
+Source Code
+===========
+See the source code for method [UniToolApplication::copyDependencyMasterFileFromWeb](https://github.com/lingtalfi/Uni2/blob/master/Application/UniToolApplication.php#L443-L448)
+
+
 See Also
 ================
 

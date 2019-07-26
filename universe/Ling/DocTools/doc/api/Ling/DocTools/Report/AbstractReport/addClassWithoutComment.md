@@ -47,6 +47,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [AbstractReport::addClassWithoutComment](https://github.com/lingtalfi/DocTools/blob/master/Report/AbstractReport.php#L428-L435)
+
+
 See Also
 ================
 

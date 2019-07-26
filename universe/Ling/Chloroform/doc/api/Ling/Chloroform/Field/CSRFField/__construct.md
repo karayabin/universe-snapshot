@@ -65,6 +65,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [CSRFField::__construct](https://github.com/lingtalfi/Chloroform/blob/master/Field/CSRFField.php#L39-L44)
+
+
 See Also
 ================
 

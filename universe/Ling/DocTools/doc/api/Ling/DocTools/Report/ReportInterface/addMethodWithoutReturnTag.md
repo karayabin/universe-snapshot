@@ -47,6 +47,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [ReportInterface::addMethodWithoutReturnTag](https://github.com/lingtalfi/DocTools/blob/master/Report/ReportInterface.php#L225-L225)
+
+
 See Also
 ================
 

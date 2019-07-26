@@ -44,6 +44,11 @@ Returns mixed.
 
 
 
+Source Code
+===========
+See the source code for method [CSRFField::getValue](https://github.com/lingtalfi/Chloroform/blob/master/Field/CSRFField.php#L75-L89)
+
+
 See Also
 ================
 

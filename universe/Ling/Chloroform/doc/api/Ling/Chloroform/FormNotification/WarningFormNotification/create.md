@@ -47,6 +47,11 @@ Returns [WarningFormNotification](https://github.com/lingtalfi/Chloroform/blob/m
 
 
 
+Source Code
+===========
+See the source code for method [WarningFormNotification::create](https://github.com/lingtalfi/Chloroform/blob/master/FormNotification/WarningFormNotification.php#L20-L23)
+
+
 See Also
 ================
 

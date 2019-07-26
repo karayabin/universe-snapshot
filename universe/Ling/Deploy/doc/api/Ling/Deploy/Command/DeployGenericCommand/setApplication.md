@@ -47,6 +47,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [DeployGenericCommand::setApplication](https://github.com/lingtalfi/Deploy/blob/master/Command/DeployGenericCommand.php#L45-L48)
+
+
 See Also
 ================
 

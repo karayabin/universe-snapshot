@@ -61,6 +61,11 @@ Exceptions thrown
 
 
 
+Source Code
+===========
+See the source code for method [MenuExecutor::executeCommand](https://github.com/lingtalfi/EasyConsoleMenu/blob/master/MenuExecutor.php#L461-L545)
+
+
 See Also
 ================
 

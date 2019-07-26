@@ -4,7 +4,7 @@
 
 The ClassPrevNextWidget class
 ================
-2019-02-21 --> 2019-07-12
+2019-02-21 --> 2019-07-23
 
 
 
@@ -102,7 +102,9 @@ Methods
 
 Location
 =============
-Ling\DocTools\Widget\ClassPrevNext\ClassPrevNextWidget
+Ling\DocTools\Widget\ClassPrevNext\ClassPrevNextWidget<br>
+See the source code of [Ling\DocTools\Widget\ClassPrevNext\ClassPrevNextWidget](https://github.com/lingtalfi/DocTools/blob/master/Widget/ClassPrevNext/ClassPrevNextWidget.php)
+
 
 
 SeeAlso

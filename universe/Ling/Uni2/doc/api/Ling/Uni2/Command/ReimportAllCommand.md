@@ -4,7 +4,7 @@
 
 The ReimportAllCommand class
 ================
-2019-03-12 --> 2019-04-05
+2019-03-12 --> 2019-07-18
 
 
 
@@ -24,14 +24,14 @@ Options, flags, parameters
 -----------
 - -f: force reimport.
 
-- If this flag is set, the uni-tool will force the reimport of the planets, even if there is no newer version.
-This can be useful for testing purposes for instance.
-If the planets have dependencies, the dependencies will also be reimported forcibly.
+     - If this flag is set, the uni-tool will force the reimport of the planets, even if there is no newer version.
+         This can be useful for testing purposes for instance.
+         If the planets have dependencies, the dependencies will also be reimported forcibly.
 
 - -f: do not reboot.
 
-By default, this command will boot the universe if necessary (for instance the universe dir does not exist, or the bigbang.php script was not found).
-If this option is set, the booting will not occur.
+     By default, this command will boot the universe if necessary (for instance the universe dir does not exist, or the bigbang.php script was not found).
+     If this option is set, the booting will not occur.
 
 
 
@@ -97,7 +97,9 @@ Methods
 
 Location
 =============
-Ling\Uni2\Command\ReimportAllCommand
+Ling\Uni2\Command\ReimportAllCommand<br>
+See the source code of [Ling\Uni2\Command\ReimportAllCommand](https://github.com/lingtalfi/Uni2/blob/master/Command/ReimportAllCommand.php)
+
 
 
 SeeAlso

@@ -147,7 +147,11 @@ $dirs = YorgDirScannerTool::getDirs("/path/to/dir");
 
 History Log
 ------------------
-    
+
+- 1.11.2 -- 2019-07-18
+
+    - update docTools documentation, add links to source code for classes and methods
+        
 - 1.11.1 -- 2019-03-26
 
     - fix YorgDirScannerTool add implementation of 1.11.0 (forgot to implement the thing, duh)

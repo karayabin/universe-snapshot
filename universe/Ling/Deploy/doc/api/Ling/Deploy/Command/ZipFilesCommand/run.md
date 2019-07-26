@@ -58,6 +58,11 @@ If null, 0 should be assumed.
 
 
 
+Source Code
+===========
+See the source code for method [ZipFilesCommand::run](https://github.com/lingtalfi/Deploy/blob/master/Command/ZipFilesCommand.php#L45-L142)
+
+
 See Also
 ================
 

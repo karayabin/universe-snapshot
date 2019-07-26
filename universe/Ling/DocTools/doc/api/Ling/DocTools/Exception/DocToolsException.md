@@ -4,7 +4,7 @@
 
 The DocToolsException class
 ================
-2019-02-21 --> 2019-07-12
+2019-02-21 --> 2019-07-23
 
 
 
@@ -47,7 +47,9 @@ Methods
 
 Location
 =============
-Ling\DocTools\Exception\DocToolsException
+Ling\DocTools\Exception\DocToolsException<br>
+See the source code of [Ling\DocTools\Exception\DocToolsException](https://github.com/lingtalfi/DocTools/blob/master/Exception/DocToolsException.php)
+
 
 
 SeeAlso

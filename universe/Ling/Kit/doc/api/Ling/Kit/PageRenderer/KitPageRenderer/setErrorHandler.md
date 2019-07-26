@@ -47,6 +47,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [KitPageRenderer::setErrorHandler](https://github.com/lingtalfi/Kit/blob/master/PageRenderer/KitPageRenderer.php#L190-L193)
+
+
 See Also
 ================
 

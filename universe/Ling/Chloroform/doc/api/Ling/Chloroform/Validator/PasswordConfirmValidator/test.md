@@ -75,6 +75,11 @@ Returns bool.
 
 
 
+Source Code
+===========
+See the source code for method [PasswordConfirmValidator::test](https://github.com/lingtalfi/Chloroform/blob/master/Validator/PasswordConfirmValidator.php#L41-L79)
+
+
 See Also
 ================
 

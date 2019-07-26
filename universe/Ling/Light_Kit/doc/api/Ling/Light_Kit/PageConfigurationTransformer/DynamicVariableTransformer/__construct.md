@@ -44,6 +44,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [DynamicVariableTransformer::__construct](https://github.com/lingtalfi/Light_Kit/blob/master/PageConfigurationTransformer/DynamicVariableTransformer.php#L52-L59)
+
+
 See Also
 ================
 

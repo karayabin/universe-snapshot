@@ -47,6 +47,11 @@ Returns bool.
 
 
 
+Source Code
+===========
+See the source code for method [AdamLightUser::hasRight](https://github.com/lingtalfi/Light_User/blob/master/AdamLightUser.php#L37-L40)
+
+
 See Also
 ================
 

@@ -44,6 +44,11 @@ Returns mixed.
 
 
 
+Source Code
+===========
+See the source code for method [DateTimeField::getValue](https://github.com/lingtalfi/Chloroform/blob/master/Field/DateTimeField.php#L60-L63)
+
+
 See Also
 ================
 

@@ -51,6 +51,11 @@ Returns mixed | null.
 
 
 
+Source Code
+===========
+See the source code for method [InputInterface::getParameter](https://github.com/lingtalfi/CliTools/blob/master/Input/InputInterface.php#L28-L28)
+
+
 See Also
 ================
 

@@ -57,6 +57,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [DocBuilder::prepare](https://github.com/lingtalfi/DocTools/blob/master/DocBuilder/DocBuilder.php#L76-L76)
+
+
 See Also
 ================
 

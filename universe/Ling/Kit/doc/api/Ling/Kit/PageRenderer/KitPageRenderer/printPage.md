@@ -49,6 +49,11 @@ Exceptions thrown
 
 
 
+Source Code
+===========
+See the source code for method [KitPageRenderer::printPage](https://github.com/lingtalfi/Kit/blob/master/PageRenderer/KitPageRenderer.php#L234-L289)
+
+
 See Also
 ================
 

@@ -47,6 +47,11 @@ Returns [PropertyInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api
 
 
 
+Source Code
+===========
+See the source code for method [PropertyInfo::setName](https://github.com/lingtalfi/DocTools/blob/master/Info/PropertyInfo.php#L114-L118)
+
+
 See Also
 ================
 

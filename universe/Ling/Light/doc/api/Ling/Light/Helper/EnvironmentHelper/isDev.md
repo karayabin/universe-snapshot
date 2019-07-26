@@ -44,6 +44,11 @@ Returns bool.
 
 
 
+Source Code
+===========
+See the source code for method [EnvironmentHelper::isDev](https://github.com/lingtalfi/Light/blob/master/Helper/EnvironmentHelper.php#L17-L20)
+
+
 See Also
 ================
 

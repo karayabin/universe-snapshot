@@ -47,6 +47,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [ClassParser::setGeneratedItemsToUrl](https://github.com/lingtalfi/DocTools/blob/master/ClassParser/ClassParser.php#L677-L680)
+
+
 See Also
 ================
 

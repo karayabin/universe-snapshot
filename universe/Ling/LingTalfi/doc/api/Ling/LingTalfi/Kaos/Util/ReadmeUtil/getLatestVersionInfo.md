@@ -55,6 +55,11 @@ Returns array | false.
 
 
 
+Source Code
+===========
+See the source code for method [ReadmeUtil::getLatestVersionInfo](https://github.com/lingtalfi/LingTalfi/blob/master/Kaos/Util/ReadmeUtil.php#L84-L135)
+
+
 See Also
 ================
 

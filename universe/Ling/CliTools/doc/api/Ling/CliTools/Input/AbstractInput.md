@@ -4,7 +4,7 @@
 
 The AbstractInput class
 ================
-2019-02-26 --> 2019-03-26
+2019-02-26 --> 2019-07-18
 
 
 
@@ -89,7 +89,9 @@ Methods
 
 Location
 =============
-Ling\CliTools\Input\AbstractInput
+Ling\CliTools\Input\AbstractInput<br>
+See the source code of [Ling\CliTools\Input\AbstractInput](https://github.com/lingtalfi/CliTools/blob/master/Input/AbstractInput.php)
+
 
 
 SeeAlso

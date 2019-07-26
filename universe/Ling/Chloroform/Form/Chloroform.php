@@ -8,6 +8,7 @@ use Ling\Bat\BDotTool;
 use Ling\Chloroform\Exception\ChloroformException;
 use Ling\Chloroform\Field\FieldInterface;
 use Ling\Chloroform\Field\FormAwareFieldInterface;
+use Ling\Chloroform\Field\HiddenField;
 use Ling\Chloroform\FormNotification\FormNotificationInterface;
 use Ling\Chloroform\Validator\ValidatorInterface;
 use Ling\PhpUploadFileFix\PhpUploadFileFixTool;
@@ -40,6 +41,23 @@ class Chloroform
     private $_postedData;
 
     /**
+     * This property holds whether this form instance was posted.
+     * @var bool
+     */
+    private $_isPosted;
+
+
+    /**
+     * This property holds the formId for this instance.
+     * This is helpful if your page contains multiple forms, to differentiate
+     * which form was actually submitted.
+     *
+     * @var string = chloroform_one
+     */
+    protected $formId;
+
+
+    /**
      * Builds the Chloroform instance.
      */
     public function __construct()
@@ -47,6 +65,22 @@ class Chloroform
         $this->fields = [];
         $this->notifications = [];
         $this->_postedData = null;
+        $this->formId = "chloroform_one";
+        $this->fields[] = HiddenField::create("chloroform_hidden_key", ['value' => $this->formId]);
+        $this->_isPosted = false;
+
+    }
+
+    /**
+     * Sets the formId.
+     *
+     * @param string $formId
+     * @throws ChloroformException
+     */
+    public function setFormId(string $formId)
+    {
+        $this->formId = $formId;
+        $this->getField("chloroform_hidden_key")->setValue($this->formId);
     }
 
 
@@ -57,13 +91,15 @@ class Chloroform
      */
     public function isPosted(): bool
     {
-        $postedData = $this->getPostedData();
-        return (false === empty($postedData));
+        if (null === $this->_postedData) {
+            $this->_postedData = $this->createPostedData();
+        }
+        return $this->_isPosted;
     }
 
 
     /**
-     * Returns an array of posted data.
+     * Returns an array of posted data (for this instance).
      *
      * The posted data is empty if no form was posted, and otherwise is the
      * array described in @page(the postedData section).
@@ -217,6 +253,8 @@ class Chloroform
      *
      *
      * ```yaml
+     * isPosted: bool, whether this form instance was submitted.
+     *
      * notifications:
      *      -
      *          type: string, the type of notification (success, info, warning, error)
@@ -265,6 +303,7 @@ class Chloroform
         }
 
         return [
+            "isPosted" => $this->_isPosted,
             "notifications" => $notificationsDetails,
             "fields" => $fieldsDetails,
             "errors" => $errors,
@@ -283,6 +322,12 @@ class Chloroform
      */
     protected function createPostedData(): array
     {
-        return array_merge($_POST, PhpUploadFileFixTool::fixPhpFiles($_FILES, true));
+        if (array_key_exists("chloroform_hidden_key", $_POST) && $this->formId === $_POST['chloroform_hidden_key']) {
+            $ret = array_merge($_POST, PhpUploadFileFixTool::fixPhpFiles($_FILES, true));
+            unset($ret['chloroform_hidden_key']);
+            $this->_isPosted = true;
+            return $ret;
+        }
+        return [];
     }
 }

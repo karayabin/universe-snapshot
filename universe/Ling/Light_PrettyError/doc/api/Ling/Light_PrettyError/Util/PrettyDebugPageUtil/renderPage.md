@@ -53,6 +53,11 @@ Exceptions thrown
 
 
 
+Source Code
+===========
+See the source code for method [PrettyDebugPageUtil::renderPage](https://github.com/lingtalfi/Light_PrettyError/blob/master/Util/PrettyDebugPageUtil.php#L32-L44)
+
+
 See Also
 ================
 

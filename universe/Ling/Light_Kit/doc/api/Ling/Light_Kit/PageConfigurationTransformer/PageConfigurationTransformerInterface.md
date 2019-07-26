@@ -4,7 +4,7 @@
 
 The PageConfigurationTransformerInterface class
 ================
-2019-04-25 --> 2019-07-15
+2019-04-25 --> 2019-07-26
 
 
 
@@ -45,9 +45,11 @@ Methods
 
 Location
 =============
-Ling\Light_Kit\PageConfigurationTransformer\PageConfigurationTransformerInterface
+Ling\Light_Kit\PageConfigurationTransformer\PageConfigurationTransformerInterface<br>
+See the source code of [Ling\Light_Kit\PageConfigurationTransformer\PageConfigurationTransformerInterface](https://github.com/lingtalfi/Light_Kit/blob/master/PageConfigurationTransformer/PageConfigurationTransformerInterface.php)
+
 
 
 SeeAlso
 ==============
-Previous class: [LazyReferenceResolver](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageConfigurationTransformer/LazyReferenceResolver.md)<br>Next class: [LightKitPageRenderer](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageRenderer/LightKitPageRenderer.md)<br>
+Previous class: [LazyReferenceResolver](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageConfigurationTransformer/LazyReferenceResolver.md)<br>Next class: [PageConfUpdator](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageConfigurationUpdator/PageConfUpdator.md)<br>

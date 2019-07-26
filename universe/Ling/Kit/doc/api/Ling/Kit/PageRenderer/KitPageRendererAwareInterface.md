@@ -4,7 +4,7 @@
 
 The KitPageRendererAwareInterface class
 ================
-2019-04-24 --> 2019-07-11
+2019-04-24 --> 2019-07-25
 
 
 
@@ -45,7 +45,9 @@ Methods
 
 Location
 =============
-Ling\Kit\PageRenderer\KitPageRendererAwareInterface
+Ling\Kit\PageRenderer\KitPageRendererAwareInterface<br>
+See the source code of [Ling\Kit\PageRenderer\KitPageRendererAwareInterface](https://github.com/lingtalfi/Kit/blob/master/PageRenderer/KitPageRendererAwareInterface.php)
+
 
 
 SeeAlso

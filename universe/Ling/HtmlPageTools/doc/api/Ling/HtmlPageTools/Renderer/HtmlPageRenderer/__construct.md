@@ -44,6 +44,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [HtmlPageRenderer::__construct](https://github.com/lingtalfi/HtmlPageTools/blob/master/Renderer/HtmlPageRenderer.php#L73-L76)
+
+
 See Also
 ================
 

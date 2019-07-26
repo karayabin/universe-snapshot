@@ -44,6 +44,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [ImportAllCommand::__construct](https://github.com/lingtalfi/Uni2/blob/master/Command/ImportAllCommand.php#L35-L39)
+
+
 See Also
 ================
 

@@ -27,6 +27,44 @@ Or just download it and place it where you want otherwise.
 
 
 
+Summary
+=================
+* [SimplePdoWrapper api](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper.md) (generated with [DocTools](https://github.com/lingtalfi/DocTools))
+* [SimplePdoWrapper](#simplepdowrapper-1)
+* [Connexion](#connexion)
+  * [Using mysql](#using-mysql)
+  * [Using sqlite](#using-sqlite)
+* [Examples](#examples)
+  * [Insert examples](#insert-examples)
+     * [Insert (without error)](#insert-without-error)
+     * [Insert (with error)](#insert-with-error)
+     * [Insert ignore (without error)](#insert-ignore-without-error)
+     * [Insert ignore (with error)](#insert-ignore-with-error)
+  * [Replace examples](#replace-examples)
+     * [Replace (without error)](#replace-without-error)
+     * [Replace (with error)](#replace-with-error)
+  * [Update examples](#update-examples)
+     * [Update (without error)](#update-without-error)
+     * [Update (with error)](#update-with-error)
+  * [Delete examples](#delete-examples)
+     * [Deleting some records.](#deleting-some-records)
+     * [Delete all records](#delete-all-records)
+  * [Fetch examples](#fetch-examples)
+     * [Fetch a single row](#fetch-a-single-row)
+     * [Fetch, the count query](#fetch-the-count-query)
+  * [Fetch all examples](#fetch-all-examples)
+     * [Fetch all, simple call](#fetch-all-simple-call)
+     * [Fetch all, single column](#fetch-all-single-column)
+     * [Fetch all, simple map with unique keys](#fetch-all-simple-map-with-unique-keys)
+     * [Fetch all, rows grouped by](#fetch-all-rows-grouped-by)
+  * [Execute statement examples](#execute-statement-examples)
+     * [Select the database](#select-the-database)
+     * [execute a file of sql statements](#execute-a-file-of-sql-statements)
+  * [Transaction examples](#transaction-examples)
+     * [successful transaction](#successful-transaction)
+     * [transaction with rollback](#transaction-with-rollback)
+  * [Related](#related)
+  * [History Log](#history-log)
 
 
 
@@ -772,11 +810,35 @@ a($exception); // object(Exception)#39 ...
 ```
 
 
+Related
+----------
+- [QuickPdo](https://github.com/lingtalfi/QuickPdo), the library used to inspire the SimplePdoWrapper planet
+
 
 
 History Log
 ------------------
 
+- 1.1.1 -- 2019-07-22
+
+    - add doc summary 
+    
+- 1.1.0 -- 2019-07-22
+
+    - add MysqlInfoUtil 
+    
+- 1.0.3 -- 2019-07-22
+
+    - update documentation typo 
+
+- 1.0.2 -- 2019-07-22
+
+    - update documentation to be compliant with docTools
+    
+- 1.0.1 -- 2019-07-19
+
+    - update documentation, add related section
+    
 - 1.0.0 -- 2019-02-04
 
     - initial commit

@@ -1,6 +1,6 @@
 Ling/KrankenStein
 ================
-2019-04-02 --> 2019-04-02
+2019-04-02 --> 2019-07-18
 
 
 
@@ -17,6 +17,6 @@ Table of contents
 
 Dependencies
 ============
-- [BabyYaml](https://github.com/karayabin/universe-snapshot/tree/master/universe/Ling/BabyYaml)
+- [BabyYaml](https://github.com/lingtalfi/BabyYaml)
 
 

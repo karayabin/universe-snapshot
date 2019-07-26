@@ -4,7 +4,7 @@
 
 The ProjectInfoDocBuilder class
 ================
-2019-03-13 --> 2019-05-03
+2019-03-13 --> 2019-07-18
 
 
 
@@ -45,7 +45,9 @@ Methods
 
 Location
 =============
-Ling\LingTalfi\DocBuilder\ProjectInfo\ProjectInfoDocBuilder
+Ling\LingTalfi\DocBuilder\ProjectInfo\ProjectInfoDocBuilder<br>
+See the source code of [Ling\LingTalfi\DocBuilder\ProjectInfo\ProjectInfoDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/ProjectInfo/ProjectInfoDocBuilder.php)
+
 
 
 SeeAlso

@@ -4,7 +4,7 @@
 
 The PostInstallDirectiveHandler class
 ================
-2019-03-12 --> 2019-04-05
+2019-03-12 --> 2019-07-18
 
 
 
@@ -54,7 +54,9 @@ Methods
 
 Location
 =============
-Ling\Uni2\PostInstall\DirectiveHandler\PostInstallDirectiveHandler
+Ling\Uni2\PostInstall\DirectiveHandler\PostInstallDirectiveHandler<br>
+See the source code of [Ling\Uni2\PostInstall\DirectiveHandler\PostInstallDirectiveHandler](https://github.com/lingtalfi/Uni2/blob/master/PostInstall/DirectiveHandler/PostInstallDirectiveHandler.php)
+
 
 
 SeeAlso

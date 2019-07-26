@@ -44,6 +44,11 @@ Returns bool.
 
 
 
+Source Code
+===========
+See the source code for method [AdamLightUser::isValid](https://github.com/lingtalfi/Light_User/blob/master/AdamLightUser.php#L21-L24)
+
+
 See Also
 ================
 

@@ -26,9 +26,18 @@ class ControllerHelper
      */
     public static function getControllerArgsInfo(callable $controller)
     {
+
+        if($controller instanceof \Closure){
+        $r = new \ReflectionFunction($controller);
+        }
+        elseif(is_array($controller)){
+            if(is_object($controller[0])){
+                $r = new \ReflectionMethod($controller[0], $controller[1]);
+            }
+        }
+
         $ret = [];
         // function
-        $r = new \ReflectionFunction($controller);
         $params = $r->getParameters();
         foreach ($params as $param) {
 

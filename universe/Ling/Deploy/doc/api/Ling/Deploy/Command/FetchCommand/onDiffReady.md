@@ -56,6 +56,11 @@ Exceptions thrown
 
 
 
+Source Code
+===========
+See the source code for method [FetchCommand::onDiffReady](https://github.com/lingtalfi/Deploy/blob/master/Command/FetchCommand.php#L70-L273)
+
+
 See Also
 ================
 

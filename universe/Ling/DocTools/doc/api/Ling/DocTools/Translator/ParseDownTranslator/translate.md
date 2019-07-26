@@ -48,6 +48,11 @@ Returns string.
 
 
 
+Source Code
+===========
+See the source code for method [ParseDownTranslator::translate](https://github.com/lingtalfi/DocTools/blob/master/Translator/ParseDownTranslator.php#L18-L21)
+
+
 See Also
 ================
 

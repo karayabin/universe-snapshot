@@ -4,7 +4,7 @@
 
 The WebsiteLightUser class
 ================
-2019-05-10 --> 2019-07-12
+2019-05-10 --> 2019-07-19
 
 
 
@@ -169,7 +169,9 @@ Methods
 
 Location
 =============
-Ling\Light_User\WebsiteLightUser
+Ling\Light_User\WebsiteLightUser<br>
+See the source code of [Ling\Light_User\WebsiteLightUser](https://github.com/lingtalfi/Light_User/blob/master/WebsiteLightUser.php)
+
 
 
 SeeAlso

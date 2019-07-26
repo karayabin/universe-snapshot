@@ -4,7 +4,7 @@
 
 The KitException class
 ================
-2019-04-24 --> 2019-07-11
+2019-04-24 --> 2019-07-25
 
 
 
@@ -47,7 +47,9 @@ Methods
 
 Location
 =============
-Ling\Kit\Exception\KitException
+Ling\Kit\Exception\KitException<br>
+See the source code of [Ling\Kit\Exception\KitException](https://github.com/lingtalfi/Kit/blob/master/Exception/KitException.php)
+
 
 
 SeeAlso

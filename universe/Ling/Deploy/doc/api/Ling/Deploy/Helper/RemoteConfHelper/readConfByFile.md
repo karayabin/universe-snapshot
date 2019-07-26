@@ -53,6 +53,11 @@ Exceptions thrown
 
 
 
+Source Code
+===========
+See the source code for method [RemoteConfHelper::readConfByFile](https://github.com/lingtalfi/Deploy/blob/master/Helper/RemoteConfHelper.php#L30-L38)
+
+
 See Also
 ================
 

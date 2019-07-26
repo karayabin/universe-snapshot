@@ -4,7 +4,7 @@
 
 The StoreCommand class
 ================
-2019-03-12 --> 2019-04-05
+2019-03-12 --> 2019-07-18
 
 
 
@@ -41,9 +41,9 @@ Options, flags, parameters
 -----------
 - -f: force reimport.
 
-- If this flag is set, the uni-tool will force the reimport (i.e. re-downloading) of the planet, even if there is no newer version.
-This can be useful for testing purposes for instance.
-If the planet has dependencies, the dependencies will also be reimported forcibly.
+     - If this flag is set, the uni-tool will force the reimport (i.e. re-downloading) of the planet, even if there is no newer version.
+         This can be useful for testing purposes for instance.
+         If the planet has dependencies, the dependencies will also be reimported forcibly.
 
 
 
@@ -85,7 +85,9 @@ Methods
 
 Location
 =============
-Ling\Uni2\Command\StoreCommand
+Ling\Uni2\Command\StoreCommand<br>
+See the source code of [Ling\Uni2\Command\StoreCommand](https://github.com/lingtalfi/Uni2/blob/master/Command/StoreCommand.php)
+
 
 
 SeeAlso

@@ -64,6 +64,11 @@ Exceptions thrown
 
 
 
+Source Code
+===========
+See the source code for method [SimpleCurl::curlRequest](https://github.com/lingtalfi/SimpleCurl/blob/master/SimpleCurl.php#L92-L172)
+
+
 See Also
 ================
 

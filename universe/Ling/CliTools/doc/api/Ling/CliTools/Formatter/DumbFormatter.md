@@ -4,7 +4,7 @@
 
 The DumbFormatter class
 ================
-2019-02-26 --> 2019-03-26
+2019-02-26 --> 2019-07-18
 
 
 
@@ -48,7 +48,9 @@ Methods
 
 Location
 =============
-Ling\CliTools\Formatter\DumbFormatter
+Ling\CliTools\Formatter\DumbFormatter<br>
+See the source code of [Ling\CliTools\Formatter\DumbFormatter](https://github.com/lingtalfi/CliTools/blob/master/Formatter/DumbFormatter.php)
+
 
 
 SeeAlso

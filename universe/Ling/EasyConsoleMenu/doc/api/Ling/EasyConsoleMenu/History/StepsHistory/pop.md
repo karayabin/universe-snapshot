@@ -45,6 +45,11 @@ Returns string | false.
 
 
 
+Source Code
+===========
+See the source code for method [StepsHistory::pop](https://github.com/lingtalfi/EasyConsoleMenu/blob/master/History/StepsHistory.php#L32-L38)
+
+
 See Also
 ================
 

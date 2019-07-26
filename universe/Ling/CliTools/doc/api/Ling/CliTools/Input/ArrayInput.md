@@ -4,7 +4,7 @@
 
 The ArrayInput class
 ================
-2019-02-26 --> 2019-03-26
+2019-02-26 --> 2019-07-18
 
 
 
@@ -38,12 +38,12 @@ require_once __DIR__ . "/../universe/bigbang.php"; // activate universe
 
 $line = new ArrayInput();
 $line->setItems([
-":parameter" => true,
-"optionName" => 667,
-"optionName2" => "a value",
-"-flag1" => true,
-"-flag2" => true,
-":the_parameter2" => true,
+     ":parameter" => true,
+     "optionName" => 667,
+     "optionName2" => "a value",
+     "-flag1" => true,
+     "-flag2" => true,
+     ":the_parameter2" => true,
 ]);
 
 
@@ -119,7 +119,9 @@ Methods
 
 Location
 =============
-Ling\CliTools\Input\ArrayInput
+Ling\CliTools\Input\ArrayInput<br>
+See the source code of [Ling\CliTools\Input\ArrayInput](https://github.com/lingtalfi/CliTools/blob/master/Input/ArrayInput.php)
+
 
 
 SeeAlso

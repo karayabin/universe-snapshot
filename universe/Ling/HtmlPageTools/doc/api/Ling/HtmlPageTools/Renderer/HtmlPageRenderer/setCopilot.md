@@ -47,6 +47,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [HtmlPageRenderer::setCopilot](https://github.com/lingtalfi/HtmlPageTools/blob/master/Renderer/HtmlPageRenderer.php#L83-L86)
+
+
 See Also
 ================
 

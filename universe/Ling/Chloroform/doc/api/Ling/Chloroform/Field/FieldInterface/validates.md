@@ -57,6 +57,11 @@ Returns bool.
 
 
 
+Source Code
+===========
+See the source code for method [FieldInterface::validates](https://github.com/lingtalfi/Chloroform/blob/master/Field/FieldInterface.php#L49-L49)
+
+
 See Also
 ================
 

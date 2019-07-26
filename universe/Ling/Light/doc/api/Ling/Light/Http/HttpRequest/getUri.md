@@ -46,6 +46,11 @@ Returns string.
 
 
 
+Source Code
+===========
+See the source code for method [HttpRequest::getUri](https://github.com/lingtalfi/Light/blob/master/Http/HttpRequest.php#L216-L219)
+
+
 See Also
 ================
 

@@ -4,7 +4,7 @@
 
 The Kit_PrototypeWidgetDocBuilder class
 ================
-2019-03-13 --> 2019-05-03
+2019-03-13 --> 2019-07-18
 
 
 
@@ -45,7 +45,9 @@ Methods
 
 Location
 =============
-Ling\LingTalfi\DocBuilder\Kit_PrototypeWidget\Kit_PrototypeWidgetDocBuilder
+Ling\LingTalfi\DocBuilder\Kit_PrototypeWidget\Kit_PrototypeWidgetDocBuilder<br>
+See the source code of [Ling\LingTalfi\DocBuilder\Kit_PrototypeWidget\Kit_PrototypeWidgetDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Kit_PrototypeWidget/Kit_PrototypeWidgetDocBuilder.php)
+
 
 
 SeeAlso

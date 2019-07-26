@@ -45,6 +45,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [CSRFProtector::__construct](https://github.com/lingtalfi/CSRFTools/blob/master/CSRFProtector.php#L56-L61)
+
+
 See Also
 ================
 

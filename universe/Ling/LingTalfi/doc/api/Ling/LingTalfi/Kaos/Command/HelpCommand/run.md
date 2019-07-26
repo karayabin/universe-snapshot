@@ -58,6 +58,11 @@ If null, 0 should be assumed.
 
 
 
+Source Code
+===========
+See the source code for method [HelpCommand::run](https://github.com/lingtalfi/LingTalfi/blob/master/Kaos/Command/HelpCommand.php#L26-L90)
+
+
 See Also
 ================
 

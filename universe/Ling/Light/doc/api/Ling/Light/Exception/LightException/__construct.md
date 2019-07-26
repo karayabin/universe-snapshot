@@ -59,6 +59,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [LightException::__construct](https://github.com/lingtalfi/Light/blob/master/Exception/LightException.php#L33-L37)
+
+
 See Also
 ================
 

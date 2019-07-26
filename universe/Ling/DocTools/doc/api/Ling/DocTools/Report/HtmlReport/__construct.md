@@ -44,6 +44,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [HtmlReport::__construct](https://github.com/lingtalfi/DocTools/blob/master/Report/HtmlReport.php#L46-L51)
+
+
 See Also
 ================
 

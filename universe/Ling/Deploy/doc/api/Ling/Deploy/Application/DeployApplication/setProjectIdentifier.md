@@ -47,6 +47,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [DeployApplication::setProjectIdentifier](https://github.com/lingtalfi/Deploy/blob/master/Application/DeployApplication.php#L156-L159)
+
+
 See Also
 ================
 

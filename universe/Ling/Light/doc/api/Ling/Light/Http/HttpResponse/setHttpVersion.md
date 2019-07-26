@@ -47,6 +47,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [HttpResponse::setHttpVersion](https://github.com/lingtalfi/Light/blob/master/Http/HttpResponse.php#L121-L124)
+
+
 See Also
 ================
 

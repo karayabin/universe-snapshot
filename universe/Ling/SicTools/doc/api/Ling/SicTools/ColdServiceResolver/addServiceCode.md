@@ -48,6 +48,11 @@ Returns string.
 
 
 
+Source Code
+===========
+See the source code for method [ColdServiceResolver::addServiceCode](https://github.com/lingtalfi/SicTools/blob/master/ColdServiceResolver.php#L128-L246)
+
+
 See Also
 ================
 

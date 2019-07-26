@@ -44,6 +44,11 @@ Returns array.
 
 
 
+Source Code
+===========
+See the source code for method [StepsHistory::all](https://github.com/lingtalfi/EasyConsoleMenu/blob/master/History/StepsHistory.php#L96-L99)
+
+
 See Also
 ================
 

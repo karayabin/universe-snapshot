@@ -57,6 +57,11 @@ Returns array.
 
 
 
+Source Code
+===========
+See the source code for method [CheckboxField::toArray](https://github.com/lingtalfi/Chloroform/blob/master/Field/CheckboxField.php#L81-L86)
+
+
 See Also
 ================
 

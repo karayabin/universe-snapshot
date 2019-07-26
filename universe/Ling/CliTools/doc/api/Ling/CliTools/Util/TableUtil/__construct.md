@@ -44,6 +44,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [TableUtil::__construct](https://github.com/lingtalfi/CliTools/blob/master/Util/TableUtil.php#L88-L99)
+
+
 See Also
 ================
 

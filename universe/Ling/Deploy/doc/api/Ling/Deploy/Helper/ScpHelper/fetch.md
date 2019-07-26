@@ -56,6 +56,11 @@ Returns bool.
 
 
 
+Source Code
+===========
+See the source code for method [ScpHelper::fetch](https://github.com/lingtalfi/Deploy/blob/master/Helper/ScpHelper.php#L49-L56)
+
+
 See Also
 ================
 

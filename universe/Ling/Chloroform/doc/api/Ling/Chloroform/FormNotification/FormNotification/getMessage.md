@@ -44,6 +44,11 @@ Returns string.
 
 
 
+Source Code
+===========
+See the source code for method [FormNotification::getMessage](https://github.com/lingtalfi/Chloroform/blob/master/FormNotification/FormNotification.php#L51-L54)
+
+
 See Also
 ================
 

@@ -57,6 +57,11 @@ Returns array.
 
 
 
+Source Code
+===========
+See the source code for method [SelectField::toArray](https://github.com/lingtalfi/Chloroform/blob/master/Field/SelectField.php#L88-L93)
+
+
 See Also
 ================
 

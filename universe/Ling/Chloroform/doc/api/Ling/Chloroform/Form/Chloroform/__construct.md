@@ -44,10 +44,15 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [Chloroform::__construct](https://github.com/lingtalfi/Chloroform/blob/master/Form/Chloroform.php#L63-L72)
+
+
 See Also
 ================
 
 The [Chloroform](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform.md) class.
 
-Next method: [isPosted](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform/isPosted.md)<br>
+Next method: [setFormId](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform/setFormId.md)<br>
 

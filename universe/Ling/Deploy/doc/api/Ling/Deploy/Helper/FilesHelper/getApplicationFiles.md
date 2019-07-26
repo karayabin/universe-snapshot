@@ -51,6 +51,11 @@ Returns array.
 
 
 
+Source Code
+===========
+See the source code for method [FilesHelper::getApplicationFiles](https://github.com/lingtalfi/Deploy/blob/master/Helper/FilesHelper.php#L55-L58)
+
+
 See Also
 ================
 

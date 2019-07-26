@@ -49,6 +49,11 @@ when the widget cannot render properly.
 
 
 
+Source Code
+===========
+See the source code for method [ClassMethodsWidget::render](https://github.com/lingtalfi/DocTools/blob/master/Widget/ClassMethods/ClassMethodsWidget.php#L94-L136)
+
+
 See Also
 ================
 

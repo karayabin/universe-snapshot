@@ -58,6 +58,11 @@ If null, 0 should be assumed.
 
 
 
+Source Code
+===========
+See the source code for method [PushCommand::run](https://github.com/lingtalfi/Deploy/blob/master/Command/PushCommand.php#L98-L238)
+
+
 See Also
 ================
 

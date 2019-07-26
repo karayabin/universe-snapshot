@@ -49,6 +49,11 @@ when the widget cannot render properly.
 
 
 
+Source Code
+===========
+See the source code for method [WidgetInterface::render](https://github.com/lingtalfi/DocTools/blob/master/Widget/WidgetInterface.php#L34-L34)
+
+
 See Also
 ================
 

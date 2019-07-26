@@ -12,6 +12,7 @@ use Ling\Light\ServiceContainer\LightServiceContainerInterface;
 use Ling\Light_Kit\Exception\LightKitException;
 use Ling\Light_Kit\PageConfigurationTransformer\DynamicVariableAwareInterface;
 use Ling\Light_Kit\PageConfigurationTransformer\PageConfigurationTransformerInterface;
+use Ling\Light_Kit\PageConfigurationUpdator\PageConfUpdator;
 
 
 /**
@@ -129,10 +130,11 @@ class LightKitPageRenderer extends KitPageRenderer
      *
      * @param string $pageName
      * @param array $dynamicVariables
+     * @param PageConfUpdator|null $pageConfUpdator
      * @return string
      * @throws \Exception
      */
-    public function renderPage(string $pageName, array $dynamicVariables = []): string
+    public function renderPage(string $pageName, array $dynamicVariables = [], PageConfUpdator $pageConfUpdator = null): string
     {
 
         if (null !== $this->applicationDir) {
@@ -144,6 +146,15 @@ class LightKitPageRenderer extends KitPageRenderer
                 //--------------------------------------------
                 $pageConf = $this->confStorage->getPageConf($pageName);
                 if (false !== $pageConf) {
+
+
+                    //--------------------------------------------
+                    // UPDATE THE CONF
+                    //--------------------------------------------
+
+                    if (null !== $pageConfUpdator) {
+                        $pageConfUpdator->update($pageConf);
+                    }
 
 
                     //--------------------------------------------

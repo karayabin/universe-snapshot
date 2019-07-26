@@ -4,7 +4,7 @@
 
 The DependencyTool class
 ================
-2019-02-26 --> 2019-04-30
+2019-02-26 --> 2019-07-18
 
 
 
@@ -56,7 +56,9 @@ Methods
 
 Location
 =============
-Ling\UniverseTools\DependencyTool
+Ling\UniverseTools\DependencyTool<br>
+See the source code of [Ling\UniverseTools\DependencyTool](https://github.com/lingtalfi/UniverseTools/blob/master/DependencyTool.php)
+
 
 
 SeeAlso
