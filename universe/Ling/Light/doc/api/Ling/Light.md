@@ -1,6 +1,6 @@
 Ling/Light
 ================
-2019-04-09 --> 2019-07-18
+2019-04-09 --> 2019-08-02
 
 
 
@@ -8,15 +8,23 @@ Ling/Light
 Table of contents
 ===========
 
+- [LightController](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Controller/LightController.md) &ndash; The LightController class.
+    - [LightController::__construct](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Controller/LightController/__construct.md) &ndash; Builds the LightController instance.
+    - [LightController::setLight](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Controller/LightController/setLight.md) &ndash; Sets the light instance.
+- [LightControllerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Controller/LightControllerInterface.md) &ndash; The LightControllerInterface interface.
 - [Light](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light.md) &ndash; The Light class.
     - [Light::__construct](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/__construct.md) &ndash; Builds the Light instance.
     - [Light::setDebug](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/setDebug.md) &ndash; Sets the debug.
     - [Light::setContainer](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/setContainer.md) &ndash; Sets the container.
     - [Light::getContainer](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/getContainer.md) &ndash; Returns the services container of this instance.
+    - [Light::getApplicationDir](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/getApplicationDir.md) &ndash; Returns the applicationDir of this instance.
+    - [Light::setApplicationDir](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/setApplicationDir.md) &ndash; Sets the applicationDir.
     - [Light::registerRoute](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/registerRoute.md) &ndash; Registers a route item, as defined in [the route page](https://github.com/lingtalfi/Light/blob/master/doc/pages/route.md).
     - [Light::getRoutes](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/getRoutes.md) &ndash; Returns the routes of this instance.
     - [Light::registerErrorHandler](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/registerErrorHandler.md) &ndash; Registers a error handler callback.
     - [Light::run](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/run.md) &ndash; Runs the Light web application.
+- [LightAwareInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/LightAwareInterface.md) &ndash; The LightAwareInterface interface.
+    - [LightAwareInterface::setLight](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/LightAwareInterface/setLight.md) &ndash; Sets the light instance.
 - [LightException](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Exception/LightException.md) &ndash; The LightException class.
     - [LightException::__construct](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Exception/LightException/__construct.md) &ndash; Builds the LightException instance.
     - [LightException::getLightErrorCode](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Exception/LightException/getLightErrorCode.md) &ndash; Returns the light error code, or null if not set.

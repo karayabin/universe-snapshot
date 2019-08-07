@@ -1,0 +1,16 @@
+logger:
+    instance: Ling\Light_Logger\LightLoggerService
+    methods:
+        setFormat:
+            format: [{channel}]: {dateTime} -- {message}
+    methods_collection: []
+        -
+            method: addListener
+            args:
+                channels: *
+                listener:
+                    instance: Ling\Light_Logger\Listener\LightFileLoggerListener
+                    methods:
+                        configure:
+                            options:
+                                file: ${app_dir}/log/light_log.log

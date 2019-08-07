@@ -4,7 +4,7 @@
 
 The PageConfUpdator class
 ================
-2019-04-25 --> 2019-07-26
+2019-04-25 --> 2019-07-29
 
 
 
@@ -26,12 +26,14 @@ class <span class="pl-k">PageConfUpdator</span>  {
 
 - Properties
     - protected array [$mergeArray](#property-mergeArray) ;
+    - protected array [$identifierLayers](#property-identifierLayers) ;
 
 - Methods
     - public [__construct](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageConfigurationUpdator/PageConfUpdator/__construct.md)() : void
     - public static [create](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageConfigurationUpdator/PageConfUpdator/create.md)() : [PageConfUpdator](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageConfigurationUpdator/PageConfUpdator.md)
     - public [update](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageConfigurationUpdator/PageConfUpdator/update.md)(array &$pageConf) : void
-    - public [setMergeArray](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageConfigurationUpdator/PageConfUpdator/setMergeArray.md)(array $mergeArray) : void
+    - public [setMergeArray](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageConfigurationUpdator/PageConfUpdator/setMergeArray.md)(array $mergeArray) : [PageConfUpdator](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageConfigurationUpdator/PageConfUpdator.md)
+    - public [updateWidget](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageConfigurationUpdator/PageConfUpdator/updateWidget.md)(string $widgetIdentifier, array $newWidgetConfLayer) : [PageConfUpdator](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageConfigurationUpdator/PageConfUpdator.md)
 
 }
 
@@ -48,6 +50,12 @@ Properties
     
     
 
+- <span id="property-identifierLayers"><b>identifierLayers</b></span>
+
+    This property holds the identifierLayers for this instance.
+    
+    
+
 
 
 Methods
@@ -57,6 +65,7 @@ Methods
 - [PageConfUpdator::create](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageConfigurationUpdator/PageConfUpdator/create.md) &ndash; Builds and returns a PageConfUpdator instance.
 - [PageConfUpdator::update](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageConfigurationUpdator/PageConfUpdator/update.md) &ndash; Updates the given $pageConf array.
 - [PageConfUpdator::setMergeArray](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageConfigurationUpdator/PageConfUpdator/setMergeArray.md) &ndash; Sets the mergeArray.
+- [PageConfUpdator::updateWidget](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageConfigurationUpdator/PageConfUpdator/updateWidget.md) &ndash; Updates widget identified by $widgetIdentifier using the $newWidgetConfLayer layer.
 
 
 

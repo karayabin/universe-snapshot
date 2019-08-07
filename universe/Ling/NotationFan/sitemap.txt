@@ -1,0 +1,4 @@
+https://github.com/lingtalfi/NotationFan/blob/master/IdFilter/README.md
+https://github.com/lingtalfi/NotationFan/blob/master/IdFilter/notation.idFilter.eng.md
+https://github.com/lingtalfi/NotationFan/blob/master/README.md
+https://github.com/lingtalfi/NotationFan/blob/master/sic.md

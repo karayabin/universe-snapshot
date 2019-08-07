@@ -77,6 +77,8 @@ class Light_Kit_BootstrapWidgetLibraryDocBuilder
             "reportIgnore" => [
                 "Ling\Kit_PicassoWidget\Widget\PicassoWidget",
                 "Ling\ZephyrTemplateEngine\ZephyrTemplateEngine",
+                "Ling\Kit_PicassoWidget\Widget\EasyLightPicassoWidget",
+                "Ling\Kit_PicassoWidget\Widget\WidgetConfAwarePicassoWidget",
             ],
             /**
              * Your project start date.
@@ -157,6 +159,11 @@ class Light_Kit_BootstrapWidgetLibraryDocBuilder
                 "Ling\Kit_PicassoWidget\Widget\PicassoWidget" => "https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/api/Ling/Kit_PicassoWidget/Widget/PicassoWidget.md",
                 "Ling\UniversalTemplateEngine\UniversalTemplateEngineInterface" => "https://github.com/lingtalfi/UniversalTemplateEngine/blob/master/UniversalTemplateEngineInterface.php",
                 "Ling\HtmlPageTools\Copilot\HtmlPageCopilot" => "https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot.md",
+                "Ling\Kit_PicassoWidget\Exception\PicassoWidgetException" => "https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/api/Ling/Kit_PicassoWidget/Exception/PicassoWidgetException.md",
+                "Ling\Kit_PicassoWidget\Widget\EasyLightPicassoWidget" => "https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/api/Ling/Kit_PicassoWidget/Widget/EasyLightPicassoWidget.md",
+                "Ling\Kit\PageRenderer\KitPageRendererAwareInterface" => "https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRendererAwareInterface.md",
+                "Ling\Kit_PicassoWidget\Widget\WidgetConfAwarePicassoWidgetInterface" => "https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/api/Ling/Kit_PicassoWidget/Widget/WidgetConfAwarePicassoWidgetInterface.md",
+                "Ling\Kit\PageRenderer\KitPageRendererInterface" => "https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRendererInterface.md",
             ],
         ];
 

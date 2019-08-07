@@ -1,0 +1,14 @@
+dependencies: 
+    Ling: 
+        - Light
+        - Light_Logger
+        - Bat
+        - CSRFTools
+        - Light_Database
+        - Light_UserManager
+        - ThumbnailTools
+        - Chloroform
+    
+
+post_install: 
+    map: true

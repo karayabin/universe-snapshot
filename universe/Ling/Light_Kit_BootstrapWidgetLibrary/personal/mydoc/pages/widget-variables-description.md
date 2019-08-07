@@ -23,6 +23,7 @@ Summary
 - [BlogenSearchHeaderWidget](#blogensearchheaderwidget)
 - [BlogenSidebarAvatarWithActionButtonsWidget](#blogensidebaravatarwithactionbuttonswidget)
 - [BlogenSidebarIconCardsWidget](#blogensidebariconcardswidget)
+- [ChloroformWidget](#chloroformwidget)
 - [ColoredBoxesWidget](#coloredboxeswidget)
 - [ContactFormAndCompanyInfoWidget](#contactformandcompanyinfowidget)
 - [FooterWithButtonWidget](#footerwithbuttonwidget)
@@ -1617,6 +1618,83 @@ BlogenSidebarIconCardsWidget variables description
             - **default_value**: 
             - **description**: The url for the button of the card.
             - **example**: /?page=posts
+
+
+
+
+
+
+
+ChloroformWidget
+==============
+
+[Back to top](#summary)
+
+- [Screenshots](#chloroformwidget-screenshots)
+- [Templates and skins](#chloroformwidget-templates-and-skins)
+- [Example](#chloroformwidget-configuration-example)
+- [Variables descriptions](#chloroformwidget-variables-description)
+
+
+
+ChloroformWidget is a bootstrap 4 widget to display a chlorform form.
+More about Chloroform here: https://github.com/lingtalfi/Chloroform.
+
+The special thing about this widget is that we pass the chloroform instance directly
+to the template, thanks to the dynamic variable mechanism provided by the LightKitPageRenderer object.
+
+More about dynamic variables here: https://github.com/lingtalfi/Light_Kit/blob/master/doc/pages/conception-notes.md#dynamic-variables.
+
+
+
+
+
+
+ChloroformWidget screenshots
+----------
+
+Image 1: Chloroform.png<br>![Screenshot Chloroform.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/ChloroformWidget/Chloroform.png)
+
+
+
+
+
+ChloroformWidget templates, skins, presets
+-----------
+- **Templates**: default.php
+- **Skins**: 
+- **Presets**: 
+
+
+ChloroformWidget configuration example
+----------------
+
+```yaml
+name: chloroform
+type: picasso
+className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\ChloroformWidget
+widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ChloroformWidget
+template: default.php
+vars:
+    title: User Settings
+    form: ${form}
+```
+
+
+
+ChloroformWidget variables description
+-----------
+
+- **title**
+    - **type**: string
+    - **default_value**: Form
+    - **description**: The title of the form.
+    - **example**: User Settings
+- **form**
+    - **type**: string
+    - **default_value**: (it's not optional)
+    - **description**: The chloroform instance. You should set it to the dynamic variable ${form}. See the description of this widget for more info.
+    - **example**: ${form}
 
 
 

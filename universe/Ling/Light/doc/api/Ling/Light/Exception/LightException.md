@@ -4,7 +4,7 @@
 
 The LightException class
 ================
-2019-04-09 --> 2019-07-18
+2019-04-09 --> 2019-08-02
 
 
 
@@ -98,4 +98,4 @@ See the source code of [Ling\Light\Exception\LightException](https://github.com/
 
 SeeAlso
 ==============
-Previous class: [Light](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light.md)<br>Next class: [ConfigurationHelper](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ConfigurationHelper.md)<br>
+Previous class: [LightAwareInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/LightAwareInterface.md)<br>Next class: [ConfigurationHelper](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ConfigurationHelper.md)<br>

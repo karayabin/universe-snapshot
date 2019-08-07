@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [PageConfUpdator::update](https://github.com/lingtalfi/Light_Kit/blob/master/PageConfigurationUpdator/PageConfUpdator.php#L48-L57)
+See the source code for method [PageConfUpdator::update](https://github.com/lingtalfi/Light_Kit/blob/master/PageConfigurationUpdator/PageConfUpdator.php#L58-L80)
 
 
 See Also

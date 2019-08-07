@@ -1,5 +1,5 @@
 user_database:
-    instance: Ling\Light_UserDatabase\MysqlLightUserDatabase
+    instance: Ling\Light_UserDatabase\MysqlLightWebsiteUserDatabase
     methods:
         setPdoWrapper:
             wrapper: @service(database)
@@ -8,7 +8,7 @@ user_database:
 
 # babyYaml configuration example
 #user_database:
-#    instance: Ling\Light_UserDatabase\BabyYamlLightUserDatabase
+#    instance: Ling\Light_UserDatabase\BabyYamlLightWebsiteUserDatabase
 #    methods:
 #        setFile:
 #            file: ${app_dir}/config/user_database/database.byml

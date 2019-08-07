@@ -1,6 +1,6 @@
 Ling/Light_User
 ================
-2019-05-10 --> 2019-07-19
+2019-05-10 --> 2019-08-07
 
 
 
@@ -29,6 +29,10 @@ Table of contents
     - [WebsiteLightUser::refresh](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/WebsiteLightUser/refresh.md) &ndash; Refreshes the user.
     - [WebsiteLightUser::connect](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/WebsiteLightUser/connect.md) &ndash; Connects the user (i.e.
     - [WebsiteLightUser::disconnect](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/WebsiteLightUser/disconnect.md) &ndash; Disconnects the current user.
+    - [WebsiteLightUser::updateInfo](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/WebsiteLightUser/updateInfo.md) &ndash; Updates the user information.
+    - [WebsiteLightUser::getId](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/WebsiteLightUser/getId.md) &ndash; Returns the id of this instance.
+    - [WebsiteLightUser::setId](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/WebsiteLightUser/setId.md) &ndash; Sets the id.
+    - [WebsiteLightUser::setIdentifier](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/WebsiteLightUser/setIdentifier.md) &ndash; Sets the identifier.
     - [WebsiteLightUser::getEmail](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/WebsiteLightUser/getEmail.md) &ndash; Returns the email of this instance.
     - [WebsiteLightUser::setEmail](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/WebsiteLightUser/setEmail.md) &ndash; Sets the email.
     - [WebsiteLightUser::getAvatarUrl](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/WebsiteLightUser/getAvatarUrl.md) &ndash; Returns the avatar_url of this instance.
@@ -43,6 +47,8 @@ Table of contents
     - [WebsiteLightUser::setSessionDuration](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/WebsiteLightUser/setSessionDuration.md) &ndash; Sets the session_duration.
     - [WebsiteLightUser::getRights](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/WebsiteLightUser/getRights.md) &ndash; Returns the rights of this instance.
     - [WebsiteLightUser::setRights](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/WebsiteLightUser/setRights.md) &ndash; Sets the rights.
+    - [WebsiteLightUser::getExtra](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/WebsiteLightUser/getExtra.md) &ndash; Returns the extra of this instance.
+    - [WebsiteLightUser::setExtra](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/WebsiteLightUser/setExtra.md) &ndash; Sets the extra.
 
 
 

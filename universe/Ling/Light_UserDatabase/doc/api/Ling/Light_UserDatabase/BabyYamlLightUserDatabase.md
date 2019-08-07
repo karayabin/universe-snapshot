@@ -4,7 +4,7 @@
 
 The BabyYamlLightUserDatabase class
 ================
-2019-07-19 --> 2019-07-23
+2019-07-19 --> 2019-08-06
 
 
 
@@ -35,6 +35,7 @@ class <span class="pl-k">BabyYamlLightUserDatabase</span> implements [LightUserD
     - public [__construct](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/BabyYamlLightUserDatabase/__construct.md)() : void
     - public [setFile](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/BabyYamlLightUserDatabase/setFile.md)(string $file) : void
     - public [getUserInfo](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/BabyYamlLightUserDatabase/getUserInfo.md)(string $identifier, string $password) : array | false
+    - public [getUserInfoByIdentifier](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/BabyYamlLightUserDatabase/getUserInfoByIdentifier.md)(string $identifier) : array | false
     - public [addUser](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/BabyYamlLightUserDatabase/addUser.md)(string $identifier, string $password, array $userInfo) : void
     - public [updateUser](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/BabyYamlLightUserDatabase/updateUser.md)(string $identifier, array $userInfo) : void
     - public [deleteUser](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/BabyYamlLightUserDatabase/deleteUser.md)(string $identifier) : void
@@ -63,6 +64,7 @@ Methods
 - [BabyYamlLightUserDatabase::__construct](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/BabyYamlLightUserDatabase/__construct.md) &ndash; Builds the BabyYamlLightUserDatabase instance.
 - [BabyYamlLightUserDatabase::setFile](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/BabyYamlLightUserDatabase/setFile.md) &ndash; Sets the file.
 - [BabyYamlLightUserDatabase::getUserInfo](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/BabyYamlLightUserDatabase/getUserInfo.md) &ndash; credentials don't match any user.
+- [BabyYamlLightUserDatabase::getUserInfoByIdentifier](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/BabyYamlLightUserDatabase/getUserInfoByIdentifier.md) &ndash; doesn't match an user.
 - [BabyYamlLightUserDatabase::addUser](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/BabyYamlLightUserDatabase/addUser.md) &ndash; Adds the user info to the database.
 - [BabyYamlLightUserDatabase::updateUser](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/BabyYamlLightUserDatabase/updateUser.md) &ndash; Updates the user identified by the given identifier.
 - [BabyYamlLightUserDatabase::deleteUser](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/BabyYamlLightUserDatabase/deleteUser.md) &ndash; Deletes the user identified by the given identifier.

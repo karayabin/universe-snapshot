@@ -1,6 +1,6 @@
 Ling/Light_Kit_BootstrapWidgetLibrary
 ================
-2019-04-26 --> 2019-07-25
+2019-04-26 --> 2019-07-30
 
 
 
@@ -82,6 +82,19 @@ Table of contents
     - ZephyrTemplateEngine::setDirectory &ndash; Sets the directory.
 - [BlogenSidebarIconCardsWidget](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/Widget/Picasso/BlogenSidebarIconCardsWidget.md) &ndash; The BlogenSidebarIconCardsWidget class.
     - PicassoWidget::__construct &ndash; Builds the PicassoWidget instance.
+    - PicassoWidget::getLibraries &ndash; Returns the libraries of this instance.
+    - PicassoWidget::setCopilot &ndash; Sets the copilot.
+    - PicassoWidget::renderFile &ndash; Parses the file identified and returns its interpreted content (by injecting the variables in it).
+    - PicassoWidget::prepare &ndash; Prepares the widget according to the given widget configuration.
+    - ZephyrTemplateEngine::render &ndash; Parses the template identified by $resourceId and returns the interpreted template (the template with the variables injected in it).
+    - ZephyrTemplateEngine::getErrors &ndash; Returns the errors of this instance.
+    - ZephyrTemplateEngine::setDirectory &ndash; Sets the directory.
+- [ChloroformWidget](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/Widget/Picasso/ChloroformWidget.md) &ndash; The ChloroformWidget class.
+    - [ChloroformWidget::__construct](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/Widget/Picasso/ChloroformWidget/__construct.md) &ndash; Builds the EasyPicassoWidget instance.
+    - EasyLightPicassoWidget::setKitPageRenderer &ndash; Sets the KitPageRenderer instance.
+    - EasyLightPicassoWidget::getKitPageRenderer &ndash; The getKitPageRenderer method
+    - WidgetConfAwarePicassoWidget::setWidgetConf &ndash; Sets the widget configuration.
+    - WidgetConfAwarePicassoWidget::getWidgetConf &ndash; Returns the widget configuration.
     - PicassoWidget::getLibraries &ndash; Returns the libraries of this instance.
     - PicassoWidget::setCopilot &ndash; Sets the copilot.
     - PicassoWidget::renderFile &ndash; Parses the file identified and returns its interpreted content (by injecting the variables in it).

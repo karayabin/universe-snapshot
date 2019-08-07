@@ -7,7 +7,7 @@ Conception notes
 
 * [Dynamic variables](#dynamic-variables)
 * [Lazy reference resolver](#lazy-reference-resolver)
-* [Page conf update array](#page-conf-update-array)
+* [Page conf updator](#page-conf-updator)
 
 
 
@@ -85,7 +85,7 @@ We can use the lazy reference resolver system to inject any kind of data into a 
 
 Page conf updator 
 ---------------
-2019-07-25
+2019-07-25 -> 2019-07-28
 
 The page conf updator is the simplest way to update the page configuration array.
 
@@ -125,20 +125,23 @@ We could technically use a simple array, but the problem is that widgets being i
 updating a specific widget requires to know the index of the widget. 
 
 Usually, we know that index, suffices to look at the kit page configuration.
-
-However, there is a tiny risk that the page configuration has been modified dynamically, and so we need
-to take that risk into account when implementing a solution for this problem.
+However the problem comes with third-party plugins, some plugins will update the page configuration,
+some others won't, and so the kit page configuration is a dynamic target that might change every
+time you install/uninstall a plugin.
 
 So, the updator will basically allow us to update widget based on their names or other identifiers, rather
 than just the index.
 
-I would say that practically, on a per-day basis, I would probably use just the array style with indexes references
-(this mechanism is also provided by the updator), since it will be a little bit faster.
+In fact, I suggest to leave names for users, and plugin authors should add a key named "identifier"
+to the widget configuration, reserved for plugin authors. 
 
-And if ever I need to target a widget by something else than its index, then I know that I can always do it with
-the other capabilities of the updator.
+And so usually, what I believe should happen in practice, is that the plugin author would create
+the controller and the corresponding widget configuration, so for instance she creates the UserFormController,
+and then she also creates the userFormWidget configuration, so that she can safely choose her identifier.
 
-
+In other words, the "identifier" key of a widget should not be changed by the app maintainer,
+and plugin authors should not update the "name" key, but rather use the "identifier" key for their
+own use.
 
 
 

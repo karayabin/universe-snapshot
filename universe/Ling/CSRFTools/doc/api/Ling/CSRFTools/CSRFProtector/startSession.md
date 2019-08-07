@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [CSRFProtector::startSession](https://github.com/lingtalfi/CSRFTools/blob/master/CSRFProtector.php#L135-L143)
+See the source code for method [CSRFProtector::startSession](https://github.com/lingtalfi/CSRFTools/blob/master/CSRFProtector.php#L257-L265)
 
 
 See Also
@@ -54,5 +54,5 @@ See Also
 
 The [CSRFProtector](https://github.com/lingtalfi/CSRFTools/blob/master/doc/api/Ling/CSRFTools/CSRFProtector.md) class.
 
-Previous method: [isValid](https://github.com/lingtalfi/CSRFTools/blob/master/doc/api/Ling/CSRFTools/CSRFProtector/isValid.md)<br>Next method: [prepareByIdentifier](https://github.com/lingtalfi/CSRFTools/blob/master/doc/api/Ling/CSRFTools/CSRFProtector/prepareByIdentifier.md)<br>
+Previous method: [deleteToken](https://github.com/lingtalfi/CSRFTools/blob/master/doc/api/Ling/CSRFTools/CSRFProtector/deleteToken.md)<br>
 

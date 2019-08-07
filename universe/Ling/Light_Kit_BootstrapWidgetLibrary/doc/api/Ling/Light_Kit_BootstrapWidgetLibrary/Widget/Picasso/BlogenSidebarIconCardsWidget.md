@@ -4,7 +4,7 @@
 
 The BlogenSidebarIconCardsWidget class
 ================
-2019-04-26 --> 2019-07-25
+2019-04-26 --> 2019-07-30
 
 
 
@@ -81,4 +81,4 @@ See the source code of [Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\Blo
 
 SeeAlso
 ==============
-Previous class: [BlogenSidebarAvatarWithActionButtonsWidget](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/Widget/Picasso/BlogenSidebarAvatarWithActionButtonsWidget.md)<br>Next class: [ColoredBoxesWidget](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/Widget/Picasso/ColoredBoxesWidget.md)<br>
+Previous class: [BlogenSidebarAvatarWithActionButtonsWidget](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/Widget/Picasso/BlogenSidebarAvatarWithActionButtonsWidget.md)<br>Next class: [ChloroformWidget](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/Widget/Picasso/ChloroformWidget.md)<br>

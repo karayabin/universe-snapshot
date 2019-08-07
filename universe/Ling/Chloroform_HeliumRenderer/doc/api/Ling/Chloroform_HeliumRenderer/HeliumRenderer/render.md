@@ -50,7 +50,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [HeliumRenderer::render](https://github.com/lingtalfi/Chloroform_HeliumRenderer/blob/master/HeliumRenderer.php#L186-L232)
+See the source code for method [HeliumRenderer::render](https://github.com/lingtalfi/Chloroform_HeliumRenderer/blob/master/HeliumRenderer.php#L209-L248)
 
 
 See Also
@@ -58,5 +58,5 @@ See Also
 
 The [HeliumRenderer](https://github.com/lingtalfi/Chloroform_HeliumRenderer/blob/master/doc/api/Ling/Chloroform_HeliumRenderer/HeliumRenderer.md) class.
 
-Previous method: [__construct](https://github.com/lingtalfi/Chloroform_HeliumRenderer/blob/master/doc/api/Ling/Chloroform_HeliumRenderer/HeliumRenderer/__construct.md)<br>Next method: [printNotifications](https://github.com/lingtalfi/Chloroform_HeliumRenderer/blob/master/doc/api/Ling/Chloroform_HeliumRenderer/HeliumRenderer/printNotifications.md)<br>
+Previous method: [prepare](https://github.com/lingtalfi/Chloroform_HeliumRenderer/blob/master/doc/api/Ling/Chloroform_HeliumRenderer/HeliumRenderer/prepare.md)<br>Next method: [printFormContent](https://github.com/lingtalfi/Chloroform_HeliumRenderer/blob/master/doc/api/Ling/Chloroform_HeliumRenderer/HeliumRenderer/printFormContent.md)<br>
 

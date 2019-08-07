@@ -56,7 +56,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [BabyYamlLightUserDatabase::updateUser](https://github.com/lingtalfi/Light_UserDatabase/blob/master/BabyYamlLightUserDatabase.php#L92-L103)
+See the source code for method [BabyYamlLightUserDatabase::updateUser](https://github.com/lingtalfi/Light_UserDatabase/blob/master/BabyYamlLightUserDatabase.php#L106-L117)
 
 
 See Also

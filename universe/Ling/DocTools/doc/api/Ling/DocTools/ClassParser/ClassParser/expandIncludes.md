@@ -62,7 +62,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [ClassParser::expandIncludes](https://github.com/lingtalfi/DocTools/blob/master/ClassParser/ClassParser.php#L1026-L1125)
+See the source code for method [ClassParser::expandIncludes](https://github.com/lingtalfi/DocTools/blob/master/ClassParser/ClassParser.php#L1026-L1137)
 
 
 See Also

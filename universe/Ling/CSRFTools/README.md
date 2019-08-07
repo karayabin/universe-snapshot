@@ -28,6 +28,9 @@ Summary
 ===========
 - [CSRFTools api](https://github.com/lingtalfi/CSRFTools/blob/master/doc/api/Ling/CSRFTools.md) (generated with [DocTools](https://github.com/lingtalfi/DocTools))
 - [How to](#how-to)
+    - [Case #1: protection behind ajax](#case-1-protection-behind-ajax)
+    - [Case #2a: form protection, createToken - IsValid](#case-2a-form-protection-createtoken---isvalid)
+    - [Case #2b: form protection, isValid - createToken](#case-2b-form-protection-isvalid---createtoken)
 - [Quick recap on CSRF](#quick-recap-on-csrf)
     - [The attack example](#the-attack-example)
 - [The defense against CSRF](#the-defense-against-csrf)
@@ -41,38 +44,111 @@ How to
 
 I provide you with the **CSRFProtector** class.
 
-There are actually two different ways to use the CSRFProtector, depending on whether the validation
-and the creation of the token occur on the same page or on different pages.
+This class basically provides you with two main methods:
+
+- one for creating a random token
+- one for validating the token against a value
 
 
-Let's see an example for both cases.
+The simplest use case I can think of is securing an ajax page.
+
+And the perhaps most popular case I can think of is securing a form.
+
+
+In this document, I will go straight into the examples, so that one can just grab the idea and implement it in no time.
+
+But before you jump into it, I recommend to read the [CSRFProtector class description](https://github.com/lingtalfi/CSRFTools/blob/master/doc/api/Ling/CSRFTools/CSRFProtector.md) which explains in greater details
+how the class works and should be used.
 
 
 
-Case #1: the creation of the token and the validation occur on the same page
+Case #1: protection behind ajax
 ------------
 
-This is the case with forms.
 
-Here is an example.
+In this case, we have two php scripts:
+
+- A.php
+- B.php
+
+**A.php** is the script the main script, it creates the token.
+Its code is the following:
 
 
 ```php
 <?php
 
 
-$token = CSRFProtector::inst()->createToken();
+use Ling\CSRFTools\CSRFProtector;
+
+
+
+$tokenValue = CSRFProtector::inst()->createToken("my_token");
+
+```
+
+And then there is the **B.php** script, which is called presumably from **A.php** via ajax.
+For instance let's imagine that **A.php** transfer the token value via **$_GET['token']**.
+
+Here is what **B.php** would look like:
+
+
+```php
+<?php
+
+use Ling\CSRFTools\CSRFProtector;
+
+
+$tokenValue = $_GET['token'];
+
+
+$protector = CSRFProtector::inst();
+if (true === $protector->isValid("my_token", $tokenValue, true)) {
+    a("execute a secure action");
+}
+
+```
+
+And that's it.
+The secure action from **B.php** will only be executed if the client who called **B.php** passed the token created with **A.php**.
+
+
+Now the second case is the form.
+
+With forms, there are mainly two designs:
+
+- createToken/isValid, in this design, the **createToken** method is called **BEFORE** the **isValid** method
+- isValid/createToken, in this design, the **createToken** method is called **AFTER** the **isValid** method
+
+
+Case #2a: form protection, createToken - IsValid
+------------
+
+
+```php
+<?php
+
+use Ling\CSRFTools\CSRFProtector;
+
+
+
+
+
+
+$token = CSRFProtector::inst()->createToken("my_token");
+
 
 
 
 if (array_key_exists("token", $_POST)) {
-    $formToken = $_POST['token'];
-    if (CSRFProtector::inst()->isValid($formToken, null, true)) {
-        a("nice");
+    if (CSRFProtector::inst()->isValid("my_token", $_POST['token'])) {
+        a("Yes");
     } else {
-        a("looser");
+        a("Nope");
     }
 }
+
+
 
 
 
@@ -81,81 +157,55 @@ if (array_key_exists("token", $_POST)) {
     <input type="text" name="token" value="<?php echo $token; ?>"/>
     <input type="submit" value="Submit"/>
 </form>
-```
 
-
-The important bit to understand is the third argument of the **isValid** method.
-
-This argument is the **validatesOnSamePage** parameter, and its default value is false.
-
-But in the case of a form, both the **isValid** method and the **createToken** method are called
-on the same page, so that's why we set this argument to true.
-
-
-Another important thing to be aware of is to call the **createToken** method **BEFORE** the
-**isValid** method. 
-However in general that's what you would do naturally, I suppose.
-
-
-So if you execute this code in a browser, the first time you post the form, you'll get a "nice" message, 
-and if you reload the page after that, you'll get the "looser" message.
-
-That's because the token only works once.
-
-
-
-Case #2: the creation of the token and the validation occurs on two different pages
-------------
-
-
-This is the case for links that triggers some actions.
-
-Here is an example.
-
-It involves two pages: **page1.php** and **page2.php**.
-
-The creation of the token occurs on page1, while the validation occurs on page2.
-
-The code of page 1 looks like this:
-
-
-```php
-<?php
-
-$token = CSRFProtector::inst()->createToken();
-
-?>
-<a href="/page2.php?token=<?php echo $token; ?>">Click me (<?php echo $token; ?>)</a>
-
-```
-
-And the code on page 2 looks like this:
-
-```php
-<?php
-
-$token = $_GET['token'];
-
-if (CSRFProtector::inst()->isValid($token)) {
-    a("nice");
-} else {
-    a("looser");
 }
 ```
 
-Notice that this time, we don't specify extra arguments for the **isValid** method (we use the default
-value of false for the **validatesOnSamePage** argument).
+Case #2b: form protection, isValid - createToken
+------------
+
+Notice that we validate against the new slot this time (the third argument of the **isValid** method).
+For more details, see the [CSRFProtector class description](https://github.com/lingtalfi/CSRFTools/blob/master/doc/api/Ling/CSRFTools/CSRFProtector.md).
 
 
-So if you execute this code in a browser, and open **page 1**, and click on the link, you'll land on **page 2**
-with the message "nice". Then if you refresh **page 2** you'll get the "looser" message.
+```php
+<?php
+
+use Ling\CSRFTools\CSRFProtector;
 
 
 
 
-Now you know everything you need to know.
 
-Enjoy :)
+if (array_key_exists("token", $_POST)) {
+    if (CSRFProtector::inst()->isValid("my_token", $_POST['token'], true)) {
+        a("Yes");
+    } else {
+        a("Nope");
+    }
+}
+
+
+$token = CSRFProtector::inst()->createToken("my_token");
+
+
+
+
+
+
+
+
+
+?>
+<form action="" method="post">
+    <input type="text" name="token" value="<?php echo $token; ?>"/>
+    <input type="submit" value="Submit"/>
+</form>
+
+
+
+```
+
  
 
 
@@ -288,6 +338,17 @@ It's like a specific name associated with a token.
 History Log
 =============
 
+- 1.1.1 -- 2019-08-05
+
+    - update documentation
+    
+- 1.1.0 -- 2019-08-05
+
+    - update nomenclature: tokenName, tokenValue are now used
+    - change CSRFProtector->isValid arguments order and names 
+    - add CSRFProtector->deleteToken method 
+    - clarified documentation 
+    
 - 1.0.1 -- 2019-07-18
 
     - update docTools documentation, add links to source code for classes and methods

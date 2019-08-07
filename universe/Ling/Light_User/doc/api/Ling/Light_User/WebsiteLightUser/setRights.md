@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [WebsiteLightUser::setRights](https://github.com/lingtalfi/Light_User/blob/master/WebsiteLightUser.php#L334-L337)
+See the source code for method [WebsiteLightUser::setRights](https://github.com/lingtalfi/Light_User/blob/master/WebsiteLightUser.php#L423-L426)
 
 
 See Also
@@ -57,5 +57,5 @@ See Also
 
 The [WebsiteLightUser](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/WebsiteLightUser.md) class.
 
-Previous method: [getRights](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/WebsiteLightUser/getRights.md)<br>
+Previous method: [getRights](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/WebsiteLightUser/getRights.md)<br>Next method: [getExtra](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/WebsiteLightUser/getExtra.md)<br>
 

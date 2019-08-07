@@ -65,7 +65,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [MysqlLightUserDatabase::addUser](https://github.com/lingtalfi/Light_UserDatabase/blob/master/MysqlLightUserDatabase.php#L130-L152)
+See the source code for method [MysqlLightUserDatabase::addUser](https://github.com/lingtalfi/Light_UserDatabase/blob/master/MysqlLightUserDatabase.php#L145-L167)
 
 
 See Also
@@ -73,5 +73,5 @@ See Also
 
 The [MysqlLightUserDatabase](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/MysqlLightUserDatabase.md) class.
 
-Previous method: [getUserInfo](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/MysqlLightUserDatabase/getUserInfo.md)<br>Next method: [updateUser](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/MysqlLightUserDatabase/updateUser.md)<br>
+Previous method: [getUserInfoByIdentifier](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/MysqlLightUserDatabase/getUserInfoByIdentifier.md)<br>Next method: [updateUser](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/MysqlLightUserDatabase/updateUser.md)<br>
 

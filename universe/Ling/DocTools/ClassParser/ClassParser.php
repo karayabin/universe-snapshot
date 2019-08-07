@@ -1046,6 +1046,8 @@ class ClassParser implements ClassParserInterface
                  */
                 $interfaces = $class->getInterfaces();
                 foreach ($interfaces as $interface) {
+
+
                     if ($interface->hasMethod($method)) {
 
                         $this->_expandReflectionClass = $interface;
@@ -1054,6 +1056,17 @@ class ClassParser implements ClassParserInterface
                         $parentDocComment = substr($parentDocComment, 3, -2);
                         $resolved = true;
                         $includeReferences[] = $interface->getName();
+
+                        /**
+                         * Also including ancestors, since the hasMethod doesn't mean that the class itself contains
+                         * the method, but only that it has it OR that it inherits it.
+                         */
+                        $ancestors = ClassTool::getAncestors($interface, true);
+                        foreach ($ancestors as $_interface) {
+                            $includeReferences[] = $_interface->getName();
+                        }
+
+
                         return $this->expandIncludes($parentDocComment, $resolved, $includeReferences);
                         break;
                     }
@@ -1061,7 +1074,6 @@ class ClassParser implements ClassParserInterface
                 /**
                  * Then try abstract classes
                  */
-
                 $abstractParents = ClassTool::getAbstractAncestors($class);
                 foreach ($abstractParents as $abstractParent) {
                     if ($abstractParent->hasMethod($method)) {

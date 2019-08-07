@@ -7,7 +7,7 @@ CSRFProtector::createToken
 
 
 
-CSRFProtector::createToken — Creates and returns a CSRF token.
+CSRFProtector::createToken — Creates the token named $tokenName, stores its value in the "new" slot, and returns the token value.
 
 
 
@@ -16,15 +16,16 @@ Description
 ================
 
 
-public [CSRFProtector::createToken](https://github.com/lingtalfi/CSRFTools/blob/master/doc/api/Ling/CSRFTools/CSRFProtector/createToken.md)(string $identifier = null) : string
+public [CSRFProtector::createToken](https://github.com/lingtalfi/CSRFTools/blob/master/doc/api/Ling/CSRFTools/CSRFProtector/createToken.md)(string $tokenName) : string
 
 
 
 
-Creates and returns a CSRF token.
-You should pass an identifier if you plan to create more than one token per page.
-Otherwise, if you know for sure that your page will only use one single token, you can leave
-this argument to null.
+Creates the token named $tokenName, stores its value in the "new" slot, and returns the token value.
+If the token named $tokenName already exists, there is a rotation: the newly created token is stored in the "new" slot,
+while the old "new" value (found in the "new" slot before it was replaced) is moved to the "old" slot.
+
+For more details, please refer to this class description.
 
 
 
@@ -33,7 +34,7 @@ Parameters
 ================
 
 
-- identifier
+- tokenName
 
     
 
@@ -52,7 +53,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [CSRFProtector::createToken](https://github.com/lingtalfi/CSRFTools/blob/master/CSRFProtector.php#L74-L87)
+See the source code for method [CSRFProtector::createToken](https://github.com/lingtalfi/CSRFTools/blob/master/CSRFProtector.php#L199-L209)
 
 
 See Also

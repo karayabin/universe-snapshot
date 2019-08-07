@@ -55,7 +55,7 @@ Here is an example of the service configuration file using a database stored in 
 
 ```yaml
 user_database:
-    instance: Ling\Light_UserDatabase\MysqlLightUserDatabase
+    instance: Ling\Light_UserDatabase\MysqlLightWebsiteUserDatabase
     methods:
         setPdoWrapper:
             wrapper: @service(database)
@@ -64,7 +64,7 @@ user_database:
 
 # babyYaml configuration example
 #user_database:
-#    instance: Ling\Light_UserDatabase\BabyYamlLightUserDatabase
+#    instance: Ling\Light_UserDatabase\BabyYamlLightWebsiteUserDatabase
 #    methods:
 #        setFile:
 #            file: ${app_dir}/config/user_database/database.byml
@@ -75,6 +75,7 @@ user_database:
 # --------------------------------------
 $initializer.methods.setInitializers.initializers:
     - @service(user_database)
+
 
 ```
 
@@ -91,6 +92,18 @@ Related
 
 History Log
 =============
+
+- 1.4.0 -- 2019-08-07
+
+    - added LightWebsiteUserDatabaseInterface interface
+    - moved BabyYamlLightUserDatabase to BabyYamlLightWebsiteUserDatabase
+    - moved MysqlLightUserDatabase to MysqlLightWebsiteUserDatabase
+    - moved getUserInfo to getUserInfoByCredentials method 
+    - add support for PasswordProtector service 
+    
+- 1.3.0 -- 2019-08-06
+
+    - add MysqlLightUserDatabaseInterface->getUserInfoByIdentifier method
 
 - 1.2.0 -- 2019-07-23
 

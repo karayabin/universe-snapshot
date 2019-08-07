@@ -4,7 +4,7 @@
 
 The LoopLabTwoColumnsTeaserWidget class
 ================
-2019-04-26 --> 2019-07-25
+2019-04-26 --> 2019-07-30
 
 
 

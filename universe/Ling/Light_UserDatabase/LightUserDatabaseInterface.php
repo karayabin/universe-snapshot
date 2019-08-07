@@ -16,6 +16,9 @@ use Ling\Light_UserDatabase\Exception\LightUserDatabaseException;
  * An user identifier cannot be updated (you have to delete the user and create another one instead),
  * for security reason.
  *
+ * The info representing the database user are left to the implementor, however a user must have a field
+ * representing the identifier.
+ *
  */
 interface LightUserDatabaseInterface
 {
@@ -26,20 +29,22 @@ interface LightUserDatabaseInterface
      * credentials don't match any user.
      *
      *
-     * The array info structure might be expanded by the implementor,
-     * but usually it contains at least the following:
-     *
-     * - rights: the array of rights of the user
-     * - ?pseudo: the pseudo of the user
-     * - ?avatar: the avatar url of the user
-     *
-     *
-     *
      * @param string $identifier
      * @param string $password
      * @return array|false
      */
-    public function getUserInfo(string $identifier, string $password);
+    public function getUserInfoByCredentials(string $identifier, string $password);
+
+    /**
+     * Returns the user info array matching the given user identifier, or false if the identifier
+     * doesn't match an user. The returned array structure depends on your application.
+     * Related: getUserInfo method.
+     *
+     *
+     * @param string $identifier
+     * @return array|false
+     */
+    public function getUserInfoByIdentifier(string $identifier);
 
 
     /**
@@ -49,14 +54,12 @@ interface LightUserDatabaseInterface
      * An LightUserDatabaseException exception is thrown if the identifier already exists in the database.
      *
      *
-     * @param string $identifier
-     * @param string $password
      * @param array $userInfo
      * @return void
      * @throws LightUserDatabaseException
      *
      */
-    public function addUser(string $identifier, string $password, array $userInfo);
+    public function addUser(array $userInfo);
 
     /**
      * Updates the user identified by the given identifier.

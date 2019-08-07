@@ -33,6 +33,10 @@ Summary
 History Log
 ===============
 
+- 1.0.1 -- 2019-08-06
+
+    - update sic documentation
+
 - 1.0.0 -- 2015-10-06
 
     - initial commit

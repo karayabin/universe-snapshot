@@ -4,7 +4,7 @@
 
 The HeliumRenderer class
 ================
-2019-07-26 --> 2019-07-26
+2019-07-26 --> 2019-07-30
 
 
 
@@ -71,11 +71,15 @@ class <span class="pl-k">HeliumRenderer</span> implements [ChloroformRendererInt
     - protected bool [$displayInlineErrors](#property-displayInlineErrors) ;
     - protected bool [$displayErrorSummary](#property-displayErrorSummary) ;
     - protected string [$_formCssId](#property-_formCssId) ;
-    - protected array [$_chloroformFields](#property-_chloroformFields) ;
+    - protected array [$_chloroform](#property-_chloroform) ;
 
 - Methods
     - public [__construct](https://github.com/lingtalfi/Chloroform_HeliumRenderer/blob/master/doc/api/Ling/Chloroform_HeliumRenderer/HeliumRenderer/__construct.md)(array $options = []) : void
+    - public [prepare](https://github.com/lingtalfi/Chloroform_HeliumRenderer/blob/master/doc/api/Ling/Chloroform_HeliumRenderer/HeliumRenderer/prepare.md)(array $chloroform) : void
     - public [render](https://github.com/lingtalfi/Chloroform_HeliumRenderer/blob/master/doc/api/Ling/Chloroform_HeliumRenderer/HeliumRenderer/render.md)(array $chloroform) : string
+    - public [printFormContent](https://github.com/lingtalfi/Chloroform_HeliumRenderer/blob/master/doc/api/Ling/Chloroform_HeliumRenderer/HeliumRenderer/printFormContent.md)() : void
+    - public [printFormTagOpening](https://github.com/lingtalfi/Chloroform_HeliumRenderer/blob/master/doc/api/Ling/Chloroform_HeliumRenderer/HeliumRenderer/printFormTagOpening.md)() : void
+    - public [printFormTagClosing](https://github.com/lingtalfi/Chloroform_HeliumRenderer/blob/master/doc/api/Ling/Chloroform_HeliumRenderer/HeliumRenderer/printFormTagClosing.md)() : void
     - public [printNotifications](https://github.com/lingtalfi/Chloroform_HeliumRenderer/blob/master/doc/api/Ling/Chloroform_HeliumRenderer/HeliumRenderer/printNotifications.md)(array $notifications) : void
     - public [printErrorSummary](https://github.com/lingtalfi/Chloroform_HeliumRenderer/blob/master/doc/api/Ling/Chloroform_HeliumRenderer/HeliumRenderer/printErrorSummary.md)(array $errors) : void
     - public [printFields](https://github.com/lingtalfi/Chloroform_HeliumRenderer/blob/master/doc/api/Ling/Chloroform_HeliumRenderer/HeliumRenderer/printFields.md)(array $fields) : void
@@ -129,7 +133,9 @@ Properties
     - displayErrorMode: string=both (both | inline | summary). How to display error messages: whether inline (i.e. above the form fields),
              in an error summary at the top of the form (summary mode), or both at the same time.
     - useValidation: bool=true. Set it to false to debug static validation, or if you don't need js validation at all.
-    - renderPrintsJsHandler: bool=true. Whether the render method should print the js handler. If false, you are responsible for printing the js handler manually wherever you see fit (usually just before the body tag).
+    - printJsHandler: bool=true. Whether the render method should print the js handler. If false, you are responsible for printing the js handler manually wherever you see fit (usually just before the body tag).
+    - printSubmitButton: bool=true. Whether to render the submit button.
+    - printFormTag: bool=true. Whether to render the form tag.
     - formStyle: string=stack (stack|horizontal). Which bootstrap 4 style to use to render the fields.
                      With stack, the form control is below the label,
                      with horizontal, the form control is to the right of the label.
@@ -155,9 +161,9 @@ Properties
     
     
 
-- <span id="property-_chloroformFields"><b>_chloroformFields</b></span>
+- <span id="property-_chloroform"><b>_chloroform</b></span>
 
-    This property holds the chloroform fields for this instance.
+    This property holds the _chloroform array for this instance.
     This property becomes only available when the render method is called.
     
     
@@ -168,7 +174,11 @@ Methods
 ==============
 
 - [HeliumRenderer::__construct](https://github.com/lingtalfi/Chloroform_HeliumRenderer/blob/master/doc/api/Ling/Chloroform_HeliumRenderer/HeliumRenderer/__construct.md) &ndash; Builds the HeliumRenderer instance.
+- [HeliumRenderer::prepare](https://github.com/lingtalfi/Chloroform_HeliumRenderer/blob/master/doc/api/Ling/Chloroform_HeliumRenderer/HeliumRenderer/prepare.md) &ndash; Stores the chloroform array in memory.
 - [HeliumRenderer::render](https://github.com/lingtalfi/Chloroform_HeliumRenderer/blob/master/doc/api/Ling/Chloroform_HeliumRenderer/HeliumRenderer/render.md) &ndash; Returns the html version of the passed chloroform array.
+- [HeliumRenderer::printFormContent](https://github.com/lingtalfi/Chloroform_HeliumRenderer/blob/master/doc/api/Ling/Chloroform_HeliumRenderer/HeliumRenderer/printFormContent.md) &ndash; form tag itself.
+- [HeliumRenderer::printFormTagOpening](https://github.com/lingtalfi/Chloroform_HeliumRenderer/blob/master/doc/api/Ling/Chloroform_HeliumRenderer/HeliumRenderer/printFormTagOpening.md) &ndash; Prints the opening form tag.
+- [HeliumRenderer::printFormTagClosing](https://github.com/lingtalfi/Chloroform_HeliumRenderer/blob/master/doc/api/Ling/Chloroform_HeliumRenderer/HeliumRenderer/printFormTagClosing.md) &ndash; Prints the closing form tag.
 - [HeliumRenderer::printNotifications](https://github.com/lingtalfi/Chloroform_HeliumRenderer/blob/master/doc/api/Ling/Chloroform_HeliumRenderer/HeliumRenderer/printNotifications.md) &ndash; Prints the given notifications.
 - [HeliumRenderer::printErrorSummary](https://github.com/lingtalfi/Chloroform_HeliumRenderer/blob/master/doc/api/Ling/Chloroform_HeliumRenderer/HeliumRenderer/printErrorSummary.md) &ndash; Prints the given errors.
 - [HeliumRenderer::printFields](https://github.com/lingtalfi/Chloroform_HeliumRenderer/blob/master/doc/api/Ling/Chloroform_HeliumRenderer/HeliumRenderer/printFields.md) &ndash; Prints the given fields.

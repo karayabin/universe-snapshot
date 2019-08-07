@@ -43,6 +43,10 @@ Summary
 History Log
 =============
 
+- 0.9.0 -- 2019-08-02
+
+    - add setter/getter for Light applicationDir property.
+    
 - 0.8.0 -- 2019-07-18
 
     - add LightController

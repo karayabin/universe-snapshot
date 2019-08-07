@@ -55,5 +55,5 @@ See Also
 
 The [Light](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light.md) class.
 
-Previous method: [setContainer](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/setContainer.md)<br>Next method: [registerRoute](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/registerRoute.md)<br>
+Previous method: [setContainer](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/setContainer.md)<br>Next method: [getApplicationDir](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/getApplicationDir.md)<br>
 

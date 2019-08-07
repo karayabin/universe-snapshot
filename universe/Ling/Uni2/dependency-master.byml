@@ -118,7 +118,7 @@ galaxies:
             post_install: []
         
         Bat: 
-            version: 1.177
+            version: 1.181
             dependencies: 
                 Ling: 
                     - ArrayToString
@@ -175,12 +175,12 @@ galaxies:
             post_install: []
         
         CSRFTools: 
-            version: 1.0.1
+            version: 1.1.1
             dependencies: []
             post_install: []
         
         Chloroform: 
-            version: 1.8.2
+            version: 1.11.0
             dependencies: 
                 Ling: 
                     - CSRFTools
@@ -191,7 +191,7 @@ galaxies:
             post_install: []
         
         Chloroform_HeliumRenderer: 
-            version: 1.0.0
+            version: 1.2.0
             dependencies: 
                 Ling: 
                     - Bat
@@ -385,7 +385,7 @@ galaxies:
             post_install: []
         
         DocTools: 
-            version: 1.10.0
+            version: 1.10.1
             dependencies: 
                 Ling: 
                     - Bat
@@ -680,7 +680,7 @@ galaxies:
             post_install: []
         
         Kit: 
-            version: 1.9.0
+            version: 1.10.0
             dependencies: 
                 Ling: 
                     - BabyYaml
@@ -732,7 +732,7 @@ galaxies:
             post_install: []
         
         Light: 
-            version: 0.7.3
+            version: 0.9.0
             dependencies: 
                 Ling: 
                     - SicTools
@@ -743,6 +743,24 @@ galaxies:
                 
             
             post_install: []
+        
+        Light_AjaxFileUploadManager: 
+            version: 1.1.0
+            dependencies: 
+                Ling: 
+                    - Light
+                    - Light_Logger
+                    - Bat
+                    - CSRFTools
+                    - Light_Database
+                    - Light_UserManager
+                    - ThumbnailTools
+                    - Chloroform
+                
+            
+            post_install: 
+                map: true
+            
         
         Light_Database: 
             version: 1.0.2
@@ -780,7 +798,7 @@ galaxies:
             
         
         Light_Kit: 
-            version: 1.7.2
+            version: 1.8.1
             dependencies: 
                 Ling: 
                     - Bat
@@ -795,7 +813,7 @@ galaxies:
             
         
         Light_Kit_BootstrapWidgetLibrary: 
-            version: 1.11.1
+            version: 1.12.0
             dependencies: 
                 Ling: 
                     - Kit_PicassoWidget
@@ -817,6 +835,24 @@ galaxies:
         
         Light_Kit_WebsiteBuilder: 
             version: 1.0.1
+            dependencies: []
+            post_install: 
+                map: true
+            
+        
+        Light_Logger: 
+            version: 1.0.0
+            dependencies: 
+                Ling: 
+                    - Bat
+                
+            
+            post_install: 
+                map: true
+            
+        
+        Light_PasswordProtector: 
+            version: 1.0.0
             dependencies: []
             post_install: 
                 map: true
@@ -863,20 +899,22 @@ galaxies:
             
         
         Light_User: 
-            version: 1.1.2
+            version: 1.4.0
             dependencies: []
             post_install: 
                 map: true
             
         
         Light_UserDatabase: 
-            version: 1.2.0
+            version: 1.4.0
             dependencies: 
                 Ling: 
                     - BabyYaml
+                    - Bat
                     - Light
-                    - Light_Database
                     - Light_Initializer
+                    - Light_PasswordProtector
+                    - Light_Database
                     - MysqlCreateTableUtil
                     - SimplePdoWrapper
                     - SqlWizard
@@ -1041,7 +1079,7 @@ galaxies:
             post_install: []
         
         NotationFan: 
-            version: 1.0.0
+            version: 1.0.1
             dependencies: []
             post_install: []
         

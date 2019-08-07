@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [PageConfUpdator::__construct](https://github.com/lingtalfi/Light_Kit/blob/master/PageConfigurationUpdator/PageConfUpdator.php#L28-L31)
+See the source code for method [PageConfUpdator::__construct](https://github.com/lingtalfi/Light_Kit/blob/master/PageConfigurationUpdator/PageConfUpdator.php#L37-L41)
 
 
 See Also

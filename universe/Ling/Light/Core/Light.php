@@ -184,6 +184,28 @@ class Light
         return $this->container;
     }
 
+    /**
+     * Returns the applicationDir of this instance.
+     *
+     * @return string
+     */
+    public function getApplicationDir(): string
+    {
+        return $this->applicationDir;
+    }
+
+    /**
+     * Sets the applicationDir.
+     *
+     * @param string $applicationDir
+     */
+    public function setApplicationDir(string $applicationDir)
+    {
+        $this->applicationDir = $applicationDir;
+    }
+
+
+
 
     /**
      * Registers a route item, as defined in @page(the route page).

@@ -46,7 +46,7 @@ Returns int.
 
 Source Code
 ===========
-See the source code for method [WebsiteLightUser::getSessionDuration](https://github.com/lingtalfi/Light_User/blob/master/WebsiteLightUser.php#L304-L307)
+See the source code for method [WebsiteLightUser::getSessionDuration](https://github.com/lingtalfi/Light_User/blob/master/WebsiteLightUser.php#L393-L396)
 
 
 See Also

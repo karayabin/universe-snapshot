@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [WebsiteLightUser::__construct](https://github.com/lingtalfi/Light_User/blob/master/WebsiteLightUser.php#L96-L105)
+See the source code for method [WebsiteLightUser::__construct](https://github.com/lingtalfi/Light_User/blob/master/WebsiteLightUser.php#L116-L128)
 
 
 See Also

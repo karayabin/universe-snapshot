@@ -50,7 +50,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [MysqlLightUserDatabase::dQuoteTable](https://github.com/lingtalfi/Light_UserDatabase/blob/master/MysqlLightUserDatabase.php#L256-L263)
+See the source code for method [MysqlLightUserDatabase::dQuoteTable](https://github.com/lingtalfi/Light_UserDatabase/blob/master/MysqlLightUserDatabase.php#L271-L278)
 
 
 See Also

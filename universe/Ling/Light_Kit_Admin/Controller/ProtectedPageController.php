@@ -6,6 +6,8 @@ namespace Ling\Light_Kit_Admin\Controller;
 
 use Ling\Bat\ArrayTool;
 use Ling\Light\Http\HttpResponseInterface;
+use Ling\Light_Kit\PageConfigurationUpdator\PageConfUpdator;
+use Ling\Light_Kit\PageRenderer\LightKitPageRenderer;
 
 /**
  * The ProtectedPageController class.
@@ -20,13 +22,16 @@ class ProtectedPageController extends LightKitAdminController
      *
      *
      *
+     * @param string $page
+     * @param array $params
+     * @param PageConfUpdator|null $updator
      *
      *
      * @return string|HttpResponseInterface
      * @throws \Exception
      *
      */
-    public function renderProtectedPage(string $page)
+    public function renderProtectedPage(string $page, $params = [], PageConfUpdator $updator = null)
     {
 
         $container = $this->getContainer();
@@ -35,7 +40,6 @@ class ProtectedPageController extends LightKitAdminController
         //--------------------------------------------
         // HANDLING USER LOGIN
         //--------------------------------------------
-        $params = [];
         $user = $this->getUser();
         if (false === $user->isValid()) {
             $redirectRoute = $this->getKitAdmin()->getOption("login.login_route");
@@ -46,6 +50,10 @@ class ProtectedPageController extends LightKitAdminController
         $params = array_merge($params, $user);
 
 
-        return $container->get("kit")->renderPage($page, $params);
+        /**
+         * @var $kit LightKitPageRenderer
+         */
+        $kit = $container->get("kit");
+        return $kit->renderPage($page, $params, $updator);
     }
 }

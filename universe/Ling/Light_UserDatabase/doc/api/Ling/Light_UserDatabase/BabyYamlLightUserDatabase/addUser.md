@@ -65,7 +65,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [BabyYamlLightUserDatabase::addUser](https://github.com/lingtalfi/Light_UserDatabase/blob/master/BabyYamlLightUserDatabase.php#L70-L87)
+See the source code for method [BabyYamlLightUserDatabase::addUser](https://github.com/lingtalfi/Light_UserDatabase/blob/master/BabyYamlLightUserDatabase.php#L84-L101)
 
 
 See Also
@@ -73,5 +73,5 @@ See Also
 
 The [BabyYamlLightUserDatabase](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/BabyYamlLightUserDatabase.md) class.
 
-Previous method: [getUserInfo](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/BabyYamlLightUserDatabase/getUserInfo.md)<br>Next method: [updateUser](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/BabyYamlLightUserDatabase/updateUser.md)<br>
+Previous method: [getUserInfoByIdentifier](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/BabyYamlLightUserDatabase/getUserInfoByIdentifier.md)<br>Next method: [updateUser](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/BabyYamlLightUserDatabase/updateUser.md)<br>
 

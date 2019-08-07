@@ -42,7 +42,7 @@ class LoginFormController extends LightKitAdminController
              * @var $userDb LightUserDatabaseInterface
              */
             $userDb = $this->getContainer()->get('user_database');
-            $userInfo = $userDb->getUserInfo($userName, $password);
+            $userInfo = $userDb->getUserInfoByCredentials($userName, $password);
             if (false !== $userInfo) {
                 //--------------------------------------------
                 // ON FORM VALID
@@ -52,11 +52,15 @@ class LoginFormController extends LightKitAdminController
                 // CONNECTING THE USER
                 //--------------------------------------------
                 $user = $this->getUser();
-                $user->setEmail($userName);
-                $user->setRights($userInfo['rights']);
+                $user->setId($userInfo['id']);
+                $user->setIdentifier($userInfo['identifier']);
+                $user->setEmail($userInfo['identifier']);
                 $user->setPseudo($userInfo['pseudo']);
                 $user->setAvatarUrl($userInfo['avatar_url']);
+                $user->setRights($userInfo['rights']);
+                $user->setExtra($userInfo['extra']);
                 $user->connect();
+
 
 
                 //--------------------------------------------

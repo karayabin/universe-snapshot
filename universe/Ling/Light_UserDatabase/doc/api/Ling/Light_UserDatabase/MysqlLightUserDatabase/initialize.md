@@ -53,7 +53,7 @@ Returns mixed.
 
 Source Code
 ===========
-See the source code for method [MysqlLightUserDatabase::initialize](https://github.com/lingtalfi/Light_UserDatabase/blob/master/MysqlLightUserDatabase.php#L190-L215)
+See the source code for method [MysqlLightUserDatabase::initialize](https://github.com/lingtalfi/Light_UserDatabase/blob/master/MysqlLightUserDatabase.php#L205-L230)
 
 
 See Also

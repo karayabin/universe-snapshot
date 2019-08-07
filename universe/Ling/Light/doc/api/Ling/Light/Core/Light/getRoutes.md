@@ -49,7 +49,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [Light::getRoutes](https://github.com/lingtalfi/Light/blob/master/Core/Light.php#L257-L260)
+See the source code for method [Light::getRoutes](https://github.com/lingtalfi/Light/blob/master/Core/Light.php#L279-L282)
 
 
 See Also

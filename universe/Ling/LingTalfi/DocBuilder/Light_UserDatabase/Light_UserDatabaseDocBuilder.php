@@ -142,6 +142,9 @@ class Light_UserDatabaseDocBuilder
             "keyWord2UrlMap" => [
                 "Light_Database plugin" => 'https://github.com/lingtalfi/Light_Database',
                 "initializer service" => 'https://github.com/lingtalfi/Light_Initializer/',
+                "passwordProtector" => 'https://github.com/lingtalfi/Light_PasswordProtector/',
+                "light website user" => 'https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/WebsiteLightUser.md',
+                "rights of the user" => 'https://github.com/lingtalfi/Light_User/blob/master/doc/pages/conception.md#its-all-about-rights',
             ],
             /**
              * An array of external classes to url.
@@ -155,6 +158,7 @@ class Light_UserDatabaseDocBuilder
             "externalClass2Url" => [
                 "Ling\Light_Initializer\Initializer\LightInitializerInterface" => "https://github.com/lingtalfi/Light_Initializer/blob/master/doc/api/Ling/Light_Initializer/Initializer/LightInitializerInterface.md",
                 "Ling\Light_Database\LightDatabasePdoWrapper" => "https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/LightDatabasePdoWrapper.md",
+                "Ling\Light_PasswordProtector\Service\LightPasswordProtector" => "https://github.com/lingtalfi/Light_PasswordProtector/blob/master/doc/api/Ling/Light_PasswordProtector/Service/LightPasswordProtector.md",
             ],
         ];
 

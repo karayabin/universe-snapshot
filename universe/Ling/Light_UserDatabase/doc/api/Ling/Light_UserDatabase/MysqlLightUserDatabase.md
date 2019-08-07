@@ -4,7 +4,7 @@
 
 The MysqlLightUserDatabase class
 ================
-2019-07-19 --> 2019-07-23
+2019-07-19 --> 2019-08-06
 
 
 
@@ -56,6 +56,7 @@ class <span class="pl-k">MysqlLightUserDatabase</span> implements [LightUserData
     - public [__construct](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/MysqlLightUserDatabase/__construct.md)() : void
     - public [setPdoWrapper](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/MysqlLightUserDatabase/setPdoWrapper.md)([Ling\Light_Database\LightDatabasePdoWrapper](https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/LightDatabasePdoWrapper.md) $pdoWrapper) : void
     - public [getUserInfo](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/MysqlLightUserDatabase/getUserInfo.md)(string $identifier, string $password) : array | false
+    - public [getUserInfoByIdentifier](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/MysqlLightUserDatabase/getUserInfoByIdentifier.md)(string $identifier) : array | false
     - public [addUser](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/MysqlLightUserDatabase/addUser.md)(string $identifier, string $password, array $userInfo) : void
     - public [updateUser](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/MysqlLightUserDatabase/updateUser.md)(string $identifier, array $userInfo) : void
     - public [deleteUser](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/MysqlLightUserDatabase/deleteUser.md)(string $identifier) : void
@@ -114,6 +115,7 @@ Methods
 - [MysqlLightUserDatabase::__construct](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/MysqlLightUserDatabase/__construct.md) &ndash; Builds the MysqlLightUserDatabase instance.
 - [MysqlLightUserDatabase::setPdoWrapper](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/MysqlLightUserDatabase/setPdoWrapper.md) &ndash; Sets the pdoWrapper.
 - [MysqlLightUserDatabase::getUserInfo](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/MysqlLightUserDatabase/getUserInfo.md) &ndash; credentials don't match any user.
+- [MysqlLightUserDatabase::getUserInfoByIdentifier](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/MysqlLightUserDatabase/getUserInfoByIdentifier.md) &ndash; doesn't match an user.
 - [MysqlLightUserDatabase::addUser](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/MysqlLightUserDatabase/addUser.md) &ndash; Adds the user info to the database.
 - [MysqlLightUserDatabase::updateUser](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/MysqlLightUserDatabase/updateUser.md) &ndash; Updates the user identified by the given identifier.
 - [MysqlLightUserDatabase::deleteUser](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/MysqlLightUserDatabase/deleteUser.md) &ndash; Deletes the user identified by the given identifier.

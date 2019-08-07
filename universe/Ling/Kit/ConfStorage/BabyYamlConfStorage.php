@@ -90,6 +90,27 @@ class BabyYamlConfStorage implements ConfStorageInterface
         $pageFile = $dir . ".byml";
         if (file_exists($pageFile)) {
             $conf = BabyYamlUtil::readFile($pageFile);
+
+            //--------------------------------------------
+            // PARENT TRICK
+            //--------------------------------------------
+            /**
+             * This is a trick that applies only to babyYaml storage.
+             * It improves readability of the configuration files, at the cost of more processing.
+             * I don't recommend to use this in production.
+             * But if you can read this, you know that you can use that if you want.
+             * It basically allows you to re-use another .byml file as the base for another, thus saving
+             * you from retyping all the widgets again and again every time you create a new page.
+             */
+            if (array_key_exists("_parent", $conf)) {
+                $parentFile = $this->rootDir . "/" . $conf['_parent'] . ".byml";
+                if (file_exists($parentFile)) {
+                    $parentConf = BabyYamlUtil::readFile($parentFile);
+                    $conf = ArrayTool::arrayMergeReplaceRecursive([$parentConf, $conf]);
+                }
+            }
+
+
             if (is_dir($dir)) {
                 /**
                  * Allowing third-party plugins to tap into the page configuration.

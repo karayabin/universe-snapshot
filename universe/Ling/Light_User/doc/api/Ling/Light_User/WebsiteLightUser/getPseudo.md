@@ -46,7 +46,7 @@ Returns string | null.
 
 Source Code
 ===========
-See the source code for method [WebsiteLightUser::getPseudo](https://github.com/lingtalfi/Light_User/blob/master/WebsiteLightUser.php#L244-L247)
+See the source code for method [WebsiteLightUser::getPseudo](https://github.com/lingtalfi/Light_User/blob/master/WebsiteLightUser.php#L333-L336)
 
 
 See Also

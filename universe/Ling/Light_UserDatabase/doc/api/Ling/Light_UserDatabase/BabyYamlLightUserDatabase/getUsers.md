@@ -52,7 +52,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [BabyYamlLightUserDatabase::getUsers](https://github.com/lingtalfi/Light_UserDatabase/blob/master/BabyYamlLightUserDatabase.php#L131-L138)
+See the source code for method [BabyYamlLightUserDatabase::getUsers](https://github.com/lingtalfi/Light_UserDatabase/blob/master/BabyYamlLightUserDatabase.php#L145-L152)
 
 
 See Also

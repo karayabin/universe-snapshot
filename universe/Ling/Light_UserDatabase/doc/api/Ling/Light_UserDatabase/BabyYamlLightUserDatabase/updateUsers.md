@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [BabyYamlLightUserDatabase::updateUsers](https://github.com/lingtalfi/Light_UserDatabase/blob/master/BabyYamlLightUserDatabase.php#L146-L149)
+See the source code for method [BabyYamlLightUserDatabase::updateUsers](https://github.com/lingtalfi/Light_UserDatabase/blob/master/BabyYamlLightUserDatabase.php#L160-L163)
 
 
 See Also

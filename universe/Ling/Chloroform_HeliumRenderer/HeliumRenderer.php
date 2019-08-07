@@ -88,7 +88,9 @@ class HeliumRenderer implements ChloroformRendererInterface
      * - displayErrorMode: string=both (both | inline | summary). How to display error messages: whether inline (i.e. above the form fields),
      *          in an error summary at the top of the form (summary mode), or both at the same time.
      * - useValidation: bool=true. Set it to false to debug static validation, or if you don't need js validation at all.
-     * - renderPrintsJsHandler: bool=true. Whether the render method should print the js handler. If false, you are responsible for printing the js handler manually wherever you see fit (usually just before the body tag).
+     * - printJsHandler: bool=true. Whether the render method should print the js handler. If false, you are responsible for printing the js handler manually wherever you see fit (usually just before the body tag).
+     * - printSubmitButton: bool=true. Whether to render the submit button.
+     * - printFormTag: bool=true. Whether to render the form tag.
      * - formStyle: string=stack (stack|horizontal). Which bootstrap 4 style to use to render the fields.
      *                  With stack, the form control is below the label,
      *                  with horizontal, the form control is to the right of the label.
@@ -122,11 +124,11 @@ class HeliumRenderer implements ChloroformRendererInterface
     protected $_formCssId;
 
     /**
-     * This property holds the chloroform fields for this instance.
+     * This property holds the _chloroform array for this instance.
      * This property becomes only available when the render method is called.
      * @var array
      */
-    protected $_chloroformFields;
+    protected $_chloroform;
 
 
     /**
@@ -154,7 +156,9 @@ class HeliumRenderer implements ChloroformRendererInterface
             ],
             "displayErrorMode" => "both",
             "useValidation" => true,
-            "renderPrintsJsHandler" => true,
+            "printJsHandler" => true,
+            "printSubmitButton" => true,
+            "printFormTag" => true,
             "formStyle" => "stack",
         ], $options);
 
@@ -175,10 +179,29 @@ class HeliumRenderer implements ChloroformRendererInterface
         }
 
         $this->_formCssId = "";
-        $this->_chloroformFields = [];
+        $this->_chloroform = [];
 
     }
 
+
+    /**
+     * Stores the chloroform array in memory.
+     *
+     * You should use this method before (and along with) printFormTagOpening, printFormContent and printFormTagClosing
+     * if you need to use a custom submit button for instance.
+     *
+     * Otherwise the simpler render method should be enough.
+     *
+     *
+     * @param array $chloroform
+     */
+    public function prepare(array $chloroform)
+    {
+        $cssId = StringTool::getUniqueCssId();
+        // storing cache vars
+        $this->_chloroform = $chloroform;
+        $this->_formCssId = $cssId;
+    }
 
     /**
      * @implementation
@@ -186,44 +209,37 @@ class HeliumRenderer implements ChloroformRendererInterface
     public function render(array $chloroform): string
     {
 
-        $cssId = StringTool::getUniqueCssId();
 
-        // storing cache vars for the js handler
-        $this->_formCssId = $cssId;
-        $this->_chloroformFields = $chloroform['fields'];
-
-        $isPosted = $chloroform["isPosted"];
-
-        $sPosted = (true === $isPosted) ? "helium-was-validated" : "";
-
+        $this->prepare($chloroform);
 
         ob_start();
+
+
+        if (true === $this->options['printFormTag']) {
+            $this->printFormTagOpening();
+        }
+
+
+        $this->printFormContent();
+
+
         ?>
-        <form id="<?php echo $cssId; ?>" novalidate class="helium <?php echo $sPosted; ?>"
-              method="<?php echo $this->options['method']; ?>"
-              action="<?php echo htmlspecialchars($this->options['action']); ?>"
-            <?php if (true === $this->options['useEnctypeMultiformData']): ?>
-                enctype="multipart/form-data"
-            <?php endif; ?>
-        >
 
 
-            <?php
-            $this->printNotifications($chloroform['notifications']);
-            $this->printErrorSummary($chloroform['errors']);
-            $this->printFields($chloroform['fields']);
-            ?>
+        <?php if (true === $this->options['printSubmitButton']): ?>
+        <button type="submit" class="submitButton btn btn-primary">
+            <?php echo $this->options['text']['submitButtonValue']; ?>
+        </button>
+    <?php endif; ?>
 
 
-            <button type="submit" class="submitButton btn btn-primary">
-                <?php echo $this->options['text']['submitButtonValue']; ?>
-            </button>
-
-
-        </form>
         <?php
 
-        if (true === $this->options['renderPrintsJsHandler']) {
+        if (true === $this->options['printFormTag']) {
+            $this->printFormTagClosing();
+        }
+
+        if (true === $this->options['printJsHandler']) {
             $this->printJsHandler();
         }
 
@@ -231,9 +247,56 @@ class HeliumRenderer implements ChloroformRendererInterface
         return ob_get_clean();
     }
 
+
+    /**
+     * Prints the form content (notifications, error summary, and fields), but not the
+     * form tag itself.
+     *
+     *
+     * @throws ChloroformHeliumRendererException
+     */
+    public function printFormContent()
+    {
+        $this->printNotifications($this->_chloroform['notifications']);
+        $this->printErrorSummary($this->_chloroform['errors']);
+        $this->printFields($this->_chloroform['fields']);
+    }
+
+    /**
+     * Prints the opening form tag.
+     */
+public function printFormTagOpening()
+{
+    $isPosted = $this->_chloroform["isPosted"];
+    $sPosted = (true === $isPosted) ? "helium-was-validated" : "";
+    ?>
+    <form id="<?php echo $this->_formCssId; ?>" novalidate class="helium <?php echo $sPosted; ?>"
+          method="<?php echo $this->options['method']; ?>"
+          action="<?php echo htmlspecialchars($this->options['action']); ?>"
+        <?php if (true === $this->options['useEnctypeMultiformData']): ?>
+            enctype="multipart/form-data"
+        <?php endif; ?>
+    >
+        <?php
+        }
+
+
+        /**
+         * Prints the closing form tag.
+         */
+        public function printFormTagClosing()
+        {
+        ?>
+    </form>
+    <?php
+}
+
+
+
     //--------------------------------------------
     //
     //--------------------------------------------
+
     /**
      * Prints the given notifications.
      *
@@ -934,7 +997,7 @@ class HeliumRenderer implements ChloroformRendererInterface
     public function printJsHandler(array $options = null)
     {
         $cssId = $this->_formCssId;
-        $fields = $this->_chloroformFields;
+        $fields = $this->_chloroform['fields'];
         if (null === $options) {
             $options = [
                 "displayErrorSummary" => $this->displayErrorSummary,
@@ -985,7 +1048,7 @@ class HeliumRenderer implements ChloroformRendererInterface
                    id="<?php echo $cssId; ?>"
                    name="<?php echo $field['htmlName']; ?>"
                    value="<?php echo htmlspecialchars($field['value']); ?>"
-                   class="form-control <?php echo $sClass; ?>"
+                   class="form-control control-type-<?php echo $type; ?> <?php echo $sClass; ?>"
                 <?php if (true === $hasHint): ?>
                     aria-describedby="<?php echo $hintId; ?>"
                 <?php endif; ?>

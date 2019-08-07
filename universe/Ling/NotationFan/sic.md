@@ -164,6 +164,11 @@ and then call its **setMailer** method, with a new instance of **Imaginary\Maile
 
 
 ### Example #5 a callable
+
+The sic notation is flexible enough to let you create a php callable from an instance.
+Here is how we do it.
+
+
 ```yaml
 instance: Jin\HttpRequestLifecycle\PreRouting\RequestLog
 callable_method: handleRequest

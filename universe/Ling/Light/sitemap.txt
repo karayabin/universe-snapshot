@@ -1,5 +1,12 @@
 https://github.com/lingtalfi/Light/blob/master/README.md
+https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Controller/LightController/__construct.md
+https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Controller/LightController/getContainer.md
+https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Controller/LightController/getLight.md
+https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Controller/LightController/setLight.md
+https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Controller/LightController.md
+https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Controller/LightControllerInterface.md
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/__construct.md
+https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/getApplicationDir.md
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/getContainer.md
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/getControllerArgs.md
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/getRoutes.md
@@ -8,9 +15,12 @@ https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/reg
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/renderDebugPage.md
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/renderInternalServerErrorPage.md
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/run.md
+https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/setApplicationDir.md
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/setContainer.md
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/setDebug.md
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light.md
+https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/LightAwareInterface/setLight.md
+https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/LightAwareInterface.md
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Exception/LightException/__construct.md
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Exception/LightException/getLightErrorCode.md
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Exception/LightException.md

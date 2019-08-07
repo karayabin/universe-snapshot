@@ -44,6 +44,18 @@ Related
 History Log
 =============
 
+- 1.4.0 -- 2019-08-07
+
+    - update WebsiteLightUser->updateInfo method
+    
+- 1.3.0 -- 2019-08-07
+
+    - update WebsiteLightUser, now has an id property
+    
+- 1.2.0 -- 2019-08-06
+
+    - update WebsiteLightUser, now has an extra property, and a proper (i.e. not email) identifier
+    
 - 1.1.2 -- 2019-07-19
 
     - update documentation, add related section

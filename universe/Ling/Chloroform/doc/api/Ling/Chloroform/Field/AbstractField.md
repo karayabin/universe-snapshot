@@ -4,7 +4,7 @@
 
 The AbstractField class
 ================
-2019-04-10 --> 2019-07-26
+2019-04-10 --> 2019-08-05
 
 
 
@@ -146,4 +146,4 @@ See the source code of [Ling\Chloroform\Field\AbstractField](https://github.com/
 
 SeeAlso
 ==============
-Previous class: [ChloroformException](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Exception/ChloroformException.md)<br>Next class: [CSRFField](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/CSRFField.md)<br>
+Previous class: [ChloroformException](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Exception/ChloroformException.md)<br>Next class: [AjaxFileBoxField](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/AjaxFileBoxField.md)<br>

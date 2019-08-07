@@ -4,7 +4,7 @@
 
 The CSRFField class
 ================
-2019-04-10 --> 2019-07-26
+2019-04-10 --> 2019-08-05
 
 
 
@@ -174,4 +174,4 @@ See the source code of [Ling\Chloroform\Field\CSRFField](https://github.com/ling
 
 SeeAlso
 ==============
-Previous class: [AbstractField](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/AbstractField.md)<br>Next class: [CheckboxField](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/CheckboxField.md)<br>
+Previous class: [AjaxFileBoxField](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/AjaxFileBoxField.md)<br>Next class: [CheckboxField](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/CheckboxField.md)<br>

@@ -649,6 +649,10 @@ This includes:
 History Log
 =============
 
+- 1.10.1 -- 2019-08-07
+
+    - fix ClassParser->expandIncludes not collecting ancestor interfaces properly
+    
 - 1.10.0 -- 2019-07-23
 
     - update PhpClassHelper::getClasses2Urls now recognizes php pdoStatement class

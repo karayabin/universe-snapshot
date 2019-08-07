@@ -60,7 +60,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [ClassParser::getTagDescriptionByContent](https://github.com/lingtalfi/DocTools/blob/master/ClassParser/ClassParser.php#L1147-L1166)
+See the source code for method [ClassParser::getTagDescriptionByContent](https://github.com/lingtalfi/DocTools/blob/master/ClassParser/ClassParser.php#L1159-L1178)
 
 
 See Also

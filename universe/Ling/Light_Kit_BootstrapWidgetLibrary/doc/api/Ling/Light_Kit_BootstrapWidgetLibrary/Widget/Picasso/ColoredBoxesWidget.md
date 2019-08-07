@@ -4,7 +4,7 @@
 
 The ColoredBoxesWidget class
 ================
-2019-04-26 --> 2019-07-25
+2019-04-26 --> 2019-07-30
 
 
 
@@ -81,4 +81,4 @@ See the source code of [Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\Col
 
 SeeAlso
 ==============
-Previous class: [BlogenSidebarIconCardsWidget](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/Widget/Picasso/BlogenSidebarIconCardsWidget.md)<br>Next class: [ContactFormAndCompanyInfoWidget](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/Widget/Picasso/ContactFormAndCompanyInfoWidget.md)<br>
+Previous class: [ChloroformWidget](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/Widget/Picasso/ChloroformWidget.md)<br>Next class: [ContactFormAndCompanyInfoWidget](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/Widget/Picasso/ContactFormAndCompanyInfoWidget.md)<br>

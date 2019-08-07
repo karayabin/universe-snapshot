@@ -4,7 +4,7 @@
 
 The Light class
 ================
-2019-04-09 --> 2019-07-18
+2019-04-09 --> 2019-08-02
 
 
 
@@ -95,6 +95,8 @@ class <span class="pl-k">Light</span>  {
     - public [setDebug](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/setDebug.md)(bool $debug) : void
     - public [setContainer](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/setContainer.md)([Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) $container) : void
     - public [getContainer](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/getContainer.md)() : [LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md)
+    - public [getApplicationDir](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/getApplicationDir.md)() : string
+    - public [setApplicationDir](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/setApplicationDir.md)(string $applicationDir) : void
     - public [registerRoute](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/registerRoute.md)(string $pattern, ?$controller, string $name = null, array $requirements = [], array $urlParams = [], string $host = null, bool $isSecure = null) : void
     - public [getRoutes](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/getRoutes.md)() : array
     - public [registerErrorHandler](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/registerErrorHandler.md)(callable $errorHandler) : void
@@ -157,6 +159,8 @@ Methods
 - [Light::setDebug](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/setDebug.md) &ndash; Sets the debug.
 - [Light::setContainer](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/setContainer.md) &ndash; Sets the container.
 - [Light::getContainer](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/getContainer.md) &ndash; Returns the services container of this instance.
+- [Light::getApplicationDir](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/getApplicationDir.md) &ndash; Returns the applicationDir of this instance.
+- [Light::setApplicationDir](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/setApplicationDir.md) &ndash; Sets the applicationDir.
 - [Light::registerRoute](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/registerRoute.md) &ndash; Registers a route item, as defined in [the route page](https://github.com/lingtalfi/Light/blob/master/doc/pages/route.md).
 - [Light::getRoutes](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/getRoutes.md) &ndash; Returns the routes of this instance.
 - [Light::registerErrorHandler](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/registerErrorHandler.md) &ndash; Registers a error handler callback.
@@ -249,4 +253,4 @@ See the source code of [Ling\Light\Core\Light](https://github.com/lingtalfi/Ligh
 
 SeeAlso
 ==============
-Next class: [LightException](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Exception/LightException.md)<br>
+Previous class: [LightControllerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Controller/LightControllerInterface.md)<br>Next class: [LightAwareInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/LightAwareInterface.md)<br>

@@ -1,6 +1,6 @@
 Ling/Chloroform_HeliumRenderer
 ================
-2019-07-26 --> 2019-07-26
+2019-07-26 --> 2019-07-30
 
 
 
@@ -11,7 +11,11 @@ Table of contents
 - [ChloroformHeliumRendererException](https://github.com/lingtalfi/Chloroform_HeliumRenderer/blob/master/doc/api/Ling/Chloroform_HeliumRenderer/Exception/ChloroformHeliumRendererException.md) &ndash; The ChloroformHeliumRendererException class.
 - [HeliumRenderer](https://github.com/lingtalfi/Chloroform_HeliumRenderer/blob/master/doc/api/Ling/Chloroform_HeliumRenderer/HeliumRenderer.md) &ndash; The HeliumRenderer class.
     - [HeliumRenderer::__construct](https://github.com/lingtalfi/Chloroform_HeliumRenderer/blob/master/doc/api/Ling/Chloroform_HeliumRenderer/HeliumRenderer/__construct.md) &ndash; Builds the HeliumRenderer instance.
+    - [HeliumRenderer::prepare](https://github.com/lingtalfi/Chloroform_HeliumRenderer/blob/master/doc/api/Ling/Chloroform_HeliumRenderer/HeliumRenderer/prepare.md) &ndash; Stores the chloroform array in memory.
     - [HeliumRenderer::render](https://github.com/lingtalfi/Chloroform_HeliumRenderer/blob/master/doc/api/Ling/Chloroform_HeliumRenderer/HeliumRenderer/render.md) &ndash; Returns the html version of the passed chloroform array.
+    - [HeliumRenderer::printFormContent](https://github.com/lingtalfi/Chloroform_HeliumRenderer/blob/master/doc/api/Ling/Chloroform_HeliumRenderer/HeliumRenderer/printFormContent.md) &ndash; form tag itself.
+    - [HeliumRenderer::printFormTagOpening](https://github.com/lingtalfi/Chloroform_HeliumRenderer/blob/master/doc/api/Ling/Chloroform_HeliumRenderer/HeliumRenderer/printFormTagOpening.md) &ndash; Prints the opening form tag.
+    - [HeliumRenderer::printFormTagClosing](https://github.com/lingtalfi/Chloroform_HeliumRenderer/blob/master/doc/api/Ling/Chloroform_HeliumRenderer/HeliumRenderer/printFormTagClosing.md) &ndash; Prints the closing form tag.
     - [HeliumRenderer::printNotifications](https://github.com/lingtalfi/Chloroform_HeliumRenderer/blob/master/doc/api/Ling/Chloroform_HeliumRenderer/HeliumRenderer/printNotifications.md) &ndash; Prints the given notifications.
     - [HeliumRenderer::printErrorSummary](https://github.com/lingtalfi/Chloroform_HeliumRenderer/blob/master/doc/api/Ling/Chloroform_HeliumRenderer/HeliumRenderer/printErrorSummary.md) &ndash; Prints the given errors.
     - [HeliumRenderer::printFields](https://github.com/lingtalfi/Chloroform_HeliumRenderer/blob/master/doc/api/Ling/Chloroform_HeliumRenderer/HeliumRenderer/printFields.md) &ndash; Prints the given fields.

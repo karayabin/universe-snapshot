@@ -48,7 +48,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [WebsiteLightUser::connect](https://github.com/lingtalfi/Light_User/blob/master/WebsiteLightUser.php#L174-L178)
+See the source code for method [WebsiteLightUser::connect](https://github.com/lingtalfi/Light_User/blob/master/WebsiteLightUser.php#L197-L201)
 
 
 See Also

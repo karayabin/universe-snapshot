@@ -52,7 +52,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [BabyYamlConfStorage::init](https://github.com/lingtalfi/Kit/blob/master/ConfStorage/BabyYamlConfStorage.php#L155-L161)
+See the source code for method [BabyYamlConfStorage::init](https://github.com/lingtalfi/Kit/blob/master/ConfStorage/BabyYamlConfStorage.php#L176-L182)
 
 
 See Also

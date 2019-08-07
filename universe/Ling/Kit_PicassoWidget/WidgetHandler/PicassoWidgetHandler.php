@@ -162,10 +162,8 @@ class PicassoWidgetHandler implements WidgetHandlerInterface, KitPageRendererAwa
     {
         if (array_key_exists("className", $widgetConf)) {
             if (array_key_exists("template", $widgetConf)) {
-
                 $className = $widgetConf['className'];
                 $template = $widgetConf['template'];
-
 
                 try {
                     $class = new \ReflectionClass($className);

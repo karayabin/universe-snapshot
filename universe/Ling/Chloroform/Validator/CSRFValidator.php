@@ -30,16 +30,7 @@ class CSRFValidator extends AbstractValidator
             if (null === $value) {
                 $value = "";
             }
-            /**
-             * Note: Chloroform implementation of CSRF token doesn't follow the recommendations
-             * of the [CSRFTools](https://github.com/lingtalfi/CSRFTools#how-to).
-             *
-             * And so in this implementation the createToken method is called AFTER the isValid method.
-             * But this works well.
-             *
-             *
-             */
-            if (false === CSRFProtector::inst()->isValid($value, $field->getCSRFIdentifier())) {
+            if (false === CSRFProtector::inst()->isValid($field->getCSRFIdentifier(), $value, true)) {
                 $error = $this->getErrorMessage("main", [
                     "fieldName" => $fieldName,
                 ]);

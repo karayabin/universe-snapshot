@@ -174,6 +174,10 @@ Related
 History Log
 =============
 
+- 1.10.0 -- 2019-07-29
+
+    - add BabyYamlConfStorage->getPageConf parent trick for devs
+    
 - 1.9.0 -- 2019-07-25
 
     - update KitPageRenderer, now understands the bodyClass page configuration property

@@ -46,7 +46,7 @@ Returns [PageConfUpdator](https://github.com/lingtalfi/Light_Kit/blob/master/doc
 
 Source Code
 ===========
-See the source code for method [PageConfUpdator::create](https://github.com/lingtalfi/Light_Kit/blob/master/PageConfigurationUpdator/PageConfUpdator.php#L37-L40)
+See the source code for method [PageConfUpdator::create](https://github.com/lingtalfi/Light_Kit/blob/master/PageConfigurationUpdator/PageConfUpdator.php#L47-L50)
 
 
 See Also

@@ -56,7 +56,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [MysqlLightUserDatabase::updateUser](https://github.com/lingtalfi/Light_UserDatabase/blob/master/MysqlLightUserDatabase.php#L157-L170)
+See the source code for method [MysqlLightUserDatabase::updateUser](https://github.com/lingtalfi/Light_UserDatabase/blob/master/MysqlLightUserDatabase.php#L172-L185)
 
 
 See Also

@@ -4,7 +4,7 @@
 
 The ZeroAdminNotificationAlertWidget class
 ================
-2019-04-26 --> 2019-07-25
+2019-04-26 --> 2019-07-30
 
 
 
@@ -22,10 +22,10 @@ Class synopsis
 ==============
 
 
-class <span class="pl-k">ZeroAdminNotificationAlertWidget</span> extends EasyLightPicassoWidget implements KitPageRendererAwareInterface, [UniversalTemplateEngineInterface](https://github.com/lingtalfi/UniversalTemplateEngine/blob/master/UniversalTemplateEngineInterface.php), WidgetConfAwarePicassoWidgetInterface {
+class <span class="pl-k">ZeroAdminNotificationAlertWidget</span> extends [EasyLightPicassoWidget](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/api/Ling/Kit_PicassoWidget/Widget/EasyLightPicassoWidget.md) implements [KitPageRendererAwareInterface](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRendererAwareInterface.md), [UniversalTemplateEngineInterface](https://github.com/lingtalfi/UniversalTemplateEngine/blob/master/UniversalTemplateEngineInterface.php), [WidgetConfAwarePicassoWidgetInterface](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/api/Ling/Kit_PicassoWidget/Widget/WidgetConfAwarePicassoWidgetInterface.md) {
 
 - Inherited properties
-    - protected Ling\Kit\PageRenderer\KitPageRendererInterface [EasyLightPicassoWidget::$kitPageRenderer](#property-kitPageRenderer) ;
+    - protected [Ling\Kit\PageRenderer\KitPageRendererInterface](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRendererInterface.md) [EasyLightPicassoWidget::$kitPageRenderer](#property-kitPageRenderer) ;
     - protected array [WidgetConfAwarePicassoWidget::$widgetConf](#property-widgetConf) ;
     - protected array [PicassoWidget::$libraries](#property-libraries) ;
     - protected array [PicassoWidget::$attr](#property-attr) ;
@@ -33,8 +33,8 @@ class <span class="pl-k">ZeroAdminNotificationAlertWidget</span> extends EasyLig
 
 - Inherited methods
     - public EasyLightPicassoWidget::__construct() : void
-    - public EasyLightPicassoWidget::setKitPageRenderer(Ling\Kit\PageRenderer\KitPageRendererInterface $renderer) : void
-    - public EasyLightPicassoWidget::getKitPageRenderer() : Ling\Kit\PageRenderer\KitPageRendererInterface | null
+    - public EasyLightPicassoWidget::setKitPageRenderer([Ling\Kit\PageRenderer\KitPageRendererInterface](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRendererInterface.md) $renderer) : void
+    - public EasyLightPicassoWidget::getKitPageRenderer() : [KitPageRendererInterface](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRendererInterface.md) | null
     - protected EasyLightPicassoWidget::getContainer() : Ling\Light\ServiceContainer\LightServiceContainerInterface
     - public WidgetConfAwarePicassoWidget::setWidgetConf(array $widgetConf) : void
     - public WidgetConfAwarePicassoWidget::getWidgetConf() : array

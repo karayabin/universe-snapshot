@@ -45,6 +45,10 @@ Related
 History Log
 =============
 
+- 1.12.0 -- 2019-07-30
+
+    - add ChloroformWidget
+    
 - 1.11.1 -- 2019-07-25
 
     - fix ZeroAdminLoginFormWidget template not showing the hidden var
