@@ -35,4 +35,5 @@ interface LightUserInterface
      * @return bool
      */
     public function hasRight(string $right): bool;
+
 }

@@ -174,6 +174,14 @@ Related
 History Log
 =============
 
+- 1.11.1 -- 2019-08-30
+
+    - move KitPageRenderer->getNewHtmlPageCopilot to getHtmlPageCopilot 
+    
+- 1.11.0 -- 2019-08-30
+
+    - add KitPageRenderer->getNewHtmlPageCopilot method
+    
 - 1.10.0 -- 2019-07-29
 
     - add BabyYamlConfStorage->getPageConf parent trick for devs

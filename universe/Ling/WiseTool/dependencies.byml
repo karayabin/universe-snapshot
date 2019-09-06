@@ -1,0 +1,7 @@
+dependencies: 
+    Ling: 
+        - Chloroform
+        - Light_Kit_Admin
+    
+
+post_install: []

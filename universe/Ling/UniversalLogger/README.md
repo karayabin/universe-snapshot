@@ -42,6 +42,10 @@ The **UniversalLogger** has just one method:
 History Log
 ------------------
 
+- 1.1.0 -- 2019-08-30
+
+    - updated UniversalLoggerInterface->log, now the message doesn't have to be a string
+    
 - 1.0.0 -- 2019-02-25
 
     - initial commit

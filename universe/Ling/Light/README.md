@@ -30,10 +30,15 @@ Or just download it and place it where you want otherwise.
 
 Summary
 ===========
-<!-- - [Light api](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light.md) (generated with [DocTools](https://github.com/lingtalfi/DocTools))-->
+- [Light api](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light.md) (generated with [DocTools](https://github.com/lingtalfi/DocTools))
 - Pages
     - [Diary](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/diary.md)
-    <!-- - [Diary](https://github.com/lingtalfi/Light/blob/master/doc/pages/diary.md)-->
+    - [Plugin](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/plugin.md)
+    - [Rights](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/rights.md)
+    - [Route](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/route.md)
+    - [Service container](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/light-service-container.md)
+    - [General philosophy](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/light-general-philosophy.md)
+    - [Application recommended structure](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/light-application-recommended-structure.md)
 
 
 
@@ -43,6 +48,30 @@ Summary
 History Log
 =============
 
+- 0.13.2 -- 2019-09-03
+
+    - add doc link to api
+    
+- 0.13.1 -- 2019-08-21
+
+    - fix HttpJsonResponse typo
+    
+- 0.13.0 -- 2019-08-21
+
+    - added HttpJsonResponse
+    
+- 0.12.0 -- 2019-08-14
+
+    - changed application recommended structure philosophy
+    
+- 0.11.0 -- 2019-08-13
+
+    - changed application recommended structure
+    
+- 0.10.0 -- 2019-08-09
+
+    - add LightHelper::executeMethod
+    
 - 0.9.0 -- 2019-08-02
 
     - add setter/getter for Light applicationDir property.

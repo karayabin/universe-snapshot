@@ -4,7 +4,7 @@
 
 The HttpRedirectResponse class
 ================
-2019-04-09 --> 2019-08-02
+2019-04-09 --> 2019-09-03
 
 
 
@@ -69,4 +69,4 @@ See the source code of [Ling\Light\Http\HttpRedirectResponse](https://github.com
 
 SeeAlso
 ==============
-Previous class: [ServiceContainerHelper](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ServiceContainerHelper.md)<br>Next class: [HttpRequest](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest.md)<br>
+Previous class: [HttpJsonResponse](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpJsonResponse.md)<br>Next class: [HttpRequest](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest.md)<br>

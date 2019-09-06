@@ -5,9 +5,11 @@ namespace Ling\Light_Kit_Admin\Controller;
 
 
 use Ling\Light\Controller\LightController;
+use Ling\Light\Controller\RouteAwareControllerInterface;
 use Ling\Light\Http\HttpRedirectResponse;
 use Ling\Light\Http\HttpResponseInterface;
 use Ling\Light\ReverseRouter\LightReverseRouterInterface;
+use Ling\Light_Flasher\Service\LightFlasher;
 use Ling\Light_Kit\PageConfigurationUpdator\PageConfUpdator;
 use Ling\Light_Kit_Admin\Service\LightKitAdminService;
 use Ling\Light_User\WebsiteLightUser;
@@ -16,8 +18,33 @@ use Ling\Light_User\WebsiteLightUser;
 /**
  * The LightKitAdminController class.
  */
-class LightKitAdminController extends LightController
+class LightKitAdminController extends LightController implements RouteAwareControllerInterface
 {
+
+    /**
+     * This property holds the route for this instance.
+     * See @page(the route page) for more information.
+     * @var array
+     */
+    protected $route;
+
+    /**
+     * @overrides
+     */
+    public function __construct()
+    {
+        parent::__construct();
+        $this->route = [];
+    }
+
+    /**
+     * @implementation
+     */
+    public function setRoute(array $route)
+    {
+        $this->route = $route;
+    }
+
 
     /**
      * Returns the kit admin service instance.
@@ -28,6 +55,20 @@ class LightKitAdminController extends LightController
     protected function getKitAdmin(): LightKitAdminService
     {
         return $this->getContainer()->get('kit_admin');
+    }
+
+
+    /**
+     * Returns a flasher instance.
+     * For more information, check out @page(the flasher service).
+     *
+     *
+     * @return LightFlasher
+     * @throws \Exception
+     */
+    protected function getFlasher(): LightFlasher
+    {
+        return $this->getContainer()->get('flasher');
     }
 
 

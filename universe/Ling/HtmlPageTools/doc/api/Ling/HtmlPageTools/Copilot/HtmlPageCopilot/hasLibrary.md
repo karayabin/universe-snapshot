@@ -7,7 +7,7 @@ HtmlPageCopilot::hasLibrary
 
 
 
-HtmlPageCopilot::hasLibrary — Returns whether a library has been registered to this instance.
+HtmlPageCopilot::hasLibrary — Returns whether a library has been registered.
 
 
 
@@ -21,7 +21,7 @@ public [HtmlPageCopilot::hasLibrary](https://github.com/lingtalfi/HtmlPageTools/
 
 
 
-Returns whether a library has been registered to this instance.
+Returns whether a library has been registered.
 
 
 
@@ -49,7 +49,7 @@ Returns bool.
 
 Source Code
 ===========
-See the source code for method [HtmlPageCopilot::hasLibrary](https://github.com/lingtalfi/HtmlPageTools/blob/master/Copilot/HtmlPageCopilot.php#L215-L218)
+See the source code for method [HtmlPageCopilot::hasLibrary](https://github.com/lingtalfi/HtmlPageTools/blob/master/Copilot/HtmlPageCopilot.php#L203-L206)
 
 
 See Also
@@ -57,5 +57,5 @@ See Also
 
 The [HtmlPageCopilot](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot.md) class.
 
-Previous method: [getMetas](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot/getMetas.md)<br>Next method: [addCssLibrary](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot/addCssLibrary.md)<br>
+Previous method: [getMetas](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot/getMetas.md)<br>Next method: [registerLibrary](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot/registerLibrary.md)<br>
 

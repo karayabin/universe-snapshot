@@ -627,6 +627,10 @@ The implementation is messy and without documentation, but it works.
 History Log
 ===============
     
+- 1.4.0 -- 2019-08-27
+
+    - add BabyYamlUtil::parseCsv method 
+    
 - 1.3.5 -- 2019-05-10
 
     - fix BabyYamlBuilder not handling nested multiline comments properly 

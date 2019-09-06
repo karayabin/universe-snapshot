@@ -116,7 +116,7 @@ class MysqlLightWebsiteUserDatabase implements LightWebsiteUserDatabaseInterface
     public function __construct()
     {
         $this->database = null;
-        $this->table = "user";
+        $this->table = "lud_user";
         $this->pdoWrapper = null;
         $this->root_identifier = "root";
         $this->root_password = "root";
@@ -150,6 +150,8 @@ class MysqlLightWebsiteUserDatabase implements LightWebsiteUserDatabaseInterface
         $ret = $this->pdoWrapper->fetch("select * from $table where identifier=:identifier", [
             "identifier" => $identifier,
         ]);
+
+
         if (false !== $ret) {
 
 
@@ -296,6 +298,8 @@ class MysqlLightWebsiteUserDatabase implements LightWebsiteUserDatabaseInterface
 
 
 
+
+
     //--------------------------------------------
     //
     //--------------------------------------------
@@ -423,7 +427,15 @@ class MysqlLightWebsiteUserDatabase implements LightWebsiteUserDatabaseInterface
     }
 
 
-
+    /**
+     * Returns the table name.
+     *
+     * @return string
+     */
+    public function getTable(): string
+    {
+        return $this->table;
+    }
 
 
     //--------------------------------------------

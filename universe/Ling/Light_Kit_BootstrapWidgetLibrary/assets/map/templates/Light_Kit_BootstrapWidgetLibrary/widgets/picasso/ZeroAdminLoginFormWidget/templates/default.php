@@ -79,10 +79,12 @@ $use_link_forgot_password = $z['use_link_forgot_password'] ?? true;
                                     <i class="<?php echo htmlspecialchars($field_username['icon']); ?>"></i>
                                 </span>
                                 </div>
-                                <input class="form-control" type="text"
-                                       name="<?php echo htmlspecialchars($field_username['name']); ?>"
-                                       placeholder="<?php echo htmlspecialchars($field_username['label']); ?>"
-                                       value="<?php echo htmlspecialchars($field_username['value']); ?>"
+                                <input
+                                        id="zero-admin-login-auto-focus-input"
+                                        class="form-control" type="text"
+                                        name="<?php echo htmlspecialchars($field_username['name']); ?>"
+                                        placeholder="<?php echo htmlspecialchars($field_username['label']); ?>"
+                                        value="<?php echo htmlspecialchars($field_username['value']); ?>"
                                 >
                             </div>
                             <div class="input-group mb-4">
@@ -107,7 +109,7 @@ $use_link_forgot_password = $z['use_link_forgot_password'] ?? true;
                                 <?php if ($use_link_forgot_password): ?>
                                     <div class="col-6 text-right">
                                         <a href="<?php echo htmlspecialchars($link_forgot_password['link']); ?>"
-                                           class="btn btn-link px-0" type="button">
+                                           class="btn btn-link px-0">
                                             <?php echo $link_forgot_password['text']; ?>
                                         </a>
                                     </div>
@@ -122,3 +124,12 @@ $use_link_forgot_password = $z['use_link_forgot_password'] ?? true;
 
 
 </div>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function (event) {
+        var firstInput = document.getElementById("zero-admin-login-auto-focus-input");
+        firstInput.focus();
+    });
+
+</script>

@@ -896,6 +896,10 @@ When triggered, the upgrade process does the following steps:
 History Log
 =============
 
+- 1.9.2 -- 2019-08-30
+
+    - fix typo
+
 - 1.9.1 -- 2019-07-18
 
     - update docTools documentation, add links to source code for classes and methods

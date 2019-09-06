@@ -33,6 +33,14 @@ Or just download it and place it where you want otherwise.
 History Log
 =============
 
+- 1.11.5 -- 2019-08-14
+
+    - fix typo
+    
+- 1.11.4 -- 2019-08-14
+
+    - update PackLightPluginCommand to update new light app recommended structure's philosophy
+    
 - 1.11.3 -- 2019-07-18
 
     - update docTools documentation, add links to source code for classes and methods

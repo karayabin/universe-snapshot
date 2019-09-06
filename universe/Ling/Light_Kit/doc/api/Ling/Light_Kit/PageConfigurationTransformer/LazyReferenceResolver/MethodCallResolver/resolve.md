@@ -23,16 +23,7 @@ public [MethodCallResolver::resolve](https://github.com/lingtalfi/Light_Kit/blob
 
 Interprets the given $expr and returns the result.
 
-The given $expr should have one of the following format:
-
-- $class::$method
-- $class::$method($args)
-
-
-With:
-- $class: the full class name (i.e. Ling\Light_Kit\PageConfigurationTransformer\Blabla)
-- $method: the method name
-- $args: a list of args written in [shortcode notation](https://github.com/lingtalfi/Bat/blob/master/ShortCodeTool.md#parse)
+See the LightHelper::executeMethod for more details.
 
 
 
@@ -65,7 +56,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [MethodCallResolver::resolve](https://github.com/lingtalfi/Light_Kit/blob/master/PageConfigurationTransformer/LazyReferenceResolver/MethodCallResolver.php#L33-L36)
+See the source code for method [MethodCallResolver::resolve](https://github.com/lingtalfi/Light_Kit/blob/master/PageConfigurationTransformer/LazyReferenceResolver/MethodCallResolver.php#L40-L43)
 
 
 See Also
@@ -73,5 +64,5 @@ See Also
 
 The [MethodCallResolver](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageConfigurationTransformer/LazyReferenceResolver/MethodCallResolver.md) class.
 
-
+Previous method: [__construct](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageConfigurationTransformer/LazyReferenceResolver/MethodCallResolver/__construct.md)<br>Next method: [setContainer](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageConfigurationTransformer/LazyReferenceResolver/MethodCallResolver/setContainer.md)<br>
 

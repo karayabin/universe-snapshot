@@ -1,0 +1,25 @@
+realist:
+    instance: Ling\Light_Realist\Service\LightRealistService
+    methods:
+        setContainer:
+            container: @container()
+        setBaseDir:
+            dir: ${app_dir}
+
+realist_action_handler:
+    instance: Ling\Light_Realist\Service\LightRealistService
+    methods:
+        setContainer:
+            container: @container()
+        setBaseDir:
+            dir: ${app_dir}
+
+
+# --------------------------------------
+# hooks
+# --------------------------------------
+$easy_route.methods_collection:
+    -
+        method: registerBundleFile
+        args:
+            file: config/data/Light_Realist/Light_EasyRoute/realist_routes.byml

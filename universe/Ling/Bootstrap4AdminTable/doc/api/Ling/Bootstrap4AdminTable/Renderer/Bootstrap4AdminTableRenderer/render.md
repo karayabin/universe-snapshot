@@ -1,0 +1,58 @@
+[Back to the Ling/Bootstrap4AdminTable api](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable.md)<br>
+[Back to the Ling\Bootstrap4AdminTable\Renderer\Bootstrap4AdminTableRenderer class](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/Renderer/Bootstrap4AdminTableRenderer.md)
+
+
+Bootstrap4AdminTableRenderer::render
+================
+
+
+
+Bootstrap4AdminTableRenderer::render — Prints the static admin table.
+
+
+
+
+Description
+================
+
+
+public [Bootstrap4AdminTableRenderer::render](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/Renderer/Bootstrap4AdminTableRenderer/render.md)() : void
+
+
+
+
+Prints the static admin table.
+
+
+
+
+Parameters
+================
+
+This method has no parameters.
+
+
+Return values
+================
+
+Returns void.
+
+
+
+
+
+
+
+
+Source Code
+===========
+See the source code for method [Bootstrap4AdminTableRenderer::render](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/Renderer/Bootstrap4AdminTableRenderer.php#L87-L259)
+
+
+See Also
+================
+
+The [Bootstrap4AdminTableRenderer](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/Renderer/Bootstrap4AdminTableRenderer.md) class.
+
+Previous method: [setUseSpinKitService](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/Renderer/Bootstrap4AdminTableRenderer/setUseSpinKitService.md)<br>Next method: [getWidget](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/Renderer/Bootstrap4AdminTableRenderer/getWidget.md)<br>
+

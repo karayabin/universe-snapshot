@@ -232,7 +232,7 @@ class HelpCommand extends UniToolGenericCommand
         $output->write(H::s(1) . "If a planet/item doesn't exist in the local server, nothing will be done for this planet/item." . PHP_EOL);
         $output->write(H::s(1) . "See also: the <bold>todir</bold> command, which does the opposite." . PHP_EOL);
 
-        $output->write("- $upgrade: upgrade thes <b>uni-tool</b> if a newer version is available, and if so upgrades the <bold>upgradable</bold> planets in the local server (if defined) and in the current application." . PHP_EOL);
+        $output->write("- $upgrade: upgrade this <b>uni-tool</b> if a newer version is available, and if so upgrades the <bold>upgradable</bold> planets in the local server (if defined) and in the current application." . PHP_EOL);
         $output->write(H::s(1) . "Upgradable means that there is a newer version of the planet on the web." . PHP_EOL);
         $output->write(H::j(1) . $this->o("-f") . ": force mode. Forces the re-installing of the <b>uni-tool</b>." . PHP_EOL);
 

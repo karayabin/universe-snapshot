@@ -1,0 +1,12 @@
+https://github.com/lingtalfi/DotMenu/blob/master/README.md
+https://github.com/lingtalfi/DotMenu/blob/master/doc/api/Ling/DotMenu/DotMenu/__construct.md
+https://github.com/lingtalfi/DotMenu/blob/master/doc/api/Ling/DotMenu/DotMenu/appendItem.md
+https://github.com/lingtalfi/DotMenu/blob/master/doc/api/Ling/DotMenu/DotMenu/getItems.md
+https://github.com/lingtalfi/DotMenu/blob/master/doc/api/Ling/DotMenu/DotMenu/setChildrenKey.md
+https://github.com/lingtalfi/DotMenu/blob/master/doc/api/Ling/DotMenu/DotMenu/setIdKey.md
+https://github.com/lingtalfi/DotMenu/blob/master/doc/api/Ling/DotMenu/DotMenu/setItems.md
+https://github.com/lingtalfi/DotMenu/blob/master/doc/api/Ling/DotMenu/DotMenu/setStrictMode.md
+https://github.com/lingtalfi/DotMenu/blob/master/doc/api/Ling/DotMenu/DotMenu.md
+https://github.com/lingtalfi/DotMenu/blob/master/doc/api/Ling/DotMenu/Exception/DotMenuException.md
+https://github.com/lingtalfi/DotMenu/blob/master/doc/api/Ling/DotMenu.md
+https://github.com/lingtalfi/DotMenu/blob/master/doc/pages/conception-notes.md

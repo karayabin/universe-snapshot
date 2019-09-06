@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [Light::registerRoute](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/registerRoute.md)(string $pattern, ?$controller, string $name = null, array $requirements = [], array $urlParams = [], string $host = null, bool $isSecure = null) : void
+public [Light::registerRoute](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/registerRoute.md)(string $pattern, ?$controller, string $name = null, array $route = []) : void
 
 
 
@@ -50,26 +50,16 @@ Note: in the end though (after being interpreted by third party plugins), the co
     If the route name is not defined, it will default to the given pattern.
 Note: route names should be unique.
 
-- requirements
+- route
 
-    An array of requirements to test against the http request.
-While the pattern argument is tested against the http request's uri path,
-the requirements argument is used to test the other properties of the http request.
+    An array containing any other route properties that you want to include.
+If not overwritten, the default values are:
+- requirements: []
+- url_params: []
+- host: null
+- is_secure_protocol: null
 
-If one requirement fails, the route will not match.
-Third party plugins can be creative and enhance the requirements syntax/feature as they want.
-
-- urlParams
-
-    An array of key/value pairs representing the potential variables to inject into the controller callback.
-
-- host
-
-    The host associated to this route.
-
-- isSecure
-
-    Whether the https protocol or the http protocol is the preferred way to call this route.
+See the @page(route page) for more details.
 
 
 Return values
@@ -86,7 +76,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [Light::registerRoute](https://github.com/lingtalfi/Light/blob/master/Core/Light.php#L254-L268)
+See the source code for method [Light::registerRoute](https://github.com/lingtalfi/Light/blob/master/Core/Light.php#L247-L261)
 
 
 See Also

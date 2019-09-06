@@ -290,6 +290,10 @@ Related
 History Log
 =============
 
+- 1.30.0 -- 2019-08-30
+
+    - taking into account the new HtmlPageCopilot interface
+    
 - 1.29.0 -- 2019-07-24
 
     - update VariableDescriptionDocWriterUtil now insert the image name before the screenshots

@@ -4,7 +4,7 @@
 
 The LightControllerInterface class
 ================
-2019-04-09 --> 2019-08-02
+2019-04-09 --> 2019-09-03
 
 
 
@@ -51,4 +51,4 @@ See the source code of [Ling\Light\Controller\LightControllerInterface](https://
 
 SeeAlso
 ==============
-Previous class: [LightController](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Controller/LightController.md)<br>Next class: [Light](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light.md)<br>
+Previous class: [LightController](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Controller/LightController.md)<br>Next class: [RouteAwareControllerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Controller/RouteAwareControllerInterface.md)<br>

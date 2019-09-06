@@ -75,6 +75,7 @@ class Light_LoggerDocBuilder
              */
             "reportIgnore" => [
 //                "Ling\DocTools\Translator\ParseDownTranslator",
+                'Ling\UniversalLogger\UniversalLoggerInterface',
             ],
             /**
              * Your project start date.
@@ -140,7 +141,7 @@ class Light_LoggerDocBuilder
              * This map in particular is the one used for the whole DocTools planet documentation (pages and api).
              */
             "keyWord2UrlMap" => [
-                "Bat\ConvertTool::convertHumanSizeToBytes" =>  'https://github.com/lingtalfi/Bat/blob/master/ConvertTool.md#converthumansizetobytes',
+                "Bat\ConvertTool::convertHumanSizeToBytes" => 'https://github.com/lingtalfi/Bat/blob/master/ConvertTool.md#converthumansizetobytes',
             ],
             /**
              * An array of external classes to url.
@@ -152,7 +153,8 @@ class Light_LoggerDocBuilder
              * in the class synopsis.
              */
             "externalClass2Url" => [
-//                "Ling\UniversalLogger\UniversalLoggerInterface" => "https://github.com/lingtalfi/UniversalLogger",
+                "Ling\UniversalLogger\UniversalLoggerInterface" => "https://github.com/lingtalfi/UniversalLogger",
+
             ],
         ];
 

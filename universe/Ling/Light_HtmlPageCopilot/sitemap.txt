@@ -1,0 +1,3 @@
+https://github.com/lingtalfi/Light_HtmlPageCopilot/blob/master/README.md
+https://github.com/lingtalfi/Light_HtmlPageCopilot/blob/master/doc/api/Ling/Light_HtmlPageCopilot/Dependency/DummyHtmlPageCopilot.md
+https://github.com/lingtalfi/Light_HtmlPageCopilot/blob/master/doc/api/Ling/Light_HtmlPageCopilot.md

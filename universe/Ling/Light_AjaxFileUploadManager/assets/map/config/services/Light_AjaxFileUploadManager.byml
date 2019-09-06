@@ -26,3 +26,13 @@ ajax_file_upload_manager:
 #                validationRules:
 #                    id_one: []
 
+
+
+# --------------------------------------
+# hooks
+# --------------------------------------
+$easy_route.methods_collection:
+    -
+        method: registerBundleFile
+        args:
+            file: config/data/Light_AjaxFileUploadManager/Light_EasyRoute/afup_routes.byml

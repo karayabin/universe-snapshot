@@ -4,7 +4,7 @@
 
 The LightUserDatabaseException class
 ================
-2019-07-19 --> 2019-08-07
+2019-07-19 --> 2019-08-14
 
 
 
@@ -54,4 +54,4 @@ See the source code of [Ling\Light_UserDatabase\Exception\LightUserDatabaseExcep
 
 SeeAlso
 ==============
-Previous class: [BabyYamlLightWebsiteUserDatabase](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/BabyYamlLightWebsiteUserDatabase.md)<br>Next class: [LightUserDatabaseInterface](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/LightUserDatabaseInterface.md)<br>
+Previous class: [LightWebsiteUserDatabaseBullsheeter](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Bullsheet/LightWebsiteUserDatabaseBullsheeter.md)<br>Next class: [LightUserDatabaseInterface](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/LightUserDatabaseInterface.md)<br>

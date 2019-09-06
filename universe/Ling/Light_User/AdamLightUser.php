@@ -38,5 +38,4 @@ class AdamLightUser implements LightUserInterface
     {
         return true;
     }
-
 }

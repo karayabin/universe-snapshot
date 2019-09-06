@@ -4,7 +4,7 @@
 
 The LightDummyServiceContainer class
 ================
-2019-04-09 --> 2019-08-02
+2019-04-09 --> 2019-09-03
 
 
 

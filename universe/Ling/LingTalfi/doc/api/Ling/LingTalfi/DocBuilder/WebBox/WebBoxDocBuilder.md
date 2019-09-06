@@ -4,7 +4,7 @@
 
 The WebBoxDocBuilder class
 ================
-2019-03-13 --> 2019-07-18
+2019-03-13 --> 2019-08-14
 
 
 
@@ -52,4 +52,4 @@ See the source code of [Ling\LingTalfi\DocBuilder\WebBox\WebBoxDocBuilder](https
 
 SeeAlso
 ==============
-Previous class: [UniverseToolsDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/UniverseTools/UniverseToolsDocBuilder.md)<br>Next class: [ZephyrTemplateEngineDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/ZephyrTemplateEngine/ZephyrTemplateEngineDocBuilder.md)<br>
+Previous class: [UniverseToolsDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/UniverseTools/UniverseToolsDocBuilder.md)<br>Next class: [WiseToolDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/WiseTool/WiseToolDocBuilder.md)<br>

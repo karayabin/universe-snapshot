@@ -1,6 +1,6 @@
 Ling/Light_UserDatabase
 ================
-2019-07-19 --> 2019-08-07
+2019-07-19 --> 2019-08-14
 
 
 
@@ -26,6 +26,12 @@ Table of contents
     - [BabyYamlLightWebsiteUserDatabase::setRootAvatarUrl](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/BabyYamlLightWebsiteUserDatabase/setRootAvatarUrl.md) &ndash; Sets the root_avatar_url.
     - [BabyYamlLightWebsiteUserDatabase::setRootExtra](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/BabyYamlLightWebsiteUserDatabase/setRootExtra.md) &ndash; Sets the root_extra.
     - [BabyYamlLightWebsiteUserDatabase::setPasswordProtector](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/BabyYamlLightWebsiteUserDatabase/setPasswordProtector.md) &ndash; Sets the passwordProtector.
+- [LightWebsiteUserDatabaseBullsheeter](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Bullsheet/LightWebsiteUserDatabaseBullsheeter.md) &ndash; The LightWebsiteUserDatabaseBullsheeter class.
+    - [LightWebsiteUserDatabaseBullsheeter::__construct](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Bullsheet/LightWebsiteUserDatabaseBullsheeter/__construct.md) &ndash; Builds the LightAbstractBullsheeter instance.
+    - [LightWebsiteUserDatabaseBullsheeter::generateRows](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Bullsheet/LightWebsiteUserDatabaseBullsheeter/generateRows.md) &ndash; Populates the database with $nbRows random rows in the appropriate table(s).
+    - [LightWebsiteUserDatabaseBullsheeter::setAvatarImgDir](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Bullsheet/LightWebsiteUserDatabaseBullsheeter/setAvatarImgDir.md) &ndash; Sets the avatarImgDir.
+    - [LightWebsiteUserDatabaseBullsheeter::setApplicationDir](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Bullsheet/LightWebsiteUserDatabaseBullsheeter/setApplicationDir.md) &ndash; Sets the applicationDir.
+    - LightAbstractBullsheeter::setContainer &ndash; Sets the light service container interface.
 - [LightUserDatabaseException](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Exception/LightUserDatabaseException.md) &ndash; The LightUserDatabaseException class.
 - [LightUserDatabaseInterface](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/LightUserDatabaseInterface.md) &ndash; The LightUserDatabaseInterface interface.
     - [LightUserDatabaseInterface::getUserInfoByCredentials](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/LightUserDatabaseInterface/getUserInfoByCredentials.md) &ndash; credentials don't match any user.
@@ -62,6 +68,7 @@ Table of contents
     - [MysqlLightWebsiteUserDatabase::setRootAvatarUrl](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/MysqlLightWebsiteUserDatabase/setRootAvatarUrl.md) &ndash; Sets the root_avatar_url.
     - [MysqlLightWebsiteUserDatabase::setRootExtra](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/MysqlLightWebsiteUserDatabase/setRootExtra.md) &ndash; Sets the root_extra.
     - [MysqlLightWebsiteUserDatabase::setPasswordProtector](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/MysqlLightWebsiteUserDatabase/setPasswordProtector.md) &ndash; Sets the passwordProtector.
+    - [MysqlLightWebsiteUserDatabase::getTable](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/MysqlLightWebsiteUserDatabase/getTable.md) &ndash; Returns the table name.
 
 
 Dependencies
@@ -71,7 +78,9 @@ Dependencies
 - [Light](https://github.com/lingtalfi/Light)
 - [Light_Initializer](https://github.com/lingtalfi/Light_Initializer)
 - [Light_PasswordProtector](https://github.com/lingtalfi/Light_PasswordProtector)
+- [Light_Bullsheet](https://github.com/lingtalfi/Light_Bullsheet)
 - [Light_Database](https://github.com/lingtalfi/Light_Database)
+- [TinyBullsheeter](https://github.com/lingtalfi/TinyBullsheeter)
 - [MysqlCreateTableUtil](https://github.com/lingtalfi/MysqlCreateTableUtil)
 - [SimplePdoWrapper](https://github.com/lingtalfi/SimplePdoWrapper)
 - [SqlWizard](https://github.com/lingtalfi/SqlWizard)

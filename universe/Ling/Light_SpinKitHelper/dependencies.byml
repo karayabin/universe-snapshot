@@ -1,0 +1,9 @@
+dependencies: 
+    Ling: 
+        - Bat
+        - HtmlPageTools
+        - Light
+    
+
+post_install: 
+    map: true

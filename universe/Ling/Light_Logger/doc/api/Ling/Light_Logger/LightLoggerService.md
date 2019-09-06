@@ -4,7 +4,7 @@
 
 The LightLoggerService class
 ================
-2019-08-01 --> 2019-08-01
+2019-08-01 --> 2019-08-30
 
 
 
@@ -65,17 +65,19 @@ Class synopsis
 ==============
 
 
-class <span class="pl-k">LightLoggerService</span>  {
+class <span class="pl-k">LightLoggerService</span> implements [UniversalLoggerInterface](https://github.com/lingtalfi/UniversalLogger) {
 
 - Properties
     - protected array [$listeners](#property-listeners) ;
     - private string [$format](#property-format) ;
+    - private bool [$useExpandedArray](#property-useExpandedArray) ;
 
 - Methods
     - public [__construct](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/__construct.md)() : void
     - public [addListener](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/addListener.md)(?$channel, ?$listener) : void
     - public [setFormat](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/setFormat.md)(string $format) : void
-    - public [log](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/log.md)(?$msg, string $channel) : void
+    - public [setUseExpandedArray](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/setUseExpandedArray.md)(bool $useExpandedArray) : void
+    - public [log](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/log.md)(?$message, string $channel) : void
     - protected [dispatch](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/dispatch.md)(string $channel, ?$msg) : void
     - public [trace](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/trace.md)(?$msg) : void
     - public [debug](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/debug.md)(?$msg) : void
@@ -115,6 +117,16 @@ Properties
     
     
 
+- <span id="property-useExpandedArray"><b>useExpandedArray</b></span>
+
+    This property holds whether to use the useExpandedArray for this instance.
+    With useExpandedArray on, the arrays will be indented with tab and return chars in the log file,
+    whereas with useExpandedArray off, the array will fit on a single line.
+    
+    Default is true (as it's more readable).
+    
+    
+
 
 
 Methods
@@ -123,7 +135,8 @@ Methods
 - [LightLoggerService::__construct](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/__construct.md) &ndash; Builds the LightLoggerService instance.
 - [LightLoggerService::addListener](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/addListener.md) &ndash; Registers a listener ($callable) for the given $channel(s).
 - [LightLoggerService::setFormat](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/setFormat.md) &ndash; Sets the format of the log messages passed to the listeners.
-- [LightLoggerService::log](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/log.md) &ndash; Dispatches a log message on the given $channel.
+- [LightLoggerService::setUseExpandedArray](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/setUseExpandedArray.md) &ndash; Sets the useExpandedArray.
+- [LightLoggerService::log](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/log.md) &ndash; Sends a the log $message to the given $channel.
 - [LightLoggerService::dispatch](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/dispatch.md) &ndash; 
 - [LightLoggerService::trace](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/trace.md) &ndash; Dispatches a log message on the "trace" channel.
 - [LightLoggerService::debug](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/debug.md) &ndash; Dispatches a log message on the "debug" channel.

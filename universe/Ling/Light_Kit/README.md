@@ -31,6 +31,7 @@ Summary
 - [How does it work?](#how-does-it-work)
 - [BabyYaml page configuration files](#babyyaml-page-configuration-files)
 - [Calling a page from your Light controller](#calling-a-page-from-your-light-controller)
+- [The html_page_copilot service](#the-html_page_copilot-service)
 - [Conception notes](https://github.com/lingtalfi/Light_Kit/blob/master/doc/pages/conception-notes.md)
 - [History Log](#history-log)
 
@@ -78,11 +79,35 @@ kit:
                 instance: Ling\Kit\ConfStorage\BabyYamlConfStorage
                 methods:
                     setRootDir:
-                        rootDir: ${app_dir}/config/kit/pages
+                        rootDir: ${app_dir}/config/data
         setContainer:
             container: @container()
 
     methods_collection:
+        -
+            method: addPageConfigurationTransformer
+            args:
+                -
+                    instance: Ling\Light_Kit\PageConfigurationTransformer\DynamicVariableTransformer
+        -
+            method: addPageConfigurationTransformer
+            args:
+                -
+                    instance: Ling\Light_Kit\PageConfigurationTransformer\LazyReferenceResolver
+                    methods:
+                        setResolvers:
+                            resolvers:
+                                METHOD_CALL:
+                                    instance: Ling\Light_Kit\PageConfigurationTransformer\LazyReferenceResolver\MethodCallResolver
+                                    methods:
+                                        setContainer:
+                                            container: @container()
+                                    callable_method: resolve
+                                ROUTE:
+                                    instance: Ling\Light_Kit\PageConfigurationTransformer\LazyReferenceResolver\RouteResolver
+                                    callable_method: resolve
+
+
         -
             method: registerWidgetHandler
             args:
@@ -184,19 +209,19 @@ A page configuration file is a [babyYaml](https://github.com/lingtalfi/BabyYaml)
 Each file contains the configuration for one given page.
 
 All page configuration files are located in the root dir defined in the service configuration (the setRootDir method of the BabyYamlConfStorage instance),
-which defaults to: **config/kit/pages** (note: in this document, all relative paths are relative to the light app root dir, unless otherwise specified).
+which defaults to: **config/data** (note: in this document, all relative paths are relative to the light app root dir, unless otherwise specified).
 
 
 So for instance we have this kind of structure:
 
 ```txt
-- config/kit/pages/
------ page_one.byml
------ page_two.byml
------ ...
------ $pluginName/                  # for instance $pluginName = Light_Kit_MySite
---------- page_three.byml
---------- page_xxx.byml
+- config/data/
+----- Light_Plugin_One/kit/
+--------- page_one.byml
+--------- page_two.byml
+----- Light_Plugin_Two/data_for_kit/
+--------- page_one.byml
+--------- page_two.byml
 ``` 
 
 
@@ -212,14 +237,16 @@ For instance, imagine the dashboard of an admin website, with some weather widge
 The babyYaml way used by **Light_Kit** is to have a folder named like the page, inside of which plugins can put their own additions.
 Those added files must be in babyYaml format, and the idea is that they will be merged with the main configuration file.
 
-So for instance for the page_one page, we could have this:
+So for instance for the **page_one** page of the **Light_Plugin_one** plugin, we could have this:
 
 ```txt
-- config/kit/pages/
------ page_one.byml
------ page_one/
---------- Light_Plugin_ABC.byml
---------- Light_Plugin_DEF.byml
+- config/data/
+----- Light_Plugin_One/kit/
+--------- page_one.byml
+--------- page_one/
+------------- Light_Plugin_ABC.byml
+------------- Light_Plugin_DEF.byml
+--------- page_two.byml
 --------- ...
 ```
 
@@ -248,7 +275,11 @@ $light->registerRoute("/", function (LightServiceContainerInterface $service) {
 ```
 
  
+The html_page_copilot service
+============
 
+All participants of the Light_Kit rendering framework can use the [**html_page_copilot** service](https://github.com/lingtalfi/Light_HtmlPageCopilot)
+to access the htmlPageCopilot instance (and inject their assets on the main page). 
 
 
 
@@ -263,6 +294,30 @@ $light->registerRoute("/", function (LightServiceContainerInterface $service) {
 History Log
 =============
 
+- 1.12.1 -- 2019-08-30
+
+    - fix LightKitPageRenderer->getHtmlPageCopilot not setting the copilot property
+    
+- 1.12.0 -- 2019-08-30
+
+    - update LightKitPageRenderer, now uses the html_page_copilot service
+    
+- 1.11.0 -- 2019-08-14
+
+    - change service configuration to accommodate light new application recommended structure philosophy
+    
+- 1.10.0 -- 2019-08-13
+
+    - change default config path to config/data/Light_Kit/pages
+    
+- 1.9.0 -- 2019-08-09
+
+    - now MethodCallResolver->resolve can handle services calls
+    
+- 1.8.2 -- 2019-08-09
+
+    - update MethodCallResolver documentation
+    
 - 1.8.1 -- 2019-07-29
 
     - fix potential bad commit

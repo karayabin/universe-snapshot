@@ -80,6 +80,19 @@ class SqlQuery implements SqlQueryInterface
      */
     private $markers;
 
+
+    /**
+     * The default value for the where: usually 1 or 0, depending on if you intend
+     * to combine where expressions with AND or OR.
+     *
+     * The default value is 1 (favoring the AND side).
+     *
+     *
+     * @var string = 1
+     */
+    private $defaultWhereValue;
+
+
     /**
      * a simple internal cache for the query,
      * note that once getSqlQuery is requested,
@@ -100,6 +113,7 @@ class SqlQuery implements SqlQueryInterface
         $this->havingGroupTypes = [];
         $this->orderBy = [];
         $this->limit = null;
+        $this->defaultWhereValue = "1";
         $this->markers = [];
     }
 
@@ -235,6 +249,18 @@ class SqlQuery implements SqlQueryInterface
         return $this;
     }
 
+    /**
+     * Sets the defaultWhereValue.
+     *
+     * @param string $defaultWhereValue
+     */
+    public function setDefaultWhereValue(string $defaultWhereValue)
+    {
+        $this->defaultWhereValue = $defaultWhereValue;
+    }
+
+
+
 
 
 
@@ -285,7 +311,7 @@ class SqlQuery implements SqlQueryInterface
         }
         if ($this->where) {
             $s .= $br;
-            $s .= "where 1";
+            $s .= "where " . $this->defaultWhereValue;
             $s .= $br;
             $s .= implode($br, $this->where);
         }

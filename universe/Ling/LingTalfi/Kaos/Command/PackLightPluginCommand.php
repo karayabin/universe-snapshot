@@ -78,7 +78,7 @@ class PackLightPluginCommand extends KaosGenericCommand
 
             $items = [
                 "config/services/$pluginName.byml",
-                "config/kit/pages/$pluginName",
+                "config/data/$pluginName",
                 "templates/$pluginName",
                 "www/plugins/$pluginName",
             ];

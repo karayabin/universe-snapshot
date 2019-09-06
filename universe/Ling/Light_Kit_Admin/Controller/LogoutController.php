@@ -9,7 +9,7 @@ use Ling\Light\Http\HttpResponseInterface;
 /**
  * The LogoutController class.
  */
-class LogoutController extends ProtectedPageController
+class LogoutController extends AdminPageController
 {
 
 

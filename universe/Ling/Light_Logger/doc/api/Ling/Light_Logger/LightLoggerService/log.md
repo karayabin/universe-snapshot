@@ -7,7 +7,7 @@ LightLoggerService::log
 
 
 
-LightLoggerService::log — Dispatches a log message on the given $channel.
+LightLoggerService::log — Sends a the log $message to the given $channel.
 
 
 
@@ -16,14 +16,12 @@ Description
 ================
 
 
-public [LightLoggerService::log](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/log.md)(?$msg, string $channel) : void
+public [LightLoggerService::log](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/log.md)(?$message, string $channel) : void
 
 
 
 
-Dispatches a log message on the given $channel.
-
-The $msg is a string or an object with the __toString method.
+Sends a the log $message to the given $channel.
 
 
 
@@ -32,7 +30,7 @@ Parameters
 ================
 
 
-- msg
+- message
 
     
 
@@ -55,7 +53,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightLoggerService::log](https://github.com/lingtalfi/Light_Logger/blob/master/LightLoggerService.php#L143-L146)
+See the source code for method [LightLoggerService::log](https://github.com/lingtalfi/Light_Logger/blob/master/LightLoggerService.php#L162-L165)
 
 
 See Also
@@ -63,5 +61,5 @@ See Also
 
 The [LightLoggerService](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService.md) class.
 
-Previous method: [setFormat](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/setFormat.md)<br>Next method: [dispatch](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/dispatch.md)<br>
+Previous method: [setUseExpandedArray](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/setUseExpandedArray.md)<br>Next method: [dispatch](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/dispatch.md)<br>
 

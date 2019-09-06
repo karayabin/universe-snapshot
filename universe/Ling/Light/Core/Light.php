@@ -4,6 +4,7 @@
 namespace Ling\Light\Core;
 
 
+use Ling\Light\Controller\RouteAwareControllerInterface;
 use Ling\Light\Exception\LightException;
 use Ling\Light\Helper\ControllerHelper;
 use Ling\Light\Http\HttpRequest;
@@ -137,6 +138,7 @@ class Light
     {
         /**
          * By default, I assume that the Light instance is created from $appDir/www/index.php
+         * If that's not the case, you should set the applicationDir just after instantiating this class.
          */
         $appDir = $_SERVER['DOCUMENT_ROOT'] ?? null;
         if ($appDir) {
@@ -205,8 +207,6 @@ class Light
     }
 
 
-
-
     /**
      * Registers a route item, as defined in @page(the route page).
      *
@@ -232,39 +232,32 @@ class Light
      * Note: route names should be unique.
      *
      *
-     * @param array $requirements
-     * An array of requirements to test against the http request.
-     * While the pattern argument is tested against the http request's uri path,
-     * the requirements argument is used to test the other properties of the http request.
+     * @param array $route
+     * An array containing any other route properties that you want to include.
+     * If not overwritten, the default values are:
+     * - requirements: []
+     * - url_params: []
+     * - host: null
+     * - is_secure_protocol: null
      *
-     * If one requirement fails, the route will not match.
-     * Third party plugins can be creative and enhance the requirements syntax/feature as they want.
+     * See the @page(route page) for more details.
      *
-     *
-     * @param array $urlParams
-     * An array of key/value pairs representing the potential variables to inject into the controller callback.
-     *
-     * @param string|null $host
-     * The host associated to this route.
-     *
-     * @param bool|null=null $isSecure
-     * Whether the https protocol or the http protocol is the preferred way to call this route.
      *
      */
-    public function registerRoute(string $pattern, $controller, string $name = null, array $requirements = [], array $urlParams = [], string $host = null, bool $isSecure = null)
+    public function registerRoute(string $pattern, $controller, string $name = null, array $route = [])
     {
 
         $routeName = (null !== $name) ? $name : $pattern;
-
-        $this->routes[$routeName] = [
+        $this->routes[$routeName] = array_merge([
             'name' => $routeName,
             'pattern' => $pattern,
             'controller' => $controller,
-            'requirements' => $requirements,
-            'url_params' => $urlParams,
-            'host' => $host,
-            "is_secure_protocol" => $isSecure,
-        ];
+            'requirements' => [],
+            'url_params' => [],
+            'host' => null,
+            "is_secure_protocol" => null,
+        ], $route);
+
     }
 
     /**
@@ -400,10 +393,16 @@ class Light
 
 
                             //--------------------------------------------
-                            // INJECT THE LIGHT APP FOR CONTROLLERS WHO WANT IT
+                            // INJECT THINGS IN THE CONTROLLERS
                             //--------------------------------------------
-                            if (null !== $instance && $instance instanceof LightAwareInterface) {
-                                $instance->setLight($this);
+                            if (null !== $instance) {
+                                if ($instance instanceof LightAwareInterface) {
+                                    $instance->setLight($this);
+                                }
+
+                                if ($instance instanceof RouteAwareControllerInterface) {
+                                    $instance->setRoute($route);
+                                }
                             }
 
 
@@ -564,6 +563,8 @@ class Light
         $routeUrlParams = $route['url_params'];
         $controllerArgsInfo = ControllerHelper::getControllerArgsInfo($controller);
         foreach ($controllerArgsInfo as $argName => $info) {
+
+
             list($hasDefaultValue, $defaultValue, $hintType) = $info;
             if (array_key_exists($argName, $routeUrlParams)) {
                 $controllerArgs[] = $routeUrlParams[$argName];
@@ -598,10 +599,17 @@ class Light
                         $controllerArgs[] = $this->getContainer();
                     }
                 } else {
-                    $routeName = $route['name'];
-                    throw new LightException("The controller for route $routeName defined a mandatory argument $argName, but no value was provided by the route for this argument.");
+
+                    if ('_route' === $argName) {
+                        $controllerArgs[] = $route;
+                    } else {
+                        $routeName = $route['name'];
+                        throw new LightException("The controller for route $routeName defined a mandatory argument $argName, but no value was provided by the route for this argument.");
+                    }
                 }
             }
+
+
         }
         return $controllerArgs;
     }

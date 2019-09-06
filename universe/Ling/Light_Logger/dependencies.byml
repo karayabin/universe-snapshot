@@ -1,6 +1,8 @@
 dependencies: 
     Ling: 
+        - ArrayToString
         - Bat
+        - UniversalLogger
     
 
 post_install: 

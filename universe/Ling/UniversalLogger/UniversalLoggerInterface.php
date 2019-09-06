@@ -15,8 +15,8 @@ interface UniversalLoggerInterface
     /**
      * Sends a the log $message to the given $channel.
      *
-     * @param string $message
+     * @param mixed $message
      * @param string $channel
      */
-    public function log(string $message, string $channel): void;
+    public function log($message, string $channel): void;
 }

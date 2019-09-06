@@ -5,13 +5,16 @@ user_database:
             wrapper: @service(database)
 
 
+user_database_vars:
+    bullsheeterAvatarImgDir: /overrideme
+
 
 # babyYaml configuration example
 #user_database:
 #    instance: Ling\Light_UserDatabase\BabyYamlLightWebsiteUserDatabase
 #    methods:
 #        setFile:
-#            file: ${app_dir}/config/user_database/database.byml
+#            file: ${app_dir}/config/data/Light_UserDatabase/database.byml
 
 
 # --------------------------------------
@@ -19,3 +22,17 @@ user_database:
 # --------------------------------------
 $initializer.methods.setInitializers.initializers:
     - @service(user_database)
+
+
+$bullsheet.methods_collection:
+    -
+        method: registerBullsheeter
+        args:
+            identifier: Light_UserDatabase.lud_user
+            bullsheeter:
+                instance: Ling\Light_UserDatabase\Bullsheet\LightWebsiteUserDatabaseBullsheeter
+                methods:
+                    setApplicationDir:
+                        dir: ${app_dir}
+                    setAvatarImgDir:
+                        dir: ${user_database_vars.bullsheeterAvatarImgDir}

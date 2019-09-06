@@ -9,7 +9,7 @@ kit:
                 instance: Ling\Kit\ConfStorage\BabyYamlConfStorage
                 methods:
                     setRootDir:
-                        rootDir: ${app_dir}/config/kit/pages
+                        rootDir: ${app_dir}/config/data
         setContainer:
             container: @container()
 
@@ -29,6 +29,9 @@ kit:
                             resolvers:
                                 METHOD_CALL:
                                     instance: Ling\Light_Kit\PageConfigurationTransformer\LazyReferenceResolver\MethodCallResolver
+                                    methods:
+                                        setContainer:
+                                            container: @container()
                                     callable_method: resolve
                                 ROUTE:
                                     instance: Ling\Light_Kit\PageConfigurationTransformer\LazyReferenceResolver\RouteResolver

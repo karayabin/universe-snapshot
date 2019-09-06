@@ -7,6 +7,20 @@ namespace Ling\Light_Kit_Admin\Rights;
 /**
  * The LightKitAdminRightsManager class.
  *
+ *
+ *
+ * UPDATE 2019-08-08
+ * -------------
+ * NOTE: this might be deprecated.
+ * I now believe an external plugin manager plugin should be created, and this plugin will let you install a plugin
+ * from the gui, and the plugin would handle a method call setup, which is called only once, which basically
+ * would add the plugin rights once.
+ * I believe the problem with the class below is that it doesn't have the notion of how many times the rights
+ * were added.
+ *
+ *
+ *
+ *
  * This service allows other plugins to register their rights,
  * and to decide how to assign them to a newly created user.
  *

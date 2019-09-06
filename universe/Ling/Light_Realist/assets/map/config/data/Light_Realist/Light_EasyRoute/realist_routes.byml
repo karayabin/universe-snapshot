@@ -1,0 +1,8 @@
+Light_Realist:
+    routes:
+        /realist-ajax-service:
+
+            # Note: this url is also hardcoded in /www/plugins/Light_Realist/js/open-admin-table-helper.js,
+            # should you need to change it.
+            pattern: /realist-ajax-service
+            controller: Ling\Light_Realist\Controller\LightRealistAjaxServiceController->handleJsonRequest

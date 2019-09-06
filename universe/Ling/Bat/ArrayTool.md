@@ -150,6 +150,148 @@ $input = Bat::arrayUniqueRecursive($input);
 
 ```
      
+     
+     
+filterByAllowed
+-------------
+2019-08-07     
+
+
+```php
+array    filterByAllowed ( array:arr, array:allowed)
+```
+
+Returns the "arr" array, without the entries which keys are NOT listed in "allowed".
+
+
+
+
+### Example
+
+```php
+$array = [
+    "one" => 11,
+    "two" => 22,
+    "garbage" => 123,
+];
+
+$allowed = ["one", "two"];
+
+az(ArrayTool::filterByAllowed($array, $allowed));
+```
+
+This will output:
+
+```html
+array(2) {
+  ["one"] => int(11)
+  ["two"] => int(22)
+}
+
+```  
+     
+     
+     
+     
+     
+filterRecursive
+-------------
+2019-08-09
+
+
+```php
+array    filterByAllowed ( array:arr, callable:callback)
+```
+
+Filters the elements of an array recursively, using a given callable.
+
+The callable function must return a boolean (whether to accept the value or remove it).
+
+
+
+### Example
+
+```php
+$arr = [
+    [
+        "id" => "one",
+        "children" => [],
+    ],
+    [
+        "id" => "two",
+        "children" => [
+            [
+                "id" => "three",
+                "children" => [],
+            ],
+        ],
+    ],
+
+];
+$a = ArrayTool::filterRecursive($arr, function () {
+    return true;
+});
+$b = ArrayTool::filterRecursive($arr, function () {
+    return false;
+});
+$c = ArrayTool::filterRecursive($arr, function ($value) {
+    if (
+        is_array($value) &&
+        array_key_exists("id", $value) &&
+        "three" === $value["id"]
+    ) {
+        return false;
+    }
+    return true;
+});
+
+
+a($a, $b, $c);
+```
+
+This will output:
+
+```html
+array(2) {
+  [0] => array(2) {
+    ["id"] => string(3) "one"
+    ["children"] => array(0) {
+    }
+  }
+  [1] => array(2) {
+    ["id"] => string(3) "two"
+    ["children"] => array(1) {
+      [0] => array(2) {
+        ["id"] => string(5) "three"
+        ["children"] => array(0) {
+        }
+      }
+    }
+  }
+}
+
+array(0) {
+}
+
+array(2) {
+  [0] => array(2) {
+    ["id"] => string(3) "one"
+    ["children"] => array(0) {
+    }
+  }
+  [1] => array(2) {
+    ["id"] => string(3) "two"
+    ["children"] => array(0) {
+    }
+  }
+}
+
+
+```  
+     
+     
+
+
 
     
 getMissingKeys
@@ -488,13 +630,34 @@ updateNodeRecursive
 array    updateNodeRecursive (array &$arr, callable $callback, array $options = [])
 ```
 
-Update the structure of a node collection recursively.
+
+Updates an array recursively, like (php) array_walk_recursive, but adapted for nested item structures.
+
+A nested item structure looks like this for instance:
+
+-
+     id: one
+     label: One
+     children: []
+-
+     id: two
+     label: Two
+     children:
+         -
+              id: three
+              label: Three
+              children: []
+
+
+
 Children nodes must be referenced directly in the nodes using the "children" key by default.
 
 
 Options:
 - childrenKey: string=children, the name of the key used to reference the children of a node
-
+     
+     
+     
 
 
 ### Example
@@ -521,3 +684,156 @@ ArrayTool::updateNodeRecursive($ret, function (array &$row) use ($linkFmt) {
      
      
 
+
+
+
+
+walkRowsRecursive
+--------------
+2019-09-06
+     
+
+```php
+void    walkRowsRecursive (array $arr, callable $callback, $childrenKey=children, bool $triggerCallableOnParents = true )
+```
+
+Walks the given rows recursively, triggering the given callback on each row.
+
+A row is an array.
+Generally all rows have the same structure.
+A row can contain other rows, in which case it's a parent row.
+The parent row holds its children using a **children** key, which defaults to **children** (third argument).
+
+
+The callable receives the row as its only argument.
+
+By default, the callable is called for every row, including the parent rows.
+If you want to trigger the callable only on leaves (rows with no children), you can set
+the $triggerCallableOnParents flag to false.
+
+
+
+### Example #1: collecting all items
+
+
+The following code:
+```php
+<?php
+
+$groups = [
+    [
+        'action_id' => 'Light_Realist-delete_rows',
+        'text' => 'Delete',
+        'icon' => 'far fa-trash-alt'
+    ],
+    [
+        'text' => 'Share',
+        'icon' => 'fas fa-share-square',
+        'items' => [
+            [
+                'action_id' => 'Light_Realist-rows_to_csv',
+                'icon' => 'far fa-envelope',
+                'text' => 'Csv',
+            ],
+        ],
+    ],
+];
+
+
+
+$all = [];
+ArrayTool::walkRowsRecursive($groups, function (array $item) use (&$all) {
+    $all[] = $item;
+}, 'items');
+
+az($all);
+```     
+     
+Will output:
+
+```html
+array(3) {
+  [0] => array(3) {
+    ["action_id"] => string(25) "Light_Realist-delete_rows"
+    ["text"] => string(6) "Delete"
+    ["icon"] => string(16) "far fa-trash-alt"
+  }
+  [1] => array(3) {
+    ["text"] => string(5) "Share"
+    ["icon"] => string(19) "fas fa-share-square"
+    ["items"] => array(1) {
+      [0] => array(3) {
+        ["action_id"] => string(25) "Light_Realist-rows_to_csv"
+        ["icon"] => string(15) "far fa-envelope"
+        ["text"] => string(3) "Csv"
+      }
+    }
+  }
+  [2] => array(3) {
+    ["action_id"] => string(25) "Light_Realist-rows_to_csv"
+    ["icon"] => string(15) "far fa-envelope"
+    ["text"] => string(3) "Csv"
+  }
+}
+
+
+```
+     
+
+
+### Example #2: collecting children only
+
+The following code:
+
+```php
+
+
+$groups = [
+    [
+        'action_id' => 'Light_Realist-delete_rows',
+        'text' => 'Delete',
+        'icon' => 'far fa-trash-alt'
+    ],
+    [
+        'text' => 'Share',
+        'icon' => 'fas fa-share-square',
+        'items' => [
+            [
+                'action_id' => 'Light_Realist-rows_to_csv',
+                'icon' => 'far fa-envelope',
+                'text' => 'Csv',
+            ],
+        ],
+    ],
+];
+
+
+
+$children = [];
+ArrayTool::walkRowsRecursive($groups, function (array $item) use (&$children) {
+    $children[] = $item;
+}, 'items', false);
+
+az($children);
+
+```
+
+
+Will output:
+
+```html
+
+array(2) {
+  [0] => array(3) {
+    ["action_id"] => string(25) "Light_Realist-delete_rows"
+    ["text"] => string(6) "Delete"
+    ["icon"] => string(16) "far fa-trash-alt"
+  }
+  [1] => array(3) {
+    ["action_id"] => string(25) "Light_Realist-rows_to_csv"
+    ["icon"] => string(15) "far fa-envelope"
+    ["text"] => string(3) "Csv"
+  }
+}
+
+```

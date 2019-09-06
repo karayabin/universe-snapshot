@@ -5,7 +5,7 @@ namespace Ling\Bat;
 
 /**
  * The ArrayTool class.
- * LingTalfi 2015-12-20
+ * LingTalfi 2015-12-20 -> 2019-08-07
  */
 class ArrayTool
 {
@@ -136,6 +136,66 @@ class ArrayTool
         }
         return $result;
     }
+
+
+    /**
+     * Returns the $array, without the entries which keys are NOT listed in $allowed.
+     *
+     * Example:
+     * ---------
+     * $array = [
+     *      "one" => 11,
+     *      "two" => 22,
+     *      "garbage" => 123,
+     * ];
+     *
+     * $allowed = ["one", "two"];
+     *
+     * az(ArrayTool::filterByAllowed($array, $allowed));
+     *
+     * - one: 11
+     * - two: 22
+     *
+     *
+     *
+     * @param array $array
+     * @param array $allowed
+     * @return array
+     */
+    public static function filterByAllowed(array $array, array $allowed): array
+    {
+        return array_intersect_key($array, array_flip($allowed));
+    }
+
+
+    /**
+     * Filters the elements of an array recursively, using a given callable.
+     *
+     * The callable function must return a boolean (whether to accept the value or remove it).
+     *
+     * See the examples from the doc for more details.
+     *
+     *
+     * @param array $array
+     * @param callable $callback
+     * @return array
+     */
+    public static function filterRecursive(array $array, callable $callback): array
+    {
+        foreach ($array as $k => $v) {
+            $res = call_user_func($callback, $v);
+            if (false === $res) {
+                unset($array[$k]);
+            } else {
+                if (is_array($v)) {
+                    $array[$k] = self::filterRecursive($v, $callback);
+                }
+            }
+        }
+
+        return $array;
+    }
+
 
     /**
      * Check that all given $keys exist (as keys) in the given $arr.
@@ -269,22 +329,68 @@ class ArrayTool
     }
 
     /**
-     * Return the <base> array, with values overridden by
-     * the <layer> (only if the key match).
+     * Returns the given $defaults array,
+     * with values possibly overridden by the $array.
      *
-     * @param array $layer
-     * @param array $base
+     * Example
+     * ----------
+     *
+     * $array = [
+     *      "color" => "blue",
+     *      "hobby" => "music",
+     * ];
+     *
+     * $defaults = [
+     *      "color" => "green",
+     *      "sport" => "judo",
+     *      "fruit" => "apple",
+     * ];
      *
      *
+     * a(ArrayTool::superimpose($array, $defaults));
+     *
+     * - color: blue
+     * - sport: judo
+     * - fruit: apple
+     *
+     *
+     *
+     *
+     * @param array $array
+     * @param array $defaults
      * @return array
      */
-    public static function superimpose(array $layer, array $base)
+    public static function superimpose(array $array, array $defaults)
     {
-        return array_merge($base, array_intersect_key($layer, $base));
+        return array_merge($defaults, array_intersect_key($array, $defaults));
     }
 
 
     /**
+     * Updates an array recursively, like (php) array_walk_recursive, but adapted for nested item structures.
+     *
+     * A nested item structure looks like this for instance:
+     *
+     * -
+     *      id: one
+     *      label: One
+     *      children: []
+     * -
+     *      id: two
+     *      label: Two
+     *      children:
+     *          -
+     *               id: three
+     *               label: Three
+     *               children: []
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
      * @param array $arr
      * @param callable $callback
      * @param array $options
@@ -321,6 +427,45 @@ class ArrayTool
                 $v[$childrenKey] = $children;
             }
             $arr[$k] = $v;
+        }
+    }
+
+
+    /**
+     * Walks the given rows recursively, triggering the given callback on each row.
+     *
+     * A row is an array.
+     * Generally all rows have the same structure.
+     * A row can contain other rows, in which case it's a parent row.
+     * The parent row holds its children using a **children** key, which defaults to **children** (third argument).
+     *
+     *
+     * The callable receives the row as its only argument.
+     *
+     * By default, the callable is called for every row, including the parent rows.
+     * If you want to trigger the callable only on leaves (rows with no children), you can set
+     * the $triggerCallableOnParents flag to false.
+     *
+     *
+     * @param array $arr
+     * @param callable $callback
+     * @param string $childrenKey =children
+     * @param bool $triggerCallableOnParents =true
+     */
+    public static function walkRowsRecursive(array $arr, callable $callback, string $childrenKey = "children", bool $triggerCallableOnParents = true): void
+    {
+        foreach ($arr as $k => $v) {
+            $isParent = array_key_exists($childrenKey, $v) && $v[$childrenKey];
+
+            if (false === $isParent || true === $triggerCallableOnParents) {
+                call_user_func($callback, $v);
+            }
+
+            if (true === $isParent) {
+                $children = $v[$childrenKey];
+                self::walkRowsRecursive($children, $callback, $childrenKey);
+                $v[$childrenKey] = $children;
+            }
         }
     }
 

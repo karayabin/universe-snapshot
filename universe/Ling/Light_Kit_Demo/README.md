@@ -101,7 +101,7 @@ using [Light_Kit].
 Basically, all **Light_Kit** does is providing us with a **kit** service to use in our **Light** application.
  
 The kit service by default uses a [BabyYaml](https://github.com/lingtalfi/BabyYaml) configuration storage which allows us to store all of our configuration in 
-the **config/kit/pages** directory of our app.
+the **config/data** directory of our app.
 
 
 
@@ -114,7 +114,7 @@ Those files are copy/pasted in the application as is.
 If we take the LoopLab demo for instance, the structure looks like this:
 
 
-- [config/kit/pages/Light_Kit_Demo/looplab/prototype/looplab_home.byml](https://github.com/lingtalfi/Light_Kit_Demo/blob/master/assets/map/config/kit/pages/Light_Kit_Demo/looplab/prototype/looplab_home.byml)
+- [config/data/Light_Kit_Demo/kit/looplab/prototype/looplab_home.byml](https://github.com/lingtalfi/Light_Kit_Demo/blob/master/assets/map/config/data/Light_Kit_Demo/kit/looplab/prototype/looplab_home.byml)
 - [templates/Light_Kit_Demo/layouts/prototype/looplab_main_layout.php](https://github.com/lingtalfi/Light_Kit_Demo/blob/master/assets/map/templates/Light_Kit_Demo/layouts/looplab/prototype/looplab_main_layout.php)
 - [templates/Light_Kit_Demo/widgets/prototype/looplab/](https://github.com/lingtalfi/Light_Kit_Demo/tree/master/assets/map/templates/Light_Kit_Demo/widgets/prototype/looplab)
 - [templates/Light_Kit_Demo/widgets/prototype/looplab/looplab_footer_with_contact_us_button.php](https://github.com/lingtalfi/Light_Kit_Demo/blob/master/assets/map/templates/Light_Kit_Demo/widgets/prototype/looplab/looplab_footer_with_contact_us_button.php)
@@ -169,7 +169,7 @@ $light->setContainer($container);
 
 
 $light->registerRoute("/Light_Kit_Demo", function (LightServiceContainerInterface $service) {
-    return $service->get("kit")->renderPage('Light_Kit_Demo/looplab/prototype/looplab_home');
+    return $service->get("kit")->renderPage('Light_Kit_Demo/kit/looplab/prototype/looplab_home');
 });
 $light->run();
 
@@ -201,7 +201,7 @@ Before we start, let's say that all picasso widgets used for all demos can be fo
 
 The only thing that is not there is the page configuration files and the layouts, which are stored inside the **Light_Kit_Demo** repository (this repository):
 
-- [page configuration files](https://github.com/lingtalfi/Light_Kit_Demo/tree/master/assets/map/config/kit/pages/Light_Kit_Demo)
+- [page configuration files](https://github.com/lingtalfi/Light_Kit_Demo/tree/master/assets/map/config/data/Light_Kit_Demo/kit)
 - [layouts](https://github.com/lingtalfi/Light_Kit_Demo/tree/master/assets/map/templates/Light_Kit_Demo/layouts)
 
 
@@ -262,7 +262,7 @@ $light->setContainer($container);
 
 
 $light->registerRoute("/Light_Kit_Demo", function (LightServiceContainerInterface $service) {
-    return $service->get("kit")->renderPage('Light_Kit_Demo/looplab/looplab_home');
+    return $service->get("kit")->renderPage('Light_Kit_Demo/kit/looplab/looplab_home');
 });
 $light->run();
 
@@ -291,7 +291,7 @@ kit:
                 instance: Ling\Kit\ConfStorage\BabyYamlConfStorage
                 methods:
                     setRootDir:
-                        rootDir: ${app_dir}/config/kit/pages
+                        rootDir: ${app_dir}/config/data
         setContainer:
             container: @container()
 
@@ -335,7 +335,7 @@ kit_css_file_generator:
 
 So, I'm basically using the **LightKitPageRenderer** object as a service, using the **BabyYamlConfStorage** as the storage.
 
-Note that the babyYaml storage is configured with a rootDir of **${app_dir}/config/kit/pages**.
+Note that the babyYaml storage is configured with a rootDir of **${app_dir}/config/data**.
 That's important, because that's where all the page configuration files will be found.
 
 
@@ -368,10 +368,10 @@ The page configuration is very important for various reasons:
 It's basically where the pages are created.
 
 
-Back to our demo: from the **index.php**, we call the **Light_Kit_Demo/looplab/looplab_home** page.
+Back to our demo: from the **index.php**, we call the **Light_Kit_Demo/kit/looplab/looplab_home** page.
 
 Now because of our kit service configuration (the **rootDir** property from the previous section in particular, remember?), the page configuration path 
-resolves to **${app_dir}/config/kit/pages/Light_Kit_Demo/looplab/looplab_home.byml**.
+resolves to **${app_dir}/config/data/Light_Kit_Demo/kit/looplab/looplab_home.byml**.
 
 
 What follows is the content of that file:
@@ -667,8 +667,8 @@ use Ling\Light_Kit\PageRenderer\LightKitPageRenderer;
 
 
 $container = $this->getContainer();
-$jsLibs =  $this->copilot->getJsLibraries();
-$cssLibs =  $this->copilot->getCssLibraries();
+$jsLibs =  $this->copilot->getJsUrls();
+$cssLibs =  $this->copilot->getCssUrls();
 
 ?>
 <!DOCTYPE html>
@@ -785,6 +785,22 @@ Good luck!
 History Log
 =============
 
+- 1.2.0 -- 2019-08-30
+
+    - taking into account the new HtmlPageCopilot interface 
+    
+- 1.1.3 -- 2019-08-14
+
+    - fix doc 404 link 
+    
+- 1.1.2 -- 2019-08-14
+
+    - fix erroneous packing of repo 
+    
+- 1.1.1 -- 2019-08-14
+
+    - update the repo to accommodate new light philosophy about app recommended structure
+    
 - 1.0.1 -- 2019-07-18
 
     - update docTools documentation, add links to source code for classes and methods

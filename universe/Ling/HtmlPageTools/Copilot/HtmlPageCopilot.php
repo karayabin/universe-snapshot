@@ -46,28 +46,17 @@ class HtmlPageCopilot
 
     /**
      * This property holds the libraries for this instance.
-     * It's an array of the registered libraries names.
-     * A library is registered whenever the addCssLibrary or the addJsLibrary method is called.
+     *
+     * It's an array of libraryName => assetsItem.
+     * Each assetsItem is an array of:
+     * - 0: array of js urls
+     * - 1: array of css urls
      *
      *
      * @var array
      */
-    protected $libraryNames;
+    protected $libraries;
 
-    /**
-     * This property holds the cssLibraries for this instance.
-     * It's an array of (css libraries) urls.
-     *
-     * @var array
-     */
-    protected $cssLibraries;
-
-    /**
-     * This property holds the jsLibraries for this instance.
-     * It's an array of (js libraries) urls.
-     * @var array
-     */
-    protected $jsLibraries;
 
     /**
      * This property holds the jsCodeBlocks for this instance.
@@ -115,9 +104,7 @@ class HtmlPageCopilot
         $this->title = "";
         $this->description = "";
         $this->metas = [];
-        $this->libraryNames = [];
-        $this->cssLibraries = [];
-        $this->jsLibraries = [];
+        $this->libraries = [];
         $this->jsCodeBlocks = [];
         $this->cssCodeBlocks = [];
         $this->bodyTagClasses = [];
@@ -206,71 +193,69 @@ class HtmlPageCopilot
 
 
     /**
-     * Returns whether a library has been registered to this instance.
+     * Returns whether a library has been registered.
      *
      * @param string $name
      * The library name.
+     *
      * @return bool
      */
     public function hasLibrary(string $name): bool
     {
-        return (in_array($name, $this->libraryNames, true));
+        return (array_key_exists($name, $this->libraries));
     }
 
 
     /**
-     * Adds the $name css library to this instance.
+     * Registers an asset library.
+     * The library will be added only if it's not already registered.
+     *
+     * Please for the names of your library, use the camelNotation, examples:
+     *
+     * - jquery
+     * - bootstrap
+     * - myLibrary
+     *
+     *
      *
      * @param string $name
-     * The library name.
-     *
-     * @param string $href
+     * @param array $js
+     * @param array $css
      */
-    public function addCssLibrary(string $name, string $href)
+    public function registerLibrary(string $name, array $js = [], array $css = [])
     {
-        if (false === in_array($name, $this->libraryNames, true)) {
-            $this->libraryNames[] = $name;
+        if (false === array_key_exists($name, $this->libraries)) {
+            $this->libraries[$name] = [$js, $css];
         }
-        $this->cssLibraries[] = $href;
     }
 
+
+
     /**
-     * Returns the cssLibraries of this instance.
-     * It's an array of urls.
-     *
+     * Returns all the css urls collected.
      * @return array
      */
-    public function getCssLibraries(): array
+    public function getCssUrls(): array
     {
-        return $this->cssLibraries;
-    }
-
-
-    /**
-     * Adds the $name js library to this instance.
-     * The src attribute is actually the url of the js library to add.
-     *
-     * @param string $name
-     * The library name.
-     * @param string $src
-     */
-    public function addJsLibrary(string $name, string $src)
-    {
-        if (false === in_array($name, $this->libraryNames, true)) {
-            $this->libraryNames[] = $name;
+        $urls = [];
+        foreach ($this->libraries as $lib) {
+            $urls = array_merge($urls, $lib[1]);
         }
-        $this->jsLibraries[] = $src;
+        return $urls;
     }
 
+
     /**
-     * Returns the jsLibraries of this instance.
-     * It's an array of urls.
-     *
+     * Returns all the js urls collected.
      * @return array
      */
-    public function getJsLibraries(): array
+    public function getJsUrls(): array
     {
-        return $this->jsLibraries;
+        $urls = [];
+        foreach ($this->libraries as $lib) {
+            $urls = array_merge($urls, $lib[0]);
+        }
+        return $urls;
     }
 
 

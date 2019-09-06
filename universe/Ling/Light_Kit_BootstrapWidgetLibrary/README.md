@@ -45,6 +45,18 @@ Related
 History Log
 =============
 
+- 1.13.2 -- 2019-09-04
+
+    - fix widgets using copilot from constructor 
+    
+- 1.13.1 -- 2019-08-13
+
+    - fix ZeroAdminBigNotificationWidget example typo
+    
+- 1.13.0 -- 2019-08-13
+
+    - add ZeroAdminBigNotificationWidget
+    
 - 1.12.0 -- 2019-07-30
 
     - add ChloroformWidget

@@ -1,4 +1,6 @@
 https://github.com/lingtalfi/Light_Database/blob/master/README.md
+https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/Aware/LightDatabasePdoWrapperAwareInterface/setPdoWrapper.md
+https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/Aware/LightDatabasePdoWrapperAwareInterface.md
 https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/Exception/LightDatabaseException.md
 https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/LightDatabasePdoWrapper/__construct.md
 https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/LightDatabasePdoWrapper/getConnectionException.md

@@ -5,7 +5,9 @@ dependencies:
         - Light
         - Light_Initializer
         - Light_PasswordProtector
+        - Light_Bullsheet
         - Light_Database
+        - TinyBullsheeter
         - MysqlCreateTableUtil
         - SimplePdoWrapper
         - SqlWizard

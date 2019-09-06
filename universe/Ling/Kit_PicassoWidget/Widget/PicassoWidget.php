@@ -172,10 +172,7 @@ class PicassoWidget extends ZephyrTemplateEngine
      */
     protected function registerLibrary(string $libraryName, array $css, array $js)
     {
-        $this->libraries[$libraryName] = [
-            "css" => $css,
-            "js" => $js,
-        ];
+        $this->copilot->registerLibrary($libraryName, $js, $css);
     }
 
 }

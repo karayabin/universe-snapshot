@@ -45,6 +45,32 @@ class BabyYamlUtil
 
 
     /**
+     * Parses the given (comma separated value) string, using the babyYaml inline notation,
+     * and returns the corresponding array.
+     *
+     * More about the babyYaml inline notation here: https://github.com/lingtalfi/BabyYaml#sequences-and-mappings.
+     *
+     *
+     * Examples:
+     * -----------
+     * - pou, 4, "et,toi", 6   => [pou, 4, "et, toi", 6]    (count=4)
+     * - pou, 4, et,toi, 6   => [pou, 4, et, toi, 6]        (count=5)
+     *
+     *
+     * Types are preserved according to the babyYaml way
+     * See the babyYaml documentation for more details: https://github.com/lingtalfi/BabyYaml#special-values-and-types.
+     *
+     *
+     * @param string $string
+     * @return array
+     * @throws \Exception
+     */
+    public static function parseCsv(string $string): array
+    {
+        return current(self::readBabyYamlString('root: [' . $string . ']'));
+    }
+
+    /**
      * Returns the configuration array from the given babyYaml $file.
      *
      * @param string $file

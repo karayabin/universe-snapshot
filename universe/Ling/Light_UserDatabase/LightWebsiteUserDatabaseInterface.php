@@ -51,4 +51,5 @@ interface LightWebsiteUserDatabaseInterface extends LightUserDatabaseInterface
      * @return void
      */
     public function deleteUserById(int $id);
+
 }

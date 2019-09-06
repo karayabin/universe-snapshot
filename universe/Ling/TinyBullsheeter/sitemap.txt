@@ -1,0 +1,6 @@
+https://github.com/lingtalfi/TinyBullsheeter/blob/master/README.md
+https://github.com/lingtalfi/TinyBullsheeter/blob/master/doc/api/Ling/TinyBullsheeter/TinyBullsheeterTool/getRandomPseudo.md
+https://github.com/lingtalfi/TinyBullsheeter/blob/master/doc/api/Ling/TinyBullsheeter/TinyBullsheeterTool/pickRandom.md
+https://github.com/lingtalfi/TinyBullsheeter/blob/master/doc/api/Ling/TinyBullsheeter/TinyBullsheeterTool/pickRandomSepChar.md
+https://github.com/lingtalfi/TinyBullsheeter/blob/master/doc/api/Ling/TinyBullsheeter/TinyBullsheeterTool.md
+https://github.com/lingtalfi/TinyBullsheeter/blob/master/doc/api/Ling/TinyBullsheeter.md

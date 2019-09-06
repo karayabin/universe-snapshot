@@ -65,7 +65,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [SlickTestimonialCarouselWidget::prepare](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/Widget/Picasso/SlickTestimonialCarouselWidget.php#L36-L39)
+See the source code for method [SlickTestimonialCarouselWidget::prepare](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/Widget/Picasso/SlickTestimonialCarouselWidget.php#L23-L32)
 
 
 See Also
@@ -73,5 +73,5 @@ See Also
 
 The [SlickTestimonialCarouselWidget](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/Widget/Picasso/SlickTestimonialCarouselWidget.md) class.
 
-Previous method: [__construct](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/Widget/Picasso/SlickTestimonialCarouselWidget/__construct.md)<br>
+
 

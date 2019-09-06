@@ -10,8 +10,8 @@ use Ling\Light_Kit\PageRenderer\LightKitPageRenderer;
 
 
 $container = $this->getContainer();
-$jsLibs = $this->copilot->getJsLibraries();
-$cssLibs = $this->copilot->getCssLibraries();
+$jsLibs = $this->copilot->getJsUrls();
+$cssLibs = $this->copilot->getCssUrls();
 
 
 ?>

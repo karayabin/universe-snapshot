@@ -60,7 +60,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [KitPageRenderer::captureZone](https://github.com/lingtalfi/Kit/blob/master/PageRenderer/KitPageRenderer.php#L359-L441)
+See the source code for method [KitPageRenderer::captureZone](https://github.com/lingtalfi/Kit/blob/master/PageRenderer/KitPageRenderer.php#L361-L442)
 
 
 See Also
@@ -68,5 +68,5 @@ See Also
 
 The [KitPageRenderer](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer.md) class.
 
-Previous method: [captureZones](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer/captureZones.md)<br>
+Previous method: [captureZones](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer/captureZones.md)<br>Next method: [getHtmlPageCopilot](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer/getHtmlPageCopilot.md)<br>
 

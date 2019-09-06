@@ -72,6 +72,10 @@ The **initializer** service is provided by the [Light_Initializer planet](https:
 History Log
 =============
     
+- 1.5.0 -- 2019-09-05
+
+    - update ReverseRouter->getUrl, now add query string when urlParameters are passed
+    
 - 1.4.0 -- 2019-07-18
 
     - update ReverseRouter.getUrl to adapt the new LightReverseRouterInterface

@@ -3,28 +3,35 @@
 namespace Ling\Light_Kit\PageConfigurationTransformer\LazyReferenceResolver;
 
 
-use Ling\Bat\ClassTool;
+use Ling\Light\Helper\LightHelper;
+use Ling\Light\ServiceContainer\LightServiceContainerInterface;
 
 /**
  * The MethodCallResolver class.
  */
 class MethodCallResolver
 {
+
+
+    /**
+     * This property holds the container for this instance.
+     * @var LightServiceContainerInterface
+     */
+    protected $container;
+
+
+    /**
+     * Builds the MethodCallResolver instance.
+     */
+    public function __construct()
+    {
+        $this->container = null;
+    }
+
     /**
      * Interprets the given $expr and returns the result.
      *
-     * The given $expr should have one of the following format:
-     *
-     * - $class::$method
-     * - $class::$method($args)
-     *
-     *
-     * With:
-     * - $class: the full class name (i.e. Ling\Light_Kit\PageConfigurationTransformer\Blabla)
-     * - $method: the method name
-     * - $args: a list of args written in [shortcode notation](https://github.com/lingtalfi/Bat/blob/master/ShortCodeTool.md#parse)
-     *
-     *
+     * See the @page(LightHelper::executeMethod) for more details.
      *
      * @param string $expr
      * @return mixed
@@ -32,6 +39,23 @@ class MethodCallResolver
      */
     public function resolve(string $expr)
     {
-        return ClassTool::executePhpMethod($expr);
+        return LightHelper::executeMethod($expr, $this->container);
     }
+
+
+
+    //--------------------------------------------
+    //
+    //--------------------------------------------
+    /**
+     * Sets the container.
+     *
+     * @param LightServiceContainerInterface $container
+     */
+    public function setContainer(LightServiceContainerInterface $container)
+    {
+        $this->container = $container;
+    }
+
+
 }

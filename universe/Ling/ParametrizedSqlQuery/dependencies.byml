@@ -1,0 +1,9 @@
+dependencies: 
+    Ling: 
+        - BabyYaml
+        - Bat
+        - SqlQuery
+        - UniversalLogger
+    
+
+post_install: []

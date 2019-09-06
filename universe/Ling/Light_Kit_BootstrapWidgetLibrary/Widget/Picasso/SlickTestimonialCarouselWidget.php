@@ -16,25 +16,18 @@ use Ling\Kit_PicassoWidget\Widget\PicassoWidget;
 class SlickTestimonialCarouselWidget extends PicassoWidget {
 
 
-    /**
-     * @overrides
-     */
-    public function __construct()
-    {
-        parent::__construct();
-        $this->registerLibrary("slick", [
-            'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css',
-            'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css',
-        ], [
-            'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js',
-        ]);
-    }
 
     /**
      * @overrides
      */
     public function prepare(array &$widgetConf, HtmlPageCopilot $copilot)
     {
+        $this->registerLibrary("slick", [
+            'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css',
+            'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css',
+        ], [
+            'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js',
+        ]);
         BDotTool::setDotValue("vars._slider_id", StringTool::getUniqueCssId("slick_testimonial_carousel_slider-"), $widgetConf);
     }
 

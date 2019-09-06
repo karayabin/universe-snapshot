@@ -20,7 +20,7 @@ vars:
         type: string
         default_value: ""
         description: The url the form data should be redirected to when the form is submitted.
-        example: /login_form
+        example: lka_route-login
     title:
         type: string
         default_value: Login

@@ -48,11 +48,25 @@ class ReverseRouter implements LightInitializerInterface, LightReverseRouterInte
      */
     public function getUrl(string $routeName, array $urlParameters = [], bool $useAbsolute = null): string
     {
+
+        /**
+         * As for now, I've not used route with tags yet, but when this will come (and it will come),
+         * then the url parameters shall split in two,
+         * those not used by the routes are appended to the url with a question mark (traditional get)
+         */
+        $routeVars = [];
+        $getVars = $urlParameters; // todo: distribute this better when route tags are implemented
+
+
         if (array_key_exists($routeName, $this->routes)) {
             $route = $this->routes[$routeName];
 
             if (false === $useAbsolute) {
-                return $route['pattern'];
+                $url = $route['pattern'];
+                if ($getVars) {
+                    $url .= '?' . http_build_query($getVars);
+                }
+                return $url;
             }
 
 
@@ -60,7 +74,7 @@ class ReverseRouter implements LightInitializerInterface, LightReverseRouterInte
             // absolute version
             //--------------------------------------------
             $isSecure = $route['is_secure_protocol'];
-            if(null===$isSecure){
+            if (null === $isSecure) {
                 $isSecure = HttpTool::isHttps();
             }
 
@@ -73,7 +87,11 @@ class ReverseRouter implements LightInitializerInterface, LightReverseRouterInte
             if (null === $host) {
                 $host = $_SERVER['HTTP_HOST'];
             }
-            return $protocol . "://" . $host . $route['pattern'];
+            $url = $protocol . "://" . $host . $route['pattern'];
+            if ($getVars) {
+                $url .= '?' . http_build_query($getVars);
+            }
+            return $url;
         }
         throw new LightException("ReverseRouter: Route not found: $routeName.");
     }

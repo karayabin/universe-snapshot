@@ -1,0 +1,10 @@
+dependencies: 
+    Ling: 
+        - Light
+        - BabyYaml
+        - Light_Database
+        - ParametrizedSqlQuery
+    
+
+post_install: 
+    map: true

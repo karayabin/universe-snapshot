@@ -1,0 +1,9 @@
+easy_route:
+    instance: Ling\Light_EasyRoute\Service\LightEasyRouteService
+
+
+# --------------------------------------
+# hooks
+# --------------------------------------
+$initializer.methods.setInitializers.initializers:
+    - @service(easy_route)

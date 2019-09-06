@@ -136,7 +136,6 @@ class LightAjaxFileUploadManagerRenderingUtil
             <label for="id-fileuploader-input-<?php echo $suffix; ?>"><?php echo $field['label']; ?></label>
             <div class="custom-file">
                 <input type="file" class="custom-file-input" id="id-fileuploader-input-<?php echo $suffix; ?>"
-                       name="<?php echo htmlspecialchars($field['htmlName']); ?>"
                        multiple
                 >
                 <label class="custom-file-label"

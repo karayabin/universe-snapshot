@@ -28,10 +28,12 @@ class CommentHelper
         'float',
         'false',
         'bool',
+        'bool[]',
         'mixed',
         'null',
         'array',
         'callable',
+        'callable[]',
         'string',
     ];
 

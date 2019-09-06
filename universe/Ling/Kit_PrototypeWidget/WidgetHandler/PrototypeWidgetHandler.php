@@ -5,6 +5,8 @@ namespace Ling\Kit_PrototypeWidget\WidgetHandler;
 
 
 use Ling\HtmlPageTools\Copilot\HtmlPageCopilot;
+use Ling\Kit\PageRenderer\KitPageRendererAwareInterface;
+use Ling\Kit\PageRenderer\KitPageRendererInterface;
 use Ling\Kit\WidgetHandler\WidgetHandlerInterface;
 use Ling\Kit_PrototypeWidget\Exception\PrototypeWidgetException;
 
@@ -30,7 +32,7 @@ use Ling\Kit_PrototypeWidget\Exception\PrototypeWidgetException;
  *
  *
  */
-class PrototypeWidgetHandler implements WidgetHandlerInterface
+class PrototypeWidgetHandler implements WidgetHandlerInterface, KitPageRendererAwareInterface
 {
 
 
@@ -42,11 +44,28 @@ class PrototypeWidgetHandler implements WidgetHandlerInterface
     protected $rootDir;
 
     /**
+     * This property holds the kitPageRenderer for this instance.
+     * @var KitPageRendererInterface
+     */
+    protected $kitPageRenderer;
+
+
+    /**
      * Builds the PrototypeWidgetHandler instance.
      */
     public function __construct()
     {
         $this->rootDir = null;
+        $this->kitPageRenderer = null;
+    }
+
+
+    /**
+     * @implementation
+     */
+    public function setKitPageRenderer(KitPageRendererInterface $renderer)
+    {
+        $this->kitPageRenderer = $renderer;
     }
 
     /**

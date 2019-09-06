@@ -1,0 +1,78 @@
+Bootstrap4AdminTable
+===========
+2019-08-15
+
+
+
+An admin table renderer for bootstrap4.
+
+
+This is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
+
+
+Install
+==========
+Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
+```bash
+uni import Ling/Bootstrap4AdminTable
+```
+
+Or just download it and place it where you want otherwise.
+
+
+
+
+
+
+Summary
+===========
+- [Bootstrap4AdminTable api](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable.md) (generated with [DocTools](https://github.com/lingtalfi/DocTools))
+- [Notes](#notes)
+- [Related](#related)
+
+
+
+Notes
+=========
+
+This renderer was first created as a stand alone object.
+But with the addition of the ajax layer, it turns out that it now depends on the [Light_Realist](https://github.com/lingtalfi/Light_Realist) plugin.
+
+So, I'll not change the name, but you can consider this object as part of the [light framework](https://github.com/lingtalfi/Light) (i.e. it makes use of the service container
+when necessary and is aware of the common services such as the html_page_copilot).
+
+
+
+
+
+
+Related
+==========
+- [GuiAdminTable](https://github.com/lingtalfi/GuiAdminTable/), an older version
+- [AdminTable](https://github.com/lingtalfi/AdminTable), an even older version
+
+
+
+
+History Log
+=============
+
+- 1.4.0 -- 2019-09-06
+
+    - removed RendererWidgetInterface->prepare
+    
+- 1.3.0 -- 2019-09-06
+
+    - renamed ActionButtonsRendererWidget to ToolbarRendererWidget
+
+- 1.2.0 -- 2019-09-05
+
+    - add master checkbox behaviour to Bootstrap4AdminTableRenderer
+    
+- 1.1.0 -- 2019-09-05
+
+    - add NumberOfItemsPerPageRendererWidget
+    
+- 1.0.0 -- 2019-08-15
+
+    - initial commit

@@ -134,7 +134,7 @@ class BabyYamlConfStorage implements ConfStorageInterface
             }
             return $conf;
         } else {
-            $this->addError("Page not found: $pageName");
+            $this->addError("Page not found: $pageName ($pageFile).");
         }
         return false;
     }

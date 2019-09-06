@@ -4,7 +4,7 @@
 
 The HtmlPageCopilot class
 ================
-2019-04-24 --> 2019-07-18
+2019-04-24 --> 2019-09-04
 
 
 
@@ -35,9 +35,7 @@ class <span class="pl-k">HtmlPageCopilot</span>  {
     - protected string [$title](#property-title) ;
     - protected string [$description](#property-description) ;
     - protected array [$metas](#property-metas) ;
-    - protected array [$libraryNames](#property-libraryNames) ;
-    - protected array [$cssLibraries](#property-cssLibraries) ;
-    - protected array [$jsLibraries](#property-jsLibraries) ;
+    - protected array [$libraries](#property-libraries) ;
     - protected array [$jsCodeBlocks](#property-jsCodeBlocks) ;
     - protected array [$cssCodeBlocks](#property-cssCodeBlocks) ;
     - protected array [$bodyTagClasses](#property-bodyTagClasses) ;
@@ -54,10 +52,9 @@ class <span class="pl-k">HtmlPageCopilot</span>  {
     - public [addMeta](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot/addMeta.md)(array $attributes) : void
     - public [getMetas](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot/getMetas.md)() : array
     - public [hasLibrary](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot/hasLibrary.md)(string $name) : bool
-    - public [addCssLibrary](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot/addCssLibrary.md)(string $name, string $href) : void
-    - public [getCssLibraries](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot/getCssLibraries.md)() : array
-    - public [addJsLibrary](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot/addJsLibrary.md)(string $name, string $src) : void
-    - public [getJsLibraries](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot/getJsLibraries.md)() : array
+    - public [registerLibrary](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot/registerLibrary.md)(string $name, array $js = [], array $css = []) : void
+    - public [getCssUrls](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot/getCssUrls.md)() : array
+    - public [getJsUrls](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot/getJsUrls.md)() : array
     - public [addJsCodeBlock](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot/addJsCodeBlock.md)(string $codeBlock) : void
     - public [addCssCodeBlock](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot/addCssCodeBlock.md)(string $codeBlock) : void
     - public [getJsCodeBlocks](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot/getJsCodeBlocks.md)() : array
@@ -98,25 +95,14 @@ Properties
     
     
 
-- <span id="property-libraryNames"><b>libraryNames</b></span>
+- <span id="property-libraries"><b>libraries</b></span>
 
     This property holds the libraries for this instance.
-    It's an array of the registered libraries names.
-    A library is registered whenever the addCssLibrary or the addJsLibrary method is called.
     
-    
-
-- <span id="property-cssLibraries"><b>cssLibraries</b></span>
-
-    This property holds the cssLibraries for this instance.
-    It's an array of (css libraries) urls.
-    
-    
-
-- <span id="property-jsLibraries"><b>jsLibraries</b></span>
-
-    This property holds the jsLibraries for this instance.
-    It's an array of (js libraries) urls.
+    It's an array of libraryName => assetsItem.
+    Each assetsItem is an array of:
+    - 0: array of js urls
+    - 1: array of css urls
     
     
 
@@ -167,11 +153,10 @@ Methods
 - [HtmlPageCopilot::hasDescription](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot/hasDescription.md) &ndash; Returns whether the description was defined.
 - [HtmlPageCopilot::addMeta](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot/addMeta.md) &ndash; Adds a meta to this instance.
 - [HtmlPageCopilot::getMetas](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot/getMetas.md) &ndash; Returns the metas of this instance.
-- [HtmlPageCopilot::hasLibrary](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot/hasLibrary.md) &ndash; Returns whether a library has been registered to this instance.
-- [HtmlPageCopilot::addCssLibrary](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot/addCssLibrary.md) &ndash; Adds the $name css library to this instance.
-- [HtmlPageCopilot::getCssLibraries](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot/getCssLibraries.md) &ndash; Returns the cssLibraries of this instance.
-- [HtmlPageCopilot::addJsLibrary](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot/addJsLibrary.md) &ndash; Adds the $name js library to this instance.
-- [HtmlPageCopilot::getJsLibraries](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot/getJsLibraries.md) &ndash; Returns the jsLibraries of this instance.
+- [HtmlPageCopilot::hasLibrary](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot/hasLibrary.md) &ndash; Returns whether a library has been registered.
+- [HtmlPageCopilot::registerLibrary](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot/registerLibrary.md) &ndash; Registers an asset library.
+- [HtmlPageCopilot::getCssUrls](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot/getCssUrls.md) &ndash; Returns all the css urls collected.
+- [HtmlPageCopilot::getJsUrls](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot/getJsUrls.md) &ndash; Returns all the js urls collected.
 - [HtmlPageCopilot::addJsCodeBlock](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot/addJsCodeBlock.md) &ndash; Adds a js code block to this instance.
 - [HtmlPageCopilot::addCssCodeBlock](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot/addCssCodeBlock.md) &ndash; Adds a css code block to this instance.
 - [HtmlPageCopilot::getJsCodeBlocks](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot/getJsCodeBlocks.md) &ndash; Returns the jsCodeBlocks of this instance.

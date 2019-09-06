@@ -177,6 +177,7 @@ class PicassoWidgetHandler implements WidgetHandlerInterface, KitPageRendererAwa
                         /**
                          * In some cases, it's practical for the templates to have
                          * a direct access to a copilot instance.
+                         * For instance, when a widget uses a third-party asset library.
                          */
                         $instance->setCopilot($copilot);
 
@@ -224,22 +225,6 @@ class PicassoWidgetHandler implements WidgetHandlerInterface, KitPageRendererAwa
                             if (false === $content) {
                                 $error = $instance->getErrors()[0];
                                 $this->error($error, $widgetConf, $debug);
-                            }
-
-
-                            //--------------------------------------------
-                            // REGISTERING ASSETS
-                            //--------------------------------------------
-                            $libs = $instance->getLibraries();
-                            foreach ($libs as $libName => $assets) {
-                                if (false === $copilot->hasLibrary($libName)) {
-                                    foreach ($assets['css'] as $url) {
-                                        $copilot->addCssLibrary($libName, $url);
-                                    }
-                                    foreach ($assets['js'] as $url) {
-                                        $copilot->addJsLibrary($libName, $url);
-                                    }
-                                }
                             }
 
 

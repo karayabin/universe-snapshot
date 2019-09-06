@@ -3,6 +3,8 @@
 namespace Ling\Bat;
 
 
+use Ling\DirScanner\YorgDirScannerTool;
+
 /**
  * The RandomTool class.
  */
@@ -62,6 +64,83 @@ EEE;
     public static function getRandomColor()
     {
         return '#' . substr(md5(rand()), 0, 6);
+    }
+
+
+    /**
+     * Picks a random file from the given $dir and returns its path.
+     * If extension is provided, it can be either a string or an array of extensions (without the leading dot),
+     * and defines which extension(s) to look for.
+     *
+     * By default, this method doesn't look into subdirectories, but we can change this with the recursive flag
+     * set to true.
+     *
+     *
+     *
+     * @param string $dir
+     * @param null $extension
+     * @param bool $recursive
+     * @return string
+     * @throws \Exception
+     */
+    public static function pickRandomFile(string $dir, $extension = null, bool $recursive = false): string
+    {
+        $files = YorgDirScannerTool::getFilesWithExtension($dir, $extension, false, $recursive);
+        return self::pickRandomFromArray($files);
+    }
+
+    /**
+     * Returns a random element from the given array,
+     * or multiple randomly chosen elements if the $nbRequests parameter is provided.
+     *
+     * By default, an element can be picked only once.
+     * But we can set the pickOnce flag to false to allow the same item to picked up multiple times.
+     *
+     * See the examples from the documentation for more details.
+     *
+     *
+     * @param array $array
+     * @param int $nbRequests
+     * @param bool $pickOnce
+     * @return mixed
+     */
+    public static function pickRandomFromArray(array $array, int $nbRequests = null, bool $pickOnce = true)
+    {
+        if (null === $nbRequests) {
+            return $array[array_rand($array)];
+        } else {
+            if ($nbRequests < 1) {
+                return [];
+            }
+            $ret = [];
+            for ($i = 1; $i <= $nbRequests; $i++) {
+                if ($array) {
+                    $key = array_rand($array);
+                    $ret[] = $array[$key];
+                    if (true === $pickOnce) {
+                        unset($array[$key]);
+                    }
+                } else {
+                    break;
+                }
+            }
+            return $ret;
+        }
+    }
+
+    /**
+     * Returns a random boolean.
+     * If the $probabilityOfTrue is given, it's the probability expressed in percentage (i.e. an int between 0 and 100)
+     * that this method will return true (i.e. 100 will always return true, and 0 will always return false).
+     *
+     *
+     * @param int $probabilityOfTrue
+     * @return bool
+     */
+    public static function randomBool(int $probabilityOfTrue = 50): bool
+    {
+        $probabilityOfTrue--;
+        return ($probabilityOfTrue >= rand(0, 99));
     }
 
 }

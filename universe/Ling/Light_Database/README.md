@@ -86,6 +86,14 @@ database:
 History Log
 =============
 
+- 1.2.0 -- 2019-08-14
+
+    - remove LightDatabasePdoWrapperAwareInterface
+    
+- 1.1.0 -- 2019-08-14
+
+    - add LightDatabasePdoWrapperAwareInterface
+
 - 1.0.2 -- 2019-07-23
 
     - fix typo

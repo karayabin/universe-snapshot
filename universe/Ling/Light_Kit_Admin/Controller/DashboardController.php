@@ -9,7 +9,7 @@ use Ling\Light\Http\HttpResponseInterface;
 /**
  * The DashboardController class.
  */
-class DashboardController extends ProtectedPageController
+class DashboardController extends AdminPageController
 {
 
 
@@ -21,6 +21,6 @@ class DashboardController extends ProtectedPageController
      */
     public function render()
     {
-        return $this->renderProtectedPage('Light_Kit_Admin/zeroadmin/zeroadmin_home');
+        return $this->renderAdminPage('Light_Kit_Admin/kit/zeroadmin/zeroadmin_home');
     }
 }

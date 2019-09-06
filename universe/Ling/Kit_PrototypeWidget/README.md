@@ -102,6 +102,10 @@ Related
 History Log
 =============
 
+- 1.1.0 -- 2019-08-29
+
+    - update PrototypeWidgetHandler now implements KitPageRendererAwareInterface
+    
 - 1.0.1 -- 2019-07-18
 
     - update docTools documentation, add links to source code for classes and methods

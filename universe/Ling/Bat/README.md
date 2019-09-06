@@ -84,6 +84,54 @@ Dependencies
 History Log
 ------------------
     
+- 1.193 -- 2019-09-06
+
+    - add ArrayTool::walkRowsRecursive
+    
+- 1.192 -- 2019-08-27
+
+    - add StringTool::incrementNumericalSuffix
+    
+- 1.191 -- 2019-08-14
+
+    - fix RandomTool::pickRandomFromArray not accepting nbRequests=0
+    
+- 1.190 -- 2019-08-14
+
+    - add RandomTool::pickRandomFile method
+    
+- 1.189 -- 2019-08-14
+
+    - add RandomTool::pickRandomFromArray's nbRequests and pickOnce arguments
+    
+- 1.188 -- 2019-08-14
+
+    - add RandomTool::pickRandomFromArray
+    
+- 1.187 -- 2019-08-14
+
+    - add RandomTool::randomBool
+    
+- 1.186 -- 2019-08-09
+
+    - add ArrayTool::filterRecursive
+    
+- 1.185 -- 2019-08-09
+
+    - update ArrayTool::updateNodeRecursive documentation
+    
+- 1.184 -- 2019-08-09
+
+    - fix ClassTool::executePhpMethod not working correctly with multiple arguments in php style
+    
+- 1.183 -- 2019-08-08
+
+    - add BDotTool::getPathComponents
+    
+- 1.182 -- 2019-08-07
+
+    - add ArrayTool::filterByAllowed
+    
 - 1.181 -- 2019-08-07
 
     - fix ClassTool::getAncestors not returning all ancestor interfaces when the $includeInterfaces option is true 

@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightLoggerService::setFormat](https://github.com/lingtalfi/Light_Logger/blob/master/LightLoggerService.php#L128-L131)
+See the source code for method [LightLoggerService::setFormat](https://github.com/lingtalfi/Light_Logger/blob/master/LightLoggerService.php#L143-L146)
 
 
 See Also
@@ -57,5 +57,5 @@ See Also
 
 The [LightLoggerService](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService.md) class.
 
-Previous method: [addListener](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/addListener.md)<br>Next method: [log](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/log.md)<br>
+Previous method: [addListener](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/addListener.md)<br>Next method: [setUseExpandedArray](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/setUseExpandedArray.md)<br>
 

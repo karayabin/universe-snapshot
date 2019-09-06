@@ -25,8 +25,6 @@ $renderer = new HeliumRenderer([
 ]);
 $renderer->prepare($form->toArray());
 
-$container = $this->getContainer();
-$reverseRouter = $container->get('reverse_router');
 
 
 ?>

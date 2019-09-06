@@ -25,4 +25,16 @@ class LightKitAdminChloroform extends Chloroform
     }
 
 
+    /**
+     * Returns the posted data, except for the chloroform hidden key and the csrf token.
+     *
+     * @return array
+     */
+    public function getFilteredPostedData(): array
+    {
+        $postedData = $this->getPostedData();
+        unset($postedData['csrf_token']);
+        unset($postedData['chloroform_hidden_key']);
+        return $postedData;
+    }
 }

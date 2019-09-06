@@ -4,7 +4,7 @@
 
 The Kit_PrototypeWidgetDocBuilder class
 ================
-2019-03-13 --> 2019-07-18
+2019-03-13 --> 2019-08-14
 
 
 

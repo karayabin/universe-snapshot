@@ -64,3 +64,111 @@ Return a randomly generated hex color, with the hash symbol prefix.
 az(RandomTool::getRandomColor()); // #f1aa56
 ```
 
+
+pickRandomFile
+------------
+2018-08-14
+     
+     
+```php     
+str        pickRandomFile( str:dir, mixed:extension=null, bool:recursive=false )     
+```     
+     
+Picks a random file from the given $dir and returns its path.
+If extension is provided, it can be either a string or an array of extensions (without the leading dot),
+and defines which extension(s) to look for.
+
+By default, this method doesn't look into subdirectories, but we can change this with the recursive flag
+set to true.     
+
+
+
+```php
+$dir = "/mysite/www/plugins/Light_Kit_Admin/img/avatars";
+a(RandomTool::pickRandomFile($dir)); // string(117) "/mysite/www/plugins/Light_Kit_Admin/img/avatars/user_avatar.png"
+```
+
+
+
+pickRandomFromArray
+------------
+2019-08-14
+     
+     
+```php     
+mixed        pickRandomFromArray( arr:array, int:nbRequests=null, bool:pickOnce=true )     
+```     
+     
+Returns a random element from the given array,
+or multiple randomly chosen elements if the $nbRequests parameter is provided.
+
+By default, an element can be picked only once.
+But we can set the pickOnce flag to false to allow the same item to picked up multiple times.
+
+
+### Example
+
+The following code: 
+
+```php
+$arr = ["one", "two", "three"];
+
+a(RandomTool::pickRandomFromArray($arr));
+a(RandomTool::pickRandomFromArray($arr, 2));
+a(RandomTool::pickRandomFromArray($arr, 5));
+a(RandomTool::pickRandomFromArray($arr, 5, false));
+
+```
+
+
+This will output something like this:
+
+```html
+string(3) "two"
+
+array(2) {
+  [0] => string(5) "three"
+  [1] => string(3) "one"
+}
+
+array(3) {
+  [0] => string(3) "one"
+  [1] => string(5) "three"
+  [2] => string(3) "two"
+}
+
+array(5) {
+  [0] => string(3) "two"
+  [1] => string(5) "three"
+  [2] => string(5) "three"
+  [3] => string(3) "one"
+  [4] => string(3) "one"
+}
+```
+
+
+
+
+
+
+
+randomBool
+------------
+2019-08-14
+     
+     
+```php     
+bool        randomBool( int:probabilityOfTrue = 50 )     
+```     
+     
+Returns a random boolean.
+
+If the $probabilityOfTrue is given, it's the probability expressed in percentage (i.e. an int between 0 and 100)
+
+that this method will return true (i.e. 100 will always return true, and 0 will always return false).
+
+
+```php
+az(RandomTool::randomBool()); // true
+```
+

@@ -38,6 +38,18 @@ Summary
 History Log
 =============
 
+- 2.0.1 -- 2019-08-30
+
+    - updated documentation
+
+- 2.0.0 -- 2019-08-30
+
+    - added HtmlPageCopilot->registerLibrary as the only mean to add a library
+    - removed HtmlPageCopilot->addCssLibrary method
+    - removed HtmlPageCopilot->addJsLibrary method
+    - renamed HtmlPageCopilot->getCssLibraries to getCssUrls
+    - renamed HtmlPageCopilot->getJsLibraries to getJsUrls
+    
 - 1.6.1 -- 2019-07-18
 
     - update docTools documentation, add links to source code for classes and methods

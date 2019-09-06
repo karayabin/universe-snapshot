@@ -4,21 +4,24 @@
 namespace Ling\Light_Kit_Admin\Controller\User;
 
 
+use Ling\Bat\ArrayTool;
 use Ling\Chloroform\Field\AjaxFileBoxField;
 use Ling\Chloroform\Field\PasswordField;
 use Ling\Chloroform\Field\StringField;
-use Ling\Chloroform\FormNotification\ErrorFormNotification;
-use Ling\Chloroform\FormNotification\SuccessFormNotification;
 use Ling\CSRFTools\CSRFProtector;
 use Ling\Light\Http\HttpResponseInterface;
+use Ling\Light_Flasher\Service\LightFlasher;
 use Ling\Light_Kit_Admin\Chloroform\LightKitAdminChloroform;
-use Ling\Light_Kit_Admin\Controller\ProtectedPageController;
-use Ling\Light_UserDatabase\LightUserDatabaseInterface;
+use Ling\Light_Kit_Admin\Controller\AdminPageController;
+use Ling\Light_Kit_Admin\Rights\RightsHelper;
+use Ling\Light_User\WebsiteLightUser;
+use Ling\Light_UserDatabase\LightWebsiteUserDatabaseInterface;
+use Ling\WiseTool\WiseTool;
 
 /**
  * The UserProfileController class.
  */
-class UserProfileController extends ProtectedPageController
+class UserProfileController extends AdminPageController
 {
 
     /**
@@ -32,34 +35,16 @@ class UserProfileController extends ProtectedPageController
 
 
         $container = $this->getContainer();
+        $flasher = $this->getFlasher();
+
+        //--------------------------------------------
+        // FORM FOR pseudo, password and avatar_url
+        //--------------------------------------------
 
         /**
-         * @var $userDb LightUserDatabaseInterface
+         * @var WebsiteLightUser
          */
-        $userDb = $container->get("user_database");
-
-
         $user = $this->getUser();
-
-
-        //--------------------------------------------
-        // UPDATE THE SESSION USER FROM THE DATABASE USER
-        //--------------------------------------------
-        /**
-         * In this particular case where we update the user information,
-         * we don't use the user from the session, since its info might be outdated by the data
-         * posted in the form.
-         * So we need to query the database every time, and update the session if the data changes.
-         */
-        $userInfo = $userDb->getUserInfoByIdentifier($user->getIdentifier());
-        $user->updateInfo($userInfo);
-
-
-
-
-
-
-
         $pseudo = $user->getPseudo();
         $password = ""; // never show the password
         $avatar_url = $user->getAvatarUrl();
@@ -94,22 +79,76 @@ class UserProfileController extends ProtectedPageController
         //--------------------------------------------
         if (true === $form->isPosted()) {
             if (true === $form->validates()) {
-                $form->addNotification(SuccessFormNotification::create("ok"));
                 // do something with $postedData;
-                $postedData = $form->getPostedData();
+                $postedData = $form->getFilteredPostedData();
+
+
+                $allowed = [
+                    "pseudo",
+                    "password",
+                    "avatar_url",
+                ];
+                $filteredData = ArrayTool::filterByAllowed($postedData, $allowed);
+
+
+                //--------------------------------------------
+                // update the database
+                //--------------------------------------------
+                // empty password means we don't update the password
+                $password = $filteredData['password'];
+                if (empty($password)) {
+                    unset($filteredData['password']);
+                }
+
+
+                /**
+                 * @var $userDb LightWebsiteUserDatabaseInterface
+                 */
+                $userDb = $container->get("user_database");
+                $userDb->updateUserById($user->getId(), $filteredData);
+
+
+                //--------------------------------------------
+                // update the session
+                //--------------------------------------------
+                $userInfo = $userDb->getUserInfoByIdentifier($user->getIdentifier());
+                $user->updateInfo($userInfo);
+
+                //--------------------------------------------
+                // redirect
+                //--------------------------------------------
+                /**
+                 * We redirect because the user data is used in the gui (for instance in the icon menu in the header.
+                 * And so if the user changed her avatar for instance, we want her to notice the changes right away.
+                 * Hence we redirect to the same page
+                 */
+                $flasher->addFlash("user_profile", "Congrats, the user form was successfully updated.");
+                return $this->redirectByRoute("lka_route-user_profile");
+
+
             } else {
-                $form->addNotification(ErrorFormNotification::create("There was a problem."));
+//                $form->addNotification(ErrorFormNotification::create("There was a problem."));
             }
         } else {
             $valuesFromDb = []; // get the values from the database if necessary...
             $form->injectValues($valuesFromDb);
+
+
+            if ($flasher->hasFlash("user_profile")) {
+                list($message, $type) = $flasher->getFlash("user_profile");
+//                $this->getKitAdmin()->addNotification(WiseTool::wiseToLightKitAdmin($type, $message));
+                $form->addNotification(WiseTool::wiseToChloroform($type, $message));
+            }
+
         }
 
         //--------------------------------------------
         // RENDERING
         //--------------------------------------------
-        return $this->renderProtectedPage('Light_Kit_Admin/zeroadmin/user/user_profile', [
+        return $this->renderAdminPage('Light_Kit_Admin/kit/zeroadmin/user/user_profile', [
             "form" => $form,
+            "is_root" => RightsHelper::isRoot($user),
+            "rights" => RightsHelper::getGroupedRights($user->getRights()),
         ]);
     }
 }

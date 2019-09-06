@@ -61,13 +61,16 @@ user_database:
             wrapper: @service(database)
 
 
+user_database_vars:
+    bullsheeterAvatarImgDir: /overrideme
+
 
 # babyYaml configuration example
 #user_database:
 #    instance: Ling\Light_UserDatabase\BabyYamlLightWebsiteUserDatabase
 #    methods:
 #        setFile:
-#            file: ${app_dir}/config/user_database/database.byml
+#            file: ${app_dir}/config/data/Light_UserDatabase/database.byml
 
 
 # --------------------------------------
@@ -75,6 +78,21 @@ user_database:
 # --------------------------------------
 $initializer.methods.setInitializers.initializers:
     - @service(user_database)
+
+
+$bullsheet.methods_collection:
+    -
+        method: registerBullsheeter
+        args:
+            identifier: Light_UserDatabase.lud_user
+            bullsheeter:
+                instance: Ling\Light_UserDatabase\Bullsheet\LightWebsiteUserDatabaseBullsheeter
+                methods:
+                    setApplicationDir:
+                        dir: ${app_dir}
+                    setAvatarImgDir:
+                        dir: ${user_database_vars.bullsheeterAvatarImgDir}
+
 
 
 ```
@@ -85,6 +103,7 @@ Related
 =========
 - [Light_User](https://github.com/lingtalfi/Light_User/), an user representation for the Light framework 
 - [Light_UserManager](https://github.com/lingtalfi/Light_UserManager/), a system for managing users in a Light application 
+ 
 
 
 
@@ -92,6 +111,31 @@ Related
 
 History Log
 =============
+
+- 1.8.1 -- 2019-08-14
+
+    - fix typo in LightWebsiteUserDatabaseBullsheeter->generateRows 
+    
+- 1.8.0 -- 2019-08-14
+
+    - remove LightWebsiteUserDatabaseInterface->getTable 
+    - fix doc 
+    
+- 1.7.0 -- 2019-08-14
+
+    - add LightWebsiteUserDatabaseBullsheeter 
+    
+- 1.6.0 -- 2019-08-14
+
+    - add LightWebsiteUserDatabaseInterface->getTable
+    
+- 1.5.0 -- 2019-08-13
+
+    - change user table to lud_user
+    
+- 1.4.1 -- 2019-08-13
+
+    - change location of babyYaml configuration data
 
 - 1.4.0 -- 2019-08-07
 

@@ -54,7 +54,7 @@ The **ajax_file_upload_manager** service is the centralized manager for all the 
 
 
 
-Here is the content of the service configuration file:
+Here is an example of service configuration file:
 
 ```yaml
 ajax_file_upload_manager:
@@ -62,6 +62,8 @@ ajax_file_upload_manager:
     methods:
         setApplicationDir:
             dir: ${app_dir}
+        setContainer:
+            container: @container()
     methods_collection: []
 #        -
 #            method: addActionLists
@@ -72,12 +74,27 @@ ajax_file_upload_manager:
 #                            storeDir: www/uploads/test
 #                            returnUrlDir: /uploads/test
 #                            imageTransformer: resize(200)
+#                            db_update:
+#                                table: user
+#                                column: avatar_url
+#                                where:
+#                                    user_id: $userIdentifier
 #        -
 #            method: addValidationRules
 #            args:
 #                validationRules:
 #                    id_one: []
 
+
+
+# --------------------------------------
+# hooks
+# --------------------------------------
+$easy_route.methods_collection:
+    -
+        method: registerBundleFile
+        args:
+            file: config/data/Light_AjaxFileUploadManager/Light_EasyRoute/afup_routes.byml
 
 
 
@@ -116,6 +133,12 @@ I recommend to use CSRF protection all the time. This is explained in the aforem
 History Log
 =============
 
+- 1.2.0 -- 2019-08-21
+
+    - now using Light_EasyRoute service to register the routes
+
+    - fix LightAjaxFileUploadManagerRenderingUtil->printField file input name conflicting with ajax generated input
+    
 - 1.1.0 -- 2019-08-07
 
     - the "db_update" action list now supports the $userId token

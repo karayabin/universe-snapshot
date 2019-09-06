@@ -4,6 +4,7 @@
 namespace Ling\Light_Kit_Admin\Widget\Picasso;
 
 
+use Ling\HtmlPageTools\Copilot\HtmlPageCopilot;
 use Ling\Kit_PicassoWidget\Widget\EasyLightPicassoWidget;
 
 
@@ -79,12 +80,12 @@ use Ling\Kit_PicassoWidget\Widget\EasyLightPicassoWidget;
  */
 class LightKitAdminChloroformWidget extends EasyLightPicassoWidget
 {
+
     /**
      * @overrides
      */
-    public function __construct()
+    public function prepare(array &$widgetConf, HtmlPageCopilot $copilot)
     {
-        parent::__construct();
         $this->registerLibrary("Chloroform_HeliumRenderer", [
             "/plugins/Light_Kit_Admin/Chloroform_HeliumRenderer/helium.css",
             "/plugins/Light_Kit_Admin/fileuploader/fileuploader.css",
@@ -93,5 +94,6 @@ class LightKitAdminChloroformWidget extends EasyLightPicassoWidget
             "/plugins/Light_Kit_Admin/fileuploader/fileuploader.js",
         ]);
     }
+
 
 }

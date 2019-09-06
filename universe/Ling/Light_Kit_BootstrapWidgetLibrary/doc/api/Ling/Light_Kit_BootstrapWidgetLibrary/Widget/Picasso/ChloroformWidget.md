@@ -4,7 +4,7 @@
 
 The ChloroformWidget class
 ================
-2019-04-26 --> 2019-07-30
+2019-04-26 --> 2019-09-04
 
 
 
@@ -32,9 +32,10 @@ class <span class="pl-k">ChloroformWidget</span> extends [EasyLightPicassoWidget
     - protected [Ling\HtmlPageTools\Copilot\HtmlPageCopilot](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot.md) [PicassoWidget::$copilot](#property-copilot) ;
 
 - Methods
-    - public [__construct](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/Widget/Picasso/ChloroformWidget/__construct.md)() : void
+    - public [prepare](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/Widget/Picasso/ChloroformWidget/prepare.md)(array &$widgetConf, [Ling\HtmlPageTools\Copilot\HtmlPageCopilot](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot.md) $copilot) : void
 
 - Inherited methods
+    - public EasyLightPicassoWidget::__construct() : void
     - public EasyLightPicassoWidget::setKitPageRenderer([Ling\Kit\PageRenderer\KitPageRendererInterface](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRendererInterface.md) $renderer) : void
     - public EasyLightPicassoWidget::getKitPageRenderer() : [KitPageRendererInterface](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRendererInterface.md) | null
     - protected EasyLightPicassoWidget::getContainer() : Ling\Light\ServiceContainer\LightServiceContainerInterface
@@ -43,7 +44,6 @@ class <span class="pl-k">ChloroformWidget</span> extends [EasyLightPicassoWidget
     - public PicassoWidget::getLibraries() : array
     - public PicassoWidget::setCopilot([Ling\HtmlPageTools\Copilot\HtmlPageCopilot](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot.md) $copilot) : void
     - public PicassoWidget::renderFile(string $filePath, array $variables = []) : false | string
-    - public PicassoWidget::prepare(array &$widgetConf, [Ling\HtmlPageTools\Copilot\HtmlPageCopilot](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot.md) $copilot) : void
     - protected PicassoWidget::getAttributesHtml(bool $excludeClass = true) : string
     - protected PicassoWidget::getCssClass() : string
     - protected PicassoWidget::registerLibrary(string $libraryName, array $css, array $js) : void
@@ -63,7 +63,8 @@ class <span class="pl-k">ChloroformWidget</span> extends [EasyLightPicassoWidget
 Methods
 ==============
 
-- [ChloroformWidget::__construct](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/Widget/Picasso/ChloroformWidget/__construct.md) &ndash; Builds the EasyPicassoWidget instance.
+- [ChloroformWidget::prepare](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/Widget/Picasso/ChloroformWidget/prepare.md) &ndash; Prepares the widget according to the given widget configuration.
+- EasyLightPicassoWidget::__construct &ndash; Builds the EasyPicassoWidget instance.
 - EasyLightPicassoWidget::setKitPageRenderer &ndash; Sets the KitPageRenderer instance.
 - EasyLightPicassoWidget::getKitPageRenderer &ndash; 
 - EasyLightPicassoWidget::getContainer &ndash; Returns a light service container instance.
@@ -72,7 +73,6 @@ Methods
 - PicassoWidget::getLibraries &ndash; Returns the libraries of this instance.
 - PicassoWidget::setCopilot &ndash; Sets the copilot.
 - PicassoWidget::renderFile &ndash; Parses the file identified and returns its interpreted content (by injecting the variables in it).
-- PicassoWidget::prepare &ndash; Prepares the widget according to the given widget configuration.
 - PicassoWidget::getAttributesHtml &ndash; Returns the string of html attributes defined in the widget attributes (attr property in the [widget configuration array](https://github.com/lingtalfi/Kit_PicassoWidget#the-picasso-widget-array)).
 - PicassoWidget::getCssClass &ndash; 
 - PicassoWidget::registerLibrary &ndash; Registers an (external) library that this widget uses.

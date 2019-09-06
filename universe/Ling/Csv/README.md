@@ -67,12 +67,51 @@ a(CsvUtil::readFile($f));
 ```
 
 
+Will output something like:
+
+```html
+array(7) {
+  [0] => array(2) {
+    [0] => string(9) "COM_00001"
+    [1] => string(7) "P_00001"
+  }
+  [1] => array(2) {
+    [0] => string(9) "COM_00001"
+    [1] => string(7) "P_00002"
+  }
+  [2] => array(2) {
+    [0] => string(9) "COM_00001"
+    [1] => string(7) "P_00003"
+  }
+  [3] => array(2) {
+    [0] => string(9) "COM_00001"
+    [1] => string(7) "P_00004"
+  }
+  [4] => array(2) {
+    [0] => string(9) "COM_00002"
+    [1] => string(8) "PX_00001"
+  }
+  [5] => array(2) {
+    [0] => string(9) "COM_00002"
+    [1] => string(8) "AJ_00002"
+  }
+  [6] => array(2) {
+    [0] => string(9) "COM_00002"
+    [1] => string(8) "PX_00003"
+  }
+}
+```
+
 
 
 
 
 History Log
 ------------------
+    
+- 1.2.1 -- 2019-09-05
+
+    - update README.md 
     
 - 1.2.0 -- 2018-06-19
 

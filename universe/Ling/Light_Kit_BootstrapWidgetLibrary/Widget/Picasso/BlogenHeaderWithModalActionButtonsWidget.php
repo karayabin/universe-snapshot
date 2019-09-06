@@ -4,6 +4,7 @@
 namespace Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso;
 
 
+use Ling\HtmlPageTools\Copilot\HtmlPageCopilot;
 use Ling\Kit_PicassoWidget\Widget\PicassoWidget;
 
 
@@ -16,9 +17,8 @@ class BlogenHeaderWithModalActionButtonsWidget extends PicassoWidget
     /**
      * @overrides
      */
-    public function __construct()
+    public function prepare(array &$widgetConf, HtmlPageCopilot $copilot)
     {
-        parent::__construct();
         $this->registerLibrary("ckeditor", [], [
             'https://cdn.ckeditor.com/4.11.4/standard/ckeditor.js',
         ]);

@@ -95,6 +95,6 @@ class LoginFormController extends LightKitAdminController
                 $updator->setMergeArray($updates);
             }
         }
-        return $this->renderPage('Light_Kit_Admin/zeroadmin/zeroadmin_login', [], $updator);
+        return $this->renderPage('Light_Kit_Admin/kit/zeroadmin/zeroadmin_login', [], $updator);
     }
 }
