@@ -140,7 +140,7 @@ class SimplePdoWrapperDocBuilder
              * This map in particular is the one used for the whole DocTools planet documentation (pages and api).
              */
             "keyWord2UrlMap" => [
-//                "the command line page" => $doc . '/pages/command-line.md',
+                "ric" => 'https://github.com/lingtalfi/NotationFan/blob/master/ric.md',
             ],
             /**
              * An array of external classes to url.

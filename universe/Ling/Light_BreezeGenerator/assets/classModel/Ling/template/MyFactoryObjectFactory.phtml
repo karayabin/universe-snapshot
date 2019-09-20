@@ -1,0 +1,48 @@
+<?php
+
+
+namespace The\ObjectNamespace;
+
+
+use Ling\SimplePdoWrapper\SimplePdoWrapperInterface;
+
+/**
+ * The MyFactoryObjectFactory class.
+ */
+class MyFactoryObjectFactory
+{
+
+    /**
+     * This property holds the pdoWrapper for this instance.
+     * @var SimplePdoWrapperInterface
+     */
+    protected $pdoWrapper;
+
+    /**
+     * Builds the MyFactoryObjectFactory instance.
+     */
+    public function __construct()
+    {
+        $this->pdoWrapper = null;
+    }
+
+
+// getXXX
+
+
+
+    //--------------------------------------------
+    //
+    //--------------------------------------------
+    /**
+     * Sets the pdoWrapper.
+     *
+     * @param SimplePdoWrapperInterface $pdoWrapper
+     */
+    public function setPdoWrapper(SimplePdoWrapperInterface $pdoWrapper)
+    {
+        $this->pdoWrapper = $pdoWrapper;
+    }
+
+
+}

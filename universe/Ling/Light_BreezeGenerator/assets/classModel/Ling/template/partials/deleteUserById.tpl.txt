@@ -1,0 +1,9 @@
+    /**
+     * @implementation
+     */
+    public function deleteUserById(int $id)
+    {
+        $this->pdoWrapper->delete("user", [
+            "id" => $id,
+        ]);
+    }

@@ -1,6 +1,6 @@
 Ling/ArrayVariableResolver
 ================
-2019-05-15 --> 2019-07-23
+2019-05-15 --> 2019-09-18
 
 
 
@@ -13,6 +13,7 @@ Table of contents
     - [ArrayVariableResolverUtil::setFirstSymbol](https://github.com/lingtalfi/ArrayVariableResolver/blob/master/doc/api/Ling/ArrayVariableResolver/ArrayVariableResolverUtil/setFirstSymbol.md) &ndash; Sets the firstSymbol.
     - [ArrayVariableResolverUtil::setOpeningBracket](https://github.com/lingtalfi/ArrayVariableResolver/blob/master/doc/api/Ling/ArrayVariableResolver/ArrayVariableResolverUtil/setOpeningBracket.md) &ndash; Sets the openingBracket.
     - [ArrayVariableResolverUtil::setClosingBracket](https://github.com/lingtalfi/ArrayVariableResolver/blob/master/doc/api/Ling/ArrayVariableResolver/ArrayVariableResolverUtil/setClosingBracket.md) &ndash; Sets the closingBracket.
+    - [ArrayVariableResolverUtil::setAllowBdotResolution](https://github.com/lingtalfi/ArrayVariableResolver/blob/master/doc/api/Ling/ArrayVariableResolver/ArrayVariableResolverUtil/setAllowBdotResolution.md) &ndash; Sets the allowBdotResolution.
     - [ArrayVariableResolverUtil::resolve](https://github.com/lingtalfi/ArrayVariableResolver/blob/master/doc/api/Ling/ArrayVariableResolver/ArrayVariableResolverUtil/resolve.md) &ndash; Resolves the given array in place, by replacing the variable notation in the array values by the corresponding variables.
 - [ArrayVariableResolverException](https://github.com/lingtalfi/ArrayVariableResolver/blob/master/doc/api/Ling/ArrayVariableResolver/Exception/ArrayVariableResolverException.md) &ndash; The ArrayVariableResolverException class.
 

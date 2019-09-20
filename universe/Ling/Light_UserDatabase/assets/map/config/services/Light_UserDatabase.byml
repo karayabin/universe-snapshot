@@ -1,8 +1,8 @@
 user_database:
     instance: Ling\Light_UserDatabase\MysqlLightWebsiteUserDatabase
     methods:
-        setPdoWrapper:
-            wrapper: @service(database)
+        setContainer:
+            container: @container()
 
 
 user_database_vars:
@@ -20,8 +20,12 @@ user_database_vars:
 # --------------------------------------
 # hooks
 # --------------------------------------
-$initializer.methods.setInitializers.initializers:
-    - @service(user_database)
+$initializer.methods_collection:
+    -
+        method: registerInitializer
+        args:
+            initializer: @service(user_database)
+            slot: install
 
 
 $bullsheet.methods_collection:
@@ -36,3 +40,16 @@ $bullsheet.methods_collection:
                         dir: ${app_dir}
                     setAvatarImgDir:
                         dir: ${user_database_vars.bullsheeterAvatarImgDir}
+
+$plugin_database_installer.methods_collection:
+    -
+        method: registerInstaller
+        args:
+            plugin: Light_UserDatabase
+            installer:
+                -
+                    - @service(user_database)
+                    - installDatabase
+                -
+                    - @service(user_database)
+                    - uninstallDatabase

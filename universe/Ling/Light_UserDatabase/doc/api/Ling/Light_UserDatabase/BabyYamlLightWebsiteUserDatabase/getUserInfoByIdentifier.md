@@ -26,6 +26,9 @@ doesn't match an user. The returned array structure depends on your application.
 Related: getUserInfo method.
 
 
+Note: this method will not return the related "rights" of the user.
+
+
 
 
 Parameters
@@ -51,7 +54,7 @@ Returns array | false.
 
 Source Code
 ===========
-See the source code for method [BabyYamlLightWebsiteUserDatabase::getUserInfoByIdentifier](https://github.com/lingtalfi/Light_UserDatabase/blob/master/BabyYamlLightWebsiteUserDatabase.php#L153-L162)
+See the source code for method [BabyYamlLightWebsiteUserDatabase::getUserInfoByIdentifier](https://github.com/lingtalfi/Light_UserDatabase/blob/master/BabyYamlLightWebsiteUserDatabase.php#L208-L217)
 
 
 See Also

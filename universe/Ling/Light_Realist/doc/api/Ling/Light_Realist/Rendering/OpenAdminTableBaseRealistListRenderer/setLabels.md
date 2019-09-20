@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [OpenAdminTableBaseRealistListRenderer::setLabels](https://github.com/lingtalfi/Light_Realist/blob/master/Rendering/OpenAdminTableBaseRealistListRenderer.php#L141-L144)
+See the source code for method [OpenAdminTableBaseRealistListRenderer::setLabels](https://github.com/lingtalfi/Light_Realist/blob/master/Rendering/OpenAdminTableBaseRealistListRenderer.php#L157-L160)
 
 
 See Also

@@ -4,7 +4,7 @@
 
 The LightInitializerInterface class
 ================
-2019-04-05 --> 2019-07-18
+2019-04-05 --> 2019-09-11
 
 
 
@@ -52,4 +52,4 @@ See the source code of [Ling\Light_Initializer\Initializer\LightInitializerInter
 
 SeeAlso
 ==============
-Next class: [LightInitializerUtil](https://github.com/lingtalfi/Light_Initializer/blob/master/doc/api/Ling/Light_Initializer/Util/LightInitializerUtil.md)<br>
+Previous class: [LightInitializerException](https://github.com/lingtalfi/Light_Initializer/blob/master/doc/api/Ling/Light_Initializer/Exception/LightInitializerException.md)<br>Next class: [LightInitializerUtil](https://github.com/lingtalfi/Light_Initializer/blob/master/doc/api/Ling/Light_Initializer/Util/LightInitializerUtil.md)<br>

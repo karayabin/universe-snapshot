@@ -8,9 +8,8 @@ use Ling\Bat\ArrayTool;
 use Ling\Chloroform\Field\AjaxFileBoxField;
 use Ling\Chloroform\Field\PasswordField;
 use Ling\Chloroform\Field\StringField;
-use Ling\CSRFTools\CSRFProtector;
 use Ling\Light\Http\HttpResponseInterface;
-use Ling\Light_Flasher\Service\LightFlasher;
+use Ling\Light_Csrf\Service\LightCsrfService;
 use Ling\Light_Kit_Admin\Chloroform\LightKitAdminChloroform;
 use Ling\Light_Kit_Admin\Controller\AdminPageController;
 use Ling\Light_Kit_Admin\Rights\RightsHelper;
@@ -54,10 +53,16 @@ class UserProfileController extends AdminPageController
         // FORM
         //--------------------------------------------
         $form = new LightKitAdminChloroform();
+        $form->prepare($container);
         $form->setFormId("user_profile");
         $form->addField(StringField::create("Pseudo", [
             "value" => $pseudo,
         ]));
+
+        /**
+         * @var $csrf LightCsrfService
+         */
+        $csrf = $this->getContainer()->get("csrf");
 
         $form->addField(AjaxFileBoxField::create("Avatar url", [
             "maxFile" => 1,
@@ -66,7 +71,7 @@ class UserProfileController extends AdminPageController
             "value" => $avatar_url,
             "postParams" => [
                 "id" => "lka_user_profile",
-                "csrf_token" => CSRFProtector::inst()->createToken("csrf_ajax_token"),
+                "csrf_token" => $csrf->createToken("ajax_file_upload_manager_service"),
             ],
         ]));
 

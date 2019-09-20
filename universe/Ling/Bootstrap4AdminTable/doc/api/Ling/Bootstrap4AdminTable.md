@@ -1,6 +1,6 @@
 Ling/Bootstrap4AdminTable
 ================
-2019-08-15 --> 2019-09-06
+2019-08-15 --> 2019-09-20
 
 
 
@@ -22,6 +22,8 @@ Table of contents
     - OpenAdminTableBaseRealistListRenderer::setRequestId &ndash; Sets the requestId.
     - OpenAdminTableBaseRealistListRenderer::setContainer &ndash; Sets the container.
     - OpenAdminTableBaseRealistListRenderer::setCollapsibleColumnIndexes &ndash; Sets the collapsibleColumnIndexes.
+    - OpenAdminTableBaseRealistListRenderer::setListActionGroups &ndash; Sets the listActionGroups.
+    - OpenAdminTableBaseRealistListRenderer::setCsrfToken &ndash; Sets the csrfToken value.
 - [StandardBootstrap4AdminTableRenderer](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/Renderer/StandardBootstrap4AdminTableRenderer.md) &ndash; The StandardBootstrap4AdminTableRenderer class.
     - [StandardBootstrap4AdminTableRenderer::__construct](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/Renderer/StandardBootstrap4AdminTableRenderer/__construct.md) &ndash; Builds the Bootstrap4AdminTableRenderer instance.
     - [Bootstrap4AdminTableRenderer::registerWidget](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/Renderer/Bootstrap4AdminTableRenderer/registerWidget.md) &ndash; Registers a widget.
@@ -35,6 +37,8 @@ Table of contents
     - OpenAdminTableBaseRealistListRenderer::setRequestId &ndash; Sets the requestId.
     - OpenAdminTableBaseRealistListRenderer::setContainer &ndash; Sets the container.
     - OpenAdminTableBaseRealistListRenderer::setCollapsibleColumnIndexes &ndash; Sets the collapsibleColumnIndexes.
+    - OpenAdminTableBaseRealistListRenderer::setListActionGroups &ndash; Sets the listActionGroups.
+    - OpenAdminTableBaseRealistListRenderer::setCsrfToken &ndash; Sets the csrfToken value.
 - [AbstractOpenAdminTableRendererWidget](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/AbstractOpenAdminTableRendererWidget.md) &ndash; The AbstractOpenAdminTableRendererWidget class.
     - [AbstractRendererWidget::__construct](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/AbstractRendererWidget/__construct.md) &ndash; Builds the AbstractRendererWidget instance.
     - [RendererWidgetInterface::render](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/RendererWidgetInterface/render.md) &ndash; Prints the widget html.
@@ -72,7 +76,10 @@ Table of contents
     - [RendererWidgetInterface::render](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/RendererWidgetInterface/render.md) &ndash; Prints the widget html.
 - [ToolbarRendererWidget](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/ToolbarRendererWidget.md) &ndash; The ToolbarRendererWidget class.
     - [ToolbarRendererWidget::__construct](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/ToolbarRendererWidget/__construct.md) &ndash; Builds the ToolbarRendererWidget instance.
+    - [ToolbarRendererWidget::setGroups](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/ToolbarRendererWidget/setGroups.md) &ndash; Sets the groups.
     - [ToolbarRendererWidget::render](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/ToolbarRendererWidget/render.md) &ndash; Prints the widget html.
+- [ToolbarRendererWidgetInterface](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/ToolbarRendererWidgetInterface.md) &ndash; The ToolbarRendererWidgetInterface class.
+    - [ToolbarRendererWidgetInterface::setGroups](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/ToolbarRendererWidgetInterface/setGroups.md) &ndash; Sets the groups.
 
 
 Dependencies

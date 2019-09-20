@@ -6,9 +6,11 @@ reverse_router:
 # --------------------------------------
 # hooks
 # --------------------------------------
-$initializer.methods.setInitializers.initializers:
-    - @service(reverse_router)
-
+$initializer.methods_collection:
+    -
+        method: registerInitializer
+        args:
+            initializer: @service(reverse_router)
 
 
 

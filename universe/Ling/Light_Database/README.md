@@ -42,7 +42,7 @@ Services
 
 This plugin provides the following services:
 
-- database
+- database  (returns a SimplePdoWrapperInterface)
 
 
 The database service provides you access to a configured instance of the [LightDatabasePdoWrapper](https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/LightDatabasePdoWrapper.md), which extends the
@@ -86,6 +86,10 @@ database:
 History Log
 =============
 
+- 1.2.1 -- 2019-09-17
+
+    - add comment in the README.md
+    
 - 1.2.0 -- 2019-08-14
 
     - remove LightDatabasePdoWrapperAwareInterface

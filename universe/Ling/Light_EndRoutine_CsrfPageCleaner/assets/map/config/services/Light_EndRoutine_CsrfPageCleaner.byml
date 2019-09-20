@@ -1,0 +1,12 @@
+
+# --------------------------------------
+# hooks
+# --------------------------------------
+
+$end_routine.methods_collection:
+    -
+        method: registerHandler
+        args:
+            identifier: Light_EndRoutine_CsrfPageCleaner
+            handler:
+                instance: Ling\Light_EndRoutine_CsrfPageCleaner\Handler\LightEndRoutineCsrfPageCleanerHandler

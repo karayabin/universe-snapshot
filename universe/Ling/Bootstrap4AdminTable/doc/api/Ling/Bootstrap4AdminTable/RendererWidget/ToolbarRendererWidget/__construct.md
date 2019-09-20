@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [ToolbarRendererWidget::__construct](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/RendererWidget/ToolbarRendererWidget.php#L39-L42)
+See the source code for method [ToolbarRendererWidget::__construct](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/RendererWidget/ToolbarRendererWidget.php#L26-L30)
 
 
 See Also
@@ -54,5 +54,5 @@ See Also
 
 The [ToolbarRendererWidget](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/ToolbarRendererWidget.md) class.
 
-Next method: [render](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/ToolbarRendererWidget/render.md)<br>
+Next method: [setGroups](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/ToolbarRendererWidget/setGroups.md)<br>
 

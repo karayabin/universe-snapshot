@@ -58,7 +58,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [OpenAdminTableBaseRealistListRenderer::prepareByRequestDeclaration](https://github.com/lingtalfi/Light_Realist/blob/master/Rendering/OpenAdminTableBaseRealistListRenderer.php#L97-L120)
+See the source code for method [OpenAdminTableBaseRealistListRenderer::prepareByRequestDeclaration](https://github.com/lingtalfi/Light_Realist/blob/master/Rendering/OpenAdminTableBaseRealistListRenderer.php#L107-L136)
 
 
 See Also

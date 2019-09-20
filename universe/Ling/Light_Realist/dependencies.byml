@@ -1,6 +1,7 @@
 dependencies: 
     Ling: 
         - Light
+        - Bat
         - BabyYaml
         - Light_Database
         - ParametrizedSqlQuery

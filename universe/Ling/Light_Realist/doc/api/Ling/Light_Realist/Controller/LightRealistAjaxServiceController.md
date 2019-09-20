@@ -4,7 +4,7 @@
 
 The LightRealistAjaxServiceController class
 ================
-2019-08-12 --> 2019-09-05
+2019-08-12 --> 2019-09-19
 
 
 
@@ -69,4 +69,4 @@ See the source code of [Ling\Light_Realist\Controller\LightRealistAjaxServiceCon
 
 SeeAlso
 ==============
-Previous class: [LightRealistActionHandlerInterface](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/ActionHandler/LightRealistActionHandlerInterface.md)<br>Next class: [LightRealistException](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Exception/LightRealistException.md)<br>
+Previous class: [LightRealistActionHandlerInterface](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/ActionHandler/LightRealistActionHandlerInterface.md)<br>Next class: [RealistDynamicInjectionHandlerInterface](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/DynamicInjection/RealistDynamicInjectionHandlerInterface.md)<br>

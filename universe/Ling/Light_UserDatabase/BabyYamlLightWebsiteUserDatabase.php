@@ -11,7 +11,16 @@ use Ling\Light\Core\Light;
 use Ling\Light\Http\HttpRequestInterface;
 use Ling\Light_Initializer\Initializer\LightInitializerInterface;
 use Ling\Light_PasswordProtector\Service\LightPasswordProtector;
+use Ling\Light_UserDatabase\Api\BabyYaml\BabyYamlPermissionApi;
+use Ling\Light_UserDatabase\Api\BabyYaml\BabyYamlPermissionGroupApi;
+use Ling\Light_UserDatabase\Api\BabyYaml\BabyYamlPermissionGroupHasPermissionApi;
+use Ling\Light_UserDatabase\Api\BabyYaml\BabyYamlUserHasPermissionGroupApi;
+use Ling\Light_UserDatabase\Api\PermissionApiInterface;
+use Ling\Light_UserDatabase\Api\PermissionGroupApiInterface;
+use Ling\Light_UserDatabase\Api\PermissionGroupHasPermissionApiInterface;
+use Ling\Light_UserDatabase\Api\UserHasPermissionGroupApiInterface;
 use Ling\Light_UserDatabase\Exception\LightUserDatabaseException;
+use Ling\Light_UserDatabase\Tool\LightWebsiteUserDatabaseTool;
 
 /**
  * The BabyYamlLightWebsiteUserDatabase interface.
@@ -91,6 +100,38 @@ class BabyYamlLightWebsiteUserDatabase implements LightWebsiteUserDatabaseInterf
 
 
     /**
+     * This property holds the registered new user's profiles for this instance.
+     * @var array
+     */
+    protected $newUserProfiles;
+
+
+    /**
+     * This property holds the cached/configured _permissionApi for this instance.
+     * @var PermissionApiInterface
+     */
+    protected $_permissionApi;
+
+    /**
+     * This property holds the cached/configured _permissionGroupApi for this instance.
+     * @var PermissionGroupApiInterface
+     */
+    protected $_permissionGroupApi;
+
+    /**
+     * This property holds the cached/configured _permissionGroupHasPermissionApi for this instance.
+     * @var PermissionGroupHasPermissionApiInterface
+     */
+    protected $_permissionGroupHasPermissionApi;
+
+    /**
+     * This property holds the cached/configured _userHasPermissionGroupApi for this instance.
+     * @var UserHasPermissionGroupApiInterface
+     */
+    protected $_userHasPermissionGroupApi;
+
+
+    /**
      * Builds the BabyYamlLightUserDatabase instance.
      */
     public function __construct()
@@ -102,6 +143,11 @@ class BabyYamlLightWebsiteUserDatabase implements LightWebsiteUserDatabaseInterf
         $this->root_avatar_url = "";
         $this->root_extra = [];
         $this->passwordProtector = null;
+        $this->newUserProfiles = [];
+        $this->_permissionApi = null;
+        $this->_permissionGroupApi = null;
+        $this->_permissionGroupHasPermissionApi = null;
+        $this->_userHasPermissionGroupApi = null;
     }
 
     /**
@@ -141,6 +187,15 @@ class BabyYamlLightWebsiteUserDatabase implements LightWebsiteUserDatabaseInterf
                     }
                 }
 
+
+                //--------------------------------------------
+                // ADDING PERMISSIONS TO THE USER INFO ARRAY
+                //--------------------------------------------
+                $rights = $this->getPermissionApi()->getPermissionNamesByUserId($user['id']);
+                if (in_array('*', $rights, true)) {
+                    $rights = ["*"];
+                }
+                $user['rights'] = $rights;
                 return $user;
             }
         }
@@ -186,7 +241,6 @@ class BabyYamlLightWebsiteUserDatabase implements LightWebsiteUserDatabaseInterf
             "password" => "",
             "pseudo" => "",
             "avatar_url" => "",
-            "rights" => [],
             "extra" => [],
         ];
         $array = ArrayTool::superimpose($userInfo, $defaults);
@@ -209,11 +263,28 @@ class BabyYamlLightWebsiteUserDatabase implements LightWebsiteUserDatabaseInterf
             }
         }
 
-        $users[] = array_replace($userInfo, [
+        $userInfo = array_replace($userInfo, [
             "id" => ++$id,
         ]);
+        $users[] = $userInfo;
+
         $this->updateUsers($users);
 
+
+        //--------------------------------------------
+        // PROFILES
+        //--------------------------------------------
+        $allProfiles = LightWebsiteUserDatabaseTool::resolveProfiles($this->newUserProfiles, $userInfo);
+
+        foreach ($allProfiles as $profile) {
+            $profileId = $this->getPermissionGroupApi()->getPermissionGroupIdByName($profile);
+            $this->getUserHasPermissionGroupApi()->insertUserHasPermissionGroup([
+                "user_id" => $id,
+                "permission_group_id" => $profileId,
+            ]);
+        }
+
+        return (int)$id;
 
     }
 
@@ -305,11 +376,90 @@ class BabyYamlLightWebsiteUserDatabase implements LightWebsiteUserDatabaseInterf
     /**
      * @implementation
      */
+    public function registerNewUserProfile($profile)
+    {
+        $this->newUserProfiles[] = $profile;
+    }
+
+
+    //--------------------------------------------
+    //
+    //--------------------------------------------
+    /**
+     * @implementation
+     */
+    public function getPermissionApi(): PermissionApiInterface
+    {
+        if (null === $this->_permissionApi) {
+            $this->_permissionApi = new BabyYamlPermissionApi();
+            $this->_permissionApi->setFile($this->file);
+        }
+        return $this->_permissionApi;
+    }
+
+    /**
+     * @implementation
+     */
+    public function getPermissionGroupApi(): PermissionGroupApiInterface
+    {
+        if (null === $this->_permissionGroupApi) {
+            $this->_permissionGroupApi = new BabyYamlPermissionGroupApi();
+            $this->_permissionGroupApi->setFile($this->file);
+        }
+        return $this->_permissionGroupApi;
+    }
+
+    /**
+     * @implementation
+     */
+    public function getPermissionGroupHasPermissionApi(): PermissionGroupHasPermissionApiInterface
+    {
+        if (null === $this->_permissionGroupHasPermissionApi) {
+            $this->_permissionGroupHasPermissionApi = new BabyYamlPermissionGroupHasPermissionApi();
+            $this->_permissionGroupHasPermissionApi->setFile($this->file);
+        }
+        return $this->_permissionGroupHasPermissionApi;
+    }
+
+    /**
+     * @implementation
+     */
+    public function getUserHasPermissionGroupApi(): UserHasPermissionGroupApiInterface
+    {
+        if (null === $this->_userHasPermissionGroupApi) {
+            $this->_userHasPermissionGroupApi = new BabyYamlUserHasPermissionGroupApi();
+            $this->_userHasPermissionGroupApi->setFile($this->file);
+        }
+        return $this->_userHasPermissionGroupApi;
+    }
+
+
+
+
+    //--------------------------------------------
+    //
+    //--------------------------------------------
+    /**
+     * @implementation
+     */
     public function initialize(Light $light, HttpRequestInterface $httpRequest)
     {
         if (null !== $this->file) {
 
+
+            /**
+             * In this implementation, we go all in or all out.
+             * If the file doesn't exist, we create it,
+             * if it does, we do nothing.
+             *
+             * In other words, to trigger the core of this initialize method,
+             * one needs to remove the database file first.
+             */
             if (false === is_file($this->file)) {
+
+
+                $data = BabyYamlUtil::readFile(__DIR__ . "/assets/fixtures/database-model.byml");
+
 
                 $password = $this->root_password;
                 if (null !== $this->passwordProtector) {
@@ -317,18 +467,13 @@ class BabyYamlLightWebsiteUserDatabase implements LightWebsiteUserDatabaseInterf
                 }
 
 
-                $data = [
-                    "users" => [
-                        [
-                            'id' => 1,
-                            'identifier' => $this->root_identifier,
-                            'pseudo' => $this->root_pseudo,
-                            'password' => $password,
-                            'avatar_url' => $this->root_avatar_url,
-                            'extra' => $this->root_extra,
-                            'rights' => ['*'],
-                        ],
-                    ],
+                $data["users"][] = [
+                    'id' => 1, // note: the 1 is hardcoded in the database model
+                    'identifier' => $this->root_identifier,
+                    'pseudo' => $this->root_pseudo,
+                    'password' => $password,
+                    'avatar_url' => $this->root_avatar_url,
+                    'extra' => $this->root_extra,
                 ];
                 FileSystemTool::mkfile($this->file, BabyYamlUtil::getBabyYamlString($data));
             }

@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [ArrayVariableResolverUtil::setClosingBracket](https://github.com/lingtalfi/ArrayVariableResolver/blob/master/ArrayVariableResolverUtil.php#L120-L123)
+See the source code for method [ArrayVariableResolverUtil::setClosingBracket](https://github.com/lingtalfi/ArrayVariableResolver/blob/master/ArrayVariableResolverUtil.php#L129-L132)
 
 
 See Also
@@ -57,5 +57,5 @@ See Also
 
 The [ArrayVariableResolverUtil](https://github.com/lingtalfi/ArrayVariableResolver/blob/master/doc/api/Ling/ArrayVariableResolver/ArrayVariableResolverUtil.md) class.
 
-Previous method: [setOpeningBracket](https://github.com/lingtalfi/ArrayVariableResolver/blob/master/doc/api/Ling/ArrayVariableResolver/ArrayVariableResolverUtil/setOpeningBracket.md)<br>Next method: [resolve](https://github.com/lingtalfi/ArrayVariableResolver/blob/master/doc/api/Ling/ArrayVariableResolver/ArrayVariableResolverUtil/resolve.md)<br>
+Previous method: [setOpeningBracket](https://github.com/lingtalfi/ArrayVariableResolver/blob/master/doc/api/Ling/ArrayVariableResolver/ArrayVariableResolverUtil/setOpeningBracket.md)<br>Next method: [setAllowBdotResolution](https://github.com/lingtalfi/ArrayVariableResolver/blob/master/doc/api/Ling/ArrayVariableResolver/ArrayVariableResolverUtil/setAllowBdotResolution.md)<br>
 

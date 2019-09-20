@@ -1,0 +1,9 @@
+    /**
+     * @implementation
+     */
+    public function updateUserById(int $id, array $user)
+    {
+        $this->pdoWrapper->update("user", $user, [
+            "id" => $id,
+        ]);
+    }

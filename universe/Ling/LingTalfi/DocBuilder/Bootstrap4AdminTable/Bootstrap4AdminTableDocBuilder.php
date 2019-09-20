@@ -146,6 +146,7 @@ class Bootstrap4AdminTableDocBuilder
                 "duelist page" => "https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/duelist.md",
                 "the open admin table helper implementation notes" => "https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/open-admin-table-helper-implementation-notes.md",
                 "conception notes" => $doc . '/pages/conception-notes.md',
+                "list action handler conception notes" =>  'https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/list-action-handler-conception-notes.md',
             ],
             /**
              * An array of external classes to url.

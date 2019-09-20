@@ -46,7 +46,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [MysqlLightWebsiteUserDatabase::getTable](https://github.com/lingtalfi/Light_UserDatabase/blob/master/MysqlLightWebsiteUserDatabase.php#L435-L438)
+See the source code for method [MysqlLightWebsiteUserDatabase::getTable](https://github.com/lingtalfi/Light_UserDatabase/blob/master/MysqlLightWebsiteUserDatabase.php#L560-L563)
 
 
 See Also

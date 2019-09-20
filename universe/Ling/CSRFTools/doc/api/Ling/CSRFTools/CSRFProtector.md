@@ -4,7 +4,7 @@
 
 The CSRFProtector class
 ================
-2019-04-11 --> 2019-08-05
+2019-04-11 --> 2019-09-20
 
 
 
@@ -16,7 +16,7 @@ Introduction
 
 The CSRFProtector class.
 
-This class is a singleton.
+This class can be used as a singleton, or as a regular class (it's an hybrid).
 
 
 How this class works
@@ -56,86 +56,29 @@ In terms of page invocation, this means that the form page is usually invoked at
 - the first time to display the form to the user
 - the second time to test the posted data against some validation mechanism
 
-Usually, to protect a form against CSRF, the developer will create a page which calls the two main methods of this class:
-- createToken
-- isValid
 
-Now in which order those methods will be called depends on the coding style of the developer, it could be:
+And so the first time we create the token and it goes to the new slot.
+And the second time, we want to validate the token, but a new token has been regenerated (since we posted the form
+and the page has been refreshed), and so we want to validate the token against the old slot.
 
-- createToken
-- isValid
 
-or
+Now  which slot you want to validate against really depends on your application and your concrete case.
 
-- isValid
-- createToken
+For instance for csrf protected backend services accessed via ajax, we generally want to use the new slot all the time.
+When the user calls the page, we generate the token, but when he calls the service via ajax, the page generating the token
+has not been recalled, and so the token is still in the "new slot".
 
-In the first case, where createToken is called before isValid, because the page is called twice,
-we can see that the first time the page is called (when the form is just displayed), the token is created, and the isValid method
-is probably not relevant at this stage (i.e. without posted data).
-Now when the user posts the page via http post, the page is reloaded and the createToken method is called again BEFORE the isValid method
-is called, which means the token is different than the one the user posted.
+That's why the isValid method let you choose which slot you want to validate against.
 
-Now that's exactly the reason why this class uses the "old" slot: because in this precise case you need to validate the posted CSRF token
-against the old token value (created during the first invocation of the page, when the form was just displayed), not against the new value.
-
-Hopefully this gives you an insight about why there are two slots.
-Now which slot you want to validate against really depends on your application and your concrete case.
-
-For a simple validation between two separate pages, for instance a page A.php that creates the token, and an ajax B.php page that
-calls the isValid method, then the B.php page needs to validate against the new value, since the createToken method has only been called once.
-
-In the case of the form with the isValid method being called first, since the creation of the token is the last (relevant to this
-discussion) thing the page does, then we can validate against the new slot.
-
-So, validating against the new or the old slot is the main question you should ask yourself before using this class.
-This requires an understanding of how your application is wired.
-Once you know how your application works, the solution should be quite obvious.
 
 
 
 The delete method
 -------------
-I would recommend not to use it, but...
 
-Why is there a deleteToken method?
-
-Imagine you have a simple ajax communication you want to secure.
-A.php is the script which creates the token (createToken is called).
-B.php is the ajax script which validates/un-validates the token (isValid is called).
-
-Imagine a legit user does its thing, and A.php is invoked, which in turns calls B.php.
-The user gets its action done, and everything is fine.
-Except that now the token is still in the user session.
-
-Which means there is still a small chance that a malicious user could impersonate the user:
-if the malicious user can make the gentle user to click a link to B.php with the right token (I know, that sounds
-almost impossible, but just imagine), then assuming the user session is still active, the action would technically
-be re-executed.
-
-Now in practise, although I'm not a security expert, I believe it's almost impossible for a malicious user
-to guess the random token, and so this extra precaution is maybe too much, but for those of you who are paranoid,
-if you want to do everything you can to make it harder for the malicious users, then by destroying the token
-after having it validated by the regular user, you remove this tiny risk.
-
-So basically, the algo in B.php would look like this:
-
-- if $csrfProtector->isValid
--    $csrfProtector->deleteToken
--    // do the secure action
-
-And because the token won't exist in the session anymore, even if the malicious user managed to know the right token,
-the token would be stale (or more precisely it wouldn't exist anymore), and so the secure action will not be executed again.
-
-Now it's not always possible (depending on your design) to call the deleteToken method, but on ajax calls it's certainly always possible.
-In fact with forms it might be complicated some time, because you might delete a token that needs to be there, your mileage might vary...
-
-
-Now why not using it:
-I tried it in practice with an ajax script: and it turns out if your user executes the ajax action more than
-once, the actions after the first one will be denied.
-So, maybe there is a very specific case where you can get away with the deleteToken method, but in general
-it's too restrictive and I didn't found a concrete use yet.
+I would recommend using it wherever you can, because it completely prevents an attacker from guessing the token.
+However in some cases, the token cannot be deleted otherwise your own users cannot use them.
+So, you have to assess the situation for yourself, and decide whether you should use the delete method.
 
 
 
@@ -148,14 +91,22 @@ class <span class="pl-k">CSRFProtector</span>  {
 - Properties
     - private static [Ling\CSRFTools\CSRFProtector](https://github.com/lingtalfi/CSRFTools/blob/master/doc/api/Ling/CSRFTools/CSRFProtector.md) [$inst](#property-inst) ;
     - protected string [$sessionName](#property-sessionName) ;
+    - protected bool [$usePage](#property-usePage) ;
 
 - Methods
     - public static [inst](https://github.com/lingtalfi/CSRFTools/blob/master/doc/api/Ling/CSRFTools/CSRFProtector/inst.md)() : [CSRFProtector](https://github.com/lingtalfi/CSRFTools/blob/master/doc/api/Ling/CSRFTools/CSRFProtector.md)
-    - private [__construct](https://github.com/lingtalfi/CSRFTools/blob/master/doc/api/Ling/CSRFTools/CSRFProtector/__construct.md)() : void
+    - public [__construct](https://github.com/lingtalfi/CSRFTools/blob/master/doc/api/Ling/CSRFTools/CSRFProtector/__construct.md)() : void
+    - public [setUsePage](https://github.com/lingtalfi/CSRFTools/blob/master/doc/api/Ling/CSRFTools/CSRFProtector/setUsePage.md)(bool $usePage) : void
     - public [createToken](https://github.com/lingtalfi/CSRFTools/blob/master/doc/api/Ling/CSRFTools/CSRFProtector/createToken.md)(string $tokenName) : string
+    - public [hasToken](https://github.com/lingtalfi/CSRFTools/blob/master/doc/api/Ling/CSRFTools/CSRFProtector/hasToken.md)(string $tokenName) : bool
     - public [isValid](https://github.com/lingtalfi/CSRFTools/blob/master/doc/api/Ling/CSRFTools/CSRFProtector/isValid.md)(string $tokenName, string $tokenValue, bool $useNewSlot = false) : bool
     - public [deleteToken](https://github.com/lingtalfi/CSRFTools/blob/master/doc/api/Ling/CSRFTools/CSRFProtector/deleteToken.md)(string $tokenName) : void
+    - public [deletePageUnusedTokens](https://github.com/lingtalfi/CSRFTools/blob/master/doc/api/Ling/CSRFTools/CSRFProtector/deletePageUnusedTokens.md)() : void
+    - public [dump](https://github.com/lingtalfi/CSRFTools/blob/master/doc/api/Ling/CSRFTools/CSRFProtector/dump.md)() : string
+    - public [cleanSession](https://github.com/lingtalfi/CSRFTools/blob/master/doc/api/Ling/CSRFTools/CSRFProtector/cleanSession.md)() : void
     - protected [startSession](https://github.com/lingtalfi/CSRFTools/blob/master/doc/api/Ling/CSRFTools/CSRFProtector/startSession.md)() : void
+    - protected [addTokenForPage](https://github.com/lingtalfi/CSRFTools/blob/master/doc/api/Ling/CSRFTools/CSRFProtector/addTokenForPage.md)(string $tokenName) : void
+    - protected [getPageId](https://github.com/lingtalfi/CSRFTools/blob/master/doc/api/Ling/CSRFTools/CSRFProtector/getPageId.md)() : string
 
 }
 
@@ -182,6 +133,13 @@ Properties
     
     
 
+- <span id="property-usePage"><b>usePage</b></span>
+
+    This property holds the usePage for this instance.
+    See the [page security conception notes](https://github.com/lingtalfi/CSRFTools/blob/master/doc/pages/page-security-conception-notes.md) for more details.
+    
+    
+
 
 
 Methods
@@ -189,10 +147,17 @@ Methods
 
 - [CSRFProtector::inst](https://github.com/lingtalfi/CSRFTools/blob/master/doc/api/Ling/CSRFTools/CSRFProtector/inst.md) &ndash; Gets the singleton instance for this class.
 - [CSRFProtector::__construct](https://github.com/lingtalfi/CSRFTools/blob/master/doc/api/Ling/CSRFTools/CSRFProtector/__construct.md) &ndash; Builds the CSRFProtector instance.
+- [CSRFProtector::setUsePage](https://github.com/lingtalfi/CSRFTools/blob/master/doc/api/Ling/CSRFTools/CSRFProtector/setUsePage.md) &ndash; Sets the usePage.
 - [CSRFProtector::createToken](https://github.com/lingtalfi/CSRFTools/blob/master/doc/api/Ling/CSRFTools/CSRFProtector/createToken.md) &ndash; Creates the token named $tokenName, stores its value in the "new" slot, and returns the token value.
+- [CSRFProtector::hasToken](https://github.com/lingtalfi/CSRFTools/blob/master/doc/api/Ling/CSRFTools/CSRFProtector/hasToken.md) &ndash; Returns whether the token identified by the given tokenName is already stored in the session.
 - [CSRFProtector::isValid](https://github.com/lingtalfi/CSRFTools/blob/master/doc/api/Ling/CSRFTools/CSRFProtector/isValid.md) &ndash; Returns whether the given $tokenName exists and has the given $tokenValue.
 - [CSRFProtector::deleteToken](https://github.com/lingtalfi/CSRFTools/blob/master/doc/api/Ling/CSRFTools/CSRFProtector/deleteToken.md) &ndash; Deletes the given $tokenName.
+- [CSRFProtector::deletePageUnusedTokens](https://github.com/lingtalfi/CSRFTools/blob/master/doc/api/Ling/CSRFTools/CSRFProtector/deletePageUnusedTokens.md) &ndash; Deletes the tokens that are not associated with the current page.
+- [CSRFProtector::dump](https://github.com/lingtalfi/CSRFTools/blob/master/doc/api/Ling/CSRFTools/CSRFProtector/dump.md) &ndash; Returns a debug string of the php session content.
+- [CSRFProtector::cleanSession](https://github.com/lingtalfi/CSRFTools/blob/master/doc/api/Ling/CSRFTools/CSRFProtector/cleanSession.md) &ndash; Cleans the session.
 - [CSRFProtector::startSession](https://github.com/lingtalfi/CSRFTools/blob/master/doc/api/Ling/CSRFTools/CSRFProtector/startSession.md) &ndash; Ensures that the php session has started.
+- [CSRFProtector::addTokenForPage](https://github.com/lingtalfi/CSRFTools/blob/master/doc/api/Ling/CSRFTools/CSRFProtector/addTokenForPage.md) &ndash; Adds a token to the pages array.
+- [CSRFProtector::getPageId](https://github.com/lingtalfi/CSRFTools/blob/master/doc/api/Ling/CSRFTools/CSRFProtector/getPageId.md) &ndash; Returns the current page id.
 
 
 

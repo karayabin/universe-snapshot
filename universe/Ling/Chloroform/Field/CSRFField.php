@@ -22,6 +22,12 @@ class CSRFField extends HiddenField
      */
     protected $CSRFIdentifier;
 
+    /**
+     * This property holds the csrfProtector for this instance.
+     * @var CSRFProtector
+     */
+    protected $csrfProtector;
+
 
     /**
      * This property holds the _tokenCreated for this instance.
@@ -38,8 +44,9 @@ class CSRFField extends HiddenField
      */
     public function __construct(array $properties = [])
     {
-        $this->CSRFIdentifier = "default";
+        $this->CSRFIdentifier = "chloroform-csrf-field";
         $this->_tokenCreated = false;
+        $this->csrfProtector = null;
         parent::__construct($properties);
     }
 
@@ -65,8 +72,17 @@ class CSRFField extends HiddenField
         return $this->CSRFIdentifier;
     }
 
-
-
+    /**
+     * Sets the csrfProtector.
+     *
+     * @param CSRFProtector $csrfProtector
+     * @return CSRFField
+     */
+    public function setCsrfProtector(CSRFProtector $csrfProtector)
+    {
+        $this->csrfProtector = $csrfProtector;
+        return $this;
+    }
 
 
     /**
@@ -82,9 +98,26 @@ class CSRFField extends HiddenField
          * set to the CSRFProtector provided token.
          */
         if (false === $this->_tokenCreated) {
-            $this->value = CSRFProtector::inst()->createToken($this->CSRFIdentifier);
+            $this->value = $this->getCsrfProtector()->createToken($this->CSRFIdentifier);
             $this->_tokenCreated = true;
         }
         return $this->value;
+    }
+
+
+
+    //--------------------------------------------
+    //
+    //--------------------------------------------
+    /**
+     * Returns the csrf protector instance.
+     * @return CSRFProtector
+     */
+    protected function getCsrfProtector(): CSRFProtector
+    {
+        if (null === $this->csrfProtector) {
+            $this->csrfProtector = CSRFProtector::inst();
+        }
+        return $this->csrfProtector;
     }
 }

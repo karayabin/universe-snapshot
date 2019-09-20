@@ -49,8 +49,12 @@ reverse_router:
 # --------------------------------------
 # hooks
 # --------------------------------------
-$initializer.methods.setInitializers.initializers:
-    - @service(reverse_router)
+$initializer.methods_collection:
+    -
+        method: registerInitializer
+        args:
+            initializer: @service(reverse_router)
+
 
 
 
@@ -71,6 +75,11 @@ The **initializer** service is provided by the [Light_Initializer planet](https:
 
 History Log
 =============
+
+
+- 1.6.0 -- 2019-09-10
+
+    - update service instantiation to accommodate the new initializer interface
     
 - 1.5.0 -- 2019-09-05
 

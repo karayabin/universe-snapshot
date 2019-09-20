@@ -57,6 +57,14 @@ Related
 History Log
 =============
 
+- 1.5.0 -- 2019-09-18
+
+    - implementation of csrf token part
+    
+- 1.4.1 -- 2019-09-18
+
+    - update ToolbarRendererWidgetInterface->setGroups, now accepts attr property
+    
 - 1.4.0 -- 2019-09-06
 
     - removed RendererWidgetInterface->prepare

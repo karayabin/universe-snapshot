@@ -65,5 +65,5 @@ See Also
 
 The [LightRouterInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Router/LightRouterInterface.md) class.
 
-
+Next method: [getMatchingRoute](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Router/LightRouterInterface/getMatchingRoute.md)<br>
 

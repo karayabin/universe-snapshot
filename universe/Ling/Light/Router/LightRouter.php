@@ -12,6 +12,21 @@ use Ling\Light\Http\HttpRequestInterface;
  */
 class LightRouter implements LightRouterInterface
 {
+
+    /**
+     * This property holds the matchingRoute for this instance.
+     * @var array|false
+     */
+    protected $matchingRoute;
+
+    /**
+     * Builds the LightRouter instance.
+     */
+    public function __construct()
+    {
+        $this->matchingRoute = false;
+    }
+
     /**
      * @implementation
      */
@@ -20,9 +35,20 @@ class LightRouter implements LightRouterInterface
         foreach ($routes as $routeName => $route) {
             $pattern = $route["pattern"];
             if ($pattern === $request->getUriPath()) {
+                $this->matchingRoute = $route;
                 return $route;
             }
         }
         return false;
     }
+
+    /**
+     * @implementation
+     */
+    public function getMatchingRoute()
+    {
+        return $this->matchingRoute;
+    }
+
+
 }

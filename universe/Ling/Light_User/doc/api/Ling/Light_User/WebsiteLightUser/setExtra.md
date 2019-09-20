@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [WebsiteLightUser::setExtra](https://github.com/lingtalfi/Light_User/blob/master/WebsiteLightUser.php#L443-L446)
+See the source code for method [WebsiteLightUser::setExtra](https://github.com/lingtalfi/Light_User/blob/master/WebsiteLightUser.php#L428-L431)
 
 
 See Also

@@ -151,6 +151,10 @@ class Light_RealistDocBuilder
                 "responsive table helper tool" => 'https://github.com/lingtalfi/JResponsiveTableHelper',
                 "duelist page" => $doc . '/pages/duelist.md',
                 "the realist tag transfer protocol" => $doc . '/pages/realist-tag-transfer-protocol.md',
+                "ajax communication protocol" => 'https://github.com/lingtalfi/AjaxCommunicationProtocol',
+                "list action handler conception notes" => $doc . "/pages/list-action-handler-conception-notes.md",
+                "toolbar items" => $doc . "/pages/list-action-handler-conception-notes.md#the-toolbar-item",
+                "dynamic injection handler" => $doc . "/pages/duelist.md#dynamic-injection",
 
             ],
             /**

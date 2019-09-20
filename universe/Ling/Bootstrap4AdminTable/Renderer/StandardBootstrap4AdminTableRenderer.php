@@ -28,13 +28,13 @@ class StandardBootstrap4AdminTableRenderer extends Bootstrap4AdminTableRenderer
     public function __construct()
     {
         parent::__construct();
+        $this->registerWidget("advanced_search", new AdvancedSearchRendererWidget());
         $this->registerWidget("debug_window", new DebugWindowRendererWidget());
         $this->registerWidget("global_search", new GlobalSearchRendererWidget());
-        $this->registerWidget("advanced_search", new AdvancedSearchRendererWidget());
-        $this->registerWidget("toolbar", new ToolbarRendererWidget());
         $this->registerWidget("neck_filters", new NeckFiltersRendererWidget());
-        $this->registerWidget("pagination", new PaginationRendererWidget());
-        $this->registerWidget("number_of_rows_info", new NumberOfRowsInfoRendererWidget());
         $this->registerWidget("number_of_items_per_page", new NumberOfItemsPerPageRendererWidget());
+        $this->registerWidget("number_of_rows_info", new NumberOfRowsInfoRendererWidget());
+        $this->registerWidget("pagination", new PaginationRendererWidget());
+        $this->registerWidget("toolbar", new ToolbarRendererWidget());
     }
 }

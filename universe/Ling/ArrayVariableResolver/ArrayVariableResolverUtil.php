@@ -77,6 +77,14 @@ class ArrayVariableResolverUtil
      */
     protected $closingBracket;
 
+    /**
+     * This property holds the allowBdotResolution for this instance.
+     * When true, you can use the @page(bdot notation) in the variable name.
+     *
+     * @var bool=true
+     */
+    protected $allowBdotResolution;
+
 
     /**
      * Builds the DynamicVariableTransformer instance.
@@ -86,6 +94,7 @@ class ArrayVariableResolverUtil
         $this->firstSymbol = '$';
         $this->openingBracket = '{';
         $this->closingBracket = '}';
+        $this->allowBdotResolution = true;
     }
 
 
@@ -122,6 +131,17 @@ class ArrayVariableResolverUtil
         $this->closingBracket = $closingBracket;
     }
 
+    /**
+     * Sets the allowBdotResolution.
+     *
+     * @param bool $allowBdotResolution
+     */
+    public function setAllowBdotResolution(bool $allowBdotResolution)
+    {
+        $this->allowBdotResolution = $allowBdotResolution;
+    }
+
+
 
     //--------------------------------------------
     //
@@ -148,8 +168,23 @@ class ArrayVariableResolverUtil
                     if (preg_match($regex, $v, $match)) {
 
                         $varName = $match[1];
+                        $proceed = false;
+
                         if (array_key_exists($varName, $variables)) {
                             $replace = $variables[$varName];
+                            $proceed = true;
+                        } else {
+                            if (true === $this->allowBdotResolution && false !== strpos($varName, ".")) {
+                                $found = false;
+                                $replace = BDotTool::getDotValue($varName, $variables, null, $found);
+                                if (true === $found) {
+                                    $proceed = true;
+                                }
+                            }
+                        }
+
+
+                        if (true === $proceed) {
 
                             $variable = $match[0];
                             if ($variable === $v) {
@@ -168,7 +203,6 @@ class ArrayVariableResolverUtil
                                     throw new ArrayVariableResolverException("The variable \"$varName\" at \"$dotPath\" is inline, and therefore should only be replaced by a string, an int or a float; $type given.");
                                 }
                             }
-
                         }
                     }
                 }

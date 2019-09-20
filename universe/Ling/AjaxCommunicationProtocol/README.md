@@ -51,6 +51,35 @@ In case of a successful response, the json response array has the following stru
 
 
 
+Jquery implementation example
+===========
+
+If you're a jquery user, this snippet might help you getting started:
+
+
+
+```js
+
+$.ajax({
+    type: "POST",
+    url: "/myurl",
+    data: data,
+    success: function (response) {
+        var type = response.type;
+        if ('error' === type) {
+            errorHandler(response.error);
+        } else if ('success' === type) {
+            successHandler(response);
+        } else {
+            $this.error("Unknown response type from the server.");
+        }
+    },
+    dataType: "json",
+});
+
+```
+
+
 
 
 
@@ -58,6 +87,10 @@ In case of a successful response, the json response array has the following stru
 History Log
 =============
 
+- 1.0.1 -- 2019-09-18
+
+    - add jquery example
+    
 - 1.0.0 -- 2019-09-05
 
     - initial commit

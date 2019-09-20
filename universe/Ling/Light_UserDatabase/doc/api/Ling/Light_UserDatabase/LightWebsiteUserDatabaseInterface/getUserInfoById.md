@@ -50,7 +50,7 @@ Returns array | false.
 
 Source Code
 ===========
-See the source code for method [LightWebsiteUserDatabaseInterface::getUserInfoById](https://github.com/lingtalfi/Light_UserDatabase/blob/master/LightWebsiteUserDatabaseInterface.php#L32-L32)
+See the source code for method [LightWebsiteUserDatabaseInterface::getUserInfoById](https://github.com/lingtalfi/Light_UserDatabase/blob/master/LightWebsiteUserDatabaseInterface.php#L57-L57)
 
 
 See Also
@@ -58,5 +58,5 @@ See Also
 
 The [LightWebsiteUserDatabaseInterface](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/LightWebsiteUserDatabaseInterface.md) class.
 
-Next method: [updateUserById](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/LightWebsiteUserDatabaseInterface/updateUserById.md)<br>
+Previous method: [addUser](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/LightWebsiteUserDatabaseInterface/addUser.md)<br>Next method: [updateUserById](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/LightWebsiteUserDatabaseInterface/updateUserById.md)<br>
 

@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [OpenAdminTableBaseRealistListRenderer::setCollapsibleColumnIndexes](https://github.com/lingtalfi/Light_Realist/blob/master/Rendering/OpenAdminTableBaseRealistListRenderer.php#L183-L186)
+See the source code for method [OpenAdminTableBaseRealistListRenderer::setCollapsibleColumnIndexes](https://github.com/lingtalfi/Light_Realist/blob/master/Rendering/OpenAdminTableBaseRealistListRenderer.php#L199-L202)
 
 
 See Also
@@ -57,5 +57,5 @@ See Also
 
 The [OpenAdminTableBaseRealistListRenderer](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Rendering/OpenAdminTableBaseRealistListRenderer.md) class.
 
-Previous method: [setContainer](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Rendering/OpenAdminTableBaseRealistListRenderer/setContainer.md)<br>Next method: [getDataType](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Rendering/OpenAdminTableBaseRealistListRenderer/getDataType.md)<br>
+Previous method: [setContainer](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Rendering/OpenAdminTableBaseRealistListRenderer/setContainer.md)<br>Next method: [setListActionGroups](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Rendering/OpenAdminTableBaseRealistListRenderer/setListActionGroups.md)<br>
 

@@ -35,4 +35,16 @@ interface LightRouterInterface
     public function match(HttpRequestInterface $request, array $routes);
 
 
+    /**
+     *
+     * Assuming the match method has been called first,
+     * returns the matching route if there was a match, or false otherwise.
+     *
+     * In other words, this method returns the cached result of the last match method call.
+     *
+     * @return array|false
+     */
+    public function getMatchingRoute();
+
+
 }

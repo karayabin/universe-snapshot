@@ -24,4 +24,12 @@ interface RealistListRendererInterface
      * @return void
      */
     public function prepareByRequestDeclaration(string $requestId, array $requestDeclaration, LightServiceContainerInterface $container);
+
+
+    /**
+     * Prints the list.
+     *
+     * @return void
+     */
+    public function render();
 }

@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [Bootstrap4AdminTableRenderer::callAssets](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/Renderer/Bootstrap4AdminTableRenderer.php#L351-L378)
+See the source code for method [Bootstrap4AdminTableRenderer::callAssets](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/Renderer/Bootstrap4AdminTableRenderer.php#L358-L393)
 
 
 See Also

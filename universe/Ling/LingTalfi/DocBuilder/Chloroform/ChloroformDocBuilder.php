@@ -163,7 +163,7 @@ class ChloroformDocBuilder
              * in the class synopsis.
              */
             "externalClass2Url" => [
-//                "Ling\UniversalLogger\UniversalLoggerInterface" => "https://github.com/lingtalfi/UniversalLogger",
+                "Ling\CSRFTools\CSRFProtector" => "https://github.com/lingtalfi/CSRFTools/blob/master/doc/api/Ling/CSRFTools/CSRFProtector.md",
             ],
         ];
 

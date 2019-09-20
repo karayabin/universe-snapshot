@@ -53,9 +53,11 @@ easy_route:
 # --------------------------------------
 # hooks
 # --------------------------------------
-$initializer.methods.setInitializers.initializers:
-    - @service(easy_route)
-
+$initializer.methods_collection:
+    -
+        method: registerInitializer
+        args:
+            initializer: @service(easy_route)
 
 ```
 
@@ -70,6 +72,10 @@ See the conception notes for more details.
 History Log
 =============
 
+- 1.1.0 -- 2019-09-10
+
+    - update service instantiation to accommodate the new initializer interface
+    
 - 1.0.0 -- 2019-08-21
 
     - initial commit

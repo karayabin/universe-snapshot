@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [MysqlLightWebsiteUserDatabase::unserialize](https://github.com/lingtalfi/Light_UserDatabase/blob/master/MysqlLightWebsiteUserDatabase.php#L467-L470)
+See the source code for method [MysqlLightWebsiteUserDatabase::unserialize](https://github.com/lingtalfi/Light_UserDatabase/blob/master/MysqlLightWebsiteUserDatabase.php#L592-L595)
 
 
 See Also

@@ -5,10 +5,12 @@ namespace Ling\Light_Realist\Service;
 
 
 use Ling\BabyYaml\BabyYamlUtil;
+use Ling\Bat\SmartCodeTool;
 use Ling\Light\ServiceContainer\LightServiceContainerAwareInterface;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
 use Ling\Light_Database\LightDatabasePdoWrapper;
 use Ling\Light_Realist\ActionHandler\LightRealistActionHandlerInterface;
+use Ling\Light_Realist\DynamicInjection\RealistDynamicInjectionHandlerInterface;
 use Ling\Light_Realist\Exception\LightRealistException;
 use Ling\Light_Realist\ListActionHandler\LightRealistListActionHandlerInterface;
 use Ling\Light_Realist\Rendering\RealistListRendererInterface;
@@ -104,7 +106,7 @@ class LightRealistService
      * This property holds the listActionHandlers for this instance.
      * It's an array of LightRealistListActionHandlerInterface instances.
      *
-     * @var LightRealistListActionHandlerInterface
+     * @var LightRealistListActionHandlerInterface[]
      */
     protected $listActionHandlers;
 
@@ -116,6 +118,16 @@ class LightRealistService
      * @var RealistListRendererInterface[]
      */
     protected $listRenderers;
+
+    /**
+     * This property holds the dynamicInjectionHandlers for this instance.
+     * It's an array of identifier => RealistDynamicInjectionHandlerInterface
+     *
+     * Usually the identifier is a plugin name.
+     *
+     * @var RealistDynamicInjectionHandlerInterface[]
+     */
+    protected $dynamicInjectionHandlers;
 
 
     /**
@@ -130,6 +142,7 @@ class LightRealistService
         $this->actionHandlers = [];
         $this->listActionHandlers = [];
         $this->listRenderers = [];
+        $this->dynamicInjectionHandlers = [];
     }
 
 
@@ -176,6 +189,8 @@ class LightRealistService
      */
     public function executeRequestById(string $requestId, array $params = []): array
     {
+
+
         $requestDeclaration = $this->getConfigurationArrayByRequestId($requestId);
 
 
@@ -194,8 +209,20 @@ class LightRealistService
          * @var $db LightDatabasePdoWrapper
          */
         $db = $this->container->get("database");
-        $rows = $db->fetchAll($stmt, $markers);
-        $countRow = $db->fetch($countStmt, $markers);
+
+        try {
+
+            $rows = $db->fetchAll($stmt, $markers);
+            $countRow = $db->fetch($countStmt, $markers);
+        } catch (\Exception $e) {
+            // sometimes it's easier to have the stmt displayed too, when debugging
+            $debugMsg = "<ul>
+<li><b>Query</b>: $stmt</li>
+<li><b>Error</b>: {$e->getMessage()}</li>
+</ul>
+";
+            throw new LightRealistException($debugMsg);
+        }
 
         //--------------------------------------------
         // RENDERING THE ROWS
@@ -383,6 +410,18 @@ class LightRealistService
         }
     }
 
+
+    /**
+     * Registers a @page(dynamic injection handler).
+     * @param string $identifier
+     * @param RealistDynamicInjectionHandlerInterface $handler
+     */
+    public function registerDynamicInjectionHandler(string $identifier, RealistDynamicInjectionHandlerInterface $handler)
+    {
+        $this->dynamicInjectionHandlers[$identifier] = $handler;
+    }
+
+
     /**
      * Returns the action handler identified by the given id.
      *
@@ -446,6 +485,39 @@ class LightRealistService
         return $listRenderer;
     }
 
+
+    /**
+     * Decorates the given list action group array.
+     *
+     * This method is mainly used to translate an action id string from
+     * the request declaration into actual javascript code, with the help of
+     * the ListActionHandler objects.
+     *
+     * The given groups array structure is an array of @page(toolbar items).
+     *
+     * @param array $groups
+     * @throws \Exception
+     */
+    public function decorateListActionGroups(array &$groups)
+    {
+        foreach ($groups as $k => $group) {
+            if (array_key_exists('action_id', $group)) {
+
+                $actionId = $group['action_id'];
+                if (array_key_exists($actionId, $this->listActionHandlers)) {
+                    $handler = $this->listActionHandlers[$actionId];
+                    $rawCallable = $handler->getJsActionCode($actionId);
+
+                    $groups[$k]['js_code'] = $rawCallable;
+                } else {
+                    $this->error("No list action handler defined for action $actionId.");
+                }
+            } else {
+                // assuming this is a parent, we can ignore it
+            }
+        }
+    }
+
     //--------------------------------------------
     //
     //--------------------------------------------
@@ -461,6 +533,24 @@ class LightRealistService
         throw new LightRealistException($message);
     }
 
+
+    /**
+     * Returns the realist dynamic injection handler associated with the given identifier,
+     * or throws an exception if it's not there.
+     *
+     * @param string $identifier
+     * @return RealistDynamicInjectionHandlerInterface
+     * @throws \Exception
+     */
+    protected function getDynamicInjectionHandler(string $identifier): RealistDynamicInjectionHandlerInterface
+    {
+        if (array_key_exists($identifier, $this->dynamicInjectionHandlers)) {
+            return $this->dynamicInjectionHandlers[$identifier];
+        }
+        throw new LightRealistException("Dynamic injection handler not found with identifier $identifier.");
+    }
+
+
     /**
      * Returns the configuration array corresponding to the given request id.
      *
@@ -470,6 +560,9 @@ class LightRealistService
      */
     protected function getConfigurationArrayByRequestId(string $requestId): array
     {
+
+
+
         $p = explode(":", $requestId, 2);
         $fileId = $p[0];
         $queryId = $p[1];
@@ -482,7 +575,19 @@ class LightRealistService
         if (false === array_key_exists($queryId, $arr)) {
             $this->error("Query not found with id: $queryId, in file $filePath.");
         }
-        return $arr[$queryId];
+        $ret = $arr[$queryId];
+
+
+        // dynamic injection phase
+        SmartCodeTool::replaceSmartCodeFunction($ret, "REALIST", function ($identifier) {
+            $handler = $this->getDynamicInjectionHandler($identifier);
+            $args = func_get_args();
+            array_shift($args);
+            return $handler->handle($args);
+        });
+
+
+        return $ret;
     }
 
 }

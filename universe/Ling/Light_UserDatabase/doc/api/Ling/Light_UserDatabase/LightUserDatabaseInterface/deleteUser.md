@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightUserDatabaseInterface::deleteUser](https://github.com/lingtalfi/Light_UserDatabase/blob/master/LightUserDatabaseInterface.php#L83-L83)
+See the source code for method [LightUserDatabaseInterface::deleteUser](https://github.com/lingtalfi/Light_UserDatabase/blob/master/LightUserDatabaseInterface.php#L94-L94)
 
 
 See Also

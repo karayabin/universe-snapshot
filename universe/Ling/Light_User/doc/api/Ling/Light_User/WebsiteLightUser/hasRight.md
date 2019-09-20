@@ -49,7 +49,7 @@ Returns bool.
 
 Source Code
 ===========
-See the source code for method [WebsiteLightUser::hasRight](https://github.com/lingtalfi/Light_User/blob/master/WebsiteLightUser.php#L156-L174)
+See the source code for method [WebsiteLightUser::hasRight](https://github.com/lingtalfi/Light_User/blob/master/WebsiteLightUser.php#L156-L159)
 
 
 See Also

@@ -1,0 +1,2 @@
+router:
+    instance: Ling\Light_Router\Service\LightRouterService

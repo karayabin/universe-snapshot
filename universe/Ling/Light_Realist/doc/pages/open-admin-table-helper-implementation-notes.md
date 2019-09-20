@@ -39,6 +39,7 @@ The following modules are recognized and handled by this tool:
 - neck filters
 - number of items per page
 - pagination
+- toolbar
 
 
 
@@ -565,7 +566,11 @@ it's already there in your application).
 
 
 
+The toolbar widget
+---------------
 
+For the toolbar widget, we use the implementation suggestions from the 
+[list action handler conception notes](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/list-action-handler-conception-notes.md).
 
 
 

@@ -155,22 +155,7 @@ class WebsiteLightUser implements RefreshableLightUserInterface
      */
     public function hasRight(string $right): bool
     {
-
-        if (in_array('*', $this->rights, true)) {
-            return true;
-        }
-
-        foreach ($this->rights as $r) {
-            if ($right === $r) {
-                return true;
-            } elseif ('.*' === substr($r, -2)) {
-                $namespace = substr($r, 0, -2);
-                if (0 === strpos($right . ".", $namespace)) {
-                    return true;
-                }
-            }
-        }
-        return false;
+        return in_array('*', $this->rights, true) || in_array($right, $this->rights, true);
     }
 
     /**
@@ -444,6 +429,5 @@ class WebsiteLightUser implements RefreshableLightUserInterface
     {
         $this->extra = $extra;
     }
-
 
 }

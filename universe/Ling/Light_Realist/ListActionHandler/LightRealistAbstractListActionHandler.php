@@ -70,15 +70,6 @@ abstract class LightRealistAbstractListActionHandler implements LightRealistList
     }
 
 
-    /**
-     * @implementation
-     */
-    public function getJsInitCode(string $actionId): ?string
-    {
-        return null;
-    }
-
-
 
     //--------------------------------------------
     //

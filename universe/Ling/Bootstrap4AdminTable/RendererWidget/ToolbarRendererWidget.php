@@ -55,9 +55,10 @@ class ToolbarRendererWidget extends AbstractRendererWidget implements ToolbarRen
                 $max = count($this->groups);
                 foreach ($this->groups as $item):
 
-                    $actionId = $item['action_id']??null;
+                    $actionId = $item['action_id'] ?? null;
                     $text = $item['text'];
                     $items = $item['items'] ?? [];
+                    $attr = $item['attr'] ?? [];
                     $icon = $item['icon'] ?? null;
 
 
@@ -69,8 +70,11 @@ class ToolbarRendererWidget extends AbstractRendererWidget implements ToolbarRen
                     <div class="btn-group <?php echo $sMargin; ?> btn-group-sm" role="group"
                          aria-label="group <?php echo $groupCpt; ?>">
                         <?php if (false === $hasChildren): ?>
-                            <button type="button" class="btn btn-light border"
+                            <button type="button" class="btn btn-light border lah-button"
                                     data-action-id="<?php echo htmlspecialchars($actionId); ?>"
+                                <?php if ($attr): ?>
+                                    <?php echo StringTool::htmlAttributes($attr); ?>
+                                <?php endif; ?>
                             >
                                 <?php if (null !== $icon): ?>
                                     <i class="<?php echo htmlspecialchars($icon); ?>"></i>
@@ -93,15 +97,19 @@ class ToolbarRendererWidget extends AbstractRendererWidget implements ToolbarRen
                                 foreach ($items as $subItem):
 
                                     $subIcon = $subItem['icon'] ?? null;
+                                    $attr = $subItem['attr'] ?? [];
                                     ?>
-                                    <a class="dropdown-item" href="#"
-                                       data-action-id="<?php echo htmlspecialchars($subItem['action_id']); ?>"
+                                    <button type="button" class="dropdown-item btn btn-light lah-button"
+                                            data-action-id="<?php echo htmlspecialchars($subItem['action_id']); ?>"
+                                        <?php if ($attr): ?>
+                                            <?php echo StringTool::htmlAttributes($attr); ?>
+                                        <?php endif; ?>
                                     >
                                         <?php if (null !== $subIcon): ?>
                                             <i class="<?php echo htmlspecialchars($subIcon); ?>"></i>
                                         <?php endif; ?>
                                         <?php echo $subItem['text']; ?>
-                                    </a>
+                                    </button>
                                 <?php endforeach; ?>
                             </div>
 

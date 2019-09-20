@@ -57,7 +57,7 @@ Returns bool.
 
 Source Code
 ===========
-See the source code for method [CSRFProtector::isValid](https://github.com/lingtalfi/CSRFTools/blob/master/CSRFProtector.php#L221-L238)
+See the source code for method [CSRFProtector::isValid](https://github.com/lingtalfi/CSRFTools/blob/master/CSRFProtector.php#L207-L225)
 
 
 See Also
@@ -65,5 +65,5 @@ See Also
 
 The [CSRFProtector](https://github.com/lingtalfi/CSRFTools/blob/master/doc/api/Ling/CSRFTools/CSRFProtector.md) class.
 
-Previous method: [createToken](https://github.com/lingtalfi/CSRFTools/blob/master/doc/api/Ling/CSRFTools/CSRFProtector/createToken.md)<br>Next method: [deleteToken](https://github.com/lingtalfi/CSRFTools/blob/master/doc/api/Ling/CSRFTools/CSRFProtector/deleteToken.md)<br>
+Previous method: [hasToken](https://github.com/lingtalfi/CSRFTools/blob/master/doc/api/Ling/CSRFTools/CSRFProtector/hasToken.md)<br>Next method: [deleteToken](https://github.com/lingtalfi/CSRFTools/blob/master/doc/api/Ling/CSRFTools/CSRFProtector/deleteToken.md)<br>
 

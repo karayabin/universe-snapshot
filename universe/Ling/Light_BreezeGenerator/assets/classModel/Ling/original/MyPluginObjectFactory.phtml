@@ -1,0 +1,58 @@
+<?php
+
+
+namespace The\ObjectNamespace;
+
+
+use Ling\SimplePdoWrapper\SimplePdoWrapperInterface;
+
+/**
+ * The MyPluginObjectFactory class.
+ */
+class MyPluginObjectFactory
+{
+
+    /**
+     * This property holds the pdoWrapper for this instance.
+     * @var SimplePdoWrapperInterface
+     */
+    protected $pdoWrapper;
+
+    /**
+     * Builds the MyPluginObjectFactory instance.
+     */
+    public function __construct()
+    {
+        $this->pdoWrapper = null;
+    }
+
+
+    /**
+     * Returns a UserObjectInterface.
+     *
+     * @return UserObjectInterface
+     */
+    public function getUserObject(): UserObjectInterface
+    {
+        $o = new UserObject();
+        $o->setPdoWrapper($this->pdoWrapper);
+        return $o;
+    }
+
+
+
+    //--------------------------------------------
+    //
+    //--------------------------------------------
+    /**
+     * Sets the pdoWrapper.
+     *
+     * @param SimplePdoWrapperInterface $pdoWrapper
+     */
+    public function setPdoWrapper(SimplePdoWrapperInterface $pdoWrapper)
+    {
+        $this->pdoWrapper = $pdoWrapper;
+    }
+
+
+}

@@ -7,7 +7,7 @@ MysqlLightWebsiteUserDatabase::addUser
 
 
 
-MysqlLightWebsiteUserDatabase::addUser — Adds the user info to the database.
+MysqlLightWebsiteUserDatabase::addUser — Important: this is an override of the parent method.
 
 
 
@@ -16,15 +16,15 @@ Description
 ================
 
 
-public [MysqlLightWebsiteUserDatabase::addUser](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/MysqlLightWebsiteUserDatabase/addUser.md)(array $userInfo) : void
+public [MysqlLightWebsiteUserDatabase::addUser](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/MysqlLightWebsiteUserDatabase/addUser.md)(array $userInfo) : int
 
 
 
 
-Adds the user info to the database.
-The user info array depends on the implementor and the application structure.
+Important: this is an override of the parent method.
 
-An LightUserDatabaseException exception is thrown if the identifier already exists in the database.
+We basically just redefine the return of the method (since the concept
+of the id now exists), which is an integer representing the id of the user.
 
 
 
@@ -41,7 +41,7 @@ Parameters
 Return values
 ================
 
-Returns void.
+Returns int.
 
 
 Exceptions thrown
@@ -57,7 +57,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [MysqlLightWebsiteUserDatabase::addUser](https://github.com/lingtalfi/Light_UserDatabase/blob/master/MysqlLightWebsiteUserDatabase.php#L205-L225)
+See the source code for method [MysqlLightWebsiteUserDatabase::addUser](https://github.com/lingtalfi/Light_UserDatabase/blob/master/MysqlLightWebsiteUserDatabase.php#L236-L278)
 
 
 See Also

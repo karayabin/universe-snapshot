@@ -45,6 +45,11 @@ Return values
 Returns void.
 
 
+Exceptions thrown
+================
+
+- [Exception](http://php.net/manual/en/class.exception.php).&nbsp;
+
 
 
 
@@ -53,7 +58,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightInitializerUtil::initialize](https://github.com/lingtalfi/Light_Initializer/blob/master/Util/LightInitializerUtil.php#L62-L67)
+See the source code for method [LightInitializerUtil::initialize](https://github.com/lingtalfi/Light_Initializer/blob/master/Util/LightInitializerUtil.php#L106-L157)
 
 
 See Also
@@ -61,5 +66,5 @@ See Also
 
 The [LightInitializerUtil](https://github.com/lingtalfi/Light_Initializer/blob/master/doc/api/Ling/Light_Initializer/Util/LightInitializerUtil.md) class.
 
-Previous method: [setInitializers](https://github.com/lingtalfi/Light_Initializer/blob/master/doc/api/Ling/Light_Initializer/Util/LightInitializerUtil/setInitializers.md)<br>
+Previous method: [registerInitializer](https://github.com/lingtalfi/Light_Initializer/blob/master/doc/api/Ling/Light_Initializer/Util/LightInitializerUtil/registerInitializer.md)<br>Next method: [processItems](https://github.com/lingtalfi/Light_Initializer/blob/master/doc/api/Ling/Light_Initializer/Util/LightInitializerUtil/processItems.md)<br>
 

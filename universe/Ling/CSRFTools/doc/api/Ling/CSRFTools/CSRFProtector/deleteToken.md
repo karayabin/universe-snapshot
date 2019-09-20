@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [CSRFProtector::deleteToken](https://github.com/lingtalfi/CSRFTools/blob/master/CSRFProtector.php#L246-L249)
+See the source code for method [CSRFProtector::deleteToken](https://github.com/lingtalfi/CSRFTools/blob/master/CSRFProtector.php#L233-L237)
 
 
 See Also
@@ -57,5 +57,5 @@ See Also
 
 The [CSRFProtector](https://github.com/lingtalfi/CSRFTools/blob/master/doc/api/Ling/CSRFTools/CSRFProtector.md) class.
 
-Previous method: [isValid](https://github.com/lingtalfi/CSRFTools/blob/master/doc/api/Ling/CSRFTools/CSRFProtector/isValid.md)<br>Next method: [startSession](https://github.com/lingtalfi/CSRFTools/blob/master/doc/api/Ling/CSRFTools/CSRFProtector/startSession.md)<br>
+Previous method: [isValid](https://github.com/lingtalfi/CSRFTools/blob/master/doc/api/Ling/CSRFTools/CSRFProtector/isValid.md)<br>Next method: [deletePageUnusedTokens](https://github.com/lingtalfi/CSRFTools/blob/master/doc/api/Ling/CSRFTools/CSRFProtector/deletePageUnusedTokens.md)<br>
 

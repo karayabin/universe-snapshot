@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [BabyYamlLightWebsiteUserDatabase::__construct](https://github.com/lingtalfi/Light_UserDatabase/blob/master/BabyYamlLightWebsiteUserDatabase.php#L96-L105)
+See the source code for method [BabyYamlLightWebsiteUserDatabase::__construct](https://github.com/lingtalfi/Light_UserDatabase/blob/master/BabyYamlLightWebsiteUserDatabase.php#L137-L151)
 
 
 See Also

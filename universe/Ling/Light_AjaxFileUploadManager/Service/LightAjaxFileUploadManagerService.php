@@ -156,7 +156,7 @@ class LightAjaxFileUploadManagerService
             // CSRF VALIDATION FIRST
             //--------------------------------------------
             if (array_key_exists("csrf_token", $params)) {
-                $tokenName = "csrf_ajax_token";
+                $tokenName = "ajax_file_upload_manager_service";
                 $tokenValue = $params['csrf_token'];
                 if (false === CSRFProtector::inst()->isValid($tokenName, $tokenValue, true)) {
                     $ret = [

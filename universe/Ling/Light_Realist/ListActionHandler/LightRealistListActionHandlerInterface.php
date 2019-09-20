@@ -46,13 +46,12 @@ interface LightRealistListActionHandlerInterface
 
 
     /**
-     * Returns the js init code for this list action, or null if there is no init code, or
-     * if the init code has been injected with another technique (like html page copilot injection for instance).
+     * Returns the js action code for this list action.
      *
      * @param string $actionId
-     * @return string|null
+     * @return string
      */
-    public function getJsInitCode(string $actionId): ?string;
+    public function getJsActionCode(string $actionId): string;
 
 
 }

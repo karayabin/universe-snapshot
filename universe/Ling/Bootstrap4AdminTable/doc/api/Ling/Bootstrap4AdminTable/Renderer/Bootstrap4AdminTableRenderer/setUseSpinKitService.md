@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [Bootstrap4AdminTableRenderer::setUseSpinKitService](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/Renderer/Bootstrap4AdminTableRenderer.php#L73-L76)
+See the source code for method [Bootstrap4AdminTableRenderer::setUseSpinKitService](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/Renderer/Bootstrap4AdminTableRenderer.php#L74-L77)
 
 
 See Also

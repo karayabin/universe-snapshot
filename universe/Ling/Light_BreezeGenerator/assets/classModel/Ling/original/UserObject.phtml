@@ -1,0 +1,106 @@
+<?php
+
+
+namespace The\ObjectNamespace;
+
+
+use Ling\SimplePdoWrapper\SimplePdoWrapperInterface;
+
+/**
+ * The UserObject class.
+ */
+class UserObject implements UserObjectInterface
+{
+
+    /**
+     * This property holds the pdoWrapper for this instance.
+     * @var SimplePdoWrapperInterface
+     */
+    protected $pdoWrapper;
+
+    /**
+     * Builds the UserObject instance.
+     */
+    public function __construct()
+    {
+        $this->pdoWrapper = null;
+    }
+
+    /**
+     * @implementation
+     */
+    public function getUserById(int $id, $default = null, bool $throwNotFoundEx = false)
+    {
+        $ret = $this->pdoWrapper->fetch("select * from user where id=:id", [
+            "id" => $id,
+        ]);
+        if (false === $ret) {
+            if (true === $throwNotFoundEx) {
+                throw new \RuntimeException("Row not found with id=$id.");
+            } else {
+                $ret = $default;
+            }
+        }
+        return $ret;
+    }
+
+    /**
+     * @implementation
+     */
+    public function updateUserById(int $id, array $user)
+    {
+        $this->pdoWrapper->update("user", $user, [
+            'id' => $id
+        ]);
+    }
+
+    /**
+     * @implementation
+     */
+    public function insertUser(array $user, bool $ignoreDuplicate = true, bool $returnRic = false)
+    {
+        try {
+
+            $lastInsertId = $this->pdoWrapper->insert("user", $user);
+            if (false === $returnRic) {
+                return $lastInsertId;
+            }
+            $ric = [
+                'id' => $lastInsertId,
+            ];
+            return $ric;
+
+        } catch (\PDOException $e) {
+            if ('23000' === $e->errorInfo[0]) {
+                if (false === $ignoreDuplicate) {
+                    throw $e;
+                }
+            }
+        }
+        return false;
+    }
+
+
+    /**
+     * @implementation
+     */
+    public function deleteUserById(int $id)
+    {
+        $this->pdoWrapper->delete("user", [
+            "id" => $id,
+        ]);
+    }
+
+    //--------------------------------------------
+    //
+    //--------------------------------------------
+    /**
+     * Sets the pdoWrapper.
+     *
+     * @param SimplePdoWrapperInterface $pdoWrapper
+     */
+    public function setPdoWrapper(SimplePdoWrapperInterface $pdoWrapper)
+    {
+        $this->pdoWrapper = $pdoWrapper;
+    }
+}

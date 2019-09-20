@@ -46,7 +46,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [CSRFField::getCSRFIdentifier](https://github.com/lingtalfi/Chloroform/blob/master/Field/CSRFField.php#L63-L66)
+See the source code for method [CSRFField::getCSRFIdentifier](https://github.com/lingtalfi/Chloroform/blob/master/Field/CSRFField.php#L70-L73)
 
 
 See Also
@@ -54,5 +54,5 @@ See Also
 
 The [CSRFField](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/CSRFField.md) class.
 
-Previous method: [setCSRFIdentifier](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/CSRFField/setCSRFIdentifier.md)<br>Next method: [getValue](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/CSRFField/getValue.md)<br>
+Previous method: [setCSRFIdentifier](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/CSRFField/setCSRFIdentifier.md)<br>Next method: [setCsrfProtector](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/CSRFField/setCsrfProtector.md)<br>
 

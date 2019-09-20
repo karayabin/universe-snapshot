@@ -37,7 +37,8 @@ Return values
 ================
 
 Returns void.
-
+Note: in this implementation, we don't handle recursive children items (i.e. we only handle
+the first level of children, but we don't implement children of children).
 
 
 
@@ -47,7 +48,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [ToolbarRendererWidget::render](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/RendererWidget/ToolbarRendererWidget.php#L47-L69)
+See the source code for method [ToolbarRendererWidget::render](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/RendererWidget/ToolbarRendererWidget.php#L47-L124)
 
 
 See Also
@@ -55,5 +56,5 @@ See Also
 
 The [ToolbarRendererWidget](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/ToolbarRendererWidget.md) class.
 
-Previous method: [__construct](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/ToolbarRendererWidget/__construct.md)<br>
+Previous method: [setGroups](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/ToolbarRendererWidget/setGroups.md)<br>
 

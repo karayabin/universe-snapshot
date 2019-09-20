@@ -1,0 +1,11 @@
+    /**
+     * Returns a UserObjectInterface.
+     *
+     * @return UserObjectInterface
+     */
+    public function getUserObject(): UserObjectInterface
+    {
+        $o = new UserObject();
+        $o->setPdoWrapper($this->pdoWrapper);
+        return $o;
+    }

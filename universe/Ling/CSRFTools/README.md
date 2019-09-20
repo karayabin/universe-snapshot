@@ -35,6 +35,8 @@ Summary
     - [The attack example](#the-attack-example)
 - [The defense against CSRF](#the-defense-against-csrf)
 - [A quick word about concurrent CSRF tokens](#a-quick-word-about-concurrent-csrf-tokens)
+- [The CSRF tutorial](https://github.com/lingtalfi/CSRFTools/blob/master/doc/pages/csrf-tutorial.md)
+- [Page security conception notes](https://github.com/lingtalfi/CSRFTools/blob/master/doc/pages/page-security-conception-notes.md)
 
 
 
@@ -338,6 +340,31 @@ It's like a specific name associated with a token.
 History Log
 =============
 
+- 1.5.1 -- 2019-09-20
+
+    - fix CSRFProtector->deletePageUnusedTokens removing tokens of the actual page in some cases (assuming page system on)
+    
+- 1.5.0 -- 2019-09-20
+
+    - update CSRFProtector->dump method
+
+- 1.4.0 -- 2019-09-20
+
+    - update CSRFProtector can now be used as a regular class (i.e. not only as a singleton)
+
+- 1.3.0 -- 2019-09-20
+
+    - add the idea of symbolic token
+    - add CSRFProtector->hasToken method
+    
+- 1.2.1 -- 2019-09-09
+
+    - fix doc link
+    
+- 1.2.0 -- 2019-09-09
+
+    - added pages security system
+    
 - 1.1.1 -- 2019-08-05
 
     - update documentation

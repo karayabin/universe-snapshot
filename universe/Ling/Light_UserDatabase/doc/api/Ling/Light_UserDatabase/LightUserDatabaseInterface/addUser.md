@@ -16,13 +16,16 @@ Description
 ================
 
 
-abstract public [LightUserDatabaseInterface::addUser](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/LightUserDatabaseInterface/addUser.md)(array $userInfo) : void
+abstract public [LightUserDatabaseInterface::addUser](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/LightUserDatabaseInterface/addUser.md)(array $userInfo) : mixed
 
 
 
 
 Adds the user info to the database.
+
 The user info array depends on the implementor and the application structure.
+The return of this method also depends of the implementor.
+
 
 An LightUserDatabaseException exception is thrown if the identifier already exists in the database.
 
@@ -41,7 +44,7 @@ Parameters
 Return values
 ================
 
-Returns void.
+Returns mixed.
 
 
 Exceptions thrown
@@ -57,7 +60,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightUserDatabaseInterface::addUser](https://github.com/lingtalfi/Light_UserDatabase/blob/master/LightUserDatabaseInterface.php#L62-L62)
+See the source code for method [LightUserDatabaseInterface::addUser](https://github.com/lingtalfi/Light_UserDatabase/blob/master/LightUserDatabaseInterface.php#L73-L73)
 
 
 See Also

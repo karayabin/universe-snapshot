@@ -54,9 +54,27 @@ It looks like this (all properties are optional):
 
 ```yaml
 rendering:
+
     # this section configures the list renderer. See the list renderer section below for more info.
     list_renderer:
         identifier: string
+    
+    # The list action groups, see the list action groups section below for more details
+    list_action_groups:
+        -
+            action_id: Light_Realist-delete_rows
+            text: Delete
+            icon: far fa-trash-alt
+        -
+            text: Share
+            icon: fas fa-share-square
+            items:
+                -
+                    action_id: Light_Realist-rows_to_csv
+                    icon: far fa-envelope
+                    text: Csv
+
+
     
     # the column labels is a piece of information that can be used by any renderer. 
     column_labels: array of column => label
@@ -196,5 +214,10 @@ There are two sides to the realist:
 
 
 
-   
+List action groups
+-----------------
+2019-09-06
+
+
+We suggest using the [list action handler conception notes](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/list-action-handler-conception-notes.md).   
 

@@ -1,6 +1,6 @@
 Ling/Chloroform
 ================
-2019-04-10 --> 2019-08-05
+2019-04-10 --> 2019-09-20
 
 
 
@@ -40,6 +40,7 @@ Table of contents
     - [CSRFField::__construct](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/CSRFField/__construct.md) &ndash; Builds the AbstractField instance.
     - [CSRFField::setCSRFIdentifier](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/CSRFField/setCSRFIdentifier.md) &ndash; Sets the CSRFIdentifier.
     - [CSRFField::getCSRFIdentifier](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/CSRFField/getCSRFIdentifier.md) &ndash; Returns the CSRFIdentifier of this instance.
+    - [CSRFField::setCsrfProtector](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/CSRFField/setCsrfProtector.md) &ndash; Sets the csrfProtector.
     - [CSRFField::getValue](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/CSRFField/getValue.md) &ndash; Returns the value of the field.
     - [HiddenField::create](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/HiddenField/create.md) &ndash; Builds the HiddenField instance and returns it.
     - [AbstractField::getId](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/AbstractField/getId.md) &ndash; Returns the field id.
@@ -309,8 +310,9 @@ Table of contents
     - [AbstractValidator::setErrorMessage](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Validator/AbstractValidator/setErrorMessage.md) &ndash; Overrides a default error message, and returns this instance (for chaining).
     - [ValidatorInterface::test](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Validator/ValidatorInterface/test.md) &ndash; of the validator.
 - [CSRFValidator](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Validator/CSRFValidator.md) &ndash; The CSRFValidator class.
+    - [CSRFValidator::__construct](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Validator/CSRFValidator/__construct.md) &ndash; Builds the AbstractValidator instance.
     - [CSRFValidator::test](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Validator/CSRFValidator/test.md) &ndash; of the validator.
-    - [AbstractValidator::__construct](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Validator/AbstractValidator/__construct.md) &ndash; Builds the AbstractValidator instance.
+    - [CSRFValidator::setCsrfProtector](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Validator/CSRFValidator/setCsrfProtector.md) &ndash; Sets the csrfProtector.
     - [AbstractValidator::create](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Validator/AbstractValidator/create.md) &ndash; Builds and returns the instance for this class.
     - [AbstractValidator::toArray](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Validator/AbstractValidator/toArray.md) &ndash; Returns the array version of a validator.
     - [AbstractValidator::setErrorMessage](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Validator/AbstractValidator/setErrorMessage.md) &ndash; Overrides a default error message, and returns this instance (for chaining).

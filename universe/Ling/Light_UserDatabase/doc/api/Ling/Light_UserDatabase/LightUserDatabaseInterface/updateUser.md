@@ -24,7 +24,7 @@ abstract public [LightUserDatabaseInterface::updateUser](https://github.com/ling
 Updates the user identified by the given identifier.
 
 The userInfo can contain all the information, or only some of them.
-The password should be updated with the key "pass".
+The password should be updated with the key "password".
 
 
 
@@ -56,7 +56,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightUserDatabaseInterface::updateUser](https://github.com/lingtalfi/Light_UserDatabase/blob/master/LightUserDatabaseInterface.php#L74-L74)
+See the source code for method [LightUserDatabaseInterface::updateUser](https://github.com/lingtalfi/Light_UserDatabase/blob/master/LightUserDatabaseInterface.php#L85-L85)
 
 
 See Also

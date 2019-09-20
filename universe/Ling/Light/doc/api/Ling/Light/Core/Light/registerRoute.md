@@ -58,6 +58,7 @@ If not overwritten, the default values are:
 - url_params: []
 - host: null
 - is_secure_protocol: null
+- is_ajax: false
 
 See the @page(route page) for more details.
 
@@ -76,7 +77,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [Light::registerRoute](https://github.com/lingtalfi/Light/blob/master/Core/Light.php#L247-L261)
+See the source code for method [Light::registerRoute](https://github.com/lingtalfi/Light/blob/master/Core/Light.php#L249-L264)
 
 
 See Also

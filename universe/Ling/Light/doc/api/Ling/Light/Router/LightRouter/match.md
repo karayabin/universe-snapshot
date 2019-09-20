@@ -57,7 +57,7 @@ Returns false | array.
 
 Source Code
 ===========
-See the source code for method [LightRouter::match](https://github.com/lingtalfi/Light/blob/master/Router/LightRouter.php#L18-L27)
+See the source code for method [LightRouter::match](https://github.com/lingtalfi/Light/blob/master/Router/LightRouter.php#L33-L43)
 
 
 See Also
@@ -65,5 +65,5 @@ See Also
 
 The [LightRouter](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Router/LightRouter.md) class.
 
-
+Previous method: [__construct](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Router/LightRouter/__construct.md)<br>Next method: [getMatchingRoute](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Router/LightRouter/getMatchingRoute.md)<br>
 

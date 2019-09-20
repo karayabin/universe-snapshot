@@ -93,6 +93,32 @@ $easy_route.methods_collection:
 History Log
 =============
 
+----- 1.8.0 -- 2019-09-19
+
+    - update open admin table helper main implementation, now uses ajax handler 
+    - implemented basic csrf protection 
+    
+- 1.7.0 -- 2019-09-19
+
+    - add dynamic injection concept and (careless) implementation
+    
+- 1.6.5 -- 2019-09-18
+
+    - fix doc links page -> pages
+    
+- 1.6.4 -- 2019-09-18
+
+    - fix RealistListRendererInterface->render method not existing
+    - fix doc links
+    
+- 1.6.3 -- 2019-09-16
+
+    - update documentation link to susco
+    
+- 1.6.2 -- 2019-09-12
+
+    - update documentation link to ric
+    
 - 1.6.1 -- 2019-09-05
 
     - fix typo in duelist, "all" special value is now recognized as a page_length (i.e. not page)

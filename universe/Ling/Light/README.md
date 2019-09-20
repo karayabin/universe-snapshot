@@ -48,6 +48,19 @@ Summary
 History Log
 =============
 
+- 0.16.0 -- 2019-09-20
+
+    - update Light, end routine service is now called just before the response is sent (rather than after)
+    
+- 0.15.0 -- 2019-09-20
+
+    - add LightRouterInterface->getMatchingRoute method
+    
+- 0.14.0 -- 2019-09-19
+
+    - add route.is_ajax property
+    - add Light->run end routine service handling
+    
 - 0.13.2 -- 2019-09-03
 
     - add doc link to api

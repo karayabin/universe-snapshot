@@ -4,7 +4,7 @@
 
 The ArrayVariableResolverUtil class
 ================
-2019-05-15 --> 2019-07-23
+2019-05-15 --> 2019-09-18
 
 
 
@@ -73,12 +73,14 @@ class <span class="pl-k">ArrayVariableResolverUtil</span>  {
     - protected string [$firstSymbol](#property-firstSymbol) ;
     - protected string [$openingBracket](#property-openingBracket) ;
     - protected string [$closingBracket](#property-closingBracket) ;
+    - protected bool [$allowBdotResolution](#property-allowBdotResolution) ;
 
 - Methods
     - public [__construct](https://github.com/lingtalfi/ArrayVariableResolver/blob/master/doc/api/Ling/ArrayVariableResolver/ArrayVariableResolverUtil/__construct.md)() : void
     - public [setFirstSymbol](https://github.com/lingtalfi/ArrayVariableResolver/blob/master/doc/api/Ling/ArrayVariableResolver/ArrayVariableResolverUtil/setFirstSymbol.md)(string $firstSymbol) : void
     - public [setOpeningBracket](https://github.com/lingtalfi/ArrayVariableResolver/blob/master/doc/api/Ling/ArrayVariableResolver/ArrayVariableResolverUtil/setOpeningBracket.md)(string $openingBracket) : void
     - public [setClosingBracket](https://github.com/lingtalfi/ArrayVariableResolver/blob/master/doc/api/Ling/ArrayVariableResolver/ArrayVariableResolverUtil/setClosingBracket.md)(string $closingBracket) : void
+    - public [setAllowBdotResolution](https://github.com/lingtalfi/ArrayVariableResolver/blob/master/doc/api/Ling/ArrayVariableResolver/ArrayVariableResolverUtil/setAllowBdotResolution.md)(bool $allowBdotResolution) : void
     - public [resolve](https://github.com/lingtalfi/ArrayVariableResolver/blob/master/doc/api/Ling/ArrayVariableResolver/ArrayVariableResolverUtil/resolve.md)(array &$array, array $variables = []) : void
 
 }
@@ -107,6 +109,13 @@ Properties
     
     
 
+- <span id="property-allowBdotResolution"><b>allowBdotResolution</b></span>
+
+    This property holds the allowBdotResolution for this instance.
+    When true, you can use the [bdot notation](https://github.com/lingtalfi/Bat/blob/master/doc/bdot-notation.md) in the variable name.
+    
+    
+
 
 
 Methods
@@ -116,6 +125,7 @@ Methods
 - [ArrayVariableResolverUtil::setFirstSymbol](https://github.com/lingtalfi/ArrayVariableResolver/blob/master/doc/api/Ling/ArrayVariableResolver/ArrayVariableResolverUtil/setFirstSymbol.md) &ndash; Sets the firstSymbol.
 - [ArrayVariableResolverUtil::setOpeningBracket](https://github.com/lingtalfi/ArrayVariableResolver/blob/master/doc/api/Ling/ArrayVariableResolver/ArrayVariableResolverUtil/setOpeningBracket.md) &ndash; Sets the openingBracket.
 - [ArrayVariableResolverUtil::setClosingBracket](https://github.com/lingtalfi/ArrayVariableResolver/blob/master/doc/api/Ling/ArrayVariableResolver/ArrayVariableResolverUtil/setClosingBracket.md) &ndash; Sets the closingBracket.
+- [ArrayVariableResolverUtil::setAllowBdotResolution](https://github.com/lingtalfi/ArrayVariableResolver/blob/master/doc/api/Ling/ArrayVariableResolver/ArrayVariableResolverUtil/setAllowBdotResolution.md) &ndash; Sets the allowBdotResolution.
 - [ArrayVariableResolverUtil::resolve](https://github.com/lingtalfi/ArrayVariableResolver/blob/master/doc/api/Ling/ArrayVariableResolver/ArrayVariableResolverUtil/resolve.md) &ndash; Resolves the given array in place, by replacing the variable notation in the array values by the corresponding variables.
 
 

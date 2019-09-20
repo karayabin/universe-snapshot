@@ -3,10 +3,12 @@
 namespace Ling\CSRFTools;
 
 
+use Ling\ArrayToString\ArrayToStringTool;
+
 /**
  * The CSRFProtector class.
  *
- * This class is a singleton.
+ * This class can be used as a singleton, or as a regular class (it's an hybrid).
  *
  *
  * How this class works
@@ -46,86 +48,29 @@ namespace Ling\CSRFTools;
  * - the first time to display the form to the user
  * - the second time to test the posted data against some validation mechanism
  *
- * Usually, to protect a form against CSRF, the developer will create a page which calls the two main methods of this class:
- * - createToken
- * - isValid
  *
- * Now in which order those methods will be called depends on the coding style of the developer, it could be:
+ * And so the first time we create the token and it goes to the new slot.
+ * And the second time, we want to validate the token, but a new token has been regenerated (since we posted the form
+ * and the page has been refreshed), and so we want to validate the token against the old slot.
  *
- * - createToken
- * - isValid
  *
- * or
+ * Now  which slot you want to validate against really depends on your application and your concrete case.
  *
- * - isValid
- * - createToken
+ * For instance for csrf protected backend services accessed via ajax, we generally want to use the new slot all the time.
+ * When the user calls the page, we generate the token, but when he calls the service via ajax, the page generating the token
+ * has not been recalled, and so the token is still in the "new slot".
  *
- * In the first case, where createToken is called before isValid, because the page is called twice,
- * we can see that the first time the page is called (when the form is just displayed), the token is created, and the isValid method
- * is probably not relevant at this stage (i.e. without posted data).
- * Now when the user posts the page via http post, the page is reloaded and the createToken method is called again BEFORE the isValid method
- * is called, which means the token is different than the one the user posted.
+ * That's why the isValid method let you choose which slot you want to validate against.
  *
- * Now that's exactly the reason why this class uses the "old" slot: because in this precise case you need to validate the posted CSRF token
- * against the old token value (created during the first invocation of the page, when the form was just displayed), not against the new value.
- *
- * Hopefully this gives you an insight about why there are two slots.
- * Now which slot you want to validate against really depends on your application and your concrete case.
- *
- * For a simple validation between two separate pages, for instance a page A.php that creates the token, and an ajax B.php page that
- * calls the isValid method, then the B.php page needs to validate against the new value, since the createToken method has only been called once.
- *
- * In the case of the form with the isValid method being called first, since the creation of the token is the last (relevant to this
- * discussion) thing the page does, then we can validate against the new slot.
- *
- * So, validating against the new or the old slot is the main question you should ask yourself before using this class.
- * This requires an understanding of how your application is wired.
- * Once you know how your application works, the solution should be quite obvious.
  *
  *
  *
  * The delete method
  * -------------
- * I would recommend not to use it, but...
  *
- * Why is there a deleteToken method?
- *
- * Imagine you have a simple ajax communication you want to secure.
- * A.php is the script which creates the token (createToken is called).
- * B.php is the ajax script which validates/un-validates the token (isValid is called).
- *
- * Imagine a legit user does its thing, and A.php is invoked, which in turns calls B.php.
- * The user gets its action done, and everything is fine.
- * Except that now the token is still in the user session.
- *
- * Which means there is still a small chance that a malicious user could impersonate the user:
- * if the malicious user can make the gentle user to click a link to B.php with the right token (I know, that sounds
- * almost impossible, but just imagine), then assuming the user session is still active, the action would technically
- * be re-executed.
- *
- * Now in practise, although I'm not a security expert, I believe it's almost impossible for a malicious user
- * to guess the random token, and so this extra precaution is maybe too much, but for those of you who are paranoid,
- * if you want to do everything you can to make it harder for the malicious users, then by destroying the token
- * after having it validated by the regular user, you remove this tiny risk.
- *
- * So basically, the algo in B.php would look like this:
- *
- * - if $csrfProtector->isValid
- * -    $csrfProtector->deleteToken
- * -    // do the secure action
- *
- * And because the token won't exist in the session anymore, even if the malicious user managed to know the right token,
- * the token would be stale (or more precisely it wouldn't exist anymore), and so the secure action will not be executed again.
- *
- * Now it's not always possible (depending on your design) to call the deleteToken method, but on ajax calls it's certainly always possible.
- * In fact with forms it might be complicated some time, because you might delete a token that needs to be there, your mileage might vary...
- *
- *
- * Now why not using it:
- * I tried it in practice with an ajax script: and it turns out if your user executes the ajax action more than
- * once, the actions after the first one will be denied.
- * So, maybe there is a very specific case where you can get away with the deleteToken method, but in general
- * it's too restrictive and I didn't found a concrete use yet.
+ * I would recommend using it wherever you can, because it completely prevents an attacker from guessing the token.
+ * However in some cases, the token cannot be deleted otherwise your own users cannot use them.
+ * So, you have to assess the situation for yourself, and decide whether you should use the delete method.
  *
  *
  *
@@ -157,6 +102,13 @@ class CSRFProtector
      */
     protected $sessionName;
 
+    /**
+     * This property holds the usePage for this instance.
+     * See the @page(page security conception notes) for more details.
+     * @var bool=true
+     */
+    protected $usePage;
+
 
     /**
      * Gets the singleton instance for this class.
@@ -175,13 +127,23 @@ class CSRFProtector
 
     /**
      * Builds the CSRFProtector instance.
-     * Notice that it's private.
      */
-    private function __construct()
+    public function __construct()
     {
 
         $this->sessionName = "csrf_tools_token";
+        $this->usePage = true;
         $this->startSession();
+    }
+
+    /**
+     * Sets the usePage.
+     *
+     * @param bool $usePage
+     */
+    public function setUsePage(bool $usePage)
+    {
+        $this->usePage = $usePage;
     }
 
 
@@ -191,6 +153,10 @@ class CSRFProtector
      * while the old "new" value (found in the "new" slot before it was replaced) is moved to the "old" slot.
      *
      * For more details, please refer to this class description.
+     *
+     * The following token names are reserved for internal use and must not be used:
+     *
+     * - __pages__
      *
      *
      * @param string $tokenName
@@ -205,7 +171,27 @@ class CSRFProtector
 
         $token = md5(uniqid());
         $_SESSION[$this->sessionName][$tokenName]['new'] = $token;
+        if (true === $this->usePage) {
+            $this->addTokenForPage($tokenName);
+        }
         return $token;
+    }
+
+
+    /**
+     * Returns whether the token identified by the given tokenName is already stored in the session.
+     *
+     *
+     * @param string $tokenName
+     * @return bool
+     */
+    public function hasToken(string $tokenName): bool
+    {
+        $this->startSession();
+        if (array_key_exists($tokenName, $_SESSION[$this->sessionName])) {
+            return array_key_exists($tokenName, $_SESSION[$this->sessionName]);
+        }
+        return false;
     }
 
 
@@ -220,8 +206,9 @@ class CSRFProtector
      */
     public function isValid(string $tokenName, string $tokenValue, bool $useNewSlot = false): bool
     {
-
+        $this->startSession();
         if (array_key_exists($tokenName, $_SESSION[$this->sessionName])) {
+            $tokenValue = trim($tokenValue);
             if (false === $useNewSlot) {
                 if (array_key_exists("old", $_SESSION[$this->sessionName][$tokenName])) {
                     $res = ($tokenValue === $_SESSION[$this->sessionName][$tokenName]["old"]);
@@ -245,8 +232,69 @@ class CSRFProtector
      */
     public function deleteToken(string $tokenName)
     {
+        $this->startSession();
         unset($_SESSION[$this->sessionName][$tokenName]);
     }
+
+
+    /**
+     * Deletes the tokens that are not associated with the current page.
+     *
+     */
+    public function deletePageUnusedTokens()
+    {
+        $this->startSession();
+        $pageId = $this->getPageId();
+        $pages = $_SESSION[$this->sessionName]['__pages__'];
+
+
+        /**
+         * I had this issue where the system thought it was another page, and so deleted tokens that were on the
+         * actual page.
+         *
+         * To reproduce:
+         *
+         * - browse /reset.php to clean all session variables
+         * - browse /user/profile?d   (create a fake get variable to make the old system think it's another page)
+         * - log in, and now browse /user/profile. As you browse /user/profile, the old system was removing the current
+         *          tokens, because /user/profile?d is different than /user/profile, but it shouldn't because we
+         *          actually use the tokens on the page. Anyway, this is fixed simply by protecting the tokens
+         *          on the current page (variable currentTokens below).
+         *
+         *
+         *
+         */
+        $currentTokens = $pages[$pageId] ?? [];
+        unset($pages[$pageId]);
+        array_walk_recursive($pages, function ($tokenName) use ($currentTokens) {
+            if (false === in_array($tokenName, $currentTokens, true)) {
+                unset($_SESSION[$this->sessionName][$tokenName]);
+            }
+        });
+    }
+
+
+    /**
+     * Returns a debug string of the php session content.
+     *
+     * @return string
+     */
+    public function dump(): string
+    {
+        $this->startSession();
+        return ArrayToStringTool::toPhpArray($_SESSION[$this->sessionName]);
+    }
+
+
+    /**
+     * Cleans the session.
+     */
+    public function cleanSession()
+    {
+        $this->startSession();
+        unset($_SESSION[$this->sessionName]);
+    }
+
 
     //--------------------------------------------
     //
@@ -260,7 +308,39 @@ class CSRFProtector
             session_start();
         }
         if (false === array_key_exists($this->sessionName, $_SESSION)) {
-            $_SESSION[$this->sessionName] = [];
+            $_SESSION[$this->sessionName] = [
+                '__pages__' => [],
+            ];
         }
+    }
+
+
+    /**
+     * Adds a token to the pages array.
+     *
+     * @param string $tokenName
+     */
+    protected function addTokenForPage(string $tokenName)
+    {
+        $pages = $_SESSION[$this->sessionName]['__pages__'] ?? [];
+        $pageId = $this->getPageId();
+        if (false === array_key_exists($pageId, $pages)) {
+            $pages[$pageId] = [];
+        }
+
+        if (false === in_array($tokenName, $pages[$pageId])) {
+            $pages[$pageId][] = $tokenName;
+            $_SESSION[$this->sessionName]['__pages__'] = $pages;
+        }
+    }
+
+
+    /**
+     * Returns the current page id.
+     * @return string
+     */
+    protected function getPageId(): string
+    {
+        return $_SERVER['REQUEST_URI'];
     }
 }

@@ -141,6 +141,7 @@ class Light_InitializerDocBuilder
              */
             "keyWord2UrlMap" => [
 //                "the command line page" => $doc . '/pages/command-line.md',
+                "initializer conception notes" => $doc . '/pages/initializer-conception-notes.md',
             ],
             /**
              * An array of external classes to url.

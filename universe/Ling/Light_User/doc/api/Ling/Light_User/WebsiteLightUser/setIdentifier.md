@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [WebsiteLightUser::setIdentifier](https://github.com/lingtalfi/Light_User/blob/master/WebsiteLightUser.php#L283-L286)
+See the source code for method [WebsiteLightUser::setIdentifier](https://github.com/lingtalfi/Light_User/blob/master/WebsiteLightUser.php#L268-L271)
 
 
 See Also

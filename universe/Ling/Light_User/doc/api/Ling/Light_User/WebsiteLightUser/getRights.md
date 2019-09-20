@@ -46,7 +46,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [WebsiteLightUser::getRights](https://github.com/lingtalfi/Light_User/blob/master/WebsiteLightUser.php#L413-L416)
+See the source code for method [WebsiteLightUser::getRights](https://github.com/lingtalfi/Light_User/blob/master/WebsiteLightUser.php#L398-L401)
 
 
 See Also

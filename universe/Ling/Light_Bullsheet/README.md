@@ -41,14 +41,14 @@ Services
 
 This plugin provides the following services:
 
-- bullsheet
+- bullsheet (returns a LightBullsheetService instance)
 
 
 The service accepts bullsheeter instances. Each bullsheeter being its own stand-alone generator. 
 
 
 
-Here is the content of the service configuration file:
+Here is an example of the service configuration:
 
 ```yaml
 bullsheet:

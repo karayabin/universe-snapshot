@@ -1,6 +1,6 @@
 SimplePdoWrapper
 ================
-2019-02-04
+2019-02-04 -> 2019-09-12
 
 
 
@@ -61,6 +61,7 @@ Summary
      * [Select the database](#select-the-database)
      * [execute a file of sql statements](#execute-a-file-of-sql-statements)
   * [Transaction examples](#transaction-examples)
+     * [transaction template](#transaction-template)
      * [successful transaction](#successful-transaction)
      * [transaction with rollback](#transaction-with-rollback)
   * [Related](#related)
@@ -645,7 +646,7 @@ The key is always the leftmost member of the query.
 Return a simple map of unique id => label
 
 
-    $rows = $wrapper->fetchAll("select id, label from layout", [], \PDO::FETCH_COLUMN | PDO::FETCH_UNIQUE);
+    $rows = $wrapper->fetchAll("select id, label from layout", [], \PDO::FETCH_COLUMN | \PDO::FETCH_UNIQUE);
     a($rows); // contains the array of label
     /**
      * array(20) {
@@ -666,7 +667,7 @@ Return a simple map of unique id => label
 Return a simple map of unique label => id
 
 ```php
-$rows = $wrapper->fetchAll("select label, id from layout", [], \PDO::FETCH_COLUMN | PDO::FETCH_UNIQUE);
+$rows = $wrapper->fetchAll("select label, id from layout", [], \PDO::FETCH_COLUMN | \PDO::FETCH_UNIQUE);
 a($rows); // contains the array of label
 /**
  * array(20) {
@@ -758,6 +759,24 @@ $res = $wrapper->executeStatement($content); // will execute all the statements 
 Transaction examples
 --------------------
 
+### transaction template
+
+
+```php
+/
+**
+ * @var $exception \Exception
+ */
+$exception = null;
+$res = $this->pdoWrapper->transaction(function () {
+    // your code here
+}, $exception);
+if (false === $res) {
+    throw $exception;
+}
+
+```
+
 ### successful transaction
 
 ```php
@@ -819,6 +838,47 @@ Related
 History Log
 ------------------
 
+- 1.8.2 -- 2019-09-18
+
+    - add README.md transaction template example 
+    
+- 1.8.1 -- 2019-09-18
+
+    - fix README.md examples typos 
+    
+- 1.8.0 -- 2019-09-12
+
+    - added MysqlInfoUtil->getAutoIncrementedKey method 
+    
+- 1.7.0 -- 2019-09-12
+
+    - added MysqlInfoUtil->getColumnTypes method 
+    
+- 1.6.0 -- 2019-09-12
+
+    - added MysqlInfoUtil->getUniqueIndexes method 
+    - fixed MysqlInfoUtil->getRic not taking into account unique indexes 
+
+- 1.5.0 -- 2019-09-12
+
+    - added MysqlInfoUtil->getRic method 
+    
+- 1.4.0 -- 2019-09-12
+
+    - added MysqlInfoUtil->getPrimaryKey method 
+    
+- 1.3.0 -- 2019-09-12
+
+    - added MysqlInfoUtil->getColumnNames method 
+    
+- 1.2.1 -- 2019-09-12
+
+    - removed SimplePdoWrapperInterface->changeDatabase method, as it's already in MysqlInfoUtil 
+
+- 1.2.0 -- 2019-09-12
+
+    - add SimplePdoWrapperInterface->changeDatabase method 
+    
 - 1.1.1 -- 2019-07-22
 
     - add doc summary 

@@ -4,7 +4,7 @@
 
 The ChloroformRendererInterface class
 ================
-2019-04-10 --> 2019-08-05
+2019-04-10 --> 2019-09-20
 
 
 

@@ -58,7 +58,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [ArrayVariableResolverUtil::resolve](https://github.com/lingtalfi/ArrayVariableResolver/blob/master/ArrayVariableResolverUtil.php#L137-L177)
+See the source code for method [ArrayVariableResolverUtil::resolve](https://github.com/lingtalfi/ArrayVariableResolver/blob/master/ArrayVariableResolverUtil.php#L157-L211)
 
 
 See Also
@@ -66,5 +66,5 @@ See Also
 
 The [ArrayVariableResolverUtil](https://github.com/lingtalfi/ArrayVariableResolver/blob/master/doc/api/Ling/ArrayVariableResolver/ArrayVariableResolverUtil.md) class.
 
-Previous method: [setClosingBracket](https://github.com/lingtalfi/ArrayVariableResolver/blob/master/doc/api/Ling/ArrayVariableResolver/ArrayVariableResolverUtil/setClosingBracket.md)<br>
+Previous method: [setAllowBdotResolution](https://github.com/lingtalfi/ArrayVariableResolver/blob/master/doc/api/Ling/ArrayVariableResolver/ArrayVariableResolverUtil/setAllowBdotResolution.md)<br>
 

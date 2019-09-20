@@ -27,7 +27,6 @@ class LoginFormController extends LightKitAdminController
      */
     public function render()
     {
-
         $updator = null;
 
         if (
@@ -43,6 +42,8 @@ class LoginFormController extends LightKitAdminController
              */
             $userDb = $this->getContainer()->get('user_database');
             $userInfo = $userDb->getUserInfoByCredentials($userName, $password);
+
+//            az(__FILE__, $userInfo);
             if (false !== $userInfo) {
                 //--------------------------------------------
                 // ON FORM VALID

@@ -4,7 +4,7 @@
 
 The LightRouterInterface class
 ================
-2019-04-09 --> 2019-09-03
+2019-04-09 --> 2019-09-20
 
 
 
@@ -30,6 +30,7 @@ abstract class <span class="pl-k">LightRouterInterface</span>  {
 
 - Methods
     - abstract public [match](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Router/LightRouterInterface/match.md)([Ling\Light\Http\HttpRequestInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface.md) $request, array $routes) : false | array
+    - abstract public [getMatchingRoute](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Router/LightRouterInterface/getMatchingRoute.md)() : array | false
 
 }
 
@@ -42,6 +43,7 @@ Methods
 ==============
 
 - [LightRouterInterface::match](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Router/LightRouterInterface/match.md) &ndash; Tests the given httpRequest against the routes until one matches.
+- [LightRouterInterface::getMatchingRoute](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Router/LightRouterInterface/getMatchingRoute.md) &ndash; returns the matching route if there was a match, or false otherwise.
 
 
 

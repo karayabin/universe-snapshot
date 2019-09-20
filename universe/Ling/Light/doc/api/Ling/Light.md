@@ -1,6 +1,6 @@
 Ling/Light
 ================
-2019-04-09 --> 2019-09-03
+2019-04-09 --> 2019-09-20
 
 
 
@@ -98,9 +98,12 @@ Table of contents
 - [LightReverseRouterInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ReverseRouter/LightReverseRouterInterface.md) &ndash; The LightReverseRouterInterface interface.
     - [LightReverseRouterInterface::getUrl](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ReverseRouter/LightReverseRouterInterface/getUrl.md) &ndash; Returns the url corresponding to the given route name and url parameters.
 - [LightRouter](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Router/LightRouter.md) &ndash; The LightRouter class.
+    - [LightRouter::__construct](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Router/LightRouter/__construct.md) &ndash; Builds the LightRouter instance.
     - [LightRouter::match](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Router/LightRouter/match.md) &ndash; Tests the given httpRequest against the routes until one matches.
+    - [LightRouter::getMatchingRoute](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Router/LightRouter/getMatchingRoute.md) &ndash; returns the matching route if there was a match, or false otherwise.
 - [LightRouterInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Router/LightRouterInterface.md) &ndash; The LightRouterInterface interface.
     - [LightRouterInterface::match](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Router/LightRouterInterface/match.md) &ndash; Tests the given httpRequest against the routes until one matches.
+    - [LightRouterInterface::getMatchingRoute](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Router/LightRouterInterface/getMatchingRoute.md) &ndash; returns the matching route if there was a match, or false otherwise.
 - [LightBlueServiceContainer](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightBlueServiceContainer.md) &ndash; The LightBlueServiceContainer class.
     - BlueOctopusServiceContainer::__construct &ndash; Builds the service container.
     - BlueOctopusServiceContainer::get &ndash; Returns the service which name is given.
@@ -129,6 +132,7 @@ Table of contents
 
 Dependencies
 ============
+- [Light_EndRoutine](https://github.com/lingtalfi/Light_EndRoutine)
 - [SicTools](https://github.com/lingtalfi/SicTools)
 - [Bat](https://github.com/lingtalfi/Bat)
 - [DirScanner](https://github.com/lingtalfi/DirScanner)

@@ -148,8 +148,6 @@ class SimplePdoWrapper implements SimplePdoWrapperInterface
     //--------------------------------------------
     // BASE METHODS
     //--------------------------------------------
-
-
     /**
      * @implementation
      */

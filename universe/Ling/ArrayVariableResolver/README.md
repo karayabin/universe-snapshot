@@ -36,6 +36,10 @@ Summary
 History Log
 =============
 
+- 1.2.0 -- 2019-09-18
+
+    - update ArrayVariableResolverUtil->resolve now accepts bdot notation 
+    
 - 1.1.2 -- 2019-07-23
 
     - fix ArrayVariableResolverUtil->resolve not accepting null values as inline replacement 

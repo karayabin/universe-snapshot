@@ -46,7 +46,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [WebsiteLightUser::getExtra](https://github.com/lingtalfi/Light_User/blob/master/WebsiteLightUser.php#L433-L436)
+See the source code for method [WebsiteLightUser::getExtra](https://github.com/lingtalfi/Light_User/blob/master/WebsiteLightUser.php#L418-L421)
 
 
 See Also

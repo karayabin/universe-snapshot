@@ -4,7 +4,7 @@
 
 The BaseRealistRowsRenderer class
 ================
-2019-08-12 --> 2019-09-05
+2019-08-12 --> 2019-09-19
 
 
 
@@ -106,4 +106,4 @@ See the source code of [Ling\Light_Realist\Rendering\BaseRealistRowsRenderer](ht
 
 SeeAlso
 ==============
-Previous class: [LightRealistException](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Exception/LightRealistException.md)<br>Next class: [OpenAdminTableBaseRealistListRenderer](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Rendering/OpenAdminTableBaseRealistListRenderer.md)<br>
+Previous class: [LightRealistListActionToolbarRendererInterface](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/ListActionHandler/ToolbarRenderer/LightRealistListActionToolbarRendererInterface.md)<br>Next class: [OpenAdminTableBaseRealistListRenderer](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Rendering/OpenAdminTableBaseRealistListRenderer.md)<br>

@@ -44,6 +44,11 @@ Returns void.
 
 
 
+Source Code
+===========
+See the source code for method [LightRouter::__construct](https://github.com/lingtalfi/Light/blob/master/Router/LightRouter.php#L25-L28)
+
+
 See Also
 ================
 

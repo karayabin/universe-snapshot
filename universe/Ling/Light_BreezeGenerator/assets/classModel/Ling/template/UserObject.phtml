@@ -1,0 +1,57 @@
+<?php
+
+
+namespace The\ObjectNamespace;
+
+
+use Ling\SimplePdoWrapper\SimplePdoWrapperInterface;
+
+/**
+ * The UserObject class.
+ */
+class UserObject implements UserObjectInterface
+{
+
+    /**
+     * This property holds the pdoWrapper for this instance.
+     * @var SimplePdoWrapperInterface
+     */
+    protected $pdoWrapper;
+
+    /**
+     * Builds the UserObject instance.
+     */
+    public function __construct()
+    {
+        $this->pdoWrapper = null;
+    }
+
+
+
+
+// insertXXX
+
+// getXXX
+
+// updateXXX
+
+// deleteXXX
+
+
+
+
+
+
+    //--------------------------------------------
+    //
+    //--------------------------------------------
+    /**
+     * Sets the pdoWrapper.
+     *
+     * @param SimplePdoWrapperInterface $pdoWrapper
+     */
+    public function setPdoWrapper(SimplePdoWrapperInterface $pdoWrapper)
+    {
+        $this->pdoWrapper = $pdoWrapper;
+    }
+}

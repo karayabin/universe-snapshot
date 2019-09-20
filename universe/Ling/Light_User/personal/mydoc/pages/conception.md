@@ -30,24 +30,31 @@ It's possible to end the validity of an user programmatically too, for instance 
 
 It's all about rights
 ----------------
+
 The user's rights are essentially simple strings attached to the user.
 
 For instance, "activate_coffee_machine", or "edit_post".
 
-By convention, alight plugin making use of "rights" will prefix all its rights with an identifier based on the plugin name.
+By convention, a light plugin making use of "rights" will prefix all its rights with an identifier based on the plugin name.
 
-For instance, a plugin name Light_4XBlog would have its rights starting with the **4x_blog** prefix (or 4xblog, or 4x-blog, you get the idea).
+We recommend using the plugin name followed by a dot, followed by the "right" name.
 
-By convention, the right string uses special symbols:
 
-- the dot (.)
-- the asterisk (*)
+UPDATE: 2019-09-11.
+In fact, the user "rights" are now called "permissions".
 
-More about that in the next section.
+The aforementioned principles apply, but there are some little nuances.
+
+For more information, see the [permission conception notes](https://github.com/lingtalfi/Light_User/blob/master/doc/pages/permission-conception-notes.md).
+
 
 
 ### Rights and namespaces
 
+UPDATE: 2019-09-11: This section is now deprecated/frozen as now we use permissions, which describe a "right" in such a specific manner
+that there might be no need for namespaces anymore.
+
+ 
 By convention, a plugin author organizes her rights in namespaces, and a dot indicates that the left part (of the dot) contains
 the right part.
 

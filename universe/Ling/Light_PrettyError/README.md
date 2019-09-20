@@ -48,11 +48,12 @@ prettyDebugPage:
 # --------------------------------------
 # hooks
 # --------------------------------------
-$initializer.methods.setInitializers.initializers:
+$initializer.methods_collection:
     -
-        instance: Ling\Light_PrettyError\Initializer\PrettyErrorInitializer
-
-
+        method: registerInitializer
+        args:
+            initializer:
+                instance: Ling\Light_PrettyError\Initializer\PrettyErrorInitializer
 
 ```
 
@@ -81,6 +82,11 @@ And will basically provide aesthetically pleasing templates for those errors.
 History Log
 =============
     
+
+- 1.4.2 -- 2019-09-10
+
+    - update service instantiation to accommodate the new initializer interface
+        
 - 1.4.1 -- 2019-07-18
 
     - update docTools documentation, add links to source code for classes and methods

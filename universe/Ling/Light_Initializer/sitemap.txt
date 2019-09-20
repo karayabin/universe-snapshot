@@ -1,9 +1,14 @@
 https://github.com/lingtalfi/Light_Initializer/blob/master/README.md
+https://github.com/lingtalfi/Light_Initializer/blob/master/doc/api/Ling/Light_Initializer/Exception/LightInitializerException.md
 https://github.com/lingtalfi/Light_Initializer/blob/master/doc/api/Ling/Light_Initializer/Initializer/LightInitializerInterface/initialize.md
 https://github.com/lingtalfi/Light_Initializer/blob/master/doc/api/Ling/Light_Initializer/Initializer/LightInitializerInterface.md
 https://github.com/lingtalfi/Light_Initializer/blob/master/doc/api/Ling/Light_Initializer/Util/LightInitializerUtil/__construct.md
+https://github.com/lingtalfi/Light_Initializer/blob/master/doc/api/Ling/Light_Initializer/Util/LightInitializerUtil/getPluginName.md
 https://github.com/lingtalfi/Light_Initializer/blob/master/doc/api/Ling/Light_Initializer/Util/LightInitializerUtil/initialize.md
+https://github.com/lingtalfi/Light_Initializer/blob/master/doc/api/Ling/Light_Initializer/Util/LightInitializerUtil/initializeItemRecursive.md
+https://github.com/lingtalfi/Light_Initializer/blob/master/doc/api/Ling/Light_Initializer/Util/LightInitializerUtil/processItems.md
 https://github.com/lingtalfi/Light_Initializer/blob/master/doc/api/Ling/Light_Initializer/Util/LightInitializerUtil/registerInitializer.md
 https://github.com/lingtalfi/Light_Initializer/blob/master/doc/api/Ling/Light_Initializer/Util/LightInitializerUtil/setInitializers.md
 https://github.com/lingtalfi/Light_Initializer/blob/master/doc/api/Ling/Light_Initializer/Util/LightInitializerUtil.md
 https://github.com/lingtalfi/Light_Initializer/blob/master/doc/api/Ling/Light_Initializer.md
+https://github.com/lingtalfi/Light_Initializer/blob/master/doc/pages/initializer-conception-notes.md

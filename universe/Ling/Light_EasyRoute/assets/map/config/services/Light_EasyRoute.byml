@@ -5,5 +5,8 @@ easy_route:
 # --------------------------------------
 # hooks
 # --------------------------------------
-$initializer.methods.setInitializers.initializers:
-    - @service(easy_route)
+$initializer.methods_collection:
+    -
+        method: registerInitializer
+        args:
+            initializer: @service(easy_route)

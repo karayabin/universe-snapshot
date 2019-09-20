@@ -50,7 +50,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [MysqlInfoUtil::dQuoteTable](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/Util/MysqlInfoUtil.php#L157-L161)
+See the source code for method [MysqlInfoUtil::dQuoteTable](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/Util/MysqlInfoUtil.php#L307-L311)
 
 
 See Also
@@ -58,5 +58,5 @@ See Also
 
 The [MysqlInfoUtil](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/MysqlInfoUtil.md) class.
 
-Previous method: [hasTable](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/MysqlInfoUtil/hasTable.md)<br>
+Previous method: [getAutoIncrementedKey](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/MysqlInfoUtil/getAutoIncrementedKey.md)<br>
 

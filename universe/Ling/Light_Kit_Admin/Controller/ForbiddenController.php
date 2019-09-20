@@ -23,6 +23,7 @@ class ForbiddenController extends AdminPageController
      */
     public function render()
     {
+
         $updator = null;
 
 
@@ -38,7 +39,6 @@ class ForbiddenController extends AdminPageController
                 ],
             ]);
         }
-
 
         return $this->renderAdminPage('Light_Kit_Admin/kit/zeroadmin/zeroadmin_forbidden', [], $updator);
     }

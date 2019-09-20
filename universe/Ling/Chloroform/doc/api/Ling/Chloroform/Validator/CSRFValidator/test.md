@@ -77,7 +77,7 @@ Returns bool.
 
 Source Code
 ===========
-See the source code for method [CSRFValidator::test](https://github.com/lingtalfi/Chloroform/blob/master/Validator/CSRFValidator.php#L26-L44)
+See the source code for method [CSRFValidator::test](https://github.com/lingtalfi/Chloroform/blob/master/Validator/CSRFValidator.php#L44-L62)
 
 
 See Also
@@ -85,5 +85,5 @@ See Also
 
 The [CSRFValidator](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Validator/CSRFValidator.md) class.
 
-
+Previous method: [__construct](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Validator/CSRFValidator/__construct.md)<br>Next method: [setCsrfProtector](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Validator/CSRFValidator/setCsrfProtector.md)<br>
 

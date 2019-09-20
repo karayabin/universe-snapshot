@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightRealistService::registerActionHandler](https://github.com/lingtalfi/Light_Realist/blob/master/Service/LightRealistService.php#L353-L359)
+See the source code for method [LightRealistService::registerActionHandler](https://github.com/lingtalfi/Light_Realist/blob/master/Service/LightRealistService.php#L389-L395)
 
 
 See Also
@@ -57,5 +57,5 @@ See Also
 
 The [LightRealistService](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Service/LightRealistService.md) class.
 
-Previous method: [registerListRenderer](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Service/LightRealistService/registerListRenderer.md)<br>Next method: [getActionHandler](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Service/LightRealistService/getActionHandler.md)<br>
+Previous method: [registerListRenderer](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Service/LightRealistService/registerListRenderer.md)<br>Next method: [registerListActionHandler](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Service/LightRealistService/registerListActionHandler.md)<br>
 

@@ -19,6 +19,7 @@ https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/Webs
 https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/WebsiteLightUser/getId.md
 https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/WebsiteLightUser/getIdentifier.md
 https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/WebsiteLightUser/getLastRefreshTime.md
+https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/WebsiteLightUser/getProfiles.md
 https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/WebsiteLightUser/getPseudo.md
 https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/WebsiteLightUser/getRights.md
 https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/WebsiteLightUser/getSessionDuration.md
@@ -32,6 +33,7 @@ https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/Webs
 https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/WebsiteLightUser/setId.md
 https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/WebsiteLightUser/setIdentifier.md
 https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/WebsiteLightUser/setLastRefreshTime.md
+https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/WebsiteLightUser/setProfiles.md
 https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/WebsiteLightUser/setPseudo.md
 https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/WebsiteLightUser/setRights.md
 https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/WebsiteLightUser/setSessionDuration.md
@@ -40,3 +42,4 @@ https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/Webs
 https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User.md
 https://github.com/lingtalfi/Light_User/blob/master/doc/pages/conception-notes.md
 https://github.com/lingtalfi/Light_User/blob/master/doc/pages/conception.md
+https://github.com/lingtalfi/Light_User/blob/master/doc/pages/permission-conception-notes.md

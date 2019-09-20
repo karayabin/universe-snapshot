@@ -48,7 +48,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [Bootstrap4AdminTableRenderer::printSearchWidgets](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/Renderer/Bootstrap4AdminTableRenderer.php#L300-L345)
+See the source code for method [Bootstrap4AdminTableRenderer::printSearchWidgets](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/Renderer/Bootstrap4AdminTableRenderer.php#L307-L352)
 
 
 See Also

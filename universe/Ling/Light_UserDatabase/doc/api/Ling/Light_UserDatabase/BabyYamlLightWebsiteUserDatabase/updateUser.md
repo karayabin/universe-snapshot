@@ -24,7 +24,7 @@ public [BabyYamlLightWebsiteUserDatabase::updateUser](https://github.com/lingtal
 Updates the user identified by the given identifier.
 
 The userInfo can contain all the information, or only some of them.
-The password should be updated with the key "pass".
+The password should be updated with the key "password".
 
 
 
@@ -56,7 +56,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [BabyYamlLightWebsiteUserDatabase::updateUser](https://github.com/lingtalfi/Light_UserDatabase/blob/master/BabyYamlLightWebsiteUserDatabase.php#L223-L243)
+See the source code for method [BabyYamlLightWebsiteUserDatabase::updateUser](https://github.com/lingtalfi/Light_UserDatabase/blob/master/BabyYamlLightWebsiteUserDatabase.php#L294-L314)
 
 
 See Also

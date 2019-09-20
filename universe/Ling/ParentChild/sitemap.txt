@@ -1,0 +1,8 @@
+https://github.com/lingtalfi/ParentChild/blob/master/README.md
+https://github.com/lingtalfi/ParentChild/blob/master/doc/api/Ling/ParentChild/ParentChildItem/__construct.md
+https://github.com/lingtalfi/ParentChild/blob/master/doc/api/Ling/ParentChild/ParentChildItem/addChild.md
+https://github.com/lingtalfi/ParentChild/blob/master/doc/api/Ling/ParentChild/ParentChildItem/getChildren.md
+https://github.com/lingtalfi/ParentChild/blob/master/doc/api/Ling/ParentChild/ParentChildItem/getName.md
+https://github.com/lingtalfi/ParentChild/blob/master/doc/api/Ling/ParentChild/ParentChildItem/setName.md
+https://github.com/lingtalfi/ParentChild/blob/master/doc/api/Ling/ParentChild/ParentChildItem.md
+https://github.com/lingtalfi/ParentChild/blob/master/doc/api/Ling/ParentChild.md

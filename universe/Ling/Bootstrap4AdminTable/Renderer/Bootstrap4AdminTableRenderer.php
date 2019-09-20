@@ -380,6 +380,10 @@ class Bootstrap4AdminTableRenderer extends OpenAdminTableBaseRealistListRenderer
                 "/plugins/Light_Realist/js/list-action-handler-helper.js",
             ]);
 
+            $copilot->registerLibrary("jqueryPrintElement", [
+                "/plugins/Light_Realist/js/jquery.printElement.js",
+            ]);
+
             $copilot->registerLibrary("responsiveTableHelper", [
                 "/plugins/Light_Realist/js/responsive-table-helper.js",
             ], [
@@ -403,6 +407,7 @@ class Bootstrap4AdminTableRenderer extends OpenAdminTableBaseRealistListRenderer
         }
 
         $sCollapse = json_encode($this->collapsibleColumnIndexes);
+        $listActionLeaves = $this->getListActionGroupLeafItems();
 
 
         ?>
@@ -413,16 +418,15 @@ class Bootstrap4AdminTableRenderer extends OpenAdminTableBaseRealistListRenderer
 
 
                     var jContainer = $('#<?php echo $cssId; ?>');
+                    var jTable = jContainer.find('.bsatr-main-table');
+                    var listActionLeaves = <?php echo json_encode($listActionLeaves); ?>;
 
 
                     var ricHelper = new RicAdminTableHelper({
                         jContainer: jContainer,
                         serverUri: "/realist-ajax-service",
-                        onCheckboxSelected: function (ricHelper, selectedRics) {
-                            console.log("here", selectedRics);
-                            // listActionHelper.blabla();
-                        }
                     });
+
 
                     // checkbox
                     <?php if(true === $this->isWidgetEnabled("checkbox")): ?>
@@ -436,11 +440,15 @@ class Bootstrap4AdminTableRenderer extends OpenAdminTableBaseRealistListRenderer
 
                     var listActionHelper = new ListActionHandlerHelper({
                         jContainer: jContainer,
+                        jTable: jTable,
+                        listActionLeaves: listActionLeaves,
+                        ricHelper: ricHelper,
                     });
+                    listActionHelper.listen();
 
 
                     var rth = new ResponsiveTableHelper({
-                        jTable: $("#<?php echo $cssId; ?> .bsatr-main-table"),
+                        jTable: jTable,
                         extraColumnContent: function (jCell, jTr) {
                             if (jCell.is("th")) {
                                 return '<th></th>';
@@ -465,6 +473,7 @@ class Bootstrap4AdminTableRenderer extends OpenAdminTableBaseRealistListRenderer
                         jContainer: jContainer,
                         table_selector: '.bsatr-main-table',
                         request_id: "<?php echo $this->requestId; ?>",
+                        csrf_token: "<?php echo $this->csrfToken; ?>",
                         on_request_before: function () {
                             if (true === rthStarted) {
                                 rth.removePlusColumn();

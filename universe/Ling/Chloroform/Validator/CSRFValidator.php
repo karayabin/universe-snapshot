@@ -20,6 +20,24 @@ use Ling\CSRFTools\CSRFProtector;
 class CSRFValidator extends AbstractValidator
 {
 
+
+    /**
+     * This property holds the csrfProtector for this instance.
+     * @var CSRFProtector
+     */
+    protected $csrfProtector;
+
+
+    /**
+     * @overrides
+     */
+    public function __construct()
+    {
+        parent::__construct();
+        $this->csrfProtector = null;
+    }
+
+
     /**
      * @implementation
      */
@@ -41,5 +59,35 @@ class CSRFValidator extends AbstractValidator
 
         $className = get_class($field);
         throw new ChloroformException("The CSRFValidator only works against a CSRFField, field of class $className given.");
+    }
+
+
+
+    /**
+     * Sets the csrfProtector.
+     *
+     * @param CSRFProtector $csrfProtector
+     * @return CSRFValidator
+     */
+    public function setCsrfProtector(CSRFProtector $csrfProtector)
+    {
+        $this->csrfProtector = $csrfProtector;
+        return $this;
+    }
+
+
+    //--------------------------------------------
+    //
+    //--------------------------------------------
+    /**
+     * Returns the csrf protector instance.
+     * @return CSRFProtector
+     */
+    protected function getCsrfProtector(): CSRFProtector
+    {
+        if (null === $this->csrfProtector) {
+            $this->csrfProtector = CSRFProtector::inst();
+        }
+        return $this->csrfProtector;
     }
 }

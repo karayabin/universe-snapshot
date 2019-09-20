@@ -50,7 +50,7 @@ class MysqlInfoUtil
      */
     public function changeDatabase(string $database)
     {
-        $this->wrapper->executeStatement("use $database;");
+        $this->wrapper->executeStatement("use `$database`;");
     }
 
 
@@ -142,6 +142,156 @@ EEE;
     }
 
 
+    /**
+     * Get the columns for the given table of the current database.
+     *
+     * @param string $table
+     * @return array
+     * @throws \Exception
+     */
+    public function getColumnNames(string $table): array
+    {
+        $ret = [];
+        $cols = $this->wrapper->fetchAll("describe `$table`;");
+        foreach ($cols as $col) {
+            $ret[] = $col['Field'];
+        }
+        return $ret;
+    }
+
+
+    /**
+     * Returns the array of columns composing the primary key.
+     * If there is no primary key:
+     * - it returns an empty array if the $returnAllIfEmpty is set to false (default)
+     * - it returns all the columns of the table if the $returnAllIfEmpty is set to true
+     *
+     * The flag $hasPrimaryKey is set to whether the table has a primary key.
+     *
+     *
+     *
+     * @param string $table
+     * @param bool $returnAllIfEmpty
+     * @param bool $hasPrimaryKey
+     * @return array
+     * @throws  \Exception
+     */
+    public function getPrimaryKey(string $table, bool $returnAllIfEmpty = false, bool &$hasPrimaryKey = true): array
+    {
+        $rows = $this->wrapper->fetchAll("SHOW INDEX FROM `$table` WHERE Key_name = 'PRIMARY'");
+        $ret = [];
+        if (false !== $rows) {
+            foreach ($rows as $info) {
+                $ret[] = $info['Column_name'];
+            }
+        }
+        if (true === $returnAllIfEmpty && 0 === count($ret)) {
+            $hasPrimaryKey = false;
+            $ret = $this->getColumnNames($table);
+        } else {
+            $hasPrimaryKey = true;
+        }
+        return $ret;
+    }
+
+
+    /**
+     * Returns the @page(ric) array for the given table.
+     *
+     * @param string $table
+     * @return array
+     * @throws \Exception
+     */
+    public function getRic(string $table): array
+    {
+        $hasPrimary = false;
+        $ric = $this->getPrimaryKey($table, true, $hasPrimary);
+        if (false === $hasPrimary) {
+            $uniqueIndexes = $this->getUniqueIndexes($table);
+            if ($uniqueIndexes) {
+                $ric = current($uniqueIndexes);
+            }
+        }
+        return $ric;
+    }
+
+    /**
+     * Returns the array of unique indexes for the given table.
+     * It's an aray of indexName => indexes
+     * With indexes being an array of column names ordered by ascending index sequence.
+     *
+     * @param string $table
+     *
+     * @return array
+     * @throws \Exception
+     */
+    public function getUniqueIndexes(string $table): array
+    {
+        $ret = [];
+        $info = $this->wrapper->fetchAll("SHOW INDEX FROM `$table`");
+        if (false !== $info) {
+            $indexes = [];
+            foreach ($info as $_info) {
+                if (
+                    '0' === $_info['Non_unique'] &&
+                    'PRIMARY' !== $_info['Key_name']
+                ) {
+                    $indexes[$_info['Key_name']][$_info['Seq_in_index']] = $_info['Column_name'];
+                }
+            }
+            foreach ($indexes as $name => $keys) {
+                $keys = array_merge($keys);
+                $ret[$name] = $keys;
+            };
+        }
+        return $ret;
+    }
+
+
+    /**
+     * Returns an array of columnName => type.
+     *
+     * The type is the string returned by mysql (such as int(11) or varchar(128) for instance).
+     * If the precision tag is set to false, then the information in parenthesis is dropped.
+     *
+     *
+     *
+     * @param string $table
+     * @param bool $precision
+     * @return array
+     * @throws \Exception
+     */
+    public function getColumnTypes(string $table, bool $precision = false)
+    {
+        $types = [];
+        $info = $this->wrapper->fetchAll("SHOW COLUMNS FROM `$table`");
+
+        foreach ($info as $_info) {
+            $type = $_info['Type'];
+            if (false === $precision) {
+                $type = explode('(', $type, 2)[0];
+            }
+            $types[$_info['Field']] = $type;
+        }
+        return $types;
+    }
+
+    /**
+     * Return the name of the auto-incremented field, or false if there is none.
+     *
+     * @return false|string
+     * @throws \Exception
+     */
+    public function getAutoIncrementedKey(string $table)
+    {
+        $q = "show columns from `$table` where extra='auto_increment'";
+        if (false !== ($rows = $this->wrapper->fetchAll($q))) {
+            if (array_key_exists(0, $rows)) {
+                return $rows[0]['Field'];
+            }
+        }
+        return false;
+    }
 
     //--------------------------------------------
     //

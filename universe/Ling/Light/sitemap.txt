@@ -97,6 +97,7 @@ https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRespo
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ReverseRouter/LightReverseRouterInterface/getUrl.md
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ReverseRouter/LightReverseRouterInterface.md
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Router/LightRouter/__construct.md
+https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Router/LightRouter/getMatchingRoute.md
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Router/LightRouter/match.md
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Router/LightRouter/matchRequirements.md
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Router/LightRouter/matchUriPath.md
@@ -105,6 +106,7 @@ https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Router/LightRo
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Router/LightRouter/onRouteMatchSuccessAfter.md
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Router/LightRouter/onUriMatchAfter.md
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Router/LightRouter.md
+https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Router/LightRouterInterface/getMatchingRoute.md
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Router/LightRouterInterface/match.md
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Router/LightRouterInterface.md
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightBlueServiceContainer.md

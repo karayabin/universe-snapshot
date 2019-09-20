@@ -133,6 +133,11 @@ I recommend to use CSRF protection all the time. This is explained in the aforem
 History Log
 =============
 
+- 1.2.1 -- 2019-09-20
+
+    - updated LightAjaxFileUploadManagerService, changed default token name to ajax_file_upload_manager_service
+    - fix doc link
+    
 - 1.2.0 -- 2019-08-21
 
     - now using Light_EasyRoute service to register the routes

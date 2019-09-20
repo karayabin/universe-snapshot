@@ -4,7 +4,7 @@
 
 The FileUploadController class
 ================
-2019-08-01 --> 2019-08-21
+2019-08-01 --> 2019-09-20
 
 
 
@@ -61,7 +61,7 @@ class <span class="pl-k">FileUploadController</span> extends [LightController](h
     - public LightController::__construct() : void
     - public LightController::setLight([Ling\Light\Core\Light](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light.md) $light) : void
     - protected LightController::getLight() : [Light](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light.md)
-    - protected LightController::getContainer() : Ling\Light\ServiceContainer\LightServiceContainerInterface
+    - protected LightController::getContainer() : [LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md)
 
 }
 

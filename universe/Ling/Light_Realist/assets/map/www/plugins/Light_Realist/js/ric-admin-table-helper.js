@@ -43,6 +43,7 @@ if ('undefined' === typeof RicAdminTableHelper) {
         window.RicAdminTableHelper = function (options) {
             this.options = $.extend({}, window.RicAdminTableHelper._defaults, options);
             this.jContainer = this.options.jContainer;
+            this.onCheckboxSelectedCallables = [];
         };
         window.RicAdminTableHelper.prototype = {
             getSelectedRic: function () {
@@ -68,7 +69,11 @@ if ('undefined' === typeof RicAdminTableHelper) {
             },
             /**
              * Listen for clicks events on emitters.
-             * When a click is detected, it sends the corresponding request to the server.
+             * When a click is detected:
+             *
+             * - if it's on a link/button, it sends the corresponding request to the server
+             * - if it's on a checkbox, it triggers the onCheckboxSelected event
+             *
              *
              */
             listen: function () {
@@ -77,6 +82,7 @@ if ('undefined' === typeof RicAdminTableHelper) {
                 this.jContainer.on('click', '.rath-emitter', function () {
 
                     if ($(this).is(':checkbox')) {
+                        $this.triggerOnCheckboxSelected();
                         return;
                     }
 
@@ -110,6 +116,31 @@ if ('undefined' === typeof RicAdminTableHelper) {
 
                     return false;
                 });
+            },
+
+            /**
+             * If some other tools trigger some checkboxes programmatically (checking or un-checking), they should use this function
+             * to notify the ric tool listeners (for gui consistency).
+             */
+            triggerOnCheckboxSelected: function () {
+                for (var i in this.onCheckboxSelectedCallables) {
+                    this.onCheckboxSelectedCallables[i](this, this.getSelectedRic());
+                }
+            },
+            /**
+             * Adds a callable to be triggered when the user clicks on a ric checkbox,
+             * or when the triggerOnCheckboxSelected method is called.
+             *
+             *
+             * The callable receives two arguments:
+             * - ricHelper: this object
+             * - selectedRics: an array containing the selected ric maps (js maps)
+             *
+             *
+             * @param callable
+             */
+            registerOnCheckboxSelected: function (callable) {
+                this.onCheckboxSelectedCallables.push(callable);
             },
             error: function (msg) {
                 throw new Error("RicAdminTableHelper error: " + msg);
@@ -149,7 +180,7 @@ if ('undefined' === typeof RicAdminTableHelper) {
              * @param response
              */
             onServerSuccess: function (actionId, response) {
-                console.log("your action here");
+
             },
         };
     })();

@@ -1,0 +1,8 @@
+dependencies: 
+    Ling: 
+        - ArrayToString
+        - BabyYaml
+        - Bat
+    
+
+post_install: []

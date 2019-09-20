@@ -4,7 +4,7 @@
 
 The RealistListRendererInterface class
 ================
-2019-08-12 --> 2019-09-05
+2019-08-12 --> 2019-09-19
 
 
 
@@ -27,6 +27,7 @@ abstract class <span class="pl-k">RealistListRendererInterface</span>  {
 
 - Methods
     - abstract public [prepareByRequestDeclaration](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Rendering/RealistListRendererInterface/prepareByRequestDeclaration.md)(string $requestId, array $requestDeclaration, [Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) $container) : void
+    - abstract public [render](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Rendering/RealistListRendererInterface/render.md)() : void
 
 }
 
@@ -39,6 +40,7 @@ Methods
 ==============
 
 - [RealistListRendererInterface::prepareByRequestDeclaration](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Rendering/RealistListRendererInterface/prepareByRequestDeclaration.md) &ndash; Prepares the list renderer with the given request declaration.
+- [RealistListRendererInterface::render](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Rendering/RealistListRendererInterface/render.md) &ndash; Prints the list.
 
 
 

@@ -4,33 +4,38 @@
 namespace Ling\Light_UserDatabase;
 
 
+use Ling\ArrayToString\ArrayToStringTool;
 use Ling\Bat\ArrayTool;
 use Ling\Light\Core\Light;
 use Ling\Light\Http\HttpRequestInterface;
+use Ling\Light\ServiceContainer\LightServiceContainerInterface;
 use Ling\Light_Database\LightDatabasePdoWrapper;
 use Ling\Light_Initializer\Initializer\LightInitializerInterface;
 use Ling\Light_PasswordProtector\Service\LightPasswordProtector;
-use Ling\MysqlCreateTableUtil\Column\Column;
-use Ling\MysqlCreateTableUtil\Column\PrimaryKeyAutoIncrementedColumn;
-use Ling\MysqlCreateTableUtil\MysqlCreateTableUtil;
+use Ling\Light_PluginDatabaseInstaller\Service\LightPluginDatabaseInstallerService;
+use Ling\Light_UserDatabase\Api\Mysql\MysqlPermissionApi;
+use Ling\Light_UserDatabase\Api\Mysql\MysqlPermissionGroupApi;
+use Ling\Light_UserDatabase\Api\Mysql\MysqlPermissionGroupHasPermissionApi;
+use Ling\Light_UserDatabase\Api\Mysql\MysqlUserHasPermissionGroupApi;
+use Ling\Light_UserDatabase\Api\PermissionApiInterface;
+use Ling\Light_UserDatabase\Api\PermissionGroupApiInterface;
+use Ling\Light_UserDatabase\Api\PermissionGroupHasPermissionApiInterface;
+use Ling\Light_UserDatabase\Api\UserHasPermissionGroupApiInterface;
+use Ling\Light_UserDatabase\Exception\LightUserDatabaseException;
+use Ling\Light_UserDatabase\Tool\LightWebsiteUserDatabaseTool;
 use Ling\SimplePdoWrapper\Util\MysqlInfoUtil;
 use Ling\SqlWizard\Tool\MysqlSerializeTool;
 
 /**
  * The MysqlLightWebsiteUserDatabase interface.
  *
- * In this implementation, we use a table named "user" by default.
+ * In this implementation, we create the tables if they don't exist, using the @page(initializer service).
+ * The created tables are the ones defined in the @page(conception notes).
  *
- * The "user" table is created if it doesn't exist, using the @page(initializer service).
  *
- * Also, a root user is created along with the table, so that the maintainer can connect directly to the gui
+ * Also, a root user is created along with the "user" table, so that the maintainer can connect directly to the gui
  * without having to create the user manually (the serialized arrays make it annoying to create user manually
  * even with tools like phpMyAdmin).
- *
- * Tip: to create the root user manually (via phpMyAdmin for instance), use the following for serialized keys:
- * - rights: a:1:{i:0;s:1:"*";}
- * - extra: a:0:{}
- *
  *
  *
  *
@@ -47,16 +52,15 @@ class MysqlLightWebsiteUserDatabase implements LightWebsiteUserDatabaseInterface
      */
     protected $database;
 
+
     /**
-     * This property holds the name table containing all the users.
-     *
-     * @var string = user
+     * This property holds the container for this instance.
+     * @var LightServiceContainerInterface
      */
-    protected $table;
+    protected $container;
 
     /**
      * This property holds the pdoWrapper for this instance.
-     * The pdoWrapper is provided by the @page(Light_Database plugin)
      * @var LightDatabasePdoWrapper
      */
     protected $pdoWrapper;
@@ -111,29 +115,47 @@ class MysqlLightWebsiteUserDatabase implements LightWebsiteUserDatabaseInterface
 
 
     /**
+     * This property holds the registered new user's profiles for this instance.
+     * @var array
+     */
+    protected $newUserProfiles;
+
+
+    /**
+     * This property holds the name table containing all the users.
+     *
+     * @var string = lud_user
+     */
+    private $table;
+
+
+    /**
      * Builds the MysqlLightUserDatabase instance.
      */
     public function __construct()
     {
         $this->database = null;
         $this->table = "lud_user";
-        $this->pdoWrapper = null;
+        $this->container = null;
         $this->root_identifier = "root";
         $this->root_password = "root";
         $this->root_pseudo = "root";
         $this->root_avatar_url = "";
         $this->root_extra = [];
+        $this->newUserProfiles = [];
         $this->passwordProtector = null;
     }
 
     /**
-     * Sets the pdoWrapper.
+     * Sets the container.
      *
-     * @param LightDatabasePdoWrapper $pdoWrapper
+     * @param LightServiceContainerInterface $container
+     * @throws \Exception
      */
-    public function setPdoWrapper(LightDatabasePdoWrapper $pdoWrapper)
+    public function setContainer(LightServiceContainerInterface $container)
     {
-        $this->pdoWrapper = $pdoWrapper;
+        $this->container = $container;
+        $this->pdoWrapper = $container->get("database");
     }
 
     //--------------------------------------------
@@ -154,7 +176,6 @@ class MysqlLightWebsiteUserDatabase implements LightWebsiteUserDatabaseInterface
 
         if (false !== $ret) {
 
-
             // check the password
             if (null === $this->passwordProtector) {
                 if ($password !== $ret['password']) {
@@ -167,6 +188,16 @@ class MysqlLightWebsiteUserDatabase implements LightWebsiteUserDatabaseInterface
             }
 
             $this->unserialize($ret);
+
+
+            //--------------------------------------------
+            // ADDING PERMISSIONS TO THE USER INFO ARRAY
+            //--------------------------------------------
+            $rights = $this->getPermissionApi()->getPermissionNamesByUserId($ret['id']);
+            if (in_array('*', $rights, true)) {
+                $rights = ["*"];
+            }
+            $ret['rights'] = $rights;
         }
         return $ret;
     }
@@ -210,7 +241,6 @@ class MysqlLightWebsiteUserDatabase implements LightWebsiteUserDatabaseInterface
             "password" => "",
             "pseudo" => "",
             "avatar_url" => "",
-            "rights" => [],
             "extra" => [],
         ];
         $array = ArrayTool::superimpose($userInfo, $defaults);
@@ -219,9 +249,32 @@ class MysqlLightWebsiteUserDatabase implements LightWebsiteUserDatabaseInterface
             $array['password'] = $this->passwordProtector->passwordHash($array['password']);
         }
 
-
         $this->serialize($array);
-        $this->pdoWrapper->insert($table, $array);
+        $userId = $this->pdoWrapper->insert($table, $array);
+        if (false === $userId) {
+            $error = $this->pdoWrapper->getError();
+            $sErrorDetails = '';
+            if (null !== $error) {
+                $sErrorDetails = ArrayToStringTool::toInlinePhpArray($error);
+            }
+            throw new LightUserDatabaseException("An error occurred with the database while inserting the user " . $array['identifier'] . ": $sErrorDetails.");
+        }
+
+        //--------------------------------------------
+        // PROFILES
+        //--------------------------------------------
+        $allProfiles = LightWebsiteUserDatabaseTool::resolveProfiles($this->newUserProfiles, $array);
+
+        foreach ($allProfiles as $profile) {
+            $profileId = $this->getPermissionGroupApi()->getPermissionGroupIdByName($profile);
+            $this->getUserHasPermissionGroupApi()->insertUserHasPermissionGroup([
+                "user_id" => $userId,
+                "permission_group_id" => $profileId,
+            ]);
+        }
+
+
+        return (int)$userId;
     }
 
     /**
@@ -295,9 +348,16 @@ class MysqlLightWebsiteUserDatabase implements LightWebsiteUserDatabaseInterface
     }
 
 
-
-
-
+    //--------------------------------------------
+    //
+    //--------------------------------------------
+    /**
+     * @implementation
+     */
+    public function registerNewUserProfile($profile)
+    {
+        $this->newUserProfiles[] = $profile;
+    }
 
 
     //--------------------------------------------
@@ -308,37 +368,130 @@ class MysqlLightWebsiteUserDatabase implements LightWebsiteUserDatabaseInterface
      */
     public function initialize(Light $light, HttpRequestInterface $httpRequest)
     {
+        /**
+         * @var $pih LightPluginDatabaseInstallerService
+         */
+        $pih = $this->container->get("plugin_database_installer");
+        if (false === $pih->isInstalled("Light_UserDatabase")) {
+            $pih->install("Light_UserDatabase");
+        }
+    }
+
+    //--------------------------------------------
+    //
+    //--------------------------------------------
+    /**
+     * Installs the database part of this planet.
+     *
+     * @throws \Exception
+     */
+    public function installDatabase()
+    {
         $util = new MysqlInfoUtil();
         $util->setWrapper($this->pdoWrapper);
-        /**
-         * If the plugin is loaded for the first time,
-         * we create the user table, and a root user, so that the user can connect.
-         *
-         */
         if (false === $util->hasTable($this->table)) {
-            $util = MysqlCreateTableUtil::create($this->table, $this->database);
-            $util->addColumn(PrimaryKeyAutoIncrementedColumn::create()->name("id"));
-            $util->addColumn(Column::create()->name("identifier")->type('varchar')->typeSize(128)->notNullable()->uniqueIndex());
-            $util->addColumn(Column::create()->name("pseudo")->type('varchar')->typeSize(64)->notNullable());
-            $util->addColumn(Column::create()->name("password")->type('varchar')->typeSize(64)->notNullable());
-            $util->addColumn(Column::create()->name("avatar_url")->type('varchar')->typeSize(512)->notNullable());
-            $util->addColumn(Column::create()->name("rights")->type('text')->notNullable());
-            $util->addColumn(Column::create()->name("extra")->type('text')->notNullable());
-            $stmt = $util->render();
-            $this->pdoWrapper->executeStatement($stmt);
 
-            $this->addUser([
-                'identifier' => $this->root_identifier,
-                'pseudo' => $this->root_pseudo,
-                'password' => $this->root_password,
-                'avatar_url' => $this->root_avatar_url,
-                'extra' => $this->root_extra,
-                'rights' => ['*'],
-            ]);
+
+            /**
+             * @var $exception \Exception
+             */
+            $exception = null;
+            $res = $this->pdoWrapper->transaction(function () {
+
+                $this->pdoWrapper->executeStatement(file_get_contents(__DIR__ . "/assets/fixtures/recreate-structure.sql"));
+
+                /**
+                 * Reminder: we created the following: (in assets/fixtures/recreate-structure.sql)
+                 * - permission_group: 1 => root
+                 * - permission: 1 => *
+                 *
+                 *
+                 */
+                $userId = $this->addUser([
+                    'identifier' => $this->root_identifier,
+                    'pseudo' => $this->root_pseudo,
+                    'password' => $this->root_password,
+                    'avatar_url' => $this->root_avatar_url,
+                    'extra' => $this->root_extra,
+                ]);
+
+                $this->getUserHasPermissionGroupApi()->insertUserHasPermissionGroup([
+                    "user_id" => $userId,
+                    "permission_group_id" => 1,
+                ]);
+
+
+            }, $exception);
+            if (false === $res) {
+                throw $exception;
+            }
+
 
         }
-
     }
+
+
+    /**
+     * Uninstalls the database part of this planet.
+     *
+     * @throws \Exception
+     */
+    public function uninstallDatabase()
+    {
+        $this->pdoWrapper->executeStatement("DROP table if exists lud_permission_group_has_permission");
+        $this->pdoWrapper->executeStatement("DROP table if exists lud_user_has_permission_group");
+        $this->pdoWrapper->executeStatement("DROP table if exists lud_permission_group");
+        $this->pdoWrapper->executeStatement("DROP table if exists lud_permission");
+        $this->pdoWrapper->executeStatement("DROP table if exists " . $this->table);
+    }
+
+
+    //--------------------------------------------
+    //
+    //--------------------------------------------
+
+    /**
+     * @implementation
+     */
+    public function getPermissionApi(): PermissionApiInterface
+    {
+        $o = new MysqlPermissionApi();
+        $o->setPdoWrapper($this->pdoWrapper);
+        return $o;
+    }
+
+    /**
+     * @implementation
+     */
+    public function getPermissionGroupApi(): PermissionGroupApiInterface
+    {
+        $o = new MysqlPermissionGroupApi();
+        $o->setPdoWrapper($this->pdoWrapper);
+        return $o;
+    }
+
+    /**
+     * @implementation
+     */
+    public function getPermissionGroupHasPermissionApi(): PermissionGroupHasPermissionApiInterface
+    {
+        $o = new MysqlPermissionGroupHasPermissionApi();
+        $o->setPdoWrapper($this->pdoWrapper);
+        return $o;
+    }
+
+    /**
+     * @implementation
+     */
+    public function getUserHasPermissionGroupApi(): UserHasPermissionGroupApiInterface
+    {
+        $o = new MysqlUserHasPermissionGroupApi();
+        $o->setPdoWrapper($this->pdoWrapper);
+        return $o;
+    }
+
+
+
 
 
 
@@ -466,7 +619,7 @@ class MysqlLightWebsiteUserDatabase implements LightWebsiteUserDatabaseInterface
      */
     protected function unserialize(array &$array)
     {
-        MysqlSerializeTool::unserialize($array, ['rights', 'extra']);
+        MysqlSerializeTool::unserialize($array, ['extra']);
     }
 
     /**
@@ -476,6 +629,6 @@ class MysqlLightWebsiteUserDatabase implements LightWebsiteUserDatabaseInterface
      */
     protected function serialize(array &$array)
     {
-        MysqlSerializeTool::serialize($array, ['rights', 'extra']);
+        MysqlSerializeTool::serialize($array, ['extra']);
     }
 }

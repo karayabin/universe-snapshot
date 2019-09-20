@@ -14,6 +14,7 @@ use Ling\Light\Http\HttpResponseInterface;
 use Ling\Light\Router\LightRouter;
 use Ling\Light\ServiceContainer\LightDummyServiceContainer;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
+use Ling\Light_EndRoutine\Service\Light_EndRoutineService;
 
 /**
  * The Light class.
@@ -239,6 +240,7 @@ class Light
      * - url_params: []
      * - host: null
      * - is_secure_protocol: null
+     * - is_ajax: false
      *
      * See the @page(route page) for more details.
      *
@@ -256,6 +258,7 @@ class Light
             'url_params' => [],
             'host' => null,
             "is_secure_protocol" => null,
+            "is_ajax" => false,
         ], $route);
 
     }
@@ -311,6 +314,7 @@ class Light
 
         $httpRequest = HttpRequest::createFromEnv();
         $response = null;
+        $route = null;
 
 
         if (null !== $this->container) {
@@ -472,10 +476,32 @@ class Light
             if (is_string($response)) {
                 $response = new HttpResponse($response);
             }
+
+
+
+            if (null !== $this->container) {
+                //--------------------------------------------
+                // END ROUTINE
+                //--------------------------------------------
+                if ($this->container->has("end_routine")) {
+                    if (null === $route) {
+                        $route = [];
+                    }
+                    /**
+                     * @var $endRoutine Light_EndRoutineService
+                     */
+                    $endRoutine = $this->container->get('end_routine');
+                    $endRoutine->executeEndRoutines($route);
+                }
+            }
+
+
             if ($response instanceof HttpResponseInterface) {
                 $response->send();
             }
         }
+
+
 
 
     }

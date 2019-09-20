@@ -128,9 +128,9 @@ interface SimplePdoWrapperInterface
      * @param mixed $whereConds , same as update method (see update method for more info)
      * @param array $markers
      * @return mixed
-     * @see update
      * @throws \PDOException
      * @throws NoPdoConnectionException
+     * @see update
      */
     public function delete($table, $whereConds = null, $markers = []);
 

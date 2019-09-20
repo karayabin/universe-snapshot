@@ -6,9 +6,13 @@ prettyDebugPage:
 # --------------------------------------
 # hooks
 # --------------------------------------
-$initializer.methods.setInitializers.initializers:
+$initializer.methods_collection:
     -
-        instance: Ling\Light_PrettyError\Initializer\PrettyErrorInitializer
+        method: registerInitializer
+        args:
+            initializer:
+                instance: Ling\Light_PrettyError\Initializer\PrettyErrorInitializer
+
 
 
 

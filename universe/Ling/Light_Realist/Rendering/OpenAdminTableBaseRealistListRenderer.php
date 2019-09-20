@@ -13,7 +13,7 @@ use Ling\Light\ServiceContainer\LightServiceContainerInterface;
  * See more details in the @page(open admin table helper implementation notes).
  *
  */
-class OpenAdminTableBaseRealistListRenderer implements RealistListRendererInterface
+abstract class OpenAdminTableBaseRealistListRenderer implements RealistListRendererInterface
 {
 
 
@@ -54,6 +54,15 @@ class OpenAdminTableBaseRealistListRenderer implements RealistListRendererInterf
      * @var string
      */
     protected $requestId;
+
+
+    /**
+     * This property holds the csrfToken for this instance.
+     * The csrf token value.
+     *
+     * @var string
+     */
+    protected $csrfToken;
 
     /**
      * This property holds the container for this instance.
@@ -99,6 +108,7 @@ class OpenAdminTableBaseRealistListRenderer implements RealistListRendererInterf
         $this->container = null;
         $this->collapsibleColumnIndexes = [];
         $this->listActionGroups = [];
+
     }
 
     /**
@@ -116,6 +126,7 @@ class OpenAdminTableBaseRealistListRenderer implements RealistListRendererInterf
 
 
         $listActionGroups = $rendering['list_action_groups'] ?? [];
+        $this->container->get('realist')->decorateListActionGroups($listActionGroups);
         $this->setListActionGroups($listActionGroups);
 
 
@@ -131,6 +142,14 @@ class OpenAdminTableBaseRealistListRenderer implements RealistListRendererInterf
         $responsiveTableHelper = $rendering['responsive_table_helper'] ?? [];
         $collapsibleColumnIndexes = $responsiveTableHelper['collapsible_column_indexes'] ?? [];
         $this->setCollapsibleColumnIndexes($collapsibleColumnIndexes);
+
+
+        $csrfToken = $requestDeclaration['csrf_token'] ?? null;
+        if (is_array($csrfToken)) {
+            $csrfTokenValue = $csrfToken['value'] ?? "not_defined";
+            $this->setCsrfToken($csrfTokenValue);
+        }
+
 
     }
 
@@ -209,6 +228,17 @@ class OpenAdminTableBaseRealistListRenderer implements RealistListRendererInterf
     {
         $this->listActionGroups = $listActionGroups;
     }
+
+    /**
+     * Sets the csrfToken value.
+     *
+     * @param string $csrfToken
+     */
+    public function setCsrfToken(string $csrfToken)
+    {
+        $this->csrfToken = $csrfToken;
+    }
+
 
 
 

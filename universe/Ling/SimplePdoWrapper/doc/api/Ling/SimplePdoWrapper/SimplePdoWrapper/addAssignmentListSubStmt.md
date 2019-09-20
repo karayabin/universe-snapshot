@@ -74,7 +74,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [SimplePdoWrapper::addAssignmentListSubStmt](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/SimplePdoWrapper.php#L439-L471)
+See the source code for method [SimplePdoWrapper::addAssignmentListSubStmt](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/SimplePdoWrapper.php#L437-L469)
 
 
 See Also

@@ -4,7 +4,7 @@
 
 The Bootstrap4AdminTableRenderer class
 ================
-2019-08-15 --> 2019-09-06
+2019-08-15 --> 2019-09-20
 
 
 
@@ -37,8 +37,10 @@ class <span class="pl-k">Bootstrap4AdminTableRenderer</span> extends [OpenAdminT
     - protected array [OpenAdminTableBaseRealistListRenderer::$labels](#property-labels) ;
     - protected bool[] [OpenAdminTableBaseRealistListRenderer::$useWidgets](#property-useWidgets) ;
     - protected string [OpenAdminTableBaseRealistListRenderer::$requestId](#property-requestId) ;
+    - protected string [OpenAdminTableBaseRealistListRenderer::$csrfToken](#property-csrfToken) ;
     - protected [Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) [OpenAdminTableBaseRealistListRenderer::$container](#property-container) ;
     - protected array|string [OpenAdminTableBaseRealistListRenderer::$collapsibleColumnIndexes](#property-collapsibleColumnIndexes) ;
+    - protected array [OpenAdminTableBaseRealistListRenderer::$listActionGroups](#property-listActionGroups) ;
 
 - Methods
     - public [__construct](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/Renderer/Bootstrap4AdminTableRenderer/__construct.md)() : void
@@ -59,8 +61,11 @@ class <span class="pl-k">Bootstrap4AdminTableRenderer</span> extends [OpenAdminT
     - public OpenAdminTableBaseRealistListRenderer::setRequestId(string $requestId) : void
     - public OpenAdminTableBaseRealistListRenderer::setContainer([Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) $container) : void
     - public OpenAdminTableBaseRealistListRenderer::setCollapsibleColumnIndexes(?$collapsibleColumnIndexes) : void
+    - public OpenAdminTableBaseRealistListRenderer::setListActionGroups(array $listActionGroups) : void
+    - public OpenAdminTableBaseRealistListRenderer::setCsrfToken(string $csrfToken) : void
     - protected OpenAdminTableBaseRealistListRenderer::getDataType(string $columnName) : string
     - protected OpenAdminTableBaseRealistListRenderer::isWidgetEnabled(string $identifier) : bool
+    - protected OpenAdminTableBaseRealistListRenderer::getListActionGroupLeafItems() : array
 
 }
 
@@ -116,6 +121,13 @@ Properties
     
     
 
+- <span id="property-csrfToken"><b>csrfToken</b></span>
+
+    This property holds the csrfToken for this instance.
+    The csrf token value.
+    
+    
+
 - <span id="property-container"><b>container</b></span>
 
     This property holds the container for this instance.
@@ -127,6 +139,13 @@ Properties
     This property holds the collapsibleColumnIndexes for this instance.
     
     This is a property specific to the [responsive table helper tool](https://github.com/lingtalfi/JResponsiveTableHelper).
+    
+    
+
+- <span id="property-listActionGroups"><b>listActionGroups</b></span>
+
+    This property holds the listActionGroups for this instance.
+    More details in the [list action handler conception notes](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/list-action-handler-conception-notes.md).
     
     
 
@@ -151,8 +170,11 @@ Methods
 - OpenAdminTableBaseRealistListRenderer::setRequestId &ndash; Sets the requestId.
 - OpenAdminTableBaseRealistListRenderer::setContainer &ndash; Sets the container.
 - OpenAdminTableBaseRealistListRenderer::setCollapsibleColumnIndexes &ndash; Sets the collapsibleColumnIndexes.
+- OpenAdminTableBaseRealistListRenderer::setListActionGroups &ndash; Sets the listActionGroups.
+- OpenAdminTableBaseRealistListRenderer::setCsrfToken &ndash; Sets the csrfToken value.
 - OpenAdminTableBaseRealistListRenderer::getDataType &ndash; Returns the data type of the column.
 - OpenAdminTableBaseRealistListRenderer::isWidgetEnabled &ndash; Returns whether the widget identified by $identifier is enabled.
+- OpenAdminTableBaseRealistListRenderer::getListActionGroupLeafItems &ndash; Returns the array of leaf items (i.e.
 
 
 

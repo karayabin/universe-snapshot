@@ -1,0 +1,25 @@
+    /**
+     * @implementation
+     */
+    public function insertUser(array $user, bool $ignoreDuplicate = true, bool $returnRic = false)
+    {
+        try {
+
+            $lastInsertId = $this->pdoWrapper->insert("user", $user);
+            if (false === $returnRic) {
+                return $lastInsertId;
+            }
+            $ric = [
+                'id' => $lastInsertId,
+            ];
+            return $ric;
+
+        } catch (\PDOException $e) {
+            if ('23000' === $e->errorInfo[0]) {
+                if (false === $ignoreDuplicate) {
+                    throw $e;
+                }
+            }
+        }
+        return false;
+    }

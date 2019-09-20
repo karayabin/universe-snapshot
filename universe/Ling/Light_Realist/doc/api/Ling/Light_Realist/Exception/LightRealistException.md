@@ -4,7 +4,7 @@
 
 The LightRealistException class
 ================
-2019-08-12 --> 2019-09-05
+2019-08-12 --> 2019-09-19
 
 
 
@@ -54,4 +54,4 @@ See the source code of [Ling\Light_Realist\Exception\LightRealistException](http
 
 SeeAlso
 ==============
-Previous class: [LightRealistAjaxServiceController](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Controller/LightRealistAjaxServiceController.md)<br>Next class: [BaseRealistRowsRenderer](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Rendering/BaseRealistRowsRenderer.md)<br>
+Previous class: [RealistDynamicInjectionHandlerInterface](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/DynamicInjection/RealistDynamicInjectionHandlerInterface.md)<br>Next class: [LightRealistAbstractListActionHandler](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/ListActionHandler/LightRealistAbstractListActionHandler.md)<br>

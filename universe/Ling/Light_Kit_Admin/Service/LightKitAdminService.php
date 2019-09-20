@@ -7,8 +7,14 @@ namespace Ling\Light_Kit_Admin\Service;
 use Ling\BabyYaml\Helper\BdotTool;
 use Ling\Light\Core\Light;
 use Ling\Light\Http\HttpRequestInterface;
+use Ling\Light\ServiceContainer\LightServiceContainerInterface;
 use Ling\Light_Initializer\Initializer\LightInitializerInterface;
+use Ling\Light_Kit_Admin\Exception\LightKitAdminException;
 use Ling\Light_Kit_Admin\Notification\LightKitAdminNotification;
+use Ling\Light_PluginDatabaseInstaller\Service\LightPluginDatabaseInstallerService;
+use Ling\Light_UserDatabase\LightWebsiteUserDatabaseInterface;
+use Ling\Light_UserDatabase\MysqlLightWebsiteUserDatabase;
+use Ling\SimplePdoWrapper\SimplePdoWrapperInterface;
 
 /**
  * The LightKitAdminService class.
@@ -34,6 +40,13 @@ class LightKitAdminService implements LightInitializerInterface
 
 
     /**
+     * This property holds the container for this instance.
+     * @var LightServiceContainerInterface
+     */
+    protected $container;
+
+
+    /**
      * This property holds the options for this instance.
      * This array is the configuration of the light kit admin plugin.
      * @var array
@@ -48,7 +61,21 @@ class LightKitAdminService implements LightInitializerInterface
     {
         $this->notifications = [];
         $this->options = [];
+        $this->container = null;
     }
+
+
+    /**
+     * Sets the container.
+     *
+     * @param LightServiceContainerInterface $container
+     * @throws \Exception
+     */
+    public function setContainer(LightServiceContainerInterface $container)
+    {
+        $this->container = $container;
+    }
+
 
     /**
      * Set the options for this light kit admin service instance.
@@ -111,24 +138,139 @@ class LightKitAdminService implements LightInitializerInterface
      */
     public function initialize(Light $light, HttpRequestInterface $httpRequest)
     {
-//        $light->registerErrorHandler([$this, "errorHandler"]);
+        /**
+         * @var $userDb LightWebsiteUserDatabaseInterface
+         */
+        $userDb = $this->container->get("user_database");
+        if ($userDb instanceof MysqlLightWebsiteUserDatabase) {
+            /**
+             * @var $pih LightPluginDatabaseInstallerService
+             */
+            $pih = $this->container->get("plugin_database_installer");
+            if (false === $pih->isInstalled("Light_Kit_Admin")) {
+                $pih->install("Light_Kit_Admin");
+            }
+        } else {
+            throw new LightKitAdminException("Light_Kit_Admin plugin can only work
+            with a user_database service instance of MysqlLightWebsiteUserDatabase. Please remove
+            the Light_Kit_Admin plugin or set your user_database service instance to a MysqlLightWebsiteUserDatabase.");
+        }
 
     }
 
-
-
-    //--------------------------------------------
-    //
-    //--------------------------------------------
     /**
-     * This is the error handler for the kit_admin service (the the Light instance).
-     * It does the following:
+     * Installs the database part of this planet.
      *
-     * - when an user has insufficient rights, she is redirected to a page that tell
-     *
+     * @throws \Exception
      */
-    protected function errorHandler()
+    public function installDatabase()
     {
 
+
+        /**
+         * @var $db SimplePdoWrapperInterface
+         */
+        $db = $this->container->get("database");
+        /**
+         * @var $exception \Exception
+         */
+        $exception = null;
+        $res = $db->transaction(function () {
+
+
+            /**
+             * @var $userDb LightWebsiteUserDatabaseInterface
+             */
+            $userDb = $this->container->get("user_database");
+
+
+            $userId = $userDb->addUser([
+                'identifier' => "lka_dude",
+                'pseudo' => "Dude",
+                'password' => "dude",
+                'avatar_url' => "/plugins/Light_Kit_Admin/img/avatars/user_avatar.png",
+                'extra' => [],
+            ]);
+
+            $groupAdminId = $userDb->getPermissionGroupApi()->insertPermissionGroup([
+                "name" => "Light_Kit_Admin.admin",
+            ]);
+
+            $groupUserId = $userDb->getPermissionGroupApi()->insertPermissionGroup([
+                "name" => "Light_Kit_Admin.user",
+            ]);
+
+            $permissionUserId = $userDb->getPermissionApi()->insertPermission([
+                "name" => "Light_Kit_Admin.user",
+            ]);
+
+            $permissionAdminId = $userDb->getPermissionApi()->insertPermission([
+                "name" => "Light_Kit_Admin.admin",
+            ]);
+
+            $userDb->getPermissionGroupHasPermissionApi()->insertPermissionGroupHasPermission([
+                "permission_group_id" => $groupAdminId,
+                "permission_id" => $permissionAdminId,
+            ]);
+            $userDb->getPermissionGroupHasPermissionApi()->insertPermissionGroupHasPermission([
+                "permission_group_id" => $groupUserId,
+                "permission_id" => $permissionUserId,
+            ]);
+
+            $userDb->getUserHasPermissionGroupApi()->insertUserHasPermissionGroup([
+                "user_id" => $userId,
+                "permission_group_id" => $groupUserId,
+            ]);
+
+
+        }, $exception);
+
+        if (false === $res) {
+            throw $exception;
+        }
     }
+
+
+    /**
+     * Uninstalls the database part of this planet.
+     *
+     * @throws \Exception
+     */
+    public function uninstallDatabase()
+    {
+        /**
+         * @var $wrapper SimplePdoWrapperInterface
+         */
+        $wrapper = $this->container->get('database');
+        /**
+         * @var $exception \Exception
+         */
+        $exception = null;
+        $res = $wrapper->transaction(function () use ($wrapper) {
+
+            $wrapper->delete("lud_user", [
+                "identifier" => "Light_Kit_Admin.dude",
+            ]);
+            $wrapper->delete("lud_permission_group", [
+                "name" => "Light_Kit_Admin.admin",
+            ]);
+            $wrapper->delete("lud_permission_group", [
+                "name" => "Light_Kit_Admin.user",
+            ]);
+
+            $wrapper->delete("lud_permission", [
+                "name" => "Light_Kit_Admin.admin",
+            ]);
+            $wrapper->delete("lud_permission", [
+                "name" => "Light_Kit_Admin.user",
+            ]);
+        }, $exception);
+
+        if (false === $res) {
+            throw $exception;
+        }
+
+
+    }
+
 }

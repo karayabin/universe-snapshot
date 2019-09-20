@@ -145,6 +145,13 @@ class Light_UserDatabaseDocBuilder
                 "passwordProtector" => 'https://github.com/lingtalfi/Light_PasswordProtector/',
                 "light website user" => 'https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/WebsiteLightUser.md',
                 "rights of the user" => 'https://github.com/lingtalfi/Light_User/blob/master/doc/pages/conception.md#its-all-about-rights',
+                "BabyYamlDatabase" => 'https://github.com/lingtalfi/BabyYamlDatabase/',
+                "lsom" => 'https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/pages/ling-standard-object-methods.md',
+                "ling standard object methods" => 'https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/pages/ling-standard-object-methods.md',
+                "conception notes" => $doc . "/pages/conception-notes.md",
+                "permissions conception notes" => "https://github.com/lingtalfi/Light_User/blob/master/doc/pages/permission-conception-notes.md",
+                "user permissions" => "https://github.com/lingtalfi/Light_User/blob/master/doc/pages/permission-conception-notes.md",
+                "LightWebsiteUserDatabaseInterface class" => "https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/LightWebsiteUserDatabaseInterface.md",
             ],
             /**
              * An array of external classes to url.
@@ -163,6 +170,8 @@ class Light_UserDatabaseDocBuilder
                 "Ling\Light_Bullsheet\Bullsheeter\LightBullsheeterInterface" => "https://github.com/lingtalfi/Light_Bullsheet/blob/master/doc/api/Ling/Light_Bullsheet/Bullsheeter/LightBullsheeterInterface.md",
                 "Ling\Light\ServiceContainer\LightServiceContainerInterface" => "https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md",
                 "Ling\Light\ServiceContainer\LightServiceContainerAwareInterface" => "https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerAwareInterface.md",
+                "Ling\BabyYamlDatabase\BabyYamlDatabaseInterface" => "https://github.com/lingtalfi/BabyYamlDatabase/blob/master/doc/api/Ling/BabyYamlDatabase/BabyYamlDatabaseInterface.md",
+                "Ling\SimplePdoWrapper\SimplePdoWrapperInterface" => "https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/SimplePdoWrapperInterface.md",
             ],
         ];
 

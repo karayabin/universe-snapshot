@@ -147,6 +147,7 @@ class ColdServiceResolver
 
         }
 
+
         $s = '$' . $varName . " = new $className($args);";
         $code->addStatement($s);
 
@@ -188,6 +189,7 @@ class ColdServiceResolver
                         if (empty($args)) { // same note as previous block
                             $args = [];
                         }
+
 
                         $realArgs = $this->resolveArgs(array_values($args));
                         $args = $this->argsToString($realArgs);

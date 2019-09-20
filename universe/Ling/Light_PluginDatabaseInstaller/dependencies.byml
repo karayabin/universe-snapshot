@@ -1,0 +1,9 @@
+dependencies: 
+    Ling: 
+        - Light
+        - Bat
+        - DirScanner
+    
+
+post_install: 
+    map: true

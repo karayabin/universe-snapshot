@@ -1,0 +1,17 @@
+
+# --------------------------------------
+# hooks
+# --------------------------------------
+
+$end_routine.methods_collection:
+    -
+        method: registerHandler
+        args:
+            identifier: Light_EndRoutine_Debugger
+            handler:
+                instance: Ling\Light_EndRoutine_Debugger\Handler\LightEndRoutineDebuggerHandler
+                methods:
+                    setOptions:
+                        options:
+                            showSession: true
+

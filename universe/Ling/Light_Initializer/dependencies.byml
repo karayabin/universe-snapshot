@@ -1,6 +1,7 @@
 dependencies: 
     Ling: 
         - Light
+        - ParentChild
     
 
 post_install: 

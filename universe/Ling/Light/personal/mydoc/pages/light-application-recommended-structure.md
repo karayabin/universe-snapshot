@@ -22,7 +22,7 @@ Here are the potential directories of my ideal light web app:
         /services:                          # contains the services of the light app  
             - Light_MyPlugin.byml           # an example config file
         /data:                              # is reserved for plugins which needs to store their configuration in files. 
-            /Light_MyPlugin:                # an example of configuration data directory for a given plugin
+            /Light_MyPlugin:                # an example of configuration data directory for a plugin named Light_MyPlugin
                 - ...            
     
     /templates:                             # a directory containing templates of the light plugins, and/or templates in general 

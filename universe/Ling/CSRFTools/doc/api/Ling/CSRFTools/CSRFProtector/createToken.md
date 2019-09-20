@@ -27,6 +27,10 @@ while the old "new" value (found in the "new" slot before it was replaced) is mo
 
 For more details, please refer to this class description.
 
+The following token names are reserved for internal use and must not be used:
+
+- __pages__
+
 
 
 
@@ -53,7 +57,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [CSRFProtector::createToken](https://github.com/lingtalfi/CSRFTools/blob/master/CSRFProtector.php#L199-L209)
+See the source code for method [CSRFProtector::createToken](https://github.com/lingtalfi/CSRFTools/blob/master/CSRFProtector.php#L165-L178)
 
 
 See Also
@@ -61,5 +65,5 @@ See Also
 
 The [CSRFProtector](https://github.com/lingtalfi/CSRFTools/blob/master/doc/api/Ling/CSRFTools/CSRFProtector.md) class.
 
-Previous method: [__construct](https://github.com/lingtalfi/CSRFTools/blob/master/doc/api/Ling/CSRFTools/CSRFProtector/__construct.md)<br>Next method: [isValid](https://github.com/lingtalfi/CSRFTools/blob/master/doc/api/Ling/CSRFTools/CSRFProtector/isValid.md)<br>
+Previous method: [setUsePage](https://github.com/lingtalfi/CSRFTools/blob/master/doc/api/Ling/CSRFTools/CSRFProtector/setUsePage.md)<br>Next method: [hasToken](https://github.com/lingtalfi/CSRFTools/blob/master/doc/api/Ling/CSRFTools/CSRFProtector/hasToken.md)<br>
 

@@ -24,6 +24,10 @@ abstract public [LightUserDatabaseInterface::getUserInfoByCredentials](https://g
 Returns the user info array matching the given credentials, or false if the
 credentials don't match any user.
 
+This method will also return the "rights" key populated with the rights
+according to the user "profiles".
+See more details in the [conception notes](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/pages/conception-notes.md).
+
 
 
 
@@ -54,7 +58,7 @@ Returns array | false.
 
 Source Code
 ===========
-See the source code for method [LightUserDatabaseInterface::getUserInfoByCredentials](https://github.com/lingtalfi/Light_UserDatabase/blob/master/LightUserDatabaseInterface.php#L36-L36)
+See the source code for method [LightUserDatabaseInterface::getUserInfoByCredentials](https://github.com/lingtalfi/Light_UserDatabase/blob/master/LightUserDatabaseInterface.php#L41-L41)
 
 
 See Also

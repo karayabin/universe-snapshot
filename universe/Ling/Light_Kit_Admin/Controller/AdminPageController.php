@@ -77,7 +77,7 @@ class AdminPageController extends LightKitAdminController
          */
         $kit = $container->get("kit");
         $user = ArrayTool::objectToArray($user);
-        $params = array_merge($params, $user);
+        $params['user'] = $user;
         return $kit->renderPage($page, $params, $updator);
     }
 }

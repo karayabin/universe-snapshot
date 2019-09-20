@@ -4,7 +4,7 @@
 
 The RefreshableLightUserInterface class
 ================
-2019-05-10 --> 2019-08-07
+2019-05-10 --> 2019-09-18
 
 
 

@@ -49,7 +49,7 @@ Returns bool.
 
 Source Code
 ===========
-See the source code for method [OpenAdminTableBaseRealistListRenderer::isWidgetEnabled](https://github.com/lingtalfi/Light_Realist/blob/master/Rendering/OpenAdminTableBaseRealistListRenderer.php#L219-L222)
+See the source code for method [OpenAdminTableBaseRealistListRenderer::isWidgetEnabled](https://github.com/lingtalfi/Light_Realist/blob/master/Rendering/OpenAdminTableBaseRealistListRenderer.php#L245-L248)
 
 
 See Also
@@ -57,5 +57,5 @@ See Also
 
 The [OpenAdminTableBaseRealistListRenderer](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Rendering/OpenAdminTableBaseRealistListRenderer.md) class.
 
-Previous method: [getDataType](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Rendering/OpenAdminTableBaseRealistListRenderer/getDataType.md)<br>
+Previous method: [getDataType](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Rendering/OpenAdminTableBaseRealistListRenderer/getDataType.md)<br>Next method: [getListActionGroupLeafItems](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Rendering/OpenAdminTableBaseRealistListRenderer/getListActionGroupLeafItems.md)<br>
 

@@ -24,7 +24,7 @@ public [MysqlLightWebsiteUserDatabase::updateUser](https://github.com/lingtalfi/
 Updates the user identified by the given identifier.
 
 The userInfo can contain all the information, or only some of them.
-The password should be updated with the key "pass".
+The password should be updated with the key "password".
 
 
 
@@ -56,7 +56,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [MysqlLightWebsiteUserDatabase::updateUser](https://github.com/lingtalfi/Light_UserDatabase/blob/master/MysqlLightWebsiteUserDatabase.php#L230-L250)
+See the source code for method [MysqlLightWebsiteUserDatabase::updateUser](https://github.com/lingtalfi/Light_UserDatabase/blob/master/MysqlLightWebsiteUserDatabase.php#L283-L303)
 
 
 See Also

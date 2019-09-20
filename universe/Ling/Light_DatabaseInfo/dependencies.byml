@@ -1,0 +1,8 @@
+dependencies: 
+    Ling: 
+        - Light
+        - SimplePdoWrapper
+    
+
+post_install: 
+    map: true
