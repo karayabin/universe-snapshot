@@ -119,6 +119,15 @@ class DependencyTool
             }
 
 
+            //--------------------------------------------
+            // UNIVERSE ASSET DEPENDENCIES TRICK
+            //--------------------------------------------
+            $universeAssetDeps = self::getUniverseAssetDependencies($planetDir);
+            if($universeAssetDeps){
+                $allUseStatements = array_merge($allUseStatements, $universeAssetDeps);
+            }
+
+
             // reducing use statements to planet names
             $galaxies = [];
             foreach ($allUseStatements as $statement) {
@@ -145,13 +154,35 @@ class DependencyTool
                 "dependencies" => $galaxies,
                 "post_install" => $postInstall,
             ];
-
             return BabyYamlUtil::getBabyYamlString($conf) . PHP_EOL;
 
 
         } else {
             throw new UniverseToolsException("Invalid planet dir. A valid planet dir should be of the form /my/universe/\$galaxyName/\$shortPlanetName.");
         }
+    }
+
+
+    /**
+     * Returns the @page(universe asset dependencies) for a given planet directory.
+     *
+     * @param string $planetDir
+     * @return array
+     */
+    public static function getUniverseAssetDependencies(string $planetDir): array
+    {
+        $ret = [];
+        $assetDir = $planetDir . "/UniverseAssetDependencies";
+        if (is_dir($assetDir)) {
+            $galaxies = YorgDirScannerTool::getDirs($assetDir, false, true);
+            foreach ($galaxies as $galaxy) {
+                $planets = YorgDirScannerTool::getDirs($assetDir . "/$galaxy", false, true);
+                foreach ($planets as $planet) {
+                    $ret[] = $galaxy . "\\" . $planet;
+                }
+            }
+        }
+        return $ret;
     }
 
 

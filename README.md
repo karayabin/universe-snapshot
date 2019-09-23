@@ -30,6 +30,7 @@ Summary
     - [The class directory](#the-class-directory)
     - [The a and az functions](#the-a-and-az-functions)
 - [Uni tool: a manager to install planets](#uni-tool-a-manager-to-install-planets)
+- [Related](#related)
 
 
 

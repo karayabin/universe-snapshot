@@ -21,6 +21,8 @@ Or just download it and place it where you want otherwise.
 
 
 
+Note: JAcpHep implements the [universe assets](https://github.com/lingtalfi/NotationFan/blob/master/universe-assets.md) recommendation.
+
 
 
 What is it?
@@ -78,6 +80,14 @@ var hepParams = acpHelper.getHepParameters(jMyObject);
 History Log
 =============
 
+- 1.0.2 -- 2019-09-23
+
+    - update README.md
+    
+- 1.0.1 -- 2019-09-23
+
+    - implemented the universe assets idea
+    
 - 1.0.0 -- 2019-09-23
 
     - initial commit

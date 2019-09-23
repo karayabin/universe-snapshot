@@ -37,6 +37,10 @@ Summary
 History Log
 ===============
 
+- 1.6.1 -- 2019-09-23
+
+    - add UniverseAssetDependencies trick
+    
 - 1.6.0 -- 2019-09-23
 
     - add universe assets

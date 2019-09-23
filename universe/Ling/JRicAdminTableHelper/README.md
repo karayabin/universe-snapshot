@@ -19,7 +19,7 @@ uni import Ling/JRicAdminTableHelper
 
 Or just download it and place it where you want otherwise.
 
-
+Note: JRicAdminTableHelper implements the [universe assets](https://github.com/lingtalfi/NotationFan/blob/master/universe-assets.md) recommendation.
 
 
 What is ric?
@@ -104,6 +104,14 @@ of ric actions. In other words, you can use this tool to send any action to the 
 History Log
 =============
 
+- 1.0.5 -- 2019-09-23
+
+    - fix wrong path for dependencies
+    
+- 1.0.4 -- 2019-09-23
+
+    - implemented the universe assets recommendation
+    
 - 1.0.3 -- 2019-09-23
 
     - fix getRicSelected returning non unique values

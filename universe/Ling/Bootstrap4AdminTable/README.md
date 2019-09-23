@@ -57,9 +57,10 @@ Related
 History Log
 =============
 
---- 1.6.0 -- 2019-09-23
+- 1.6.0 -- 2019-09-23
 
     - update ToolbarRendererWidget, now is csrf token aware and implements params with hep
+    - update Bootstrap4AdminTableRenderer, fix the paths to external js standalone libs  
     
 - 1.5.0 -- 2019-09-18
 

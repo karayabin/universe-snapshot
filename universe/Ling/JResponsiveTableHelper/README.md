@@ -20,6 +20,9 @@ uni import Ling/JResponsiveTableHelper
 Or just download it and place it where you want otherwise.
 
 
+Note: JResponsiveTableHelper implements the [universe assets](https://github.com/lingtalfi/NotationFan/blob/master/universe-assets.md) recommendation.
+
+
 
 See the [responsive table helper gif demo](https://lingtalfi.com/img/universe/JResponsiveTableHelper/responsive-table-helper.gif)
 
@@ -193,6 +196,14 @@ Then we call the rth.listen method every time after a request is sent.
 History Log
 =============
 
+- 1.4.2 -- 2019-09-23
+
+    - fix wrong path for dependencies 
+    
+- 1.4.1 -- 2019-09-23
+
+    - implemented the universe assets idea 
+    
 - 1.4.0 -- 2019-09-23
 
     - update, now the cloned table is removed after every use (instead of being just hidden) 

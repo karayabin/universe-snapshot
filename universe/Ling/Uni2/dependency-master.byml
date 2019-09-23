@@ -175,7 +175,7 @@ galaxies:
             post_install: []
         
         Bootstrap4AdminTable: 
-            version: 1.5.0
+            version: 1.6.0
             dependencies: 
                 Ling: 
                     - Bat
@@ -628,9 +628,11 @@ galaxies:
             post_install: []
         
         JAcpHep: 
-            version: 1.0.0
+            version: 1.0.2
             dependencies: []
-            post_install: []
+            post_install: 
+                map: true
+            
         
         JAjaxLoader: 
             version: 1.4.0
@@ -678,14 +680,18 @@ galaxies:
             post_install: []
         
         JResponsiveTableHelper: 
-            version: 1.4.0
+            version: 1.4.2
             dependencies: []
-            post_install: []
+            post_install: 
+                map: true
+            
         
         JRicAdminTableHelper: 
-            version: 1.0.3
+            version: 1.0.5
             dependencies: []
-            post_install: []
+            post_install: 
+                map: true
+            
         
         Jin: 
             version: 1.0.0
@@ -1343,7 +1349,7 @@ galaxies:
             post_install: []
         
         NotationFan: 
-            version: 1.6.0
+            version: 1.6.1
             dependencies: []
             post_install: []
         
@@ -1927,7 +1933,7 @@ galaxies:
             post_install: []
         
         UniverseTools: 
-            version: 1.16.4
+            version: 1.17.0
             dependencies: 
                 Ling: 
                     - BabyYaml

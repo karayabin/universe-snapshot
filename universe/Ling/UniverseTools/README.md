@@ -36,6 +36,11 @@ Summary
 History Log
 ==============
 
+- 1.17.0 -- 2019-09-23
+
+    - add DependencyTool::getUniverseAssetDependencies
+    - update DependencyTool::parseDumpDependencies, now takes into account the UniverseAssetDependencies trick
+
 - 1.16.4 -- 2019-07-18
 
     - update docTools documentation, add links to source code for classes and methods

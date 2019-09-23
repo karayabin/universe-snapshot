@@ -62,7 +62,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [ToolbarRendererWidget::setGroups](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/RendererWidget/ToolbarRendererWidget.php#L35-L38)
+See the source code for method [ToolbarRendererWidget::setGroups](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/RendererWidget/ToolbarRendererWidget.php#L36-L39)
 
 
 See Also

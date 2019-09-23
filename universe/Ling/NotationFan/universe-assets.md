@@ -56,3 +56,49 @@ Then, we should have the following structure for a planet named **MyPlanet** fro
 
 
 
+The UniverseAssetDependencies trick
+-----------------
+
+And now time for a personal trick.
+
+Some planets are only exposing web assets (i.e. no php class). For instances, most of my planets starting with the letter "J" prefix are javascript tools only, 
+and they are embedded in a planet for the convenience of importing them using the [uni tool](https://github.com/lingtalfi/universe-naive-importer) one liners. 
+
+Now sometimes, some bigger planets use those "Assets only".
+
+And so for instance if I create a big planet **MyBigPlanet** which uses a **JMyAssetPlanet** planet, I want to write the dependency in the **dependencies.byml** file
+of the planet.
+
+Now the dependencies.byml file is explained in the uni tool documentation here: [dependencies.byml](https://github.com/lingtalfi/Uni2#dependenciesbyml).
+
+
+But to be honest, I never write in it manually, because my tools do that for me already, so they can potentially rewrite what I would put in there.
+
+So instead I found another way to add those dependencies, which is implemented in **Ling\UniverseTools\DependencyTool::parseDumpDependencies**.
+
+
+Basically, all I need to do is create the following structure at the root of the **MyBigPlanet**:
+
+
+```txt
+
+- MyBigPlanet/
+----- UniverseAssetDependencies/
+--------- $galaxyName/
+------------- JMyAssetPlanet/
+
+```
+
+Note: those are only directories.
+
+
+  
+
+
+
+
+
+
+
+ 
+

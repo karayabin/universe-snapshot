@@ -153,6 +153,7 @@ class UniverseToolsDocBuilder
                 "bsr-0" => "https://github.com/lingtalfi/BumbleBee/blob/master/Autoload/convention.bsr0.eng.md",
                 "bsr-1" => "https://github.com/lingtalfi/TheScientist/blob/master/bsr-1.md",
                 "BSR-1" => "https://github.com/lingtalfi/TheScientist/blob/master/bsr-1.md",
+                "universe asset dependencies" => "https://github.com/lingtalfi/NotationFan/blob/master/universe-assets.md#the-universeassetdependencies-trick",
             ],
             /**
              * An array of external classes to url.

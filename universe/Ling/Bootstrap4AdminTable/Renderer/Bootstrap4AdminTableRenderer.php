@@ -372,9 +372,6 @@ class Bootstrap4AdminTableRenderer extends OpenAdminTableBaseRealistListRenderer
                 "/plugins/Light_Realist/js/open-admin-table-helper.js",
             ]);
 
-            $copilot->registerLibrary("ricAdminTableHelper", [
-                "/plugins/Light_Realist/js/ric-admin-table-helper.js",
-            ]);
 
             $copilot->registerLibrary("listActionHandlerHelper", [
                 "/plugins/Light_Realist/js/list-action-handler-helper.js",
@@ -384,10 +381,22 @@ class Bootstrap4AdminTableRenderer extends OpenAdminTableBaseRealistListRenderer
                 "/plugins/Light_Realist/js/jquery.printElement.js",
             ]);
 
-            $copilot->registerLibrary("responsiveTableHelper", [
-                "/plugins/Light_Realist/js/responsive-table-helper.js",
+
+            //--------------------------------------------
+            //
+            //--------------------------------------------
+            $copilot->registerLibrary("jAcpHep", [
+                "/libs/universe/Ling/JAcpHep/acphep-helper.js",
+            ]);
+
+            $copilot->registerLibrary("jRicAdminTableHelper", [
+                "/libs/universe/Ling/JRicAdminTableHelper/ric-admin-table-helper.js",
+            ]);
+
+            $copilot->registerLibrary("jResponsiveTableHelper", [
+                "/libs/universe/Ling/JResponsiveTableHelper/responsive-table-helper.js",
             ], [
-                "/plugins/Light_Realist/css/responsive-table-helper.css",
+                "/libs/universe/Ling/JResponsiveTableHelper/responsive-table-helper.css",
             ]);
         }
     }

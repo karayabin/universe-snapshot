@@ -571,8 +571,8 @@ Ric implementation
 By default, we implement ric by using the [ric admin table helper](https://github.com/lingtalfi/JRicAdminTableHelper) js tool.
 See the documentation of this tool for more details.
 
-Because this tool is so useful, we've included in the Light_Realist distribution (so that when you import Light_Realist,
-it's already there in your application).
+Because this tool is so useful, we've included it as a dependency of the **Light_Realist** planet, so that when you import **Light_Realist**
+you also get the ric admin table helper in your application.
 
 
 
