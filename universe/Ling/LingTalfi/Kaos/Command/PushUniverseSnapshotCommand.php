@@ -37,7 +37,7 @@ class PushUniverseSnapshotCommand extends KaosGenericCommand
 
         $universeDir = "/myphp/universe";
         $universeSnapshotDir = "/myphp/universe-snapshot";
-        $readmeFile = $universeDir . "/README.md";
+        $readmeFile = $universeSnapshotDir . "/README.md";
 
         $universeSnapshotUniverseDir = "$universeSnapshotDir/universe";
 
