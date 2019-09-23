@@ -31,11 +31,20 @@ Summary
 - [susco reference](https://github.com/lingtalfi/NotationFan/blob/master/sql-unofficial-standard-comparison-operators.md)
 - [hep reference](https://github.com/lingtalfi/NotationFan/blob/master/html-element-parameters.md)
 - [smart code](https://github.com/lingtalfi/NotationFan/blob/master/smart-code.md)
+- [universe assets](https://github.com/lingtalfi/NotationFan/blob/master/universe-assets.md)
 
 
 History Log
 ===============
 
+- 1.6.0 -- 2019-09-23
+
+    - add universe assets
+    
+- 1.5.3 -- 2019-09-23
+
+    - fix hep example incomplete
+    
 - 1.5.2 -- 2019-09-19
 
     - add smart code reference

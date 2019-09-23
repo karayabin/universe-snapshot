@@ -8,29 +8,14 @@ use Ling\Light\Router\LightRouterInterface;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
 use Ling\Light_Csrf\Service\LightCsrfService;
 use Ling\Light_Kit_Admin\Exception\LightKitAdminException;
+use Ling\Light_Realist\DynamicInjection\ContainerAwareRealistDynamicInjectionHandler;
 use Ling\Light_Realist\DynamicInjection\RealistDynamicInjectionHandlerInterface;
 
 /**
  * The LightKitAdminRealistDynamicInjectionHandler class.
  */
-class LightKitAdminRealistDynamicInjectionHandler implements RealistDynamicInjectionHandlerInterface
+class LightKitAdminRealistDynamicInjectionHandler extends ContainerAwareRealistDynamicInjectionHandler
 {
-
-    /**
-     * This property holds the container for this instance.
-     * @var LightServiceContainerInterface
-     */
-    protected $container;
-
-
-    /**
-     * Builds the LightKitAdminRealistDynamicInjectionHandler instance.
-     */
-    public function __construct()
-    {
-        $this->container = null;
-    }
-
 
     /**
      * @implementation
@@ -69,18 +54,4 @@ class LightKitAdminRealistDynamicInjectionHandler implements RealistDynamicInjec
                 break;
         }
     }
-
-    //--------------------------------------------
-    //
-    //--------------------------------------------
-    /**
-     * Sets the container.
-     *
-     * @param LightServiceContainerInterface $container
-     */
-    public function setContainer(LightServiceContainerInterface $container)
-    {
-        $this->container = $container;
-    }
-
 }

@@ -21,9 +21,6 @@ class LightRealistAjaxHandler extends ContainerAwareLightAjaxHandler
      * Process the given parameters, and returns the appropriate response.
      * The @page(realist-tag-transfer protocol) is assumed.
      *
-     * For the csrf token, the token name has to be: realist-request.
-     *
-     *
      *
      * @implementation
      */
@@ -34,18 +31,26 @@ class LightRealistAjaxHandler extends ContainerAwareLightAjaxHandler
             case "realist-request":
 
 
-                $this->checkCsrfToken("realist-request", $params);
 
 
                 //--------------------------------------------
                 // REALIST REQUEST
                 //--------------------------------------------
                 if (array_key_exists("request_id", $params)) {
+
                     $requestId = $params['request_id'];
                     $tags = $params['tags'] ?? [];
+                    $csrfTokenValue = $params['csrf_token'] ?? null;
+
+
                     $params = [
                         "tags" => $this->prepareTags($tags),
+                        "csrf_token" => $csrfTokenValue,
                     ];
+
+
+
+
 
                     /**
                      * @var $service LightRealistService
@@ -122,28 +127,5 @@ class LightRealistAjaxHandler extends ContainerAwareLightAjaxHandler
         return $ret;
     }
 
-
-    /**
-     * Checks whether the csrf token is valid, throws an exception if that's not the case.
-     *
-     * @param string $tokenName
-     * @param array $params
-     * @throws \Exception
-     */
-    protected function checkCsrfToken(string $tokenName, array $params)
-    {
-        if (array_key_exists("csrf_token", $params)) {
-            /**
-             * @var $csrf LightCsrfService
-             */
-            $csrf = $this->container->get("csrf");
-            if (true === $csrf->isValid($tokenName, $params['csrf_token'], true)) {
-                return;
-            }
-            $this->error("Invalid csrf token provided.");
-        }
-        $this->error("The \"crsf_token\" key was not provided with the payload.");
-
-    }
 
 }

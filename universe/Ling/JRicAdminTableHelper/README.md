@@ -104,6 +104,10 @@ of ric actions. In other words, you can use this tool to send any action to the 
 History Log
 =============
 
+- 1.0.3 -- 2019-09-23
+
+    - fix getRicSelected returning non unique values
+    
 - 1.0.2 -- 2019-09-04
 
     - fix missing semi-column at the end of a line

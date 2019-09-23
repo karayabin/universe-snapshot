@@ -23,6 +23,14 @@ A javascript function that can help is:
 
 
 ```js
+
+
+
+function startsWith(haystack, needle) {
+    return haystack.substring(0, needle.length) === needle;
+}
+
+
 /**
  *
  * Returns the hep associative array.

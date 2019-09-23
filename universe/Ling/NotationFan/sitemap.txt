@@ -6,3 +6,4 @@ https://github.com/lingtalfi/NotationFan/blob/master/ric.md
 https://github.com/lingtalfi/NotationFan/blob/master/sic.md
 https://github.com/lingtalfi/NotationFan/blob/master/smart-code.md
 https://github.com/lingtalfi/NotationFan/blob/master/sql-unofficial-standard-comparison-operators.md
+https://github.com/lingtalfi/NotationFan/blob/master/universe-assets.md

@@ -104,23 +104,8 @@ if ('undefined' === typeof ResponsiveTableHelper) {
             this.jTable = this.options.jTable;
 
 
-            /**
-             * Unfortunately, I found that I needed the clone to get the best out of this tool.
-             * Without it, the breakpoints strategy works less efficiently (i.e. you still have to scroll
-             * some for certain columns).
-             * The clone strategy is: when a breakpoint is crossed, show the clone very quickly
-             * to peak the right columns dimensions (for new calculations), then hide it again.
-             *
-             * Fortunately, I tested in firefox and chrome, and I couldn't notice the appearance
-             * of the clone at all (man those browsers are fast). I don't know about explorer.
-             *
-             *
-             */
-            this.jTableClone = this.jTable.clone();
-            this.jTableClone.hide();
 
 
-            this.jTable.after(this.jTableClone);
             this.jTableContainer = this.options.jTableContainer;
             if (null === this.jTableContainer) {
                 this.jTableContainer = this.jTable.parent();
@@ -220,14 +205,32 @@ if ('undefined' === typeof ResponsiveTableHelper) {
              *
              */
             getColumnMinWidths: function () {
+                /**
+                 * Unfortunately, I found that I needed the clone to get the best out of this tool.
+                 * Without it, the breakpoints strategy works less efficiently (i.e. you still have to scroll
+                 * some for certain columns).
+                 * The clone strategy is: when a breakpoint is crossed, show the clone very quickly
+                 * to peak the right columns dimensions (for new calculations), then hide it again.
+                 *
+                 * Fortunately, I tested in firefox and chrome, and I couldn't notice the appearance
+                 * of the clone at all (man those browsers are fast). I don't know about explorer.
+                 *
+                 *
+                 */
+                this.jTableClone = this.jTable.clone();
+                this.jTableClone.addClass("responsive-clone");
+
+                this.jTable.after(this.jTableClone);
+
+
                 var colWidths = {};
-                this.jTableClone.show();
                 var jTr = this.jTableClone.find('tr').first();
                 var jCells = jTr.find('> th, > td');
                 jCells.each(function (index) {
                     colWidths[index] = $(this).outerWidth();
                 });
                 this.jTableClone.hide();
+                this.jTableClone.remove();
                 return colWidths;
             },
             /**

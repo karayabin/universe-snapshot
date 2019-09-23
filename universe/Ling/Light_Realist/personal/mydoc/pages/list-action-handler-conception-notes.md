@@ -114,7 +114,7 @@ were already corrupted in anyway, eval would be the least of our problems, as th
 And so we are able to let developer use this simple declaration (naming the function "f" is actually required, any other name would fail):
 
 ```js
-function f (jBtn, rics, jContainer, jTable){
+function f (jBtn, rics, jContainer, jTable, params){
     //
 }
 
@@ -127,6 +127,7 @@ The parameters are:
 - rics: an array of ric (each ric being a map of columnName => value)
 - jContainer: the jquery object representing the list container
 - jTable: the jquery element representing the main table (containing the data rows)
+- params: an array of extra parameters passed via the toolbar item (see the toolbar item section later in this document)
 
 
 
@@ -197,8 +198,18 @@ The structure of an item is the following:
             
             We shouldn't define this property manually.
             I just wrote it here as a reminder of this "unusual" design involving both javascript and php.  
+- ?csrf_token: array|null: if set, indicates that a csrf protection is desired for that action.
+    - name: the name of the token    
+    - value: the value of the token    
     
+    We recommend passing the token value as the **csrf_token** [hep](https://github.com/lingtalfi/NotationFan/blob/master/html-element-parameters.md) attribute (i.e. data-param-csrf_token),
+     because we use the **hep** notation in general, and **csrf_token** is a convention we use to pass the csrf token value via ajax.  
     
+- ?params: array. An array of extra parameters. Those will be passed to the js code.    
+        We use the [hep](https://github.com/lingtalfi/NotationFan/blob/master/html-element-parameters.md) idea
+        to transmit the parameters.
+- ?right: string. The [permission](https://github.com/lingtalfi/Light_User/blob/master/doc/pages/permission-conception-notes.md)
+            required to access the service (if any).          
     
     
     

@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightEndRoutineDebuggerHandler::setOptions](https://github.com/lingtalfi/Light_EndRoutine_Debugger/blob/master/Handler/LightEndRoutineDebuggerHandler.php#L72-L75)
+See the source code for method [LightEndRoutineDebuggerHandler::setOptions](https://github.com/lingtalfi/Light_EndRoutine_Debugger/blob/master/Handler/LightEndRoutineDebuggerHandler.php#L110-L113)
 
 
 See Also

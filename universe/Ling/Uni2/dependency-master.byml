@@ -134,7 +134,7 @@ galaxies:
             post_install: []
         
         Bat: 
-            version: 1.197
+            version: 1.198
             dependencies: 
                 Ling: 
                     - ArrayToString
@@ -627,6 +627,11 @@ galaxies:
             
             post_install: []
         
+        JAcpHep: 
+            version: 1.0.0
+            dependencies: []
+            post_install: []
+        
         JAjaxLoader: 
             version: 1.4.0
             dependencies: []
@@ -643,7 +648,7 @@ galaxies:
             post_install: []
         
         JCsrfAction: 
-            version: 1.0.0
+            version: 1.0.1
             dependencies: []
             post_install: []
         
@@ -673,12 +678,12 @@ galaxies:
             post_install: []
         
         JResponsiveTableHelper: 
-            version: 1.2.0
+            version: 1.4.0
             dependencies: []
             post_install: []
         
         JRicAdminTableHelper: 
-            version: 1.0.2
+            version: 1.0.3
             dependencies: []
             post_install: []
         
@@ -941,10 +946,12 @@ galaxies:
             
         
         Light_EndRoutine_Debugger: 
-            version: 1.0.0
+            version: 1.1.0
             dependencies: 
                 Ling: 
                     - ArrayToString
+                    - BabyYaml
+                    - Bat
                     - Light_EndRoutine
                     - Light_Logger
                 
@@ -1336,7 +1343,7 @@ galaxies:
             post_install: []
         
         NotationFan: 
-            version: 1.5.2
+            version: 1.6.0
             dependencies: []
             post_install: []
         

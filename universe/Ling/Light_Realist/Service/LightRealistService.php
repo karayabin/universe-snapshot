@@ -8,6 +8,7 @@ use Ling\BabyYaml\BabyYamlUtil;
 use Ling\Bat\SmartCodeTool;
 use Ling\Light\ServiceContainer\LightServiceContainerAwareInterface;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
+use Ling\Light_Csrf\Service\LightCsrfService;
 use Ling\Light_Database\LightDatabasePdoWrapper;
 use Ling\Light_Realist\ActionHandler\LightRealistActionHandlerInterface;
 use Ling\Light_Realist\DynamicInjection\RealistDynamicInjectionHandlerInterface;
@@ -175,6 +176,7 @@ class LightRealistService
      * Params an array containing the following:
      *
      * - ?tags: the tags to use with the request. (see @page(the realist tag transfer protocol) for more details).
+     * - ?csrf_token: string|null. the value of the csrf token to check against. If not passed or null, no csrf checking will be performed.
      *
      *
      * If the sql query is not valid, an exception will be thrown.
@@ -192,6 +194,16 @@ class LightRealistService
 
 
         $requestDeclaration = $this->getConfigurationArrayByRequestId($requestId);
+
+
+        //--------------------------------------------
+        // CHECKING CSRF TOKEN
+        //--------------------------------------------
+        $csrfToken = $requestDeclaration['csrf_token'] ?? null;
+        if (null !== $csrfToken) {
+            $csrfTokenName = $csrfToken['name'] ?? "realist-request";
+            $this->checkCsrfToken($csrfTokenName, $params);
+        }
 
 
         $tags = $params['tags'] ?? [];
@@ -545,7 +557,11 @@ class LightRealistService
     protected function getDynamicInjectionHandler(string $identifier): RealistDynamicInjectionHandlerInterface
     {
         if (array_key_exists($identifier, $this->dynamicInjectionHandlers)) {
-            return $this->dynamicInjectionHandlers[$identifier];
+            $handler = $this->dynamicInjectionHandlers[$identifier];
+            if ($handler instanceof LightServiceContainerAwareInterface) {
+                $handler->setContainer($this->container);
+            }
+            return $handler;
         }
         throw new LightRealistException("Dynamic injection handler not found with identifier $identifier.");
     }
@@ -560,7 +576,6 @@ class LightRealistService
      */
     protected function getConfigurationArrayByRequestId(string $requestId): array
     {
-
 
 
         $p = explode(":", $requestId, 2);
@@ -590,4 +605,26 @@ class LightRealistService
         return $ret;
     }
 
+
+    /**
+     * Checks whether the csrf token is valid, throws an exception if that's not the case.
+     *
+     * @param string $tokenName
+     * @throws \Exception
+     */
+    protected function checkCsrfToken(string $tokenName, array $params)
+    {
+        if (array_key_exists("csrf_token", $params)) {
+            /**
+             * @var $csrf LightCsrfService
+             */
+            $csrf = $this->container->get("csrf");
+            if (true === $csrf->isValid($tokenName, $params['csrf_token'], true)) {
+                return;
+            }
+            $this->error("Invalid csrf token value provided for token $tokenName.");
+        }
+        $this->error("The \"csrf_token\" key was not provided with the payload.");
+
+    }
 }

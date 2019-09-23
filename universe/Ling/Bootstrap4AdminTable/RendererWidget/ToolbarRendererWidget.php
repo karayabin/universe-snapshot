@@ -4,6 +4,7 @@
 namespace Ling\Bootstrap4AdminTable\RendererWidget;
 
 
+use Ling\Bat\HepTool;
 use Ling\Bat\StringTool;
 
 /**
@@ -43,6 +44,8 @@ class ToolbarRendererWidget extends AbstractRendererWidget implements ToolbarRen
      *
      * Note: in this implementation, we don't handle recursive children items (i.e. we only handle
      * the first level of children, but we don't implement children of children).
+     *
+     *
      */
     public function render()
     {
@@ -61,6 +64,13 @@ class ToolbarRendererWidget extends AbstractRendererWidget implements ToolbarRen
                     $attr = $item['attr'] ?? [];
                     $icon = $item['icon'] ?? null;
 
+                    $csrf = $item['csrf_token'] ?? null;
+                    if (is_array($csrf)) {
+                        $tokenValue = $csrf['value'];
+                        $attr['data-param-csrf_token'] = $tokenValue;
+                    }
+                    $params = $item['params'] ?? [];
+
 
                     $hasChildren = (count($items) > 0);
                     $sMargin = ($max === $groupCpt) ? "" : "mr-2";
@@ -74,6 +84,9 @@ class ToolbarRendererWidget extends AbstractRendererWidget implements ToolbarRen
                                     data-action-id="<?php echo htmlspecialchars($actionId); ?>"
                                 <?php if ($attr): ?>
                                     <?php echo StringTool::htmlAttributes($attr); ?>
+                                <?php endif; ?>
+                                <?php if ($params): ?>
+                                    <?php echo HepTool::hepAttributes($params); ?>
                                 <?php endif; ?>
                             >
                                 <?php if (null !== $icon): ?>
@@ -98,11 +111,22 @@ class ToolbarRendererWidget extends AbstractRendererWidget implements ToolbarRen
 
                                     $subIcon = $subItem['icon'] ?? null;
                                     $attr = $subItem['attr'] ?? [];
+                                    $csrf = $item['csrf_token'] ?? null;
+                                    if (is_array($csrf)) {
+                                        $tokenValue = $csrf['value'];
+                                        $attr['data-param-token'] = $tokenValue;
+                                    }
+                                    $params = $item['params'] ?? [];
+
+
                                     ?>
                                     <button type="button" class="dropdown-item btn btn-light lah-button"
                                             data-action-id="<?php echo htmlspecialchars($subItem['action_id']); ?>"
                                         <?php if ($attr): ?>
                                             <?php echo StringTool::htmlAttributes($attr); ?>
+                                        <?php endif; ?>
+                                        <?php if ($params): ?>
+                                            <?php echo HepTool::hepAttributes($params); ?>
                                         <?php endif; ?>
                                     >
                                         <?php if (null !== $subIcon): ?>

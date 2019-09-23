@@ -14,4 +14,7 @@ $end_routine.methods_collection:
                     setOptions:
                         options:
                             showSession: true
+                            sessionVars:
+                                - csrf_tools_token
+                            path: ${app_dir}/tmp/session-content.txt
 

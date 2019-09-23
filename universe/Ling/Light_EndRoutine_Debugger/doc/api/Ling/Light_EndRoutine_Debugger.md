@@ -1,6 +1,6 @@
 Ling/Light_EndRoutine_Debugger
 ================
-2019-09-20 --> 2019-09-20
+2019-09-20 --> 2019-09-23
 
 
 
@@ -18,6 +18,8 @@ Table of contents
 Dependencies
 ============
 - [ArrayToString](https://github.com/lingtalfi/ArrayToString)
+- [BabyYaml](https://github.com/lingtalfi/BabyYaml)
+- [Bat](https://github.com/lingtalfi/Bat)
 - [Light_EndRoutine](https://github.com/lingtalfi/Light_EndRoutine)
 - [Light_Logger](https://github.com/lingtalfi/Light_Logger)
 

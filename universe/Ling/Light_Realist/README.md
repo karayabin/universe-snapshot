@@ -93,10 +93,12 @@ $easy_route.methods_collection:
 History Log
 =============
 
------ 1.8.0 -- 2019-09-19
+----- 1.8.0 -- 2019-09-23
 
     - update open admin table helper main implementation, now uses ajax handler 
     - implemented basic csrf protection 
+    - added list action handler params and right properties 
+    - add ContainerAwareRealistDynamicInjectionHandler 
     
 - 1.7.0 -- 2019-09-19
 

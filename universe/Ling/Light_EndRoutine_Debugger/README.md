@@ -59,6 +59,10 @@ $end_routine.methods_collection:
                     setOptions:
                         options:
                             showSession: true
+                            sessionVars:
+                                - csrf_tools_token
+                            path: ${app_dir}/tmp/session-content.txt
+
 
 
 ```
@@ -77,6 +81,10 @@ Related
 History Log
 =============
 
+- 1.1.0 -- 2019-09-23
+
+    - add LightEndRoutineDebuggerHandler.options.path option
+    
 - 1.0.0 -- 2019-09-20
 
     - initial commit

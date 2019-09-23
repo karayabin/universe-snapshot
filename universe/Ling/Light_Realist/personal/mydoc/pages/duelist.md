@@ -13,6 +13,7 @@ Table of Contents
 * [The limit setting](#the-limit-setting)
 * [Options](#options)
 * [Routines](#routines)
+* [Csrf token](#csrf-token)
  * [The operator_and_value routine](#the-operator_and_value-routine)
 * [Building the where expression](#building-the-where-expression)
   * [Where groups](#where-groups)
@@ -49,6 +50,7 @@ We can conceptually divide the request declaration settings in sections:
 - limit setting 
 - options
 - routines
+- csrf token
 
 
 
@@ -284,6 +286,44 @@ When an option invokes a routine, it also provides the initialization parameters
 The available routines are:
 
 - operator_and_value 
+
+
+
+Csrf token
+--------------
+
+As duelist was meant to be invoked from an ajax service, it's naturally vulnerable to csrf attacks.
+The csrf_token option allows us to secure the ajax service.
+
+It's an array or null. An example is this:
+
+```yaml
+csrf_token:
+    name: realist-request
+    value: REALIST(Light_Kit_Admin, csrf_token, realist-request)
+```
+
+If the value is null, or if the **csrf_token** key doesn't exist in the **requestDeclaration** array,
+then no csrf check will be performed (not recommended).
+
+If it's an array, it must contain the following entries:
+
+- name: the name of the csrf token to validate against
+- value: the value of the token. Note: in the above example I used the [dynamic injection](#dynamic-injection) notation
+    to generate the csrf token value on the fly (rather than using a hard-coded value).
+    
+
+Usually, the name "realist-request" is used for a token used to protect a realist/duelist request.    
+
+
+
+
+
+
+
+
+
+
 
 
 

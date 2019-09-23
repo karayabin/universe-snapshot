@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Ling\LingTalfi\DocBuilder\Light_EndRoutine_Debugger;
+namespace Ling\LingTalfi\DocBuilder\JAcpHep;
 
 
 use Ling\DocTools\DocBuilder\Git\PhpPlanet\LingGitPhpPlanetDocBuilder;
@@ -10,20 +10,20 @@ use Ling\DocTools\Translator\ParseDownTranslator;
 
 
 /**
- * The Light_EndRoutine_DebuggerDocBuilder class.
+ * The JAcpHepDocBuilder class.
  */
-class Light_EndRoutine_DebuggerDocBuilder
+class JAcpHepDocBuilder
 {
 
 
     /**
-     * Launch this function to generate the documentation for the Light_EndRoutine_Debugger planet.
+     * Launch this function to generate the documentation for the JAcpHep planet.
      * (based on the LingGitPhpPlanetDocBuilder doc builder.
      *
      * If htmlMode is false (the default),
      * this method will generate all files in md format in the following directory:
      *
-     * - /myphp/universe/Light_EndRoutine_Debugger/doc
+     * - /myphp/universe/JAcpHep/doc
      *
      *
      *
@@ -47,8 +47,8 @@ class Light_EndRoutine_DebuggerDocBuilder
         //--------------------------------------------
         // DOC TOOLS: CREATE A DOCUMENTATION FOR A PHP PLANET FOR GIT (MARKDOWN)
         //--------------------------------------------
-        $planetDir = "/myphp/universe/Ling/Light_EndRoutine_Debugger";
-        $gitRepoUrl = "https://github.com/lingtalfi/Light_EndRoutine_Debugger";
+        $planetDir = "/myphp/universe/Ling/JAcpHep";
+        $gitRepoUrl = "https://github.com/lingtalfi/JAcpHep";
         $git = $gitRepoUrl . "/blob/master";
         $doc = "$git/doc";
         $api = $doc . "/api";
@@ -74,7 +74,7 @@ class Light_EndRoutine_DebuggerDocBuilder
              *
              */
             "reportIgnore" => [
-                "Ling\Light_EndRoutine\Handler\ContainerAwareLightEndRoutineHandler",
+//                "Ling\DocTools\Translator\ParseDownTranslator",
             ],
             /**
              * Your project start date.
@@ -82,7 +82,7 @@ class Light_EndRoutine_DebuggerDocBuilder
              * The date when the project was last updated can be generated automatically, but the project
              * start date doesn't change.
              */
-            "projectStartDate" => "2019-09-20",
+            "projectStartDate" => "2019-09-23",
 
             /**
              * @kw(CopyModule).
@@ -140,7 +140,7 @@ class Light_EndRoutine_DebuggerDocBuilder
              * This map in particular is the one used for the whole DocTools planet documentation (pages and api).
              */
             "keyWord2UrlMap" => [
-                "logger" => "https://github.com/lingtalfi/Light_Logger",
+//                "the command line page" => $doc . '/pages/command-line.md',
             ],
             /**
              * An array of external classes to url.
@@ -152,10 +152,7 @@ class Light_EndRoutine_DebuggerDocBuilder
              * in the class synopsis.
              */
             "externalClass2Url" => [
-                "Ling\Light_EndRoutine\Handler\ContainerAwareLightEndRoutineHandler" => "https://github.com/lingtalfi/Light_EndRoutine/blob/master/doc/api/Ling/Light_EndRoutine/Handler/ContainerAwareLightEndRoutineHandler.md",
-                "Ling\Light\ServiceContainer\LightServiceContainerAwareInterface" => "https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerAwareInterface.md",
-                "Ling\Light_EndRoutine\Handler\LightEndRoutineHandlerInterface" => "https://github.com/lingtalfi/Light_EndRoutine/blob/master/doc/api/Ling/Light_EndRoutine/Handler/LightEndRoutineHandlerInterface.md",
-                "Ling\Light\ServiceContainer\LightServiceContainerInterface" => "https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md",
+//                "Ling\UniversalLogger\UniversalLoggerInterface" => "https://github.com/lingtalfi/UniversalLogger",
             ],
         ];
 

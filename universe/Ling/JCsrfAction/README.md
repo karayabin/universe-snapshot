@@ -37,6 +37,10 @@ Summary
 History Log
 =============
 
+- 1.0.1 -- 2019-09-23
+
+    - fix undefined startsWith function 
+    
 - 1.0.0 -- 2019-09-18
 
     - initial commit (careless implementation)

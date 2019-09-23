@@ -9,6 +9,11 @@ if ('undefined' === typeof CsrfAction) {
         var $ = jQuery;
 
 
+        function startsWith(haystack, needle) {
+            return haystack.substring(0, needle.length) === needle;
+        }
+
+
         /**
          *
          * Returns the hep associative array.

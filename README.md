@@ -243,3 +243,17 @@ While this is a good idea when you just want to play with the universe, you migh
 and want to save some disk space).
 
 If this is the case, check out the [uni tool](https://github.com/lingtalfi/universe-naive-importer): a command line tool to import planets (and manage their dependencies) one by one.
+
+
+
+
+
+Related
+===========
+- [uni tool](https://github.com/lingtalfi/universe-naive-importer): a tool to import/manage the planets in your application
+- [universe assets](https://github.com/lingtalfi/NotationFan/blob/master/universe-assets.md): a recommendation to organize the web assets in your planet
+- [UniverseTools](https://github.com/lingtalfi/UniverseTools): some various tools to help with the universe dependencies and meta
+
+
+
+

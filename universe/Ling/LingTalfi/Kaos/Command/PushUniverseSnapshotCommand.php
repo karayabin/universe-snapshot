@@ -37,6 +37,8 @@ class PushUniverseSnapshotCommand extends KaosGenericCommand
 
         $universeDir = "/myphp/universe";
         $universeSnapshotDir = "/myphp/universe-snapshot";
+        $readmeFile = $universeDir . "/README.md";
+
         $universeSnapshotUniverseDir = "$universeSnapshotDir/universe";
 
 
@@ -62,6 +64,16 @@ class PushUniverseSnapshotCommand extends KaosGenericCommand
             "indent" => $indentLevel + 1,
         ]);
         $application->run($myInput, $output);
+
+
+        //--------------------------------------------
+        // UPDATE THE README current date
+        //--------------------------------------------
+        H::info(H::i($indentLevel) . "Updating README.md current date..." . PHP_EOL, $output);
+        $readmeContent = file_get_contents($readmeFile);
+        $readmeContent = preg_replace('!2015-10-14 --> [0-9]{4}-[0-9]{2}-[0-9]{2}!', '2015-10-14 --> ' . date("Y-m-d"), $readmeContent);
+        FileSystemTool::mkfile($readmeFile, $readmeContent);
+        $output->write('<success>ok</success>' . PHP_EOL);
 
 
         //--------------------------------------------

@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightEndRoutineDebuggerHandler::__construct](https://github.com/lingtalfi/Light_EndRoutine_Debugger/blob/master/Handler/LightEndRoutineDebuggerHandler.php#L29-L33)
+See the source code for method [LightEndRoutineDebuggerHandler::__construct](https://github.com/lingtalfi/Light_EndRoutine_Debugger/blob/master/Handler/LightEndRoutineDebuggerHandler.php#L45-L49)
 
 
 See Also

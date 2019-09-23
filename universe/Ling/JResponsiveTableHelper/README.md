@@ -193,6 +193,14 @@ Then we call the rth.listen method every time after a request is sent.
 History Log
 =============
 
+- 1.4.0 -- 2019-09-23
+
+    - update, now the cloned table is removed after every use (instead of being just hidden) 
+
+- 1.3.0 -- 2019-09-23
+
+    - add responsive-clone css class to the hidden clone, so that other scripts can target it 
+    
 - 1.2.0 -- 2019-09-04
 
     - added collapsibleColumnIndexes=admin option 
