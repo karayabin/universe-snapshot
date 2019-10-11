@@ -164,6 +164,18 @@ class Light
     }
 
     /**
+     * Returns the debug of this instance.
+     *
+     * @return bool
+     */
+    public function isDebug(): bool
+    {
+        return $this->debug;
+    }
+
+
+
+    /**
      * Sets the container.
      *
      * @param LightServiceContainerInterface $container
@@ -306,6 +318,27 @@ class Light
         $this->errorHandlers[] = $errorHandler;
     }
 
+
+    /**
+     * Triggers the initialize phase if set in the service container.
+     *
+     * This method was created for debugging purposes only.
+     *
+     * @param HttpRequestInterface|null $httpRequest
+     * @throws \Exception
+     */
+    public function initialize(HttpRequestInterface $httpRequest = null)
+    {
+        if ($this->container->has("initializer")) {
+            $initializer = $this->container->get("initializer");
+            if (null === $httpRequest) {
+                $httpRequest = HttpRequest::createFromEnv();
+            }
+            $initializer->initialize($this, $httpRequest);
+        }
+    }
+
+
     /**
      * Runs the Light web application.
      */
@@ -322,10 +355,7 @@ class Light
             //--------------------------------------------
             // INITIALIZE PHASE
             //--------------------------------------------
-            if ($this->container->has("initializer")) {
-                $initializer = $this->container->get("initializer");
-                $initializer->initialize($this, $httpRequest);
-            }
+            $this->initialize($httpRequest);
 
 
             //--------------------------------------------
@@ -478,7 +508,6 @@ class Light
             }
 
 
-
             if (null !== $this->container) {
                 //--------------------------------------------
                 // END ROUTINE
@@ -500,8 +529,6 @@ class Light
                 $response->send();
             }
         }
-
-
 
 
     }

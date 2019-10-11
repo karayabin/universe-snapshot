@@ -4,7 +4,7 @@
 
 The Light_BullsheetDocBuilder class
 ================
-2019-03-13 --> 2019-08-14
+2019-03-13 --> 2019-09-26
 
 
 
@@ -25,7 +25,7 @@ Class synopsis
 class <span class="pl-k">Light_BullsheetDocBuilder</span>  {
 
 - Methods
-    - public static [buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Bullsheet/Light_BullsheetDocBuilder/buildDoc.md)($htmlMode = false) : void
+    - public static [buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Bullsheet/Light_BullsheetDocBuilder/buildDoc.md)($htmlMode = true) : void
 
 }
 
@@ -52,4 +52,4 @@ See the source code of [Ling\LingTalfi\DocBuilder\Light_Bullsheet\Light_Bullshee
 
 SeeAlso
 ==============
-Previous class: [Light_BMenuDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_BMenu/Light_BMenuDocBuilder.md)<br>Next class: [Light_DatabaseDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Database/Light_DatabaseDocBuilder.md)<br>
+Previous class: [Light_BreezeGeneratorDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_BreezeGenerator/Light_BreezeGeneratorDocBuilder.md)<br>Next class: [Light_CsrfDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Csrf/Light_CsrfDocBuilder.md)<br>

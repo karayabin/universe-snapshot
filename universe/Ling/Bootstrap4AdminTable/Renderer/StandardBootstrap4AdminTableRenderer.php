@@ -8,6 +8,7 @@ use Ling\Bootstrap4AdminTable\RendererWidget\ActionButtonsRendererWidget;
 use Ling\Bootstrap4AdminTable\RendererWidget\AdvancedSearchRendererWidget;
 use Ling\Bootstrap4AdminTable\RendererWidget\DebugWindowRendererWidget;
 use Ling\Bootstrap4AdminTable\RendererWidget\GlobalSearchRendererWidget;
+use Ling\Bootstrap4AdminTable\RendererWidget\ListGeneralActionRendererWidget;
 use Ling\Bootstrap4AdminTable\RendererWidget\NeckFiltersRendererWidget;
 use Ling\Bootstrap4AdminTable\RendererWidget\NumberOfItemsPerPageRendererWidget;
 use Ling\Bootstrap4AdminTable\RendererWidget\NumberOfRowsInfoRendererWidget;
@@ -36,5 +37,6 @@ class StandardBootstrap4AdminTableRenderer extends Bootstrap4AdminTableRenderer
         $this->registerWidget("number_of_rows_info", new NumberOfRowsInfoRendererWidget());
         $this->registerWidget("pagination", new PaginationRendererWidget());
         $this->registerWidget("toolbar", new ToolbarRendererWidget());
+        $this->registerWidget("general_actions", new ListGeneralActionRendererWidget());
     }
 }

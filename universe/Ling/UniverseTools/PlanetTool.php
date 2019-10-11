@@ -45,15 +45,24 @@ class PlanetTool
      *
      *
      *
+     * Available options are:
+     * - ignoreFilesStartingWith: array of prefixes to look for. If a prefix matches the beginning of a (relative) file path (relative to the planet root dir),
+     *          then the file is excluded.
+     *
+     *
      * @param $planetDir
+     * @param array $options
      * @return array
      * @throws UniverseToolsException
      */
-    public static function getClassNames($planetDir)
+    public static function getClassNames($planetDir, array $options = []): array
     {
         if (false === is_dir($planetDir)) {
             throw new UniverseToolsException("Dir not found: $planetDir");
         }
+
+        $ignoreFilesStartingWith = $options['ignoreFilesStartingWith'] ?? [];
+
 
         $pInfo = PlanetTool::getGalaxyNamePlanetNameByDir($planetDir);
         if (false !== $pInfo) {
@@ -63,8 +72,20 @@ class PlanetTool
 
 
             $files = YorgDirScannerTool::getFilesWithExtension($planetDir, 'php', false, true, true);
-
             foreach ($files as $file) {
+
+
+                /**
+                 * Skip files starting with the specified prefixes
+                 */
+                if ($ignoreFilesStartingWith) {
+                    foreach ($ignoreFilesStartingWith as $prefix) {
+                        if (0 === strpos($file, $prefix)) {
+                            continue 2;
+                        }
+                    }
+                }
+
                 $absFile = $planetDir . "/" . $file;
                 $content = file_get_contents($absFile);
                 /**

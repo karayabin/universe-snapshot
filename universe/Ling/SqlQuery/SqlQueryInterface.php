@@ -4,28 +4,35 @@
 namespace Ling\SqlQuery;
 
 
+/**
+ * The SqlQueryInterface interface.
+ */
 interface SqlQueryInterface
 {
 
 
     /**
-     * @return string, the sql query
+     *
+     * Returns the sql query string.
+     * @return string
      */
-    public function getSqlQuery();
+    public function getSqlQuery(): string;
 
     /**
-     * @return string, the count sql request
+     * Returns the count sql query string.
+     * @return string
      */
-    public function getCountSqlQuery();
+    public function getCountSqlQuery(): string;
 
     /**
-     * @return array of marker => value (see QuickPdo for more info)
+     * Returns an array of marker => value.
+     * @return array
      */
-    public function getMarkers();
+    public function getMarkers(): array;
 
     /**
-     * @return array|null,
-     *          if array: [offset, length]
+     * Returns the limit array: [offset, length], or null if not set.
+     * @return array|null
      */
     public function getLimit();
 
@@ -37,36 +44,49 @@ interface SqlQueryInterface
     //
     //--------------------------------------------
     /**
-     * @param $field , for instance:
+     * Adds a field.
+     * @param string $field
+     * For instance:
      *
      *      - pseudo
      *      - a.pseudo
      *      - a.pseudo, a.email, b.type
+     * @return SqlQueryInterface
      */
-    public function addField(string $field);
+    public function addField(string $field): SqlQueryInterface;
 
 
     /**
-     * @param $table , you can add your aliases too if you want, for instance
+     * Sets the table.
+     *
+     * @param string $table
+     * You can add your aliases too if you want, for instance
      *      - ek_user
      *      - ek_user u
+     * @return SqlQueryInterface
      */
-    public function setTable(string $table);
+    public function setTable(string $table): SqlQueryInterface;
 
 
     /**
-     * @param $join , for instance:
+     * Adds a join.
+     *
+     * @param string $join
+     * For instance:
      *
      *      - inner join table2 t on t.id=p.product_id
      *      - inner join table2 t on t.id=p.product_id
      *        inner join table3 t2 on t2.id=h.item_id
      *      - ...
      *
+     * @return SqlQueryInterface
      */
-    public function addJoin(string $join);
+    public function addJoin(string $join): SqlQueryInterface;
 
     /**
-     * @param $where , never include the where keyword, but always
+     * Adds a where item.
+     * @param string $where
+     * Never include the where keyword, but always
      *      start with and or or (the concrete class must prefix your clause with
      *      where 1).
      *
@@ -76,15 +96,22 @@ interface SqlQueryInterface
      *      - and pseudo='michel'
      *      - and (pseudo='michel' or e.country_id=6)
      *
+     * @return SqlQueryInterface
+     *
      */
-    public function addWhere(string $where);
+    public function addWhere(string $where): SqlQueryInterface;
 
 
     /**
-     * @param string $having , the having clause, without the having keyword,
+     * Adds an having item.
+     *
+     * @param string $having
+     * The having clause, without the having keyword,
      *      for instance:
      *      - sale_price between 10 and 250
      *
+     *
+     * @param string $groupName
      * You can define a having group or not.
      * If you define a group, then all having statements inside of it will be combined using rules defined by
      * the group type, which defaults to "orAnd" (see setHavingGroupType method for more info).
@@ -97,9 +124,9 @@ interface SqlQueryInterface
      *
      *
      *
-     * @return mixed
+     * @return SqlQueryInterface
      */
-    public function addHaving(string $having, string $groupName = null);
+    public function addHaving(string $having, string $groupName = null): SqlQueryInterface;
 
     /**
      * Sets the having group type for a given having group.
@@ -117,30 +144,42 @@ interface SqlQueryInterface
      *
      * @param string $groupName
      * @param string $groupType
-     * @return mixed
+     * @return SqlQueryInterface
      */
-    public function setHavingGroupType(string $groupName, string $groupType);
+    public function setHavingGroupType(string $groupName, string $groupType): SqlQueryInterface;
 
     /**
-     * @param string $groupBy , the name of a field.
-     * @return mixed
+     * Adds a group by item.
+     *
+     * @param string $groupBy
+     * The name of a field.
+     * @return SqlQueryInterface
      */
-    public function addGroupBy(string $groupBy);
-
-
-    /**
-     * @param array $groupBys, name of fields the query should be grouped by with.
-     * @return mixed
-     */
-    public function setGroupBy(array $groupBys);
+    public function addGroupBy(string $groupBy): SqlQueryInterface;
 
 
     /**
-     * @param $orderBy , is the name of a column
-     * @param $direction , is either asc or desc
+     * Sets the group by array.
+     *
+     * @param array $groupBys
+     * Name of fields the query should be grouped by with.
+     * @return SqlQueryInterface
+     */
+    public function setGroupBy(array $groupBys): SqlQueryInterface;
+
+
+    /**
+     * Adds an order by item.
+     *
+     * @param string $orderBy
+     * It's the name of a column.
+     *
+     * @param string $direction
+     * It is either asc or desc.
+     * @return SqlQueryInterface
      *
      */
-    public function addOrderBy(string $orderBy, string $direction);
+    public function addOrderBy(string $orderBy, string $direction): SqlQueryInterface;
 
 
     /**
@@ -148,27 +187,39 @@ interface SqlQueryInterface
      *
      * @param $offset
      * @param $length
+     * @return SqlQueryInterface
      */
-    public function setLimit(int $offset, int $length);
+    public function setLimit(int $offset, int $length): SqlQueryInterface;
 
     /**
-     * Adds a QuickPdo style marker.
+     * Adds a pdo style marker.
      *
      * @param string $key
      * @param string $value
      *
-     * @see https://github.com/lingtalfi/Quickpdo
-     *
+     * @return SqlQueryInterface
      */
-    public function addMarker(string $key, string $value);
+    public function addMarker(string $key, string $value): SqlQueryInterface;
 
-    public function addMarkers(array $markers);
+
+    /**
+     * Adds markers.
+     *
+     * @param array $markers
+     * @return SqlQueryInterface
+     */
+    public function addMarkers(array $markers): SqlQueryInterface;
 
 
     //--------------------------------------------
     //
     //--------------------------------------------
-    public function __toString();
+    /**
+     * Returns the string version of this instance.
+     *
+     * @return string
+     */
+    public function __toString(): string;
 
 
 }

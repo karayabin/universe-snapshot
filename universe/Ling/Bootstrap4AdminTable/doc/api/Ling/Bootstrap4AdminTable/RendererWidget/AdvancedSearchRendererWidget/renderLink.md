@@ -47,7 +47,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [AdvancedSearchRendererWidget::renderLink](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/RendererWidget/AdvancedSearchRendererWidget.php#L18-L27)
+See the source code for method [AdvancedSearchRendererWidget::renderLink](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/RendererWidget/AdvancedSearchRendererWidget.php#L44-L53)
 
 
 See Also
@@ -55,5 +55,5 @@ See Also
 
 The [AdvancedSearchRendererWidget](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/AdvancedSearchRendererWidget.md) class.
 
-Next method: [render](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/AdvancedSearchRendererWidget/render.md)<br>
+Previous method: [setFields](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/AdvancedSearchRendererWidget/setFields.md)<br>Next method: [render](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/AdvancedSearchRendererWidget/render.md)<br>
 

@@ -42,7 +42,6 @@ Parameters
     Array of tagItems, each of which being an array with the following structure:
 - tag_id: string. The tag name
 - ?variables: array. The tag variables if any
-- ?tag_group: string. The name of the tag group if any.
 
 
 Return values
@@ -64,7 +63,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [ParametrizedSqlQueryUtil::getSqlQuery](https://github.com/lingtalfi/ParametrizedSqlQuery/blob/master/ParametrizedSqlQueryUtil.php#L125-L330)
+See the source code for method [ParametrizedSqlQueryUtil::getSqlQuery](https://github.com/lingtalfi/ParametrizedSqlQuery/blob/master/ParametrizedSqlQueryUtil.php#L148-L348)
 
 
 See Also

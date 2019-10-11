@@ -96,6 +96,13 @@ class PackLightPluginCommand extends KaosGenericCommand
     //--------------------------------------------
     //
     //--------------------------------------------
+    /**
+     * Copies the item which relative path was given to the map assets directory.
+     *
+     * @param string $relPath
+     * @param OutputInterface $output
+     * @param int $indentLevel
+     */
     protected function copyItem(string $relPath, OutputInterface $output, int $indentLevel)
     {
         $item = $this->_applicationDir . "/" . $relPath;

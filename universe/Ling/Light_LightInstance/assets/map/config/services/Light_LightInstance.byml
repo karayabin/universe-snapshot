@@ -1,0 +1,5 @@
+light_instance:
+    instance: Ling\Light_LightInstance\Service\LightLightInstanceService
+    methods:
+        setContainer:
+            container: @container()

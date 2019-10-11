@@ -20,7 +20,7 @@ class Bootstrap4AdminTableDocBuilder
      * Launch this function to generate the documentation for the Bootstrap4AdminTable planet.
      * (based on the LingGitPhpPlanetDocBuilder doc builder.
      *
-     * If htmlMode is false (the default),
+     * If htmlMode is true (the default),
      * this method will generate all files in md format in the following directory:
      *
      * - /myphp/universe/Bootstrap4AdminTable/doc
@@ -41,7 +41,7 @@ class Bootstrap4AdminTableDocBuilder
      * @param bool $htmlMode
      * @throws DocBuilderException
      */
-    public static function buildDoc($htmlMode = false)
+    public static function buildDoc($htmlMode = true)
     {
 
         //--------------------------------------------
@@ -147,6 +147,8 @@ class Bootstrap4AdminTableDocBuilder
                 "the open admin table helper implementation notes" => "https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/open-admin-table-helper-implementation-notes.md",
                 "conception notes" => $doc . '/pages/conception-notes.md',
                 "list action handler conception notes" =>  'https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/list-action-handler-conception-notes.md',
+                "list general actions" =>  'https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/realist-conception-notes.md#list-general-actions',
+                "toolbar items" =>  'https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/list-action-handler-conception-notes.md#the-toolbar-item',
             ],
             /**
              * An array of external classes to url.

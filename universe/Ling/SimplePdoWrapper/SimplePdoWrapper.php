@@ -329,6 +329,58 @@ class SimplePdoWrapper implements SimplePdoWrapperInterface
         return false;
     }
 
+
+
+
+
+    //--------------------------------------------
+    // HELPER METHODS
+    //--------------------------------------------
+    /**
+     * Adds the $whereConds to the given statement ($stmt), using the notation
+     * defined in the comments of the SimplePdoWrapperInterface->update method.
+     *
+     *
+     *
+     * @param $whereConds
+     * @param $stmt
+     * @param array $markers
+     */
+    public static function addWhereSubStmt(&$stmt, array &$markers, $whereConds)
+    {
+        if (is_array($whereConds)) {
+            if ($whereConds) {
+
+                $mkCpt = 0;
+                $mk = 'spw_';
+                $stmt .= ' WHERE ';
+                $first = true;
+
+
+                foreach ($whereConds as $field => $value) {
+
+                    if (true === $first) {
+                        $first = false;
+                    } else {
+                        $stmt .= ' AND ';
+                    }
+
+                    if (null !== $value) {
+                        $stmt .= '`' . $field . '` = :' . $mk . $mkCpt;
+                        $markers[':' . $mk . $mkCpt] = $value;
+                        $mkCpt++;
+                    } else {
+                        $stmt .= '`' . $field . '` IS NULL';
+                    }
+                }
+            }
+        } elseif (is_string($whereConds)) {
+            $stmt .= ' WHERE ' . $whereConds;
+        }
+    }
+
+
+
     //--------------------------------------------
     // HELPER METHODS FOR CHILDREN
     //--------------------------------------------
@@ -362,50 +414,6 @@ class SimplePdoWrapper implements SimplePdoWrapperInterface
     protected function storeQueryObject($queryObject)
     {
         $this->queryObject = $queryObject;
-    }
-
-
-    /**
-     * Adds the $whereConds to the given statement ($stmt), using the notation
-     * defined in the comments of the SimplePdoWrapperInterface->update method.
-     *
-     *
-     *
-     * @param $whereConds
-     * @param $stmt
-     * @param array $markers
-     */
-    protected static function addWhereSubStmt(&$stmt, array &$markers, $whereConds)
-    {
-        if (is_array($whereConds)) {
-            if ($whereConds) {
-
-                $mkCpt = 0;
-                $mk = 'spw_';
-                $stmt .= ' WHERE ';
-                $first = true;
-
-
-                foreach ($whereConds as $field => $value) {
-
-                    if (true === $first) {
-                        $first = false;
-                    } else {
-                        $stmt .= ' AND ';
-                    }
-
-                    if (null !== $value) {
-                        $stmt .= '`' . $field . '` = :' . $mk . $mkCpt;
-                        $markers[':' . $mk . $mkCpt] = $value;
-                        $mkCpt++;
-                    } else {
-                        $stmt .= '`' . $field . '` IS NULL';
-                    }
-                }
-            }
-        } elseif (is_string($whereConds)) {
-            $stmt .= ' WHERE ' . $whereConds;
-        }
     }
 
 

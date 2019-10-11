@@ -4,7 +4,7 @@
 
 The LightRealistActionHandlerInterface class
 ================
-2019-08-12 --> 2019-09-19
+2019-08-12 --> 2019-10-11
 
 
 
@@ -55,4 +55,4 @@ See the source code of [Ling\Light_Realist\ActionHandler\LightRealistActionHandl
 
 SeeAlso
 ==============
-Previous class: [LightRealistAbstractActionHandler](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/ActionHandler/LightRealistAbstractActionHandler.md)<br>Next class: [LightRealistAjaxServiceController](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Controller/LightRealistAjaxServiceController.md)<br>
+Previous class: [LightRealistAbstractActionHandler](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/ActionHandler/LightRealistAbstractActionHandler.md)<br>Next class: [LightRealistAjaxHandler](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/AjaxHandler/LightRealistAjaxHandler.md)<br>

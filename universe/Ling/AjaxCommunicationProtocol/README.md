@@ -31,7 +31,7 @@ There are two actors:
 - the server: which process the request sent by client, and returns a response
 
 
-The request is done via POST.
+The request is usually done via POST, but can also be done via GET when it's more convenient.
 The response is a json array which structure depends on whether the response is erroneous or successful.
 
 
@@ -87,6 +87,10 @@ $.ajax({
 History Log
 =============
 
+- 1.1.0 -- 2019-09-24
+
+    - update protocol, now accepts GET parameters
+    
 - 1.0.1 -- 2019-09-18
 
     - add jquery example

@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [DependencyTool::parseDumpDependencies](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/DependencyTool/parseDumpDependencies.md)(string $planetDir, array &$conf = [], array $postInstall = []) : string
+public static [DependencyTool::parseDumpDependencies](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/DependencyTool/parseDumpDependencies.md)(string $planetDir, array &$conf = [], array $postInstall = [], array $options = []) : string
 
 
 
@@ -30,6 +30,12 @@ found in the planet, and displays the content of a basic **dependencies.byml** f
 Note: This method only works if there is an effective bsr-1 autoloader in place.
 Note2: This method works by parsing the use statements in your classes, so make sure to clean your import use statements
      before running this method.
+
+
+
+Available options are:
+- ignoreFilesStartingWith: array of prefixes to look for. If a prefix matches the beginning of a (relative) file path (relative to the planet root dir),
+         then the file is excluded.
 
 
 
@@ -49,6 +55,10 @@ Parameters
 - post_install: the given $postInstall array
 
 - postInstall
+
+    
+
+- options
 
     
 
@@ -95,7 +105,7 @@ TokenFun: *
 
 Source Code
 ===========
-See the source code for method [DependencyTool::parseDumpDependencies](https://github.com/lingtalfi/UniverseTools/blob/master/DependencyTool.php#L49-L163)
+See the source code for method [DependencyTool::parseDumpDependencies](https://github.com/lingtalfi/UniverseTools/blob/master/DependencyTool.php#L55-L185)
 
 
 See Also

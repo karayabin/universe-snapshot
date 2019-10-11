@@ -7,12 +7,13 @@ use Ling\DocTools\Info\ClassInfo;
  */
 
 $class = $z['classInfo'];
+$classType = (true === $z['isTrait'])?"trait":"class";
 ?>
 [Back to the <?php echo $z['planetName']; ?> api](<?php echo $z['planetUrl']; ?>)
 
 
 
-The <?php echo $class->getShortName(); ?> class
+The <?php echo $class->getShortName(); ?> <?php echo $classType . PHP_EOL; ?>
 ================
 <?php echo $z['projectStartDate']; ?> --> <?php echo $z['date'] . PHP_EOL; ?>
 
@@ -26,7 +27,7 @@ Introduction
 <?php echo $class->getComment()->getMainText(); ?>
 
 
-Class synopsis
+<?php echo ucfirst($classType); ?> synopsis
 ==============
 
 

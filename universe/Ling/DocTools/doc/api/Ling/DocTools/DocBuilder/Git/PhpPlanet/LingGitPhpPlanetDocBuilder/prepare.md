@@ -72,6 +72,14 @@ Parameters
              External custom class name means:
              - the class is external to the given planetDir
              - this is not a php built-in class (like \Exception for instance)
+- ?ignoreFilesStartingWith: array of prefixes to look for. If a prefix matches the beginning of a (relative) file path (relative to the planet root dir),
+         then the file is excluded.
+         Generally, you use this when you include/embed another library in your planet, and you don't want docTools
+         to generate the documentation for it.
+         This happened to me with Ling/PhpExcelTool planet, which embeds the PHPExcel library from another author,
+         and docTool was having problem with generating the doc from PHPExcel because it required some autoloader files,
+         and so I decided to just skip the documentation of PHPExcel (as it's not my tool anyway, and it probably has
+         its proper documentation).
 - ?markdownTranslator: object. Instance of a @class(DocTools\Translator\MarkdownTranslatorInterface).
              If set, all generated files will be converted by this translator.
 - ?mode: string = md (html|md). Whether to generate md files or html files.
@@ -99,7 +107,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LingGitPhpPlanetDocBuilder::prepare](https://github.com/lingtalfi/DocTools/blob/master/DocBuilder/Git/PhpPlanet/LingGitPhpPlanetDocBuilder.php#L213-L296)
+See the source code for method [LingGitPhpPlanetDocBuilder::prepare](https://github.com/lingtalfi/DocTools/blob/master/DocBuilder/Git/PhpPlanet/LingGitPhpPlanetDocBuilder.php#L220-L312)
 
 
 See Also

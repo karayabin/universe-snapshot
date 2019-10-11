@@ -3,6 +3,8 @@ logger:
     methods:
         setFormat:
             format: [{channel}]: {dateTime} -- {message}
+        setUseExpandedArray:
+            bool: true
     methods_collection: []
         -
             method: addListener
@@ -14,3 +16,12 @@ logger:
                         configure:
                             options:
                                 file: ${app_dir}/log/light_log.log
+        -
+            method: addListener
+            args:
+                channels: *
+                listener:
+                    instance: Ling\Light_Logger\Listener\LightLastMessageFileLoggerListener
+                    methods:
+                        setFile:
+                            file: ${app_dir}/log/light_log_last.txt

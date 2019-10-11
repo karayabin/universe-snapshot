@@ -7,6 +7,7 @@ namespace Ling\Bootstrap4AdminTable\Renderer;
 use Ling\Bat\StringTool;
 use Ling\Bootstrap4AdminTable\Exception\Bootstrap4AdminTableException;
 use Ling\Bootstrap4AdminTable\RendererWidget\AdvancedSearchRendererWidget;
+use Ling\Bootstrap4AdminTable\RendererWidget\ListGeneralActionRendererWidgetInterface;
 use Ling\Bootstrap4AdminTable\RendererWidget\NeckFiltersRendererWidgetInterface;
 use Ling\Bootstrap4AdminTable\RendererWidget\RendererWidgetInterface;
 use Ling\Bootstrap4AdminTable\RendererWidget\ToolbarRendererWidgetInterface;
@@ -40,6 +41,12 @@ class Bootstrap4AdminTableRenderer extends OpenAdminTableBaseRealistListRenderer
      */
     protected $useSpinKitService;
 
+    /**
+     * This property holds the temporary _spinKitCssId for this instance.
+     * @var string|null
+     */
+    private $_spinKitCssId;
+
 
     /**
      * Builds the Bootstrap4AdminTableRenderer instance.
@@ -49,6 +56,7 @@ class Bootstrap4AdminTableRenderer extends OpenAdminTableBaseRealistListRenderer
         parent::__construct();
         $this->widgets = [];
         $this->useSpinKitService = true;
+        $this->_spinKitCssId = null;
     }
 
 
@@ -83,13 +91,38 @@ class Bootstrap4AdminTableRenderer extends OpenAdminTableBaseRealistListRenderer
     //
     //--------------------------------------------
     /**
-     * Prints the static admin table.
+     * @implementation
+     */
+    public function renderListGeneralActions()
+    {
+        if (true === $this->isWidgetEnabled("general_actions")) {
+            /**
+             * @var $widget ListGeneralActionRendererWidgetInterface
+             */
+            $widget = $this->getWidget("general_actions");
+            $widget->setGeneralActions($this->listGeneralActions);
+            $widget->render();
+        }
+
+
+    }
+
+
+    /**
+     * @implementation
      */
     public function render()
     {
 
         $this->callAssets();
-        $cssId = StringTool::getUniqueCssId('bs4at-');
+
+        if (null === $this->containerCssId) {
+            $this->containerCssId = 'bootstrap4-admin-table-renderer-list';
+        }
+
+        if (null === $this->_spinKitCssId) {
+            $this->_spinKitCssId = StringTool::getUniqueCssId('bs4at-');
+        }
 
 
         ?>
@@ -97,7 +130,7 @@ class Bootstrap4AdminTableRenderer extends OpenAdminTableBaseRealistListRenderer
         <?php if (true === $this->useSpinKitService): ?>
         sk-loading
         <?php endif; ?>
-        position-relative" id="<?php echo $cssId; ?>">
+        position-relative" id="<?php echo $this->_spinKitCssId; ?>">
             <?php
 
             if (true === $this->useSpinKitService && null !== $this->container) {
@@ -261,7 +294,7 @@ class Bootstrap4AdminTableRenderer extends OpenAdminTableBaseRealistListRenderer
         <?php
 
 
-        $this->printJavascript($cssId);
+        $this->printJavascript();
 
     }
 
@@ -347,6 +380,7 @@ class Bootstrap4AdminTableRenderer extends OpenAdminTableBaseRealistListRenderer
         <?php
 
         if (true === $hasAdvancedSearch) {
+            $advancedWidget->setFields($this->sqlColumns);
             $advancedWidget->render();
         }
     }
@@ -377,8 +411,12 @@ class Bootstrap4AdminTableRenderer extends OpenAdminTableBaseRealistListRenderer
                 "/plugins/Light_Realist/js/list-action-handler-helper.js",
             ]);
 
-            $copilot->registerLibrary("jqueryPrintElement", [
-                "/plugins/Light_Realist/js/jquery.printElement.js",
+            $copilot->registerLibrary("listGeneralActionHandlerHelper", [
+                "/plugins/Light_Realist/js/list-general-action-handler-helper.js",
+            ]);
+
+            $copilot->registerLibrary("realistRegistry", [
+                "/plugins/Light_Realist/js/realist-registry.js",
             ]);
 
 
@@ -404,9 +442,8 @@ class Bootstrap4AdminTableRenderer extends OpenAdminTableBaseRealistListRenderer
 
     /**
      * Prints the necessary javascript.
-     * @param string $cssId
      */
-    protected function printJavascript(string $cssId)
+    protected function printJavascript()
     {
 
 
@@ -417,6 +454,7 @@ class Bootstrap4AdminTableRenderer extends OpenAdminTableBaseRealistListRenderer
 
         $sCollapse = json_encode($this->collapsibleColumnIndexes);
         $listActionLeaves = $this->getListActionGroupLeafItems();
+        $listGeneralActionLeaves = $this->listGeneralActions;
 
 
         ?>
@@ -426,13 +464,15 @@ class Bootstrap4AdminTableRenderer extends OpenAdminTableBaseRealistListRenderer
                 $(document).ready(function () {
 
 
-                    var jContainer = $('#<?php echo $cssId; ?>');
-                    var jTable = jContainer.find('.bsatr-main-table');
+                    var jContainer = $('#<?php echo $this->containerCssId; ?>');
+                    var jSpinKitContainer = $('#<?php echo $this->_spinKitCssId; ?>');
+                    var jTable = jContainer.find('.bsatr-main-table:first');
                     var listActionLeaves = <?php echo json_encode($listActionLeaves); ?>;
+                    var listGeneralActionItems = <?php echo json_encode($listGeneralActionLeaves); ?>;
 
 
                     var ricHelper = new RicAdminTableHelper({
-                        jContainer: jContainer,
+                        jContainer: jTable,
                         serverUri: "/realist-ajax-service",
                     });
 
@@ -454,6 +494,12 @@ class Bootstrap4AdminTableRenderer extends OpenAdminTableBaseRealistListRenderer
                         ricHelper: ricHelper,
                     });
                     listActionHelper.listen();
+
+                    var listGeneralActionHelper = new ListGeneralActionHandlerHelper({
+                        jContainer: jContainer,
+                        listGeneralActionItems: listGeneralActionItems,
+                    });
+                    listGeneralActionHelper.listen();
 
 
                     var rth = new ResponsiveTableHelper({
@@ -490,7 +536,7 @@ class Bootstrap4AdminTableRenderer extends OpenAdminTableBaseRealistListRenderer
                         },
                         on_request_after: function (jContainer) {
                             <?php if(true === $this->useSpinKitService): ?>
-                            jContainer.removeClass("sk-loading");
+                            jSpinKitContainer.removeClass("sk-loading");
                             <?php endif; ?>
 
 
@@ -514,6 +560,12 @@ class Bootstrap4AdminTableRenderer extends OpenAdminTableBaseRealistListRenderer
 
 
                     ricHelper.listen();
+
+
+                    /**
+                     * Share the objects with other js tools
+                     */
+                    window.RealistRegistry.setOpenAdminTableHelper(helper);
 
                 });
             });

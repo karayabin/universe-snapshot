@@ -4,7 +4,7 @@
 
 The Light_BMenuDocBuilder class
 ================
-2019-03-13 --> 2019-08-14
+2019-03-13 --> 2019-09-26
 
 
 
@@ -25,7 +25,7 @@ Class synopsis
 class <span class="pl-k">Light_BMenuDocBuilder</span>  {
 
 - Methods
-    - public static [buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_BMenu/Light_BMenuDocBuilder/buildDoc.md)($htmlMode = false) : void
+    - public static [buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_BMenu/Light_BMenuDocBuilder/buildDoc.md)($htmlMode = true) : void
 
 }
 
@@ -52,4 +52,4 @@ See the source code of [Ling\LingTalfi\DocBuilder\Light_BMenu\Light_BMenuDocBuil
 
 SeeAlso
 ==============
-Previous class: [Light_ApplicationConfiguratorDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_ApplicationConfigurator/Light_ApplicationConfiguratorDocBuilder.md)<br>Next class: [Light_BullsheetDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Bullsheet/Light_BullsheetDocBuilder.md)<br>
+Previous class: [Light_ApplicationConfiguratorDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_ApplicationConfigurator/Light_ApplicationConfiguratorDocBuilder.md)<br>Next class: [Light_BreezeGeneratorDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_BreezeGenerator/Light_BreezeGeneratorDocBuilder.md)<br>

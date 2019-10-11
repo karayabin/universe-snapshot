@@ -26,6 +26,29 @@ if ("undefined" === typeof window.OpenAdminTableHelper) {
         }
 
 
+        function getCleanArray(arr) {
+            var newArr = [];
+            for (var i in arr) {
+                newArr.push(arr[i]);
+            }
+            return newArr;
+        }
+
+
+        function implodeWith(imploder, arr) {
+            var newArr = [];
+            var c = 0;
+            for (var i in arr) {
+                if (0 !== c) {
+                    newArr.push(imploder);
+                }
+                newArr.push(arr[i]);
+                c++;
+            }
+            return newArr;
+        }
+
+
         var $ = jQuery;
 
         window.OpenAdminTableHelper = function (options) {
@@ -34,8 +57,9 @@ if ("undefined" === typeof window.OpenAdminTableHelper) {
             this.jTable = this.jContainer.find(this.options.table_selector);
             this.useSpinKit = this.options.use_spinkit_helper;
 
-            // I use this to fix pagination inconsistency that can come from de-synced number of items per page and the page number.
+            // I use these to fix pagination inconsistency that can come from de-synced number of items per page and the page number.
             this.nbTotalRows = null;
+            this.nippFlag = false;
 
 
             // initializing containers
@@ -94,13 +118,30 @@ if ("undefined" === typeof window.OpenAdminTableHelper) {
                 var jGlobalSearch = this.getModuleContainer("global_search");
                 if (jGlobalSearch) {
                     var jGlobalSearchSubmitBtn = jGlobalSearch.find('.oath-search-btn');
+                    var jGlobalSearchResetBtn = jGlobalSearch.find('.oath-reset-btn');
                     var jGlobalSearchInput = jGlobalSearch.find('input');
                     if (jGlobalSearchInput.length) {
 
 
+                        jGlobalSearchInput.on('keyup', function (e) {
+                            var code = e.which;
+                            if (13 === code) {
+                                $this.executeModule("global_search");
+                            }
+                        });
+
                         if (jGlobalSearchSubmitBtn.length) {
                             jGlobalSearchSubmitBtn.on('click', function () {
                                 $this.resetAdvancedSearchForm();
+                                $this.executeModule("global_search");
+                                return false;
+                            });
+                        }
+
+                        if (jGlobalSearchResetBtn.length) {
+                            jGlobalSearchResetBtn.on('click', function () {
+                                $this.resetAdvancedSearchForm();
+                                $this.resetGlobalSearchForm();
                                 $this.executeModule("global_search");
                                 return false;
                             });
@@ -115,7 +156,12 @@ if ("undefined" === typeof window.OpenAdminTableHelper) {
                 //----------------------------------------
                 var jAdvancedSearch = this.getModuleContainer("advanced_search");
                 if (jAdvancedSearch) {
+
+
                     var jAdvancedSearchSubmitBtn = jAdvancedSearch.find('.oath-search-btn');
+                    var jAdvancedSearchResetBtn = jAdvancedSearch.find('.oath-reset-btn');
+
+
                     if (jAdvancedSearchSubmitBtn.length) {
                         jAdvancedSearchSubmitBtn.on('click', function () {
                             $this.resetGlobalSearchForm();
@@ -125,6 +171,41 @@ if ("undefined" === typeof window.OpenAdminTableHelper) {
                     } else {
                         this.error("Advanced search module doesn't contain a submit button.");
                     }
+                    if (jAdvancedSearchResetBtn.length) {
+                        jAdvancedSearchResetBtn.on('click', function () {
+                            $this.resetGlobalSearchForm();
+                            $this.resetAdvancedSearchForm();
+                            $this.executeModule("advanced_search");
+                            return false;
+                        });
+                    }
+
+                    jAdvancedSearch.on('click', ".oath-add-btn", function () {
+                        var jLine = $(this).closest('tr');
+                        var jClone = jLine.clone();
+                        var jOr = jClone.find('.oath-andor-keyword');
+                        if (jOr.length) {
+                            jOr.html("OR");
+                        }
+                        jLine.after(jClone);
+
+                        var jRemoveBtn = jClone.find('.oath-remove-btn');
+                        if (jRemoveBtn.length) {
+                            var hideClass = jRemoveBtn.attr("data-hide-class");
+                            if (hideClass) {
+                                jRemoveBtn.removeClass(hideClass);
+                            }
+                        }
+
+                        return false;
+                    });
+
+                    jAdvancedSearch.on('click', ".oath-remove-btn", function () {
+                        $(this).closest('tr').remove();
+                        return false;
+                    });
+
+
                 }
 
                 //----------------------------------------
@@ -279,7 +360,9 @@ if ("undefined" === typeof window.OpenAdminTableHelper) {
                 if (jNumberOfItemsPerPage) {
                     var jNippSelector = jNumberOfItemsPerPage.find(".oath-nipp-selector");
                     jNippSelector.on('change', function () {
+                        $this.nippFlag = true;
                         $this.executeModule("pagination");
+                        $this.nippFlag = false;
                         return false;
                     });
                 }
@@ -302,6 +385,7 @@ if ("undefined" === typeof window.OpenAdminTableHelper) {
                  * Fix pagination inconsistencies first
                  */
                 if (
+                    true === $this.nippFlag &&
                     null !== this.nbTotalRows &&
                     "pagination" === moduleName) {
                     var jNumberOfItemsPerPage = this.getModuleContainer("number_of_items_per_page");
@@ -327,116 +411,216 @@ if ("undefined" === typeof window.OpenAdminTableHelper) {
                 var allTags = realist.collectTags();
                 var allTagsByGroup = this.groupTags(allTags);
 
-
                 var tags = [];
-
-                var combineWith = [];
-                var optionCombineWith = this.options[moduleName].combine_request_with;
-                if ('*' === optionCombineWith) {
-                    combineWith = [
-                        'global_search',
-                        'advanced_search',
-                        'head_columns_sort',
-                        'neck_filters',
-                        'pagination',
-                    ];
-                } else {
-                    combineWith = optionCombineWith.slice();
-                    combineWith.push(moduleName);
-                }
 
 
                 //----------------------------------------
                 // COLLECTING AND FILTERING THE TAGS VALUES FOR EVERY MODULE
                 //----------------------------------------
-                for (var i in combineWith) {
-                    var module = combineWith[i];
-                    if (module in allTagsByGroup) {
-                        var moduleTags = allTagsByGroup[module];
+                var globalSearchData = null;
+                var advancedSearchData = null;
+                var headColumnsSortData = null;
+                var neckFiltersData = null;
+                var paginationData = null;
 
-                        var isPrimary = false;
-                        if (-1 !== this.options.primary_group.indexOf(module)) {
-                            isPrimary = true;
-                        }
 
-                        // let's filter module which send non atomic data
-                        if ("global_search" === module) {
-                            if (true === isPrimary) {
-                                if (module !== moduleName) { // when the global search module is called, we don't filter the variables
+                // GLOBAL SEARCH
+                //----------------------------------------
+                var gsModuleTags = {};
+                if ("global_search" in allTagsByGroup) {
+                    gsModuleTags = allTagsByGroup["global_search"];
 
-                                    for (var j in moduleTags) {
-                                        var variables = moduleTags[j]['variables'];
-                                        for (var k in variables) {
-                                            if (
-                                                'expression' === variables[k]['name'] &&
-                                                '' === variables[k]['value']
-                                            ) {
-                                                delete moduleTags[j];
-                                            }
-
-                                        }
-                                    }
+                    the_loop_1:
+                        for (var j in gsModuleTags) {
+                            var variables = gsModuleTags[j]['variables'];
+                            for (var k in variables) {
+                                if (
+                                    'expression' === variables[k]['name'] &&
+                                    '' === variables[k]['value']
+                                ) {
+                                    globalSearchData = false;
+                                    break the_loop_1;
                                 }
-                            }
-                        } else if ("advanced_search" === module) {
-                            if (true === isPrimary) {
-                                for (var j in moduleTags) {
-                                    var variables = moduleTags[j]['variables'];
-                                    for (var k in variables) {
-                                        if (
-                                            'operator_value' === variables[k]['name'] &&
-                                            '' === variables[k]['value']
-                                        ) {
-                                            delete moduleTags[j];
-                                        }
-                                    }
-                                }
-                            }
-                        } else if ("head_columns_sort" === module) {
-                            for (var j in moduleTags) {
-                                var variables = moduleTags[j]['variables'];
-                                for (var k in variables) {
-                                    if (
-                                        'direction' === variables[k]['name'] &&
-                                        'neutral' === variables[k]['value']
-                                    ) {
-                                        delete moduleTags[j];
-                                    }
 
-                                }
-                            }
-                        } else if ("neck_filters" === module) {
-                            for (var j in moduleTags) {
-                                var variables = moduleTags[j]['variables'];
-                                for (var k in variables) {
-                                    if (
-                                        'operator_value' === variables[k]['name'] &&
-                                        '' === variables[k]['value']
-                                    ) {
-                                        delete moduleTags[j];
-                                    }
-
-                                }
                             }
                         }
-
-
-                        for (var j in moduleTags) {
-                            tags.push(moduleTags[j]);
-                        }
-
-                    } else {
-                        // maybe the dev don't use this module at all in his (makes more sense to me to use his than her from now on,
-                        // as most dev are men, and men in general are by nature more of the dare-devil type, whereas women
-                        // are specialized in life reproduction, and so coding is about testing, it's something that I
-                        // associate more with man than woman, as the man tests for the woman) list.
+                    if (null === globalSearchData) {
+                        globalSearchData = gsModuleTags;
                     }
+                }
+
+
+                // ADVANCED SEARCH
+                //----------------------------------------
+                var asModuleTags = {};
+                if ("advanced_search" in allTagsByGroup) {
+                    asModuleTags = allTagsByGroup["advanced_search"];
+
+                    the_loop_2:
+                        for (var j in asModuleTags) {
+                            var variables = asModuleTags[j]['variables'];
+                            for (var k in variables) {
+                                if (
+                                    'operator_value' === variables[k]['name'] &&
+                                    '' === variables[k]['value'].trim()
+                                ) {
+                                    delete asModuleTags[j];
+                                }
+
+                            }
+                        }
+                    asModuleTags = getCleanArray(asModuleTags);
+                    if (0 === asModuleTags.length) {
+                        advancedSearchData = false;
+                    } else {
+                        advancedSearchData = this.combineAdvancedSearch(asModuleTags);
+                    }
+                }
+
+                // HEAD COLUMNS SORT
+                //----------------------------------------
+                var hcModuleTags = {};
+                if ("head_columns_sort" in allTagsByGroup) {
+                    hcModuleTags = allTagsByGroup["head_columns_sort"];
+                    for (var j in hcModuleTags) {
+                        var variables = hcModuleTags[j]['variables'];
+                        for (var k in variables) {
+                            if (
+                                'direction' === variables[k]['name'] &&
+                                'neutral' === variables[k]['value']
+                            ) {
+                                delete hcModuleTags[j];
+                            }
+
+                        }
+                    }
+                    hcModuleTags = getCleanArray(hcModuleTags);
+                    headColumnsSortData = hcModuleTags;
+                }
+
+
+                // NECK FILTERS
+                //----------------------------------------
+                var ncModuleTags = {};
+                if ("neck_filters" in allTagsByGroup) {
+                    ncModuleTags = allTagsByGroup["neck_filters"];
+                    for (var j in ncModuleTags) {
+                        var variables = ncModuleTags[j]['variables'];
+                        for (var k in variables) {
+                            if (
+                                'operator_value' === variables[k]['name'] &&
+                                '' === variables[k]['value']
+                            ) {
+                                delete ncModuleTags[j];
+                            }
+                        }
+                    }
+
+                    ncModuleTags = getCleanArray(ncModuleTags);
+                    if (0 === ncModuleTags.length) {
+                        neckFiltersData = false;
+                    } else {
+                        neckFiltersData = ncModuleTags;
+                    }
+                }
+
+
+                // PAGINATION
+                //----------------------------------------
+                if ("pagination" in allTagsByGroup) {
+                    paginationData = allTagsByGroup["pagination"];
+                }
+
+
+                //----------------------------------------
+                // APPLYING RULES AND ADDING TAGS
+                //----------------------------------------
+
+                console.log("globalSearchData", globalSearchData);
+                console.log("advancedSearchData", advancedSearchData);
+                console.log("headColumnsSortData", headColumnsSortData);
+                console.log("neckFiltersData", neckFiltersData);
+                console.log("paginationData", paginationData);
+
+                if (false !== globalSearchData) {
+                    advancedSearchData = false;
+                    this.resetAdvancedSearchForm();
+                }
+                if (false !== advancedSearchData) {
+                    globalSearchData = false;
+                    this.resetGlobalSearchForm();
+                }
+
+                var isCombinedSearch = false;
+                if (false !== neckFiltersData) {
+                    if (
+                        false !== globalSearchData ||
+                        false !== advancedSearchData
+                    ) {
+                        isCombinedSearch = true;
+                    }
+                }
+
+
+                //----------------------------------------
+
+                if (true === isCombinedSearch) {
+                    tags.push({
+                        "tag_group": "special",
+                        "tag_id": "open_parenthesis",
+                    });
+                }
+                if (false !== globalSearchData) {
+                    this.pushTags(tags, globalSearchData);
+                }
+                if (false !== advancedSearchData) {
+                    this.pushTags(tags, advancedSearchData);
+                }
+                if (true === isCombinedSearch) {
+                    tags.push({
+                        "tag_group": "special",
+                        "tag_id": "close_parenthesis",
+                    });
+                    tags.push({
+                        "tag_group": "special",
+                        "tag_id": "and",
+                    });
+                    tags.push({
+                        "tag_group": "special",
+                        "tag_id": "open_parenthesis",
+                    });
+                }
+                if (false !== neckFiltersData) {
+                    this.pushTags(tags, implodeWith({
+                        "tag_group": "special",
+                        "tag_id": "and",
+                    }, neckFiltersData));
+                }
+
+                if (true === isCombinedSearch) {
+                    tags.push({
+                        "tag_group": "special",
+                        "tag_id": "close_parenthesis",
+                    });
+                }
+
+
+                this.pushTags(tags, headColumnsSortData);
+                if (null !== paginationData) {
+                    this.pushTags(tags, paginationData);
                 }
 
 
                 this.postTags(tags);
 
 
+            },
+            pushTags: function (tags, moduleTags) {
+                if (null !== moduleTags && false !== moduleTags) {
+                    for (var j in moduleTags) {
+                        tags.push(moduleTags[j]);
+                    }
+                }
             },
             postTags: function (tags) {
 
@@ -447,8 +631,10 @@ if ("undefined" === typeof window.OpenAdminTableHelper) {
 
 
                 $.post(this.options.service_url, {
+                    ajax_handler_id: this.options.ajax_handler_id,
+                    ajax_action_id: this.options.ajax_action_id,
                     request_id: this.options.request_id,
-                    csrf_token: "really??",
+                    csrf_token: this.options.csrf_token,
                     tags: tags,
 
                 }, function (data) {
@@ -482,7 +668,11 @@ if ("undefined" === typeof window.OpenAdminTableHelper) {
                             }
                             var jFirst = jNumberOfRowsInfo.find('.nbri-current-first');
                             if (jFirst.length) {
-                                jFirst.html(data.current_page_first + 1);
+                                var curPageFirst = data.current_page_first;
+                                if (0 !== data.current_page_last) {
+                                    curPageFirst += 1;
+                                }
+                                jFirst.html(curPageFirst);
                             }
                             var jLast = jNumberOfRowsInfo.find('.nbri-current-last');
                             if (jLast.length) {
@@ -521,6 +711,92 @@ if ("undefined" === typeof window.OpenAdminTableHelper) {
                     $this.options.on_request_after($this.jContainer);
                 });
 
+            },
+
+            /**
+             * Intertwining the tagItems with the OR or AND special tags,
+             * and return the resulting array.
+             *
+             *
+             * In this advanced search, it is assumed that lines are stacked one below the other,
+             * and therefore that OR groups are contiguous in the stack.
+             *
+             * Note: the control id is not handled properly in the gui todo...
+             *
+             * @param tagItems
+             * @returns array
+             */
+            combineAdvancedSearch: function (tagItems) {
+                var newArr = [];
+                //----------------------------------------
+                // PREPARING THE TMP OBJ
+                //----------------------------------------
+                /**
+                 * I use a tmp object to create proper parentheses.
+                 */
+                var tmpObj = {};
+                var columnName;
+                for (var i in tagItems) {
+
+                    var tagItem = tagItems[i];
+                    var variables = tagItem['variables'];
+                    for (var j in variables) {
+                        if ('column' === variables[j]["name"]) {
+                            columnName = variables[j]["value"];
+                            if (!(columnName in tmpObj)) {
+                                tmpObj[columnName] = [];
+                            }
+                            tmpObj[columnName].push(tagItem);
+                            break;
+                        }
+                    }
+                }
+
+                //----------------------------------------
+                // NOW CREATING GROUPS
+                //----------------------------------------
+                var c = 0;
+                var d = 0;
+                var theTagItems = [];
+                for (columnName in tmpObj) {
+                    if (0 !== c) {
+                        newArr.push({
+                            "tag_group": "special",
+                            "tag_id": "and",
+                        });
+                    }
+
+                    theTagItems = tmpObj[columnName];
+                    d = 0;
+                    var count = theTagItems.length;
+                    if (count > 1) {
+                        newArr.push({
+                            "tag_group": "special",
+                            "tag_id": "open_parenthesis",
+                        });
+                    }
+                    for (var j in theTagItems) {
+                        if (0 !== d) {
+                            newArr.push({
+                                "tag_group": "special",
+                                "tag_id": "or",
+                            });
+                        }
+                        tagItem = theTagItems[j];
+                        newArr.push(tagItem);
+                        d++;
+                    }
+                    if (count > 1) {
+                        newArr.push({
+                            "tag_group": "special",
+                            "tag_id": "close_parenthesis",
+                        });
+                    }
+                    c++;
+                }
+
+
+                return newArr;
             },
             updatePagination: function (data) {
 
@@ -682,8 +958,11 @@ if ("undefined" === typeof window.OpenAdminTableHelper) {
 
 
         window.OpenAdminTableHelper._defaults = {
-            service_url: '/realist-ajax-service',
+            service_url: '/ajax-handler',
+            ajax_handler_id: 'Light_Realist',
+            ajax_action_id: 'realist-request',
             request_id: 'none',
+            csrf_token: 'your_csrf_token_value',
             use_spinkit_helper: true,
             table_selector: 'none',
             primary_group: [

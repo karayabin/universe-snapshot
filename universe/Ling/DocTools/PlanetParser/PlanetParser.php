@@ -70,7 +70,6 @@ class PlanetParser implements GenericParserInterface
     protected $generatedItems2Url;
 
 
-
     /**
      * Builds the PlanetParser instance.
      */
@@ -88,23 +87,32 @@ class PlanetParser implements GenericParserInterface
      * Returns the PlanetInfo object corresponding to the parsed $planetDir,
      * and creates a PlanetReport (retrieved using the getReport method).
      *
+     * Available options are:
+     * - ignoreFilesStartingWith: array of prefixes to look for. If a prefix matches the beginning of a (relative) file path (relative to the planet root dir),
+     *          then the file is excluded.
+     *
      *
      * @param $planetDir
+     * @param $options
      * @return InfoInterface
      * @throws \Exception
      * @seeMethod getReport
      */
-    public function parse(string $planetDir): InfoInterface
+    public function parse(string $planetDir, array $options = []): InfoInterface
     {
-
         if (null === $this->notationInterpreter) {
             throw new PlanetParserException("Config error. Set the notationInterpreter property first. Use the setNotationInterpreter method.");
         }
 
-
         if (is_dir($planetDir)) {
 
-            $classes = PlanetTool::getClassNames($planetDir);
+
+            $ignoreFilesStartingWith = $options['ignoreFilesStartingWith'] ?? [];
+
+
+            $classes = PlanetTool::getClassNames($planetDir, [
+                "ignoreFilesStartingWith" => $ignoreFilesStartingWith,
+            ]);
             $notationInterpreter = $this->notationInterpreter;
 
             $classParser = new ClassParser();
@@ -163,8 +171,6 @@ class PlanetParser implements GenericParserInterface
     {
         $this->generatedItems2Url = $generatedItems2Url;
     }
-
-
 
 
     /**

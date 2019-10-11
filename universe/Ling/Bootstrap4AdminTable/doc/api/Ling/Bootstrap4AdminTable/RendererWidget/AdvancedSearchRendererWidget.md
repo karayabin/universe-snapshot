@@ -4,7 +4,7 @@
 
 The AdvancedSearchRendererWidget class
 ================
-2019-08-15 --> 2019-09-23
+2019-08-15 --> 2019-10-11
 
 
 
@@ -24,26 +24,38 @@ Class synopsis
 
 class <span class="pl-k">AdvancedSearchRendererWidget</span> extends [AbstractOpenAdminTableRendererWidget](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/AbstractOpenAdminTableRendererWidget.md) implements [RendererWidgetInterface](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/RendererWidgetInterface.md) {
 
+- Properties
+    - protected array [$fields](#property-fields) ;
+
 - Methods
+    - public [__construct](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/AdvancedSearchRendererWidget/__construct.md)() : void
+    - public [setFields](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/AdvancedSearchRendererWidget/setFields.md)(array $fields) : void
     - public [renderLink](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/AdvancedSearchRendererWidget/renderLink.md)() : void
     - public [render](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/AdvancedSearchRendererWidget/render.md)() : void
-
-- Inherited methods
-    - public [AbstractRendererWidget::__construct](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/AbstractRendererWidget/__construct.md)() : void
 
 }
 
 
 
 
+Properties
+=============
+
+- <span id="property-fields"><b>fields</b></span>
+
+    This property holds the fields for this instance.
+    
+    
+
 
 
 Methods
 ==============
 
+- [AdvancedSearchRendererWidget::__construct](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/AdvancedSearchRendererWidget/__construct.md) &ndash; Builds the AdvancedSearchRendererWidget instance.
+- [AdvancedSearchRendererWidget::setFields](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/AdvancedSearchRendererWidget/setFields.md) &ndash; Sets the fields.
 - [AdvancedSearchRendererWidget::renderLink](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/AdvancedSearchRendererWidget/renderLink.md) &ndash; Prints a link that makes the advanced form toggle between the collapsed state and the expanded state.
 - [AdvancedSearchRendererWidget::render](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/AdvancedSearchRendererWidget/render.md) &ndash; Prints the widget html.
-- [AbstractRendererWidget::__construct](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/AbstractRendererWidget/__construct.md) &ndash; Builds the AbstractRendererWidget instance.
 
 
 

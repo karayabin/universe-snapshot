@@ -1,6 +1,6 @@
 Duelist
 ==============
-2019-08-23
+2019-08-23 -> 2019-10-10
 
 
 Table of Contents
@@ -13,11 +13,9 @@ Table of Contents
 * [The limit setting](#the-limit-setting)
 * [Options](#options)
 * [Routines](#routines)
+* [Csrf token](#csrf-token)
  * [The operator_and_value routine](#the-operator_and_value-routine)
 * [Building the where expression](#building-the-where-expression)
-  * [Where groups](#where-groups)
-  * [The default where mode](#the-default-where-mode)
-  * [The groups where mode](#the-groups-where-mode)
 * [Ric](#ric)
 * [Dynamic injection](#dynamic-injection)
 
@@ -49,12 +47,14 @@ We can conceptually divide the request declaration settings in sections:
 - limit setting 
 - options
 - routines
+- csrf token
 
 
 
 
 The base sql query
 --------------
+-> 2019-10-10
 
 This part is the safest part of the request declaration.
 The user has almost no interaction with it.
@@ -90,6 +90,7 @@ The developer writes this section by using the following settings:
 
 The user injections
 --------------
+-> 2019-10-10
 
 The developer can also allow users to inject data to build a more dynamic sql request.
 The settings (i.e. sections) where the user has potential interaction are:
@@ -161,6 +162,7 @@ User injection in tag expressions is brought by special notation:
 
 
 ### Variables
+-> 2019-10-10
 
 A variable is a string starting with the dollar symbol ($).
 When a variable is written, it is expected that the user also provides a value for it, otherwise the request should be rejected, unless
@@ -180,6 +182,7 @@ If the check fails, the request is rejected.
 
 
 ### Inner markers
+-> 2019-10-10
 
 An **inner marker** is a string starting with the colon symbol (:), and has the following notation:
 
@@ -207,6 +210,7 @@ When an **inner marker** is written, it is expected that the user will bring the
 
 The limit setting
 ------------
+-> 2019-10-10
 
 The **limit** setting is special, because it's simpler than the other sql clauses.
 The limit setting is a simple array with two entries:
@@ -240,6 +244,7 @@ As long as **page_length** is not set, the page will be forced to 1.
 
 Options
 --------
+-> 2019-10-10
 
 The duelist conception so far is quite straightforward.
 However it might not handle all the problems we will be facing when writing gui lists.
@@ -263,15 +268,13 @@ The base **options** are:
             - **operators**: array. The available operators. By default, the one defined in the [open admin protocol](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/open-admin-table-protocol.md) are used.
             - **where_repeat_operator**: string=AND. The **where repeat operator**.
                         See the "where groups" section below for more details.        
-- **where**: array where related options (see the "Building the where expression" section below for more details).
-    - **mode**: string=default. The **where mode** (see the "Building the where expression" section below for more details).
-    - **repeat_operator**: string=AND. The repeat operator to use when mode=default (see the "Building the where expression" section below for more details).
-    -...(more variables, depending on the mode)
+
 
 
 
 Routines
 ----------
+-> 2019-10-10
 
 So as we said, options are here to resolve problems.
 But sometimes, we need more code to solve a problem.
@@ -287,7 +290,47 @@ The available routines are:
 
 
 
+Csrf token
+--------------
+-> 2019-10-10
+
+As duelist was meant to be invoked from an ajax service, it's naturally vulnerable to csrf attacks.
+The csrf_token option allows us to secure the ajax service.
+
+It's an array or null. An example is this:
+
+```yaml
+csrf_token:
+    name: realist-request
+    value: REALIST(Light_Kit_Admin, csrf_token, realist-request)
+```
+
+If the value is null, or if the **csrf_token** key doesn't exist in the **requestDeclaration** array,
+then no csrf check will be performed (not recommended).
+
+If it's an array, it must contain the following entries:
+
+- name: the name of the csrf token to validate against
+- value: the value of the token. Note: in the above example I used the [dynamic injection](#dynamic-injection) notation
+    to generate the csrf token value on the fly (rather than using a hard-coded value).
+    
+
+Usually, the name "realist-request" is used for a token used to protect a realist/duelist request.    
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### The operator_and_value routine
+-> 2019-10-10
 
 This routine transforms some special inner markers in a **tagExpression**.
 
@@ -339,129 +382,21 @@ because it will be added automatically by the routine if necessary).
  
 Building the where expression
 =======================
+-> 2019-10-10
 
 The where expression is sometimes the result of combining multiple tags together.
-When this happens, we need to decide how to combine them, using the AND or OR keywords.
+While the developer is responsible for creating the tags, the gui is responsible for providing the tags in
+the right order, producing a valid sql query.
 
-Since there are a lot of ways we could combine those tags, we provide different modes (called **where modes**)
-for the developer to choose from.
-
-
-The **where mode** defines how tags are combined together to form the final where expression.
-
-The **where mode** is defined using the **where.mode* option.
-
-It can be one of the following values:
-
-- default
-- groups 
-
-
-
-Before we dive into the different modes details, here are a few concepts that might be useful:
-
-- where groups
-
-
-
-
-Where groups
--------------
-
-If we slice a **where expression** by using the OR and/or AND operators, we end up with some "logical components".
- 
-A **where group** basically represents such a "logical component".  
-
-The user sending the tags can send one tag, or multiple tags.
-When multiple tags are sent, the same tag can sometimes be sent multiple times with different parameters (aka variables).
-
-This is usually the case when the tags is generic, for instance:
-
-- my_generic_where_tag: $column $operator :%operator_value%
-
-
-A **where group** is a virtual group created for each tag that the user provides in the where section (of the **request declaration**).
-In case the user provides the same tag multiple times, all those tags will combine themselves to form only one **where group** with the same name.
-
-So for instance if the user provides the following where tags (with different variables):
-
-- **generic_filter**
-- **generic_filter**
-- **generic_filter**
-- **generic_sub_filter**
-
-Then we would have two different **where groups**:
-
-- **generic_filter** (composed of three elements)
-- **generic_sub_filter** (composed of one element)
-
-
-
-Items inside the same **where group** combine with each other using logical operator: either OR or AND.
-
-We call that operator the **where repeat operator**.
-The **where repeat operator** can be defined using the **tag_options.$tagName.where_repeat_operator** option.
-It defaults to "AND".
-
-
-
-
-
-The default where mode
---------------------
-
-By default, when we combine multiple **where groups** by simply adding a chosen **repeat operator** between them. 
-
-This **repeat operator** is defined using the **where.repeat_operator** option, and defaults to AND.
-
-
-
-The groups where mode
--------------------
-
-In this mode, we decide how groups are combined using a **mask**.
-
-A mask looks like either one of those:
-
-- {whereGroupOne} OR {whereGroupTwo}
-- {whereGroupOne} AND ( {tagGroupTwo} OR  {tagGroupThree} )
-
-So as you can see
-
-- it's very flexible (i.e. we can recreate any where expression)
-- we enclose the **where group** names within the curly brackets
-- note: each **where group** is enclosed within extra parenthesis automatically
-
-
-The result of a mask is inserted in a **WHERE 0 OR ()** scheme, for instance:
-
-- WHERE 0 OR ( {whereGroupOne} OR {whereGroupTwo} )
-
-
-To setup a mask, we list all its participant tags in an array.
-
-This is done via the **where.masks** option.
-
-Here is an example of what the where option looks like when setup for using the **groups** where mode:
-
-```yaml
-where:
-    mode: groups
-    masks:
-        -
-            participants:
-                - tagOne
-                - tagTwo
-            mask: {tagOne} OR {tagTwo}
-        - ...
-                
-```
+Note: an attacker might corrupt the order in which tags are provided, thus resulting the execution
+of an invalid sql query. However, I considered this case and thought it wasn't a big deal (the attacker
+can't perform sql injection), is it?
 
 
 
 Ric
 ==========
-2019-09-03
+2019-09-03 
 
 
 See the official [ric definition](https://github.com/lingtalfi/NotationFan/blob/master/ric.md).
@@ -471,101 +406,67 @@ See the official [ric definition](https://github.com/lingtalfi/NotationFan/blob/
 
 Dynamic injection
 =============
-2019-09-19
+2019-09-19 
 
 
-So basically, the duelist uses a configuration array.
+Dynamic injection is basically the duelist way of allowing dynamic variables into the (otherwise static) configuration array.
 
-```yaml
-fruits:
-    a: apple
-    b: banana
-    c: cherry
-sports:
-    - judo
-    - karate
-    - kungfu
-```
-
-Dynamic injection allows us to replace the content of a configuration value dynamically, by using the REALIST(args) notation,
-where args is a comma separated list of arguments, using smart code notation (https://github.com/lingtalfi/Bat/blob/master/SmartCodeTool.md).
-
-The first argument is the identifier of the handler of the function (owned by a plugin who registered the handler in advance), 
-and the rest of the arguments will be passed to the handler.
-
-Because there are many plugins, I opted that a handler is an object rather than just a callable, the idea being that each plugin provides
-only one handler that handles all the use cases for that plugin.
-
-I provide a **RealistDynamicInjectionHandlerInterface** for that purpose.
-
-
-So for instance if the plugin **MyPlugin** registers a realist dynamic injection handler with identifier **MyPlugin**,
-we can imagine that this array:
-
-
+It allows this kind of syntax:
 
 ```yaml
-fruits:
-    a: apple
-    b: REALIST(MyPlugin, sayWord, hello )
-    c: cherry
-sports:
-    - judo
-    - karate
-    - kungfu
+csrf_token:
+    name: realist-request
+    value: REALIST(Light_Realist, csrf_token, realist-request)
 ```
 
-Would be converted by the realist tools to:
+See more details in the [duelist conceptions notes](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/duelist-conception-notes.md#dynamic-injection).
 
-```yaml
-fruits:
-    a: apple
-    b: hello
-    c: cherry
-sports:
-    - judo
-    - karate
-    - kungfu
-```
+Now the **Light_Realist** plugin comes with its own dynamic injection handler, which exposes the following actions
 
+- csrf_token
+- route
 
-All registrations of realist dynamic injection handlers is done via the realist service.
+In **Light_Realist**, the action is the second argument of the dynamic injection call.
  
-The result of a handler doesn't have to be a string, it could be an array, an object, an int, anything.
 
-If the handler returns a "stringable" result, then we can embed the handler call in a bigger string.
 
-For instance, we can do this:
+The csrf_token action
+----------
+The **csrf_token** action basically creates a token with the name given in the third argument, but only if it's not an ajax page (the router defines
+whether the page is an ajax page).
+
+If the page is an ajax page, then the csrf token will not be created.
+
+To understand why, we need to understand that the duelist idea fits in the larger idea that is the [realist idea](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/realist-conception-notes.md),
+which has two sides: a main side (displaying the regular page) and an ajax side (the backend server).
+
+in **Light_Realist**, by design, the request declaration array is used by both sides.
+
+The creation of a csrf token is created on the main side, and that's how we provide the token value to the js tools accompanying realist. 
+
+Those js tools then send the csrf token via ajax to the backend server which needs to check the csrf token value.
+This backend service also needs to access the request declaration array. But if it were re-interpreting the dynamic injection tags, it would create
+a new csrf token value, and the csrf token validation would fail. 
+
+You see, the csrf token dynamic injection tag was very active and dangerous: it created a csrf token every time you called it. Not something to take lightly.
+That's why I had to reduce its power by preventing it to create a token on the ajax side, so that the csrf validation could be done.
+
+
+
+The route action
+----------
+The **route** action is straightforward: it returns the url of the given route.
+
+Example:
 
 ```yaml
-fruits:
-    b: My name is REALIST(MyPlugin, sayWord, paul )
+params:
+    url: REALIST(Light_Realist, route, lah_route-ajax_handler)
 ```
-
-This would give us:
-
-```yaml
-fruits:
-    b: My name is paul
-```
-
 
 
 
 
  
-
-
-
-
-
-
  
 
-
-
-
-         
-
-
- 

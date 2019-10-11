@@ -1,0 +1,5 @@
+micro_permission:
+    instance: Ling\Light_MicroPermission\Service\LightMicroPermissionService
+    methods:
+        setContainer:
+            container: @container()

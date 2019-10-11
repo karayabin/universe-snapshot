@@ -4,7 +4,7 @@
 
 The PushCommand class
 ================
-2019-03-13 --> 2019-08-14
+2019-03-13 --> 2019-09-26
 
 
 
@@ -36,6 +36,7 @@ Options, flags
 
 - ?planet-dir=string. The path to the planet directory to push. If not set, will use the current directory.
 - -n: no packing. If set, the PackAndPushUniTool command will NOT be executed.
+- -?application=string. The path to the host application. This will be used to pack universe assets automatically for instance.
 
 
 

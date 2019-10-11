@@ -48,6 +48,39 @@ Summary
 History Log
 =============
 
+
+- 0.23.1 -- 2019-10-09
+
+    - added Light->isDebug method
+    
+- 0.23.0 -- 2019-10-01
+
+    - added route.is_ajax property again (new heuristic didn't work as hoped)
+    
+- 0.22.0 -- 2019-09-30
+
+    - add LightTool::getPluginName
+
+- 0.21.0 -- 2019-09-30
+
+    - removed route.is_ajax property again, found new heuristic to guess without it
+    
+- 0.20.0 -- 2019-09-24
+
+    - add LightTool
+    
+- 0.19.0 -- 2019-09-24
+
+    - add route.is_ajax property again
+    
+- 0.18.0 -- 2019-09-24
+
+    - add Light->initialize debug method
+    
+- 0.17.0 -- 2019-09-24
+
+    - removed route.is_ajax property, judged too painful for plugin authors
+
 - 0.16.0 -- 2019-09-20
 
     - update Light, end routine service is now called just before the response is sent (rather than after)

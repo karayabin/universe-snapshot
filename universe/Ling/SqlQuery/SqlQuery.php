@@ -6,86 +6,133 @@ namespace Ling\SqlQuery;
 
 use Ling\SqlQuery\Exception\SqlQueryException;
 
+/**
+ * The SqlQuery class.
+ */
 class SqlQuery implements SqlQueryInterface
 {
 
 
     /**
-     * @var array of strings, for instance:
+     * This property holds the fields for this instance.
+     * It's an array of strings, for instance:
      *
      *      - pseudo
      *      - a.pseudo
      *      - a.pseudo, a.email, b.type
+     *
+     * @var array
      */
     private $fields;
 
     /**
-     * @var string, you can add your aliases too if you want, for instance
+     *
+     * This property holds the table for this instance.
+     * You can add your aliases too if you want, for instance
      *      - ek_user
      *      - ek_user u
+     *
+     * @var string
      */
     private $table;
 
     /**
-     * @var array of strings, for instance:
+     * This property holds the joins for this instance.
+     * It's an array of strings, for instance:
      *
      *      - inner join table2 t on t.id=p.product_id
      *
      *      -   inner join table2 t on t.id=p.product_id
      *          inner join table3 t2 on t2.id=h.item_id
+     * @var array
      *
      *
      */
     private $joins;
+
     /**
-     * @var array of strings, never include the where keyword, but always
-     *      start with and or or (this list prefix your where with
-     *      where 1 like phpMyAdmin does).
-     *
-     *
-     *      For instance:
-     *
-     *      - and pseudo='michel'
-     *      - and (pseudo='michel' or e.country_id=6)
+     * This property holds the where for this instance.
+     * It's an array of strings.
+     * @var array
      *
      */
     private $where;
+
+    /**
+     * This property holds the array of groupBy items.
+     * @var array
+     */
     private $groupBy;
+
+
+    /**
+     * This property holds the array of having items for this instance.
+     * @var array
+     */
     private $having;
 
     /**
-     * @var array of groupName => [having statement, ...]
+     * This property holds the havingGroups for this instance.
+     * @var array
+     * Array of groupName => [having statement, ...]
      */
     private $havingGroups;
 
 
+    /**
+     * This property holds the array of having group types for this instance.
+     * It's an array of having group type => having group name.
+     * @var array
+     */
     private $havingGroupTypes;
 
     /**
-     * @var array of [$field, $dir] items
+     * This property holds the orderBy for this instance.
+     * It's an array of [$field, $dir] items
      *
      * Where:
      *  - $field is the name of a column
      *  - $dir is either asc or desc
      *
+     * @var array
      */
     private $orderBy;
 
     /**
-     * @var array: [offset, length]
+     * This property holds the limit for this instance.
+     * It's the array: [offset, length]
+     *
+     * @var array
      */
     private $limit;
+
     /**
-     * @var array of marker => value
+     * This property holds the markers for this instance.
+     * It's an array of marker => value
+     * @var array
      */
     private $markers;
 
 
     /**
-     * The default value for the where: usually 1 or 0, depending on if you intend
-     * to combine where expressions with AND or OR.
+     * The default value to add next to the where keyword.
      *
-     * The default value is 1 (favoring the AND side).
+     * Some systems, like phpMyAdmin at some point in time, used a default value of 1 (0 is also possible),
+     * then allowing you to have consistent where blocks all starting with AND.
+     *
+     * For instance:
+     *
+     * - where 1
+     *      - and pseudo='michel'
+     *      - and (pseudo='michel' or e.country_id=6)
+     *      - ...
+     *
+     *
+     * When I first created SqlQuery, I used a similar system in my apps, and therefore the default value is 1.
+     *
+     * Change it to 0, or empty string if you want.
+     *
+     *
      *
      *
      * @var string = 1
@@ -97,9 +144,13 @@ class SqlQuery implements SqlQueryInterface
      * a simple internal cache for the query,
      * note that once getSqlQuery is requested,
      * it will be frozen...
+     * @var string
      */
     private $_query;
 
+    /**
+     * Builds the SqlQuery instance.
+     */
     public function __construct()
     {
         $this->fields = [];
@@ -117,13 +168,20 @@ class SqlQuery implements SqlQueryInterface
         $this->markers = [];
     }
 
-    public static function create()
+    /**
+     * Returns an instance of this class.
+     * @return SqlQueryInterface
+     */
+    public static function create(): SqlQueryInterface
     {
         return new static();
     }
 
 
-    public function getSqlQuery()
+    /**
+     * @implementation
+     */
+    public function getSqlQuery(): string
     {
 
 
@@ -152,17 +210,25 @@ class SqlQuery implements SqlQueryInterface
         return $s;
     }
 
-    public function getCountSqlQuery()
+    /**
+     * @implementation
+     */
+    public function getCountSqlQuery(): string
     {
         return $this->getBaseRequest(true);
     }
 
-
-    public function getMarkers()
+    /**
+     * @implementation
+     */
+    public function getMarkers(): array
     {
         return $this->markers;
     }
 
+    /**
+     * @implementation
+     */
     public function getLimit()
     {
         return $this->limit;
@@ -170,49 +236,73 @@ class SqlQuery implements SqlQueryInterface
     //--------------------------------------------
     //
     //--------------------------------------------
-    public function addField(string $field)
+    /**
+     * @implementation
+     */
+    public function addField(string $field): SqlQueryInterface
     {
         $this->fields[] = $field;
         return $this;
     }
 
-    public function setTable(string $table)
+    /**
+     * @implementation
+     */
+    public function setTable(string $table): SqlQueryInterface
     {
         $this->table = $table;
         return $this;
     }
 
-    public function addJoin(string $join)
+    /**
+     * @implementation
+     */
+    public function addJoin(string $join): SqlQueryInterface
     {
         $this->joins[] = $join;
         return $this;
     }
 
-    public function addWhere(string $where)
+    /**
+     * @implementation
+     */
+    public function addWhere(string $where): SqlQueryInterface
     {
         $this->where[] = $where;
         return $this;
     }
 
-    public function addOrderBy(string $orderBy, string $direction)
+    /**
+     * @implementation
+     */
+    public function addOrderBy(string $orderBy, string $direction): SqlQueryInterface
     {
         $this->orderBy[] = [$orderBy, $direction];
         return $this;
     }
 
-    public function setLimit(int $offset, int $length)
+    /**
+     * @implementation
+     */
+    public function setLimit(int $offset, int $length): SqlQueryInterface
     {
         $this->limit = [$offset, $length];
         return $this;
     }
 
-    public function addMarker(string $key, string $value)
+    /**
+     * @implementation
+     */
+    public function addMarker(string $key, string $value): SqlQueryInterface
     {
         $this->markers[$key] = $value;
         return $this;
     }
 
-    public function addMarkers(array $markers)
+    /**
+     * @implementation
+     */
+    public function addMarkers(array $markers): SqlQueryInterface
     {
         foreach ($markers as $marker => $value) {
             $this->markers[$marker] = $value;
@@ -220,7 +310,10 @@ class SqlQuery implements SqlQueryInterface
         return $this;
     }
 
-    public function addHaving(string $having, string $groupName = null)
+    /**
+     * @implementation
+     */
+    public function addHaving(string $having, string $groupName = null): SqlQueryInterface
     {
         if (null === $groupName) {
             $this->having[] = $having;
@@ -230,25 +323,53 @@ class SqlQuery implements SqlQueryInterface
         return $this;
     }
 
-    public function setHavingGroupType(string $groupName, string $groupType)
+
+    /**
+     * @implementation
+     */
+    public function setHavingGroupType(string $groupName, string $groupType): SqlQueryInterface
     {
         $this->havingGroupTypes[$groupName] = $groupType;
         return $this;
     }
 
 
-    public function addGroupBy(string $groupBy)
+    /**
+     * @implementation
+     */
+    public function addGroupBy(string $groupBy): SqlQueryInterface
     {
         $this->groupBy[] = $groupBy;
         return $this;
     }
 
-    public function setGroupBy(array $groupBy)
+    /**
+     * @implementation
+     */
+    public function setGroupBy(array $groupBys): SqlQueryInterface
     {
-        $this->groupBy = $groupBy;
+        $this->groupBy = $groupBys;
         return $this;
     }
 
+
+
+
+    //--------------------------------------------
+    //
+    //--------------------------------------------
+    /**
+     * @implementation
+     */
+    public function __toString(): string
+    {
+        return $this->getSqlQuery();
+    }
+
+
+    //--------------------------------------------
+    //
+    //--------------------------------------------
     /**
      * Sets the defaultWhereValue.
      *
@@ -261,22 +382,16 @@ class SqlQuery implements SqlQueryInterface
 
 
 
-
-
-
     //--------------------------------------------
     //
     //--------------------------------------------
-    public function __toString()
-    {
-        return $this->getSqlQuery();
-    }
-
-
-    //--------------------------------------------
-    //
-    //--------------------------------------------
-    protected function error($msg)
+    /**
+     * Throws an exception.
+     *
+     * @param string $msg
+     * @throws SqlQueryException
+     */
+    protected function error(string $msg)
     {
         throw new SqlQueryException($msg);
     }
@@ -285,7 +400,14 @@ class SqlQuery implements SqlQueryInterface
     //--------------------------------------------
     //
     //--------------------------------------------
-    private function getBaseRequest($isCount = true)
+    /**
+     * Returns the base request.
+     *
+     * @param bool $isCount
+     * @return string
+     * @throws \Exception
+     */
+    private function getBaseRequest($isCount = true): string
     {
         if (empty($this->fields)) {
             $this->error("The fields cannot be empty");

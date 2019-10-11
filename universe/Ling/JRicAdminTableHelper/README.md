@@ -104,6 +104,10 @@ of ric actions. In other words, you can use this tool to send any action to the 
 History Log
 =============
 
+- 1.0.6 -- 2019-10-04
+
+    - update RicAdminTableHelper.getSelectedRic inner algorithm
+    
 - 1.0.5 -- 2019-09-23
 
     - fix wrong path for dependencies

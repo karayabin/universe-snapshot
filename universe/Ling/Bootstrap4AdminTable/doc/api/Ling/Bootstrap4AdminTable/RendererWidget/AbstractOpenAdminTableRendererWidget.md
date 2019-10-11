@@ -4,7 +4,7 @@
 
 The AbstractOpenAdminTableRendererWidget class
 ================
-2019-08-15 --> 2019-09-23
+2019-08-15 --> 2019-10-11
 
 
 

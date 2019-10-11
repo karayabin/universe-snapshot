@@ -1,6 +1,6 @@
 Ling/Light_PasswordProtector
 ================
-2019-08-07 --> 2019-08-07
+2019-08-07 --> 2019-10-03
 
 
 
@@ -17,5 +17,8 @@ Table of contents
     - [LightPasswordProtector::setAlgorithmOptions](https://github.com/lingtalfi/Light_PasswordProtector/blob/master/doc/api/Ling/Light_PasswordProtector/Service/LightPasswordProtector/setAlgorithmOptions.md) &ndash; Sets the algorithmOptions.
 
 
+Dependencies
+============
+- [Bat](https://github.com/lingtalfi/Bat)
 
 

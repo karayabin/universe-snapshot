@@ -4,7 +4,7 @@
 
 The Bootstrap4AdminTableRenderer class
 ================
-2019-08-15 --> 2019-09-23
+2019-08-15 --> 2019-10-11
 
 
 
@@ -31,6 +31,7 @@ class <span class="pl-k">Bootstrap4AdminTableRenderer</span> extends [OpenAdminT
 - Properties
     - protected [Ling\Bootstrap4AdminTable\RendererWidget\RendererWidgetInterface[]](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/RendererWidgetInterface.md) [$widgets](#property-widgets) ;
     - protected bool [$useSpinKitService](#property-useSpinKitService) ;
+    - private string|null [$_spinKitCssId](#property-_spinKitCssId) ;
 
 - Inherited properties
     - protected array [OpenAdminTableBaseRealistListRenderer::$dataTypes](#property-dataTypes) ;
@@ -41,20 +42,25 @@ class <span class="pl-k">Bootstrap4AdminTableRenderer</span> extends [OpenAdminT
     - protected [Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) [OpenAdminTableBaseRealistListRenderer::$container](#property-container) ;
     - protected array|string [OpenAdminTableBaseRealistListRenderer::$collapsibleColumnIndexes](#property-collapsibleColumnIndexes) ;
     - protected array [OpenAdminTableBaseRealistListRenderer::$listActionGroups](#property-listActionGroups) ;
+    - protected array [OpenAdminTableBaseRealistListRenderer::$listGeneralActions](#property-listGeneralActions) ;
+    - protected string [OpenAdminTableBaseRealistListRenderer::$containerCssId](#property-containerCssId) ;
+    - protected array [OpenAdminTableBaseRealistListRenderer::$sqlColumns](#property-sqlColumns) ;
 
 - Methods
     - public [__construct](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/Renderer/Bootstrap4AdminTableRenderer/__construct.md)() : void
     - public [registerWidget](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/Renderer/Bootstrap4AdminTableRenderer/registerWidget.md)(string $identifier, [Ling\Bootstrap4AdminTable\RendererWidget\RendererWidgetInterface](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/RendererWidgetInterface.md) $rendererWidget) : void
     - public [setUseSpinKitService](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/Renderer/Bootstrap4AdminTableRenderer/setUseSpinKitService.md)(bool $useSpinKitService) : void
+    - public [renderListGeneralActions](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/Renderer/Bootstrap4AdminTableRenderer/renderListGeneralActions.md)() : void
     - public [render](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/Renderer/Bootstrap4AdminTableRenderer/render.md)() : void
     - public [getWidget](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/Renderer/Bootstrap4AdminTableRenderer/getWidget.md)(string $identifier) : [RendererWidgetInterface](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/RendererWidgetInterface.md) | null
     - protected [printWidgetIfExists](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/Renderer/Bootstrap4AdminTableRenderer/printWidgetIfExists.md)(string $identifier) : void
     - protected [printSearchWidgets](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/Renderer/Bootstrap4AdminTableRenderer/printSearchWidgets.md)() : void
     - protected [callAssets](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/Renderer/Bootstrap4AdminTableRenderer/callAssets.md)() : void
-    - protected [printJavascript](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/Renderer/Bootstrap4AdminTableRenderer/printJavascript.md)(string $cssId) : void
+    - protected [printJavascript](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/Renderer/Bootstrap4AdminTableRenderer/printJavascript.md)() : void
 
 - Inherited methods
     - public OpenAdminTableBaseRealistListRenderer::prepareByRequestDeclaration(string $requestId, array $requestDeclaration, [Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) $container) : void
+    - public OpenAdminTableBaseRealistListRenderer::setContainerCssId(string $cssId) : mixed
     - public OpenAdminTableBaseRealistListRenderer::setDataTypes(array $array) : void
     - public OpenAdminTableBaseRealistListRenderer::setLabels(array $labels) : void
     - public OpenAdminTableBaseRealistListRenderer::setWidgetStatuses(array $widgetStatuses) : void
@@ -62,7 +68,9 @@ class <span class="pl-k">Bootstrap4AdminTableRenderer</span> extends [OpenAdminT
     - public OpenAdminTableBaseRealistListRenderer::setContainer([Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) $container) : void
     - public OpenAdminTableBaseRealistListRenderer::setCollapsibleColumnIndexes(?$collapsibleColumnIndexes) : void
     - public OpenAdminTableBaseRealistListRenderer::setListActionGroups(array $listActionGroups) : void
+    - public OpenAdminTableBaseRealistListRenderer::setListGeneralActions(array $listGeneralActions) : void
     - public OpenAdminTableBaseRealistListRenderer::setCsrfToken(string $csrfToken) : void
+    - public OpenAdminTableBaseRealistListRenderer::setSqlColumns(array $sqlColumns) : void
     - protected OpenAdminTableBaseRealistListRenderer::getDataType(string $columnName) : string
     - protected OpenAdminTableBaseRealistListRenderer::isWidgetEnabled(string $identifier) : bool
     - protected OpenAdminTableBaseRealistListRenderer::getListActionGroupLeafItems() : array
@@ -84,6 +92,12 @@ Properties
 - <span id="property-useSpinKitService"><b>useSpinKitService</b></span>
 
     This property holds whether to use the "spinkit_helper" service.
+    
+    
+
+- <span id="property-_spinKitCssId"><b>_spinKitCssId</b></span>
+
+    This property holds the temporary _spinKitCssId for this instance.
     
     
 
@@ -149,6 +163,24 @@ Properties
     
     
 
+- <span id="property-listGeneralActions"><b>listGeneralActions</b></span>
+
+    This property holds the listGeneralActions for this instance.
+    
+    
+
+- <span id="property-containerCssId"><b>containerCssId</b></span>
+
+    This property holds the containerCssId for this instance.
+    
+    
+
+- <span id="property-sqlColumns"><b>sqlColumns</b></span>
+
+    This property holds the sqlColumns for this instance.
+    
+    
+
 
 
 Methods
@@ -157,13 +189,15 @@ Methods
 - [Bootstrap4AdminTableRenderer::__construct](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/Renderer/Bootstrap4AdminTableRenderer/__construct.md) &ndash; Builds the Bootstrap4AdminTableRenderer instance.
 - [Bootstrap4AdminTableRenderer::registerWidget](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/Renderer/Bootstrap4AdminTableRenderer/registerWidget.md) &ndash; Registers a widget.
 - [Bootstrap4AdminTableRenderer::setUseSpinKitService](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/Renderer/Bootstrap4AdminTableRenderer/setUseSpinKitService.md) &ndash; Sets the useSpinKitService.
-- [Bootstrap4AdminTableRenderer::render](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/Renderer/Bootstrap4AdminTableRenderer/render.md) &ndash; Prints the static admin table.
+- [Bootstrap4AdminTableRenderer::renderListGeneralActions](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/Renderer/Bootstrap4AdminTableRenderer/renderListGeneralActions.md) &ndash; 
+- [Bootstrap4AdminTableRenderer::render](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/Renderer/Bootstrap4AdminTableRenderer/render.md) &ndash; Prints the list.
 - [Bootstrap4AdminTableRenderer::getWidget](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/Renderer/Bootstrap4AdminTableRenderer/getWidget.md) &ndash; Returns the RendererWidget instance identified by $identifier, or null if it doesn't exist.
 - [Bootstrap4AdminTableRenderer::printWidgetIfExists](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/Renderer/Bootstrap4AdminTableRenderer/printWidgetIfExists.md) &ndash; Prints the widget identified by $identifier if it has been registered.
 - [Bootstrap4AdminTableRenderer::printSearchWidgets](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/Renderer/Bootstrap4AdminTableRenderer/printSearchWidgets.md) &ndash; Prints the search widgets.
 - [Bootstrap4AdminTableRenderer::callAssets](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/Renderer/Bootstrap4AdminTableRenderer/callAssets.md) &ndash; Calls the necessary assets to display the list correctly.
 - [Bootstrap4AdminTableRenderer::printJavascript](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/Renderer/Bootstrap4AdminTableRenderer/printJavascript.md) &ndash; Prints the necessary javascript.
 - OpenAdminTableBaseRealistListRenderer::prepareByRequestDeclaration &ndash; Prepares the list renderer with the given request declaration.
+- OpenAdminTableBaseRealistListRenderer::setContainerCssId &ndash; Sets the container css id.
 - OpenAdminTableBaseRealistListRenderer::setDataTypes &ndash; Sets the data types.
 - OpenAdminTableBaseRealistListRenderer::setLabels &ndash; Sets the labels.
 - OpenAdminTableBaseRealistListRenderer::setWidgetStatuses &ndash; Sets the widget statuses.
@@ -171,7 +205,9 @@ Methods
 - OpenAdminTableBaseRealistListRenderer::setContainer &ndash; Sets the container.
 - OpenAdminTableBaseRealistListRenderer::setCollapsibleColumnIndexes &ndash; Sets the collapsibleColumnIndexes.
 - OpenAdminTableBaseRealistListRenderer::setListActionGroups &ndash; Sets the listActionGroups.
+- OpenAdminTableBaseRealistListRenderer::setListGeneralActions &ndash; Sets the listGeneralActions.
 - OpenAdminTableBaseRealistListRenderer::setCsrfToken &ndash; Sets the csrfToken value.
+- OpenAdminTableBaseRealistListRenderer::setSqlColumns &ndash; Sets the sqlColumns.
 - OpenAdminTableBaseRealistListRenderer::getDataType &ndash; Returns the data type of the column.
 - OpenAdminTableBaseRealistListRenderer::isWidgetEnabled &ndash; Returns whether the widget identified by $identifier is enabled.
 - OpenAdminTableBaseRealistListRenderer::getListActionGroupLeafItems &ndash; Returns the array of leaf items (i.e.

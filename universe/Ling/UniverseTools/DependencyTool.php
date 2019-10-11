@@ -34,6 +34,11 @@ class DependencyTool
      *
      *
      *
+     * Available options are:
+     * - ignoreFilesStartingWith: array of prefixes to look for. If a prefix matches the beginning of a (relative) file path (relative to the planet root dir),
+     *          then the file is excluded.
+     *
+     *
      * @param string $planetDir . The directory path of the planet to scan.
      * @param array $conf
      * A reference to the configuration array created, which has the following structure:
@@ -41,12 +46,13 @@ class DependencyTool
      * - post_install: the given $postInstall array
      *
      * @param array $postInstall
+     * @param array $options
      *
      *
      * @return string
      * @throws UniverseToolsException
      */
-    public static function parseDumpDependencies(string $planetDir, array &$conf = [], array $postInstall = [])
+    public static function parseDumpDependencies(string $planetDir, array &$conf = [], array $postInstall = [], array $options=[])
     {
         if (false === is_dir($planetDir)) {
             throw new UniverseToolsException("Dir not found: $planetDir");
@@ -54,6 +60,7 @@ class DependencyTool
 
         $allUseStatements = [];
         $knownGalaxies = GalaxyTool::getKnownGalaxies();
+        $ignoreFilesStartingWith = $options['ignoreFilesStartingWith'] ?? [];
 
 
         $pInfo = PlanetTool::getGalaxyNamePlanetNameByDir($planetDir);
@@ -62,7 +69,22 @@ class DependencyTool
             list($galaxy, $planetName) = $pInfo;
             $files = YorgDirScannerTool::getFilesWithExtension($planetDir, 'php', false, true, true);
 
+
+
             foreach ($files as $file) {
+
+                /**
+                 * Skip files starting with the specified prefixes
+                 */
+                if ($ignoreFilesStartingWith) {
+                    foreach ($ignoreFilesStartingWith as $prefix) {
+                        if (0 === strpos($file, $prefix)) {
+                            continue 2;
+                        }
+                    }
+                }
+
+
 
                 $content = file_get_contents($planetDir . "/" . $file);
 
@@ -344,12 +366,17 @@ class DependencyTool
      * If the postInstall array is passed, it will be merged with any existing post install directives that might
      * already be there (which might happen if the dependency file already exists).
      *
+     * Available options are:
+     * - ignoreFilesStartingWith: array of prefixes to look for. If a prefix matches the beginning of a (relative) file path (relative to the planet root dir),
+     *          then the file is excluded.
+     *
      * @param string $planetDir
      * @param array $postInstall
+     * @param array $options
      * @return bool
      * @throws UniverseToolsException
      */
-    public static function writeDependencies(string $planetDir, array $postInstall = [])
+    public static function writeDependencies(string $planetDir, array $postInstall = [], array $options=[])
     {
         $dependencyFile = $planetDir . "/dependencies.byml";
         $_postInstall = [];
@@ -361,7 +388,7 @@ class DependencyTool
 
         $_postInstall = array_merge($_postInstall, $postInstall);
 
-        $dependenciesString = self::parseDumpDependencies($planetDir, $conf, $_postInstall);
+        $dependenciesString = self::parseDumpDependencies($planetDir, $conf, $_postInstall, $options);
         return FileSystemTool::mkfile($dependencyFile, $dependenciesString);
     }
 }

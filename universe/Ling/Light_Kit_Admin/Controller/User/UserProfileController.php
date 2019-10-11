@@ -152,7 +152,7 @@ class UserProfileController extends AdminPageController
         //--------------------------------------------
         return $this->renderAdminPage('Light_Kit_Admin/kit/zeroadmin/user/user_profile', [
             "form" => $form,
-            "is_root" => RightsHelper::isRoot($user),
+            "is_root" => RightsHelper::isRoot($container),
             "rights" => RightsHelper::getGroupedRights($user->getRights()),
         ]);
     }

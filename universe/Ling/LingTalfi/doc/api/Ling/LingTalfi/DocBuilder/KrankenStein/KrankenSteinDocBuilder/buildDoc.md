@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [KrankenSteinDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/KrankenStein/KrankenSteinDocBuilder/buildDoc.md)($htmlMode = false) : void
+public static [KrankenSteinDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/KrankenStein/KrankenSteinDocBuilder/buildDoc.md)($htmlMode = true) : void
 
 
 
@@ -24,7 +24,7 @@ public static [KrankenSteinDocBuilder::buildDoc](https://github.com/lingtalfi/Li
 Launch this function to generate the documentation for the KrankenStein planet.
 (based on the LingGitPhpPlanetDocBuilder doc builder.
 
-If htmlMode is false (the default),
+If htmlMode is true (the default),
 this method will generate all files in md format in the following directory:
 
 - /myphp/universe/KrankenStein/doc

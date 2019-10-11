@@ -77,7 +77,6 @@ class LightWebsiteUserDatabaseBullsheeter extends LightAbstractBullsheeter
                 for ($i = 1; $i <= $nbRows; $i++) {
 
                     $sExtra = serialize([]);
-                    $sRights = serialize($this->getRandomRights());
 
 
                     $avatarUrl = RandomTool::pickRandomFile($this->avatarImgDir);
@@ -94,7 +93,6 @@ class LightWebsiteUserDatabaseBullsheeter extends LightAbstractBullsheeter
                         "pseudo" => $identifier,
                         "password" => $pass,
                         "avatar_url" => $relativeAvatarUrl,
-                        "rights" => $sRights,
                         "extra" => $sExtra,
                     ]);
                 }
@@ -124,44 +122,5 @@ class LightWebsiteUserDatabaseBullsheeter extends LightAbstractBullsheeter
     public function setApplicationDir(string $applicationDir)
     {
         $this->applicationDir = $applicationDir;
-    }
-
-
-
-
-
-
-    //--------------------------------------------
-    //
-    //--------------------------------------------
-    /**
-     * Returns a random array of rights.
-     * It's an array of plugin name => rights (rights is an array of strings).
-     *
-     *
-     * @return array
-     * @throws \Exception
-     */
-    protected function getRandomRights(): array
-    {
-        $ret = [];
-        $plugins = [
-            "Light_Kit_Admin",
-            "Light_Plugin_One",
-            "Light_Plugin_Two",
-            "Light_Plugin_Three",
-        ];
-        $rights = [
-            "user",
-            "admin",
-        ];
-
-        $chosenPlugins = RandomTool::pickRandomFromArray($plugins, rand(0, count($plugins)));
-
-        foreach ($chosenPlugins as $plugin) {
-            $chosenRights = RandomTool::pickRandomFromArray($rights, rand(1, count($rights)));
-            $ret[$plugin] = $chosenRights;
-        }
-        return $ret;
     }
 }

@@ -32,11 +32,20 @@ Summary
 - [hep reference](https://github.com/lingtalfi/NotationFan/blob/master/html-element-parameters.md)
 - [smart code](https://github.com/lingtalfi/NotationFan/blob/master/smart-code.md)
 - [universe assets](https://github.com/lingtalfi/NotationFan/blob/master/universe-assets.md)
+- [portable file name](https://github.com/lingtalfi/NotationFan/blob/master/portable-filename.md)
 
 
 History Log
 ===============
 
+- 1.7.1 -- 2019-10-04
+
+    - updated ric definition
+    
+- 1.7.0 -- 2019-10-01
+
+    - add portable fileName
+    
 - 1.6.1 -- 2019-09-23
 
     - add UniverseAssetDependencies trick

@@ -12,6 +12,32 @@ class AdvancedSearchRendererWidget extends AbstractOpenAdminTableRendererWidget
 
 
     /**
+     * This property holds the fields for this instance.
+     * @var array
+     */
+    protected $fields;
+
+
+    /**
+     * Builds the AdvancedSearchRendererWidget instance.
+     */
+    public function __construct()
+    {
+        $this->fields = [];
+    }
+
+    /**
+     * Sets the fields.
+     *
+     * @param array $fields
+     */
+    public function setFields(array $fields)
+    {
+        $this->fields = $fields;
+    }
+
+
+    /**
      * Prints a link that makes the advanced form toggle between the collapsed state and the expanded state.
      * To print the form, use the render method.
      */
@@ -32,15 +58,6 @@ class AdvancedSearchRendererWidget extends AbstractOpenAdminTableRendererWidget
     public function render()
     {
 
-        $fields = [
-            "id",
-            "identifier",
-            "pseudo",
-//            "password",
-            "avatar_url",
-            "rights",
-            "extra",
-        ];
 
         ?>
         <div class="table-responsive mb-5 collapse oath-advanced-search" id="admin-advanced-search">
@@ -50,18 +67,25 @@ class AdvancedSearchRendererWidget extends AbstractOpenAdminTableRendererWidget
                 <table class="table table-bordered table-striped">
                     <thead>
                     <tr>
+                        <th scope="col">And/Or</th>
                         <th scope="col">Column</th>
                         <th scope="col">Operator</th>
                         <th scope="col">Value</th>
+                        <th scope="col">Actions</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <?php foreach ($fields as $field):
+                    <?php foreach ($this->fields as $field):
 
                         ?>
 
                         <tr class="rtt-emitter" data-rtt-tag="generic_filter"
                             data-rtt-extra-tag_group="advanced_search">
+
+                            <td>
+                                <span class="oath-andor-keyword"></span>
+                            </td>
+
 
                             <td data-rtt-variable="column"
                                 data-rtt-value="<?php echo $field; ?>"><?php echo $field; ?></td>
@@ -82,13 +106,22 @@ class AdvancedSearchRendererWidget extends AbstractOpenAdminTableRendererWidget
                                        placeholder="" data-rtt-variable="operator_value">
 
                             </td>
+                            <td>
+                                <div class="btn btn-sm btn-outline-primary oath-add-btn">
+                                    <i class="fas fa-plus"></i>
+                                </div>
+                                <div class="btn btn-sm btn-outline-primary oath-remove-btn d-none"
+                                data-hide-class="d-none">
+                                    <i class="fas fa-minus"></i>
+                                </div>
+                            </td>
                         </tr>
                     <?php endforeach; ?>
                     </tbody>
                 </table>
                 <div class="text-right">
-                    <button type="submit" class="btn btn-primary oath-search-btn">Go
-                    </button>
+                    <button type="submit" class="btn btn-primary oath-search-btn">Go</button>
+                    <button type="submit" class="btn btn-secondary oath-reset-btn">Reset</button>
                 </div>
             </form>
         </div>

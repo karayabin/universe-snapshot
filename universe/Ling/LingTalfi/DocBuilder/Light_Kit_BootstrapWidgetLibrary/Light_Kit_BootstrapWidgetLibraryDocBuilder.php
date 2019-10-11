@@ -21,7 +21,7 @@ class Light_Kit_BootstrapWidgetLibraryDocBuilder
      * Launch this function to generate the documentation for the Light_Kit_BootstrapWidgetLibrary planet.
      * (based on the LingGitPhpPlanetDocBuilder doc builder.
      *
-     * If htmlMode is false (the default),
+     * If htmlMode is true (the default),
      * this method will generate all files in md format in the following directory:
      *
      * - /myphp/universe/Light_Kit_BootstrapWidgetLibrary/doc
@@ -42,7 +42,7 @@ class Light_Kit_BootstrapWidgetLibraryDocBuilder
      * @param bool $htmlMode
      * @throws DocBuilderException
      */
-    public static function buildDoc($htmlMode = false)
+    public static function buildDoc($htmlMode = true)
     {
 
         //--------------------------------------------

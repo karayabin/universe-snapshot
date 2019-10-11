@@ -4,18 +4,24 @@
 namespace Ling\Light_Realist\Service;
 
 
+use Ling\ArrayToString\ArrayToStringTool;
 use Ling\BabyYaml\BabyYamlUtil;
+use Ling\Bat\ArrayTool;
+use Ling\Bat\BDotTool;
 use Ling\Bat\SmartCodeTool;
 use Ling\Light\ServiceContainer\LightServiceContainerAwareInterface;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
+use Ling\Light\Tool\LightTool;
 use Ling\Light_Csrf\Service\LightCsrfService;
 use Ling\Light_Database\LightDatabasePdoWrapper;
 use Ling\Light_Realist\ActionHandler\LightRealistActionHandlerInterface;
 use Ling\Light_Realist\DynamicInjection\RealistDynamicInjectionHandlerInterface;
 use Ling\Light_Realist\Exception\LightRealistException;
 use Ling\Light_Realist\ListActionHandler\LightRealistListActionHandlerInterface;
+use Ling\Light_Realist\ListGeneralActionHandler\LightRealistListGeneralActionHandlerInterface;
 use Ling\Light_Realist\Rendering\RealistListRendererInterface;
 use Ling\Light_Realist\Rendering\RealistRowsRendererInterface;
+use Ling\Light_Realist\Tool\LightRealistTool;
 use Ling\ParametrizedSqlQuery\ParametrizedSqlQueryUtil;
 
 /**
@@ -111,6 +117,12 @@ class LightRealistService
      */
     protected $listActionHandlers;
 
+    /**
+     * This property holds the listGeneralActionHandlers for this instance.
+     * @var LightRealistListGeneralActionHandlerInterface[]
+     */
+    protected $listGeneralActionHandlers;
+
 
     /**
      * This property holds the listRenderers for this instance.
@@ -130,6 +142,13 @@ class LightRealistService
      */
     protected $dynamicInjectionHandlers;
 
+    /**
+     * This property holds the _requestDeclarationCache for this instance.
+     * An array of requestId => requestDeclaration array
+     * @var array
+     */
+    private $_requestDeclarationCache;
+
 
     /**
      * Builds the LightRealistService instance.
@@ -142,8 +161,10 @@ class LightRealistService
         $this->realistRowsRenderers = [];
         $this->actionHandlers = [];
         $this->listActionHandlers = [];
+        $this->listGeneralActionHandlers = [];
         $this->listRenderers = [];
         $this->dynamicInjectionHandlers = [];
+        $this->_requestDeclarationCache = [];
     }
 
 
@@ -177,6 +198,9 @@ class LightRealistService
      *
      * - ?tags: the tags to use with the request. (see @page(the realist tag transfer protocol) for more details).
      * - ?csrf_token: string|null. the value of the csrf token to check against. If not passed or null, no csrf checking will be performed.
+     * - ?csrf_token_pass: bool. If true, will bypass the csrf_token validation.
+     *          Usually, you only want to use this if you've already checked for another csrf token earlier (i.e. you
+     *          already trust that the user is who she claimed she is).
      *
      *
      * If the sql query is not valid, an exception will be thrown.
@@ -191,18 +215,19 @@ class LightRealistService
      */
     public function executeRequestById(string $requestId, array $params = []): array
     {
-
-
         $requestDeclaration = $this->getConfigurationArrayByRequestId($requestId);
 
 
         //--------------------------------------------
         // CHECKING CSRF TOKEN
         //--------------------------------------------
+        $csrfTokenPass = $params['csrf_token_pass'] ?? false;
         $csrfToken = $requestDeclaration['csrf_token'] ?? null;
-        if (null !== $csrfToken) {
-            $csrfTokenName = $csrfToken['name'] ?? "realist-request";
-            $this->checkCsrfToken($csrfTokenName, $params);
+        if (false === $csrfTokenPass) {
+            if (null !== $csrfToken) {
+                $csrfTokenName = $csrfToken['name'] ?? "realist-request";
+                $this->checkCsrfToken($csrfTokenName, $params);
+            }
         }
 
 
@@ -227,9 +252,13 @@ class LightRealistService
             $rows = $db->fetchAll($stmt, $markers);
             $countRow = $db->fetch($countStmt, $markers);
         } catch (\Exception $e) {
+
+            $sMarkers = nl2br(ArrayToStringTool::toPhpArray($markers));
+
             // sometimes it's easier to have the stmt displayed too, when debugging
             $debugMsg = "<ul>
 <li><b>Query</b>: $stmt</li>
+<li><b>Markers</b>: $sMarkers</li>
 <li><b>Error</b>: {$e->getMessage()}</li>
 </ul>
 ";
@@ -411,15 +440,38 @@ class LightRealistService
 
     /**
      * Registers a list action handler.
+     * List action ids should be formatted like this:
      *
+     * - list action id: {pluginName}.{listActionName}
+     *
+     *
+     * @param string $pluginName
      * @param LightRealistListActionHandlerInterface $handler
      */
-    public function registerListActionHandler(LightRealistListActionHandlerInterface $handler)
+    public function registerListActionHandler(string $pluginName, LightRealistListActionHandlerInterface $handler)
     {
-        $ids = $handler->getHandledIds();
-        foreach ($ids as $id) {
-            $this->listActionHandlers[$id] = $handler;
+        if ($handler instanceof LightServiceContainerAwareInterface) {
+            $handler->setContainer($this->container);
         }
+        $this->listActionHandlers[$pluginName] = $handler;
+    }
+
+
+    /**
+     * Registers a list general action handler.
+     * List general action ids should be formatted like this:
+     *
+     * - list general action id: {pluginName}.{listGeneralActionName}
+     *
+     * @param string $pluginName
+     * @param LightRealistListGeneralActionHandlerInterface $handler
+     */
+    public function registerListGeneralActionHandler(string $pluginName, LightRealistListGeneralActionHandlerInterface $handler)
+    {
+        if ($handler instanceof LightServiceContainerAwareInterface) {
+            $handler->setContainer($this->container);
+        }
+        $this->listGeneralActionHandlers[$pluginName] = $handler;
     }
 
 
@@ -446,23 +498,43 @@ class LightRealistService
         if (array_key_exists($id, $this->actionHandlers)) {
             return $this->actionHandlers[$id];
         }
-        throw new LightRealistException("No action handler found with id=$id.");
+        throw new LightRealistException("No action handler found with id $id.");
     }
 
 
     /**
-     * Returns the list action handler identified by the given id.
+     * Executes the list action identified by the given actionId, by calling the corresponding list action handler,
+     * and returns the expected ajax response.
      *
-     * @param string $id
-     * @return LightRealistListActionHandlerInterface
+     *
+     * @param string $actionId
+     * @param array $params
+     * @return array
      * @throws \Exception
      */
-    public function getListActionHandler(string $id): LightRealistListActionHandlerInterface
+    public function executeListAction(string $actionId, array $params): array
     {
-        if (array_key_exists($id, $this->listActionHandlers)) {
-            return $this->listActionHandlers[$id];
-        }
-        throw new LightRealistException("List action handler not found with id=$id.");
+        list($pluginName, $actionName) = explode('.', $actionId, 2);
+        $handler = $this->listActionHandlers[$pluginName];
+        return $handler->execute($actionName, $params);
+    }
+
+
+    /**
+     * Executes the list general action identified by the given actionId, by calling the corresponding list general action handler,
+     * and returns the expected ajax response.
+     *
+     *
+     * @param string $actionId
+     * @param array $params
+     * @return array
+     * @throws \Exception
+     */
+    public function executeListGeneralAction(string $actionId, array $params): array
+    {
+        list($pluginName, $actionName) = explode('.', $actionId, 2);
+        $handler = $this->listGeneralActionHandlers[$pluginName];
+        return $handler->execute($actionName, $params);
     }
 
 
@@ -499,36 +571,228 @@ class LightRealistService
 
 
     /**
-     * Decorates the given list action group array.
+     * Parses the given list action items (aka @page(toolbar items)) and turns them into @page(generic action items).
+     * If a generic action item is discarded, it won't appear in the resulting list.
      *
-     * This method is mainly used to translate an action id string from
-     * the request declaration into actual javascript code, with the help of
-     * the ListActionHandler objects.
-     *
-     * The given groups array structure is an array of @page(toolbar items).
-     *
-     * @param array $groups
+     * @param array $items
+     * @param string $requestId
      * @throws \Exception
      */
-    public function decorateListActionGroups(array &$groups)
+    public function prepareListActionGroups(array &$items, string $requestId)
     {
-        foreach ($groups as $k => $group) {
-            if (array_key_exists('action_id', $group)) {
-
-                $actionId = $group['action_id'];
-                if (array_key_exists($actionId, $this->listActionHandlers)) {
-                    $handler = $this->listActionHandlers[$actionId];
-                    $rawCallable = $handler->getJsActionCode($actionId);
-
-                    $groups[$k]['js_code'] = $rawCallable;
+        foreach ($items as $k => $item) {
+            if (array_key_exists('action_id', $item)) {
+                $res = $this->prepareGenericActionItem($item, $this->listActionHandlers, $requestId);
+                if (false === $res) {
+                    unset($items[$k]);
                 } else {
-                    $this->error("No list action handler defined for action $actionId.");
+                    $items[$k] = $item;
                 }
             } else {
-                // assuming this is a parent, we can ignore it
+                if (array_key_exists("items", $item)) {
+                    $groupItems = $item['items'];
+                    $this->prepareListActionGroups($groupItems, $requestId);
+                    $item['items'] = $groupItems;
+                    $items[$k] = $item;
+                }
+            }
+
+        }
+    }
+
+
+    /**
+     * Parses the given list general action items and turns them into @page(generic action items).
+     * If a generic action item is discarded, it won't appear in the resulting list.
+     *
+     *
+     * @param array $items
+     * @param string $requestId
+     * @throws \Exception
+     */
+    public function prepareListGeneralActions(array &$items, $requestId)
+    {
+        foreach ($items as $k => $item) {
+            $res = $this->prepareGenericActionItem($item, $this->listGeneralActionHandlers, $requestId);
+            if (false === $res) {
+                unset($items[$k]);
+            } else {
+                $items[$k] = $item;
             }
         }
     }
+
+
+    /**
+     * Returns the configuration array corresponding to the given request id.
+     *
+     * See the @page(request id) page for more info about the request id.
+     *
+     * @param string $requestId
+     * @return array
+     * @throws \Exception
+     */
+    public function getConfigurationArrayByRequestId(string $requestId): array
+    {
+
+        if (array_key_exists($requestId, $this->_requestDeclarationCache)) {
+            return $this->_requestDeclarationCache[$requestId];
+        }
+
+        if ('not implemented yet' === "requestIdHandlerInterface") {
+            $ret = [];
+        } else {
+
+            //--------------------------------------------
+            // FALLBACK MECHANISM
+            //--------------------------------------------
+            $p = explode(":", $requestId, 3);
+            $n = count($p);
+            if (3 === $n) {
+                list($pluginName, $resourceId, $requestDeclarationId) = $p;
+            } elseif (2 === $n) {
+                list($pluginName, $resourceId) = $p;
+                $requestDeclarationId = 'default';
+            } else {
+                $this->error("Invalid syntax for the requestId $requestId using the fallback mechanism.");
+            }
+
+
+            $fileId = "config/data/$pluginName/Light_Realist/$resourceId";
+            $filePath = $this->baseDir . "/$fileId.byml";
+            if (false === file_exists($filePath)) {
+                $this->error("File not found: $filePath for requestId $requestId.");
+            }
+
+            $arr = BabyYamlUtil::readFile($filePath);
+            if (false === array_key_exists($requestDeclarationId, $arr)) {
+                $this->error("Query not found with request declaration id: $requestDeclarationId, in file $filePath.");
+            }
+            $ret = $arr[$requestDeclarationId];
+
+
+            // dynamic injection phase
+            SmartCodeTool::replaceSmartCodeFunction($ret, "REALIST", function ($identifier) {
+                $handler = $this->getDynamicInjectionHandler($identifier);
+                $args = func_get_args();
+                array_shift($args);
+                return $handler->handle($args);
+            });
+
+
+            //--------------------------------------------
+            // CSRF TOKEN
+            //--------------------------------------------
+            /**
+             * We do this because we want to allow the developer to simply write csrf_token=true
+             * in the config  to generate an actual csrf token.
+             * This will only work for list actions and list general actions.
+             *
+             */
+            $listGeneralActions = BDotTool::getDotValue("rendering.list_general_actions", $ret, []);
+            if ($listGeneralActions) {
+                foreach ($listGeneralActions as &$item) {
+                    $this->convertCsrfTokenByItem($item, $requestId);
+                }
+                BDotTool::setDotValue("rendering.list_general_actions", $listGeneralActions, $ret);
+            }
+            $listActions = BDotTool::getDotValue("rendering.list_action_groups", $ret, []);
+            if ($listActions) {
+                ArrayTool::walkRowsRecursive($listActions, function (&$item) use ($requestId) {
+                    $this->convertCsrfTokenByItem($item, $requestId);
+                }, "items", false);
+                BDotTool::setDotValue("rendering.list_action_groups", $listActions, $ret);
+            }
+
+
+        }
+
+
+        $this->_requestDeclarationCache[$requestId] = $ret;
+        return $ret;
+    }
+
+
+    /**
+     * Performs the csrf validation if necessary (i.e. if the csrf_token key is defined in the @page(generic action item) configuration),
+     * and throws an exception in case of a csrf validation failure.
+     *
+     * The params array originates from the user (i.e. not trusted).
+     *
+     * @param array $item
+     * @param array $params
+     * @throws \Exception
+     */
+    public function checkCsrfTokenByGenericActionItem(array $item, array $params)
+    {
+        if (array_key_exists("csrf_token", $item)) {
+            if (array_key_exists("csrf_token", $params)) {
+                $tokenValue = $params['csrf_token'];
+                LightRealistTool::checkAjaxToken($item['csrf_token'], $tokenValue, $this->container);
+            } else {
+                $this->error("The csrf_token entry was not provided with the post params.");
+            }
+        }
+    }
+
+
+    /**
+     *
+     * @param array $item
+     * @throws \Exception
+     * @deprecated
+     *
+     * Checks whether there is a permission restriction for the given @page(generic action item),
+     * and if so checks whether the user is granted that permission.
+     * If not, this method throws an exception.
+     *
+     * Note: both the @page(permission) and @page(micro permissions) systems are checked.
+     *
+     *
+     *
+     *
+     */
+//    public function checkPermissionByGenericActionItem(array $item)
+//    {
+//        if (array_key_exists("right", $item)) {
+//            $right = $item['right'];
+//
+//            /**
+//             * @var $user LightUserInterface
+//             */
+//            $user = $this->container->get("user_manager")->getUser();
+//            if (false === $user->hasRight($right)) {
+//                $this->error("Permission denied, missing the permission: $right.");
+//            }
+//        }
+//        if (array_key_exists("micro_permission", $item)) {
+//            $mp = $item['micro_permission'];
+//
+//            /**
+//             * @var $user LightUserInterface
+//             */
+//            if (false === $this->container->get("micro_permission")->hasMicroPermission($mp)) {
+//                $this->error("Permission denied, missing the micro-permission: $mp.");
+//            }
+//        }
+//    }
+
+
+    /**
+     * Returns the columns used in the sql query by parsing the given request declaration.
+     * Usually, this is just the base_fields array, but with some more dynamic requests,
+     * it might involve a little bit more computation.
+     *
+     *
+     * @param array $requestDeclaration
+     * @return array
+     */
+    public function getSqlColumnsByRequestDeclaration(array $requestDeclaration): array
+    {
+        $ret = $requestDeclaration['base_fields'] ?? [];
+        return $ret;
+    }
+
 
     //--------------------------------------------
     //
@@ -568,48 +832,10 @@ class LightRealistService
 
 
     /**
-     * Returns the configuration array corresponding to the given request id.
-     *
-     * @param string $requestId
-     * @return array
-     * @throws \Exception
-     */
-    protected function getConfigurationArrayByRequestId(string $requestId): array
-    {
-
-
-        $p = explode(":", $requestId, 2);
-        $fileId = $p[0];
-        $queryId = $p[1];
-        $filePath = $this->baseDir . "/$fileId.byml";
-        if (false === file_exists($filePath)) {
-            $this->error("File not found: $filePath.");
-        }
-
-        $arr = BabyYamlUtil::readFile($filePath);
-        if (false === array_key_exists($queryId, $arr)) {
-            $this->error("Query not found with id: $queryId, in file $filePath.");
-        }
-        $ret = $arr[$queryId];
-
-
-        // dynamic injection phase
-        SmartCodeTool::replaceSmartCodeFunction($ret, "REALIST", function ($identifier) {
-            $handler = $this->getDynamicInjectionHandler($identifier);
-            $args = func_get_args();
-            array_shift($args);
-            return $handler->handle($args);
-        });
-
-
-        return $ret;
-    }
-
-
-    /**
      * Checks whether the csrf token is valid, throws an exception if that's not the case.
      *
      * @param string $tokenName
+     * @param array $params
      * @throws \Exception
      */
     protected function checkCsrfToken(string $tokenName, array $params)
@@ -625,6 +851,75 @@ class LightRealistService
             $this->error("Invalid csrf token value provided for token $tokenName.");
         }
         $this->error("The \"csrf_token\" key was not provided with the payload.");
+    }
 
+
+
+
+
+
+
+
+    //--------------------------------------------
+    //
+    //--------------------------------------------
+    /**
+     * Converts the given item into a @page(generic action item).
+     * Returns false if the item should be discarded (i.e. the user isn't granted access to it).
+     *
+     *
+     *
+     * @param array $item
+     * @param array $handlers
+     * @param string $requestId
+     * @return bool
+     * @throws \Exception
+     */
+    private function prepareGenericActionItem(array &$item, array $handlers, string $requestId)
+    {
+        list($pluginName, $actionName) = explode(".", $item['action_id'], 2);
+        $handler = $handlers[$pluginName];
+        $res = $handler->prepare($actionName, $item, $requestId);
+        if (false === $res) {
+            return false;
+        } else {
+            if (array_key_exists('modal', $item)) {
+                $this->container->get('html_page_copilot')->addModal($item['modal']);
+            }
+        }
+    }
+
+
+    /**
+     * Parses the given item, and converts csrf_token = true
+     * entries to an actual csrf_token = [ name: theTokenName, value: theTokenValue ] array.
+     *
+     * Note: if ajax, then the value is not generated, and a fake value is used.
+     *
+     * @param array $item
+     * @param string $requestId
+     * @throws \Exception
+     */
+    private function convertCsrfTokenByItem(array &$item, string $requestId)
+    {
+        if (array_key_exists("csrf_token", $item) && true === $item['csrf_token']) {
+
+            $p = explode('.', $item['action_id'], 2);
+            $pluginName = array_shift($p);
+            $tokenName = $requestId . "-" . $pluginName . "-" . implode(".", $p);
+            $tokenValue = "";
+            // we create the csrf token value only from the main index.php script, not from ajax services
+            if (false === LightTool::isAjax($this->container)) {
+                /**
+                 * @var $csrf LightCsrfService
+                 */
+                $csrf = $tokenValue = $this->container->get('csrf');
+                $tokenValue = $csrf->createToken($tokenName);
+            }
+            $item['csrf_token'] = [
+                "name" => $tokenName,
+                "value" => $tokenValue,
+            ];
+        }
     }
 }

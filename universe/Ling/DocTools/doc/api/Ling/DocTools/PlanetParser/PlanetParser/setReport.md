@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [PlanetParser::setReport](https://github.com/lingtalfi/DocTools/blob/master/PlanetParser/PlanetParser.php#L185-L188)
+See the source code for method [PlanetParser::setReport](https://github.com/lingtalfi/DocTools/blob/master/PlanetParser/PlanetParser.php#L191-L194)
 
 
 See Also

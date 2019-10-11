@@ -61,5 +61,5 @@ See Also
 
 The [LightPasswordProtector](https://github.com/lingtalfi/Light_PasswordProtector/blob/master/doc/api/Ling/Light_PasswordProtector/Service/LightPasswordProtector.md) class.
 
-Previous method: [passwordHash](https://github.com/lingtalfi/Light_PasswordProtector/blob/master/doc/api/Ling/Light_PasswordProtector/Service/LightPasswordProtector/passwordHash.md)<br>Next method: [getPhpAlgorithmName](https://github.com/lingtalfi/Light_PasswordProtector/blob/master/doc/api/Ling/Light_PasswordProtector/Service/LightPasswordProtector/getPhpAlgorithmName.md)<br>
+Previous method: [passwordHash](https://github.com/lingtalfi/Light_PasswordProtector/blob/master/doc/api/Ling/Light_PasswordProtector/Service/LightPasswordProtector/passwordHash.md)<br>Next method: [setAlgorithmName](https://github.com/lingtalfi/Light_PasswordProtector/blob/master/doc/api/Ling/Light_PasswordProtector/Service/LightPasswordProtector/setAlgorithmName.md)<br>
 

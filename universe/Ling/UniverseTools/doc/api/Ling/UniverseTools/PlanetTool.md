@@ -4,7 +4,7 @@
 
 The PlanetTool class
 ================
-2019-02-26 --> 2019-09-23
+2019-02-26 --> 2019-10-08
 
 
 
@@ -27,7 +27,7 @@ Class synopsis
 class <span class="pl-k">PlanetTool</span>  {
 
 - Methods
-    - public static [getClassNames](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/PlanetTool/getClassNames.md)(?$planetDir) : array
+    - public static [getClassNames](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/PlanetTool/getClassNames.md)(?$planetDir, array $options = []) : array
     - public static [getPlanetDirs](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/PlanetTool/getPlanetDirs.md)(string $universeDir) : array
     - public static [getGalaxyNamePlanetNameByDir](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/PlanetTool/getGalaxyNamePlanetNameByDir.md)(string $planetDir) : array | false
     - public static [getGalaxyNamePlanetNameByPlanetName](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/PlanetTool/getGalaxyNamePlanetNameByPlanetName.md)(string $longPlanetName) : array | false

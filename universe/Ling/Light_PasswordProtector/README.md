@@ -62,6 +62,10 @@ password_protector:
 History Log
 =============
 
+- 1.0.1 -- 2019-10-03
+
+    - internal code re-organization for LightPasswordProtector
+
 - 1.0.0 -- 2019-08-07
 
     - initial commit

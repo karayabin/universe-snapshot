@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [Light_AjaxFileUploadManagerDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_AjaxFileUploadManager/Light_AjaxFileUploadManagerDocBuilder/buildDoc.md)($htmlMode = false) : void
+public static [Light_AjaxFileUploadManagerDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_AjaxFileUploadManager/Light_AjaxFileUploadManagerDocBuilder/buildDoc.md)($htmlMode = true) : void
 
 
 
@@ -24,7 +24,7 @@ public static [Light_AjaxFileUploadManagerDocBuilder::buildDoc](https://github.c
 Launch this function to generate the documentation for the Light_AjaxFileUploadManager planet.
 (based on the LingGitPhpPlanetDocBuilder doc builder.
 
-If htmlMode is false (the default),
+If htmlMode is true (the default),
 this method will generate all files in md format in the following directory:
 
 - /myphp/universe/Light_AjaxFileUploadManager/doc
@@ -70,7 +70,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [Light_AjaxFileUploadManagerDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Light_AjaxFileUploadManager/Light_AjaxFileUploadManagerDocBuilder.php#L44-L204)
+See the source code for method [Light_AjaxFileUploadManagerDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Light_AjaxFileUploadManager/Light_AjaxFileUploadManagerDocBuilder.php#L44-L205)
 
 
 See Also

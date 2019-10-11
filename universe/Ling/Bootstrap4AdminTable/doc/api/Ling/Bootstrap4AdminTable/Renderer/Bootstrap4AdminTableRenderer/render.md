@@ -7,7 +7,7 @@ Bootstrap4AdminTableRenderer::render
 
 
 
-Bootstrap4AdminTableRenderer::render — Prints the static admin table.
+Bootstrap4AdminTableRenderer::render — Prints the list.
 
 
 
@@ -21,7 +21,7 @@ public [Bootstrap4AdminTableRenderer::render](https://github.com/lingtalfi/Boots
 
 
 
-Prints the static admin table.
+Prints the list.
 
 
 
@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [Bootstrap4AdminTableRenderer::render](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/Renderer/Bootstrap4AdminTableRenderer.php#L88-L266)
+See the source code for method [Bootstrap4AdminTableRenderer::render](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/Renderer/Bootstrap4AdminTableRenderer.php#L114-L299)
 
 
 See Also
@@ -54,5 +54,5 @@ See Also
 
 The [Bootstrap4AdminTableRenderer](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/Renderer/Bootstrap4AdminTableRenderer.md) class.
 
-Previous method: [setUseSpinKitService](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/Renderer/Bootstrap4AdminTableRenderer/setUseSpinKitService.md)<br>Next method: [getWidget](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/Renderer/Bootstrap4AdminTableRenderer/getWidget.md)<br>
+Previous method: [renderListGeneralActions](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/Renderer/Bootstrap4AdminTableRenderer/renderListGeneralActions.md)<br>Next method: [getWidget](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/Renderer/Bootstrap4AdminTableRenderer/getWidget.md)<br>
 

@@ -370,6 +370,18 @@ class BabyYamlLightWebsiteUserDatabase implements LightWebsiteUserDatabaseInterf
         $this->updateUsers($users);
     }
 
+
+    /**
+     * @implementation
+     */
+    public function getAllUserInfo(): array
+    {
+        return $this->getUsers();
+    }
+
+
+
+
     //--------------------------------------------
     //
     //--------------------------------------------

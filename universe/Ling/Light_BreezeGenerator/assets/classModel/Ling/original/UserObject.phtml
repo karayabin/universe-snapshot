@@ -4,6 +4,7 @@
 namespace The\ObjectNamespace;
 
 
+use Ling\SimplePdoWrapper\SimplePdoWrapper;
 use Ling\SimplePdoWrapper\SimplePdoWrapperInterface;
 
 /**
@@ -75,6 +76,18 @@ class UserObject implements UserObjectInterface
                 if (false === $ignoreDuplicate) {
                     throw $e;
                 }
+
+                $query = "select id from `user`";
+                $allMarkers = [];
+                SimplePdoWrapper::addWhereSubStmt($query, $allMarkers, $user);
+                $res = $this->pdoWrapper->fetch($query, $allMarkers);
+                if (false === $res) {
+                    throw new \LogicException("A duplicate entry has been found, but yet I cannot fetch it, why?");
+                }
+                if (false === $returnRic) {
+                    return $res['id'];
+                }
+                return ["id" => $res['id']];
             }
         }
         return false;

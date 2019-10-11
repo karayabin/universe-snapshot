@@ -16,13 +16,17 @@ Description
 ================
 
 
-public [PlanetParser::parse](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/PlanetParser/PlanetParser/parse.md)(string $planetDir) : [InfoInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/InfoInterface.md)
+public [PlanetParser::parse](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/PlanetParser/PlanetParser/parse.md)(string $planetDir, array $options = []) : [InfoInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/InfoInterface.md)
 
 
 
 
 Returns the PlanetInfo object corresponding to the parsed $planetDir,
 and creates a PlanetReport (retrieved using the getReport method).
+
+Available options are:
+- ignoreFilesStartingWith: array of prefixes to look for. If a prefix matches the beginning of a (relative) file path (relative to the planet root dir),
+         then the file is excluded.
 
 See also [the PlanetParser::getReport method](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/PlanetParser/PlanetParser/getReport.md)
 
@@ -32,6 +36,10 @@ Parameters
 
 
 - planetDir
+
+    
+
+- options
 
     
 
@@ -55,7 +63,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [PlanetParser::parse](https://github.com/lingtalfi/DocTools/blob/master/PlanetParser/PlanetParser.php#L97-L144)
+See the source code for method [PlanetParser::parse](https://github.com/lingtalfi/DocTools/blob/master/PlanetParser/PlanetParser.php#L101-L152)
 
 
 See Also

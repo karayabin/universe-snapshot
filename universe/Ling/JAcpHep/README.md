@@ -40,7 +40,7 @@ How to use
 ==========
 
 
-The methods are:
+The methods are (all static):
 
 - post ( url, data, successHandler, errorHandler )
 - error ( errMsg )
@@ -49,11 +49,9 @@ The methods are:
 
 ```js
 
-// first instantiate the tool
-var acpHelper= new AcpHepHelper();
 
 // regular call to back service
-acpHelper.post(url, params, 
+AcpHepHelper.post(url, params, 
     function(response){
         console.log("Success, do something with the response...");
     },
@@ -63,12 +61,12 @@ acpHelper.post(url, params,
 
 
 // throw an error
-acpHelper.error("This is a custom error!");
+AcpHepHelper.error("This is a custom error!");
 
 
 // get hep parameters from a jquery object
 var jMyObject = $('#some-object');
-var hepParams = acpHelper.getHepParameters(jMyObject);
+var hepParams = AcpHepHelper.getHepParameters(jMyObject);
 
 
 ```
@@ -80,6 +78,14 @@ var hepParams = acpHelper.getHepParameters(jMyObject);
 History Log
 =============
 
+- 1.1.0 -- 2019-09-25
+
+    - update api now uses only static methods
+    
+- 1.0.3 -- 2019-09-24
+
+    - fix success/error handlers not handled when undefined
+    
 - 1.0.2 -- 2019-09-23
 
     - update README.md

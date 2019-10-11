@@ -100,7 +100,7 @@ And then we can call the bullsheeter like this:
 /**
  * @var $bull LightBullsheetService
  */
-$bull = $container->get("bullsheeter");
+$bull = $container->get("bullsheet");
 $bull->generateRows("Light_UserDatabase.lud_user", 50);
 
 ```
@@ -116,6 +116,10 @@ $bull->generateRows("Light_UserDatabase.lud_user", 50);
 History Log
 =============
 
+- 1.0.3 -- 2019-09-26
+
+    - fix README.md typo
+    
 - 1.0.2 -- 2019-08-14
 
     - fix doc

@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [PlanetParser::setClassParser](https://github.com/lingtalfi/DocTools/blob/master/PlanetParser/PlanetParser.php#L152-L155)
+See the source code for method [PlanetParser::setClassParser](https://github.com/lingtalfi/DocTools/blob/master/PlanetParser/PlanetParser.php#L160-L163)
 
 
 See Also

@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [PlanetParser::__construct](https://github.com/lingtalfi/DocTools/blob/master/PlanetParser/PlanetParser.php#L77-L84)
+See the source code for method [PlanetParser::__construct](https://github.com/lingtalfi/DocTools/blob/master/PlanetParser/PlanetParser.php#L76-L83)
 
 
 See Also

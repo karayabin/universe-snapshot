@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [SimpleCurlDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/SimpleCurl/SimpleCurlDocBuilder/buildDoc.md)($htmlMode = false) : void
+public static [SimpleCurlDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/SimpleCurl/SimpleCurlDocBuilder/buildDoc.md)($htmlMode = true) : void
 
 
 
@@ -24,7 +24,7 @@ public static [SimpleCurlDocBuilder::buildDoc](https://github.com/lingtalfi/Ling
 Launch this function to generate the documentation for the SimpleCurl planet.
 (based on the LingGitPhpPlanetDocBuilder doc builder.
 
-If htmlMode is false (the default),
+If htmlMode is true (the default),
 this method will generate all files in md format in the following directory:
 
 - /myphp/universe/SimpleCurl/doc

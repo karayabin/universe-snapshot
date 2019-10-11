@@ -7,6 +7,8 @@ Duelist conception notes
 Combining where techniques
 ----------------
 
+(deprecated as of 2019-10-10, see the "Let gui drive" section later in this document)
+
 Combining the where clause can be a non-trivial task.
 
 And so we dedicate this whole section to help the implementor doing this task.
@@ -77,6 +79,7 @@ sql expression will be:
 Groups (where mode)  
 --------
 
+(deprecated as of 2019-10-10, see the "Let gui drive" section later in this document)
 
 This is a concrete use for tag groups.
 
@@ -190,7 +193,139 @@ unless the super gui does that for us (would be better actually).
 
 So those are my two cents about the future implementation of the flexible advanced search.  
  
+
+
+
  
+Dynamic injection
+-------------------
+2019-09-19
+
+
+So basically, the duelist uses a configuration array.
+
+```yaml
+fruits:
+    a: apple
+    b: banana
+    c: cherry
+sports:
+    - judo
+    - karate
+    - kungfu
+```
+
+Dynamic injection allows us to replace the content of a configuration value dynamically, by using the REALIST(args) notation,
+where args is a comma separated list of arguments, using smart code notation (https://github.com/lingtalfi/Bat/blob/master/SmartCodeTool.md).
+
+The first argument is the identifier of the handler of the function (owned by a plugin who registered the handler in advance), 
+and the rest of the arguments will be passed to the handler.
+
+Because there are many plugins, I opted that a handler is an object rather than just a callable, the idea being that each plugin provides
+only one handler that handles all the use cases for that plugin.
+
+I provide a **RealistDynamicInjectionHandlerInterface** for that purpose.
+
+
+So for instance if the plugin **MyPlugin** registers a realist dynamic injection handler with identifier **MyPlugin**,
+we can imagine that this array:
+
+
+
+```yaml
+fruits:
+    a: apple
+    b: REALIST(MyPlugin, sayWord, hello )
+    c: cherry
+sports:
+    - judo
+    - karate
+    - kungfu
+```
+
+Would be converted by the realist tools to:
+
+```yaml
+fruits:
+    a: apple
+    b: hello
+    c: cherry
+sports:
+    - judo
+    - karate
+    - kungfu
+```
+
+
+All registrations of realist dynamic injection handlers is done via the realist service.
  
+The result of a handler doesn't have to be a string, it could be an array, an object, an int, anything.
+
+If the handler returns a "stringable" result, then we can embed the handler call in a bigger string.
+
+For instance, we can do this:
+
+```yaml
+fruits:
+    b: My name is REALIST(MyPlugin, sayWord, paul )
+```
+
+This would give us:
+
+```yaml
+fruits:
+    b: My name is paul
+```
+
+
+
+Let the gui drive
+---------------------
+2019-10-10
+
+All the previous attempts to create a "where" statement were non trivial tasks.
+The main problem with the masks technique is that it's not suited for complex "where" statements
+involving more than 2 or 3 tags. 
+
+However, in the process of implementing an advanced search system, I just found out that in the context of the
+system I wanted to create, all "where" possibilities can be created using 5 tags:
+
+- generic_filter: $column $operator :operator_value
+- open_parenthesis: (
+- close_parenthesis: )
+- and: and
+- or: or
+
+
+Now 5 tags is more than 2 or 3, and so the masks system is not good enough for this case, so I need to replace
+the masks system with something better.
+
+The simplest solution occurred to me as being to let the gui drive and provide the tags in the correct order.
+This solves all the problems.
+
+The cost to pay is that we let the user provide the order in which tags are provided.
+In other words, we trust that he will provide the tags in the correct order.
+
+In other words, an attacker can change that order and provoke the request to fail (by providing tags in 
+an order that doesn't make any sql sense). 
+
+I thought about that, and decided that it was worth it still: I believe it's not too big of a deal if the 
+attacker can trigger a sql request to fail (maybe I'm wrong?); as long as he cannot perform sql injection
+he doesn't have much power. 
+
+
+
+
+
+
+ 
+
+
+
+
+         
+
+
+  
 
 

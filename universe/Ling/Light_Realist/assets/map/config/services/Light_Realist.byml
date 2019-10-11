@@ -5,6 +5,10 @@ realist:
             container: @container()
         setBaseDir:
             dir: ${app_dir}
+        registerDynamicInjectionHandler:
+            identifier: Light_Realist
+            handler:
+                instance: Ling\Light_Realist\DynamicInjection\LightRealistDynamicInjectionHandler
 
 realist_action_handler:
     instance: Ling\Light_Realist\Service\LightRealistService
@@ -15,11 +19,16 @@ realist_action_handler:
             dir: ${app_dir}
 
 
+
+
 # --------------------------------------
 # hooks
 # --------------------------------------
-$easy_route.methods_collection:
+$ajax_handler.methods_collection:
     -
-        method: registerBundleFile
+        method: registerHandler
         args:
-            file: config/data/Light_Realist/Light_EasyRoute/realist_routes.byml
+            id: Light_Realist
+            handler:
+                instance: Ling\Light_Realist\AjaxHandler\LightRealistAjaxHandler
+

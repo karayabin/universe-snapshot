@@ -57,6 +57,27 @@ Related
 History Log
 =============
 
+- 1.8.0 -- 2019-10-11
+
+    - adapt to new realist conception
+    - fix AdvancedSearchRendererWidget using hardcoded values
+    
+- 1.7.3 -- 2019-10-07
+
+    - fix ToolbarRendererWidget->return not handling nested toolbar items properly
+    
+- 1.7.2 -- 2019-10-04
+
+    - fix problem returning duplicate rics
+
+- 1.7.1 -- 2019-09-26
+
+    - fix problem with un-synchronized DocBuilder not generating doc
+    
+- 1.7.0 -- 2019-09-25
+
+    - implementation of list general actions
+    
 - 1.6.0 -- 2019-09-23
 
     - update ToolbarRendererWidget, now is csrf token aware and implements params with hep

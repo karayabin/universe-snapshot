@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightRealistAbstractListActionHandler::setHandledIds](https://github.com/lingtalfi/Light_Realist/blob/master/ListActionHandler/LightRealistAbstractListActionHandler.php#L83-L86)
+See the source code for method [LightRealistAbstractListActionHandler::setHandledIds](https://github.com/lingtalfi/Light_Realist/blob/master/ListActionHandler/LightRealistAbstractListActionHandler.php#L55-L58)
 
 
 See Also
@@ -57,5 +57,5 @@ See Also
 
 The [LightRealistAbstractListActionHandler](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/ListActionHandler/LightRealistAbstractListActionHandler.md) class.
 
-Previous method: [execute](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/ListActionHandler/LightRealistAbstractListActionHandler/execute.md)<br>
+Previous method: [getModalCode](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/ListActionHandler/LightRealistAbstractListActionHandler/getModalCode.md)<br>
 

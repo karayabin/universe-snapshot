@@ -50,7 +50,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [ClassSynopsisWidget::getConstantVisibility](https://github.com/lingtalfi/DocTools/blob/master/Widget/ClassSynopsis/ClassSynopsisWidget.php#L470-L478)
+See the source code for method [ClassSynopsisWidget::getConstantVisibility](https://github.com/lingtalfi/DocTools/blob/master/Widget/ClassSynopsis/ClassSynopsisWidget.php#L476-L484)
 
 
 See Also

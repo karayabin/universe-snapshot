@@ -76,6 +76,10 @@ plugin_database_installer:
 History Log
 =============
 
+- 1.3.0 -- 2019-10-03
+
+    - add careless LightPluginDatabaseInstallerService->uninstallAll implementation, the dependency part
+    
 - 1.2.0 -- 2019-09-18
 
     - add LightPluginDatabaseInstallerService->forceInstall property

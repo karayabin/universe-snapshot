@@ -512,26 +512,54 @@ class LingBreezeGenerator implements BreezeGeneratorInterface, LightServiceConta
         $table = $variables['table'];
         $autoIncrementedKey = $variables['autoIncrementedKey'];
         $variableName = lcfirst($variables['className']);
+        $ricAndAik = $ric;
+        /**
+         * After two tests, I came to the conclusion that the pdo->lastInsertId() method
+         * returns string "0" when the table doesn't have an auto-incremented key.
+         * This might be erroneous (as two is not a big number).
+         *
+         */
+        $lastInsertIdReturn = 'return "0"';
 
+
+        if (false !== $autoIncrementedKey) {
+            $ricAndAik = array_merge($ricAndAik, [$autoIncrementedKey]);
+            $ricAndAik = array_unique($ricAndAik);
+            $lastInsertIdReturn = 'return $res[\'' . $autoIncrementedKey . '\']';
+        }
 
         $sLines = '';
-        if (false !== $autoIncrementedKey) {
-            $sLines = '\'' . $autoIncrementedKey . '\' => $lastInsertId,';
-        } else {
-            foreach ($ric as $col) {
-                if ('' !== $sLines) {
-                    $sLines .= "\t\t\t\t";
-                }
+        $sRicLines = '';
+        foreach ($ric as $col) {
+            if ('' !== $sLines) {
+                $sLines .= "\t\t\t\t";
+            }
+            if ('' !== $sRicLines) {
+                $sRicLines .= "\t\t\t\t";
+            }
+            if (
+                false !== $autoIncrementedKey &&
+                $col === $autoIncrementedKey
+            ) {
+                $sLines .= '\'' . $autoIncrementedKey . '\' => $lastInsertId,' . PHP_EOL;
+            } else {
                 $sLines .= '\'' . $col . '\' => $' . $variableName . '["' . $col . '"],' . PHP_EOL;
             }
+            $sRicLines .= '\'' . $col . '\' => $res["' . $col . '"],' . PHP_EOL;
         }
+
+        $sImplodedRicAndAik = implode(', ', $ricAndAik);
 
         $tpl = __DIR__ . "/../assets/classModel/Ling/template/partials/insertUser.tpl.txt";
         $content = file_get_contents($tpl);
         $content = str_replace('User', $className, $content);
         $content = str_replace('$user', '$' . $variableName, $content);
         $content = str_replace('"user"', '"' . $table . '"', $content);
+        $content = str_replace('`user`', '`' . $table . '`', $content);
         $content = str_replace('\'id\' => $lastInsertId,', $sLines, $content);
+        $content = str_replace('$implodedRicAndAik', $sImplodedRicAndAik, $content);
+        $content = str_replace('return $res[\'id\']', $lastInsertIdReturn, $content);
+        $content = str_replace('"id" => $res[\'id\'],', $sRicLines, $content);
         return $content;
     }
 }

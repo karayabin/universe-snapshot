@@ -1,6 +1,6 @@
 Ling/Bootstrap4AdminTable
 ================
-2019-08-15 --> 2019-09-23
+2019-08-15 --> 2019-10-11
 
 
 
@@ -13,9 +13,11 @@ Table of contents
     - [Bootstrap4AdminTableRenderer::__construct](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/Renderer/Bootstrap4AdminTableRenderer/__construct.md) &ndash; Builds the Bootstrap4AdminTableRenderer instance.
     - [Bootstrap4AdminTableRenderer::registerWidget](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/Renderer/Bootstrap4AdminTableRenderer/registerWidget.md) &ndash; Registers a widget.
     - [Bootstrap4AdminTableRenderer::setUseSpinKitService](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/Renderer/Bootstrap4AdminTableRenderer/setUseSpinKitService.md) &ndash; Sets the useSpinKitService.
-    - [Bootstrap4AdminTableRenderer::render](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/Renderer/Bootstrap4AdminTableRenderer/render.md) &ndash; Prints the static admin table.
+    - [Bootstrap4AdminTableRenderer::renderListGeneralActions](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/Renderer/Bootstrap4AdminTableRenderer/renderListGeneralActions.md) &ndash; The renderListGeneralActions method
+    - [Bootstrap4AdminTableRenderer::render](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/Renderer/Bootstrap4AdminTableRenderer/render.md) &ndash; Prints the list.
     - [Bootstrap4AdminTableRenderer::getWidget](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/Renderer/Bootstrap4AdminTableRenderer/getWidget.md) &ndash; Returns the RendererWidget instance identified by $identifier, or null if it doesn't exist.
     - OpenAdminTableBaseRealistListRenderer::prepareByRequestDeclaration &ndash; Prepares the list renderer with the given request declaration.
+    - OpenAdminTableBaseRealistListRenderer::setContainerCssId &ndash; Sets the container css id.
     - OpenAdminTableBaseRealistListRenderer::setDataTypes &ndash; Sets the data types.
     - OpenAdminTableBaseRealistListRenderer::setLabels &ndash; Sets the labels.
     - OpenAdminTableBaseRealistListRenderer::setWidgetStatuses &ndash; Sets the widget statuses.
@@ -23,14 +25,18 @@ Table of contents
     - OpenAdminTableBaseRealistListRenderer::setContainer &ndash; Sets the container.
     - OpenAdminTableBaseRealistListRenderer::setCollapsibleColumnIndexes &ndash; Sets the collapsibleColumnIndexes.
     - OpenAdminTableBaseRealistListRenderer::setListActionGroups &ndash; Sets the listActionGroups.
+    - OpenAdminTableBaseRealistListRenderer::setListGeneralActions &ndash; Sets the listGeneralActions.
     - OpenAdminTableBaseRealistListRenderer::setCsrfToken &ndash; Sets the csrfToken value.
+    - OpenAdminTableBaseRealistListRenderer::setSqlColumns &ndash; Sets the sqlColumns.
 - [StandardBootstrap4AdminTableRenderer](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/Renderer/StandardBootstrap4AdminTableRenderer.md) &ndash; The StandardBootstrap4AdminTableRenderer class.
     - [StandardBootstrap4AdminTableRenderer::__construct](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/Renderer/StandardBootstrap4AdminTableRenderer/__construct.md) &ndash; Builds the Bootstrap4AdminTableRenderer instance.
     - [Bootstrap4AdminTableRenderer::registerWidget](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/Renderer/Bootstrap4AdminTableRenderer/registerWidget.md) &ndash; Registers a widget.
     - [Bootstrap4AdminTableRenderer::setUseSpinKitService](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/Renderer/Bootstrap4AdminTableRenderer/setUseSpinKitService.md) &ndash; Sets the useSpinKitService.
-    - [Bootstrap4AdminTableRenderer::render](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/Renderer/Bootstrap4AdminTableRenderer/render.md) &ndash; Prints the static admin table.
+    - [Bootstrap4AdminTableRenderer::renderListGeneralActions](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/Renderer/Bootstrap4AdminTableRenderer/renderListGeneralActions.md) &ndash; The renderListGeneralActions method
+    - [Bootstrap4AdminTableRenderer::render](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/Renderer/Bootstrap4AdminTableRenderer/render.md) &ndash; Prints the list.
     - [Bootstrap4AdminTableRenderer::getWidget](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/Renderer/Bootstrap4AdminTableRenderer/getWidget.md) &ndash; Returns the RendererWidget instance identified by $identifier, or null if it doesn't exist.
     - OpenAdminTableBaseRealistListRenderer::prepareByRequestDeclaration &ndash; Prepares the list renderer with the given request declaration.
+    - OpenAdminTableBaseRealistListRenderer::setContainerCssId &ndash; Sets the container css id.
     - OpenAdminTableBaseRealistListRenderer::setDataTypes &ndash; Sets the data types.
     - OpenAdminTableBaseRealistListRenderer::setLabels &ndash; Sets the labels.
     - OpenAdminTableBaseRealistListRenderer::setWidgetStatuses &ndash; Sets the widget statuses.
@@ -38,7 +44,9 @@ Table of contents
     - OpenAdminTableBaseRealistListRenderer::setContainer &ndash; Sets the container.
     - OpenAdminTableBaseRealistListRenderer::setCollapsibleColumnIndexes &ndash; Sets the collapsibleColumnIndexes.
     - OpenAdminTableBaseRealistListRenderer::setListActionGroups &ndash; Sets the listActionGroups.
+    - OpenAdminTableBaseRealistListRenderer::setListGeneralActions &ndash; Sets the listGeneralActions.
     - OpenAdminTableBaseRealistListRenderer::setCsrfToken &ndash; Sets the csrfToken value.
+    - OpenAdminTableBaseRealistListRenderer::setSqlColumns &ndash; Sets the sqlColumns.
 - [AbstractOpenAdminTableRendererWidget](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/AbstractOpenAdminTableRendererWidget.md) &ndash; The AbstractOpenAdminTableRendererWidget class.
     - [AbstractRendererWidget::__construct](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/AbstractRendererWidget/__construct.md) &ndash; Builds the AbstractRendererWidget instance.
     - [RendererWidgetInterface::render](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/RendererWidgetInterface/render.md) &ndash; Prints the widget html.
@@ -46,15 +54,22 @@ Table of contents
     - [AbstractRendererWidget::__construct](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/AbstractRendererWidget/__construct.md) &ndash; Builds the AbstractRendererWidget instance.
     - [RendererWidgetInterface::render](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/RendererWidgetInterface/render.md) &ndash; Prints the widget html.
 - [AdvancedSearchRendererWidget](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/AdvancedSearchRendererWidget.md) &ndash; The AdvancedSearchRendererWidget class.
+    - [AdvancedSearchRendererWidget::__construct](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/AdvancedSearchRendererWidget/__construct.md) &ndash; Builds the AdvancedSearchRendererWidget instance.
+    - [AdvancedSearchRendererWidget::setFields](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/AdvancedSearchRendererWidget/setFields.md) &ndash; Sets the fields.
     - [AdvancedSearchRendererWidget::renderLink](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/AdvancedSearchRendererWidget/renderLink.md) &ndash; Prints a link that makes the advanced form toggle between the collapsed state and the expanded state.
     - [AdvancedSearchRendererWidget::render](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/AdvancedSearchRendererWidget/render.md) &ndash; Prints the widget html.
-    - [AbstractRendererWidget::__construct](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/AbstractRendererWidget/__construct.md) &ndash; Builds the AbstractRendererWidget instance.
 - [DebugWindowRendererWidget](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/DebugWindowRendererWidget.md) &ndash; The DebugWindowRendererWidget class.
     - [DebugWindowRendererWidget::render](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/DebugWindowRendererWidget/render.md) &ndash; Prints the widget html.
     - [AbstractRendererWidget::__construct](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/AbstractRendererWidget/__construct.md) &ndash; Builds the AbstractRendererWidget instance.
 - [GlobalSearchRendererWidget](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/GlobalSearchRendererWidget.md) &ndash; The GlobalSearchRendererWidget class.
     - [GlobalSearchRendererWidget::render](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/GlobalSearchRendererWidget/render.md) &ndash; Prints the widget html.
     - [AbstractRendererWidget::__construct](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/AbstractRendererWidget/__construct.md) &ndash; Builds the AbstractRendererWidget instance.
+- [ListGeneralActionRendererWidget](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/ListGeneralActionRendererWidget.md) &ndash; The ListGeneralActionRendererWidget class.
+    - [ListGeneralActionRendererWidget::__construct](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/ListGeneralActionRendererWidget/__construct.md) &ndash; Builds the ListGeneralActionRendererWidget instance.
+    - [ListGeneralActionRendererWidget::setGeneralActions](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/ListGeneralActionRendererWidget/setGeneralActions.md) &ndash; Sets the groups.
+    - [ListGeneralActionRendererWidget::render](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/ListGeneralActionRendererWidget/render.md) &ndash; Prints the widget html.
+- [ListGeneralActionRendererWidgetInterface](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/ListGeneralActionRendererWidgetInterface.md) &ndash; The ListGeneralActionRendererWidgetInterface class.
+    - [ListGeneralActionRendererWidgetInterface::setGeneralActions](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/ListGeneralActionRendererWidgetInterface/setGeneralActions.md) &ndash; Sets the groups.
 - [NeckFiltersRendererWidget](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/NeckFiltersRendererWidget.md) &ndash; The NeckFiltersRendererWidget class.
     - [NeckFiltersRendererWidget::__construct](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/NeckFiltersRendererWidget/__construct.md) &ndash; Builds the AbstractRendererWidget instance.
     - [NeckFiltersRendererWidget::setColumns2DataTypes](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/NeckFiltersRendererWidget/setColumns2DataTypes.md) &ndash; Sets the columns and data types.

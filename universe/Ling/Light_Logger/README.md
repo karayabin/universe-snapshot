@@ -53,6 +53,8 @@ logger:
     methods:
         setFormat:
             format: [{channel}]: {dateTime} -- {message}
+        setUseExpandedArray:
+            bool: true
     methods_collection: []
         -
             method: addListener
@@ -64,6 +66,15 @@ logger:
                         configure:
                             options:
                                 file: ${app_dir}/log/light_log.log
+#        -
+#            method: addListener
+#            args:
+#                channels: *
+#                listener:
+#                    instance: Ling\Light_Logger\Listener\LightLastMessageFileLoggerListener
+#                    methods:
+#                        setFile:
+#                            file: ${app_dir}/log/light_log_last.txt
 
 ```
 
@@ -72,6 +83,10 @@ logger:
 History Log
 =============
 
+- 1.4.0 -- 2019-09-24
+
+    - add LightLastMessageFileLoggerListener
+    
 - 1.3.0 -- 2019-08-30
 
     - add LightLoggerService property: useExpandedArray

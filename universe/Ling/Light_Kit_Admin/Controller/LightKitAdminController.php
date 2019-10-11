@@ -4,6 +4,7 @@
 namespace Ling\Light_Kit_Admin\Controller;
 
 
+use Ling\HtmlPageTools\Copilot\HtmlPageCopilot;
 use Ling\Light\Controller\LightController;
 use Ling\Light\Controller\RouteAwareControllerInterface;
 use Ling\Light\Http\HttpRedirectResponse;
@@ -97,6 +98,15 @@ class LightKitAdminController extends LightController implements RouteAwareContr
      */
     public function renderPage(string $page, array $dynamicVariables = [], PageConfUpdator $updator = null)
     {
+        /**
+         * @var $copilot HtmlPageCopilot
+         */
+        $copilot = $this->getContainer()->get("html_page_copilot");
+        $copilot->registerLibrary("lka_environment", [
+            "/plugins/Light_Kit_Admin/js/light-kit-admin-environment.js",
+        ]);
+
+
         return $this->getContainer()->get("kit")->renderPage($page, $dynamicVariables, $updator);
     }
 

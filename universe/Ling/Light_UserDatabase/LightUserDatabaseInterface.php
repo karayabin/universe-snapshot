@@ -56,6 +56,13 @@ interface LightUserDatabaseInterface
 
 
     /**
+     * Returns an array of user info (one per user).
+     * @return array
+     */
+    public function getAllUserInfo(): array;
+
+
+    /**
      * Adds the user info to the database.
      *
      * The user info array depends on the implementor and the application structure.

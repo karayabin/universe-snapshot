@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [PlanetTool::getClassNames](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/PlanetTool/getClassNames.md)(?$planetDir) : array
+public static [PlanetTool::getClassNames](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/PlanetTool/getClassNames.md)(?$planetDir, array $options = []) : array
 
 
 
@@ -48,11 +48,22 @@ array(3) {
 
 
 
+Available options are:
+- ignoreFilesStartingWith: array of prefixes to look for. If a prefix matches the beginning of a (relative) file path (relative to the planet root dir),
+         then the file is excluded.
+
+
+
+
 Parameters
 ================
 
 
 - planetDir
+
+    
+
+- options
 
     
 
@@ -76,7 +87,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [PlanetTool::getClassNames](https://github.com/lingtalfi/UniverseTools/blob/master/PlanetTool.php#L52-L107)
+See the source code for method [PlanetTool::getClassNames](https://github.com/lingtalfi/UniverseTools/blob/master/PlanetTool.php#L58-L128)
 
 
 See Also

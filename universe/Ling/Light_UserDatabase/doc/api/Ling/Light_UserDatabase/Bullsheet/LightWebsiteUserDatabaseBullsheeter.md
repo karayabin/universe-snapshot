@@ -4,7 +4,7 @@
 
 The LightWebsiteUserDatabaseBullsheeter class
 ================
-2019-07-19 --> 2019-09-18
+2019-07-19 --> 2019-10-04
 
 
 
@@ -36,7 +36,6 @@ class <span class="pl-k">LightWebsiteUserDatabaseBullsheeter</span> extends [Lig
     - public [generateRows](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Bullsheet/LightWebsiteUserDatabaseBullsheeter/generateRows.md)(int $nbRows) : void
     - public [setAvatarImgDir](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Bullsheet/LightWebsiteUserDatabaseBullsheeter/setAvatarImgDir.md)(string $avatarImgDir) : void
     - public [setApplicationDir](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Bullsheet/LightWebsiteUserDatabaseBullsheeter/setApplicationDir.md)(string $applicationDir) : void
-    - protected [getRandomRights](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Bullsheet/LightWebsiteUserDatabaseBullsheeter/getRandomRights.md)() : array
 
 - Inherited methods
     - public LightAbstractBullsheeter::setContainer([Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) $container) : void
@@ -77,7 +76,6 @@ Methods
 - [LightWebsiteUserDatabaseBullsheeter::generateRows](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Bullsheet/LightWebsiteUserDatabaseBullsheeter/generateRows.md) &ndash; Populates the database with $nbRows random rows in the appropriate table(s).
 - [LightWebsiteUserDatabaseBullsheeter::setAvatarImgDir](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Bullsheet/LightWebsiteUserDatabaseBullsheeter/setAvatarImgDir.md) &ndash; Sets the avatarImgDir.
 - [LightWebsiteUserDatabaseBullsheeter::setApplicationDir](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Bullsheet/LightWebsiteUserDatabaseBullsheeter/setApplicationDir.md) &ndash; Sets the applicationDir.
-- [LightWebsiteUserDatabaseBullsheeter::getRandomRights](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Bullsheet/LightWebsiteUserDatabaseBullsheeter/getRandomRights.md) &ndash; Returns a random array of rights.
 - LightAbstractBullsheeter::setContainer &ndash; Sets the light service container interface.
 
 

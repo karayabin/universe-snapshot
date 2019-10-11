@@ -20,9 +20,12 @@ A **list action handler** is composed of three parts:
 
 - a js action: a js callable which handles the action of the button, including fetching/processing the data from a server if required.
             This callable is triggered when the button is clicked.
-- the button: which is just the html of the button    
-- the execute part: this is optional and is only used if the "list action handler" needs the help of a php server.
+- the button: which is just the html of the button. This is handled by a renderer. 
+
+
+- the execute part:  this is optional and is only used if the "list action handler" needs the help of a php server.
         If that's the case, the execute part is the php code that does the job and return the appropriate response.
+        
         
         
 Rather than implementing this from scratch on your own, we have some tools to help you with the implementation.
@@ -43,35 +46,12 @@ specialized in specific rows actions, while the **list action handler** interfac
 selected rows and/or on the list in general.
 
 
-This interface features the **execute** method:
-
-
-- execute ( string id,  array params ): array
-
-
-For the returned array, we propose to use the response format described in the [ajax communication protocol](https://github.com/lingtalfi/AjaxCommunicationProtocol).
-
-
-
 
 The button part
 ------------
 
-This part is just about returning the html code for the button.
-The **LightRealistListActionHandlerInterface** features the getButton method for that.
-
-- getButton ( string id )
-
-
-Now sometimes you want to dispose the buttons in a certain manner; for instance you want to group all the buttons related to exporting the data in a button group dropdown.
-We use a button disposer object for that, and provide a **LightRealistListActionToolbarRendererInterface** that you can implement, it will create the actual html of the whole tool bar.
-
-It features the following method:
-
-- getToolbar ( array groups ):string
-
-
-The groups parameter being an array of toolbar items.
+This is handled by a renderer.
+We provide a group of toolbar items.
 See the toolbar item section later in this document for more information.
 
     
@@ -93,14 +73,8 @@ The js action callable
 ------------
 
 This callable is triggered when the corresponding button is clicked.
-The **LightRealistListActionHandlerInterface** features the getJsActionCode method for that, which returns the js code to execute,
-or an empty string if the instance injected the js init code with another mean (i.e. with a tool like [html page copilot](https://github.com/lingtalfi/Light_HtmlPageCopilot) for instance).
+The **LightRealistListActionHandlerInterface** features the **decorate** method for that, which adds the js_code property to the list action item.
 
-Note: I personally prefer to not use the copilot for small js codes like that, and put them inline just below the html button,
-as it's easier to debug (we can just inspect the code and see the script below the button)
-
- 
-- getJsActionCode ( string id ): string
 
 
 ### But what js code exactly?
@@ -152,80 +126,30 @@ This tool implements all the recommendations of this document.
 The toolbar item
 -------------------
 
-A toolbar item is either a group of buttons or a standalone button.
-The structure of an item is the following:
+A toolbar item represents either a group of buttons or a standalone button.
 
-- text: string, the label of the group or item 
-- ?action_id: string, the identifier of the action. This applies only to the leaves of the tree (i.e. it does not apply to
-        items containing other items).    
-- ?icon: string, the css class of the icon (if any)
-- ?items: An array of children items (recursively). Only if this item is a container (aka group) for other items. 
-- ?enabled_behaviour: string|js callable = oneOrMore.
-        Only if you use the **list-action-handler-helper.js** (lahh) script (See the list action handler helper section below for
-         more details).
-        Defines when/how this button should be enabled/disabled.
-        
-        Basically, every time a checkbox is checked/un-checked, a callable is triggered.
-        You can define this callable manually, using a javascript callable with the following signature:
-        
-        
-        - callable ( ricHelper, selectedRics): bool
-        
-        With:
-            - ricHelper being a ric helper instance (see the ric admin table helper tool in this planet for more details (ric-admin-table-helper.js)
-            - selectedRics: array of selected rics, each ric being a ric object (map of column => value).
- 
-            
-        The callable should return whether the button is active (true) or inactive (false).            
-            
-            
-        Alternately, you can use some special strings, which cover the basic use cases for this enabledBehaviour option.
-        The available special strings are:
-        
-        - oneOrMore: this will basically add/remove the disabled html attribute on the item, depending on how many checkboxes
-                            are checked. If no checkboxes are checked, then the disabled attribute will be added.
-                            If one or more checkboxes are checked, then the disabled attribute will be removed.
-                            This is actually the default value.             
-        - always: this item will always be enabled (i.e. no disabled html attribute set).
-- ?js_code: string|js callable.
-            This property will be automatically created by the realist service's decorateListActionGroups method,
-            which was created specially for this purpose, when the list renderer needs it.
-            
-            It then will be treated by a javascript handler such as the list-action-handler-helper.js script.
-            
-            Our design decision here is that we write the js functions on the php side (using the LightRealistListActionHandlerInterface->getJsActionCode method),
-            so that we have a better control over organization and extending functions when needed..
-            
-            We shouldn't define this property manually.
-            I just wrote it here as a reminder of this "unusual" design involving both javascript and php.  
-- ?csrf_token: array|null: if set, indicates that a csrf protection is desired for that action.
-    - name: the name of the token    
-    - value: the value of the token    
-    
-    We recommend passing the token value as the **csrf_token** [hep](https://github.com/lingtalfi/NotationFan/blob/master/html-element-parameters.md) attribute (i.e. data-param-csrf_token),
-     because we use the **hep** notation in general, and **csrf_token** is a convention we use to pass the csrf token value via ajax.  
-    
-- ?params: array. An array of extra parameters. Those will be passed to the js code.    
-        We use the [hep](https://github.com/lingtalfi/NotationFan/blob/master/html-element-parameters.md) idea
-        to transmit the parameters.
-- ?right: string. The [permission](https://github.com/lingtalfi/Light_User/blob/master/doc/pages/permission-conception-notes.md)
-            required to access the service (if any).          
-    
-    
-    
-    
-    
-    
-Personal notes about this design
-------------------------
+The structure of such an item is the same as a [generic action item](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/generic-action-item.md),
+except that it can also have "parent" items.
+A **parent** item is an item that contain other items (recursion allowed), using the following extra key:
 
-I chose this design for at least the following reasons:
+- ?items: An array of children items (recursively). Only if this item is a container (aka group) for other items.
+
+A parent item doesn't have the **action_id** key.
 
 
-- we extend new actions using php (it's easier for me to manage with php than js)
-- an action can be seen as an atomic block (if we used a JsActionHandler type of object, then we
-        would need to create two objects for every new action added: the JsActionHandler and the ExecuteHandler)
-        
+
+    
+    
+To help with the js implementation, the realist planet has some dependencies to some js tools that you can use out of the box:
+
+- [JAcpHep](https://github.com/lingtalfi/JAcpHep)
+    
+    
+Note: you still need to include the assets manually, but the aforementioned js tool planet(s) will be imported along with the Light_Realist planet.
+    
+    
+    
+    
         
 
 

@@ -16,7 +16,7 @@ Description
 ================
 
 
-protected [Bootstrap4AdminTableRenderer::printJavascript](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/Renderer/Bootstrap4AdminTableRenderer/printJavascript.md)(string $cssId) : void
+protected [Bootstrap4AdminTableRenderer::printJavascript](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/Renderer/Bootstrap4AdminTableRenderer/printJavascript.md)() : void
 
 
 
@@ -29,10 +29,7 @@ Prints the necessary javascript.
 Parameters
 ================
 
-
-- cssId
-
-    
+This method has no parameters.
 
 
 Return values
@@ -49,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [Bootstrap4AdminTableRenderer::printJavascript](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/Renderer/Bootstrap4AdminTableRenderer.php#L409-L522)
+See the source code for method [Bootstrap4AdminTableRenderer::printJavascript](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/Renderer/Bootstrap4AdminTableRenderer.php#L446-L574)
 
 
 See Also

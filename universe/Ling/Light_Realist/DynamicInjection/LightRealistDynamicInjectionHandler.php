@@ -5,6 +5,8 @@ namespace Ling\Light_Realist\DynamicInjection;
 
 
 use Ling\Light\ReverseRouter\LightReverseRouterInterface;
+use Ling\Light\Tool\LightTool;
+use Ling\Light_Csrf\Service\LightCsrfService;
 use Ling\Light_Kit_Admin\Exception\LightKitAdminException;
 
 /**
@@ -21,6 +23,22 @@ class LightRealistDynamicInjectionHandler extends ContainerAwareRealistDynamicIn
     {
         $actionId = array_shift($arguments);
         switch ($actionId) {
+            case "csrf_token":
+
+
+                if (true === LightTool::isAjax($this->container)) {
+                    return "not_created_because_ajax";
+                } else {
+
+                    /**
+                     * @var $csrf LightCsrfService
+                     */
+                    $csrf = $this->container->get("csrf");
+                    $tokenName = array_shift($arguments);
+                    $tokenValue = $csrf->createToken($tokenName);
+                    return $tokenValue;
+                }
+                break;
             case "route":
                 /**
                  * @var $router LightReverseRouterInterface

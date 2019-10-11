@@ -44,7 +44,7 @@ Returns string.
 Exceptions thrown
 ================
 
-- [LightPasswordProtectorException](https://github.com/lingtalfi/Light_PasswordProtector/blob/master/doc/api/Ling/Light_PasswordProtector/Exception/LightPasswordProtectorException.md).&nbsp;
+- [Exception](http://php.net/manual/en/class.exception.php).&nbsp;
 
 
 

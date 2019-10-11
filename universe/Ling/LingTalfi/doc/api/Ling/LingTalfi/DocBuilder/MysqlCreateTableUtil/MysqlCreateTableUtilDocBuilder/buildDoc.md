@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [MysqlCreateTableUtilDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/MysqlCreateTableUtil/MysqlCreateTableUtilDocBuilder/buildDoc.md)($htmlMode = false) : void
+public static [MysqlCreateTableUtilDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/MysqlCreateTableUtil/MysqlCreateTableUtilDocBuilder/buildDoc.md)($htmlMode = true) : void
 
 
 
@@ -24,7 +24,7 @@ public static [MysqlCreateTableUtilDocBuilder::buildDoc](https://github.com/ling
 Launch this function to generate the documentation for the MysqlCreateTableUtil planet.
 (based on the LingGitPhpPlanetDocBuilder doc builder.
 
-If htmlMode is false (the default),
+If htmlMode is true (the default),
 this method will generate all files in md format in the following directory:
 
 - /myphp/universe/MysqlCreateTableUtil/doc

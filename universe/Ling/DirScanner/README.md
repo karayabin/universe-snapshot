@@ -148,6 +148,10 @@ $dirs = YorgDirScannerTool::getDirs("/path/to/dir");
 History Log
 ------------------
 
+- 1.12.0 -- 2019-10-04
+
+    - add YorgDirScannerTool::getFilesWithoutExtension method
+    
 - 1.11.2 -- 2019-07-18
 
     - update docTools documentation, add links to source code for classes and methods

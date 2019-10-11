@@ -39,6 +39,23 @@ I thought this document would be longer, but that's pretty much all I have to sa
 
 Time for me to implement that idea!
     
+    
+    
+The print idea
+===============
+2019-09-24
+
+
+Today I came across the case where it would have been practical to just make the server display some html content instead of returning
+a json array as defined in the ajax communication protocol.
+
+For this reason, the Light Ajax Handler will allow a special notation for the response:
+
+- type: print    
+- content: some html...
+
+
+This will bypass the ajax communication protocol and just print the given content as is.
 
 
 

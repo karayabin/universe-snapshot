@@ -19,7 +19,7 @@ class Uni2DocBuilder
      * Launch this function to generate the documentation for the Uni2 planet.
      * (based on the LingGitPhpPlanetDocBuilder doc builder.
      *
-     * If htmlMode is false (the default),
+     * If htmlMode is true (the default),
      * this method will generate all files in md format in the following directory:
      *
      * - /myphp/universe/Uni2/doc
@@ -47,7 +47,7 @@ class Uni2DocBuilder
      * @param bool $htmlMode
      * @throws DocBuilderException
      */
-    public static function buildDoc($htmlMode = false)
+    public static function buildDoc($htmlMode = true)
     {
 
         //--------------------------------------------

@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [UniverseToolsDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/UniverseTools/UniverseToolsDocBuilder/buildDoc.md)($htmlMode = false) : void
+public static [UniverseToolsDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/UniverseTools/UniverseToolsDocBuilder/buildDoc.md)($htmlMode = true) : void
 
 
 
@@ -24,7 +24,7 @@ public static [UniverseToolsDocBuilder::buildDoc](https://github.com/lingtalfi/L
 Launch this function to generate the documentation for the UniverseTools planet.
 (based on the LingGitPhpPlanetDocBuilder doc builder.
 
-If htmlMode is false (the default),
+If htmlMode is true (the default),
 this method will generate all files in md format in the following directory:
 
 - /myphp/universe/UniverseTools/doc
@@ -72,7 +72,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [UniverseToolsDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/UniverseTools/UniverseToolsDocBuilder.php#L50-L211)
+See the source code for method [UniverseToolsDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/UniverseTools/UniverseToolsDocBuilder.php#L50-L212)
 
 
 See Also

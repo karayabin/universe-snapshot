@@ -87,6 +87,18 @@ Related
 History Log
 =============
 
+- 1.3.1 -- 2019-10-01
+
+    - update LightEndRoutineCsrfPageCleanerHandler, fix deprecated LightTool::isAjax call
+    
+- 1.3.0 -- 2019-09-30
+
+    - update LightEndRoutineCsrfPageCleanerHandler, now uses the new LightTool::isAjax call
+    
+- 1.2.0 -- 2019-09-24
+
+    - update end routine, now is triggered only on ajax pages
+    
 - 1.1.1 -- 2019-09-20
 
     - update documentation

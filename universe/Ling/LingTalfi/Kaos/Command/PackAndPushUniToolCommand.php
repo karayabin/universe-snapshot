@@ -31,6 +31,11 @@ use Ling\UniverseTools\MetaInfoTool;
  * - Pushes the universe-naive-importer to github.com.
  *
  *
+ * The goal is basically to update the @page(uni tool), so that when an user downloads it, she gets
+ * the latest version which can import every package.
+ *
+ *
+ *
  */
 class PackAndPushUniToolCommand extends KaosGenericCommand
 {

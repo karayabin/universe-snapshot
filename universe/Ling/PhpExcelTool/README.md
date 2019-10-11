@@ -3,6 +3,10 @@ PhpExcelTool
 2017-10-17
 
 
+Deprecated warning: this planet is now deprecated in favor of the better
+[PhpSpreadSheetTool](https://github.com/lingtalfi/PhpSpreadSheetTool) tool.
+
+
 A personal helper for using the PHPOffice/PHPExcel library.
 
 
@@ -21,9 +25,23 @@ Or just download it and place it where you want otherwise.
 
 
 
+Documentation
+==========
+- [PhpExcelTool api](https://github.com/lingtalfi/PhpExcelTool/blob/master/doc/api/Ling/PhpExcelTool.md) (generated with [DocTools](https://github.com/lingtalfi/DocTools))
+
+
+
+
+
+
+
+
 How to
 ==========
 
+
+Accessing values from a specific column
+--------------
 
 ```php
 <?php
@@ -36,6 +54,8 @@ $colValues = PhpExcelTool::getColumnValues("C", $file);
 
 
 
+Creating an xsl file
+---------------
 
 ```php
 <?php
@@ -56,6 +76,10 @@ a($ret); // null, means ok
 ```
 
 
+
+
+Accessing values from multiple columns
+--------------------
 ```php
 <?php 
 $file = "/myphp/leaderfit/leaderfit/class-modules/ThisApp/assets/fixtures/ID_CATEGORIES.XLSX";
@@ -131,8 +155,26 @@ PhpExcelTool::file2Table($file, [
 ```
 
 
+Related
+=========
+- [PhpSpreadSheetTool](https://github.com/lingtalfi/PhpSpreadSheetTool), the newest/recommended version of PhpExcelTool
+
+
+
 History Log
 ------------------
+    
+- 1.9.3 -- 2019-10-08
+
+    - add deprecation notice
+    
+- 1.9.2 -- 2019-10-08
+
+    - add doc link
+    
+- 1.9.1 -- 2019-10-08
+
+    - add doc 
     
 - 1.9.0 -- 2018-05-29
 

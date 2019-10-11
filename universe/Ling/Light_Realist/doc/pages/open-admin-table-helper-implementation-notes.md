@@ -1,6 +1,11 @@
 Open Admin Table Helper - implementation notes
 ===================
-2019-08-19
+2019-08-19 -> 2019-10-10
+
+
+Note: this is just one possible implementation out of many, the official name of this implementation 
+is "Open Admin Table One" protocol implementation.
+
 
 
 
@@ -10,9 +15,19 @@ This tool helps you implement the open-admin-table protocol in your gui.
 
 It uses the realist-tag-transfer.js script under the hood (i.e. it's a dependency).
 
+We also use the [AjaxHandler](https://github.com/lingtalfi/Light_AjaxHandler) plugin under the hood,
+to avoid multiplying routes.
 
-Note: this is just one possible implementation out of many, the official name of this implementation 
-is "Open Admin Table One" protocol implementation.
+
+For the ajax handler parameters to request a realist (this might be used by other plugins):
+- The handlerId is: Light_Realist
+- The actionId is: realist-request 
+
+
+For CSRF protection, we use token named "realist-request", which value is carried by the csrf_token
+property (in $_POST). 
+
+
 
 
 
@@ -39,7 +54,6 @@ The following modules are recognized and handled by this tool:
 - neck filters
 - number of items per page
 - pagination
-- toolbar
 
 
 
@@ -173,11 +187,23 @@ If not preceded by a question mark, the markup is mandatory.
 - global search:
     - input: the input tag holding the search value. There should be only one input inside the global search container. 
     - ?.oath-search-btn: add this class to the "Search" button if you use one.
+    - ?.oath-reset-btn: add this class to the "Reset" button if you use one.
     
 - advanced search:
     - .oath-search-btn: add this class to the "Search" button.
+    - ?.oath-reset-btn: add this class to the "Reset" button.
     - .input-operator-value: we mark all the input that can be reset with this class.
             The reset operation of the advanced search form is executed just before the global search form is posted. 
+    - ?.oath-add-btn: add this class to the "Add New Line" button.
+    - ?.oath-remove-btn: add this class to the "Remove Line" button.
+            It's also recommended that you add a hiding class (i.e. d-none for instance in bootstrap) on that element,
+            so that only dynamically added lines show that button (that's the internal behaviour of the
+            helper to call the jquery show method on this element for new lines).
+            If you do so, register the hiding class with the data-hide-class attribute (see below for more details).            
+    - ?.data-hide-class: add this attribute to specify the css class that you used to hide the remove button.
+    - ?.oath-andor-keyword: add this class to the html element that holds the OR keyword to inject in a row created
+                with the oath-add-btn action trigger.
+            
     
 - head columns sort:
 
@@ -261,112 +287,65 @@ If not preceded by a question mark, the markup is mandatory.
         
     
     
-    
-    
 
 
-Options (default values)
+Javascript main implementation idea
 -----------
-- service_url: string. The url of the (php) backend service which will communicate with
-- request_id: string. The request id of the query we want to get. See the [realist tag transfer protocol](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/realist-tag-transfer-protocol.md) for more information. 
-- table_selector: string. The jquery selector to find the main table from the defined jContainer element 
-- primary_group: array of primary modules. See the primary groups section for more details.
-    - global_search 
-    - advanced_search 
-- on_server_error: callback. Called whenever the server responds with an error. 
-                    The callback takes the error message as its sole argument.
-- on_request_after: callback function(jContainer){}. 
-                    Executed after a query to the server is done.
-                    This can be used to remove existing third-party ajax overlays for instance. 
+2019-10-10
 
-- global_search:
+In my previous try (open-admin-table-helper-implementation-notes-2019-08-19.md), 
+I used the combine_request_with and primary_groups properties.
 
-     // The array of widget identifiers which value to add to the request (for instance neck_filters, pagination, ...).
-     // Or the asterisk wildcard (*) to include all widgets.
-     // Every widget not listed here will be reinitialized (i.e. filled with empty values).
-     // Notice that the default value is an empty array, which means every other widget is reset
-     // when a global search is performed.
-     - combine_request_with: []
+But now that we use a gui driven approach (with the implementation of new tags or, and, open_parenthesis and close_parenthesis),
+we have to provide the AND tag between the global_search/advanced_search and the neck_filters ourselves.
 
-     // whether or not the request should be sent while typing (i.e. no need for the "search" button)
-     - send_request_while_typing: false
+That would just have been a matter of adding a small hardcoded exception snippet in the existing code, but I feared that this addition would
+make the whole js helper too complicated to understand for a developer in general (like me in 6 months for instance).
 
-     // the number of ms to wait before sending a request (if send_request_while_typing=true)
-     // note: another keystroke on the input resets the timer.
-     - send_request_while_typing_timeout: 200
+So I will simply re-implement the tool with a new idea which is the described below.
 
-- advanced_search:
-     // same as global_search.combine_request_with
-     - combine_request_with: []
+So there are 5 main widgets/modules gravitating around the main list:
 
-- head_columns_sort:
-     // same as global_search.combine_request_with
-     - combine_request_with: *
+- global_search
+- advanced_search
+- head_columns_sort
+- neck_filters
+- pagination (composed of the page number, and optionally including number_of_items_per_page)
 
-- neck_filters:
-     // same as global_search.combine_request_with
-     - combine_request_with:
-         - global_search
-         - advanced_search
-    // Whether to refresh the gui as the user types or changes the neck filter control.
-    // If false, the user needs to click a button to manually commit the change.
-     - use_auto_send: true
-     // If auto_send mode is activated, and if the control element is an input,
-      // the time in milli-seconds to wait after the last keystroke before sending the request.
-     // Note: all keystrokes share only one timer which is refreshed on every keystroke.
-     - auto_send_timeout: 200         
 
-- pagination:
-     // same as global_search.combine_request_with
-     - combine_request_with: *
-     - max_width: int=10. The max number of regular page links to display. 
-     - disabled_class: string=disabled. The css class to apply on disabled special link items
+Each module can be activated, which means the user clicks on it or interacts with it.
+Note: page stands for page number.
+
+
+Now the following rules apply (and cannot be changed like the previous version).
+There are a lot of them, but they are very intuitive when you think about it, so it shouldn't be hard
+to understand them:
+
+
+- a main search module is one of: **global_search**, **advanced_search**
+- a filtering module is one of: **global_search**, **advanced_search**, **neck_filters**
+- **global_search** and **advanced_search** modules cannot be used at the same time (it's either one or the other)
+- when **global_search** is activated **advanced_search** is emptied
+- when **advanced_search** is activated the **global_search** is emptied
+- **neck_filters** can be combined with either **global_search** or **advanced_search**
+- When **neck_filters** is combined with a main search module, it's appended to the main search module with the "AND" keyword, such as in:
+        - main_search_module AND neck_filters
+- When a main search module is activated, the page and sort are reset (i.e. page=1, no sort)
+- The **current search** refers to the last main search module used (or **global_search** by default if no module was used before), and optionally the **neck_filters** if activated
+- When the **page** is activated, it re-sends the tags of the **current_search**, the **head_columns_sort** and the **number_of_items_per_page** (if defined)
+- When the **number_of_items_per_page** is activated, it re-sends the tags of the **current_search**, the **head_columns_sort**, and the **page**.
+        Note that the server might fix the page number, as the requested page number might not exist anymore (if the number of pages has been
+        reduced due to the increase of the number of items per page for instance).
+- When the **neck_filters** module is activated alone (without a main search module), it re-sends the tags of the **head_columns_sort** and the **number_of_items_per_page** (if defined). The **page** is reset to 1.
+- When the **head_columns_sort** is activated, it re-sends the tags of the **current search**, and the **number_of_items_per_page** (if defined). The **page** is reset to 1.
+ 
+
+
+So, a lot of rules, but at least it's a much simpler system to understand than the previous one.
 
 
 
-Note: there is no number_of_items_per_page option, as it shares the same configuration as the pagination widget.
-In other words, when either the pagination widget or the number_of_items_per_page widget are triggered by the user,
-the pagination option is used.
 
-
-
-Primary groups
----------------
-
-The **combine_with** paradigm works well for the most part.
-But there is one small problem.
-
-Let's imagine that we want to either use the global search, or the advanced search, but not combine both at the same time.
-Now when we click a column sort (head_columns_sort module), it has combine_request_with=*, 
-which means the module combines with every other module.
-
-The problem is: which one of the global search or the advanced search do we include?
-
-In order to solve this problem, I introduce the concept of primary module and primary group.
-
-A primary module is a module that fights for its place.
-
-We put all the primary modules in the so-called primary group, and we let them fight together.
-
-There will be only one winner which will be used for the query.
-
-Now back to our problem.
-Let's say that the global search module and the advanced search module are both primary modules.
-They are the only two primary modules, and so we put them in the primary group.
-
-So now when we click the sort button, they will fight, and only one of them will be used.
-Problem solved.
-
-But wait, how do they fight exactly?
-
-We will use the javascript as the referee, and basically both modules might have buttons or gui handles/hints 
-that js might be able to leverage.
-Basically, if the advanced search button is clicked, js will shy down the global search module (by emptying its field).
-Conversely, if we click the global search button (or maybe just typing in its input field, depending on our gui), js
-will shy down the advanced search module.
-
-The shy down operation is done just before the query is combined, so that we can simply observe which module has
-been shut down to know the winner (which is the only one in the group that hasn't been shut down).
 
 
 
@@ -379,7 +358,7 @@ Personal notes:
 
 Here is a reminder on how I now see things (which might help the reader diving more into the code details):
 
-We have 5 widgets gravitating around the main list:
+We have 5 main widgets gravitating around the main list:
 
 - global_search
 - advanced_search
@@ -558,8 +537,8 @@ Ric implementation
 By default, we implement ric by using the [ric admin table helper](https://github.com/lingtalfi/JRicAdminTableHelper) js tool.
 See the documentation of this tool for more details.
 
-Because this tool is so useful, we've included in the Light_Realist distribution (so that when you import Light_Realist,
-it's already there in your application).
+Because this tool is so useful, we've included it as a dependency of the **Light_Realist** planet, so that when you import **Light_Realist**
+you also get the ric admin table helper in your application.
 
 
 

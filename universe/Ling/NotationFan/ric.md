@@ -25,3 +25,6 @@ Eventually, if the table doesn't have a primary key nor does it have unique inde
 
 Alternately, the developer can always override the ric manually, if he so desires.
 
+
+Note: the ric is not related to the concept of auto-incremented key.
+

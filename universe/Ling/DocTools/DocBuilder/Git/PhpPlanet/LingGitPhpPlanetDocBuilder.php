@@ -199,13 +199,20 @@ class LingGitPhpPlanetDocBuilder extends DocBuilder
      *              External custom class name means:
      *              - the class is external to the given planetDir
      *              - this is not a php built-in class (like \Exception for instance)
+     * - ?ignoreFilesStartingWith: array of prefixes to look for. If a prefix matches the beginning of a (relative) file path (relative to the planet root dir),
+     *          then the file is excluded.
+     *          Generally, you use this when you include/embed another library in your planet, and you don't want docTools
+     *          to generate the documentation for it.
+     *          This happened to me with Ling/PhpExcelTool planet, which embeds the PHPExcel library from another author,
+     *          and docTool was having problem with generating the doc from PHPExcel because it required some autoloader files,
+     *          and so I decided to just skip the documentation of PHPExcel (as it's not my tool anyway, and it probably has
+     *          its proper documentation).
      * - ?markdownTranslator: object. Instance of a @class(DocTools\Translator\MarkdownTranslatorInterface).
      *              If set, all generated files will be converted by this translator.
      * - ?mode: string = md (html|md). Whether to generate md files or html files.
      *              By default, the md format is used (markdown).
      *              If you use html, be sure to also set an appropriate markdownTranslator, which will convert
      *              markdown to html.
-     *
      *
      *
      * @throws \Exception
@@ -234,6 +241,9 @@ class LingGitPhpPlanetDocBuilder extends DocBuilder
         $this->_mode = $settings['mode'] ?? "md";
         $keyWord2UrlMap = $settings['keyWord2UrlMap'];
         $externalCustomClass2Url = $settings['externalClass2Url'] ?? [];
+        $ignoreFilesStartingWith = $settings['ignoreFilesStartingWith'] ?? [];
+
+
 
 
         $generatedDocStyle = new DefaultGeneratedDocStyle();
@@ -248,7 +258,10 @@ class LingGitPhpPlanetDocBuilder extends DocBuilder
          * Preparing the className2Url and methodName2Url, we prepare them once for all,
          * and then pass them to whatever objects need them.
          */
-        $classNames = PlanetTool::getClassNames($this->planetDir);
+        $classNames = PlanetTool::getClassNames($this->planetDir, [
+            "ignoreFilesStartingWith" => $ignoreFilesStartingWith,
+        ]);
+
         $generatedItems2Url = [];
         foreach ($classNames as $className) {
             $generatedItems2Url[$className] = $generatedDocStyle->getClassUrl($planetName, $this->_generatedClassBaseUrl, $className);
@@ -289,8 +302,11 @@ class LingGitPhpPlanetDocBuilder extends DocBuilder
         $parser->setReport($report);
 
 
-        $this->_planetInfo = $parser->parse($this->planetDir);
+        $this->_planetInfo = $parser->parse($this->planetDir, [
+            "ignoreFilesStartingWith" => $ignoreFilesStartingWith,
+        ]);
         $this->setReport($report);
+
 
 
     }
@@ -390,11 +406,13 @@ class LingGitPhpPlanetDocBuilder extends DocBuilder
 
 
         $className = $classInfo->getName();
+
+
         $p = explode('\\', $className);
         array_shift($p); // drop the universe name
         array_shift($p); // drop the planet name
         $classSourceUrl = $gitBase . "/" . implode("/", $p) . '.php';
-
+        $isTrait = $classInfo->getReflectionClass()->isTrait();
 
 
         $planetName = $this->_planetInfo->getName();
@@ -438,6 +456,7 @@ class LingGitPhpPlanetDocBuilder extends DocBuilder
             "projectStartDate" => $this->projectStartDate,
             "planetName" => $planetName,
             "planetUrl" => $this->_generatedClassBaseUrl . "/$planetName." . $this->_mode,
+            "isTrait" => $isTrait,
         ]);
     }
 
@@ -467,7 +486,6 @@ class LingGitPhpPlanetDocBuilder extends DocBuilder
         $startLine = $rMethod->getStartLine();
         $endLine = $rMethod->getEndLine();
         $methodSourceUrl = $classSourceUrl . "#L" . $startLine . "-L" . $endLine;
-
 
 
         $methodSignature = MethodHelper::getMethodSignature($methodInfo, $this->_generatedItems2Url, [

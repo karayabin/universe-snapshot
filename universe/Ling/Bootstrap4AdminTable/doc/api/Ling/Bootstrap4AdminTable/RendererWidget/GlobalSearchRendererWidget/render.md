@@ -47,7 +47,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [GlobalSearchRendererWidget::render](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/RendererWidget/GlobalSearchRendererWidget.php#L17-L34)
+See the source code for method [GlobalSearchRendererWidget::render](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/RendererWidget/GlobalSearchRendererWidget.php#L17-L37)
 
 
 See Also

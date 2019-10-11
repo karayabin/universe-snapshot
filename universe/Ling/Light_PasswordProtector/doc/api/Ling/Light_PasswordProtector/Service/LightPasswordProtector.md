@@ -4,7 +4,7 @@
 
 The LightPasswordProtector class
 ================
-2019-08-07 --> 2019-08-07
+2019-08-07 --> 2019-10-03
 
 
 
@@ -69,7 +69,6 @@ class <span class="pl-k">LightPasswordProtector</span>  {
     - public [__construct](https://github.com/lingtalfi/Light_PasswordProtector/blob/master/doc/api/Ling/Light_PasswordProtector/Service/LightPasswordProtector/__construct.md)() : void
     - public [passwordHash](https://github.com/lingtalfi/Light_PasswordProtector/blob/master/doc/api/Ling/Light_PasswordProtector/Service/LightPasswordProtector/passwordHash.md)(string $password) : string
     - public [passwordVerify](https://github.com/lingtalfi/Light_PasswordProtector/blob/master/doc/api/Ling/Light_PasswordProtector/Service/LightPasswordProtector/passwordVerify.md)(string $password, string $hash) : bool
-    - protected [getPhpAlgorithmName](https://github.com/lingtalfi/Light_PasswordProtector/blob/master/doc/api/Ling/Light_PasswordProtector/Service/LightPasswordProtector/getPhpAlgorithmName.md)() : int
     - public [setAlgorithmName](https://github.com/lingtalfi/Light_PasswordProtector/blob/master/doc/api/Ling/Light_PasswordProtector/Service/LightPasswordProtector/setAlgorithmName.md)(string $algorithmName) : void
     - public [setAlgorithmOptions](https://github.com/lingtalfi/Light_PasswordProtector/blob/master/doc/api/Ling/Light_PasswordProtector/Service/LightPasswordProtector/setAlgorithmOptions.md)(array $algorithmOptions) : void
 
@@ -102,7 +101,6 @@ Methods
 - [LightPasswordProtector::__construct](https://github.com/lingtalfi/Light_PasswordProtector/blob/master/doc/api/Ling/Light_PasswordProtector/Service/LightPasswordProtector/__construct.md) &ndash; Builds the LightPasswordProtector instance.
 - [LightPasswordProtector::passwordHash](https://github.com/lingtalfi/Light_PasswordProtector/blob/master/doc/api/Ling/Light_PasswordProtector/Service/LightPasswordProtector/passwordHash.md) &ndash; Creates a password hash and returns it.
 - [LightPasswordProtector::passwordVerify](https://github.com/lingtalfi/Light_PasswordProtector/blob/master/doc/api/Ling/Light_PasswordProtector/Service/LightPasswordProtector/passwordVerify.md) &ndash; Verifies that the given password matches a hash.
-- [LightPasswordProtector::getPhpAlgorithmName](https://github.com/lingtalfi/Light_PasswordProtector/blob/master/doc/api/Ling/Light_PasswordProtector/Service/LightPasswordProtector/getPhpAlgorithmName.md) &ndash; Returns the php constant corresponding to the algorithm name set by the user.
 - [LightPasswordProtector::setAlgorithmName](https://github.com/lingtalfi/Light_PasswordProtector/blob/master/doc/api/Ling/Light_PasswordProtector/Service/LightPasswordProtector/setAlgorithmName.md) &ndash; Sets the algorithmName.
 - [LightPasswordProtector::setAlgorithmOptions](https://github.com/lingtalfi/Light_PasswordProtector/blob/master/doc/api/Ling/Light_PasswordProtector/Service/LightPasswordProtector/setAlgorithmOptions.md) &ndash; Sets the algorithmOptions.
 

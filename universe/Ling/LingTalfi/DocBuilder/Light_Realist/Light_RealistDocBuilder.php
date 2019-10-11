@@ -20,7 +20,7 @@ class Light_RealistDocBuilder
      * Launch this function to generate the documentation for the Light_Realist planet.
      * (based on the LingGitPhpPlanetDocBuilder doc builder.
      *
-     * If htmlMode is false (the default),
+     * If htmlMode is true (the default),
      * this method will generate all files in md format in the following directory:
      *
      * - /myphp/universe/Light_Realist/doc
@@ -41,7 +41,7 @@ class Light_RealistDocBuilder
      * @param bool $htmlMode
      * @throws DocBuilderException
      */
-    public static function buildDoc($htmlMode = false)
+    public static function buildDoc($htmlMode = true)
     {
 
         //--------------------------------------------
@@ -76,6 +76,7 @@ class Light_RealistDocBuilder
             "reportIgnore" => [
 //                "Ling\DocTools\Translator\ParseDownTranslator",
                 "Ling\Light\Controller\LightController",
+                "Ling\Light_AjaxHandler\Handler\ContainerAwareLightAjaxHandler",
             ],
             /**
              * Your project start date.
@@ -153,8 +154,16 @@ class Light_RealistDocBuilder
                 "the realist tag transfer protocol" => $doc . '/pages/realist-tag-transfer-protocol.md',
                 "ajax communication protocol" => 'https://github.com/lingtalfi/AjaxCommunicationProtocol',
                 "list action handler conception notes" => $doc . "/pages/list-action-handler-conception-notes.md",
+                "toolbar item" => $doc . "/pages/list-action-handler-conception-notes.md#the-toolbar-item",
                 "toolbar items" => $doc . "/pages/list-action-handler-conception-notes.md#the-toolbar-item",
                 "dynamic injection handler" => $doc . "/pages/duelist.md#dynamic-injection",
+                "request id" => $doc . "/pages/request-id.md",
+                "list general actions" => $doc . '/pages/realist-conception-notes.md#list-general-actions',
+                "list general action item" => $doc . '/pages/realist-conception-notes.md#list-general-actions',
+                "generic action item" => $doc . '/pages/generic-action-item.md',
+                "permission" => "https://github.com/lingtalfi/Light_User/blob/master/doc/pages/permission-conception-notes.md",
+                "micro permissions" => "https://github.com/lingtalfi/Light_MicroPermission",
+                "generic action items" => "https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/generic-action-item.md",
 
             ],
             /**
@@ -176,6 +185,10 @@ class Light_RealistDocBuilder
                 "Ling\Light\ServiceContainer\LightServiceContainerInterface" => 'https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md',
                 "Ling\ParametrizedSqlQuery\ParametrizedSqlQueryUtil" => 'https://github.com/lingtalfi/ParametrizedSqlQuery/blob/master/doc/api/Ling/ParametrizedSqlQuery/ParametrizedSqlQueryUtil.md',
                 "Ling\Light\ServiceContainer\LightServiceContainerAwareInterface" => 'https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerAwareInterface.md',
+                "Ling\Light_AjaxHandler\Handler\ContainerAwareLightAjaxHandler" => 'https://github.com/lingtalfi/Light_AjaxHandler/blob/master/doc/api/Ling/Light_AjaxHandler/Handler/ContainerAwareLightAjaxHandler.md',
+                "Ling\Light_AjaxHandler\Handler\LightAjaxHandlerInterface" => 'https://github.com/lingtalfi/Light_AjaxHandler/blob/master/doc/api/Ling/Light_AjaxHandler/Handler/LightAjaxHandlerInterface.md',
+                "Ling\Light_Realist\ListActionHandler\LightServiceContainerInterface" => 'https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md',
+                "Ling\Light_Realist\ListGeneralActionHandler\LightServiceContainerInterface" => 'https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md',
             ],
         ];
 

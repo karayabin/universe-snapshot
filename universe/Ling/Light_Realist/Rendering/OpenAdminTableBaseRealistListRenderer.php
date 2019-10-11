@@ -6,6 +6,7 @@ namespace Ling\Light_Realist\Rendering;
 
 use Ling\Bat\ArrayTool;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
+use Ling\Light_Realist\Service\LightRealistService;
 
 /**
  * The OpenAdminTableBaseRealistListRenderer class.
@@ -90,6 +91,24 @@ abstract class OpenAdminTableBaseRealistListRenderer implements RealistListRende
      */
     protected $listActionGroups;
 
+    /**
+     * This property holds the listGeneralActions for this instance.
+     * @var array
+     */
+    protected $listGeneralActions;
+
+    /**
+     * This property holds the containerCssId for this instance.
+     * @var string
+     */
+    protected $containerCssId;
+
+    /**
+     * This property holds the sqlColumns for this instance.
+     * @var array
+     */
+    protected $sqlColumns;
+
 
     /**
      * Builds the OpenAdminTableBaseRealistListRenderer instance.
@@ -108,6 +127,9 @@ abstract class OpenAdminTableBaseRealistListRenderer implements RealistListRende
         $this->container = null;
         $this->collapsibleColumnIndexes = [];
         $this->listActionGroups = [];
+        $this->listGeneralActions = [];
+        $this->containerCssId = null;
+        $this->sqlColumns = [];
 
     }
 
@@ -120,14 +142,29 @@ abstract class OpenAdminTableBaseRealistListRenderer implements RealistListRende
         $this->setRequestId($requestId);
         $this->setContainer($container);
 
+        /**
+         * @var $realist LightRealistService
+         */
+        $realist = $this->container->get('realist');
+
         $rendering = $requestDeclaration['rendering'] ?? [];
         $labels = $rendering['column_labels'] ?? [];
+
         $this->setLabels($labels);
 
 
+        $this->setSqlColumns($realist->getSqlColumnsByRequestDeclaration($requestDeclaration));
+
+
+
         $listActionGroups = $rendering['list_action_groups'] ?? [];
-        $this->container->get('realist')->decorateListActionGroups($listActionGroups);
+        $realist->prepareListActionGroups($listActionGroups, $requestId);
         $this->setListActionGroups($listActionGroups);
+
+
+        $listGeneralActions = $rendering['list_general_actions'] ?? [];
+        $realist->prepareListGeneralActions($listGeneralActions, $requestId);
+        $this->setListGeneralActions($listGeneralActions);
 
 
         $openAdminTable = $rendering['open_admin_table'] ?? [];
@@ -149,9 +186,18 @@ abstract class OpenAdminTableBaseRealistListRenderer implements RealistListRende
             $csrfTokenValue = $csrfToken['value'] ?? "not_defined";
             $this->setCsrfToken($csrfTokenValue);
         }
-
-
     }
+
+    /**
+     * @implementation
+     */
+    public function setContainerCssId(string $cssId)
+    {
+        $this->containerCssId = $cssId;
+    }
+
+
+
 
 
     //--------------------------------------------
@@ -230,6 +276,17 @@ abstract class OpenAdminTableBaseRealistListRenderer implements RealistListRende
     }
 
     /**
+     * Sets the listGeneralActions.
+     *
+     * @param array $listGeneralActions
+     */
+    public function setListGeneralActions(array $listGeneralActions)
+    {
+        $this->listGeneralActions = $listGeneralActions;
+    }
+
+
+    /**
      * Sets the csrfToken value.
      *
      * @param string $csrfToken
@@ -238,6 +295,17 @@ abstract class OpenAdminTableBaseRealistListRenderer implements RealistListRende
     {
         $this->csrfToken = $csrfToken;
     }
+
+    /**
+     * Sets the sqlColumns.
+     *
+     * @param array $sqlColumns
+     */
+    public function setSqlColumns(array $sqlColumns)
+    {
+        $this->sqlColumns = $sqlColumns;
+    }
+
 
 
 

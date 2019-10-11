@@ -12,6 +12,8 @@ https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/get
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/getContainer.md
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/getControllerArgs.md
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/getRoutes.md
+https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/initialize.md
+https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/isDebug.md
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/registerErrorHandler.md
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/registerRoute.md
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/renderDebugPage.md
@@ -43,6 +45,9 @@ https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/Service
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ServiceContainerHelper/getInstance.md
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ServiceContainerHelper/getServicesConf.md
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ServiceContainerHelper.md
+https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpAttachmentResponse/create.md
+https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpAttachmentResponse/sendHeaders.md
+https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpAttachmentResponse.md
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpJsonResponse/create.md
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpJsonResponse/sendHeaders.md
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpJsonResponse.md
@@ -118,11 +123,15 @@ https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContain
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerAwareInterface/setContainer.md
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerAwareInterface.md
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md
+https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Tool/LightTool/getPluginName.md
+https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Tool/LightTool/isAjax.md
+https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Tool/LightTool.md
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light.md
 https://github.com/lingtalfi/Light/blob/master/doc/pages/diary.md
 https://github.com/lingtalfi/Light/blob/master/doc/pages/light-application-recommended-structure.md
 https://github.com/lingtalfi/Light/blob/master/doc/pages/light-general-philosophy.md
 https://github.com/lingtalfi/Light/blob/master/doc/pages/light-service-container.md
+https://github.com/lingtalfi/Light/blob/master/doc/pages/my-snippets.md
 https://github.com/lingtalfi/Light/blob/master/doc/pages/plugin.md
 https://github.com/lingtalfi/Light/blob/master/doc/pages/rights.md
 https://github.com/lingtalfi/Light/blob/master/doc/pages/route.md

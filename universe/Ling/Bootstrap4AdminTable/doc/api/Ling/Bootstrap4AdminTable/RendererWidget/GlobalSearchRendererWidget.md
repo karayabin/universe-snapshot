@@ -4,7 +4,7 @@
 
 The GlobalSearchRendererWidget class
 ================
-2019-08-15 --> 2019-09-23
+2019-08-15 --> 2019-10-11
 
 
 
@@ -56,4 +56,4 @@ See the source code of [Ling\Bootstrap4AdminTable\RendererWidget\GlobalSearchRen
 
 SeeAlso
 ==============
-Previous class: [DebugWindowRendererWidget](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/DebugWindowRendererWidget.md)<br>Next class: [NeckFiltersRendererWidget](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/NeckFiltersRendererWidget.md)<br>
+Previous class: [DebugWindowRendererWidget](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/DebugWindowRendererWidget.md)<br>Next class: [ListGeneralActionRendererWidget](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/ListGeneralActionRendererWidget.md)<br>

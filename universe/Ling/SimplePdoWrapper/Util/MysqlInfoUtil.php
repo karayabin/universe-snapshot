@@ -211,13 +211,16 @@ EEE;
             if ($uniqueIndexes) {
                 $ric = current($uniqueIndexes);
             }
+            else{
+                $ric = $this->getColumnNames($table);
+            }
         }
         return $ric;
     }
 
     /**
      * Returns the array of unique indexes for the given table.
-     * It's an aray of indexName => indexes
+     * It's an array of indexName => indexes
      * With indexes being an array of column names ordered by ascending index sequence.
      *
      * @param string $table
@@ -279,6 +282,7 @@ EEE;
     /**
      * Return the name of the auto-incremented field, or false if there is none.
      *
+     * @param string $table
      * @return false|string
      * @throws \Exception
      */

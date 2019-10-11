@@ -18,6 +18,10 @@ abstract class ContainerAwareRealistDynamicInjectionHandler implements RealistDy
      */
     protected $container;
 
+
+    /**
+     * Builds the ContainerAwareRealistDynamicInjectionHandler instance.
+     */
     public function __construct()
     {
         $this->container = null;

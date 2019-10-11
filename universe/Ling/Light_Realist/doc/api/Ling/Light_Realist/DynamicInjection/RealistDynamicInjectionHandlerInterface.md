@@ -4,7 +4,7 @@
 
 The RealistDynamicInjectionHandlerInterface class
 ================
-2019-08-12 --> 2019-09-19
+2019-08-12 --> 2019-10-11
 
 
 
@@ -52,4 +52,4 @@ See the source code of [Ling\Light_Realist\DynamicInjection\RealistDynamicInject
 
 SeeAlso
 ==============
-Previous class: [LightRealistAjaxServiceController](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Controller/LightRealistAjaxServiceController.md)<br>Next class: [LightRealistException](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Exception/LightRealistException.md)<br>
+Previous class: [LightRealistDynamicInjectionHandler](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/DynamicInjection/LightRealistDynamicInjectionHandler.md)<br>Next class: [LightRealistException](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Exception/LightRealistException.md)<br>

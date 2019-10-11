@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightPasswordProtector::setAlgorithmOptions](https://github.com/lingtalfi/Light_PasswordProtector/blob/master/Service/LightPasswordProtector.php#L157-L160)
+See the source code for method [LightPasswordProtector::setAlgorithmOptions](https://github.com/lingtalfi/Light_PasswordProtector/blob/master/Service/LightPasswordProtector.php#L127-L130)
 
 
 See Also

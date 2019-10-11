@@ -436,4 +436,90 @@ class YorgDirScannerTool
             }
         });
     }
+
+
+
+    /**
+     * Return the list of files (not dirs) NOT ending with the given $extension(s).
+     *
+     *
+     * @param string $dir
+     * @param bool $recursive = false
+     * @param string|array $extension
+     * The extensions to exclude.
+     *
+     * @param bool $extensionCaseSensitive = false
+     * Whether or not to use case sensitive comparisons for the file extensions.
+     *
+     * @param bool $relativePath = false
+     * Whether to return absolute paths (by default), or relative paths.
+     *
+     * @param bool $followSymlinks = false
+     *
+     * @param int $ignoreHidden = 1
+     * Do we ignore entries starting with a dot (.)?
+     * - 0: do not ignore hidden entries
+     * - 1: ignore hidden directories
+     * - 2: ignore hidden directories and files
+     *
+     * If a directory is ignored, its content is ignored recursively.
+     *
+     * @return array
+     *
+     */
+    public static function getFilesWithoutExtension(string $dir, $extension, bool $extensionCaseSensitive = false, bool $recursive = false,
+                                                 bool $relativePath = false, bool $followSymlinks = false, int $ignoreHidden = 1): array
+    {
+        if (is_string($extension)) {
+            $extension = [$extension];
+        }
+        return DirScanner::create()->setFollowLinks($followSymlinks)->scanDir($dir, function ($path, $rPath, $level, &$skipDir) use ($relativePath, $recursive, $ignoreHidden, $extension, $extensionCaseSensitive) {
+            if (0 === $level || true === $recursive) {
+
+                $fileName = basename($rPath);
+                if ($ignoreHidden > 0 && 0 === strpos($fileName, '.')) {
+                    if (
+                        is_dir($path) ||
+                        (is_file($path) && 2 === $ignoreHidden)
+                    ) {
+                        $skipDir = true;
+                        return null;
+                    }
+                }
+
+
+                if (is_file($path)) {
+
+
+                    //--------------------------------------------
+                    // EXTENSION MATCH?
+                    //--------------------------------------------
+                    if (null !== $extension) {
+                        $searchPath = $path;
+                        if (false === $extensionCaseSensitive) {
+                            $searchPath = strtolower($searchPath);
+                        }
+                        $match = false;
+                        foreach ($extension as $_extension) {
+                            if (false === $extensionCaseSensitive) {
+                                $_extension = strtolower($_extension);
+                            }
+                            if ($_extension === substr($searchPath, -1 * (strlen($_extension)))) {
+                                $match = true;
+                            }
+                        }
+                        if (true === $match) {
+                            return null;
+                        }
+                    }
+
+
+                    if (true === $relativePath) {
+                        return $rPath;
+                    }
+                    return $path;
+                }
+            }
+        });
+    }
 }

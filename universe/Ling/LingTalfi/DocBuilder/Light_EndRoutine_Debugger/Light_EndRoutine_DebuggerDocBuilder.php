@@ -20,7 +20,7 @@ class Light_EndRoutine_DebuggerDocBuilder
      * Launch this function to generate the documentation for the Light_EndRoutine_Debugger planet.
      * (based on the LingGitPhpPlanetDocBuilder doc builder.
      *
-     * If htmlMode is false (the default),
+     * If htmlMode is true (the default),
      * this method will generate all files in md format in the following directory:
      *
      * - /myphp/universe/Light_EndRoutine_Debugger/doc
@@ -41,7 +41,7 @@ class Light_EndRoutine_DebuggerDocBuilder
      * @param bool $htmlMode
      * @throws DocBuilderException
      */
-    public static function buildDoc($htmlMode = false)
+    public static function buildDoc($htmlMode = true)
     {
 
         //--------------------------------------------

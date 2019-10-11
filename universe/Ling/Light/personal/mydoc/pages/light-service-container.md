@@ -106,7 +106,7 @@ As a quick reminder, here are some special notation that we can use in the servi
 
 - ${app_dir}                the application root directory. This variable is passed by the ServiceContainerHelper (the object used to instantiate the container in a light app).
 - @service(my_service)      to call another service, this is provided by the [Octopus](https://github.com/lingtalfi/Octopus) implementation used by the light service container by default.
-- @container(my_service)    to reference the service container itself, this is also provided by Octopus 
+- @container()              to reference the service container itself, this is also provided by Octopus 
 
 
 We can also use the [variable reference mechanism of the SicFileCombinerUtil](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/Util/SicFileCombinerUtil.md#variable-references) class to override any property of the resulting
@@ -131,9 +131,51 @@ configuration files.
 
 
 
+A typical service configuration file structure
+------------------
+2019-10-04
 
 
+After having created a few service configuration files, I've now found an organization I want to share with you,
+because I believe it's flexible and can handle any situation (at least any situation I've come across so far).
 
+Basically, you have between one and three parts depending on your needs:
+
+- the service declaration part (mandatory)
+- the hooks part (optional), where you register/subscribe to other plugins
+- the variables part (optional), where you replace variables that other plugins allow you to configure
+
+
+I like to separate those three parts with decorative comments (see below).
+
+A fictional service configuration which uses those three parts would look like this:
+
+
+```yaml 
+my_service:
+    instance: MyGalaxy\Light_MyService\Service\LightMyService
+    
+
+    
+    
+# --------------------------------------
+# hooks
+# --------------------------------------
+$realist.methods_collection:
+    -
+        method: registerListRenderer
+        args:
+            identifier: Light_MyService
+            renderer:
+                instance: Ling\Bootstrap4AdminTable\Renderer\StandardBootstrap4AdminTableRenderer
+
+# --------------------------------------
+# vars
+# --------------------------------------
+$user_data_vars.install_parent_plugin: Light_MyService
+
+    
+```
   
 
 

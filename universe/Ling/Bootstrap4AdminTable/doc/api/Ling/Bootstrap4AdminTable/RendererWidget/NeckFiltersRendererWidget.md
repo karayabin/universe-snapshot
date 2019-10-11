@@ -4,7 +4,7 @@
 
 The NeckFiltersRendererWidget class
 ================
-2019-08-15 --> 2019-09-23
+2019-08-15 --> 2019-10-11
 
 
 
@@ -77,4 +77,4 @@ See the source code of [Ling\Bootstrap4AdminTable\RendererWidget\NeckFiltersRend
 
 SeeAlso
 ==============
-Previous class: [GlobalSearchRendererWidget](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/GlobalSearchRendererWidget.md)<br>Next class: [NeckFiltersRendererWidgetInterface](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/NeckFiltersRendererWidgetInterface.md)<br>
+Previous class: [ListGeneralActionRendererWidgetInterface](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/ListGeneralActionRendererWidgetInterface.md)<br>Next class: [NeckFiltersRendererWidgetInterface](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/NeckFiltersRendererWidgetInterface.md)<br>

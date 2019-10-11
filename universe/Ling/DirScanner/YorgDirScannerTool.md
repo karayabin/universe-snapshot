@@ -156,6 +156,24 @@ Works like the getFiles method above.
 
 
 
+getFilesWithExtension
+---------------
+2019-10-04
+
+Return the list of files (not dirs) NOT ending with the given $extension(s).
+
+
+```php
+array  getFiles( str:dir, mixed:extension, bool:extensionCaseSensitive=false, bool:recursive = false, bool:relativePath = false, bool:followSymlinks = false, int:ignoreHidden = 1)
+```
+
+string|array $extension , the allowed extensions. 
+
+
+Works like the getFiles method above.
+
+
+
 
 
     

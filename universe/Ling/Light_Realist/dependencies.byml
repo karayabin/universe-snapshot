@@ -1,10 +1,18 @@
 dependencies: 
     Ling: 
+        - Light_AjaxHandler
         - Light
+        - Light_Csrf
+        - Light_Kit_Admin
         - Bat
+        - ArrayToString
         - BabyYaml
         - Light_Database
         - ParametrizedSqlQuery
+        - JAcpHep
+        - JResponsiveTableHelper
+        - JRicAdminTableHelper
+        - JSortTable
     
 
 post_install: 

@@ -1,6 +1,6 @@
 Ling/Light_EndRoutine_CsrfPageCleaner
 ================
-2019-09-19 --> 2019-09-20
+2019-09-19 --> 2019-10-01
 
 
 
@@ -16,6 +16,7 @@ Table of contents
 
 Dependencies
 ============
+- [Light](https://github.com/lingtalfi/Light)
 - [Light_Csrf](https://github.com/lingtalfi/Light_Csrf)
 - [Light_EndRoutine](https://github.com/lingtalfi/Light_EndRoutine)
 

@@ -38,6 +38,10 @@ Summary
 History Log
 =============
 
+- 2.1.0 -- 2019-09-26
+
+    - add support for modals
+    
 - 2.0.1 -- 2019-08-30
 
     - updated documentation

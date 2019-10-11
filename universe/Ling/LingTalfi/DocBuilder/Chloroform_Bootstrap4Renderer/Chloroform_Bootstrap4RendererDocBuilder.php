@@ -20,7 +20,7 @@ class Chloroform_Bootstrap4RendererDocBuilder
      * Launch this function to generate the documentation for the Chloroform_Bootstrap4Renderer planet.
      * (based on the LingGitPhpPlanetDocBuilder doc builder.
      *
-     * If htmlMode is false (the default),
+     * If htmlMode is true (the default),
      * this method will generate all files in md format in the following directory:
      *
      * - /myphp/universe/Chloroform_Bootstrap4Renderer/doc
@@ -41,7 +41,7 @@ class Chloroform_Bootstrap4RendererDocBuilder
      * @param bool $htmlMode
      * @throws DocBuilderException
      */
-    public static function buildDoc($htmlMode = false)
+    public static function buildDoc($htmlMode = true)
     {
 
         //--------------------------------------------

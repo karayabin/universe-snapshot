@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [Chloroform_HydrogenRendererDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Chloroform_HydrogenRenderer/Chloroform_HydrogenRendererDocBuilder/buildDoc.md)($htmlMode = false) : void
+public static [Chloroform_HydrogenRendererDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Chloroform_HydrogenRenderer/Chloroform_HydrogenRendererDocBuilder/buildDoc.md)($htmlMode = true) : void
 
 
 
@@ -24,7 +24,7 @@ public static [Chloroform_HydrogenRendererDocBuilder::buildDoc](https://github.c
 Launch this function to generate the documentation for the Chloroform_HydrogenRenderer planet.
 (based on the LingGitPhpPlanetDocBuilder doc builder.
 
-If htmlMode is false (the default),
+If htmlMode is true (the default),
 this method will generate all files in md format in the following directory:
 
 - /myphp/universe/Chloroform_HydrogenRenderer/doc

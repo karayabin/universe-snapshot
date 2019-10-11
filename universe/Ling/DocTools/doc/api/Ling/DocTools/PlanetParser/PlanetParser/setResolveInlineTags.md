@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [PlanetParser::setResolveInlineTags](https://github.com/lingtalfi/DocTools/blob/master/PlanetParser/PlanetParser.php#L196-L199)
+See the source code for method [PlanetParser::setResolveInlineTags](https://github.com/lingtalfi/DocTools/blob/master/PlanetParser/PlanetParser.php#L202-L205)
 
 
 See Also

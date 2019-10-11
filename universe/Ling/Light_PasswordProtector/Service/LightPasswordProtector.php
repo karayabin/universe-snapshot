@@ -4,7 +4,7 @@
 namespace Ling\Light_PasswordProtector\Service;
 
 
-use Ling\Light_PasswordProtector\Exception\LightPasswordProtectorException;
+use Ling\Bat\HashTool;
 
 /**
  * The LightPasswordProtector class.
@@ -84,11 +84,11 @@ class LightPasswordProtector
      *
      * @param string $password
      * @return string
-     * @throws LightPasswordProtectorException
+     * @throws \Exception
      */
     public function passwordHash(string $password): string
     {
-        return password_hash($password, $this->getPhpAlgorithmName(), $this->algorithmOptions);
+        return password_hash($password, HashTool::getPasswordHashAlgorithm($this->algorithmName), $this->algorithmOptions);
     }
 
 
@@ -102,36 +102,6 @@ class LightPasswordProtector
     public function passwordVerify(string $password, string $hash): bool
     {
         return password_verify($password, $hash);
-    }
-
-    //--------------------------------------------
-    //
-    //--------------------------------------------
-    /**
-     * Returns the php constant corresponding to the algorithm name set by the user.
-     *
-     * @return int
-     * @throws LightPasswordProtectorException
-     */
-    protected function getPhpAlgorithmName(): int
-    {
-        switch ($this->algorithmName) {
-            case "default":
-                return PASSWORD_DEFAULT;
-                break;
-            case "bcrypt":
-                return PASSWORD_BCRYPT;
-                break;
-            case "argon2i":
-                return PASSWORD_ARGON2I;
-                break;
-            case "argon2id":
-                return PASSWORD_ARGON2ID;
-                break;
-            default:
-                throw new LightPasswordProtectorException("This algorithm is not recognized: " . $this->algorithmName);
-                break;
-        }
     }
 
 

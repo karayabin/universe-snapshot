@@ -5,7 +5,6 @@ namespace Ling\Light_Realist\AjaxHandler;
 
 
 use Ling\Light_AjaxHandler\Handler\ContainerAwareLightAjaxHandler;
-use Ling\Light_Csrf\Service\LightCsrfService;
 use Ling\Light_Realist\Exception\LightRealistException;
 use Ling\Light_Realist\Service\LightRealistService;
 
@@ -27,10 +26,10 @@ class LightRealistAjaxHandler extends ContainerAwareLightAjaxHandler
     public function handle(string $actionId, array $params): array
     {
         $response = [];
+
+
         switch ($actionId) {
             case "realist-request":
-
-
 
 
                 //--------------------------------------------
@@ -47,9 +46,6 @@ class LightRealistAjaxHandler extends ContainerAwareLightAjaxHandler
                         "tags" => $this->prepareTags($tags),
                         "csrf_token" => $csrfTokenValue,
                     ];
-
-
-
 
 
                     /**
@@ -73,6 +69,7 @@ class LightRealistAjaxHandler extends ContainerAwareLightAjaxHandler
 
 
                 } elseif (array_key_exists('action_id', $params)) {
+                    az(__FILE__, "reorganize this?");
                     $actionId = $params['action_id'];
                     $handler = $this->getContainer()->get("realist")->getActionHandler($actionId);
                     $_params = $params;
@@ -118,8 +115,10 @@ class LightRealistAjaxHandler extends ContainerAwareLightAjaxHandler
         $ret = [];
         foreach ($tags as $tagItem) {
             $tagVariables = [];
-            foreach ($tagItem['variables'] as $variable) {
-                $tagVariables[$variable['name']] = $variable['value'];
+            if (array_key_exists("variables", $tagItem)) {
+                foreach ($tagItem['variables'] as $variable) {
+                    $tagVariables[$variable['name']] = $variable['value'];
+                }
             }
             $tagItem['variables'] = $tagVariables;
             $ret[] = $tagItem;

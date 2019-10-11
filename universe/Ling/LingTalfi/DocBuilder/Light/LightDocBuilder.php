@@ -20,7 +20,7 @@ class LightDocBuilder
      * Launch this function to generate the documentation for the Light planet.
      * (based on the LingGitPhpPlanetDocBuilder doc builder.
      *
-     * If htmlMode is false (the default),
+     * If htmlMode is true (the default),
      * this method will generate all files in md format in the following directory:
      *
      * - /myphp/universe/Light/doc
@@ -41,7 +41,7 @@ class LightDocBuilder
      * @param bool $htmlMode
      * @throws DocBuilderException
      */
-    public static function buildDoc($htmlMode = false)
+    public static function buildDoc($htmlMode = true)
     {
 
         //--------------------------------------------
@@ -143,6 +143,7 @@ class LightDocBuilder
              * This map in particular is the one used for the whole DocTools planet documentation (pages and api).
              */
             "keyWord2UrlMap" => [
+                "route page" => $doc . '/pages/route.md',
                 "the route page" => $doc . '/pages/route.md',
                 "Light" => $api . '/Ling/Light/Core/Light.md',
                 "BabyYaml" =>  'https://github.com/lingtalfi/BabyYaml',

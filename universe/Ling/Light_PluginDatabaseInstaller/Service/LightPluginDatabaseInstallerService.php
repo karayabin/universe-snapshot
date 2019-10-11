@@ -38,6 +38,14 @@ class LightPluginDatabaseInstallerService
      */
     protected $forceInstall;
 
+    /**
+     * This property holds the uninstallOrder for this instance.
+     * It's an array of plugin names, in the order in which they should be uninstalled.
+     *
+     * @var array
+     */
+    protected $uninstallOrder;
+
 
     /**
      * Builds the LightPluginDatabaseInstallerService instance.
@@ -47,6 +55,7 @@ class LightPluginDatabaseInstallerService
         $this->appDir = null;
         $this->installers = [];
         $this->forceInstall = false;
+        $this->uninstallOrder = [];
     }
 
 
@@ -124,10 +133,37 @@ class LightPluginDatabaseInstallerService
     {
         $installDir = $this->appDir . "/config/data/Light_PluginDatabaseInstaller";
         $files = YorgDirScannerTool::getFilesWithExtension($installDir, 'installed', false);
+        $pluginNamesToFiles = [];
         foreach ($files as $file) {
             $pluginName = substr(basename($file), 0, -10);
+            $pluginNamesToFiles[$pluginName] = $file;
+        }
+
+
+        /**
+         * First uninstall the plugins in the order defined by the developer
+         */
+        $removed = [];
+        foreach ($this->uninstallOrder as $pluginName) {
             $this->executeByPluginName($pluginName, "uninstall");
-            FileSystemTool::remove($file);
+            if (array_key_exists($pluginName, $pluginNamesToFiles)) {
+                $file = $pluginNamesToFiles[$pluginName];
+                FileSystemTool::remove($file);
+                $removed[] = $pluginName;
+            }
+        }
+
+
+        /**
+         * Then remove remaining plugins (those not specified by the developer)
+         * in alphabetical order.
+         */
+        foreach ($files as $file) {
+            $pluginName = substr(basename($file), 0, -10);
+            if (false === in_array($pluginName, $removed, true)) {
+                $this->executeByPluginName($pluginName, "uninstall");
+                FileSystemTool::remove($file);
+            }
         }
     }
 
@@ -153,6 +189,17 @@ class LightPluginDatabaseInstallerService
     {
         $this->appDir = $appDir;
     }
+
+    /**
+     * Sets the uninstallOrder.
+     *
+     * @param array $uninstallOrder
+     */
+    public function setUninstallOrder(array $uninstallOrder)
+    {
+        $this->uninstallOrder = $uninstallOrder;
+    }
+
 
 
     //--------------------------------------------

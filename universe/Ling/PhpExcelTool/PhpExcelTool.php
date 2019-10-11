@@ -17,10 +17,13 @@ use Ling\QuickPdo\QuickPdoInfoTool;
  * https://github.com/PHPOffice/PHPExcel
  * (since I tend to loose memory)
  *
- * Before you can use this tool, please install the PHPOffice/PHPExcel library, instructions are in the
- * install.txt at the top of this repository.
  *
- * Also, you need to call the PHPExcel.php class before hand (using a require_once for instance).
+ * I included it in this planet, so you should be able to use the methods of this class right away.
+ *
+ * If not, please install the PHPOffice/PHPExcel library, instructions are in the
+ * install.txt at the top of PHPExcel/ directory in this planet.
+ * Also (if it doesn't work right away, remember that you need to call the PHPExcel.php class before hand (using a require_once for instance)).
+ *
  *
  *
  */
@@ -28,7 +31,16 @@ class PhpExcelTool
 {
 
 
-    public static function getAllAsRows(string $file)
+    /**
+     * Returns all the rows of the spreadsheet.
+     * This is generally not what you want, because it returns all empty cells (there are generally a lot).
+     *
+     *
+     * @param string $file
+     * @return array
+     * @throws \Exception
+     */
+    public static function getAllAsRows(string $file): array
     {
         self::init();
         $ret = [];
@@ -72,10 +84,15 @@ class PhpExcelTool
     }
 
     /**
-     * @param $columnName , str the name of the column (i.e. A, B, ...)
-     * @return $ret array, an array containing all the values for column $columnName
+     * Returns all the column values for the given column.
+     *
+     *
+     * @param string $columnName
+     * @param string $file
+     * @return array
+     * @throws \Exception
      */
-    public static function getColumnValues($columnName, string $file)
+    public static function getColumnValues($columnName, string $file): array
     {
         self::init();
         $ret = [];
@@ -90,7 +107,17 @@ class PhpExcelTool
         return $ret;
     }
 
-    public static function getRowValues($rowName, string $file, array $options = [])
+
+    /**
+     * Returns an array of the values for the row identified by rowName (the index or name of the row).
+     *
+     * @param $rowName
+     * @param string $file
+     * @param array $options
+     * @return array
+     * @throws \Exception
+     */
+    public static function getRowValues($rowName, string $file, array $options = []):array
     {
         self::init();
         $ret = [];
@@ -124,7 +151,23 @@ class PhpExcelTool
     }
 
 
-    public static function getColumnsAsRows(array $columnName2Keys, string $file, int $skipNLines = 0)
+    /**
+     * Returns an array of rows.
+     * Each row contains the entries defined with the columnName2Keys.
+     *
+     * columnName2Keys is an array of column name => key.
+     * The key is the name of the key in the returned row.
+     *
+     *
+     *
+     *
+     * @param array $columnName2Keys
+     * @param string $file
+     * @param int $skipNLines
+     * @return array
+     * @throws \Exception
+     */
+    public static function getColumnsAsRows(array $columnName2Keys, string $file, int $skipNLines = 0): array
     {
         self::init();
         $ret = [];
@@ -171,10 +214,13 @@ class PhpExcelTool
      *                      fn( PHPExcel_DocumentProperties $props ){}
      *
      *
-     * @return false|mixed,
-     *          return false if the data is empty
-     *          otherwise return the same thing as the save method of the writer object (see PHPExcel library)
+     * @param $file
+     * @param array $data
+     * @param array $options
+     * @return false|mixed.
+     * Returns false if the data is empty otherwise return the same thing as the save method of the writer object (see PHPExcel library).
      *
+     * @throws \Exception
      *
      */
     public static function createExcelFileByData($file, array $data, array $options = [])
@@ -270,7 +316,7 @@ class PhpExcelTool
      *
      *
      *
-     * @throws \QuickPdo\Exception\QuickPdoException
+     * @throws \Exception
      */
     public static function file2Table(string $file, array $options = [])
     {
@@ -346,6 +392,16 @@ ENGINE = InnoDB;
     }
 
 
+    /**
+     * Creates the excel file using the data from the given table.
+     * See the createExcelFileByData method for more info.
+     *
+     *
+     * @param string $table
+     * @param string $file
+     * @return false|mixed
+     * @throws \Exception
+     */
     public static function table2File(string $table, string $file)
     {
         $data = QuickPdo::fetchAll("select * from $table");
@@ -356,12 +412,22 @@ ENGINE = InnoDB;
     //--------------------------------------------
     //
     //--------------------------------------------
+    /**
+     * Initializes the library.
+     */
     private static function init()
     {
         require_once __DIR__ . "/PHPExcel/Classes/PHPExcel.php";
     }
 
 
+    /**
+     * Returns the first row of the given file.
+     *
+     * @param $file
+     * @return array
+     * @throws \Exception
+     */
     private static function getFirstRow($file)
     {
         self::init();

@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [SicToolsDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/SicTools/SicToolsDocBuilder/buildDoc.md)($htmlMode = false) : void
+public static [SicToolsDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/SicTools/SicToolsDocBuilder/buildDoc.md)($htmlMode = true) : void
 
 
 
@@ -24,7 +24,7 @@ public static [SicToolsDocBuilder::buildDoc](https://github.com/lingtalfi/LingTa
 Launch this function to generate the documentation for the SicTools planet.
 (based on the LingGitPhpPlanetDocBuilder doc builder.
 
-If htmlMode is false (the default),
+If htmlMode is true (the default),
 this method will generate all files in md format in the following directory:
 
 - /myphp/universe/SicTools/doc

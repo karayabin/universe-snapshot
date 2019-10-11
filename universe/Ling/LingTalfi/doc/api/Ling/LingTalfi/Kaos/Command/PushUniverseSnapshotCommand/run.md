@@ -60,7 +60,7 @@ If null, 0 should be assumed.
 
 Source Code
 ===========
-See the source code for method [PushUniverseSnapshotCommand::run](https://github.com/lingtalfi/LingTalfi/blob/master/Kaos/Command/PushUniverseSnapshotCommand.php#L32-L80)
+See the source code for method [PushUniverseSnapshotCommand::run](https://github.com/lingtalfi/LingTalfi/blob/master/Kaos/Command/PushUniverseSnapshotCommand.php#L32-L92)
 
 
 See Also

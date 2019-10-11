@@ -1,0 +1,10 @@
+dependencies: 
+    Ling: 
+        - Bat
+    
+
+post_install: 
+    map: true
+    composer: 
+        - require tecnickcom/tcpdf
+    

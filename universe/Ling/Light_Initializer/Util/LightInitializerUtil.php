@@ -4,7 +4,6 @@
 namespace Ling\Light_Initializer\Util;
 
 
-use Ling\Bat\DebugTool;
 use Ling\Light\Core\Light;
 use Ling\Light\Http\HttpRequestInterface;
 use Ling\Light_Initializer\Exception\LightInitializerException;
@@ -111,35 +110,11 @@ class LightInitializerUtil
         $defaultItems = $this->initializers['default'] ?? [];
 
 
-
-
         /**
          * Preparing the dependency resolution
          */
         if ($installItems) {
-            $tree = [];
-            foreach ($installItems as $item) {
-                list($initializer, $parent) = $item;
-                $name = $this->getPluginName($initializer);
-                /**
-                 * @var $childItem ParentChildItem
-                 */
-                $childItem = $this->installTree[$name][0];
-                if (null === $parent) {
-                    $tree[] = $childItem;
-                } else {
-                    if (array_key_exists($parent, $this->installTree)) {
-                        /**
-                         * @var $parentItem ParentChildItem
-                         */
-                        $parentItem = $this->installTree[$parent][0];
-                        $parentItem->addChild($childItem);
-
-                    } else {
-                        throw new LightInitializerException("Plugin dependency couldn't be resolved (plugin $name depending on $parent).");
-                    }
-                }
-            }
+            $tree = $this->getDependencyTree($installItems);
 
             //--------------------------------------------
             // EXECUTING INSTALL SLOT
@@ -159,6 +134,12 @@ class LightInitializerUtil
         $this->processItems($defaultItems, $light, $httpRequest);
     }
 
+
+
+
+    //--------------------------------------------
+    //
+    //--------------------------------------------
     /**
      * Process the given items.
      *
@@ -178,11 +159,6 @@ class LightInitializerUtil
     }
 
 
-
-
-    //--------------------------------------------
-    //
-    //--------------------------------------------
     /**
      * Returns a unique name for the given initializer.
      *
@@ -228,5 +204,41 @@ class LightInitializerUtil
                 $this->initializeItemRecursive($child, $light, $httpRequest);
             }
         }
+    }
+
+
+    /**
+     * Returns an array of ParentChildItem, based on the given install items.
+     *
+     * @param array $installItems
+     * @return ParentChildItem[]
+     * @throws \Exception
+     */
+    private function getDependencyTree(array $installItems): array
+    {
+        $tree = [];
+        foreach ($installItems as $item) {
+            list($initializer, $parent) = $item;
+            $name = $this->getPluginName($initializer);
+            /**
+             * @var $childItem ParentChildItem
+             */
+            $childItem = $this->installTree[$name][0];
+            if (null === $parent) {
+                $tree[] = $childItem;
+            } else {
+                if (array_key_exists($parent, $this->installTree)) {
+                    /**
+                     * @var $parentItem ParentChildItem
+                     */
+                    $parentItem = $this->installTree[$parent][0];
+                    $parentItem->addChild($childItem);
+
+                } else {
+                    throw new LightInitializerException("Plugin dependency couldn't be resolved (plugin $name depending on $parent).");
+                }
+            }
+        }
+        return $tree;
     }
 }

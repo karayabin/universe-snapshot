@@ -14,6 +14,29 @@ If you don't use bigbang, you can use var_dump as a replacement.
 
 
 
+Table of Contents
+=================
+
+* [arrayKeyExistAll](#arraykeyexistall)
+* [arrayMergeReplaceRecursive](#arraymergereplacerecursive)
+* [arrayUniqueRecursive](#arrayuniquerecursive)
+* [filterByAllowed](#filterbyallowed)
+* [filterRecursive](#filterrecursive)
+* [getMissingKeys](#getmissingkeys)
+* [insertRowAfter](#insertrowafter)
+* [isNumericalArray](#isnumericalarray)
+* [keysSameAsValues](#keyssameasvalues)
+* [mirrorRange](#mirrorrange)
+* [objectToArray](#objecttoarray)
+* [reduce](#reduce)
+* [removeEntry](#removeentry)
+* [superimpose](#superimpose)
+* [updateNodeRecursive](#updatenoderecursive)
+* [walkRowsRecursive](#walkrowsrecursive)
+
+         
+         
+
 arrayKeyExistAll
 -------------
 2018-01-18
@@ -881,5 +904,73 @@ array(2) {
     ["text"] => string(3) "Csv"
   }
 }
+
+```
+
+     
+
+
+### Example #3: using the reference symbol
+
+The following code:
+
+```php
+
+$groups = [
+    [
+        'action_id' => 'Light_Realist-delete_rows',
+        'text' => 'Delete',
+        'icon' => 'far fa-trash-alt'
+    ],
+    [
+        'text' => 'Share',
+        'icon' => 'fas fa-share-square',
+        'items' => [
+            [
+                'action_id' => 'Light_Realist-rows_to_csv',
+                'icon' => 'far fa-envelope',
+                'text' => 'Csv',
+            ],
+        ],
+    ],
+];
+
+
+ArrayTool::walkRowsRecursive($groups, function (array &$item)  {
+    $item['mushroom'] = "ok";
+
+}, 'items', false);
+
+
+az($groups);
+
+```
+
+
+Will output:
+
+```html
+
+array(2) {
+  [0] => array(4) {
+    ["action_id"] => string(25) "Light_Realist-delete_rows"
+    ["text"] => string(6) "Delete"
+    ["icon"] => string(16) "far fa-trash-alt"
+    ["mushroom"] => string(2) "ok"
+  }
+  [1] => array(3) {
+    ["text"] => string(5) "Share"
+    ["icon"] => string(19) "fas fa-share-square"
+    ["items"] => array(1) {
+      [0] => array(4) {
+        ["action_id"] => string(25) "Light_Realist-rows_to_csv"
+        ["icon"] => string(15) "far fa-envelope"
+        ["text"] => string(3) "Csv"
+        ["mushroom"] => string(2) "ok"
+      }
+    }
+  }
+}
+
 
 ```

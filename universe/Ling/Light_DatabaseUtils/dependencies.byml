@@ -1,0 +1,10 @@
+dependencies: 
+    Ling: 
+        - Light
+        - Bat
+        - Light_DatabaseInfo
+        - Light_Database
+    
+
+post_install: 
+    map: true

@@ -3,7 +3,8 @@
 
 namespace Ling\Light_Kit_Admin\Rights;
 
-use Ling\Light_User\WebsiteLightUser;
+use Ling\Light\ServiceContainer\LightServiceContainerInterface;
+use Ling\Light_UserDatabase\LightWebsiteUserDatabaseInterface;
 
 /**
  * The RightsHelper class.
@@ -13,13 +14,18 @@ class RightsHelper
 
 
     /**
-     * Returns whether the given website user is root.
+     * Returns whether the current (website) user is root.
      *
-     * @param WebsiteLightUser $user
+     * @param LightServiceContainerInterface $container
      * @return bool
+     * @throws \Exception
      */
-    public static function isRoot(WebsiteLightUser $user): bool
+    public static function isRoot(LightServiceContainerInterface $container): bool
     {
+        /**
+         * @var $user LightWebsiteUserDatabaseInterface
+         */
+        $user = $container->get('user_manager')->getUser();
         return in_array('*', $user->getRights(), true);
     }
 

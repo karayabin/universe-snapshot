@@ -23,18 +23,7 @@ public [ToolbarRendererWidget::setGroups](https://github.com/lingtalfi/Bootstrap
 
 Sets the groups.
 
-It's an array of groupItems, as defined in the [list action handler conception notes](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/list-action-handler-conception-notes.md).
-
-- 0:
-     - text: the text of the group or item
-     - ?icon: string, the css class of the icon (if any)
-     - ?items: only if this is a group (i.e. containing at least two items).
-             An array of children items (recursively).
-     - ?attr: array of extra html attributes. Note: you need to check with the concrete implementation
-             to see if there is some attributes conflicts (i.e. for instance the concrete implementation
-             might already be using the "class" html attribute.
-
-- 1: ...
+It's an array of [toolbar items](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/list-action-handler-conception-notes.md#the-toolbar-item).
 
 
 

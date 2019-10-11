@@ -72,6 +72,15 @@ we just know that at some point it might be useful to uninstall what we've insta
 
 At least we give the developer a tool helping him to uninstall the db part of light plugins manually.  
 
+I've provided an **uninstallAll** method, which allows the developer to quickly test the uninstall/install procedure.
+
+The uninstall order (in case of dependencies) is defined manually with the **setUninstallOrder** method.
+
+Note: there is no installAll equivalent for now, as this plugin was designed as a helper of the [Light_Initializer](https://github.com/lingtalfi/Light_Initializer/) plugin
+which **initialize** method's purpose is to initialize (and also install) all the registered plugins.
+ 
+In other words, the installAll method is taken care of by the **Light_Initializer** plugin.
+
 
 
 

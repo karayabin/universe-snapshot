@@ -22,7 +22,7 @@ public [MysqlInfoUtil::getUniqueIndexes](https://github.com/lingtalfi/SimplePdoW
 
 
 Returns the array of unique indexes for the given table.
-It's an aray of indexName => indexes
+It's an array of indexName => indexes
 With indexes being an array of column names ordered by ascending index sequence.
 
 
@@ -56,7 +56,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [MysqlInfoUtil::getUniqueIndexes](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/Util/MysqlInfoUtil.php#L228-L248)
+See the source code for method [MysqlInfoUtil::getUniqueIndexes](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/Util/MysqlInfoUtil.php#L231-L251)
 
 
 See Also

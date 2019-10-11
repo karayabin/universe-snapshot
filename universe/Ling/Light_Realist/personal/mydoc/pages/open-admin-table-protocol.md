@@ -58,6 +58,11 @@ Note: a question mark after the variable indicates that it's optional.
 - col_order: $column $direction
 - limit: $page $page_length?
 
+- open_parenthesis: (
+- close_parenthesis: )
+- and: and
+- or: or
+
 
 
 ### general_search
@@ -77,8 +82,7 @@ Notice that the OR operator is used by the general_search tag.
 
 # generic_filter
 
-This tag is very open. It can be used in a per-column search for instance, or in an advanced form search, or anywhere
-some filtering needs to be done.
+This tag is mainly used in an advanced form search.
 
 It takes three variables:
 
@@ -86,9 +90,22 @@ It takes three variables:
 - $operator: the operator to use. The list of available operators is discussed later in this page 
 - $operator_value: the value to compare the column against 
 
+For an advanced search, we generally combine different items with the AND keyword, producing something like:
 
-Generic filters are combined with the AND operator in the where clause, as if all generic_filter tags where
-coming from the same (advanced search) form.
+- WHERE id >= 78 AND identifier like '%pine%' 
+
+However, we can also use the OR and parenthesis tags to produce something like:
+
+- WHERE id >= 78 AND ( identifier like '%pine%' OR identifier like '%hot%' )
+
+
+The gui is responsible for producing the necessary tags and send them to the backend service.
+
+ 
+
+
+ 
+
 
 
 # generic_sub_filter

@@ -10,7 +10,7 @@ galaxies:
             post_install: []
         
         AjaxCommunicationProtocol: 
-            version: 1.0.1
+            version: 1.1.0
             dependencies: []
             post_install: []
         
@@ -134,7 +134,7 @@ galaxies:
             post_install: []
         
         Bat: 
-            version: 1.198
+            version: 1.204
             dependencies: 
                 Ling: 
                     - ArrayToString
@@ -175,7 +175,7 @@ galaxies:
             post_install: []
         
         Bootstrap4AdminTable: 
-            version: 1.6.0
+            version: 1.8.0
             dependencies: 
                 Ling: 
                     - Bat
@@ -337,7 +337,7 @@ galaxies:
             post_install: []
         
         Csv: 
-            version: 1.2.1
+            version: 1.3.1
             dependencies: 
                 Ling: 
                     - Bat
@@ -393,7 +393,7 @@ galaxies:
             post_install: []
         
         DirScanner: 
-            version: 1.11.2
+            version: 1.12.0
             dependencies: []
             post_install: []
         
@@ -421,7 +421,7 @@ galaxies:
             post_install: []
         
         DocTools: 
-            version: 1.10.2
+            version: 1.12.0
             dependencies: 
                 Ling: 
                     - Bat
@@ -565,7 +565,7 @@ galaxies:
             post_install: []
         
         HtmlPageTools: 
-            version: 2.0.1
+            version: 2.1.0
             dependencies: []
             post_install: []
         
@@ -628,7 +628,7 @@ galaxies:
             post_install: []
         
         JAcpHep: 
-            version: 1.0.2
+            version: 1.1.0
             dependencies: []
             post_install: 
                 map: true
@@ -680,14 +680,21 @@ galaxies:
             post_install: []
         
         JResponsiveTableHelper: 
-            version: 1.4.2
+            version: 1.5.0
             dependencies: []
             post_install: 
                 map: true
             
         
         JRicAdminTableHelper: 
-            version: 1.0.5
+            version: 1.0.6
+            dependencies: []
+            post_install: 
+                map: true
+            
+        
+        JSortTable: 
+            version: 1.0.0
             dependencies: []
             post_install: 
                 map: true
@@ -803,7 +810,7 @@ galaxies:
             post_install: []
         
         Light: 
-            version: 0.16.0
+            version: 0.23.1
             dependencies: 
                 Ling: 
                     - Light_EndRoutine
@@ -835,7 +842,7 @@ galaxies:
             
         
         Light_AjaxHandler: 
-            version: 1.2.0
+            version: 1.6.0
             dependencies: 
                 Ling: 
                     - Light
@@ -857,7 +864,7 @@ galaxies:
             
         
         Light_BreezeGenerator: 
-            version: 1.2.0
+            version: 1.3.0
             dependencies: 
                 Ling: 
                     - Bat
@@ -870,7 +877,7 @@ galaxies:
             
         
         Light_Bullsheet: 
-            version: 1.0.2
+            version: 1.0.3
             dependencies: 
                 Ling: 
                     - Light
@@ -915,6 +922,20 @@ galaxies:
                 map: true
             
         
+        Light_DatabaseUtils: 
+            version: 1.1.0
+            dependencies: 
+                Ling: 
+                    - Light
+                    - Bat
+                    - Light_DatabaseInfo
+                    - Light_Database
+                
+            
+            post_install: 
+                map: true
+            
+        
         Light_EasyRoute: 
             version: 1.1.0
             dependencies: 
@@ -940,9 +961,10 @@ galaxies:
             
         
         Light_EndRoutine_CsrfPageCleaner: 
-            version: 1.1.1
+            version: 1.3.1
             dependencies: 
                 Ling: 
+                    - Light
                     - Light_Csrf
                     - Light_EndRoutine
                 
@@ -1052,8 +1074,20 @@ galaxies:
                 map: true
             
         
+        Light_LightInstance: 
+            version: 1.0.0
+            dependencies: 
+                Ling: 
+                    - Light
+                    - Light_Initializer
+                
+            
+            post_install: 
+                map: true
+            
+        
         Light_Logger: 
-            version: 1.3.0
+            version: 1.4.0
             dependencies: 
                 Ling: 
                     - ArrayToString
@@ -1065,15 +1099,32 @@ galaxies:
                 map: true
             
         
+        Light_MicroPermission: 
+            version: 1.1.1
+            dependencies: 
+                Ling: 
+                    - BabyYaml
+                    - Light
+                    - Light_User
+                
+            
+            post_install: 
+                map: true
+            
+        
         Light_PasswordProtector: 
-            version: 1.0.0
-            dependencies: []
+            version: 1.0.1
+            dependencies: 
+                Ling: 
+                    - Bat
+                
+            
             post_install: 
                 map: true
             
         
         Light_PluginDatabaseInstaller: 
-            version: 1.2.0
+            version: 1.3.0
             dependencies: 
                 Ling: 
                     - Light
@@ -1113,14 +1164,22 @@ galaxies:
             
         
         Light_Realist: 
-            version: 1.7.0
+            version: 1.14.0
             dependencies: 
                 Ling: 
+                    - Light_AjaxHandler
                     - Light
+                    - Light_Csrf
+                    - Light_Kit_Admin
                     - Bat
+                    - ArrayToString
                     - BabyYaml
                     - Light_Database
                     - ParametrizedSqlQuery
+                    - JAcpHep
+                    - JResponsiveTableHelper
+                    - JRicAdminTableHelper
+                    - JSortTable
                 
             
             post_install: 
@@ -1171,8 +1230,22 @@ galaxies:
                 map: true
             
         
+        Light_UserData: 
+            version: 1.0.0
+            dependencies: 
+                Ling: 
+                    - Bat
+                    - DirScanner
+                    - Light
+                    - Light_User
+                
+            
+            post_install: 
+                map: true
+            
+        
         Light_UserDatabase: 
-            version: 1.11.8
+            version: 1.12.1
             dependencies: 
                 Ling: 
                     - ArrayToString
@@ -1222,7 +1295,7 @@ galaxies:
             post_install: []
         
         LingTalfi: 
-            version: 1.11.5
+            version: 1.13.1
             dependencies: 
                 Ling: 
                     - DocTools
@@ -1349,7 +1422,7 @@ galaxies:
             post_install: []
         
         NotationFan: 
-            version: 1.6.1
+            version: 1.7.1
             dependencies: []
             post_install: []
         
@@ -1423,7 +1496,7 @@ galaxies:
             post_install: []
         
         ParametrizedSqlQuery: 
-            version: 1.4.0
+            version: 1.5.0
             dependencies: 
                 Ling: 
                     - BabyYaml
@@ -1485,8 +1558,13 @@ galaxies:
             post_install: []
         
         PhpExcelTool: 
-            version: 1.9.0
-            dependencies: []
+            version: 1.9.3
+            dependencies: 
+                Ling: 
+                    - Bat
+                    - QuickPdo
+                
+            
             post_install: []
         
         PhpFile: 
@@ -1497,6 +1575,20 @@ galaxies:
                 
             
             post_install: []
+        
+        PhpSpreadSheetTool: 
+            version: 1.0.3
+            dependencies: 
+                Ling: 
+                    - Bat
+                
+            
+            post_install: 
+                map: true
+                composer: 
+                    - require tecnickcom/tcpdf
+                
+            
         
         PhpTailer: 
             version: 1.0.1
@@ -1710,7 +1802,7 @@ galaxies:
             post_install: []
         
         SimplePdoWrapper: 
-            version: 1.8.2
+            version: 1.8.4
             dependencies: []
             post_install: []
         
@@ -1743,7 +1835,7 @@ galaxies:
             post_install: []
         
         SqlQuery: 
-            version: 1.10.1
+            version: 1.10.3
             dependencies: []
             post_install: []
         
@@ -1810,7 +1902,7 @@ galaxies:
             post_install: []
         
         TheBar: 
-            version: 1.0.0
+            version: 1.1.1
             dependencies: []
             post_install: []
         
@@ -1933,7 +2025,7 @@ galaxies:
             post_install: []
         
         UniverseTools: 
-            version: 1.17.0
+            version: 1.19.0
             dependencies: 
                 Ling: 
                     - BabyYaml

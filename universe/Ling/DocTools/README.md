@@ -649,6 +649,14 @@ This includes:
 History Log
 =============
 
+- 1.12.0 -- 2019-10-08
+
+    - add LingGitPhpPlanetDocBuilder ignoreFilesStartingWith option
+    
+- 1.11.0 -- 2019-10-01
+
+    - add basic support for trait
+    
 - 1.10.2 -- 2019-09-05
 
     - fix CommentHelper::$propertyVarTagTypes not having bool[]

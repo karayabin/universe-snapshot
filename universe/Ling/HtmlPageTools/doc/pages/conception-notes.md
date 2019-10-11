@@ -511,5 +511,15 @@ Since we already have an addJsCodeBlock method, I will add an addCssCodeBlock me
  
 
 
+Modals
+============
+2019-09-26
 
+
+Modals are very common in web applications.
+They sometimes require an html snippet to be in the page before the modal can be called.
+
+The html page copilot can host those modals for you, so that you can display them wherever you like on your html page.
+
+For instance, in bootstrap 4.3 they recommend to put modals near the top of the page (source: https://getbootstrap.com/docs/4.3/components/modal/). 
 

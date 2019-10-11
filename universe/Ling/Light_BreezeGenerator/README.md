@@ -88,6 +88,10 @@ breeze_generator:
 History Log
 =============
 
+- 1.3.0 -- 2019-10-04
+
+    - update LingBreezeGenerator->getInsertMethod, now returns consistent return, even with ignored duplicate entries
+    
 - 1.2.0 -- 2019-09-16
 
     - add usePrefixInClassName option in the service configuration

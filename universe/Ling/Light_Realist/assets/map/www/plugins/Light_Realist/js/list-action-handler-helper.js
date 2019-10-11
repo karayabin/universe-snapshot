@@ -9,6 +9,30 @@ if ('undefined' === typeof ListActionHandlerHelper) {
         var $ = jQuery;
 
 
+        function startsWith(haystack, needle) {
+            return haystack.substring(0, needle.length) === needle;
+        }
+        /**
+         *
+         * Returns the hep associative array.
+         * https://github.com/lingtalfi/NotationFan/blob/master/html-element-parameters.md
+         *
+         */
+        function getElementParameters(jElement) {
+            var attr = {};
+            $.each(jElement.get(0).attributes, function (v, name) {
+                name = name.nodeName || name.name;
+                v = jElement.attr(name);
+                if (startsWith(name, "data-param-")) {
+                    name = name.substr(11);
+                    attr[name] = v;
+                }
+            });
+            return attr;
+        }
+
+
+
         window.ListActionHandlerHelper = function (options) {
             this.options = $.extend({}, window.ListActionHandlerHelper._defaults, options);
             this.jContainer = this.options.jContainer;
@@ -19,10 +43,10 @@ if ('undefined' === typeof ListActionHandlerHelper) {
 
                 var $this = this;
 
-
                 this.jContainer.on('click', '.lah-button', function () {
 
                     var theActionId = $(this).attr('data-action-id');
+                    var hepParams = getElementParameters($(this));
 
                     for (var i in $this.options.listActionLeaves) {
                         var item = $this.options.listActionLeaves[i];
@@ -31,7 +55,7 @@ if ('undefined' === typeof ListActionHandlerHelper) {
                             var callable = callableGetter();
                             var rics = $this.options.ricHelper.getSelectedRic();
 
-                            callable($(this), rics, $this.jContainer, $this.jTable);
+                            callable($(this), rics, $this.jContainer, $this.jTable, hepParams);
 
                             break;
                         }
@@ -53,6 +77,10 @@ if ('undefined' === typeof ListActionHandlerHelper) {
             },
             updateButtonStatuses: function () {
 
+                var rics = this.options.ricHelper.getSelectedRic();
+
+
+
                 for (var i in this.options.listActionLeaves) {
                     var item = this.options.listActionLeaves[i];
                     var actionId = item["action_id"];
@@ -70,7 +98,6 @@ if ('undefined' === typeof ListActionHandlerHelper) {
                         if ("string" === typeof behaviour) {
                             switch (behaviour) {
                                 case 'oneOrMore':
-                                    var rics = this.options.ricHelper.getSelectedRic();
                                     if (0 === rics.length) {
                                         isDisabled = true;
                                     }
@@ -80,7 +107,7 @@ if ('undefined' === typeof ListActionHandlerHelper) {
                             }
                         } else {
                             // assuming it's a callable
-                            isDisabled = behaviour(this.options.ricHelper, this.options.ricHelper.getSelectedRic());
+                            isDisabled = behaviour(this.options.ricHelper, rics);
                         }
 
                         jButton.prop('disabled', isDisabled);

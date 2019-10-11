@@ -32,4 +32,19 @@ interface RealistListRendererInterface
      * @return void
      */
     public function render();
+
+    /**
+     * Prints the list general actions
+     * @return void
+     */
+    public function renderListGeneralActions();
+
+    /**
+     * Sets the container css id.
+     * The container is the element that contains all the html things displayed by the renderer.
+     *
+     * @param string $cssId
+     * @return mixed
+     */
+    public function setContainerCssId(string $cssId);
 }

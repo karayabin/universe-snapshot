@@ -1,6 +1,6 @@
 Ling/Light_PluginDatabaseInstaller
 ================
-2019-09-11 --> 2019-09-18
+2019-09-11 --> 2019-10-03
 
 
 
@@ -21,6 +21,7 @@ Table of contents
     - [LightPluginDatabaseInstallerService::uninstallAll](https://github.com/lingtalfi/Light_PluginDatabaseInstaller/blob/master/doc/api/Ling/Light_PluginDatabaseInstaller/Service/LightPluginDatabaseInstallerService/uninstallAll.md) &ndash; Uninstalls the database parts for all plugins (which database part was previously installed).
     - [LightPluginDatabaseInstallerService::setForceInstall](https://github.com/lingtalfi/Light_PluginDatabaseInstaller/blob/master/doc/api/Ling/Light_PluginDatabaseInstaller/Service/LightPluginDatabaseInstallerService/setForceInstall.md) &ndash; Sets the forceInstall.
     - [LightPluginDatabaseInstallerService::setAppDir](https://github.com/lingtalfi/Light_PluginDatabaseInstaller/blob/master/doc/api/Ling/Light_PluginDatabaseInstaller/Service/LightPluginDatabaseInstallerService/setAppDir.md) &ndash; Sets the appDir.
+    - [LightPluginDatabaseInstallerService::setUninstallOrder](https://github.com/lingtalfi/Light_PluginDatabaseInstaller/blob/master/doc/api/Ling/Light_PluginDatabaseInstaller/Service/LightPluginDatabaseInstallerService/setUninstallOrder.md) &ndash; Sets the uninstallOrder.
 
 
 Dependencies

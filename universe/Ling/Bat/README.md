@@ -85,6 +85,30 @@ Dependencies
 History Log
 ------------------
     
+- 1.204 -- 2019-10-09
+
+    - update FileSystemTool::mkTmpFile, now accepts an extension argument
+    
+- 1.203 -- 2019-10-07
+
+    - update FileSystemTool::mkTmpFile, now accepts a prefix argument
+    
+- 1.202 -- 2019-10-03
+
+    - add HashTool::getPasswordHashAlgorithm method
+    
+- 1.201 -- 2019-10-01
+
+    - add CaseTool::toPortableFilename method
+
+- 1.200 -- 2019-10-01
+
+    - update ArrayTool::walkRowsRecursive, now the callable accepts row passed as a reference
+    
+- 1.199 -- 2019-09-26
+
+    - add summary for array tool doc
+    
 - 1.198 -- 2019-09-23
 
     - add HepTool

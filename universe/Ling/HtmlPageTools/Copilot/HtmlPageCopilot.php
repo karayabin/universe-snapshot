@@ -95,6 +95,13 @@ class HtmlPageCopilot
      */
     protected $bodyTagAttributes;
 
+    /**
+     * This property holds the modals for this instance.
+     * It's an array of html modals.
+     * @var array
+     */
+    protected $modals;
+
 
     /**
      * Builds the HtmlPage instance.
@@ -109,6 +116,7 @@ class HtmlPageCopilot
         $this->cssCodeBlocks = [];
         $this->bodyTagClasses = [];
         $this->bodyTagAttributes = [];
+        $this->modals = [];
     }
 
 
@@ -228,7 +236,6 @@ class HtmlPageCopilot
             $this->libraries[$name] = [$js, $css];
         }
     }
-
 
 
     /**
@@ -357,6 +364,27 @@ class HtmlPageCopilot
             $ret['class'] = implode(' ', $this->bodyTagClasses);
         }
         return $ret;
+    }
+
+    /**
+     * Returns the modals of this instance.
+     *
+     * @return array
+     */
+    public function getModals(): array
+    {
+        return $this->modals;
+    }
+
+
+    /**
+     * Adds a modal to this instance.
+     *
+     * @param string $html
+     */
+    public function addModal(string $html)
+    {
+        $this->modals[] = $html;
     }
 
 }

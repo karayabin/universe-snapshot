@@ -144,7 +144,13 @@ class ClassSynopsisWidget extends Widget
             $s .= 'abstract ';
         }
 
-        $s .= 'class ';
+        $classType = "class";
+        if ($class->isTrait()) {
+            $classType = "trait";
+        }
+
+
+        $s .= $classType . ' ';
         $className = $class->getShortName();
         if (false === $class->isUserDefined()) {
             $className = '\\' . $className;

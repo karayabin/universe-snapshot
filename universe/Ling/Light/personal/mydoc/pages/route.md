@@ -32,6 +32,6 @@ A route is in fact a simple array with the following structure:
 - is_ajax: bool=false. Whether the route is meant to be called via ajax. I found this information valuable
         for implementing the csrf protection with pages system (https://github.com/lingtalfi/CSRFTools/blob/master/doc/pages/page-security-conception-notes.md),
         where we need to launch a token cleaning routine, but only on the main calls (i.e. not ajax calls). 
-         
-  
-
+        If your route is called via ajax, you should set this property to true, otherwise certain services might not work as expected.
+        Those services include:
+            - Light_EndRoutine_CsrfPageCleaner

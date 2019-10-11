@@ -7,7 +7,7 @@ PackLightPluginCommand::copyItem
 
 
 
-PackLightPluginCommand::copyItem — 
+PackLightPluginCommand::copyItem — Copies the item which relative path was given to the map assets directory.
 
 
 
@@ -21,7 +21,7 @@ protected [PackLightPluginCommand::copyItem](https://github.com/lingtalfi/LingTa
 
 
 
-
+Copies the item which relative path was given to the map assets directory.
 
 
 
@@ -29,6 +29,18 @@ protected [PackLightPluginCommand::copyItem](https://github.com/lingtalfi/LingTa
 Parameters
 ================
 
+
+- relPath
+
+    
+
+- output
+
+    
+
+- indentLevel
+
+    
 
 
 Return values
@@ -45,7 +57,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [PackLightPluginCommand::copyItem](https://github.com/lingtalfi/LingTalfi/blob/master/Kaos/Command/PackLightPluginCommand.php#L99-L120)
+See the source code for method [PackLightPluginCommand::copyItem](https://github.com/lingtalfi/LingTalfi/blob/master/Kaos/Command/PackLightPluginCommand.php#L106-L127)
 
 
 See Also

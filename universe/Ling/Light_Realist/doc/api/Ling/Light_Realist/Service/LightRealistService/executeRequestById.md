@@ -48,6 +48,10 @@ With:
 Params an array containing the following:
 
 - ?tags: the tags to use with the request. (see [the realist tag transfer protocol](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/realist-tag-transfer-protocol.md) for more details).
+- ?csrf_token: string|null. the value of the csrf token to check against. If not passed or null, no csrf checking will be performed.
+- ?csrf_token_pass: bool. If true, will bypass the csrf_token validation.
+         Usually, you only want to use this if you've already checked for another csrf token earlier (i.e. you
+         already trust that the user is who she claimed she is).
 
 
 If the sql query is not valid, an exception will be thrown.
@@ -87,7 +91,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightRealistService::executeRequestById](https://github.com/lingtalfi/Light_Realist/blob/master/Service/LightRealistService.php#L190-L329)
+See the source code for method [LightRealistService::executeRequestById](https://github.com/lingtalfi/Light_Realist/blob/master/Service/LightRealistService.php#L216-L372)
 
 
 See Also

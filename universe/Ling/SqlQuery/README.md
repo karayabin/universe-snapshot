@@ -21,6 +21,11 @@ Or just download it and place it where you want otherwise.
 
 
 
+Documentation
+===========
+- [SqlQuery Api](https://github.com/lingtalfi/SqlQuery/blob/master/doc/api/Ling/SqlQuery.md) (generated with [DocTools](https://github.com/lingtalfi/DocTools))
+
+
 Why?
 ==========================
 
@@ -83,6 +88,14 @@ and u.id=1"
 
 History Log
 ------------------
+    
+- 1.10.3 -- 2019-10-10
+
+    - add link to doc in README.md
+    
+- 1.10.2 -- 2019-10-10
+
+    - created docTool style documentation
     
 - 1.10.1 -- 2019-08-12
 

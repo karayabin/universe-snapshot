@@ -4,8 +4,10 @@
 namespace Ling\Light_AjaxHandler\Controller;
 
 
+use Ling\Bat\ClassTool;
 use Ling\Light\Controller\LightController;
 use Ling\Light\Http\HttpJsonResponse;
+use Ling\Light\Http\HttpResponse;
 use Ling\Light\Http\HttpResponseInterface;
 use Ling\Light_AjaxHandler\Exception\LightAjaxHandlerException;
 use Ling\Light_AjaxHandler\Service\LightAjaxHandlerService;
@@ -33,16 +35,21 @@ class LightAjaxHandlerController extends LightController
         try {
 
 
-            if (false === array_key_exists("ajax_handler_id", $_POST)) {
-                $this->error("Missing key: ajax_handler_id.");
-            }
-            if (false === array_key_exists("ajax_action_id", $_POST)) {
-                $this->error("Missing key: ajax_action_id.");
+            if (
+                array_key_exists("ajax_handler_id", $_POST) &&
+                array_key_exists("ajax_action_id", $_POST)
+            ) {
+                $params = $_POST;
+            } elseif (array_key_exists("ajax_handler_id", $_GET) &&
+                array_key_exists("ajax_action_id", $_GET)) {
+                $params = $_GET;
+            } else {
+                $this->error("Missing key: ajax_handler_id and/or ajax_action_id.");
             }
 
-            $handlerId = $_POST['ajax_handler_id'];
-            $actionId = $_POST['ajax_action_id'];
-            $params = $_POST;
+
+            $handlerId = $params['ajax_handler_id'];
+            $actionId = $params['ajax_action_id'];
             unset($params['ajax_handler_id']);
             unset($params['ajax_action_id']);
 
@@ -58,8 +65,24 @@ class LightAjaxHandlerController extends LightController
             $response = [
                 "type" => "error",
                 "error" => $e->getMessage(),
+                "exception" => ClassTool::getShortName($e),
             ];
         }
+
+
+        //--------------------------------------------
+        // PRINT AS IS FEATURE
+        //--------------------------------------------
+        if (
+            array_key_exists("type", $response) &&
+            'print' === $response['type'] &&
+            array_key_exists("content", $response)
+        ) {
+            $r = new HttpResponse($response['content']);
+            return $r;
+        }
+
+
         return HttpJsonResponse::create($response);
 
     }

@@ -4,7 +4,7 @@
 
 The YorgDirScannerTool class
 ================
-2019-03-20 --> 2019-07-18
+2019-03-20 --> 2019-10-04
 
 
 
@@ -32,6 +32,7 @@ class <span class="pl-k">YorgDirScannerTool</span>  {
     - public static [getFilesIgnoreMore](https://github.com/lingtalfi/DirScanner/blob/master/doc/api/Ling/DirScanner/YorgDirScannerTool/getFilesIgnoreMore.md)(string $dir, array $ignoreNames = [], $ignorePaths = [], bool $recursive = false, bool $relativePath = false, bool $followSymlinks = false, int $ignoreHidden = 1) : array
     - public static [getFilesWithPrefix](https://github.com/lingtalfi/DirScanner/blob/master/doc/api/Ling/DirScanner/YorgDirScannerTool/getFilesWithPrefix.md)(string $dir, string $prefix, bool $recursive = false, bool $relativePath = false, bool $followSymlinks = false, int $ignoreHidden = 1) : array
     - public static [getFilesWithExtension](https://github.com/lingtalfi/DirScanner/blob/master/doc/api/Ling/DirScanner/YorgDirScannerTool/getFilesWithExtension.md)(string $dir, $extension = null, bool $extensionCaseSensitive = false, bool $recursive = false, bool $relativePath = false, bool $followSymlinks = false, int $ignoreHidden = 1) : array
+    - public static [getFilesWithoutExtension](https://github.com/lingtalfi/DirScanner/blob/master/doc/api/Ling/DirScanner/YorgDirScannerTool/getFilesWithoutExtension.md)(string $dir, ?$extension, bool $extensionCaseSensitive = false, bool $recursive = false, bool $relativePath = false, bool $followSymlinks = false, int $ignoreHidden = 1) : array
 
 }
 
@@ -50,6 +51,7 @@ Methods
 - [YorgDirScannerTool::getFilesIgnoreMore](https://github.com/lingtalfi/DirScanner/blob/master/doc/api/Ling/DirScanner/YorgDirScannerTool/getFilesIgnoreMore.md) &ndash; Same as getFilesIgnore, but also allows to ignore files by relative paths.
 - [YorgDirScannerTool::getFilesWithPrefix](https://github.com/lingtalfi/DirScanner/blob/master/doc/api/Ling/DirScanner/YorgDirScannerTool/getFilesWithPrefix.md) &ndash; Returns the list of files which name start with the given $prefix.
 - [YorgDirScannerTool::getFilesWithExtension](https://github.com/lingtalfi/DirScanner/blob/master/doc/api/Ling/DirScanner/YorgDirScannerTool/getFilesWithExtension.md) &ndash; Return the list of files (not dirs) having the given $extension(s).
+- [YorgDirScannerTool::getFilesWithoutExtension](https://github.com/lingtalfi/DirScanner/blob/master/doc/api/Ling/DirScanner/YorgDirScannerTool/getFilesWithoutExtension.md) &ndash; Return the list of files (not dirs) NOT ending with the given $extension(s).
 
 
 

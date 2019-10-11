@@ -4,7 +4,7 @@
 
 The PackAndPushUniToolCommand class
 ================
-2019-03-13 --> 2019-08-14
+2019-03-13 --> 2019-09-26
 
 
 
@@ -27,6 +27,10 @@ This command does the following:
 - Updates the Uni2/info/uni-tool-info.byml information.
 - Updates the universe-naive-importer README.md History Log section.
 - Pushes the universe-naive-importer to github.com.
+
+
+The goal is basically to update the [uni tool](https://github.com/lingtalfi/universe-naive-importer), so that when an user downloads it, she gets
+the latest version which can import every package.
 
 
 

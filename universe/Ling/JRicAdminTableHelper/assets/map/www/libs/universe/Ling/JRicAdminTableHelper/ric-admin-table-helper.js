@@ -70,15 +70,17 @@ if ('undefined' === typeof RicAdminTableHelper) {
         };
         window.RicAdminTableHelper.prototype = {
             getSelectedRic: function () {
-
                 var rics = [];
-                this.jContainer.find('input.rath-emitter[type="checkbox"]').each(function () {
-                    if ($(this).is(':checked')) {
-                        var attributes = getDataAttributes($(this));
-                        if ("ric" in attributes) {
-                            rics.push(attributes.ric);
+                this.jContainer.find('tr').each(function () {
+                    $(this).find('input.rath-emitter[type="checkbox"]:first').each(function () {
+
+                        if ($(this).is(':checked')) {
+                            var attributes = getDataAttributes($(this));
+                            if ("ric" in attributes) {
+                                rics.push(attributes.ric);
+                            }
                         }
-                    }
+                    });
                 });
                 return rics;
             },

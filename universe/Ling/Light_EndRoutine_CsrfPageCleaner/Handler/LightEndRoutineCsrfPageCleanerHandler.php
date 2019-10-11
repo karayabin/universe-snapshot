@@ -4,6 +4,7 @@
 namespace Ling\Light_EndRoutine_CsrfPageCleaner\Handler;
 
 
+use Ling\Light\Tool\LightTool;
 use Ling\Light_Csrf\Service\LightCsrfService;
 use Ling\Light_EndRoutine\Handler\ContainerAwareLightEndRoutineHandler;
 
@@ -20,11 +21,13 @@ class LightEndRoutineCsrfPageCleanerHandler extends ContainerAwareLightEndRoutin
      */
     public function handle()
     {
-        /**
-         * @var $csrf LightCsrfService
-         */
-        $csrf = $this->container->get("csrf");
-        $csrf->deletePageUnusedTokens();
+        if (false === LightTool::isAjax($this->container)) {
+            /**
+             * @var $csrf LightCsrfService
+             */
+            $csrf = $this->container->get("csrf");
+            $csrf->deletePageUnusedTokens();
+        }
     }
 
 }
