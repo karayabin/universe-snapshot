@@ -4,7 +4,7 @@
 
 The ArrayVariableResolverException class
 ================
-2019-05-15 --> 2019-09-18
+2019-05-15 --> 2019-10-31
 
 
 

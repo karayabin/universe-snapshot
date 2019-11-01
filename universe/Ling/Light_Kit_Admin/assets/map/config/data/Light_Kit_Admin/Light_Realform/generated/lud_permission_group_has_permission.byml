@@ -1,0 +1,18 @@
+form_handler: 
+    id: realgen-lud_permission_group_has_permission
+    fields: 
+        permission_group_id: 
+            label: Permission group id
+            type: number
+            validators: 
+                required: []
+            
+        
+        permission_id: 
+            label: Permission id
+            type: number
+            validators: 
+                required: []
+            
+        
+    

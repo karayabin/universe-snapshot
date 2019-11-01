@@ -36,6 +36,10 @@ Summary
 History Log
 =============
 
+- 1.2.1 -- 2019-10-31
+
+    - fix ArrayVariableResolverUtil->resolve not resolving multiple variables in the same expression 
+    
 - 1.2.0 -- 2019-09-18
 
     - update ArrayVariableResolverUtil->resolve now accepts bdot notation 

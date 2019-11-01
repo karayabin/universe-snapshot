@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightAjaxFileUploadManagerRenderingUtil::__construct](https://github.com/lingtalfi/Light_AjaxFileUploadManager/blob/master/Util/LightAjaxFileUploadManagerRenderingUtil.php#L38-L41)
+See the source code for method [LightAjaxFileUploadManagerRenderingUtil::__construct](https://github.com/lingtalfi/Light_AjaxFileUploadManager/blob/master/Util/LightAjaxFileUploadManagerRenderingUtil.php#L36-L39)
 
 
 See Also

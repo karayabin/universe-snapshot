@@ -54,7 +54,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [Bootstrap4AdminTableRenderer::registerWidget](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/Renderer/Bootstrap4AdminTableRenderer.php#L71-L75)
+See the source code for method [Bootstrap4AdminTableRenderer::registerWidget](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/Renderer/Bootstrap4AdminTableRenderer.php#L72-L76)
 
 
 See Also

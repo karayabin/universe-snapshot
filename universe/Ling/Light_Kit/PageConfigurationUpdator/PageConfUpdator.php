@@ -66,11 +66,13 @@ class PageConfUpdator
                 $p = explode('.', $widgetIdentifier, 2);
                 $zone = $p[0];
                 $identifier = $p[1];
-
                 $zoneConf = BDotTool::getDotValue("zones." . $zone, $pageConf, null);
                 if (null !== $zoneConf) {
                     foreach ($zoneConf as $index => $widgetConf) {
-                        if (array_key_exists("identifier", $widgetConf) && $identifier === $widgetConf['identifier']) {
+                        if (
+                            $identifier === $widgetConf['name'] ||
+                            (array_key_exists("identifier", $widgetConf) && $identifier === $widgetConf['identifier'])
+                        ) {
                             $pageConf["zones"][$zone][$index] = ArrayTool::arrayMergeReplaceRecursive([$widgetConf, $newWidgetConfLayer]);
                         }
                     }

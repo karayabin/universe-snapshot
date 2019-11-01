@@ -20,6 +20,14 @@ user_database_vars:
 # --------------------------------------
 # hooks
 # --------------------------------------
+$breeze_generator.methods_collection:
+    -
+        method: addConfigurationEntryByFile
+        args:
+            key: lud
+            file: ${app_dir}/config/data/Light_UserDatabase/Light_BreezeGenerator/lud.byml
+
+
 $initializer.methods_collection:
     -
         method: registerInitializer

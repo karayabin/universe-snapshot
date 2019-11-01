@@ -65,7 +65,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [Chloroform::toArray](https://github.com/lingtalfi/Chloroform/blob/master/Form/Chloroform.php#L275-L311)
+See the source code for method [Chloroform::toArray](https://github.com/lingtalfi/Chloroform/blob/master/Form/Chloroform.php#L312-L348)
 
 
 See Also
@@ -73,5 +73,5 @@ See Also
 
 The [Chloroform](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform.md) class.
 
-Previous method: [getNotifications](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform/getNotifications.md)<br>Next method: [createPostedData](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform/createPostedData.md)<br>
+Previous method: [getNotifications](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform/getNotifications.md)<br>Next method: [getFieldPostedValue](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform/getFieldPostedValue.md)<br>
 

@@ -1,0 +1,46 @@
+    /**
+     * The working horse behind the insertUser method.
+     * See the insertUser method for more details.
+     *
+     * @param array $user
+     * @param bool=true $ignoreDuplicate
+     * @param bool=false $returnRic
+     * @return mixed
+     * @throws \Exception
+     */
+    protected function doInsertUser(array $user, bool $ignoreDuplicate = true, bool $returnRic = false)
+    {
+        try {
+
+            $lastInsertId = $this->pdoWrapper->insert("user", $user);
+            if (false === $returnRic) {
+                return $lastInsertId;
+            }
+            $ric = [
+                'id' => $lastInsertId,
+            ];
+            return $ric;
+
+        } catch (\PDOException $e) {
+            if ('23000' === $e->errorInfo[0]) {
+                if (false === $ignoreDuplicate) {
+                    throw $e;
+                }
+
+                $query = "select $implodedRicAndAik from `user`";
+                $allMarkers = [];
+                SimplePdoWrapper::addWhereSubStmt($query, $allMarkers, $user);
+                $res = $this->pdoWrapper->fetch($query, $allMarkers);
+                if (false === $res) {
+                    throw new \LogicException("A duplicate entry has been found, but yet I cannot fetch it, why?");
+                }
+                if (false === $returnRic) {
+                    return $res['id'];
+                }
+                return [
+                    "id" => $res['id'],
+                ];
+            }
+        }
+        return false;
+    }

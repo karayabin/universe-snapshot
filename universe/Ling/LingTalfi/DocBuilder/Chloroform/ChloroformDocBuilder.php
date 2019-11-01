@@ -152,6 +152,9 @@ class ChloroformDocBuilder
                 "Bat planet" => "https://github.com/lingtalfi/Bat",
                 "chloroform discussion" => $doc . "/pages/chloroform-discussion.md",
                 "Chloroform toArray" => $api . "/Ling/Chloroform/Form/Chloroform/toArray.md",
+                "very important data" => $doc . "/pages/chloroform-discussion.md#the-concept-of-very-important-data",
+                "DataTransformerInterface" => $api . "/Ling/Chloroform/DataTransformer/DataTransformerInterface.md",
+                "conception notes" => $doc . "/pages/chloroform-discussion.md",
             ],
             /**
              * An array of external classes to url.

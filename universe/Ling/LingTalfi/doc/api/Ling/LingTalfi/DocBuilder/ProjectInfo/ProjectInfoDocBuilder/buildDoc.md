@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [ProjectInfoDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/ProjectInfo/ProjectInfoDocBuilder/buildDoc.md)($htmlMode = true) : void
+public static [ProjectInfoDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/ProjectInfo/ProjectInfoDocBuilder/buildDoc.md)(?$htmlMode = true) : void
 
 
 

@@ -17,7 +17,7 @@ use Ling\Kit_PicassoWidget\Widget\EasyLightPicassoWidget;
  * 2019-07-31
  *
  *
- * This widget is the @page(ChloroformWidget) version of Light_Kit_Admin (lka).
+ * This widget is the @page(ChloroformWidget) version for Light_Kit_Admin (lka).
  *
  * I created this widget when I realized that using ChloroformWidget alone would not fill all my needs.
  * My needs were to be able to create all kinds of forms, starting with the form in the user profile page
@@ -82,15 +82,15 @@ class LightKitAdminChloroformWidget extends EasyLightPicassoWidget
 {
 
     /**
-     * @overrides
+     * Attaches the helium renderer assets to the html page copilot instance.
      */
-    public function prepare(array &$widgetConf, HtmlPageCopilot $copilot)
+    protected function useHelium()
     {
         $this->registerLibrary("Chloroform_HeliumRenderer", [
-            "/plugins/Light_Kit_Admin/Chloroform_HeliumRenderer/helium.css",
+            "/libs/universe/Ling/Chloroform_HeliumRenderer/helium.css",
             "/plugins/Light_Kit_Admin/fileuploader/fileuploader.css",
         ], [
-            "/plugins/Light_Kit_Admin/Chloroform_HeliumRenderer/helium.js",
+            "/libs/universe/Ling/Chloroform_HeliumRenderer/helium.js",
             "/plugins/Light_Kit_Admin/fileuploader/fileuploader.js",
         ]);
     }

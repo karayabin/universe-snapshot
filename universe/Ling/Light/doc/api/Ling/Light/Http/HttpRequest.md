@@ -4,7 +4,7 @@
 
 The HttpRequest class
 ================
-2019-04-09 --> 2019-10-09
+2019-04-09 --> 2019-10-28
 
 
 
@@ -62,7 +62,7 @@ class <span class="pl-k">HttpRequest</span> implements [HttpRequestInterface](ht
     - public [getIp](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/getIp.md)() : string
     - public [getReferer](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/getReferer.md)() : string | null
     - public [getHeaders](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/getHeaders.md)() : array
-    - public [getHeader](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/getHeader.md)(string $header, $default = null) : string | mixed
+    - public [getHeader](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/getHeader.md)(string $header, ?$default = null) : string | mixed
     - public [getGet](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/getGet.md)() : array
     - public [getPost](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/getPost.md)() : array
     - public [getFiles](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/getFiles.md)() : array

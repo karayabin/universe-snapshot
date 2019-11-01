@@ -244,8 +244,6 @@ class LingGitPhpPlanetDocBuilder extends DocBuilder
         $ignoreFilesStartingWith = $settings['ignoreFilesStartingWith'] ?? [];
 
 
-
-
         $generatedDocStyle = new DefaultGeneratedDocStyle();
         $generatedDocStyle->setExtension($this->_mode);
         $this->_generatedDocStyle = $generatedDocStyle;
@@ -306,7 +304,6 @@ class LingGitPhpPlanetDocBuilder extends DocBuilder
             "ignoreFilesStartingWith" => $ignoreFilesStartingWith,
         ]);
         $this->setReport($report);
-
 
 
     }
@@ -494,7 +491,6 @@ class LingGitPhpPlanetDocBuilder extends DocBuilder
             ],
             $this->report
         ]);
-
 
         $methodReturnType = MethodHelper::getMethodReturnType($methodInfo, $this->_generatedItems2Url, $this->report);
 

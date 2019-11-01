@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [Light_FlasherDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Flasher/Light_FlasherDocBuilder/buildDoc.md)($htmlMode = true) : void
+public static [Light_FlasherDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Flasher/Light_FlasherDocBuilder/buildDoc.md)(?$htmlMode = true) : void
 
 
 

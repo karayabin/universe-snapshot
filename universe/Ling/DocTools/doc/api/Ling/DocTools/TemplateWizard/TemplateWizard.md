@@ -4,7 +4,7 @@
 
 The TemplateWizard class
 ================
-2019-02-21 --> 2019-10-08
+2019-02-21 --> 2019-10-25
 
 
 
@@ -80,7 +80,7 @@ class <span class="pl-k">TemplateWizard</span>  {
     - protected string|null [$insertDir](#property-insertDir) ;
 
 - Methods
-    - public [__construct](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/TemplateWizard/TemplateWizard/__construct.md)(?string $insertDir) : void
+    - public [__construct](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/TemplateWizard/TemplateWizard/__construct.md)(string $insertDir) : void
     - public [hasInsert](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/TemplateWizard/TemplateWizard/hasInsert.md)(string $type) : bool
     - public [getInserts](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/TemplateWizard/TemplateWizard/getInserts.md)(string $type) : array
 

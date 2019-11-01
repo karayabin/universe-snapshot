@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [BabyYamlDatabaseDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/BabyYamlDatabase/BabyYamlDatabaseDocBuilder/buildDoc.md)($htmlMode = true) : void
+public static [BabyYamlDatabaseDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/BabyYamlDatabase/BabyYamlDatabaseDocBuilder/buildDoc.md)(?$htmlMode = true) : void
 
 
 

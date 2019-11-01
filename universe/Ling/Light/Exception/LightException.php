@@ -25,15 +25,38 @@ class LightException extends \Exception
 
     /**
      * Builds the LightException instance.
+     *
      * @param string $message
-     * @param string|null $lightErrorCode
      * @param int $code
      * @param Throwable|null $previous
      */
-    public function __construct($message = "", string $lightErrorCode = null, $code = 0, Throwable $previous = null)
+    public function __construct($message = "", $code = 0, Throwable $previous = null)
     {
         parent::__construct($message, $code, $previous);
+        $this->lightErrorCode = null;
+    }
+
+
+    /**
+     * Returns a static instance.
+     * @return LightException
+     */
+    public static function create(): self
+    {
+        return new static();
+    }
+
+
+    /**
+     * Sets the lightErrorCode.
+     *
+     * @param string|null $lightErrorCode
+     * @return $this
+     */
+    public function setLightErrorCode(?string $lightErrorCode): LightException
+    {
         $this->lightErrorCode = $lightErrorCode;
+        return $this;
     }
 
 
@@ -45,6 +68,7 @@ class LightException extends \Exception
     {
         return $this->lightErrorCode;
     }
+
 
 }
 

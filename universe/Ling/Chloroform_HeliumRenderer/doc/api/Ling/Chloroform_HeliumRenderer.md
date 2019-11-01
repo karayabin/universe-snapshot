@@ -1,6 +1,6 @@
 Ling/Chloroform_HeliumRenderer
 ================
-2019-07-26 --> 2019-07-30
+2019-07-26 --> 2019-10-24
 
 
 
@@ -19,6 +19,7 @@ Table of contents
     - [HeliumRenderer::printNotifications](https://github.com/lingtalfi/Chloroform_HeliumRenderer/blob/master/doc/api/Ling/Chloroform_HeliumRenderer/HeliumRenderer/printNotifications.md) &ndash; Prints the given notifications.
     - [HeliumRenderer::printErrorSummary](https://github.com/lingtalfi/Chloroform_HeliumRenderer/blob/master/doc/api/Ling/Chloroform_HeliumRenderer/HeliumRenderer/printErrorSummary.md) &ndash; Prints the given errors.
     - [HeliumRenderer::printFields](https://github.com/lingtalfi/Chloroform_HeliumRenderer/blob/master/doc/api/Ling/Chloroform_HeliumRenderer/HeliumRenderer/printFields.md) &ndash; Prints the given fields.
+    - [HeliumRenderer::printField](https://github.com/lingtalfi/Chloroform_HeliumRenderer/blob/master/doc/api/Ling/Chloroform_HeliumRenderer/HeliumRenderer/printField.md) &ndash; Prints the given field.
     - [HeliumRenderer::printStringField](https://github.com/lingtalfi/Chloroform_HeliumRenderer/blob/master/doc/api/Ling/Chloroform_HeliumRenderer/HeliumRenderer/printStringField.md) &ndash; Prints the given string field.
     - [HeliumRenderer::printTextField](https://github.com/lingtalfi/Chloroform_HeliumRenderer/blob/master/doc/api/Ling/Chloroform_HeliumRenderer/HeliumRenderer/printTextField.md) &ndash; Prints the given text field.
     - [HeliumRenderer::printNumberField](https://github.com/lingtalfi/Chloroform_HeliumRenderer/blob/master/doc/api/Ling/Chloroform_HeliumRenderer/HeliumRenderer/printNumberField.md) &ndash; Prints the given number field.

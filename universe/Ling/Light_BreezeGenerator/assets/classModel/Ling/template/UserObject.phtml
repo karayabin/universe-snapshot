@@ -6,6 +6,8 @@ namespace The\ObjectNamespace;
 
 use Ling\SimplePdoWrapper\SimplePdoWrapperInterface;
 use Ling\SimplePdoWrapper\SimplePdoWrapper;
+//::extraUseStatements
+
 
 /**
  * The UserObject class.
@@ -19,12 +21,15 @@ class UserObject implements UserObjectInterface
      */
     protected $pdoWrapper;
 
+//::extraProperties--definition
+
     /**
      * Builds the UserObject instance.
      */
     public function __construct()
     {
         $this->pdoWrapper = null;
+//::extraProperties--instantiation
     }
 
 
@@ -39,10 +44,6 @@ class UserObject implements UserObjectInterface
 // deleteXXX
 
 
-
-
-
-
     //--------------------------------------------
     //
     //--------------------------------------------
@@ -55,4 +56,26 @@ class UserObject implements UserObjectInterface
     {
         $this->pdoWrapper = $pdoWrapper;
     }
+
+
+//::extraPublicMethods
+
+
+    //--------------------------------------------
+    //
+    //--------------------------------------------
+// doInsertXXX
+
+// doGetXXX
+
+// doUpdateXXX
+
+// doDeleteXXX
+
+
+    //--------------------------------------------
+    //
+    //--------------------------------------------
+//::extraProtectedMethods
+
 }

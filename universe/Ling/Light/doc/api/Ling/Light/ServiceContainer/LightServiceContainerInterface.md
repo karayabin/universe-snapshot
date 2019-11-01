@@ -4,7 +4,7 @@
 
 The LightServiceContainerInterface class
 ================
-2019-04-09 --> 2019-10-09
+2019-04-09 --> 2019-10-28
 
 
 
@@ -24,6 +24,9 @@ Class synopsis
 
 abstract class <span class="pl-k">LightServiceContainerInterface</span> implements [OctopusServiceContainerInterface](https://github.com/lingtalfi/Octopus/blob/master/ServiceContainer/OctopusServiceContainerInterface.php) {
 
+- Methods
+    - abstract public [getApplicationDir](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface/getApplicationDir.md)() : string
+
 - Inherited methods
     - abstract public OctopusServiceContainerInterface::get(string $service) : object
     - abstract public OctopusServiceContainerInterface::has(string $service) : bool
@@ -39,6 +42,7 @@ abstract class <span class="pl-k">LightServiceContainerInterface</span> implemen
 Methods
 ==============
 
+- [LightServiceContainerInterface::getApplicationDir](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface/getApplicationDir.md) &ndash; Returns the application directory.
 - OctopusServiceContainerInterface::get &ndash; Returns the service which name is given.
 - OctopusServiceContainerInterface::has &ndash; 
 - OctopusServiceContainerInterface::all &ndash; Returns the list of all service names for this instance.

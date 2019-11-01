@@ -326,4 +326,223 @@ interface ReportInterface
      * @return string
      */
     public function __toString();
+
+    //--------------------------------------------
+    // GETTERS
+    //--------------------------------------------
+
+
+    /**
+     * Returns the array of the inline function parsed during this session.
+     * Each item of the array has the following structure:
+     *
+     * - 0: name of the inline function
+     * - 1: array of arguments passed to the function
+     * - 2: location (class name) where it was written
+     *
+     * @return array
+     */
+    public function getParsedInlineFunctions(): array;
+
+    /**
+     * Returns the array of the @kw(block-level tags) parsed during this session.
+     * Each item of the array has the following structure:
+     *
+     * - 0: name of the block-level tag
+     * - 1: location (class name) where it was written
+     *
+     * @return array
+     */
+    public function getParsedBlockLevelTags(): array;
+
+    /**
+     * Returns the array of unknown inline function items (found during the parsing session), each of which being the following array:
+     *
+     * - 0: name of the unknown inline function
+     * - 1: location (class name) where it was written
+     *
+     * @return array
+     */
+    public function getUnknownInlineFunctions(): array;
+
+    /**
+     * Returns the array of undefined keyword items, along with the function name, each of which being the following array:
+     *
+     * - 0: name of the undefined keyword
+     * - 0: name of the inline function called
+     * - 1: location (class name) where it was found
+     *
+     * @return array
+     */
+    public function getUndefinedInlineKeywords(): array;
+
+    /**
+     * Returns the array of class names not found items, each of which being the following array:
+     *
+     * - 0: name of the not found class
+     * - 1: location (class name) where it was written
+     *
+     * @return array
+     */
+    public function getUndefinedInlineClasses(): array;
+
+    /**
+     * Returns the array of method and class names for methods which contains an
+     * unresolved @implementation tag.
+     *
+     * - 0: name of the failing method
+     * - 1: location (class name) where it was written
+     *
+     * @return array
+     */
+    public function getUnresolvedImplementationTags(): array;
+
+    /**
+     * Returns the array of method and class names for methods which contains an
+     * unresolved @overrides tag.
+     *
+     * - 0: name of the failing method
+     * - 1: location (class name) where it was written
+     *
+     * @return array
+     */
+    public function getUnresolvedOverridesTags(): array;
+
+    /**
+     * Returns the array of classes (class names) which
+     * don't have a doc comment (or with an empty doc comment).
+     *
+     * @return array
+     */
+    public function getClassesWithoutComment(): array;
+
+    /**
+     * Returns the array of methods without a doc comment (or with an empty doc comment).
+     * Each item has the following structure:
+     *
+     * - 0: name of the method without comment
+     * - 1: visibility of the method
+     * - 2: location (class name) where it was written
+     *
+     * @return array
+     */
+    public function getMethodsWithoutComment(): array;
+
+    /**
+     * Returns the array of methods with a doc comment, but without a "@return" tag.
+     * Each item has the following structure:
+     *
+     * - 0: name of the method without comment
+     * - 1: location (class name) where it was written
+     *
+     * @return array
+     */
+    public function getMethodsWithoutReturnTag(): array;
+
+    /**
+     * Returns the array of parameters without a "@param" tag.
+     * Each item has the following structure:
+     *
+     * - 0: name of the parameter
+     * - 1: name of the method
+     * - 2: location (class name) where it was written
+     *
+     * @return array
+     */
+    public function getParametersWithoutParamTag(): array;
+
+    /**
+     * Returns the array of properties without a doc comment (or with an empty doc comment).
+     * Each item has the following structure:
+     *
+     * - 0: name of the property without comment
+     * - 1: location (class name) where it was written
+     *
+     * @return array
+     */
+    public function getPropertiesWithoutComment(): array;
+
+    /**
+     * Returns the array of properties without a "@var" tag specified.
+     *
+     * Each item has the following structure:
+     *
+     * - 0: name of the property without comment
+     * - 1: location (class name) where it was written
+     *
+     *
+     * @return array
+     */
+    public function getPropertiesWithoutVarTag(): array;
+
+    /**
+     * Returns the array of unresolved class references.
+     *
+     * @var array
+     * - 0: referenced class name
+     * - 1: location (class name) where it was written
+     *
+     * @return array
+     */
+    public function getUnresolvedClassReferences(): array;
+
+    /**
+     * Returns the array of unresolved method references.
+     *
+     * @var array
+     * - 0: referenced class name
+     * - 1: referenced method name
+     *
+     * @return array
+     */
+    public function getUnresolvedMethodReferences(): array;
+
+    /**
+     * Returns the array of the classes with an empty main text.
+     *
+     * @var array
+     * - 0: class name
+     * - 1: context (generally class name) where it was written
+     *
+     * @return array
+     */
+    public function getClassesWithEmptyMainText(): array;
+
+    /**
+     * Returns the array of todo texts.
+     *
+     * @var array
+     * - 0: todo text
+     * - 1: location hint (indicates where to find the todo text)
+     * - 2: context (generally class name) where it was written
+     *
+     * @return array
+     */
+    public function getTodoTexts(): array;
+
+    /**
+     * Returns the array of the properties with an empty main text.
+     *
+     * @var array
+     * - 0: class name
+     * - 1: property name
+     * - 2: context (generally class name) where it was written
+     *
+     * @return array
+     */
+    public function getPropertiesWithEmptyMainText(): array;
+
+    /**
+     * Returns the array of the methods with an empty main text.
+     *
+     * @var array
+     * - 0: class name
+     * - 1: method name
+     * - 2: context (generally class name) where it was written
+     *
+     * @return array
+     */
+    public function getMethodsWithEmptyMainText(): array;
+
+
 }

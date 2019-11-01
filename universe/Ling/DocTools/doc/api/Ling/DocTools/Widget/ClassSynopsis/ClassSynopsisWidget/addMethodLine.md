@@ -16,7 +16,7 @@ Description
 ================
 
 
-protected [ClassSynopsisWidget::addMethodLine](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Widget/ClassSynopsis/ClassSynopsisWidget/addMethodLine.md)(?&$s, [Ling\DocTools\Info\MethodInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/MethodInfo.md) $method, $showDeclaringClass = false) : void
+protected [ClassSynopsisWidget::addMethodLine](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Widget/ClassSynopsis/ClassSynopsisWidget/addMethodLine.md)(&$s, [Ling\DocTools\Info\MethodInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/MethodInfo.md) $method, ?$showDeclaringClass = false) : void
 
 
 

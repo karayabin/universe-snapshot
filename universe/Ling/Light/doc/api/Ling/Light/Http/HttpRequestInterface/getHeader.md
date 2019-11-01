@@ -16,7 +16,7 @@ Description
 ================
 
 
-abstract public [HttpRequestInterface::getHeader](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface/getHeader.md)(string $header, $default = null) : string | mixed
+abstract public [HttpRequestInterface::getHeader](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface/getHeader.md)(string $header, ?$default = null) : string | mixed
 
 
 

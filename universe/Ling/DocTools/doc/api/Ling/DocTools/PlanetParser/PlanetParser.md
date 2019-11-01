@@ -4,7 +4,7 @@
 
 The PlanetParser class
 ================
-2019-02-21 --> 2019-10-08
+2019-02-21 --> 2019-10-25
 
 
 
@@ -39,7 +39,7 @@ class <span class="pl-k">PlanetParser</span> implements [GenericParserInterface]
 
 - Methods
     - public [__construct](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/PlanetParser/PlanetParser/__construct.md)() : void
-    - public [parse](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/PlanetParser/PlanetParser/parse.md)(string $planetDir, array $options = []) : [InfoInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/InfoInterface.md)
+    - public [parse](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/PlanetParser/PlanetParser/parse.md)(string $planetDir, ?array $options = []) : [InfoInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/InfoInterface.md)
     - public [setClassParser](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/PlanetParser/PlanetParser/setClassParser.md)([Ling\DocTools\ClassParser\ClassParserInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/ClassParser/ClassParserInterface.md) $classParser) : void
     - public [setGeneratedItemsToUrl](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/PlanetParser/PlanetParser/setGeneratedItemsToUrl.md)(array $generatedItems2Url) : void
     - public [getReport](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/PlanetParser/PlanetParser/getReport.md)() : [ReportInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface.md) | null

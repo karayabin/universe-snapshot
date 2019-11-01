@@ -377,12 +377,25 @@ Related
 ---------
 - [Chloroform](https://github.com/lingtalfi/Chloroform), the library to create the form structure
 - [Chloroform Hydrogen renderer](https://github.com/lingtalfi/Chloroform_HydrogenRenderer), another renderer for chloroform
+- [Chloroform_HeliumLightRenderer](https://github.com/lingtalfi/Chloroform_HeliumLightRenderer), the light version of the Chloroform Helium renderer
 
 
 
 History Log
 =============
 
+- 1.4.1 -- 2019-10-24
+
+    - add link in README.md
+    
+- 1.4.0 -- 2019-10-17
+
+    - add HeliumRenderer->printField method
+    
+- 1.3.0 -- 2019-10-16
+
+    - updating css location so that it imports automatically when the planet is imported (https://github.com/lingtalfi/NotationFan/blob/master/universe-assets.md).
+    
 - 1.2.0 -- 2019-07-30
 
     - update css, rendering file looks a bit better now

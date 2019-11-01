@@ -46,7 +46,7 @@ Returns string | null.
 
 Source Code
 ===========
-See the source code for method [LightException::getLightErrorCode](https://github.com/lingtalfi/Light/blob/master/Exception/LightException.php#L44-L47)
+See the source code for method [LightException::getLightErrorCode](https://github.com/lingtalfi/Light/blob/master/Exception/LightException.php#L67-L70)
 
 
 See Also
@@ -54,5 +54,5 @@ See Also
 
 The [LightException](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Exception/LightException.md) class.
 
-Previous method: [__construct](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Exception/LightException/__construct.md)<br>
+Previous method: [setLightErrorCode](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Exception/LightException/setLightErrorCode.md)<br>
 

@@ -1,0 +1,18 @@
+form_handler: 
+    id: realgen-luda_directory_map
+    fields: 
+        obfuscated_name: 
+            label: Obfuscated name
+            type: string
+            validators: 
+                required: []
+            
+        
+        real_name: 
+            label: Real name
+            type: string
+            validators: 
+                required: []
+            
+        
+    

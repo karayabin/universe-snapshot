@@ -4,7 +4,7 @@
 
 The AdvancedSearchRendererWidget class
 ================
-2019-08-15 --> 2019-10-11
+2019-08-15 --> 2019-10-28
 
 
 

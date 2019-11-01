@@ -6,6 +6,7 @@ namespace Ling\Light\Controller;
 
 use Ling\Light\Core\Light;
 use Ling\Light\Core\LightAwareInterface;
+use Ling\Light\Http\HttpRequestInterface;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
 
 /**
@@ -64,6 +65,16 @@ class LightController implements LightControllerInterface, LightAwareInterface
     protected function getContainer(): LightServiceContainerInterface
     {
         return $this->light->getContainer();
+    }
+
+
+    /**
+     * Returns the http request bound to the light instance.
+     * @return HttpRequestInterface
+     */
+    protected function getHttpRequest(): HttpRequestInterface
+    {
+        return $this->light->getHttpRequest();
     }
 
 }

@@ -53,7 +53,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [ServiceContainerHelper::createHashMap](https://github.com/lingtalfi/Light/blob/master/Helper/ServiceContainerHelper.php#L178-L190)
+See the source code for method [ServiceContainerHelper::createHashMap](https://github.com/lingtalfi/Light/blob/master/Helper/ServiceContainerHelper.php#L181-L193)
 
 
 See Also

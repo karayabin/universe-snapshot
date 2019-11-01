@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://raw.githubusercontent.com/lingtalfi/Light_Events/master/sitemap.txt

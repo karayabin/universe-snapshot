@@ -1,0 +1,5 @@
+    /**
+     * This property holds the microPermissionPlugin for this instance.
+     * @var string
+     */
+    protected $microPermissionPlugin;

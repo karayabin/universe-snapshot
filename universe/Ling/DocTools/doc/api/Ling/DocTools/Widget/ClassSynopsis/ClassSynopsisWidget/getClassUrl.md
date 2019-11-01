@@ -16,7 +16,7 @@ Description
 ================
 
 
-protected [ClassSynopsisWidget::getClassUrl](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Widget/ClassSynopsis/ClassSynopsisWidget/getClassUrl.md)([\ReflectionClass](http://php.net/manual/en/class.reflectionclass.php) $class, $hint = null) : false | string
+protected [ClassSynopsisWidget::getClassUrl](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Widget/ClassSynopsis/ClassSynopsisWidget/getClassUrl.md)([\ReflectionClass](http://php.net/manual/en/class.reflectionclass.php) $class, ?$hint = null) : false | string
 
 
 

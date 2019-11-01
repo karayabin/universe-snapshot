@@ -33,7 +33,7 @@ class LightKitAdminChloroform extends Chloroform
          * @var $csrf LightCsrfService
          */
         $csrf = $container->get('csrf');
-        $this->addField(CSRFField::create("csrf_token")->setCsrfProtector($csrf), [CSRFValidator::create()->setCsrfProtector($csrf)]);
+        $this->addField(CSRFField::create("csrf_token")->setCsrfProtector($csrf)->setHasVeryImportantData(false), [CSRFValidator::create()->setCsrfProtector($csrf)]);
     }
 
 
@@ -42,11 +42,11 @@ class LightKitAdminChloroform extends Chloroform
      *
      * @return array
      */
-    public function getFilteredPostedData(): array
-    {
-        $postedData = $this->getPostedData();
-        unset($postedData['csrf_token']);
-        unset($postedData['chloroform_hidden_key']);
-        return $postedData;
-    }
+//    public function getFilteredPostedData(): array
+//    {
+//        $postedData = $this->getPostedData();
+//        unset($postedData['csrf_token']);
+//        unset($postedData['chloroform_hidden_key']);
+//        return $postedData;
+//    }
 }

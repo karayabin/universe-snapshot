@@ -16,7 +16,7 @@ Description
 ================
 
 
-protected [LightRealistBaseListActionHandler::decorateGenericActionItemByAssets](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/ListActionHandler/LightRealistBaseListActionHandler/decorateGenericActionItemByAssets.md)(string $actionName, array &$item, string $requestId, string $dir, array $options = []) : void
+protected [LightRealistBaseListActionHandler::decorateGenericActionItemByAssets](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/ListActionHandler/LightRealistBaseListActionHandler/decorateGenericActionItemByAssets.md)(string $actionName, array &$item, string $requestId, string $dir, ?array $options = []) : void
 
 
 

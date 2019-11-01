@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [AbstractField::setValue](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/AbstractField/setValue.md)(?$value) : [AbstractField](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/AbstractField.md)
+public [AbstractField::setValue](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/AbstractField/setValue.md)($value) : [AbstractField](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/AbstractField.md)
 
 
 
@@ -49,7 +49,7 @@ Returns [AbstractField](https://github.com/lingtalfi/Chloroform/blob/master/doc/
 
 Source Code
 ===========
-See the source code for method [AbstractField::setValue](https://github.com/lingtalfi/Chloroform/blob/master/Field/AbstractField.php#L201-L205)
+See the source code for method [AbstractField::setValue](https://github.com/lingtalfi/Chloroform/blob/master/Field/AbstractField.php#L213-L217)
 
 
 See Also

@@ -226,6 +226,19 @@ is not contained in (a children of) rootDir.
 
 
 
+isDirectoryTraversalSafe
+-----------
+2019-10-16
+
+
+bool        isDirectoryTraversalSafe( string:file, string:rootDir, bool:checkFileExists )
+
+
+Returns whether the given file and is under the given rootDir.
+If the $checkFileExists is set, also checks whether the file exists.
+
+
+
 mkdir
 -----------
 2015-10-07
@@ -371,20 +384,6 @@ bool    moveToDir (string:filePath, string:destDir)
 
 Move the file filePath to the directory destDir.
 
-
-
-
-
-noEscalating
------------
-2017-06-03
-
-
-```php
-str    noEscalating (string:uri)
-```
-
-Returns a file path which won't be able to escalate into parent directories (removing the expression ".." basically).
 
 
 

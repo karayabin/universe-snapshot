@@ -59,3 +59,11 @@ relatively secure manner.
      Other keys can be added, this is done via the actions system aforementioned.
 
 
+
+
+Related documents
+====================
+
+- [Secure file upload discussion](https://github.com/lingtalfi/TheBar/blob/master/discussions/secure-file-upload.md)
+- [Ajax file upload discussion](https://github.com/lingtalfi/TheBar/blob/master/discussions/ajax-file-upload.md)
+

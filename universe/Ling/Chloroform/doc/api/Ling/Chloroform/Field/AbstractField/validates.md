@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [AbstractField::validates](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/AbstractField/validates.md)(array $postedData, bool $injectValues = true) : bool
+public [AbstractField::validates](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/AbstractField/validates.md)($value) : bool
 
 
 
@@ -27,22 +27,15 @@ If not, false is returned and the errors array is fed with error message(s).
 Errors should then be retrieved using the getErrors method.
 
 
-If the injectValues flag is set to true, the value will be injected into the field.
-
-
 
 
 Parameters
 ================
 
 
-- postedData
+- value
 
-    
-
-- injectValues
-
-    
+    The value to validate.
 
 
 Return values
@@ -59,7 +52,7 @@ Returns bool.
 
 Source Code
 ===========
-See the source code for method [AbstractField::validates](https://github.com/lingtalfi/Chloroform/blob/master/Field/AbstractField.php#L153-L186)
+See the source code for method [AbstractField::validates](https://github.com/lingtalfi/Chloroform/blob/master/Field/AbstractField.php#L175-L198)
 
 
 See Also

@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [RadioField::__construct](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/RadioField/__construct.md)(array $properties = []) : void
+public [RadioField::__construct](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/RadioField/__construct.md)(?array $properties = []) : void
 
 
 

@@ -4,7 +4,7 @@
 
 The DocBuilder class
 ================
-2019-02-21 --> 2019-10-08
+2019-02-21 --> 2019-10-25
 
 
 
@@ -57,9 +57,10 @@ abstract class <span class="pl-k">DocBuilder</span>  {
     - protected [Ling\DocTools\Report\ReportInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface.md) [$report](#property-report) ;
 
 - Methods
-    - abstract public [prepare](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/DocBuilder/DocBuilder/prepare.md)(array $settings = []) : void
+    - abstract public [prepare](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/DocBuilder/DocBuilder/prepare.md)(?array $settings = []) : void
     - abstract public [buildDoc](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/DocBuilder/DocBuilder/buildDoc.md)() : void
     - public [showReport](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/DocBuilder/DocBuilder/showReport.md)() : void
+    - public [getReport](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/DocBuilder/DocBuilder/getReport.md)() : [ReportInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface.md)
     - protected [setReport](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/DocBuilder/DocBuilder/setReport.md)([Ling\DocTools\Report\ReportInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface.md) $report) : void
 
 }
@@ -84,6 +85,7 @@ Methods
 - [DocBuilder::prepare](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/DocBuilder/DocBuilder/prepare.md) &ndash; Prepares the doc builder instance.
 - [DocBuilder::buildDoc](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/DocBuilder/DocBuilder/buildDoc.md) &ndash; and according to the writeMode property.
 - [DocBuilder::showReport](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/DocBuilder/DocBuilder/showReport.md) &ndash; Displays the report.
+- [DocBuilder::getReport](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/DocBuilder/DocBuilder/getReport.md) &ndash; Returns the report instance.
 - [DocBuilder::setReport](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/DocBuilder/DocBuilder/setReport.md) &ndash; Sets the report object.
 
 

@@ -9,6 +9,7 @@ use Ling\Bootstrap4AdminTable\Exception\Bootstrap4AdminTableException;
 use Ling\Bootstrap4AdminTable\RendererWidget\AdvancedSearchRendererWidget;
 use Ling\Bootstrap4AdminTable\RendererWidget\ListGeneralActionRendererWidgetInterface;
 use Ling\Bootstrap4AdminTable\RendererWidget\NeckFiltersRendererWidgetInterface;
+use Ling\Bootstrap4AdminTable\RendererWidget\RelatedLinksRendererWidgetInterface;
 use Ling\Bootstrap4AdminTable\RendererWidget\RendererWidgetInterface;
 use Ling\Bootstrap4AdminTable\RendererWidget\ToolbarRendererWidgetInterface;
 use Ling\HtmlPageTools\Copilot\HtmlPageCopilot;
@@ -154,6 +155,17 @@ class Bootstrap4AdminTableRenderer extends OpenAdminTableBaseRealistListRenderer
                     $neckFiltersWidget->setColumns2DataTypes($this->dataTypes);
                     $neckFiltersWidget->setUseCheckbox($this->isWidgetEnabled("checkbox"));
                 }
+            }
+
+
+            if (true === $this->isWidgetEnabled("related_links")) {
+
+                /**
+                 * @var $relatedLinksWidget RelatedLinksRendererWidgetInterface
+                 */
+                $relatedLinksWidget = $this->getWidget("related_links");
+                $relatedLinksWidget->setLinks($this->relatedLinks);
+                $relatedLinksWidget->render();
             }
 
 

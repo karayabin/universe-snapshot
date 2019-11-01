@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [PasswordField::create](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/PasswordField/create.md)(string $label, array $properties = []) : [PasswordField](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/PasswordField.md)
+public static [PasswordField::create](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/PasswordField/create.md)(string $label, ?array $properties = []) : [PasswordField](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/PasswordField.md)
 
 
 

@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [CSRFField::__construct](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/CSRFField/__construct.md)(array $properties = []) : void
+public [CSRFField::__construct](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/CSRFField/__construct.md)(?array $properties = []) : void
 
 
 
@@ -75,5 +75,5 @@ See Also
 
 The [CSRFField](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/CSRFField.md) class.
 
-Next method: [setCSRFIdentifier](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/CSRFField/setCSRFIdentifier.md)<br>
+Next method: [setCsrfIdentifier](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/CSRFField/setCsrfIdentifier.md)<br>
 

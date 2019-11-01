@@ -4,7 +4,7 @@
 
 The ZephyrTemplateEngineDocBuilder class
 ================
-2019-03-13 --> 2019-09-26
+2019-03-13 --> 2019-10-25
 
 
 
@@ -25,7 +25,7 @@ Class synopsis
 class <span class="pl-k">ZephyrTemplateEngineDocBuilder</span>  {
 
 - Methods
-    - public static [buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/ZephyrTemplateEngine/ZephyrTemplateEngineDocBuilder/buildDoc.md)($htmlMode = true) : void
+    - public static [buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/ZephyrTemplateEngine/ZephyrTemplateEngineDocBuilder/buildDoc.md)(?$htmlMode = true) : void
 
 }
 
@@ -52,4 +52,4 @@ See the source code of [Ling\LingTalfi\DocBuilder\ZephyrTemplateEngine\ZephyrTem
 
 SeeAlso
 ==============
-Previous class: [WiseToolDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/WiseTool/WiseToolDocBuilder.md)<br>Next class: [KaosApplication](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Application/KaosApplication.md)<br>
+Previous class: [WiseToolDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/WiseTool/WiseToolDocBuilder.md)<br>Next class: [LingTalfiDocToolsHelper](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocTools/LingTalfiDocToolsHelper.md)<br>

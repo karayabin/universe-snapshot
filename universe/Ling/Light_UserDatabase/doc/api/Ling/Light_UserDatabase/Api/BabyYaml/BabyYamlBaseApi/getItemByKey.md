@@ -16,7 +16,7 @@ Description
 ================
 
 
-protected [BabyYamlBaseApi::getItemByKey](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/BabyYaml/BabyYamlBaseApi/getItemByKey.md)(array $key, $default = null, bool $throwNotFoundEx = false) : array | false | null
+protected [BabyYamlBaseApi::getItemByKey](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/BabyYaml/BabyYamlBaseApi/getItemByKey.md)(array $key, ?$default = null, ?bool $throwNotFoundEx = false) : array | false | null
 
 
 

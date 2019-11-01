@@ -4,7 +4,7 @@
 
 The ParentChildDocBuilder class
 ================
-2019-03-13 --> 2019-09-26
+2019-03-13 --> 2019-10-25
 
 
 
@@ -25,7 +25,7 @@ Class synopsis
 class <span class="pl-k">ParentChildDocBuilder</span>  {
 
 - Methods
-    - public static [buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/ParentChild/ParentChildDocBuilder/buildDoc.md)($htmlMode = true) : void
+    - public static [buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/ParentChild/ParentChildDocBuilder/buildDoc.md)(?$htmlMode = true) : void
 
 }
 
@@ -52,4 +52,4 @@ See the source code of [Ling\LingTalfi\DocBuilder\ParentChild\ParentChildDocBuil
 
 SeeAlso
 ==============
-Previous class: [ParametrizedSqlQueryDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/ParametrizedSqlQuery/ParametrizedSqlQueryDocBuilder.md)<br>Next class: [PlanetSitemapDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/PlanetSitemap/PlanetSitemapDocBuilder.md)<br>
+Previous class: [ParametrizedSqlQueryDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/ParametrizedSqlQuery/ParametrizedSqlQueryDocBuilder.md)<br>Next class: [PhpExcelToolDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/PhpExcelTool/PhpExcelToolDocBuilder.md)<br>

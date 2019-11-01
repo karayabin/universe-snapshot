@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [WiseToolDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/WiseTool/WiseToolDocBuilder/buildDoc.md)($htmlMode = true) : void
+public static [WiseToolDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/WiseTool/WiseToolDocBuilder/buildDoc.md)(?$htmlMode = true) : void
 
 
 

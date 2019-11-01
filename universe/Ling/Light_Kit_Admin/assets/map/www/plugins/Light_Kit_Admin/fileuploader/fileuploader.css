@@ -1,0 +1,55 @@
+.file-uploader-dropzone {
+  border: 1px dashed #919191;
+  padding: 1rem;
+  color: #53595e; }
+  .file-uploader-dropzone.over {
+    background: #f2f2f2; }
+
+.file-uploader-filevisualizer {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  /*------------------------------------
+  - variations of the default built-in style
+  ------------------------------------*/ }
+  .file-uploader-filevisualizer .thumbnail {
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    position: relative;
+    line-height: 1.2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /**
+    * .img-thumbnail style from bootstrap4
+     */
+    padding: .25rem;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: .25rem;
+    max-width: 100%;
+    height: auto; }
+    .file-uploader-filevisualizer .thumbnail a {
+      color: black;
+      margin-bottom: 3px;
+      display: block; }
+    .file-uploader-filevisualizer .thumbnail .filename {
+      font-size: 80%;
+      font-weight: 400; }
+    .file-uploader-filevisualizer .thumbnail .close {
+      position: absolute;
+      top: 0;
+      right: 0; }
+    .file-uploader-filevisualizer .thumbnail .fileuploader-close-button.delete-not-allowed {
+      display: none; }
+  .file-uploader-filevisualizer.w100 .thumbnail {
+    width: 100px; }
+    .file-uploader-filevisualizer.w100 .thumbnail i {
+      font-size: 100px; }
+  .file-uploader-filevisualizer.w225 .thumbnail {
+    width: 225px; }
+    .file-uploader-filevisualizer.w225 .thumbnail i {
+      font-size: 225px; }
+
+/*# sourceMappingURL=fileuploader.css.map */

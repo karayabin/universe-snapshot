@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [SimpleCurlDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/SimpleCurl/SimpleCurlDocBuilder/buildDoc.md)($htmlMode = true) : void
+public static [SimpleCurlDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/SimpleCurl/SimpleCurlDocBuilder/buildDoc.md)(?$htmlMode = true) : void
 
 
 

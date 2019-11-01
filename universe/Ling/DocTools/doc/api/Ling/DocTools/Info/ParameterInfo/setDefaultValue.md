@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [ParameterInfo::setDefaultValue](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/ParameterInfo/setDefaultValue.md)(?string $defaultValue) : void
+public [ParameterInfo::setDefaultValue](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/ParameterInfo/setDefaultValue.md)(string $defaultValue) : void
 
 
 

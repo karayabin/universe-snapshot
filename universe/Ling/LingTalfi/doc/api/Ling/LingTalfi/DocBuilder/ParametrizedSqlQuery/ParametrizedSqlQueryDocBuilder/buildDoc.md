@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [ParametrizedSqlQueryDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/ParametrizedSqlQuery/ParametrizedSqlQueryDocBuilder/buildDoc.md)($htmlMode = true) : void
+public static [ParametrizedSqlQueryDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/ParametrizedSqlQuery/ParametrizedSqlQueryDocBuilder/buildDoc.md)(?$htmlMode = true) : void
 
 
 

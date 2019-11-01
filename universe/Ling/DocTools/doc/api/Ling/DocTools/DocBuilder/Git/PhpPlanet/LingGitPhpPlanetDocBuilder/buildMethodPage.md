@@ -60,7 +60,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LingGitPhpPlanetDocBuilder::buildMethodPage](https://github.com/lingtalfi/DocTools/blob/master/DocBuilder/Git/PhpPlanet/LingGitPhpPlanetDocBuilder.php#L472-L543)
+See the source code for method [LingGitPhpPlanetDocBuilder::buildMethodPage](https://github.com/lingtalfi/DocTools/blob/master/DocBuilder/Git/PhpPlanet/LingGitPhpPlanetDocBuilder.php#L469-L539)
 
 
 See Also

@@ -4,7 +4,7 @@
 
 The ChloroformException class
 ================
-2019-04-10 --> 2019-09-20
+2019-04-10 --> 2019-11-01
 
 
 
@@ -54,4 +54,4 @@ See the source code of [Ling\Chloroform\Exception\ChloroformException](https://g
 
 SeeAlso
 ==============
-Next class: [AbstractField](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/AbstractField.md)<br>
+Previous class: [DataTransformerInterface](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/DataTransformer/DataTransformerInterface.md)<br>Next class: [AbstractField](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/AbstractField.md)<br>

@@ -4,7 +4,7 @@
 
 The ListGeneralActionRendererWidgetInterface class
 ================
-2019-08-15 --> 2019-10-11
+2019-08-15 --> 2019-10-28
 
 
 
@@ -22,10 +22,13 @@ Class synopsis
 ==============
 
 
-abstract class <span class="pl-k">ListGeneralActionRendererWidgetInterface</span>  {
+abstract class <span class="pl-k">ListGeneralActionRendererWidgetInterface</span> implements [RendererWidgetInterface](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/RendererWidgetInterface.md) {
 
 - Methods
     - abstract public [setGeneralActions](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/ListGeneralActionRendererWidgetInterface/setGeneralActions.md)(array $generalActions) : void
+
+- Inherited methods
+    - abstract public [RendererWidgetInterface::render](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/RendererWidgetInterface/render.md)() : void
 
 }
 
@@ -38,6 +41,7 @@ Methods
 ==============
 
 - [ListGeneralActionRendererWidgetInterface::setGeneralActions](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/ListGeneralActionRendererWidgetInterface/setGeneralActions.md) &ndash; Sets the groups.
+- [RendererWidgetInterface::render](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/RendererWidgetInterface/render.md) &ndash; Prints the widget html.
 
 
 

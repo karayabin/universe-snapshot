@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [RealistDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Realist/RealistDocBuilder/buildDoc.md)($htmlMode = true) : void
+public static [RealistDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Realist/RealistDocBuilder/buildDoc.md)(?$htmlMode = true) : void
 
 
 

@@ -143,7 +143,7 @@ class MethodHelper
             }
 
 
-            if ($parameter->allowsNull() && false === $parameter->isOptional()) {
+            if (true === $parameter->isOptional()) {
                 $s .= '?';
             }
 

@@ -1,0 +1,10 @@
+dependencies: 
+    Ling: 
+        - Light
+        - Bat
+        - Light_Kit_Admin
+        - Light_LightInstance
+    
+
+post_install: 
+    map: true

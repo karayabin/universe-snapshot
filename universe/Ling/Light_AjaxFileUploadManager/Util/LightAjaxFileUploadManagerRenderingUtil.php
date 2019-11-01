@@ -4,8 +4,6 @@
 namespace Ling\Light_AjaxFileUploadManager\Util;
 
 
-use Ling\Chloroform\Form\Chloroform;
-
 /**
  * The LightAjaxFileUploadManagerRenderingUtil class.
  *
@@ -59,17 +57,14 @@ class LightAjaxFileUploadManagerRenderingUtil
      * - suffix: string=1,
      *
      *
-     * @param string $fieldName
-     * @param Chloroform $form
+     * @param array $field
      * @return void
      * @throws \Exception
      */
-    public function printJavascript(string $fieldName, Chloroform $form): void
+    public function printJavascript(array $field): void
     {
         $suffix = $this->suffix;
-
-
-        $field = $form->getField($fieldName)->toArray();
+        $fieldName = $field['id'];
         $maxFile = $field["maxFile"];
         if (null === $maxFile) {
             $maxFile = -1;
@@ -111,26 +106,24 @@ class LightAjaxFileUploadManagerRenderingUtil
 
 
     /**
-     * Prints the html field using the given form, and assuming the js file uploader client (aka fileUploader) is used.
+     * Prints the html field using the given field array, and assuming the js file uploader client (https://github.com/lingtalfi/jsFileUploader) is used.
      * This also uses the bootstrap4 framework.
      *
      * The available options are:
      * - sizeClass: string=w100 the css class to add to the ".file-uploader-dropzone" element.
      *
      *
-     * @param string $fieldName
-     * @param Chloroform $form
+     * @param array $field
      * @param array $options
      * @return void
      * @throws \Exception
      */
-    public function printField(string $fieldName, Chloroform $form, array $options = []): void
+    public function printField(array $field, array $options = []): void
     {
 
         $sizeClass = $options['sizeClass'] ?? "w100";
 
         $suffix = $this->suffix;
-        $field = $form->getField($fieldName)->toArray();
         ?>
         <div class="form-group">
             <label for="id-fileuploader-input-<?php echo $suffix; ?>"><?php echo $field['label']; ?></label>

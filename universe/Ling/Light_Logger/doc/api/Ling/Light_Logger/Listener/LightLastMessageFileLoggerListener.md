@@ -4,7 +4,7 @@
 
 The LightLastMessageFileLoggerListener class
 ================
-2019-08-01 --> 2019-09-24
+2019-08-01 --> 2019-10-17
 
 
 

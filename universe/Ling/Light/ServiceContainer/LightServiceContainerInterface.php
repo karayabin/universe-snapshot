@@ -11,4 +11,9 @@ use Ling\Octopus\ServiceContainer\OctopusServiceContainerInterface;
 interface LightServiceContainerInterface extends OctopusServiceContainerInterface
 {
 
+    /**
+     * Returns the application directory.
+     * @return string
+     */
+    public function getApplicationDir(): string;
 }

@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [Light_CsrfDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Csrf/Light_CsrfDocBuilder/buildDoc.md)($htmlMode = true) : void
+public static [Light_CsrfDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Csrf/Light_CsrfDocBuilder/buildDoc.md)(?$htmlMode = true) : void
 
 
 

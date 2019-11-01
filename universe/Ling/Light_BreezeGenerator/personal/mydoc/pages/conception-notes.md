@@ -42,9 +42,9 @@ It will generate those kind of methods signatures (and the associated comments),
 Note: the flavour of the generated method can be configured.
 
 
-- getUserById( int $id, bool $throwEx=true )
-- getPermissionById(int $id, bool $throwEx=true)
-- getGroupById(int $id, bool $throwEx=true)
+- getUserById( int $id, $default = null, bool $throwNotFoundEx = false )
+- getPermissionById(int $id, $default = null, bool $throwNotFoundEx = false)
+- getGroupById(int $id, $default = null, bool $throwNotFoundEx = false)
 
 - updateUserById(int $id, array $user)
 - updatePermissionById(int $id, array $permission)
@@ -62,15 +62,18 @@ Note: the flavour of the generated method can be configured.
 
 Now if the table has a different primary key (or no primary key at all), the method names should update (the byId part specifically, and the args).
 
-For the getter methods, the throwEx argument set to true will force the method to throw an exception if the row doesn't exist.
-If the flag is set to false, then the method returns either the row, or false (if there is no row matching the parameters).
 
 For the insert methods, the ignore duplicate flag set to true will force the method to internally catch any problem that might 
 come from duplicated entry. False is returned if the inserted row already exists and ignoreDuplicate=true.
 When ignoreDuplicate=false and a row already exists, an exception is thrown.
 
 By default, if the insert operation succeeds, we simply return the last inserted id (mysql method).
-However if the returnFlag is set to true, we return the ric array instead.
+However if the $returnRic is set to true, we return the ric array instead.
+
+
+
+As of 2019-10-23, the breeze generator also generate the getXXX, updateXXX and deleteXXX methods for every unique indexes
+found in the table.
 
 
 

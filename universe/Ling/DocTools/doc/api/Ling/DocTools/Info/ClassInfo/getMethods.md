@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [ClassInfo::getMethods](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/ClassInfo/getMethods.md)($filter = null) : [MethodInfo[]](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/MethodInfo.md)
+public [ClassInfo::getMethods](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/ClassInfo/getMethods.md)(?$filter = null) : [MethodInfo[]](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/MethodInfo.md)
 
 
 

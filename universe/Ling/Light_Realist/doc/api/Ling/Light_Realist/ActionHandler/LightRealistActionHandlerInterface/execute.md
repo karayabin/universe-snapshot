@@ -16,7 +16,7 @@ Description
 ================
 
 
-abstract public [LightRealistActionHandlerInterface::execute](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/ActionHandler/LightRealistActionHandlerInterface/execute.md)(string $actionId, array $params = []) : mixed
+abstract public [LightRealistActionHandlerInterface::execute](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/ActionHandler/LightRealistActionHandlerInterface/execute.md)(string $actionId, ?array $params = []) : mixed
 
 
 

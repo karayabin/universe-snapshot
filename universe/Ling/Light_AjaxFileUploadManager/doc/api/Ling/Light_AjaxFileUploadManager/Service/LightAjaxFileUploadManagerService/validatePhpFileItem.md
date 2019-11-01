@@ -16,7 +16,7 @@ Description
 ================
 
 
-protected [LightAjaxFileUploadManagerService::validatePhpFileItem](https://github.com/lingtalfi/Light_AjaxFileUploadManager/blob/master/doc/api/Ling/Light_AjaxFileUploadManager/Service/LightAjaxFileUploadManagerService/validatePhpFileItem.md)(string $validationRuleName, ?$parameter, array $phpFileItem, string &$errorMessage = null) : bool
+protected [LightAjaxFileUploadManagerService::validatePhpFileItem](https://github.com/lingtalfi/Light_AjaxFileUploadManager/blob/master/doc/api/Ling/Light_AjaxFileUploadManager/Service/LightAjaxFileUploadManagerService/validatePhpFileItem.md)(string $validationRuleName, $parameter, array $phpFileItem, ?string &$errorMessage = null) : bool
 
 
 
@@ -68,7 +68,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightAjaxFileUploadManagerService::validatePhpFileItem](https://github.com/lingtalfi/Light_AjaxFileUploadManager/blob/master/Service/LightAjaxFileUploadManagerService.php#L293-L329)
+See the source code for method [LightAjaxFileUploadManagerService::validatePhpFileItem](https://github.com/lingtalfi/Light_AjaxFileUploadManager/blob/master/Service/LightAjaxFileUploadManagerService.php#L321-L372)
 
 
 See Also

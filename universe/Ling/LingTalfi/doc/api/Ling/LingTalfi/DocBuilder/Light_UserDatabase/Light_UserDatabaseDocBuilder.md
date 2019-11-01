@@ -4,7 +4,7 @@
 
 The Light_UserDatabaseDocBuilder class
 ================
-2019-03-13 --> 2019-09-26
+2019-03-13 --> 2019-10-25
 
 
 
@@ -25,7 +25,7 @@ Class synopsis
 class <span class="pl-k">Light_UserDatabaseDocBuilder</span>  {
 
 - Methods
-    - public static [buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_UserDatabase/Light_UserDatabaseDocBuilder/buildDoc.md)($htmlMode = true) : void
+    - public static [buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_UserDatabase/Light_UserDatabaseDocBuilder/buildDoc.md)(?$htmlMode = true) : void
 
 }
 
@@ -52,4 +52,4 @@ See the source code of [Ling\LingTalfi\DocBuilder\Light_UserDatabase\Light_UserD
 
 SeeAlso
 ==============
-Previous class: [Light_UserDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_User/Light_UserDocBuilder.md)<br>Next class: [Light_UserManagerDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_UserManager/Light_UserManagerDocBuilder.md)<br>
+Previous class: [Light_UserDataDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_UserData/Light_UserDataDocBuilder.md)<br>Next class: [Light_UserManagerDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_UserManager/Light_UserManagerDocBuilder.md)<br>

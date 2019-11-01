@@ -4,7 +4,7 @@
 
 The ConfigurationHelper class
 ================
-2019-04-09 --> 2019-10-09
+2019-04-09 --> 2019-10-28
 
 
 
@@ -25,7 +25,7 @@ Class synopsis
 class <span class="pl-k">ConfigurationHelper</span>  {
 
 - Methods
-    - public static [getCombinedConf](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ConfigurationHelper/getCombinedConf.md)(string $directory, array $environmentVariables = []) : array
+    - public static [getCombinedConf](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ConfigurationHelper/getCombinedConf.md)(string $directory, ?array $environmentVariables = []) : array
 
 }
 
@@ -52,4 +52,4 @@ See the source code of [Ling\Light\Helper\ConfigurationHelper](https://github.co
 
 SeeAlso
 ==============
-Previous class: [LightException](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Exception/LightException.md)<br>Next class: [ControllerHelper](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ControllerHelper.md)<br>
+Previous class: [LightRedirectException](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Exception/LightRedirectException.md)<br>Next class: [ControllerHelper](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ControllerHelper.md)<br>

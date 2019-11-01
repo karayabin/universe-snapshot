@@ -16,7 +16,7 @@ Description
 ================
 
 
-private [Light::getControllerArgs](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/getControllerArgs.md)(?$controller, array $route, [Ling\Light\Http\HttpRequestInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface.md) $httpRequest) : array
+private [Light::getControllerArgs](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/getControllerArgs.md)($controller, array $route, [Ling\Light\Http\HttpRequestInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface.md) $httpRequest) : array
 
 
 
@@ -70,7 +70,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [Light::getControllerArgs](https://github.com/lingtalfi/Light/blob/master/Core/Light.php#L613-L668)
+See the source code for method [Light::getControllerArgs](https://github.com/lingtalfi/Light/blob/master/Core/Light.php#L636-L694)
 
 
 See Also

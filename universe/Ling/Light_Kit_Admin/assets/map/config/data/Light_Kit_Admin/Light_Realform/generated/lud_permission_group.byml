@@ -1,0 +1,11 @@
+form_handler: 
+    id: realgen-lud_permission_group
+    fields: 
+        name: 
+            label: Name
+            type: string
+            validators: 
+                required: []
+            
+        
+    

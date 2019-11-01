@@ -45,6 +45,23 @@ Related
 History Log
 =============
 
+- 1.15.0 -- 2019-10-29
+
+    - update ChloroformWidget, now you can opt in the helium assets
+    - update ChloroformWidget, add helium light template
+    
+- 1.14.1 -- 2019-10-29
+
+    - fix typo 
+    
+- 1.14.0 -- 2019-10-29
+
+    - add LightRealistWidget 
+    
+- 1.13.2 -- 2019-09-04
+
+    - fix widgets using copilot from constructor 
+    
 - 1.13.2 -- 2019-09-04
 
     - fix widgets using copilot from constructor 

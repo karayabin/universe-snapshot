@@ -85,6 +85,35 @@ Dependencies
 History Log
 ------------------
     
+- 1.211 -- 2019-10-31
+
+    - update ArrayTool::arrayKeyExistAll, now accepts a throwEx argument
+    
+- 1.210 -- 2019-10-28
+
+    - fix FileSystemTool::hasDirectoryTraversal not checking for root relative path
+    
+- 1.209 -- 2019-10-21
+
+    - add UriTool::httpBuildQuery
+    
+- 1.208 -- 2019-10-17
+
+    - add MimeTypeTool::getMimeTypeByFileExtension
+    
+- 1.207 -- 2019-10-16
+
+    - update FileSystemTool::hasDirectoryTraversal, now accepts a checkFileExists argument
+    
+- 1.206 -- 2019-10-16
+
+    - moved FileSystemTool::hasDirectoryTraversal to isDirectoryTraversalSafe
+    
+- 1.205 -- 2019-10-16
+
+    - add FileSystemTool::hasDirectoryTraversal
+    - remove FileSystemTool::noEscalating and UriTool::noEscalating
+    
 - 1.204 -- 2019-10-09
 
     - update FileSystemTool::mkTmpFile, now accepts an extension argument

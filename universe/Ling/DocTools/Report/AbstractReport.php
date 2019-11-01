@@ -591,4 +591,169 @@ abstract class AbstractReport implements ReportInterface
     }
 
 
+
+    //--------------------------------------------
+    // GETTERS
+    //--------------------------------------------
+
+    /**
+     * @implementation
+     */
+    public function getParsedInlineFunctions(): array
+    {
+        return $this->parsedInlineFunctions;
+    }
+
+    /**
+     * @implementation
+     */
+    public function getParsedBlockLevelTags(): array
+    {
+        return $this->parsedBlockLevelTags;
+    }
+
+    /**
+     * @implementation
+     */
+    public function getUnknownInlineFunctions(): array
+    {
+        return $this->unknownInlineFunctions;
+    }
+
+    /**
+     * @implementation
+     */
+    public function getUndefinedInlineKeywords(): array
+    {
+        return $this->undefinedInlineKeywords;
+    }
+
+    /**
+     * @implementation
+     */
+    public function getUndefinedInlineClasses(): array
+    {
+        return $this->undefinedInlineClasses;
+    }
+
+    /**
+     * @implementation
+     */
+    public function getUnresolvedImplementationTags(): array
+    {
+        return $this->unresolvedImplementationTags;
+    }
+
+    /**
+     * @implementation
+     */
+    public function getUnresolvedOverridesTags(): array
+    {
+        return $this->unresolvedOverridesTags;
+    }
+
+    /**
+     * @implementation
+     */
+    public function getClassesWithoutComment(): array
+    {
+        return $this->classesWithoutComment;
+    }
+
+    /**
+     * @implementation
+     */
+    public function getMethodsWithoutComment(): array
+    {
+        return $this->methodsWithoutComment;
+    }
+
+    /**
+     * @implementation
+     */
+    public function getMethodsWithoutReturnTag(): array
+    {
+        return $this->methodsWithoutReturnTag;
+    }
+
+    /**
+     * @implementation
+     */
+    public function getParametersWithoutParamTag(): array
+    {
+        return $this->parametersWithoutParamTag;
+    }
+
+    /**
+     * @implementation
+     */
+    public function getPropertiesWithoutComment(): array
+    {
+        return $this->propertiesWithoutComment;
+    }
+
+    /**
+     * @implementation
+     */
+    public function getPropertiesWithoutVarTag(): array
+    {
+        return $this->propertiesWithoutVarTag;
+    }
+
+    /**
+     * @implementation
+     */
+    public function getUnresolvedClassReferences(): array
+    {
+        return $this->unresolvedClassReferences;
+    }
+
+    /**
+     * @implementation
+     */
+    public function getUnresolvedMethodReferences(): array
+    {
+        return $this->unresolvedMethodReferences;
+    }
+
+    /**
+     * @implementation
+     */
+    public function getClassesWithEmptyMainText(): array
+    {
+        return $this->classesWithEmptyMainText;
+    }
+
+    /**
+     * @implementation
+     */
+    public function getTodoTexts(): array
+    {
+        return $this->todoTexts;
+    }
+
+    /**
+     * @implementation
+     */
+    public function getPropertiesWithEmptyMainText(): array
+    {
+        return $this->propertiesWithEmptyMainText;
+    }
+
+    /**
+     * @implementation
+     */
+    public function getMethodsWithEmptyMainText(): array
+    {
+        return $this->methodsWithEmptyMainText;
+    }
+
+
+
+
+
+
+
+
+
 }

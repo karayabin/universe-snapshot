@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [Light_RouterDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Router/Light_RouterDocBuilder/buildDoc.md)($htmlMode = true) : void
+public static [Light_RouterDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Router/Light_RouterDocBuilder/buildDoc.md)(?$htmlMode = true) : void
 
 
 

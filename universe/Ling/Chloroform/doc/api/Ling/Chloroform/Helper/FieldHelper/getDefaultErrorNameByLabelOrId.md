@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [FieldHelper::getDefaultErrorNameByLabelOrId](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Helper/FieldHelper/getDefaultErrorNameByLabelOrId.md)(string $label = null, string $id = null) : string
+public static [FieldHelper::getDefaultErrorNameByLabelOrId](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Helper/FieldHelper/getDefaultErrorNameByLabelOrId.md)(?string $label = null, ?string $id = null) : string
 
 
 
@@ -64,5 +64,5 @@ See Also
 
 The [FieldHelper](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Helper/FieldHelper.md) class.
 
-Previous method: [getDefaultIdByLabel](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Helper/FieldHelper/getDefaultIdByLabel.md)<br>Next method: [getFieldValue](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Helper/FieldHelper/getFieldValue.md)<br>
+Previous method: [getDefaultIdByLabel](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Helper/FieldHelper/getDefaultIdByLabel.md)<br>Next method: [getHtmlNameById](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Helper/FieldHelper/getHtmlNameById.md)<br>
 

@@ -13,3 +13,4 @@ https://github.com/lingtalfi/Light_MicroPermission/blob/master/doc/api/Ling/Ligh
 https://github.com/lingtalfi/Light_MicroPermission/blob/master/doc/api/Ling/Light_MicroPermission/Service/LightMicroPermissionService.md
 https://github.com/lingtalfi/Light_MicroPermission/blob/master/doc/api/Ling/Light_MicroPermission.md
 https://github.com/lingtalfi/Light_MicroPermission/blob/master/doc/pages/conception-notes.md
+https://github.com/lingtalfi/Light_MicroPermission/blob/master/doc/pages/recommended-micropermission-notation.md

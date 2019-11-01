@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [Chloroform::__construct](https://github.com/lingtalfi/Chloroform/blob/master/Form/Chloroform.php#L63-L72)
+See the source code for method [Chloroform::__construct](https://github.com/lingtalfi/Chloroform/blob/master/Form/Chloroform.php#L57-L65)
 
 
 See Also

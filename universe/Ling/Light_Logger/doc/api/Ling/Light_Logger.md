@@ -1,6 +1,6 @@
 Ling/Light_Logger
 ================
-2019-08-01 --> 2019-09-24
+2019-08-01 --> 2019-10-17
 
 
 
@@ -10,7 +10,7 @@ Table of contents
 
 - [LightLoggerService](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService.md) &ndash; The LightLoggerService class provides a simple logging system for a light application.
     - [LightLoggerService::__construct](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/__construct.md) &ndash; Builds the LightLoggerService instance.
-    - [LightLoggerService::addListener](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/addListener.md) &ndash; Registers a listener ($callable) for the given $channel(s).
+    - [LightLoggerService::addListener](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/addListener.md) &ndash; Registers a listener (callable) for the given $channel(s).
     - [LightLoggerService::setFormat](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/setFormat.md) &ndash; Sets the format of the log messages passed to the listeners.
     - [LightLoggerService::setUseExpandedArray](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/setUseExpandedArray.md) &ndash; Sets the useExpandedArray.
     - [LightLoggerService::log](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/log.md) &ndash; Sends a the log $message to the given $channel.

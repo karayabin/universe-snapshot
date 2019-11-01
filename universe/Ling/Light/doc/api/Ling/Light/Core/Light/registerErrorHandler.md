@@ -63,7 +63,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [Light::registerErrorHandler](https://github.com/lingtalfi/Light/blob/master/Core/Light.php#L316-L319)
+See the source code for method [Light::registerErrorHandler](https://github.com/lingtalfi/Light/blob/master/Core/Light.php#L366-L369)
 
 
 See Also
@@ -71,5 +71,5 @@ See Also
 
 The [Light](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light.md) class.
 
-Previous method: [getRoutes](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/getRoutes.md)<br>Next method: [initialize](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/initialize.md)<br>
+Previous method: [registerRoute](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/registerRoute.md)<br>Next method: [initialize](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/initialize.md)<br>
 

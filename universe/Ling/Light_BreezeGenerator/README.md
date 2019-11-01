@@ -88,6 +88,46 @@ breeze_generator:
 History Log
 =============
 
+- 1.8.1 -- 2019-10-31
+
+    - update LingBreezeGenerator, now useMicroPermission=false by default 
+    
+- 1.8.0 -- 2019-10-31
+
+    - update LingBreezeGenerator now the microPermission plugin can be set directly from the factory 
+    
+- 1.7.2 -- 2019-10-30
+
+    - fix LingBreezeGenerator not generating docBlock parameters correctly for doXXX methods 
+    
+- 1.7.1 -- 2019-10-30
+
+    - fix typo with insertXXX methods's first argument 
+    
+- 1.7.0 -- 2019-10-30
+
+    - update LingBreezeGenerator, now implements a micro permission layer
+    
+- 1.6.0 -- 2019-10-30
+
+    - add LightBreezeGeneratorService->addConfigurationEntryByFile
+    
+- 1.5.1 -- 2019-10-23
+
+    - fix LingBreezeGenerator not generating interface methods for unique indexes
+    
+- 1.5.0 -- 2019-10-23
+
+    - extended lsom, LingBreezeGenerator now also generate methods for every unique index
+    
+- 1.4.1 -- 2019-10-17
+
+    - fix getXXX method not replacing user table correctly
+    
+- 1.4.0 -- 2019-10-17
+
+    - implemented custom methods system
+    
 - 1.3.0 -- 2019-10-04
 
     - update LingBreezeGenerator->getInsertMethod, now returns consistent return, even with ignored duplicate entries

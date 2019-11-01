@@ -13,6 +13,7 @@ use Ling\Bootstrap4AdminTable\RendererWidget\NeckFiltersRendererWidget;
 use Ling\Bootstrap4AdminTable\RendererWidget\NumberOfItemsPerPageRendererWidget;
 use Ling\Bootstrap4AdminTable\RendererWidget\NumberOfRowsInfoRendererWidget;
 use Ling\Bootstrap4AdminTable\RendererWidget\PaginationRendererWidget;
+use Ling\Bootstrap4AdminTable\RendererWidget\RelatedLinksRendererWidget;
 use Ling\Bootstrap4AdminTable\RendererWidget\ToolbarRendererWidget;
 
 
@@ -30,6 +31,7 @@ class StandardBootstrap4AdminTableRenderer extends Bootstrap4AdminTableRenderer
     {
         parent::__construct();
         $this->registerWidget("advanced_search", new AdvancedSearchRendererWidget());
+        $this->registerWidget("related_links", new RelatedLinksRendererWidget());
         $this->registerWidget("debug_window", new DebugWindowRendererWidget());
         $this->registerWidget("global_search", new GlobalSearchRendererWidget());
         $this->registerWidget("neck_filters", new NeckFiltersRendererWidget());

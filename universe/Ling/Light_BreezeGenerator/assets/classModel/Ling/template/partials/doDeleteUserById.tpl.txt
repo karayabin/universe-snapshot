@@ -1,0 +1,16 @@
+    /**
+     * The working horse behind the deleteUserById method.
+     * See the deleteUserById method for more details.
+     *
+     * @param int $id
+     * @throws \Exception
+     * @return void
+     */
+    protected function doDeleteUserById(int $id)
+    {
+        $this->pdoWrapper->delete("user", [
+            "id" => $id,
+        ]);
+    }
+
+// doDeleteXXX

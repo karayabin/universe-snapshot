@@ -2,12 +2,13 @@ dependencies:
     Ling: 
         - Light
         - Light_Logger
+        - BabyYaml
         - Bat
         - CSRFTools
         - Light_Database
+        - Light_UserData
         - Light_UserManager
         - ThumbnailTools
-        - Chloroform
     
 
 post_install: 

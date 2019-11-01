@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightAjaxFileUploadManagerRenderingUtil::setSuffix](https://github.com/lingtalfi/Light_AjaxFileUploadManager/blob/master/Util/LightAjaxFileUploadManagerRenderingUtil.php#L48-L51)
+See the source code for method [LightAjaxFileUploadManagerRenderingUtil::setSuffix](https://github.com/lingtalfi/Light_AjaxFileUploadManager/blob/master/Util/LightAjaxFileUploadManagerRenderingUtil.php#L46-L49)
 
 
 See Also

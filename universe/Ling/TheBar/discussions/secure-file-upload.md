@@ -12,6 +12,7 @@ Summary
 - [Hacking ourselves tutorial](#hacking-ourselves-tutorial)
 - [My recommendations](#my-recommendations)
 - [Sources](#sources)
+- [Related](#related)
 
 
 
@@ -262,7 +263,10 @@ My recommendations
 ==============
 
 
-1. Upload all the user files outside the web root directory.
+1. Upload all the user files outside the web root directory, and serve them using a virtual controller that 
+uses file_get_contents (i.e. not include), so that the php code in it is never executed.
+
+
 -------
 
 In a light app, I'll suggest this:
@@ -272,6 +276,9 @@ In a light app, I'll suggest this:
 ----- www/              the web root directory
 ----- user-data/        the root for all data uploaded by users
 ```
+
+
+An example of such a virtual server can be found in the [Light_UserData](https://github.com/lingtalfi/Light_UserData) plugin (from the [Light](https://github.com/lingtalfi/Light) framework).
 
 
 
@@ -325,3 +332,12 @@ Sources
 - https://www.owasp.org/index.php/Unrestricted_File_Upload
 - https://www.electrictoolbox.com/disable-php-apache-htaccess/
 - https://medium.com/@Aptive/local-file-inclusion-lfi-web-application-penetration-testing-cc9dc8dd3601
+
+
+
+
+Related
+============
+- [Ajax file upload discussion](https://github.com/lingtalfi/TheBar/blob/master/discussions/ajax-file-upload.md): a discussion about ajax file upload
+
+

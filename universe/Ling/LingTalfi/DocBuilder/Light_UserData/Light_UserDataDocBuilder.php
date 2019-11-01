@@ -74,7 +74,9 @@ class Light_UserDataDocBuilder
              *
              */
             "reportIgnore" => [
-//                "Ling\DocTools\Translator\ParseDownTranslator",
+                "Ling\Light\Controller\LightController",
+                "Ling\Chloroform\Validator\AbstractValidator",
+                "Ling\Chloroform\DataTransformer\BaseDataTransformer",
             ],
             /**
              * Your project start date.
@@ -140,7 +142,11 @@ class Light_UserDataDocBuilder
              * This map in particular is the one used for the whole DocTools planet documentation (pages and api).
              */
             "keyWord2UrlMap" => [
-//                "the command line page" => $doc . '/pages/command-line.md',
+                "conception notes" => $doc . '/pages/conception-notes.md',
+                "Light_UserDatabase" => 'https://github.com/lingtalfi/Light_UserDatabase',
+                "ValidatorConfig object" => 'https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Validator/ValidatorConfig.md',
+                "2svp system" => 'https://github.com/lingtalfi/TheBar/blob/master/discussions/ajax-file-upload.md#2-steps-validation-process',
+                "current user" => 'https://github.com/lingtalfi/Light_UserData/blob/master/doc/pages/conception-notes.md#current-user',
             ],
             /**
              * An array of external classes to url.
@@ -154,6 +160,18 @@ class Light_UserDataDocBuilder
             "externalClass2Url" => [
                 "Ling\Light\ServiceContainer\LightServiceContainerInterface" => "https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md",
                 "Ling\Light_User\LightUserInterface" => "https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightUserInterface.md",
+                "Ling\SimplePdoWrapper\SimplePdoWrapperInterface" => "https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/SimplePdoWrapperInterface.md",
+                "Ling\Light\Controller\LightController" => "https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Controller/LightController.md",
+                "Ling\Light\Core\LightAwareInterface" => "https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/LightAwareInterface.md",
+                "Ling\Light\Controller\LightControllerInterface" => "https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Controller/LightControllerInterface.md",
+                "Ling\Light\Core\Light" => "https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light.md",
+                "Ling\Light\Http\HttpResponseInterface" => "https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponseInterface.md",
+                "Ling\Light_Initializer\Initializer\LightInitializerInterface" => "https://github.com/lingtalfi/Light_Initializer/blob/master/doc/api/Ling/Light_Initializer/Initializer/LightInitializerInterface.md",
+                "Ling\Chloroform\Exception\ChloroformException" => "https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Exception/ChloroformException.md",
+                "Ling\Chloroform\Validator\AbstractValidator" => "https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Validator/AbstractValidator.md",
+                "Ling\Chloroform\Validator\ValidatorInterface" => "https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Validator/ValidatorInterface.md",
+                "Ling\Chloroform\DataTransformer\BaseDataTransformer" => "https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/DataTransformer/BaseDataTransformer.md",
+                "Ling\Chloroform\DataTransformer\DataTransformerInterface" => "https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/DataTransformer/DataTransformerInterface.md",
             ],
         ];
 

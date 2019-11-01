@@ -5,6 +5,7 @@ namespace Ling\ThumbnailTools;
 /*
  * LingTalfi 2016-01-06
  */
+
 use Ling\Bat\FileSystemTool;
 
 class ThumbnailTool
@@ -39,6 +40,12 @@ class ThumbnailTool
      *
      *
      *
+     * The available options are:
+     * - extension: forces the extension of the file to create.
+     *              By default, the extension is taken from the dst file,
+     *              but you can override it with this option.
+     *
+     *
      *
      *
      *
@@ -61,10 +68,14 @@ class ThumbnailTool
      * @param $dst
      * @param int $maxWidth
      * @param int $maxHeight
+     * @param array $options
      * @return bool
      */
-    public static function biggest($src, $dst, $maxWidth = null, $maxHeight = null)
+    public static function biggest($src, $dst, $maxWidth = null, $maxHeight = null, array $options = [])
     {
+
+        $forcedExtension = $options['extension'] ?? null;
+
         list($srcWidth, $srcHeight, $srcType) = getimagesize($src);
         if (0 !== (int)$srcHeight) {
 
@@ -137,10 +148,14 @@ class ThumbnailTool
             imagecopyresampled($imageFinal, $image, 0, 0, 0, 0, $width, $height, $srcWidth, $srcHeight);
 
 
-            // assuming the file has an explicit extension (otherwise accept an array as argument...)
-            $ext = strtolower(FileSystemTool::getFileExtension($dst));
-            if (empty($ext)) {
-                $ext = strtolower(FileSystemTool::getFileExtension($src));
+            if (null === $forcedExtension) {
+                // assuming the file has an explicit extension (otherwise accept an array as argument...)
+                $ext = strtolower(FileSystemTool::getFileExtension($dst));
+                if (empty($ext)) {
+                    $ext = strtolower(FileSystemTool::getFileExtension($src));
+                }
+            } else {
+                $ext = $forcedExtension;
             }
 
 

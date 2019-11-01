@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [DirScannerDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/DirScanner/DirScannerDocBuilder/buildDoc.md)($htmlMode = true) : void
+public static [DirScannerDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/DirScanner/DirScannerDocBuilder/buildDoc.md)(?$htmlMode = true) : void
 
 
 

@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [LightLoggerService::notice](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/notice.md)(?$msg) : void
+public [LightLoggerService::notice](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/notice.md)($msg) : void
 
 
 
@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightLoggerService::notice](https://github.com/lingtalfi/Light_Logger/blob/master/LightLoggerService.php#L228-L231)
+See the source code for method [LightLoggerService::notice](https://github.com/lingtalfi/Light_Logger/blob/master/LightLoggerService.php#L247-L250)
 
 
 See Also

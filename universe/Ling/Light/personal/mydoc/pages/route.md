@@ -29,9 +29,11 @@ A route is in fact a simple array with the following structure:
     it to null). The null value is only convenient for applications which are using only one host. 
 - is_secure_protocol: bool|null=null. Whether to use https or http protocol. If null, this means the route will use whatever 
     protocol is the default at the moment when the route is called.  
-- is_ajax: bool=false. Whether the route is meant to be called via ajax. I found this information valuable
-        for implementing the csrf protection with pages system (https://github.com/lingtalfi/CSRFTools/blob/master/doc/pages/page-security-conception-notes.md),
+- is_ajax: bool=false. Whether the route is meant to be called via ajax. The term ajax here actually means everything that's not
+        calling the front controller (i.e. index.php) of the application.
+        I found this information valuable for implementing the csrf protection with pages system (https://github.com/lingtalfi/CSRFTools/blob/master/doc/pages/page-security-conception-notes.md),
         where we need to launch a token cleaning routine, but only on the main calls (i.e. not ajax calls). 
         If your route is called via ajax, you should set this property to true, otherwise certain services might not work as expected.
         Those services include:
             - Light_EndRoutine_CsrfPageCleaner
+- ...(open to new ideas)            

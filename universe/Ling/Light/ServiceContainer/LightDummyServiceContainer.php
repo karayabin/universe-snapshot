@@ -36,5 +36,13 @@ class LightDummyServiceContainer implements LightServiceContainerInterface
         return [];
     }
 
+    /**
+     * @implementation
+     */
+    public function getApplicationDir(): string
+    {
+        return '/dummy-app';
+    }
+
 
 }

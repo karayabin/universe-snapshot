@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [Light_PluginDatabaseInstallerDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_PluginDatabaseInstaller/Light_PluginDatabaseInstallerDocBuilder/buildDoc.md)($htmlMode = true) : void
+public static [Light_PluginDatabaseInstallerDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_PluginDatabaseInstaller/Light_PluginDatabaseInstallerDocBuilder/buildDoc.md)(?$htmlMode = true) : void
 
 
 

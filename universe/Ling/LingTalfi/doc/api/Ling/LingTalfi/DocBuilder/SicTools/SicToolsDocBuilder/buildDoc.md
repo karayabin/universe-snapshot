@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [SicToolsDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/SicTools/SicToolsDocBuilder/buildDoc.md)($htmlMode = true) : void
+public static [SicToolsDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/SicTools/SicToolsDocBuilder/buildDoc.md)(?$htmlMode = true) : void
 
 
 

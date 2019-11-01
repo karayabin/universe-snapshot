@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [MysqlCreateTableUtilDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/MysqlCreateTableUtil/MysqlCreateTableUtilDocBuilder/buildDoc.md)($htmlMode = true) : void
+public static [MysqlCreateTableUtilDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/MysqlCreateTableUtil/MysqlCreateTableUtilDocBuilder/buildDoc.md)(?$htmlMode = true) : void
 
 
 

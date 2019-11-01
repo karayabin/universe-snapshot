@@ -4,7 +4,7 @@
 
 The CliToolsDocBuilder class
 ================
-2019-03-13 --> 2019-09-26
+2019-03-13 --> 2019-10-25
 
 
 
@@ -25,7 +25,7 @@ Class synopsis
 class <span class="pl-k">CliToolsDocBuilder</span>  {
 
 - Methods
-    - public static [buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/CliTools/CliToolsDocBuilder/buildDoc.md)($htmlMode = true) : void
+    - public static [buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/CliTools/CliToolsDocBuilder/buildDoc.md)(?$htmlMode = true) : void
 
 }
 
@@ -52,4 +52,4 @@ See the source code of [Ling\LingTalfi\DocBuilder\CliTools\CliToolsDocBuilder](h
 
 SeeAlso
 ==============
-Previous class: [Chloroform_HydrogenRendererDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Chloroform_HydrogenRenderer/Chloroform_HydrogenRendererDocBuilder.md)<br>Next class: [DeployDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Deploy/DeployDocBuilder.md)<br>
+Previous class: [Chloroform_HydrogenRendererDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Chloroform_HydrogenRenderer/Chloroform_HydrogenRendererDocBuilder.md)<br>Next class: [CsvDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Csv/CsvDocBuilder.md)<br>

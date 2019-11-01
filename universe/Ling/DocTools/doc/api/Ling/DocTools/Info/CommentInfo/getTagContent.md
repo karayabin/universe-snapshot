@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [CommentInfo::getTagContent](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/CommentInfo/getTagContent.md)(?$tagName, $default = null) : mixed | null
+public [CommentInfo::getTagContent](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/CommentInfo/getTagContent.md)($tagName, ?$default = null) : mixed | null
 
 
 

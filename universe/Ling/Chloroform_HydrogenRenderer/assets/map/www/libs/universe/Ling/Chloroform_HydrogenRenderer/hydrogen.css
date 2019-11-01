@@ -1,0 +1,131 @@
+form.hydrogen {
+  font-family: Roboto, helvetica, arial, sans-serif;
+  text-rendering: optimizeLegibility;
+  border: 1px solid black;
+  box-sizing: border-box;
+  padding: 15px; }
+  form.hydrogen .is-hidden {
+    display: none; }
+  form.hydrogen .notification {
+    padding: 20px;
+    margin-bottom: 20px;
+    color: white; }
+    form.hydrogen .notification.success {
+      background-color: #4CAF50; }
+    form.hydrogen .notification.info {
+      background-color: #2196F3; }
+    form.hydrogen .notification.warning {
+      background-color: #ff9800; }
+    form.hydrogen .notification.error {
+      background-color: #f44336; }
+    form.hydrogen .notification .closebtn {
+      margin-left: 15px;
+      color: white;
+      font-weight: bold;
+      float: right;
+      font-size: 22px;
+      line-height: 20px;
+      cursor: pointer;
+      transition: 0.3s; }
+      form.hydrogen .notification .closebtn:hover {
+        color: black; }
+  form.hydrogen .errorSummary {
+    border: 4px solid #b00f1f;
+    padding: 16px;
+    margin-bottom: 20px;
+    max-width: 40em; }
+    form.hydrogen .errorSummary h2 {
+      margin-top: 0px;
+      margin-bottom: 10px; }
+    form.hydrogen .errorSummary ul {
+      color: #b00f1f;
+      list-style: none;
+      margin-left: 0;
+      margin-bottom: 0;
+      line-height: 1.4;
+      padding: 0; }
+    form.hydrogen .errorSummary a {
+      color: #b00f1f;
+      font-weight: 700; }
+  form.hydrogen .field {
+    max-width: 26em;
+    margin-bottom: 30px; }
+    form.hydrogen .field label {
+      margin-bottom: 5px;
+      display: block; }
+      form.hydrogen .field label .field-label {
+        display: block;
+        font-weight: 700;
+        margin-bottom: 5px; }
+      form.hydrogen .field label .field-hint {
+        color: #000;
+        margin-bottom: 5px;
+        display: block;
+        font-size: 0.9em; }
+    form.hydrogen .field .field-error {
+      color: #b00f1f;
+      font-weight: 700;
+      margin-bottom: 10px;
+      display: block; }
+      form.hydrogen .field .field-error svg {
+        margin-top: 5px;
+        vertical-align: bottom;
+        width: 1.5625em;
+        fill: #b00f1f;
+        margin-right: 5px; }
+    form.hydrogen .field > input, form.hydrogen .field > textarea {
+      width: 100%;
+      padding: 8px;
+      font-size: 1em;
+      line-height: 1.25;
+      box-sizing: border-box;
+      appearance: none;
+      border: 2px solid #222; }
+      form.hydrogen .field > input.input-time, form.hydrogen .field > textarea.input-time {
+        width: 4em; }
+      form.hydrogen .field > input[type="color"], form.hydrogen .field > textarea[type="color"] {
+        width: 4em; }
+  form.hydrogen fieldset.field {
+    border: none;
+    padding: 0; }
+    form.hydrogen fieldset.field legend {
+      margin-bottom: 5px;
+      display: block; }
+      form.hydrogen fieldset.field legend .field-legend {
+        display: block;
+        font-weight: 700; }
+    form.hydrogen fieldset.field .field-checkbox label {
+      background-color: #ddd;
+      margin-bottom: 5px;
+      display: block;
+      padding: 13px 18px;
+      border: 2px solid #ddd; }
+    form.hydrogen fieldset.field .field-checkbox input {
+      margin-right: 10px;
+      transform: scale(1.5); }
+  form.hydrogen select {
+    width: 100%;
+    padding: 8px;
+    font-size: 1em;
+    line-height: 1.25;
+    box-sizing: border-box;
+    appearance: none;
+    border: 2px solid #222; }
+  form.hydrogen input:focus,
+  form.hydrogen textarea:focus {
+    outline: 0;
+    box-shadow: 0 0 1px 4px #ffbf47; }
+  form.hydrogen .submitButton {
+    width: auto;
+    font: inherit;
+    border: none;
+    appearance: none;
+    font-size: 1em;
+    line-height: 1.5625;
+    padding: 10px 20px;
+    background-color: #0074d9;
+    color: #fff; }
+    form.hydrogen .submitButton:hover {
+      background-color: #004b8d; }
+
+/*# sourceMappingURL=hydrogen.css.map */

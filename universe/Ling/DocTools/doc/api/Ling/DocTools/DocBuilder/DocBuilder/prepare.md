@@ -16,7 +16,7 @@ Description
 ================
 
 
-abstract public [DocBuilder::prepare](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/DocBuilder/DocBuilder/prepare.md)(array $settings = []) : void
+abstract public [DocBuilder::prepare](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/DocBuilder/DocBuilder/prepare.md)(?array $settings = []) : void
 
 
 

@@ -4,7 +4,7 @@
 
 The Kit_PicassoWidgetDocBuilder class
 ================
-2019-03-13 --> 2019-09-26
+2019-03-13 --> 2019-10-25
 
 
 
@@ -25,7 +25,7 @@ Class synopsis
 class <span class="pl-k">Kit_PicassoWidgetDocBuilder</span>  {
 
 - Methods
-    - public static [buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Kit_PicassoWidget/Kit_PicassoWidgetDocBuilder/buildDoc.md)($htmlMode = true) : void
+    - public static [buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Kit_PicassoWidget/Kit_PicassoWidgetDocBuilder/buildDoc.md)(?$htmlMode = true) : void
 
 }
 

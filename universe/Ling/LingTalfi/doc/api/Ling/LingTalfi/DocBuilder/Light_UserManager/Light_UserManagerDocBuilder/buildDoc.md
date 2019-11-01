@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [Light_UserManagerDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_UserManager/Light_UserManagerDocBuilder/buildDoc.md)($htmlMode = true) : void
+public static [Light_UserManagerDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_UserManager/Light_UserManagerDocBuilder/buildDoc.md)(?$htmlMode = true) : void
 
 
 

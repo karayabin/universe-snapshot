@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [ChloroformDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Chloroform/ChloroformDocBuilder/buildDoc.md)($htmlMode = true) : void
+public static [ChloroformDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Chloroform/ChloroformDocBuilder/buildDoc.md)(?$htmlMode = true) : void
 
 
 
@@ -70,7 +70,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [ChloroformDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Chloroform/ChloroformDocBuilder.php#L44-L210)
+See the source code for method [ChloroformDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Chloroform/ChloroformDocBuilder.php#L44-L212)
 
 
 See Also

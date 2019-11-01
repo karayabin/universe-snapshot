@@ -387,63 +387,78 @@ public function printFormTagOpening()
      * See the @page(Chloroform toArray) method for more info about the fields structure.
      *
      * @param array $fields
-     * @throws ChloroformHeliumRendererException
+     * @throws \Exception
      */
     public function printFields(array $fields)
     {
-        foreach ($fields as $id => $field) {
-            $className = $field['className'];
-            switch ($className) {
-                case "Ling\Chloroform\Field\StringField":
-                    $this->printStringField($field);
-                    break;
-                case "Ling\Chloroform\Field\TextField":
-                    $this->printTextField($field);
-                    break;
-                case "Ling\Chloroform\Field\NumberField":
-                    $this->printNumberField($field);
-                    break;
-                case "Ling\Chloroform\Field\HiddenField":
-                    $this->printHiddenField($field);
-                    break;
-                case "Ling\Chloroform\Field\CSRFField":
-                    $this->printCSRFField($field);
-                    break;
-                case "Ling\Chloroform\Field\ColorField":
-                    $this->printColorField($field);
-                    break;
-                case "Ling\Chloroform\Field\DateField":
-                    $this->printDateField($field);
-                    break;
-                case "Ling\Chloroform\Field\TimeField":
-                    $this->printTimeField($field);
-                    break;
-                case "Ling\Chloroform\Field\DateTimeField":
-                    $this->printDateTimeField($field);
-                    break;
-                case "Ling\Chloroform\Field\SelectField":
-                    $this->printSelectField($field);
-                    break;
-                case "Ling\Chloroform\Field\CheckboxField":
-                    $this->printCheckboxField($field);
-                    break;
-                case "Ling\Chloroform\Field\RadioField":
-                    $this->printRadioField($field);
-                    break;
-                case "Ling\Chloroform\Field\FileField":
-                    $this->printFileField($field);
-                    break;
-                case "Ling\Chloroform\Field\PasswordField":
-                    $this->printPasswordField($field);
-                    break;
-                default:
-                    if (true === $this->options['strict']) {
-                        throw new ChloroformHeliumRendererException("Don't know how to handle this class name: $className (for fieldId=$id)");
-                    }
-                    break;
-            }
+        foreach ($fields as $field) {
+            $this->printField($field);
         }
     }
+
+    /**
+     *
+     * Prints the given field.
+     *
+     * See the @page(Chloroform toArray) method for more info about the fields structure.
+     *
+     * @param array $field
+     * @throws \Exception
+     */
+    public function printField(array $field)
+    {
+        $className = $field['className'];
+        switch ($className) {
+            case "Ling\Chloroform\Field\StringField":
+                $this->printStringField($field);
+                break;
+            case "Ling\Chloroform\Field\TextField":
+                $this->printTextField($field);
+                break;
+            case "Ling\Chloroform\Field\NumberField":
+                $this->printNumberField($field);
+                break;
+            case "Ling\Chloroform\Field\HiddenField":
+                $this->printHiddenField($field);
+                break;
+            case "Ling\Chloroform\Field\CSRFField":
+                $this->printCSRFField($field);
+                break;
+            case "Ling\Chloroform\Field\ColorField":
+                $this->printColorField($field);
+                break;
+            case "Ling\Chloroform\Field\DateField":
+                $this->printDateField($field);
+                break;
+            case "Ling\Chloroform\Field\TimeField":
+                $this->printTimeField($field);
+                break;
+            case "Ling\Chloroform\Field\DateTimeField":
+                $this->printDateTimeField($field);
+                break;
+            case "Ling\Chloroform\Field\SelectField":
+                $this->printSelectField($field);
+                break;
+            case "Ling\Chloroform\Field\CheckboxField":
+                $this->printCheckboxField($field);
+                break;
+            case "Ling\Chloroform\Field\RadioField":
+                $this->printRadioField($field);
+                break;
+            case "Ling\Chloroform\Field\FileField":
+                $this->printFileField($field);
+                break;
+            case "Ling\Chloroform\Field\PasswordField":
+                $this->printPasswordField($field);
+                break;
+            default:
+                if (true === $this->options['strict']) {
+                    throw new ChloroformHeliumRendererException("Don't know how to handle this class name: $className (for fieldId=$id)");
+                }
+                break;
+        }
+    }
+
 
     /**
      *

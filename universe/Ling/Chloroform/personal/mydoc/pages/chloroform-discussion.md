@@ -11,6 +11,8 @@ Summary
     - [Formatting/transforming form values](#formattingtransforming-field-values)
 - [The posted data](#the-posted-data)
 - [The isPosted method and form concurrency](#the-isposted-method-and-form-concurrency)
+- [The concept of very important data](#the-concept-of-very-important-data)
+- [Data transformers](#data-transformers)
 - [The Chloroform synopsis](#the-chloroform-synopsis)
 
 
@@ -130,6 +132,106 @@ I remember that in the past, I used to create a hidden field with a unique name 
 whether that field was posted.
 
 The default isPosted method will just check whether the postedData are not empty.
+
+
+
+
+The concept of very important data
+===============
+2019-10-22
+
+When we post a form, we usually want to do something with the posted data.
+For instance, update the database, or send an email.
+
+So this data that we use I call it very important data.
+
+However, not all the posted data is very important, some of the posted data, for instance:
+
+- some posted data is just used to check whether this particular form (i.e. with a particular form id) was posted (and not another form)
+- some posted data is just used to check whether a csrf token is valid
+- some malicious user has added a lot of garbage data to your form
+
+We don't need that kind of data in the end, when updating the database or sending an email,
+and so this I call not very important data.
+
+
+Now in chloroform, I believed it would have been useful to be able to get those very important data only.
+So, now Chloroform has a new method called **getVeryImportantData**, and each field has the **setHasVeryImportantData** and **hasVeryImportantData** methods
+to help implementing this idea. 
+
+As for now, the hasVeryImportantData is handled internally and will not be exposed in the [form array](https://github.com/lingtalfi/Chloroform/blob/master/doc/pages/chloroform-array.md),
+because I'm not sure that would be a good idea, maybe it's just some parasite info we don't need to have in the array? 
+
+
+
+
+Data transformers
+===============
+2019-10-22
+
+
+I created the concept of data transformers based on one use case only, and so here is how it works:
+
+so the form has been posted, validated, and now you've got your very important data, you're about to do something with them.
+
+But the very important data, they don't have their final form yet.
+
+So you apply the data transformers, and now you use the very important data as you like (i.e. updating the database, sending an email, ...).
+
+
+So what's the use case for data transformer?
+
+It's about a form with an ajax file upload field, and we use the [2svp idea](https://github.com/lingtalfi/TheBar/blob/master/discussions/ajax-file-upload.md#2-steps-validation-process),
+so basically the very important data contains the name of the temporary file (i.e. with the 2svp extension), but before we can use this data, we need to have the final file (i.e. remove
+the 2svp extension). So that's why the data transformer concept was originally created for: to give me a hook allowing for removing this temporary file extension in a programmatic way (because
+I intend to generate forms later, and so I need the DataTransformer phase to be handled automatically on the generated forms).
+
+So, data transformer is a bit special, and you might not use it yourself, unless you use ajax file uploads with 2svp, but it's there.
+
+
+The data transformers also don't appear in the [form array](https://github.com/lingtalfi/Chloroform/blob/master/doc/pages/chloroform-array.md),
+as it's an internal feature, and the **form array** is intended to be processed by renderers (the view side of the MVC model).
+
+
+
+The validates method and the fallback value
+===================
+2019-11-01
+
+
+I struggled until today with this concept of validates method, but today I think I've got it right.
+
+So here is what the validates method do.
+
+
+When the form is posted, all fields values are updated.
+
+If the value is found in the posted data (POST+FILES), then the posted value becomes the new field value.
+
+Otherwise, if the value is not found in the posted data, then the field takes the **fallback value**, which defaults to null.
+
+The developer can override the **fallback value** at the field level.
+
+This design has been deliberately chosen, so that if you have a checkboxField for instance, when the form is posted and if the
+user didn't check any checkboxes, then you have a value to check against.
+
+Note, and it's important, that with this specific design, if there were some default checkboxes ticked, and the user unchecked them all,
+you still get the **fallback** value. This is important to understand because it emphasizes the difference between the default value (some checkboxes
+checked by default for instance), and the fallback value (the **generated** value once the form is posted).
+
+
+With all that said, back to the validates method.
+
+So the validates method basically takes the posted data (POST+FILES), and injects the posted data value (or the fallback value if not set) in the field.
+
+Then, once the fields are correctly "prepared", it triggers the validators associated with each field, and eventually returns a boolean, which is true only if 
+all fields have validated.
+
+
+Note that the fallback value doesn't appear in the [chloroform array](https://github.com/lingtalfi/Chloroform/blob/master/doc/pages/chloroform-array.md), 
+because it's handled internally and eventually a fallback value becomes the actual field value. 
+
+
 
 
 

@@ -16,7 +16,7 @@ Description
 ================
 
 
-protected [ClassSynopsisWidget::addPropertyLine](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Widget/ClassSynopsis/ClassSynopsisWidget/addPropertyLine.md)(string &$s, [Ling\DocTools\Info\PropertyInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/PropertyInfo.md) $property, bool $showDeclaringClass = false) : void
+protected [ClassSynopsisWidget::addPropertyLine](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Widget/ClassSynopsis/ClassSynopsisWidget/addPropertyLine.md)(string &$s, [Ling\DocTools\Info\PropertyInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/PropertyInfo.md) $property, ?bool $showDeclaringClass = false) : void
 
 
 

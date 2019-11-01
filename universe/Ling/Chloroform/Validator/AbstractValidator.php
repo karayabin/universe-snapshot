@@ -37,7 +37,7 @@ abstract class AbstractValidator implements ValidatorInterface
      */
     public function __construct()
     {
-        $this->messagesDir = __DIR__ . "/messages/" . ValidatorConfig::$lang;
+        $this->messagesDir = $this->getDefaultMessagesDir(__DIR__);
         $this->customMessages = [];
     }
 
@@ -201,4 +201,15 @@ abstract class AbstractValidator implements ValidatorInterface
     }
 
 
+    /**
+     * Returns a default/standard location for the messages directory.
+     * You can use this if you create new validators from another planet.
+     *
+     * @param string $baseDir
+     * @return string
+     */
+    protected function getDefaultMessagesDir(string $baseDir): string
+    {
+        return $baseDir . "/messages/" . ValidatorConfig::$lang;
+    }
 }

@@ -7,7 +7,7 @@ LightAjaxFileUploadManagerRenderingUtil::printField
 
 
 
-LightAjaxFileUploadManagerRenderingUtil::printField — Prints the html field using the given form, and assuming the js file uploader client (aka fileUploader) is used.
+LightAjaxFileUploadManagerRenderingUtil::printField — Prints the html field using the given field array, and assuming the js file uploader client (https://github.com/lingtalfi/jsFileUploader) is used.
 
 
 
@@ -16,12 +16,12 @@ Description
 ================
 
 
-public [LightAjaxFileUploadManagerRenderingUtil::printField](https://github.com/lingtalfi/Light_AjaxFileUploadManager/blob/master/doc/api/Ling/Light_AjaxFileUploadManager/Util/LightAjaxFileUploadManagerRenderingUtil/printField.md)(string $fieldName, Ling\Chloroform\Form\Chloroform $form, array $options = []) : void
+public [LightAjaxFileUploadManagerRenderingUtil::printField](https://github.com/lingtalfi/Light_AjaxFileUploadManager/blob/master/doc/api/Ling/Light_AjaxFileUploadManager/Util/LightAjaxFileUploadManagerRenderingUtil/printField.md)(array $field, ?array $options = []) : void
 
 
 
 
-Prints the html field using the given form, and assuming the js file uploader client (aka fileUploader) is used.
+Prints the html field using the given field array, and assuming the js file uploader client (https://github.com/lingtalfi/jsFileUploader) is used.
 This also uses the bootstrap4 framework.
 
 The available options are:
@@ -34,11 +34,7 @@ Parameters
 ================
 
 
-- fieldName
-
-    
-
-- form
+- field
 
     
 
@@ -66,7 +62,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightAjaxFileUploadManagerRenderingUtil::printField](https://github.com/lingtalfi/Light_AjaxFileUploadManager/blob/master/Util/LightAjaxFileUploadManagerRenderingUtil.php#L127-L163)
+See the source code for method [LightAjaxFileUploadManagerRenderingUtil::printField](https://github.com/lingtalfi/Light_AjaxFileUploadManager/blob/master/Util/LightAjaxFileUploadManagerRenderingUtil.php#L121-L156)
 
 
 See Also

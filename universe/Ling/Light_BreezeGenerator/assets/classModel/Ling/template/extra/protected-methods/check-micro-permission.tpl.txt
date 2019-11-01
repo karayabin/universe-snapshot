@@ -1,0 +1,17 @@
+    /**
+     * Checks whether the current user has the micro permission which type is specified.
+     * See [the micro-permission recommended notation for database interaction](https://github.com/lingtalfi/Light_MicroPermission/blob/master/doc/pages/recommended-micropermission-notation.md)
+     * for more details.
+     *
+     *
+     *
+     * @param string $type
+     * @throws \Exception
+     */
+    protected function checkMicroPermission(string $type)
+    {
+        $microPermission = $this->microPermissionPlugin . ".tables.$table." . $type;
+        if (false === $this->container->get("micro_permission")->hasMicroPermission($microPermission)) {
+            throw new LightMicroPermissionException("Permission denied! You don't have the micro permission $microPermission.");
+        }
+    }

@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [UniverseToolsDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/UniverseTools/UniverseToolsDocBuilder/buildDoc.md)($htmlMode = true) : void
+public static [UniverseToolsDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/UniverseTools/UniverseToolsDocBuilder/buildDoc.md)(?$htmlMode = true) : void
 
 
 

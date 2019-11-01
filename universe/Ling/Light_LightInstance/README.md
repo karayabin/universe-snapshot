@@ -53,6 +53,17 @@ light_instance:
             container: @container()
 
 
+
+# --------------------------------------
+# hooks
+# --------------------------------------
+$initializer.methods_collection:
+    -
+        method: registerInitializer
+        args:
+            initializer: @service(light_instance)
+
+
 ```
 
 
@@ -60,7 +71,11 @@ light_instance:
 History Log
 =============
 
-- 1.0.0 -- 2019-10-09
+- 1.0.2 -- 2019-10-28
+
+    - fix no initializer
+    
+- 1.0.1 -- 2019-10-09
 
     - fix doc links
     

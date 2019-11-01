@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [Light_LoggerDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Logger/Light_LoggerDocBuilder/buildDoc.md)($htmlMode = true) : void
+public static [Light_LoggerDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Logger/Light_LoggerDocBuilder/buildDoc.md)(?$htmlMode = true) : void
 
 
 

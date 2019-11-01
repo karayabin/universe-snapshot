@@ -122,14 +122,106 @@ Note that all entries are optional, depending on the action.
                                 - $userId: the user id (assuming that the user has a getId method, which is the case for a [WebsiteLightUser](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/WebsiteLightUser.md)) 
                              
                              
+- use_Light_UserData: bool. Whether to use the Light_UserData pattern, which is considered a better alternative than the storeDir property (see examples below).
+                        If the data you want to upload belongs to an user, you might want to consider this option.
+                        This pattern uses the [Light_UserData](https://github.com/lingtalfi/Light_UserData) plugin under the hood, to help implementing a more secure ajax upload system, 
+                        where the uploaded files are uploaded OUTSIDE the web root directory.
+                        Along with this property, you also need to define the path (see the path property below).
+                        
+- path: string. The relative path from the user directory (See the [Light_UserData](https://github.com/lingtalfi/Light_UserData) plugin documentation for more info)
+                 to the file name you want to upload.
+                 We recommend using a [symbolic file name](https://github.com/lingtalfi/TheBar/blob/master/discussions/ajax-file-upload.md#symbolic-file-names) to help
+                 combat file weights related issues.
+                 
+                 The uploaded file will be stored into the current user directory (as defined by the LightUserDataService->save method, which is used
+                 under the hood). 
+                 
+                 The string accepts the following tags:
+                    - {extension}: will be replaced with the file extension from the name (or transformed name if the name is transformed)
+- isPrivate: bool=false. Only used if the **use_Light_UserData** property is set to true.
+                Defines whether the uploaded file is private. The concept of privacy is the one defined in the [Light_UserData conception notes](https://github.com/lingtalfi/Light_UserData/blob/master/doc/pages/conception-notes.md).
+- use_2svp: bool=false. Only used if the **use_Light_UserData** property is set to true.
+                You should only use this if you use the [symbolic file name](https://github.com/lingtalfi/TheBar/blob/master/discussions/ajax-file-upload.md#symbolic-file-names) system.
+                See the [2 steps validation process](https://github.com/lingtalfi/TheBar/blob/master/discussions/ajax-file-upload.md#2-steps-validation-process) section for more details.
+                Note: in this plugin we only implement the first part of the 2svp system, where we save the file with the 2svp extension.
+                The second part (removing the 2svp extension) is outside the scope of this plugin.                 
+                                               
                              
                              
-                             
-                                
+Examples
+===========
+
+
+
+Example #1: using the Light_UserData plugin
+-------------------------
+This example uses the [Light_UserData](https://github.com/lingtalfi/Light_UserData) plugin,
+which basically allows you to store the user uploads outside the web root directory.
+
+The configuration excerpt below comes from the Light_Kit_Admin (currently in development as I write those lines):
+
+```yaml
+$ajax_file_upload_manager.methods_collection:
+    -
+        method: addActionLists
+        args:
+            actionLists:
+                lka_user_profile:
+                    -
+                        use_Light_UserData: true
+                        path: images/avatar.{extension}
+                        imageTransformer: resize(200)
+
+    -
+        method: addValidationRules
+        args:
+            validationRules:
+                lka_user_profile: []
+                    maxFileSize: 2M
+                    extensions:
+                        - png
+                        - jpeg
+                        - jpg
+                        - gif
+```
+
+
+
+
+
+Example #2: An old example storing the files in the web root directory
+-------------------------
+The example below is deprecated, because it stores the file directly in the web root directory,
+however, it's technically possible to use this technique.
+
+It's an excerpt from the Light_Kit_Admin plugin (in development as I write those lines) configuration.
+
+For more info about this see the [Ajax file upload general discussion](https://github.com/lingtalfi/TheBar/blob/master/discussions/ajax-file-upload.md) (from the bar)
+and the [ajax file upload protocol](https://github.com/lingtalfi/Light_AjaxFileUploadManager/blob/master/doc/pages/ajax-file-upload-protocol.md) (from this repository).
+ 
+
+
+```yaml
+$ajax_file_upload_manager.methods_collection:
+    -
+        method: addActionLists
+        args:
+            actionLists:
+                lka_user_profile:
+                    -
+                        storeDir: www/uploads/test
+                        returnUrlDir: /uploads/test
+                        imageTransformer: resize(200)
+```                                
                                 
                                 
                                   
-                                
+                       
+Related documents
+====================
+
+- [Secure file upload discussion](https://github.com/lingtalfi/TheBar/blob/master/discussions/secure-file-upload.md)
+- [Ajax file upload discussion](https://github.com/lingtalfi/TheBar/blob/master/discussions/ajax-file-upload.md)         
                                 
                                 
                                     

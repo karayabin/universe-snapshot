@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [Light_PrerouteHubDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_PrerouteHub/Light_PrerouteHubDocBuilder/buildDoc.md)($htmlMode = true) : void
+public static [Light_PrerouteHubDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_PrerouteHub/Light_PrerouteHubDocBuilder/buildDoc.md)(?$htmlMode = true) : void
 
 
 

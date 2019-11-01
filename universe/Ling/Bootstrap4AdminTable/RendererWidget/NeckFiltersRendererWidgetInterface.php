@@ -7,7 +7,7 @@ namespace Ling\Bootstrap4AdminTable\RendererWidget;
 /**
  * The NeckFiltersRendererWidgetInterface interface.
  */
-interface NeckFiltersRendererWidgetInterface
+interface NeckFiltersRendererWidgetInterface extends RendererWidgetInterface
 {
 
     /**

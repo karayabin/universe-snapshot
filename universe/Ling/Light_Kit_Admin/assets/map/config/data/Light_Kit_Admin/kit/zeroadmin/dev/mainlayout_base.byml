@@ -1,0 +1,530 @@
+label: Light Kit Admin Home
+layout: templates/Light_Kit_Admin/layouts/zeroadmin/zeroadmin_main_layout.php
+layout_vars:
+    page_one_id: page_one
+    page_two_id: page_two
+    page_three_id: page_three
+    page_four_id: page_four
+    opened_page: four
+
+
+title: Light Kit Admin Home
+description: <
+    This is the gui admin provided by the Light_Kit_Admin plugin (from the Light framework), using the zeroadmin theme by ling talfi
+>
+
+zones:
+    notifications: []
+#        -
+#            name: zeroadmin_notification_alert
+#            type: picasso
+#            className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\ZeroAdminNotificationAlertWidget
+#            widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ZeroAdminNotificationAlertWidget
+#            template: default.php
+#            vars:
+#                alert_class: alert-primary
+#                title: Well done!
+#                body: A simple primary alert—check it out!
+#                is_dismissible: true
+
+    toasts: []
+#        -
+#            name: zeroadmin_notification_toast
+#            type: picasso
+#            className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\ZeroAdminNotificationToastWidget
+#            widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ZeroAdminNotificationToastWidget
+#            template: default.php
+#            vars:
+#                title: Bootstrap
+#                icon: fas fa-square
+#                icon_color: "#007bff"
+#                body: Hello, world! This is a toast message.
+#                time_string: 11 mins ago
+#                is_dismissible: true
+#                delay: 100000
+
+
+    SUB_zeroadmin_header:
+        -
+            name: zeroadmin_header_icon_link_new_messages
+            type: picasso
+            className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\ZeroAdminHeaderNewMessagesIconLinkWidget
+            widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ZeroAdminHeaderNewMessagesIconLinkWidget
+            template: default.php
+            vars:
+                icon: fas fa-envelope
+                badge: badge badge-pill badge-warning
+                header_text_format: You have %s messages
+                model: (::METHOD_CALL::)Ling\Light_Kit_Admin\DataExtractor\MessagesDataExtractor->extractNewest(5)
+                view_all_link: (::ROUTE::)/pages/m-inbox
+                view_all_text: Read All Messages
+                view_all_icon: fas fa-envelope
+        -
+            name: zeroadmin_header_icon_link_new_notifications
+            type: picasso
+            className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\ZeroAdminHeaderNewNotificationsIconLinkWidget
+            widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ZeroAdminHeaderNewNotificationsIconLinkWidget
+            template: default.php
+            vars:
+                icon: fas fa-bell
+                badge: badge badge-pill badge-danger
+                header_text_format: You have %s notifications
+                model: (::METHOD_CALL::)Ling\Light_Kit_Admin\DataExtractor\NotificationsDataExtractor->extractNewest(5)
+                view_all_link: (::ROUTE::)/pages/u-issue-tracker
+                view_all_text: View All notifications
+        -
+            name: zeroadmin_header_icon_link_profile_dropdown
+            type: picasso
+            className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\ZeroAdminHeaderProfileDropdownLinkWidget
+            widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ZeroAdminHeaderProfileDropdownLinkWidget
+            template: default.php
+            vars:
+                attr:
+                    class: mr-3
+                img_src: ${user.avatar_url}
+                img_alt: the avatar of ${user.pseudo}
+                pseudo: ${user.pseudo}
+                links:
+                    -
+                        url: (::ROUTE::)lka_route-user_profile
+                        icon: fas fa-user
+                        text: Profile
+                    -
+                        url: (::ROUTE::)/pages/b-settings
+                        icon: fas fa-cog
+                        text: Settings
+                    -
+                        url: (::ROUTE::)/pages/m-inbox
+                        icon: far fa-envelope
+                        text: Messages
+                        badge_text: 7
+                        badge_class: badge-success
+                    -
+                        url: (::ROUTE::)/pages/b-faq
+                        icon: far fa-question-circle
+                        text: Help
+                    -
+                        url: (::ROUTE::)lka_route-logout
+                        icon: fas fa-sign-out-alt
+                        text: Logout
+
+    header:
+        -
+            name: zeroadmin_header
+            type: picasso
+            className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\ZeroAdminHeaderWidget
+            widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ZeroAdminHeaderWidget
+            identifier: maurice
+            template: default.php
+            vars:
+                attr:
+                    id: main-header
+                brand_link: /
+                brand_img_src: /plugins/Light_Kit_Admin/zeroadmin/img/zero-admin-logo4.png
+                brand_img_alt: ZeroAdmin Logo
+                use_sidebar_toggler: true
+                sidebar_toggler_id: header-navbar-toggler
+                plain_links:
+                    -
+                        url: (::ROUTE::)/dashboard
+                        text: Dashboard
+                        icon: fas fa-user
+                    -
+                        url: (::ROUTE::)/pages/u-contacts
+                        text: Users
+                        icon: ""
+                    -
+                        url: (::ROUTE::)/pages/b-settings
+                        text: Settings
+                        icon: ""
+
+
+
+    sidebar:
+        -
+            name: zeroadmin_sidebar
+            type: picasso
+            className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\ZeroAdminSidebarWidget
+            widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ZeroAdminSidebarWidget
+            template: default.php
+            vars:
+                attr:
+                    id: body-sidebar
+                sidebar_toggler_id: header-navbar-toggler
+                links: (::METHOD_CALL::)@bmenu->getItems(main_menu)
+                linkszzz:
+                    -
+                        is_active: true
+                        icon: fas fa-bars
+                        text: Dashboard
+                        url: (::ROUTE::)/dashboard
+                        children: []
+                    -
+                        icon: fas fa-pencil-alt
+                        text: Typography
+                        url: (::ROUTE::)/typography
+                    -
+                        icon: fas fa-table
+                        text: Tables
+                        url: (::ROUTE::)/tables
+                        badge_text: HOT
+                        badge_class: bg-danger text-white
+                    -
+                        icon: fas fa-bong
+                        text: Widgets
+                        url: (::ROUTE::)/widgets
+                    -
+                        icon: fas fa-shapes
+                        text: Components
+                        children:
+                            -
+                                url: (::ROUTE::)/components/alerts
+                                text: Alerts
+                            -
+                                url: (::ROUTE::)/components/badges
+                                text: Badge
+                            -
+                                url: (::ROUTE::)/components/breadcrumb
+                                text: Breadcrumb
+                            -
+                                url: (::ROUTE::)/components/buttons
+                                text:  Buttons
+                            -
+                                url: (::ROUTE::)/components/button-group
+                                text: Button group
+                            -
+                                url: (::ROUTE::)/components/cards
+                                text: Card
+                            -
+                                url: (::ROUTE::)/components/carousel
+                                text: Carousel
+                            -
+                                url: (::ROUTE::)/components/collapse
+                                text: Collapse
+                            -
+                                url: (::ROUTE::)/components/dropdowns
+                                text: Dropdowns
+                            -
+                                url: (::ROUTE::)/components/forms
+                                text: Forms
+                            -
+                                url: (::ROUTE::)/components/input-group
+                                text: Input group
+                            -
+                                url: (::ROUTE::)/components/jumbotron
+                                text: Jumbotron
+                            -
+                                url: (::ROUTE::)/components/list-group
+                                text: List group
+                            -
+                                url: (::ROUTE::)/components/navs
+                                text: Navs
+                            -
+                                url: (::ROUTE::)/components/modal
+                                text: Modal
+                            -
+                                url: (::ROUTE::)/components/navbar
+                                text: Navbar
+                            -
+                                url: (::ROUTE::)/components/pagination
+                                text: Pagination
+                            -
+                                url: (::ROUTE::)/components/popovers
+                                text: Popovers
+                            -
+                                url: (::ROUTE::)/components/progress
+                                text: Progress
+                            -
+                                url: (::ROUTE::)/components/scrollspy
+                                text: Scrollspy
+                            -
+                                url: (::ROUTE::)/components/spinners
+                                text: Spinners
+                            -
+                                url: (::ROUTE::)/components/toasts
+                                text: Toasts
+                            -
+                                url: (::ROUTE::)/components/tooltips
+                                text: Tooltips
+
+                    -
+                        icon: fas fa-puzzle-piece
+                        text: Plugins
+                        children:
+                            -
+                                url: (::ROUTE::)/plugins/animate
+                                text: Animate
+                            -
+                                url: (::ROUTE::)/plugins/aos
+                                text: Aos
+                            -
+                                url: (::ROUTE::)/plugins/bootstrap-duallistbox
+                                text: Bootstrap Dual Listbox
+                            -
+                                url: (::ROUTE::)/plugins/bootstrap-social
+                                text: Bootstrap Social
+                            -
+                                url: (::ROUTE::)/plugins/bootstrap-responsive-tabs
+                                text: Bootstrap Responsive Tabs
+                            -
+                                url: (::ROUTE::)/plugins/bootstrap-touchspin
+                                text: Bootstrap Touchspin
+                            -
+                                url: (::ROUTE::)/plugins/bootstrap-tour
+                                text: Bootstrap Tour
+                            -
+                                url: (::ROUTE::)/plugins/cleave
+                                text: Cleave
+                            -
+                                url: (::ROUTE::)/plugins/clockpicker
+                                text: Clockpicker
+                            -
+                                url: (::ROUTE::)/plugins/cropper
+                                text: Cropper
+                            -
+                                url: (::ROUTE::)/plugins/datatables
+                                text: Datatables
+                            -
+                                url: (::ROUTE::)/plugins/dropzone
+                                text: Dropzone
+                            -
+                                url: (::ROUTE::)/plugins/full-calendar
+                                text: Full Calendar
+                            -
+                                url: (::ROUTE::)/plugins/googlemap
+                                text: Google Map
+                            -
+                                url: (::ROUTE::)/plugins/ion-range-slider
+                                text: Ion Range Slider
+                            -
+                                url: (::ROUTE::)/plugins/jquery-countdown
+                                text: Jquery Countdown
+                            -
+                                url: (::ROUTE::)/plugins/jquery-ui-sortable
+                                text: Jquery UI Sortable
+                            -
+                                url: (::ROUTE::)/plugins/jscookie
+                                text: JsCookie
+                            -
+                                url: (::ROUTE::)/plugins/jstree
+                                text: Js Tree
+                            -
+                                url: (::ROUTE::)/plugins/knob
+                                text: Knob
+                            -
+                                url: (::ROUTE::)/plugins/ladda
+                                text: Ladda
+                            -
+                                url: (::ROUTE::)/plugins/lightbox-ekko
+                                text: Lightbox Ekko
+                            -
+                                url: (::ROUTE::)/plugins/lightpick
+                                text: Lightpick
+                            -
+                                url: (::ROUTE::)/plugins/magnify
+                                text: Magnify
+                            -
+                                url: (::ROUTE::)/plugins/nestable2
+                                text: Nestable 2
+                            -
+                                url: (::ROUTE::)/plugins/owl-carousel
+                                text: Owl Carousel
+                            -
+                                url: (::ROUTE::)/plugins/plotly
+                                text: Plotly
+                            -
+                                url: (::ROUTE::)/plugins/pretty-checkbox
+                                text: Pretty Checkbox
+                            -
+                                url: (::ROUTE::)/plugins/prism
+                                text: Prism
+                            -
+                                url: (::ROUTE::)/plugins/select2
+                                text: Select2
+                            -
+                                url: (::ROUTE::)/plugins/slick
+                                text: Slick
+                            -
+                                url: (::ROUTE::)/plugins/spectrum
+                                text: Spectrum
+                            -
+                                url: (::ROUTE::)/plugins/spinkit
+                                text: Spin Kit
+                            -
+                                url: (::ROUTE::)/plugins/starrr
+                                text: Starrr
+                            -
+                                url: (::ROUTE::)/plugins/summernote
+                                text: Summernote
+                            -
+                                url: (::ROUTE::)/plugins/switchery
+                                text: Switchery
+                    -
+                        icon: fas fa-copy
+                        text: Pages
+                        children:
+                            -
+                                icon: fas fa-bullseye
+                                text: Basic
+                                children:
+                                    -
+                                        url: (::ROUTE::)/pages/b-404
+                                        text: Error 404
+                                    -
+                                        url: (::ROUTE::)/pages/b-faq
+                                        text: Faq
+                                    -
+                                        url: (::ROUTE::)/pages/b-forgot-password
+                                        text: Forgot password
+                                    -
+                                        url: (::ROUTE::)/pages/b-landpage
+                                        text: Landpage
+                                    -
+                                        url: (::ROUTE::)/pages/b-login
+                                        text: Login
+                                    -
+                                        url: (::ROUTE::)/pages/b-register
+                                        text: Register
+                                    -
+                                        url: (::ROUTE::)/pages/b-settings
+                                        text: Settings
+                            -
+                                icon: fas fa-shopping-cart
+                                text: E-commerce
+                                children:
+                                    -
+                                        url: (::ROUTE::)/pages/e-admin-products-list
+                                        text: Admin products
+                                    -
+                                        url: (::ROUTE::)/pages/e-cart
+                                        text: Cart
+                                    -
+                                        url: (::ROUTE::)/pages/e-invoice
+                                        text: Invoice
+                                    -
+                                        url: (::ROUTE::)/pages/e-product
+                                        text: Product
+                                    -
+                                        url: (::ROUTE::)/pages/e-products-list
+                                        text: Products list
+                                    -
+                                        url: (::ROUTE::)/pages/e-product-edit
+                                        text: Product edit
+                            -
+                                icon: far fa-comments
+                                text: Messaging
+                                children:
+                                    -
+                                        url: (::ROUTE::)/pages/m-chat
+                                        text: Chat
+                                    -
+                                        url: (::ROUTE::)/pages/m-compose
+                                        text: Compose
+                                    -
+                                        url: (::ROUTE::)/pages/m-email-templates
+                                        text: Email templates
+                                    -
+                                        url: (::ROUTE::)/pages/m-forum
+                                        text: Forum
+                                    -
+                                        url: (::ROUTE::)/pages/m-inbox
+                                        text: Inbox
+                                    -
+                                        url: (::ROUTE::)/pages/m-message
+                                        text: Message
+                            -
+                                icon: fas fa-user
+                                text: Management
+                                children:
+                                    -
+                                        url: (::ROUTE::)/pages/u-contacts
+                                        text: Contacts
+                                    -
+                                        url: (::ROUTE::)/pages/u-filemanager
+                                        text: File manager
+                                    -
+                                        url: (::ROUTE::)/pages/u-issue-tracker
+                                        text: Issue tracker
+                                    -
+                                        url: (::ROUTE::)/pages/u-profile
+                                        text: Profile
+                                    -
+                                        url: (::ROUTE::)/pages/u-project-detail
+                                        text: Project details
+                                    -
+                                        url: (::ROUTE::)/pages/u-project-list
+                                        text: Project list
+                                    -
+                                        url: (::ROUTE::)/pages/u-teams
+                                        text: Teams
+                                    -
+                                        url: (::ROUTE::)/pages/u-timeline
+                                        text: Timeline
+                                    -
+                                        url: (::ROUTE::)/pages/u-vote-list
+                                        text: Vote list
+                            -
+                                icon: fas fa-hat-wizard
+                                text: Website Builder
+                                children:
+                                    -
+                                        url: (::ROUTE::)/pages/w-page-configure
+                                        text: Page configure
+                                    -
+                                        url: (::ROUTE::)/pages/w-page-edit
+                                        text: Page edit
+                    -
+                        icon: fas fa-fire-alt
+                        text: Snippets
+                        children:
+                            -
+                                url: (::ROUTE::)/snippets/right-sidebar
+                                text: Right Sidebar
+                            -
+                                url: (::ROUTE::)/snippets/sidebar
+                                text: Sidebar
+    body: []
+        -
+            name: zeroadmin_breadcrumb
+            type: picasso
+            className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\ZeroAdminBreadcrumbWidget
+            widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ZeroAdminBreadcrumbWidget
+            template: default.php
+            vars:
+                first_element_text: Home
+                breadcrumb_links:
+                    -
+                        url: (::ROUTE::)/dashboard
+                        text: Admin
+                last_element_text: Dashboard
+                extra_links:
+                    -
+                        url: (::ROUTE::)/pages/e-product-edit
+                        text: Edit Page
+                        icon: fas fa-edit
+                    -
+                        url: (::ROUTE::)/pages/u-profile
+                        text: Profile
+                        icon: far fa-address-card
+                    -
+                        url: (::ROUTE::)/plugins/plotly
+                        text: Stats
+                        icon: fas fa-chart-line
+
+    footer:
+        -
+            name: footer_with_button
+            type: picasso
+            active: true
+            className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\FooterWithButtonWidget
+            widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/FooterWithButtonWidget
+            template: default.php
+            vars:
+                attr:
+                    id: main-footer
+                    class: p-5 bg-dark text-white
+                column_class: col-md-6
+                icon: fas fa-cloud
+                button_class: btn btn-outline-light
+                button_url: "#"
+                button_text: Download Resume

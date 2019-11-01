@@ -7,7 +7,7 @@ namespace Ling\Light_Realist\DynamicInjection;
 use Ling\Light\ReverseRouter\LightReverseRouterInterface;
 use Ling\Light\Tool\LightTool;
 use Ling\Light_Csrf\Service\LightCsrfService;
-use Ling\Light_Kit_Admin\Exception\LightKitAdminException;
+use Ling\Light_Realist\Exception\LightRealistException;
 
 /**
  * The LightRealistDynamicInjectionHandler class.
@@ -52,7 +52,7 @@ class LightRealistDynamicInjectionHandler extends ContainerAwareRealistDynamicIn
                 return $router->getUrl($route, $urlParams);
                 break;
             default:
-                throw new LightKitAdminException("Action not recognized: $actionId.");
+                throw new LightRealistException("Action not recognized: $actionId.");
                 break;
         }
     }

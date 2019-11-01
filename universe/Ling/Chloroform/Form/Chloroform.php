@@ -40,12 +40,6 @@ class Chloroform
      */
     private $_postedData;
 
-    /**
-     * This property holds whether this form instance was posted.
-     * @var bool
-     */
-    private $_isPosted;
-
 
     /**
      * This property holds the formId for this instance.
@@ -66,8 +60,7 @@ class Chloroform
         $this->notifications = [];
         $this->_postedData = null;
         $this->formId = "chloroform_one";
-        $this->addField(HiddenField::create("chloroform_hidden_key", ['value' => $this->formId]));
-        $this->_isPosted = false;
+        $this->addField(HiddenField::create("chloroform_hidden_key", ['value' => $this->formId])->setHasVeryImportantData(false));
 
     }
 
@@ -91,10 +84,10 @@ class Chloroform
      */
     public function isPosted(): bool
     {
-        if (null === $this->_postedData) {
-            $this->_postedData = $this->createPostedData();
+        if (array_key_exists("chloroform_hidden_key", $_POST) && $this->formId === $_POST['chloroform_hidden_key']) {
+            return true;
         }
-        return $this->_isPosted;
+        return false;
     }
 
 
@@ -104,20 +97,21 @@ class Chloroform
      * The posted data is empty if no form was posted, and otherwise is the
      * array described in @page(the postedData section).
      *
-     * Note: you should not override this method. If your postedData are "special", you should override the
-     * createPostedData method.
-     *
      *
      *
      * @return array
+     * @throws \Exception
      */
     public function getPostedData(): array
     {
+        if (false === $this->isPosted()) {
+            throw new ChloroformException("The form hasn't been posted yet, the postedData is not available.");
+        }
+
         if (null === $this->_postedData) {
-            $this->_postedData = $this->createPostedData();
+            $this->_postedData = array_merge($_POST, PhpUploadFileFixTool::fixPhpFiles($_FILES, true));
         }
         return $this->_postedData;
-
     }
 
 
@@ -132,6 +126,7 @@ class Chloroform
      *
      *
      * @return bool
+     * @throws \Exception
      */
     public function validates(): bool
     {
@@ -140,7 +135,12 @@ class Chloroform
         $validates = true;
         foreach ($this->fields as $id => $field) {
 
-            if (false === $field->validates($postedData, true)) {
+            $value = $this->getFieldPostedValue($field, $postedData);
+
+            // value injection
+            $field->setValue($value);
+
+            if (false === $field->validates($value)) {
                 /**
                  * Note: we don't break the loop to ensure that all the fields
                  * build their error messages.
@@ -150,6 +150,44 @@ class Chloroform
         }
 
         return $validates;
+    }
+
+
+    /**
+     * Returns the @page(very important data) of a form.
+     *
+     * @return array
+     * @throws \Exception
+     */
+    public function getVeryImportantData(): array
+    {
+        if (false === $this->isPosted()) {
+            throw new ChloroformException("The form hasn't been posted yet, the veryImportantData is not available.");
+        }
+        $ret = [];
+        foreach ($this->fields as $id => $field) {
+            if (true === $field->hasVeryImportantData()) {
+                $ret[$id] = $field->getValue();
+            }
+        }
+        return $ret;
+    }
+
+
+    /**
+     * Execute the data transformers (see the @page(DataTransformerInterface) for more details) on the given postedData.
+     *
+     * @param array $postedData
+     */
+    public function executeDataTransformers(array &$postedData)
+    {
+        foreach ($this->fields as $id => $field) {
+            if (null !== ($transformer = $field->getDataTransformer())) {
+                $value = BDotTool::getDotValue($id, $postedData);
+                $transformer->transform($value, $postedData, $field);
+                BDotTool::setDotValue($id, $value, $postedData);
+            }
+        }
     }
 
     /**
@@ -174,7 +212,6 @@ class Chloroform
      */
     public function getField(string $fieldId): FieldInterface
     {
-
         if (array_key_exists($fieldId, $this->fields)) {
             return $this->fields[$fieldId];
         }
@@ -303,7 +340,7 @@ class Chloroform
         }
 
         return [
-            "isPosted" => $this->_isPosted,
+            "isPosted" => $this->isPosted(),
             "notifications" => $notificationsDetails,
             "fields" => $fieldsDetails,
             "errors" => $errors,
@@ -314,19 +351,16 @@ class Chloroform
     //--------------------------------------------
     //
     //--------------------------------------------
-
     /**
-     * Creates and returns the postedData array, as defined in @page(the postedData section).
-     * @return array
-     * @overrideMe
+     * Returns the field posted value for the given field and posted data.
+     *
+     *
+     * @param FieldInterface $field
+     * @param array $postedData
+     * @return mixed|null
      */
-    protected function createPostedData(): array
+    private function getFieldPostedValue(FieldInterface $field, array $postedData)
     {
-        if (array_key_exists("chloroform_hidden_key", $_POST) && $this->formId === $_POST['chloroform_hidden_key']) {
-            $ret = array_merge($_POST, PhpUploadFileFixTool::fixPhpFiles($_FILES, true));
-            $this->_isPosted = true;
-            return $ret;
-        }
-        return [];
+        return BDotTool::getDotValue($field->getId(), $postedData, $field->getFallbackValue());
     }
 }

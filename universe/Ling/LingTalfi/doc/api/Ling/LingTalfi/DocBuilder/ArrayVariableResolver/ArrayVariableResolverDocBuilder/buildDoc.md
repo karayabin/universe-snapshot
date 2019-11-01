@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [ArrayVariableResolverDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/ArrayVariableResolver/ArrayVariableResolverDocBuilder/buildDoc.md)($htmlMode = true) : void
+public static [ArrayVariableResolverDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/ArrayVariableResolver/ArrayVariableResolverDocBuilder/buildDoc.md)(?$htmlMode = true) : void
 
 
 

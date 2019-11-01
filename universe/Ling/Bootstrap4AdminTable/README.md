@@ -57,6 +57,10 @@ Related
 History Log
 =============
 
+- 1.9.0 -- 2019-10-28
+
+    - add RelatedLinksRendererWidget
+    
 - 1.8.0 -- 2019-10-11
 
     - adapt to new realist conception

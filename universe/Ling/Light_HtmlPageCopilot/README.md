@@ -31,6 +31,8 @@ Summary
 ===========
 - [Light_HtmlPageCopilot api](https://github.com/lingtalfi/Light_HtmlPageCopilot/blob/master/doc/api/Ling/Light_HtmlPageCopilot.md) (generated with [DocTools](https://github.com/lingtalfi/DocTools))
 - [Services](#services)
+- Pages
+    - [Html page copilot example](https://github.com/lingtalfi/Light_HtmlPageCopilot/blob/master/doc/pages/html-page-copilot-example.md)
 
 
 
@@ -65,6 +67,14 @@ html_page_copilot:
 History Log
 =============
 
+- 1.0.2 -- 2019-10-18
+
+    - add precision comment
+    
+- 1.0.1 -- 2019-10-18
+
+    - add example in documentation
+    
 - 1.0.0 -- 2019-08-30
 
     - initial commit

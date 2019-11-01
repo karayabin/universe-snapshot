@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [Chloroform_HeliumRendererDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Chloroform_HeliumRenderer/Chloroform_HeliumRendererDocBuilder/buildDoc.md)($htmlMode = true) : void
+public static [Chloroform_HeliumRendererDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Chloroform_HeliumRenderer/Chloroform_HeliumRendererDocBuilder/buildDoc.md)(?$htmlMode = true) : void
 
 
 

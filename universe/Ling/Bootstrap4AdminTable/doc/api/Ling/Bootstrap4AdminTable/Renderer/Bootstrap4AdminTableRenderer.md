@@ -4,7 +4,7 @@
 
 The Bootstrap4AdminTableRenderer class
 ================
-2019-08-15 --> 2019-10-11
+2019-08-15 --> 2019-10-28
 
 
 
@@ -45,6 +45,7 @@ class <span class="pl-k">Bootstrap4AdminTableRenderer</span> extends [OpenAdminT
     - protected array [OpenAdminTableBaseRealistListRenderer::$listGeneralActions](#property-listGeneralActions) ;
     - protected string [OpenAdminTableBaseRealistListRenderer::$containerCssId](#property-containerCssId) ;
     - protected array [OpenAdminTableBaseRealistListRenderer::$sqlColumns](#property-sqlColumns) ;
+    - protected array [OpenAdminTableBaseRealistListRenderer::$relatedLinks](#property-relatedLinks) ;
 
 - Methods
     - public [__construct](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/Renderer/Bootstrap4AdminTableRenderer/__construct.md)() : void
@@ -66,7 +67,7 @@ class <span class="pl-k">Bootstrap4AdminTableRenderer</span> extends [OpenAdminT
     - public OpenAdminTableBaseRealistListRenderer::setWidgetStatuses(array $widgetStatuses) : void
     - public OpenAdminTableBaseRealistListRenderer::setRequestId(string $requestId) : void
     - public OpenAdminTableBaseRealistListRenderer::setContainer([Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) $container) : void
-    - public OpenAdminTableBaseRealistListRenderer::setCollapsibleColumnIndexes(?$collapsibleColumnIndexes) : void
+    - public OpenAdminTableBaseRealistListRenderer::setCollapsibleColumnIndexes($collapsibleColumnIndexes) : void
     - public OpenAdminTableBaseRealistListRenderer::setListActionGroups(array $listActionGroups) : void
     - public OpenAdminTableBaseRealistListRenderer::setListGeneralActions(array $listGeneralActions) : void
     - public OpenAdminTableBaseRealistListRenderer::setCsrfToken(string $csrfToken) : void
@@ -178,6 +179,16 @@ Properties
 - <span id="property-sqlColumns"><b>sqlColumns</b></span>
 
     This property holds the sqlColumns for this instance.
+    
+    
+
+- <span id="property-relatedLinks"><b>relatedLinks</b></span>
+
+    This property holds the relatedLinks for this instance.
+    Each link is an array:
+    - text: the label of the link
+    - url: the url of the link
+    - ?icon: the css class of the icon if any
     
     
 

@@ -54,5 +54,5 @@ See Also
 
 The [ReportInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface.md) class.
 
-Previous method: [addMethodWithEmptyMainText](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface/addMethodWithEmptyMainText.md)<br>
+Previous method: [addMethodWithEmptyMainText](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface/addMethodWithEmptyMainText.md)<br>Next method: [getParsedInlineFunctions](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface/getParsedInlineFunctions.md)<br>
 

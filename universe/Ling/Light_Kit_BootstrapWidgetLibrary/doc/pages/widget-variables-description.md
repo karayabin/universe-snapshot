@@ -30,6 +30,7 @@ Summary
 - [GlozzomPricingTableWidget](#glozzompricingtablewidget)
 - [GlozzomTwoColumnsTeaserWidget](#glozzomtwocolumnsteaserwidget)
 - [IconTeaserWidget](#iconteaserwidget)
+- [LightRealistWidget](#lightrealistwidget)
 - [LoopLabFooterWithContactUseButtonWidget](#looplabfooterwithcontactusebuttonwidget)
 - [LoopLabMonoChromeHeaderWidget](#looplabmonochromeheaderwidget)
 - [LoopLabTwoColumnsSignupFormWidget](#looplabtwocolumnssignupformwidget)
@@ -1662,7 +1663,7 @@ Image 1: Chloroform.png<br>![Screenshot Chloroform.png](https://lingtalfi.com/im
 
 ChloroformWidget templates, skins, presets
 -----------
-- **Templates**: default.php
+- **Templates**: default.php, helium_light.php
 - **Skins**: 
 - **Presets**: 
 
@@ -2671,6 +2672,89 @@ expected, such as col-md-4, col-sd-3, col-lg-6, ...
             - **default_value**: 
             - **description**: The description for this box.
             - **example**: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque, dignissimos!
+
+
+
+
+
+
+
+LightRealistWidget
+==============
+
+[Back to top](#summary)
+
+- [Screenshots](#lightrealistwidget-screenshots)
+- [Templates and skins](#lightrealistwidget-templates-and-skins)
+- [Example](#lightrealistwidget-configuration-example)
+- [Variables descriptions](#lightrealistwidget-variables-description)
+
+
+
+LightRealistWidget is a bootstrap 4 widget representing a [realist](https://github.com/lingtalfi/Light_Realist).
+We can create theoretically create any type of list with it, but so far, I've only used it for admin list.
+We have mainly two ways to create a list:
+- either pass the **request_declaration_id**, which is a simple string (see the realist documentation for more info).
+        The benefit of this is that we can create a list by updating directly the widget configuration babyYaml file (easy).
+- or use the **renderer** property instead, which is a RealistListRendererInterface instance directly.
+        The benefit of this is that you now have full control over the instance passed to the template
+
+Use one or the other, but not both at the same time.
+As with all realist lists, the list is then configured from the request declaration (see the realist documentation
+for more details).
+
+
+
+
+
+LightRealistWidget screenshots
+----------
+
+Image 1: LightRealistWidget-advanced-search-unfold.png<br>![Screenshot LightRealistWidget-advanced-search-unfold.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/LightRealistWidget/LightRealistWidget-advanced-search-unfold.png)
+
+Image 2: LightRealistWidget.png<br>![Screenshot LightRealistWidget.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/LightRealistWidget/LightRealistWidget.png)
+
+
+
+
+
+LightRealistWidget templates, skins, presets
+-----------
+- **Templates**: default.php
+- **Skins**: 
+- **Presets**: 
+
+
+LightRealistWidget configuration example
+----------------
+
+```yaml
+name: light_realist
+type: picasso
+className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\LightRealistWidget
+widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/LightRealistWidget
+template: default.php
+vars:
+    request_declaration_id: Light_Kit_Admin:lud_user
+    renderer: null
+```
+
+
+
+LightRealistWidget variables description
+-----------
+
+- **request_declaration_id**
+    - **type**: string
+    - **default_value**: null
+    - **description**: The request declaration id. See the [realist](https://github.com/lingtalfi/Light_Realist) documentation for more info.
+Note: you should use either the **request_declaration_id** option, or the **renderer** option (see below), but not both.
+    - **example**: Light_Kit_Admin:lud_user
+- **renderer**
+    - **type**: RealistListRendererInterface
+    - **default_value**: null
+    - **description**: The [RealistListRendererInterface](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Rendering/RealistListRendererInterface.md).
+Note: you should use either the **renderer** option, or the **request_declaration_id** option (see above), but not both.
 
 
 

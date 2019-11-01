@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [BabyYamlPermissionGroupApi::insertPermissionGroup](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/BabyYaml/BabyYamlPermissionGroupApi/insertPermissionGroup.md)(array $permissionGroup, bool $ignoreDuplicate = true, bool $returnRic = false) : mixed
+public [BabyYamlPermissionGroupApi::insertPermissionGroup](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/BabyYaml/BabyYamlPermissionGroupApi/insertPermissionGroup.md)(array $permissionGroup, ?bool $ignoreDuplicate = true, ?bool $returnRic = false) : mixed
 
 
 

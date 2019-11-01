@@ -1,0 +1,200 @@
+kit_admin:
+    instance: Ling\Light_Kit_Admin\Service\LightKitAdminService
+    methods:
+        setContainer:
+            container: @container()
+        setOptions:
+            options:
+                login:
+                    # Used by LoginFormController to redirect the user after a successful connection on the login form.
+                    on_success_route: lka_route-home
+                    # Used by ProtectedPageController to redirect a non valid user.
+                    # Used by LogoutController to redirect a valid user after a disconnect.
+                    login_route: lka_route-login
+                access_denied:
+                    access_denied_route: lka_route-forbidden_page
+                notifications:
+                    # alert|toast
+                    default_type: alert
+
+kit_admin_rights:
+    instance: Ling\Light\Light_Kit_Admin\Rights\LightKitAdminRightsManager
+    methods_collection: []
+#        -
+#            method: registerRights:
+#            args:
+#                rights: []
+#            method: registerRightsAssigner:
+#            args:
+#                assigner: []
+
+
+# --------------------------------------
+# hooks
+# --------------------------------------
+
+
+$ajax_file_upload_manager.methods_collection:
+    -
+        method: addActionLists
+        args:
+            actionLists:
+                lka_user_profile:
+                    -
+                        use_Light_UserData: true
+                        path: images/avatar.{extension}
+                        imageTransformer: resize(200)
+                        isPrivate: false
+                        use_2svp: true
+
+    -
+        method: addValidationRules
+        args:
+            validationRules:
+                lka_user_profile: []
+                    maxFileSize: 2M
+                    extensions:
+                        - png
+                        - jpeg
+                        - jpg
+                        - gif
+
+
+
+
+$ajax_handler.methods_collection:
+    -
+        method: registerHandler
+        args:
+            id: Light_Kit_Admin
+            handler:
+                instance: Ling\Light_Kit_Admin\AjaxHandler\LightKitAdminAjaxHandler
+
+
+$bmenu.methods_collection:
+    -
+        method: registerHost
+        args:
+            menu_type: main_menu
+            host:
+                instance: Ling\Light_Kit_Admin\BMenu\LightKitAdminBMenuHost
+                methods:
+                    setContainer:
+                        container: @container()
+                    setBaseDir:
+                        dir: ${app_dir}/config/data/Light_Kit_Admin/bmenu
+                    setMenuStructureId:
+                        id: lka_mainmenu_1
+                    setDefaultItemsParentPath:
+                        path: plugins
+
+
+$easy_route.methods_collection:
+    -
+        method: registerBundleFile
+        args:
+            file: config/data/Light_Kit_Admin/Light_EasyRoute/lka_routes.byml
+
+$initializer.methods_collection:
+    -
+        method: registerInitializer
+        args:
+            initializer: @service(kit_admin)
+            slot: install
+            parent: Light_UserDatabase
+
+
+$kit.methods_collection:
+    -
+        method: addPageConfigurationTransformer
+        args:
+            -
+                instance: Ling\Light_Kit_Admin\PageConfigurationTransformer\LightKitAdminPageConfigurationTransformer
+
+$micro_permission.methods_collection:
+    -
+        method: registerMicroPermissionResolver
+        args:
+            plugin: Light_Kit_Admin
+            resolver:
+                instance: Ling\Light_Kit_Admin\MicroPermission\LightKitAdminMicroPermissionResolver
+                methods:
+                    setFile:
+                        file: ${app_dir}/config/data/Light_Kit_Admin/Light_MicroPermission/lka-micro-permissions.byml
+
+$plugin_database_installer.methods_collection:
+    -
+        method: registerInstaller
+        args:
+            plugin: Light_Kit_Admin
+            installer:
+                -
+                    - @service(kit_admin)
+                    - installDatabase
+                -
+                    - @service(kit_admin)
+                    - uninstallDatabase
+
+
+
+$realform.methods_collection:
+    -
+        method: registerFormHandler
+        args:
+            plugin: Light_Kit_Admin
+            handler:
+                instance: Ling\Light_Kit_Admin\Realform\Handler\LightKitAdminRealformHandler
+                methods:
+                    setConfDir:
+                        dir: ${app_dir}/config/data/Light_Kit_Admin/Light_Realform/
+
+
+$realist.methods_collection:
+    -
+        method: registerListRenderer
+        args:
+            identifier: Light_Kit_Admin
+            renderer:
+                instance: Ling\Bootstrap4AdminTable\Renderer\StandardBootstrap4AdminTableRenderer
+    -
+        method: registerRealistRowsRenderer
+        args:
+            identifier: Light_Kit_Admin
+            renderer:
+                instance: Ling\Light_Kit_Admin\Realist\Rendering\LightKitAdminRealistRowsRenderer
+    -
+        method: registerActionHandler
+        args:
+            renderer:
+                instance: Ling\Light_Kit_Admin\Realist\ActionHandler\LightKitAdminRealistActionHandler
+    -
+        method: registerListActionHandler
+        args:
+            plugin: Light_Kit_Admin
+            renderer:
+                instance: Ling\Light_Kit_Admin\Realist\ListActionHandler\LightKitAdminListActionHandler
+    -
+        method: registerListGeneralActionHandler
+        args:
+            plugin: Light_Kit_Admin
+            renderer:
+                instance: Ling\Light_Kit_Admin\Realist\ListGeneralActionHandler\LightKitAdminListGeneralActionHandler
+
+
+$user_database.methods_collection:
+    -
+        method: setRootAvatarUrl
+        args:
+            avatar_url: /plugins/Light_Kit_Admin/img/avatars/root_avatar.png
+    -
+        method: setPasswordProtector
+        args:
+            protector: @service(password_protector)
+
+
+# --------------------------------------
+# vars
+# --------------------------------------
+$user_database_vars.bullsheeter_avatar_img_dir: ${app_dir}/www/plugins/Light_Kit_Admin/img/avatars2
+$user_data_vars.install_parent_plugin: Light_Kit_Admin
+

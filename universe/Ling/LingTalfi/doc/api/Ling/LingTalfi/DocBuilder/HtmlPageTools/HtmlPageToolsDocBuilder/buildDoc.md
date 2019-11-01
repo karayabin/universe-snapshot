@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [HtmlPageToolsDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/HtmlPageTools/HtmlPageToolsDocBuilder/buildDoc.md)($htmlMode = true) : void
+public static [HtmlPageToolsDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/HtmlPageTools/HtmlPageToolsDocBuilder/buildDoc.md)(?$htmlMode = true) : void
 
 
 

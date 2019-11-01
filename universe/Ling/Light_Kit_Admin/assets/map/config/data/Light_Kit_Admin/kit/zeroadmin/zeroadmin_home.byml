@@ -1,0 +1,49 @@
+_parent: Light_Kit_Admin/kit/zeroadmin/dev/mainlayout_base
+zones:
+    body:
+        -
+            name: zeroadmin_statsummaryicon
+            type: picasso
+            className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\ZeroAdminStatSummaryIconWidget
+            widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ZeroAdminStatSummaryIconWidget
+            template: default.php
+            vars:
+                card_column_class: col-sm-6 col-xl-3 mb-3
+                cards:
+                    -
+                        icon: fas fa-cart-arrow-down bg-blue fa-2x
+                        value: 1678
+                        value_class: text-blue
+                        text: Orders
+
+                    -
+                        icon: fas fa-user-friends bg-yellow fa-2x
+                        value: 78443
+                        value_class: text-yellow
+                        text: Users
+                    -
+                        icon: fas fa-dollar-sign bg-red fa-2x
+                        value: $12.700,88
+                        value_class: text-red
+                        text: Revenue
+                    -
+                        icon: fas fa-car bg-green fa-2x
+                        value: 654449
+                        value_class: text-green
+                        text: Visits
+        -
+            name: zeroadmin_herograph
+            type: picasso
+            className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\ZeroAdminHeroGraphWidget
+            widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ZeroAdminHeroGraphWidget
+            template: default.php
+            _descr: <
+                ZeroAdminHeroGraphWidget is a bootstrap 4 widget to display a line graph. See the dashboard of the zeroadmin theme (https://www.templatemonster.com/admin-templates/zero-admin-template-82792.html)
+                for a concrete example.
+
+                We can add as many lines as we want.
+                Each line has the following:
+                - the numeric data (two arrays x and y correponding to the values on the x and y axes)
+
+            >
+            vars: []

@@ -294,6 +294,10 @@ to access the htmlPageCopilot instance (and inject their assets on the main page
 History Log
 =============
 
+- 1.12.2 -- 2019-10-29
+
+    - fix PageConfUpdator not recognizing name property
+    
 - 1.12.1 -- 2019-08-30
 
     - fix LightKitPageRenderer->getHtmlPageCopilot not setting the copilot property

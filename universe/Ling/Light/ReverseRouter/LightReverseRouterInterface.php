@@ -28,13 +28,18 @@ interface LightReverseRouterInterface
      * Returns the url corresponding to the given route name and url parameters.
      * If the useAbsolute flag is set to true, an absolute url will be returned.
      *
+     * The urlParameters is an array of key/value pairs.
+     * The keys that belong to the route parameters will be injected as tags in the route pattern
+     * (see @page(the route page) for more information), and those not used by the route will
+     * be injected in the query string (after a question mark).
+     *
      *
      *
      * @param string $routeName
      * @param array $urlParameters
-     * @param bool|null=null $useAbsolute
+     * @param bool=false $useAbsolute
      * @return string
      * @throws LightException
      */
-    public function getUrl(string $routeName, array $urlParameters = [], bool $useAbsolute = null): string;
+    public function getUrl(string $routeName, array $urlParameters = [], $useAbsolute = false): string;
 }

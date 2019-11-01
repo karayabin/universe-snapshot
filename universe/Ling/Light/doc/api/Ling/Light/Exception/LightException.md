@@ -4,7 +4,7 @@
 
 The LightException class
 ================
-2019-04-09 --> 2019-10-09
+2019-04-09 --> 2019-10-28
 
 
 
@@ -34,7 +34,9 @@ class <span class="pl-k">LightException</span> extends [\Exception](http://php.n
     - protected  [Exception::$line](#property-line) ;
 
 - Methods
-    - public [__construct](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Exception/LightException/__construct.md)($message = , string $lightErrorCode = null, $code = 0, [\Throwable](http://php.net/manual/en/class.throwable.php) $previous = null) : void
+    - public [__construct](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Exception/LightException/__construct.md)(?$message = , ?$code = 0, ?[\Throwable](http://php.net/manual/en/class.throwable.php) $previous = null) : void
+    - public static [create](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Exception/LightException/create.md)() : [LightException](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Exception/LightException.md)
+    - public [setLightErrorCode](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Exception/LightException/setLightErrorCode.md)(string $lightErrorCode) : [LightException](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Exception/LightException.md)
     - public [getLightErrorCode](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Exception/LightException/getLightErrorCode.md)() : string | null
 
 }
@@ -83,6 +85,8 @@ Methods
 ==============
 
 - [LightException::__construct](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Exception/LightException/__construct.md) &ndash; Builds the LightException instance.
+- [LightException::create](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Exception/LightException/create.md) &ndash; Returns a static instance.
+- [LightException::setLightErrorCode](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Exception/LightException/setLightErrorCode.md) &ndash; Sets the lightErrorCode.
 - [LightException::getLightErrorCode](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Exception/LightException/getLightErrorCode.md) &ndash; Returns the light error code, or null if not set.
 
 
@@ -98,4 +102,4 @@ See the source code of [Ling\Light\Exception\LightException](https://github.com/
 
 SeeAlso
 ==============
-Previous class: [LightAwareInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/LightAwareInterface.md)<br>Next class: [ConfigurationHelper](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ConfigurationHelper.md)<br>
+Previous class: [LightAwareInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/LightAwareInterface.md)<br>Next class: [LightRedirectException](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Exception/LightRedirectException.md)<br>

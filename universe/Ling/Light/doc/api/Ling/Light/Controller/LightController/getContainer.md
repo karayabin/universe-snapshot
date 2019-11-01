@@ -46,7 +46,7 @@ Returns [LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob
 
 Source Code
 ===========
-See the source code for method [LightController::getContainer](https://github.com/lingtalfi/Light/blob/master/Controller/LightController.php#L64-L67)
+See the source code for method [LightController::getContainer](https://github.com/lingtalfi/Light/blob/master/Controller/LightController.php#L65-L68)
 
 
 See Also
@@ -54,5 +54,5 @@ See Also
 
 The [LightController](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Controller/LightController.md) class.
 
-Previous method: [getLight](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Controller/LightController/getLight.md)<br>
+Previous method: [getLight](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Controller/LightController/getLight.md)<br>Next method: [getHttpRequest](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Controller/LightController/getHttpRequest.md)<br>
 

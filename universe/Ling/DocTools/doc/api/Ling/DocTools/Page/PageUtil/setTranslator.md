@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [PageUtil::setTranslator](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Page/PageUtil/setTranslator.md)(?[Ling\DocTools\Translator\MarkdownTranslatorInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Translator/MarkdownTranslatorInterface.md) $translator) : void
+public [PageUtil::setTranslator](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Page/PageUtil/setTranslator.md)([Ling\DocTools\Translator\MarkdownTranslatorInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Translator/MarkdownTranslatorInterface.md) $translator) : void
 
 
 

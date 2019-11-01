@@ -4,7 +4,7 @@
 
 The ArrayVariableResolverUtil class
 ================
-2019-05-15 --> 2019-09-18
+2019-05-15 --> 2019-10-31
 
 
 
@@ -81,7 +81,7 @@ class <span class="pl-k">ArrayVariableResolverUtil</span>  {
     - public [setOpeningBracket](https://github.com/lingtalfi/ArrayVariableResolver/blob/master/doc/api/Ling/ArrayVariableResolver/ArrayVariableResolverUtil/setOpeningBracket.md)(string $openingBracket) : void
     - public [setClosingBracket](https://github.com/lingtalfi/ArrayVariableResolver/blob/master/doc/api/Ling/ArrayVariableResolver/ArrayVariableResolverUtil/setClosingBracket.md)(string $closingBracket) : void
     - public [setAllowBdotResolution](https://github.com/lingtalfi/ArrayVariableResolver/blob/master/doc/api/Ling/ArrayVariableResolver/ArrayVariableResolverUtil/setAllowBdotResolution.md)(bool $allowBdotResolution) : void
-    - public [resolve](https://github.com/lingtalfi/ArrayVariableResolver/blob/master/doc/api/Ling/ArrayVariableResolver/ArrayVariableResolverUtil/resolve.md)(array &$array, array $variables = []) : void
+    - public [resolve](https://github.com/lingtalfi/ArrayVariableResolver/blob/master/doc/api/Ling/ArrayVariableResolver/ArrayVariableResolverUtil/resolve.md)(array &$array, ?array $variables = []) : void
 
 }
 

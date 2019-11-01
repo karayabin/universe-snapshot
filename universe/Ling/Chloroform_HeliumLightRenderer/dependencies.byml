@@ -1,0 +1,10 @@
+dependencies: 
+    Ling: 
+        - Bat
+        - Chloroform_HeliumRenderer
+        - HtmlPageTools
+        - Light
+        - Light_AjaxFileUploadManager
+    
+
+post_install: []

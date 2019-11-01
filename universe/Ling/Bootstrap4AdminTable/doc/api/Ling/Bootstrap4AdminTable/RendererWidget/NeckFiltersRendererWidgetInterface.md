@@ -4,7 +4,7 @@
 
 The NeckFiltersRendererWidgetInterface class
 ================
-2019-08-15 --> 2019-10-11
+2019-08-15 --> 2019-10-28
 
 
 
@@ -22,11 +22,14 @@ Class synopsis
 ==============
 
 
-abstract class <span class="pl-k">NeckFiltersRendererWidgetInterface</span>  {
+abstract class <span class="pl-k">NeckFiltersRendererWidgetInterface</span> implements [RendererWidgetInterface](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/RendererWidgetInterface.md) {
 
 - Methods
     - abstract public [setColumns2DataTypes](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/NeckFiltersRendererWidgetInterface/setColumns2DataTypes.md)(array $column2DataTypes) : void
     - abstract public [setUseCheckbox](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/NeckFiltersRendererWidgetInterface/setUseCheckbox.md)(bool $useCheckbox) : void
+
+- Inherited methods
+    - abstract public [RendererWidgetInterface::render](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/RendererWidgetInterface/render.md)() : void
 
 }
 
@@ -40,6 +43,7 @@ Methods
 
 - [NeckFiltersRendererWidgetInterface::setColumns2DataTypes](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/NeckFiltersRendererWidgetInterface/setColumns2DataTypes.md) &ndash; Sets the columns and data types.
 - [NeckFiltersRendererWidgetInterface::setUseCheckbox](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/NeckFiltersRendererWidgetInterface/setUseCheckbox.md) &ndash; Sets whether to use the checkbox.
+- [RendererWidgetInterface::render](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/RendererWidgetInterface/render.md) &ndash; Prints the widget html.
 
 
 

@@ -30,4 +30,34 @@ The available validation rules are the following (this might be expanded dependi
                 The validation test will fail if the size of the uploaded file is strictly more than the maxFileSize value.                                       
 - mimeType: string|array, the mime type (or array of mime types) allowed.
                 The validation test will fail if the mime type of the uploaded file doesn't match the value given by the mimeType validation rule. 
+- extensions: string|array, the allowed file extensions for the file name ($_FILES[name])
+        
+
+
+
+
+
+
+        
+Examples:
+--------------
+
+Excerpt from the Light_Kit_Admin plugin, which I'm currently working on (as of 2019-10-17). 
+
+```yaml
+
+$ajax_file_upload_manager.methods_collection:
+    -
+        method: addValidationRules
+        args:
+            validationRules:
+                lka_user_profile: []
+                    maxFileSize: 2M
+                    extensions:
+                        - png
+                        - jpeg
+                        - jpg
+                        - gif
+
+```
         

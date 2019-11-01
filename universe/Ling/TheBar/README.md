@@ -11,6 +11,8 @@ Listen to some of our customer's stories.
 - [Joe's Corner](https://github.com/lingtalfi/TheBar/blob/master/joe/README.md): tells you about how the universe should be organized
 - [DevicesResolutions](https://github.com/lingtalfi/TheBar/blob/master/DevicesResolutions/devices-resolutions.md): devices resolutions cheat sheet
 - [Secure file upload discussion](https://github.com/lingtalfi/TheBar/blob/master/discussions/secure-file-upload.md): a discussion about secure file upload
+- [Ajax file upload discussion](https://github.com/lingtalfi/TheBar/blob/master/discussions/ajax-file-upload.md): a discussion about ajax file upload
+- [Preventing path traversal attacks](https://github.com/lingtalfi/TheBar/blob/master/discussions/preventing-path-traversal-attacks.md): a discussion about directory traversal attacks and how to prevent them in php
 
 
 
@@ -27,6 +29,30 @@ uni import Ling/TheBar
 History Log
 ===============
 
+- 1.4.0 -- 2019-10-21
+
+    - adding 2svp section to ajax file upload discussion
+    
+- 1.3.1 -- 2019-10-17
+
+    - add comment to secure file upload discussion
+    
+- 1.3.0 -- 2019-10-17
+
+    - add ajax file upload
+    
+- 1.2.2 -- 2019-10-16
+
+    - add precision to recommendation in secure file upload
+    
+- 1.2.1 -- 2019-10-16
+
+    - add link to discussion
+    
+- 1.2.0 -- 2019-10-16
+
+    - add preventing path traversal attacks discussion
+    
 - 1.1.1 -- 2019-10-03
 
     - fix typo

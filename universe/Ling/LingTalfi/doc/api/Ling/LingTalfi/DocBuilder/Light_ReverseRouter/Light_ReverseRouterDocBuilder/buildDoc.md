@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [Light_ReverseRouterDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_ReverseRouter/Light_ReverseRouterDocBuilder/buildDoc.md)($htmlMode = true) : void
+public static [Light_ReverseRouterDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_ReverseRouter/Light_ReverseRouterDocBuilder/buildDoc.md)(?$htmlMode = true) : void
 
 
 

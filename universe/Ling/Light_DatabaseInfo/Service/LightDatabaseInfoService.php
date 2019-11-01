@@ -45,8 +45,10 @@ class LightDatabaseInfoService
      * - primary: an array of the column names of the primary key (empty if no primary key)
      * - types: an array of columnName => type
      *          Type is a string representing the mysql type ( ex: int(11), or varchar(128), ... ).
+     *          List of mysql types here: https://dev.mysql.com/doc/refman/8.0/en/data-types.html
      * - ric: the @page(ric) array
      * - autoIncrementedKey: the name of the auto-incremented column, or false (if there is no auto-incremented column)
+     * - uniqueIndexes: It's an array of indexName => indexes. With indexes being an array of column names ordered by ascending index sequence.
      *
      *
      * If the reload flag is set to true, the cache will be refreshed before the result is returned.
@@ -82,6 +84,8 @@ class LightDatabaseInfoService
         $autoIncrementedKey = $util->getAutoIncrementedKey($table);
         $ret['autoIncrementedKey'] = $autoIncrementedKey;
 
+        $ret['uniqueIndexes'] = $util->getUniqueIndexes($table);
+
         /**
          * Note: as for now, I didn't implement cache, because the perfs didn't ask for it.
          * But to implement it, just add the cache layer exactly here (i.e. cache the ret array)
@@ -89,6 +93,20 @@ class LightDatabaseInfoService
         return $ret;
     }
 
+
+    /**
+     * Returns the array of tables for the given database.
+     * If the database is null, the default database will be used.
+     *
+     * @param string|null $database
+     * @return array
+     * @throws \Exception
+     */
+    public function getTables(string $database = null): array
+    {
+        $util = $this->prepareMysqlInfoUtil($database);
+        return $util->getTables();
+    }
 
     /**
      * Returns the array of tables which prefix match the given prefix.

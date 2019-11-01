@@ -44,6 +44,11 @@ Return values
 Returns bool.
 
 
+Exceptions thrown
+================
+
+- [Exception](http://php.net/manual/en/class.exception.php).&nbsp;
+
 
 
 
@@ -52,7 +57,7 @@ Returns bool.
 
 Source Code
 ===========
-See the source code for method [Chloroform::validates](https://github.com/lingtalfi/Chloroform/blob/master/Form/Chloroform.php#L136-L153)
+See the source code for method [Chloroform::validates](https://github.com/lingtalfi/Chloroform/blob/master/Form/Chloroform.php#L131-L153)
 
 
 See Also
@@ -60,5 +65,5 @@ See Also
 
 The [Chloroform](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform.md) class.
 
-Previous method: [getPostedData](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform/getPostedData.md)<br>Next method: [getFields](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform/getFields.md)<br>
+Previous method: [getPostedData](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform/getPostedData.md)<br>Next method: [getVeryImportantData](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform/getVeryImportantData.md)<br>
 

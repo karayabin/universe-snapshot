@@ -1,0 +1,27 @@
+    /**
+     * The working horse behind the getUserById method.
+     * See the getUserById method for more details.
+     *
+     * @param int $id
+     * @param mixed=null $default
+     * @param bool $throwNotFoundEx
+     * @return mixed
+     * @throws \Exception
+     */
+    protected function doGetUserById(int $id, $default = null, bool $throwNotFoundEx = false)
+    {
+        $ret = $this->pdoWrapper->fetch("select * from `user` where id=:id", [
+            "id" => $id,
+        ]);
+        if (false === $ret) {
+            if (true === $throwNotFoundEx) {
+                throw new \RuntimeException("Row not found with id=$id.");
+            } else {
+                $ret = $default;
+            }
+        }
+        return $ret;
+    }
+
+
+// doGetXXX

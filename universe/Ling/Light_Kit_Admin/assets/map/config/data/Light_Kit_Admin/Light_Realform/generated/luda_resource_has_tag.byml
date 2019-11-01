@@ -1,0 +1,18 @@
+form_handler: 
+    id: realgen-luda_resource_has_tag
+    fields: 
+        resource_id: 
+            label: Resource id
+            type: number
+            validators: 
+                required: []
+            
+        
+        tag_id: 
+            label: Tag id
+            type: number
+            validators: 
+                required: []
+            
+        
+    

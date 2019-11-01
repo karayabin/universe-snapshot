@@ -2,12 +2,12 @@
 [Back to the Ling\Chloroform\Field\CSRFField class](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/CSRFField.md)
 
 
-CSRFField::getCSRFIdentifier
+CSRFField::getCsrfIdentifier
 ================
 
 
 
-CSRFField::getCSRFIdentifier — Returns the CSRFIdentifier of this instance.
+CSRFField::getCsrfIdentifier — Returns the csrfIdentifier of this instance.
 
 
 
@@ -16,12 +16,12 @@ Description
 ================
 
 
-public [CSRFField::getCSRFIdentifier](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/CSRFField/getCSRFIdentifier.md)() : string
+public [CSRFField::getCsrfIdentifier](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/CSRFField/getCsrfIdentifier.md)() : string
 
 
 
 
-Returns the CSRFIdentifier of this instance.
+Returns the csrfIdentifier of this instance.
 
 
 
@@ -46,7 +46,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [CSRFField::getCSRFIdentifier](https://github.com/lingtalfi/Chloroform/blob/master/Field/CSRFField.php#L70-L73)
+See the source code for method [CSRFField::getCsrfIdentifier](https://github.com/lingtalfi/Chloroform/blob/master/Field/CSRFField.php#L70-L73)
 
 
 See Also
@@ -54,5 +54,5 @@ See Also
 
 The [CSRFField](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/CSRFField.md) class.
 
-Previous method: [setCSRFIdentifier](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/CSRFField/setCSRFIdentifier.md)<br>Next method: [setCsrfProtector](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/CSRFField/setCsrfProtector.md)<br>
+Previous method: [setCsrfIdentifier](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/CSRFField/setCsrfIdentifier.md)<br>Next method: [setCsrfProtector](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/CSRFField/setCsrfProtector.md)<br>
 

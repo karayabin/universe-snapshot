@@ -4,7 +4,7 @@
 
 The IconTeaserWidget class
 ================
-2019-04-26 --> 2019-09-04
+2019-04-26 --> 2019-10-29
 
 
 
@@ -33,12 +33,12 @@ class <span class="pl-k">IconTeaserWidget</span> extends [PicassoWidget](https:/
     - public PicassoWidget::__construct() : void
     - public PicassoWidget::getLibraries() : array
     - public PicassoWidget::setCopilot([Ling\HtmlPageTools\Copilot\HtmlPageCopilot](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot.md) $copilot) : void
-    - public PicassoWidget::renderFile(string $filePath, array $variables = []) : false | string
+    - public PicassoWidget::renderFile(string $filePath, ?array $variables = []) : false | string
     - public PicassoWidget::prepare(array &$widgetConf, [Ling\HtmlPageTools\Copilot\HtmlPageCopilot](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot.md) $copilot) : void
-    - protected PicassoWidget::getAttributesHtml(bool $excludeClass = true) : string
+    - protected PicassoWidget::getAttributesHtml(?bool $excludeClass = true) : string
     - protected PicassoWidget::getCssClass() : string
     - protected PicassoWidget::registerLibrary(string $libraryName, array $css, array $js) : void
-    - public ZephyrTemplateEngine::render(string $resourceId, array $variables = []) : false | string
+    - public ZephyrTemplateEngine::render(string $resourceId, ?array $variables = []) : false | string
     - public ZephyrTemplateEngine::getErrors() : array
     - public ZephyrTemplateEngine::setDirectory(string $directory) : void
     - protected ZephyrTemplateEngine::interpret(string $___path, array $z) : false | string
@@ -81,4 +81,4 @@ See the source code of [Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\Ico
 
 SeeAlso
 ==============
-Previous class: [GlozzomTwoColumnsTeaserWidget](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/Widget/Picasso/GlozzomTwoColumnsTeaserWidget.md)<br>Next class: [LoopLabFooterWithContactUseButtonWidget](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/Widget/Picasso/LoopLabFooterWithContactUseButtonWidget.md)<br>
+Previous class: [GlozzomTwoColumnsTeaserWidget](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/Widget/Picasso/GlozzomTwoColumnsTeaserWidget.md)<br>Next class: [LightRealistWidget](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/Widget/Picasso/LightRealistWidget.md)<br>

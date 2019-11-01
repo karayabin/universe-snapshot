@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [TemplateWizard::__construct](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/TemplateWizard/TemplateWizard/__construct.md)(?string $insertDir) : void
+public [TemplateWizard::__construct](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/TemplateWizard/TemplateWizard/__construct.md)(string $insertDir) : void
 
 
 

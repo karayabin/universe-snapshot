@@ -88,10 +88,43 @@ $easy_route.methods_collection:
 
 
 
+Related
+==========
+
+- [Light_Realform](https://github.com/lingtalfi/Light_Realform): a tool to create any form
+- [Light_RealGenerator](https://github.com/lingtalfi/Light_RealGenerator): a tool to generate configuration files for realist and realform
 
 
 History Log
 =============
+
+- 1.17.1 -- 2019-11-01
+
+    - fix plugin erroneously depending from Light_Kit_Admin
+    
+- 1.17.0 -- 2019-10-30
+
+    - update LightRealistService->executeRequestById, now checks for micro-permission  
+    
+- 1.16.1 -- 2019-10-28
+
+    - fix OpenAdminTableBaseRealistListRenderer->renderTitle returning the title instead of printing it
+    
+- 1.16.0 -- 2019-10-28
+
+    - add RealistListRendererInterface->renderTitle
+    
+- 1.15.0 -- 2019-10-28
+
+    - add related_links section
+
+- 1.14.2 -- 2019-10-24
+
+    - add link in README.md
+    
+- 1.14.1 -- 2019-10-21
+
+    - added related section in README.md
 
 - 1.14.0 -- 2019-10-11
 

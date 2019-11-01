@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [PlanetParser::parse](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/PlanetParser/PlanetParser/parse.md)(string $planetDir, array $options = []) : [InfoInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/InfoInterface.md)
+public [PlanetParser::parse](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/PlanetParser/PlanetParser/parse.md)(string $planetDir, ?array $options = []) : [InfoInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/InfoInterface.md)
 
 
 

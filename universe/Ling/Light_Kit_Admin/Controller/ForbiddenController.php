@@ -40,6 +40,6 @@ class ForbiddenController extends AdminPageController
             ]);
         }
 
-        return $this->renderAdminPage('Light_Kit_Admin/kit/zeroadmin/zeroadmin_forbidden', [], $updator);
+        return $this->renderPage('Light_Kit_Admin/kit/zeroadmin/zeroadmin_forbidden', [], $updator);
     }
 }

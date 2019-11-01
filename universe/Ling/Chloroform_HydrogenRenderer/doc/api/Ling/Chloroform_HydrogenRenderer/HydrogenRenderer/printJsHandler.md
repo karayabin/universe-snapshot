@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [HydrogenRenderer::printJsHandler](https://github.com/lingtalfi/Chloroform_HydrogenRenderer/blob/master/doc/api/Ling/Chloroform_HydrogenRenderer/HydrogenRenderer/printJsHandler.md)(array $options = null) : void
+public [HydrogenRenderer::printJsHandler](https://github.com/lingtalfi/Chloroform_HydrogenRenderer/blob/master/doc/api/Ling/Chloroform_HydrogenRenderer/HydrogenRenderer/printJsHandler.md)(?array $options = null) : void
 
 
 

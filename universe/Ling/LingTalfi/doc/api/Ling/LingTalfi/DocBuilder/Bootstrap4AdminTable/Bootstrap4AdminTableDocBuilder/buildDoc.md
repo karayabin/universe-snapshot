@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [Bootstrap4AdminTableDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Bootstrap4AdminTable/Bootstrap4AdminTableDocBuilder/buildDoc.md)($htmlMode = true) : void
+public static [Bootstrap4AdminTableDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Bootstrap4AdminTable/Bootstrap4AdminTableDocBuilder/buildDoc.md)(?$htmlMode = true) : void
 
 
 

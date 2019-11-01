@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [KitDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Kit/KitDocBuilder/buildDoc.md)($htmlMode = true) : void
+public static [KitDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Kit/KitDocBuilder/buildDoc.md)(?$htmlMode = true) : void
 
 
 

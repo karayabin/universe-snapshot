@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [SelectField::__construct](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/SelectField/__construct.md)(array $properties = []) : void
+public [SelectField::__construct](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/SelectField/__construct.md)(?array $properties = []) : void
 
 
 

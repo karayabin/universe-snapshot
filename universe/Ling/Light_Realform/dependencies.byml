@@ -1,0 +1,13 @@
+dependencies: 
+    Ling: 
+        - Light
+        - Light_Csrf
+        - Chloroform
+        - BabyYaml
+        - Bat
+        - Light_MicroPermission
+        - SimplePdoWrapper
+    
+
+post_install: 
+    map: true

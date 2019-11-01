@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [HydrogenRenderer::__construct](https://github.com/lingtalfi/Chloroform_HydrogenRenderer/blob/master/doc/api/Ling/Chloroform_HydrogenRenderer/HydrogenRenderer/__construct.md)(array $options = []) : void
+public [HydrogenRenderer::__construct](https://github.com/lingtalfi/Chloroform_HydrogenRenderer/blob/master/doc/api/Ling/Chloroform_HydrogenRenderer/HydrogenRenderer/__construct.md)(?array $options = []) : void
 
 
 

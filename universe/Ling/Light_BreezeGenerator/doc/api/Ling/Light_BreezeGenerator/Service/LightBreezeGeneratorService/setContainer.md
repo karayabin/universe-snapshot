@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightBreezeGeneratorService::setContainer](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/Service/LightBreezeGeneratorService.php#L88-L91)
+See the source code for method [LightBreezeGeneratorService::setContainer](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/Service/LightBreezeGeneratorService.php#L102-L105)
 
 
 See Also
@@ -57,5 +57,5 @@ See Also
 
 The [LightBreezeGeneratorService](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Service/LightBreezeGeneratorService.md) class.
 
-Previous method: [setConf](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Service/LightBreezeGeneratorService/setConf.md)<br>
+Previous method: [addConfigurationEntryByFile](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Service/LightBreezeGeneratorService/addConfigurationEntryByFile.md)<br>
 

@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [Light_AjaxFileUploadManagerDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_AjaxFileUploadManager/Light_AjaxFileUploadManagerDocBuilder/buildDoc.md)($htmlMode = true) : void
+public static [Light_AjaxFileUploadManagerDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_AjaxFileUploadManager/Light_AjaxFileUploadManagerDocBuilder/buildDoc.md)(?$htmlMode = true) : void
 
 
 
@@ -70,7 +70,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [Light_AjaxFileUploadManagerDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Light_AjaxFileUploadManager/Light_AjaxFileUploadManagerDocBuilder.php#L44-L205)
+See the source code for method [Light_AjaxFileUploadManagerDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Light_AjaxFileUploadManager/Light_AjaxFileUploadManagerDocBuilder.php#L44-L206)
 
 
 See Also

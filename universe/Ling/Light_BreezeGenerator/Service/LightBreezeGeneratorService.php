@@ -4,6 +4,7 @@
 namespace Ling\Light_BreezeGenerator\Service;
 
 
+use Ling\BabyYaml\BabyYamlUtil;
 use Ling\Light\ServiceContainer\LightServiceContainerAwareInterface;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
 use Ling\Light_BreezeGenerator\Generator\BreezeGeneratorInterface;
@@ -78,6 +79,19 @@ class LightBreezeGeneratorService
     public function setConf(array $conf)
     {
         $this->conf = $conf;
+    }
+
+
+    /**
+     * Adds a configuration entry referenced by the given key, and which content is defined in the given @page(babyYaml) file.
+     *
+     *
+     * @param string $key
+     * @param string $file
+     */
+    public function addConfigurationEntryByFile(string $key, string $file)
+    {
+        $this->conf[$key] = BabyYamlUtil::readFile($file);
     }
 
     /**

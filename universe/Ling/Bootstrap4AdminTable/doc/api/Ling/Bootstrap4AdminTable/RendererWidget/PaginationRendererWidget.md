@@ -4,7 +4,7 @@
 
 The PaginationRendererWidget class
 ================
-2019-08-15 --> 2019-10-11
+2019-08-15 --> 2019-10-28
 
 
 
@@ -56,4 +56,4 @@ See the source code of [Ling\Bootstrap4AdminTable\RendererWidget\PaginationRende
 
 SeeAlso
 ==============
-Previous class: [NumberOfRowsInfoRendererWidget](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/NumberOfRowsInfoRendererWidget.md)<br>Next class: [RendererWidgetInterface](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/RendererWidgetInterface.md)<br>
+Previous class: [NumberOfRowsInfoRendererWidget](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/NumberOfRowsInfoRendererWidget.md)<br>Next class: [RelatedLinksRendererWidget](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/RelatedLinksRendererWidget.md)<br>

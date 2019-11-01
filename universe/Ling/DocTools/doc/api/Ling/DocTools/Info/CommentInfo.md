@@ -4,7 +4,7 @@
 
 The CommentInfo class
 ================
-2019-02-21 --> 2019-10-08
+2019-02-21 --> 2019-10-25
 
 
 
@@ -65,18 +65,18 @@ class <span class="pl-k">CommentInfo</span> implements [InfoInterface](https://g
 - Methods
     - public [__construct](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/CommentInfo/__construct.md)() : void
     - public [getRawText](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/CommentInfo/getRawText.md)() : string
-    - public [getMainText](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/CommentInfo/getMainText.md)(array $options = []) : string
+    - public [getMainText](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/CommentInfo/getMainText.md)(?array $options = []) : string
     - public [hasEmptyMainText](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/CommentInfo/hasEmptyMainText.md)() : bool
-    - public [getTagContent](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/CommentInfo/getTagContent.md)(?$tagName, $default = null) : mixed | null
+    - public [getTagContent](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/CommentInfo/getTagContent.md)($tagName, ?$default = null) : mixed | null
     - public [getTags](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/CommentInfo/getTags.md)() : array
     - public [getTagsByName](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/CommentInfo/getTagsByName.md)(string $tagName) : array
     - public [getTagByName](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/CommentInfo/getTagByName.md)(string $tagName) : string | null
     - public [hasTag](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/CommentInfo/hasTag.md)(string $tagName) : bool
-    - public [setRawText](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/CommentInfo/setRawText.md)(?$rawText) : [CommentInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/CommentInfo.md)
-    - public [setMainText](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/CommentInfo/setMainText.md)(?$mainText) : [CommentInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/CommentInfo.md)
+    - public [setRawText](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/CommentInfo/setRawText.md)($rawText) : [CommentInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/CommentInfo.md)
+    - public [setMainText](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/CommentInfo/setMainText.md)($mainText) : [CommentInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/CommentInfo.md)
     - public [setTags](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/CommentInfo/setTags.md)(array $tags) : [CommentInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/CommentInfo.md)
     - public [getFirstLine](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/CommentInfo/getFirstLine.md)() : string
-    - public [setFirstLine](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/CommentInfo/setFirstLine.md)(?$firstLine) : [CommentInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/CommentInfo.md)
+    - public [setFirstLine](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/CommentInfo/setFirstLine.md)($firstLine) : [CommentInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/CommentInfo.md)
     - public [getFirstSentence](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/CommentInfo/getFirstSentence.md)() : string
     - public [setFirstSentence](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/CommentInfo/setFirstSentence.md)(string $firstSentence) : [CommentInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/CommentInfo.md)
     - public [isEmpty](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/CommentInfo/isEmpty.md)() : bool

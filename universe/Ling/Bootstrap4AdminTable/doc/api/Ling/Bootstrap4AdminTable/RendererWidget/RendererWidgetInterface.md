@@ -4,7 +4,7 @@
 
 The RendererWidgetInterface class
 ================
-2019-08-15 --> 2019-10-11
+2019-08-15 --> 2019-10-28
 
 
 
@@ -52,4 +52,4 @@ See the source code of [Ling\Bootstrap4AdminTable\RendererWidget\RendererWidgetI
 
 SeeAlso
 ==============
-Previous class: [PaginationRendererWidget](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/PaginationRendererWidget.md)<br>Next class: [ToolbarRendererWidget](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/ToolbarRendererWidget.md)<br>
+Previous class: [RelatedLinksRendererWidgetInterface](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/RelatedLinksRendererWidgetInterface.md)<br>Next class: [ToolbarRendererWidget](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/ToolbarRendererWidget.md)<br>

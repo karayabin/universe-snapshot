@@ -1,0 +1,4 @@
+micro_permissions:
+    Light_Kit_Admin.tables.lud_user.create: Light_Kit_Admin.admin
+    Light_Kit_Admin.tables.lud_user.read: Light_Kit_Admin.admin
+    Light_Kit_Admin.tables.lud_user.delete: Light_Kit_Admin.admin

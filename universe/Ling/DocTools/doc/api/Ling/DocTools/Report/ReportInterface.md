@@ -4,7 +4,7 @@
 
 The ReportInterface class
 ================
-2019-02-21 --> 2019-10-08
+2019-02-21 --> 2019-10-25
 
 
 
@@ -116,7 +116,7 @@ abstract class <span class="pl-k">ReportInterface</span>  {
 
 - Methods
     - abstract public [setCurrentContext](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface/setCurrentContext.md)(string $context) : void
-    - abstract public [addParsedInlineFunction](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface/addParsedInlineFunction.md)(string $functionName, array $argsList = []) : void
+    - abstract public [addParsedInlineFunction](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface/addParsedInlineFunction.md)(string $functionName, ?array $argsList = []) : void
     - abstract public [addParsedBlockLevelTag](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface/addParsedBlockLevelTag.md)(string $tagName) : void
     - abstract public [addUnknownInlineFunction](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface/addUnknownInlineFunction.md)(string $functionName) : void
     - abstract public [addUndefinedInlineKeyword](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface/addUndefinedInlineKeyword.md)(string $keyword, string $functionName) : void
@@ -129,13 +129,32 @@ abstract class <span class="pl-k">ReportInterface</span>  {
     - abstract public [addPropertyWithoutComment](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface/addPropertyWithoutComment.md)(string $propertyName, string $visibility) : void
     - abstract public [addPropertyWithoutVarTag](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface/addPropertyWithoutVarTag.md)(string $propertyName) : void
     - abstract public [addParameterWithoutParamTag](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface/addParameterWithoutParamTag.md)(string $parameterName, string $methodName) : void
-    - abstract public [addUnresolvedClassReference](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface/addUnresolvedClassReference.md)(string $className, string $hint = null) : void
-    - abstract public [addUnresolvedMethodReference](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface/addUnresolvedMethodReference.md)(string $className, string $methodName, string $hint = null) : void
+    - abstract public [addUnresolvedClassReference](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface/addUnresolvedClassReference.md)(string $className, ?string $hint = null) : void
+    - abstract public [addUnresolvedMethodReference](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface/addUnresolvedMethodReference.md)(string $className, string $methodName, ?string $hint = null) : void
     - abstract public [addClassWithEmptyMainText](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface/addClassWithEmptyMainText.md)(string $className) : void
     - abstract public [addTodoText](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface/addTodoText.md)(string $todoText, string $hint) : mixed
     - abstract public [addPropertyWithEmptyMainText](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface/addPropertyWithEmptyMainText.md)(string $className, string $propertyName) : void
     - abstract public [addMethodWithEmptyMainText](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface/addMethodWithEmptyMainText.md)(string $className, string $methodName) : void
     - abstract public [__toString](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface/__toString.md)() : string
+    - abstract public [getParsedInlineFunctions](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface/getParsedInlineFunctions.md)() : array
+    - abstract public [getParsedBlockLevelTags](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface/getParsedBlockLevelTags.md)() : array
+    - abstract public [getUnknownInlineFunctions](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface/getUnknownInlineFunctions.md)() : array
+    - abstract public [getUndefinedInlineKeywords](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface/getUndefinedInlineKeywords.md)() : array
+    - abstract public [getUndefinedInlineClasses](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface/getUndefinedInlineClasses.md)() : array
+    - abstract public [getUnresolvedImplementationTags](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface/getUnresolvedImplementationTags.md)() : array
+    - abstract public [getUnresolvedOverridesTags](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface/getUnresolvedOverridesTags.md)() : array
+    - abstract public [getClassesWithoutComment](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface/getClassesWithoutComment.md)() : array
+    - abstract public [getMethodsWithoutComment](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface/getMethodsWithoutComment.md)() : array
+    - abstract public [getMethodsWithoutReturnTag](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface/getMethodsWithoutReturnTag.md)() : array
+    - abstract public [getParametersWithoutParamTag](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface/getParametersWithoutParamTag.md)() : array
+    - abstract public [getPropertiesWithoutComment](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface/getPropertiesWithoutComment.md)() : array
+    - abstract public [getPropertiesWithoutVarTag](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface/getPropertiesWithoutVarTag.md)() : array
+    - abstract public [getUnresolvedClassReferences](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface/getUnresolvedClassReferences.md)() : array
+    - abstract public [getUnresolvedMethodReferences](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface/getUnresolvedMethodReferences.md)() : array
+    - abstract public [getClassesWithEmptyMainText](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface/getClassesWithEmptyMainText.md)() : array
+    - abstract public [getTodoTexts](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface/getTodoTexts.md)() : array
+    - abstract public [getPropertiesWithEmptyMainText](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface/getPropertiesWithEmptyMainText.md)() : array
+    - abstract public [getMethodsWithEmptyMainText](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface/getMethodsWithEmptyMainText.md)() : array
 
 }
 
@@ -168,6 +187,25 @@ Methods
 - [ReportInterface::addPropertyWithEmptyMainText](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface/addPropertyWithEmptyMainText.md) &ndash; Adds a property with an empty [main text](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/CommentInfo.md#the-doc-comment-structure).
 - [ReportInterface::addMethodWithEmptyMainText](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface/addMethodWithEmptyMainText.md) &ndash; Adds a method with an empty [main text](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/CommentInfo.md#the-doc-comment-structure).
 - [ReportInterface::__toString](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface/__toString.md) &ndash; Builds and returns the rendered report as a string.
+- [ReportInterface::getParsedInlineFunctions](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface/getParsedInlineFunctions.md) &ndash; Returns the array of the inline function parsed during this session.
+- [ReportInterface::getParsedBlockLevelTags](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface/getParsedBlockLevelTags.md) &ndash; Returns the array of the [block-level tags](https://github.com/lingtalfi/DocTools/blob/master/doc/pages/doctool-markup-language.md#block-level-tags) parsed during this session.
+- [ReportInterface::getUnknownInlineFunctions](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface/getUnknownInlineFunctions.md) &ndash; 
+- [ReportInterface::getUndefinedInlineKeywords](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface/getUndefinedInlineKeywords.md) &ndash; 
+- [ReportInterface::getUndefinedInlineClasses](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface/getUndefinedInlineClasses.md) &ndash; 
+- [ReportInterface::getUnresolvedImplementationTags](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface/getUnresolvedImplementationTags.md) &ndash; unresolved @implementation tag.
+- [ReportInterface::getUnresolvedOverridesTags](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface/getUnresolvedOverridesTags.md) &ndash; unresolved @overrides tag.
+- [ReportInterface::getClassesWithoutComment](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface/getClassesWithoutComment.md) &ndash; don't have a doc comment (or with an empty doc comment).
+- [ReportInterface::getMethodsWithoutComment](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface/getMethodsWithoutComment.md) &ndash; Returns the array of methods without a doc comment (or with an empty doc comment).
+- [ReportInterface::getMethodsWithoutReturnTag](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface/getMethodsWithoutReturnTag.md) &ndash; Returns the array of methods with a doc comment, but without a "@return" tag.
+- [ReportInterface::getParametersWithoutParamTag](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface/getParametersWithoutParamTag.md) &ndash; Returns the array of parameters without a "@param" tag.
+- [ReportInterface::getPropertiesWithoutComment](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface/getPropertiesWithoutComment.md) &ndash; Returns the array of properties without a doc comment (or with an empty doc comment).
+- [ReportInterface::getPropertiesWithoutVarTag](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface/getPropertiesWithoutVarTag.md) &ndash; Returns the array of properties without a "@var" tag specified.
+- [ReportInterface::getUnresolvedClassReferences](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface/getUnresolvedClassReferences.md) &ndash; Returns the array of unresolved class references.
+- [ReportInterface::getUnresolvedMethodReferences](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface/getUnresolvedMethodReferences.md) &ndash; Returns the array of unresolved method references.
+- [ReportInterface::getClassesWithEmptyMainText](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface/getClassesWithEmptyMainText.md) &ndash; Returns the array of the classes with an empty main text.
+- [ReportInterface::getTodoTexts](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface/getTodoTexts.md) &ndash; Returns the array of todo texts.
+- [ReportInterface::getPropertiesWithEmptyMainText](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface/getPropertiesWithEmptyMainText.md) &ndash; Returns the array of the properties with an empty main text.
+- [ReportInterface::getMethodsWithEmptyMainText](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface/getMethodsWithEmptyMainText.md) &ndash; Returns the array of the methods with an empty main text.
 
 
 

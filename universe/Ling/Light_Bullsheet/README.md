@@ -7,7 +7,7 @@ Light_Bullsheet
 A service for the [Light](https://github.com/lingtalfi/Light) framework to help generate fake data for a database.
 
 
-This is a [Light framework plugin](https://github.com/lingtalfi/Light/blob/master/doc/pages/plugin.md).
+This is a [Light plugin](https://github.com/lingtalfi/Light/blob/master/doc/pages/plugin.md).
 
 This is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
 

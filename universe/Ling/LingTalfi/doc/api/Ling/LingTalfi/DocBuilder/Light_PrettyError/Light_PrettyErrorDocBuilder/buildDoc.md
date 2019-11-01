@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [Light_PrettyErrorDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_PrettyError/Light_PrettyErrorDocBuilder/buildDoc.md)($htmlMode = true) : void
+public static [Light_PrettyErrorDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_PrettyError/Light_PrettyErrorDocBuilder/buildDoc.md)(?$htmlMode = true) : void
 
 
 

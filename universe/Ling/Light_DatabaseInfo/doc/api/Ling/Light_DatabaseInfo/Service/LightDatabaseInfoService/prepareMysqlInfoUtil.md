@@ -16,7 +16,7 @@ Description
 ================
 
 
-protected [LightDatabaseInfoService::prepareMysqlInfoUtil](https://github.com/lingtalfi/Light_DatabaseInfo/blob/master/doc/api/Ling/Light_DatabaseInfo/Service/LightDatabaseInfoService/prepareMysqlInfoUtil.md)(string $database = null) : [MysqlInfoUtil](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/MysqlInfoUtil.md)
+protected [LightDatabaseInfoService::prepareMysqlInfoUtil](https://github.com/lingtalfi/Light_DatabaseInfo/blob/master/doc/api/Ling/Light_DatabaseInfo/Service/LightDatabaseInfoService/prepareMysqlInfoUtil.md)(?string $database = null) : [MysqlInfoUtil](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/MysqlInfoUtil.md)
 
 
 
@@ -55,7 +55,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightDatabaseInfoService::prepareMysqlInfoUtil](https://github.com/lingtalfi/Light_DatabaseInfo/blob/master/Service/LightDatabaseInfoService.php#L143-L154)
+See the source code for method [LightDatabaseInfoService::prepareMysqlInfoUtil](https://github.com/lingtalfi/Light_DatabaseInfo/blob/master/Service/LightDatabaseInfoService.php#L160-L171)
 
 
 See Also

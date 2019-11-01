@@ -3,7 +3,6 @@ dependencies:
         - Light_AjaxHandler
         - Light
         - Light_Csrf
-        - Light_Kit_Admin
         - Bat
         - ArrayToString
         - BabyYaml

@@ -45,24 +45,6 @@ class FieldHelper
     }
 
 
-    /**
-     * Returns the value of the field in the given values array,
-     * or null if it doesn't exist.
-     *
-     * Note: the null state for non-existent fields might actually be used by
-     * checkbox validators.
-     *
-     *
-     *
-     * @param string $fieldId
-     * @param array $values
-     * @return mixed|null
-     */
-    public static function getFieldValue(string $fieldId, array $values)
-    {
-        return BDotTool::getDotValue($fieldId, $values, null);
-    }
-
 
     /**
      * Returns the html name from a field id.

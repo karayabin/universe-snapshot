@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [HashMapDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/HashMap/HashMapDocBuilder/buildDoc.md)($htmlMode = true) : void
+public static [HashMapDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/HashMap/HashMapDocBuilder/buildDoc.md)(?$htmlMode = true) : void
 
 
 

@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightBreezeGeneratorService::setConf](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/Service/LightBreezeGeneratorService.php#L78-L81)
+See the source code for method [LightBreezeGeneratorService::setConf](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/Service/LightBreezeGeneratorService.php#L79-L82)
 
 
 See Also
@@ -57,5 +57,5 @@ See Also
 
 The [LightBreezeGeneratorService](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Service/LightBreezeGeneratorService.md) class.
 
-Previous method: [generate](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Service/LightBreezeGeneratorService/generate.md)<br>Next method: [setContainer](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Service/LightBreezeGeneratorService/setContainer.md)<br>
+Previous method: [generate](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Service/LightBreezeGeneratorService/generate.md)<br>Next method: [addConfigurationEntryByFile](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Service/LightBreezeGeneratorService/addConfigurationEntryByFile.md)<br>
 

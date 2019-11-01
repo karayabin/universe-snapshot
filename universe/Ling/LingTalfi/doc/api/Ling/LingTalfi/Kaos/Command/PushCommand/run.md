@@ -60,7 +60,7 @@ If null, 0 should be assumed.
 
 Source Code
 ===========
-See the source code for method [PushCommand::run](https://github.com/lingtalfi/LingTalfi/blob/master/Kaos/Command/PushCommand.php#L54-L347)
+See the source code for method [PushCommand::run](https://github.com/lingtalfi/LingTalfi/blob/master/Kaos/Command/PushCommand.php#L55-L363)
 
 
 See Also

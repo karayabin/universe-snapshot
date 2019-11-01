@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [Light_Kit_DemoDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Kit_Demo/Light_Kit_DemoDocBuilder/buildDoc.md)($htmlMode = true) : void
+public static [Light_Kit_DemoDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Kit_Demo/Light_Kit_DemoDocBuilder/buildDoc.md)(?$htmlMode = true) : void
 
 
 

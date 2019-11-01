@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [LightTool::getPluginName](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Tool/LightTool/getPluginName.md)(?$instance) : string
+public static [LightTool::getPluginName](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Tool/LightTool/getPluginName.md)($instance) : string
 
 
 

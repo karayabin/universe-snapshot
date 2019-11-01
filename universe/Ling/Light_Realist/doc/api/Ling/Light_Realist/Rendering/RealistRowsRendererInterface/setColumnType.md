@@ -16,7 +16,7 @@ Description
 ================
 
 
-abstract public [RealistRowsRendererInterface::setColumnType](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Rendering/RealistRowsRendererInterface/setColumnType.md)(string $columnName, string $type, array $options = []) : void
+abstract public [RealistRowsRendererInterface::setColumnType](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Rendering/RealistRowsRendererInterface/setColumnType.md)(string $columnName, string $type, ?array $options = []) : void
 
 
 

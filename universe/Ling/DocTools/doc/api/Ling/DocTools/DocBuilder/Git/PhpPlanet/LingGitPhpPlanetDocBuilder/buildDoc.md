@@ -47,7 +47,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LingGitPhpPlanetDocBuilder::buildDoc](https://github.com/lingtalfi/DocTools/blob/master/DocBuilder/Git/PhpPlanet/LingGitPhpPlanetDocBuilder.php#L318-L343)
+See the source code for method [LingGitPhpPlanetDocBuilder::buildDoc](https://github.com/lingtalfi/DocTools/blob/master/DocBuilder/Git/PhpPlanet/LingGitPhpPlanetDocBuilder.php#L315-L340)
 
 
 See Also

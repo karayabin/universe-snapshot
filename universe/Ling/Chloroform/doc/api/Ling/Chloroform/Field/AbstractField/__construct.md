@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [AbstractField::__construct](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/AbstractField/__construct.md)(array $properties = []) : void
+public [AbstractField::__construct](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/AbstractField/__construct.md)(?array $properties = []) : void
 
 
 
@@ -67,7 +67,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [AbstractField::__construct](https://github.com/lingtalfi/Chloroform/blob/master/Field/AbstractField.php#L105-L128)
+See the source code for method [AbstractField::__construct](https://github.com/lingtalfi/Chloroform/blob/master/Field/AbstractField.php#L124-L150)
 
 
 See Also

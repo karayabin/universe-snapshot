@@ -1,0 +1,11 @@
+form_handler: 
+    id: realgen-luda_tag
+    fields: 
+        name: 
+            label: Name
+            type: string
+            validators: 
+                required: []
+            
+        
+    

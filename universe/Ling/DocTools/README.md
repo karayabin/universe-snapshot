@@ -649,6 +649,18 @@ This includes:
 History Log
 =============
 
+- 1.13.0 -- 2019-10-25
+
+    - add getters to ReportInterface
+    
+- 1.12.3 -- 2019-10-22
+
+    - fix CommentHelper::$propertyReturnTagTypes not having "static"
+    
+- 1.12.1 -- 2019-10-17
+
+    - fix MethodHelper::getMethodSignature adding question mark in front of non optional parameters
+    
 - 1.12.0 -- 2019-10-08
 
     - add LingGitPhpPlanetDocBuilder ignoreFilesStartingWith option

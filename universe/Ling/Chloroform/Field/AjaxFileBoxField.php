@@ -16,7 +16,7 @@ namespace Ling\Chloroform\Field;
  * rules to check for, such as the maximum number of files, the max file size, the allowed mime types, those kind of things.
  *
  * But the validation is not handled with php Validator (Chloroform/Validator) objects like other fields,
- * but rather by the javascript client.
+ * but rather by the server, with the javascript client passing an id for instance.
  *
  * One other main difference with a traditional FileField is that when the form is posted with a FileField,
  * the resulting value is stored from the $_FILES.
@@ -29,10 +29,14 @@ namespace Ling\Chloroform\Field;
  * And if maxFile is greater than 1, the value will be accessed from the $_POST array again, but will be an array of values.
  *
  * In fact, we don't even need to add the enctype=multipart/form-data on the form which contains an ajax box, because the
- * file sending is done in the background via ajax thanks to the javascript client.
+ * file sending is done in the background via ajax thanks to the javascript client, and as a result we only have
+ * either a string (if maxFile=1) or an array of strings (if maxFile>1) to validate against.
+ *
+ *
+ *
  *
  * Now this chloroform doesn't provide a javascript client, but I've developing one that does all that called js file uploader
- * in the lingtalfi repository on github.com.
+ * in the lingtalfi repository on github.com (https://github.com/lingtalfi/jsFileUploader).
  * Note: you can use any js client, as long as you understand how this class works.
  *
  *

@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [CommentInfo::getMainText](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/CommentInfo/getMainText.md)(array $options = []) : string
+public [CommentInfo::getMainText](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/CommentInfo/getMainText.md)(?array $options = []) : string
 
 
 

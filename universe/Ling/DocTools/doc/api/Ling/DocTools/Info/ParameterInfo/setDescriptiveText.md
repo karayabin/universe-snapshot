@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [ParameterInfo::setDescriptiveText](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/ParameterInfo/setDescriptiveText.md)(?string $descriptiveText) : void
+public [ParameterInfo::setDescriptiveText](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/ParameterInfo/setDescriptiveText.md)(string $descriptiveText) : void
 
 
 

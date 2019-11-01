@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [LightLoggerService::trace](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/trace.md)(?$msg) : void
+public [LightLoggerService::trace](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/trace.md)($msg) : void
 
 
 
@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightLoggerService::trace](https://github.com/lingtalfi/Light_Logger/blob/master/LightLoggerService.php#L206-L209)
+See the source code for method [LightLoggerService::trace](https://github.com/lingtalfi/Light_Logger/blob/master/LightLoggerService.php#L225-L228)
 
 
 See Also

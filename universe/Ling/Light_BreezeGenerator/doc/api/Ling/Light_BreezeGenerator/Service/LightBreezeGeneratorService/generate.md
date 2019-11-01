@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightBreezeGeneratorService::generate](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/Service/LightBreezeGeneratorService.php#L53-L66)
+See the source code for method [LightBreezeGeneratorService::generate](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/Service/LightBreezeGeneratorService.php#L54-L67)
 
 
 See Also

@@ -1,0 +1,33 @@
+dependencies: 
+    Ling: 
+        - Light_AjaxHandler
+        - Light_Realist
+        - BabyYaml
+        - Bat
+        - Light
+        - Light_BMenu
+        - Light_UserManager
+        - Light_User
+        - Chloroform
+        - Light_Csrf
+        - Light_Flasher
+        - Light_Kit
+        - WiseTool
+        - HtmlPageTools
+        - Light_UserDatabase
+        - Light_UserData
+        - Light_MicroPermission
+        - Light_Realform
+        - Light_DatabaseInfo
+        - PhpSpreadSheetTool
+        - SimplePdoWrapper
+        - Light_Bullsheet
+        - Light_DatabaseUtils
+        - Light_Initializer
+        - Light_PluginDatabaseInstaller
+        - Kit_PicassoWidget
+        - Chloroform_HeliumRenderer
+    
+
+post_install: 
+    map: true

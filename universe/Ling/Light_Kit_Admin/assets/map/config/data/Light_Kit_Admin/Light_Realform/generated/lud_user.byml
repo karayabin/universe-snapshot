@@ -1,0 +1,32 @@
+form_handler: 
+    id: realgen-lud_user
+    fields: 
+        identifier: 
+            label: Identifier
+            type: string
+            validators: 
+                required: []
+            
+        
+        pseudo: 
+            label: Pseudo
+            type: string
+            validators: 
+                required: []
+            
+        
+        avatar_url: 
+            label: Avatar url
+            type: string
+            validators: 
+                required: []
+            
+        
+        extra: 
+            label: Extra
+            type: string
+            validators: 
+                required: []
+            
+        
+    

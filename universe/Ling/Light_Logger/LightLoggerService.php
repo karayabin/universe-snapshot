@@ -98,6 +98,7 @@ class LightLoggerService implements UniversalLoggerInterface
      */
     private $useExpandedArray;
 
+
     /**
      * Builds the LightLoggerService instance.
      */
@@ -110,18 +111,24 @@ class LightLoggerService implements UniversalLoggerInterface
 
 
     /**
-     * Registers a listener ($callable) for the given $channel(s).
+     * Registers a listener (callable) for the given $channel(s).
      *
-     * @param string|array $channel , if the special channel "*" is specified, the listener will be notified
-     *              of every message on every channel.
      *
-     *          If channel is a string, the listener will be subscribing messages for that particular channel.
-     *          An array of channels can also be passed, to subscribe to multiple channels at the same time.
+     * If channel is a string, the listener will be subscribing messages for that particular channel.
+     * An array of channels can also be passed, to subscribe to multiple channels at the same time.
      *
+     * If the special channel "*" is specified, the listener will be notified of every message on every channel.
+     * In that case, it's possible to remove some channels from the "*" using the minus argument.
+     * The minus argument is an array of channels to remove from the "*".
+     *
+     *
+     *
+     * @param string|array $channel
+     * @param array $minus
      *
      * @param LightLoggerListenerInterface|callable $listener
      */
-    public function addListener($channel, $listener)
+    public function addListener($channel, $listener, array $minus = [])
     {
         if ($listener instanceof LightLoggerListenerInterface) {
             $listener = [$listener, "listen"];
@@ -131,6 +138,9 @@ class LightLoggerService implements UniversalLoggerInterface
             $channel = [$channel];
         }
         foreach ($channel as $chan) {
+            if ('*' === $chan && (false === empty($minus))) {
+                $chan .= '-' . implode(',', $minus);
+            }
             $this->listeners[$chan][] = $listener;
         }
     }
@@ -184,13 +194,22 @@ class LightLoggerService implements UniversalLoggerInterface
         }
 
         // handling the * symbol
-        if (array_key_exists("*", $this->listeners)) {
-            $listeners = $this->listeners["*"];
-            foreach ($listeners as $listener) {
-                call_user_func($listener, $loggerMsg, $channel);
+        foreach ($this->listeners as $chan => $listeners) {
+            if (0 === strpos('*', $chan)) {
+                if ("*" !== $chan) {
+                    list($asterisk, $sMinus) = explode('-', $chan);
+                    $minus = explode(",", $sMinus);
+                    if (in_array($chan, $minus, true)) {
+                        continue;
+                    }
+                }
+
+
+                foreach ($listeners as $listener) {
+                    call_user_func($listener, $loggerMsg, $channel);
+                }
             }
         }
-
     }
 
 

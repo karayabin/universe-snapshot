@@ -16,7 +16,7 @@ Description
 ================
 
 
-protected [LightLoggerService::getFormattedMessage](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/getFormattedMessage.md)(string $channel, ?$msg) : string
+protected [LightLoggerService::getFormattedMessage](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/getFormattedMessage.md)(string $channel, $msg) : string
 
 
 
@@ -53,7 +53,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [LightLoggerService::getFormattedMessage](https://github.com/lingtalfi/Light_Logger/blob/master/LightLoggerService.php#L281-L297)
+See the source code for method [LightLoggerService::getFormattedMessage](https://github.com/lingtalfi/Light_Logger/blob/master/LightLoggerService.php#L300-L316)
 
 
 See Also

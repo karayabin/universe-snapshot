@@ -7,7 +7,7 @@ RealistListRendererInterface::render
 
 
 
-RealistListRendererInterface::render — Prints the list.
+RealistListRendererInterface::render — Prints the html list.
 
 
 
@@ -21,7 +21,7 @@ abstract public [RealistListRendererInterface::render](https://github.com/lingta
 
 
 
-Prints the list.
+Prints the html list.
 
 
 
@@ -54,5 +54,5 @@ See Also
 
 The [RealistListRendererInterface](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Rendering/RealistListRendererInterface.md) class.
 
-Previous method: [prepareByRequestDeclaration](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Rendering/RealistListRendererInterface/prepareByRequestDeclaration.md)<br>Next method: [renderListGeneralActions](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Rendering/RealistListRendererInterface/renderListGeneralActions.md)<br>
+Previous method: [prepareByRequestDeclaration](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Rendering/RealistListRendererInterface/prepareByRequestDeclaration.md)<br>Next method: [renderTitle](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Rendering/RealistListRendererInterface/renderTitle.md)<br>
 

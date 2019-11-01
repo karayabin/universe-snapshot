@@ -16,7 +16,7 @@ Description
 ================
 
 
-abstract public [ReportInterface::addUnresolvedMethodReference](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface/addUnresolvedMethodReference.md)(string $className, string $methodName, string $hint = null) : void
+abstract public [ReportInterface::addUnresolvedMethodReference](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface/addUnresolvedMethodReference.md)(string $className, string $methodName, ?string $hint = null) : void
 
 
 

@@ -17,7 +17,7 @@ hoping to make the data easier to manage.
 The data related to a given user is stored in a directory in the filesystem called the user directory.
 
 
-All directories are stored under a predefined root directory.
+All directories are stored under a predefined **root directory**.
 
 
 How a user directory is organized depends on the user of this plugin (i.e. the developer),

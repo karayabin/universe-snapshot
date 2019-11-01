@@ -4,7 +4,7 @@
 
 The ParameterInfo class
 ================
-2019-02-21 --> 2019-10-08
+2019-02-21 --> 2019-10-25
 
 
 
@@ -36,13 +36,13 @@ class <span class="pl-k">ParameterInfo</span> implements [InfoInterface](https:/
     - public [getName](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/ParameterInfo/getName.md)() : string
     - public [setName](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/ParameterInfo/setName.md)(string $name) : void
     - public [getType](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/ParameterInfo/getType.md)() : string
-    - public [setType](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/ParameterInfo/setType.md)(?string $type) : void
+    - public [setType](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/ParameterInfo/setType.md)(string $type) : void
     - public [getDefaultValue](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/ParameterInfo/getDefaultValue.md)() : string | null
-    - public [setDefaultValue](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/ParameterInfo/setDefaultValue.md)(?string $defaultValue) : void
+    - public [setDefaultValue](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/ParameterInfo/setDefaultValue.md)(string $defaultValue) : void
     - public [getValueAlternatives](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/ParameterInfo/getValueAlternatives.md)() : string | null
-    - public [setValueAlternatives](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/ParameterInfo/setValueAlternatives.md)(?string $valueAlternatives) : void
+    - public [setValueAlternatives](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/ParameterInfo/setValueAlternatives.md)(string $valueAlternatives) : void
     - public [getDescriptiveText](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/ParameterInfo/getDescriptiveText.md)() : string | null
-    - public [setDescriptiveText](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/ParameterInfo/setDescriptiveText.md)(?string $descriptiveText) : void
+    - public [setDescriptiveText](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/ParameterInfo/setDescriptiveText.md)(string $descriptiveText) : void
 
 }
 

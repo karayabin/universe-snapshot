@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [LightLoggerService::log](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/log.md)(?$message, string $channel) : void
+public [LightLoggerService::log](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/log.md)($message, string $channel) : void
 
 
 
@@ -53,7 +53,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightLoggerService::log](https://github.com/lingtalfi/Light_Logger/blob/master/LightLoggerService.php#L162-L165)
+See the source code for method [LightLoggerService::log](https://github.com/lingtalfi/Light_Logger/blob/master/LightLoggerService.php#L172-L175)
 
 
 See Also

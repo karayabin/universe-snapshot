@@ -4,7 +4,7 @@
 
 The LightRedServiceContainer class
 ================
-2019-04-09 --> 2019-10-09
+2019-04-09 --> 2019-10-28
 
 
 
@@ -24,15 +24,22 @@ Class synopsis
 
 class <span class="pl-k">LightRedServiceContainer</span> extends [RedOctopusServiceContainer](https://github.com/lingtalfi/Octopus/blob/master/ServiceContainer/RedOctopusServiceContainer.php) implements [OctopusServiceContainerInterface](https://github.com/lingtalfi/Octopus/blob/master/ServiceContainer/OctopusServiceContainerInterface.php), [LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) {
 
+- Properties
+    - protected string [$appDir](#property-appDir) ;
+
+- Methods
+    - public [__construct](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightRedServiceContainer/__construct.md)() : void
+    - public [getApplicationDir](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightRedServiceContainer/getApplicationDir.md)() : string
+    - public [setApplicationDir](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightRedServiceContainer/setApplicationDir.md)(string $appDir) : void
+
 - Inherited methods
-    - public RedOctopusServiceContainer::__construct() : void
     - public RedOctopusServiceContainer::build(array $config) : void
     - public RedOctopusServiceContainer::get(string $service) : object
     - public RedOctopusServiceContainer::has(string $service) : bool
     - public RedOctopusServiceContainer::all() : array
-    - protected RedOctopusServiceContainer::resolveCustomNotation(?$value, &$isCustomNotation = false) : mixed
+    - protected RedOctopusServiceContainer::resolveCustomNotation($value, ?&$isCustomNotation = false) : mixed
     - protected RedOctopusServiceContainer::registerServices(array $conf, array &$breadcrumb) : void
-    - protected RedOctopusServiceContainer::getServiceName(?$key, array $breadcrumb) : string
+    - protected RedOctopusServiceContainer::getServiceName($key, array $breadcrumb) : string
     - public HotServiceResolver::getService(array $sicBlock) : false | object | array
     - private HotServiceResolver::resolveArgs(array $args) : array
 
@@ -41,12 +48,23 @@ class <span class="pl-k">LightRedServiceContainer</span> extends [RedOctopusServ
 
 
 
+Properties
+=============
+
+- <span id="property-appDir"><b>appDir</b></span>
+
+    This property holds the appDir for this instance.
+    
+    
+
 
 
 Methods
 ==============
 
-- RedOctopusServiceContainer::__construct &ndash; Builds the red octopus instance.
+- [LightRedServiceContainer::__construct](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightRedServiceContainer/__construct.md) &ndash; Builds the LightRedServiceContainer instance.
+- [LightRedServiceContainer::getApplicationDir](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightRedServiceContainer/getApplicationDir.md) &ndash; Returns the application directory.
+- [LightRedServiceContainer::setApplicationDir](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightRedServiceContainer/setApplicationDir.md) &ndash; Sets the application directory.
 - RedOctopusServiceContainer::build &ndash; found in the given (sic) config.
 - RedOctopusServiceContainer::get &ndash; Returns the service (class instance) which name is given.
 - RedOctopusServiceContainer::has &ndash; 

@@ -3,6 +3,7 @@
 namespace Ling\Chloroform\Field;
 
 
+use Ling\Chloroform\DataTransformer\DataTransformerInterface;
 use Ling\Chloroform\Validator\ValidatorInterface;
 
 /**
@@ -29,6 +30,16 @@ interface FieldInterface
     public function addValidator(ValidatorInterface $validator);
 
 
+
+    /**
+     * Sets the dataTransformer for this field.
+     *
+     * @param DataTransformerInterface $dataTransformer
+     * @return FieldInterface
+     */
+    public function setDataTransformer(DataTransformerInterface $dataTransformer): FieldInterface;
+
+
     /**
      * Tests and returns whether every validator attached to this instanced passed.
      *
@@ -36,17 +47,14 @@ interface FieldInterface
      * Errors should then be retrieved using the getErrors method.
      *
      *
-     * If the injectValues flag is set to true, the value will be injected into the field.
      *
-     *
-     *
-     * @param array $postedData
-     * @param bool $injectValues = true
+     * @param mixed $value
+     * The value to validate.
      *
      *
      * @return bool
      */
-    public function validates(array $postedData, bool $injectValues = true): bool;
+    public function validates($value): bool;
 
 
     /**
@@ -78,6 +86,15 @@ interface FieldInterface
      */
     public function getValue();
 
+    /**
+     * Returns the fallback value, which defaults to null.
+     * See the @page(conception notes) for more details about the fallback value.
+     *
+     * @return mixed
+     */
+    public function getFallbackValue();
+
+
 
     /**
      * Returns the array representation of the field.
@@ -100,4 +117,19 @@ interface FieldInterface
      * @return array
      */
     public function toArray(): array;
+
+
+    /**
+     * Returns whether this field contains @page(very important data).
+     * @return bool
+     */
+    public function hasVeryImportantData(): bool;
+
+
+    /**
+     * Returns the data transformer of this field if any, or null otherwise.
+     *
+     * @return DataTransformerInterface|null
+     */
+    public function getDataTransformer(): ?DataTransformerInterface;
 }

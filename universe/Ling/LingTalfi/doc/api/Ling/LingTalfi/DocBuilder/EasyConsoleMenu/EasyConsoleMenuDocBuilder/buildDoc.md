@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [EasyConsoleMenuDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/EasyConsoleMenu/EasyConsoleMenuDocBuilder/buildDoc.md)($htmlMode = true) : void
+public static [EasyConsoleMenuDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/EasyConsoleMenu/EasyConsoleMenuDocBuilder/buildDoc.md)(?$htmlMode = true) : void
 
 
 

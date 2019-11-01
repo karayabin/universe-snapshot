@@ -7,7 +7,7 @@ RealistListRendererInterface::renderListGeneralActions
 
 
 
-RealistListRendererInterface::renderListGeneralActions — 
+RealistListRendererInterface::renderListGeneralActions — Prints the list general actions.
 
 
 
@@ -21,7 +21,7 @@ abstract public [RealistListRendererInterface::renderListGeneralActions](https:/
 
 
 
-Prints the list general actions
+Prints the list general actions.
 
 
 
@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [RealistListRendererInterface::renderListGeneralActions](https://github.com/lingtalfi/Light_Realist/blob/master/Rendering/RealistListRendererInterface.php#L40-L40)
+See the source code for method [RealistListRendererInterface::renderListGeneralActions](https://github.com/lingtalfi/Light_Realist/blob/master/Rendering/RealistListRendererInterface.php#L46-L46)
 
 
 See Also
@@ -54,5 +54,5 @@ See Also
 
 The [RealistListRendererInterface](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Rendering/RealistListRendererInterface.md) class.
 
-Previous method: [render](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Rendering/RealistListRendererInterface/render.md)<br>Next method: [setContainerCssId](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Rendering/RealistListRendererInterface/setContainerCssId.md)<br>
+Previous method: [renderTitle](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Rendering/RealistListRendererInterface/renderTitle.md)<br>Next method: [setContainerCssId](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Rendering/RealistListRendererInterface/setContainerCssId.md)<br>
 

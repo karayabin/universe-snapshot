@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [ParameterInfo::setValueAlternatives](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/ParameterInfo/setValueAlternatives.md)(?string $valueAlternatives) : void
+public [ParameterInfo::setValueAlternatives](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/ParameterInfo/setValueAlternatives.md)(string $valueAlternatives) : void
 
 
 

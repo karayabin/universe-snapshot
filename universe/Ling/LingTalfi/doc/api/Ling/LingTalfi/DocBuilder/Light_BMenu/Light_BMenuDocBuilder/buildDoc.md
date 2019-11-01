@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [Light_BMenuDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_BMenu/Light_BMenuDocBuilder/buildDoc.md)($htmlMode = true) : void
+public static [Light_BMenuDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_BMenu/Light_BMenuDocBuilder/buildDoc.md)(?$htmlMode = true) : void
 
 
 

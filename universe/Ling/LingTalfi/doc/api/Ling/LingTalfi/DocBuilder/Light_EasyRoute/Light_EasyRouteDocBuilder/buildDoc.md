@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [Light_EasyRouteDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_EasyRoute/Light_EasyRouteDocBuilder/buildDoc.md)($htmlMode = true) : void
+public static [Light_EasyRouteDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_EasyRoute/Light_EasyRouteDocBuilder/buildDoc.md)(?$htmlMode = true) : void
 
 
 

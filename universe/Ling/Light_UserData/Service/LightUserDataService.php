@@ -9,6 +9,7 @@ use Ling\Bat\HashTool;
 use Ling\DirScanner\YorgDirScannerTool;
 use Ling\Light\Core\Light;
 use Ling\Light\Http\HttpRequestInterface;
+use Ling\Light\ReverseRouter\LightReverseRouterInterface;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
 use Ling\Light_Initializer\Initializer\LightInitializerInterface;
 use Ling\Light_PluginDatabaseInstaller\Service\LightPluginDatabaseInstallerService;
@@ -68,6 +69,13 @@ class LightUserDataService implements LightInitializerInterface
 
 
     /**
+     * This property holds the name of the plugin used to handle the microPermissions for the classes located in the Api/ directory.
+     * @var string
+     */
+    protected $microPermissionPlugin;
+
+
+    /**
      * This property holds the directoryKey for this instance.
      * @var string
      */
@@ -85,6 +93,8 @@ class LightUserDataService implements LightInitializerInterface
         $this->obfuscationAlgorithm = "default";
         $this->obfuscationSecret = 'abc';
         $this->factory = new LightUserDataApiFactory();
+        $this->microPermissionPlugin = null;
+        $this->directoryKey = "directory";
         $this->directoryKey = "directory";
     }
 
@@ -197,6 +207,17 @@ class LightUserDataService implements LightInitializerInterface
         $this->factory->setPdoWrapper($container->get("database"));
     }
 
+    /**
+     * Sets the microPermissionPlugin.
+     *
+     * @param string $microPermissionPlugin
+     */
+    public function setMicroPermissionPlugin(string $microPermissionPlugin)
+    {
+        $this->microPermissionPlugin = $microPermissionPlugin;
+        $this->factory->setMicroPermissionPlugin($microPermissionPlugin);
+    }
+
 
     /**
      * Sets the obfuscation parameters to use.
@@ -218,6 +239,16 @@ class LightUserDataService implements LightInitializerInterface
     public function setRootDir(string $rootDir)
     {
         $this->rootDir = $rootDir;
+    }
+
+    /**
+     * Returns the rootDir of this instance.
+     *
+     * @return string
+     */
+    public function getRootDir(): string
+    {
+        return $this->rootDir;
     }
 
 
@@ -262,7 +293,8 @@ class LightUserDataService implements LightInitializerInterface
 
 
     /**
-     * Saves the data for the current user to the given relative path.
+     * Saves the data for the current user to the given relative path,
+     * and returns the url of the saved resource.
      *
      * The available options are:
      * - tags: an array of tags to bind to the given resource
@@ -273,21 +305,16 @@ class LightUserDataService implements LightInitializerInterface
      * @param string $path
      * @param string $data
      * @param array $options
+     * @return string
      * @throws \Exception
      */
-    public function save(string $path, string $data, array $options = [])
+    public function save(string $path, string $data, array $options = []): string
     {
 
+        $this->getUserDir(); // assuming the user calling the save method owns the file (for now...)
         $tags = $options['tags'] ?? [];
         $is_private = $options['is_private'] ?? false;
-
-
-        $file = $this->getUserDir() . "/$path";
-        FileSystemTool::mkfile($file, $data);
-
-        if (true === $is_private) {
-            FileSystemTool::mkfile($file . ".private", $data);
-        }
+        $userIdentifier = $this->getUserIdentifier();
 
 
         /**
@@ -298,9 +325,9 @@ class LightUserDataService implements LightInitializerInterface
          * @var $exception \Exception
          */
         $exception = null;
-        $res = $db->transaction(function () use ($tags, $path) {
+        $res = $db->transaction(function () use ($tags, $path, $userIdentifier) {
             $resourceId = $this->factory->getResourceApi()->insertResource([
-                "real_path" => $path,
+                "real_path" => $userIdentifier . "/" . $path,
             ]);
 
             if ($tags) {
@@ -322,7 +349,76 @@ class LightUserDataService implements LightInitializerInterface
             throw $exception;
         }
 
+
+        $userDir = $this->getUserDir();
+        $file = $userDir . "/$path";
+        FileSystemTool::mkfile($file, $data);
+
+        if (true === $is_private) {
+            FileSystemTool::mkfile($file . ".private", $data);
+        }
+
+
+        //--------------------------------------------
+        // RETURNING THE LINK
+        //--------------------------------------------
+        $userId = basename($userDir);
+        return $this->getResourceUrl($userId, $path);
     }
+
+
+    /**
+     * Returns the url to access the resource identified by the given userIdentifier and relativePath.
+     * The relativePath is the path relative from the user directory.
+     *
+     *
+     * @param string $userIdentifier
+     * @param string $relativePath
+     * @return string
+     * @throws LightUserDataException
+     * @throws \Exception
+     */
+    public function getResourceUrl(string $userIdentifier, string $relativePath): string
+    {
+        $file = $this->rootDir . "/" . $userIdentifier . "/" . $relativePath;
+
+        if (file_exists($file)) {
+
+
+            $row = $this->factory->getDirectoryMapApi()->getDirectoryMapByRealName($userIdentifier);
+            if (null !== $row) {
+                $obfuscatedName = $row['obfuscated_name'];
+
+                /**
+                 * @var $rr LightReverseRouterInterface
+                 */
+                $rr = $this->container->get('reverse_router');
+                return $rr->getUrl("luda_route-virtual_server", [
+                    "file" => $relativePath,
+                    "id" => $obfuscatedName,
+                    /**
+                     * I like to add a random parameter, to force the browser reloading the image every time.
+                     * That's because I was creating an user form where the user could upload his avatar via ajax,
+                     * and the file was delivered by this method, but the avatar didn't refresh (browser optimization I suppose)
+                     * until I refreshed the page.
+                     * So now with this random trick (t=$random), the browser is forced to reload the image,
+                     * and the form works fine.
+                     *
+                     */
+                    "t" => time(),
+                ]);
+
+
+            } else {
+                throw new LightUserDataException("A problem occurred with the file $relativePath, the given user identifier wasn't found in the database. You might want to refresh the references, or maybe the user has been deleted?");
+            }
+
+        } else {
+            // don't expose the user identifier in the error message, because that error message could be displayed to the user...
+            throw new LightUserDataException("File does not exist: $relativePath.");
+        }
+    }
+
 
     /**
      * Returns the content of the file of the current user which relative path is given.
@@ -334,6 +430,7 @@ class LightUserDataService implements LightInitializerInterface
      *
      *
      * @param string $path
+     * @param bool=true $throwEx
      * @return string|false
      * @throws \Exception
      */
@@ -347,6 +444,19 @@ class LightUserDataService implements LightInitializerInterface
             throw new LightUserDataException("File not found with path $path.");
         }
         return false;
+    }
+
+    /**
+     * Returns whether the given file is private or not.
+     *
+     * The given file is an absolute path.
+     *
+     * @param string $file
+     * @return bool
+     */
+    public function isPrivate(string $file): bool
+    {
+        return file_exists($file . ".private");
     }
 
 
@@ -409,6 +519,132 @@ class LightUserDataService implements LightInitializerInterface
     }
 
 
+    /**
+     * Returns the real name of the user directory, which obfuscated name was given,
+     * or returns false if no directory matches.
+     *
+     * @param string $obfuscatedName
+     * @return string|false
+     * @throws \Exception
+     */
+    public function getUserRealDirectoryName(string $obfuscatedName)
+    {
+        $row = $this->factory->getDirectoryMapApi()->getDirectoryMapByObfuscatedName($obfuscatedName);
+        if (null !== $row) {
+            return $row['real_name'];
+        }
+        return false;
+
+    }
+
+    /**
+     * Returns the obfuscated name of the user directory, which identifier was given,
+     * or returns false in case of no match.
+     *
+     * @param string $userId
+     * @return string|false
+     * @throws \Exception
+     */
+    public function getUserObfuscatedDirectoryName(string $userId)
+    {
+        $row = $this->factory->getDirectoryMapApi()->getDirectoryMapByRealName($userId);
+        if (null !== $row) {
+            return $row['obfuscated_name'];
+        }
+        return false;
+
+    }
+
+
+    /**
+     * Removes the 2svp extension from the given resource, and returns the new resource name.
+     *
+     *
+     * The resource is a relative path from the user directory to the desired file.
+     *
+     * Note: the user is identified by the given userOrIdentifier.
+     *
+     *
+     *
+     * In more details, this method:
+     * - updates the resource in the luda_resource table
+     * - renames the file on the file system
+     *
+     *
+     * @param string $resource
+     * @param LightUserInterface|string|null $userOrIdentifier
+     * @return string
+     * @throws \Exception
+     */
+    public function update2SvpResource(string $resource, $userOrIdentifier = null): string
+    {
+        if (false !== strpos($resource, '.2svp')) {
+
+            $userIdentifier = $this->getUserIdentifierByUserOrIdentifier($userOrIdentifier);
+            $newResource = str_replace('.2svp', '', $resource);
+            $this->rename($resource, $newResource, $userIdentifier);
+            return $newResource;
+
+        } else {
+            throw new LightUserDataException("The given resource doesn't contain the \".2svp\" extension.");
+        }
+    }
+
+
+    /**
+     * Renames the file identified by oldRealPath to a new file identified by newRealPath.
+     *
+     * This method will:
+     *
+     * - update the luda_resource.real_path column in the database.
+     *          Or, if another entry already exists with this real_path, we remove the old entry (note: real_path is a unique index,
+     *          so we can't have the same value more than once).
+     *
+     * - rename the file on the file system
+     *
+     * If the user is not passed, the @page(current user) will be assumed.
+     *
+     *
+     * @param string $oldRealPath
+     * @param string $newRealPath
+     * @param LightUserInterface|string|null $userOrIdentifier
+     * @throws \Exception
+     */
+    public function rename(string $oldRealPath, string $newRealPath, $userOrIdentifier = null)
+    {
+
+        $userIdentifier = $this->getUserIdentifierByUserOrIdentifier($userOrIdentifier);
+
+        $realResource = $userIdentifier . "/" . $oldRealPath;
+
+        // updating the database
+        $row = $this->factory->getResourceApi()->getResourceByRealPath($realResource, null, true);
+        $resourceId = $row['id'];
+
+        $newResource = $userIdentifier . "/" . $newRealPath;
+        $row['real_path'] = $newResource;
+
+        // is there already an entry with the new fileName? if so update that entry, otherwise update the old entry.
+        $alreadyExistingRow = $this->factory->getResourceApi()->getResourceByRealPath($newResource);
+        if (null !== $alreadyExistingRow) {
+            // should be the case when you updating a row, using the symbolic file name system with 2svp
+            $this->factory->getResourceApi()->deleteResourceById($resourceId);
+        } else {
+            // should be the case when you insert a row for the first time, using the symbolic file name system with 2svp
+            $this->factory->getResourceApi()->updateResourceById($resourceId, $row);
+        }
+
+
+        // updating the filesystem
+        $oldFile = $this->rootDir . "/" . $realResource;
+        $newFile = $this->rootDir . "/" . $newResource;
+        FileSystemTool::move($oldFile, $newFile);
+
+    }
+
+
+
+
     //--------------------------------------------
     //
     //--------------------------------------------
@@ -419,13 +655,52 @@ class LightUserDataService implements LightInitializerInterface
      */
     protected function getUserDir(): string
     {
+        $identifier = $this->getUserIdentifier();
+        return $this->rootDir . "/" . $identifier;
+    }
+
+
+    /**
+     * Returns the @page(current user) identifier.
+     *
+     * @return string
+     * @throws \Exception
+     */
+    protected function getUserIdentifier(): string
+    {
         $user = $this->currentUser;
         if (null === $user) {
             $user = $this->container->get("user_manager")->getUser();
         }
-        $identifier = $user->getIdentifier();
-        return $this->rootDir . "/" . $identifier;
+        return $user->getIdentifier();
     }
 
+
+
+    //--------------------------------------------
+    //
+    //--------------------------------------------
+    /**
+     * Returns the user identifier from the given userOrIdentifier.
+     *
+     *
+     * @param LightUserInterface|string|null $userOrIdentifier
+     * @return string
+     * @throws \Exception
+     */
+    private function getUserIdentifierByUserOrIdentifier($userOrIdentifier): string
+    {
+        if (null === $userOrIdentifier) {
+            $userIdentifier = $this->getUserIdentifier();
+        } elseif (is_string($userOrIdentifier)) {
+            $userIdentifier = $userOrIdentifier;
+        } elseif ($userOrIdentifier instanceof LightUserInterface) {
+            $userIdentifier = $userOrIdentifier->getIdentifier();
+        } else {
+            $type = gettype($userOrIdentifier);
+            throw new LightUserDataException("Unable to guess userIdentifier from the given userOrIdentifier (type=$type).");
+        }
+        return $userIdentifier;
+    }
 
 }

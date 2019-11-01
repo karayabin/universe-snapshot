@@ -1,0 +1,11 @@
+form_handler: 
+    id: realgen-luda_resource
+    fields: 
+        real_path: 
+            label: Real path
+            type: string
+            validators: 
+                required: []
+            
+        
+    

@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [KrankenSteinDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/KrankenStein/KrankenSteinDocBuilder/buildDoc.md)($htmlMode = true) : void
+public static [KrankenSteinDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/KrankenStein/KrankenSteinDocBuilder/buildDoc.md)(?$htmlMode = true) : void
 
 
 

@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [LightRealistService::prepareListGeneralActions](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Service/LightRealistService/prepareListGeneralActions.md)(array &$items, ?$requestId) : void
+public [LightRealistService::prepareListGeneralActions](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Service/LightRealistService/prepareListGeneralActions.md)(array &$items, $requestId) : void
 
 
 
@@ -59,7 +59,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightRealistService::prepareListGeneralActions](https://github.com/lingtalfi/Light_Realist/blob/master/Service/LightRealistService.php#L613-L623)
+See the source code for method [LightRealistService::prepareListGeneralActions](https://github.com/lingtalfi/Light_Realist/blob/master/Service/LightRealistService.php#L628-L638)
 
 
 See Also

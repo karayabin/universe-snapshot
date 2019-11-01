@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [ParameterInfo::setType](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/ParameterInfo/setType.md)(?string $type) : void
+public [ParameterInfo::setType](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/ParameterInfo/setType.md)(string $type) : void
 
 
 

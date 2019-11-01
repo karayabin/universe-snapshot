@@ -27,14 +27,20 @@ interface RealistListRendererInterface
 
 
     /**
-     * Prints the list.
+     * Prints the html list.
      *
      * @return void
      */
     public function render();
 
     /**
-     * Prints the list general actions
+     * Prints the list title.
+     * @return void
+     */
+    public function renderTitle();
+
+    /**
+     * Prints the list general actions.
      * @return void
      */
     public function renderListGeneralActions();

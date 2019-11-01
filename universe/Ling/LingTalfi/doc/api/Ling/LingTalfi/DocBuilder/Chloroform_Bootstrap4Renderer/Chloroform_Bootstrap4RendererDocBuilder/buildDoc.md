@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [Chloroform_Bootstrap4RendererDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Chloroform_Bootstrap4Renderer/Chloroform_Bootstrap4RendererDocBuilder/buildDoc.md)($htmlMode = true) : void
+public static [Chloroform_Bootstrap4RendererDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Chloroform_Bootstrap4Renderer/Chloroform_Bootstrap4RendererDocBuilder/buildDoc.md)(?$htmlMode = true) : void
 
 
 

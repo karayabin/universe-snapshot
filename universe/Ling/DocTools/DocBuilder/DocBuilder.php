@@ -101,6 +101,16 @@ abstract class DocBuilder
     }
 
 
+    /**
+     * Returns the report instance.
+     * @return ReportInterface
+     */
+    public function getReport(): ReportInterface
+    {
+        return $this->report;
+    }
+
+
     //--------------------------------------------
     //
     //--------------------------------------------

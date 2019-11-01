@@ -16,7 +16,7 @@ Description
 ================
 
 
-protected [BaseRealistRowsRenderer::renderColumnContent](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Rendering/BaseRealistRowsRenderer/renderColumnContent.md)(?$value, string $type, array $options, array $row) : string
+protected [BaseRealistRowsRenderer::renderColumnContent](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Rendering/BaseRealistRowsRenderer/renderColumnContent.md)($value, string $type, array $options, array $row) : string
 
 
 

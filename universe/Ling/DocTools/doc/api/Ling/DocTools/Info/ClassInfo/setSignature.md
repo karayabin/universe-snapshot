@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [ClassInfo::setSignature](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/ClassInfo/setSignature.md)(?$signature) : [ClassInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/ClassInfo.md)
+public [ClassInfo::setSignature](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/ClassInfo/setSignature.md)($signature) : [ClassInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/ClassInfo.md)
 
 
 

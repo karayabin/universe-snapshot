@@ -1,0 +1,2 @@
+events:
+    instance: Ling\Light_Events\Service\LightEventsService

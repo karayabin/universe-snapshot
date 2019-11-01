@@ -59,6 +59,7 @@ class CommentHelper
         'callable',
         'string',
         'void',
+        'static',
     ];
 
 

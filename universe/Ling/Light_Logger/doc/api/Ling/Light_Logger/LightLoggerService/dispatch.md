@@ -16,7 +16,7 @@ Description
 ================
 
 
-protected [LightLoggerService::dispatch](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/dispatch.md)(string $channel, ?$msg) : void
+protected [LightLoggerService::dispatch](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/dispatch.md)(string $channel, $msg) : void
 
 
 
@@ -53,7 +53,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightLoggerService::dispatch](https://github.com/lingtalfi/Light_Logger/blob/master/LightLoggerService.php#L174-L194)
+See the source code for method [LightLoggerService::dispatch](https://github.com/lingtalfi/Light_Logger/blob/master/LightLoggerService.php#L184-L213)
 
 
 See Also

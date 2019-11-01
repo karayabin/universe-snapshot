@@ -23,7 +23,7 @@ public [MethodCallResolver::resolve](https://github.com/lingtalfi/Light_Kit/blob
 
 Interprets the given $expr and returns the result.
 
-See the LightHelper::executeMethod for more details.
+See the [LightHelper::executeMethod](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/LightHelper/executeMethod.md) for more details.
 
 
 

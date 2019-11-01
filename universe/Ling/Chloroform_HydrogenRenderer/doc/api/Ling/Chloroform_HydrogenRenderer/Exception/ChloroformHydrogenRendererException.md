@@ -4,7 +4,7 @@
 
 The ChloroformHydrogenRendererException class
 ================
-2019-04-15 --> 2019-07-26
+2019-04-15 --> 2019-10-24
 
 
 

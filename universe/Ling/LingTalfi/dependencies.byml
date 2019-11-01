@@ -2,8 +2,8 @@ dependencies:
     Ling: 
         - DocTools
         - Kit_PicassoWidget
-        - CliTools
         - Bat
+        - CliTools
         - DirScanner
         - UniverseTools
         - BabyYaml

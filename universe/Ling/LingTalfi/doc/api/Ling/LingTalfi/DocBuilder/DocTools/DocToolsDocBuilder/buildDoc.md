@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [DocToolsDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/DocTools/DocToolsDocBuilder/buildDoc.md)($htmlMode = true) : void
+public static [DocToolsDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/DocTools/DocToolsDocBuilder/buildDoc.md)(?$htmlMode = true) : void
 
 
 

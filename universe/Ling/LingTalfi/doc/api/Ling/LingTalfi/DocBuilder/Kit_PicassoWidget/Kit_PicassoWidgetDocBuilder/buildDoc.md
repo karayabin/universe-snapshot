@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [Kit_PicassoWidgetDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Kit_PicassoWidget/Kit_PicassoWidgetDocBuilder/buildDoc.md)($htmlMode = true) : void
+public static [Kit_PicassoWidgetDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Kit_PicassoWidget/Kit_PicassoWidgetDocBuilder/buildDoc.md)(?$htmlMode = true) : void
 
 
 

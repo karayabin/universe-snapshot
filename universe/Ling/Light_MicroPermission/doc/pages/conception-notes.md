@@ -91,7 +91,9 @@ and I feel like a pragmatic guy today, so let me try this out, we can always cre
 later if necessary...
 
 
+I extended this section in the [recommended micro-permission notation document](https://github.com/lingtalfi/Light_MicroPermission/blob/master/doc/pages/recommended-micropermission-notation.md).
  
+
 
 
 

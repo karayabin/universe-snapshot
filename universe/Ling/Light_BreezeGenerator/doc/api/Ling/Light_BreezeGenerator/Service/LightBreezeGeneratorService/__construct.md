@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightBreezeGeneratorService::__construct](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/Service/LightBreezeGeneratorService.php#L40-L45)
+See the source code for method [LightBreezeGeneratorService::__construct](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/Service/LightBreezeGeneratorService.php#L41-L46)
 
 
 See Also

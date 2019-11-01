@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightLoggerService::setUseExpandedArray](https://github.com/lingtalfi/Light_Logger/blob/master/LightLoggerService.php#L153-L156)
+See the source code for method [LightLoggerService::setUseExpandedArray](https://github.com/lingtalfi/Light_Logger/blob/master/LightLoggerService.php#L163-L166)
 
 
 See Also

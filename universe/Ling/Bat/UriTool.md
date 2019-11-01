@@ -95,18 +95,42 @@ Gets the absolute url for a website. Useful when you need to redirect a page usi
 
 
 
-
-
-noEscalating
+httpBuildQuery
 -----------
-2017-05-10
+2019-10-21
 
 
 ```php
-str    noEscalating (string:uri)
+str    httpBuildQuery ( array:parameters )
 ```
 
-Returns an uri which, if mapped to the file system, wouldn't be able to escalate into parent directories.
+Returns the http query based on the given parameters.
+It's almost like the http_build_query php function, except that it returns a non-url-encoded string.
+
+
+### Example
+
+The following code:
+
+```php 
+$getVars = [
+    "files" => [
+        'images/avatar.png',
+        'photos/cat.png',
+    ],
+];
+az(UriTool::httpBuildQuery($getVars));
+```
+
+Will output something like:
+
+```html
+string(50) "files[0]=images/avatar.png&files[1]=photos/cat.png"
+```
+
+
+
+
 
 
 

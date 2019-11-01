@@ -7,7 +7,7 @@ namespace Ling\Bootstrap4AdminTable\RendererWidget;
 /**
  * The ListGeneralActionRendererWidgetInterface class.
  */
-interface ListGeneralActionRendererWidgetInterface
+interface ListGeneralActionRendererWidgetInterface extends RendererWidgetInterface
 {
     /**
      * Sets the groups.

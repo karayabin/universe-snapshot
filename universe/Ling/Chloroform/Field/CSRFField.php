@@ -14,13 +14,13 @@ class CSRFField extends HiddenField
 
 
     /**
-     * This property holds the CSRFIdentifier for this instance.
+     * This property holds the csrfIdentifier for this instance.
      *
      * The [Csrf identifier](https://github.com/lingtalfi/CSRFTools#a-quick-word-about-concurrent-csrf-tokens).
      *
      * @var string
      */
-    protected $CSRFIdentifier;
+    protected $csrfIdentifier;
 
     /**
      * This property holds the csrfProtector for this instance.
@@ -44,32 +44,32 @@ class CSRFField extends HiddenField
      */
     public function __construct(array $properties = [])
     {
-        $this->CSRFIdentifier = "chloroform-csrf-field";
+        $this->csrfIdentifier = "chloroform-csrf-field";
         $this->_tokenCreated = false;
         $this->csrfProtector = null;
         parent::__construct($properties);
     }
 
     /**
-     * Sets the CSRFIdentifier.
+     * Sets the csrfIdentifier.
      *
-     * @param string $CSRFIdentifier
+     * @param string $csrfIdentifier
      * @return $this
      */
-    public function setCSRFIdentifier(string $CSRFIdentifier)
+    public function setCsrfIdentifier(string $csrfIdentifier)
     {
-        $this->CSRFIdentifier = $CSRFIdentifier;
+        $this->csrfIdentifier = $csrfIdentifier;
         return $this;
     }
 
     /**
-     * Returns the CSRFIdentifier of this instance.
+     * Returns the csrfIdentifier of this instance.
      *
      * @return string
      */
-    public function getCSRFIdentifier(): string
+    public function getCsrfIdentifier(): string
     {
-        return $this->CSRFIdentifier;
+        return $this->csrfIdentifier;
     }
 
     /**
@@ -98,7 +98,7 @@ class CSRFField extends HiddenField
          * set to the CSRFProtector provided token.
          */
         if (false === $this->_tokenCreated) {
-            $this->value = $this->getCsrfProtector()->createToken($this->CSRFIdentifier);
+            $this->value = $this->getCsrfProtector()->createToken($this->csrfIdentifier);
             $this->_tokenCreated = true;
         }
         return $this->value;

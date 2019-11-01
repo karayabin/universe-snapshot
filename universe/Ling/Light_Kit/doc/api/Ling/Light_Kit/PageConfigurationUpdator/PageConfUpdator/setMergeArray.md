@@ -49,7 +49,7 @@ Returns [PageConfUpdator](https://github.com/lingtalfi/Light_Kit/blob/master/doc
 
 Source Code
 ===========
-See the source code for method [PageConfUpdator::setMergeArray](https://github.com/lingtalfi/Light_Kit/blob/master/PageConfigurationUpdator/PageConfUpdator.php#L88-L92)
+See the source code for method [PageConfUpdator::setMergeArray](https://github.com/lingtalfi/Light_Kit/blob/master/PageConfigurationUpdator/PageConfUpdator.php#L90-L94)
 
 
 See Also

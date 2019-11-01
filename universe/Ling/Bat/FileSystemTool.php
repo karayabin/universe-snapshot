@@ -128,6 +128,26 @@ class FileSystemTool
         return false;
     }
 
+    /**
+     * Returns a generator function, which can iterate over the lines of the given file.
+     */
+    public static function fileGenerator($file, $ignoreTrailingNewLines = true)
+    {
+        return function () use ($file, $ignoreTrailingNewLines) {
+            $f = fopen($file, 'r');
+            try {
+                while ($line = fgets($f)) {
+                    if (true === $ignoreTrailingNewLines) {
+                        yield rtrim($line, PHP_EOL);
+                    } else {
+                        yield $line;
+                    }
+                }
+            } finally {
+                fclose($f);
+            }
+        };
+    }
 
     /**
      * Gets file permissions.
@@ -245,24 +265,24 @@ class FileSystemTool
 
 
     /**
-     * Returns a generator function, which can iterate over the lines of the given file.
+     * Returns whether the given file and is under the given rootDir.
+     * If the $checkFileExists is set, also checks whether the file exists.
+     *
+     * @param string $file
+     * @param string $rootDir
+     * @param bool $checkFileExists
+     * @return bool
      */
-    public static function fileGenerator($file, $ignoreTrailingNewLines = true)
+    public static function isDirectoryTraversalSafe(string $file, string $rootDir, bool $checkFileExists = true): bool
     {
-        return function () use ($file, $ignoreTrailingNewLines) {
-            $f = fopen($file, 'r');
-            try {
-                while ($line = fgets($f)) {
-                    if (true === $ignoreTrailingNewLines) {
-                        yield rtrim($line, PHP_EOL);
-                    } else {
-                        yield $line;
-                    }
-                }
-            } finally {
-                fclose($f);
-            }
-        };
+        $realFile = realpath($file);
+        if (false === $realFile || 0 !== strpos($realFile, realpath($rootDir))) {
+            return false;
+        }
+        if (true === $checkFileExists) {
+            return file_exists($file);
+        }
+        return true;
     }
 
 
@@ -381,11 +401,6 @@ class FileSystemTool
     {
         $newPath = rtrim($directory, "/") . "/" . basename($filePath);
         return self::rename($filePath, $newPath);
-    }
-
-    public static function noEscalating($uri)
-    {
-        return str_replace('..', '', $uri);
     }
 
 

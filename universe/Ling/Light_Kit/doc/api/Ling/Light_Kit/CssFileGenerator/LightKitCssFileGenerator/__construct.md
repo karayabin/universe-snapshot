@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [LightKitCssFileGenerator::__construct](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/CssFileGenerator/LightKitCssFileGenerator/__construct.md)(string $rootDir, string $format = null) : void
+public [LightKitCssFileGenerator::__construct](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/CssFileGenerator/LightKitCssFileGenerator/__construct.md)(string $rootDir, ?string $format = null) : void
 
 
 

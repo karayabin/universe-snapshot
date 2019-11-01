@@ -7,7 +7,7 @@ LightAjaxFileUploadManagerService::executeAction
 
 
 
-LightAjaxFileUploadManagerService::executeAction — if the path is the chosen one (isReturnedPath=true), or null otherwise.
+LightAjaxFileUploadManagerService::executeAction — depending on the configuration of the given action.
 
 
 
@@ -22,8 +22,8 @@ protected [LightAjaxFileUploadManagerService::executeAction](https://github.com/
 
 
 Executes the action array on the file which path is given,
-and returns either the url (absolute, relative or even starting with http:// or https://)
-if the path is the chosen one (isReturnedPath=true), or null otherwise.
+and returns the url (absolute, relative or even starting with http:// or https://),
+depending on the configuration of the given action.
 
 The action array is defined in more details in the [action list](https://github.com/lingtalfi/Light_AjaxFileUploadManager/blob/master/doc/pages/action-list.md) page.
 
@@ -66,7 +66,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightAjaxFileUploadManagerService::executeAction](https://github.com/lingtalfi/Light_AjaxFileUploadManager/blob/master/Service/LightAjaxFileUploadManagerService.php#L347-L486)
+See the source code for method [LightAjaxFileUploadManagerService::executeAction](https://github.com/lingtalfi/Light_AjaxFileUploadManager/blob/master/Service/LightAjaxFileUploadManagerService.php#L390-L586)
 
 
 See Also

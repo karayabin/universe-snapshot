@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [ReverseRouter::__construct](https://github.com/lingtalfi/Light_ReverseRouter/blob/master/ReverseRouter.php#L31-L34)
+See the source code for method [ReverseRouter::__construct](https://github.com/lingtalfi/Light_ReverseRouter/blob/master/ReverseRouter.php#L32-L35)
 
 
 See Also

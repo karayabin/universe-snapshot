@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [FileField::create](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/FileField/create.md)(string $label, array $properties = []) : [FileField](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/FileField.md)
+public static [FileField::create](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/FileField/create.md)(string $label, ?array $properties = []) : [FileField](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/FileField.md)
 
 
 

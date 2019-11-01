@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [LightRealistService::executeRequestById](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Service/LightRealistService/executeRequestById.md)(string $requestId, array $params = []) : array
+public [LightRealistService::executeRequestById](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Service/LightRealistService/executeRequestById.md)(string $requestId, ?array $params = []) : array
 
 
 
@@ -91,7 +91,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightRealistService::executeRequestById](https://github.com/lingtalfi/Light_Realist/blob/master/Service/LightRealistService.php#L216-L372)
+See the source code for method [LightRealistService::executeRequestById](https://github.com/lingtalfi/Light_Realist/blob/master/Service/LightRealistService.php#L216-L387)
 
 
 See Also

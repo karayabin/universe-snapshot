@@ -48,7 +48,7 @@ class CSRFValidator extends AbstractValidator
             if (null === $value) {
                 $value = "";
             }
-            if (false === CSRFProtector::inst()->isValid($field->getCSRFIdentifier(), $value, true)) {
+            if (false === $this->csrfProtector->isValid($field->getCsrfIdentifier(), $value, true)) {
                 $error = $this->getErrorMessage("main", [
                     "fieldName" => $fieldName,
                 ]);

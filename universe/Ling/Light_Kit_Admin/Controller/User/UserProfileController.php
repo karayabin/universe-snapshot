@@ -4,7 +4,6 @@
 namespace Ling\Light_Kit_Admin\Controller\User;
 
 
-use Ling\Bat\ArrayTool;
 use Ling\Chloroform\Field\AjaxFileBoxField;
 use Ling\Chloroform\Field\PasswordField;
 use Ling\Chloroform\Field\StringField;
@@ -14,6 +13,8 @@ use Ling\Light_Kit_Admin\Chloroform\LightKitAdminChloroform;
 use Ling\Light_Kit_Admin\Controller\AdminPageController;
 use Ling\Light_Kit_Admin\Rights\RightsHelper;
 use Ling\Light_User\WebsiteLightUser;
+use Ling\Light_UserData\Chloroform\DataTransformer\LightUserData2SvpDataTransformer;
+use Ling\Light_UserData\Chloroform\Validator\ValidUserDataUrlValidator;
 use Ling\Light_UserDatabase\LightWebsiteUserDatabaseInterface;
 use Ling\WiseTool\WiseTool;
 
@@ -73,7 +74,10 @@ class UserProfileController extends AdminPageController
                 "id" => "lka_user_profile",
                 "csrf_token" => $csrf->createToken("ajax_file_upload_manager_service"),
             ],
-        ]));
+        ])->setDataTransformer(LightUserData2SvpDataTransformer::create()->setContainer($container)), [
+                ValidUserDataUrlValidator::create()->setContainer($container),
+            ]
+        );
 
         $form->addField(PasswordField::create("Password", [
             "value" => $password,
@@ -85,24 +89,21 @@ class UserProfileController extends AdminPageController
         if (true === $form->isPosted()) {
             if (true === $form->validates()) {
                 // do something with $postedData;
-                $postedData = $form->getFilteredPostedData();
+                $vid = $form->getVeryImportantData();
 
 
-                $allowed = [
-                    "pseudo",
-                    "password",
-                    "avatar_url",
-                ];
-                $filteredData = ArrayTool::filterByAllowed($postedData, $allowed);
+                $form->executeDataTransformers($vid);
+
+
 
 
                 //--------------------------------------------
                 // update the database
                 //--------------------------------------------
                 // empty password means we don't update the password
-                $password = $filteredData['password'];
+                $password = $vid['password'];
                 if (empty($password)) {
-                    unset($filteredData['password']);
+                    unset($vid['password']);
                 }
 
 
@@ -110,7 +111,7 @@ class UserProfileController extends AdminPageController
                  * @var $userDb LightWebsiteUserDatabaseInterface
                  */
                 $userDb = $container->get("user_database");
-                $userDb->updateUserById($user->getId(), $filteredData);
+                $userDb->updateUserById($user->getId(), $vid);
 
 
                 //--------------------------------------------

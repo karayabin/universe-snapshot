@@ -1,0 +1,5 @@
+real_generator:
+    instance: Ling\Light_RealGenerator\Service\LightRealGeneratorService
+    methods:
+        setContainer:
+            container: @container()

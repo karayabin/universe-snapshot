@@ -30,6 +30,7 @@ Summary
 - [Light_MicroPermission api](https://github.com/lingtalfi/Light_MicroPermission/blob/master/doc/api/Ling/Light_MicroPermission.md) (generated with [DocTools](https://github.com/lingtalfi/DocTools))
 - Pages
     - [Conception notes](https://github.com/lingtalfi/Light_MicroPermission/blob/master/doc/pages/conception-notes.md)
+    - [Recommended micro permission notation](https://github.com/lingtalfi/Light_MicroPermission/blob/master/doc/pages/recommended-micropermission-notation.md)
 - [Services](#services)
 
 
@@ -60,6 +61,10 @@ micro_permission:
 History Log
 =============
 
+- 1.1.2 -- 2019-10-30
+
+    - add "Recommended micro permission notation" document
+    
 - 1.1.1 -- 2019-09-27
 
     - fix typo

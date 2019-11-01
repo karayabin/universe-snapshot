@@ -4,7 +4,7 @@
 
 The DummyHtmlPageCopilot class
 ================
-2019-08-30 --> 2019-08-30
+2019-08-30 --> 2019-10-18
 
 
 
@@ -32,13 +32,12 @@ class <span class="pl-k">DummyHtmlPageCopilot</span> extends [HtmlPageCopilot](h
     - protected string [HtmlPageCopilot::$title](#property-title) ;
     - protected string [HtmlPageCopilot::$description](#property-description) ;
     - protected array [HtmlPageCopilot::$metas](#property-metas) ;
-    - protected array [HtmlPageCopilot::$libraryNames](#property-libraryNames) ;
-    - protected array [HtmlPageCopilot::$cssLibraries](#property-cssLibraries) ;
-    - protected array [HtmlPageCopilot::$jsLibraries](#property-jsLibraries) ;
+    - protected array [HtmlPageCopilot::$libraries](#property-libraries) ;
     - protected array [HtmlPageCopilot::$jsCodeBlocks](#property-jsCodeBlocks) ;
     - protected array [HtmlPageCopilot::$cssCodeBlocks](#property-cssCodeBlocks) ;
     - protected array [HtmlPageCopilot::$bodyTagClasses](#property-bodyTagClasses) ;
     - protected array [HtmlPageCopilot::$bodyTagAttributes](#property-bodyTagAttributes) ;
+    - protected array [HtmlPageCopilot::$modals](#property-modals) ;
 
 - Inherited methods
     - public HtmlPageCopilot::__construct() : void
@@ -51,10 +50,9 @@ class <span class="pl-k">DummyHtmlPageCopilot</span> extends [HtmlPageCopilot](h
     - public HtmlPageCopilot::addMeta(array $attributes) : void
     - public HtmlPageCopilot::getMetas() : array
     - public HtmlPageCopilot::hasLibrary(string $name) : bool
-    - public HtmlPageCopilot::addCssLibrary(string $name, string $href) : void
-    - public HtmlPageCopilot::getCssLibraries() : array
-    - public HtmlPageCopilot::addJsLibrary(string $name, string $src) : void
-    - public HtmlPageCopilot::getJsLibraries() : array
+    - public HtmlPageCopilot::registerLibrary(string $name, ?array $js = [], ?array $css = []) : void
+    - public HtmlPageCopilot::getCssUrls() : array
+    - public HtmlPageCopilot::getJsUrls() : array
     - public HtmlPageCopilot::addJsCodeBlock(string $codeBlock) : void
     - public HtmlPageCopilot::addCssCodeBlock(string $codeBlock) : void
     - public HtmlPageCopilot::getJsCodeBlocks() : array
@@ -64,6 +62,8 @@ class <span class="pl-k">DummyHtmlPageCopilot</span> extends [HtmlPageCopilot](h
     - public HtmlPageCopilot::addBodyTagClass(string $class) : void
     - public HtmlPageCopilot::setBodyTagAttribute(string $name, string $value) : void
     - public HtmlPageCopilot::getBodyTagAttributes() : array
+    - public HtmlPageCopilot::getModals() : array
+    - public HtmlPageCopilot::addModal(string $html) : void
 
 }
 
@@ -84,11 +84,10 @@ Methods
 - HtmlPageCopilot::hasDescription &ndash; Returns whether the description was defined.
 - HtmlPageCopilot::addMeta &ndash; Adds a meta to this instance.
 - HtmlPageCopilot::getMetas &ndash; Returns the metas of this instance.
-- HtmlPageCopilot::hasLibrary &ndash; Returns whether a library has been registered to this instance.
-- HtmlPageCopilot::addCssLibrary &ndash; Adds the $name css library to this instance.
-- HtmlPageCopilot::getCssLibraries &ndash; Returns the cssLibraries of this instance.
-- HtmlPageCopilot::addJsLibrary &ndash; Adds the $name js library to this instance.
-- HtmlPageCopilot::getJsLibraries &ndash; Returns the jsLibraries of this instance.
+- HtmlPageCopilot::hasLibrary &ndash; Returns whether a library has been registered.
+- HtmlPageCopilot::registerLibrary &ndash; Registers an asset library.
+- HtmlPageCopilot::getCssUrls &ndash; Returns all the css urls collected.
+- HtmlPageCopilot::getJsUrls &ndash; Returns all the js urls collected.
 - HtmlPageCopilot::addJsCodeBlock &ndash; Adds a js code block to this instance.
 - HtmlPageCopilot::addCssCodeBlock &ndash; Adds a css code block to this instance.
 - HtmlPageCopilot::getJsCodeBlocks &ndash; Returns the jsCodeBlocks of this instance.
@@ -98,6 +97,8 @@ Methods
 - HtmlPageCopilot::addBodyTagClass &ndash; Adds a css class (or space separated css classes) to the body tag.
 - HtmlPageCopilot::setBodyTagAttribute &ndash; Sets a body tag attribute.
 - HtmlPageCopilot::getBodyTagAttributes &ndash; Returns the array of all body tag attributes, including the class attribute (if set).
+- HtmlPageCopilot::getModals &ndash; Returns the modals of this instance.
+- HtmlPageCopilot::addModal &ndash; Adds a modal to this instance.
 
 
 

@@ -1,0 +1,12 @@
+
+    /**
+     * Updates the user row identified by the given id.
+     *
+     * @param int $id
+     * @param array $user
+     * @return void
+     * @throws \Exception
+     */
+    public function updateXXXById(int $id, array $user);
+
+// updateXXX

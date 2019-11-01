@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [AbstractReport::addUnresolvedClassReference](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/AbstractReport/addUnresolvedClassReference.md)(string $className, string $hint = null) : void
+public [AbstractReport::addUnresolvedClassReference](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/AbstractReport/addUnresolvedClassReference.md)(string $className, ?string $hint = null) : void
 
 
 

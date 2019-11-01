@@ -16,7 +16,7 @@ Description
 ================
 
 
-private [HtmlReport::getTableSection](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/HtmlReport/getTableSection.md)(string $title, string $id, array $headers, array $rows, $nbItems = null, $acceptWarning = true) : array
+private [HtmlReport::getTableSection](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/HtmlReport/getTableSection.md)(string $title, string $id, array $headers, array $rows, ?$nbItems = null, ?$acceptWarning = true) : array
 
 
 

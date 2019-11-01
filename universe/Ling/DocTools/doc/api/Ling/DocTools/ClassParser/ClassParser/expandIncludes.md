@@ -16,7 +16,7 @@ Description
 ================
 
 
-private [ClassParser::expandIncludes](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/ClassParser/ClassParser/expandIncludes.md)(string $rawContent, &$resolved = false, array &$includeReferences = []) : string
+private [ClassParser::expandIncludes](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/ClassParser/ClassParser/expandIncludes.md)(string $rawContent, ?&$resolved = false, ?array &$includeReferences = []) : string
 
 
 

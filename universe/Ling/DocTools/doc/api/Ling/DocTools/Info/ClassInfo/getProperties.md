@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [ClassInfo::getProperties](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/ClassInfo/getProperties.md)($filter = null) : [PropertyInfo[]](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/PropertyInfo.md)
+public [ClassInfo::getProperties](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/ClassInfo/getProperties.md)(?$filter = null) : [PropertyInfo[]](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/PropertyInfo.md)
 
 
 

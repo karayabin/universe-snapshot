@@ -92,6 +92,7 @@ class ServiceContainerHelper
         } elseif ('red' === $type) {
             $conf = self::getServicesConf($appDir);
             $sc = new LightRedServiceContainer();
+            $sc->setApplicationDir($appDir);
             $sc->build($conf);
             return $sc;
         } else {
@@ -165,7 +166,9 @@ class ServiceContainerHelper
     {
         $file = self::getDarkBlueContainerPath($appDir);
         require_once $file;
-        return new \LightServiceContainer();
+        $o = new \LightServiceContainer();
+        $o->setApplicationDir($appDir);
+        return $o;
     }
 
 

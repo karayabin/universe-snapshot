@@ -4,7 +4,7 @@
 
 The RealistRowsRendererInterface class
 ================
-2019-08-12 --> 2019-10-11
+2019-08-12 --> 2019-11-01
 
 
 
@@ -26,9 +26,9 @@ Class synopsis
 abstract class <span class="pl-k">RealistRowsRendererInterface</span>  {
 
 - Methods
-    - abstract public [setColumnType](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Rendering/RealistRowsRendererInterface/setColumnType.md)(string $columnName, string $type, array $options = []) : void
+    - abstract public [setColumnType](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Rendering/RealistRowsRendererInterface/setColumnType.md)(string $columnName, string $type, ?array $options = []) : void
     - abstract public [setRic](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Rendering/RealistRowsRendererInterface/setRic.md)(array $ric) : mixed
-    - abstract public [addDynamicColumn](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Rendering/RealistRowsRendererInterface/addDynamicColumn.md)(string $columnName, string $label, $position = post) : void
+    - abstract public [addDynamicColumn](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Rendering/RealistRowsRendererInterface/addDynamicColumn.md)(string $columnName, string $label, ?$position = post) : void
     - abstract public [render](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Rendering/RealistRowsRendererInterface/render.md)(array $rows) : string
 
 }

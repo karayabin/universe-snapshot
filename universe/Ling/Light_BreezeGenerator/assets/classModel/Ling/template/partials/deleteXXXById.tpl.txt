@@ -1,0 +1,10 @@
+    /**
+     * Deletes the user identified by the given id.
+     *
+     * @param int $id
+     * @return void
+     * @throws \Exception
+     */
+    public function deleteXXXById(int $id);
+
+// deleteXXX

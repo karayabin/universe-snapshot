@@ -1,0 +1,12 @@
+controller_hub:
+    instance: Ling\Light_ControllerHub\Service\LightControllerHubService
+
+
+# --------------------------------------
+# hooks
+# --------------------------------------
+$easy_route.methods_collection:
+    -
+        method: registerBundleFile
+        args:
+            file: config/data/Light_ControllerHub/Light_EasyRoute/lch_routes.byml

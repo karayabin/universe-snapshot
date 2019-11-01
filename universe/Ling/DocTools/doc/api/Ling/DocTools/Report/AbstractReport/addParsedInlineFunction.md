@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [AbstractReport::addParsedInlineFunction](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/AbstractReport/addParsedInlineFunction.md)(string $functionName, array $argsList = []) : void
+public [AbstractReport::addParsedInlineFunction](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/AbstractReport/addParsedInlineFunction.md)(string $functionName, ?array $argsList = []) : void
 
 
 

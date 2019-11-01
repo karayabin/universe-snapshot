@@ -16,7 +16,7 @@ Description
 ================
 
 
-abstract public [LightWebsiteUserDatabaseInterface::registerNewUserProfile](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/LightWebsiteUserDatabaseInterface/registerNewUserProfile.md)(?$profile) : void
+abstract public [LightWebsiteUserDatabaseInterface::registerNewUserProfile](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/LightWebsiteUserDatabaseInterface/registerNewUserProfile.md)($profile) : void
 
 
 

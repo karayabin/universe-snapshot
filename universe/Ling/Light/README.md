@@ -48,7 +48,66 @@ Summary
 History Log
 =============
 
+- 0.35.0 -- 2019-10-28
 
+    - fix Light->run triggering end routine with route=false
+    
+- 0.34.0 -- 2019-10-28
+
+    - add LightRedirectException
+    
+- 0.33.0 -- 2019-10-28
+
+    - add LightClassHelper
+    
+- 0.32.0 -- 2019-10-28
+
+    - add ControllerHelper::executeController
+    
+- 0.31.0 -- 2019-10-28
+
+    - add Light->getMatchingRoute method
+    
+- 0.30.0 -- 2019-10-28
+
+    - add ControllerHelper::resolveController and ControllerHelper::getControllerArgs
+    
+- 0.29.0 -- 2019-10-28
+
+    - add Light->getHttpRequest
+    
+- 0.28.0 -- 2019-10-24
+
+    - add LightServiceContainerInterface->getApplicationDir method
+    
+- 0.27.2 -- 2019-10-23
+
+    - update LightReverseRouterInterface->getUrl.useAbsolute now is truly optional
+    
+- 0.27.1 -- 2019-10-21
+
+    - update route documentation
+    
+- 0.27.0 -- 2019-10-17
+
+    - add HttpResponse->setFileName method
+
+- 0.26.0 -- 2019-10-17
+
+    - update LightReverseRouterInterface->getUrl now useAbsolute defaults to false
+    
+- 0.25.1 -- 2019-10-17
+
+    - add precision comment to LightReverseRouterInterface->getUrl
+    
+- 0.25.0 -- 2019-10-17
+
+    - add HttpResponse->setMimeType method
+    
+- 0.24.0 -- 2019-10-16
+
+    - update Light->getControllerArgs, now controller can use arguments from the $_GET array
+    
 - 0.23.1 -- 2019-10-09
 
     - added Light->isDebug method

@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [NumberField::create](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/NumberField/create.md)(string $label, array $properties = []) : [NumberField](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/NumberField.md)
+public static [NumberField::create](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/NumberField/create.md)(string $label, ?array $properties = []) : [NumberField](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/NumberField.md)
 
 
 

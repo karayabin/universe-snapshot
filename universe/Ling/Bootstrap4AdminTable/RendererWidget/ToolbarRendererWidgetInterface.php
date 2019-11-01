@@ -7,7 +7,7 @@ namespace Ling\Bootstrap4AdminTable\RendererWidget;
 /**
  * The ToolbarRendererWidgetInterface class.
  */
-interface ToolbarRendererWidgetInterface
+interface ToolbarRendererWidgetInterface extends RendererWidgetInterface
 {
     /**
      * Sets the groups.

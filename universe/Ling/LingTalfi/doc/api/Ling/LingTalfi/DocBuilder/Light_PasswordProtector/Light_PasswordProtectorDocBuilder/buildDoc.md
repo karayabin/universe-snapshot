@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [Light_PasswordProtectorDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_PasswordProtector/Light_PasswordProtectorDocBuilder/buildDoc.md)($htmlMode = true) : void
+public static [Light_PasswordProtectorDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_PasswordProtector/Light_PasswordProtectorDocBuilder/buildDoc.md)(?$htmlMode = true) : void
 
 
 

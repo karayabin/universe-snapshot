@@ -4,7 +4,7 @@
 
 The LightRealistAbstractActionHandler class
 ================
-2019-08-12 --> 2019-10-11
+2019-08-12 --> 2019-11-01
 
 
 
@@ -33,7 +33,7 @@ abstract class <span class="pl-k">LightRealistAbstractActionHandler</span> imple
     - public [setHandledIds](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/ActionHandler/LightRealistAbstractActionHandler/setHandledIds.md)(array $handledIds) : void
 
 - Inherited methods
-    - abstract public [LightRealistActionHandlerInterface::execute](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/ActionHandler/LightRealistActionHandlerInterface/execute.md)(string $actionId, array $params = []) : mixed
+    - abstract public [LightRealistActionHandlerInterface::execute](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/ActionHandler/LightRealistActionHandlerInterface/execute.md)(string $actionId, ?array $params = []) : mixed
 
 }
 

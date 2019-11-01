@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [HttpResponse::__construct](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponse/__construct.md)($body = , $code = 200) : void
+public [HttpResponse::__construct](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponse/__construct.md)(?$body = , ?$code = 200) : void
 
 
 
@@ -53,7 +53,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [HttpResponse::__construct](https://github.com/lingtalfi/Light/blob/master/Http/HttpResponse.php#L110-L115)
+See the source code for method [HttpResponse::__construct](https://github.com/lingtalfi/Light/blob/master/Http/HttpResponse.php#L132-L139)
 
 
 See Also

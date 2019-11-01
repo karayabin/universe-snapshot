@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightController::setLight](https://github.com/lingtalfi/Light/blob/master/Controller/LightController.php#L42-L45)
+See the source code for method [LightController::setLight](https://github.com/lingtalfi/Light/blob/master/Controller/LightController.php#L43-L46)
 
 
 See Also

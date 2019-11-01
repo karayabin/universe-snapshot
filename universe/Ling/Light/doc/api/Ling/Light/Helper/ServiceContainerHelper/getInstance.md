@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [ServiceContainerHelper::getInstance](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ServiceContainerHelper/getInstance.md)(string $appDir, array $options = []) : [LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md)
+public static [ServiceContainerHelper::getInstance](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ServiceContainerHelper/getInstance.md)(string $appDir, ?array $options = []) : [LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md)
 
 
 
@@ -69,7 +69,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [ServiceContainerHelper::getInstance](https://github.com/lingtalfi/Light/blob/master/Helper/ServiceContainerHelper.php#L43-L100)
+See the source code for method [ServiceContainerHelper::getInstance](https://github.com/lingtalfi/Light/blob/master/Helper/ServiceContainerHelper.php#L43-L101)
 
 
 See Also

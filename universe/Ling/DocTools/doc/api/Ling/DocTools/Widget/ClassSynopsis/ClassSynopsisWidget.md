@@ -4,7 +4,7 @@
 
 The ClassSynopsisWidget class
 ================
-2019-02-21 --> 2019-10-08
+2019-02-21 --> 2019-10-25
 
 
 
@@ -50,10 +50,10 @@ class <span class="pl-k">ClassSynopsisWidget</span> extends [Widget](https://git
     - public [setReport](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Widget/ClassSynopsis/ClassSynopsisWidget/setReport.md)([Ling\DocTools\Report\ReportInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface.md) $report) : void
     - public [setClassInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Widget/ClassSynopsis/ClassSynopsisWidget/setClassInfo.md)([Ling\DocTools\Info\ClassInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/ClassInfo.md) $classInfo) : void
     - public [render](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Widget/ClassSynopsis/ClassSynopsisWidget/render.md)() : string
-    - protected [getClassUrl](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Widget/ClassSynopsis/ClassSynopsisWidget/getClassUrl.md)([\ReflectionClass](http://php.net/manual/en/class.reflectionclass.php) $class, $hint = null) : false | string
-    - protected [addConstantLine](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Widget/ClassSynopsis/ClassSynopsisWidget/addConstantLine.md)(string &$s, \ReflectionClassConstant $constant, bool $showDeclaringClass = false) : void
-    - protected [addPropertyLine](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Widget/ClassSynopsis/ClassSynopsisWidget/addPropertyLine.md)(string &$s, [Ling\DocTools\Info\PropertyInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/PropertyInfo.md) $property, bool $showDeclaringClass = false) : void
-    - protected [addMethodLine](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Widget/ClassSynopsis/ClassSynopsisWidget/addMethodLine.md)(?&$s, [Ling\DocTools\Info\MethodInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/MethodInfo.md) $method, $showDeclaringClass = false) : void
+    - protected [getClassUrl](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Widget/ClassSynopsis/ClassSynopsisWidget/getClassUrl.md)([\ReflectionClass](http://php.net/manual/en/class.reflectionclass.php) $class, ?$hint = null) : false | string
+    - protected [addConstantLine](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Widget/ClassSynopsis/ClassSynopsisWidget/addConstantLine.md)(string &$s, \ReflectionClassConstant $constant, ?bool $showDeclaringClass = false) : void
+    - protected [addPropertyLine](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Widget/ClassSynopsis/ClassSynopsisWidget/addPropertyLine.md)(string &$s, [Ling\DocTools\Info\PropertyInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/PropertyInfo.md) $property, ?bool $showDeclaringClass = false) : void
+    - protected [addMethodLine](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Widget/ClassSynopsis/ClassSynopsisWidget/addMethodLine.md)(&$s, [Ling\DocTools\Info\MethodInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/MethodInfo.md) $method, ?$showDeclaringClass = false) : void
     - protected [getConstantVisibility](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Widget/ClassSynopsis/ClassSynopsisWidget/getConstantVisibility.md)(\ReflectionClassConstant $constant) : string
     - protected [getSectionTitle](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Widget/ClassSynopsis/ClassSynopsisWidget/getSectionTitle.md)(string $title) : string
     - protected [getElementIndentedDash](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Widget/ClassSynopsis/ClassSynopsisWidget/getElementIndentedDash.md)() : string

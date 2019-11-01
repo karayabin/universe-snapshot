@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [Light_RealistDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Realist/Light_RealistDocBuilder/buildDoc.md)($htmlMode = true) : void
+public static [Light_RealistDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Realist/Light_RealistDocBuilder/buildDoc.md)(?$htmlMode = true) : void
 
 
 
@@ -70,7 +70,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [Light_RealistDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Light_Realist/Light_RealistDocBuilder.php#L44-L228)
+See the source code for method [Light_RealistDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Light_Realist/Light_RealistDocBuilder.php#L44-L235)
 
 
 See Also

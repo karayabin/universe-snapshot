@@ -70,7 +70,7 @@ Returns [PageConfUpdator](https://github.com/lingtalfi/Light_Kit/blob/master/doc
 
 Source Code
 ===========
-See the source code for method [PageConfUpdator::updateWidget](https://github.com/lingtalfi/Light_Kit/blob/master/PageConfigurationUpdator/PageConfUpdator.php#L120-L124)
+See the source code for method [PageConfUpdator::updateWidget](https://github.com/lingtalfi/Light_Kit/blob/master/PageConfigurationUpdator/PageConfUpdator.php#L122-L126)
 
 
 See Also

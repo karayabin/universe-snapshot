@@ -1,6 +1,6 @@
 Ling Breeze Generator config
 =================
-2019-09-13
+2019-09-13 -> 2019-10-30
 
 
 Config example
@@ -31,6 +31,17 @@ breeze_generator:
                         # Used mainly for debugging purposes, in production you probably should set this to false
                         # The default value is false
                         overwriteExisting: true
+                        # The custom prefix (see the "adding custom methods" section for more details)
+                        customPrefix: Custom
+                    
+                        # Whether to use the micro-permission checking.
+                        # The default setting is false.
+                        useMicroPermission: false
+
+                        # The name of the plugin handling the micro-permission (if useMicroPermission is true)
+                        microPermissionPluginName: Light_Kit_Admin
+                        
+                        # Describes which tables to generate the items from
                         generate:
                             prefix: lud
 
@@ -101,6 +112,18 @@ Whether to overwrite an existing file.
 The default value is false.
 
 If true, the generated objects will overwrite previously the generated objects (based on the configuration).
+
+
+### useMicroPermission
+
+
+Whether to use the micro-permission checking.
+The default value is false.
+
+This system uses the [micro-permission recommended notation for database](https://github.com/lingtalfi/Light_MicroPermission/blob/master/doc/pages/recommended-micropermission-notation.md#database-interaction).
+
+
+
 
 
 ### generate
@@ -461,3 +484,62 @@ class LightKitAdminObjectFactory
 ```
 
  
+ 
+Adding custom methods
+---------------------
+2019-10-17
+
+
+The generated code is a good start, but pretty soon a developer will want to add new methods.
+
+At a semantic/organizational level, it makes sense that these developer "custom" methods are added to the api.
+
+However, if we add them directly to the generated code, a problem occurs: what if we inadvertently make the 
+generator overwrite the class? Well then we loose the custom code as well, that's not an option.
+
+And so therefore let me introduce the concept of **Custom** methods.
+
+The main idea is that the developer can add methods to the class, but without the risk to have his code overwritten.
+
+For that, we choose a **custom** prefix, which defaults to "Custom", and can be changed from the configuration (customPrefix key).
+
+Then in terms of organization we create a "Custom" (or whatever prefix you chose) directory where the class to are generated,
+and inside this Custom directory we create our custom classes, which extend the class that we want to add methods to,
+and which name is the custom prefix followed by the extended class name.
+
+
+So for instance, let's say that we have the following generated structure:
+
+```text
+- app/universe/My/Path/Api/
+----- DirectoryMapApi.php
+----- DirectoryMapApiInterface.php
+----- GeneratedApiFactory.php
+```
+
+To extend the DirectoryMapApi class, we transform the above structure into this:
+
+```text
+- app/universe/My/Path/Api/
+----- DirectoryMapApi.php
+----- DirectoryMapApiInterface.php
+----- GeneratedApiFactory.php
+----- Custom/
+--------- CustomDirectoryMapApi.php
+```
+
+The generator will never overwrite whatever is in the "Custom" directory.
+
+As a bonus, the generated factory will detect the custom classes and provide them if they exist.
+
+
+
+
+ 
+
+
+
+
+
+
+  

@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [HttpRequest::getHeader](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/getHeader.md)(string $header, $default = null) : string | mixed
+public [HttpRequest::getHeader](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/getHeader.md)(string $header, ?$default = null) : string | mixed
 
 
 

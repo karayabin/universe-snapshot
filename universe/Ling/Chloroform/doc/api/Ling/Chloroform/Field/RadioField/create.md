@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [RadioField::create](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/RadioField/create.md)(string $label, array $properties = []) : [RadioField](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/RadioField.md)
+public static [RadioField::create](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/RadioField/create.md)(string $label, ?array $properties = []) : [RadioField](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/RadioField.md)
 
 
 

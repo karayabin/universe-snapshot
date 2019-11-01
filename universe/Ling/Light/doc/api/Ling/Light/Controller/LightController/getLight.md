@@ -46,7 +46,7 @@ Returns [Light](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Ligh
 
 Source Code
 ===========
-See the source code for method [LightController::getLight](https://github.com/lingtalfi/Light/blob/master/Controller/LightController.php#L55-L58)
+See the source code for method [LightController::getLight](https://github.com/lingtalfi/Light/blob/master/Controller/LightController.php#L56-L59)
 
 
 See Also

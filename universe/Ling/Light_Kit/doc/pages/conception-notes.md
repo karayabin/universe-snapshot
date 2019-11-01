@@ -85,12 +85,23 @@ We can use the lazy reference resolver system to inject any kind of data into a 
 
 Page conf updator 
 ---------------
-2019-07-25 -> 2019-07-28
+2019-07-25 -> 2019-10-29
+
 
 The page conf updator is the simplest way to update the page configuration array.
 
 It basically allows controllers to change the kit page configuration array on the fly.
 
+
+Example:
+
+```php
+return $this->renderAdminPage('Light_Kit_Admin/kit/zeroadmin/user/user_list', [], PageConfUpdator::create()->updateWidget("body.light_realist", [
+    'vars' => [
+        'request_declaration_id' => 'Light_Kit_Admin:lud_user',
+    ],
+]));
+```
 
 Why do we need this?
 

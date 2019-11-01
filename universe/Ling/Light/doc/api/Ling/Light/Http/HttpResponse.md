@@ -4,7 +4,7 @@
 
 The HttpResponse class
 ================
-2019-04-09 --> 2019-10-09
+2019-04-09 --> 2019-10-28
 
 
 
@@ -29,10 +29,14 @@ class <span class="pl-k">HttpResponse</span> implements [HttpResponseInterface](
     - protected string [$body](#property-body) ;
     - protected int [$statusCode](#property-statusCode) ;
     - protected int [$httpVersion](#property-httpVersion) ;
+    - protected string|null [$mimeType](#property-mimeType) ;
+    - protected string|null [$fileName](#property-fileName) ;
 
 - Methods
-    - public [__construct](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponse/__construct.md)($body = , $code = 200) : void
+    - public [__construct](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponse/__construct.md)(?$body = , ?$code = 200) : void
     - public [setHttpVersion](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponse/setHttpVersion.md)(string $version) : void
+    - public [setMimeType](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponse/setMimeType.md)(string $mimeType) : void
+    - public [setFileName](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponse/setFileName.md)(string $fileName) : void
     - public [send](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponse/send.md)() : void
     - protected [sendHeaders](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponse/sendHeaders.md)() : void
     - protected [displayBody](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponse/displayBody.md)() : void
@@ -70,6 +74,24 @@ Properties
     
     
 
+- <span id="property-mimeType"><b>mimeType</b></span>
+
+    This property holds the mimeType for this instance.
+    If set, the Content-type header will be sent, otherwise it won't.
+    
+    
+
+- <span id="property-fileName"><b>fileName</b></span>
+
+    This property holds the fileName for this instance.
+    
+    You generally want to use this when your body is a file content
+    that you intend to serve to the user, and you want to override the default fileName provided by the browser.
+    
+    If null, the browser fileName will not be overridden.
+    
+    
+
 
 
 Methods
@@ -77,6 +99,8 @@ Methods
 
 - [HttpResponse::__construct](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponse/__construct.md) &ndash; Builds the HttpResponse instance.
 - [HttpResponse::setHttpVersion](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponse/setHttpVersion.md) &ndash; Sets the http version of this http response.
+- [HttpResponse::setMimeType](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponse/setMimeType.md) &ndash; Sets the mimeType.
+- [HttpResponse::setFileName](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponse/setFileName.md) &ndash; Sets the fileName.
 - [HttpResponse::send](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponse/send.md) &ndash; Sends the headers and prints the response body to the output.
 - [HttpResponse::sendHeaders](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponse/sendHeaders.md) &ndash; Sends the http headers of the http response.
 - [HttpResponse::displayBody](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponse/displayBody.md) &ndash; Displays the body of the http response.

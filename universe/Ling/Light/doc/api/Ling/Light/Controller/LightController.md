@@ -4,7 +4,7 @@
 
 The LightController class
 ================
-2019-04-09 --> 2019-10-09
+2019-04-09 --> 2019-10-28
 
 
 
@@ -36,6 +36,7 @@ class <span class="pl-k">LightController</span> implements [LightControllerInter
     - public [setLight](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Controller/LightController/setLight.md)([Ling\Light\Core\Light](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light.md) $light) : void
     - protected [getLight](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Controller/LightController/getLight.md)() : [Light](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light.md)
     - protected [getContainer](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Controller/LightController/getContainer.md)() : [LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md)
+    - protected [getHttpRequest](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Controller/LightController/getHttpRequest.md)() : [HttpRequestInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface.md)
 
 }
 
@@ -60,6 +61,7 @@ Methods
 - [LightController::setLight](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Controller/LightController/setLight.md) &ndash; Sets the light instance.
 - [LightController::getLight](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Controller/LightController/getLight.md) &ndash; Returns the light application.
 - [LightController::getContainer](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Controller/LightController/getContainer.md) &ndash; Returns the service container.
+- [LightController::getHttpRequest](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Controller/LightController/getHttpRequest.md) &ndash; Returns the http request bound to the light instance.
 
 
 

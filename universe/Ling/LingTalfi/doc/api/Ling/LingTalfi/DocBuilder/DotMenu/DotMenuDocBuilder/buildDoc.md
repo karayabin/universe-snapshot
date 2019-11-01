@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [DotMenuDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/DotMenu/DotMenuDocBuilder/buildDoc.md)($htmlMode = true) : void
+public static [DotMenuDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/DotMenu/DotMenuDocBuilder/buildDoc.md)(?$htmlMode = true) : void
 
 
 

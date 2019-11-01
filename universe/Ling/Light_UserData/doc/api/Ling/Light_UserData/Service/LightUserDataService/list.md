@@ -7,7 +7,7 @@ LightUserDataService::list
 
 
 
-LightUserDataService::list — Returns the array of all files owned by the current user.
+LightUserDataService::list — Returns the array of the files owned by the current user.
 
 
 
@@ -16,12 +16,15 @@ Description
 ================
 
 
-public [LightUserDataService::list](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/list.md)() : void
+public [LightUserDataService::list](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/list.md)(?string $directory = null) : array
 
 
 
 
-Returns the array of all files owned by the current user.
+Returns the array of the files owned by the current user.
+If the directory is specified, only the list of the files found in that directory will be returned.
+
+Relative paths (from the user's root directory) are returned.
 
 
 
@@ -29,14 +32,22 @@ Returns the array of all files owned by the current user.
 Parameters
 ================
 
-This method has no parameters.
+
+- directory
+
+    
 
 
 Return values
 ================
 
-Returns void.
+Returns array.
 
+
+Exceptions thrown
+================
+
+- [Exception](http://php.net/manual/en/class.exception.php).&nbsp;
 
 
 
@@ -46,7 +57,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::list](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L92-L96)
+See the source code for method [LightUserDataService::list](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L285-L292)
 
 
 See Also

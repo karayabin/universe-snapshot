@@ -4,7 +4,7 @@
 
 The ServiceContainerHelper class
 ================
-2019-04-09 --> 2019-10-09
+2019-04-09 --> 2019-10-28
 
 
 
@@ -25,7 +25,7 @@ Class synopsis
 class <span class="pl-k">ServiceContainerHelper</span>  {
 
 - Methods
-    - public static [getInstance](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ServiceContainerHelper/getInstance.md)(string $appDir, array $options = []) : [LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md)
+    - public static [getInstance](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ServiceContainerHelper/getInstance.md)(string $appDir, ?array $options = []) : [LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md)
     - private static [getServicesConf](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ServiceContainerHelper/getServicesConf.md)(string $appDir) : array
     - private static [buildDarkBlueContainer](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ServiceContainerHelper/buildDarkBlueContainer.md)(string $appDir, array $conf) : void
     - private static [getDarkBlueContainerPath](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ServiceContainerHelper/getDarkBlueContainerPath.md)(string $appDir) : string

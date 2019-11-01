@@ -4,7 +4,7 @@
 
 The HydrogenRenderer class
 ================
-2019-04-15 --> 2019-07-26
+2019-04-15 --> 2019-10-24
 
 
 
@@ -74,7 +74,7 @@ class <span class="pl-k">HydrogenRenderer</span> implements [ChloroformRendererI
     - protected array [$_chloroformFields](#property-_chloroformFields) ;
 
 - Methods
-    - public [__construct](https://github.com/lingtalfi/Chloroform_HydrogenRenderer/blob/master/doc/api/Ling/Chloroform_HydrogenRenderer/HydrogenRenderer/__construct.md)(array $options = []) : void
+    - public [__construct](https://github.com/lingtalfi/Chloroform_HydrogenRenderer/blob/master/doc/api/Ling/Chloroform_HydrogenRenderer/HydrogenRenderer/__construct.md)(?array $options = []) : void
     - public [render](https://github.com/lingtalfi/Chloroform_HydrogenRenderer/blob/master/doc/api/Ling/Chloroform_HydrogenRenderer/HydrogenRenderer/render.md)(array $chloroform) : string
     - public [printNotifications](https://github.com/lingtalfi/Chloroform_HydrogenRenderer/blob/master/doc/api/Ling/Chloroform_HydrogenRenderer/HydrogenRenderer/printNotifications.md)(array $notifications) : void
     - public [printErrorSummary](https://github.com/lingtalfi/Chloroform_HydrogenRenderer/blob/master/doc/api/Ling/Chloroform_HydrogenRenderer/HydrogenRenderer/printErrorSummary.md)(array $errors) : void
@@ -93,7 +93,7 @@ class <span class="pl-k">HydrogenRenderer</span> implements [ChloroformRendererI
     - public [printRadioField](https://github.com/lingtalfi/Chloroform_HydrogenRenderer/blob/master/doc/api/Ling/Chloroform_HydrogenRenderer/HydrogenRenderer/printRadioField.md)(array $field) : void
     - public [printFileField](https://github.com/lingtalfi/Chloroform_HydrogenRenderer/blob/master/doc/api/Ling/Chloroform_HydrogenRenderer/HydrogenRenderer/printFileField.md)(array $field) : void
     - public [printPasswordField](https://github.com/lingtalfi/Chloroform_HydrogenRenderer/blob/master/doc/api/Ling/Chloroform_HydrogenRenderer/HydrogenRenderer/printPasswordField.md)(array $field) : void
-    - public [printJsHandler](https://github.com/lingtalfi/Chloroform_HydrogenRenderer/blob/master/doc/api/Ling/Chloroform_HydrogenRenderer/HydrogenRenderer/printJsHandler.md)(array $options = null) : void
+    - public [printJsHandler](https://github.com/lingtalfi/Chloroform_HydrogenRenderer/blob/master/doc/api/Ling/Chloroform_HydrogenRenderer/HydrogenRenderer/printJsHandler.md)(?array $options = null) : void
     - protected [printInputField](https://github.com/lingtalfi/Chloroform_HydrogenRenderer/blob/master/doc/api/Ling/Chloroform_HydrogenRenderer/HydrogenRenderer/printInputField.md)(array $field, string $type) : void
     - protected [printFieldLabel](https://github.com/lingtalfi/Chloroform_HydrogenRenderer/blob/master/doc/api/Ling/Chloroform_HydrogenRenderer/HydrogenRenderer/printFieldLabel.md)(array $field) : void
     - protected [getCssIdById](https://github.com/lingtalfi/Chloroform_HydrogenRenderer/blob/master/doc/api/Ling/Chloroform_HydrogenRenderer/HydrogenRenderer/getCssIdById.md)(string $id) : string

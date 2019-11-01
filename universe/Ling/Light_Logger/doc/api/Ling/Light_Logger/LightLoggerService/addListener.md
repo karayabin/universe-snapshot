@@ -7,7 +7,7 @@ LightLoggerService::addListener
 
 
 
-LightLoggerService::addListener — Registers a listener ($callable) for the given $channel(s).
+LightLoggerService::addListener — Registers a listener (callable) for the given $channel(s).
 
 
 
@@ -16,12 +16,20 @@ Description
 ================
 
 
-public [LightLoggerService::addListener](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/addListener.md)(?$channel, ?$listener) : void
+public [LightLoggerService::addListener](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/addListener.md)($channel, $listener, ?array $minus = []) : void
 
 
 
 
-Registers a listener ($callable) for the given $channel(s).
+Registers a listener (callable) for the given $channel(s).
+
+
+If channel is a string, the listener will be subscribing messages for that particular channel.
+An array of channels can also be passed, to subscribe to multiple channels at the same time.
+
+If the special channel "*" is specified, the listener will be notified of every message on every channel.
+In that case, it's possible to remove some channels from the "*" using the minus argument.
+The minus argument is an array of channels to remove from the "*".
 
 
 
@@ -35,6 +43,10 @@ Parameters
     
 
 - listener
+
+    
+
+- minus
 
     
 
@@ -53,7 +65,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightLoggerService::addListener](https://github.com/lingtalfi/Light_Logger/blob/master/LightLoggerService.php#L124-L136)
+See the source code for method [LightLoggerService::addListener](https://github.com/lingtalfi/Light_Logger/blob/master/LightLoggerService.php#L131-L146)
 
 
 See Also

@@ -1,6 +1,6 @@
 Ling/Bootstrap4AdminTable
 ================
-2019-08-15 --> 2019-10-11
+2019-08-15 --> 2019-10-28
 
 
 
@@ -70,6 +70,7 @@ Table of contents
     - [ListGeneralActionRendererWidget::render](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/ListGeneralActionRendererWidget/render.md) &ndash; Prints the widget html.
 - [ListGeneralActionRendererWidgetInterface](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/ListGeneralActionRendererWidgetInterface.md) &ndash; The ListGeneralActionRendererWidgetInterface class.
     - [ListGeneralActionRendererWidgetInterface::setGeneralActions](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/ListGeneralActionRendererWidgetInterface/setGeneralActions.md) &ndash; Sets the groups.
+    - [RendererWidgetInterface::render](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/RendererWidgetInterface/render.md) &ndash; Prints the widget html.
 - [NeckFiltersRendererWidget](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/NeckFiltersRendererWidget.md) &ndash; The NeckFiltersRendererWidget class.
     - [NeckFiltersRendererWidget::__construct](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/NeckFiltersRendererWidget/__construct.md) &ndash; Builds the AbstractRendererWidget instance.
     - [NeckFiltersRendererWidget::setColumns2DataTypes](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/NeckFiltersRendererWidget/setColumns2DataTypes.md) &ndash; Sets the columns and data types.
@@ -78,6 +79,7 @@ Table of contents
 - [NeckFiltersRendererWidgetInterface](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/NeckFiltersRendererWidgetInterface.md) &ndash; The NeckFiltersRendererWidgetInterface interface.
     - [NeckFiltersRendererWidgetInterface::setColumns2DataTypes](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/NeckFiltersRendererWidgetInterface/setColumns2DataTypes.md) &ndash; Sets the columns and data types.
     - [NeckFiltersRendererWidgetInterface::setUseCheckbox](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/NeckFiltersRendererWidgetInterface/setUseCheckbox.md) &ndash; Sets whether to use the checkbox.
+    - [RendererWidgetInterface::render](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/RendererWidgetInterface/render.md) &ndash; Prints the widget html.
 - [NumberOfItemsPerPageRendererWidget](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/NumberOfItemsPerPageRendererWidget.md) &ndash; The NumberOfItemsPerPageRendererWidget class.
     - [NumberOfItemsPerPageRendererWidget::__construct](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/NumberOfItemsPerPageRendererWidget/__construct.md) &ndash; Builds the NumberOfItemsPerPageRendererWidget instance.
     - [NumberOfItemsPerPageRendererWidget::render](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/NumberOfItemsPerPageRendererWidget/render.md) &ndash; Prints the widget html.
@@ -87,6 +89,13 @@ Table of contents
 - [PaginationRendererWidget](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/PaginationRendererWidget.md) &ndash; The PaginationRendererWidget class.
     - [PaginationRendererWidget::render](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/PaginationRendererWidget/render.md) &ndash; Prints the widget html.
     - [AbstractRendererWidget::__construct](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/AbstractRendererWidget/__construct.md) &ndash; Builds the AbstractRendererWidget instance.
+- [RelatedLinksRendererWidget](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/RelatedLinksRendererWidget.md) &ndash; The RelatedLinksRendererWidget class.
+    - [RelatedLinksRendererWidget::__construct](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/RelatedLinksRendererWidget/__construct.md) &ndash; Builds the RelatedLinksRendererWidget instance.
+    - [RelatedLinksRendererWidget::render](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/RelatedLinksRendererWidget/render.md) &ndash; Prints the widget html.
+    - [RelatedLinksRendererWidget::setLinks](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/RelatedLinksRendererWidget/setLinks.md) &ndash; Sets the links.
+- [RelatedLinksRendererWidgetInterface](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/RelatedLinksRendererWidgetInterface.md) &ndash; The RelatedLinksRendererWidgetInterface class.
+    - [RelatedLinksRendererWidgetInterface::setLinks](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/RelatedLinksRendererWidgetInterface/setLinks.md) &ndash; Sets the links.
+    - [RendererWidgetInterface::render](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/RendererWidgetInterface/render.md) &ndash; Prints the widget html.
 - [RendererWidgetInterface](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/RendererWidgetInterface.md) &ndash; The RendererWidgetInterface interface.
     - [RendererWidgetInterface::render](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/RendererWidgetInterface/render.md) &ndash; Prints the widget html.
 - [ToolbarRendererWidget](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/ToolbarRendererWidget.md) &ndash; The ToolbarRendererWidget class.
@@ -95,6 +104,7 @@ Table of contents
     - [ToolbarRendererWidget::render](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/ToolbarRendererWidget/render.md) &ndash; Prints the widget html.
 - [ToolbarRendererWidgetInterface](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/ToolbarRendererWidgetInterface.md) &ndash; The ToolbarRendererWidgetInterface class.
     - [ToolbarRendererWidgetInterface::setGroups](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/ToolbarRendererWidgetInterface/setGroups.md) &ndash; Sets the groups.
+    - [RendererWidgetInterface::render](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/RendererWidgetInterface/render.md) &ndash; Prints the widget html.
 
 
 Dependencies

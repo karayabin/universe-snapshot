@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [PropertyInfo::setType](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/PropertyInfo/setType.md)(?string $type) : void
+public [PropertyInfo::setType](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/PropertyInfo/setType.md)(string $type) : void
 
 
 

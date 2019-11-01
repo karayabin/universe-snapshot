@@ -217,6 +217,9 @@ class LightRealistService
     {
         $requestDeclaration = $this->getConfigurationArrayByRequestId($requestId);
 
+        $pluginName = $requestDeclaration['plugin'];
+        $table = $requestDeclaration['table'];
+
 
         //--------------------------------------------
         // CHECKING CSRF TOKEN
@@ -232,6 +235,18 @@ class LightRealistService
 
 
         $tags = $params['tags'] ?? [];
+
+
+        //--------------------------------------------
+        // CHECKING MICRO PERMISSION
+        //--------------------------------------------
+        $useMicroPermission = $requestDeclaration['use_micro_permission'] ?? true;
+        if (true === $useMicroPermission) {
+            $microPermission = "$pluginName.tables.$table.read";
+            if (false === $this->container->get("micro_permission")->hasMicroPermission($microPermission)) {
+                throw new LightRealistException("Access denied: you don't have the micro-permission: $microPermission.");
+            }
+        }
 
 
 //        $this->parametrizedSqlQuery->setLogger($this->container->get('logger'));

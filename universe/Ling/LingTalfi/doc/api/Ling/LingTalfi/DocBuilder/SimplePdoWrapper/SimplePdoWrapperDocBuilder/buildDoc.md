@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [SimplePdoWrapperDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/SimplePdoWrapper/SimplePdoWrapperDocBuilder/buildDoc.md)($htmlMode = true) : void
+public static [SimplePdoWrapperDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/SimplePdoWrapper/SimplePdoWrapperDocBuilder/buildDoc.md)(?$htmlMode = true) : void
 
 
 

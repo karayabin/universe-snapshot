@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [ColorField::create](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/ColorField/create.md)(string $label, array $properties = []) : [ColorField](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/ColorField.md)
+public static [ColorField::create](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/ColorField/create.md)(string $label, ?array $properties = []) : [ColorField](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/ColorField.md)
 
 
 

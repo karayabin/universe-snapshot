@@ -11,32 +11,6 @@ interface DirectoryMapApiInterface
 {
 
     /**
-     * Returns the directoryMap row identified by the given obfuscated_name.
-     *
-     * If the row is not found, this method's return depends on the throwNotFoundEx flag:
-     * - if true, the method throws an exception
-     * - if false, the method returns the given default value
-     *
-     *
-     * @param string $obfuscated_name
-     * @param mixed $default = null
-     * @param bool $throwNotFoundEx = false
-     * @return mixed
-     * @throws \Exception
-     */
-    public function getDirectoryMapByObfuscatedName(string $obfuscated_name, $default = null, bool $throwNotFoundEx = false);
-
-    /**
-     * Updates the directoryMap row identified by the given obfuscated_name.
-     *
-     * @param string $obfuscated_name
-     * @param array $directoryMap
-     * @return void
-     * @throws \Exception
-     */
-    public function updateDirectoryMapByObfuscatedName(string $obfuscated_name, array $directoryMap);
-
-    /**
      * Inserts the given directoryMap in the database.
      * By default, it returns the result of the PDO::lastInsertId method.
      * If the returnRic flag is set to true, the method will return the ric array instead of the lastInsertId.
@@ -58,6 +32,36 @@ interface DirectoryMapApiInterface
      */
     public function insertDirectoryMap(array $directoryMap, bool $ignoreDuplicate = true, bool $returnRic = false);
 
+    /**
+     * Returns the directoryMap row identified by the given obfuscated_name.
+     *
+     * If the row is not found, this method's return depends on the throwNotFoundEx flag:
+     * - if true, the method throws an exception
+     * - if false, the method returns the given default value
+     *
+     *
+     * @param string $obfuscated_name
+     * @param mixed $default = null
+     * @param bool $throwNotFoundEx = false
+     * @return mixed
+     * @throws \Exception
+     */
+    public function getDirectoryMapByObfuscatedName(string $obfuscated_name, $default = null, bool $throwNotFoundEx = false);
+
+
+
+
+    /**
+     * Updates the directoryMap row identified by the given obfuscated_name.
+     *
+     * @param string $obfuscated_name
+     * @param array $directoryMap
+     * @return void
+     * @throws \Exception
+     */
+    public function updateDirectoryMapByObfuscatedName(string $obfuscated_name, array $directoryMap);
+
+
 
     /**
      * Deletes the directoryMap identified by the given obfuscated_name.
@@ -67,4 +71,7 @@ interface DirectoryMapApiInterface
      * @throws \Exception
      */
     public function deleteDirectoryMapByObfuscatedName(string $obfuscated_name);
+
+
+
 }

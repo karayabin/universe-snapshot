@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [LightLoggerService::fatal](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/fatal.md)(?$msg) : void
+public [LightLoggerService::fatal](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/fatal.md)($msg) : void
 
 
 
@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightLoggerService::fatal](https://github.com/lingtalfi/Light_Logger/blob/master/LightLoggerService.php#L263-L266)
+See the source code for method [LightLoggerService::fatal](https://github.com/lingtalfi/Light_Logger/blob/master/LightLoggerService.php#L282-L285)
 
 
 See Also

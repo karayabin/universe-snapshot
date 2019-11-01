@@ -5,7 +5,7 @@
      */
     public function getUserObject(): UserObjectInterface
     {
-        $o = new UserObject();
+        $o = new UserObject();//moreCalls
         $o->setPdoWrapper($this->pdoWrapper);
         return $o;
     }

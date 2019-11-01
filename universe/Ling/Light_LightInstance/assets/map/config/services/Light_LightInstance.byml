@@ -3,3 +3,14 @@ light_instance:
     methods:
         setContainer:
             container: @container()
+
+
+
+# --------------------------------------
+# hooks
+# --------------------------------------
+$initializer.methods_collection:
+    -
+        method: registerInitializer
+        args:
+            initializer: @service(light_instance)

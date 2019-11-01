@@ -140,7 +140,7 @@ class Light_BreezeGeneratorDocBuilder
              * This map in particular is the one used for the whole DocTools planet documentation (pages and api).
              */
             "keyWord2UrlMap" => [
-//                "the command line page" => $doc . '/pages/command-line.md',
+                "babyYaml" => 'https://github.com/lingtalfi/BabyYaml',
             ],
             /**
              * An array of external classes to url.

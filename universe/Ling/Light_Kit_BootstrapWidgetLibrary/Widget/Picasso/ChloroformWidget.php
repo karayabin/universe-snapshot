@@ -4,7 +4,6 @@
 namespace Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso;
 
 
-use Ling\HtmlPageTools\Copilot\HtmlPageCopilot;
 use Ling\Kit_PicassoWidget\Widget\EasyLightPicassoWidget;
 
 
@@ -14,9 +13,9 @@ use Ling\Kit_PicassoWidget\Widget\EasyLightPicassoWidget;
 class ChloroformWidget extends EasyLightPicassoWidget
 {
     /**
-     * @overrides
+     * Registers the helium assets to the @page(html page copilot).
      */
-    public function prepare(array &$widgetConf, HtmlPageCopilot $copilot)
+    protected function useHelium()
     {
         $this->registerLibrary("Chloroform_HeliumRenderer", [
             "/plugins/Light_Kit_BootstrapWidgetLibrary/Chloroform_HeliumRenderer/helium.css",

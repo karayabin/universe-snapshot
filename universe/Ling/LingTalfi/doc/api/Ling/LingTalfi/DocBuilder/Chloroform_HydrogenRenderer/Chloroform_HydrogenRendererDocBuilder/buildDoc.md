@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [Chloroform_HydrogenRendererDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Chloroform_HydrogenRenderer/Chloroform_HydrogenRendererDocBuilder/buildDoc.md)($htmlMode = true) : void
+public static [Chloroform_HydrogenRendererDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Chloroform_HydrogenRenderer/Chloroform_HydrogenRendererDocBuilder/buildDoc.md)(?$htmlMode = true) : void
 
 
 

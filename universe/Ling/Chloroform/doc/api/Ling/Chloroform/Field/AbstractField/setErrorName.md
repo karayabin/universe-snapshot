@@ -49,7 +49,7 @@ Returns [AbstractField](https://github.com/lingtalfi/Chloroform/blob/master/doc/
 
 Source Code
 ===========
-See the source code for method [AbstractField::setErrorName](https://github.com/lingtalfi/Chloroform/blob/master/Field/AbstractField.php#L286-L290)
+See the source code for method [AbstractField::setErrorName](https://github.com/lingtalfi/Chloroform/blob/master/Field/AbstractField.php#L346-L350)
 
 
 See Also
@@ -57,5 +57,5 @@ See Also
 
 The [AbstractField](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/AbstractField.md) class.
 
-Previous method: [setHint](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/AbstractField/setHint.md)<br>Next method: [addError](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/AbstractField/addError.md)<br>
+Previous method: [setHint](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/AbstractField/setHint.md)<br>Next method: [setHasVeryImportantData](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/AbstractField/setHasVeryImportantData.md)<br>
 

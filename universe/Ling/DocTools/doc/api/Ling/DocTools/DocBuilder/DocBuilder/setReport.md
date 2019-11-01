@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [DocBuilder::setReport](https://github.com/lingtalfi/DocTools/blob/master/DocBuilder/DocBuilder.php#L111-L114)
+See the source code for method [DocBuilder::setReport](https://github.com/lingtalfi/DocTools/blob/master/DocBuilder/DocBuilder.php#L121-L124)
 
 
 See Also
@@ -57,5 +57,5 @@ See Also
 
 The [DocBuilder](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/DocBuilder/DocBuilder.md) class.
 
-Previous method: [showReport](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/DocBuilder/DocBuilder/showReport.md)<br>
+Previous method: [getReport](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/DocBuilder/DocBuilder/getReport.md)<br>
 

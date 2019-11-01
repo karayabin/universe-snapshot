@@ -1,0 +1,49 @@
+Light_Kit_Admin:
+    routes:
+        lka_route-home:
+            pattern: /
+            controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+            right: Light_Kit_Admin.user
+        lka_route-login:
+            pattern: /login
+            controller: Ling\Light_Kit_Admin\Controller\LoginFormController->render
+            right: ""
+        lka_route-logout:
+            pattern: /logout
+            controller: Ling\Light_Kit_Admin\Controller\LogoutController->render
+            right: Light_Kit_Admin.user
+        lka_route-forbidden_page:
+            pattern: /forbidden
+            controller: Ling\Light_Kit_Admin\Controller\ForbiddenController->render
+            right: null
+        lka_route-user_profile:
+            pattern: /user/profile
+            controller: Ling\Light_Kit_Admin\Controller\User\UserProfileController->render
+            right: Light_Kit_Admin.user
+        lka_route-user_list:
+            pattern: /user/list
+            controller: Ling\Light_Kit_Admin\Controller\User\UserListController->render
+            right: Light_Kit_Admin.admin
+
+
+        lka_route-user_file_manager:
+            pattern: /user/file_manager
+            controller: Ling\Light_Kit_Admin\Controller\User\UserListController->render
+            right: Light_Kit_Admin.admin
+        lka_route-user_permissions:
+            pattern: /user/permissions
+            controller: Ling\Light_Kit_Admin\Controller\User\UserListController->render
+            right: Light_Kit_Admin.admin
+        lka_route-permission_groups:
+            pattern: /permission/groups
+            controller: Ling\Light_Kit_Admin\Controller\User\UserListController->render
+            right: Light_Kit_Admin.admin
+        lka_route-permission_permissions:
+            pattern: /permission/permissions
+            controller: Ling\Light_Kit_Admin\Controller\User\UserListController->render
+            right: Light_Kit_Admin.admin
+
+        lka_route-group_has_permission:
+            pattern: /permission/group_has_permission
+            controller: Ling\Light_Kit_Admin\Controller\User\UserListController->render
+            right: Light_Kit_Admin.admin

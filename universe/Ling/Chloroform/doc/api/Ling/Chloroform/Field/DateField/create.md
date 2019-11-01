@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [DateField::create](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/DateField/create.md)(string $label, array $properties = []) : [DateField](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/DateField.md)
+public static [DateField::create](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/DateField/create.md)(string $label, ?array $properties = []) : [DateField](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/DateField.md)
 
 
 

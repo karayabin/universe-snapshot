@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [Light_Kit_AdminDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Kit_Admin/Light_Kit_AdminDocBuilder/buildDoc.md)($htmlMode = true) : void
+public static [Light_Kit_AdminDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Kit_Admin/Light_Kit_AdminDocBuilder/buildDoc.md)(?$htmlMode = true) : void
 
 
 
@@ -70,7 +70,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [Light_Kit_AdminDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Light_Kit_Admin/Light_Kit_AdminDocBuilder.php#L44-L199)
+See the source code for method [Light_Kit_AdminDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Light_Kit_Admin/Light_Kit_AdminDocBuilder.php#L45-L259)
 
 
 See Also

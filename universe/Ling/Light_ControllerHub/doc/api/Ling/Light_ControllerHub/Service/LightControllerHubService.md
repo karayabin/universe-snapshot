@@ -1,0 +1,72 @@
+[Back to the Ling/Light_ControllerHub api](https://github.com/lingtalfi/Light_ControllerHub/blob/master/doc/api/Ling/Light_ControllerHub.md)
+
+
+
+The LightControllerHubService class
+================
+2019-10-28 --> 2019-10-28
+
+
+
+
+
+
+Introduction
+============
+
+The LightControllerHubService class.
+
+
+
+Class synopsis
+==============
+
+
+class <span class="pl-k">LightControllerHubService</span>  {
+
+- Properties
+    - protected [Ling\Light_ControllerHub\ControllerHubHandler\LightControllerHubHandlerInterface[]](https://github.com/lingtalfi/Light_ControllerHub/blob/master/doc/api/Ling/Light_ControllerHub/ControllerHubHandler/LightControllerHubHandlerInterface.md) [$handlers](#property-handlers) ;
+
+- Methods
+    - public [__construct](https://github.com/lingtalfi/Light_ControllerHub/blob/master/doc/api/Ling/Light_ControllerHub/Service/LightControllerHubService/__construct.md)() : void
+    - public [getControllerHubHandler](https://github.com/lingtalfi/Light_ControllerHub/blob/master/doc/api/Ling/Light_ControllerHub/Service/LightControllerHubService/getControllerHubHandler.md)(string $pluginName) : [LightControllerHubHandlerInterface](https://github.com/lingtalfi/Light_ControllerHub/blob/master/doc/api/Ling/Light_ControllerHub/ControllerHubHandler/LightControllerHubHandlerInterface.md)
+    - public [registerHandler](https://github.com/lingtalfi/Light_ControllerHub/blob/master/doc/api/Ling/Light_ControllerHub/Service/LightControllerHubService/registerHandler.md)(string $pluginName, [Ling\Light_ControllerHub\ControllerHubHandler\LightControllerHubHandlerInterface](https://github.com/lingtalfi/Light_ControllerHub/blob/master/doc/api/Ling/Light_ControllerHub/ControllerHubHandler/LightControllerHubHandlerInterface.md) $handler) : void
+
+}
+
+
+
+
+Properties
+=============
+
+- <span id="property-handlers"><b>handlers</b></span>
+
+    This property holds the handlers for this instance.
+    It's an array of pluginName => LightControllerHubHandlerInterface
+    
+    
+
+
+
+Methods
+==============
+
+- [LightControllerHubService::__construct](https://github.com/lingtalfi/Light_ControllerHub/blob/master/doc/api/Ling/Light_ControllerHub/Service/LightControllerHubService/__construct.md) &ndash; Builds the LightControllerHubService instance.
+- [LightControllerHubService::getControllerHubHandler](https://github.com/lingtalfi/Light_ControllerHub/blob/master/doc/api/Ling/Light_ControllerHub/Service/LightControllerHubService/getControllerHubHandler.md) &ndash; Returns the controller hub handler registered by the plugin which name is given.
+- [LightControllerHubService::registerHandler](https://github.com/lingtalfi/Light_ControllerHub/blob/master/doc/api/Ling/Light_ControllerHub/Service/LightControllerHubService/registerHandler.md) &ndash; Registers the handler for the plugin which name is given.
+
+
+
+
+
+Location
+=============
+Ling\Light_ControllerHub\Service\LightControllerHubService<br>
+See the source code of [Ling\Light_ControllerHub\Service\LightControllerHubService](https://github.com/lingtalfi/Light_ControllerHub/blob/master/Service/LightControllerHubService.php)
+
+
+
+SeeAlso
+==============
+Previous class: [LightControllerHubException](https://github.com/lingtalfi/Light_ControllerHub/blob/master/doc/api/Ling/Light_ControllerHub/Exception/LightControllerHubException.md)<br>

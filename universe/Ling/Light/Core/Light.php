@@ -4,13 +4,15 @@
 namespace Ling\Light\Core;
 
 
-use Ling\Light\Controller\RouteAwareControllerInterface;
 use Ling\Light\Exception\LightException;
+use Ling\Light\Exception\LightRedirectException;
 use Ling\Light\Helper\ControllerHelper;
+use Ling\Light\Http\HttpRedirectResponse;
 use Ling\Light\Http\HttpRequest;
 use Ling\Light\Http\HttpRequestInterface;
 use Ling\Light\Http\HttpResponse;
 use Ling\Light\Http\HttpResponseInterface;
+use Ling\Light\ReverseRouter\LightReverseRouterInterface;
 use Ling\Light\Router\LightRouter;
 use Ling\Light\ServiceContainer\LightDummyServiceContainer;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
@@ -131,6 +133,25 @@ class Light
      */
     protected $settings;
 
+    /**
+     * This property holds the httpRequest for this instance.
+     *
+     * This variable is only available after the run method or initialize method is called.
+     *
+     * @var HttpRequestInterface
+     */
+    protected $httpRequest;
+
+
+    /**
+     * This property holds the matchingRoute for this instance.
+     * When not available, it's null.
+     * When available, it's either the matching route array or false (if no route matches).
+     *
+     * @var array|false|null
+     */
+    protected $matchingRoute;
+
 
     /**
      * Builds the Light instance.
@@ -150,6 +171,8 @@ class Light
         $this->routes = [];
         $this->errorHandlers = [];
         $this->container = null;
+        $this->httpRequest = null;
+        $this->matchingRoute = null;
         $this->settings = [];
     }
 
@@ -172,7 +195,6 @@ class Light
     {
         return $this->debug;
     }
-
 
 
     /**
@@ -219,6 +241,48 @@ class Light
         $this->applicationDir = $applicationDir;
     }
 
+    /**
+     * Returns the routes of this instance.
+     * It's an array of route name => route.
+     *
+     * A route is an array which structure is defined in @page(the route page).
+     *
+     *
+     * @return array
+     */
+    public function getRoutes(): array
+    {
+        return $this->routes;
+    }
+
+    /**
+     * Returns the httpRequest of this instance.
+     *
+     * @return HttpRequestInterface
+     */
+    public function getHttpRequest(): HttpRequestInterface
+    {
+        return $this->httpRequest;
+    }
+
+
+    /**
+     * Returns the matching route array, or false if no route matched.
+     * This method can only be called after the route matching test has been executed.
+     *
+     * If this method is called before the route matching test, an exception will be thrown.
+     *
+     *
+     * @return array|false
+     * @throws \Exception
+     */
+    public function getMatchingRoute()
+    {
+        if (null !== $this->matchingRoute) {
+            return $this->matchingRoute;
+        }
+        throw new LightException("The matching route is not available yet (the matching route test hasn't been executed yet).");
+    }
 
     /**
      * Registers a route item, as defined in @page(the route page).
@@ -275,20 +339,6 @@ class Light
 
     }
 
-    /**
-     * Returns the routes of this instance.
-     * It's an array of route name => route.
-     *
-     * A route is an array which structure is defined in @page(the route page).
-     *
-     *
-     * @return array
-     */
-    public function getRoutes(): array
-    {
-        return $this->routes;
-    }
-
 
     /**
      * Registers a error handler callback.
@@ -329,11 +379,14 @@ class Light
      */
     public function initialize(HttpRequestInterface $httpRequest = null)
     {
+        if (null === $httpRequest) {
+            $httpRequest = HttpRequest::createFromEnv();
+        }
+        $this->httpRequest = $httpRequest;
+
+
         if ($this->container->has("initializer")) {
             $initializer = $this->container->get("initializer");
-            if (null === $httpRequest) {
-                $httpRequest = HttpRequest::createFromEnv();
-            }
             $initializer->initialize($this, $httpRequest);
         }
     }
@@ -346,12 +399,12 @@ class Light
     {
 
         $httpRequest = HttpRequest::createFromEnv();
+        $this->httpRequest = $httpRequest;
         $response = null;
         $route = null;
 
 
         if (null !== $this->container) {
-
             //--------------------------------------------
             // INITIALIZE PHASE
             //--------------------------------------------
@@ -395,66 +448,11 @@ class Light
 
 
                         $route = $router->match($httpRequest, $this->routes);
+                        $this->matchingRoute = $route;
+
+
                         if (false !== $route) {
-
-
-                            //--------------------------------------------
-                            // NOW RESOLVING THE CONTROLLER
-                            //--------------------------------------------
-                            $controller = $route['controller'];
-                            $instance = null;
-
-                            // if not a callable yet, we want to turn it into a callable
-                            if (false === is_callable($controller)) {
-                                if (is_string($controller)) {
-                                    /**
-                                     * We want to allow the following notations:
-                                     *
-                                     * - for non static method: MyVendor\Controller\MyController->myMethod
-                                     *
-                                     *
-                                     */
-                                    $p = explode('->', $controller);
-                                    if (2 === count($p)) {
-                                        $class = $p[0];
-                                        $method = $p[1];
-                                        $instance = new $class;
-                                        $controller = [$instance, $method];
-                                    }
-
-                                }
-                            }
-
-
-                            //--------------------------------------------
-                            // INJECT THINGS IN THE CONTROLLERS
-                            //--------------------------------------------
-                            if (null !== $instance) {
-                                if ($instance instanceof LightAwareInterface) {
-                                    $instance->setLight($this);
-                                }
-
-                                if ($instance instanceof RouteAwareControllerInterface) {
-                                    $instance->setRoute($route);
-                                }
-                            }
-
-
-                            //--------------------------------------------
-                            // CALLING THE CONTROLLER
-                            //--------------------------------------------
-                            if (is_callable($controller)) {
-
-                                // we need to inject variables in the controller
-                                $controllerArgs = $this->getControllerArgs($controller, $route, $httpRequest);
-                                $response = call_user_func_array($controller, $controllerArgs);
-
-
-                            } else {
-                                $routeName = $route['name'];
-                                $type = gettype($controller);
-                                throw new LightException("The given controller is not a callable for route $routeName, $type given.");
-                            }
+                            $response = ControllerHelper::executeController($route['controller'], $this);
                         } else {
                             throw new LightException("No route matches", "404");
                         }
@@ -469,30 +467,40 @@ class Light
             } catch (\Exception $e) {
 
 
-                $lightErrorCode = null;
-                if ($e instanceof LightException) {
-                    $lightErrorCode = $e->getLightErrorCode();
-                }
+                if ($e instanceof LightRedirectException && $this->getContainer()->has('reverse_router')) {
+                    /**
+                     * @var $revRouter LightReverseRouterInterface
+                     */
+                    $revRouter = $this->getContainer()->get('reverse_router');
+                    $url = $revRouter->getUrl($e->getRedirectRoute(), [], true);
+                    $response = HttpRedirectResponse::create($url);
+                } else {
 
 
-                $washHandled = false;
-                foreach ($this->errorHandlers as $errorHandler) {
-                    if (null === $response) {
-                        call_user_func_array($errorHandler, [$lightErrorCode, $e, &$response]);
-                        if (null !== $response) {
-                            $washHandled = true;
-                            break;
+                    $lightErrorCode = null;
+                    if ($e instanceof LightException) {
+                        $lightErrorCode = $e->getLightErrorCode();
+                    }
+
+
+                    $washHandled = false;
+                    foreach ($this->errorHandlers as $errorHandler) {
+                        if (null === $response) {
+                            call_user_func_array($errorHandler, [$lightErrorCode, $e, &$response]);
+                            if (null !== $response) {
+                                $washHandled = true;
+                                break;
+                            }
                         }
                     }
-                }
 
+                    if (false === $washHandled) {
+                        if (false === $this->debug) {
+                            $response = $this->renderInternalServerErrorPage();
 
-                if (false === $washHandled) {
-                    if (false === $this->debug) {
-                        $response = $this->renderInternalServerErrorPage();
-
-                    } else {
-                        $response = $this->renderDebugPage($e);
+                        } else {
+                            $response = $this->renderDebugPage($e);
+                        }
                     }
                 }
             }
@@ -585,85 +593,5 @@ class Light
             <h1>Internal server error</h1>
             <p>The server encountered an internal error misconfiguration and was unable to complete your request.</p>", 500);
         return $response;
-    }
-
-
-    //--------------------------------------------
-    //
-    //--------------------------------------------
-    /**
-     * Returns the controller arguments to use when invoking the controller.
-     *
-     * Basically, the arguments are the variables defined in the route.vars,
-     * or if not found, the default value of the argument if any.
-     *
-     * The special hint types for the Light instance and the HttpRequestInterface can be used
-     * as an alternative to inject the light instance and the http request instance respectively.
-     *
-     *
-     *
-     *
-     * @param $controller
-     * @param array $route
-     * @param HttpRequestInterface $httpRequest
-     * @return array
-     * @throws LightException
-     * @throws \ReflectionException
-     */
-    private function getControllerArgs($controller, array $route, HttpRequestInterface $httpRequest)
-    {
-        $controllerArgs = [];
-        $routeUrlParams = $route['url_params'];
-        $controllerArgsInfo = ControllerHelper::getControllerArgsInfo($controller);
-        foreach ($controllerArgsInfo as $argName => $info) {
-
-
-            list($hasDefaultValue, $defaultValue, $hintType) = $info;
-            if (array_key_exists($argName, $routeUrlParams)) {
-                $controllerArgs[] = $routeUrlParams[$argName];
-            } elseif (true === $hasDefaultValue) {
-                $controllerArgs[] = $defaultValue;
-            } else {
-
-                /**
-                 * Special types
-                 * ----------
-                 * The following types can be injected directly by the light instance, without consulting the route system.
-                 * The user injects them by prefixing the right hint type to its argument
-                 *
-                 * - Ling\Light\Core\Light
-                 * - Ling\Light\Http\HttpRequestInterface
-                 * - Ling\Light\ServiceContainer\LightServiceContainerInterface
-                 *
-                 *
-                 *
-                 */
-                $specialTypes = [
-                    "Ling\Light\Core\Light",
-                    "Ling\Light\Http\HttpRequestInterface",
-                    "Ling\Light\ServiceContainer\LightServiceContainerInterface",
-                ];
-                if (in_array($hintType, $specialTypes, true)) {
-                    if ("Ling\Light\Core\Light" === $hintType) {
-                        $controllerArgs[] = $this;
-                    } elseif ("Ling\Light\Http\HttpRequestInterface" === $hintType) {
-                        $controllerArgs[] = $httpRequest;
-                    } elseif ("Ling\Light\ServiceContainer\LightServiceContainerInterface" === $hintType) {
-                        $controllerArgs[] = $this->getContainer();
-                    }
-                } else {
-
-                    if ('_route' === $argName) {
-                        $controllerArgs[] = $route;
-                    } else {
-                        $routeName = $route['name'];
-                        throw new LightException("The controller for route $routeName defined a mandatory argument $argName, but no value was provided by the route for this argument.");
-                    }
-                }
-            }
-
-
-        }
-        return $controllerArgs;
     }
 }

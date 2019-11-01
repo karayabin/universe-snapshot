@@ -5,6 +5,10 @@ namespace Ling\Light_UserData\Api;
 
 
 use Ling\SimplePdoWrapper\SimplePdoWrapperInterface;
+use Ling\Light_UserData\Api\Custom\CustomDirectoryMapApi;
+use Ling\Light\ServiceContainer\LightServiceContainerInterface;
+
+
 
 /**
  * The LightUserDataApiFactory class.
@@ -19,22 +23,37 @@ class LightUserDataApiFactory
     protected $pdoWrapper;
 
     /**
+     * This property holds the container for this instance.
+     * @var LightServiceContainerInterface
+     */
+    protected $container;
+
+    /**
+     * This property holds the microPermissionPlugin for this instance.
+     * @var string
+     */
+    protected $microPermissionPlugin;
+
+    /**
      * Builds the LightUserDataApiFactory instance.
      */
     public function __construct()
     {
         $this->pdoWrapper = null;
+		$this->container = null;
+		$this->microPermissionPlugin = "Light_UserData";
     }
 
-
     /**
-     * Returns a DirectoryMapApiInterface.
+     * Returns a CustomDirectoryMapApi.
      *
-     * @return DirectoryMapApiInterface
+     * @return CustomDirectoryMapApi
      */
-    public function getDirectoryMapApi(): DirectoryMapApiInterface
+    public function getDirectoryMapApi(): CustomDirectoryMapApi
     {
-        $o = new DirectoryMapApi();
+        $o = new CustomDirectoryMapApi();
+		$o->setContainer($this->container);
+		$o->setMicroPermissionPlugin($this->microPermissionPlugin);
         $o->setPdoWrapper($this->pdoWrapper);
         return $o;
     }
@@ -47,6 +66,8 @@ class LightUserDataApiFactory
     public function getResourceApi(): ResourceApiInterface
     {
         $o = new ResourceApi();
+		$o->setContainer($this->container);
+		$o->setMicroPermissionPlugin($this->microPermissionPlugin);
         $o->setPdoWrapper($this->pdoWrapper);
         return $o;
     }
@@ -59,6 +80,8 @@ class LightUserDataApiFactory
     public function getResourceHasTagApi(): ResourceHasTagApiInterface
     {
         $o = new ResourceHasTagApi();
+		$o->setContainer($this->container);
+		$o->setMicroPermissionPlugin($this->microPermissionPlugin);
         $o->setPdoWrapper($this->pdoWrapper);
         return $o;
     }
@@ -71,6 +94,8 @@ class LightUserDataApiFactory
     public function getTagApi(): TagApiInterface
     {
         $o = new TagApi();
+		$o->setContainer($this->container);
+		$o->setMicroPermissionPlugin($this->microPermissionPlugin);
         $o->setPdoWrapper($this->pdoWrapper);
         return $o;
     }
@@ -92,5 +117,22 @@ class LightUserDataApiFactory
         $this->pdoWrapper = $pdoWrapper;
     }
 
-
+    /**
+     * Sets the container.
+     *
+     * @param LightServiceContainerInterface $container
+     */
+    public function setContainer(LightServiceContainerInterface $container)
+    {
+        $this->container = $container;
+    }
+    /**
+     * Sets the name of the plugin used to handle the micro-permissions.
+     *
+     * @param string $pluginName
+     */
+    public function setMicroPermissionPlugin(string $pluginName)
+    {
+        $this->microPermissionPlugin = $pluginName;
+    }
 }

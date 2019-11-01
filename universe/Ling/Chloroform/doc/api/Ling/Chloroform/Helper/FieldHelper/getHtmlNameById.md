@@ -52,7 +52,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [FieldHelper::getHtmlNameById](https://github.com/lingtalfi/Chloroform/blob/master/Helper/FieldHelper.php#L77-L85)
+See the source code for method [FieldHelper::getHtmlNameById](https://github.com/lingtalfi/Chloroform/blob/master/Helper/FieldHelper.php#L59-L67)
 
 
 See Also
@@ -60,5 +60,5 @@ See Also
 
 The [FieldHelper](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Helper/FieldHelper.md) class.
 
-Previous method: [getFieldValue](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Helper/FieldHelper/getFieldValue.md)<br>
+Previous method: [getDefaultErrorNameByLabelOrId](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Helper/FieldHelper/getDefaultErrorNameByLabelOrId.md)<br>
 

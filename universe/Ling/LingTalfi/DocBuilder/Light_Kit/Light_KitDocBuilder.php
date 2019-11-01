@@ -144,6 +144,7 @@ class Light_KitDocBuilder
                 "arrayMergeReplaceRecursive technique" => 'https://github.com/lingtalfi/Bat/blob/master/ArrayTool.md#arraymergereplacerecursive',
                 "conception notes about the page updator" => 'https://github.com/lingtalfi/Light_Kit/blob/master/doc/pages/conception-notes.md#page-conf-updator',
                 "ams algorithm documentation" => 'https://github.com/lingtalfi/Bat/blob/master/ArrayTool.md#arraymergereplacerecursive',
+                "LightHelper::executeMethod" => 'https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/LightHelper/executeMethod.md',
             ],
             /**
              * An array of external classes to url.

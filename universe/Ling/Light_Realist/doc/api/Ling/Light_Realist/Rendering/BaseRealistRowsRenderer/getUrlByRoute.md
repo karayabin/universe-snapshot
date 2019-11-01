@@ -16,7 +16,7 @@ Description
 ================
 
 
-protected [BaseRealistRowsRenderer::getUrlByRoute](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Rendering/BaseRealistRowsRenderer/getUrlByRoute.md)(string $route, array $urlParameters = [], bool $useAbsolute = null) : string
+protected [BaseRealistRowsRenderer::getUrlByRoute](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Rendering/BaseRealistRowsRenderer/getUrlByRoute.md)(string $route, ?array $urlParameters = [], ?bool $useAbsolute = null) : string
 
 
 

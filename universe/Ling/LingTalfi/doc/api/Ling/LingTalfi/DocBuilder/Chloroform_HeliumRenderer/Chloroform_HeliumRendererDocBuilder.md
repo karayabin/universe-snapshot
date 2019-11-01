@@ -4,7 +4,7 @@
 
 The Chloroform_HeliumRendererDocBuilder class
 ================
-2019-03-13 --> 2019-09-26
+2019-03-13 --> 2019-10-25
 
 
 
@@ -25,7 +25,7 @@ Class synopsis
 class <span class="pl-k">Chloroform_HeliumRendererDocBuilder</span>  {
 
 - Methods
-    - public static [buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Chloroform_HeliumRenderer/Chloroform_HeliumRendererDocBuilder/buildDoc.md)($htmlMode = true) : void
+    - public static [buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Chloroform_HeliumRenderer/Chloroform_HeliumRendererDocBuilder/buildDoc.md)(?$htmlMode = true) : void
 
 }
 
@@ -52,4 +52,4 @@ See the source code of [Ling\LingTalfi\DocBuilder\Chloroform_HeliumRenderer\Chlo
 
 SeeAlso
 ==============
-Previous class: [Chloroform_Bootstrap4RendererDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Chloroform_Bootstrap4Renderer/Chloroform_Bootstrap4RendererDocBuilder.md)<br>Next class: [Chloroform_HydrogenRendererDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Chloroform_HydrogenRenderer/Chloroform_HydrogenRendererDocBuilder.md)<br>
+Previous class: [Chloroform_HeliumLightRendererDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Chloroform_HeliumLightRenderer/Chloroform_HeliumLightRendererDocBuilder.md)<br>Next class: [Chloroform_HydrogenRendererDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Chloroform_HydrogenRenderer/Chloroform_HydrogenRendererDocBuilder.md)<br>

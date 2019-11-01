@@ -361,13 +361,18 @@ Depending on your css skills, you might get another look and feel quite easily.
 Related
 ===========
 - [Chloroform](https://github.com/lingtalfi/Chloroform), the library to create the form structure
-- [Chloroform Helium renderer](https://github.com/lingtalfi/Chloroform_HeliumRenderer), a boostrap 4 renderer for chloroform
+- [Chloroform Helium renderer](https://github.com/lingtalfi/Chloroform_HeliumRenderer), a bootstrap 4 renderer for chloroform
+- [Chloroform_HeliumLightRenderer](https://github.com/lingtalfi/Chloroform_HeliumLightRenderer), the light version of the Chloroform Helium renderer
 
 
 
 History Log
 =============
 
+- 1.2.3 -- 2019-10-24
+
+    - add link in README.md
+    
 - 1.2.2 -- 2019-07-26
 
     - update doc

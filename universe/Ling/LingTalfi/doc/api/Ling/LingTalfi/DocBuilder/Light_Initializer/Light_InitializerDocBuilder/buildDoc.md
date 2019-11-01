@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [Light_InitializerDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Initializer/Light_InitializerDocBuilder/buildDoc.md)($htmlMode = true) : void
+public static [Light_InitializerDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Initializer/Light_InitializerDocBuilder/buildDoc.md)(?$htmlMode = true) : void
 
 
 

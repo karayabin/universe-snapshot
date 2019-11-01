@@ -76,7 +76,18 @@ The **initializer** service is provided by the [Light_Initializer planet](https:
 History Log
 =============
 
+- 1.7.2 -- 2019-09-17
 
+    - update ReverseRouter to accommodate new LightReverseRouterInterface interface method signature 
+    
+- 1.7.1 -- 2019-10-21
+
+    - update ReverseRouter->getUrl, now internally uses UriTool::httpBuildQuery instead of http_build_query
+    
+- 1.7.0 -- 2019-09-17
+
+    - update ReverseRouter to accommodate new LightReverseRouterInterface interface methods 
+    
 - 1.6.0 -- 2019-09-10
 
     - update service instantiation to accommodate the new initializer interface

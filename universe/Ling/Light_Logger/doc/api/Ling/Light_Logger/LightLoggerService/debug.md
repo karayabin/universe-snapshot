@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [LightLoggerService::debug](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/debug.md)(?$msg) : void
+public [LightLoggerService::debug](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/debug.md)($msg) : void
 
 
 
@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightLoggerService::debug](https://github.com/lingtalfi/Light_Logger/blob/master/LightLoggerService.php#L217-L220)
+See the source code for method [LightLoggerService::debug](https://github.com/lingtalfi/Light_Logger/blob/master/LightLoggerService.php#L236-L239)
 
 
 See Also

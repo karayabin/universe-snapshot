@@ -26,9 +26,6 @@ Returns an array of posted data (for this instance).
 The posted data is empty if no form was posted, and otherwise is the
 array described in [the postedData section](https://github.com/lingtalfi/Chloroform/blob/master/doc/pages/chloroform-discussion.md#the-posted-data).
 
-Note: you should not override this method. If your postedData are "special", you should override the
-createPostedData method.
-
 
 
 
@@ -44,6 +41,11 @@ Return values
 Returns array.
 
 
+Exceptions thrown
+================
+
+- [Exception](http://php.net/manual/en/class.exception.php).&nbsp;
+
 
 
 
@@ -52,7 +54,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [Chloroform::getPostedData](https://github.com/lingtalfi/Chloroform/blob/master/Form/Chloroform.php#L114-L121)
+See the source code for method [Chloroform::getPostedData](https://github.com/lingtalfi/Chloroform/blob/master/Form/Chloroform.php#L105-L115)
 
 
 See Also

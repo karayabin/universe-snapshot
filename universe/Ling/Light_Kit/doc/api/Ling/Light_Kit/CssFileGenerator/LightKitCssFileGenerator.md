@@ -4,7 +4,7 @@
 
 The LightKitCssFileGenerator class
 ================
-2019-04-25 --> 2019-08-30
+2019-04-25 --> 2019-10-29
 
 
 
@@ -32,8 +32,8 @@ class <span class="pl-k">LightKitCssFileGenerator</span> implements [CssFileGene
     - protected string [$format](#property-format) ;
 
 - Methods
-    - public [__construct](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/CssFileGenerator/LightKitCssFileGenerator/__construct.md)(string $rootDir, string $format = null) : void
-    - public [generate](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/CssFileGenerator/LightKitCssFileGenerator/generate.md)([Ling\HtmlPageTools\Copilot\HtmlPageCopilot](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot.md) $copilot, string $identifier = null) : string
+    - public [__construct](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/CssFileGenerator/LightKitCssFileGenerator/__construct.md)(string $rootDir, ?string $format = null) : void
+    - public [generate](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/CssFileGenerator/LightKitCssFileGenerator/generate.md)([Ling\HtmlPageTools\Copilot\HtmlPageCopilot](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot.md) $copilot, ?string $identifier = null) : string
 
 }
 

@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [TextField::create](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/TextField/create.md)(string $label, array $properties = []) : [TextField](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/TextField.md)
+public static [TextField::create](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/TextField/create.md)(string $label, ?array $properties = []) : [TextField](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/TextField.md)
 
 
 

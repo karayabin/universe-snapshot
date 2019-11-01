@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [ParentChildDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/ParentChild/ParentChildDocBuilder/buildDoc.md)($htmlMode = true) : void
+public static [ParentChildDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/ParentChild/ParentChildDocBuilder/buildDoc.md)(?$htmlMode = true) : void
 
 
 

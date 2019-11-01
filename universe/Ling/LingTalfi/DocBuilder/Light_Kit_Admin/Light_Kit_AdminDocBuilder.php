@@ -7,6 +7,7 @@ namespace Ling\LingTalfi\DocBuilder\Light_Kit_Admin;
 use Ling\DocTools\DocBuilder\Git\PhpPlanet\LingGitPhpPlanetDocBuilder;
 use Ling\DocTools\Exception\DocBuilderException;
 use Ling\DocTools\Translator\ParseDownTranslator;
+use Ling\LingTalfi\DocTools\LingTalfiDocToolsHelper;
 
 
 /**
@@ -74,7 +75,21 @@ class Light_Kit_AdminDocBuilder
              *
              */
             "reportIgnore" => [
-//                "Ling\DocTools\Translator\ParseDownTranslator",
+                "Ling\Light_AjaxHandler\Handler\ContainerAwareLightAjaxHandler",
+                "Ling\Light_BMenu\Host\LightBMenuAbstractHost",
+                "Ling\Chloroform\Form\Chloroform",
+                "Ling\Light\Controller\LightController",
+                "Ling\Light_MicroPermission\MicroPermissionResolver\BabyYamlMicroPermissionResolver",
+                "Ling\Light_Realform\Handler\BaseRealformHandler",
+                "Ling\Light_Realist\ActionHandler\LightRealistAbstractActionHandler",
+                "Ling\Light_Realist\ListActionHandler\LightRealistBaseListActionHandler",
+                "Ling\Light_Realist\ListGeneralActionHandler\LightRealistBaseListGeneralActionHandler",
+                "Ling\Light_Realist\Rendering\BaseRealistRowsRenderer",
+                "Ling\Kit_PicassoWidget\Widget\EasyLightPicassoWidget",
+                "Ling\Kit_PicassoWidget\Widget\WidgetConfAwarePicassoWidget",
+                "Ling\Kit_PicassoWidget\Widget\PicassoWidget",
+                "Ling\ZephyrTemplateEngine\ZephyrTemplateEngine",
+
             ],
             /**
              * Your project start date.
@@ -140,7 +155,24 @@ class Light_Kit_AdminDocBuilder
              * This map in particular is the one used for the whole DocTools planet documentation (pages and api).
              */
             "keyWord2UrlMap" => [
-//                "the command line page" => $doc . '/pages/command-line.md',
+                "ajax communication protocol" =>  'https://github.com/lingtalfi/AjaxCommunicationProtocol',
+                "conception notes" => $doc . '/pages/conception-notes.md',
+                "the postedData section" =>  'https://github.com/lingtalfi/Chloroform/blob/master/doc/pages/chloroform-discussion.md#the-posted-data',
+                "very important data" =>  'https://github.com/lingtalfi/Chloroform/blob/master/doc/pages/chloroform-discussion.md#the-concept-of-very-important-data',
+                "DataTransformerInterface" =>  'https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/DataTransformer/DataTransformerInterface.md',
+                "the field ids" =>  'https://github.com/lingtalfi/Chloroform/blob/master/doc/pages/chloroform-discussion.md#the-field-id',
+                "FieldInterface->toArray method" => "https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/FieldInterface/toArray.md",
+                "Chloroform toArray" => "https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform/toArray.md",
+                "the route page" => "https://github.com/lingtalfi/Light/blob/master/doc/pages/route.md",
+                "kit service" => "https://github.com/lingtalfi/Light_Kit_Admin",
+                "the flasher service" => "https://github.com/lingtalfi/Light_Flasher",
+                "generic action item" => "https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/generic-action-item.md",
+                "the realist conception notes" => "https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/realist-conception-notes.md",
+                "open admin table helper implementation notes" => "https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/open-admin-table-helper-implementation-notes.md",
+                "LightReverseRouterInterface" => "https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ReverseRouter/LightReverseRouterInterface.md",
+                "bdot path" => "https://github.com/lingtalfi/Bat/blob/master/doc/bdot-notation.md",
+                "ChloroformWidget" => "https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/pages/widget-variables-description.md#chloroformwidget",
+                "widget configuration array" => "https://github.com/lingtalfi/Kit_PicassoWidget#the-picasso-widget-array",
             ],
             /**
              * An array of external classes to url.
@@ -152,7 +184,50 @@ class Light_Kit_AdminDocBuilder
              * in the class synopsis.
              */
             "externalClass2Url" => [
-//                "Ling\UniversalLogger\UniversalLoggerInterface" => "https://github.com/lingtalfi/UniversalLogger",
+                "Ling\Chloroform\Exception\ChloroformException" => "https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Exception/ChloroformException.md",
+                "Ling\Light\Exception\LightException" => "https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Exception/LightException.md",
+                "Ling\Octopus\Exception\OctopusServiceErrorException" => "https://github.com/lingtalfi/Octopus/blob/master/doc/api/Ling/Octopus/Exception/OctopusServiceErrorException.md",
+                "Ling\Kit_PicassoWidget\Exception\PicassoWidgetException" => "https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/api/Ling/Kit_PicassoWidget/Exception/PicassoWidgetException.md",
+                "Ling\Light_AjaxHandler\Handler\ContainerAwareLightAjaxHandler" => "https://github.com/lingtalfi/Light_AjaxHandler/blob/master/doc/api/Ling/Light_AjaxHandler/Handler/ContainerAwareLightAjaxHandler.md",
+                "Ling\Light\ServiceContainer\LightServiceContainerAwareInterface" => "https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerAwareInterface.md",
+                "Ling\Light_AjaxHandler\Handler\LightAjaxHandlerInterface" => "https://github.com/lingtalfi/Light_AjaxHandler/blob/master/doc/api/Ling/Light_AjaxHandler/Handler/LightAjaxHandlerInterface.md",
+                "Ling\Light\ServiceContainer\LightServiceContainerInterface" => "https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md",
+                "Ling\Light_BMenu\Host\LightBMenuAbstractHost" => "https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Host/LightBMenuAbstractHost.md",
+                "Ling\Light_BMenu\Host\LightBMenuHostInterface" => "https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Host/LightBMenuHostInterface.md",
+                "Ling\Chloroform\Form\Chloroform" => "https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform.md",
+                "Ling\Chloroform\Field\FieldInterface" => "https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/FieldInterface.md",
+                "Ling\Chloroform\FormNotification\FormNotificationInterface" => "https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/FormNotification/FormNotificationInterface.md",
+                "Ling\Light\Core\LightAwareInterface" => "https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/LightAwareInterface.md",
+                "Ling\Light\Controller\LightControllerInterface" => "https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Controller/LightControllerInterface.md",
+                "Ling\Light\Controller\RouteAwareControllerInterface" => "https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Controller/RouteAwareControllerInterface.md",
+                "Ling\Light\Core\Light" => "https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light.md",
+                "Ling\Light\Http\HttpResponseInterface" => "https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponseInterface.md",
+                "Ling\Light\Controller\LightController" => "https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Controller/LightController.md",
+                "Ling\Light_Flasher\Service\LightFlasher" => "https://github.com/lingtalfi/Light_Flasher/blob/master/doc/api/Ling/Light_Flasher/Service/LightFlasher.md",
+                "Ling\Light_User\WebsiteLightUser" => "https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/WebsiteLightUser.md",
+                "Ling\Light_MicroPermission\MicroPermissionResolver\BabyYamlMicroPermissionResolver" => "https://github.com/lingtalfi/Light_MicroPermission/blob/master/doc/api/Ling/Light_MicroPermission/MicroPermissionResolver/BabyYamlMicroPermissionResolver.md",
+                "Ling\Light_MicroPermission\MicroPermissionResolver\LightMicroPermissionResolverInterface" => "https://github.com/lingtalfi/Light_MicroPermission/blob/master/doc/api/Ling/Light_MicroPermission/MicroPermissionResolver/LightMicroPermissionResolverInterface.md",
+                "Ling\Light_Kit\PageConfigurationTransformer\PageConfigurationTransformerInterface" => "https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageConfigurationTransformer/PageConfigurationTransformerInterface.md",
+                "Ling\Light_Realform\Handler\BaseRealformHandler" => "https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Handler/BaseRealformHandler.md",
+                "Ling\Light_Realform\Handler\RealformHandlerInterface" => "https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Handler/RealformHandlerInterface.md",
+                "Ling\Light_Realist\ActionHandler\LightRealistAbstractActionHandler" => "https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/ActionHandler/LightRealistAbstractActionHandler.md",
+                "Ling\Light_Realist\ActionHandler\LightRealistActionHandlerInterface" => "https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/ActionHandler/LightRealistActionHandlerInterface.md",
+                "Ling\Light_Realist\ListActionHandler\LightRealistBaseListActionHandler" => "https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/ListActionHandler/LightRealistBaseListActionHandler.md",
+                "Ling\Light_Realist\ListActionHandler\LightRealistListActionHandlerInterface" => "https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/ListActionHandler/LightRealistListActionHandlerInterface.md",
+                "Ling\Light_Realist\ListActionHandler\LightServiceContainerInterface" => "https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/ListActionHandler/LightServiceContainerInterface.md",
+                "Ling\Light_Realist\ListGeneralActionHandler\LightRealistBaseListGeneralActionHandler" => "https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/ListGeneralActionHandler/LightRealistBaseListGeneralActionHandler.md",
+                "Ling\Light_Realist\ListGeneralActionHandler\LightRealistListGeneralActionHandlerInterface" => "https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/ListGeneralActionHandler/LightRealistListGeneralActionHandlerInterface.md",
+                "Ling\Light_Realist\ListGeneralActionHandler\LightServiceContainerInterface" => "https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/ListGeneralActionHandler/LightServiceContainerInterface.md",
+                "Ling\Light_Realist\Rendering\BaseRealistRowsRenderer" => "https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Rendering/BaseRealistRowsRenderer.md",
+                "Ling\Light_Realist\Rendering\RealistRowsRendererInterface" => "https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Rendering/RealistRowsRendererInterface.md",
+                "Ling\Light_Initializer\Initializer\LightInitializerInterface" => "https://github.com/lingtalfi/Light_Initializer/blob/master/doc/api/Ling/Light_Initializer/Initializer/LightInitializerInterface.md",
+                "Ling\Kit_PicassoWidget\Widget\EasyLightPicassoWidget" => "https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/api/Ling/Kit_PicassoWidget/Widget/EasyLightPicassoWidget.md",
+                "Ling\Kit\PageRenderer\KitPageRendererAwareInterface" => "https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRendererAwareInterface.md",
+                "Ling\UniversalTemplateEngine\UniversalTemplateEngineInterface" => "https://github.com/lingtalfi/UniversalTemplateEngine/blob/master/doc/api/Ling/UniversalTemplateEngine/UniversalTemplateEngineInterface.md",
+                "Ling\Kit_PicassoWidget\Widget\WidgetConfAwarePicassoWidgetInterface" => "https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/api/Ling/Kit_PicassoWidget/Widget/WidgetConfAwarePicassoWidgetInterface.md",
+                "Ling\Kit\PageRenderer\KitPageRendererInterface" => "https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRendererInterface.md",
+                "Ling\HtmlPageTools\Copilot\HtmlPageCopilot" => "https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot.md",
+
             ],
         ];
 
@@ -173,7 +248,7 @@ class Light_Kit_AdminDocBuilder
                  * Uncomment the lines below to see my settings for local test mode.
                  */
 
-                "generatedClassBaseDir" =>  "/komin/jin_site_demo/www-doc/api",
+                "generatedClassBaseDir" => "/komin/jin_site_demo/www-doc/api",
                 "generatedClassBaseUrl" => "http://jindoc/api",
                 "mode" => "html", // md|html
                 "markdownTranslator" => new ParseDownTranslator(),
@@ -189,6 +264,7 @@ class Light_Kit_AdminDocBuilder
          */
         $builder->buildDoc();
 
+        LingTalfiDocToolsHelper::generateCrumbs($builder);
         if ('cli' !== php_sapi_name()) {
 
             /**
@@ -196,6 +272,7 @@ class Light_Kit_AdminDocBuilder
              */
             $builder->showReport();
         }
+
     }
 
 }

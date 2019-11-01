@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightController::__construct](https://github.com/lingtalfi/Light/blob/master/Controller/LightController.php#L33-L36)
+See the source code for method [LightController::__construct](https://github.com/lingtalfi/Light/blob/master/Controller/LightController.php#L34-L37)
 
 
 See Also

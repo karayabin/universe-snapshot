@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [Kit_PrototypeWidgetDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Kit_PrototypeWidget/Kit_PrototypeWidgetDocBuilder/buildDoc.md)($htmlMode = true) : void
+public static [Kit_PrototypeWidgetDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Kit_PrototypeWidget/Kit_PrototypeWidgetDocBuilder/buildDoc.md)(?$htmlMode = true) : void
 
 
 

@@ -1,0 +1,9 @@
+    /**
+     * Sets the name of the plugin used to handle the micro-permissions.
+     *
+     * @param string $pluginName
+     */
+    public function setMicroPermissionPlugin(string $pluginName)
+    {
+        $this->microPermissionPlugin = $pluginName;
+    }

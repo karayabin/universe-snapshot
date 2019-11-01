@@ -16,7 +16,7 @@ Description
 ================
 
 
-abstract public [FieldInterface::setValue](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/FieldInterface/setValue.md)(?$value) : [FieldInterface](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/FieldInterface.md)
+abstract public [FieldInterface::setValue](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/FieldInterface/setValue.md)($value) : [FieldInterface](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/FieldInterface.md)
 
 
 
@@ -49,7 +49,7 @@ Returns [FieldInterface](https://github.com/lingtalfi/Chloroform/blob/master/doc
 
 Source Code
 ===========
-See the source code for method [FieldInterface::setValue](https://github.com/lingtalfi/Chloroform/blob/master/Field/FieldInterface.php#L72-L72)
+See the source code for method [FieldInterface::setValue](https://github.com/lingtalfi/Chloroform/blob/master/Field/FieldInterface.php#L80-L80)
 
 
 See Also

@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [CommentInfo::setFirstLine](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/CommentInfo/setFirstLine.md)(?$firstLine) : [CommentInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/CommentInfo.md)
+public [CommentInfo::setFirstLine](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/CommentInfo/setFirstLine.md)($firstLine) : [CommentInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/CommentInfo.md)
 
 
 

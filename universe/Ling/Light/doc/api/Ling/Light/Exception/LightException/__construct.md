@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [LightException::__construct](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Exception/LightException/__construct.md)($message = , string $lightErrorCode = null, $code = 0, [\Throwable](http://php.net/manual/en/class.throwable.php) $previous = null) : void
+public [LightException::__construct](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Exception/LightException/__construct.md)(?$message = , ?$code = 0, ?[\Throwable](http://php.net/manual/en/class.throwable.php) $previous = null) : void
 
 
 
@@ -31,10 +31,6 @@ Parameters
 
 
 - message
-
-    
-
-- lightErrorCode
 
     
 
@@ -69,5 +65,5 @@ See Also
 
 The [LightException](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Exception/LightException.md) class.
 
-Next method: [getLightErrorCode](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Exception/LightException/getLightErrorCode.md)<br>
+Next method: [create](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Exception/LightException/create.md)<br>
 

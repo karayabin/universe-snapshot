@@ -160,47 +160,55 @@ class ArrayVariableResolverUtil
         $end = preg_quote($this->closingBracket);
         $regex = '!' . $begin . '([^' . $end . ']*)' . $end . '!';
 
-
         BDotTool::walk($array, function (&$v, $key, $dotPath) use (&$array, $variables, $regex) {
 
             if (is_string($v)) {
                 if (false !== strpos($v, $this->firstSymbol . $this->openingBracket)) {
-                    if (preg_match($regex, $v, $match)) {
 
-                        $varName = $match[1];
-                        $proceed = false;
 
-                        if (array_key_exists($varName, $variables)) {
-                            $replace = $variables[$varName];
-                            $proceed = true;
-                        } else {
-                            if (true === $this->allowBdotResolution && false !== strpos($varName, ".")) {
-                                $found = false;
-                                $replace = BDotTool::getDotValue($varName, $variables, null, $found);
-                                if (true === $found) {
+                    if (preg_match_all($regex, $v, $matches)) {
+
+                        if ($matches) {
+
+                            $varNames = $matches[1];
+                            foreach ($varNames as $varName) {
+
+
+                                $proceed = false;
+                                if (array_key_exists($varName, $variables)) {
+                                    $replace = $variables[$varName];
                                     $proceed = true;
-                                }
-                            }
-                        }
-
-
-                        if (true === $proceed) {
-
-                            $variable = $match[0];
-                            if ($variable === $v) {
-                                // standalone mode, we can replace with anything
-                                BDotTool::setDotValue($dotPath, $replace, $array);
-                            } else {
-                                // inline mode, only string and number will render correctly
-
-                                if (null === $replace) { // convert null to empty string
-                                    $replace = "";
-                                }
-                                if (is_string($replace) || is_int($replace) || is_float($replace)) {
-                                    $v = str_replace($this->firstSymbol . $this->openingBracket . $varName . $this->closingBracket, $replace, $v);
                                 } else {
-                                    $type = gettype($replace);
-                                    throw new ArrayVariableResolverException("The variable \"$varName\" at \"$dotPath\" is inline, and therefore should only be replaced by a string, an int or a float; $type given.");
+                                    if (true === $this->allowBdotResolution && false !== strpos($varName, ".")) {
+                                        $found = false;
+                                        $replace = BDotTool::getDotValue($varName, $variables, null, $found);
+                                        if (true === $found) {
+                                            $proceed = true;
+                                        }
+                                    }
+                                }
+
+
+                                if (true === $proceed) {
+                                    $variable = $this->firstSymbol . $this->openingBracket . $varName . $this->closingBracket;
+                                    if ($variable === $v) {
+                                        // standalone mode, we can replace with anything
+                                        BDotTool::setDotValue($dotPath, $replace, $array);
+                                    } else {
+
+
+                                        // inline mode, only string and number will render correctly
+
+                                        if (null === $replace) { // convert null to empty string
+                                            $replace = "";
+                                        }
+                                        if (is_string($replace) || is_int($replace) || is_float($replace)) {
+                                            $v = str_replace($this->firstSymbol . $this->openingBracket . $varName . $this->closingBracket, $replace, $v);
+                                        } else {
+                                            $type = gettype($replace);
+                                            throw new ArrayVariableResolverException("The variable \"$varName\" at \"$dotPath\" is inline, and therefore should only be replaced by a string, an int or a float; $type given.");
+                                        }
+                                    }
                                 }
                             }
                         }

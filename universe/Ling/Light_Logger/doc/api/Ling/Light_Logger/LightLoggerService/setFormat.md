@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightLoggerService::setFormat](https://github.com/lingtalfi/Light_Logger/blob/master/LightLoggerService.php#L143-L146)
+See the source code for method [LightLoggerService::setFormat](https://github.com/lingtalfi/Light_Logger/blob/master/LightLoggerService.php#L153-L156)
 
 
 See Also

@@ -22,6 +22,14 @@ The "User" part depends on the underlying table, and the "ById" part will change
 
 For more information about the arguments, refer to the aforementioned "ling breeze generator" document.
 
+Those methods should be generated based on the ric.
+
+In addition to that, the getXXX, updateXXX and deleteXXX methods should also be generated for every unique index of the table.
+
+
+
+
+
 
 
 Note: whether the insert/update method perform a foreign key constraint check is up to the implementor.

@@ -4,7 +4,7 @@
 
 The PageUtil class
 ================
-2019-02-21 --> 2019-10-08
+2019-02-21 --> 2019-10-25
 
 
 
@@ -34,7 +34,7 @@ class <span class="pl-k">PageUtil</span>  {
     - public [__construct](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Page/PageUtil/__construct.md)() : void
     - public [setRootDir](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Page/PageUtil/setRootDir.md)(string $rootDir) : void
     - public [setInsertsRootDir](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Page/PageUtil/setInsertsRootDir.md)(string $insertsRootDir) : void
-    - public [setTranslator](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Page/PageUtil/setTranslator.md)(?[Ling\DocTools\Translator\MarkdownTranslatorInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Translator/MarkdownTranslatorInterface.md) $translator) : void
+    - public [setTranslator](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Page/PageUtil/setTranslator.md)([Ling\DocTools\Translator\MarkdownTranslatorInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Translator/MarkdownTranslatorInterface.md) $translator) : void
     - public [createPage](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Page/PageUtil/createPage.md)(string $file, string $template, array $variables) : void
     - private [renderPage](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Page/PageUtil/renderPage.md)(string $template, array $z, [Ling\DocTools\TemplateWizard\TemplateWizard](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/TemplateWizard/TemplateWizard.md) $zz) : false | string
 

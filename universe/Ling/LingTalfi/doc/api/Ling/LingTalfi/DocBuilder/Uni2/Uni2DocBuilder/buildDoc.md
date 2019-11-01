@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [Uni2DocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Uni2/Uni2DocBuilder/buildDoc.md)($htmlMode = true) : void
+public static [Uni2DocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Uni2/Uni2DocBuilder/buildDoc.md)(?$htmlMode = true) : void
 
 
 

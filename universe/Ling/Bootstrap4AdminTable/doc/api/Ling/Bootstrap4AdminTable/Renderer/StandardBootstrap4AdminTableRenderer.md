@@ -4,7 +4,7 @@
 
 The StandardBootstrap4AdminTableRenderer class
 ================
-2019-08-15 --> 2019-10-11
+2019-08-15 --> 2019-10-28
 
 
 
@@ -38,6 +38,7 @@ class <span class="pl-k">StandardBootstrap4AdminTableRenderer</span> extends [Bo
     - protected array [OpenAdminTableBaseRealistListRenderer::$listGeneralActions](#property-listGeneralActions) ;
     - protected string [OpenAdminTableBaseRealistListRenderer::$containerCssId](#property-containerCssId) ;
     - protected array [OpenAdminTableBaseRealistListRenderer::$sqlColumns](#property-sqlColumns) ;
+    - protected array [OpenAdminTableBaseRealistListRenderer::$relatedLinks](#property-relatedLinks) ;
 
 - Methods
     - public [__construct](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/Renderer/StandardBootstrap4AdminTableRenderer/__construct.md)() : void
@@ -59,7 +60,7 @@ class <span class="pl-k">StandardBootstrap4AdminTableRenderer</span> extends [Bo
     - public OpenAdminTableBaseRealistListRenderer::setWidgetStatuses(array $widgetStatuses) : void
     - public OpenAdminTableBaseRealistListRenderer::setRequestId(string $requestId) : void
     - public OpenAdminTableBaseRealistListRenderer::setContainer([Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) $container) : void
-    - public OpenAdminTableBaseRealistListRenderer::setCollapsibleColumnIndexes(?$collapsibleColumnIndexes) : void
+    - public OpenAdminTableBaseRealistListRenderer::setCollapsibleColumnIndexes($collapsibleColumnIndexes) : void
     - public OpenAdminTableBaseRealistListRenderer::setListActionGroups(array $listActionGroups) : void
     - public OpenAdminTableBaseRealistListRenderer::setListGeneralActions(array $listGeneralActions) : void
     - public OpenAdminTableBaseRealistListRenderer::setCsrfToken(string $csrfToken) : void

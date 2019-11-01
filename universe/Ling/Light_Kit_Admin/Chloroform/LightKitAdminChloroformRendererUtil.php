@@ -4,6 +4,8 @@
 namespace Ling\Light_Kit_Admin\Chloroform;
 
 
+use Ling\Chloroform\Helper\ChloroformRendererHelper;
+
 /**
  * The LightKitAdminChloroformRendererUtil class.
  */
@@ -27,22 +29,6 @@ class LightKitAdminChloroformRendererUtil
     }
 
 
-    /**
-     * Prints the form id key control to identify which form is posed when the page contains multiple forms.
-     *
-     *
-     * @param array $chloroform
-     * The @page(chloroform array).
-     */
-    public static function renderFormIdKeyControl(array $chloroform)
-    {
-        $key = "chloroform_hidden_key";
-        ?>
-        <input type="hidden" name="<?php echo htmlspecialchars($key); ?>"
-               value="<?php echo $chloroform['fields'][$key]['value']; ?>"/>
-        <?php
-    }
-
 
     /**
      * Prints the csrf control and form id key control.
@@ -55,7 +41,7 @@ class LightKitAdminChloroformRendererUtil
     public static function renderHiddenCommonFields(array $chloroform)
     {
         self::renderCsrfControl($chloroform);
-        self::renderFormIdKeyControl($chloroform);
+        ChloroformRendererHelper::printsFormIdKeyControl($chloroform);
     }
 
 

@@ -4,7 +4,7 @@
 
 The BreezeGeneratorInterface class
 ================
-2019-09-11 --> 2019-10-04
+2019-09-11 --> 2019-10-31
 
 
 
@@ -52,4 +52,4 @@ See the source code of [Ling\Light_BreezeGenerator\Generator\BreezeGeneratorInte
 
 SeeAlso
 ==============
-Next class: [LingBreezeGenerator](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator.md)<br>
+Previous class: [LightBreezeGeneratorException](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Exception/LightBreezeGeneratorException.md)<br>Next class: [LingBreezeGenerator](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator.md)<br>

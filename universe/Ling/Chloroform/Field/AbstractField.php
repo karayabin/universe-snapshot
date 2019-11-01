@@ -3,6 +3,7 @@
 namespace Ling\Chloroform\Field;
 
 
+use Ling\Chloroform\DataTransformer\DataTransformerInterface;
 use Ling\Chloroform\Helper\FieldHelper;
 use Ling\Chloroform\Validator\ValidatorInterface;
 
@@ -53,6 +54,13 @@ abstract class AbstractField implements FieldInterface
 
 
     /**
+     * This property holds the fallbackValue for this instance.
+     * @var mixed|null
+     */
+    protected $fallbackValue;
+
+
+    /**
      * This property holds the errors for this instance.
      *
      * An array of error messages (each being a string).
@@ -75,6 +83,17 @@ abstract class AbstractField implements FieldInterface
     protected $properties;
 
 
+    /**
+     * This property holds the hasVeryImportantData for this instance.
+     * @var bool = true
+     */
+    protected $hasVeryImportantData;
+
+    /**
+     * This property holds the dataTransformer for this instance.
+     * @var DataTransformerInterface
+     */
+    protected $dataTransformer;
 
     /**
      * Builds the AbstractField instance.
@@ -112,6 +131,7 @@ abstract class AbstractField implements FieldInterface
         $this->label = $properties['label'] ?? null;
         $this->hint = $properties['hint'] ?? null;
         $this->value = $properties['value'] ?? null;
+        $this->fallbackValue = $properties['fallbackValue'] ?? null;
         if (array_key_exists("id", $properties)) {
             $this->id = $properties['id'];
         } else {
@@ -125,6 +145,8 @@ abstract class AbstractField implements FieldInterface
         }
         $this->errors = [];
         $this->validators = [];
+        $this->hasVeryImportantData = true;
+        $this->dataTransformer = null;
     }
 
 
@@ -150,18 +172,8 @@ abstract class AbstractField implements FieldInterface
     /**
      * @implementation
      */
-    public function validates(array $postedData, bool $injectValues = true): bool
+    public function validates($value): bool
     {
-        $id = $this->getId();
-        $value = FieldHelper::getFieldValue($id, $postedData);
-
-
-        // value injection?
-        if (true === $injectValues) {
-            $this->setValue($value);
-        }
-
-
         // validation
         $isValid = true;
         if ($this->validators) {
@@ -204,13 +216,21 @@ abstract class AbstractField implements FieldInterface
         return $this;
     }
 
-
     /**
      * @implementation
      */
     public function getValue()
     {
         return $this->value;
+    }
+
+
+    /**
+     * @implementation
+     */
+    public function getFallbackValue()
+    {
+        return $this->fallbackValue;
     }
 
 
@@ -238,6 +258,35 @@ abstract class AbstractField implements FieldInterface
         ]);
     }
 
+    /**
+     * @implementation
+     */
+    public function hasVeryImportantData(): bool
+    {
+        return $this->hasVeryImportantData;
+    }
+
+    /**
+     * @implementation
+     */
+    public function getDataTransformer(): ?DataTransformerInterface
+    {
+        return $this->dataTransformer;
+    }
+
+
+    /**
+     * @implementation
+     */
+    public function setDataTransformer(DataTransformerInterface $dataTransformer): FieldInterface
+    {
+        $this->dataTransformer = $dataTransformer;
+        return $this;
+    }
+
+
+
+
     //--------------------------------------------
     //
     //--------------------------------------------
@@ -252,6 +301,17 @@ abstract class AbstractField implements FieldInterface
         $this->id = $id;
         return $this;
     }
+
+    /**
+     * Sets the fallbackValue.
+     *
+     * @param mixed|null $fallbackValue
+     */
+    public function setFallbackValue($fallbackValue)
+    {
+        $this->fallbackValue = $fallbackValue;
+    }
+
 
     /**
      * Sets the label.
@@ -288,6 +348,21 @@ abstract class AbstractField implements FieldInterface
         $this->errorName = $errorName;
         return $this;
     }
+
+
+    /**
+     * Sets whether this field has @page(very important data).
+     *
+     * @param bool $hasVeryImportantData
+     * @return $this
+     */
+    public function setHasVeryImportantData(bool $hasVeryImportantData): self
+    {
+        $this->hasVeryImportantData = $hasVeryImportantData;
+        return $this;
+    }
+
+
 
 
 
