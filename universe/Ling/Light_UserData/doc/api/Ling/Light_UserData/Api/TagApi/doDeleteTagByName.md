@@ -55,7 +55,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [TagApi::doDeleteTagByName](https://github.com/lingtalfi/Light_UserData/blob/master/Api/TagApi.php#L324-L330)
+See the source code for method [TagApi::doDeleteTagByName](https://github.com/lingtalfi/Light_UserData/blob/master/Api/TagApi.php#L301-L307)
 
 
 See Also

@@ -40,20 +40,23 @@ Services
 Here is the content of the service configuration file:
 
 ```yaml
-prettyDebugPage:
-    instance: Ling\Light_PrettyError\Util\PrettyDebugPageUtil
+pretty_error:
+    instance: Ling\Light_PrettyError\Service\LightPrettyErrorService
+
 
 
 
 # --------------------------------------
 # hooks
 # --------------------------------------
-$initializer.methods_collection:
+$events.methods_collection:
     -
-        method: registerInitializer
+        method: registerListener
         args:
-            initializer:
-                instance: Ling\Light_PrettyError\Initializer\PrettyErrorInitializer
+            event: Light.on_exception_caught
+            listener:
+                instance: @service(pretty_error)
+                callable_method: onLightExceptionCaught
 
 ```
 
@@ -83,6 +86,15 @@ History Log
 =============
     
 
+- 1.5.1 -- 2019-12-12
+
+    - fix LightPrettyErrorService->onLightExceptionCaught calling non-existing service template
+    
+- 1.5.0 -- 2019-11-11
+
+    - renamed service to pretty_error
+    - move PrettyErrorInitializer to LightPrettyErrorService, to accommodate new Light exception handling system
+    
 - 1.4.2 -- 2019-09-10
 
     - update service instantiation to accommodate the new initializer interface

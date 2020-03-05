@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [LightException::create](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Exception/LightException/create.md)() : [LightException](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Exception/LightException.md)
+public static [LightException::create](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Exception/LightException/create.md)(?string $message = , ?string $lightErrorCode = null) : [LightException](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Exception/LightException.md)
 
 
 
@@ -29,7 +29,14 @@ Returns a static instance.
 Parameters
 ================
 
-This method has no parameters.
+
+- message
+
+    
+
+- lightErrorCode
+
+    
 
 
 Return values
@@ -46,7 +53,7 @@ Returns [LightException](https://github.com/lingtalfi/Light/blob/master/doc/api/
 
 Source Code
 ===========
-See the source code for method [LightException::create](https://github.com/lingtalfi/Light/blob/master/Exception/LightException.php#L44-L47)
+See the source code for method [LightException::create](https://github.com/lingtalfi/Light/blob/master/Exception/LightException.php#L47-L52)
 
 
 See Also

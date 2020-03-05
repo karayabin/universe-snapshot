@@ -1,6 +1,6 @@
 Ling/Light_DatabaseInfo
 ================
-2019-09-12 --> 2019-10-24
+2019-09-12 --> 2020-02-13
 
 
 
@@ -20,6 +20,7 @@ Table of contents
 Dependencies
 ============
 - [Light](https://github.com/lingtalfi/Light)
+- [Light_Database](https://github.com/lingtalfi/Light_Database)
 - [SimplePdoWrapper](https://github.com/lingtalfi/SimplePdoWrapper)
 
 

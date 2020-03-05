@@ -53,7 +53,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [ColdServiceResolver::resolveArgs](https://github.com/lingtalfi/SicTools/blob/master/ColdServiceResolver.php#L362-L389)
+See the source code for method [ColdServiceResolver::resolveArgs](https://github.com/lingtalfi/SicTools/blob/master/ColdServiceResolver.php#L381-L408)
 
 
 See Also

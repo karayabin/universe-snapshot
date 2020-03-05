@@ -1,6 +1,6 @@
 Bootstrap4AdminTable
 ===========
-2019-08-15
+2019-08-15 -> 2020-03-05
 
 
 
@@ -57,6 +57,34 @@ Related
 History Log
 =============
 
+- 1.13.0 -- 2020-03-05
+
+    - update Bootstrap4AdminTableRenderer, add jsVars property   
+    
+- 1.12.2 -- 2019-11-18
+
+    - fix Bootstrap4AdminTableRenderer functional typo with ajax handler url  
+    
+- 1.12.1 -- 2019-11-15
+
+    - fix Bootstrap4AdminTableRenderer using hardcoded value for ajax handler service url 
+    
+- 1.12.0 -- 2019-11-12
+
+    - update AdvancedSearchRendererWidget to accommodate new fields structure  
+    
+- 1.11.0 -- 2019-11-12
+
+    - update Bootstrap4AdminTableRenderer to accommodate the new hiddenColumns concept  
+    
+- 1.10.0 -- 2019-11-11
+
+    - update AdvancedSearchRendererWidget, now the fields property is an array of alias => colExpr  
+    
+- 1.9.1 -- 2019-11-07
+
+    - clean Bootstrap4AdminTableRenderer, removed example rows
+    
 - 1.9.0 -- 2019-10-28
 
     - add RelatedLinksRendererWidget

@@ -4,7 +4,7 @@
 
 The InvalidTableNameException class
 ================
-2019-07-22 --> 2019-10-04
+2019-07-22 --> 2020-03-03
 
 
 
@@ -69,4 +69,4 @@ See the source code of [Ling\SimplePdoWrapper\Exception\InvalidTableNameExceptio
 
 SeeAlso
 ==============
-Next class: [NoPdoConnectionException](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Exception/NoPdoConnectionException.md)<br>
+Next class: [MysqlInfoUtilException](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Exception/MysqlInfoUtilException.md)<br>

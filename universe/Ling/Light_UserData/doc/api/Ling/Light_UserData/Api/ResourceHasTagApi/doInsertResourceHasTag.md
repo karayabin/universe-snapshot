@@ -63,7 +63,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [ResourceHasTagApi::doInsertResourceHasTag](https://github.com/lingtalfi/Light_UserData/blob/master/Api/ResourceHasTagApi.php#L141-L180)
+See the source code for method [ResourceHasTagApi::doInsertResourceHasTag](https://github.com/lingtalfi/Light_UserData/blob/master/Api/ResourceHasTagApi.php#L122-L161)
 
 
 See Also
@@ -71,5 +71,5 @@ See Also
 
 The [ResourceHasTagApi](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/ResourceHasTagApi.md) class.
 
-Previous method: [setMicroPermissionPlugin](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/ResourceHasTagApi/setMicroPermissionPlugin.md)<br>Next method: [doGetResourceHasTagByResourceIdAndTagId](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/ResourceHasTagApi/doGetResourceHasTagByResourceIdAndTagId.md)<br>
+Previous method: [setContainer](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/ResourceHasTagApi/setContainer.md)<br>Next method: [doGetResourceHasTagByResourceIdAndTagId](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/ResourceHasTagApi/doGetResourceHasTagByResourceIdAndTagId.md)<br>
 

@@ -24,5 +24,8 @@ https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Se
 https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Service/LightBMenuService/registerHost.md
 https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Service/LightBMenuService/setHost.md
 https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Service/LightBMenuService.md
+https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Tool/LightBMenuTool/getActiveOpenInfo.md
+https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Tool/LightBMenuTool/menuItemIsActive.md
+https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Tool/LightBMenuTool.md
 https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu.md
 https://github.com/lingtalfi/Light_BMenu/blob/master/doc/pages/conception-notes.md

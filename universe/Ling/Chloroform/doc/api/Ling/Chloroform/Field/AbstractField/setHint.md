@@ -49,7 +49,7 @@ Returns [AbstractField](https://github.com/lingtalfi/Chloroform/blob/master/doc/
 
 Source Code
 ===========
-See the source code for method [AbstractField::setHint](https://github.com/lingtalfi/Chloroform/blob/master/Field/AbstractField.php#L334-L338)
+See the source code for method [AbstractField::setHint](https://github.com/lingtalfi/Chloroform/blob/master/Field/AbstractField.php#L339-L343)
 
 
 See Also

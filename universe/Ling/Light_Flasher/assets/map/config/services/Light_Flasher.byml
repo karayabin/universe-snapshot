@@ -1,2 +1,2 @@
 flasher:
-    instance: Ling\Light_Flasher\Service\LightFlasher
+    instance: Ling\Light_Flasher\Service\LightFlasherService

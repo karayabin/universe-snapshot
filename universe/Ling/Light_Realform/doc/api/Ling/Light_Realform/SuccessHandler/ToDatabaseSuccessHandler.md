@@ -4,7 +4,7 @@
 
 The ToDatabaseSuccessHandler class
 ================
-2019-10-21 --> 2019-11-01
+2019-10-21 --> 2020-02-28
 
 
 
@@ -17,6 +17,8 @@ Introduction
 The ToDatabaseSuccessHandler class.
 
 This success handler will save the data to a database table, which you define before hand.
+
+We use the [crud service](https://github.com/lingtalfi/Light_Crud) under the hood, so that the app can benefit the events hooks.
 
 This class has two operation modes:
 
@@ -31,6 +33,9 @@ As a design choice, this class doesn't handle permission problem: I believe it's
 problems separately.
 
 
+This handler can handle [the form multiplier pattern](https://github.com/lingtalfi/TheBar/blob/master/discussions/form-multiplier.md).
+
+
 
 Class synopsis
 ==============
@@ -41,15 +46,16 @@ class <span class="pl-k">ToDatabaseSuccessHandler</span> implements [RealformSuc
 - Properties
     - protected string [$table](#property-table) ;
     - protected [Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) [$container](#property-container) ;
-    - protected string|null [$microPermissionPluginName](#property-microPermissionPluginName) ;
+    - protected string [$pluginName](#property-pluginName) ;
+    - protected array [$multiplier](#property-multiplier) ;
 
 - Methods
     - public [__construct](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/SuccessHandler/ToDatabaseSuccessHandler/__construct.md)() : void
     - public [processData](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/SuccessHandler/ToDatabaseSuccessHandler/processData.md)(array $data, ?array $options = []) : mixed
     - public [setContainer](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/SuccessHandler/ToDatabaseSuccessHandler/setContainer.md)([Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) $container) : void
     - public [setTable](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/SuccessHandler/ToDatabaseSuccessHandler/setTable.md)(string $table) : void
-    - public [setMicroPermissionPluginName](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/SuccessHandler/ToDatabaseSuccessHandler/setMicroPermissionPluginName.md)(string $microPermissionPluginName) : void
-    - protected [checkMicroPermission](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/SuccessHandler/ToDatabaseSuccessHandler/checkMicroPermission.md)(string $microPermission) : void
+    - public [setPluginName](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/SuccessHandler/ToDatabaseSuccessHandler/setPluginName.md)(string $pluginName) : void
+    - public [setMultiplier](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/SuccessHandler/ToDatabaseSuccessHandler/setMultiplier.md)(array $multiplier) : void
 
 }
 
@@ -71,12 +77,17 @@ Properties
     
     
 
-- <span id="property-microPermissionPluginName"><b>microPermissionPluginName</b></span>
+- <span id="property-pluginName"><b>pluginName</b></span>
 
-    This property holds the microPermissionPluginName for this instance.
-    If null (by default), the micro permission system will not be used.
-    If set to a plugin name, the micro permission system will be using that plugin name.
-    We use the [recommended micro-permission notation for database](https://github.com/lingtalfi/Light_MicroPermission/blob/master/doc/pages/recommended-micropermission-notation.md).
+    This property holds the pluginName for this instance.
+    It's the name of the plugin used as a handler for the crud service.
+    
+    
+
+- <span id="property-multiplier"><b>multiplier</b></span>
+
+    This property holds the multiplier array for this instance.
+    See more details in [the form multiplier trick document](https://github.com/lingtalfi/TheBar/blob/master/discussions/form-multiplier.md).
     
     
 
@@ -89,8 +100,8 @@ Methods
 - [ToDatabaseSuccessHandler::processData](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/SuccessHandler/ToDatabaseSuccessHandler/processData.md) &ndash; - ?updateRic: the array of key => value pairs representing the row to update (i.e.
 - [ToDatabaseSuccessHandler::setContainer](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/SuccessHandler/ToDatabaseSuccessHandler/setContainer.md) &ndash; Sets the container.
 - [ToDatabaseSuccessHandler::setTable](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/SuccessHandler/ToDatabaseSuccessHandler/setTable.md) &ndash; Sets the table.
-- [ToDatabaseSuccessHandler::setMicroPermissionPluginName](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/SuccessHandler/ToDatabaseSuccessHandler/setMicroPermissionPluginName.md) &ndash; Sets the microPermissionPluginName.
-- [ToDatabaseSuccessHandler::checkMicroPermission](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/SuccessHandler/ToDatabaseSuccessHandler/checkMicroPermission.md) &ndash; Ensures that the current user has the given micro-permission.
+- [ToDatabaseSuccessHandler::setPluginName](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/SuccessHandler/ToDatabaseSuccessHandler/setPluginName.md) &ndash; Sets the pluginName.
+- [ToDatabaseSuccessHandler::setMultiplier](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/SuccessHandler/ToDatabaseSuccessHandler/setMultiplier.md) &ndash; Sets the multiplier.
 
 
 

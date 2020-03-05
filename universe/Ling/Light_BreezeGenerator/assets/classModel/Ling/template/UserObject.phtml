@@ -3,33 +3,24 @@
 
 namespace The\ObjectNamespace;
 
-
-use Ling\SimplePdoWrapper\SimplePdoWrapperInterface;
 use Ling\SimplePdoWrapper\SimplePdoWrapper;
-//::extraUseStatements
+// the uses
 
 
 /**
  * The UserObject class.
  */
-class UserObject implements UserObjectInterface
+class UserObject extends BaseParent implements UserObjectInterface
 {
 
-    /**
-     * This property holds the pdoWrapper for this instance.
-     * @var SimplePdoWrapperInterface
-     */
-    protected $pdoWrapper;
-
-//::extraProperties--definition
 
     /**
      * Builds the UserObject instance.
      */
     public function __construct()
     {
-        $this->pdoWrapper = null;
-//::extraProperties--instantiation
+        parent::__construct();
+        $this->table = "theTableName";
     }
 
 
@@ -39,43 +30,23 @@ class UserObject implements UserObjectInterface
 
 // getXXX
 
+// getTheItem
+
+// getTheItems
+
+// getIdByXXX
+
+// getItemsByHas
+
+// getItemXXXByHas
+
+// getAllXXX
+
 // updateXXX
 
 // deleteXXX
 
 
-    //--------------------------------------------
-    //
-    //--------------------------------------------
-    /**
-     * Sets the pdoWrapper.
-     *
-     * @param SimplePdoWrapperInterface $pdoWrapper
-     */
-    public function setPdoWrapper(SimplePdoWrapperInterface $pdoWrapper)
-    {
-        $this->pdoWrapper = $pdoWrapper;
-    }
 
-
-//::extraPublicMethods
-
-
-    //--------------------------------------------
-    //
-    //--------------------------------------------
-// doInsertXXX
-
-// doGetXXX
-
-// doUpdateXXX
-
-// doDeleteXXX
-
-
-    //--------------------------------------------
-    //
-    //--------------------------------------------
-//::extraProtectedMethods
 
 }

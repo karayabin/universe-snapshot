@@ -75,7 +75,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [ControllerHelper::getControllerArgs](https://github.com/lingtalfi/Light/blob/master/Helper/ControllerHelper.php#L161-L221)
+See the source code for method [ControllerHelper::getControllerArgs](https://github.com/lingtalfi/Light/blob/master/Helper/ControllerHelper.php#L165-L225)
 
 
 See Also

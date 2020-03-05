@@ -13,8 +13,35 @@ but I don't like it because it forces you to use camelCase, and I prefer a more 
 
 So, here it is:
 
-- the html element parameters (hep) is an associative array associated to an html element. As for now, it's just a one dimensional array (this might change if I need more).
-- to add an entry to the **hep**, we add the following attribute: data-param-XXX="YYY", with XXX being the key of the entry, and YYY being the value of the entry
+- the html element parameters (hep) is an associative array associated to an html element. 
+- to add an entry with scalar value to the **hep**, we add the following attribute: data-param-XXX="YYY", with XXX being the key of the entry, and YYY being the value of the entry
+- to add an entry with non-scalar values, we use the following attribute: data-paramjson-XXX="JJJ", with XXX being the key of the entry, and JJJ being the json string.
+        Remember that json strings are escaped with double-quotes only (i.e. not single quotes, and double quotes are NOT optional).
+        
+        
+        
+So for instance, considering the following html element:
+
+```html
+<div
+    data-param-one="1"
+    data-param-one-two="2"
+    data-param-oneTwo="3"
+    data-paramjson-arr='{"fruit": "apple", "color": "red"}'
+></div>
+```        
+
+It would have the following hep parameters (using [BabyYaml](https://github.com/lingtalfi/BabyYaml) notation):
+
+```yaml
+one: 1
+one-two: 2
+oneTwo: 3
+arr: 
+    fruit: apple
+    color: red
+```
+
 
 
 
@@ -45,6 +72,10 @@ function getElementParameters(jElement) {
         if (startsWith(name, "data-param-")) {
             name = name.substr(11);
             attr[name] = v;
+        }
+        else if (startsWith(name, "data-paramjson-")) {
+            name = name.substr(15);
+            attr[name] = JSON.parse(v);
         }
     });
     return attr;

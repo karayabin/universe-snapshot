@@ -56,7 +56,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [DirectoryMapApi::checkMicroPermission](https://github.com/lingtalfi/Light_UserData/blob/master/Api/DirectoryMapApi.php#L260-L266)
+See the source code for method [DirectoryMapApi::checkMicroPermission](https://github.com/lingtalfi/Light_UserData/blob/master/Api/DirectoryMapApi.php#L237-L243)
 
 
 See Also

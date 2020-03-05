@@ -1,6 +1,6 @@
 Ling/SicTools
 ================
-2019-04-25 --> 2019-07-18
+2019-04-25 --> 2019-12-09
 
 
 
@@ -33,8 +33,8 @@ Table of contents
 Dependencies
 ============
 - [ArrayToString](https://github.com/lingtalfi/ArrayToString)
-- [BabyYaml](https://github.com/lingtalfi/BabyYaml)
 - [Bat](https://github.com/lingtalfi/Bat)
+- [BabyYaml](https://github.com/lingtalfi/BabyYaml)
 - [DirScanner](https://github.com/lingtalfi/DirScanner)
 
 

@@ -22,7 +22,7 @@ abstract public [LightBMenuHostInterface::getMenuStructureId](https://github.com
 
 
 Returns the menu structure id for this host.
-See the [conception notes](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/pages/conception-notes.md) for more details.
+See the [bmenu conception notes](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/pages/conception-notes.md) for more details.
 
 
 

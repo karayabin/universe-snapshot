@@ -19,6 +19,20 @@ use Ling\Kit_PicassoWidget\Widget\EasyLightPicassoWidget;
  *
  * This widget is the @page(ChloroformWidget) version for Light_Kit_Admin (lka).
  *
+ *
+ * ### New variables
+ *
+ * - related_links: an array of items, each of which:
+ *      - text: the text of the link
+ *      - url: the url of the link
+ *      - ?icon: the css class of an icon to add
+ *
+ *
+ *
+ *
+ * ### Why
+ *
+ *
  * I created this widget when I realized that using ChloroformWidget alone would not fill all my needs.
  * My needs were to be able to create all kinds of forms, starting with the form in the user profile page
  * of the lka gui.
@@ -88,10 +102,8 @@ class LightKitAdminChloroformWidget extends EasyLightPicassoWidget
     {
         $this->registerLibrary("Chloroform_HeliumRenderer", [
             "/libs/universe/Ling/Chloroform_HeliumRenderer/helium.css",
-            "/plugins/Light_Kit_Admin/fileuploader/fileuploader.css",
         ], [
             "/libs/universe/Ling/Chloroform_HeliumRenderer/helium.js",
-            "/plugins/Light_Kit_Admin/fileuploader/fileuploader.js",
         ]);
     }
 

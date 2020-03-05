@@ -164,7 +164,6 @@ class CSRFProtector
      */
     public function createToken(string $tokenName): string
     {
-
         if (array_key_exists($tokenName, $_SESSION[$this->sessionName])) {
             $_SESSION[$this->sessionName][$tokenName]['old'] = $_SESSION[$this->sessionName][$tokenName]['new'];
         }

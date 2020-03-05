@@ -9,8 +9,6 @@ use Ling\Bat\MimeTypeTool;
 use Ling\Light\Controller\LightController;
 use Ling\Light\Http\HttpResponse;
 use Ling\Light\Http\HttpResponseInterface;
-use Ling\Light_User\LightUserInterface;
-use Ling\Light_UserData\Exception\LightUserDataException;
 use Ling\Light_UserData\Service\LightUserDataService;
 
 
@@ -21,80 +19,71 @@ class LightUserDataController extends LightController
 {
 
     /**
-     * Returns the file identified by the given file and id,
+     * Returns the file identified by the given id,
      * or throws an exception.
      *
-     * The file is the relative path from the user directory to the desired file.
      *
-     * The id is the obfuscated user directory name.
+     * The id is the resource identifier.
      *
      * If the file is private and the visitor (asking for the file) isn't the owner,
      * then an exception will be thrown also.
      *
      *
      *
-     * @param string $file
      * @param string $id
      * @return HttpResponseInterface
      * @throws \Exception
      */
-    public function render(string $file, string $id): HttpResponseInterface
+    public function render(string $id): HttpResponseInterface
     {
+
+        $getMetaInfo = (bool)($_GET['meta'] ?? false);
+        $original = (bool)($_GET['original'] ?? false);
+
+        $options = [
+            'addExtraInfo' => $getMetaInfo,
+            'original' => $original,
+        ];
+
+
         /**
          * @var $userDataService LightUserDataService
          */
         $userDataService = $this->getContainer()->get("user_data");
-        $realDirName = $userDataService->getUserRealDirectoryName($id);
-        if (false !== $realDirName) {
-            $baseDir = $userDataService->getRootDir() . "/" . $realDirName;
-            $file = $baseDir . "/" . $file;
-            if (true === FileSystemTool::isDirectoryTraversalSafe($file, $baseDir)) {
+        $info = $userDataService->getResourceInfoByResourceIdentifier($id, $options);
 
 
-                //--------------------------------------------
-                // ACCESS GRANTED?
-                //--------------------------------------------
-                $accessGranted = false;
-                if (false === $userDataService->isPrivate($file)) {
-                    $accessGranted = true;
-                } else {
-                    /**
-                     * @var $user LightUserInterface
-                     */
-                    $user = $this->getContainer()->get("user_manager")->getUser();
-                    if ($realDirName === $user->getIdentifier()) {
-                        $accessGranted = true;
-                    }
-                }
-
-                if (true === $accessGranted) {
-
-                    $extension = FileSystemTool::getFileExtension($file);
+        $file = $info['abs_path'];
+        $relPath = $info['rel_path'];
 
 
-                    $found = true;
-                    $mime = MimeTypeTool::getMimeTypeByFileExtension($extension, null, $found);
-                    if (false === $found) {
-                        $this->getContainer()->get('logger')->log("Mime type not found in MimeTypeTool::getMimeTypeByFileExtension with extension $extension.", "todo");
-                    }
+        $extension = FileSystemTool::getFileExtension($file);
 
-
-                    $response = new HttpResponse(file_get_contents($file));
-                    $response->setMimeType($mime);
-                    $response->setFileName(basename($file));
-                    return $response;
-
-
-                } else {
-                    throw new LightUserDataException("Access denied to file: $file, with id: $id.");
-                }
-
-            } else {
-                throw new LightUserDataException("The file does not exist or is invalid (file: $file, id: $id).");
-            }
-        } else {
-            throw new LightUserDataException("The file you are requesting does not exist (file: $file, id: $id).");
+        $found = true;
+        $mime = MimeTypeTool::getMimeTypeByFileExtension($extension, null, $found);
+        if (false === $found) {
+            $this->getContainer()->get('logger')->log("Mime type not found in MimeTypeTool::getMimeTypeByFileExtension with extension $extension.", "todo");
         }
+
+
+        $response = new HttpResponse(file_get_contents($file));
+        $response->setMimeType($mime);
+        $response->setFileName($relPath);
+
+        if (true === $getMetaInfo) {
+
+            $response->setHeader("fe_is_private", $info['is_private']);
+            $response->setHeader("fe_date_creation", $info['date_creation']);
+            $response->setHeader("fe_date_last_update", $info['date_last_update']);
+            $response->setHeader("fe_protocol", "fileEditor");
+            $response->setHeader("fe_original_url", $info['original_url']);
+            $tags = $info['tags'];
+            foreach ($tags as $tag) {
+                $response->setHeader("fe_tags", $tag, false); // note: tag mustn't contain a comma with this implementation
+            }
+        }
+
+        return $response;
 
     }
 }

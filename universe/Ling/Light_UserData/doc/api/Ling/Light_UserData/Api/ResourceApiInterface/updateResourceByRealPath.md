@@ -58,7 +58,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [ResourceApiInterface::updateResourceByRealPath](https://github.com/lingtalfi/Light_UserData/blob/master/Api/ResourceApiInterface.php#L89-L89)
+See the source code for method [ResourceApiInterface::updateResourceByRealPath](https://github.com/lingtalfi/Light_UserData/blob/master/Api/ResourceApiInterface.php#L99-L99)
 
 
 See Also

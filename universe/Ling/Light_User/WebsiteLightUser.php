@@ -27,7 +27,7 @@ namespace Ling\Light_User;
  * - last_refresh_time: timestamp of the moment when the user was last refreshed (or false by default).
  * - session_duration: int. The number of seconds to wait to turn a valid idle user into an invalid user
  *              The default is 300 (i.e. 5 minutes)
- * - rights: array. The rights that this user has. See more about rights in the @page(user rights page).
+ * - rights: array. The rights (aka @page(permissions)) that this user has. See more about rights in the @page(user rights page).
  * - extra: array. This array contains any other properties that the application wants to attach to the user.
  *
  *

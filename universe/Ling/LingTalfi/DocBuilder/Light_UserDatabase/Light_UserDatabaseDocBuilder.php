@@ -7,6 +7,7 @@ namespace Ling\LingTalfi\DocBuilder\Light_UserDatabase;
 use Ling\DocTools\DocBuilder\Git\PhpPlanet\LingGitPhpPlanetDocBuilder;
 use Ling\DocTools\Exception\DocBuilderException;
 use Ling\DocTools\Translator\ParseDownTranslator;
+use Ling\LingTalfi\DocTools\LingTalfiDocToolsHelper;
 
 
 /**
@@ -148,10 +149,13 @@ class Light_UserDatabaseDocBuilder
                 "BabyYamlDatabase" => 'https://github.com/lingtalfi/BabyYamlDatabase/',
                 "lsom" => 'https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/pages/ling-standard-object-methods.md',
                 "ling standard object methods" => 'https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/pages/ling-standard-object-methods.md',
-                "conception notes" => $doc . "/pages/conception-notes.md",
+                "conception ddnotes" => $doc . "/pages/conception-notes.md",
+                "Light_UserDatabase conception notes" => $doc . "/pages/conception-notes.md",
                 "permissions conception notes" => "https://github.com/lingtalfi/Light_User/blob/master/doc/pages/permission-conception-notes.md",
                 "user permissions" => "https://github.com/lingtalfi/Light_User/blob/master/doc/pages/permission-conception-notes.md",
                 "LightWebsiteUserDatabaseInterface class" => "https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/LightWebsiteUserDatabaseInterface.md",
+                "Light.initialize_1 event" => "https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md",
+                "Light_PluginInstaller conception notes" => "https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/pages/conception-notes.md",
             ],
             /**
              * An array of external classes to url.
@@ -172,6 +176,9 @@ class Light_UserDatabaseDocBuilder
                 "Ling\Light\ServiceContainer\LightServiceContainerAwareInterface" => "https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerAwareInterface.md",
                 "Ling\BabyYamlDatabase\BabyYamlDatabaseInterface" => "https://github.com/lingtalfi/BabyYamlDatabase/blob/master/doc/api/Ling/BabyYamlDatabase/BabyYamlDatabaseInterface.md",
                 "Ling\SimplePdoWrapper\SimplePdoWrapperInterface" => "https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/SimplePdoWrapperInterface.md",
+                "Ling\Light_Database\Service\LightDatabaseService" => "https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/Service/LightDatabaseService.md",
+                "Ling\Light_PluginInstaller\PluginInstaller\PluginInstallerInterface" => "https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/PluginInstaller/PluginInstallerInterface.md",
+
             ],
         ];
 
@@ -207,6 +214,7 @@ class Light_UserDatabaseDocBuilder
          * and since we've defined a @kw(copy module), it will also copy the whole doc to another location.
          */
         $builder->buildDoc();
+        LingTalfiDocToolsHelper::generateCrumbs($builder);
 
         if ('cli' !== php_sapi_name()) {
 

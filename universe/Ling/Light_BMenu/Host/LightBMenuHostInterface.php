@@ -14,7 +14,7 @@ interface LightBMenuHostInterface
 
     /**
      * Returns the menu structure id for this host.
-     * See the @page(conception notes) for more details.
+     * See the @page(bmenu conception notes) for more details.
      *
      * @return string
      */
@@ -24,7 +24,7 @@ interface LightBMenuHostInterface
     /**
      * Injects the base menu structure in the given menu.
      *
-     * See the @page(conception notes) for more details.
+     * See the @page(bmenu conception notes) for more details.
      *
      *
      * @param LightBMenu $menu
@@ -36,7 +36,7 @@ interface LightBMenuHostInterface
     /**
      * Inject menu items in the given menu structure.
      *
-     * The structure of menu items is defined in the @page(conception notes).
+     * The structure of menu items is defined in the @page(bmenu conception notes).
      *
      * @param array $items
      * @param LightBMenu $menu

@@ -1,8 +1,10 @@
 database:
-    instance: Ling\Light_Database\LightDatabasePdoWrapper
+    instance: Ling\Light_Database\Service\LightDatabaseService
     methods:
         init:
             settings: []
+        setContainer:
+            container: @container()
 
 
 # example of settings
@@ -14,5 +16,6 @@ database:
 #        persistent: true
 #        errmode: exception
 #        initCommand: SET NAMES 'UTF8'
+
 
 

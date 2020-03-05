@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [BaseRealformHandler::__construct](https://github.com/lingtalfi/Light_Realform/blob/master/Handler/BaseRealformHandler.php#L66-L72)
+See the source code for method [BaseRealformHandler::__construct](https://github.com/lingtalfi/Light_Realform/blob/master/Handler/BaseRealformHandler.php#L68-L74)
 
 
 See Also

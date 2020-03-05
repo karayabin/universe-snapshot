@@ -1,0 +1,9 @@
+https://github.com/lingtalfi/Light_CsrfSession/blob/master/README.md
+https://github.com/lingtalfi/Light_CsrfSession/blob/master/doc/api/Ling/Light_CsrfSession/Service/LightCsrfSessionService/__construct.md
+https://github.com/lingtalfi/Light_CsrfSession/blob/master/doc/api/Ling/Light_CsrfSession/Service/LightCsrfSessionService/getToken.md
+https://github.com/lingtalfi/Light_CsrfSession/blob/master/doc/api/Ling/Light_CsrfSession/Service/LightCsrfSessionService/isValid.md
+https://github.com/lingtalfi/Light_CsrfSession/blob/master/doc/api/Ling/Light_CsrfSession/Service/LightCsrfSessionService/setSalt.md
+https://github.com/lingtalfi/Light_CsrfSession/blob/master/doc/api/Ling/Light_CsrfSession/Service/LightCsrfSessionService/startSession.md
+https://github.com/lingtalfi/Light_CsrfSession/blob/master/doc/api/Ling/Light_CsrfSession/Service/LightCsrfSessionService.md
+https://github.com/lingtalfi/Light_CsrfSession/blob/master/doc/api/Ling/Light_CsrfSession.md
+https://github.com/lingtalfi/Light_CsrfSession/blob/master/doc/pages/conception-notes.md

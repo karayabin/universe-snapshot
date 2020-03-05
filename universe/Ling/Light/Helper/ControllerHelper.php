@@ -8,6 +8,7 @@ use Ling\Light\Controller\RouteAwareControllerInterface;
 use Ling\Light\Core\Light;
 use Ling\Light\Core\LightAwareInterface;
 use Ling\Light\Exception\LightException;
+use Ling\Light\Http\HttpResponse;
 use Ling\Light\Http\HttpResponseInterface;
 
 /**
@@ -56,6 +57,9 @@ class ControllerHelper
             // we need to inject variables in the controller
             $controllerArgs = ControllerHelper::getControllerArgs($controller, $light);
             $response = call_user_func_array($controller, $controllerArgs);
+            if (is_string($response)) {
+                $response = new HttpResponse($response);
+            }
             return $response;
         } else {
             $routeName = $route['name'];

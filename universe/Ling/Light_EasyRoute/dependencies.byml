@@ -2,7 +2,6 @@ dependencies:
     Ling: 
         - BabyYaml
         - Light
-        - Light_Initializer
     
 
 post_install: 

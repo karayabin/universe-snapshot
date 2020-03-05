@@ -4,7 +4,7 @@
 
 The LightRouter class
 ================
-2019-04-09 --> 2019-10-28
+2019-04-09 --> 2020-02-24
 
 
 
@@ -68,4 +68,4 @@ See the source code of [Ling\Light\Router\LightRouter](https://github.com/lingta
 
 SeeAlso
 ==============
-Previous class: [LightReverseRouterInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ReverseRouter/LightReverseRouterInterface.md)<br>Next class: [LightRouterInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Router/LightRouterInterface.md)<br>
+Previous class: [HttpResponseInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponseInterface.md)<br>Next class: [LightRouterInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Router/LightRouterInterface.md)<br>

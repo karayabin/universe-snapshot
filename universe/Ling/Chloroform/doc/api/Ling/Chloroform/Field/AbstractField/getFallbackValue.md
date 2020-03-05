@@ -22,7 +22,7 @@ public [AbstractField::getFallbackValue](https://github.com/lingtalfi/Chloroform
 
 
 Returns the fallback value, which defaults to null.
-See the [conception notes](https://github.com/lingtalfi/Chloroform/blob/master/doc/pages/chloroform-discussion.md) for more details about the fallback value.
+See the [chloroform conception notes](https://github.com/lingtalfi/Chloroform/blob/master/doc/pages/chloroform-discussion.md) for more details about the fallback value.
 
 
 
@@ -47,7 +47,7 @@ Returns mixed.
 
 Source Code
 ===========
-See the source code for method [AbstractField::getFallbackValue](https://github.com/lingtalfi/Chloroform/blob/master/Field/AbstractField.php#L231-L234)
+See the source code for method [AbstractField::getFallbackValue](https://github.com/lingtalfi/Chloroform/blob/master/Field/AbstractField.php#L236-L239)
 
 
 See Also

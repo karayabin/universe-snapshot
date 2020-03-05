@@ -1,0 +1,119 @@
+kit_admin_user_data:
+    instance: Ling\Light_Kit_Admin_UserData\Service\LightKitAdminUserDataService
+    methods:
+        setContainer:
+            container: @container()
+            
+# --------------------------------------
+# hooks
+# --------------------------------------
+$bmenu.methods_collection:
+    -
+        method: addDirectInjector
+        args:
+            menuType: admin_main_menu
+            injector: @service(kit_admin_user_data)
+
+$chloroform_extension.methods_collection:
+    -
+        method: registerTableListConfigurationHandler
+        args:
+            plugin: Light_Kit_Admin_UserData
+            handler:
+                instance: Ling\Light_Kit_Admin\ChloroformExtension\LightKitAdminTableListConfigurationHandler
+                methods:
+                    setConfigurationFile:
+                        files:
+                            - ${app_dir}/config/data/Light_Kit_Admin_UserData/Light_ChloroformExtension/generated/lka_userdata.table_list.byml
+#                            - ${app_dir}/config/data/Light_Kit_Admin_UserData/Light_ChloroformExtension/table_list.byml
+
+
+$controller_hub.methods_collection:
+    -
+        method: registerHandler
+        args:
+            plugin: Light_Kit_Admin_UserData
+            handler:
+                instance: Ling\Light_Kit_Admin_UserData\ControllerHub\LightKitAdminUserDataControllerHubHandler
+                methods:
+                    setContainer:
+                        container: @container()
+
+
+$crud.methods_collection:
+    -
+        method: registerHandler
+        args:
+            pluginId: Light_Kit_Admin_UserData
+            handler:
+                instance: Ling\Light_Kit_Admin\Crud\CrudRequestHandler\LightKitAdminCrudRequestHandler
+
+
+$kit_admin.methods_collection:
+    -
+        method: registerPlugin
+        args:
+            pluginName: Light_Kit_Admin_UserData
+            plugin:
+                instance: Ling\Light_Kit_Admin_UserData\LightKitAdminPlugin\LightKitAdminUserDataLkaPlugin
+                methods:
+                    setOptionsFile:
+                        file: ${app_dir}/config/data/Light_Kit_Admin_UserData/Light_Kit_Admin/lka-options.byml
+
+
+
+$micro_permission.methods_collection:
+    -
+        method: registerMicroPermissionsByFile
+        args:
+            file: ${app_dir}/config/data/Light_Kit_Admin_UserData/Light_MicroPermission/lka_userdata-micro-permissions.byml
+
+$plugin_installer.methods_collection:
+    -
+        method: registerPlugin
+        args:
+            plugin: Light_Kit_Admin_UserData
+            installer: @service(kit_admin_user_data)
+
+$realform.methods_collection:
+    -
+        method: registerFormHandler
+        args:
+            plugin: Light_Kit_Admin_UserData
+            handler:
+                instance: Ling\Light_Kit_Admin\Realform\Handler\LightKitAdminRealformHandler
+                methods:
+                    setConfDir:
+                        dir: ${app_dir}/config/data/Light_Kit_Admin_UserData/Light_Realform
+
+
+$realist.methods_collection:
+    -
+        method: registerListRenderer
+        args:
+            identifier: Light_Kit_Admin_UserData
+            renderer:
+                instance: Ling\Light_Kit_Admin\Realist\Rendering\LightKitAdminRealistListRenderer
+    -
+        method: registerRealistRowsRenderer
+        args:
+            identifier: Light_Kit_Admin_UserData
+            renderer:
+                instance: Ling\Light_Kit_Admin\Realist\Rendering\LightKitAdminRealistRowsRenderer
+    -
+        method: registerActionHandler
+        args:
+            renderer:
+                instance: Ling\Light_Kit_Admin\Realist\ActionHandler\LightKitAdminRealistActionHandler
+    -
+        method: registerListActionHandler
+        args:
+            plugin: Light_Kit_Admin_UserData
+            renderer:
+                instance: Ling\Light_Kit_Admin\Realist\ListActionHandler\LightKitAdminListActionHandler
+    -
+        method: registerListGeneralActionHandler
+        args:
+            plugin: Light_Kit_Admin_UserData
+            renderer:
+                instance: Ling\Light_Kit_Admin\Realist\ListGeneralActionHandler\LightKitAdminListGeneralActionHandler

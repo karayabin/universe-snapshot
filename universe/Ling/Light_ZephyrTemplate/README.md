@@ -38,15 +38,15 @@ Here is the content of the service configuration file:
 
 
 ```yaml
-zephyr_template_vars:
-    root_dir: /override_me     # set this to your application directory
-
-
-template:
+zephyr_template:
     instance: Ling\Light_ZephyrTemplate\LightZephyrTemplate
     methods:
         setDirectory:
-            root_dir: ${zephyr_template_vars.root_dir}
+            root_dir: ${app_dir}
+
+
+
+
 ```
 
 
@@ -59,6 +59,10 @@ The **template** service can be used to render html using the [zephyr template e
 History Log
 =============
 
+- 1.2.0 -- 2019-11-11
+
+    - changed service name to zephyr_template
+    
 - 1.1.1 -- 2019-07-18
 
     - update docTools documentation, add links to source code for classes and methods

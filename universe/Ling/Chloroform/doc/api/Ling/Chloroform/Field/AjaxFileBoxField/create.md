@@ -53,7 +53,7 @@ Returns [AjaxFileBoxField](https://github.com/lingtalfi/Chloroform/blob/master/d
 
 Source Code
 ===========
-See the source code for method [AjaxFileBoxField::create](https://github.com/lingtalfi/Chloroform/blob/master/Field/AjaxFileBoxField.php#L84-L95)
+See the source code for method [AjaxFileBoxField::create](https://github.com/lingtalfi/Chloroform/blob/master/Field/AjaxFileBoxField.php#L46-L54)
 
 
 See Also
@@ -61,5 +61,5 @@ See Also
 
 The [AjaxFileBoxField](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/AjaxFileBoxField.md) class.
 
-
+Next method: [getFallbackValue](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/AjaxFileBoxField/getFallbackValue.md)<br>
 

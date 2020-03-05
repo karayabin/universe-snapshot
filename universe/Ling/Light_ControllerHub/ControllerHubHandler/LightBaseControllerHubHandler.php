@@ -11,7 +11,6 @@ use Ling\Light\Http\HttpRequestInterface;
 use Ling\Light\Http\HttpResponseInterface;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
 use Ling\Light_Kit_Admin\Exception\LightKitAdminException;
-use Ling\Light_LightInstance\Service\LightLightInstanceService;
 
 /**
  * The LightBaseControllerHubHandler class.
@@ -95,11 +94,8 @@ abstract class LightBaseControllerHubHandler implements LightControllerHubHandle
             $class = LightClassHelper::getLightClassNameByFile($controllerFile);
             $controller = $class . '->' . $method;
 
-            /**
-             * @var $lightInstance LightLightInstanceService
-             */
-            $lightInstance = $this->container->get("light_instance");
-            $light = $lightInstance->getLight();
+
+            $light = $this->container->getLight();
             $r = ControllerHelper::executeController($controller, $light);
             return $r;
         } else {

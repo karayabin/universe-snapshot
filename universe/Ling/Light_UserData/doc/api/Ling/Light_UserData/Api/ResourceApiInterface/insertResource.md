@@ -71,7 +71,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [ResourceApiInterface::insertResource](https://github.com/lingtalfi/Light_UserData/blob/master/Api/ResourceApiInterface.php#L33-L33)
+See the source code for method [ResourceApiInterface::insertResource](https://github.com/lingtalfi/Light_UserData/blob/master/Api/ResourceApiInterface.php#L34-L34)
 
 
 See Also

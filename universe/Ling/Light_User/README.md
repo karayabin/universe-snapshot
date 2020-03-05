@@ -1,6 +1,6 @@
 Light_User
 ===========
-2019-05-10
+2019-05-10 -> 2020-02-25
 
 
 
@@ -45,6 +45,14 @@ Related
 History Log
 =============
 
+- 1.6.4 -- 2020-02-25
+
+    - update WebsiteLightUser, add precision to class comment
+    
+- 1.6.3 -- 2019-12-17
+
+    - update permission conception notes document, add precision about naming convention
+    
 - 1.6.2 -- 2019-09-18
 
     - remove WebsiteLightUser->profiles property

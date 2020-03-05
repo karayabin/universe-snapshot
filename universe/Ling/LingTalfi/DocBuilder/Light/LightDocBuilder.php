@@ -7,6 +7,7 @@ namespace Ling\LingTalfi\DocBuilder\Light;
 use Ling\DocTools\DocBuilder\Git\PhpPlanet\LingGitPhpPlanetDocBuilder;
 use Ling\DocTools\Exception\DocBuilderException;
 use Ling\DocTools\Translator\ParseDownTranslator;
+use Ling\LingTalfi\DocTools\LingTalfiDocToolsHelper;
 
 
 /**
@@ -148,6 +149,7 @@ class LightDocBuilder
                 "Light" => $api . '/Ling/Light/Core/Light.md',
                 "BabyYaml" =>  'https://github.com/lingtalfi/BabyYaml',
                 "arrayMergeReplaceRecursive" =>  'https://github.com/lingtalfi/Bat/blob/master/ArrayTool.md#arraymergereplacerecursive',
+                "light_instance service" =>  'https://github.com/lingtalfi/Light_LightInstance',
             ],
             /**
              * An array of external classes to url.
@@ -202,6 +204,7 @@ class LightDocBuilder
          * and since we've defined a @kw(copy module), it will also copy the whole doc to another location.
          */
         $builder->buildDoc();
+        LingTalfiDocToolsHelper::generateCrumbs($builder);
 
         if ('cli' !== php_sapi_name()) {
 

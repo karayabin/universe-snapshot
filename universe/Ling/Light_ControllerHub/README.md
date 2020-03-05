@@ -69,6 +69,14 @@ $easy_route.methods_collection:
 History Log
 =============
 
+- 1.2.0 -- 2019-12-16
+
+    - update plugin to accommodate new Light service container
+
+- 1.1.0 -- 2019-11-05
+
+    - add LightControllerHubService->getRouteName method
+    
 - 1.0.1 -- 2019-10-28
 
     - fix LightBaseControllerHubHandler->doHandle not handling directory traversal correctly with $controllerDir argument

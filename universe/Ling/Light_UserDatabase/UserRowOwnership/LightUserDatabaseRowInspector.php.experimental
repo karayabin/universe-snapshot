@@ -1,0 +1,37 @@
+<?php
+
+
+namespace Ling\Light_UserDatabase\UserRowOwnership;
+
+
+use Ling\Bat\ArrayTool;
+use Ling\Light_UserRowOwnership\RowInspector\LightBaseRowInspector;
+
+/**
+ * The LightUserDatabaseRowInspector class.
+ */
+class LightUserDatabaseRowInspector extends LightBaseRowInspector
+{
+
+    /**
+     * @implementation
+     */
+    public function getInfoBit(string $table, array $ricRow)
+    {
+        $user = $this->getWebsiteLightUser();
+        switch ($table) {
+            case "lud_permission":
+                ArrayTool::arrayKeyExistAll("id", $ricRow, true);
+                return ((string)$user->getId() === $ricRow['id']);
+                break;
+            case "lud_user":
+                // todo
+                break;
+            default:
+                break;
+        }
+        return null;
+    }
+
+
+}

@@ -23,6 +23,16 @@ public [LightFileLoggerListener::configure](https://github.com/lingtalfi/Light_L
 
 Configures this instance.
 
+The available options are:
+- file
+- isFileRotationEnabled
+- maxFileSize
+- rotatedFileFormat
+- zipRotatedFiles
+- ...more options in the parent class, check it out
+
+See the corresponding properties of this class for more info.
+
 
 
 
@@ -49,7 +59,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightFileLoggerListener::configure](https://github.com/lingtalfi/Light_Logger/blob/master/Listener/LightFileLoggerListener.php#L128-L145)
+See the source code for method [LightFileLoggerListener::configure](https://github.com/lingtalfi/Light_Logger/blob/master/Listener/LightFileLoggerListener.php#L135-L154)
 
 
 See Also

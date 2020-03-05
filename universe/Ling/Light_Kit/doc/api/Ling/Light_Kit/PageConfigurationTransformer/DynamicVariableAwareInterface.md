@@ -4,7 +4,7 @@
 
 The DynamicVariableAwareInterface class
 ================
-2019-04-25 --> 2019-10-29
+2019-04-25 --> 2019-12-16
 
 
 

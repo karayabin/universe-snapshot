@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [AdvancedSearchRendererWidget::__construct](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/RendererWidget/AdvancedSearchRendererWidget.php#L24-L27)
+See the source code for method [AdvancedSearchRendererWidget::__construct](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/RendererWidget/AdvancedSearchRendererWidget.php#L25-L28)
 
 
 See Also

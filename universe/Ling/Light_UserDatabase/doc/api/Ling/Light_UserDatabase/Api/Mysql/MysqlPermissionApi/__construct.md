@@ -7,7 +7,7 @@ MysqlPermissionApi::__construct
 
 
 
-MysqlPermissionApi::__construct — Builds the PermissionApi instance.
+MysqlPermissionApi::__construct — Builds the MysqlPermissionApi instance.
 
 
 
@@ -21,7 +21,7 @@ public [MysqlPermissionApi::__construct](https://github.com/lingtalfi/Light_User
 
 
 
-Builds the PermissionApi instance.
+Builds the MysqlPermissionApi instance.
 
 
 
@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [MysqlPermissionApi::__construct](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Mysql/MysqlPermissionApi.php#L25-L28)
+See the source code for method [MysqlPermissionApi::__construct](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Mysql/MysqlPermissionApi.php#L20-L24)
 
 
 See Also

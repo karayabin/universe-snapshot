@@ -4,7 +4,7 @@
 
 The LightKitAdminListGeneralActionHandler class
 ================
-2019-05-17 --> 2019-10-25
+2019-05-17 --> 2019-12-17
 
 
 
@@ -83,4 +83,4 @@ See the source code of [Ling\Light_Kit_Admin\Realist\ListGeneralActionHandler\Li
 
 SeeAlso
 ==============
-Previous class: [LightKitAdminListActionHandler](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Realist/ListActionHandler/LightKitAdminListActionHandler.md)<br>Next class: [LightKitAdminRealistRowsRenderer](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Realist/Rendering/LightKitAdminRealistRowsRenderer.md)<br>
+Previous class: [LightKitAdminListActionHandler](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Realist/ListActionHandler/LightKitAdminListActionHandler.md)<br>Next class: [LightKitAdminRealistListRenderer](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Realist/Rendering/LightKitAdminRealistListRenderer.md)<br>

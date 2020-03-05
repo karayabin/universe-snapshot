@@ -49,7 +49,7 @@ Returns bool.
 
 Source Code
 ===========
-See the source code for method [LightDummyServiceContainer::has](https://github.com/lingtalfi/Light/blob/master/ServiceContainer/LightDummyServiceContainer.php#L26-L29)
+See the source code for method [LightDummyServiceContainer::has](https://github.com/lingtalfi/Light/blob/master/ServiceContainer/LightDummyServiceContainer.php#L42-L45)
 
 
 See Also

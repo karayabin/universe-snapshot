@@ -49,7 +49,7 @@ Returns [LightException](https://github.com/lingtalfi/Light/blob/master/doc/api/
 
 Source Code
 ===========
-See the source code for method [LightException::setLightErrorCode](https://github.com/lingtalfi/Light/blob/master/Exception/LightException.php#L56-L60)
+See the source code for method [LightException::setLightErrorCode](https://github.com/lingtalfi/Light/blob/master/Exception/LightException.php#L61-L65)
 
 
 See Also

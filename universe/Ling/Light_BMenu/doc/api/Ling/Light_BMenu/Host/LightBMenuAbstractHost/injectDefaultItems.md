@@ -23,7 +23,7 @@ public [LightBMenuAbstractHost::injectDefaultItems](https://github.com/lingtalfi
 
 Inject menu items in the given menu structure.
 
-The structure of menu items is defined in the [conception notes](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/pages/conception-notes.md).
+The structure of menu items is defined in the [bmenu conception notes](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/pages/conception-notes.md).
 
 
 

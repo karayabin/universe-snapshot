@@ -3,6 +3,8 @@ dependencies:
         - Bat
         - Light
         - Light_DatabaseInfo
+        - Light_Database
+        - SqlWizard
         - BabyYaml
     
 

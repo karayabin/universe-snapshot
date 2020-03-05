@@ -1,0 +1,43 @@
+- 
+    id: lka_userdata-luda
+    icon: fas fa-bars
+    text: UserData
+    route: null
+    children: 
+        - 
+            id: lka_userdata-luda_resource
+            icon: fas fa-asterisk
+            text: Resource
+            route: lch_route-hub
+            route_url_params: 
+                plugin: Light_Kit_Admin_UserData
+                controller: Generated/LudaResourceController
+            
+            _right: Light_UserData.user
+            children: []
+        
+        - 
+            id: lka_userdata-luda_resource_has_tag
+            icon: fas fa-asterisk
+            text: Resource/Tag
+            route: lch_route-hub
+            route_url_params: 
+                plugin: Light_Kit_Admin_UserData
+                controller: Generated/LudaResourceHasTagController
+            
+            _right: Light_UserData.user
+            children: []
+        
+        - 
+            id: lka_userdata-luda_tag
+            icon: fas fa-asterisk
+            text: Tag
+            route: lch_route-hub
+            route_url_params: 
+                plugin: Light_Kit_Admin_UserData
+                controller: Generated/LudaTagController
+            
+            _right: Light_UserData.user
+            children: []
+        
+    

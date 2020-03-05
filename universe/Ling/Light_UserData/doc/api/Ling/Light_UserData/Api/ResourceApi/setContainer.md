@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [ResourceApi::setContainer](https://github.com/lingtalfi/Light_UserData/blob/master/Api/ResourceApi.php#L141-L144)
+See the source code for method [ResourceApi::setContainer](https://github.com/lingtalfi/Light_UserData/blob/master/Api/ResourceApi.php#L134-L137)
 
 
 See Also
@@ -57,5 +57,5 @@ See Also
 
 The [ResourceApi](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/ResourceApi.md) class.
 
-Previous method: [setPdoWrapper](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/ResourceApi/setPdoWrapper.md)<br>Next method: [setMicroPermissionPlugin](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/ResourceApi/setMicroPermissionPlugin.md)<br>
+Previous method: [setPdoWrapper](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/ResourceApi/setPdoWrapper.md)<br>Next method: [doInsertResource](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/ResourceApi/doInsertResource.md)<br>
 

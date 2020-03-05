@@ -57,7 +57,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightInitializerUtil::initializeItemRecursive](https://github.com/lingtalfi/Light_Initializer/blob/master/Util/LightInitializerUtil.php#L212-L226)
+See the source code for method [LightInitializerUtil::initializeItemRecursive](https://github.com/lingtalfi/Light_Initializer/blob/master/Util/LightInitializerUtil.php#L191-L207)
 
 
 See Also
@@ -65,5 +65,5 @@ See Also
 
 The [LightInitializerUtil](https://github.com/lingtalfi/Light_Initializer/blob/master/doc/api/Ling/Light_Initializer/Util/LightInitializerUtil.md) class.
 
-Previous method: [getPluginName](https://github.com/lingtalfi/Light_Initializer/blob/master/doc/api/Ling/Light_Initializer/Util/LightInitializerUtil/getPluginName.md)<br>
+Previous method: [getPluginName](https://github.com/lingtalfi/Light_Initializer/blob/master/doc/api/Ling/Light_Initializer/Util/LightInitializerUtil/getPluginName.md)<br>Next method: [getDependencyTree](https://github.com/lingtalfi/Light_Initializer/blob/master/doc/api/Ling/Light_Initializer/Util/LightInitializerUtil/getDependencyTree.md)<br>
 

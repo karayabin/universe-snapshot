@@ -1,0 +1,14 @@
+dependencies: 
+    Ling: 
+        - Bat
+        - Light_AjaxHandler
+        - Light
+        - Light_DatabaseInfo
+        - Light_Database
+        - Light_MicroPermission
+        - SimplePdoWrapper
+        - Light_Events
+    
+
+post_install: 
+    map: true

@@ -2,6 +2,7 @@ dependencies:
     Ling: 
         - Bat
         - HtmlPageTools
+        - Light_AjaxHandler
         - Light_Realist
         - Light_SpinKitHelper
     

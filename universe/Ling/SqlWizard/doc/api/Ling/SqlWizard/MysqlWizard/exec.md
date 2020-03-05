@@ -16,7 +16,7 @@ Description
 ================
 
 
-protected [MysqlWizard::exec](https://github.com/lingtalfi/SqlWizard/blob/master/doc/api/Ling/SqlWizard/MysqlWizard/exec.md)(?$query) : mixed
+protected [MysqlWizard::exec](https://github.com/lingtalfi/SqlWizard/blob/master/doc/api/Ling/SqlWizard/MysqlWizard/exec.md)($query) : mixed
 
 
 

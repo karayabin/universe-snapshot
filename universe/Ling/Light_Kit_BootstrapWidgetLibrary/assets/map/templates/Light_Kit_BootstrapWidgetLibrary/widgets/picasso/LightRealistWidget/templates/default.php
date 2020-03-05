@@ -4,6 +4,7 @@
 use Ling\Bat\StringTool;
 use Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\LightRealistWidget;
 use Ling\Light_Realist\Rendering\RealistListRendererInterface;
+use Ling\Light_Realist\Service\LightRealistService;
 
 
 /**
@@ -13,6 +14,7 @@ use Ling\Light_Realist\Rendering\RealistListRendererInterface;
 /**
  * @var $renderer RealistListRendererInterface
  */
+
 $renderer = $z['renderer'] ?? null;
 $requestDeclarationId = $z['request_declaration_id'] ?? null;
 
@@ -20,17 +22,20 @@ $requestDeclarationId = $z['request_declaration_id'] ?? null;
 if (null === $renderer) {
     if (null !== $requestDeclarationId) {
         $container = $this->kitPageRenderer->getContainer();
-        $renderer = $container->get('realist')->getListRendererByRequestId($requestDeclarationId);
+        /**
+         * @var $realist LightRealistService
+         */
+        $realist = $container->get('realist');
+        $renderer = $realist->getListRendererByRequestId($requestDeclarationId);
     } else {
         throw new \RuntimeException("Bad LightRealistWidget widget configuration: missing the property renderer or request_declaration_id from " . __FILE__ . ".");
     }
 }
 
 
+
 $cssId = StringTool::getUniqueCssId('realist-');
 $renderer->setContainerCssId($cssId);
-
-
 ?>
 
 

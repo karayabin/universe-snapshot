@@ -11,6 +11,7 @@ use Ling\Bat\FileSystemTool;
 use Ling\Bat\SmartCodeTool;
 use Ling\Chloroform\DataTransformer\DataTransformerInterface;
 use Ling\Chloroform\Field\CSRFField;
+use Ling\Chloroform\Field\DecorativeField;
 use Ling\Chloroform\Field\FieldInterface;
 use Ling\Chloroform\Field\PasswordField;
 use Ling\Chloroform\Form\Chloroform;
@@ -21,6 +22,7 @@ use Ling\Chloroform\Validator\PasswordValidator;
 use Ling\Chloroform\Validator\ValidatorInterface;
 use Ling\Light\ServiceContainer\LightServiceContainerAwareInterface;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
+use Ling\Light_ChloroformExtension\Field\TableListField;
 use Ling\Light_Realform\Exception\LightRealformException;
 use Ling\Light_Realform\Service\LightRealformHandlerAliasHelperService;
 use Ling\Light_Realform\Service\LightRealformService;
@@ -93,9 +95,16 @@ abstract class BaseRealformHandler implements RealformHandlerInterface, LightSer
     /**
      * @implementation
      */
-    public function getFormHandler(): Chloroform
+    public function getFormHandler(array $configuration = null): Chloroform
     {
-        $conf = $this->getConfiguration();
+        if (null === $configuration) {
+            $conf = $this->getConfiguration();
+        } else {
+            $conf = $configuration;
+        }
+
+
+
         $formHandlerConf = $conf['form_handler'] ?? [];
 
 
@@ -196,8 +205,11 @@ abstract class BaseRealformHandler implements RealformHandlerInterface, LightSer
                     $o = new ToDatabaseSuccessHandler();
                     $o->setContainer($this->container);
                     $o->setTable($params['table']);
-                    if (array_key_exists("microPermissionPluginName", $params)) {
-                        $o->setMicroPermissionPluginName($params['microPermissionPluginName']);
+                    if (array_key_exists("pluginName", $params)) {
+                        $o->setPluginName($params['pluginName']);
+                    }
+                    if (array_key_exists("multiplier", $params)) {
+                        $o->setMultiplier($params['multiplier']);
                     }
                     return $o;
                     break;
@@ -241,6 +253,7 @@ abstract class BaseRealformHandler implements RealformHandlerInterface, LightSer
 
     /**
      * Returns a chloroform field.
+     * Note: fields from the @page(Light_ChloroformExtension plugin) also work.
      *
      * @param Chloroform $form
      * @param string $type
@@ -290,8 +303,15 @@ abstract class BaseRealformHandler implements RealformHandlerInterface, LightSer
                 $field = new PasswordField($fieldConf);
                 $field->setForm($form);
                 break;
+            case "decorative":
+                $field = new DecorativeField($fieldConf);
+                break;
+            case "table_list":
+                $field = new TableListField($fieldConf);
+                $field->setContainer($this->container);
+                break;
             default:
-                throw new LightRealformException("Unknown field class with id $fieldId.");
+                throw new LightRealformException("Unknown field type \"$type\" with id $fieldId.");
                 break;
         }
 

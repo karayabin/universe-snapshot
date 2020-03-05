@@ -1,0 +1,58 @@
+[Back to the Ling/Light_UserData api](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData.md)<br>
+[Back to the Ling\Light_UserData\Service\LightUserDataService class](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService.md)
+
+
+LightUserDataService::getFactory
+================
+
+
+
+LightUserDataService::getFactory — Returns the Light_USerData factory.
+
+
+
+
+Description
+================
+
+
+public [LightUserDataService::getFactory](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/getFactory.md)() : [LightUserDataApiFactory](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/LightUserDataApiFactory.md)
+
+
+
+
+Returns the Light_USerData factory.
+
+
+
+
+Parameters
+================
+
+This method has no parameters.
+
+
+Return values
+================
+
+Returns [LightUserDataApiFactory](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/LightUserDataApiFactory.md).
+
+
+
+
+
+
+
+
+Source Code
+===========
+See the source code for method [LightUserDataService::getFactory](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L295-L298)
+
+
+See Also
+================
+
+The [LightUserDataService](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService.md) class.
+
+Previous method: [onUserGroupCreate](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/onUserGroupCreate.md)<br>Next method: [list](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/list.md)<br>
+

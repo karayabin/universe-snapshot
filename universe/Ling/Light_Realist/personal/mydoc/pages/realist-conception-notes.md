@@ -79,7 +79,7 @@ We basically provide an interface for rendering rows: **RealistRowsRendererInter
 
 This interface has the following methods:
 
-- addDynamicColumn ( string colName, string label, mixed position=post ):void
+- addDynamicColumn ( string colName, mixed position=post ):void
 - setColumnType ( string colName, string type, array options=[] ):void
 - setRic ( array ric ):void
 - render  ( array rows ):string
@@ -92,6 +92,39 @@ Each column can have a type, which basically dictates how to render that particu
 
 Most of the columns have regular text content, but sometimes we can have image that we would like
 to render as img tags, or arrays that we would like to display as a list, or other things...
+
+
+
+### Types, the column transformers
+
+Types (aka column transformers) allow us to transform the content of individual columns.
+We can use type to transform an image url into an actual html img tag, or create links, or trim a too long content, etc.
+
+Types are defined in the **rendering.rows_renderer.types** section, which is an array of type => typeConf.
+
+With type being the name of the **type** (defaults to the value "text"), and **typeConf** being an array with the following structure:
+
+- type: the type identifier, it helps identifying the plugin who will generate the transformation, and also indicate
+        the type of transformation to execute. 
+        We recommend that the type identifier has the following notation:
+            - {pluginName}.{transformType}
+        With:
+            - {pluginName}: the plugin name            
+            - {transformType}: an arbitrary string used by the plugin to know which type of transformation to apply            
+- ...(other parameters, which might be used depending on the type of transformation)
+
+
+In realist, our base renderer provides a few built-in types, including:
+
+- Light_Realist.image, to transform an url into an html image tag            
+- Light_Realist.hub_link, to create a link using the [controllerHub](transformType) service           
+- Light_Realist.checkbox, to create an [Open Admin Table One](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/open-admin-table-helper-implementation-notes.md) compliant checkbox (containing the ric info)
+
+See more in the code source of [the BaseRealistRowRenderer object](https://github.com/lingtalfi/Light_Realist/blob/master/Rendering/BaseRealistRowsRenderer.php).         
+
+
+
+
 
 ### Dynamic columns
 
@@ -109,20 +142,26 @@ Two common dynamic columns for admin lists are "checkbox" and "action".
 
 # Checkbox and Action special columns
 
-And so realist being a practical tool, we've added them as options directly into the **rendering.rows_renderer** setting.
 
-Note: the default (column) names for "checkbox" and "action" special columns are "checkbox" and "action", which might
-interfere with your own columns in the sql query. When this happens, we recommend that you use sql aliases to rename
-your columns rather than changing the name of the dynamic column in the **request declaration**.
+In the **rows_renderer** settings, we have two special properties:
 
-That's because in the background, the **BaseRealistRowsRenderer** object provides a special action for the "checkbox" type.
-So if you change the "checkbox" name, the **BaseRealistRowsRenderer** object won't be triggering the checkbox rendering
-automatically.
+- checkbox_column
+- action_column
+
+Both share similar characteristics:
+
+- they are an array containing the following entries:
+    - name: the name of the dynamic column
+- if they are defined, they indicate that the dynamic column should be used, otherwise if they are not defined,
+        they indicate that the dynamic column shouldn't be used.    
 
 
-Also note that if you are using the **open_admin_table** setting, you have to manually ensure that the 
-**rendering.open_admin_table.use_checkbox** option and the **rendering.rows_renderer.checkbox_column** are synced together,
-otherwise you might experience weird things...  
+The default name for the checkbox dynamic column is checkbox.
+The default name for the action dynamic column is action.
+
+Note: the default name is used as long as you don't define the the checkbox_column.name or action_column.name specifically. 
+
+
 
 
 # About ric implementation
@@ -131,6 +170,35 @@ We recommend to use the [ric admin table helper](https://github.com/lingtalfi/JR
 your ric related actions, but you can use any tool really. 
  
  
+ 
+Hidden columns
+--------- 
+2019-11-12
+
+Hidden columns are columns hidden from the view, but which data is still available.
+
+
+### Why did I implement hidden columns ?
+
+I needed them when I wanted to create enhanced columns (aka crossed columns).
+
+For instance, instead of displaying just the user_id (which was to my opinion not very useful for the administrator),
+I wanted to display the user id AND the user pseudo or email.
+
+So I replaced the basic user_id column with the enhanced user_id_plus column.
+
+The problem in those admin tables, is that then when you need to do some actions on a row selection (for instance
+if you want to print a set of selected rows, or delete them, or even add a link based on the ric), you need the ric information
+of the row. 
+So if the user_id is part of the ric (and it was in my case), replacing the user_id with the user_id_plus column caused the ric
+to be lost. 
+
+So my workaround to this problem was to hide the user_id column from the view rather than replacing it.
+Yet the user_id information is still in the row, and so the ric being available in the html of the checkbox (at least
+with my Bootstrap4AdminTable renderer), it was quite easy to hide columns, and still have the ric information available
+for the rest of the gui.  
+
+
  
  
  
@@ -236,11 +304,13 @@ Miscellaneous
 
 In this section, I present to you the "other" settings, that are not part of the duelist specification and not part of the rendering section.
 
-- csrf_token: array containing a "name" and a "value" keys. Represent a csrf token to generate and check against.
-            See the full requestDeclaration example later in this document for more details.
+- csrf_token: bool=true. Whether to protect the list against csrf attacks, using the [Light_CsrfSimple](https://github.com/lingtalfi/Light_CsrfSimple) service.
             
 - plugin: string, the name of the plugin handling this realist request declaration.
-        So far, it's used only as a prefix for micro-permission (see the use_micro_permission setting below)
+        So far, it's used only as a prefix for micro-permission (see the use_micro_permission setting below).
+        It might also be used by third party plugins as the handler of micro-permissions in general (for instance can the user delete rows in this table?),
+        but that depends on the plugin.
+        
 - use_micro_permission: bool=true, whether to use the micro permission checking.
         We use the [micro permission notation recommendation for database](https://github.com/lingtalfi/Light_MicroPermission/blob/master/doc/pages/recommended-micropermission-notation.md#database-interaction).
         Since realist just provides access to the data, we check against the following micro-permission:
@@ -263,10 +333,12 @@ In this section, I present to you the "other" settings, that are not part of the
 
 A full realist requestDeclaration example
 ====================
-2019-09-25 -> 2019-10-30
+2019-09-25 -> 2019-11-13
 
 
-Taken from the [Light_Kit_Admin](https://github.com/lingtalfi/Light_Kit_Admin) plugin:
+Below is an example inspired from the [Light_Kit_Admin](https://github.com/lingtalfi/Light_Kit_Admin) plugin.
+
+The comments in it are part of the documentation.
 
 
 ```yaml
@@ -413,6 +485,10 @@ default:
                 avatar_url: string
                 extra: string
                 actions: action
+
+        # An array of the column labels.
+        # Notice that we set the label for the action column, but not the checkbox column.  
+        # That's at least how the Bootstrap4AdminTable renderer works (your mileage might vary).  
         column_labels:
             id: "#"
             identifier: Identifier
@@ -420,21 +496,47 @@ default:
             avatar_url: Avatar url
             extra: Extra
             actions: Actions
+
+        # An array of column names.
+        hidden_columns:
+            - user_id
+            - permission_group_id
+
+
         rows_renderer:
             identifier: Light_Kit_Admin
 #                class: Ling\Light_Kit_Admin\Realist\Rendering\LightKitAdminRealistRowsRenderer
+
+            # The rows renderer types (aka column transformers). 
+            # See the dedicated section above in this document for more info.        
             types:
                 avatar_url:
                     type: image
                     width: 100
-                action:
-                    type: lka_generic_ric_form_link
+                action: 
+                    type: Light_Realist.hub_link
                     text: Edit
-                    route: lka_route-user_profile
+                    url_params_add_ric: true
+                    url_params:
+                        controller: Generated/LudUserHasPermissionGroupController
+                        m: f
+                user_id_plus:
+                    type: Light_Realist.hub_link
+                    text: null
+                    url_params_add_keys:
+                        id: user_id
+                    url_params:
+                        controller: Generated/LudUserController
+                        plugin: Light_Kit_Admin
+                        m: f
 
                 checkbox: checkbox
+            # This key must be present if you use the checkbox dynamic column. 
             checkbox_column: []
+#                name: checkbox
+            # This key must be present if you use the action dynamic column.
             action_column: []
+#                name: action
         related_links:
             -
                 text: Add new user

@@ -1,5 +1,5 @@
 user_database:
-    instance: Ling\Light_UserDatabase\MysqlLightWebsiteUserDatabase
+    instance: Ling\Light_UserDatabase\Service\LightUserDatabaseService
     methods:
         setContainer:
             container: @container()
@@ -15,7 +15,8 @@ user_database_vars:
 #    methods:
 #        setFile:
 #            file: ${app_dir}/config/data/Light_UserDatabase/database.byml
-
+#        setContainer:
+#            container: @container()
 
 # --------------------------------------
 # hooks
@@ -27,13 +28,6 @@ $breeze_generator.methods_collection:
             key: lud
             file: ${app_dir}/config/data/Light_UserDatabase/Light_BreezeGenerator/lud.byml
 
-
-$initializer.methods_collection:
-    -
-        method: registerInitializer
-        args:
-            initializer: @service(user_database)
-            slot: install
 
 
 $bullsheet.methods_collection:
@@ -49,15 +43,24 @@ $bullsheet.methods_collection:
                     setAvatarImgDir:
                         dir: ${user_database_vars.bullsheeter_avatar_img_dir}
 
-$plugin_database_installer.methods_collection:
+
+
+
+$plugin_installer.methods_collection:
     -
-        method: registerInstaller
+        method: registerPlugin
         args:
             plugin: Light_UserDatabase
-            installer:
-                -
-                    - @service(user_database)
-                    - installDatabase
-                -
-                    - @service(user_database)
-                    - uninstallDatabase
+            installer: @service(user_database)
+
+
+
+#$user_row_ownership.methods_collection:
+#    -
+#        method: registerRowInspector
+#        args:
+#            inspector:
+#                instance: Ling\Light_UserDatabase\UserRowOwnership\LightUserDatabaseRowInspector
+#                methods:
+#                    setHandledTablesFile:
+#                        file: ${app_dir}/config/data/Light_UserDatabase/Light_UserRowOwnership/handled_tables.byml

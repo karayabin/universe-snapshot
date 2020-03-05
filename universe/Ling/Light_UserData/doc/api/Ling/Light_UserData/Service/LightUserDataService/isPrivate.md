@@ -51,7 +51,7 @@ Returns bool.
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::isPrivate](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L457-L460)
+See the source code for method [LightUserDataService::isPrivate](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L485-L488)
 
 
 See Also

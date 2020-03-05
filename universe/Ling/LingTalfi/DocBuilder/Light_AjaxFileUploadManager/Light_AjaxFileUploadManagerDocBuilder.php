@@ -145,6 +145,10 @@ class Light_AjaxFileUploadManagerDocBuilder
                 "validation rules page" => $doc . '/pages/validation-rules.md',
                 "ajax file upload protocol" => $doc . '/pages/ajax-file-upload-protocol.md',
                 "configuration files page" => $doc . '/pages/configuration-files.md',
+                "Light_AjaxFileUploadManager documentation page" => 'https://github.com/lingtalfi/Light_AjaxFileUploadManager',
+                "configuration item" => $doc . '/pages/configuration-files.md#the-configuration-item',
+                "configuration items" => $doc . '/pages/configuration-files.md#the-configuration-item',
+                "babyYaml" =>  'https://github.com/lingtalfi/BabyYaml',
             ],
             /**
              * An array of external classes to url.

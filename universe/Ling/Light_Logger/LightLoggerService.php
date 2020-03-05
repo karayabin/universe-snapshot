@@ -6,6 +6,7 @@ namespace Ling\Light_Logger;
 
 use Ling\ArrayToString\ArrayToStringTool;
 use Ling\Bat\DebugTool;
+use Ling\Bat\ExceptionTool;
 use Ling\Light_Logger\Listener\LightLoggerListenerInterface;
 use Ling\UniversalLogger\UniversalLoggerInterface;
 
@@ -72,31 +73,8 @@ class LightLoggerService implements UniversalLoggerInterface
     protected $listeners;
 
 
-    /**
-     * This property holds the format used by this class to transform the emitter message into the
-     * actual logger message sent to the listeners.
-     *
-     *
-     * The following tags are available:
-     *
-     * - {channel}: the channel in uppercase
-     * - {dateTime}: the date time string (for instance: 2019-01-16 16:33:15)
-     * - {message}: the emitter (original) message
-     *
-     * @var string
-     */
-    private $format;
 
-    /**
-     * This property holds whether to use the useExpandedArray for this instance.
-     * With useExpandedArray on, the arrays will be indented with tab and return chars in the log file,
-     * whereas with useExpandedArray off, the array will fit on a single line.
-     *
-     * Default is true (as it's more readable).
-     *
-     * @var bool=true
-     */
-    private $useExpandedArray;
+
 
 
     /**
@@ -105,8 +83,6 @@ class LightLoggerService implements UniversalLoggerInterface
     public function __construct()
     {
         $this->listeners = [];
-        $this->format = '[{channel}]: {dateTime} -- {message}';
-        $this->useExpandedArray = true;
     }
 
 
@@ -146,25 +122,6 @@ class LightLoggerService implements UniversalLoggerInterface
     }
 
 
-    /**
-     * Sets the format of the log messages passed to the listeners.
-     * @param string $format
-     */
-    public function setFormat(string $format)
-    {
-        $this->format = $format;
-    }
-
-    /**
-     * Sets the useExpandedArray.
-     *
-     * @param bool $useExpandedArray
-     */
-    public function setUseExpandedArray(bool $useExpandedArray)
-    {
-        $this->useExpandedArray = $useExpandedArray;
-    }
-
 
     /**
      * @implementation
@@ -183,19 +140,16 @@ class LightLoggerService implements UniversalLoggerInterface
      */
     protected function dispatch(string $channel, $msg)
     {
-
-        $loggerMsg = $this->getFormattedMessage($channel, $msg);
-
         if (array_key_exists($channel, $this->listeners)) {
             $listeners = $this->listeners[$channel];
             foreach ($listeners as $listener) {
-                call_user_func($listener, $loggerMsg, $channel);
+                call_user_func($listener, $msg, $channel);
             }
         }
 
         // handling the * symbol
         foreach ($this->listeners as $chan => $listeners) {
-            if (0 === strpos('*', $chan)) {
+            if (0 === strpos($chan, '*')) {
                 if ("*" !== $chan) {
                     list($asterisk, $sMinus) = explode('-', $chan);
                     $minus = explode(",", $sMinus);
@@ -204,9 +158,8 @@ class LightLoggerService implements UniversalLoggerInterface
                     }
                 }
 
-
                 foreach ($listeners as $listener) {
-                    call_user_func($listener, $loggerMsg, $channel);
+                    call_user_func($listener, $msg, $channel);
                 }
             }
         }
@@ -282,36 +235,5 @@ class LightLoggerService implements UniversalLoggerInterface
     public function fatal($msg)
     {
         $this->dispatch("fatal", $msg);
-    }
-
-
-
-    //--------------------------------------------
-    //
-    //--------------------------------------------
-
-    /**
-     * Returns the formatted message to dispatch to the listeners.
-     *
-     * @param string $channel
-     * @param string|object $msg
-     * @return string
-     */
-    protected function getFormattedMessage(string $channel, $msg): string
-    {
-        if (true === $this->useExpandedArray && is_array($msg)) {
-            $msg = ArrayToStringTool::toPhpArray($msg);
-        } else {
-            $msg = DebugTool::toString($msg);
-        }
-        return str_replace([
-            '{channel}',
-            '{dateTime}',
-            '{message}',
-        ], [
-            strtoupper($channel),
-            date("Y-m-d H:i:s"),
-            $msg,
-        ], $this->format);
     }
 }

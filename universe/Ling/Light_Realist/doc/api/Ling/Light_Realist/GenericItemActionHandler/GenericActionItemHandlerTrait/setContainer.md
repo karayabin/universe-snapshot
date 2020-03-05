@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [GenericActionItemHandlerTrait::setContainer](https://github.com/lingtalfi/Light_Realist/blob/master/GenericItemActionHandler/GenericActionItemHandlerTrait.php#L53-L56)
+See the source code for method [GenericActionItemHandlerTrait::setContainer](https://github.com/lingtalfi/Light_Realist/blob/master/GenericItemActionHandler/GenericActionItemHandlerTrait.php#L55-L58)
 
 
 See Also

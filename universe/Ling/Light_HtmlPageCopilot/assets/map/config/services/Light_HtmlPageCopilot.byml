@@ -1,2 +1,2 @@
 html_page_copilot:
-    instance: Ling\HtmlPageTools\Copilot\HtmlPageCopilot
+    instance: Ling\Light_HtmlPageCopilot\Service\LightHtmlPageCopilotService

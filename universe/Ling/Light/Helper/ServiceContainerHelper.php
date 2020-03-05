@@ -61,7 +61,6 @@ class ServiceContainerHelper
                 }
             }
 
-
             if ('frozen' === $blueMode) {
                 return self::getDarkBlueInstance($appDir);
             } elseif ('create' === $blueMode) {

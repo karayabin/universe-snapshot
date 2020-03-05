@@ -13,6 +13,7 @@ use Ling\Bootstrap4AdminTable\RendererWidget\RelatedLinksRendererWidgetInterface
 use Ling\Bootstrap4AdminTable\RendererWidget\RendererWidgetInterface;
 use Ling\Bootstrap4AdminTable\RendererWidget\ToolbarRendererWidgetInterface;
 use Ling\HtmlPageTools\Copilot\HtmlPageCopilot;
+use Ling\Light_AjaxHandler\Service\LightAjaxHandlerService;
 use Ling\Light_Realist\Rendering\OpenAdminTableBaseRealistListRenderer;
 use Ling\Light_SpinKitHelper\SpinKitHelperService;
 
@@ -42,6 +43,15 @@ class Bootstrap4AdminTableRenderer extends OpenAdminTableBaseRealistListRenderer
      */
     protected $useSpinKitService;
 
+
+    /**
+     * This property holds the jsSnippets for this instance.
+     * An array of variableName => js code.
+     * See @page(the content of the Bootstrap4AdminTableRenderer->printJavascript method) for more details, the hooks section.
+     * @var array
+     */
+    protected $jsSnippets;
+
     /**
      * This property holds the temporary _spinKitCssId for this instance.
      * @var string|null
@@ -56,6 +66,7 @@ class Bootstrap4AdminTableRenderer extends OpenAdminTableBaseRealistListRenderer
     {
         parent::__construct();
         $this->widgets = [];
+        $this->jsSnippets = [];
         $this->useSpinKitService = true;
         $this->_spinKitCssId = null;
     }
@@ -152,7 +163,8 @@ class Bootstrap4AdminTableRenderer extends OpenAdminTableBaseRealistListRenderer
                 true === array_key_exists("neck_filters", $this->widgets)) {
                 $neckFiltersWidget = $this->widgets["neck_filters"];
                 if ($neckFiltersWidget instanceof NeckFiltersRendererWidgetInterface) {
-                    $neckFiltersWidget->setColumns2DataTypes($this->dataTypes);
+                    $dataTypes = array_diff_key($this->dataTypes, array_flip($this->hiddenColumns));
+                    $neckFiltersWidget->setColumns2DataTypes($dataTypes);
                     $neckFiltersWidget->setUseCheckbox($this->isWidgetEnabled("checkbox"));
                 }
             }
@@ -227,7 +239,9 @@ class Bootstrap4AdminTableRenderer extends OpenAdminTableBaseRealistListRenderer
                                         </div>
                                     </th>
                                 <?php endif; ?>
-                                <?php foreach ($this->labels as $colName => $label):
+                                <?php
+                                $labels = array_diff_key($this->labels, array_flip($this->hiddenColumns));
+                                foreach ($labels as $colName => $label):
                                     $type = $this->getDataType($colName);
                                     ?>
                                     <th scope="col">
@@ -273,27 +287,30 @@ class Bootstrap4AdminTableRenderer extends OpenAdminTableBaseRealistListRenderer
 
                         <?php $this->printWidgetIfExists("neck_filters");; ?>
 
-                        <?php for ($i = 1; $i <= 3; $i++): ?>
 
-                            <tr>
-                                <?php if (true === $this->isWidgetEnabled("checkbox")): ?>
+                        <?php if (false): ?>
+                            <?php for ($i = 1; $i <= 3; $i++): ?>
+
+                                <tr>
+                                    <?php if (true === $this->isWidgetEnabled("checkbox")): ?>
+                                        <td>
+                                            <input type="checkbox" value="" id=""/>
+                                        </td>
+                                    <?php endif; ?>
+                                    <td>1</td>
+                                    <td>Mark</td>
+                                    <td>Otto</td>
+                                    <td>/my/url</td>
+                                    <td>(rights)</td>
+                                    <td>(extra)</td>
                                     <td>
-                                        <input type="checkbox" value="" id=""/>
+                                        <button type="button" class="btn btn-outline-primary btn-sm mb-2 text-nowrap"><i
+                                                    class="far fa-edit"></i> Edit
+                                        </button>
                                     </td>
-                                <?php endif; ?>
-                                <td>1</td>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>/my/url</td>
-                                <td>(rights)</td>
-                                <td>(extra)</td>
-                                <td>
-                                    <button type="button" class="btn btn-outline-primary btn-sm mb-2 text-nowrap"><i
-                                                class="far fa-edit"></i> Edit
-                                    </button>
-                                </td>
-                            </tr>
-                        <?php endfor; ?>
+                                </tr>
+                            <?php endfor; ?>
+                        <?php endif; ?>
                         </tbody>
                     </table>
                 <?php endif; ?>
@@ -458,7 +475,6 @@ class Bootstrap4AdminTableRenderer extends OpenAdminTableBaseRealistListRenderer
     protected function printJavascript()
     {
 
-
         $contentRowStartIndex = 1;
         if ($this->isWidgetEnabled("neck_filters")) {
             $contentRowStartIndex = 2;
@@ -469,23 +485,54 @@ class Bootstrap4AdminTableRenderer extends OpenAdminTableBaseRealistListRenderer
         $listGeneralActionLeaves = $this->listGeneralActions;
 
 
+        if (null !== $this->container) {
+            /**
+             * @var $ajaxHandler LightAjaxHandlerService
+             */
+            $ajaxHandler = $this->container->get("ajax_handler");
+            $ajaxHandlerUrl = $ajaxHandler->getServiceUrl();
+        } else {
+            $ajaxHandlerUrl = '/ajax-handler';
+        }
+
+
         ?>
         <script>
             // breakpoint sm=576
             document.addEventListener("DOMContentLoaded", function (event) {
+
+                var $ = jQuery;
+
                 $(document).ready(function () {
 
 
+                    //----------------------------------------
+                    // HOOKS
+                    //----------------------------------------
+                    var oathOptionsExtra = {};
+                    <?php
+                    foreach ($this->jsSnippets as $snippet) {
+                        echo $snippet;
+                    }
+                    ?>
+
+
+                    //----------------------------------------
+                    // SCRIPT
+                    //----------------------------------------
                     var jContainer = $('#<?php echo $this->containerCssId; ?>');
                     var jSpinKitContainer = $('#<?php echo $this->_spinKitCssId; ?>');
                     var jTable = jContainer.find('.bsatr-main-table:first');
                     var listActionLeaves = <?php echo json_encode($listActionLeaves); ?>;
                     var listGeneralActionItems = <?php echo json_encode($listGeneralActionLeaves); ?>;
+                    var useResponsiveTableHelper = true;
+                    var rth = null; // the responsive table helper instance
+                    var ajaxHandlerUrl = "<?php echo $ajaxHandlerUrl; ?>";
 
 
                     var ricHelper = new RicAdminTableHelper({
                         jContainer: jTable,
-                        serverUri: "/realist-ajax-service",
+                        serverUri: ajaxHandlerUrl,
                     });
 
 
@@ -497,6 +544,7 @@ class Bootstrap4AdminTableRenderer extends OpenAdminTableBaseRealistListRenderer
                         ricHelper.triggerOnCheckboxSelected();
                     });
                     <?php endif; ?>
+
 
 
                     var listActionHelper = new ListActionHandlerHelper({
@@ -513,37 +561,42 @@ class Bootstrap4AdminTableRenderer extends OpenAdminTableBaseRealistListRenderer
                     });
                     listGeneralActionHelper.listen();
 
-
-                    var rth = new ResponsiveTableHelper({
-                        jTable: jTable,
-                        extraColumnContent: function (jCell, jTr) {
-                            if (jCell.is("th")) {
-                                return '<th></th>';
-                            } else {
-                                if (jTr.hasClass('oath-neck-filters')) {
-                                    return '<td></td>';
+                    if (true === useResponsiveTableHelper) {
+                        rth = new ResponsiveTableHelper({
+                            jTable: jTable,
+                            extraColumnContent: function (jCell, jTr) {
+                                if (jCell.is("th")) {
+                                    return '<th></th>';
+                                } else {
+                                    if (jTr.hasClass('oath-neck-filters')) {
+                                        return '<td></td>';
+                                    }
+                                    return '<td><a class="rth-toggle-button" href=""><i class="fas fa-plus-circle"></i></a></td>';
                                 }
-                                return '<td><a class="rth-toggle-button" href=""><i class="fas fa-plus-circle"></i></a></td>';
-                            }
-                        },
-                        contentRowStartIndex: <?php echo $contentRowStartIndex; ?>,
-                        collapsibleColumnIndexes: <?php echo $sCollapse; ?>,
-                        columnLabels: 'auto',
-                        padding: 'auto',
-                        expandedColumnFilterIndexes: [0],
-                        breakpoints: [576],
-                    });
+                            },
+                            contentRowStartIndex: <?php echo $contentRowStartIndex; ?>,
+                            collapsibleColumnIndexes: <?php echo $sCollapse; ?>,
+                            columnLabels: 'auto',
+                            padding: 0,
+                            expandedColumnFilterIndexes: [0],
+                            breakpoints: [576],
+                        });
+                    }
+
                     var rthStarted = false;
 
 
-                    var helper = new OpenAdminTableHelper({
+                    var oathOptions = $.extend({
                         jContainer: jContainer,
+                        service_url: ajaxHandlerUrl,
                         table_selector: '.bsatr-main-table',
                         request_id: "<?php echo $this->requestId; ?>",
                         csrf_token: "<?php echo $this->csrfToken; ?>",
                         on_request_before: function () {
-                            if (true === rthStarted) {
-                                rth.removePlusColumn();
+                            if (true === useResponsiveTableHelper) {
+                                if (true === rthStarted) {
+                                    rth.removePlusColumn();
+                                }
                             }
                         },
                         on_request_after: function (jContainer) {
@@ -552,8 +605,10 @@ class Bootstrap4AdminTableRenderer extends OpenAdminTableBaseRealistListRenderer
                             <?php endif; ?>
 
 
-                            rthStarted = true;
-                            rth.listen();
+                            if (true === useResponsiveTableHelper) {
+                                rthStarted = true;
+                                rth.listen();
+                            }
 
                             // var show = false;
                             // $(window).on('click', function () {
@@ -567,7 +622,13 @@ class Bootstrap4AdminTableRenderer extends OpenAdminTableBaseRealistListRenderer
                             //     // show = true;
                             // });
                         },
-                    });
+                        // on_server_error: function(errMsg){
+                        //     LightKitAdminEnvironment.toast("Error", errMsg, "error");
+                        // },
+                    }, oathOptionsExtra);
+
+
+                    var helper = new OpenAdminTableHelper(oathOptions);
                     helper.listen();
 
 
@@ -584,6 +645,5 @@ class Bootstrap4AdminTableRenderer extends OpenAdminTableBaseRealistListRenderer
         </script>
         <?php
     }
-
 
 }

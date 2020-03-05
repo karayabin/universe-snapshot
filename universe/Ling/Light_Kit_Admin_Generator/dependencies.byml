@@ -1,0 +1,10 @@
+dependencies: 
+    Ling: 
+        - BabyYaml
+        - Bat
+        - Light_RealGenerator
+        - Light_ControllerHub
+    
+
+post_install: 
+    map: true

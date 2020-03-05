@@ -7,7 +7,7 @@ LightRealistService::convertCsrfTokenByItem
 
 
 
-LightRealistService::convertCsrfTokenByItem — entries to an actual csrf_token = [ name: theTokenName, value: theTokenValue ] array.
+LightRealistService::convertCsrfTokenByItem — entries to an actual csrf_token value.
 
 
 
@@ -22,7 +22,7 @@ private [LightRealistService::convertCsrfTokenByItem](https://github.com/lingtal
 
 
 Parses the given item, and converts csrf_token = true
-entries to an actual csrf_token = [ name: theTokenName, value: theTokenValue ] array.
+entries to an actual csrf_token value.
 
 Note: if ajax, then the value is not generated, and a fake value is used.
 
@@ -61,7 +61,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightRealistService::convertCsrfTokenByItem](https://github.com/lingtalfi/Light_Realist/blob/master/Service/LightRealistService.php#L918-L939)
+See the source code for method [LightRealistService::convertCsrfTokenByItem](https://github.com/lingtalfi/Light_Realist/blob/master/Service/LightRealistService.php#L939-L948)
 
 
 See Also

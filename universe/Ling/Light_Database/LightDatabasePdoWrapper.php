@@ -3,7 +3,11 @@
 
 namespace Ling\Light_Database;
 
+use Ling\Light\Events\LightEvent;
+use Ling\Light\ServiceContainer\LightServiceContainerInterface;
+use Ling\Light_Database\EventHandler\LightDatabaseEventHandlerInterface;
 use Ling\Light_Database\Exception\LightDatabaseException;
+use Ling\Light_Events\Service\LightEventsService;
 use Ling\SimplePdoWrapper\SimplePdoWrapper;
 
 /**
@@ -22,12 +26,29 @@ class LightDatabasePdoWrapper extends SimplePdoWrapper
 
 
     /**
+     * This property holds the container for this instance.
+     * @var LightServiceContainerInterface
+     */
+    protected $container;
+
+
+    /**
+     * This property holds the eventHandlers for this instance.
+     *
+     * @var LightDatabaseEventHandlerInterface[]
+     */
+    protected $eventHandlers;
+
+
+    /**
      * Builds the LightDatabasePdoWrapper instance.
      */
     public function __construct()
     {
         parent::__construct();
         $this->pdoException = null;
+        $this->container = null;
+        $this->eventHandlers = [];
     }
 
 
@@ -71,7 +92,7 @@ class LightDatabasePdoWrapper extends SimplePdoWrapper
     public function init(array $settings)
     {
 
-        $driver = $settings['pdo_driver']??'mysql';
+        $driver = $settings['pdo_driver'] ?? 'mysql';
 
         //--------------------------------------------
         // DSN
@@ -138,5 +159,169 @@ class LightDatabasePdoWrapper extends SimplePdoWrapper
     public function getConnectionException(): ?\PDOException
     {
         return $this->pdoException;
+    }
+
+
+
+
+    //--------------------------------------------
+    //
+    //--------------------------------------------
+    /**
+     * @overrides
+     */
+    public function insert($table, array $fields = [], array $options = [])
+    {
+        $isSystemCall = $this->peakSystemCall();
+        $this->dispatch("insert.before", $isSystemCall, $table, $fields, $options);
+        return parent::insert($table, $fields, $options);
+    }
+
+
+
+    /**
+     * @overrides
+     */
+    public function replace($table, array $fields = [], array $options = [])
+    {
+        $isSystemCall = $this->peakSystemCall();
+        $this->dispatch("replace.before", $isSystemCall, $table, $fields, $options);
+        return parent::replace($table, $fields, $options);
+    }
+
+    /**
+     * @overrides
+     */
+    public function update($table, array $fields, $whereConds = null, array $markers = [])
+    {
+        $isSystemCall = $this->peakSystemCall();
+        $this->dispatch("update.before", $isSystemCall, $table, $fields, $whereConds, $markers);
+        return parent::update($table, $fields, $whereConds, $markers);
+    }
+
+    /**
+     * @overrides
+     */
+    public function delete($table, $whereConds = null, $markers = [])
+    {
+        $isSystemCall = $this->peakSystemCall();
+        $this->dispatch("delete.before", $isSystemCall, $table, $whereConds, $markers);
+        return parent::delete($table, $whereConds, $markers);
+    }
+
+    /**
+     * @overrides
+     */
+    public function fetch($query, array $markers = [], $fetchStyle = null)
+    {
+        $isSystemCall = $this->peakSystemCall();
+        $this->dispatch("fetch.before", $isSystemCall, $query, $markers, $fetchStyle);
+        return parent::fetch($query, $markers, $fetchStyle);
+    }
+
+
+    /**
+     * @overrides
+     */
+    public function fetchAll($query, array $markers = [], $fetchStyle = null, $fetchArg = null, array $ctorArgs = [])
+    {
+        $isSystemCall = $this->peakSystemCall();
+        $this->dispatch("fetchAll.before", $isSystemCall, $query, $markers, $fetchStyle, $fetchArg, $ctorArgs);
+        return parent::fetchAll($query, $markers, $fetchStyle, $fetchArg, $ctorArgs);
+    }
+
+
+
+
+
+    //--------------------------------------------
+    //
+    //--------------------------------------------
+    /**
+     * Sets the container.
+     *
+     * @param LightServiceContainerInterface $container
+     */
+    public function setContainer(LightServiceContainerInterface $container)
+    {
+        $this->container = $container;
+    }
+
+
+    /**
+     * Registers a event handler.
+     *
+     * @param LightDatabaseEventHandlerInterface $handler
+     */
+    public function registerEventHandler(LightDatabaseEventHandlerInterface $handler)
+    {
+        $this->eventHandlers[] = $handler;
+    }
+
+
+
+    //--------------------------------------------
+    //
+    //--------------------------------------------
+    /**
+     * @overrides
+     */
+    protected function onSuccess(string $type, string $table, string $query, array $arguments, $return = true)
+    {
+
+        $eventType = $type;
+        if ('insert' === $eventType || 'replace' === $eventType) {
+            $eventType = 'create';
+        }
+
+        //--------------------------------------------
+        // dispatching the event
+        //--------------------------------------------
+        $event = LightEvent::createByContainer($this->container);
+        $event->setVar('table', $table);
+        $event->setVar('action', $type);
+        $event->setVar('query', $query);
+        $event->setVar('arguments', $arguments);
+        $event->setVar('return', $return);
+        /**
+         * @var $dispatcher LightEventsService
+         */
+        $dispatcher = $this->container->get("events");
+        $eventName = 'Light_Database.' . implode('_', [
+                'on',
+                $table,
+                $eventType,
+            ]);
+        $dispatcher->dispatch($eventName, $event);
+    }
+
+
+    /**
+     * Dispatches the event which name is given with the given args.
+     * The arguments are the same as those from the function being called.
+     *
+     * @param string $eventName
+     * @param ...$args
+     * @throws \Exception
+     */
+    protected function dispatch(string $eventName, ...$args)
+    {
+        foreach ($this->eventHandlers as $handler) {
+            $handler->handle($eventName, ...$args);
+        }
+    }
+
+
+
+    /**
+     * Returns whether the current call was a system call, and turns the system call flag back down.
+     * See more details in the @page(SimplePdoWrapper conception notes).
+     * @return bool
+     */
+    protected function peakSystemCall(): bool
+    {
+        $isSystemCall = SimplePdoWrapper::$isSystemCall;
+        SimplePdoWrapper::$isSystemCall = false;
+        return $isSystemCall;
     }
 }

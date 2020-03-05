@@ -27,8 +27,24 @@ It has the following structure:
                     - htmlName: string            # the html name (often used in the name attribute of html tags)
                     - errors: array               # the error messages. Each error message is a string.
                     - className: string           # the name of the field class (this is addressed to renderers, so that they know how to render the field)
+                    - ...other properties might be added, depending on your field
+
+                    
+
 
 - errors: array. A summary of the form errors (for the templates to use).
-                It's actually nothing more than the fields errors put altogether here. 
+                It's actually nothing more than the fields errors put altogether here.
+
+- properties: array. An array of custom key/value pairs for the developers to use. I originally created this to implement the  
+        [iframe signal technique](https://github.com/lingtalfi/TheBar/blob/master/discussions/iframe-signal.md).
+- mode: string. One of:
+        - insert
+        - update
+        - not_set (default value)
+        You can set the mode (and I recommend it) to insert/update to help some field renderers to do their job.
+        Or don't use it and use your own heuristics...
+- jsCode: string=null. Some js code to add to handle the form. I first created it to implement a multiple edit system.
+               The js code will be included inside some <script> tags provided by the renderer.        
+- cssId: string=null. The css id of the form, if set. Null is returned by default or if the cssId was not set.
 
 ```

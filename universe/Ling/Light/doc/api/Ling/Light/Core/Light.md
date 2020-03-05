@@ -4,7 +4,7 @@
 
 The Light class
 ================
-2019-04-09 --> 2019-10-28
+2019-04-09 --> 2020-02-24
 
 
 
@@ -21,10 +21,10 @@ The Light class has a **run** method, which handles the web application.
 Basically, you just call the **run** method, and web pages will automatically be printed on the screen for you.
 But of course, you need to configure the Light instance before you can see anything.
 
-There are two main concepts to grasp when working with the Light instance:
+The following concepts are important to grasp when working with the Light instance:
 
 - routes
-- error handlers
+- service container
 
 
 Routes
@@ -34,28 +34,6 @@ So in other words, when the web user types something in the url bar of her brows
 then the route does the job of deciding which controller should handle this request.
 
 A controller is just a function that returns a response (generally an html web page).
-
-
-
-Error handlers
-----------------
-Often, especially during the development phase, things go wrong: a route doesn't match, or a controller fails because
-some parameters are missing, etc...
-
-Whenever a failure happens, an exception is thrown.
-The Light instance intercepts that and ask whether an error handler can handle this error (which usually has an error type associated with it).
-
-Note: the error handlers are registered by you (or some plugins you've installed).
-
-If an error handler can handle the error, it will. Usually, it will either display a pretty error message,
-or redirect to a default page.
-
-If no error handlers was able to handle the error, then the Light instance has a fallback mechanism for that:
-it will display a 500 internal server error.
-And if you set the debug mode=true, it will print a debug page showing the exception trace instead.
-
-
-Those concepts are the fundamental ideas behind the Light instance.
 
 
 
@@ -85,12 +63,12 @@ class <span class="pl-k">Light</span>  {
 - Properties
     - protected string [$applicationDir](#property-applicationDir) ;
     - protected array [$routes](#property-routes) ;
-    - protected array [$errorHandlers](#property-errorHandlers) ;
     - protected bool [$debug](#property-debug) ;
     - protected [Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md)|null [$container](#property-container) ;
     - protected array [$settings](#property-settings) ;
     - protected [Ling\Light\Http\HttpRequestInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface.md) [$httpRequest](#property-httpRequest) ;
     - protected array|false|null [$matchingRoute](#property-matchingRoute) ;
+    - private bool [$isInitialized](#property-isInitialized) ;
 
 - Methods
     - public [__construct](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/__construct.md)() : void
@@ -102,9 +80,9 @@ class <span class="pl-k">Light</span>  {
     - public [setApplicationDir](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/setApplicationDir.md)(string $applicationDir) : void
     - public [getRoutes](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/getRoutes.md)() : array
     - public [getHttpRequest](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/getHttpRequest.md)() : [HttpRequestInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface.md)
+    - public [setHttpRequest](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/setHttpRequest.md)([Ling\Light\Http\HttpRequestInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface.md) $httpRequest) : void
     - public [getMatchingRoute](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/getMatchingRoute.md)() : array | false
     - public [registerRoute](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/registerRoute.md)(string $pattern, $controller, ?string $name = null, ?array $route = []) : void
-    - public [registerErrorHandler](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/registerErrorHandler.md)(callable $errorHandler) : void
     - public [initialize](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/initialize.md)(?[Ling\Light\Http\HttpRequestInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface.md) $httpRequest = null) : void
     - public [run](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/run.md)() : void
     - protected [renderDebugPage](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/renderDebugPage.md)([\Exception](http://php.net/manual/en/class.exception.php) $e) : string | [HttpResponseInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponseInterface.md)
@@ -128,12 +106,6 @@ Properties
 - <span id="property-routes"><b>routes</b></span>
 
     This property holds the routes for this instance.
-    
-    
-
-- <span id="property-errorHandlers"><b>errorHandlers</b></span>
-
-    This property holds the errorHandlers for this instance.
     
     
 
@@ -171,6 +143,12 @@ Properties
     
     
 
+- <span id="property-isInitialized"><b>isInitialized</b></span>
+
+    This property holds the isInitialized for this instance.
+    
+    
+
 
 
 Methods
@@ -185,9 +163,9 @@ Methods
 - [Light::setApplicationDir](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/setApplicationDir.md) &ndash; Sets the applicationDir.
 - [Light::getRoutes](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/getRoutes.md) &ndash; Returns the routes of this instance.
 - [Light::getHttpRequest](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/getHttpRequest.md) &ndash; Returns the httpRequest of this instance.
+- [Light::setHttpRequest](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/setHttpRequest.md) &ndash; Sets the httpRequest.
 - [Light::getMatchingRoute](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/getMatchingRoute.md) &ndash; Returns the matching route array, or false if no route matched.
 - [Light::registerRoute](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/registerRoute.md) &ndash; Registers a route item, as defined in [the route page](https://github.com/lingtalfi/Light/blob/master/doc/pages/route.md).
-- [Light::registerErrorHandler](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/registerErrorHandler.md) &ndash; Registers a error handler callback.
 - [Light::initialize](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/initialize.md) &ndash; Triggers the initialize phase if set in the service container.
 - [Light::run](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/run.md) &ndash; Runs the Light web application.
 - [Light::renderDebugPage](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light/renderDebugPage.md) &ndash; Renders (returns the html code of) the debug page.

@@ -30,7 +30,7 @@ interface LightUserDatabaseInterface
      *
      * This method will also return the "rights" key populated with the rights
      * according to the user "profiles".
-     * See more details in the @page(conception notes).
+     * See more details in the @page(Light_UserDatabase conception notes).
      *
      *
      *

@@ -63,7 +63,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [TagApi::doGetTagByName](https://github.com/lingtalfi/Light_UserData/blob/master/Api/TagApi.php#L245-L259)
+See the source code for method [TagApi::doGetTagByName](https://github.com/lingtalfi/Light_UserData/blob/master/Api/TagApi.php#L225-L239)
 
 
 See Also

@@ -4,7 +4,7 @@
 
 The LightCsrfService class
 ================
-2019-09-20 --> 2019-09-20
+2019-09-20 --> 2019-12-09
 
 
 
@@ -30,13 +30,15 @@ class <span class="pl-k">LightCsrfService</span> extends [CSRFProtector](https:/
 
 - Inherited methods
     - public static CSRFProtector::inst() : [CSRFProtector](https://github.com/lingtalfi/CSRFTools/blob/master/doc/api/Ling/CSRFTools/CSRFProtector.md)
-    - private CSRFProtector::__construct() : void
+    - public CSRFProtector::__construct() : void
     - public CSRFProtector::setUsePage(bool $usePage) : void
     - public CSRFProtector::createToken(string $tokenName) : string
     - public CSRFProtector::hasToken(string $tokenName) : bool
-    - public CSRFProtector::isValid(string $tokenName, string $tokenValue, bool $useNewSlot = false) : bool
+    - public CSRFProtector::isValid(string $tokenName, string $tokenValue, ?bool $useNewSlot = false) : bool
     - public CSRFProtector::deleteToken(string $tokenName) : void
     - public CSRFProtector::deletePageUnusedTokens() : void
+    - public CSRFProtector::dump() : string
+    - public CSRFProtector::cleanSession() : void
     - protected CSRFProtector::startSession() : void
     - protected CSRFProtector::addTokenForPage(string $tokenName) : void
     - protected CSRFProtector::getPageId() : string
@@ -59,6 +61,8 @@ Methods
 - CSRFProtector::isValid &ndash; Returns whether the given $tokenName exists and has the given $tokenValue.
 - CSRFProtector::deleteToken &ndash; Deletes the given $tokenName.
 - CSRFProtector::deletePageUnusedTokens &ndash; Deletes the tokens that are not associated with the current page.
+- CSRFProtector::dump &ndash; Returns a debug string of the php session content.
+- CSRFProtector::cleanSession &ndash; Cleans the session.
 - CSRFProtector::startSession &ndash; Ensures that the php session has started.
 - CSRFProtector::addTokenForPage &ndash; Adds a token to the pages array.
 - CSRFProtector::getPageId &ndash; Returns the current page id.

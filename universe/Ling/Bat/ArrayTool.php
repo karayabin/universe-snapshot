@@ -264,6 +264,21 @@ class ArrayTool
 
     }
 
+
+    /**
+     * Returns an array containing all the key/value pairs of the given $array which keys are in the given $keys.
+     * See the examples for more information.
+     *
+     *
+     * @param array $array
+     * @param array $keys
+     * @return array
+     */
+    public static function intersect(array $array, array $keys): array
+    {
+        return array_intersect_key($array, array_flip($keys));
+    }
+
     /**
      * Returns whether the given argument is an array which first key is numerical.
      *
@@ -325,18 +340,24 @@ class ArrayTool
     /**
      * This method returns the array corresponding to an object, including non public members.
      *
+     * If the deep flag is true, is will operate recursively, otherwise (if false) just at the first level.
      *
      * @param object $obj
+     * @param bool $deep = true
      * @return array
      * @throws \Exception
      */
-    public static function objectToArray(object $obj)
+    public static function objectToArray(object $obj, bool $deep = true)
     {
         $reflectionClass = new \ReflectionClass(get_class($obj));
         $array = [];
         foreach ($reflectionClass->getProperties() as $property) {
             $property->setAccessible(true);
-            $array[$property->getName()] = $property->getValue($obj);
+            $val = $property->getValue($obj);
+            if (true === $deep && is_object($val)) {
+                $val = self::objectToArray($val);
+            }
+            $array[$property->getName()] = $val;
             $property->setAccessible(false);
         }
         return $array;
@@ -370,6 +391,38 @@ class ArrayTool
             $ret[] = $row[$column];
         }
         return $ret;
+    }
+
+
+    /**
+     * Parses the given array recursively replacing the tag keys by their values
+     * directly in the array values of type string, using str_replace under the hood.
+     *
+     * Tags is an array of key/value pairs,
+     * such as:
+     *
+     * - {myTag} => 123
+     * - {myTag2} => abc
+     *
+     * Only scalar values are accepted.
+     * If you need to replace with non scalar values such as arrays, you might
+     * be interested in the [ArrayVariableResolver]https://github.com/lingtalfi/ArrayVariableResolver tool.
+     *
+     * See the online documentation for some concrete examples.
+     *
+     *
+     * @param array $tags
+     * @param array &$array
+     * @return array
+     */
+    public static function replaceRecursive(array $tags, array &$array): array
+    {
+        array_walk_recursive($array, function (&$v) use ($tags) {
+            if (is_string($v)) {
+                $v = str_replace(array_keys($tags), array_values($tags), $v);
+            }
+        });
+        return $array;
     }
 
 

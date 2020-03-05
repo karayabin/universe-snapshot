@@ -134,6 +134,28 @@ string(50) "files[0]=images/avatar.png&files[1]=photos/cat.png"
 
 
 
+randomize
+-----------
+2019-12-09
+
+
+```php
+void    randomize ( array:&get, string:key = null )
+```
+
+Adds a parameter to the given get array, which usually would be the $_GET array.
+The added parameter is chosen randomly by default, or it can be fixed if the key argument is defined.
+
+
+This might be useful in some cases for instance when you want to redirect the user to a success page
+after a form, and you want the redirect page to be the form page itself.
+In this case, without randomizing the url, if the user refresh the page the $_POST payload will be
+resent (tested in firefox in 2019-12-09). By randomizing the url parameters, the browser will
+consider the page as a new one, and the payload will be dropped.
+
+
+
+
 uri
 -----------
 2017-04-18

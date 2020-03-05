@@ -55,7 +55,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightKitAdminChloroform::prepare](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Chloroform/LightKitAdminChloroform.php#L29-L37)
+See the source code for method [LightKitAdminChloroform::prepare](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Chloroform/LightKitAdminChloroform.php#L29-L35)
 
 
 See Also

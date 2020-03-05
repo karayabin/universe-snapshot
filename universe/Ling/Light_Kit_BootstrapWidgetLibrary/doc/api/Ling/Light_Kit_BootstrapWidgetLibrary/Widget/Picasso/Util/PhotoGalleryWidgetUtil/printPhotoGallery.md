@@ -32,7 +32,7 @@ Parameters
 
 - z
 
-    The widget variables (vars property of the @page(widget configuration array)).
+    The widget variables (vars property of the [widget configuration array](https://github.com/lingtalfi/Kit_PicassoWidget#the-picasso-widget-array)).
 
 
 Return values

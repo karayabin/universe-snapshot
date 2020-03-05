@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [DevUserManager::setUser](https://github.com/lingtalfi/Light_UserManager/blob/master/UserManager/DevUserManager.php#L58-L61)
+See the source code for method [DevUserManager::setUser](https://github.com/lingtalfi/Light_UserManager/blob/master/UserManager/DevUserManager.php#L68-L71)
 
 
 See Also
@@ -57,5 +57,5 @@ See Also
 
 The [DevUserManager](https://github.com/lingtalfi/Light_UserManager/blob/master/doc/api/Ling/Light_UserManager/UserManager/DevUserManager.md) class.
 
-Previous method: [getUser](https://github.com/lingtalfi/Light_UserManager/blob/master/doc/api/Ling/Light_UserManager/UserManager/DevUserManager/getUser.md)<br>
+Previous method: [destroyUser](https://github.com/lingtalfi/Light_UserManager/blob/master/doc/api/Ling/Light_UserManager/UserManager/DevUserManager/destroyUser.md)<br>
 

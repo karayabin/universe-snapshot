@@ -1,0 +1,94 @@
+# Configuration for the has dual panel widget.
+# This configuration involves 3 tables being in a many to many relationship.
+# In this document, we refer to the tables as the leftmost table, the middle table (aka has table) and the
+# rightmost table.
+# The leftmost table is visually represented by the pane1, and the rightmost table is represented by pane2.
+
+
+
+# Bool. Optional=true. Whether to check the csrf token validity using Light_CsrfSimple plugin.
+csrf_token: true
+
+# Array|String. Optional=[]. Array of micro permissions that the user must have to access the data.
+micro_permissions:
+    - Light_Kit_Admin.tables.lud_user.read
+    - Light_Kit_Admin.tables.lud_permission_group.read
+    - Light_Kit_Admin.tables.lud_user_has_permission_group.read
+
+# # Array. Mandatory. Configuration for pane1.
+pane1:
+    # String. Mandatory. The table name, can be followed by a table alias.
+    table: lud_user
+
+    # String. Mandatory. The part of the sql query corresponding to the fields declaration.
+    # This query must fetch all the ric values, plus one extra field that represents
+    # the label to display to the user (see the conception notes for more info).
+    # By default the label field name is lookup_label.
+    # The query shouldn't fetch other values than those in the ric or the lookup_label field.
+    fields: id, concat(id, ". ", pseudo) as lookup_label
+
+    # String. Mandatory. The part of the where query to match against the client's search expression.
+    # The WHERE keyword must not be part of the value.
+    search: concat(id, ". ", pseudo)
+
+    # String. Optional="". The order by column (only one available for now), without the ORDER BY keyword, and without the
+    # asc/desc keyword, which will be provided by the gui.
+    order_col: lookup_label
+
+    # Int. Optional=1000.
+    page_length: 1000
+
+    # Array. Mandatory. Contains information about the pane1 form.
+    form:
+        # String. Mandatory. The route to the pane1 form.
+        route: lch_route-hub
+
+        # Array. Optional=[]. The urlParams for the route to pane1 form in insert mode.
+        urlParams:
+            plugin: Light_Kit_Admin
+            controller: Generated/LudUserController
+            m: f
+            solo: 1
+
+
+
+# # Array. Mandatory. Configuration for pane2.
+# Same as pane1.
+pane2:
+
+    table: lud_permission_group
+    fields: id, concat(id, ". ", name) as lookup_label
+    search: concat(id, ". ", name)
+    order_col: lookup_label
+    form:
+        route: lch_route-hub
+        urlParams:
+            plugin: Light_Kit_Admin
+            controller: Generated/LudPermissionGroupController
+            m: f
+            solo: 1
+
+
+# Array. Mandatory. Configuration for the sql query to update pane2 when a pane1 row item is clicked.
+pane2_parent:
+    # String. Mandatory. One of the two tables of the parent-child relationship. Usually I like to use the left table.
+    # It can/should use alias.
+    table: lud_user_has_permission_group h
+    # String. Mandatory. The fields to fetch. Same as the pane1.fields property.
+    fields: g.id, concat(g.id, ". ", g.name) as lookup_label
+    # Array|String. Mandatory. The part of the sql query representing the joins, starting with the join type keyword (i.e. inner join, left join, ...).
+    joins: inner join lud_permission_group g on g.id=h.permission_group_id
+    # String. Mandatory. The where part of the sql query, without the WHERE keyword.
+    # It should contain one pdo marker per ric column of the leftmost table (aka parent table).
+    # Remember that we use pdo markers because the data comes from the user, which can't be trusted.
+    where: h.user_id = :id
+    # Array. Mandatory. An array of ric column name => marker type, with marker type being one of:
+    # - int, the value will be cast to an int
+    # - float, the value will be cast to a float
+    # - string, the value will be adapted so that it works after the like keyword:
+    #        it will be surrounded by percent symbols, and the content of the value will be protected so that the
+    #        the sql wildcards (underscore and percent) are escaped.
+    markers:
+        id: int
+
+

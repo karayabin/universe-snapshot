@@ -1,0 +1,14 @@
+dependencies: 
+    Ling: 
+        - Light_AjaxHandler
+        - Light_CsrfSession
+        - Light_MicroPermission
+        - BabyYaml
+        - Light
+        - Light_Database
+        - SimplePdoWrapper
+        - Chloroform
+    
+
+post_install: 
+    map: true

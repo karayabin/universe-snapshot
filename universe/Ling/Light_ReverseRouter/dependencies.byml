@@ -2,7 +2,6 @@ dependencies:
     Ling: 
         - Bat
         - Light
-        - Light_Initializer
     
 
 post_install: 

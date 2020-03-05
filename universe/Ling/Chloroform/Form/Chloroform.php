@@ -50,6 +50,45 @@ class Chloroform
      */
     protected $formId;
 
+    /**
+     * This property holds the properties for this instance.
+     * This is an array of custom properties for the developer to use.
+     * I added this so that I could implement an @page(iframe-signal system).
+     *
+     * @var array
+     */
+    protected $properties;
+
+    /**
+     * This property holds the mode for this instance.
+     * The possible values are:
+     *
+     * - insert
+     * - update
+     * - not_set (default)
+     *
+     * I found out that some of the field renderer need to know whether the form is in update or insert mode.
+     * Using the form mode is not an obligation (hence the default value of not_set), however I recommend using it
+     * as it eases development for everybody (I believe).
+     *
+     *
+     *
+     * @var string
+     */
+    protected $mode;
+
+    /**
+     * This property holds the jsCode for this instance.
+     * @var string|null
+     */
+    protected $jsCode;
+
+    /**
+     * This property holds the cssId for this instance.
+     * @var string|null
+     */
+    protected $cssId;
+
 
     /**
      * Builds the Chloroform instance.
@@ -58,8 +97,12 @@ class Chloroform
     {
         $this->fields = [];
         $this->notifications = [];
+        $this->properties = [];
         $this->_postedData = null;
+        $this->mode = 'not_set';
         $this->formId = "chloroform_one";
+        $this->jsCode = null;
+        $this->cssId = null;
         $this->addField(HiddenField::create("chloroform_hidden_key", ['value' => $this->formId])->setHasVeryImportantData(false));
 
     }
@@ -219,6 +262,17 @@ class Chloroform
     }
 
     /**
+     * Returns the mode of this instance.
+     *
+     * @return string
+     */
+    public function getMode(): string
+    {
+        return $this->mode;
+    }
+
+
+    /**
      * Inject the given values in the corresponding fields.
      * This method is typically used in an update form, to have the first instantiation of your form filled
      * with the "old" values.
@@ -249,8 +303,6 @@ class Chloroform
      */
     public function addField(FieldInterface $field, array $validators = [])
     {
-
-
         if ($field instanceof FormAwareFieldInterface) {
             $field->setForm($this);
         }
@@ -284,26 +336,99 @@ class Chloroform
 
 
     /**
+     * Sets a property.
+     *
+     * @param string $key
+     * @param $value
+     */
+    public function setProperty(string $key, $value)
+    {
+        $this->properties[$key] = $value;
+    }
+
+    /**
+     * Sets the mode.
+     *
+     * @param string $mode
+     */
+    public function setMode(string $mode)
+    {
+        $this->mode = $mode;
+    }
+
+    /**
+     * Sets the jsCode.
+     *
+     * @param string $jsCode
+     */
+    public function setJsCode(string $jsCode)
+    {
+        $this->jsCode = $jsCode;
+    }
+
+    /**
+     * Sets the cssId.
+     *
+     * @param string $cssId
+     */
+    public function setCssId(string $cssId)
+    {
+        $this->cssId = $cssId;
+    }
+
+
+    /**
+     * Returns whether the property identified by the given key exists.
+     *
+     * @param string $key
+     * @return bool
+     */
+    public function hasProperty(string $key): bool
+    {
+        return array_key_exists($key, $this->properties);
+    }
+
+    /**
+     * Returns the value of the property identified by the given key, or the default value otherwise.
+     *
+     * @param string $key
+     * @param null $default
+     * @return mixed
+     */
+    public function getProperty(string $key, $default = null)
+    {
+        if (array_key_exists($key, $this->properties)) {
+            return $this->properties[$key];
+        }
+        return $default;
+    }
+
+    /**
+     * Returns the jsCode of this instance.
+     *
+     * @return string
+     */
+    public function getJsCode(): string
+    {
+        return $this->jsCode;
+    }
+
+    /**
+     * Returns the cssId of this instance.
+     * Null is returned if the form cssId was not defined.
+     *
+     * @return string|null
+     */
+    public function getCssId(): ?string
+    {
+        return $this->cssId;
+    }
+
+
+    /**
      * Returns the array version (template friendly) of the form.
+     * See the @page(chloroform array page) for more details.
      *
-     * The blueprint looks like this:
-     *
-     *
-     * ```yaml
-     * isPosted: bool, whether this form instance was submitted.
-     *
-     * notifications:
-     *      -
-     *          type: string, the type of notification (success, info, warning, error)
-     *          msg: string, the message of the notification
-     * errors: a summary of the form errors (for the templates to use).
-     *          It's actually nothing more than the fields errors put altogether here.
-     *
-     * fields:
-     *      -
-     *          the array version of the field (see the @page(FieldInterface->toArray method) for more info)
-     *
-     * ```
      *
      *
      * @return array
@@ -344,6 +469,10 @@ class Chloroform
             "notifications" => $notificationsDetails,
             "fields" => $fieldsDetails,
             "errors" => $errors,
+            "properties" => $this->properties,
+            "mode" => $this->mode,
+            "jsCode" => $this->jsCode,
+            "cssId" => $this->cssId,
         ];
     }
 

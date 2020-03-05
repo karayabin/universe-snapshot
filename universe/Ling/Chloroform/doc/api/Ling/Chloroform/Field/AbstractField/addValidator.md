@@ -49,7 +49,7 @@ Returns mixed.
 
 Source Code
 ===========
-See the source code for method [AbstractField::addValidator](https://github.com/lingtalfi/Chloroform/blob/master/Field/AbstractField.php#L167-L170)
+See the source code for method [AbstractField::addValidator](https://github.com/lingtalfi/Chloroform/blob/master/Field/AbstractField.php#L172-L175)
 
 
 See Also

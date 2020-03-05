@@ -4,7 +4,7 @@
 
 The NumberOfRowsInfoRendererWidget class
 ================
-2019-08-15 --> 2019-10-28
+2019-08-15 --> 2020-03-05
 
 
 

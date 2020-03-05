@@ -141,6 +141,9 @@ class Light_DatabaseInfoDocBuilder
              */
             "keyWord2UrlMap" => [
                 "ric" => "https://github.com/lingtalfi/NotationFan/blob/master/ric.md",
+                "ric strict" => "https://github.com/lingtalfi/NotationFan/blob/master/ric.md",
+                "TypeHelper::getSimpleTypes" => "https://github.com/lingtalfi/Light_DatabaseInfo/blob/master/doc/api/Ling/Light_DatabaseInfo/Helper/TypeHelper/getSimpleTypes.md",
+                "the has table information conception notes" => "https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/pages/conception-notes.md#the-has-table-information",
             ],
             /**
              * An array of external classes to url.

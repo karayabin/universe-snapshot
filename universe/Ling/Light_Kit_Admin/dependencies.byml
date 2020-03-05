@@ -6,27 +6,33 @@ dependencies:
         - Bat
         - Light
         - Light_BMenu
+        - Light_ReverseRouter
         - Light_UserManager
         - Light_User
         - Chloroform
-        - Light_Csrf
-        - Light_Flasher
+        - Light_CsrfSession
+        - Light_ChloroformExtension
         - Light_Kit
         - WiseTool
-        - HtmlPageTools
-        - Light_UserDatabase
-        - Light_UserData
-        - Light_MicroPermission
         - Light_Realform
-        - Light_DatabaseInfo
+        - HtmlPageTools
+        - Light_Events
+        - Light_Flasher
+        - Light_MicroPermission
+        - Light_UserDatabase
+        - Light_RowLookup
+        - Light_UserData
+        - Light_ControllerHub
+        - Light_Crud
         - PhpSpreadSheetTool
-        - SimplePdoWrapper
         - Light_Bullsheet
         - Light_DatabaseUtils
-        - Light_Initializer
+        - SimplePdoWrapper
+        - Bootstrap4AdminTable
         - Light_PluginDatabaseInstaller
         - Kit_PicassoWidget
         - Chloroform_HeliumRenderer
+        - JPostForm
     
 
 post_install: 

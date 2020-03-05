@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [AdvancedSearchRendererWidget::setFields](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/RendererWidget/AdvancedSearchRendererWidget.php#L34-L37)
+See the source code for method [AdvancedSearchRendererWidget::setFields](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/RendererWidget/AdvancedSearchRendererWidget.php#L35-L38)
 
 
 See Also

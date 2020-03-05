@@ -42,7 +42,7 @@ Returns void.
 Exceptions thrown
 ================
 
-- [ChloroformHeliumRendererException](https://github.com/lingtalfi/Chloroform_HeliumRenderer/blob/master/doc/api/Ling/Chloroform_HeliumRenderer/Exception/ChloroformHeliumRendererException.md).&nbsp;
+- [Exception](http://php.net/manual/en/class.exception.php).&nbsp;
 
 
 
@@ -52,7 +52,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [HeliumRenderer::printFormContent](https://github.com/lingtalfi/Chloroform_HeliumRenderer/blob/master/HeliumRenderer.php#L258-L263)
+See the source code for method [HeliumRenderer::printFormContent](https://github.com/lingtalfi/Chloroform_HeliumRenderer/blob/master/HeliumRenderer.php#L263-L281)
 
 
 See Also

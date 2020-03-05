@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [ResourceApi::setPdoWrapper](https://github.com/lingtalfi/Light_UserData/blob/master/Api/ResourceApi.php#L130-L133)
+See the source code for method [ResourceApi::setPdoWrapper](https://github.com/lingtalfi/Light_UserData/blob/master/Api/ResourceApi.php#L123-L126)
 
 
 See Also

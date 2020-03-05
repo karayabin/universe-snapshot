@@ -4,11 +4,13 @@
 namespace Ling\Light_RealGenerator\Generator;
 
 
+use Ling\ArrayToString\ArrayToStringTool;
 use Ling\ArrayVariableResolver\ArrayVariableResolverUtil;
 use Ling\BabyYaml\BabyYamlUtil;
 use Ling\Bat\FileSystemTool;
 use Ling\Light_DatabaseInfo\Service\LightDatabaseInfoService;
 use Ling\Light_RealGenerator\Exception\LightRealGeneratorException;
+use Ling\Light_RealGenerator\Util\RepresentativeColumnFinderUtil;
 
 /**
  * The FormConfigGenerator class.
@@ -37,6 +39,9 @@ class FormConfigGenerator extends BaseConfigGenerator
             $path = $targetDir . '/' . $fileName;
             FileSystemTool::mkfile($path, $content);
         }
+
+
+        $this->generateContentByTables($tables);
     }
 
 
@@ -56,6 +61,7 @@ class FormConfigGenerator extends BaseConfigGenerator
         $arr = [];
 
 
+        $pluginName = $this->getKeyValue('plugin_name');
         $database = $this->getKeyValue('database_name', false, null);
         $formHandlerClassGeneral = $this->getKeyValue("form.form_handler_class_general", false, null);
         $formHandlerClassSpecific = $this->getKeyValue("form.form_handler_class_specific.$table", false, null);
@@ -64,9 +70,24 @@ class FormConfigGenerator extends BaseConfigGenerator
         $customFields = $this->getKeyValue("form.fields.$table", false, []);
         $notRequiredCols = $this->getKeyValue("form.not_required.$table", false, []);
         $customVariables = $this->getKeyValue("form.variables", false, []);
-        $fieldsMergeAliases = $this->getKeyValue("form.fields_merge_aliases", false, []);
         $fieldsMergeSpecific = $this->getKeyValue("form.fields_merge_specific.$table", false, []);
+        $onSuccessHandler = $this->getKeyValue("form.on_success_handler", false, []);
+        $formTitle = $this->getKeyValue("form.title", false, "{Label} form");
+        $specialFields = $this->getKeyValue("form.special_fields", false, []);
+        $onSuccessHandlerType = $onSuccessHandler['type'] ?? "database";
+        $onSuccessHandlerOptions = $onSuccessHandler['options'] ?? [];
+        $useMultiplierOnHas = $this->getKeyValue("form.use_multiplier_on_has", false, true);
 
+
+        // special types
+        $chloroformExtensions = $specialFields['chloroform_extensions'] ?? [];
+        $useTableList = $chloroformExtensions['use_table_list'] ?? true;
+        $tableListConfigFile = $chloroformExtensions['table_list_config_file'] ?? null;
+
+        $isHasTable = $this->isHasTable($table);
+        $genericTags = $this->getGenericTagsByTable($table);
+        $formTitle = str_replace(array_keys($genericTags), array_values($genericTags), $formTitle);
+        $arr['title'] = $formTitle;
 
         $theVariables = $customVariables;
         $theVariables['table'] = $table;
@@ -82,12 +103,14 @@ class FormConfigGenerator extends BaseConfigGenerator
          */
         $dbInfo = $this->container->get('database_info');
         $tableInfo = $dbInfo->getTableInfo($table, $database);
+        $foreignKeysInfo = $tableInfo['foreignKeysInfo'];
         $autoIncrementedKey = $tableInfo['autoIncrementedKey'];
         if (false !== $autoIncrementedKey) {
             $ignoreColumns[] = $autoIncrementedKey;
         }
 
         $main['ric'] = $tableInfo['ric'];
+        $ricStrict = $tableInfo['ricStrict'];
         $types = $tableInfo['types'];
         $columns = array_merge(array_diff($tableInfo['columns'], $ignoreColumns));
 
@@ -126,6 +149,39 @@ class FormConfigGenerator extends BaseConfigGenerator
                 }
 
 
+                // special item?
+                $specialItem = [];
+                if (true === $useTableList && array_key_exists($col, $foreignKeysInfo)) {
+                    list($rfDb, $rfTable, $rfCol) = $foreignKeysInfo[$col];
+                    $specialItem = [
+                        "type" => "table_list",
+                        "tableListIdentifier" => $pluginName . ".$rfTable.$rfCol",
+//                        "threshold" => 200,
+                    ];
+                    if (true === $useMultiplierOnHas && $isHasTable) {
+
+                        /**
+                         * We consider that the first member of the ricStrict is a fk to the left table,
+                         * and the second member (aka multiplier column) is the fk to the right table.
+                         * Note: this is a rather simplistic approach that assumes that the primary key is
+                         * composed of only two foreign keys.
+                         *
+                         * We might need to upgrade this technique later as the need for more complex db schemas occurs.
+                         *
+                         */
+                        $isPivot = ($ricStrict[0] === $col);
+
+                        if (false === $isPivot) {
+                            $specialItem['mode'] = 'multiplier';
+                            $specialItem['multiplier'] = [
+                                "insert_mode" => "insert",
+                                "multiplier_column" => $col,
+                            ];
+                        }
+                    }
+                }
+
+
                 $sqlType = $types[$col];
                 $type = $this->getFieldType($sqlType);
                 $label = str_replace('_', ' ', ucfirst(strtolower($col)));
@@ -143,7 +199,7 @@ class FormConfigGenerator extends BaseConfigGenerator
                 ];
 
                 // note: merge is less specific than custom item
-                $fieldItem = array_replace_recursive($fieldItem, $merge, $customItem);
+                $fieldItem = array_replace_recursive($fieldItem, $specialItem, $merge, $customItem);
 
                 $variableResolver->resolve($fieldItem, $theVariables);
 
@@ -164,8 +220,37 @@ class FormConfigGenerator extends BaseConfigGenerator
         //--------------------------------------------
         // ON SUCCESS HANDLER
         //--------------------------------------------
-        // not used yet...
-//        $arr['on_success_handler'] = '';
+        $onSuccessHandlerArr = [];
+        switch ($onSuccessHandlerType) {
+            case "database":
+
+                $onSuccessHandlerArr = [
+                    "type" => "database",
+                    "params" => [
+                        "table" => $table,
+                        "pluginName" => $pluginName
+                    ],
+                ];
+                if (true === $useMultiplierOnHas && true === $isHasTable) {
+                    if (2 === count($ricStrict)) {
+                        list($leftCol, $rightCol) = $ricStrict;
+                        $onSuccessHandlerArr['params']['multiplier'] = [
+                            'column' => $rightCol,
+                            'update_cleaner_column' => $leftCol,
+                        ];
+                    } else {
+                        $sRic = ArrayToStringTool::toInlinePhpArray($ricStrict);
+                        throw new LightRealGeneratorException("Don't know how to handle this ric strict with nbEntries!=2 for the multiplier: $sRic.");
+                    }
+                }
+
+
+                break;
+            default:
+                throw new LightRealGeneratorException("Unknown success handler type: $onSuccessHandlerType.");
+                break;
+        }
+        $arr['on_success_handler'] = $onSuccessHandlerArr;
 
         return BabyYamlUtil::getBabyYamlString($arr);
     }
@@ -221,5 +306,68 @@ class FormConfigGenerator extends BaseConfigGenerator
 
 
         return $type;
+    }
+
+
+    /**
+     * Generate some content that applies to the whole table selection rather than on each individual tables.
+     *
+     * @param array $tables
+     * @throws \Exception
+     */
+    protected function generateContentByTables(array $tables)
+    {
+        $specialFields = $this->getKeyValue("form.special_fields", false, []);
+        $chloroformExtensions = $specialFields['chloroform_extensions'] ?? [];
+        $useTableList = $chloroformExtensions['use_table_list'] ?? true;
+        $tableListConfigFile = $chloroformExtensions['table_list_config_file'] ?? null;
+        $database = $this->getKeyValue('database_name', false, null);
+        $commonRepresentativeMatches = $this->getKeyValue("list.common_representative_matches", false, [
+            'name',
+            'label',
+            'identifier',
+        ]);
+
+
+        $reprFinder = new RepresentativeColumnFinderUtil();
+        $reprFinder->setContainer($this->container);
+        $reprFinder->setCommonMatches($commonRepresentativeMatches);
+
+        /**
+         * @var $dbInfo LightDatabaseInfoService
+         */
+        $dbInfo = $this->container->get('database_info');
+
+
+        if (true === $useTableList && null !== $tableListConfigFile) {
+            $appDir = $this->container->getApplicationDir();
+            $tableListConfigFile = str_replace('{app_dir}', $appDir, $tableListConfigFile);
+
+
+            $arr = [];
+            foreach ($tables as $table) {
+                $tableInfo = $dbInfo->getTableInfo($table, $database);
+                $columns = $tableInfo['columns'];
+                $foreignKeysInfo = $tableInfo['foreignKeysInfo'];
+                foreach ($columns as $col) {
+                    if (array_key_exists($col, $foreignKeysInfo)) {
+                        list($rfDb, $rfTable, $rfCol) = $foreignKeysInfo[$col];
+                        $commonRepresentative = $reprFinder->findRepresentativeColumn($rfTable);
+                        $key = "$rfTable.$rfCol";
+                        $sConcat = "concat($rfCol, '. ', $commonRepresentative)";
+                        $arr[$key] = [
+                            "fields" => "$rfCol as value, $sConcat as label",
+                            "table" => $rfTable,
+                            "column" => $rfCol,
+                            "search_column" => $sConcat,
+                            "csrf_token" => true,
+                            "micro_permission" => "tables.$rfTable.read",
+                        ];
+                    }
+                }
+
+            }
+            FileSystemTool::mkfile($tableListConfigFile, BabyYamlUtil::getBabyYamlString($arr));
+        }
     }
 }

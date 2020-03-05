@@ -1,6 +1,6 @@
 ArrayTool
 =====================
-2015-12-20
+2015-12-20 -> 2019-12-20
 
 
 
@@ -405,6 +405,69 @@ a($arr); // melanie is now after andrea...
 ```
 
     
+intersect
+-------------
+2019-11-04
+
+
+```php
+array    intersect ( array:array, array:keys )
+```
+
+Returns an array containing all the key/value pairs of the given $array which keys are in the given $keys.
+
+
+
+### Example
+
+
+
+The following code:
+
+```php
+<?php 
+$userCols = [
+    "id" => 6,
+    "pseudo" => "morris",
+    "fake" => 789,
+];
+$realCols = ["id", "pseudo"];
+az(ArrayTool::intersect($userCols, $realCols));
+
+```
+
+will produce this output:
+
+```html 
+array(2) {
+  ["id"] => int(6)
+  ["pseudo"] => string(6) "morris"
+}
+```
+
+The following code:
+
+```php
+$userCols = [
+    "kan" => 6,
+];
+$realCols = ["id", "pseudo"];
+az(ArrayTool::intersect($userCols, $realCols));
+
+```
+
+will produce this output:
+
+```html 
+array(0) {
+}
+
+```
+
+
+
+
+    
 isNumericalArray
 -------------
 2019-07-17
@@ -510,15 +573,17 @@ az(ArrayTool::mirrorRange(1,10));
 
 objectToArray
 -------------
-2019-07-13
+2019-07-13 -> 2019-12-20
 
 
 ```php
-array    objectToArray ( obj object )
+array    objectToArray ( obj object, bool deep = true )
 ```
 
 
 This method returns the array corresponding to an object, including non public members.
+
+If the deep flag is true, is will operate recursively, otherwise (if false) just at the first level.
 
 
 This example (using the service container from the light framework):
@@ -610,6 +675,68 @@ array(2) {
      
      
     
+replaceRecursive
+-------------
+2019-11-05
+
+
+
+```php
+array replaceRecursive ( array tags, array &arr )
+```
+
+
+Parses the given array recursively replacing the tag keys by their values
+directly in the array values of type string, using str_replace under the hood.
+
+Tags is an array of key/value pairs,
+such as:
+
+- {myTag} => 123
+- {myTag2} => abc
+
+Only scalar values are accepted.
+If you need to replace with non scalar values such as arrays, you might
+be interested in the [ArrayVariableResolver]https://github.com/lingtalfi/ArrayVariableResolver tool.
+
+
+
+### Example
+
+
+The following code:
+
+```php
+<?php
+
+$arr = [
+    'key1' => 'value 1',
+    'key2' => '{computer} and {computer} and {fruit}',
+];
+$tags = [
+    '{computer}' => 'mac',
+    '{fruit}' => 'apple',
+];
+
+ArrayTool::replaceRecursive($tags, $arr);
+az($arr);
+
+```
+     
+     
+Will produce the following output:
+
+```html
+array(2) {
+  ["key1"] => string(7) "value 1"
+  ["key2"] => string(21) "mac and mac and apple"
+}
+
+```     
+     
+     
+     
+     
 removeEntry
 -------------
 2018-02-16

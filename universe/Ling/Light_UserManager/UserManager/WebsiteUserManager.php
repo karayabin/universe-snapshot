@@ -65,6 +65,15 @@ class WebsiteUserManager implements LightUserManagerInterface
         return $sessionUser;
     }
 
+    /**
+     * @implementation
+     */
+    public function destroyUser()
+    {
+        $this->startPhpSession();
+        unset($_SESSION[$this->sessionKey]);
+    }
+
 
     /**
      * Sets the user.

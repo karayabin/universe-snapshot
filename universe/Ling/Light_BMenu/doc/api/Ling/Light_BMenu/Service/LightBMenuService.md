@@ -4,7 +4,7 @@
 
 The LightBMenuService class
 ================
-2019-08-08 --> 2019-08-09
+2019-08-08 --> 2020-02-28
 
 
 
@@ -24,7 +24,7 @@ Each host is first prompted to create the main menu structure.
 Then plugins (aka subscribers) are then called to complement the host menu.
 
 
-The menu item structure is defined in the [conception notes](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/pages/conception-notes.md).
+The menu item structure is defined in the [bmenu conception notes](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/pages/conception-notes.md).
 
 
 Each host is bound to a menuType (like "main menu" for instance), so that we can have multiple
@@ -47,7 +47,7 @@ class <span class="pl-k">LightBMenuService</span>  {
     - public [__construct](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Service/LightBMenuService/__construct.md)() : void
     - public [getItems](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Service/LightBMenuService/getItems.md)(string $menuType) : array
     - public [registerHost](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Service/LightBMenuService/registerHost.md)(string $menuType, [Ling\Light_BMenu\Host\LightBMenuHostInterface](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Host/LightBMenuHostInterface.md) $host) : void
-    - public [addDirectInjector](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Service/LightBMenuService/addDirectInjector.md)(string $menuType, ?$injector) : void
+    - public [addDirectInjector](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Service/LightBMenuService/addDirectInjector.md)(string $menuType, $injector) : void
     - public [addDefaultItem](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Service/LightBMenuService/addDefaultItem.md)(string $menuType, array $item) : void
 
 }
@@ -73,7 +73,7 @@ Properties
     It's an array of menuType => directInjectors.
     
     With:
-    - menuType: string, the menu type (see [conception notes](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/pages/conception-notes.md) for more details)
+    - menuType: string, the menu type (see [bmenu conception notes](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/pages/conception-notes.md) for more details)
     - directInjectors: BMenuDirectInjectorInterface[]|callable[], an array of direct injectors,
              each of which being either a BMenuDirectInjectorInterface instance, or a
              php callable which take two arguments: the menuStructureId and the LightBMenu instance.
@@ -87,11 +87,11 @@ Properties
     An array of menuType => defaultItems.
     
     With:
-    - menuType: string, the menu type (see [conception notes](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/pages/conception-notes.md) for more details)
+    - menuType: string, the menu type (see [bmenu conception notes](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/pages/conception-notes.md) for more details)
     - defaultItems: an array of menu items
     
     
-    See the [conception notes](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/pages/conception-notes.md) for more details.
+    See the [bmenu conception notes](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/pages/conception-notes.md) for more details.
     
     
 
@@ -119,4 +119,4 @@ See the source code of [Ling\Light_BMenu\Service\LightBMenuService](https://gith
 
 SeeAlso
 ==============
-Previous class: [LightBMenu](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Menu/LightBMenu.md)<br>
+Previous class: [LightBMenu](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Menu/LightBMenu.md)<br>Next class: [LightBMenuTool](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Tool/LightBMenuTool.md)<br>

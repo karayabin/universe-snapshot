@@ -1,17 +1,16 @@
 dependencies: 
     Ling: 
-        - ArrayToString
-        - BabyYamlDatabase
-        - Bat
-        - SimplePdoWrapper
-        - BabyYaml
         - Light
-        - Light_Initializer
-        - Light_PasswordProtector
-        - Light_Bullsheet
         - Light_Database
+        - Light_MicroPermission
+        - SimplePdoWrapper
+        - Bat
+        - Light_Bullsheet
+        - Light_PasswordProtector
         - TinyBullsheeter
-        - Light_PluginDatabaseInstaller
+        - ArrayToString
+        - Light_Events
+        - Light_PluginInstaller
         - SqlWizard
     
 

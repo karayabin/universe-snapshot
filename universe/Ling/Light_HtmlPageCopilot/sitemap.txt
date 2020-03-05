@@ -1,4 +1,5 @@
 https://github.com/lingtalfi/Light_HtmlPageCopilot/blob/master/README.md
 https://github.com/lingtalfi/Light_HtmlPageCopilot/blob/master/doc/api/Ling/Light_HtmlPageCopilot/Dependency/DummyHtmlPageCopilot.md
+https://github.com/lingtalfi/Light_HtmlPageCopilot/blob/master/doc/api/Ling/Light_HtmlPageCopilot/Service/LightHtmlPageCopilotService.md
 https://github.com/lingtalfi/Light_HtmlPageCopilot/blob/master/doc/api/Ling/Light_HtmlPageCopilot.md
 https://github.com/lingtalfi/Light_HtmlPageCopilot/blob/master/doc/pages/html-page-copilot-example.md

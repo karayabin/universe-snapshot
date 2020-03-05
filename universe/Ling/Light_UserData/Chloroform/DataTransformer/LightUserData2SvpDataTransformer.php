@@ -69,21 +69,24 @@ class LightUserData2SvpDataTransformer extends BaseDataTransformer
             array_key_exists('id', $result)
         ) {
             $file = $result['file'];
-            /**
-             * Note: never trust the user, the result.id could be faked easily, so we rely on the current user in session.
-             * In this case it should work because we assume the user is posting the form and wants to upload her own file.
-             * Reminder: if you need to double check the user identity, remember that the Light_UserData plugin has
-             * added the obfuscated name of the user in the lud_user table, which should be accessible via the session (i.e. no extra db call).
-             *
-             */
+            if (false !== strpos($file, '.2svp')) {
 
-            /**
-             * @var $userDataService LightUserDataService
-             */
-            $userDataService = $this->container->get('user_data');
-            $newValue = $userDataService->update2SvpResource($file);
-            $value = $base . '?file=' . $newValue . '&id=' . $result['id'];
+                /**
+                 * Note: never trust the user, the result.id could be faked easily, so we rely on the current user in session.
+                 * In this case it should work because we assume the user is posting the form and wants to upload her own file.
+                 * Reminder: if you need to double check the user identity, remember that the Light_UserData plugin has
+                 * added the obfuscated name of the user in the lud_user table, which should be accessible via the session (i.e. no extra db call).
+                 *
+                 */
 
+                /**
+                 * @var $userDataService LightUserDataService
+                 */
+                $userDataService = $this->container->get('user_data');
+                $newValue = $userDataService->update2SvpResource($file);
+                $value = $base . '?file=' . $newValue . '&id=' . $result['id'];
+
+            }
         }
     }
 

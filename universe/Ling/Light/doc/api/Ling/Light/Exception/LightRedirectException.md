@@ -4,7 +4,7 @@
 
 The LightRedirectException class
 ================
-2019-04-09 --> 2019-10-28
+2019-04-09 --> 2020-02-24
 
 
 
@@ -40,7 +40,7 @@ class <span class="pl-k">LightRedirectException</span> extends [LightException](
     - public [getRedirectRoute](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Exception/LightRedirectException/getRedirectRoute.md)() : string
 
 - Inherited methods
-    - public static [LightException::create](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Exception/LightException/create.md)() : [LightException](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Exception/LightException.md)
+    - public static [LightException::create](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Exception/LightException/create.md)(?string $message = , ?string $lightErrorCode = null) : [LightException](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Exception/LightException.md)
     - public [LightException::setLightErrorCode](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Exception/LightException/setLightErrorCode.md)(string $lightErrorCode) : [LightException](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Exception/LightException.md)
     - public [LightException::getLightErrorCode](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Exception/LightException/getLightErrorCode.md)() : string | null
 

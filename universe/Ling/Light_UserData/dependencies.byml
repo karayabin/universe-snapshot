@@ -1,14 +1,18 @@
 dependencies: 
     Ling: 
         - Light
+        - Light_Database
         - Light_MicroPermission
         - SimplePdoWrapper
         - Chloroform
         - Light_User
         - Bat
+        - CheapLogger
+        - Light_UserRowRestriction
+        - Light_Realform
         - DirScanner
-        - Light_Initializer
-        - Light_PluginDatabaseInstaller
+        - Light_PluginInstaller
+        - Light_ReverseRouter
         - Light_UserDatabase
     
 

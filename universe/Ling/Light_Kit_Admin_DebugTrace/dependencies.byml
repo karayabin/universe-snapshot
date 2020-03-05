@@ -1,0 +1,12 @@
+dependencies: 
+    Ling: 
+        - BabyYaml
+        - Bat
+        - Light
+        - Light_CsrfSession
+        - Light_CsrfSimple
+        - Light_Events
+    
+
+post_install: 
+    map: true

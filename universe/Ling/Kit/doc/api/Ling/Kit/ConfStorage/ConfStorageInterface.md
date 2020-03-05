@@ -4,7 +4,7 @@
 
 The ConfStorageInterface class
 ================
-2019-04-24 --> 2019-08-30
+2019-04-24 --> 2019-11-25
 
 
 
@@ -54,4 +54,4 @@ See the source code of [Ling\Kit\ConfStorage\ConfStorageInterface](https://githu
 
 SeeAlso
 ==============
-Previous class: [BabyYamlConfStorage](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/ConfStorage/BabyYamlConfStorage.md)<br>Next class: [KitException](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/Exception/KitException.md)<br>
+Previous class: [BabyYamlConfStorage](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/ConfStorage/BabyYamlConfStorage.md)<br>Next class: [VariableAwareConfStorageInterface](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/ConfStorage/VariableAwareConfStorageInterface.md)<br>

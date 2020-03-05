@@ -4,17 +4,16 @@
 namespace Ling\Light_Kit_Admin\Controller\User;
 
 
+use Ling\Bat\ConvertTool;
 use Ling\Chloroform\Field\AjaxFileBoxField;
 use Ling\Chloroform\Field\PasswordField;
 use Ling\Chloroform\Field\StringField;
 use Ling\Light\Http\HttpResponseInterface;
-use Ling\Light_Csrf\Service\LightCsrfService;
+use Ling\Light_CsrfSession\Service\LightCsrfSessionService;
 use Ling\Light_Kit_Admin\Chloroform\LightKitAdminChloroform;
 use Ling\Light_Kit_Admin\Controller\AdminPageController;
 use Ling\Light_Kit_Admin\Rights\RightsHelper;
 use Ling\Light_User\WebsiteLightUser;
-use Ling\Light_UserData\Chloroform\DataTransformer\LightUserData2SvpDataTransformer;
-use Ling\Light_UserData\Chloroform\Validator\ValidUserDataUrlValidator;
 use Ling\Light_UserDatabase\LightWebsiteUserDatabaseInterface;
 use Ling\WiseTool\WiseTool;
 
@@ -33,7 +32,7 @@ class UserProfileController extends AdminPageController
     public function render()
     {
 
-
+        $renderMode = $_GET['render'] ?? 'default';
         $container = $this->getContainer();
         $flasher = $this->getFlasher();
 
@@ -61,22 +60,40 @@ class UserProfileController extends AdminPageController
         ]));
 
         /**
-         * @var $csrf LightCsrfService
+         * @var $csrfService LightCsrfSessionService
          */
-        $csrf = $this->getContainer()->get("csrf");
+        $csrfService = $this->getContainer()->get("csrf_session");
 
         $form->addField(AjaxFileBoxField::create("Avatar url", [
+            "urls" => [$avatar_url],
+            "name" => "avatar_url",
             "maxFile" => 1,
-            "maxFileSize" => null,
-            "mimeType" => null,
-            "value" => $avatar_url,
-            "postParams" => [
-                "id" => "lka_user_profile",
-                "csrf_token" => $csrf->createToken("ajax_file_upload_manager_service"),
+            "maxFileSize" => ConvertTool::convertHumanSizeToBytes('2M'),
+            "allowedFileExtension" => [
+                'png',
+                'jpeg',
+                'jpg',
+                'gif',
             ],
-        ])->setDataTransformer(LightUserData2SvpDataTransformer::create()->setContainer($container)), [
-                ValidUserDataUrlValidator::create()->setContainer($container),
-            ]
+            "uploadItemExtraFields" => [
+                "id" => "lka_user_profile",
+                "csrf_token" => $csrfService->getToken()
+            ],
+            "immediateUpload" => true,
+            "useFileEditor" => true,
+            "fileEditor" => [
+                "useFileName" => true,
+                "useCropper" => true,
+                "usePrivacy" > true,
+                "useTags" => true,
+                //
+                "parentDir" => "images",
+                "tagsMaxLength" => 2,
+            ],
+        ])
+//            ->setDataTransformer(LightUserData2SvpDataTransformer::create()->setContainer($container)), [
+//                ValidUserDataUrlValidator::create()->setContainer($container),
+//            ]
         );
 
         $form->addField(PasswordField::create("Password", [
@@ -93,8 +110,6 @@ class UserProfileController extends AdminPageController
 
 
                 $form->executeDataTransformers($vid);
-
-
 
 
                 //--------------------------------------------
@@ -151,10 +166,27 @@ class UserProfileController extends AdminPageController
         //--------------------------------------------
         // RENDERING
         //--------------------------------------------
-        return $this->renderAdminPage('Light_Kit_Admin/kit/zeroadmin/user/user_profile', [
+        $page = 'Light_Kit_Admin/kit/zeroadmin/user/user_profile';
+        if ('solo' === $renderMode) {
+            $page = 'Light_Kit_Admin/kit/zeroadmin/user/user_profile.iframe';
+        }
+        return $this->renderAdminPage($page, [
             "form" => $form,
             "is_root" => RightsHelper::isRoot($container),
             "rights" => RightsHelper::getGroupedRights($user->getRights()),
         ]);
+    }
+
+
+    /**
+     * Work in progress...
+     */
+    public function processForm()
+    {
+        /**
+         * Todo: test serailize with this..
+         * call me with hub
+         */
+        az(__FILE__, $_GET, $_POST, $_FILES);
     }
 }

@@ -1,18 +1,17 @@
-prettyDebugPage:
-    instance: Ling\Light_PrettyError\Util\PrettyDebugPageUtil
+pretty_error:
+    instance: Ling\Light_PrettyError\Service\LightPrettyErrorService
+
 
 
 
 # --------------------------------------
 # hooks
 # --------------------------------------
-$initializer.methods_collection:
+$events.methods_collection:
     -
-        method: registerInitializer
+        method: registerListener
         args:
-            initializer:
-                instance: Ling\Light_PrettyError\Initializer\PrettyErrorInitializer
-
-
-
-
+            event: Light.on_exception_caught
+            listener:
+                instance: @service(pretty_error)
+                callable_method: onLightExceptionCaught

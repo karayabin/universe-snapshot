@@ -4,7 +4,7 @@
 
 The ColdServiceResolver class
 ================
-2019-04-25 --> 2019-07-18
+2019-04-25 --> 2019-12-09
 
 
 
@@ -39,9 +39,10 @@ class <span class="pl-k">ColdServiceResolver</span>  {
     - public [__construct](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/ColdServiceResolver/__construct.md)() : void
     - public [getServicePhpCode](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/ColdServiceResolver/getServicePhpCode.md)(array $sicBlock) : false | string
     - protected [addServiceCode](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/ColdServiceResolver/addServiceCode.md)(array $sicBlock) : string
-    - protected [resolveCustomNotation](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/ColdServiceResolver/resolveCustomNotation.md)(?$value, &$isCustomNotation = false) : mixed
+    - protected [resolveCustomNotation](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/ColdServiceResolver/resolveCustomNotation.md)($value, ?&$isCustomNotation = false) : mixed
     - protected [addCodeBlock](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/ColdServiceResolver/addCodeBlock.md)([Ling\SicTools\CodeBlock\CodeBlock](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/CodeBlock/CodeBlock.md) $codeBlock) : void
-    - protected [encode](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/ColdServiceResolver/encode.md)(?$expression) : string
+    - protected [encode](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/ColdServiceResolver/encode.md)($expression) : string
+    - protected [decode](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/ColdServiceResolver/decode.md)(string $expression) : string
     - protected [getUniqueVariableName](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/ColdServiceResolver/getUniqueVariableName.md)() : void
     - private [resolveArgs](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/ColdServiceResolver/resolveArgs.md)(array $args) : array
     - private [argsToString](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/ColdServiceResolver/argsToString.md)(array $realArgs) : string | array | null
@@ -94,6 +95,7 @@ Methods
 - [ColdServiceResolver::resolveCustomNotation](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/ColdServiceResolver/resolveCustomNotation.md) &ndash; Parses the given value as a custom notation and returns the interpreted result.
 - [ColdServiceResolver::addCodeBlock](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/ColdServiceResolver/addCodeBlock.md) &ndash; Adds a code block to the stack.
 - [ColdServiceResolver::encode](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/ColdServiceResolver/encode.md) &ndash; Encodes an expression to be interpreted as raw php.
+- [ColdServiceResolver::decode](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/ColdServiceResolver/decode.md) &ndash; Decodes the encoded expression and returns the result.
 - [ColdServiceResolver::getUniqueVariableName](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/ColdServiceResolver/getUniqueVariableName.md) &ndash; Returns a unique variable name, based on the baseVariableName.
 - [ColdServiceResolver::resolveArgs](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/ColdServiceResolver/resolveArgs.md) &ndash; Returns the given $args array, but with services resolved recursively (based on the sic notation).
 - [ColdServiceResolver::argsToString](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/ColdServiceResolver/argsToString.md) &ndash; Returns the "inline php code" version of the passed array of arguments.

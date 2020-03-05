@@ -1,0 +1,43 @@
+<?php
+
+
+namespace Ling\Light_Kit_Admin\UserRowOwnership;
+
+
+use Ling\Light_UserRowOwnership\Exception\LightUserRowOwnershipException;
+use Ling\Light_UserRowOwnership\Manager\LightUserRowOwnershipManagerInterface;
+use Ling\Light_UserRowOwnership\Service\LightUserRowOwnershipService;
+
+/**
+ * The LightKitAdminUserRowOwnershipManager class.
+ */
+class LightKitAdminUserRowOwnershipManager implements LightUserRowOwnershipManagerInterface
+{
+
+    /**
+     * @implementation
+     */
+    public function checkOwnershipByRows(string $table, array $ricRows)
+    {
+
+        $canDeleteOtherUsersRows = false;
+
+
+        /**
+         * @var $ownershipService LightUserRowOwnershipService
+         */
+        $ownershipService = $this->container->get("user_row_ownership");
+
+        foreach ($ricRows as $row) {
+            $infoBit = $ownershipService->getInfoBit($table, $row);
+            if (false === $infoBit && false === $canDeleteOtherUsersRows) {
+                throw new LightUserRowOwnershipException("Ownership denied: the user doesn't own this row, this operation is refuted.");
+            }
+        }
+
+
+
+    }
+
+
+}

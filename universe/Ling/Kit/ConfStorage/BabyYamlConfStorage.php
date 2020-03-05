@@ -52,7 +52,7 @@ use Ling\Kit\Exception\KitException;
  *
  *
  */
-class BabyYamlConfStorage implements ConfStorageInterface
+class BabyYamlConfStorage implements ConfStorageInterface, VariableAwareConfStorageInterface
 {
 
 
@@ -68,6 +68,12 @@ class BabyYamlConfStorage implements ConfStorageInterface
      */
     protected $rootDir;
 
+    /**
+     * This property holds the dynamicVariables for this instance.
+     * @var array
+     */
+    protected $dynamicVariables;
+
 
     /**
      * Builds the BabyYamlConfStorage instance.
@@ -75,7 +81,17 @@ class BabyYamlConfStorage implements ConfStorageInterface
     public function __construct()
     {
         $this->errors = [];
+        $this->dynamicVariables = [];
         $this->rootDir = null;
+    }
+
+
+    /**
+     * @implementation
+     */
+    public function setVariables(array $variables)
+    {
+        $this->dynamicVariables = $variables;
     }
 
 
@@ -97,13 +113,34 @@ class BabyYamlConfStorage implements ConfStorageInterface
             /**
              * This is a trick that applies only to babyYaml storage.
              * It improves readability of the configuration files, at the cost of more processing.
-             * I don't recommend to use this in production.
-             * But if you can read this, you know that you can use that if you want.
+             *
              * It basically allows you to re-use another .byml file as the base for another, thus saving
              * you from retyping all the widgets again and again every time you create a new page.
+             *
+             * Also, we allow the use of dynamic variable with the following notation:
+             *
+             * - ${variable}
+             *
+             * With variable being a string replaced by another string (i.e. not an object).
+             *
+             *
+             * This can help make a parent path dynamic.
+             * The value of the variable has to be passed via the setDynamicVariables method of this class.
+             *
              */
             if (array_key_exists("_parent", $conf)) {
-                $parentFile = $this->rootDir . "/" . $conf['_parent'] . ".byml";
+                $parentPath = $conf['_parent'];
+                if (false !== strpos($parentPath, '${')) {
+                    $tags = [];
+                    foreach ($this->dynamicVariables as $k => $v) {
+                        if (is_string($v)) {
+                            $tags['${' . $k . '}'] = $v;
+                        }
+                    }
+                    $parentPath = str_replace(array_keys($tags), array_values($tags), $parentPath);
+                }
+
+                $parentFile = $this->rootDir . "/" . $parentPath . ".byml";
                 if (file_exists($parentFile)) {
                     $parentConf = BabyYamlUtil::readFile($parentFile);
                     $conf = ArrayTool::arrayMergeReplaceRecursive([$parentConf, $conf]);
@@ -162,6 +199,7 @@ class BabyYamlConfStorage implements ConfStorageInterface
         $this->rootDir = $rootDir;
         return $this;
     }
+
 
 
     //--------------------------------------------

@@ -4,7 +4,7 @@
 
 The LightAwareInterface class
 ================
-2019-04-09 --> 2019-10-28
+2019-04-09 --> 2020-02-24
 
 
 
@@ -52,4 +52,4 @@ See the source code of [Ling\Light\Core\LightAwareInterface](https://github.com/
 
 SeeAlso
 ==============
-Previous class: [Light](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light.md)<br>Next class: [LightException](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Exception/LightException.md)<br>
+Previous class: [Light](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light.md)<br>Next class: [LightEvent](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Events/LightEvent.md)<br>

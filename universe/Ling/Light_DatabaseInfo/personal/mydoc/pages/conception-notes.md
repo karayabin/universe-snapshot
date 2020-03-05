@@ -1,6 +1,6 @@
 Light Database Info, conception notes
 ===================
-2019-09-12
+2019-09-12 
 
 
 I've done this already with the [SaveOrmGenerator](https://github.com/lingtalfi/SaveOrm/blob/master/Generator/SaveOrmGenerator.php), 

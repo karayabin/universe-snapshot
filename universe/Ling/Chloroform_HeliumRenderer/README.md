@@ -1,6 +1,6 @@
 Chloroform_HeliumRenderer
 ===========
-2019-07-26
+2019-07-26 -> 2020-02-27
 
 
 
@@ -110,6 +110,7 @@ The Helium renderer can render the following fields:
 - RadioField
 - FileField
 - PasswordField
+- DecorativeField
 
 
 See the [Chloroform available fields](https://github.com/lingtalfi/Chloroform#the-available-fields) for the complete list of fields.
@@ -384,6 +385,66 @@ Related
 History Log
 =============
 
+- 1.14.2 -- 2020-02-27
+
+    - fix HeliumRenderer->printJsHandler assuming that jquery is loaded right away
+    
+- 1.14.1 -- 2020-02-27
+
+    - fix HeliumRenderer->printDateTimeField not having a default value for useSecond property
+    
+- 1.14.0 -- 2020-01-09
+
+    - update HeliumRenderer->printCustomScripts, is now empty
+    
+- 1.13.2 -- 2019-12-13
+
+    - update HeliumRenderer->__construct, now accepts the cssId option
+    
+- 1.13.1 -- 2019-12-13
+
+    - update HeliumRenderer->printCustomScripts, is now public
+    
+- 1.13.0 -- 2019-12-13
+
+    - add HeliumRenderer->printCustomScripts
+    
+- 1.12.0 -- 2019-12-09
+
+    - update HeliumRenderer->printCheckboxField, now accepts htmlAttr property
+    
+- 1.11.0 -- 2019-12-06
+
+    - update HeliumRenderer, now can handle chloroform.cssId property
+    
+- 1.10.0 -- 2019-12-06
+
+    - update HeliumRenderer, now can handle chloroform.jsCode property
+    
+- 1.9.0 -- 2019-12-06
+
+    - add HeliumRenderer->printDecorativeField
+
+- 1.8.0 -- 2019-12-04
+
+    - update HeliumRenderer->printSelectField, now handles arrays
+    
+- 1.7.0 -- 2019-11-25
+
+    - update HeliumRenderer->printFormContent, now can handle basic iframe-signal property
+    
+- 1.6.1 -- 2019-11-18
+
+    - fix HeliumRenderer->printHiddenField, not printing the css id like the input field
+    
+- 1.6.0 -- 2019-11-18
+
+    - update HeliumRenderer->printSelectField, now converts all keys in strings
+    
+- 1.5.0 -- 2019-11-18
+
+    - update HeliumRenderer, now input accepts icon option (using bootstrap input groups)
+    
 - 1.4.1 -- 2019-10-24
 
     - add link in README.md

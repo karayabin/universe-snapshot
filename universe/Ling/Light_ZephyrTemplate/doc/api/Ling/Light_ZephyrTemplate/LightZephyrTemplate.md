@@ -4,7 +4,7 @@
 
 The LightZephyrTemplate class
 ================
-2019-04-09 --> 2019-07-18
+2019-04-09 --> 2019-11-11
 
 
 
@@ -26,8 +26,8 @@ class <span class="pl-k">LightZephyrTemplate</span> extends [ZephyrTemplateEngin
 
 - Inherited methods
     - public ZephyrTemplateEngine::__construct() : void
-    - public ZephyrTemplateEngine::render(string $resourceId, array $variables = []) : false | string
-    - public ZephyrTemplateEngine::renderFile(string $filePath, array $variables = []) : false | string
+    - public ZephyrTemplateEngine::render(string $resourceId, ?array $variables = []) : false | string
+    - public ZephyrTemplateEngine::renderFile(string $filePath, ?array $variables = []) : false | string
     - public ZephyrTemplateEngine::getErrors() : array
     - public ZephyrTemplateEngine::setDirectory(string $directory) : void
     - protected ZephyrTemplateEngine::interpret(string $___path, array $z) : false | string

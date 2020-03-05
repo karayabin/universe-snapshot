@@ -46,7 +46,7 @@ Returns [Light](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Ligh
 
 Source Code
 ===========
-See the source code for method [LightLightInstanceService::getLight](https://github.com/lingtalfi/Light_LightInstance/blob/master/Service/LightLightInstanceService.php#L66-L69)
+See the source code for method [LightLightInstanceService::getLight](https://github.com/lingtalfi/Light_LightInstance/blob/master/Service/LightLightInstanceService.php#L70-L73)
 
 
 See Also

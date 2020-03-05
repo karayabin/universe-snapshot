@@ -7,17 +7,20 @@ namespace Ling\Light_Kit_Admin\Controller;
 use Ling\HtmlPageTools\Copilot\HtmlPageCopilot;
 use Ling\Light\Controller\LightController;
 use Ling\Light\Controller\RouteAwareControllerInterface;
+use Ling\Light\Events\LightEvent;
 use Ling\Light\Exception\LightRedirectException;
-use Ling\Light\Http\HttpRedirectResponse;
 use Ling\Light\Http\HttpResponse;
 use Ling\Light\Http\HttpResponseInterface;
-use Ling\Light\ReverseRouter\LightReverseRouterInterface;
+use Ling\Light_Events\Service\LightEventsService;
 use Ling\Light_Flasher\Service\LightFlasher;
+use Ling\Light_Flasher\Service\LightFlasherService;
 use Ling\Light_Kit\PageConfigurationUpdator\PageConfUpdator;
 use Ling\Light_Kit\PageRenderer\LightKitPageRenderer;
+use Ling\Light_Kit_Admin\Exception\LightKitAdminException;
 use Ling\Light_Kit_Admin\Service\LightKitAdminService;
 use Ling\Light_MicroPermission\Service\LightMicroPermissionService;
 use Ling\Light_User\WebsiteLightUser;
+use Ling\Light_UserManager\Service\LightUserManagerService;
 
 
 /**
@@ -68,10 +71,10 @@ class LightKitAdminController extends LightController implements RouteAwareContr
      * For more information, check out @page(the flasher service).
      *
      *
-     * @return LightFlasher
+     * @return LightFlasherService
      * @throws \Exception
      */
-    protected function getFlasher(): LightFlasher
+    protected function getFlasher(): LightFlasherService
     {
         return $this->getContainer()->get('flasher');
     }
@@ -86,7 +89,11 @@ class LightKitAdminController extends LightController implements RouteAwareContr
      */
     protected function getUser(): WebsiteLightUser
     {
-        return $this->getContainer()->get("user_manager")->getUser();
+        /**
+         * @var $userManager LightUserManagerService
+         */
+        $userManager = $this->getContainer()->get("user_manager");
+        return $userManager->getUser();
     }
 
     /**
@@ -108,6 +115,14 @@ class LightKitAdminController extends LightController implements RouteAwareContr
         $copilot = $this->getContainer()->get("html_page_copilot");
         $copilot->registerLibrary("lka_environment", [
             "/plugins/Light_Kit_Admin/js/light-kit-admin-environment.js",
+            "/plugins/Light_Kit_Admin/js/light-kit-admin-init.js",
+        ]);
+
+        /**
+         * postForm is used by light kit admin environment (i.e. it's a dependency of lka)
+         */
+        $copilot->registerLibrary("postForm", [
+            "/libs/universe/Ling/JPostForm/post-form.js",
         ]);
 
 
@@ -115,6 +130,20 @@ class LightKitAdminController extends LightController implements RouteAwareContr
          * @var $kit LightKitPageRenderer
          */
         $kit = $this->getContainer()->get("kit");
+
+
+        /**
+         * @var $events LightEventsService
+         */
+        $events = $this->getContainer()->get("events");
+
+        $data = new LightEvent();
+        $data->setLight($this->getLight());
+        $data->setHttpRequest($this->getLight()->getHttpRequest());
+        $data->setVar("page", $page);
+        $events->dispatch('Light_Kit_Admin.on_page_rendered_before', $data);
+
+
         return new HttpResponse($kit->renderPage($page, $dynamicVariables, $updator));
     }
 
@@ -123,24 +152,28 @@ class LightKitAdminController extends LightController implements RouteAwareContr
     //
     //--------------------------------------------
     /**
-     * Returns a http response that redirects to the given route.
+     * Redirects the user to the given route.
+     *
+     * Note: it uses the internal exception handling mechanism of the Core/Light instance.
      *
      * @param string $redirectRoute
-     * @return HttpResponseInterface
      * @throws \Exception
      */
-    protected function redirectByRoute(string $redirectRoute): HttpResponseInterface
+    protected function redirectByRoute(string $redirectRoute)
     {
-        /**
-         * @var $revRouter LightReverseRouterInterface
-         */
-        $revRouter = $this->getContainer()->get('reverse_router');
-        $url = $revRouter->getUrl($redirectRoute, [], true);
-
-        return HttpRedirectResponse::create($url);
+        throw LightRedirectException::create()->setRedirectRoute($redirectRoute);
     }
 
 
+    /**
+     * Ensures that the current user is connected and has the right provided in the arguments.
+     * If not, the user will be redirected (http redirect) to a page defined in the
+     * light kit admin service configuration.
+     *
+     *
+     * @param string $right
+     * @throws LightRedirectException
+     */
     protected function checkRight(string $right)
     {
 
@@ -183,5 +216,17 @@ class LightKitAdminController extends LightController implements RouteAwareContr
             $redirectRoute = $this->getKitAdmin()->getOption("access_denied.access_denied_route");
             throw LightRedirectException::create()->setRedirectRoute($redirectRoute);
         }
+    }
+
+
+    /**
+     * Throws an exception.
+     *
+     * @param string $msg
+     * @throws LightKitAdminException
+     */
+    protected function error(string $msg)
+    {
+        throw new LightKitAdminException($msg);
     }
 }

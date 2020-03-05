@@ -45,10 +45,13 @@ default:
 
 
 
+    plugin: Light_Kit_Admin
+    use_micro_permission: true
     csrf_token:
         name: realist-request
-        value: REALIST(Light_Realist, csrf_token, realist-request)
+        value: REALIST(Light_Realist, csrf_token)
     rendering:
+        title: User list
         list_general_actions:
             -
                 action_id: Light_Kit_Admin.realist-generate_random_rows
@@ -153,11 +156,15 @@ default:
                     type: image
                     width: 100
                 action:
-                    type: lka_generic_ric_form_link
+                    type: lka-edit_link
                     text: Edit
                     route: lka_route-user_profile
-
                 checkbox: checkbox
             checkbox_column: []
             action_column: []
+        related_links:
+            -
+                text: Add new user
+                url: REALIST(Light_Realist, route, lch_route-hub, {type: form})
+                icon: fas fa-plus-circle
 

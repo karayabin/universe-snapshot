@@ -46,7 +46,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [LightDummyServiceContainer::all](https://github.com/lingtalfi/Light/blob/master/ServiceContainer/LightDummyServiceContainer.php#L34-L37)
+See the source code for method [LightDummyServiceContainer::all](https://github.com/lingtalfi/Light/blob/master/ServiceContainer/LightDummyServiceContainer.php#L50-L53)
 
 
 See Also

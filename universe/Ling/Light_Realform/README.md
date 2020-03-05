@@ -1,6 +1,6 @@
 Light_Realform
 ===========
-2019-10-21
+2019-10-21 -> 2020-02-28
 
 
 
@@ -69,6 +69,59 @@ Related
 
 History Log
 =============
+
+- 1.13.1 -- 2020-02-28
+
+    - fix LightRealformRoutineTwo->processForm displaying share checkboxes even when there is only one record to edit
+    
+- 1.13.0 -- 2019-12-18
+
+    - update to accommodate Light_MicroPermission 2.0
+
+- 1.12.0 -- 2019-12-16
+
+    - update plugin to accommodate new Light service container
+
+- 1.11.0 -- 2019-12-10
+
+    - add LightRealformRoutineTwo
+    - update RealformHandlerInterface->getFormHandler method, add configuration optional argument
+    
+- 1.10.0 -- 2019-12-06
+
+    - update ToDatabaseSuccessHandler to handle latest form multiplier trick
+    
+- 1.9.0 -- 2019-12-03
+
+    - update ToDatabaseSuccessHandler, now handles form multiplier trick
+    
+- 1.8.0 -- 2019-11-29
+
+    - add LightRealformRoutineOne
+
+- 1.7.0 -- 2019-11-28
+
+    - update ToDatabaseSuccessHandler, now delegates to Light_Crud service
+    
+- 1.6.0 -- 2019-11-25
+
+    - update RealformSuccessHandlerInterface->processData removed the form instance as second argument (conception error)
+    
+- 1.5.0 -- 2019-11-25
+
+    - update ToDatabaseSuccessHandler, now can handle iframe-signal
+    
+- 1.4.0 -- 2019-11-25
+
+    - update RealformSuccessHandlerInterface->processData now takes the form instance as second argument
+    
+- 1.3.0 -- 2019-11-18
+
+    - update BaseRealformHandler->getChloroformField, now handles table_list field
+    
+- 1.2.0 -- 2019-11-05
+
+    - add title property in the configuration
 
 - 1.1.0 -- 2019-11-01
 

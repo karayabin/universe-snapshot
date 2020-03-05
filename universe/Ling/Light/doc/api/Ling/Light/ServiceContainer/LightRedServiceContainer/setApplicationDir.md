@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightRedServiceContainer::setApplicationDir](https://github.com/lingtalfi/Light/blob/master/ServiceContainer/LightRedServiceContainer.php#L46-L49)
+See the source code for method [LightRedServiceContainer::setApplicationDir](https://github.com/lingtalfi/Light/blob/master/ServiceContainer/LightRedServiceContainer.php#L72-L75)
 
 
 See Also
@@ -57,5 +57,5 @@ See Also
 
 The [LightRedServiceContainer](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightRedServiceContainer.md) class.
 
-Previous method: [getApplicationDir](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightRedServiceContainer/getApplicationDir.md)<br>Next method: [get](https://github.com/lingtalfi/Octopus/blob/master/ServiceContainer/RedOctopusServiceContainer.php)<br>
+Previous method: [setLight](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightRedServiceContainer/setLight.md)<br>Next method: [get](https://github.com/lingtalfi/Octopus/blob/master/ServiceContainer/RedOctopusServiceContainer.php)<br>
 

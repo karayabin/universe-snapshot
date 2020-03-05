@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [SimplePdoWrapperInterface::setConnexion](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/SimplePdoWrapperInterface.php#L202-L202)
+See the source code for method [SimplePdoWrapperInterface::setConnexion](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/SimplePdoWrapperInterface.php#L210-L210)
 
 
 See Also

@@ -4,7 +4,7 @@
 
 The LightLoggerService class
 ================
-2019-08-01 --> 2019-10-17
+2019-08-01 --> 2020-01-08
 
 
 
@@ -69,14 +69,10 @@ class <span class="pl-k">LightLoggerService</span> implements [UniversalLoggerIn
 
 - Properties
     - protected array [$listeners](#property-listeners) ;
-    - private string [$format](#property-format) ;
-    - private bool [$useExpandedArray](#property-useExpandedArray) ;
 
 - Methods
     - public [__construct](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/__construct.md)() : void
     - public [addListener](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/addListener.md)($channel, $listener, ?array $minus = []) : void
-    - public [setFormat](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/setFormat.md)(string $format) : void
-    - public [setUseExpandedArray](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/setUseExpandedArray.md)(bool $useExpandedArray) : void
     - public [log](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/log.md)($message, string $channel) : void
     - protected [dispatch](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/dispatch.md)(string $channel, $msg) : void
     - public [trace](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/trace.md)($msg) : void
@@ -85,7 +81,6 @@ class <span class="pl-k">LightLoggerService</span> implements [UniversalLoggerIn
     - public [warn](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/warn.md)($msg) : void
     - public [error](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/error.md)($msg) : void
     - public [fatal](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/fatal.md)($msg) : void
-    - protected [getFormattedMessage](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/getFormattedMessage.md)(string $channel, $msg) : string
 
 }
 
@@ -103,30 +98,6 @@ Properties
     
     
 
-- <span id="property-format"><b>format</b></span>
-
-    This property holds the format used by this class to transform the emitter message into the
-    actual logger message sent to the listeners.
-    
-    
-    The following tags are available:
-    
-    - {channel}: the channel in uppercase
-    - {dateTime}: the date time string (for instance: 2019-01-16 16:33:15)
-    - {message}: the emitter (original) message
-    
-    
-
-- <span id="property-useExpandedArray"><b>useExpandedArray</b></span>
-
-    This property holds whether to use the useExpandedArray for this instance.
-    With useExpandedArray on, the arrays will be indented with tab and return chars in the log file,
-    whereas with useExpandedArray off, the array will fit on a single line.
-    
-    Default is true (as it's more readable).
-    
-    
-
 
 
 Methods
@@ -134,8 +105,6 @@ Methods
 
 - [LightLoggerService::__construct](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/__construct.md) &ndash; Builds the LightLoggerService instance.
 - [LightLoggerService::addListener](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/addListener.md) &ndash; Registers a listener (callable) for the given $channel(s).
-- [LightLoggerService::setFormat](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/setFormat.md) &ndash; Sets the format of the log messages passed to the listeners.
-- [LightLoggerService::setUseExpandedArray](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/setUseExpandedArray.md) &ndash; Sets the useExpandedArray.
 - [LightLoggerService::log](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/log.md) &ndash; Sends a the log $message to the given $channel.
 - [LightLoggerService::dispatch](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/dispatch.md) &ndash; 
 - [LightLoggerService::trace](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/trace.md) &ndash; Dispatches a log message on the "trace" channel.
@@ -144,7 +113,6 @@ Methods
 - [LightLoggerService::warn](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/warn.md) &ndash; Dispatches a log message on the "warn" channel.
 - [LightLoggerService::error](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/error.md) &ndash; Dispatches a log message on the "error" channel.
 - [LightLoggerService::fatal](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/fatal.md) &ndash; Dispatches a log message on the "fatal" channel.
-- [LightLoggerService::getFormattedMessage](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/getFormattedMessage.md) &ndash; Returns the formatted message to dispatch to the listeners.
 
 
 
@@ -159,4 +127,4 @@ See the source code of [Ling\Light_Logger\LightLoggerService](https://github.com
 
 SeeAlso
 ==============
-Next class: [LightFileLoggerListener](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Listener/LightFileLoggerListener.md)<br>
+Next class: [BaseLoggerListener](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Listener/BaseLoggerListener.md)<br>

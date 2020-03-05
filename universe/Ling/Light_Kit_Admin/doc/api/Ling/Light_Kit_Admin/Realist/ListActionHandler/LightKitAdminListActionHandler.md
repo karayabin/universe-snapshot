@@ -4,7 +4,7 @@
 
 The LightKitAdminListActionHandler class
 ================
-2019-05-17 --> 2019-10-25
+2019-05-17 --> 2019-12-17
 
 
 
@@ -36,6 +36,9 @@ class <span class="pl-k">LightKitAdminListActionHandler</span> extends [LightRea
     - protected [executeRowsToSomethingListAction](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Realist/ListActionHandler/LightKitAdminListActionHandler/executeRowsToSomethingListAction.md)(string $actionId, string $extension, array $params) : array
     - protected [executePrintListAction](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Realist/ListActionHandler/LightKitAdminListActionHandler/executePrintListAction.md)(string $actionId, array $params) : array
     - protected [error](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Realist/ListActionHandler/LightKitAdminListActionHandler/error.md)(string $message) : void
+    - protected [getInRicsTags](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Realist/ListActionHandler/LightKitAdminListActionHandler/getInRicsTags.md)(array $rics, array $configuration) : array
+    - protected [getWhereByRics](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Realist/ListActionHandler/LightKitAdminListActionHandler/getWhereByRics.md)(array $rics, array $userRics, array &$markers) : string
+    - private [executeFetchAllRequestByActionId](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Realist/ListActionHandler/LightKitAdminListActionHandler/executeFetchAllRequestByActionId.md)(string $actionId, array $params) : array
 
 - Inherited methods
     - public LightRealistBaseListActionHandler::__construct() : void
@@ -62,6 +65,9 @@ Methods
 - [LightKitAdminListActionHandler::executeRowsToSomethingListAction](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Realist/ListActionHandler/LightKitAdminListActionHandler/executeRowsToSomethingListAction.md) &ndash; from the browser.
 - [LightKitAdminListActionHandler::executePrintListAction](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Realist/ListActionHandler/LightKitAdminListActionHandler/executePrintListAction.md) &ndash; Executes the "print" action and returns the result.
 - [LightKitAdminListActionHandler::error](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Realist/ListActionHandler/LightKitAdminListActionHandler/error.md) &ndash; Throws an error message.
+- [LightKitAdminListActionHandler::getInRicsTags](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Realist/ListActionHandler/LightKitAdminListActionHandler/getInRicsTags.md) &ndash; Returns an array containing one [in_rics tag](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/duelist-conception-notes.md#in_rics) per item in the given rics array.
+- [LightKitAdminListActionHandler::getWhereByRics](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Realist/ListActionHandler/LightKitAdminListActionHandler/getWhereByRics.md) &ndash; rics.
+- [LightKitAdminListActionHandler::executeFetchAllRequestByActionId](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Realist/ListActionHandler/LightKitAdminListActionHandler/executeFetchAllRequestByActionId.md) &ndash; Returns the result of the LightRealistService->executeRequestById method.
 - LightRealistBaseListActionHandler::__construct &ndash; Builds the LightRealistBaseListActionHandler instance.
 - LightRealistBaseListActionHandler::setContainer &ndash; Sets the container.
 - LightRealistBaseListActionHandler::decorateGenericActionItemByAssets &ndash; the calling class source file.

@@ -63,7 +63,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [TagApi::doGetTagById](https://github.com/lingtalfi/Light_UserData/blob/master/Api/TagApi.php#L218-L232)
+See the source code for method [TagApi::doGetTagById](https://github.com/lingtalfi/Light_UserData/blob/master/Api/TagApi.php#L198-L212)
 
 
 See Also

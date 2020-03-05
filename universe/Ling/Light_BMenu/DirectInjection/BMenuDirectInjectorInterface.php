@@ -15,7 +15,7 @@ interface BMenuDirectInjectorInterface
     /**
      * Injects menu fragments in the given menu, knowing the "menuStructureId" context.
      *
-     * More info about the menuStructureId in the @page(conception notes).
+     * More info about the menuStructureId in the @page(bmenu conception notes).
      *
      * @param string $menuStructureId
      * @param LightBMenu $menu

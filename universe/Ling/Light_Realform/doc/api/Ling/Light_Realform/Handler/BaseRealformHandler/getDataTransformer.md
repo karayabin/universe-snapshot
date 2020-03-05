@@ -54,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [BaseRealformHandler::getDataTransformer](https://github.com/lingtalfi/Light_Realform/blob/master/Handler/BaseRealformHandler.php#L407-L431)
+See the source code for method [BaseRealformHandler::getDataTransformer](https://github.com/lingtalfi/Light_Realform/blob/master/Handler/BaseRealformHandler.php#L427-L451)
 
 
 See Also

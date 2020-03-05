@@ -8,13 +8,8 @@ user_data:
             secret: P0zeg7e,4dD
         setRootDir:
             dir: ${app_dir}/user-data
-        setMicroPermissionPlugin:
-            plugin: ${user_data_vars.micro_permission_plugin}
 
 
-user_data_vars:
-    install_parent_plugin: Light_UserDatabase
-    micro_permission_plugin: Light_UserDatabase
 
 # --------------------------------------
 # hooks
@@ -33,24 +28,45 @@ $easy_route.methods_collection:
         args:
             file: config/data/Light_UserData/Light_EasyRoute/luda_routes.byml
 
-$initializer.methods_collection:
+
+$events.methods_collection:
     -
-        method: registerInitializer
+        method: registerListener
         args:
-            initializer: @service(user_data)
-            slot: install
-            parent: ${user_data_vars.install_parent_plugin}
+            events: Light_Database.on_lud_user_group_create
+            listener:
+                instance: @service(user_data)
+                callable_method: onUserGroupCreate
 
 
-$plugin_database_installer.methods_collection:
+$plugin_installer.methods_collection:
     -
-        method: registerInstaller
+        method: registerPlugin
         args:
             plugin: Light_UserData
-            installer:
-                -
-                    - @service(user_data)
-                    - installDatabase
-                -
-                    - @service(user_data)
-                    - uninstallDatabase
+            installer: @service(user_data)
+
+
+
+$realform_handler_alias_helper.methods_collection:
+    -
+        method: registerRealformHandlerAliasHelper
+        args:
+            plugin: Light_UserData
+            helper:
+                instance: Ling\Light_UserData\Realform\RealformHandlerAliasHelper\LightUserDataRealformHandlerAliasHelper
+
+
+
+$user_row_restriction.methods_collection:
+    -
+        method: registerRowRestrictionHandlerByTablePrefix
+        args:
+            prefix: luda
+            handler:
+                instance: Ling\Light_UserData\Light_UserRowRestriction\LightUserDataRowRestrictionHandler
+                methods:
+                    setContainer:
+                        container: @container()
+
+

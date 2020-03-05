@@ -153,7 +153,7 @@ class Light_InitializerDocBuilder
              * in the class synopsis.
              */
             "externalClass2Url" => [
-//                "Ling\UniversalLogger\UniversalLoggerInterface" => "https://github.com/lingtalfi/UniversalLogger",
+                "Ling\ParentChild\ParentChildItem[]" => "https://github.com/lingtalfi/ParentChild/blob/master/doc/api/Ling/ParentChild/ParentChildItem.md",
             ],
         ];
 

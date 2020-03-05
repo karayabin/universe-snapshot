@@ -91,6 +91,10 @@ Learn how to configure the firewall in the [conception notes](https://github.com
 History Log
 =============
 
+- 1.1.0 -- 2019-11-19
+
+    - update plugin to accommodate renamed Light_ReverseRouter service 
+    
 - 1.0.0 -- 2019-07-18
 
     - initial commit

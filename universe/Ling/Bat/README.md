@@ -85,6 +85,50 @@ Dependencies
 History Log
 ------------------
     
+- 1.222 -- 2020-03-02
+
+    - fix ClassTool::getMethodSignature not handling variadic correctly
+    
+- 1.221 -- 2020-02-07
+
+    - add FileSystemTool::getDirectorySize
+    
+- 1.220 -- 2020-01-31
+
+    - update FileSystemTool::isValidFilename, now discards empty string and strings starting or ending with space
+    
+- 1.219 -- 2020-01-31
+
+    - add FileSystemTool::isValidFilename
+    
+- 1.218 -- 2019-12-20
+
+    - update ArrayTool::objectToArray, add deep argument
+    
+- 1.217 -- 2019-12-10
+
+    - update SessionTool::get, now accepts a throwEx argument
+    
+- 1.216 -- 2019-12-09
+
+    - update UriTool::randomize, now accepts a key argument
+    
+- 1.215 -- 2019-12-09
+
+    - add UriTool::randomize
+    
+- 1.214 -- 2019-11-14
+
+    - fix ArrayTool::replaceRecursive replacing bool value with 1
+    
+- 1.213 -- 2019-11-05
+
+    - add ArrayTool::replaceRecursive
+    
+- 1.212 -- 2019-11-04
+
+    - add ArrayTool::intersect
+    
 - 1.211 -- 2019-10-31
 
     - update ArrayTool::arrayKeyExistAll, now accepts a throwEx argument

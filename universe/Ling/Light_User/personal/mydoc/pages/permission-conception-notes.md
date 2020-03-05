@@ -33,10 +33,8 @@ Each **permission group** contains zero, one or more **permission(s)**.
 
 In terms of implementation, when the user connects to his account (aka when she logs in),
 all the **permissions** are stored in the user session. That's a personal choice, because I didn't want to communicate 
-with a database on every page.  
+with a database on every page to check for the user permissions.  
  
-Note that in this design, the permission group is just like a blue print, like a php class would be the blue print for an instance if you will.
-
 Now with this design, it's very easy to see how an admin can manage user profiles.
 
 A user profile is nothing more than a **permission group**.
@@ -44,8 +42,7 @@ A user profile is nothing more than a **permission group**.
 
 In terms of database, we have this:
 
-- lud_user  (lud stands for Light_UserDatabase, which is the plugin responsible for handling the user table)
-
+- lud_user  (lud stands for [Light_UserDatabase](https://github.com/lingtalfi/Light_UserDatabase), which is the plugin responsible for handling the user table)
 - lud_user_has_permission_group 
 - lud_permission_group 
 - lud_permission_group_has_permission
@@ -54,17 +51,23 @@ In terms of database, we have this:
  
 ![Light user database schema](https://lingtalfi.com/img/universe/Light_UserDatabase/light-user-database.png) 
  
-In terms of plugins design, during the initialization phase (see the [initializer service](https://github.com/lingtalfi/Light_Initializer/) for more details)
-the plugins add their rights to the **lud_permission** table if so they want.
+ 
+ 
+Plugins
+-----------
+ 
+In terms of plugins design, during the initialization phase of the [Light instance](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light.md), 
+plugins can add their **permission groups** and **permissions**.
 
-They can also create new profiles in the **lud_permission_group** table, and/or manipulate the other tables as well.
 
+As for the naming convention, we recommend that plugins **permission groups** and/or **permissions** start with the plugin name, followed by a dot,
+followed by the permission group name and/or the permission name.
 
+For instance: 
 
-As for the implementation, we recommend that plugins profiles start with the plugin name, followed by a dot,
-followed by the profile name.
-
-For instance: PluginA.general_profile.
+- PluginA.general_profile
+- Light_Kit_Admin.lka_dude
+- Light_Kit_Admin.lka_admin
  
 
 

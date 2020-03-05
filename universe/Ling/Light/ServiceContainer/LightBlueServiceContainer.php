@@ -3,6 +3,7 @@
 namespace Ling\Light\ServiceContainer;
 
 
+use Ling\Light\Core\Light;
 use Ling\Octopus\ServiceContainer\BlueOctopusServiceContainer;
 
 /**
@@ -16,6 +17,12 @@ class LightBlueServiceContainer extends BlueOctopusServiceContainer implements L
      */
     protected $appDir;
 
+    /**
+     * This property holds the light for this instance.
+     * @var Light
+     */
+    protected $light;
+
 
     /**
      * Builds the LightRedServiceContainer instance.
@@ -24,6 +31,7 @@ class LightBlueServiceContainer extends BlueOctopusServiceContainer implements L
     {
         parent::__construct();
         $this->appDir = null;
+        $this->light = null;
     }
 
     /**
@@ -32,6 +40,22 @@ class LightBlueServiceContainer extends BlueOctopusServiceContainer implements L
     public function getApplicationDir(): string
     {
         return $this->appDir;
+    }
+
+    /**
+     * @implementation
+     */
+    public function getLight(): Light
+    {
+        return $this->light;
+    }
+
+    /**
+     * @implementation
+     */
+    public function setLight(Light $light)
+    {
+        $this->light = $light;
     }
 
     //--------------------------------------------
@@ -45,5 +69,6 @@ class LightBlueServiceContainer extends BlueOctopusServiceContainer implements L
     {
         $this->appDir = $appDir;
     }
+
 
 }

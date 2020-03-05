@@ -1,20 +1,19 @@
-
 # --------------------------------------
 # hooks
 # --------------------------------------
-
-$end_routine.methods_collection:
+$events.methods_collection:
     -
-        method: registerHandler
+        method: registerListener
         args:
-            identifier: Light_EndRoutine_Debugger
-            handler:
+            events: Light.end_routine
+            listener:
                 instance: Ling\Light_EndRoutine_Debugger\Handler\LightEndRoutineDebuggerHandler
                 methods:
                     setOptions:
                         options:
                             showSession: true
                             sessionVars:
-                                - csrf_tools_token
+                                - light_csrf_simple
                             path: ${app_dir}/tmp/session-content.txt
+                callable_method: handle
 

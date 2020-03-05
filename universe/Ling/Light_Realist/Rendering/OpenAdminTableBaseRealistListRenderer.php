@@ -6,6 +6,7 @@ namespace Ling\Light_Realist\Rendering;
 
 use Ling\Bat\ArrayTool;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
+use Ling\Light_CsrfSimple\Service\LightCsrfSimpleService;
 use Ling\Light_Realist\Service\LightRealistService;
 
 /**
@@ -35,6 +36,13 @@ abstract class OpenAdminTableBaseRealistListRenderer implements RealistListRende
      * @var array
      */
     protected $labels;
+
+    /**
+     * This property holds the hiddenColumns for this instance.
+     * The hidden columns are not displayed (but their data is still accessible).
+     * @var array
+     */
+    protected $hiddenColumns;
 
     /**
      * This property holds an array of booleans representing whether or not to use the renderer widgets.
@@ -133,6 +141,7 @@ abstract class OpenAdminTableBaseRealistListRenderer implements RealistListRende
     {
         $this->dataTypes = [];
         $this->labels = [];
+        $this->hiddenColumns = [];
         $this->useWidgets = [
             "checkbox" => true,
             "table" => true,
@@ -167,16 +176,23 @@ abstract class OpenAdminTableBaseRealistListRenderer implements RealistListRende
 
         $rendering = $requestDeclaration['rendering'] ?? [];
         $labels = $rendering['column_labels'] ?? [];
+        $hiddenColumns = $rendering['hidden_columns'] ?? [];
+
+
 
         $this->setLabels($labels);
+        $this->setHiddenColumns($hiddenColumns);
+
 
 
         $this->setSqlColumns($realist->getSqlColumnsByRequestDeclaration($requestDeclaration));
 
-
         $listActionGroups = $rendering['list_action_groups'] ?? [];
+
         $realist->prepareListActionGroups($listActionGroups, $requestId);
         $this->setListActionGroups($listActionGroups);
+
+
 
 
         $listGeneralActions = $rendering['list_general_actions'] ?? [];
@@ -199,9 +215,12 @@ abstract class OpenAdminTableBaseRealistListRenderer implements RealistListRende
 
 
         $csrfToken = $requestDeclaration['csrf_token'] ?? null;
-        if (is_array($csrfToken)) {
-            $csrfTokenValue = $csrfToken['value'] ?? "not_defined";
-            $this->setCsrfToken($csrfTokenValue);
+        if (true === $csrfToken) {
+            /**
+             * @var $csrfService LightCsrfSimpleService
+             */
+            $csrfService = $container->get('csrf_session');
+            $this->setCsrfToken($csrfService->getToken());
         }
 
         $relatedLinks = $rendering['related_links'] ?? [];
@@ -212,7 +231,6 @@ abstract class OpenAdminTableBaseRealistListRenderer implements RealistListRende
         if (array_key_exists("title", $rendering)) {
             $this->setTitle($rendering['title']);
         }
-
     }
 
     /**
@@ -259,6 +277,17 @@ abstract class OpenAdminTableBaseRealistListRenderer implements RealistListRende
     {
         $this->labels = $labels;
     }
+
+    /**
+     * Sets the hiddenColumns.
+     *
+     * @param array $hiddenColumns
+     */
+    public function setHiddenColumns(array $hiddenColumns)
+    {
+        $this->hiddenColumns = $hiddenColumns;
+    }
+
 
 
     /**

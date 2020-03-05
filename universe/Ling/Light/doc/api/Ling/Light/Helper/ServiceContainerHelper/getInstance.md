@@ -69,7 +69,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [ServiceContainerHelper::getInstance](https://github.com/lingtalfi/Light/blob/master/Helper/ServiceContainerHelper.php#L43-L101)
+See the source code for method [ServiceContainerHelper::getInstance](https://github.com/lingtalfi/Light/blob/master/Helper/ServiceContainerHelper.php#L43-L100)
 
 
 See Also

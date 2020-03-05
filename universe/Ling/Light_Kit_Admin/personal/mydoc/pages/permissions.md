@@ -31,21 +31,25 @@ The **admin** includes the **user** permission, and also allows to administrate/
 Note: if you're not careful, you can delete the root user, so be sure to grant the **admin** permission
 to trusted members only.
 
+In fact, in lka the **admin** is as powerful as root, so we recommend that there is only one admin.
+We recommend/hope that 3rd party plugins provide their own admin permissions, so that the lka admin can assign them to the users. 
+That's how we envision the permissions system with other plugins for now in lka.
+
+
 
 ### Micro permissions
 
 In Light_Kit_Admin, we use the [micro permission system](https://github.com/lingtalfi/Light_MicroPermission).
 
 
-For tables, we try to keep all micro-permissions (mp) related to tables within the **tables** namespace,
-and we try to stick with four rights: create, read, update, delete (CRUD).
-
-So far, we store our micro-permissions in ${app_dir}/config/data/Light_Kit_Admin/Light_MicroPermission/micro-permissions.byml,
+For tables, we store our micro-permissions in ${app_dir}/config/data/Light_Kit_Admin/Light_MicroPermission/micro-permissions.byml,
 using the [micro-permission notation recommendation for database interaction](https://github.com/lingtalfi/Light_MicroPermission/blob/master/doc/pages/recommended-micropermission-notation.md#database-interaction).
+
+For instance:
 
 ```yaml
 micro_permissions:
-    Light_Kit_Admin.tables.lud_user.create: Light_Kit_Admin.admin
+    tables.lud_user.create: Light_Kit_Admin.admin
 
 
 ```

@@ -7,7 +7,7 @@ LightEndRoutineCsrfPageCleanerHandler::handle
 
 
 
-LightEndRoutineCsrfPageCleanerHandler::handle — Executes the end routine.
+LightEndRoutineCsrfPageCleanerHandler::handle — Listener for the [Light.end_routine event](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md).
 
 
 
@@ -21,7 +21,9 @@ public [LightEndRoutineCsrfPageCleanerHandler::handle](https://github.com/lingta
 
 
 
-Executes the end routine.
+Listener for the [Light.end_routine event](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md).
+
+It will delete the unused page tokens on non ajax pages.
 
 
 
@@ -46,7 +48,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightEndRoutineCsrfPageCleanerHandler::handle](https://github.com/lingtalfi/Light_EndRoutine_CsrfPageCleaner/blob/master/Handler/LightEndRoutineCsrfPageCleanerHandler.php#L22-L31)
+See the source code for method [LightEndRoutineCsrfPageCleanerHandler::handle](https://github.com/lingtalfi/Light_EndRoutine_CsrfPageCleaner/blob/master/Handler/LightEndRoutineCsrfPageCleanerHandler.php#L49-L58)
 
 
 See Also
@@ -54,5 +56,5 @@ See Also
 
 The [LightEndRoutineCsrfPageCleanerHandler](https://github.com/lingtalfi/Light_EndRoutine_CsrfPageCleaner/blob/master/doc/api/Ling/Light_EndRoutine_CsrfPageCleaner/Handler/LightEndRoutineCsrfPageCleanerHandler.md) class.
 
-
+Previous method: [setContainer](https://github.com/lingtalfi/Light_EndRoutine_CsrfPageCleaner/blob/master/doc/api/Ling/Light_EndRoutine_CsrfPageCleaner/Handler/LightEndRoutineCsrfPageCleanerHandler/setContainer.md)<br>
 

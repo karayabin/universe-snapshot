@@ -4,7 +4,7 @@
 
 The LightBMenu class
 ================
-2019-08-08 --> 2019-08-09
+2019-08-08 --> 2020-02-28
 
 
 
@@ -32,7 +32,7 @@ class <span class="pl-k">LightBMenu</span> extends [DotMenu](https://github.com/
 
 - Inherited methods
     - public DotMenu::__construct() : void
-    - public DotMenu::appendItem(array $item, string $parentPath = null) : void
+    - public DotMenu::appendItem(array $item, ?string $parentPath = null) : void
     - public DotMenu::getItems() : array
     - public DotMenu::setItems(array $items) : void
     - public DotMenu::setChildrenKey(string $childrenKey) : void

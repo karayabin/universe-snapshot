@@ -4,7 +4,7 @@
 
 The LightPluginDatabaseInstallerInterface class
 ================
-2019-09-11 --> 2019-10-03
+2019-09-11 --> 2020-02-07
 
 
 
@@ -27,8 +27,8 @@ Class synopsis
 abstract class <span class="pl-k">LightPluginDatabaseInstallerInterface</span>  {
 
 - Methods
-    - abstract public [install](https://github.com/lingtalfi/Light_PluginDatabaseInstaller/blob/master/doc/api/Ling/Light_PluginDatabaseInstaller/LightPluginDatabaseInstallerInterface/install.md)(Ling\Light\ServiceContainer\LightServiceContainerInterface $container) : void
-    - abstract public [uninstall](https://github.com/lingtalfi/Light_PluginDatabaseInstaller/blob/master/doc/api/Ling/Light_PluginDatabaseInstaller/LightPluginDatabaseInstallerInterface/uninstall.md)(Ling\Light\ServiceContainer\LightServiceContainerInterface $container) : void
+    - abstract public [install](https://github.com/lingtalfi/Light_PluginDatabaseInstaller/blob/master/doc/api/Ling/Light_PluginDatabaseInstaller/LightPluginDatabaseInstallerInterface/install.md)([Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) $container) : void
+    - abstract public [uninstall](https://github.com/lingtalfi/Light_PluginDatabaseInstaller/blob/master/doc/api/Ling/Light_PluginDatabaseInstaller/LightPluginDatabaseInstallerInterface/uninstall.md)([Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) $container) : void
 
 }
 

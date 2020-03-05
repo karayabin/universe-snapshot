@@ -16,7 +16,7 @@ Description
 ================
 
 
-protected [ColdServiceResolver::encode](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/ColdServiceResolver/encode.md)(?$expression) : string
+protected [ColdServiceResolver::encode](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/ColdServiceResolver/encode.md)($expression) : string
 
 
 
@@ -70,7 +70,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [ColdServiceResolver::encode](https://github.com/lingtalfi/SicTools/blob/master/ColdServiceResolver.php#L331-L334)
+See the source code for method [ColdServiceResolver::encode](https://github.com/lingtalfi/SicTools/blob/master/ColdServiceResolver.php#L340-L343)
 
 
 See Also
@@ -78,5 +78,5 @@ See Also
 
 The [ColdServiceResolver](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/ColdServiceResolver.md) class.
 
-Previous method: [addCodeBlock](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/ColdServiceResolver/addCodeBlock.md)<br>Next method: [getUniqueVariableName](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/ColdServiceResolver/getUniqueVariableName.md)<br>
+Previous method: [addCodeBlock](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/ColdServiceResolver/addCodeBlock.md)<br>Next method: [decode](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/ColdServiceResolver/decode.md)<br>
 

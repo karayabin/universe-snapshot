@@ -1,6 +1,6 @@
 Light
 ===========
-2019-04-05
+2019-04-05 -> 2020-02-24
 
 
 
@@ -33,13 +33,16 @@ Summary
 - [Light api](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light.md) (generated with [DocTools](https://github.com/lingtalfi/DocTools))
 - Pages
     - [Diary](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/diary.md)
+    - [Events](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md)
     - [Plugin](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/plugin.md)
     - [Rights](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/rights.md)
     - [Route](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/route.md)
     - [Service container](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/light-service-container.md)
     - [General philosophy](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/light-general-philosophy.md)
     - [Application recommended structure](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/light-application-recommended-structure.md)
-
+    - [Security](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/security.md)
+    - [Efficiency tips](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/efficiency-tips.md)
+- [License](https://lingtalfi.com/no-license)
 
 
 
@@ -47,7 +50,104 @@ Summary
 
 History Log
 =============
+    
+- 0.57.1 -- 2020-02-24
 
+    - add efficiency tips page
+    
+- 0.57.0 -- 2020-02-13
+
+    - update HttpResponse, add setHeader method
+    
+- 0.56.0 -- 2020-02-07
+
+    - removed Light.initialize_2 and Light.initialize_3 events data
+        
+- 0.55.0 -- 2020-01-31
+
+    - update Light.initialize_X events data, removed passing the level with the event (was deemed unnecessary after all)
+    
+- 0.54.0 -- 2020-01-31
+
+    - update Light.initialize_X events data, now passes the level with the event
+    
+- 0.53.0 -- 2020-01-20
+
+    - add the license link to the README.md
+    
+- 0.52.0 -- 2019-12-19
+
+    - update Light, now dispatches Light.end_routine event instead of using the end_routine service
+    
+- 0.51.0 -- 2019-12-17
+
+    - update Light, replaced initializer system with a new multi-level initialization system
+    
+- 0.50.0 -- 2019-12-16
+
+    - update Light, replaced initializer system with a new multi-level initialization system
+    
+- 0.49.0 -- 2019-12-16
+
+    - add LightServiceContainerInterface->getLight method
+    
+- 0.48.0 -- 2019-12-12
+
+    - update LightException::create, can now pass the light error code directly as an argument
+    
+- 0.47.0 -- 2019-12-09
+
+    - add security document
+    
+- 0.46.0 -- 2019-11-19
+
+    - fix Light->run functional typo
+    
+- 0.45.0 -- 2019-11-19
+
+    - update Light->run, now handles the LightRedirectException directly (i.e. no 3rd party handling)
+    - removed LightReverseRouterInterface
+    
+- 0.44.0 -- 2019-11-11
+
+    - fix Light->run functional typo
+    
+- 0.43.0 -- 2019-11-11
+
+    - add Light.on_unhandled_exception_caught event
+    
+- 0.42.0 -- 2019-11-11
+
+    - update Core/Light: new exception handling system
+    
+- 0.41.0 -- 2019-11-08
+
+    - add LightEvent::createByContainer 
+    
+- 0.40.1 -- 2019-11-07
+
+    - add events naming convention 
+    
+- 0.40.0 -- 2019-11-07
+
+    - fix ControllerHelper::executeController throwing exception when the response is a string 
+    
+- 0.39.0 -- 2019-11-07
+
+    - fix Core/Light not handling no route match exception properly
+    
+- 0.38.0 -- 2019-11-06
+
+    - add LightEvent->getContainer method
+    
+- 0.37.0 -- 2019-11-06
+
+    - add LightEvent
+    
+- 0.36.0 -- 2019-11-06
+
+    - update Core/Light, now dispatches the Light.on_route_found event
+    
 - 0.35.0 -- 2019-10-28
 
     - fix Light->run triggering end routine with route=false

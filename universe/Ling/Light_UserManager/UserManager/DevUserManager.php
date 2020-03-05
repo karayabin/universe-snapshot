@@ -47,6 +47,16 @@ class DevUserManager implements LightUserManagerInterface
         return $this->user;
     }
 
+    /**
+     * @implementation
+     */
+    public function destroyUser()
+    {
+        $this->user = null;
+    }
+
+
+
     //--------------------------------------------
     //
     //--------------------------------------------

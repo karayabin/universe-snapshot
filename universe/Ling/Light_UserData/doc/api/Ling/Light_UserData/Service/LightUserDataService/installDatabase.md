@@ -51,7 +51,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::installDatabase](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L125-L147)
+See the source code for method [LightUserDataService::installDatabase](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L123-L194)
 
 
 See Also

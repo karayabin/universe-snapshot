@@ -4,11 +4,14 @@
 namespace Ling\Light_AjaxFileUploadManager\Util;
 
 
+use Ling\Light\ServiceContainer\LightServiceContainerInterface;
+use Ling\Light_HtmlPageCopilot\Service\LightHtmlPageCopilotService;
+
 /**
  * The LightAjaxFileUploadManagerRenderingUtil class.
  *
  * This class helps rendering some of the gui parts involved in a file upload system.
- * In this particular class, we assume that the [jsFileUploader](https://github.com/lingtalfi/jsFileUploader) js client is used,
+ * In this particular class, we assume that the [jFileUploader](https://github.com/lingtalfi/jFileUploader) js client is used,
  * and we provide method to help its implementation.
  *
  *
@@ -31,11 +34,18 @@ class LightAjaxFileUploadManagerRenderingUtil
     protected $suffix;
 
     /**
+     * This property holds the container for this instance.
+     * @var LightServiceContainerInterface
+     */
+    protected $container;
+
+    /**
      * Builds the LightAjaxFileUploadManagerRenderingUtil instance.
      */
     public function __construct()
     {
         $this->suffix = "1";
+        $this->container = null;
     }
 
     /**
@@ -46,6 +56,16 @@ class LightAjaxFileUploadManagerRenderingUtil
     public function setSuffix(string $suffix)
     {
         $this->suffix = $suffix;
+    }
+
+    /**
+     * Sets the container.
+     *
+     * @param LightServiceContainerInterface $container
+     */
+    public function setContainer(LightServiceContainerInterface $container)
+    {
+        $this->container = $container;
     }
 
 
@@ -63,6 +83,18 @@ class LightAjaxFileUploadManagerRenderingUtil
      */
     public function printJavascript(array $field): void
     {
+
+
+        /**
+         * @var $copilot LightHtmlPageCopilotService
+         */
+        $copilot = $this->container->get("html_page_copilot");
+        $copilot->registerLibrary("jFileUploader", [
+            "/libs/universe/Ling/JFileUploader/fileuploader.js",
+        ], [
+            "/libs/universe/Ling/JFileUploader/fileuploader.css",
+        ]);
+
         $suffix = $this->suffix;
         $fieldName = $field['id'];
         $maxFile = $field["maxFile"];
@@ -106,7 +138,7 @@ class LightAjaxFileUploadManagerRenderingUtil
 
 
     /**
-     * Prints the html field using the given field array, and assuming the js file uploader client (https://github.com/lingtalfi/jsFileUploader) is used.
+     * Prints the html field using the given field array, and assuming the js file uploader client (https://github.com/lingtalfi/jFileUploader) is used.
      * This also uses the bootstrap4 framework.
      *
      * The available options are:
@@ -144,7 +176,7 @@ class LightAjaxFileUploadManagerRenderingUtil
             <div id="id-fileuploader-filevisualizer-<?php echo $suffix; ?>"
                  class="file-uploader-filevisualizer <?php echo htmlspecialchars($sizeClass); ?>"></div>
 
-            <div id="id-fileuploader-error-<?php echo $suffix; ?>" class="alert alert-danger mt-2 display-none"
+            <div id="id-fileuploader-error-<?php echo $suffix; ?>" class="alert alert-danger mt-2" style="display: none"
                  role="alert">
                 <strong>Oops!</strong> The following errors occurred:
                 <ul>

@@ -1,6 +1,6 @@
 Light_Realform
 ===============
-2019-10-14
+2019-10-14 -> 2019-11-05
 
 
 
@@ -11,21 +11,20 @@ The hope of this tool is to be able to create any form.
 
 
 
-The main idea is that we have three main parts:
+The main idea is that we have the following parts:
 
 
 - the form handling
-- the form rendering
 - the success handler
+- the miscellaneous part 
 
 
-The form handler connects the two other parts together.
-It handles the form errors, and call the **success handler** if the form validates.
+The form handler basically handles the form submission: it handles the form errors, and call the **success handler** if the form validates.
 
-The form renderer is only responsible for displaying the form, it has no brain.
 The success handler is some php code that does something with the validated posted data, it can for instance
 update a database or send an email, or more.
 
+The miscellaneous part contains properties such as the title of the form.
 
 
 

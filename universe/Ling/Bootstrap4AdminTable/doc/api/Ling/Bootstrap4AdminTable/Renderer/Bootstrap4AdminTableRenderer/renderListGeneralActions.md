@@ -7,7 +7,7 @@ Bootstrap4AdminTableRenderer::renderListGeneralActions
 
 
 
-Bootstrap4AdminTableRenderer::renderListGeneralActions — 
+Bootstrap4AdminTableRenderer::renderListGeneralActions — Prints the list general actions.
 
 
 
@@ -21,7 +21,7 @@ public [Bootstrap4AdminTableRenderer::renderListGeneralActions](https://github.c
 
 
 
-Prints the list general actions
+Prints the list general actions.
 
 
 
@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [Bootstrap4AdminTableRenderer::renderListGeneralActions](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/Renderer/Bootstrap4AdminTableRenderer.php#L97-L109)
+See the source code for method [Bootstrap4AdminTableRenderer::renderListGeneralActions](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/Renderer/Bootstrap4AdminTableRenderer.php#L108-L120)
 
 
 See Also

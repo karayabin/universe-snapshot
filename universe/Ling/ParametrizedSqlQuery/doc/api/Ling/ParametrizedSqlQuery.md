@@ -1,6 +1,6 @@
 Ling/ParametrizedSqlQuery
 ================
-2019-08-12 --> 2019-10-11
+2019-08-12 --> 2020-02-26
 
 
 
@@ -9,6 +9,8 @@ Table of contents
 ===========
 
 - [ParametrizedSqlQueryException](https://github.com/lingtalfi/ParametrizedSqlQuery/blob/master/doc/api/Ling/ParametrizedSqlQuery/Exception/ParametrizedSqlQueryException.md) &ndash; The ParametrizedSqlQueryException class.
+- [ParametrizedSqlQueryHelper](https://github.com/lingtalfi/ParametrizedSqlQuery/blob/master/doc/api/Ling/ParametrizedSqlQuery/Helper/ParametrizedSqlQueryHelper.md) &ndash; The ParametrizedSqlQueryHelper class.
+    - [ParametrizedSqlQueryHelper::getColumnName2ColumnExpression](https://github.com/lingtalfi/ParametrizedSqlQuery/blob/master/doc/api/Ling/ParametrizedSqlQuery/Helper/ParametrizedSqlQueryHelper/getColumnName2ColumnExpression.md) &ndash; Returns an array of alias => columnExpression based on the given columns array.
 - [ParametrizedSqlQueryUtil](https://github.com/lingtalfi/ParametrizedSqlQuery/blob/master/doc/api/Ling/ParametrizedSqlQuery/ParametrizedSqlQueryUtil.md) &ndash; The ParametrizedSqlQueryUtil class.
     - [ParametrizedSqlQueryUtil::__construct](https://github.com/lingtalfi/ParametrizedSqlQuery/blob/master/doc/api/Ling/ParametrizedSqlQuery/ParametrizedSqlQueryUtil/__construct.md) &ndash; Builds the ParametrizedSqlQueryUtil instance.
     - [ParametrizedSqlQueryUtil::getSqlQuery](https://github.com/lingtalfi/ParametrizedSqlQuery/blob/master/doc/api/Ling/ParametrizedSqlQuery/ParametrizedSqlQueryUtil/getSqlQuery.md) &ndash; Returns an SqlQuery instance parametrized using the given request declaration and params.

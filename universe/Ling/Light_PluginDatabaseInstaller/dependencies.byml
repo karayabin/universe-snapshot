@@ -3,6 +3,7 @@ dependencies:
         - Light
         - Bat
         - DirScanner
+        - Light_Events
     
 
 post_install: 

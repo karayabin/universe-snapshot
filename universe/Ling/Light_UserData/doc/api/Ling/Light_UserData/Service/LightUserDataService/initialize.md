@@ -7,7 +7,7 @@ LightUserDataService::initialize
 
 
 
-LightUserDataService::initialize — Initializes a service with the given Light instance and HttpRequestInterface instance.
+LightUserDataService::initialize — Listener for the [Light.initialize_2 event](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md).
 
 
 
@@ -16,12 +16,16 @@ Description
 ================
 
 
-public [LightUserDataService::initialize](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/initialize.md)([Ling\Light\Core\Light](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light.md) $light, Ling\Light\Http\HttpRequestInterface $httpRequest) : mixed
+public [LightUserDataService::initialize](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/initialize.md)(Ling\Light\Events\LightEvent $event) : void
 
 
 
 
-Initializes a service with the given Light instance and HttpRequestInterface instance.
+Listener for the [Light.initialize_2 event](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md).
+It will populate the light user data into the tables from the [Light_UserDatabase plugin](https://github.com/lingtalfi/Light_UserDatabase).
+
+This listener depends on Light_UserDatabase plugin being installed first (hence using a level 2 light initializer).
+See more details on the [light events page](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md).
 
 
 
@@ -30,11 +34,7 @@ Parameters
 ================
 
 
-- light
-
-    
-
-- httpRequest
+- event
 
     
 
@@ -42,8 +42,13 @@ Parameters
 Return values
 ================
 
-Returns mixed.
+Returns void.
 
+
+Exceptions thrown
+================
+
+- [Exception](http://php.net/manual/en/class.exception.php).&nbsp;
 
 
 
@@ -53,7 +58,7 @@ Returns mixed.
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::initialize](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L108-L118)
+See the source code for method [LightUserDataService::initialize](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L106-L116)
 
 
 See Also

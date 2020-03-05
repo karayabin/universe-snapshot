@@ -4,7 +4,7 @@
 
 The SicTool class
 ================
-2019-04-25 --> 2019-07-18
+2019-04-25 --> 2019-12-09
 
 
 
@@ -25,7 +25,7 @@ Class synopsis
 class <span class="pl-k">SicTool</span>  {
 
 - Methods
-    - public static [isSicBlock](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/SicTool/isSicBlock.md)(?$thing, $passKey = null) : bool
+    - public static [isSicBlock](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/SicTool/isSicBlock.md)($thing, ?$passKey = null) : bool
 
 }
 

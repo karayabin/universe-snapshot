@@ -221,8 +221,18 @@ class HtmlPageCopilot
      * Please for the names of your library, use the camelNotation, examples:
      *
      * - jquery
+     * - jqueryUi
      * - bootstrap
      * - myLibrary
+     *
+     * If you're using a library that comes from a universe planet, then use the planet name directly:
+     *
+     * - Chloroform_HeliumRenderer
+     * - JSortTable
+     * - ...
+     *
+     *
+     *
      *
      *
      *

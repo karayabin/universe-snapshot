@@ -16,7 +16,7 @@ Description
 ================
 
 
-protected [MysqlWizard::query](https://github.com/lingtalfi/SqlWizard/blob/master/doc/api/Ling/SqlWizard/MysqlWizard/query.md)(?$query) : [PDOStatement](https://www.php.net/manual/en/class.pdostatement.php)
+protected [MysqlWizard::query](https://github.com/lingtalfi/SqlWizard/blob/master/doc/api/Ling/SqlWizard/MysqlWizard/query.md)($query) : [PDOStatement](https://www.php.net/manual/en/class.pdostatement.php)
 
 
 

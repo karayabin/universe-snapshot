@@ -54,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [ResourceApiInterface::deleteResourceByRealPath](https://github.com/lingtalfi/Light_UserData/blob/master/Api/ResourceApiInterface.php#L109-L109)
+See the source code for method [ResourceApiInterface::deleteResourceByRealPath](https://github.com/lingtalfi/Light_UserData/blob/master/Api/ResourceApiInterface.php#L119-L119)
 
 
 See Also

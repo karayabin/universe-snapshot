@@ -1,0 +1,14 @@
+    /**
+     * @implementation
+     */
+    public function getTagNamesByResourceId(string $resourceId): array
+    {
+        return $this->pdoWrapper->fetchAll("
+        select a.name from `$this->table` a
+        inner join luda_resource_has_tag h on h.tag_id=a.id
+        inner join luda_resource b on b.id=h.resource_id
+        where b.id=:resource_id
+        ", [
+            ":resource_id" => $resourceId,
+        ], \PDO::FETCH_COLUMN);
+    }

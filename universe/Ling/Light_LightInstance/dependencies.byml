@@ -1,7 +1,6 @@
 dependencies: 
     Ling: 
         - Light
-        - Light_Initializer
     
 
 post_install: 

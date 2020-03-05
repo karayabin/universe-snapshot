@@ -49,7 +49,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [RealistRowsRendererInterface::render](https://github.com/lingtalfi/Light_Realist/blob/master/Rendering/RealistRowsRendererInterface.php#L54-L54)
+See the source code for method [RealistRowsRendererInterface::render](https://github.com/lingtalfi/Light_Realist/blob/master/Rendering/RealistRowsRendererInterface.php#L61-L61)
 
 
 See Also

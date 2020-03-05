@@ -8,6 +8,7 @@ use Ling\BabyYaml\BabyYamlUtil;
 use Ling\Bat\ArrayTool;
 use Ling\Bat\StringTool;
 use Ling\ParametrizedSqlQuery\Exception\ParametrizedSqlQueryException;
+use Ling\ParametrizedSqlQuery\Helper\ParametrizedSqlQueryHelper;
 use Ling\SqlQuery\SqlQuery;
 use Ling\UniversalLogger\UniversalLoggerInterface;
 
@@ -103,11 +104,14 @@ class ParametrizedSqlQueryUtil
     protected $_processedMarkers;
 
     /**
-     * This property holds the fields for this instance.
+     * This property holds the $_colName2colExpression for this instance.
      * It's used only in the context of the getSqlQuery method.
+     * It's an array of alias => column expression representing the allowed columns.
+     *
+     *
      * @var array
      */
-    protected $_fields;
+    protected $_colName2colExpression;
 
     /**
      * This property holds the logger for this instance.
@@ -155,7 +159,6 @@ class ParametrizedSqlQueryUtil
 
         if (ArrayTool::arrayKeyExistAll(['table', 'base_fields'], $requestDeclaration)) {
 
-
             //--------------------------------------------
             // BASE
             //--------------------------------------------
@@ -163,7 +166,8 @@ class ParametrizedSqlQueryUtil
             if (false === is_array($fields)) {
                 $fields = [$fields];
             }
-            $this->_fields = $fields;
+            $this->_colName2colExpression = ParametrizedSqlQueryHelper::getColumnName2ColumnExpression($fields);
+
             $query->setTable($requestDeclaration['table']);
             foreach ($fields as $field) {
                 $query->addField($field);
@@ -339,7 +343,7 @@ class ParametrizedSqlQueryUtil
             }
 
 
-//            az($query->getSqlQuery(), $this->_markers);
+//            az(__FILE__, $query->getSqlQuery(), $this->_markers);
             return $query;
 
         } else {
@@ -430,9 +434,12 @@ class ParametrizedSqlQueryUtil
                 //--------------------------------------------
                 switch ($variable) {
                     case "column":
-                        if (false === in_array($value, $this->_fields, true)) {
+                        if (true === array_key_exists($value, $this->_colName2colExpression)) {
+                            $value = $this->_colName2colExpression[$value];
+                        } else {
                             $this->error("Unexpected value for variable \"column\" (tag=$tagName).");
                         }
+
                         break;
                     case "direction":
                         if (false === in_array($value, ["asc", 'desc'], true)) {
@@ -750,5 +757,6 @@ class ParametrizedSqlQueryUtil
         }
         return $res;
     }
+
 
 }

@@ -1,0 +1,5 @@
+kit_admin_generator:
+    instance: Ling\Light_Kit_Admin_Generator\Service\LightKitAdminGeneratorService
+    methods:
+        setContainer:
+            container: @container()

@@ -36,6 +36,7 @@ Summary
     - [Bmenu](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/pages/bmenu.md)
     - [Conception notes](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/pages/conception-notes.md)
     - [Error handling](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/pages/error-handling.md)
+    - [Events](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/pages/events.md)
     - [Light kit admin js environment](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/pages/light-kit-admin-js-environment.md)
     - [Pages](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/pages/pages.md)
     - [Procedures](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/pages/procedures.md)
@@ -80,18 +81,12 @@ kit_admin:
                 notifications:
                     # alert|toast
                     default_type: alert
+#        setUserRowOwnershipManager:
+#            manager:
+#                instance: Ling\Light_Kit_Admin\UserRowOwnership\LightKitAdminUserRowOwnershipManager
 
-# not sure if this will be in the final release of Light_Kit_Admin...
-kit_admin_rights:
-    instance: Ling\Light\Light_Kit_Admin\Rights\LightKitAdminRightsManager
-    methods_collection: []
-#        -
-#            method: registerRights:
-#            args:
-#                rights: []
-#            method: registerRightsAssigner:
-#            args:
-#                assigner: []
+
+
 
 
 # --------------------------------------
@@ -101,28 +96,9 @@ kit_admin_rights:
 
 $ajax_file_upload_manager.methods_collection:
     -
-        method: addActionLists
+        method: addConfigurationItemsByFile
         args:
-            actionLists:
-                lka_user_profile:
-                    -
-                        use_Light_UserData: true
-                        path: images/avatar.{extension}
-                        imageTransformer: resize(200)
-                        isPrivate: false
-                        use_2svp: true
-
-    -
-        method: addValidationRules
-        args:
-            validationRules:
-                lka_user_profile: []
-                    maxFileSize: 2M
-                    extensions:
-                        - png
-                        - jpeg
-                        - jpg
-                        - gif
+            file: ${app_dir}/config/data/Light_Kit_Admin/Light_AjaxFileUploadManager/main.byml
 
 
 
@@ -154,19 +130,59 @@ $bmenu.methods_collection:
                         path: plugins
 
 
+$chloroform_extension.methods_collection:
+    -
+        method: registerTableListConfigurationHandler
+        args:
+            plugin: Light_Kit_Admin
+            handler:
+                instance: Ling\Light_Kit_Admin\ChloroformExtension\LightKitAdminTableListConfigurationHandler
+                methods:
+                    setConfigurationFile:
+                        files:
+                            - ${app_dir}/config/data/Light_Kit_Admin/Light_ChloroformExtension/generated/lkagen-table_list.byml
+                            - ${app_dir}/config/data/Light_Kit_Admin/Light_ChloroformExtension/table_list.byml
+
+
+$controller_hub.methods_collection:
+    -
+        method: registerHandler
+        args:
+            plugin: Light_Kit_Admin
+            handler:
+                instance: Ling\Light_Kit_Admin\ControllerHub\LightKitAdminControllerHubHandler
+                methods:
+                    setContainer:
+                        container: @container()
+
+$crud.methods_collection:
+    -
+        method: registerHandler
+        args:
+            pluginId: Light_Kit_Admin
+            handler:
+                instance: Ling\Light_Kit_Admin\Crud\CrudRequestHandler\LightKitAdminCrudRequestHandler
+
+
+
 $easy_route.methods_collection:
     -
         method: registerBundleFile
         args:
             file: config/data/Light_Kit_Admin/Light_EasyRoute/lka_routes.byml
 
-$initializer.methods_collection:
+
+$events.methods_collection:
     -
-        method: registerInitializer
+        method: registerListener
         args:
-            initializer: @service(kit_admin)
-            slot: install
-            parent: Light_UserDatabase
+            events: Light.initialize_2
+            listener:
+                instance: @service(kit_admin)
+                callable_method: initialize
+
+
+
 
 
 $kit.methods_collection:
@@ -178,14 +194,9 @@ $kit.methods_collection:
 
 $micro_permission.methods_collection:
     -
-        method: registerMicroPermissionResolver
+        method: registerMicroPermissionsByFile
         args:
-            plugin: Light_Kit_Admin
-            resolver:
-                instance: Ling\Light_Kit_Admin\MicroPermission\LightKitAdminMicroPermissionResolver
-                methods:
-                    setFile:
-                        file: ${app_dir}/config/data/Light_Kit_Admin/Light_MicroPermission/lka-micro-permissions.byml
+            file: ${app_dir}/config/data/Light_Kit_Admin/Light_MicroPermission/lka-micro-permissions.byml
 
 $plugin_database_installer.methods_collection:
     -
@@ -211,7 +222,7 @@ $realform.methods_collection:
                 instance: Ling\Light_Kit_Admin\Realform\Handler\LightKitAdminRealformHandler
                 methods:
                     setConfDir:
-                        dir: ${app_dir}/config/data/Light_Kit_Admin/Light_Realform/
+                        dir: ${app_dir}/config/data/Light_Kit_Admin/Light_Realform
 
 
 $realist.methods_collection:
@@ -220,7 +231,7 @@ $realist.methods_collection:
         args:
             identifier: Light_Kit_Admin
             renderer:
-                instance: Ling\Bootstrap4AdminTable\Renderer\StandardBootstrap4AdminTableRenderer
+                instance: Ling\Light_Kit_Admin\Realist\Rendering\LightKitAdminRealistListRenderer
     -
         method: registerRealistRowsRenderer
         args:
@@ -246,6 +257,19 @@ $realist.methods_collection:
                 instance: Ling\Light_Kit_Admin\Realist\ListGeneralActionHandler\LightKitAdminListGeneralActionHandler
 
 
+$row_lookup.methods_collection:
+    -
+        method: registerConfigurationStorage
+        args:
+            plugin: Light_Kit_Admin
+            storage:
+                instance: Ling\Light_Kit_Admin\RowLookup\ConfigurationStorage\LightKitAdminRowLookupConfigurationStorage
+                methods:
+                    setBaseDir:
+                        dir: ${app_dir}/config/data/Light_Kit_Admin/Light_RowLookup/tables
+
+
+
 $user_database.methods_collection:
     -
         method: setRootAvatarUrl
@@ -261,7 +285,7 @@ $user_database.methods_collection:
 # vars
 # --------------------------------------
 $user_database_vars.bullsheeter_avatar_img_dir: ${app_dir}/www/plugins/Light_Kit_Admin/img/avatars2
-$user_data_vars.install_parent_plugin: Light_Kit_Admin
+
 
 
 
@@ -280,6 +304,22 @@ $user_data_vars.install_parent_plugin: Light_Kit_Admin
 
 History Log
 =============
+        
+- 0.4.1 -- 2019-12-17
+
+    - fix functional typo in service configuration
+    
+- 0.4.0 -- 2019-12-17
+
+    - update plugin to accommodate Light 0.50 new initialization system
+    
+- 0.3.0 -- 2019-12-06
+
+    - checkpoint commit
+    
+- 0.2.0 -- 2019-11-05
+
+    - checkpoint commit
     
 - 0.1.0 -- 2019-10-25
 

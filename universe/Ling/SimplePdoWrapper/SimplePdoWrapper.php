@@ -5,6 +5,8 @@ namespace Ling\SimplePdoWrapper;
 
 
 use Ling\SimplePdoWrapper\Exception\NoPdoConnectionException;
+use Ling\SimplePdoWrapper\Exception\SimplePdoWrapperException;
+use Ling\SimplePdoWrapper\Util\Where;
 
 /**
  * The SimplePdoWrapper is a base class implementing the non-driver-specific methods of the SimplePdoWrapperInterface interface.
@@ -13,6 +15,12 @@ use Ling\SimplePdoWrapper\Exception\NoPdoConnectionException;
 class SimplePdoWrapper implements SimplePdoWrapperInterface
 {
 
+    /**
+     * This property holds the isSystemCall for this instance.
+     * See the @page(SimplePdoWrapper conception notes) for more info.
+     * @var bool = false
+     */
+    public static $isSystemCall = false;
 
     /**
      * This property holds the default fetch style value for the fetch and fetchAll methods.
@@ -153,6 +161,8 @@ class SimplePdoWrapper implements SimplePdoWrapperInterface
      */
     public function insert($table, array $fields = [], array $options = [])
     {
+
+
         // preparing the query
         $query = 'insert into ' . $table . ' ';
         $markers = [];
@@ -167,8 +177,11 @@ class SimplePdoWrapper implements SimplePdoWrapperInterface
         $stmt = $pdo->prepare($query);
         $this->storeQueryObject($stmt);
 
+
         if (true === $stmt->execute($markers)) {
-            return $pdo->lastInsertId();
+            $lastInsertId = $pdo->lastInsertId();
+            $this->onSuccess('insert', $table, $query, [$fields, $options], $lastInsertId);
+            return $lastInsertId;
         }
         return false;
     }
@@ -198,8 +211,11 @@ class SimplePdoWrapper implements SimplePdoWrapperInterface
         $stmt = $pdo->prepare($query);
         $this->storeQueryObject($stmt);
 
+
         if (true === $stmt->execute($markers)) {
-            return $pdo->lastInsertId();
+            $lastInsertId = $pdo->lastInsertId();
+            $this->onSuccess('replace', $table, $query, [$fields, $options], $lastInsertId);
+            return $lastInsertId;
         }
         return false;
     }
@@ -211,7 +227,6 @@ class SimplePdoWrapper implements SimplePdoWrapperInterface
      */
     public function update($table, array $fields, $whereConds = null, array $markers = [])
     {
-
 
         // preparing the query
         $query = 'update ' . $table . ' set ';
@@ -229,7 +244,9 @@ class SimplePdoWrapper implements SimplePdoWrapperInterface
         $stmt = $pdo->prepare($query);
         $this->storeQueryObject($stmt);
 
+
         if (true === $stmt->execute($allMarkers)) {
+            $this->onSuccess('update', $table, $query, [$fields, $whereConds, $markers], true);
             return true;
         }
         return false;
@@ -253,7 +270,9 @@ class SimplePdoWrapper implements SimplePdoWrapperInterface
         $this->storeQueryObject($stmt);
 
         if (true === $stmt->execute($markers)) {
-            return $stmt->rowCount();
+            $rowCount = $stmt->rowCount();
+            $this->onSuccess('delete', $table, $query, [$whereConds, $markers], $rowCount);
+            return $rowCount;
         }
         return false;
     }
@@ -345,6 +364,7 @@ class SimplePdoWrapper implements SimplePdoWrapperInterface
      * @param $whereConds
      * @param $stmt
      * @param array $markers
+     * @throws \Exception
      */
     public static function addWhereSubStmt(&$stmt, array &$markers, $whereConds)
     {
@@ -358,7 +378,6 @@ class SimplePdoWrapper implements SimplePdoWrapperInterface
 
 
                 foreach ($whereConds as $field => $value) {
-
                     if (true === $first) {
                         $first = false;
                     } else {
@@ -376,6 +395,12 @@ class SimplePdoWrapper implements SimplePdoWrapperInterface
             }
         } elseif (is_string($whereConds)) {
             $stmt .= ' WHERE ' . $whereConds;
+        } elseif ($whereConds instanceof Where) {
+            $stmt .= " WHERE (";
+            $whereConds->apply($stmt, $markers);
+            $stmt .= " )";
+        } else {
+            throw new SimplePdoWrapperException("Unknown case of where.");
         }
     }
 
@@ -414,6 +439,34 @@ class SimplePdoWrapper implements SimplePdoWrapperInterface
     protected function storeQueryObject($queryObject)
     {
         $this->queryObject = $queryObject;
+    }
+
+    /**
+     * A hook for other classes to use.
+     * This hook is triggered every time one of the following operation is triggered (basically an operation that
+     * changes the state of the database):
+     *
+     * - insert
+     * - replace
+     * - update
+     * - delete
+     *
+     *
+     * Beware that if you use the executeStatement method to perform an insert for instance, this will not trigger
+     * this onSuccess method (i.e. you need to call the insert method directly).
+     *
+     *
+     * @param string $type
+     * @param string $table
+     * @param string $query
+     * @param array $arguments
+     * @param bool $return
+     *
+     * @overrideMe
+     */
+    protected function onSuccess(string $type, string $table, string $query, array $arguments, $return = true)
+    {
+
     }
 
 
@@ -475,4 +528,6 @@ class SimplePdoWrapper implements SimplePdoWrapperInterface
             $stmt .= ')';
         }
     }
+
+
 }

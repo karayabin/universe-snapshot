@@ -4,7 +4,7 @@
 
 The LightLastMessageFileLoggerListener class
 ================
-2019-08-01 --> 2019-10-17
+2019-08-01 --> 2020-01-08
 
 
 
@@ -26,15 +26,23 @@ Class synopsis
 ==============
 
 
-class <span class="pl-k">LightLastMessageFileLoggerListener</span> implements [LightLoggerListenerInterface](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Listener/LightLoggerListenerInterface.md) {
+class <span class="pl-k">LightLastMessageFileLoggerListener</span> extends [BaseLoggerListener](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Listener/BaseLoggerListener.md) implements [LightLoggerListenerInterface](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Listener/LightLoggerListenerInterface.md) {
 
 - Properties
     - protected string [$file](#property-file) ;
 
+- Inherited properties
+    - protected string [BaseLoggerListener::$format](#property-format) ;
+    - protected bool [BaseLoggerListener::$expandArray](#property-expandArray) ;
+
 - Methods
     - public [__construct](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Listener/LightLastMessageFileLoggerListener/__construct.md)() : void
     - public [setFile](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Listener/LightLastMessageFileLoggerListener/setFile.md)(string $file) : void
-    - public [listen](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Listener/LightLastMessageFileLoggerListener/listen.md)(string $msg, string $channel) : void
+    - public [listen](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Listener/LightLastMessageFileLoggerListener/listen.md)($msg, string $channel) : void
+
+- Inherited methods
+    - public [BaseLoggerListener::configure](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Listener/BaseLoggerListener/configure.md)(array $options) : void
+    - protected [BaseLoggerListener::getFormattedMessage](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Listener/BaseLoggerListener/getFormattedMessage.md)(string $channel, $msg) : string
 
 }
 
@@ -50,6 +58,26 @@ Properties
     
     
 
+- <span id="property-format"><b>format</b></span>
+
+    This property holds the format used by this class to transform the emitter message into the actual logger message.
+    
+    
+    The following tags are available:
+    
+    - {channel}: the channel in uppercase
+    - {dateTime}: the date time string (for instance: 2019-01-16 16:33:15)
+    - {message}: the emitter (original) message
+    
+    
+
+- <span id="property-expandArray"><b>expandArray</b></span>
+
+    This property holds whether to use expand the array (multi-line) or not (single line).
+    Default is true (as it's more readable).
+    
+    
+
 
 
 Methods
@@ -58,6 +86,8 @@ Methods
 - [LightLastMessageFileLoggerListener::__construct](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Listener/LightLastMessageFileLoggerListener/__construct.md) &ndash; Builds the LightLastMessageFileLoggerListener instance.
 - [LightLastMessageFileLoggerListener::setFile](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Listener/LightLastMessageFileLoggerListener/setFile.md) &ndash; Sets the file.
 - [LightLastMessageFileLoggerListener::listen](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Listener/LightLastMessageFileLoggerListener/listen.md) &ndash; Reacts to the given logger message in a specific way.
+- [BaseLoggerListener::configure](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Listener/BaseLoggerListener/configure.md) &ndash; Configures this instance.
+- [BaseLoggerListener::getFormattedMessage](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Listener/BaseLoggerListener/getFormattedMessage.md) &ndash; Returns the formatted message to dispatch to the listeners.
 
 
 

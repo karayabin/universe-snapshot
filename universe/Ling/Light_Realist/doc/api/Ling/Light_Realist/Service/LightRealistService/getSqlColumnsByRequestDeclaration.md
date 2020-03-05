@@ -22,8 +22,8 @@ public [LightRealistService::getSqlColumnsByRequestDeclaration](https://github.c
 
 
 Returns the columns used in the sql query by parsing the given request declaration.
-Usually, this is just the base_fields array, but with some more dynamic requests,
-it might involve a little bit more computation.
+It's an array of alias => column_expression, usually based on the base_fields property.
+See the [duelist](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/duelist.md) page for more info.
 
 
 
@@ -51,7 +51,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [LightRealistService::getSqlColumnsByRequestDeclaration](https://github.com/lingtalfi/Light_Realist/blob/master/Service/LightRealistService.php#L805-L809)
+See the source code for method [LightRealistService::getSqlColumnsByRequestDeclaration](https://github.com/lingtalfi/Light_Realist/blob/master/Service/LightRealistService.php#L828-L834)
 
 
 See Also

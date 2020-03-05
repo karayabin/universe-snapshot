@@ -7,7 +7,7 @@ LingBreezeGenerator::getInsertMethod
 
 
 
-LingBreezeGenerator::getInsertMethod — Returns the content of a php method of type insert (internal naming convention.
+LingBreezeGenerator::getInsertMethod — Returns the content of a php method of type insert (internal naming convention).
 
 
 
@@ -21,7 +21,7 @@ protected [LingBreezeGenerator::getInsertMethod](https://github.com/lingtalfi/Li
 
 
 
-Returns the content of a php method of type insert (internal naming convention.
+Returns the content of a php method of type insert (internal naming convention).
 
 The variables array is described in this class description.
 
@@ -51,7 +51,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [LingBreezeGenerator::getInsertMethod](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/Generator/LingBreezeGenerator.php#L937-L953)
+See the source code for method [LingBreezeGenerator::getInsertMethod](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/Generator/LingBreezeGenerator.php#L1609-L1683)
 
 
 See Also
@@ -59,5 +59,5 @@ See Also
 
 The [LingBreezeGenerator](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator.md) class.
 
-Previous method: [getFactoryMethod](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator/getFactoryMethod.md)<br>Next method: [getDoInsertMethod](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator/getDoInsertMethod.md)<br>
+Previous method: [getFactoryMethod](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator/getFactoryMethod.md)<br>Next method: [getAllMethod](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator/getAllMethod.md)<br>
 

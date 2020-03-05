@@ -1,0 +1,18 @@
+_parent: ${parent_layout}
+title: Resource has tag Form
+zones:
+    body:
+        -
+            name: lka_chloroform
+            type: picasso
+            className: Ling\Light_Kit_Admin\Widget\Picasso\LightKitAdminChloroformWidget
+            widgetDir: templates/Light_Kit_Admin/widgets/picasso/LightKitAdminChloroformWidget
+            template: default.php
+            vars: []
+                title: Resource has tag
+                form: ${form}
+                related_links:                     
+                    - 
+                        text: "See the list of \"Resource has tag\" items"
+                        url: (::ROUTE::)lch_route-hub::{plugin: Light_Kit_Admin_UserData, controller: Generated/LudaResourceHasTagController}
+                        icon: fas fa-plus-circle

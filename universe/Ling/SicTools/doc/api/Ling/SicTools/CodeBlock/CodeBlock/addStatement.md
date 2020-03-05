@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [CodeBlock::addStatement](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/CodeBlock/CodeBlock/addStatement.md)(?$statement) : void
+public [CodeBlock::addStatement](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/CodeBlock/CodeBlock/addStatement.md)($statement) : void
 
 
 

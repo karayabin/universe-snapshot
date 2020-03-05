@@ -13,6 +13,17 @@ $container = $this->getContainer();
 $jsLibs = $this->copilot->getJsUrls();
 $cssLibs = $this->copilot->getCssUrls();
 
+
+$z = $this->pageConf['layout_vars'] ?? [];
+/**
+ * The css style to include.
+ * By default, we include the lka style, which has a background color.
+ * You can use a fake value such as none for instance to not call any style at all, which would result in a blank
+ * background, which might be useful if you want to use this layout inside an iframe for instance.
+ */
+$style = $z['style'] ?? 'lka';
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,8 +38,8 @@ $cssLibs = $this->copilot->getCssUrls();
           integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
     <?php foreach ($cssLibs as $url): ?>
         <link rel="stylesheet" href="<?php echo htmlspecialchars($url); ?>">
@@ -48,7 +59,13 @@ $cssLibs = $this->copilot->getCssUrls();
               content="<?php echo htmlspecialchars($this->copilot->getDescription()); ?>"><?php endif; ?>
 
 
-    <link rel="stylesheet" href="/plugins/Light_Kit_Admin/zeroadmin/css/style.css">
+    <?php switch ($style):
+        case 'lka': ?>
+            <link rel="stylesheet" href="/plugins/Light_Kit_Admin/zeroadmin/css/style.css">
+            <?php break; ?>
+        <?php default: ?>
+            <?php break; ?>
+        <?php endswitch; ?>
 
 
 </head>
@@ -61,24 +78,16 @@ echo StringTool::htmlAttributes($this->copilot->getBodyTagAttributes()); ?>>
 <?php $this->printZone("body"); ?>
 
 
-
-
-
-
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"
-        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+<script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
         crossorigin="anonymous"></script>
-
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
         crossorigin="anonymous"></script>
-
-
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
-
 
 
 <?php foreach ($jsLibs as $url): ?>

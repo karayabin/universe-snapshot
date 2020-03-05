@@ -32,7 +32,7 @@ $reverseRouter = $container->get('reverse_router');
 
     <a class="navbar-brand" href="<?php echo htmlspecialchars($brand_link); ?>">
         <img class="navbar-brand-full" src="<?php echo htmlspecialchars($brand_img_src); ?>"
-             height="37 alt="<?php echo htmlspecialchars($brand_img_alt); ?>">
+             height="37" alt="<?php echo htmlspecialchars($brand_img_alt); ?>">
     </a>
 
 

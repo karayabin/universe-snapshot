@@ -4,7 +4,7 @@
 
 The CodeBlock class
 ================
-2019-04-25 --> 2019-07-18
+2019-04-25 --> 2019-12-09
 
 
 
@@ -29,7 +29,7 @@ class <span class="pl-k">CodeBlock</span>  {
 
 - Methods
     - public [__construct](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/CodeBlock/CodeBlock/__construct.md)() : void
-    - public [addStatement](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/CodeBlock/CodeBlock/addStatement.md)(?$statement) : void
+    - public [addStatement](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/CodeBlock/CodeBlock/addStatement.md)($statement) : void
     - public [getStatements](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/CodeBlock/CodeBlock/getStatements.md)() : array
 
 }

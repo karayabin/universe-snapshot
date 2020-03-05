@@ -11,6 +11,10 @@ use Ling\Light_Realform\Handler\AliasHelper\BaseRealformHandlerAliasHelper;
 use Ling\Light_UserData\Chloroform\DataTransformer\LightUserData2SvpDataTransformer;
 use Ling\Light_UserData\Chloroform\Validator\ValidUserDataUrlValidator;
 
+
+/**
+ * The LightUserDataRealformHandlerAliasHelper class.
+ */
 class LightUserDataRealformHandlerAliasHelper extends BaseRealformHandlerAliasHelper
 {
 

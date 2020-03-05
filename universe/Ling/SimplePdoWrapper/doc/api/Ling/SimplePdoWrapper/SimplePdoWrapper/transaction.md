@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [SimplePdoWrapper::transaction](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/SimplePdoWrapper/transaction.md)(callable $transactionCallback, [\Exception](http://php.net/manual/en/class.exception.php) &$e = null) : bool
+public [SimplePdoWrapper::transaction](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/SimplePdoWrapper/transaction.md)(callable $transactionCallback, ?[\Exception](http://php.net/manual/en/class.exception.php) &$e = null) : bool
 
 
 
@@ -60,7 +60,7 @@ When the connexion is not set
 
 Source Code
 ===========
-See the source code for method [SimplePdoWrapper::transaction](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/SimplePdoWrapper.php#L113-L145)
+See the source code for method [SimplePdoWrapper::transaction](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/SimplePdoWrapper.php#L121-L153)
 
 
 See Also

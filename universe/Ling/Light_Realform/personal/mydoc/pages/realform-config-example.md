@@ -1,6 +1,6 @@
 Realform configuration example
 ==============
-2019-10-24 -> 2019-10-31
+2019-10-24 -> 2019-11-05
 
 
 Below is an example of a realform configuration file used by a plugin I'm working on at the moment.
@@ -11,6 +11,10 @@ I added a lot of comments so that this can serve as the documentation for the re
 
 
 ```yaml
+
+
+# The title is just a string which might be rendered by the form renderer (i.e. if your renderer can do it)
+title: The form title
 
 # The form handler section is responsible for configuring the form handler (not to confound with the realform handler).
 # Usually, the form handler ends up being a Chloroform instance.

@@ -20,7 +20,7 @@ use Ling\Light_BMenu\Menu\LightBMenu;
  * Then plugins (aka subscribers) are then called to complement the host menu.
  *
  *
- * The menu item structure is defined in the @page(conception notes).
+ * The menu item structure is defined in the @page(bmenu conception notes).
  *
  *
  * Each host is bound to a menuType (like "main menu" for instance), so that we can have multiple
@@ -48,7 +48,7 @@ class LightBMenuService
      * It's an array of menuType => directInjectors.
      *
      * With:
-     * - menuType: string, the menu type (see @page(conception notes) for more details)
+     * - menuType: string, the menu type (see @page(bmenu conception notes) for more details)
      * - directInjectors: BMenuDirectInjectorInterface[]|callable[], an array of direct injectors,
      *          each of which being either a BMenuDirectInjectorInterface instance, or a
      *          php callable which take two arguments: the menuStructureId and the LightBMenu instance.
@@ -63,11 +63,11 @@ class LightBMenuService
      * An array of menuType => defaultItems.
      *
      * With:
-     * - menuType: string, the menu type (see @page(conception notes) for more details)
+     * - menuType: string, the menu type (see @page(bmenu conception notes) for more details)
      * - defaultItems: an array of menu items
      *
      *
-     * See the @page(conception notes) for more details.
+     * See the @page(bmenu conception notes) for more details.
      *
      * @var array
      */

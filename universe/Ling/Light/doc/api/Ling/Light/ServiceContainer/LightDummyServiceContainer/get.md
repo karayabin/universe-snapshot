@@ -56,7 +56,7 @@ When a problem occur and the requested service cannot be returned
 
 Source Code
 ===========
-See the source code for method [LightDummyServiceContainer::get](https://github.com/lingtalfi/Light/blob/master/ServiceContainer/LightDummyServiceContainer.php#L18-L21)
+See the source code for method [LightDummyServiceContainer::get](https://github.com/lingtalfi/Light/blob/master/ServiceContainer/LightDummyServiceContainer.php#L34-L37)
 
 
 See Also
@@ -64,5 +64,5 @@ See Also
 
 The [LightDummyServiceContainer](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightDummyServiceContainer.md) class.
 
-Next method: [has](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightDummyServiceContainer/has.md)<br>
+Previous method: [__construct](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightDummyServiceContainer/__construct.md)<br>Next method: [has](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightDummyServiceContainer/has.md)<br>
 

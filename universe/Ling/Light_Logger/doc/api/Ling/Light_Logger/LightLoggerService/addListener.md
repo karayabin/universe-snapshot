@@ -65,7 +65,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightLoggerService::addListener](https://github.com/lingtalfi/Light_Logger/blob/master/LightLoggerService.php#L131-L146)
+See the source code for method [LightLoggerService::addListener](https://github.com/lingtalfi/Light_Logger/blob/master/LightLoggerService.php#L107-L122)
 
 
 See Also
@@ -73,5 +73,5 @@ See Also
 
 The [LightLoggerService](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService.md) class.
 
-Previous method: [__construct](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/__construct.md)<br>Next method: [setFormat](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/setFormat.md)<br>
+Previous method: [__construct](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/__construct.md)<br>Next method: [log](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/log.md)<br>
 

@@ -7,7 +7,7 @@ LightLightInstanceService::initialize
 
 
 
-LightLightInstanceService::initialize — Initializes a service with the given Light instance and HttpRequestInterface instance.
+LightLightInstanceService::initialize — Listener for the [Light.initialize_1 event](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md).
 
 
 
@@ -16,12 +16,13 @@ Description
 ================
 
 
-public [LightLightInstanceService::initialize](https://github.com/lingtalfi/Light_LightInstance/blob/master/doc/api/Ling/Light_LightInstance/Service/LightLightInstanceService/initialize.md)([Ling\Light\Core\Light](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light.md) $light, [Ling\Light\Http\HttpRequestInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface.md) $httpRequest) : mixed
+public [LightLightInstanceService::initialize](https://github.com/lingtalfi/Light_LightInstance/blob/master/doc/api/Ling/Light_LightInstance/Service/LightLightInstanceService/initialize.md)(Ling\Light\Events\LightEvent $event) : void
 
 
 
 
-Initializes a service with the given Light instance and HttpRequestInterface instance.
+Listener for the [Light.initialize_1 event](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md).
+It stores the light instance and the http request instance for other plugins to use.
 
 
 
@@ -30,11 +31,7 @@ Parameters
 ================
 
 
-- light
-
-    
-
-- httpRequest
+- event
 
     
 
@@ -42,7 +39,7 @@ Parameters
 Return values
 ================
 
-Returns mixed.
+Returns void.
 
 
 
@@ -53,7 +50,7 @@ Returns mixed.
 
 Source Code
 ===========
-See the source code for method [LightLightInstanceService::initialize](https://github.com/lingtalfi/Light_LightInstance/blob/master/Service/LightLightInstanceService.php#L50-L54)
+See the source code for method [LightLightInstanceService::initialize](https://github.com/lingtalfi/Light_LightInstance/blob/master/Service/LightLightInstanceService.php#L54-L58)
 
 
 See Also

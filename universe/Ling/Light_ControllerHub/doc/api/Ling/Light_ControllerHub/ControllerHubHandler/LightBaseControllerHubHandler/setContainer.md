@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightBaseControllerHubHandler::setContainer](https://github.com/lingtalfi/Light_ControllerHub/blob/master/ControllerHubHandler/LightBaseControllerHubHandler.php#L45-L48)
+See the source code for method [LightBaseControllerHubHandler::setContainer](https://github.com/lingtalfi/Light_ControllerHub/blob/master/ControllerHubHandler/LightBaseControllerHubHandler.php#L44-L47)
 
 
 See Also

@@ -49,7 +49,7 @@ Returns [FieldInterface](https://github.com/lingtalfi/Chloroform/blob/master/doc
 
 Source Code
 ===========
-See the source code for method [AbstractField::setDataTransformer](https://github.com/lingtalfi/Chloroform/blob/master/Field/AbstractField.php#L281-L285)
+See the source code for method [AbstractField::setDataTransformer](https://github.com/lingtalfi/Chloroform/blob/master/Field/AbstractField.php#L286-L290)
 
 
 See Also

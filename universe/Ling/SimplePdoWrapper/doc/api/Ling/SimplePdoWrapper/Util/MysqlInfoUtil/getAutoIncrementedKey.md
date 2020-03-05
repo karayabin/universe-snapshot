@@ -7,7 +7,7 @@ MysqlInfoUtil::getAutoIncrementedKey
 
 
 
-MysqlInfoUtil::getAutoIncrementedKey — Return the name of the auto-incremented field, or false if there is none.
+MysqlInfoUtil::getAutoIncrementedKey — Returns the name of the auto-incremented field, or false if there is none.
 
 
 
@@ -21,7 +21,7 @@ public [MysqlInfoUtil::getAutoIncrementedKey](https://github.com/lingtalfi/Simpl
 
 
 
-Return the name of the auto-incremented field, or false if there is none.
+Returns the name of the auto-incremented field, or false if there is none.
 
 
 
@@ -54,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [MysqlInfoUtil::getAutoIncrementedKey](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/Util/MysqlInfoUtil.php#L289-L298)
+See the source code for method [MysqlInfoUtil::getAutoIncrementedKey](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/Util/MysqlInfoUtil.php#L326-L336)
 
 
 See Also
@@ -62,5 +62,5 @@ See Also
 
 The [MysqlInfoUtil](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/MysqlInfoUtil.md) class.
 
-Previous method: [getColumnTypes](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/MysqlInfoUtil/getColumnTypes.md)<br>Next method: [dQuoteTable](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/MysqlInfoUtil/dQuoteTable.md)<br>
+Previous method: [getColumnTypes](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/MysqlInfoUtil/getColumnTypes.md)<br>Next method: [getForeignKeysInfo](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/MysqlInfoUtil/getForeignKeysInfo.md)<br>
 

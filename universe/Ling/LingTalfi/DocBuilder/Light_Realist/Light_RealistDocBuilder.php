@@ -148,7 +148,7 @@ class Light_RealistDocBuilder
                 "the realist conception notes" => $doc . '/pages/realist-conception-notes.md',
                 "open admin table helper implementation notes" => $doc . '/pages/open-admin-table-helper-implementation-notes.md',
                 "realist conception notes" => $doc . '/pages/realist-conception-notes.md',
-                "LightReverseRouterInterface" => 'https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ReverseRouter/LightReverseRouterInterface.md',
+                "LightReverseRouterService" => 'https://github.com/lingtalfi/Light_ReverseRouter/blob/master/doc/api/Ling/Light_ReverseRouter/Service/LightReverseRouterService.md',
                 "responsive table helper tool" => 'https://github.com/lingtalfi/JResponsiveTableHelper',
                 "duelist page" => $doc . '/pages/duelist.md',
                 "the realist tag transfer protocol" => $doc . '/pages/realist-tag-transfer-protocol.md',
@@ -164,6 +164,10 @@ class Light_RealistDocBuilder
                 "permission" => "https://github.com/lingtalfi/Light_User/blob/master/doc/pages/permission-conception-notes.md",
                 "micro permissions" => "https://github.com/lingtalfi/Light_MicroPermission",
                 "generic action items" => "https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/generic-action-item.md",
+                "duelist" => $doc . '/pages/duelist.md',
+                "controller hub service" => 'https://github.com/lingtalfi/Light_ControllerHub',
+                "ajax handler service" => 'https://github.com/lingtalfi/Light_AjaxHandler',
+                "Light_CsrfSession plugin" => 'https://github.com/lingtalfi/Light_CsrfSession',
 
             ],
             /**

@@ -51,7 +51,7 @@ use Ling\Bat\ZipTool;
  *
  *
  */
-class LightFileLoggerListener implements LightLoggerListenerInterface
+class LightFileLoggerListener extends BaseLoggerListener
 {
 
     /**
@@ -106,27 +106,36 @@ class LightFileLoggerListener implements LightLoggerListenerInterface
      */
     public function __construct()
     {
+        parent::__construct();
         $this->file = "/tmp/light_log.log";
         $this->isFileRotationEnabled = true;
         $this->maxFileSize = "2M";
         $this->rotatedFileExtension = "log";
         $this->zipRotatedFiles = true;
-
     }
 
 
     /**
      * Configures this instance.
      *
-     * @param array $options (the keys are the configurable properties of this class, see the corresponding properties of this class for more info)
-     *      - file
-     *      - isFileRotationEnabled
-     *      - maxFileSize
-     *      - rotatedFileFormat
-     *      - zipRotatedFiles
+     * The available options are:
+     * - file
+     * - isFileRotationEnabled
+     * - maxFileSize
+     * - rotatedFileFormat
+     * - zipRotatedFiles
+     * - ...more options in the parent class, check it out
+     *
+     * See the corresponding properties of this class for more info.
+     *
+     *
+     *
+     * @param array $options
      */
     public function configure(array $options)
     {
+        parent::configure($options);
+
         if (array_key_exists("file", $options)) {
             $this->file = $options['file'];
         }
@@ -151,8 +160,11 @@ class LightFileLoggerListener implements LightLoggerListenerInterface
      *
      * @implementation
      */
-    public function listen(string $msg, string $channel)
+    public function listen($msg, string $channel)
     {
+
+        $msg = $this->getFormattedMessage($channel, $msg);
+
         // first log
         FileTool::append($msg . PHP_EOL, $this->file);
 

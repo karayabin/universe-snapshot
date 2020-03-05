@@ -1,6 +1,7 @@
 dependencies: 
     Ling: 
         - Light
+        - Light_Database
         - SimplePdoWrapper
     
 

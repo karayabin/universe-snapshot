@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [SimplePdoWrapper::update](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/SimplePdoWrapper/update.md)(?$table, array $fields, $whereConds = null, array $markers = []) : bool
+public [SimplePdoWrapper::update](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/SimplePdoWrapper/update.md)($table, array $fields, ?$whereConds = null, ?array $markers = []) : bool
 
 
 
@@ -68,7 +68,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [SimplePdoWrapper::update](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/SimplePdoWrapper.php#L212-L236)
+See the source code for method [SimplePdoWrapper::update](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/SimplePdoWrapper.php#L228-L253)
 
 
 See Also

@@ -4,7 +4,7 @@
 
 The MessagesDataExtractor class
 ================
-2019-05-17 --> 2019-10-25
+2019-05-17 --> 2019-12-17
 
 
 
@@ -52,4 +52,4 @@ See the source code of [Ling\Light_Kit_Admin\DataExtractor\MessagesDataExtractor
 
 SeeAlso
 ==============
-Previous class: [UserProfileController](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/User/UserProfileController.md)<br>Next class: [NotificationsDataExtractor](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/DataExtractor/NotificationsDataExtractor.md)<br>
+Previous class: [LightKitAdminCrudRequestHandler](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Crud/CrudRequestHandler/LightKitAdminCrudRequestHandler.md)<br>Next class: [NotificationsDataExtractor](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/DataExtractor/NotificationsDataExtractor.md)<br>

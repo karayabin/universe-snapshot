@@ -24,13 +24,7 @@ As you can probably guess from the name, this is just an event dispatching syste
 
 Nothing special.
 
-As for now, I didn't implement an order handling, meaning the events are dispatched in the order they are registered.
-Note: this might change in the future if the needs for it appears to me.
-
-
-Note: my original intent was to design it as a tool for the light plugins, but it can technically be used by anything.
-
-
+I also implemented a priority system, and a stop propagation system too.
 
 
 

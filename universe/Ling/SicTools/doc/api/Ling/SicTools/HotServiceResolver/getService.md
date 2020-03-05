@@ -52,7 +52,7 @@ False is returned when the given array IS NOT a sic block (or a sic block with t
 Exceptions thrown
 ================
 
-- [SicBlockWillNotResolveException](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/Exception/SicBlockWillNotResolveException.md).&nbsp;
+- [Exception](http://php.net/manual/en/class.exception.php).&nbsp;
 When the sic block will not resolve
 
 
@@ -62,7 +62,7 @@ When the sic block will not resolve
 
 Source Code
 ===========
-See the source code for method [HotServiceResolver::getService](https://github.com/lingtalfi/SicTools/blob/master/HotServiceResolver.php#L65-L171)
+See the source code for method [HotServiceResolver::getService](https://github.com/lingtalfi/SicTools/blob/master/HotServiceResolver.php#L67-L192)
 
 
 See Also

@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AACA,0BAA2B;EACzB,aAAa,EAAE,cAAc;EAC7B,MAAM,EAAE,OAAO;EAEf,gCAAQ;IACN,gBAAgB,EAAE,IAAI",
+"sources": ["tablelist-multiplier.scss"],
+"names": [],
+"file": "tablelist-multiplier.css"
+}

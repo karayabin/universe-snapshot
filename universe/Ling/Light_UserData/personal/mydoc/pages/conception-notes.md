@@ -1,6 +1,6 @@
 Light_UserData, conception notes
 =====================
-2019-09-27
+2019-09-27 -> 2020-02-21
 
 
 
@@ -38,6 +38,15 @@ I might provide some help to implement such an obfuscating system.
 
 
 
+Warnings
+----------
+2020-01-31
+
+
+- This plugin depends on the [Light_UserDatabase](https://github.com/lingtalfi/Light_UserDatabase) plugin.
+- This plugin only works with the [WebsiteLightUser](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/WebsiteLightUser.md) (i.e. not with any light user).
+
+
 
 Current user
 -------------
@@ -61,6 +70,10 @@ Tags
 --------
 
 We can also bind tags to the user files. This gives us a way to better to find the user data.
+
+Tags can't contain the comma character, because why do we need them?
+
+**Note to myself**: and if they did I would have to change my implementation in the fileuploader.js (server delivers tags as a csv string).
 
 
 
@@ -95,51 +108,6 @@ the Light_UserData plugin).
 
 
 
-The obfuscating system
-----------------
-
-Because a malicious user could access a public user resource's url, he could read the user identifier from it.
-That's a bad thing, we don't want to give that information for free, and so the obfuscating system is about
-changing the user identifier, so that a garbage string appears in the url instead of the user identifier.
-
-
-The obfuscated name is just virtual though, which means it's used in the urls, but not in the file system.
-
-That's because if you changed the obfuscate function with hardcoded obfuscated directory names, it would involve a complex system to:
-
-- detect that the obfuscated function has been changed (file hash comparison?) 
-- access the old obfuscated names (database?) and update them to the new ones
-
-And I want to keep this plugin as simple as possible.   
-Plus, the malicious attacker will never see those real names anyway (if you don't put your user data under the web root, which is always
-the case for me), unless he already has access to your filesystem, in which case you have bigger problems anyway.
-
-So in other words, if you want hardcoded obfuscated directories, use another plugin.
-
-
-From the service configuration, we can configure an obfuscation parameters that this plugin will use to transform
-the user identifier into a more difficult to find name. We use an algorithm based on the php password_hash function,
-and a secret string to make it harder for the attackers to reverse-engineer the user identifier from the hash.
-
-
-Now keep in mind that this plugin needs to be able to resolve a virtual directory name back to an user identifier.
-So, I'll use a database to keep track of the correlation between the virtual names and the user identifiers.
-
-When you change the obfuscation function, it's crucial that you update the database references too (otherwise the links
-to your user data won't work anymore). I'll provide a **refreshReferences** method for that purpose.
-
-However, database access is slow, and imagine that a web page displays five images of the same user, I don't want to make
-5 database calls. So, instead I want to access that name from the session. We can leverage 
-the [Light_User](https://github.com/lingtalfi/Light_User) extra data to do that.
-
-
-In other words, when the **refreshReferences** method is called, it will do two things:
-
-- recreate the correlation between user identifier and directory names in a separate table **luda_directory_map**
-- update the lud_user table (from the [Light_UserDatabase](https://github.com/lingtalfi/Light_UserDatabase) plugin) and add the extra.directory property  
-
- 
-
 
 
 
@@ -162,3 +130,175 @@ directory under the application root, but not inside the web root directory:
 
 
 
+
+Maximum storage capacity
+-------------------
+2019-12-16
+
+
+
+Because we cannot trust an user, we implement a maximum storage capacity (aka msc), so the user can store a certain amount of files, 
+but not more than that.
+
+
+Because different users might have different msc, we create maximum storage capacity classes using the following convention:
+
+- Light_UserData_MSC_1
+- Light_UserData_MSC_1a
+- Light_UserData_MSC_1b
+- ...
+- Light_UserData_MSC_2
+- Light_UserData_MSC_3
+- ...
+
+So in general:
+- Light_UserData_MSC_XXX
+
+Where XXX represents the msc class identifier.
+
+The main idea is that the msc class identifier always starts with a number which represents the level of the class.
+
+A class with a higher level can always store more than a class with lesser level.
+
+So for instance a class **Light_UserData_MSC_2** will always store more than any **Light_UserData_MSC_1** class.
+
+All the variations letters (**Light_UserData_MSC_1a**, **Light_UserData_MSC_1b**, ...) can be created by the developer
+to ensure that the aforementioned rule is always respected.
+
+
+
+
+
+Our plugin creates the following plugin option by default:
+
+- Light_UserData_MSC_10 with value 20M
+
+
+And it binds them to both the existing users and the newly created ones (assuming the [Light_UserDatabase](https://github.com/lingtalfi/Light_UserDatabase) plugin is used).
+
+
+For security reasons, an user without an msc class bound to him/her will be denied any storage (i.e. equivalent to msc=0).
+
+
+
+
+
+The resource identifier system
+---------------
+2020-01-31
+
+
+Until now the system has been working well, however I'm not satisfied with the complexity brought by the
+obfuscating system, which I found unnecessary.
+
+
+There is still a need to not expose any sensitive information via the url (such as the user name owning the file),
+but instead of having a url with two parameters (file and id, where id identifies the user), 
+I realized that we can only have one parameter id, thus having only one table (database wise) for handling the resources instead of two.
+
+It also removes the hooks that this plugin previously had with the Light_UserDatabase, occurring during the database installation.
+
+
+By doing so, I believe I don't need to give more explanations other than pointing the reader to the "tables & information" section below.
+
+
+
+
+Tables & information
+---------------
+2020-01-31 -> 2020-02-11
+
+    
+- **luda_resource**: a resource is a file owned by an user.
+    - id: aik
+    - user_id: fk to the **lud_user.id** field brought by the [Light_UserDatabase](https://github.com/lingtalfi/Light_UserDatabase) plugin (we depend from that plugin).  
+        This plugin only works with the [WebsiteLightUser](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/WebsiteLightUser.md).
+              
+    - resource_identifier: uq, str 128 the resource identifier.
+        
+        While it might be tempting to use the id directly as the resource identifier, I found that using a dedicated resource_identifier
+        field gives us more flexibility (i.e. we can change it any time we want if we so desire).
+        
+    - dir: str 128. The relative path, from the user directory to the directory (direct parent) containing the file.
+    - filename: str 64. The filename, including the file extension if any.
+    - is_private: char 1 (0|1). Whether the file should only be displayed to the owner user, or to all users.
+    - date_creation: datetime. The date time when the resource was inserted in the database.
+    - date_last_update: datetime. The date time when the resource was last updated in the database. When the resource is created,
+        the date_last_update value is the same as the date_creation value.
+    
+            
+- **luda_tag**: a tag for the resource.
+    - id: aik
+    - name: uq, str 64   
+    
+- **luda_resource_has_tag**: a simple linkage table.
+    - resource_id: fk
+    - tag_id: fk
+        
+
+ 
+ 
+The original file
+-------------
+2020-02-18
+
+Generally, when the user uploads a file, we resize it to fit our application better.
+
+However, sometimes it's useful to keep the original file.
+
+In particular in regard to cropping. For instance imagine a user uploads an avatar and crops it using a gui interface (such as the file editor
+provided with the [fileuploader](https://github.com/lingtalfi/JFileUploader) script).
+
+So she uploads the cropped file, but then imagine she changed her mind and wants to crop another part of the image.
+
+If we didn't keep the original image, we would only be able to provide the cropped version to the user, and she basically wouldn't be able to 
+crop from the original image again (unless she uploads it again).
+
+So, to help a gui provide such a functionality where the user can access the original image again, we provide the url to the original image in the headers
+of the image being requested.
+
+
+
+The web service
+--------------
+2020-02-21
+
+The **Light_UserData** plugin provides a web interface to upload/interact with user files.
+
+First of all, the [fileEditor extension of the ajax file upload protocol](https://github.com/lingtalfi/Light_AjaxFileUploadManager/blob/master/doc/pages/ajax-file-upload-protocol.md#the-fileeditor-protocol-addition) support is implemented.
+
+
+In addition to that, we provide an interface to access the user files.
+Its default url is: **/user-data** (defined in /app/config/data/Light_UserData/Light_EasyRoute/luda_routes.byml),
+and it accepts the following parameters:
+
+- id: mandatory, string. The resource identifier of the file to access.
+- meta: optional, bool=false. Whether to add meta to the returned http response.
+    If true, those meta are the following:
+        - fe_is_private: 0|1. Whether the file is private.
+        - fe_date_creation: datetime. The time when the file was added.
+        - fe_date_last_update: datetime. The last time when the file was updated.
+        - fe_protocol: fileEditor. Just a string that js gui can use if they want.
+        - fe_original_url: string. The original url associated with the file, or an empty string if there is no original url
+            bound to that particular file.
+            
+            See the "original files" concept in this document for more details.
+        - fe_tags: string. The comma separated list of the tags bound to the file.
+- original: optional, string (0|1) = 0.
+    Whether to return the default file (aka processed file), or the original file. 
+    See the "original file concept" in this document for more details.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

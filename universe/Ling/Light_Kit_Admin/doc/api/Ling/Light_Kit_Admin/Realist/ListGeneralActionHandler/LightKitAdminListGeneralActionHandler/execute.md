@@ -58,7 +58,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightKitAdminListGeneralActionHandler::execute](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Realist/ListGeneralActionHandler/LightKitAdminListGeneralActionHandler.php#L73-L89)
+See the source code for method [LightKitAdminListGeneralActionHandler::execute](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Realist/ListGeneralActionHandler/LightKitAdminListGeneralActionHandler.php#L74-L90)
 
 
 See Also

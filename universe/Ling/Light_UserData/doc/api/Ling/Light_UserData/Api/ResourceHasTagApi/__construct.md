@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [ResourceHasTagApi::__construct](https://github.com/lingtalfi/Light_UserData/blob/master/Api/ResourceHasTagApi.php#L40-L45)
+See the source code for method [ResourceHasTagApi::__construct](https://github.com/lingtalfi/Light_UserData/blob/master/Api/ResourceHasTagApi.php#L19-L23)
 
 
 See Also

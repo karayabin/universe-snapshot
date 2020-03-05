@@ -16,7 +16,7 @@ Description
 ================
 
 
-protected [ColdServiceResolver::resolveCustomNotation](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/ColdServiceResolver/resolveCustomNotation.md)(?$value, &$isCustomNotation = false) : mixed
+protected [ColdServiceResolver::resolveCustomNotation](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/ColdServiceResolver/resolveCustomNotation.md)($value, ?&$isCustomNotation = false) : mixed
 
 
 
@@ -72,7 +72,7 @@ Returns mixed.
 
 Source Code
 ===========
-See the source code for method [ColdServiceResolver::resolveCustomNotation](https://github.com/lingtalfi/SicTools/blob/master/ColdServiceResolver.php#L281-L284)
+See the source code for method [ColdServiceResolver::resolveCustomNotation](https://github.com/lingtalfi/SicTools/blob/master/ColdServiceResolver.php#L290-L293)
 
 
 See Also

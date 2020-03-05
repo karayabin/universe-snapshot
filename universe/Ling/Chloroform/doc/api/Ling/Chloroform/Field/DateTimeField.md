@@ -4,7 +4,7 @@
 
 The DateTimeField class
 ================
-2019-04-10 --> 2019-11-01
+2019-04-10 --> 2020-02-21
 
 
 
@@ -118,4 +118,4 @@ See the source code of [Ling\Chloroform\Field\DateTimeField](https://github.com/
 
 SeeAlso
 ==============
-Previous class: [DateField](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/DateField.md)<br>Next class: [FieldInterface](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/FieldInterface.md)<br>
+Previous class: [DateField](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/DateField.md)<br>Next class: [DecorativeField](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/DecorativeField.md)<br>

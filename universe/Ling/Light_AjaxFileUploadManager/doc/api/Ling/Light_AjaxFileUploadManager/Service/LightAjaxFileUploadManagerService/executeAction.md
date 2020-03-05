@@ -7,7 +7,7 @@ LightAjaxFileUploadManagerService::executeAction
 
 
 
-LightAjaxFileUploadManagerService::executeAction — depending on the configuration of the given action.
+LightAjaxFileUploadManagerService::executeAction — and returns an array of successful information in case of success.
 
 
 
@@ -16,14 +16,19 @@ Description
 ================
 
 
-protected [LightAjaxFileUploadManagerService::executeAction](https://github.com/lingtalfi/Light_AjaxFileUploadManager/blob/master/doc/api/Ling/Light_AjaxFileUploadManager/Service/LightAjaxFileUploadManagerService/executeAction.md)(array $action, array $phpFileItem, string $actionId) : string | null
+protected [LightAjaxFileUploadManagerService::executeAction](https://github.com/lingtalfi/Light_AjaxFileUploadManager/blob/master/doc/api/Ling/Light_AjaxFileUploadManager/Service/LightAjaxFileUploadManagerService/executeAction.md)(array $action, $phpFileItem, array $params, string $actionId) : array | null
 
 
 
 
 Executes the action array on the file which path is given,
-and returns the url (absolute, relative or even starting with http:// or https://),
-depending on the configuration of the given action.
+and returns an array of successful information in case of success.
+
+Usually, the returned array contains the url (absolute, relative or even starting with http:// or https://),
+but it depends on the configuration of the given action.
+
+In case of failure, this method throws an exception.
+
 
 The action array is defined in more details in the [action list](https://github.com/lingtalfi/Light_AjaxFileUploadManager/blob/master/doc/pages/action-list.md) page.
 
@@ -42,6 +47,10 @@ Parameters
 
     A valid php $_FILES item.
 
+- params
+
+    
+
 - actionId
 
     The action id. This is used for debugging purposes.
@@ -50,7 +59,7 @@ Parameters
 Return values
 ================
 
-Returns string | null.
+Returns array | null.
 
 
 Exceptions thrown
@@ -66,7 +75,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightAjaxFileUploadManagerService::executeAction](https://github.com/lingtalfi/Light_AjaxFileUploadManager/blob/master/Service/LightAjaxFileUploadManagerService.php#L390-L586)
+See the source code for method [LightAjaxFileUploadManagerService::executeAction](https://github.com/lingtalfi/Light_AjaxFileUploadManager/blob/master/Service/LightAjaxFileUploadManagerService.php#L394-L690)
 
 
 See Also

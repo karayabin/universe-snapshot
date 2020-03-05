@@ -79,7 +79,7 @@ class HtmlReport extends AbstractReport
     public function __toString()
     {
 
-
+        $hasErrors = false; // to show green bar if no error
         $showMethodsWithoutReturn = $this->options['showMethodsWithoutReturn'] ?? true;
 
 
@@ -107,6 +107,13 @@ class HtmlReport extends AbstractReport
         $nbClassesWithoutComment = count($this->classesWithoutComment);
         $nbMethodsWithoutComment = count($this->methodsWithoutComment);
         $nbPropertiesWithoutComment = count($this->propertiesWithoutComment);
+        if(
+            $nbClassesWithoutComment > 0 ||
+            $nbMethodsWithoutComment > 0 ||
+            $nbPropertiesWithoutComment > 0
+        ){
+            $hasErrors = true;
+        }
 
 
         $missingCommentsMenuItems = [
@@ -143,6 +150,12 @@ class HtmlReport extends AbstractReport
         $nbMethodsWithoutReturnTag = count($this->methodsWithoutReturnTag);
         $nbPropertiesWithoutVarTag = count($this->propertiesWithoutVarTag);
         $nbParamsWithoutParamTag = count($this->parametersWithoutParamTag);
+        if(
+            $nbPropertiesWithoutVarTag > 0 ||
+            $nbParamsWithoutParamTag > 0
+        ){
+            $hasErrors = true;
+        }
 
 
         $missingTagsMenuItems = [
@@ -184,6 +197,13 @@ class HtmlReport extends AbstractReport
         $nbClassesWithEmptyMainText = count($this->classesWithEmptyMainText);
         $nbPropertiesWithEmptyMainText = count($this->propertiesWithEmptyMainText);
         $nbMethodsWithEmptyMainText = count($this->methodsWithEmptyMainText);
+        if(
+            $nbClassesWithEmptyMainText > 0 ||
+            $nbPropertiesWithEmptyMainText > 0 ||
+            $nbMethodsWithEmptyMainText > 0
+        ){
+            $hasErrors = true;
+        }
 
 
         $emptyMainTextMenuItems = [
@@ -220,6 +240,12 @@ class HtmlReport extends AbstractReport
         //--------------------------------------------
         $nbUnresoledClassRefs = count($this->unresolvedClassReferences);
         $nbUnresoledMethodRefs = count($this->unresolvedMethodReferences);
+        if(
+            $nbUnresoledClassRefs > 0 ||
+            $nbUnresoledMethodRefs > 0
+        ){
+            $hasErrors = true;
+        }
 
 
         $linkageMenuItems = [
@@ -270,6 +296,14 @@ class HtmlReport extends AbstractReport
 
         $nbUndefinedInlineKeyword = count($this->undefinedInlineKeywords);
         $nbUndefinedInlineClass = count($this->undefinedInlineClasses);
+        if(
+            $nbUndefinedInlineKeyword > 0 ||
+            $nbUndefinedInlineClass > 0
+        ){
+            $hasErrors = true;
+        }
+
+
 
         $uif = $this->unknownInlineFunctions;
         $nbUnknownInlineFunctions = count($uif);
@@ -367,6 +401,13 @@ class HtmlReport extends AbstractReport
 
         $nbUnresolvedImplementation = count($this->unresolvedImplementationTags);
         $nbUnresolvedOverrides = count($this->unresolvedOverridesTags);
+        if(
+            $nbUnresolvedImplementation > 0 ||
+            $nbUnresolvedOverrides > 0
+        ){
+            $hasErrors = true;
+        }
+
 
         $blockMenuItems = [
             'block-unresolved-implementation-tag' => ["Unresolved @implementation", $nbUnresolvedImplementation, true],
@@ -456,6 +497,7 @@ class HtmlReport extends AbstractReport
                 $blockUsageSection,
                 $blockUsageDetails,
             ],
+            'hasErrors' => $hasErrors,
 
         ]);
     }

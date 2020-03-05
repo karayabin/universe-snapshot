@@ -66,7 +66,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [ResourceApiInterface::getResourceById](https://github.com/lingtalfi/Light_UserData/blob/master/Api/ResourceApiInterface.php#L49-L49)
+See the source code for method [ResourceApiInterface::getResourceById](https://github.com/lingtalfi/Light_UserData/blob/master/Api/ResourceApiInterface.php#L50-L50)
 
 
 See Also

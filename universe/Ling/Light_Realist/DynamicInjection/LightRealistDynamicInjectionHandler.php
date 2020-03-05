@@ -4,10 +4,9 @@
 namespace Ling\Light_Realist\DynamicInjection;
 
 
-use Ling\Light\ReverseRouter\LightReverseRouterInterface;
-use Ling\Light\Tool\LightTool;
-use Ling\Light_Csrf\Service\LightCsrfService;
+use Ling\Light_CsrfSession\Service\LightCsrfSessionService;
 use Ling\Light_Realist\Exception\LightRealistException;
+use Ling\Light_ReverseRouter\Service\LightReverseRouterService;
 
 /**
  * The LightRealistDynamicInjectionHandler class.
@@ -26,22 +25,35 @@ class LightRealistDynamicInjectionHandler extends ContainerAwareRealistDynamicIn
             case "csrf_token":
 
 
-                if (true === LightTool::isAjax($this->container)) {
-                    return "not_created_because_ajax";
-                } else {
+                /**
+                 * @var $csrfService LightCsrfSessionService
+                 */
+                $csrfService = $this->container->get('csrf_session');
+                return $csrfService->getToken();
 
-                    /**
-                     * @var $csrf LightCsrfService
-                     */
-                    $csrf = $this->container->get("csrf");
-                    $tokenName = array_shift($arguments);
-                    $tokenValue = $csrf->createToken($tokenName);
-                    return $tokenValue;
-                }
+
+                //--------------------------------------------
+                // old system with csrf service
+                // I keep it just in case, but it's deprecated.
+                //--------------------------------------------
+//                if (true === LightTool::isAjax($this->container)) {
+//                    return "not_created_because_ajax";
+//                } else {
+//
+//                    /**
+//                     * @var $csrf LightCsrfService
+//                     */
+//                    $csrf = $this->container->get("csrf");
+//                    $tokenName = array_shift($arguments);
+//                    $tokenValue = $csrf->createToken($tokenName);
+//                    return $tokenValue;
+//                }
+
+
                 break;
             case "route":
                 /**
-                 * @var $router LightReverseRouterInterface
+                 * @var $router LightReverseRouterService
                  */
                 $router = $this->container->get("reverse_router");
                 $route = array_shift($arguments);

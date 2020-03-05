@@ -4,7 +4,7 @@
 
 The ResourceHasTagApiInterface class
 ================
-2019-09-27 --> 2019-10-31
+2019-09-27 --> 2019-12-20
 
 
 
@@ -15,6 +15,7 @@ Introduction
 ============
 
 The ResourceHasTagApiInterface interface.
+It implements the ling standard object methods concept.
 
 
 

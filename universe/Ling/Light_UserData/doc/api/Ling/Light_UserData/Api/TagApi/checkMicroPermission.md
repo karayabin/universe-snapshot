@@ -56,7 +56,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [TagApi::checkMicroPermission](https://github.com/lingtalfi/Light_UserData/blob/master/Api/TagApi.php#L348-L354)
+See the source code for method [TagApi::checkMicroPermission](https://github.com/lingtalfi/Light_UserData/blob/master/Api/TagApi.php#L325-L331)
 
 
 See Also

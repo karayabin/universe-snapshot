@@ -53,7 +53,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [Chloroform::injectValues](https://github.com/lingtalfi/Chloroform/blob/master/Form/Chloroform.php#L232-L241)
+See the source code for method [Chloroform::injectValues](https://github.com/lingtalfi/Chloroform/blob/master/Form/Chloroform.php#L286-L295)
 
 
 See Also
@@ -61,5 +61,5 @@ See Also
 
 The [Chloroform](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform.md) class.
 
-Previous method: [getField](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform/getField.md)<br>Next method: [addField](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform/addField.md)<br>
+Previous method: [getMode](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform/getMode.md)<br>Next method: [addField](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform/addField.md)<br>
 

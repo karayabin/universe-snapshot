@@ -16,7 +16,7 @@ Description
 ================
 
 
-protected [LightKitAdminRealistRowsRenderer::renderColumnContent](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Realist/Rendering/LightKitAdminRealistRowsRenderer/renderColumnContent.md)($value, string $type, array $options, array $row) : string
+protected [LightKitAdminRealistRowsRenderer::renderColumnContent](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Realist/Rendering/LightKitAdminRealistRowsRenderer/renderColumnContent.md)(string $value, string $type, array $options, array $row) : string
 
 
 
@@ -53,6 +53,11 @@ Return values
 Returns string.
 
 
+Exceptions thrown
+================
+
+- [Exception](http://php.net/manual/en/class.exception.php).&nbsp;
+
 
 
 
@@ -61,7 +66,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [LightKitAdminRealistRowsRenderer::renderColumnContent](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Realist/Rendering/LightKitAdminRealistRowsRenderer.php#L19-L44)
+See the source code for method [LightKitAdminRealistRowsRenderer::renderColumnContent](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Realist/Rendering/LightKitAdminRealistRowsRenderer.php#L20-L88)
 
 
 See Also

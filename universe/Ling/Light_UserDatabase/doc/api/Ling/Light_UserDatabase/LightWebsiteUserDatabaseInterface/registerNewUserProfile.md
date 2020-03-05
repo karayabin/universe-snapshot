@@ -63,7 +63,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightWebsiteUserDatabaseInterface::registerNewUserProfile](https://github.com/lingtalfi/Light_UserDatabase/blob/master/LightWebsiteUserDatabaseInterface.php#L107-L107)
+See the source code for method [LightWebsiteUserDatabaseInterface::registerNewUserProfile](https://github.com/lingtalfi/Light_UserDatabase/blob/master/LightWebsiteUserDatabaseInterface.php#L109-L109)
 
 
 See Also

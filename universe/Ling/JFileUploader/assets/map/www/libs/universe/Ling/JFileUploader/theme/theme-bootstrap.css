@@ -1,0 +1,258 @@
+.fileuploader-widget.theme-bootstrap {
+  position: relative;
+  border: 1px solid #ddd; }
+  .fileuploader-widget.theme-bootstrap button {
+    cursor: pointer; }
+  .fileuploader-widget.theme-bootstrap .error-container {
+    color: #cd0a0a;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1; }
+    .fileuploader-widget.theme-bootstrap .error-container .error-container-item {
+      position: relative;
+      height: 100%; }
+      .fileuploader-widget.theme-bootstrap .error-container .error-container-item .error-item {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        border: 1px solid #cd0a0a;
+        background: #ffe8e8;
+        padding: 10px;
+        background: linear-gradient(0deg, #ffe8e8 46%, #ffefef 56%, #ffefef 63%); }
+        .fileuploader-widget.theme-bootstrap .error-container .error-container-item .error-item button.btn-remove-error {
+          position: absolute;
+          top: 4px;
+          right: 0px;
+          background: transparent;
+          border: none;
+          color: #cd0a0a;
+          cursor: pointer; }
+  .fileuploader-widget.theme-bootstrap .header {
+    background: #eee;
+    display: flex;
+    padding: 10px; }
+    .fileuploader-widget.theme-bootstrap .header .right {
+      margin-left: auto; }
+  .fileuploader-widget.theme-bootstrap .dropzone {
+    background: white;
+    min-height: 150px;
+    position: relative; }
+    .fileuploader-widget.theme-bootstrap .dropzone.dropzone-hover {
+      background: #fafafa; }
+    .fileuploader-widget.theme-bootstrap .dropzone .dropzone-text, .fileuploader-widget.theme-bootstrap .dropzone .dropzone-image {
+      display: none; }
+      .fileuploader-widget.theme-bootstrap .dropzone .dropzone-text.visible, .fileuploader-widget.theme-bootstrap .dropzone .dropzone-image.visible {
+        display: block; }
+    .fileuploader-widget.theme-bootstrap .dropzone .dropzone-text .dropzone-text-header {
+      display: flex;
+      padding: 10px;
+      background: #d1d1d1;
+      background: linear-gradient(0deg, #d1d1d1 0%, #e3e3e3 100%); }
+    .fileuploader-widget.theme-bootstrap .dropzone .dropzone-text .dropzone-text-item-container {
+      display: flex;
+      padding: 6px;
+      margin: 0;
+      position: relative;
+      z-index: 1;
+      background: #e4e4e4;
+      background: linear-gradient(0deg, #e4e4e4 46%, #eeeeee 56%); }
+    .fileuploader-widget.theme-bootstrap .dropzone .dropzone-text .cell-status {
+      margin-left: auto;
+      width: 80px; }
+    .fileuploader-widget.theme-bootstrap .dropzone .dropzone-text .cell-size {
+      width: 70px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis; }
+    .fileuploader-widget.theme-bootstrap .dropzone .dropzone-text .cell-action {
+      width: 30px; }
+    .fileuploader-widget.theme-bootstrap .dropzone .dropzone-text .dropzone-text-container {
+      position: absolute;
+      top: 39px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      overflow-y: auto;
+      font: normal 11px Verdana, sans-serif; }
+      .fileuploader-widget.theme-bootstrap .dropzone .dropzone-text .dropzone-text-container ul {
+        margin: 0;
+        padding: 0; }
+        .fileuploader-widget.theme-bootstrap .dropzone .dropzone-text .dropzone-text-container ul .cell-name {
+          padding-left: 10px; }
+        .fileuploader-widget.theme-bootstrap .dropzone .dropzone-text .dropzone-text-container ul button.btn-remove-file, .fileuploader-widget.theme-bootstrap .dropzone .dropzone-text .dropzone-text-container ul button.btn-edit-file {
+          border: none;
+          margin: 0;
+          padding: 0;
+          cursor: pointer;
+          color: #919191; }
+    .fileuploader-widget.theme-bootstrap .dropzone .dropzone-image .filelist {
+      display: flex;
+      flex-wrap: wrap;
+      position: absolute;
+      top: 0px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      overflow-y: auto; }
+      .fileuploader-widget.theme-bootstrap .dropzone .dropzone-image .filelist .dropzone-image-item-container {
+        position: relative;
+        padding: 5px;
+        background: #f0f0f0;
+        margin: 5px;
+        max-width: 80px;
+        overflow: hidden; }
+        .fileuploader-widget.theme-bootstrap .dropzone .dropzone-image .filelist .dropzone-image-item-container .cell-image {
+          text-align: center; }
+          .fileuploader-widget.theme-bootstrap .dropzone .dropzone-image .filelist .dropzone-image-item-container .cell-image img {
+            height: 80px;
+            max-width: 80px; }
+          .fileuploader-widget.theme-bootstrap .dropzone .dropzone-image .filelist .dropzone-image-item-container .cell-image i {
+            color: #c2c2c2; }
+        .fileuploader-widget.theme-bootstrap .dropzone .dropzone-image .filelist .dropzone-image-item-container .cell-name {
+          font: bold 11px Verdana, sans-serif; }
+        .fileuploader-widget.theme-bootstrap .dropzone .dropzone-image .filelist .dropzone-image-item-container .cell-size {
+          font: normal 9px Verdana, sans-serif; }
+        .fileuploader-widget.theme-bootstrap .dropzone .dropzone-image .filelist .dropzone-image-item-container .cell-action {
+          position: absolute;
+          top: 1px;
+          right: 1px; }
+          .fileuploader-widget.theme-bootstrap .dropzone .dropzone-image .filelist .dropzone-image-item-container .cell-action button.btn-remove-file, .fileuploader-widget.theme-bootstrap .dropzone .dropzone-image .filelist .dropzone-image-item-container .cell-action button.btn-edit-file {
+            border: none;
+            margin: 0;
+            padding: 0;
+            cursor: pointer;
+            color: #919191;
+            background: transparent; }
+    .fileuploader-widget.theme-bootstrap .dropzone .dropzone-droptext {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: transparent;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font: normal 11px Verdana, sans-serif; }
+  .fileuploader-widget.theme-bootstrap .footer {
+    background: #eee;
+    display: flex;
+    padding: 10px; }
+    .fileuploader-widget.theme-bootstrap .footer .right {
+      margin-left: auto;
+      font: bold 11px Verdana, sans-serif;
+      color: #222; }
+      .fileuploader-widget.theme-bootstrap .footer .right .footer-info:not(:last-child) {
+        border-right: 1px solid #aaa;
+        padding: 0 7px; }
+
+.file-editor.dropzone-hover {
+  background: #f3f7ff; }
+.file-editor .file-editor-error-container .file-editor-error {
+  color: white;
+  padding: 10px;
+  border: 1px solid #cd0a0a;
+  background: #cd0a0a;
+  margin-bottom: 2px;
+  position: relative; }
+  .file-editor .file-editor-error-container .file-editor-error .btn-close-error {
+    position: absolute;
+    top: 3px;
+    right: 4px;
+    cursor: pointer; }
+.file-editor .file-editor-block-1 {
+  display: flex; }
+  .file-editor .file-editor-block-1 .control-privacy {
+    margin-left: auto; }
+.file-editor .control-group {
+  margin-bottom: 0px;
+  border-bottom: 1px solid #fdfdfd;
+  padding-bottom: 10px;
+  padding-top: 10px; }
+  .file-editor .control-group.control-basename, .file-editor .control-group.control-tags {
+    display: flex;
+    align-items: baseline; }
+    .file-editor .control-group.control-basename label, .file-editor .control-group.control-tags label {
+      margin-right: 5px;
+      white-space: nowrap; }
+  .file-editor .control-group.control-tags {
+    align-items: flex-end; }
+  .file-editor .control-group .element-dirname {
+    background: #ececec;
+    padding: 5px; }
+  .file-editor .control-group .filename-inputs-container {
+    display: flex;
+    width: 100%;
+    box-sizing: border-box; }
+    .file-editor .control-group .filename-inputs-container .input-basename {
+      flex: 1;
+      margin-top: 7px; }
+    .file-editor .control-group .filename-inputs-container .input-extension {
+      width: 50px;
+      margin-top: 7px; }
+  .file-editor .control-group.control-tags label {
+    display: block;
+    margin-bottom: 10px; }
+  .file-editor .control-group.control-tags .select-tags {
+    display: block;
+    width: 100%; }
+.file-editor .image-editor-container {
+  margin-top: 10px;
+  padding-top: 0px;
+  padding-bottom: 0px; }
+.file-editor .image-editor-header {
+  display: flex; }
+  .file-editor .image-editor-header .control-original-toggle {
+    margin-left: auto; }
+.file-editor .img-container {
+  margin-top: 10px;
+  margin-bottom: 0px;
+  max-height: 497px;
+  min-height: 200px; }
+  .file-editor .img-container > img {
+    max-width: 100%; }
+@media (min-width: 768px) {
+  .file-editor .img-container {
+    min-height: 497px; } }
+.file-editor .image-editor-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  background: #d9d9d9;
+  padding: 10px;
+  justify-content: flex-start; }
+  .file-editor .image-editor-toolbar button {
+    padding: 6px 4px 4px 4px;
+    border-radius: 7px;
+    border-color: #ececec; }
+.file-editor .img-preview-container {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center; }
+  .file-editor .img-preview-container .img-preview {
+    float: left;
+    margin-bottom: .5rem;
+    margin-right: .5rem;
+    overflow: hidden; }
+    .file-editor .img-preview-container .img-preview.preview-lg {
+      height: 9rem;
+      width: 16rem; }
+    .file-editor .img-preview-container .img-preview > img {
+      max-width: 100%; }
+.file-editor .the-submit-button {
+  background: #0064ff;
+  color: white; }
+.file-editor .fileeditor-uploader-progress {
+  display: none;
+  background: transparent;
+  color: #333;
+  border: none;
+  cursor: default !important; }
+  .file-editor .fileeditor-uploader-progress:active {
+    background: transparent;
+    color: #333; }
+
+/*# sourceMappingURL=theme-bootstrap.css.map */

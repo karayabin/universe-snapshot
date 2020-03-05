@@ -146,6 +146,7 @@ class Light_UserDocBuilder
                 "refresh concept" => $doc . '/pages/conception.md#the-concept-of-refreshing-an-user',
                 "rights concept" => $doc . '/pages/conception.md#its-all-about-rights',
                 "user rights page" => $doc . '/pages/conception.md#its-all-about-rights',
+                "permissions" => $doc . '/pages/permission-conception-notes.md',
             ],
             /**
              * An array of external classes to url.

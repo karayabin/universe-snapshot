@@ -1,6 +1,6 @@
 Light_AjaxFileUploadManager
 ===========
-2019-08-01
+2019-08-01 -> 2020-02-21
 
 
 
@@ -33,9 +33,12 @@ Summary
 - [Light_AjaxFileUploadManager api](https://github.com/lingtalfi/Light_AjaxFileUploadManager/blob/master/doc/api/Ling/Light_AjaxFileUploadManager.md) (generated with [DocTools](https://github.com/lingtalfi/DocTools))
 - [Services](#services)
     - [How does it work?](#how-does-it-work)
-- Auxiliary documents
+- Pages
     - [Action lists](https://github.com/lingtalfi/Light_AjaxFileUploadManager/blob/master/doc/pages/action-list.md)
     - [Validation rules](https://github.com/lingtalfi/Light_AjaxFileUploadManager/blob/master/doc/pages/validation-rules.md)
+    - [Events](https://github.com/lingtalfi/Light_AjaxFileUploadManager/blob/master/doc/pages/events.md)
+    - [Configuration files and items](https://github.com/lingtalfi/Light_AjaxFileUploadManager/blob/master/doc/pages/configuration-files.md)
+    - [Ajax file upload protocol](https://github.com/lingtalfi/Light_AjaxFileUploadManager/blob/master/doc/pages/ajax-file-upload-protocol.md)
 
 
 
@@ -65,25 +68,6 @@ ajax_file_upload_manager:
         setContainer:
             container: @container()
     methods_collection: []
-#        -
-#            method: addActionLists
-#            args:
-#                actionLists:
-#                    lka_user_profile:
-#                        -
-#                            storeDir: www/uploads/test
-#                            returnUrlDir: /uploads/test
-#                            imageTransformer: resize(200)
-#                            db_update:
-#                                table: user
-#                                column: avatar_url
-#                                where:
-#                                    user_id: $userIdentifier
-#        -
-#            method: addValidationRules
-#            args:
-#                validationRules:
-#                    id_one: []
 
 
 
@@ -97,7 +81,6 @@ $easy_route.methods_collection:
             file: config/data/Light_AjaxFileUploadManager/Light_EasyRoute/afup_routes.byml
 
 
-
 ```
 
 
@@ -109,19 +92,13 @@ and provides tools for implementing it.
 
 The backend implementation is covered entirely by this plugin.
 
-For the js client implementation, we recommend using the [js file uploader](https://github.com/lingtalfi/jsFileUploader) client,
+For the js client implementation, we recommend using the [js file uploader](https://github.com/lingtalfi/JFileUploader) client,
 as this plugin has helper methods that facilitate the implementation of the gui side with the **js file uploader**.
 
 
 Please refer to the protocol and the auxiliary documents referenced in the summary to get started.
 
-Basically what you want to do is create a profile for each ajax upload field that you want, and that's it.
-
-The profile is created by calling the addActionLists (and addValidationRules if you need some validation rules) methods.
-
-I recommend to use CSRF protection all the time. This is explained in the aforementioned documents. 
-
-
+Basically what you want to do is create a [configuration item](https://github.com/lingtalfi/Light_AjaxFileUploadManager/blob/master/doc/pages/configuration-files.md#the-configuration-item) for each ajax upload field that you want, and that's it.
 
 
 
@@ -133,6 +110,40 @@ I recommend to use CSRF protection all the time. This is explained in the aforem
 History Log
 =============
 
+- 1.7.0 -- 2020-02-21
+
+    - reorganized LightAjaxFileUploadManagerService to handle items more efficiently
+    - fix csrf_token security leak in item
+    - implemented fileEditor protocol extension
+    
+- 1.6.3 -- 2020-01-10
+
+    - fix FileUploadController->uploader showing debug message
+    
+- 1.6.2 -- 2020-01-10
+
+    - fix LightAjaxFileUploadManagerService->validatePhpFileItem not recognizing file extension with different case
+    
+- 1.6.1 -- 2019-11-27
+
+    - fix functional typo csrf_simple instead of csrf_session
+    
+- 1.6.0 -- 2019-11-27
+
+    - use of csrf_session service replaces csrf_simple
+
+- 1.5.0 -- 2019-11-25
+
+    - now ships with embedded JFileUploader dependency
+    
+- 1.4.0 -- 2019-11-11
+
+    - update FileUploadController->uploader, now dispatches Light_AjaxFileUploadManager.on_controller_exception_caught event
+    
+- 1.3.0 -- 2019-11-07
+
+    - switch from Light_Csrf to Light_CsrfSimple
+    
 - 1.2.0 -- 2019-10-31
 
     - add LightAjaxFileUploadManagerService->addConfigurationItemsByFile

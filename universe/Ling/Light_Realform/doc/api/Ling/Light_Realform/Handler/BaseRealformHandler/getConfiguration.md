@@ -51,7 +51,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [BaseRealformHandler::getConfiguration](https://github.com/lingtalfi/Light_Realform/blob/master/Handler/BaseRealformHandler.php#L163-L177)
+See the source code for method [BaseRealformHandler::getConfiguration](https://github.com/lingtalfi/Light_Realform/blob/master/Handler/BaseRealformHandler.php#L172-L186)
 
 
 See Also

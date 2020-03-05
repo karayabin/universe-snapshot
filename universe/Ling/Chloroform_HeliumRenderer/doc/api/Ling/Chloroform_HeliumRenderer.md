@@ -1,6 +1,6 @@
 Ling/Chloroform_HeliumRenderer
 ================
-2019-07-26 --> 2019-10-24
+2019-07-26 --> 2020-02-27
 
 
 
@@ -34,7 +34,9 @@ Table of contents
     - [HeliumRenderer::printRadioField](https://github.com/lingtalfi/Chloroform_HeliumRenderer/blob/master/doc/api/Ling/Chloroform_HeliumRenderer/HeliumRenderer/printRadioField.md) &ndash; Prints the given radio field.
     - [HeliumRenderer::printFileField](https://github.com/lingtalfi/Chloroform_HeliumRenderer/blob/master/doc/api/Ling/Chloroform_HeliumRenderer/HeliumRenderer/printFileField.md) &ndash; Prints the given file field.
     - [HeliumRenderer::printPasswordField](https://github.com/lingtalfi/Chloroform_HeliumRenderer/blob/master/doc/api/Ling/Chloroform_HeliumRenderer/HeliumRenderer/printPasswordField.md) &ndash; Prints the given password field.
+    - [HeliumRenderer::printDecorativeField](https://github.com/lingtalfi/Chloroform_HeliumRenderer/blob/master/doc/api/Ling/Chloroform_HeliumRenderer/HeliumRenderer/printDecorativeField.md) &ndash; Prints the given decorative field.
     - [HeliumRenderer::printJsHandler](https://github.com/lingtalfi/Chloroform_HeliumRenderer/blob/master/doc/api/Ling/Chloroform_HeliumRenderer/HeliumRenderer/printJsHandler.md) &ndash; and some fields behaviours.
+    - [HeliumRenderer::printCustomScripts](https://github.com/lingtalfi/Chloroform_HeliumRenderer/blob/master/doc/api/Ling/Chloroform_HeliumRenderer/HeliumRenderer/printCustomScripts.md) &ndash; Prints some custom scripts if necessary.
 
 
 Dependencies

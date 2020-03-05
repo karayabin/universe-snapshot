@@ -22,25 +22,7 @@ public [Chloroform::toArray](https://github.com/lingtalfi/Chloroform/blob/master
 
 
 Returns the array version (template friendly) of the form.
-
-The blueprint looks like this:
-
-
-```yaml
-isPosted: bool, whether this form instance was submitted.
-
-notifications:
-     -
-         type: string, the type of notification (success, info, warning, error)
-         msg: string, the message of the notification
-errors: a summary of the form errors (for the templates to use).
-         It's actually nothing more than the fields errors put altogether here.
-
-fields:
-     -
-         the array version of the field (see the [FieldInterface->toArray method](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/FieldInterface/toArray.md) for more info)
-
-```
+See the [chloroform array page](https://github.com/lingtalfi/Chloroform/blob/master/doc/pages/chloroform-array.md) for more details.
 
 
 
@@ -65,7 +47,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [Chloroform::toArray](https://github.com/lingtalfi/Chloroform/blob/master/Form/Chloroform.php#L312-L348)
+See the source code for method [Chloroform::toArray](https://github.com/lingtalfi/Chloroform/blob/master/Form/Chloroform.php#L437-L477)
 
 
 See Also
@@ -73,5 +55,5 @@ See Also
 
 The [Chloroform](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform.md) class.
 
-Previous method: [getNotifications](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform/getNotifications.md)<br>Next method: [getFieldPostedValue](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform/getFieldPostedValue.md)<br>
+Previous method: [getCssId](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform/getCssId.md)<br>Next method: [getFieldPostedValue](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform/getFieldPostedValue.md)<br>
 

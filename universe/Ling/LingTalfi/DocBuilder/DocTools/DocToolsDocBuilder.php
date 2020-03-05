@@ -7,6 +7,7 @@ namespace Ling\LingTalfi\DocBuilder\DocTools;
 use Ling\DocTools\DocBuilder\Git\PhpPlanet\LingGitPhpPlanetDocBuilder;
 use Ling\DocTools\Exception\DocBuilderException;
 use Ling\DocTools\Translator\ParseDownTranslator;
+use Ling\LingTalfi\DocTools\LingTalfiDocToolsHelper;
 
 /**
  * The DocToolsDocBuilder class.
@@ -179,6 +180,7 @@ class DocToolsDocBuilder
                 "the generated documentation styles page" => $doc . '/pages/generated-documentation-styles.md',
                 "generated documentation styles" => $doc . '/pages/generated-documentation-styles.md',
                 "LingGitPhpPlanetDocBuilder tutorial" => $doc . '/pages/tutorial-linggitphpplanetdocbuilder.md',
+                "keyword inline function page" => $doc . '/pages/doctool-markup-language.md#inline-functions',
                 //--------------------------------------------
                 // API
                 //--------------------------------------------
@@ -224,7 +226,7 @@ class DocToolsDocBuilder
              */
             "externalClass2Url" => [
                 "Ling\ParseDown\Parsedown" => "https://github.com/lingtalfi/ParseDown",
-
+                "DocTools\Translator\MarkdownTranslatorInterface" => "https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Translator/MarkdownTranslatorInterface.md",
             ],
         ];
 
@@ -260,6 +262,7 @@ class DocToolsDocBuilder
          * and since we've defined a @kw(copy module), it will also copy the whole doc to another location.
          */
         $builder->buildDoc();
+        LingTalfiDocToolsHelper::generateCrumbs($builder);
 
         if ('cli' !== php_sapi_name()) {
 

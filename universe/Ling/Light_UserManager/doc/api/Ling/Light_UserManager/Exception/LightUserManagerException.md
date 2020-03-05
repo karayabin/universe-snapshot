@@ -4,7 +4,7 @@
 
 The LightUserManagerException class
 ================
-2019-05-10 --> 2019-07-19
+2019-05-10 --> 2019-12-20
 
 
 
@@ -54,4 +54,4 @@ See the source code of [Ling\Light_UserManager\Exception\LightUserManagerExcepti
 
 SeeAlso
 ==============
-Next class: [DevUserManager](https://github.com/lingtalfi/Light_UserManager/blob/master/doc/api/Ling/Light_UserManager/UserManager/DevUserManager.md)<br>
+Next class: [LightUserManagerService](https://github.com/lingtalfi/Light_UserManager/blob/master/doc/api/Ling/Light_UserManager/Service/LightUserManagerService.md)<br>

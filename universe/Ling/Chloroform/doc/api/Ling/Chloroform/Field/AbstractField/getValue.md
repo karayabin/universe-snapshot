@@ -46,7 +46,7 @@ Returns mixed.
 
 Source Code
 ===========
-See the source code for method [AbstractField::getValue](https://github.com/lingtalfi/Chloroform/blob/master/Field/AbstractField.php#L222-L225)
+See the source code for method [AbstractField::getValue](https://github.com/lingtalfi/Chloroform/blob/master/Field/AbstractField.php#L227-L230)
 
 
 See Also

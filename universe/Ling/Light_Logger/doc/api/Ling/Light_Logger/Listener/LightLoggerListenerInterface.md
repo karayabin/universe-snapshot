@@ -4,7 +4,7 @@
 
 The LightLoggerListenerInterface class
 ================
-2019-08-01 --> 2019-10-17
+2019-08-01 --> 2020-01-08
 
 
 
@@ -32,7 +32,7 @@ Class synopsis
 abstract class <span class="pl-k">LightLoggerListenerInterface</span>  {
 
 - Methods
-    - abstract public [listen](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Listener/LightLoggerListenerInterface/listen.md)(string $msg, string $channel) : void
+    - abstract public [listen](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Listener/LightLoggerListenerInterface/listen.md)($msg, string $channel) : void
 
 }
 

@@ -32,8 +32,8 @@ The $routeParams use the smartCode notation.
 
 Example:
 
-- /myroute
-- /myroute::{param1: value1, param2: value2}
+- my_route
+- my_route::{param1: value1, param2: value2}
 
 
 More details about [SmartCodeNotation](https://github.com/lingtalfi/Bat/blob/master/SmartCodeTool.md).

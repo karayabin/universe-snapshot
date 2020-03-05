@@ -141,6 +141,7 @@ class Light_BreezeGeneratorDocBuilder
              */
             "keyWord2UrlMap" => [
                 "babyYaml" => 'https://github.com/lingtalfi/BabyYaml',
+                "LightDatabaseInfoService->getTableInfo" => 'https://github.com/lingtalfi/Light_DatabaseInfo/blob/master/doc/api/Ling/Light_DatabaseInfo/Service/LightDatabaseInfoService/getTableInfo.md',
             ],
             /**
              * An array of external classes to url.

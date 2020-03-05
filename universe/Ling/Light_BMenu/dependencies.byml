@@ -1,6 +1,7 @@
 dependencies: 
     Ling: 
         - DotMenu
+        - Bat
     
 
 post_install: 

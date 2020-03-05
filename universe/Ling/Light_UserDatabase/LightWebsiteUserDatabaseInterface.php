@@ -4,10 +4,14 @@
 namespace Ling\Light_UserDatabase;
 
 
-use Ling\Light_UserDatabase\Api\PermissionApiInterface;
-use Ling\Light_UserDatabase\Api\PermissionGroupApiInterface;
-use Ling\Light_UserDatabase\Api\PermissionGroupHasPermissionApiInterface;
-use Ling\Light_UserDatabase\Api\UserHasPermissionGroupApiInterface;
+
+use Ling\Light_UserDatabase\Api\Mysql\Interfaces\PermissionApiInterface;
+use Ling\Light_UserDatabase\Api\Mysql\Interfaces\PermissionGroupApiInterface;
+use Ling\Light_UserDatabase\Api\Mysql\Interfaces\PermissionGroupHasPermissionApiInterface;
+use Ling\Light_UserDatabase\Api\Mysql\Interfaces\PluginOptionApiInterface;
+use Ling\Light_UserDatabase\Api\Mysql\Interfaces\UserGroupApiInterface;
+use Ling\Light_UserDatabase\Api\Mysql\Interfaces\UserGroupHasPluginOptionApiInterface;
+use Ling\Light_UserDatabase\Api\Mysql\Interfaces\UserHasPermissionGroupApiInterface;
 use Ling\Light_UserDatabase\Exception\LightUserDatabaseException;
 
 /**
@@ -45,8 +49,6 @@ interface LightWebsiteUserDatabaseInterface extends LightUserDatabaseInterface
     public function addUser(array $userInfo);
 
 
-
-
     /**
      * Returns the user info array matching the given user id, or false if the id
      * doesn't match an user.
@@ -78,33 +80,15 @@ interface LightWebsiteUserDatabaseInterface extends LightUserDatabaseInterface
     public function deleteUserById(int $id);
 
 
-
-
-    //--------------------------------------------
-    //
-    //--------------------------------------------
     /**
-     * When a new user is created, the permissions she will get depends on her profiles.
-     * A profile is also known as a permission group.
-     * See more details in the @page(permissions conception notes).
+     * Returns an array of all user ids.
      *
-     * Plugins can register new profiles using this method.
-     * The profile parameter can be either:
-     *
-     * - a string, the profile
-     * - an array of profile strings
-     * - a callable, which returns a profile (string) or an array of profiles.
-     *          The callable has the following signature:
-     *              function ( array user ): array|string
-     *
-     *          Note: the "user" parameter is the array containing all the
-     *          newly created light website user info (except for the profiles).
-     *
-     *
-     * @param $profile
-     * @return void
+     * @return array
      */
-    public function registerNewUserProfile($profile);
+    public function getAllUserIds(): array;
+
+
+
 
     //--------------------------------------------
     //
@@ -132,4 +116,23 @@ interface LightWebsiteUserDatabaseInterface extends LightUserDatabaseInterface
      * @return UserHasPermissionGroupApiInterface
      */
     public function getUserHasPermissionGroupApi(): UserHasPermissionGroupApiInterface;
+
+    /**
+     * Returns a UserGroupApiInterface instance.
+     * @return UserGroupApiInterface
+     */
+    public function getUserGroupApi(): UserGroupApiInterface;
+
+    /**
+     * Returns a PluginOptionApiInterface instance.
+     * @return PluginOptionApiInterface
+     */
+    public function getPluginOptionApi(): PluginOptionApiInterface;
+
+    /**
+     * Returns a UserGroupHasPluginOptionApiInterface instance.
+     * @return UserGroupHasPluginOptionApiInterface
+     */
+    public function getUserGroupHasPluginOptionApi(): UserGroupHasPluginOptionApiInterface;
+
 }

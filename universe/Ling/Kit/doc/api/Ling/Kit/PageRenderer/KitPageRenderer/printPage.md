@@ -51,7 +51,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [KitPageRenderer::printPage](https://github.com/lingtalfi/Kit/blob/master/PageRenderer/KitPageRenderer.php#L234-L291)
+See the source code for method [KitPageRenderer::printPage](https://github.com/lingtalfi/Kit/blob/master/PageRenderer/KitPageRenderer.php#L234-L293)
 
 
 See Also

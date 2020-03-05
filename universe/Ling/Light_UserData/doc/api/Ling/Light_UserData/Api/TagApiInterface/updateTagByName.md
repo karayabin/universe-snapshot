@@ -58,7 +58,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [TagApiInterface::updateTagByName](https://github.com/lingtalfi/Light_UserData/blob/master/Api/TagApiInterface.php#L89-L89)
+See the source code for method [TagApiInterface::updateTagByName](https://github.com/lingtalfi/Light_UserData/blob/master/Api/TagApiInterface.php#L99-L99)
 
 
 See Also

@@ -1,32 +1,50 @@
-Configuration files
+Configuration files and items
 ====================
-2019-10-31
+2019-10-31 -> 2020-01-28
 
 
-We reckon that perhaps the best organization for a client plugin is to define both
-the [validation rules](https://github.com/lingtalfi/Light_AjaxFileUploadManager/blob/master/doc/pages/validation-rules.md) 
-and [action lists](https://github.com/lingtalfi/Light_AjaxFileUploadManager/blob/master/doc/pages/action-list.md) 
-from a dedicated single file.
+
+To configure the **Light_AjaxFileUploadManager** service, we use **configuration items** (or items for short).
+
+The **configuration items** are stored in **configuration files**, where a configuration file can hold multiple configuration items.
 
 
-Therefore we introduce the concept of **configuration file** which intends to fulfill this purpose.
+
+
+
+
+The configuration file
+-------------
+2020-01-28
+
+
+A **configuration file** is a [babyYaml](https://github.com/lingtalfi/BabyYaml) file, since it's a convenient way to hold information.
+Third-party plugins can register their configuration files using our service's **addConfigurationItemsByFile** method.
+
+
+The **configuration file** is basically an array of **id** => **configuration item**.
+
+The **id** of the configuration item is very important: it's used by our service to identify which configuration item to use to handle a given file.
+ 
 
 
 
 The configuration item
 -------------
-
-Our service now has a **addConfigurationItemsByFile** method.
-
+2020-01-28
 
 
-A **configuration item** is an array which contains the following sections:
+A configuration item has the following structure:
 
-- action: an action list array
-- validation: a validation rule array
-
-The file holding the configuration items is a [babyYaml](https://github.com/lingtalfi/BabyYaml) file provided by the client plugin.
-It contains an **items** section, which contains the configuration items registered by **id**.
-
+- csrf_token: optional, bool=true. Whether to check for a csrf token.
+    If true, we use the [Light_CsrfSession](https://github.com/lingtalfi/Light_CsrfSession) plugin under the hood.
+- action: optional, array=[]. An array of actions to execute on the file (only once it has been validated by the validation rules).
+    Usually, at least one of the defined action is used to upload the file to the server.
+    Sometimes, other actions are also used to create thumbnails with different sizes of the uploaded file.
+    See more info in [action lists](https://github.com/lingtalfi/Light_AjaxFileUploadManager/blob/master/doc/pages/action-list.md).  
+- validation: optional, array=[]. An array of validation rules. The validation rules are used to discard an file before it's uploaded.
+    Validation rules are first tested, and if they all pass, then only **actions** (see the action property above) are executed.
+    
+    
 
 

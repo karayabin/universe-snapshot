@@ -49,5 +49,3 @@ the $planet is our plugin name).
 Also in this implementation, for now, plugin A can be the parent of plugin B only if both plugins are in the install slot
 (i.e. if either plugin A or plugin B is in another slot this won't work).
 
-
-

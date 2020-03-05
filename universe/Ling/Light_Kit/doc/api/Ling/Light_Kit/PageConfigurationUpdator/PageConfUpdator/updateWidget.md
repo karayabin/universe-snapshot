@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [PageConfUpdator::updateWidget](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageConfigurationUpdator/PageConfUpdator/updateWidget.md)(string $widgetIdentifier, array $newWidgetConfLayer) : [PageConfUpdator](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageConfigurationUpdator/PageConfUpdator.md)
+public [PageConfUpdator::updateWidget](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageConfigurationUpdator/PageConfUpdator/updateWidget.md)(string $widgetIdentifier, $newWidgetConfLayer) : [PageConfUpdator](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageConfigurationUpdator/PageConfUpdator.md)
 
 
 
@@ -36,9 +36,16 @@ With:
 
 
 
-The layer will be merged with the page configuration array using the ams algorithm,
-which allows use to replace items from an associative array and add items to numerically indexed arrays.
-For more details refer to the [ams algorithm documentation](https://github.com/lingtalfi/Bat/blob/master/ArrayTool.md#arraymergereplacerecursive).
+The layer is either:
+
+- an array
+     in which case it will be merged with the page configuration array using the ams algorithm,
+     which allows use to replace items from an associative array and add items to numerically indexed arrays.
+     For more details refer to the [ams algorithm documentation](https://github.com/lingtalfi/Bat/blob/master/ArrayTool.md#arraymergereplacerecursive).
+
+- a callable, with the following signature:
+     - fn ( array &conf )
+     With conf being the widget configuration to update
 
 
 
@@ -70,7 +77,7 @@ Returns [PageConfUpdator](https://github.com/lingtalfi/Light_Kit/blob/master/doc
 
 Source Code
 ===========
-See the source code for method [PageConfUpdator::updateWidget](https://github.com/lingtalfi/Light_Kit/blob/master/PageConfigurationUpdator/PageConfUpdator.php#L122-L126)
+See the source code for method [PageConfUpdator::updateWidget](https://github.com/lingtalfi/Light_Kit/blob/master/PageConfigurationUpdator/PageConfUpdator.php#L134-L138)
 
 
 See Also

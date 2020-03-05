@@ -1,0 +1,2 @@
+https://github.com/lingtalfi/JCropperJs/blob/master/README.md
+https://github.com/lingtalfi/JCropperJs/blob/master/doc/api/Ling/JCropperJs.md

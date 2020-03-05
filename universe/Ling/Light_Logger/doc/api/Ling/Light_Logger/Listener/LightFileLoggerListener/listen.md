@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [LightFileLoggerListener::listen](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Listener/LightFileLoggerListener/listen.md)(string $msg, string $channel) : void
+public [LightFileLoggerListener::listen](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Listener/LightFileLoggerListener/listen.md)($msg, string $channel) : void
 
 
 
@@ -27,6 +27,7 @@ See more in the class description.
 
 
 Reacts to the given logger message in a specific way.
+Note: the message can be of any type (string, object, ...).
 
 
 
@@ -58,7 +59,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightFileLoggerListener::listen](https://github.com/lingtalfi/Light_Logger/blob/master/Listener/LightFileLoggerListener.php#L154-L183)
+See the source code for method [LightFileLoggerListener::listen](https://github.com/lingtalfi/Light_Logger/blob/master/Listener/LightFileLoggerListener.php#L163-L195)
 
 
 See Also

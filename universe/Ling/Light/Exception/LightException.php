@@ -39,11 +39,16 @@ class LightException extends \Exception
 
     /**
      * Returns a static instance.
+     *
+     * @param string $message = ""
+     * @param string $lightErrorCode = null
      * @return LightException
      */
-    public static function create(): self
+    public static function create(string $message = "", string $lightErrorCode = null): self
     {
-        return new static();
+        $o = new static($message);
+        $o->lightErrorCode = $lightErrorCode;
+        return $o;
     }
 
 
@@ -53,9 +58,9 @@ class LightException extends \Exception
      * @param string|null $lightErrorCode
      * @return $this
      */
-    public function setLightErrorCode(?string $lightErrorCode): LightException
+    public function setLightErrorCode(string $lightErrorCode): LightException
     {
-        $this->lightErrorCode = $lightErrorCode;
+        $this->lightErrorCode = (string)$lightErrorCode;
         return $this;
     }
 

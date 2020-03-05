@@ -5,14 +5,14 @@ namespace Ling\Light_Realform\SuccessHandler;
 
 
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
-use Ling\Light_MicroPermission\Service\LightMicroPermissionService;
-use Ling\Light_Realform\Exception\LightRealformException;
-use Ling\SimplePdoWrapper\SimplePdoWrapperInterface;
+use Ling\Light_Crud\Service\LightCrudService;
 
 /**
  * The ToDatabaseSuccessHandler class.
  *
  * This success handler will save the data to a database table, which you define before hand.
+ *
+ * We use the @page(crud service) under the hood, so that the app can benefit the events hooks.
  *
  * This class has two operation modes:
  *
@@ -25,6 +25,9 @@ use Ling\SimplePdoWrapper\SimplePdoWrapperInterface;
  *
  * As a design choice, this class doesn't handle permission problem: I believe it's better to handle the permission
  * problems separately.
+ *
+ *
+ * This handler can handle @page(the form multiplier pattern).
  *
  *
  *
@@ -47,17 +50,22 @@ class ToDatabaseSuccessHandler implements RealformSuccessHandlerInterface
      */
     protected $container;
 
+
     /**
-     * This property holds the microPermissionPluginName for this instance.
-     * If null (by default), the micro permission system will not be used.
-     * If set to a plugin name, the micro permission system will be using that plugin name.
-     * We use the @page(recommended micro-permission notation for database).
+     * This property holds the pluginName for this instance.
+     * It's the name of the plugin used as a handler for the crud service.
      *
-     *
-     *
-     * @var string|null
+     * @var string
      */
-    protected $microPermissionPluginName;
+    protected $pluginName;
+
+
+    /**
+     * This property holds the multiplier array for this instance.
+     * See more details in @page(the form multiplier trick document).
+     * @var array
+     */
+    protected $multiplier;
 
 
     /**
@@ -67,7 +75,8 @@ class ToDatabaseSuccessHandler implements RealformSuccessHandlerInterface
     {
         $this->table = null;
         $this->container = null;
-        $this->microPermissionPluginName = null;
+        $this->pluginName = null;
+        $this->multiplier = null;
     }
 
 
@@ -87,39 +96,31 @@ class ToDatabaseSuccessHandler implements RealformSuccessHandlerInterface
      */
     public function processData(array $data, array $options = [])
     {
-
-        $useMicroPerm = false;
-        $microPermService = null;
-
-        if (null !== $this->microPermissionPluginName) {
-            $useMicroPerm = true;
-            $microPerm = $this->microPermissionPluginName . ".tables." . $this->table . '.';
-        }
-
-
         /**
-         * @var $db SimplePdoWrapperInterface
+         * @var $crud LightCrudService
          */
-        $db = $this->container->get("database");
+        $contextId = $this->pluginName . '.Light_RealForm-ToDatabaseSuccessHandler';
+        $crud = $this->container->get('crud');
+
+
         //--------------------------------------------
         // UPDATE
         //--------------------------------------------
         if (array_key_exists('updateRic', $options)) {
-            if (true === $useMicroPerm) {
-                $microPerm .= 'update';
-                $this->checkMicroPermission($microPerm);
-            }
-            $db->update($this->table, $data, $options['updateRic']);
+            $updateRic = $options['updateRic'];
+            $crud->execute($contextId, $this->table, 'update', [
+                'data' => $data,
+                'updateRic' => $updateRic,
+            ]);
         }
         //--------------------------------------------
         // INSERT
         //--------------------------------------------
         else {
-            if (true === $useMicroPerm) {
-                $microPerm .= 'create';
-                $this->checkMicroPermission($microPerm);
-            }
-            $db->insert($this->table, $data);
+            $crud->execute($contextId, $this->table, 'create', [
+                'data' => $data,
+                'multiplier' => $this->multiplier,
+            ]);
         }
     }
 
@@ -148,35 +149,24 @@ class ToDatabaseSuccessHandler implements RealformSuccessHandlerInterface
     }
 
     /**
-     * Sets the microPermissionPluginName.
+     * Sets the pluginName.
      *
-     * @param string|null $microPermissionPluginName
+     * @param string $pluginName
      */
-    public function setMicroPermissionPluginName(?string $microPermissionPluginName)
+    public function setPluginName(string $pluginName)
     {
-        $this->microPermissionPluginName = $microPermissionPluginName;
+        $this->pluginName = $pluginName;
     }
 
-
-    //--------------------------------------------
-    //
-    //--------------------------------------------
     /**
-     * Ensures that the current user has the given micro-permission.
-     * If not, an exception is thrown.
+     * Sets the multiplier.
      *
-     *
-     * @param string $microPermission
-     * @throws \Exception
+     * @param array $multiplier
      */
-    protected function checkMicroPermission(string $microPermission)
+    public function setMultiplier(array $multiplier)
     {
-        /**
-         * @var $microPermService LightMicroPermissionService
-         */
-        $microPermService = $this->container->get("micro_permission");
-        if (false === $microPermService->hasMicroPermission($microPermission)) {
-            throw new LightRealformException("Permission defined. You don't have the micro-permission: $microPermission.");
-        }
+        $this->multiplier = $multiplier;
     }
+
+
 }

@@ -1,6 +1,6 @@
 Ling/Light_Kit
 ================
-2019-04-25 --> 2019-10-29
+2019-04-25 --> 2019-12-16
 
 
 
@@ -68,5 +68,6 @@ Dependencies
 - [Kit](https://github.com/lingtalfi/Kit)
 - [ArrayVariableResolver](https://github.com/lingtalfi/ArrayVariableResolver)
 - [Light](https://github.com/lingtalfi/Light)
+- [Light_Events](https://github.com/lingtalfi/Light_Events)
 
 

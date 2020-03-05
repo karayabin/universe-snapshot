@@ -4,7 +4,7 @@
 
 The AbstractField class
 ================
-2019-04-10 --> 2019-11-01
+2019-04-10 --> 2020-02-21
 
 
 
@@ -15,6 +15,10 @@ Introduction
 ============
 
 The AbstractField class.
+
+Note: it's a design choice that we don't have a setProperty method, this allows
+child classes to deal with properties internally from the constructor, with the confidence that those
+properties are not changed by a way they didn't expect.
 
 
 

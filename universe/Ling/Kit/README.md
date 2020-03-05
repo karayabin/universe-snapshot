@@ -174,6 +174,10 @@ Related
 History Log
 =============
 
+- 1.12.0 -- 2019-11-25
+
+    - update BabyYamlConfStorage->getPageConf, now accepts variables for _parent path 
+    
 - 1.11.1 -- 2019-08-30
 
     - move KitPageRenderer->getNewHtmlPageCopilot to getHtmlPageCopilot 

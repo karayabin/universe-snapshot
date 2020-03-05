@@ -54,7 +54,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [LightRealistTool::ricsToIntegersOnlyInString](https://github.com/lingtalfi/Light_Realist/blob/master/Tool/LightRealistTool.php#L113-L124)
+See the source code for method [LightRealistTool::ricsToIntegersOnlyInString](https://github.com/lingtalfi/Light_Realist/blob/master/Tool/LightRealistTool.php#L101-L112)
 
 
 See Also

@@ -7,7 +7,7 @@ MysqlPermissionGroupHasPermissionApi::__construct
 
 
 
-MysqlPermissionGroupHasPermissionApi::__construct — Builds the PermissionGroupHasPermissionApi instance.
+MysqlPermissionGroupHasPermissionApi::__construct — Builds the MysqlPermissionGroupHasPermissionApi instance.
 
 
 
@@ -21,7 +21,7 @@ public [MysqlPermissionGroupHasPermissionApi::__construct](https://github.com/li
 
 
 
-Builds the PermissionGroupHasPermissionApi instance.
+Builds the MysqlPermissionGroupHasPermissionApi instance.
 
 
 
@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [MysqlPermissionGroupHasPermissionApi::__construct](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Mysql/MysqlPermissionGroupHasPermissionApi.php#L25-L28)
+See the source code for method [MysqlPermissionGroupHasPermissionApi::__construct](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Mysql/MysqlPermissionGroupHasPermissionApi.php#L20-L24)
 
 
 See Also

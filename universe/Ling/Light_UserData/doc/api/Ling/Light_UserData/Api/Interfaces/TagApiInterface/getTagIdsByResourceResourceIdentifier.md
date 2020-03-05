@@ -1,0 +1,61 @@
+[Back to the Ling/Light_UserData api](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData.md)<br>
+[Back to the Ling\Light_UserData\Api\Interfaces\TagApiInterface class](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Interfaces/TagApiInterface.md)
+
+
+TagApiInterface::getTagIdsByResourceResourceIdentifier
+================
+
+
+
+TagApiInterface::getTagIdsByResourceResourceIdentifier — Returns an array of luda_tag.id bound to the given resource resource_identifier.
+
+
+
+
+Description
+================
+
+
+abstract public [TagApiInterface::getTagIdsByResourceResourceIdentifier](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Interfaces/TagApiInterface/getTagIdsByResourceResourceIdentifier.md)(string $resourceResourceIdentifier) : array
+
+
+
+
+Returns an array of luda_tag.id bound to the given resource resource_identifier.
+
+
+
+
+Parameters
+================
+
+
+- resourceResourceIdentifier
+
+    
+
+
+Return values
+================
+
+Returns array.
+
+
+
+
+
+
+
+
+Source Code
+===========
+See the source code for method [TagApiInterface::getTagIdsByResourceResourceIdentifier](https://github.com/lingtalfi/Light_UserData/blob/master/Api/Interfaces/TagApiInterface.php#L145-L145)
+
+
+See Also
+================
+
+The [TagApiInterface](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Interfaces/TagApiInterface.md) class.
+
+Previous method: [getTagIdsByResourceId](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Interfaces/TagApiInterface/getTagIdsByResourceId.md)<br>Next method: [getTagNamesByResourceId](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Interfaces/TagApiInterface/getTagNamesByResourceId.md)<br>
+

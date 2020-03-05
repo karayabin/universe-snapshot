@@ -58,7 +58,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightInitializerUtil::initialize](https://github.com/lingtalfi/Light_Initializer/blob/master/Util/LightInitializerUtil.php#L106-L157)
+See the source code for method [LightInitializerUtil::initialize](https://github.com/lingtalfi/Light_Initializer/blob/master/Util/LightInitializerUtil.php#L107-L135)
 
 
 See Also

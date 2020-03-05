@@ -4,7 +4,7 @@
 
 The LightBMenuAbstractHost class
 ================
-2019-08-08 --> 2019-08-09
+2019-08-08 --> 2020-02-28
 
 
 
@@ -36,7 +36,7 @@ abstract class <span class="pl-k">LightBMenuAbstractHost</span> implements [Ligh
     - public [onMenuCompiled](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Host/LightBMenuAbstractHost/onMenuCompiled.md)(array &$menu) : void
     - public [setMenuType](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Host/LightBMenuAbstractHost/setMenuType.md)(string $menuType) : void
     - public [setMenuStructureId](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Host/LightBMenuAbstractHost/setMenuStructureId.md)(string $menuStructureId) : void
-    - public [setDefaultItemsParentPath](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Host/LightBMenuAbstractHost/setDefaultItemsParentPath.md)(?string $defaultItemsParentPath) : void
+    - public [setDefaultItemsParentPath](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Host/LightBMenuAbstractHost/setDefaultItemsParentPath.md)(string $defaultItemsParentPath) : void
 
 - Inherited methods
     - abstract public [LightBMenuHostInterface::prepareBaseMenu](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Host/LightBMenuHostInterface/prepareBaseMenu.md)([Ling\Light_BMenu\Menu\LightBMenu](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Menu/LightBMenu.md) $menu) : mixed

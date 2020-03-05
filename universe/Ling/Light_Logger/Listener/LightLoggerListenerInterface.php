@@ -18,10 +18,11 @@ interface LightLoggerListenerInterface
 {
     /**
      * Reacts to the given logger message in a specific way.
+     * Note: the message can be of any type (string, object, ...).
      *
-     * @param string $msg
+     * @param mixed $msg
      * @param string $channel
      * @return void
      */
-    public function listen(string $msg, string $channel);
+    public function listen($msg, string $channel);
 }

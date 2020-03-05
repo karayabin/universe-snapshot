@@ -54,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [TagApiInterface::deleteTagById](https://github.com/lingtalfi/Light_UserData/blob/master/Api/TagApiInterface.php#L100-L100)
+See the source code for method [TagApiInterface::deleteTagById](https://github.com/lingtalfi/Light_UserData/blob/master/Api/TagApiInterface.php#L110-L110)
 
 
 See Also

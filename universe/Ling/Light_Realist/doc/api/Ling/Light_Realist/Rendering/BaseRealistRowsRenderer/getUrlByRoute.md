@@ -23,7 +23,7 @@ protected [BaseRealistRowsRenderer::getUrlByRoute](https://github.com/lingtalfi/
 
 Returns the url corresponding to the given route, using the reverse_router service.
 
-For parameters, it's a proxy to the [LightReverseRouterInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ReverseRouter/LightReverseRouterInterface.md) (i.e. see their doc for more details).
+For parameters, it's a proxy to the [LightReverseRouterService](https://github.com/lingtalfi/Light_ReverseRouter/blob/master/doc/api/Ling/Light_ReverseRouter/Service/LightReverseRouterService.md) (i.e. see their doc for more details).
 
 
 
@@ -64,7 +64,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [BaseRealistRowsRenderer::getUrlByRoute](https://github.com/lingtalfi/Light_Realist/blob/master/Rendering/BaseRealistRowsRenderer.php#L219-L226)
+See the source code for method [BaseRealistRowsRenderer::getUrlByRoute](https://github.com/lingtalfi/Light_Realist/blob/master/Rendering/BaseRealistRowsRenderer.php#L321-L328)
 
 
 See Also

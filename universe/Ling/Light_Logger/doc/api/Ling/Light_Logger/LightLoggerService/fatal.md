@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightLoggerService::fatal](https://github.com/lingtalfi/Light_Logger/blob/master/LightLoggerService.php#L282-L285)
+See the source code for method [LightLoggerService::fatal](https://github.com/lingtalfi/Light_Logger/blob/master/LightLoggerService.php#L235-L238)
 
 
 See Also
@@ -57,5 +57,5 @@ See Also
 
 The [LightLoggerService](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService.md) class.
 
-Previous method: [error](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/error.md)<br>Next method: [getFormattedMessage](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/getFormattedMessage.md)<br>
+Previous method: [error](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService/error.md)<br>
 

@@ -4,7 +4,7 @@
 
 The KitException class
 ================
-2019-04-24 --> 2019-08-30
+2019-04-24 --> 2019-11-25
 
 
 
@@ -54,4 +54,4 @@ See the source code of [Ling\Kit\Exception\KitException](https://github.com/ling
 
 SeeAlso
 ==============
-Previous class: [ConfStorageInterface](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/ConfStorage/ConfStorageInterface.md)<br>Next class: [KitPageRenderer](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer.md)<br>
+Previous class: [VariableAwareConfStorageInterface](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/ConfStorage/VariableAwareConfStorageInterface.md)<br>Next class: [KitPageRenderer](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRenderer.md)<br>

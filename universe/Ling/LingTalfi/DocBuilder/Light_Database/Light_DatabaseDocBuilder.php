@@ -7,6 +7,7 @@ namespace Ling\LingTalfi\DocBuilder\Light_Database;
 use Ling\DocTools\DocBuilder\Git\PhpPlanet\LingGitPhpPlanetDocBuilder;
 use Ling\DocTools\Exception\DocBuilderException;
 use Ling\DocTools\Translator\ParseDownTranslator;
+use Ling\LingTalfi\DocTools\LingTalfiDocToolsHelper;
 
 
 /**
@@ -140,7 +141,9 @@ class Light_DatabaseDocBuilder
              * This map in particular is the one used for the whole DocTools planet documentation (pages and api).
              */
             "keyWord2UrlMap" => [
-//                "the command line page" => $doc . '/pages/command-line.md',
+                "recommended micro-permission notation for database interaction" => "https://github.com/lingtalfi/Light_MicroPermission/blob/master/doc/pages/recommended-micropermission-notation.md",
+                "LightDatabasePdoWrapper class" => "https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/LightDatabasePdoWrapper.md",
+                "SimplePdoWrapper conception notes" => "https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/pages/conception-notes.md",
             ],
             /**
              * An array of external classes to url.
@@ -155,6 +158,7 @@ class Light_DatabaseDocBuilder
                 "Ling\SimplePdoWrapper\Exception\NoPdoConnectionException" => "https://github.com/lingtalfi/SimplePdoWrapper/blob/master/Exception/NoPdoConnectionException.php",
                 "Ling\SimplePdoWrapper\SimplePdoWrapper" => "https://github.com/lingtalfi/SimplePdoWrapper/blob/master/SimplePdoWrapper.php",
                 "Ling\SimplePdoWrapper\SimplePdoWrapperInterface" => "https://github.com/lingtalfi/SimplePdoWrapper/blob/master/SimplePdoWrapperInterface.php",
+                "Ling\Light\ServiceContainer\LightServiceContainerInterface" => "https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md",
             ],
         ];
 
@@ -190,6 +194,8 @@ class Light_DatabaseDocBuilder
          * and since we've defined a @kw(copy module), it will also copy the whole doc to another location.
          */
         $builder->buildDoc();
+        LingTalfiDocToolsHelper::generateCrumbs($builder);
+
 
         if ('cli' !== php_sapi_name()) {
 

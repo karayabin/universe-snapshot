@@ -5,14 +5,17 @@ namespace Ling\Light_Kit_Admin\Realist\ListActionHandler;
 
 
 use Ling\Bat\BDotTool;
-use Ling\Light_DatabaseInfo\Service\LightDatabaseInfoService;
+use Ling\Bat\DebugTool;
+use Ling\Light_Crud\Service\LightCrudService;
 use Ling\Light_Kit_Admin\Exception\LightKitAdminException;
-use Ling\Light_Kit_Admin\Rights\RightsHelper;
+use Ling\Light_Kit_Admin\Service\LightKitAdminService;
+use Ling\Light_Realist\Helper\DuelistHelper;
+use Ling\Light_Realist\Helper\RealistHelper;
 use Ling\Light_Realist\ListActionHandler\LightRealistBaseListActionHandler;
 use Ling\Light_Realist\Service\LightRealistService;
 use Ling\Light_Realist\Tool\LightRealistTool;
+use Ling\Light_ReverseRouter\Service\LightReverseRouterService;
 use Ling\PhpSpreadSheetTool\PhpSpreadSheetTool;
-use Ling\SimplePdoWrapper\SimplePdoWrapperInterface;
 
 
 /**
@@ -26,13 +29,26 @@ class LightKitAdminListActionHandler extends LightRealistBaseListActionHandler
      */
     public function prepare(string $actionName, array &$genericActionItem, string $requestId)
     {
-
-
         switch ($actionName) {
             case "realist-delete_rows":
                 $this->decorateGenericActionItemByAssets($actionName, $genericActionItem, $requestId, __DIR__);
                 $table = $this->getTableNameByRequestId($requestId);
-                return $this->hasMicroPermission("Light_Kit_Admin.tables.$table.delete");
+                return $this->hasMicroPermission("tables.$table.delete");
+                break;
+            case "realist-edit_rows":
+                $table = $this->getTableNameByRequestId($requestId);
+                $this->decorateGenericActionItemByAssets($actionName, $genericActionItem, $requestId, __DIR__, [
+                    'generate_ajax_params' => false,
+                ]);
+                /**
+                 * @var $rr LightReverseRouterService
+                 */
+                $rr = $this->container->get("reverse_router");
+                $genericActionItem['params'] = [
+                    'url' => $rr->getUrl('lka_route-tool_multiple_form_edit'),
+                    'table' => $table,
+                ];
+                return $this->hasMicroPermission("tables.$table.update");
                 break;
             case "realist-rows_to_ods":
             case "realist-rows_to_xlsx":
@@ -44,12 +60,14 @@ class LightKitAdminListActionHandler extends LightRealistBaseListActionHandler
                     "jsActionName" => "realist-rows_to_extension",
                 ]);
                 $table = $this->getTableNameByRequestId($requestId);
-                return $this->hasMicroPermission("Light_Kit_Admin.tables.$table.read");
+                return $this->hasMicroPermission("tables.$table.read");
+
+
                 break;
             case "realist-print":
                 $this->decorateGenericActionItemByAssets($actionName, $genericActionItem, $requestId, __DIR__);
                 $table = $this->getTableNameByRequestId($requestId);
-                return $this->hasMicroPermission("Light_Kit_Admin.tables.$table.read");
+                return $this->hasMicroPermission("tables.$table.read");
                 break;
             default:
                 break;
@@ -111,7 +129,7 @@ class LightKitAdminListActionHandler extends LightRealistBaseListActionHandler
                  */
                 $service = $this->container->get("realist");
                 $conf = $service->getConfigurationArrayByRequestId($requestId);
-                $table = $conf['table'];
+                $table = DuelistHelper::getRawTableName($conf['table']);
                 $toolbarItem = LightRealistTool::getToolbarItemByActionId($actionId, $conf);
 
 
@@ -124,56 +142,39 @@ class LightKitAdminListActionHandler extends LightRealistBaseListActionHandler
                 //--------------------------------------------
                 // CHECK PERMISSION
                 //--------------------------------------------
-                $this->checkMicroPermission("Light_Kit_Admin.tables.$table.delete");
+                // already checked by the Light_Crud plugin below
+//                /**
+//                 * Note: we use the requestDeclaration.plugin property to decide which plugin is handling
+//                 * the micro-permission for deleting rows.
+//                 * In other words, we trust developers.
+//                 */
+//                $handlerPlugin = $conf['plugin'] ?? 'Light_Kit_Admin';
+//                $this->checkMicroPermission("$handlerPlugin.tables.$table.delete");
 
+
+                //--------------------------------------------
+                // CHECK OWNERSHIP
+                //--------------------------------------------
+                /**
+                 * @var $kitAdmin LightKitAdminService
+                 */
+//                $kitAdmin = $this->container->get("kit_admin");
+//                $ownershipManager = $kitAdmin->getUserRowOwnershipManager();
+//                foreach ($rics as $ric) {
+//                    $ownershipManager->checkOwnership($table, $ric);
+//                }
 
                 //--------------------------------------------
                 // DELETING THE ROWS
                 //--------------------------------------------
                 /**
-                 * @var $db SimplePdoWrapperInterface
+                 * @var $crud LightCrudService
                  */
-                $db = $this->container->get('database');
-                $confRics = $conf['ric'];
-                if (1 === count($confRics)) {
-                    $sRics = LightRealistTool::ricsToIntegersOnlyInString($rics);
-
-                    /**
-                     * In light kit admin, only the root user can delete a root thing.
-                     *
-                     */
-                    if ('lud_user' === $table && false === RightsHelper::isRoot($this->container)) {
-                        $q = <<<EEE
-delete u.* from lud_user u 
-inner join lud_user_has_permission_group uhpg on uhpg.user_id=u.id
-inner join lud_permission_group_has_permission h on h.permission_group_id=uhpg.permission_group_id
-inner join lud_permission p on p.id=h.permission_id
-where u.id in ($sRics) 
-and p.name != '*'
-EEE;
-//                        az($q);
-                        $db->executeStatement($q);
-
-
-                    } else {
-
-
-                        /**
-                         * @var $dbInfo LightDatabaseInfoService
-                         */
-                        $dbInfo = $this->container->get("database_info");
-                        $tableInfo = $dbInfo->getTableInfo("lud_user");
-                        $aik = $tableInfo['autoIncrementedKey'];
-                        if (false !== $aik) {
-                            $db->delete($table, $aik . ' in (' . $sRics . ')');
-
-                        } else {
-                            $this->error("Not implemented yet with ric not containing the auto-incremented key.");
-                        }
-                    }
-                } else {
-                    $this->error("Not implemented yet with ric containing more than one column.");
-                }
+                $crud = $this->container->get('crud');
+                $contextId = 'Light_Kit_Admin.realist-list_action-delete_rows';
+                $crud->execute($contextId, $table, 'deleteMultiple', [
+                    'rics' => $rics,
+                ]);
                 $response = [
                     "type" => "success",
                 ];
@@ -186,6 +187,8 @@ EEE;
 
         return $response;
     }
+
+
 
 
     /**
@@ -275,104 +278,86 @@ EEE;
      */
     protected function executeRowsToSomethingListAction(string $actionId, string $extension, array $params): array
     {
-
         $response = [];
         if (array_key_exists("request_id", $params)) {
             if (array_key_exists("rics", $params) && is_array($params['rics'])) {
 
+
                 $requestId = $params['request_id'];
-                $rics = $params['rics'];
 
                 /**
                  * @var $service LightRealistService
                  */
                 $service = $this->container->get("realist");
                 $conf = $service->getConfigurationArrayByRequestId($requestId);
-                $table = $conf['table'];
-                $toolbarItem = LightRealistTool::getToolbarItemByActionId($actionId, $conf);
+                $table = DuelistHelper::getRawTableName($conf['table']);
+                $res = $this->executeFetchAllRequestByActionId($actionId, $params);
 
 
-                //--------------------------------------------
-                // CSRF TOKEN CHECK?
-                //--------------------------------------------
-                $service->checkCsrfTokenByGenericActionItem($toolbarItem, $params);
+                $rows = $res['rows'];
 
 
-                //--------------------------------------------
-                // CHECK PERMISSION
-                //--------------------------------------------
-                $this->checkMicroPermission("Light_Kit_Admin.tables.$table.read");
+                $fileName = "$table-" . date("Y-m-d--H:i:s") . "." . $extension;
+
+                $columns = $conf['rendering']['column_labels'];
+                $hiddenColumns = $conf['rendering']['hidden_columns'] ?? [];
+                $actionColName = RealistHelper::getActionColumnNameByRequestDeclaration($conf);
+                $flippedHiddenColumns = array_flip($hiddenColumns);
+                $columns = array_diff_key($columns, $flippedHiddenColumns);
 
 
-                //--------------------------------------------
-                // GENERATING CSV
-                //--------------------------------------------
-                /**
-                 * @var $db SimplePdoWrapperInterface
-                 */
-                $db = $this->container->get('database');
-                $confRics = $conf['ric'];
-                if (1 === count($confRics)) {
-                    $primaryColumn = current($confRics);
-                    $sRics = LightRealistTool::ricsToIntegersOnlyInString($rics);
-                    $rows = $db->fetchAll("select * from `$table` where $primaryColumn in ($sRics)");
+                array_unshift($rows, $columns);
 
-
-                    $fileName = "$table-" . date("Y-m-d--H:i:s") . "." . $extension;
-
-                    /**
-                     * @var $dbInfo LightDatabaseInfoService
-                     */
-                    $dbInfo = $this->container->get('database_info');
-                    $columns = $dbInfo->getTableInfo($table)['columns'];
-                    array_unshift($rows, $columns);
-
-
-                    ob_start();
-                    PhpSpreadSheetTool::createFileByRows("php://output", $rows, [
-                        "extension" => $extension,
-                    ]);
-                    $content = ob_get_contents();
-                    ob_end_clean();
-
-
-                    $mimeType = null;
-                    switch ($extension) {
-                        case "ods":
-                            $mimeType = "application/vnd.oasis.opendocument.spreadsheet";
-                            break;
-                        case "xlsx":
-                            $mimeType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
-                            break;
-                        case "xls":
-                            $mimeType = "application/vnd.ms-excel";
-                            break;
-                        case "html":
-                            $mimeType = "text/html";
-                            break;
-                        case "csv":
-                            $mimeType = "text/csv";
-                            break;
-                        case "pdf":
-                            $mimeType = "application/pdf";
-                            break;
-                        default:
-                            $mimeType = "application/octet-stream";
-                            break;
+                array_walk($rows, function (&$row) use ($flippedHiddenColumns, $actionColName) {
+                    if (false !== $actionColName) {
+                        unset($row[$actionColName]);
                     }
+                    $row = array_diff_key($row, $flippedHiddenColumns);
+                });
 
 
-                    $response = [
-                        "type" => "success",
-                        "contentType" => $mimeType,
-                        "file" => "data:$mimeType;base64," . base64_encode($content),
-                        "filename" => $fileName,
-                    ];
+                ob_start();
+                PhpSpreadSheetTool::createFileByRows("php://output", $rows, [
+                    "extension" => $extension,
+                ]);
+                $content = ob_get_contents();
+                ob_end_clean();
 
 
-                } else {
-                    $this->error("Not implemented yet with ric containing more than one column.");
+                $mimeType = null;
+                switch ($extension) {
+                    case "ods":
+                        $mimeType = "application/vnd.oasis.opendocument.spreadsheet";
+                        break;
+                    case "xlsx":
+                        $mimeType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+                        break;
+                    case "xls":
+                        $mimeType = "application/vnd.ms-excel";
+                        break;
+                    case "html":
+                        $mimeType = "text/html";
+                        break;
+                    case "csv":
+                        $mimeType = "text/csv";
+                        break;
+                    case "pdf":
+                        $mimeType = "application/pdf";
+                        break;
+                    default:
+                        $mimeType = "application/octet-stream";
+                        break;
                 }
+
+
+                $response = [
+                    "type" => "success",
+                    "contentType" => $mimeType,
+                    "file" => "data:$mimeType;base64," . base64_encode($content),
+                    "filename" => $fileName,
+                ];
+
+
             } else {
                 $this->error("rics not provided or not an array.");
             }
@@ -400,63 +385,19 @@ EEE;
             if (array_key_exists("rics", $params) && is_array($params['rics'])) {
 
                 $requestId = $params['request_id'];
-                $rics = $params['rics'];
-
                 /**
                  * @var $service LightRealistService
                  */
                 $service = $this->container->get("realist");
                 $conf = $service->getConfigurationArrayByRequestId($requestId);
-                $table = $conf['table'];
-                $toolbarItem = LightRealistTool::getToolbarItemByActionId($actionId, $conf);
-
-
-                //--------------------------------------------
-                // CSRF TOKEN CHECK?
-                //--------------------------------------------
-                $service->checkCsrfTokenByGenericActionItem($toolbarItem, $params);
-
-
-                //--------------------------------------------
-                // CHECK PERMISSION
-                //--------------------------------------------
-                $this->checkMicroPermission("Light_Kit_Admin.tables.$table.read");
-
-                //--------------------------------------------
-                // GETTING THE ROWS
-                //--------------------------------------------
-                $confRics = $conf['ric'];
-                if (1 === count($confRics)) {
-                    /**
-                     * @var $dbInfo LightDatabaseInfoService
-                     */
-                    $dbInfo = $this->container->get("database_info");
-                    $tableInfo = $dbInfo->getTableInfo("lud_user");
-                    if (false !== $tableInfo['autoIncrementedKey']) {
-                        $requestParams = [
-                            "tags" => [
-                                [
-                                    "tag_id" => "in_ids",
-                                    "variables" => [
-                                        "ids" => LightRealistTool::ricsToIntegersOnlyInString($rics),
-                                    ],
-                                ],
-                            ],
-                            /**
-                             * We've already checked for the csrf token, so now we "trust" the user
-                             */
-                            "csrf_token_pass" => true,
-                        ];
-                        $res = $service->executeRequestById($requestId, $requestParams);
-                    } else {
-                        $this->error("Not implemented yet with ric not containing the auto-incremented key.");
-                    }
-                } else {
-                    $this->error("Not implemented yet with ric containing more than one column.");
-                }
+                $res = $this->executeFetchAllRequestByActionId($actionId, $params);
 
 
                 $columns = $conf['rendering']['column_labels'];
+                $hiddenColumns = $conf['rendering']['hidden_columns'] ?? [];
+                $columns = array_diff_key($columns, array_flip($hiddenColumns));
+
+
                 $checkboxCol = BDotTool::getDotValue("rendering.rows_renderer.checkbox_column", $conf);
                 if (is_array($checkboxCol)) {
                     array_unshift($columns, "Checkbox");
@@ -491,5 +432,168 @@ EEE;
     protected function error(string $message)
     {
         throw new LightKitAdminException($message);
+    }
+
+
+    /**
+     * Returns an array containing one @page(in_rics tag) per item in the given rics array.
+     * If one of the rics provided by the user doesn't match the ric defined in the configuration,
+     * and exception is thrown.
+     *
+     * @param array $rics
+     * @param array $configuration
+     * @return array
+     * @throws \Exception
+     */
+    protected function getInRicsTags(array $rics, array $configuration): array
+    {
+        $tags = [];
+        $confRic = $configuration['ric'];
+        $tags[] = [
+            "tag_id" => "open_parenthesis",
+        ];
+
+        $c = 0;
+        foreach ($rics as $ric) {
+            if (0 !== $c) {
+                $tags[] = [
+                    "tag_id" => "or",
+                ];
+            }
+            $validRic = [];
+            foreach ($confRic as $col) {
+                if (array_key_exists($col, $ric)) {
+                    $validRic[$col] = $ric[$col];
+                } else {
+                    $sRic = DebugTool::toString($ric);
+                    throw new LightKitAdminException("Invalid ric found: $sRic.");
+                }
+            }
+            $tags[] = [
+                'tag_id' => 'in_rics',
+                'variables' => $validRic,
+            ];
+            $c++;
+        }
+        $tags[] = [
+            "tag_id" => "close_parenthesis",
+        ];
+
+        return $tags;
+    }
+
+
+    /**
+     *
+     * Returns the where part of an sql query (where keyword excluded) based on the given
+     * rics.
+     * Also feeds the pdo markers array.
+     *
+     * It returns a string that looks like this for instance (parenthesis are part of the returned string)):
+     *
+     * - (
+     *      (user_id like '1' AND permission_group_id like '5')
+     *      OR (user_id like '3' AND permission_group_id like '4')
+     *      ...
+     *   )
+     *
+     *
+     * The given rics is an array of ric column names,
+     * whereas the given userRics is an array of items, each of which representing a row and
+     * being an array of (ric) column to value.
+     *
+     *
+     *
+     * @param array $rics
+     * @param array $userRics
+     * @param array $markers
+     * @return string
+     */
+    protected function getWhereByRics(array $rics, array $userRics, array &$markers): string
+    {
+        $s = '';
+        $markerInc = 1;
+        if ($userRics) {
+            $s .= '(';
+            $c = 0;
+            foreach ($userRics as $userRic) {
+                if (0 !== $c) {
+                    $s .= ' or ';
+                }
+                $s .= '(';
+                $d = 0;
+                foreach ($userRic as $col => $val) {
+                    if (in_array($col, $rics, true)) {
+                        if (0 !== $d) {
+                            $s .= ' and ';
+                        }
+                        $marker = $col . '_' . $markerInc++;
+                        $s .= "$col like :$marker";
+                        $d++;
+                        $markers[$marker] = $val;
+                    }
+                }
+
+                $s .= ')';
+                $c++;
+            }
+            $s .= ')';
+        }
+        return $s;
+    }
+
+
+
+    //--------------------------------------------
+    //
+    //--------------------------------------------
+    /**
+     * Returns the result of the LightRealistService->executeRequestById method.
+     * It's just a factorization helper.
+     *
+     * @param string $actionId
+     * @param array $params
+     * @return array
+     * @throws \Exception
+     */
+    private function executeFetchAllRequestByActionId(string $actionId, array $params)
+    {
+
+        $csrfToken = $params['csrf_token'] ?? '';
+        $requestId = $params['request_id'];
+        $rics = $params['rics'];
+        /**
+         * @var $service LightRealistService
+         */
+        $service = $this->container->get("realist");
+        $conf = $service->getConfigurationArrayByRequestId($requestId);
+
+
+        $table = DuelistHelper::getRawTableName($conf['table']);
+        $toolbarItem = LightRealistTool::getToolbarItemByActionId($actionId, $conf);
+
+
+        //--------------------------------------------
+        // CSRF TOKEN CHECK?
+        //--------------------------------------------
+        $service->checkCsrfTokenByGenericActionItem($toolbarItem, $params);
+
+
+        //--------------------------------------------
+        // CHECK PERMISSION
+        //--------------------------------------------
+        $this->checkMicroPermission("tables.$table.read");
+
+        //--------------------------------------------
+        // GETTING THE ROWS
+        //--------------------------------------------
+        $requestParams = [
+            "tags" => $this->getInRicsTags($rics, $conf),
+            /**
+             * We've already checked for the csrf token, so now we "trust" the user
+             */
+            "csrf_token" => $csrfToken,
+        ];
+        return $service->executeRequestById($requestId, $requestParams);
     }
 }

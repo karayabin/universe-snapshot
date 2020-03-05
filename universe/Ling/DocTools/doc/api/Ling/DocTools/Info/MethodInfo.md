@@ -4,7 +4,7 @@
 
 The MethodInfo class
 ================
-2019-02-21 --> 2019-10-25
+2019-02-21 --> 2020-03-02
 
 
 
@@ -53,7 +53,7 @@ class <span class="pl-k">MethodInfo</span> implements [InfoInterface](https://gi
     - public [setReturnDescription](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/MethodInfo/setReturnDescription.md)(string $returnDescription) : void
     - public [hasParameters](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/MethodInfo/hasParameters.md)() : bool
     - public [addParameter](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/MethodInfo/addParameter.md)([Ling\DocTools\Info\ParameterInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/ParameterInfo.md) $param) : void
-    - public [getParameters](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/MethodInfo/getParameters.md)() : [ParameterInfo[]](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/ParameterInfo.md)
+    - public [getParameters](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/MethodInfo/getParameters.md)() : [ParameterInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/ParameterInfo.md)
     - public [getReturnDescription](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/MethodInfo/getReturnDescription.md)() : string
     - public [getThrownExceptions](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/MethodInfo/getThrownExceptions.md)() : array
     - public [hasThrownExceptions](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/MethodInfo/hasThrownExceptions.md)() : bool

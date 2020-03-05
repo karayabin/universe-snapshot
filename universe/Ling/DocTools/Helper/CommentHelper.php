@@ -47,19 +47,20 @@ class CommentHelper
      * * http://php.net/manual/en/functions.arguments.php#functions.arguments.type-declaration.types
      */
     public static $propertyReturnTagTypes = [
+        'array',
+        'bool',
+        'callable',
+        'false',
+        'float',
         'int',
         'mixed',
-        'object',
-        'float',
-        'bool',
-        'false',
-        'true',
         'null',
-        'array',
-        'callable',
-        'string',
-        'void',
+        'object',
+        'self',
         'static',
+        'string',
+        'true',
+        'void',
     ];
 
 

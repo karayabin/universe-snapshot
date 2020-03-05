@@ -1,6 +1,6 @@
 Light_MicroPermission
 ===========
-2019-09-26
+2019-09-26 -> 2020-03-02
 
 
 
@@ -54,6 +54,24 @@ micro_permission:
         setContainer:
             container: @container()
 
+
+# --------------------------------------
+# hooks
+# --------------------------------------
+#$database.methods_collection:
+#    -
+#        method: registerEventHandler
+#        args:
+#            handler:
+#                instance: Ling\Light_MicroPermission\Light_Database\LightMicroPermissionDatabaseEventHandler
+#                methods:
+#                    setContainer:
+#                        container: @container()
+
+
+
+
+
 ```
 
 
@@ -61,6 +79,34 @@ micro_permission:
 History Log
 =============
 
+- 2.4.0 -- 2020-03-02
+
+    - add LightMicroPermissionDatabaseEventHandler class
+    
+- 2.3.1 -- 2019-12-20
+
+    - add personal memo in conception notes
+    
+- 2.3.0 -- 2019-12-20
+
+    - add LightMicroPermissionTrait trait
+    
+- 2.2.0 -- 2019-12-20
+
+    - update LightMicroPermissionService->restoreNamespaces add namespace optional argument
+
+- 2.1.0 -- 2019-12-19
+
+    - replace mode system with disabledNamespace system
+    
+- 2.0.1 -- 2019-12-18
+
+    - forgot implementation of mode
+    
+- 2.0.0 -- 2019-12-18
+
+    - new system
+    
 - 1.1.2 -- 2019-10-30
 
     - add "Recommended micro permission notation" document

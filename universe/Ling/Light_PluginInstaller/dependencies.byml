@@ -1,0 +1,10 @@
+dependencies: 
+    Ling: 
+        - Bat
+        - Light
+        - Light_Database
+        - SimplePdoWrapper
+    
+
+post_install: 
+    map: true

@@ -1,6 +1,6 @@
 Light_RealGenerator
 ===========
-2019-10-24
+2019-10-24 -> 2020-03-03
 
 
 
@@ -81,6 +81,104 @@ Related
 
 History Log
 =============
+
+- 1.19.1 -- 2020-03-03
+
+    - fix ListConfigGenerator not generating table alias for non crossed columns
+    
+- 1.19.0 -- 2020-02-28
+
+    - add list config properties, such as cross_column_hub_link_table_prefix_2_plugin 
+    - fix ListConfigGenerator->getFileContent, generating incorrect operator_and_value.value option instead of operator_and_value.target
+    
+- 1.18.2 -- 2020-02-26
+
+    - fix ListConfigGenerator->getFileContent, ambiguous column name with joined tables in where clause too
+    
+- 1.18.1 -- 2020-02-26
+
+    - fix ListConfigGenerator->getFileContent, ambiguous column name with joined tables
+    
+- 1.18.0 -- 2020-02-26
+
+    - add variables system
+    
+- 1.17.0 -- 2019-12-18
+
+    - update to accommodate Light_MicroPermission 2.0
+    
+- 1.16.0 -- 2019-12-09
+
+    - update ListConfigGenerator, added an edit icon for list action
+    
+- 1.15.0 -- 2019-12-06
+
+    - update FormConfigGenerator to handle latest form multiplier trick
+    
+- 1.14.0 -- 2019-12-04
+
+    - update FormConfigGenerator now can handle for multiplier trick's update initial value
+    
+- 1.13.0 -- 2019-12-03
+
+    - update FormConfigGenerator now can handle for multiplier trick
+    
+- 1.12.0 -- 2019-12-02
+
+    - update FormConfigGenerator to accommodate new TableField.search_column property
+    
+- 1.11.0 -- 2019-11-28
+
+    - update FormConfigGenerator to accommodate with new database success handler
+    
+- 1.10.0 -- 2019-11-19
+
+    - update FormConfigGenerator, now handles TableListField objects
+    
+- 1.9.1 -- 2019-11-14
+
+    - fix ListConfigGenerator: in_rics not being generated
+    
+- 1.9.0 -- 2019-11-13
+
+    - implemented cross column concept
+    
+- 1.8.0 -- 2019-11-06
+
+    - update ListConfigGenerator, now we can set the label for checkbox and action
+    - fix functional typo in ListConfigGenerator 
+    
+- 1.7.0 -- 2019-11-06
+
+    - update ListConfigGenerator, now rows renderer types accept the generic tags
+    
+- 1.6.0 -- 2019-11-05
+
+    - update, add form.title and list.title properties
+    
+- 1.5.0 -- 2019-11-05
+
+    - update ListConfigGenerator, now accepts {TableClass} tag
+    
+- 1.4.1 -- 2019-11-05
+
+    - fix functional typo in ListConfigGenerator
+    
+- 1.4.0 -- 2019-11-05
+
+    - update ListConfigGenerator, now handles the related_links section
+
+- 1.3.1 -- 2019-11-05
+
+    - fix ListConfigGenerator generating fields instead of base_fields
+
+- 1.3.0 -- 2019-11-04
+
+    - update FormConfigGenerator, now handles fields_merge_aliases
+    
+- 1.2.0 -- 2019-11-04
+
+    - update FormConfigGenerator, now handles on_success_handler
 
 - 1.1.0 -- 2019-10-30
 

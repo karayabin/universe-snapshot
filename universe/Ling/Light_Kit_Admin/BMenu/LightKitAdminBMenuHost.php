@@ -6,11 +6,11 @@ namespace Ling\Light_Kit_Admin\BMenu;
 
 use Ling\BabyYaml\BabyYamlUtil;
 use Ling\Bat\ArrayTool;
-use Ling\Light\ReverseRouter\LightReverseRouterInterface;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
 use Ling\Light_BMenu\Host\LightBMenuAbstractHost;
 use Ling\Light_BMenu\Menu\LightBMenu;
 use Ling\Light_Kit_Admin\Exception\LightKitAdminException;
+use Ling\Light_ReverseRouter\Service\LightReverseRouterService;
 use Ling\Light_User\WebsiteLightUser;
 use Ling\Light_UserManager\UserManager\LightUserManagerInterface;
 
@@ -103,7 +103,7 @@ class LightKitAdminBMenuHost extends LightBMenuAbstractHost
         // CONVERTING ROUTES TO URLS
         //--------------------------------------------
         /**
-         * @var $router LightReverseRouterInterface
+         * @var $router LightReverseRouterService
          */
         $router = $this->container->get("reverse_router");
         ArrayTool::updateNodeRecursive($menu, function (array &$row) use ($router) {
@@ -113,7 +113,7 @@ class LightKitAdminBMenuHost extends LightBMenuAbstractHost
                 array_key_exists("id", $row) &&
                 array_key_exists("children", $row)
             ) {
-                $routeParams = $row['route_params'] ?? [];
+                $routeParams = $row['route_url_params'] ?? [];
                 $row["url"] = $router->getUrl($row['route'], $routeParams);
             }
         });

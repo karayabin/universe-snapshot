@@ -66,7 +66,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [TagApiInterface::getTagById](https://github.com/lingtalfi/Light_UserData/blob/master/Api/TagApiInterface.php#L49-L49)
+See the source code for method [TagApiInterface::getTagById](https://github.com/lingtalfi/Light_UserData/blob/master/Api/TagApiInterface.php#L50-L50)
 
 
 See Also

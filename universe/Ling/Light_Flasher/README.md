@@ -46,7 +46,8 @@ Here is an example of the service configuration file:
 
 ```yaml
 flasher:
-    instance: Ling\Light_Flasher\Service\LightFlasher
+    instance: Ling\Light_Flasher\Service\LightFlasherService
+
 
 ```
 
@@ -57,6 +58,10 @@ flasher:
 History Log
 =============
 
+- 1.3.0 -- 2019-11-29
+
+    - renamed LightFlasher to LightFlasherService
+    
 - 1.2.0 -- 2019-08-13
 
     - update LightFlasher->getFlash, now have the option to NOT remove the flash after use

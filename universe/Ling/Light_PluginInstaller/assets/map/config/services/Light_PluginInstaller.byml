@@ -1,0 +1,21 @@
+plugin_installer:
+    instance: Ling\Light_PluginInstaller\Service\LightPluginInstallerService
+    methods:
+        setContainer:
+            container: @container()
+        setRootDir:
+            dir: ${app_dir}/config/data/Light_PluginInstaller
+
+
+# --------------------------------------
+# hooks
+# --------------------------------------
+$events.methods_collection:
+    -
+        method: registerListener
+        args:
+            events: Light.initialize_1
+            listener:
+                instance: @service(plugin_installer)
+                callable_method: onInitialize
+

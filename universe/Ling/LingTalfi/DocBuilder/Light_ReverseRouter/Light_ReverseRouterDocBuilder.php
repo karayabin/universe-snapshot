@@ -141,6 +141,8 @@ class Light_ReverseRouterDocBuilder
              */
             "keyWord2UrlMap" => [
                 "the route page" => "https://github.com/lingtalfi/Light/blob/master/doc/pages/route.md",
+                "Light.on_exception_caught event" => "https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md",
+                "Light.initialize_1 event" => "https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md",
             ],
             /**
              * An array of external classes to url.

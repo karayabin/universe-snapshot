@@ -1,0 +1,6 @@
+    /**
+     * Returns an array of luda_tag.name bound to the given resource id.
+     * @param string $resourceId
+     * @return array
+     */
+    public function getTagNamesByResourceId(string $resourceId): array;

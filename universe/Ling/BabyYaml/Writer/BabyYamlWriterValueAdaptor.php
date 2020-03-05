@@ -48,12 +48,15 @@ class BabyYamlWriterValueAdaptor
              *
              * In this version,
              * - if it's a comment, it needs protection
+             * - if it starts or end with whitespace, it needs protection
              * - if there is no double quote at all, then it doesn't need protection
              *
              */
             if (
                 0 !== strpos($trim, '#') &&
-                false === strpos($value, '"')
+                false === strpos($value, '"') &&
+                strlen($trim) === strlen($value)
+
             ) {
                 return $value;
             }

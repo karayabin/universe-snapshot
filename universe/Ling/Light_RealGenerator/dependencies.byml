@@ -3,6 +3,9 @@ dependencies:
         - Bat
         - Light
         - Light_DatabaseInfo
+        - SqlWizard
+        - ArrayToString
+        - ArrayVariableResolver
         - BabyYaml
     
 

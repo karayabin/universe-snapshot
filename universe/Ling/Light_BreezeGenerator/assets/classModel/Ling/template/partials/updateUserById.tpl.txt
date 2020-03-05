@@ -3,7 +3,9 @@
      */
     public function updateUserById(int $id, array $user)
     { //microperm
-        $this->doUpdateUserById($id, $user);
+        $this->pdoWrapper->update("user", $user, [
+            "id" => $id,
+        ]);
     }
 
 // updateXXX

@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [LightBMenuAbstractHost::setDefaultItemsParentPath](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Host/LightBMenuAbstractHost/setDefaultItemsParentPath.md)(?string $defaultItemsParentPath) : void
+public [LightBMenuAbstractHost::setDefaultItemsParentPath](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Host/LightBMenuAbstractHost/setDefaultItemsParentPath.md)(string $defaultItemsParentPath) : void
 
 
 

@@ -1,0 +1,6 @@
+    /**
+     * Returns the rows of the luda_tag table bound to the given resource id.
+     * @param string $resourceId
+     * @return array
+     */
+    public function getTagsByResourceId(string $resourceId): array;

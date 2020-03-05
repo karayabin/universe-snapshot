@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [ResourceHasTagApi::setContainer](https://github.com/lingtalfi/Light_UserData/blob/master/Api/ResourceHasTagApi.php#L113-L116)
+See the source code for method [ResourceHasTagApi::setContainer](https://github.com/lingtalfi/Light_UserData/blob/master/Api/ResourceHasTagApi.php#L102-L105)
 
 
 See Also
@@ -57,5 +57,5 @@ See Also
 
 The [ResourceHasTagApi](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/ResourceHasTagApi.md) class.
 
-Previous method: [setPdoWrapper](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/ResourceHasTagApi/setPdoWrapper.md)<br>Next method: [setMicroPermissionPlugin](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/ResourceHasTagApi/setMicroPermissionPlugin.md)<br>
+Previous method: [setPdoWrapper](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/ResourceHasTagApi/setPdoWrapper.md)<br>Next method: [doInsertResourceHasTag](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/ResourceHasTagApi/doInsertResourceHasTag.md)<br>
 

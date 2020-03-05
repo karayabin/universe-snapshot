@@ -63,7 +63,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [DirectoryMapApi::doInsertDirectoryMap](https://github.com/lingtalfi/Light_UserData/blob/master/Api/DirectoryMapApi.php#L141-L178)
+See the source code for method [DirectoryMapApi::doInsertDirectoryMap](https://github.com/lingtalfi/Light_UserData/blob/master/Api/DirectoryMapApi.php#L121-L158)
 
 
 See Also
@@ -71,5 +71,5 @@ See Also
 
 The [DirectoryMapApi](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/DirectoryMapApi.md) class.
 
-Previous method: [setMicroPermissionPlugin](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/DirectoryMapApi/setMicroPermissionPlugin.md)<br>Next method: [doGetDirectoryMapByObfuscatedName](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/DirectoryMapApi/doGetDirectoryMapByObfuscatedName.md)<br>
+Previous method: [setContainer](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/DirectoryMapApi/setContainer.md)<br>Next method: [doGetDirectoryMapByObfuscatedName](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/DirectoryMapApi/doGetDirectoryMapByObfuscatedName.md)<br>
 

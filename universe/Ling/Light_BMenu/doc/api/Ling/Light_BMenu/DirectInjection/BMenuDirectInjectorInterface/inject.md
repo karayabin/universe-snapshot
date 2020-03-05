@@ -23,7 +23,7 @@ abstract public [BMenuDirectInjectorInterface::inject](https://github.com/lingta
 
 Injects menu fragments in the given menu, knowing the "menuStructureId" context.
 
-More info about the menuStructureId in the [conception notes](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/pages/conception-notes.md).
+More info about the menuStructureId in the [bmenu conception notes](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/pages/conception-notes.md).
 
 
 

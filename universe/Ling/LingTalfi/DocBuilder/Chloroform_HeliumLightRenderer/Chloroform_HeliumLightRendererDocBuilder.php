@@ -146,6 +146,7 @@ class Chloroform_HeliumLightRendererDocBuilder
                 "TextField class" => 'https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/TextField.md',
                 "NumberField class" => 'https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/NumberField.md',
                 "HiddenField class" => 'https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/HiddenField.md',
+                "DecorativeField class" => 'https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/DecorativeField.md',
                 "CSRFField class" => 'https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/CSRFField.md',
                 "ColorField class" => 'https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/ColorField.md',
                 "DateField class" => 'https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/DateField.md',
@@ -156,6 +157,7 @@ class Chloroform_HeliumLightRendererDocBuilder
                 "RadioField class" => 'https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/RadioField.md',
                 "FileField class" => 'https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/FileField.md',
                 "PasswordField class" => 'https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/PasswordField.md',
+                "TableListField conception notes" => 'https://github.com/lingtalfi/Light_ChloroformExtension/blob/master/doc/pages/conception-notes.md#tablelistfield',
             ],
             /**
              * An array of external classes to url.

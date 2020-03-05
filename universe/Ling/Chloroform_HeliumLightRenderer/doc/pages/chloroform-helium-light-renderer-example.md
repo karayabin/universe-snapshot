@@ -60,7 +60,7 @@ ob_start();
 
                         $renderer = new HeliumLightRenderer([
                             "useEnctypeMultiformData" => true,
-                            "renderPrintsJsHandler" => false,
+                            "printJsHandler" => false,
                         ]);
                         $renderer->setContainer($container);
                         echo $renderer->render($form->toArray());

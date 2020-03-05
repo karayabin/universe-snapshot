@@ -7,7 +7,7 @@ LightAjaxFileUploadManagerService::addConfigurationItemsByFile
 
 
 
-LightAjaxFileUploadManagerService::addConfigurationItemsByFile — Adds the configuration items found in the given file.
+LightAjaxFileUploadManagerService::addConfigurationItemsByFile — Adds the [configuration items](https://github.com/lingtalfi/Light_AjaxFileUploadManager/blob/master/doc/pages/configuration-files.md#the-configuration-item) found in the given [babyYaml](https://github.com/lingtalfi/BabyYaml) file.
 
 
 
@@ -21,8 +21,7 @@ public [LightAjaxFileUploadManagerService::addConfigurationItemsByFile](https://
 
 
 
-Adds the configuration items found in the given file.
-See the [configuration files page](https://github.com/lingtalfi/Light_AjaxFileUploadManager/blob/master/doc/pages/configuration-files.md) for more info.
+Adds the [configuration items](https://github.com/lingtalfi/Light_AjaxFileUploadManager/blob/master/doc/pages/configuration-files.md#the-configuration-item) found in the given [babyYaml](https://github.com/lingtalfi/BabyYaml) file.
 
 
 
@@ -50,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightAjaxFileUploadManagerService::addConfigurationItemsByFile](https://github.com/lingtalfi/Light_AjaxFileUploadManager/blob/master/Service/LightAjaxFileUploadManagerService.php#L129-L145)
+See the source code for method [LightAjaxFileUploadManagerService::addConfigurationItemsByFile](https://github.com/lingtalfi/Light_AjaxFileUploadManager/blob/master/Service/LightAjaxFileUploadManagerService.php#L106-L113)
 
 
 See Also
@@ -58,5 +57,5 @@ See Also
 
 The [LightAjaxFileUploadManagerService](https://github.com/lingtalfi/Light_AjaxFileUploadManager/blob/master/doc/api/Ling/Light_AjaxFileUploadManager/Service/LightAjaxFileUploadManagerService.md) class.
 
-Previous method: [addValidationRules](https://github.com/lingtalfi/Light_AjaxFileUploadManager/blob/master/doc/api/Ling/Light_AjaxFileUploadManager/Service/LightAjaxFileUploadManagerService/addValidationRules.md)<br>Next method: [uploadItem](https://github.com/lingtalfi/Light_AjaxFileUploadManager/blob/master/doc/api/Ling/Light_AjaxFileUploadManager/Service/LightAjaxFileUploadManagerService/uploadItem.md)<br>
+Previous method: [setItem](https://github.com/lingtalfi/Light_AjaxFileUploadManager/blob/master/doc/api/Ling/Light_AjaxFileUploadManager/Service/LightAjaxFileUploadManagerService/setItem.md)<br>Next method: [processItem](https://github.com/lingtalfi/Light_AjaxFileUploadManager/blob/master/doc/api/Ling/Light_AjaxFileUploadManager/Service/LightAjaxFileUploadManagerService/processItem.md)<br>
 

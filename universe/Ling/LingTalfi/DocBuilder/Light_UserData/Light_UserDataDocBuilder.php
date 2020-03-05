@@ -7,6 +7,7 @@ namespace Ling\LingTalfi\DocBuilder\Light_UserData;
 use Ling\DocTools\DocBuilder\Git\PhpPlanet\LingGitPhpPlanetDocBuilder;
 use Ling\DocTools\Exception\DocBuilderException;
 use Ling\DocTools\Translator\ParseDownTranslator;
+use Ling\LingTalfi\DocTools\LingTalfiDocToolsHelper;
 
 
 /**
@@ -144,9 +145,17 @@ class Light_UserDataDocBuilder
             "keyWord2UrlMap" => [
                 "conception notes" => $doc . '/pages/conception-notes.md',
                 "Light_UserDatabase" => 'https://github.com/lingtalfi/Light_UserDatabase',
+                "Light_UserDatabase plugin" => 'https://github.com/lingtalfi/Light_UserDatabase',
                 "ValidatorConfig object" => 'https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Validator/ValidatorConfig.md',
                 "2svp system" => 'https://github.com/lingtalfi/TheBar/blob/master/discussions/ajax-file-upload.md#2-steps-validation-process',
                 "current user" => 'https://github.com/lingtalfi/Light_UserData/blob/master/doc/pages/conception-notes.md#current-user',
+                "Light.initialize_2 event" => 'https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md',
+                "light events page" => 'https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md',
+                "ling standard object methods" => 'https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/pages/ling-standard-object-methods.md',
+                "Light_PluginInstaller conception notes" => 'https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/pages/conception-notes.md',
+                "Light_Database.on_lud_user_group_create event" => 'https://github.com/lingtalfi/Light_Database/blob/master/personal/mydoc/pages/events.md',
+                "the original file section in the conception notes" => $doc . '/pages/conception-notes.md#the-original-file',
+                "Light_UserData permissions document" => $doc . '/pages/permissions.md',
             ],
             /**
              * An array of external classes to url.
@@ -172,6 +181,14 @@ class Light_UserDataDocBuilder
                 "Ling\Chloroform\Validator\ValidatorInterface" => "https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Validator/ValidatorInterface.md",
                 "Ling\Chloroform\DataTransformer\BaseDataTransformer" => "https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/DataTransformer/BaseDataTransformer.md",
                 "Ling\Chloroform\DataTransformer\DataTransformerInterface" => "https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/DataTransformer/DataTransformerInterface.md",
+                "Ling\Light_Realform\Handler\AliasHelper\BaseRealformHandlerAliasHelper" => "https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Handler/AliasHelper/BaseRealformHandlerAliasHelper.md",
+                "Ling\Light_Realform\Handler\AliasHelper\RealformHandlerAliasHelperInterface" => "https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Handler/AliasHelper/RealformHandlerAliasHelperInterface.md",
+                "Ling\Light_Database\Service\LightDatabaseService" => "https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/Service/LightDatabaseService.md",
+                "Ling\Light_PluginInstaller\PluginInstaller\PluginInstallerInterface" => "https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/PluginInstaller/PluginInstallerInterface.md",
+                "Ling\Light_User\WebsiteLightUser" => "https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/WebsiteLightUser.md",
+                "Ling\Light_UserRowRestriction\RowRestrictionHandler\RowRestrictionHandlerInterface" => "https://github.com/lingtalfi/Light_UserRowRestriction/blob/master/doc/api/Ling/Light_UserRowRestriction/RowRestrictionHandler/RowRestrictionHandlerInterface.md",
+
+
             ],
         ];
 
@@ -207,6 +224,7 @@ class Light_UserDataDocBuilder
          * and since we've defined a @kw(copy module), it will also copy the whole doc to another location.
          */
         $builder->buildDoc();
+        LingTalfiDocToolsHelper::generateCrumbs($builder);
 
         if ('cli' !== php_sapi_name()) {
 

@@ -11,6 +11,7 @@ This is a [Light framework plugin](https://github.com/lingtalfi/Light/blob/maste
 This is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
 
 
+
 Install
 ==========
 Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
@@ -29,6 +30,7 @@ Summary
 ===========
 - [Light_Csrf api](https://github.com/lingtalfi/Light_Csrf/blob/master/doc/api/Ling/Light_Csrf.md) (generated with [DocTools](https://github.com/lingtalfi/DocTools))
 - [Services](#services)
+- [Related](#related)
 
 
 
@@ -54,11 +56,25 @@ csrf:
 
 ```
 
+Related
+===========
+- [Light_CsrfSession plugin](https://github.com/lingtalfi/Light_CsrfSession) (preferred because simpler to develop with)
+- [Light_CsrfSimple](https://github.com/lingtalfi/Light_CsrfSimple), a simpler csrf protection plugin
+- [CsrfTools](https://github.com/lingtalfi/CSRFTools), some csrf related tools
+
 
 
 History Log
 =============
 
+- 1.0.2 -- 2019-12-09
+
+    - update Related section in README.md
+    
+- 1.0.1 -- 2019-11-07
+
+    - add Related section in README.md
+    
 - 1.0.0 -- 2019-09-20
 
     - initial commit

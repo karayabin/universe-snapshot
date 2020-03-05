@@ -156,6 +156,8 @@ class Chloroform_HeliumRendererDocBuilder
                 "RadioField class" => 'https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/RadioField.md',
                 "FileField class" => 'https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/FileField.md',
                 "PasswordField class" => 'https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/PasswordField.md',
+                "DecorativeField class" => 'https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/DecorativeField.md',
+                "full ajax form technique" => 'https://github.com/lingtalfi/TheBar/blob/master/discussions/full-ajax-form.md',
             ],
             /**
              * An array of external classes to url.

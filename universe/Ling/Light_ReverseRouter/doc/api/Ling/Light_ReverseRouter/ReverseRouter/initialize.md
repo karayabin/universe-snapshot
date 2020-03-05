@@ -53,7 +53,7 @@ Returns mixed.
 
 Source Code
 ===========
-See the source code for method [ReverseRouter::initialize](https://github.com/lingtalfi/Light_ReverseRouter/blob/master/ReverseRouter.php#L41-L44)
+See the source code for method [ReverseRouter::initialize](https://github.com/lingtalfi/Light_ReverseRouter/blob/master/ReverseRouter.php#L44-L47)
 
 
 See Also

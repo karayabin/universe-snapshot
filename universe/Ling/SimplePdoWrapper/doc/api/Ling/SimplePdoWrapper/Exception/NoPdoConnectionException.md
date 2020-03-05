@@ -4,7 +4,7 @@
 
 The NoPdoConnectionException class
 ================
-2019-07-22 --> 2019-10-04
+2019-07-22 --> 2020-03-03
 
 
 
@@ -56,4 +56,4 @@ See the source code of [Ling\SimplePdoWrapper\Exception\NoPdoConnectionException
 
 SeeAlso
 ==============
-Previous class: [InvalidTableNameException](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Exception/InvalidTableNameException.md)<br>Next class: [SimplePdoWrapperException](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Exception/SimplePdoWrapperException.md)<br>
+Previous class: [MysqlInfoUtilException](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Exception/MysqlInfoUtilException.md)<br>Next class: [SimplePdoWrapperException](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Exception/SimplePdoWrapperException.md)<br>

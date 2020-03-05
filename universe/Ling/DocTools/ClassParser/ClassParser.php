@@ -600,7 +600,7 @@ class ClassParser implements ClassParserInterface
 
                     $defaultValue = $paramTag['defaultValue'];
                     if (null === $defaultValue) {
-                        if ($param->isOptional()) {
+                        if ($param->isOptional() && false === $param->isVariadic()) {
                             $defaultValue = $param->getDefaultValue();
                             if (is_array($defaultValue)) {
                                 $defaultValue = DebugTool::toString($defaultValue);
@@ -609,12 +609,18 @@ class ClassParser implements ClassParserInterface
                     }
 
 
+                    $descriptiveText = $paramTag['descriptiveText'];
+                    if (true === $this->resolveInlineTags && null !== $descriptiveText) {
+                        $descriptiveText = $this->notationInterpreter->resolveInlineTags($descriptiveText, $this->report);
+                    }
+
+
                     $oParameter = new ParameterInfo();
                     $oParameter->setName($paramName);
                     $oParameter->setType($paramType);
                     $oParameter->setDefaultValue($defaultValue);
                     $oParameter->setValueAlternatives($paramTag['alternatives']);
-                    $oParameter->setDescriptiveText($paramTag['descriptiveText']);
+                    $oParameter->setDescriptiveText($descriptiveText);
                     $oMethod->addParameter($oParameter);
 
 

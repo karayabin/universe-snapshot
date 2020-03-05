@@ -5,6 +5,7 @@ dependencies:
         - Kit
         - ArrayVariableResolver
         - Light
+        - Light_Events
     
 
 post_install: 

@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [ClassParser::setResolveInlineTags](https://github.com/lingtalfi/DocTools/blob/master/ClassParser/ClassParser.php#L638-L641)
+See the source code for method [ClassParser::setResolveInlineTags](https://github.com/lingtalfi/DocTools/blob/master/ClassParser/ClassParser.php#L644-L647)
 
 
 See Also

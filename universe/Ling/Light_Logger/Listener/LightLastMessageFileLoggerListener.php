@@ -14,7 +14,7 @@ use Ling\Bat\FileSystemTool;
  * just contains the last message, which is sometimes easier to read than a long list of logs.
  *
  */
-class LightLastMessageFileLoggerListener implements LightLoggerListenerInterface
+class LightLastMessageFileLoggerListener extends BaseLoggerListener implements LightLoggerListenerInterface
 {
 
     /**
@@ -29,6 +29,7 @@ class LightLastMessageFileLoggerListener implements LightLoggerListenerInterface
      */
     public function __construct()
     {
+        parent::__construct();
         $this->file = "/tmp/LightLastMessageFileLoggerListener.txt";
     }
 
@@ -49,8 +50,9 @@ class LightLastMessageFileLoggerListener implements LightLoggerListenerInterface
     /**
      * @implementation
      */
-    public function listen(string $msg, string $channel)
+    public function listen($msg, string $channel)
     {
+        $msg = $this->getFormattedMessage($channel, $msg);
         FileSystemTool::mkfile($this->file, $msg . PHP_EOL);
     }
 

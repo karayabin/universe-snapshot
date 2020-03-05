@@ -49,7 +49,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [LightInitializerUtil::getPluginName](https://github.com/lingtalfi/Light_Initializer/blob/master/Util/LightInitializerUtil.php#L189-L202)
+See the source code for method [LightInitializerUtil::getPluginName](https://github.com/lingtalfi/Light_Initializer/blob/master/Util/LightInitializerUtil.php#L168-L181)
 
 
 See Also

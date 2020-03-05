@@ -26,7 +26,7 @@ credentials don't match any user.
 
 This method will also return the "rights" key populated with the rights
 according to the user "profiles".
-See more details in the [conception notes](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/pages/conception-notes.md).
+See more details in the [Light_UserDatabase conception notes](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/pages/conception-notes.md).
 
 
 

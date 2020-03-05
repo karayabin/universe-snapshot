@@ -140,7 +140,6 @@ class DarkBlueOctopusServiceContainerBuilder extends ColdServiceResolver
         if ($signature) {
             $this->classCreator->setSignature($signature);
         }
-
         $this->registerServices($this->sicConfig, $breadcrumb);
 
 

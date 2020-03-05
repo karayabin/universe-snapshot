@@ -1,0 +1,5 @@
+https://github.com/lingtalfi/Light_ExceptionHandler/blob/master/README.md
+https://github.com/lingtalfi/Light_ExceptionHandler/blob/master/doc/api/Ling/Light_ExceptionHandler/Service/LightExceptionHandlerService/onExceptionCaught.md
+https://github.com/lingtalfi/Light_ExceptionHandler/blob/master/doc/api/Ling/Light_ExceptionHandler/Service/LightExceptionHandlerService.md
+https://github.com/lingtalfi/Light_ExceptionHandler/blob/master/doc/api/Ling/Light_ExceptionHandler.md
+https://github.com/lingtalfi/Light_ExceptionHandler/blob/master/doc/pages/conception-notes.md

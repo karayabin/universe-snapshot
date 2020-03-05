@@ -5,7 +5,10 @@ namespace Ling\Light_AjaxFileUploadManager\Controller;
 
 
 use Ling\Light\Controller\LightController;
+use Ling\Light\Events\LightEvent;
+use Ling\Light\Http\HttpJsonResponse;
 use Ling\Light_AjaxFileUploadManager\Service\LightAjaxFileUploadManagerService;
+use Ling\Light_Events\Service\LightEventsService;
 use Ling\Light_Logger\LightLoggerService;
 
 /**
@@ -62,19 +65,34 @@ class FileUploadController extends LightController
 
         if (array_key_exists("id", $_POST)) {
             $id = $_POST['id'];
-            if (array_key_exists("item", $_FILES)) {
+            $phpFileItem = $_FILES['item'] ?? null;
+
+
+            try {
+
                 /**
                  * @var $ajaxService LightAjaxFileUploadManagerService
                  */
                 $ajaxService = $this->getContainer()->get('ajax_file_upload_manager');
                 $params = $_POST;
-                $ret = $ajaxService->uploadItem($id, $_FILES['item'], $params);
-
-            } else {
+                $ret = $ajaxService->processItem($id, $phpFileItem, $params);
+            } catch (\Exception $e) {
                 $ret = [
-                    "type" => 'error',
-                    "error" => "Bad configuration error: the \"item\" key was not found in \$_FILES."
+                    "type" => "error",
+                    "error" => $e->getMessage(),
                 ];
+
+
+                // dispatch the exception (to allow deeper investigation)
+                /**
+                 * @var $events LightEventsService
+                 */
+                $events = $this->getContainer()->get("events");
+                $data = LightEvent::createByContainer($this->getContainer());
+                $data->setVar('exception', $e);
+                $events->dispatch("Light_AjaxFileUploadManager.on_controller_exception_caught", $data);
+
+
             }
 
 
@@ -84,7 +102,6 @@ class FileUploadController extends LightController
                 "error" => "Bad configuration error: the \"id\" key was not found in \$_POST."
             ];
         }
-        return json_encode($ret);
-
+        return HttpJsonResponse::create($ret);
     }
 }

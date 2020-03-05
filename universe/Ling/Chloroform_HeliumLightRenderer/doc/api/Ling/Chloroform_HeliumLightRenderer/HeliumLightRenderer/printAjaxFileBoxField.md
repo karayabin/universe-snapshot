@@ -23,7 +23,7 @@ protected [HeliumLightRenderer::printAjaxFileBoxField](https://github.com/lingta
 
 Prints an ajax file box field.
 
-See the [Chloroform toArray](https://github.com/lingtalfi/Chloroform/blob/master/doc/pages/chloroform-array.md) method for more info about the fields structure.
+See the [Chloroform toArray](https://github.com/lingtalfi/Chloroform/blob/master/doc/pages/chloroform-array.md) method for more info about the field structure.
 
 
 
@@ -56,7 +56,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [HeliumLightRenderer::printAjaxFileBoxField](https://github.com/lingtalfi/Chloroform_HeliumLightRenderer/blob/master/HeliumLightRenderer.php#L92-L170)
+See the source code for method [HeliumLightRenderer::printAjaxFileBoxField](https://github.com/lingtalfi/Chloroform_HeliumLightRenderer/blob/master/HeliumLightRenderer.php#L98-L167)
 
 
 See Also
@@ -64,5 +64,5 @@ See Also
 
 The [HeliumLightRenderer](https://github.com/lingtalfi/Chloroform_HeliumLightRenderer/blob/master/doc/api/Ling/Chloroform_HeliumLightRenderer/HeliumLightRenderer.md) class.
 
-Previous method: [printField](https://github.com/lingtalfi/Chloroform_HeliumLightRenderer/blob/master/doc/api/Ling/Chloroform_HeliumLightRenderer/HeliumLightRenderer/printField.md)<br>
+Previous method: [printField](https://github.com/lingtalfi/Chloroform_HeliumLightRenderer/blob/master/doc/api/Ling/Chloroform_HeliumLightRenderer/HeliumLightRenderer/printField.md)<br>Next method: [printTableListField](https://github.com/lingtalfi/Chloroform_HeliumLightRenderer/blob/master/doc/api/Ling/Chloroform_HeliumLightRenderer/HeliumLightRenderer/printTableListField.md)<br>
 

@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [DirectoryMapApi::setPdoWrapper](https://github.com/lingtalfi/Light_UserData/blob/master/Api/DirectoryMapApi.php#L102-L105)
+See the source code for method [DirectoryMapApi::setPdoWrapper](https://github.com/lingtalfi/Light_UserData/blob/master/Api/DirectoryMapApi.php#L91-L94)
 
 
 See Also

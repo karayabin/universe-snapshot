@@ -4,7 +4,7 @@
 
 The LightKitAdminChloroformRendererUtil class
 ================
-2019-05-17 --> 2019-10-25
+2019-05-17 --> 2019-12-17
 
 
 
@@ -58,4 +58,4 @@ See the source code of [Ling\Light_Kit_Admin\Chloroform\LightKitAdminChloroformR
 
 SeeAlso
 ==============
-Previous class: [LightKitAdminChloroform](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Chloroform/LightKitAdminChloroform.md)<br>Next class: [PermissionController](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/Admin/PermissionController.md)<br>
+Previous class: [LightKitAdminChloroform](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Chloroform/LightKitAdminChloroform.md)<br>Next class: [LightKitAdminTableListConfigurationHandler](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/ChloroformExtension/LightKitAdminTableListConfigurationHandler.md)<br>

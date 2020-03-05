@@ -27,10 +27,12 @@ interface RealformHandlerInterface
     /**
      * Returns a chloroform instance configured based on the realform id.
      *
+     *
+     * @param array|null $configuration
      * @return Chloroform
      * @throws \Exception
      */
-    public function getFormHandler(): Chloroform;
+    public function getFormHandler(array $configuration = null): Chloroform;
 
 
     /**

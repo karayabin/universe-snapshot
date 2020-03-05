@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [BaseRealformHandler::getFormHandler](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Handler/BaseRealformHandler/getFormHandler.md)() : [Chloroform](https://github.com/lingtalfi/Chloroform)
+public [BaseRealformHandler::getFormHandler](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Handler/BaseRealformHandler/getFormHandler.md)(?array $configuration = null) : [Chloroform](https://github.com/lingtalfi/Chloroform)
 
 
 
@@ -29,7 +29,10 @@ Returns a chloroform instance configured based on the realform id.
 Parameters
 ================
 
-This method has no parameters.
+
+- configuration
+
+    
 
 
 Return values
@@ -51,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [BaseRealformHandler::getFormHandler](https://github.com/lingtalfi/Light_Realform/blob/master/Handler/BaseRealformHandler.php#L96-L158)
+See the source code for method [BaseRealformHandler::getFormHandler](https://github.com/lingtalfi/Light_Realform/blob/master/Handler/BaseRealformHandler.php#L98-L167)
 
 
 See Also

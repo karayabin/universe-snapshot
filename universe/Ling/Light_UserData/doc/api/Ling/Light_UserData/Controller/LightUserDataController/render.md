@@ -16,17 +16,16 @@ Description
 ================
 
 
-public [LightUserDataController::render](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Controller/LightUserDataController/render.md)(string $file, string $id) : [HttpResponseInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponseInterface.md)
+public [LightUserDataController::render](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Controller/LightUserDataController/render.md)(string $id) : [HttpResponseInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponseInterface.md)
 
 
 
 
-Returns the file identified by the given file and id,
+Returns the file identified by the given id,
 or throws an exception.
 
-The file is the relative path from the user directory to the desired file.
 
-The id is the obfuscated user directory name.
+The id is the resource identifier.
 
 If the file is private and the visitor (asking for the file) isn't the owner,
 then an exception will be thrown also.
@@ -37,10 +36,6 @@ then an exception will be thrown also.
 Parameters
 ================
 
-
-- file
-
-    
 
 - id
 
@@ -66,7 +61,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightUserDataController::render](https://github.com/lingtalfi/Light_UserData/blob/master/Controller/LightUserDataController.php#L41-L99)
+See the source code for method [LightUserDataController::render](https://github.com/lingtalfi/Light_UserData/blob/master/Controller/LightUserDataController.php#L37-L88)
 
 
 See Also

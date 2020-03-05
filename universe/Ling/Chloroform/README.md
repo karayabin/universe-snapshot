@@ -1,6 +1,6 @@
 Chloroform
 ===========
-2019-04-12
+2019-04-12 -> 2020-02-21
 
 
 
@@ -32,7 +32,7 @@ Summary
     - [Example #2: a simple form with custom validation](#example-2-a-simple-form-with-custom-validation)
     - [Example #3: a simple form with validation](#example-3-a-simple-form-with-validation)
     - [Example #4: Changing the validation error message](#example-4-changing-the-validation-error-message)
-    - [Example #5: CSRF protection](#example-5-csrf-protection)
+    - [Example #5: The file field](#example-5-the-file-field)
 - [The available fields](#the-available-fields)    
 - [The available validators](#the-available-validators)    
 - [Rendering the form](#rendering-the-form)    
@@ -133,7 +133,7 @@ array(1) {
 }
 
 // a($formArray)
-array(4) {
+array(8) {
   ["isPosted"] => bool(true)
   ["notifications"] => array(1) {
     [0] => array(2) {
@@ -171,6 +171,11 @@ array(4) {
   }
   ["errors"] => array(0) {
   }
+  ["properties"] => array(0) {
+  }
+  ["mode"] => string(7) "not_set"
+  ["jsCode"] => NULL
+  ["cssId"] => NULL
 }
 
 
@@ -235,7 +240,7 @@ a($formArray);
 The toArray method will output something like this (after submitting the form without typing anything):
 
 ```html
-array(4) {
+array(8) {
   ["isPosted"] => bool(false)
   ["notifications"] => array(1) {
     [0] => array(2) {
@@ -260,6 +265,11 @@ array(4) {
   }
   ["errors"] => array(0) {
   }
+  ["properties"] => array(0) {
+  }
+  ["mode"] => string(7) "not_set"
+  ["jsCode"] => NULL
+  ["cssId"] => NULL
 }
 
 ```
@@ -328,7 +338,7 @@ a($formArray);
 The toArray method will output something like this (after submitting the form without typing anything):
 
 ```html
-array(4) {
+array(8) {
   ["isPosted"] => bool(false)
   ["notifications"] => array(1) {
     [0] => array(2) {
@@ -360,6 +370,11 @@ array(4) {
       [0] => string(14) "Nul, t'es nul!"
     }
   }
+  ["properties"] => array(0) {
+  }
+  ["mode"] => string(7) "not_set"
+  ["jsCode"] => NULL
+  ["cssId"] => NULL
 }
 
 ```
@@ -421,7 +436,7 @@ The toArray method will output something like this (after submitting the form wi
 
 
 ```html
-array(4) {
+array(8) {
   ["isPosted"] => bool(false)
   ["notifications"] => array(1) {
     [0] => array(2) {
@@ -472,6 +487,11 @@ array(4) {
       [1] => string(64) "The first name must contain at least 3 chars (you wrote 0 chars)"
     }
   }
+  ["properties"] => array(0) {
+  }
+  ["mode"] => string(7) "not_set"
+  ["jsCode"] => NULL
+  ["cssId"] => NULL
 }
 
 
@@ -536,7 +556,7 @@ The toArray method will output something like this (after submitting the form wi
 
 ```html
 
-array(4) {
+array(8) {
   ["isPosted"] => bool(false)
   ["notifications"] => array(1) {
     [0] => array(2) {
@@ -578,6 +598,11 @@ array(4) {
       [0] => string(48) "Yo, the first name must contain at least 3 chars"
     }
   }
+  ["properties"] => array(0) {
+  }
+  ["mode"] => string(7) "not_set"
+  ["jsCode"] => NULL
+  ["cssId"] => NULL
 }
 
 ```
@@ -586,111 +611,13 @@ array(4) {
 
 
 
-Example #5: CSRF protection
+
+
+
+Example #5: the file field
 --------------
 
-With the following code:
-
-```php
-//--------------------------------------------
-// Creating the form
-//--------------------------------------------
-$form = new Chloroform();
-$form->addField(CSRFField::create("csrf_token"), [CSRFValidator::create()]);
-
-
-//--------------------------------------------
-// Posting the form and validating data
-//--------------------------------------------
-if (true === $form->isPosted()) {
-    if (true === $form->validates()) {
-        $form->addNotification(SuccessFormNotification::create("ok"));
-        // do something with $postedData;
-        $postedData = $form->getPostedData();
-    } else {
-        $form->addNotification(ErrorFormNotification::create("There was a problem."));
-    }
-} else {
-    $valuesFromDb = []; // get the values from the database if necessary...
-    $form->injectValues($valuesFromDb);
-}
-
-
-//--------------------------------------------
-// Template part
-//--------------------------------------------
-$formArray = $form->toArray();
-a($formArray);
-
-
-?>
-    <form method="post" action="">
-        <label>
-            CSRF token (usually would be hidden)
-            <input type="text" name="csrf_token" value="<?php echo $formArray['fields']['csrf_token']['value']; ?>"/>
-        </label>
-
-        <input type="submit" value="Submit"/>
-        <?php ChloroformRendererHelper::printsFormIdKeyControl($formArray); ?>
-    </form>
-<?php
-
-```
-
-
-The toArray method will output something like this (after submitting the form without typing anything):
-
-
-```html
-array(4) {
-  ["isPosted"] => bool(false)
-  ["notifications"] => array(1) {
-    [0] => array(2) {
-      ["type"] => string(7) "success"
-      ["message"] => string(2) "ok"
-    }
-  }
-  ["fields"] => array(1) {
-    ["csrf_token"] => array(9) {
-      ["id"] => string(10) "csrf_token"
-      ["label"] => NULL
-      ["hint"] => NULL
-      ["errorName"] => string(10) "csrf token"
-      ["value"] => string(32) "3db08f533513eb1554dce7fcbc6cca30"
-      ["htmlName"] => string(10) "csrf_token"
-      ["errors"] => array(0) {
-      }
-      ["className"] => string(31) "Ling\Chloroform\Field\CSRFField"
-      ["validators"] => array(1) {
-        [0] => array(3) {
-          ["name"] => string(39) "Ling\Chloroform\Validator\CSRFValidator"
-          ["custom_messages"] => array(0) {
-          }
-          ["messages"] => array(1) {
-            [0] => string(33) "main: The CSRF token is corrupted"
-          }
-        }
-      }
-    }
-  }
-  ["errors"] => array(0) {
-  }
-}
-
-
-
-
-```
-
-
-
-
-
-
-Example #6: the input field
---------------
-
-Input fields are special in that the value returned is the php file item provided in the $_FILES super array (the one
+File fields are special in that the value returned is the php file item provided in the $_FILES super array (the one
 with the following entries: name, type, tmp_name, size and error).
 
 In other words, if you have a chloroform instance with a file field, like this:
@@ -715,7 +642,7 @@ the resulting chloroform array will look like this:
 
 
 ```html 
-array(4) {
+array(8) {
   ["isPosted"] => bool(true)
   ["notifications"] => array(1) {
     [0] => array(2) {
@@ -745,6 +672,11 @@ array(4) {
     }
   ["errors"] => array(0) {
   }
+  ["properties"] => array(0) {
+  }
+  ["mode"] => string(7) "not_set"
+  ["jsCode"] => NULL
+  ["cssId"] => NULL
 }
 
 ```
@@ -775,6 +707,7 @@ The available fields
 - AjaxFileBoxField: is generally represented by an html input tag of type file with a drop zone. It's coupled with a third-party javascript client and a backend service to provide the desired functionality of 
         uploading the files via ajax.
 - PasswordField: is generally represented by an html input tag of type password.
+- DecorativeField: used to represent any kind of decorative elements in the form
 
 
 
@@ -829,6 +762,70 @@ Here is a list of known chloroform renderers:
 History Log
 =============
 
+- 1.26.0 -- 2020-02-21
+
+    - update AjaxFileBoxField, now only provide the maxFile property. 
+
+- 1.25.0 -- 2019-12-06
+
+    - add Chloroform.cssId property 
+    
+- 1.24.1 -- 2019-12-06
+
+    - update chloroform array documentation 
+    
+- 1.24.0 -- 2019-12-06
+
+    - add Chloroform.jsCode property 
+    
+- 1.23.3 -- 2019-12-06
+
+    - add DecorativeField.$decorationOptions 
+    
+- 1.23.2 -- 2019-12-06
+
+    - update DecorativeField->getType to getDecorationType 
+    
+- 1.23.1 -- 2019-12-06
+
+    - fix DecorativeField->toArray not returning a compliant array of properties 
+
+- 1.23.0 -- 2019-12-06
+
+    - add DecorativeField class 
+    
+- 1.22.0 -- 2019-12-05
+
+    - add Chloroform getMode method 
+    
+- 1.21.0 -- 2019-12-05
+
+    - add form.mode property 
+    
+- 1.20.2 -- 2019-12-03
+
+    - add documentation comment in chloroform discussion 
+    
+- 1.20.1 -- 2019-11-25
+
+    - add Chloroform->hasProperty method 
+    
+- 1.20.0 -- 2019-11-25
+
+    - add Chloroform.properties 
+
+- 1.19.3 -- 2019-11-25
+
+    - add AjaxFileBoxField->getFallbackValue method override
+    
+- 1.19.2 -- 2019-11-18
+
+    - change documentation link
+    
+- 1.19.1 -- 2019-11-15
+
+    - add precision to chloroform array documentation page
+    
 - 1.19.0 -- 2019-11-01
 
     - add the concept of fallback value

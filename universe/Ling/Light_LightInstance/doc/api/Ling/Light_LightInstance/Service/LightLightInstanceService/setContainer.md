@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightLightInstanceService::setContainer](https://github.com/lingtalfi/Light_LightInstance/blob/master/Service/LightLightInstanceService.php#L88-L91)
+See the source code for method [LightLightInstanceService::setContainer](https://github.com/lingtalfi/Light_LightInstance/blob/master/Service/LightLightInstanceService.php#L92-L95)
 
 
 See Also

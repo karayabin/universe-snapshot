@@ -73,7 +73,12 @@ class PageConfUpdator
                             $identifier === $widgetConf['name'] ||
                             (array_key_exists("identifier", $widgetConf) && $identifier === $widgetConf['identifier'])
                         ) {
-                            $pageConf["zones"][$zone][$index] = ArrayTool::arrayMergeReplaceRecursive([$widgetConf, $newWidgetConfLayer]);
+                            if (is_array($newWidgetConfLayer)) {
+                                $pageConf["zones"][$zone][$index] = ArrayTool::arrayMergeReplaceRecursive([$widgetConf, $newWidgetConfLayer]);
+                            } elseif (is_callable($newWidgetConfLayer)) {
+                                call_user_func_array($newWidgetConfLayer, [&$widgetConf]);
+                                $pageConf["zones"][$zone][$index] = $widgetConf;
+                            }
                         }
                     }
                 }
@@ -110,16 +115,23 @@ class PageConfUpdator
      *
      *
      *
-     * The layer will be merged with the page configuration array using the ams algorithm,
-     * which allows use to replace items from an associative array and add items to numerically indexed arrays.
-     * For more details refer to the @page(ams algorithm documentation).
+     * The layer is either:
+     *
+     * - an array
+     *      in which case it will be merged with the page configuration array using the ams algorithm,
+     *      which allows use to replace items from an associative array and add items to numerically indexed arrays.
+     *      For more details refer to the @page(ams algorithm documentation).
+     *
+     * - a callable, with the following signature:
+     *      - fn ( array &conf )
+     *      With conf being the widget configuration to update
      *
      *
      * @param string $widgetIdentifier
-     * @param array $newWidgetConfLayer
+     * @param array|callable $newWidgetConfLayer
      * @return $this
      */
-    public function updateWidget(string $widgetIdentifier, array $newWidgetConfLayer): PageConfUpdator
+    public function updateWidget(string $widgetIdentifier, $newWidgetConfLayer): PageConfUpdator
     {
         $this->identifierLayers[] = [$widgetIdentifier, $newWidgetConfLayer];
         return $this;

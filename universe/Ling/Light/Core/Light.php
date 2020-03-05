@@ -4,6 +4,7 @@
 namespace Ling\Light\Core;
 
 
+use Ling\Light\Events\LightEvent;
 use Ling\Light\Exception\LightException;
 use Ling\Light\Exception\LightRedirectException;
 use Ling\Light\Helper\ControllerHelper;
@@ -12,11 +13,11 @@ use Ling\Light\Http\HttpRequest;
 use Ling\Light\Http\HttpRequestInterface;
 use Ling\Light\Http\HttpResponse;
 use Ling\Light\Http\HttpResponseInterface;
-use Ling\Light\ReverseRouter\LightReverseRouterInterface;
 use Ling\Light\Router\LightRouter;
 use Ling\Light\ServiceContainer\LightDummyServiceContainer;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
-use Ling\Light_EndRoutine\Service\Light_EndRoutineService;
+use Ling\Light_Events\Service\LightEventsService;
+use Ling\Light_ReverseRouter\Service\LightReverseRouterService;
 
 /**
  * The Light class.
@@ -26,10 +27,10 @@ use Ling\Light_EndRoutine\Service\Light_EndRoutineService;
  * Basically, you just call the **run** method, and web pages will automatically be printed on the screen for you.
  * But of course, you need to configure the Light instance before you can see anything.
  *
- * There are two main concepts to grasp when working with the Light instance:
+ * The following concepts are important to grasp when working with the Light instance:
  *
  * - routes
- * - error handlers
+ * - service container
  *
  *
  * Routes
@@ -39,28 +40,6 @@ use Ling\Light_EndRoutine\Service\Light_EndRoutineService;
  * then the route does the job of deciding which controller should handle this request.
  *
  * A controller is just a function that returns a response (generally an html web page).
- *
- *
- *
- * Error handlers
- * ----------------
- * Often, especially during the development phase, things go wrong: a route doesn't match, or a controller fails because
- * some parameters are missing, etc...
- *
- * Whenever a failure happens, an exception is thrown.
- * The Light instance intercepts that and ask whether an error handler can handle this error (which usually has an error type associated with it).
- *
- * Note: the error handlers are registered by you (or some plugins you've installed).
- *
- * If an error handler can handle the error, it will. Usually, it will either display a pretty error message,
- * or redirect to a default page.
- *
- * If no error handlers was able to handle the error, then the Light instance has a fallback mechanism for that:
- * it will display a 500 internal server error.
- * And if you set the debug mode=true, it will print a debug page showing the exception trace instead.
- *
- *
- * Those concepts are the fundamental ideas behind the Light instance.
  *
  *
  *
@@ -109,12 +88,6 @@ class Light
     protected $routes;
 
     /**
-     * This property holds the errorHandlers for this instance.
-     * @var array
-     */
-    protected $errorHandlers;
-
-    /**
      * This property holds the debug for this instance.
      * @var bool = false
      */
@@ -154,6 +127,13 @@ class Light
 
 
     /**
+     * This property holds the isInitialized for this instance.
+     * @var bool=false
+     */
+    private $isInitialized;
+
+
+    /**
      * Builds the Light instance.
      */
     public function __construct()
@@ -169,11 +149,11 @@ class Light
         $this->applicationDir = $appDir;
         $this->debug = false;
         $this->routes = [];
-        $this->errorHandlers = [];
         $this->container = null;
         $this->httpRequest = null;
         $this->matchingRoute = null;
         $this->settings = [];
+        $this->isInitialized = false;
     }
 
     /**
@@ -265,6 +245,17 @@ class Light
         return $this->httpRequest;
     }
 
+    /**
+     * Sets the httpRequest.
+     * This was created for debugging purpose only, you should generally not use this method.
+     *
+     * @param HttpRequestInterface $httpRequest
+     */
+    public function setHttpRequest(HttpRequestInterface $httpRequest)
+    {
+        $this->httpRequest = $httpRequest;
+    }
+
 
     /**
      * Returns the matching route array, or false if no route matched.
@@ -341,35 +332,6 @@ class Light
 
 
     /**
-     * Registers a error handler callback.
-     *
-     * The error handler callback is a callback with the following signature:
-     *
-     * ```txt
-     *      function errorHandler ( $errorType, \Exception $e, &$response = null )
-     * ```
-     *
-     * The error handler callback should handle the given exception if necessary (i.e. if it can
-     * handle this errorType} and set the response to either a string or an HttpResponseInterface.
-     *
-     * Note: multiple error handlers will be in concurrence for handling a given error, and the first
-     * handler to return a response will be used (i.e. subsequent handlers will be discarded).
-     *
-     * Note: the errorType might be null.
-     *
-     *
-     *
-     *
-     *
-     * @param callable $errorHandler
-     */
-    public function registerErrorHandler(callable $errorHandler)
-    {
-        $this->errorHandlers[] = $errorHandler;
-    }
-
-
-    /**
      * Triggers the initialize phase if set in the service container.
      *
      * This method was created for debugging purposes only.
@@ -384,10 +346,23 @@ class Light
         }
         $this->httpRequest = $httpRequest;
 
+        $container = $this->getContainer();
+        $container->setLight($this);
 
-        if ($this->container->has("initializer")) {
-            $initializer = $this->container->get("initializer");
-            $initializer->initialize($this, $httpRequest);
+        if ($container->has("events")) {
+            /**
+             * @var $events LightEventsService
+             */
+            $events = $container->get('events');
+            /**
+             * See the [events page](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md) for more details.
+             */
+            $data = LightEvent::createByContainer($container);
+
+
+            $events->dispatch('Light.initialize_1', $data);
+//            $events->dispatch('Light.initialize_2', $data);
+//            $events->dispatch('Light.initialize_3', $data);
         }
     }
 
@@ -397,33 +372,44 @@ class Light
      */
     public function run()
     {
-
-        $httpRequest = HttpRequest::createFromEnv();
-        $this->httpRequest = $httpRequest;
-        $response = null;
-        $route = null;
+        $container = $this->getContainer();
 
 
-        if (null !== $this->container) {
+        try {
+
+            $response = null;
+            $route = null;
+            $events = null;
+            if ($container->has("events")) {
+                /**
+                 * @var $events LightEventsService
+                 */
+                $events = $container->get('events');
+            }
+
+
             //--------------------------------------------
             // INITIALIZE PHASE
             //--------------------------------------------
-            $this->initialize($httpRequest);
+            if (false === $this->isInitialized) {
+                $httpRequest = HttpRequest::createFromEnv();
+                $this->httpRequest = $httpRequest;
+                $this->initialize($httpRequest);
+            }
+            $httpRequest = $this->httpRequest;
 
 
             //--------------------------------------------
             // PRE-ROUTE PHASE
             //--------------------------------------------
-            if ($this->container->has("preroute_hub")) {
-                $prerouteHub = $this->container->get("preroute_hub");
+            if ($container->has("preroute_hub")) {
+                $prerouteHub = $container->get("preroute_hub");
                 $prerouteHub->run($this, $httpRequest, $response);
             }
-        }
 
 
-        if (null === $response) {
+            if (null === $response) {
 
-            try {
                 if (null !== $this->applicationDir) {
                     if (is_dir($this->applicationDir)) {
 
@@ -435,12 +421,12 @@ class Light
                         // SEARCHING A MATCHING ROUTE
                         //--------------------------------------------
                         $router = null;
-                        if (null !== $this->container) {
-                            if ($this->container->has("router")) {
-                                // todo: dynamic routers, see RoutineRouter...
-                                $router = $this->container->get("router");
-                            }
+
+                        if ($container->has("router")) {
+                            // todo: dynamic routers, see RoutineRouter...
+                            $router = $this->container->get("router");
                         }
+
 
                         if (null === $router) {
                             $router = new LightRouter();
@@ -452,9 +438,17 @@ class Light
 
 
                         if (false !== $route) {
+
+                            if ($container->has("events")) {
+                                $event = LightEvent::createByContainer($this->container);
+                                $event->setVar("route", $route);
+                                $events->dispatch('Light.on_route_found', $event);
+                            }
+
+
                             $response = ControllerHelper::executeController($route['controller'], $this);
                         } else {
-                            throw new LightException("No route matches", "404");
+                            throw LightException::create("No route matches", "404");
                         }
 
 
@@ -464,43 +458,64 @@ class Light
                 } else {
                     throw new LightException("Application dir not set.");
                 }
-            } catch (\Exception $e) {
+
+            }
+
+        } catch (\Exception $e) {
 
 
-                if ($e instanceof LightRedirectException && $this->getContainer()->has('reverse_router')) {
-                    /**
-                     * @var $revRouter LightReverseRouterInterface
-                     */
-                    $revRouter = $this->getContainer()->get('reverse_router');
-                    $url = $revRouter->getUrl($e->getRedirectRoute(), [], true);
-                    $response = HttpRedirectResponse::create($url);
-                } else {
+            //--------------------------------------------
+            // use light redirection?
+            //--------------------------------------------
+            if ($e instanceof LightRedirectException && $this->getContainer()->has("reverse_router")) {
+
+                /**
+                 * @var $rr LightReverseRouterService
+                 */
+                $rr = $this->getContainer()->get("reverse_router");
+                /**
+                 * Note that we don't use the httpRequest object's get array, because we want
+                 * the dev to be able to override the urlParams (by using $_GET) if necessary.
+                 */
+                $urlParams = $_GET;
+                $url = $rr->getUrl($e->getRedirectRoute(), $urlParams, true);
+                $response = HttpRedirectResponse::create($url);
+            } else {
+
+                $washHandled = false;
+
+                if (true === $container->has('events')) {
+                    $data = LightEvent::createByContainer($container);
+                    $data->setVar('exception', $e);
+                    $events->dispatch("Light.on_exception_caught", $data);
 
 
-                    $lightErrorCode = null;
-                    if ($e instanceof LightException) {
-                        $lightErrorCode = $e->getLightErrorCode();
+                    $httpResponse = $data->getVar('httpResponse');
+                    if ($httpResponse instanceof HttpResponseInterface) {
+                        $washHandled = true;
+                        $response = $httpResponse;
+                    }
+                }
+
+
+                if (false === $washHandled) {
+
+
+                    if (true === $container->has('events')) {
+                        /**
+                         * This event is just used for logging (i.e. no fallback response possible...).
+                         */
+                        $data = LightEvent::createByContainer($container);
+                        $data->setVar('exception', $e);
+                        $events->dispatch("Light.on_unhandled_exception_caught", $data);
                     }
 
 
-                    $washHandled = false;
-                    foreach ($this->errorHandlers as $errorHandler) {
-                        if (null === $response) {
-                            call_user_func_array($errorHandler, [$lightErrorCode, $e, &$response]);
-                            if (null !== $response) {
-                                $washHandled = true;
-                                break;
-                            }
-                        }
-                    }
+                    if (false === $this->debug) {
+                        $response = $this->renderInternalServerErrorPage();
 
-                    if (false === $washHandled) {
-                        if (false === $this->debug) {
-                            $response = $this->renderInternalServerErrorPage();
-
-                        } else {
-                            $response = $this->renderDebugPage($e);
-                        }
+                    } else {
+                        $response = $this->renderDebugPage($e);
                     }
                 }
             }
@@ -516,21 +531,20 @@ class Light
             }
 
 
-            if (null !== $this->container) {
-                //--------------------------------------------
-                // END ROUTINE
-                //--------------------------------------------
-                if ($this->container->has("end_routine")) {
-                    if (null === $route) {
-                        $route = [];
-                    }
-                    /**
-                     * @var $endRoutine Light_EndRoutineService
-                     */
-                    $endRoutine = $this->container->get('end_routine');
-                    $endRoutine->executeEndRoutines($route);
+            //--------------------------------------------
+            // END ROUTINE
+            //--------------------------------------------
+            if ($container->has("events")) {
+                if (null === $route || false === $route) {
+                    $route = false;
                 }
+                $data = LightEvent::createByContainer($container);
+                $data->setVar('route', $route);
+                $events->dispatch("Light.end_routine", $data);
             }
+
+
+
 
 
             if ($response instanceof HttpResponseInterface) {
@@ -559,16 +573,13 @@ class Light
 
         $response = null;
 
-        $handled = false;
         if (null !== $this->container) {
-            if ($this->container->has("prettyDebugPage")) {
-                $handled = true;
-                $response = $this->container->get("prettyDebugPage")->renderPage($e);
+            if ($this->container->has("pretty_error")) {
+                $response = $this->container->get("pretty_error")->renderPage($e);
             }
         }
 
-
-        if (false === $handled) {
+        if (null === $response) {
             ob_start();
             echo '<h1>An error occurred -- debug mode</h1>';
             echo nl2br((string)$e);

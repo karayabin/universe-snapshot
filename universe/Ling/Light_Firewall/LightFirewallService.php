@@ -8,10 +8,10 @@ use Ling\Light\Core\Light;
 use Ling\Light\Http\HttpRedirectResponse;
 use Ling\Light\Http\HttpRequestInterface;
 use Ling\Light\Http\HttpResponseInterface;
-use Ling\Light\ReverseRouter\LightReverseRouterInterface;
 use Ling\Light\Router\LightRouterInterface;
 use Ling\Light_Firewall\Exception\LightFirewallException;
 use Ling\Light_PrerouteHub\Runner\LightPrerouteHubRunnerInterface;
+use Ling\Light_ReverseRouter\Service\LightReverseRouterService;
 use Ling\Light_User\LightUserInterface;
 
 /**
@@ -224,7 +224,7 @@ class LightFirewallService implements LightPrerouteHubRunnerInterface
 
                             $container = $light->getContainer();
                             /**
-                             * @var $router LightReverseRouterInterface
+                             * @var $router LightReverseRouterService
                              */
                             $router = $container->get("reverse_router");
                             $url = $router->getUrl($value, [], true);

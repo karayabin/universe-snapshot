@@ -7,7 +7,7 @@ LightEasyRouteService::initialize
 
 
 
-LightEasyRouteService::initialize — Initializes a service with the given Light instance and HttpRequestInterface instance.
+LightEasyRouteService::initialize — Listener for the [Light.initialize_1 event](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md).
 
 
 
@@ -16,12 +16,13 @@ Description
 ================
 
 
-public [LightEasyRouteService::initialize](https://github.com/lingtalfi/Light_EasyRoute/blob/master/doc/api/Ling/Light_EasyRoute/Service/LightEasyRouteService/initialize.md)(Ling\Light\Core\Light $light, Ling\Light\Http\HttpRequestInterface $httpRequest) : mixed
+public [LightEasyRouteService::initialize](https://github.com/lingtalfi/Light_EasyRoute/blob/master/doc/api/Ling/Light_EasyRoute/Service/LightEasyRouteService/initialize.md)(Ling\Light\Events\LightEvent $event) : void
 
 
 
 
-Initializes a service with the given Light instance and HttpRequestInterface instance.
+Listener for the [Light.initialize_1 event](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md).
+It will register all the routes from the files registered by other plugins.
 
 
 
@@ -30,11 +31,7 @@ Parameters
 ================
 
 
-- light
-
-    
-
-- httpRequest
+- event
 
     
 
@@ -42,8 +39,13 @@ Parameters
 Return values
 ================
 
-Returns mixed.
+Returns void.
 
+
+Exceptions thrown
+================
+
+- [LightEasyRouteException](https://github.com/lingtalfi/Light_EasyRoute/blob/master/doc/api/Ling/Light_EasyRoute/Exception/LightEasyRouteException.md).&nbsp;
 
 
 
@@ -53,7 +55,7 @@ Returns mixed.
 
 Source Code
 ===========
-See the source code for method [LightEasyRouteService::initialize](https://github.com/lingtalfi/Light_EasyRoute/blob/master/Service/LightEasyRouteService.php#L40-L60)
+See the source code for method [LightEasyRouteService::initialize](https://github.com/lingtalfi/Light_EasyRoute/blob/master/Service/LightEasyRouteService.php#L45-L66)
 
 
 See Also

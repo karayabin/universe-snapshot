@@ -1,20 +1,26 @@
 default: 
-    table: luda_resource_has_tag
+    table: luda_resource_has_tag rht
     ric: 
         - resource_id
         - tag_id
     
-    fields: 
+    base_fields: 
         - resource_id
         - tag_id
+        - concat(rht.resource_id, '. ', r.real_path) as resource_id_plus
+        - concat(rht.tag_id, '. ', t.name) as tag_id_plus
+    
+    base_joins: 
+        - inner join luda_resource r on rht.resource_id=r.id
+        - inner join luda_tag t on rht.tag_id=t.id
     
     order: 
         col_order: $column $direction
     
     where: 
         general_search: <
-            resource_id like :%expression% or
-            tag_id like :%expression%
+            concat(rht.resource_id, '. ', r.real_path) like :%expression% or
+            concat(rht.tag_id, '. ', t.name) like :%expression%
         >
         generic_filter: $column $operator :operator_value
         generic_sub_filter: $column like :%operator_value%
@@ -22,6 +28,7 @@ default:
         close_parenthesis: )
         and: and
         or: or
+        in_rics: (resource_id like :resource_id and tag_id like :tag_id)
     
     limit: 
         page: $page
@@ -40,11 +47,14 @@ default:
             
         
     
+    plugin: Light_Kit_Admin
     csrf_token: 
         name: realist-request
         value: REALIST(Light_Realist, csrf_token, realist-request)
     
+    use_micro_permission: true
     rendering: 
+        title: Resource has tag list
         list_general_actions: 
             - 
                 action_id: Light_Kit_Admin.realist-generate_random_rows
@@ -76,6 +86,12 @@ default:
                 action_id: Light_Kit_Admin.realist-delete_rows
                 text: Delete
                 icon: far fa-trash-alt
+                csrf_token: true
+            
+            - 
+                action_id: Light_Kit_Admin.realist-edit_rows
+                text: Edit
+                icon: fas fa-edit
                 csrf_token: true
             
             - 
@@ -145,23 +161,90 @@ default:
             data_types: 
                 resource_id: number
                 tag_id: number
-                actions: action
+                resource_id_plus: string
+                tag_id_plus: string
+                action: action
             
         
         column_labels: 
             resource_id: Resource id
             tag_id: Tag id
-            actions: Actions
+            resource_id_plus: Resource
+            tag_id_plus: Tag
+            action: Actions
+        
+        hidden_columns: 
+            - resource_id
+            - tag_id
         
         rows_renderer: 
             identifier: Light_Kit_Admin
+            types: 
+                avatar_url: 
+                    type: Light_Realist.image
+                    width: 100
+                
+                action: 
+                    type: Light_Realist.mixer
+                    separator: " - "
+                    items: 
+                        - 
+                            type: Light_Realist.hub_link
+                            text: Edit
+                            url_params_add_ric: true
+                            url_params: 
+                                controller: Generated/LudaResourceHasTagController
+                                plugin: Light_Kit_Admin
+                                m: f
+                            
+                        
+                        - 
+                            type: Light_Kit_Admin.list_action
+                            text: Delete
+                            action_id: realist-delete_rows
+                            csrf_token: true
+                            include_ric: true
+                        
+                    
+                
+                checkbox: Light_Realist.checkbox
+                resource_id_plus: 
+                    type: Light_Realist.hub_link
+                    text: null
+                    url_params_add_keys: 
+                        id: resource_id
+                    
+                    url_params: 
+                        controller: Generated/LudaResourceController
+                        plugin: Light_Kit_Admin
+                        m: f
+                    
+                
+                tag_id_plus: 
+                    type: Light_Realist.hub_link
+                    text: null
+                    url_params_add_keys: 
+                        id: tag_id
+                    
+                    url_params: 
+                        controller: Generated/LudaTagController
+                        plugin: Light_Kit_Admin
+                        m: f
+                    
+                
+            
             checkbox_column: 
                 name: checkbox
-                label: "#"
             
             action_column: 
-                name: actions
-                label: Actions
+                name: action
+            
+        
+        related_links: 
+            - 
+                text: "Add new \"resource has tag\" item"
+                url: REALIST(Light_Realist, route, lch_route-hub, {plugin: Light_Kit_Admin, controller: Generated/LudaResourceHasTagController, m:f})
+                icon: fas fa-plus-circle
             
         
     

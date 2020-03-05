@@ -52,7 +52,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [AbstractField::getErrors](https://github.com/lingtalfi/Chloroform/blob/master/Field/AbstractField.php#L204-L207)
+See the source code for method [AbstractField::getErrors](https://github.com/lingtalfi/Chloroform/blob/master/Field/AbstractField.php#L209-L212)
 
 
 See Also

@@ -20,4 +20,10 @@ interface LightUserManagerInterface
      * @throws LightUserManagerException
      */
     public function getUser(): LightUserInterface;
+
+    /**
+     * Destroys the current user, according to the settings of this instance.
+     * @return void
+     */
+    public function destroyUser();
 }

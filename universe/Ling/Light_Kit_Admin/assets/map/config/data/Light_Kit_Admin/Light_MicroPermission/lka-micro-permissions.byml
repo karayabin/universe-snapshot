@@ -1,4 +1,67 @@
 micro_permissions:
+
+
+    # --------------------------------------
+    # lud
+    # --------------------------------------
+    Light_Kit_Admin.tables.lud_permission.create: Light_Kit_Admin.admin
+    Light_Kit_Admin.tables.lud_permission.read: Light_Kit_Admin.admin
+    Light_Kit_Admin.tables.lud_permission.update: Light_Kit_Admin.admin
+    Light_Kit_Admin.tables.lud_permission.delete: Light_Kit_Admin.admin
+
+    Light_Kit_Admin.tables.lud_permission_group.create: Light_Kit_Admin.admin
+    Light_Kit_Admin.tables.lud_permission_group.read: Light_Kit_Admin.admin
+    Light_Kit_Admin.tables.lud_permission_group.update: Light_Kit_Admin.admin
+    Light_Kit_Admin.tables.lud_permission_group.delete: Light_Kit_Admin.admin
+
+    Light_Kit_Admin.tables.lud_permission_group_has_permission.create: Light_Kit_Admin.admin
+    Light_Kit_Admin.tables.lud_permission_group_has_permission.read: Light_Kit_Admin.admin
+    Light_Kit_Admin.tables.lud_permission_group_has_permission.update: Light_Kit_Admin.admin
+    Light_Kit_Admin.tables.lud_permission_group_has_permission.delete: Light_Kit_Admin.admin
+
     Light_Kit_Admin.tables.lud_user.create: Light_Kit_Admin.admin
     Light_Kit_Admin.tables.lud_user.read: Light_Kit_Admin.admin
+    Light_Kit_Admin.tables.lud_user.update: Light_Kit_Admin.admin
     Light_Kit_Admin.tables.lud_user.delete: Light_Kit_Admin.admin
+
+    Light_Kit_Admin.tables.lud_user_has_permission_group.create: Light_Kit_Admin.admin
+    Light_Kit_Admin.tables.lud_user_has_permission_group.read: Light_Kit_Admin.admin
+    Light_Kit_Admin.tables.lud_user_has_permission_group.update: Light_Kit_Admin.admin
+    Light_Kit_Admin.tables.lud_user_has_permission_group.delete: Light_Kit_Admin.admin
+
+
+
+    # Todo: check those below again...
+    # Todo: check those below again..., or remove them
+    Light_Kit_Admin.tables.lud_user.readSelf: Light_Kit_Admin.user
+    Light_Kit_Admin.tables.lud_user.updateSelf: Light_Kit_Admin.user
+
+
+
+
+    # --------------------------------------
+    # luda
+    # --------------------------------------
+    Light_Kit_Admin.tables.luda_directory_map.create: Light_Kit_Admin.user
+    Light_Kit_Admin.tables.luda_directory_map.read: Light_Kit_Admin.user
+    Light_Kit_Admin.tables.luda_directory_map.update: Light_Kit_Admin.user
+    Light_Kit_Admin.tables.luda_directory_map.delete: Light_Kit_Admin.user
+
+    Light_Kit_Admin.tables.luda_resource.read: Light_Kit_Admin.user
+    Light_Kit_Admin.tables.luda_resource.create: Light_Kit_Admin.user
+    Light_Kit_Admin.tables.luda_resource.update: Light_Kit_Admin.user
+    Light_Kit_Admin.tables.luda_resource.delete: Light_Kit_Admin.user
+
+    Light_Kit_Admin.tables.luda_resource_has_tag.read: Light_Kit_Admin.user
+    Light_Kit_Admin.tables.luda_resource_has_tag.create: Light_Kit_Admin.user
+    Light_Kit_Admin.tables.luda_resource_has_tag.update: Light_Kit_Admin.user
+    Light_Kit_Admin.tables.luda_resource_has_tag.delete: Light_Kit_Admin.user
+
+    Light_Kit_Admin.tables.luda_tag.read: Light_Kit_Admin.user
+    Light_Kit_Admin.tables.luda_tag.create: Light_Kit_Admin.user
+    Light_Kit_Admin.tables.luda_tag.update: Light_Kit_Admin.user
+    Light_Kit_Admin.tables.luda_tag.delete: Light_Kit_Admin.user
+
+
+
+

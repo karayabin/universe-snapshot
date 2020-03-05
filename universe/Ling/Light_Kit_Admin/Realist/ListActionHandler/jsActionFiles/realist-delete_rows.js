@@ -1,7 +1,7 @@
 function f(jBtn, rics, jContainer, jTable, params) {
 
 
-    if (true === window.confirm("Are you sure you want to delete the selected rows?")) {
+    if (true === LightKitAdminEnvironment.confirm("Are you sure you want to delete the selected rows?")) {
         /**
          * Warning:
          *

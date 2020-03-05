@@ -1,7 +1,11 @@
 Light_EndRoutine
 ===========
-2019-09-19
+2019-09-19 -> 2019-12-19
 
+
+
+UPDATE 2019-12--19: This plugin is now deprecated since Light uses the [Light.end_routine event](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md)
+instead. 
 
 
 A plugin to provide "php exit handler"-ish functionality for the light framework.
@@ -53,6 +57,10 @@ end_routine:
 
 History Log
 =============
+
+- 1.3.0 -- 2019-12-19
+
+    - add deprecation notice
 
 - 1.2.0 -- 2019-09-20
 

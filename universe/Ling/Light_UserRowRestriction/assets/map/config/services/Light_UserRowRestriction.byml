@@ -1,0 +1,19 @@
+user_row_restriction:
+    instance: Ling\Light_UserRowRestriction\Service\LightUserRowRestrictionService
+    methods:
+        setContainer:
+            container: @container()
+
+
+# --------------------------------------
+# hooks
+# --------------------------------------
+$database.methods_collection:
+    -
+        method: registerEventHandler
+        args:
+            handler: @service(user_row_restriction)
+
+
+
+

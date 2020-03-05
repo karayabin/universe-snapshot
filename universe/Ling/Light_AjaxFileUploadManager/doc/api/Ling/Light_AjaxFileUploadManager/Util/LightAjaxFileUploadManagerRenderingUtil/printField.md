@@ -7,7 +7,7 @@ LightAjaxFileUploadManagerRenderingUtil::printField
 
 
 
-LightAjaxFileUploadManagerRenderingUtil::printField — Prints the html field using the given field array, and assuming the js file uploader client (https://github.com/lingtalfi/jsFileUploader) is used.
+LightAjaxFileUploadManagerRenderingUtil::printField — Prints the html field using the given field array, and assuming the js file uploader client (https://github.com/lingtalfi/jFileUploader) is used.
 
 
 
@@ -21,7 +21,7 @@ public [LightAjaxFileUploadManagerRenderingUtil::printField](https://github.com/
 
 
 
-Prints the html field using the given field array, and assuming the js file uploader client (https://github.com/lingtalfi/jsFileUploader) is used.
+Prints the html field using the given field array, and assuming the js file uploader client (https://github.com/lingtalfi/jFileUploader) is used.
 This also uses the bootstrap4 framework.
 
 The available options are:
@@ -62,7 +62,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightAjaxFileUploadManagerRenderingUtil::printField](https://github.com/lingtalfi/Light_AjaxFileUploadManager/blob/master/Util/LightAjaxFileUploadManagerRenderingUtil.php#L121-L156)
+See the source code for method [LightAjaxFileUploadManagerRenderingUtil::printField](https://github.com/lingtalfi/Light_AjaxFileUploadManager/blob/master/Util/LightAjaxFileUploadManagerRenderingUtil.php#L153-L188)
 
 
 See Also

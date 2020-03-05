@@ -1,0 +1,16 @@
+_parent: Light_Kit_Admin/kit/zeroadmin/dev/mainlayout_solo
+title: Light Kit Admin User Profile
+zones:
+    body:
+        -
+            name: lka_chloroform
+            type: picasso
+            className: Ling\Light_Kit_Admin\Widget\Picasso\LightKitAdminChloroformWidget
+            widgetDir: templates/Light_Kit_Admin/widgets/picasso/LightKitAdminChloroformWidget
+            template: user/user_profile.php
+            vars: []
+                title: User Profile
+                form: ${form}
+                show_rights: true
+                is_root: ${is_root}
+                rights: ${rights}

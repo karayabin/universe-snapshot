@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://raw.githubusercontent.com/lingtalfi/Light_Kit_Admin_UserData/master/sitemap.txt

@@ -16,6 +16,11 @@ the "Ling Standard Object Methods" is the concept designing the four methods:
 - deleteUserById ( int $id )
 
 
+There is also a fifth method, but only if the table from which it originates has a primary key composed of one element only:
+
+- getAllIds()
+
+
 Now the "User" part and the "ById" part are variables.
 
 The "User" part depends on the underlying table, and the "ById" part will change along with the [ric](https://github.com/lingtalfi/NotationFan/blob/master/ric.md).
@@ -25,7 +30,6 @@ For more information about the arguments, refer to the aforementioned "ling bree
 Those methods should be generated based on the ric.
 
 In addition to that, the getXXX, updateXXX and deleteXXX methods should also be generated for every unique index of the table.
-
 
 
 

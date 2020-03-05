@@ -63,7 +63,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [ResourceApi::doInsertResource](https://github.com/lingtalfi/Light_UserData/blob/master/Api/ResourceApi.php#L169-L206)
+See the source code for method [ResourceApi::doInsertResource](https://github.com/lingtalfi/Light_UserData/blob/master/Api/ResourceApi.php#L153-L190)
 
 
 See Also
@@ -71,5 +71,5 @@ See Also
 
 The [ResourceApi](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/ResourceApi.md) class.
 
-Previous method: [setMicroPermissionPlugin](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/ResourceApi/setMicroPermissionPlugin.md)<br>Next method: [doGetResourceById](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/ResourceApi/doGetResourceById.md)<br>
+Previous method: [setContainer](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/ResourceApi/setContainer.md)<br>Next method: [doGetResourceById](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/ResourceApi/doGetResourceById.md)<br>
 

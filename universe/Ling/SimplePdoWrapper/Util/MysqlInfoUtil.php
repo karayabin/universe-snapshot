@@ -4,10 +4,14 @@
 namespace Ling\SimplePdoWrapper\Util;
 
 
+use Ling\SimplePdoWrapper\Exception\MysqlInfoUtilException;
+use Ling\SimplePdoWrapper\SimplePdoWrapper;
 use Ling\SimplePdoWrapper\SimplePdoWrapperInterface;
 
 /**
  * The MysqlInfoUtil class.
+ * Inspired from my older @page(QuickPdoInfoTool).
+ *
  */
 class MysqlInfoUtil
 {
@@ -18,6 +22,18 @@ class MysqlInfoUtil
      */
     protected $wrapper;
 
+    /**
+     * This property holds the defaultHasKeywords for this instance.
+     * @var array
+     */
+    protected $defaultHasKeywords;
+
+    /**
+     * This property holds the defaultHandleLabels for this instance.
+     * @var array
+     */
+    protected $defaultHandleLabels;
+
 
     /**
      * Builds the MysqlInfoUtil instance.
@@ -26,6 +42,14 @@ class MysqlInfoUtil
     public function __construct(SimplePdoWrapperInterface $wrapper = null)
     {
         $this->wrapper = $wrapper;
+        $this->defaultHasKeywords = [
+            "has",
+        ];
+        $this->defaultHandleLabels = [
+            "name",
+            "label",
+            "identifier",
+        ];
     }
 
     /**
@@ -62,6 +86,7 @@ class MysqlInfoUtil
     public function getDatabase(): string
     {
         // http://stackoverflow.com/questions/9322302/how-to-get-database-name-in-pdo
+        SimplePdoWrapper::$isSystemCall = true;
         $res = $this->wrapper->fetch("select database()");
         return current($res);
     }
@@ -94,6 +119,7 @@ class MysqlInfoUtil
                 return true;
             };
         }
+        SimplePdoWrapper::$isSystemCall = true;
         return array_filter($this->wrapper->fetchAll('show databases', [], \PDO::FETCH_COLUMN), $filter);
     }
 
@@ -107,6 +133,7 @@ class MysqlInfoUtil
      */
     public function getTables(string $prefix = null): array
     {
+        SimplePdoWrapper::$isSystemCall = true;
         $tables = $this->wrapper->fetchAll('show tables', [], \PDO::FETCH_COLUMN);
         if (null !== $prefix) {
             $tables = array_filter($tables, function ($v) use ($prefix) {
@@ -137,6 +164,7 @@ WHERE table_schema = '$db'
 AND table_name = '$table'
 LIMIT 1;
 EEE;
+        SimplePdoWrapper::$isSystemCall = true;
         $res = $this->wrapper->fetch($query);
         return ($res !== false);
     }
@@ -152,6 +180,7 @@ EEE;
     public function getColumnNames(string $table): array
     {
         $ret = [];
+        SimplePdoWrapper::$isSystemCall = true;
         $cols = $this->wrapper->fetchAll("describe `$table`;");
         foreach ($cols as $col) {
             $ret[] = $col['Field'];
@@ -178,6 +207,7 @@ EEE;
      */
     public function getPrimaryKey(string $table, bool $returnAllIfEmpty = false, bool &$hasPrimaryKey = true): array
     {
+        SimplePdoWrapper::$isSystemCall = true;
         $rows = $this->wrapper->fetchAll("SHOW INDEX FROM `$table` WHERE Key_name = 'PRIMARY'");
         $ret = [];
         if (false !== $rows) {
@@ -199,20 +229,25 @@ EEE;
      * Returns the @page(ric) array for the given table.
      *
      * @param string $table
+     * @param bool $useStrictRic
      * @return array
      * @throws \Exception
      */
-    public function getRic(string $table): array
+    public function getRic(string $table, bool $useStrictRic = false): array
     {
         $hasPrimary = false;
         $ric = $this->getPrimaryKey($table, true, $hasPrimary);
         if (false === $hasPrimary) {
-            $uniqueIndexes = $this->getUniqueIndexes($table);
-            if ($uniqueIndexes) {
-                $ric = current($uniqueIndexes);
-            }
-            else{
+
+            if (true === $useStrictRic) {
                 $ric = $this->getColumnNames($table);
+            } else {
+                $uniqueIndexes = $this->getUniqueIndexes($table);
+                if ($uniqueIndexes) {
+                    $ric = current($uniqueIndexes);
+                } else {
+                    $ric = $this->getColumnNames($table);
+                }
             }
         }
         return $ric;
@@ -231,6 +266,7 @@ EEE;
     public function getUniqueIndexes(string $table): array
     {
         $ret = [];
+        SimplePdoWrapper::$isSystemCall = true;
         $info = $this->wrapper->fetchAll("SHOW INDEX FROM `$table`");
         if (false !== $info) {
             $indexes = [];
@@ -267,6 +303,7 @@ EEE;
     public function getColumnTypes(string $table, bool $precision = false)
     {
         $types = [];
+        SimplePdoWrapper::$isSystemCall = true;
         $info = $this->wrapper->fetchAll("SHOW COLUMNS FROM `$table`");
 
         foreach ($info as $_info) {
@@ -280,7 +317,7 @@ EEE;
     }
 
     /**
-     * Return the name of the auto-incremented field, or false if there is none.
+     * Returns the name of the auto-incremented field, or false if there is none.
      *
      * @param string $table
      * @return false|string
@@ -289,6 +326,7 @@ EEE;
     public function getAutoIncrementedKey(string $table)
     {
         $q = "show columns from `$table` where extra='auto_increment'";
+        SimplePdoWrapper::$isSystemCall = true;
         if (false !== ($rows = $this->wrapper->fetchAll($q))) {
             if (array_key_exists(0, $rows)) {
                 return $rows[0]['Field'];
@@ -296,6 +334,332 @@ EEE;
         }
         return false;
     }
+
+
+    /**
+     * Returns an array of
+     *
+     *  foreignKey => [ referencedDb, referencedTable, referencedColumn ]
+     *
+     * @param string $table
+     * @return array
+     * @throws \Exception
+     */
+    public function getForeignKeysInfo(string $table)
+    {
+        $ret = [];
+        list($schema, $table) = $this->splitTableName($table);
+
+        SimplePdoWrapper::$isSystemCall = true;
+        if (false !== ($rows = $this->wrapper->fetchAll("
+select 
+COLUMN_NAME,
+REFERENCED_TABLE_SCHEMA, 
+REFERENCED_TABLE_NAME,
+REFERENCED_COLUMN_NAME
+ 
+from information_schema.KEY_COLUMN_USAGE k 
+inner join information_schema.TABLE_CONSTRAINTS t on t.CONSTRAINT_NAME=k.CONSTRAINT_NAME
+where k.TABLE_SCHEMA = '$schema'
+and k.TABLE_NAME = '$table'
+and CONSTRAINT_TYPE = 'FOREIGN KEY'
+"))
+        ) {
+            foreach ($rows as $row) {
+                $ret[$row['COLUMN_NAME']] = [$row['REFERENCED_TABLE_SCHEMA'], $row['REFERENCED_TABLE_NAME'], $row['REFERENCED_COLUMN_NAME']];
+            }
+        }
+
+
+//        if (true === $resolve) {
+//            foreach ($ret as $col => $info) {
+//                $db = $info[0];
+//                $table = $info[1];
+//                $column = $info[2];
+//                $this->getResolvedForeignKeyInfo($db, $table, $column);
+//                $ret[$col] = [
+//                    $db,
+//                    $table,
+//                    $column,
+//                ];
+//            }
+//        }
+
+        return $ret;
+    }
+
+
+    /**
+     * Returns an array of tableId  => referencedByTableIds for the given databases.
+     * If no database is given, the current database will be used.
+     *
+     * With:
+     *
+     * - tableId: string, the full table name, using the notation $db.$table
+     * - referencedByTableIds: array of referencedByTableId items, each of which being a full table name using the notation $db.$table.
+     *
+     *
+     * @param array|null $databases
+     * @return array
+     * @throws \Exception
+     */
+    public function getReverseForeignKeyMap(array $databases = null): array
+    {
+        $currentDb = $this->getDatabase();
+        if (null === $databases) {
+            $databases = [$currentDb];
+        }
+        $ret = [];
+        foreach ($databases as $database) {
+            $this->changeDatabase($database);
+            $tables = $this->getTables();
+            foreach ($tables as $table) {
+                $fks = $this->getForeignKeysInfo($database . "." . $table);
+                foreach ($fks as $col => $fkInfo) {
+                    list($fdb, $ftable, $fcol) = $fkInfo;
+                    $ret["$fdb.$ftable"][] = "$database.$table";
+                }
+            }
+        }
+        $this->changeDatabase($currentDb);
+        return $ret;
+    }
+
+
+    /**
+     * Returns the array of tables having a foreign key referencing the given table.
+     * It's an array of full table names (i.e. $db.$table notation).
+     *
+     * The databases argument is the set of databases to search inside of.
+     * If null (by default), the current database only will be used.
+     *
+     * The table argument can use the full notation (i.e. $db.$table) or be just the single table name.
+     * If it uses the full notation, make sure to pass the database of the table to the databases argument.
+     *
+     *
+     *
+     * @param string $table
+     * @param array|null $databases
+     * @return array
+     * @throws \Exception
+     */
+    public function getReferencedByTables(string $table, array $databases = null): array
+    {
+        if (null === $databases) {
+            $databases = [$this->getDatabase()];
+        }
+        list($schema, $table) = $this->splitTableName($table);
+        $fullTableName = $schema . "." . $table;
+        $rfkMap = $this->getReverseForeignKeyMap($databases);
+        if (array_key_exists($fullTableName, $rfkMap)) {
+            return $rfkMap[$fullTableName];
+        }
+        return [];
+
+    }
+
+
+    /**
+     * Returns an array of "has items".
+     * See more details in @page(the conception notes about has table information).
+     *
+     * Each "has item" has the following structure:
+     *
+     * - owns_the_has: bool, whether the current table owns the **has** table or is owned by it.
+     * - has_table: string, the name of the **has** table
+     * - left_table: string, the name of the owner table
+     * - right_table: string, the name of the owned table
+     * - left_fk: string, the name of the foreign key column of the **has** table pointing to the left table
+     * - right_fk: string, the name of the foreign key column of the **has** table pointing to the right table
+     * - referenced_by_left: string, the name of the column of the **left** table referencing the **has** table's foreign key
+     * - referenced_by_right: string, the name of the column of the **right** table referencing the **has** table's foreign key
+     * - left_handles: array of potential handles. Each handle is an array representing a set of columns that this method consider should be used as a handle related to the **left** table.
+     *      This method will list the following handles:
+     * - the column of the **left** table referencing the **has** table's foreign key (same value as the **referenced_by_left** property)
+     * - the unique indexes of the **left** table
+     *
+     * - right_handles: array of potential handles. Each handle is an array representing a set of columns that this method consider should be used as a handle related to the **right** table.
+     *      This method will list the following handles:
+     *      - the column of the **right** table referencing the **has** table's foreign key (same value as the **referenced_by_right** property).
+     *      - a "natural" column that has a common name for a handle, based on a list which the developer can provide, and which defaults to:
+     *          - name
+     *          - label
+     *          - identifier
+     *
+     * - the unique indexes of the **right** table that have only one column (i.e not the unique indexes with multiple columns).
+     *      If the unique index column contains only the aforementioned "natural" column, this particular index is discarded (as to avoid redundancy).
+     *
+     *
+     *
+     * The available options are:
+     * - hasKeywords: array of potential has keywords. Defaults to an array containing the "has" keyword.
+     * - naturalHandleLabels: array of potential column names for the handles. Defaults to the following array:
+     *      - name
+     *      - label
+     *      - identifier
+     *
+     *
+     * @param string $table
+     * @param array $options
+     * @return array
+     * @throws \Exception
+     */
+    public function getHasItems(string $table, array $options = []): array
+    {
+
+        /**
+         * Need help? follow me...
+         *
+         * Example of 3 tables from the jindemo database:
+         *
+         * - luda_resource
+         * - luda_resource_has_tag
+         * - luda_tag
+         *
+         * Analyzing of the luda_resource table below (for instance).
+         *
+         */
+
+        $ret = [];
+        list($db, $table) = $this->splitTableName($table);
+
+        $fullTable = $db . "." . $table;
+        $reverseFkeyMap = $this->getReverseForeignKeyMap([$db]);
+
+        if (array_key_exists($fullTable, $reverseFkeyMap)) {
+            /**
+             * Will contain the jindemo.luda_resource_has_tag table,
+             * which is the only has table in our example.
+             */
+            $rfkTables = $reverseFkeyMap[$fullTable];
+            foreach ($rfkTables as $referenceByFullTable) {
+
+                if (true === $this->isHasTable($referenceByFullTable, $options)) {
+                    $p = explode(".", $referenceByFullTable, 2);
+                    $referenceByTable = array_pop($p);
+                    $leftInfo = null;
+                    $rightInfo = null;
+                    $leftKey = null;
+                    $rightKey = null;
+                    /**
+                     * Here we've gor the foreign keys of the resource_has_tag table:
+                     *
+                     * - resource_id:
+                     *      0: jindemo
+                     *      1: luda_resource
+                     *      2: id
+                     * - tag_id:
+                     *      0: jindemo
+                     *      1: luda_tag
+                     *      2: id
+                     *
+                     * We want to find which one is the right, and which one is the left.
+                     * Logic (at least european logic) will tend to put the left member first.
+                     * This logic is not absolute though, and so the code below might be reworked later.
+                     * todo: rework this part, not very reliable.
+                     *
+                     */
+                    $fkeys = $this->getForeignKeysInfo($referenceByTable);
+                    if (2 === count($fkeys)) {
+
+                        reset($fkeys);
+                        $leftKey = key($fkeys);
+                        $leftInfo = array_shift($fkeys);
+                        $rightKey = key($fkeys);
+                        $rightInfo = array_shift($fkeys);
+
+                    } else {
+                        throw new MysqlInfoUtilException("Not implemented yet with count fkeys > 2.");
+                    }
+
+
+                    $isOwner = ($leftInfo[1] === $table);
+
+                    /**
+                     * Handles.
+                     * See my conception notes ("The has table information" section) for the technical guide behind this code.
+                     * https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/pages/conception-notes.md#the-has-table-information
+                     */
+                    $leftUniqueIndexes = $this->getUniqueIndexes($leftInfo[1]);
+                    $leftHandles = [
+                        [$leftInfo[2]],
+                    ];
+                    foreach ($leftUniqueIndexes as $index) {
+                        $leftHandles[] = $index;
+                    }
+                    $rightUniqueIndexes = $this->getUniqueIndexes($rightInfo[1]);
+                    $rightHandles = [
+                        [$rightInfo[2]],
+                    ];
+                    $handleLabels = $options['naturalHandleLabels'] ?? null;
+                    $naturalHandle = $this->getNaturalHandle($rightInfo[1], $handleLabels);
+                    if (false !== $naturalHandle) {
+                        $rightHandles[] = [$naturalHandle];
+                    }
+
+                    foreach ($rightUniqueIndexes as $index) {
+                        if (1 === count($index)) {
+                            $indexColumn = array_shift($index);
+                            if ($naturalHandle !== $indexColumn) {
+                                $rightHandles[] = $index;
+                            }
+                        }
+                    }
+
+
+                    $ret[] = [
+                        "is_owner" => $isOwner,
+                        "has_table" => $referenceByTable,
+                        "left_table" => $leftInfo[1],
+                        "right_table" => $rightInfo[1],
+                        "left_fk" => $leftKey,
+                        "right_fk" => $rightKey,
+                        "referenced_by_left" => $leftInfo[2],
+                        "referenced_by_right" => $rightInfo[2],
+                        "left_handles" => $leftHandles,
+                        "right_handles" => $rightHandles,
+                    ];
+                }
+            }
+        }
+        return $ret;
+    }
+
+
+    /**
+     * Returns whether the given table is a **has** table, based on the table name.
+     * See more details in @page(the conception notes about has table information).
+     *
+     * The available options are:
+     * - hasKeywords: array of potential has keywords. Defaults to an array containing the "has" keyword.
+     *
+     *
+     *
+     * @param string $table
+     * @param array $options
+     * @return bool
+     * @throws \Exception
+     */
+    public function isHasTable(string $table, array $options = []): bool
+    {
+        list($db, $table) = $this->splitTableName($table);
+
+
+        $hasKeywords = $options['hasKeywords'] ?? $this->defaultHasKeywords;
+        foreach ($hasKeywords as $hasKeyword) {
+            $hasKeyword = "_" . $hasKeyword . "_";
+            if (false !== strpos($table, $hasKeyword)) {
+                $fk = $this->getForeignKeysInfo($table);
+                if (count($fk) >= 2) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+
+
 
     //--------------------------------------------
     //
@@ -313,4 +677,81 @@ EEE;
         $table = '`' . $table . '`';
         return $table;
     }
+
+//    protected function getResolvedForeignKeyInfo(&$db = null, &$table = null, &$column = null)
+//    {
+//        $foreignKeys = $this->getForeignKeysInfo($table, $db);
+//        $max = 10;
+//        $c = 0;
+//        while (array_key_exists($column, $foreignKeys)) {
+//            if ($c > $max) {
+//                throw new SimplePdoWrapperException("Too much occurence");
+//            }
+//            $info = $foreignKeys[$column];
+//            $db = $info[0];
+//            $table = $info[1];
+//            $column = $info[2];
+//            $foreignKeys = $this->getForeignKeysInfo($table, $db);
+//            $c++;
+//        }
+//    }
+
+    //--------------------------------------------
+    //
+    //--------------------------------------------
+    /**
+     * Returns an array with the following info:
+     * - database: string
+     * - table: string
+     *
+     * Those information are extracted from the given table name, which might use the db.table notation,
+     * or just be a single table name. In case of a single table name, the database returned is the current database.
+     *
+     *
+     *
+     * @param string $table
+     * @return array
+     */
+    private function splitTableName(string $table): array
+    {
+        $schema = null;
+        $p = explode('.', $table, 2);
+        if (2 === count($p)) {
+            list($schema, $table) = $p;
+        }
+        if (null === $schema) {
+            $schema = $this->getDatabase();
+        }
+        return [$schema, $table];
+    }
+
+    /**
+     * Returns the natural handle for the given table, based on the given handleLabels.
+     * Returns false if no natural handle was found.
+     *
+     *
+     * @param string $table
+     * @param array|null $handleLabels
+     * @return string|false
+     * @throws \Exception
+     */
+    private function getNaturalHandle(string $table, array $handleLabels = null)
+    {
+        list($db, $table) = $this->splitTableName($table);
+
+        if (null === $handleLabels) {
+            $handleLabels = $this->defaultHandleLabels;
+        }
+
+        $columnNames = $this->getColumnNames($table);
+        foreach ($columnNames as $columnName) {
+            if (in_array($columnName, $handleLabels, true)) {
+                return $columnName;
+            }
+        }
+
+        return false;
+
+    }
+
 }

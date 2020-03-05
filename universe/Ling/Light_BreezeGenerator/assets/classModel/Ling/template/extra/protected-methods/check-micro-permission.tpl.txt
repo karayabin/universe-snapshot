@@ -10,7 +10,7 @@
      */
     protected function checkMicroPermission(string $type)
     {
-        $microPermission = $this->microPermissionPlugin . ".tables.$table." . $type;
+        $microPermission = "tables.$table." . $type;
         if (false === $this->container->get("micro_permission")->hasMicroPermission($microPermission)) {
             throw new LightMicroPermissionException("Permission denied! You don't have the micro permission $microPermission.");
         }

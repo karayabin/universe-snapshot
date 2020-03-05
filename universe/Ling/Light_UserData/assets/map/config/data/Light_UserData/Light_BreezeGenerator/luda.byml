@@ -5,18 +5,44 @@ conf:
     # with the usePrefixInClassName property
     prefix: luda
     usePrefixInClassName: false
-    factoryClassName: LightUserData
+    allPrefixes:
+        - luda
+        - lud
+    relativeDirs:
+        classes: Classes
+        interfaces: Interfaces
+        baseApi: Classes
+        factory: null
+        custom: Custom
+
+    factoryClassName: LightUserDataApiFactory
+    baseClassName: LightUserDataBaseApi
+
     namespace: Ling\Light_UserData\Api
+
+
+
+
     # The suffix to add to the class name.
     # For instance if the class is User and the suffix is Object,
     # The class name will be UserObject
     # The default value is Object
     classSuffix: Api
-    # Whether to overwrite existing files (if false, skip them)
-    # Used mainly for debugging purposes, in production you probably should set this to false
-    # The default value is false
-    overwriteExisting: true
-    useMicroPermission: true
+    interfaceSuffix: Interface
+    customPrefix: Custom
+
+
+    overwrite:
+        classes: true
+        interfaces: false
+        baseApi: false
+        factory: true
+
+
+    useMicroPermission: false
     microPermissionPluginName: Light_UserData
     generate:
         prefix: luda
+        # generate the tables from a file.
+        # This is handy because you don't need to create the database to generate the classes
+        file: /komin/jin_site_demo/universe/Ling/Light_UserData/assets/fixtures/recreate-structure.sql

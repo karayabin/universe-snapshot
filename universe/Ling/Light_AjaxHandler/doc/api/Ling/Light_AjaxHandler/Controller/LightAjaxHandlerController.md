@@ -4,7 +4,7 @@
 
 The LightAjaxHandlerController class
 ================
-2019-09-19 --> 2019-09-30
+2019-09-19 --> 2019-11-28
 
 
 
@@ -36,6 +36,7 @@ class <span class="pl-k">LightAjaxHandlerController</span> extends [LightControl
     - public LightController::setLight([Ling\Light\Core\Light](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light.md) $light) : void
     - protected LightController::getLight() : [Light](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light.md)
     - protected LightController::getContainer() : [LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md)
+    - protected LightController::getHttpRequest() : Ling\Light\Http\HttpRequestInterface
 
 }
 
@@ -53,6 +54,7 @@ Methods
 - LightController::setLight &ndash; Sets the light instance.
 - LightController::getLight &ndash; Returns the light application.
 - LightController::getContainer &ndash; Returns the service container.
+- LightController::getHttpRequest &ndash; Returns the http request bound to the light instance.
 
 
 

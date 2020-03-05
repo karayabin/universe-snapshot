@@ -13,6 +13,7 @@ class AdvancedSearchRendererWidget extends AbstractOpenAdminTableRendererWidget
 
     /**
      * This property holds the fields for this instance.
+     * It's an array of alias => label representing the searchable columns.
      * @var array
      */
     protected $fields;
@@ -75,7 +76,7 @@ class AdvancedSearchRendererWidget extends AbstractOpenAdminTableRendererWidget
                     </tr>
                     </thead>
                     <tbody>
-                    <?php foreach ($this->fields as $field):
+                    <?php foreach ($this->fields as $alias => $label):
 
                         ?>
 
@@ -88,7 +89,8 @@ class AdvancedSearchRendererWidget extends AbstractOpenAdminTableRendererWidget
 
 
                             <td data-rtt-variable="column"
-                                data-rtt-value="<?php echo $field; ?>"><?php echo $field; ?></td>
+                                title="<?php echo htmlspecialchars($alias); ?>"
+                                data-rtt-value="<?php echo $alias; ?>"><?php echo $label; ?></td>
                             <td>
                                 <select class="form-control" data-rtt-variable="operator">
                                     <option>=</option>

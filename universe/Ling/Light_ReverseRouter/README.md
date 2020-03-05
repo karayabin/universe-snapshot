@@ -1,6 +1,6 @@
 Light_ReverseRouter
 ===========
-2019-04-10
+2019-04-10 -> 2019-12-17
 
 
 
@@ -42,18 +42,22 @@ Here is the content of the service configuration file:
 
 ```yaml
 reverse_router:
-    instance: Ling\Light_ReverseRouter\ReverseRouter
+    instance: Ling\Light_ReverseRouter\Service\LightReverseRouterService
 
 
 
 # --------------------------------------
 # hooks
 # --------------------------------------
-$initializer.methods_collection:
+$events.methods_collection:
     -
-        method: registerInitializer
+        method: registerListener
         args:
-            initializer: @service(reverse_router)
+            events: Light.initialize_1
+            listener:
+                instance: @service(reverse_router)
+                callable_method: initialize
+
 
 
 
@@ -76,6 +80,26 @@ The **initializer** service is provided by the [Light_Initializer planet](https:
 History Log
 =============
 
+- 1.11.1 -- 2019-12-17
+
+    - fix functional typo in service configuration
+    
+- 1.11.0 -- 2019-12-17
+
+    - update plugin to accommodate Light 0.50 new initialization system
+
+- 1.10.0 -- 2019-11-19
+
+    - ReverseRouter becomes LightReverseRouterService 
+    
+- 1.9.0 -- 2019-11-12
+
+    - fix functional typo and rewrite service configuration with new listener priority 
+    
+- 1.8.0 -- 2019-11-11
+
+    - add redirecting handler for Light.on_exception_caught event 
+    
 - 1.7.2 -- 2019-09-17
 
     - update ReverseRouter to accommodate new LightReverseRouterInterface interface method signature 

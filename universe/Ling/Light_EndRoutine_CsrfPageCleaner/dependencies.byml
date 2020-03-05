@@ -2,7 +2,6 @@ dependencies:
     Ling: 
         - Light
         - Light_Csrf
-        - Light_EndRoutine
     
 
 post_install: 

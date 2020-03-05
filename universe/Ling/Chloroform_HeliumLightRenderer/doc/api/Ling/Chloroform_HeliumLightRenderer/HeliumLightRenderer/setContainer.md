@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [HeliumLightRenderer::setContainer](https://github.com/lingtalfi/Chloroform_HeliumLightRenderer/blob/master/HeliumLightRenderer.php#L41-L44)
+See the source code for method [HeliumLightRenderer::setContainer](https://github.com/lingtalfi/Chloroform_HeliumLightRenderer/blob/master/HeliumLightRenderer.php#L43-L46)
 
 
 See Also

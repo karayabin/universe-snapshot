@@ -50,12 +50,21 @@ class MethodHelper
                 $epuratedType = rtrim($type, '[]'); // to parse MethodInfo[] as MethodInfo for instance.
 
 
-                if (array_key_exists($epuratedType, $generatedItems2Url)) {
-                    $q = explode("\\", $type);
+                if (
+                    array_key_exists($epuratedType, $generatedItems2Url) ||
+                    array_key_exists($type, $generatedItems2Url)
+                ) {
+
+                    if (array_key_exists($epuratedType, $generatedItems2Url)) {
+                        $url = $generatedItems2Url[$epuratedType];
+                    } else {
+                        $url = $generatedItems2Url[$type];
+                    }
+
+                    $q = explode("\\", $epuratedType);
                     $shortType = array_pop($q);
-                    $types[$k] = '[' . $shortType . '](' . $generatedItems2Url[$epuratedType] . ')';
-                }
-                else {
+                    $types[$k] = '[' . $shortType . '](' . $url . ')';
+                } else {
                     if (null !== $report) {
                         $report->addUnresolvedClassReference($type, "method " . $method->getName() . " (hint provided by DocTools\Helper\MethodHelper)");
                     }
@@ -119,8 +128,7 @@ class MethodHelper
                 $s .= $reflectionMethod->getDeclaringClass()->getShortName() . '::';
             }
             $s .= $method->getName() . '](' . $methodUrl . ')';
-        }
-        else {
+        } else {
             if (null !== $report) {
                 $report->addUnresolvedMethodReference($className, $methodLongName, "MethodHelper::getMethodSignature");
             }
@@ -150,11 +158,9 @@ class MethodHelper
 
             if ($parameter->isArray()) {
                 $s .= 'array ';
-            }
-            elseif ($parameter->isCallable()) {
+            } elseif ($parameter->isCallable()) {
                 $s .= 'callable ';
-            }
-            else {
+            } else {
                 $hint = $parameter->getClass();
 
                 if (null !== $hint) {
@@ -167,15 +173,13 @@ class MethodHelper
 
                     if (array_key_exists($propertyClassName, $generatedItems2Url)) {
                         $propertyClassName = '[' . $propertyClassName . '](' . $generatedItems2Url[$propertyClassName] . ')';
-                    }
-                    else {
+                    } else {
                         if (null !== $report) {
                             $report->addUnresolvedClassReference($propertyClassName, "method " . $method->getName() . ", param " . $parameter->getName());
                         }
                     }
                     $s .= $propertyClassName . " ";
-                }
-                else {
+                } else {
                     $paramType = $parameter->getType();
                     if (null !== $paramType) {
                         $s .= $paramType . ' ';
@@ -193,18 +197,15 @@ class MethodHelper
 
             $s .= '$' . $parameter->getName();
 
-            if ($parameter->isOptional()) {
+            if ($parameter->isOptional() && false === $parameter->isVariadic()) {
                 $defaultValue = $parameter->getDefaultValue();
                 if (is_array($defaultValue)) {
                     $defaultValue = DebugTool::toString($defaultValue);
-                }
-                elseif (null === $defaultValue) {
+                } elseif (null === $defaultValue) {
                     $defaultValue = "null";
-                }
-                elseif (false === $defaultValue) {
+                } elseif (false === $defaultValue) {
                     $defaultValue = "false";
-                }
-                elseif (true === $defaultValue) {
+                } elseif (true === $defaultValue) {
                     $defaultValue = "true";
                 }
 

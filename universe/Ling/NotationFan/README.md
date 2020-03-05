@@ -38,6 +38,26 @@ Summary
 History Log
 ===============
 
+- 1.9.1 -- 2019-12-05
+
+    - removed alternative method to universe assets trick 
+    
+- 1.9.0 -- 2019-12-05
+
+    - add alternative method to universe assets trick 
+    
+- 1.8.0 -- 2019-11-19
+
+    - updated hep, now accepts json notation
+    
+- 1.7.3 -- 2019-11-04
+
+    - updated ric definition
+    
+- 1.7.2 -- 2019-11-04
+
+    - updated ric definition
+    
 - 1.7.1 -- 2019-10-04
 
     - updated ric definition

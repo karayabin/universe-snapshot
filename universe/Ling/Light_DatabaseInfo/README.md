@@ -1,6 +1,6 @@
 Light_DatabaseInfo
 ===========
-2019-09-12
+2019-09-12 -> 2020-02-13
 
 
 
@@ -66,6 +66,35 @@ database_info:
 History Log
 =============
 
+    
+- 1.11.0 -- 2020-02-13
+
+    - update LightDatabaseInfoService->getTableInfo, now also returns the referencedByTables and hasItems properties 
+    
+- 1.10.0 -- 2020-02-03
+
+    - replaced TypeHelper by external dependency
+    
+- 1.9.0 -- 2019-11-13
+
+    - update LightDatabaseInfoService->getTableInfo, now also returns the database entry
+
+- 1.8.1 -- 2019-11-13
+
+    - fix functional typo in TypeHelper::getSimpleTypes
+    
+- 1.8.0 -- 2019-11-13
+
+    - update LightDatabaseInfoService->getTableInfo, now returns simpleTypes entry
+
+- 1.7.0 -- 2019-11-13
+
+    - update LightDatabaseInfoService->getTableInfo, now returns foreignKeysInfo entry
+    
+- 1.6.0 -- 2019-11-04
+
+    - updated LightDatabaseInfoService->getTables, now returns a ricStrict entry
+    
 - 1.5.0 -- 2019-10-24
 
     - add LightDatabaseInfoService->getTables method

@@ -2,11 +2,17 @@ dependencies:
     Ling: 
         - Light_AjaxHandler
         - Light
-        - Light_Csrf
+        - Light_CsrfSession
+        - Light_ReverseRouter
+        - Light_MicroPermission
         - Bat
+        - Light_ControllerHub
+        - Light_CsrfSimple
+        - Light_Kit_Admin
         - ArrayToString
         - BabyYaml
         - Light_Database
+        - Light_UserRowRestriction
         - ParametrizedSqlQuery
         - JAcpHep
         - JResponsiveTableHelper

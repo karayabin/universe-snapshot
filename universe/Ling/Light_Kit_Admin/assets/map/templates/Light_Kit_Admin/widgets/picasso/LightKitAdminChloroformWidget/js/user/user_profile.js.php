@@ -1,14 +1,17 @@
 <?php
 
 
-use Ling\Light_AjaxFileUploadManager\Util\LightAjaxFileUploadManagerRenderingUtil;
+use Ling\Light_AjaxFileUploadManager\Util\LightAjaxFileUploadManagerRenderingUtil;use Ling\Light_Kit_Admin\Widget\Picasso\LightKitAdminChloroformWidget;
 
 
 
-
+/**
+ * @var $this LightKitAdminChloroformWidget
+ */
 
 $util = new LightAjaxFileUploadManagerRenderingUtil();
 $util->setSuffix("avatar_url");
+$util->setContainer($this->getContainer());
 
 $formArray = $z['form']->toArray();
 

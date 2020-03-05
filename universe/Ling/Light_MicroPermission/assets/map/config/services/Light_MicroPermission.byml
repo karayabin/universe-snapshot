@@ -3,3 +3,21 @@ micro_permission:
     methods:
         setContainer:
             container: @container()
+
+
+# --------------------------------------
+# hooks
+# --------------------------------------
+#$database.methods_collection:
+#    -
+#        method: registerEventHandler
+#        args:
+#            handler:
+#                instance: Ling\Light_MicroPermission\Light_Database\LightMicroPermissionDatabaseEventHandler
+#                methods:
+#                    setContainer:
+#                        container: @container()
+
+
+
+

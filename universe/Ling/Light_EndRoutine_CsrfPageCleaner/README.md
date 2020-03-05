@@ -1,6 +1,6 @@
 Light_EndRoutine_CsrfPageCleaner
 ===========
-2019-09-19
+2019-09-19 -> 2019-19-19
 
 
 
@@ -41,9 +41,7 @@ Summary
 What is it?
 --------------
 
-This is an [end routine](https://github.com/lingtalfi/Light_EndRoutine) to help implementing
-the [page security system of the csrf tools planet](https://github.com/lingtalfi/CSRFTools/blob/master/doc/pages/page-security-conception-notes.md).
-
+This tool helps implementing the [page security system of the csrf tools planet](https://github.com/lingtalfi/CSRFTools/blob/master/doc/pages/page-security-conception-notes.md).
 
 Basically, we just clean the unused pages.
 
@@ -60,19 +58,24 @@ as we can see in the following example configuration:
 
 
 ```yaml
-
 # --------------------------------------
 # hooks
 # --------------------------------------
-
-$end_routine.methods_collection:
+$events.methods_collection:
     -
-        method: registerHandler
+        method: registerListener
         args:
-            identifier: Light_EndRoutine_CsrfPageCleaner
-            handler:
+            events: Light.end_routine
+            listener:
                 instance: Ling\Light_EndRoutine_CsrfPageCleaner\Handler\LightEndRoutineCsrfPageCleanerHandler
-
+                methods:
+                    setOptions:
+                        options:
+                            showSession: true
+                            sessionVars:
+                                - light_csrf_simple
+                            path: ${app_dir}/tmp/session-content.txt
+                callable_method: handle
 
 ```
 
@@ -87,6 +90,10 @@ Related
 History Log
 =============
 
+- 1.4.0 -- 2019-19-19
+
+    - update LightEndRoutineCsrfPageCleanerHandler to accommodate Light.end_routine event instead of the end_routine service
+    
 - 1.3.1 -- 2019-10-01
 
     - update LightEndRoutineCsrfPageCleanerHandler, fix deprecated LightTool::isAjax call

@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [LightFirewallService::run](https://github.com/lingtalfi/Light_Firewall/blob/master/doc/api/Ling/Light_Firewall/LightFirewallService/run.md)(Ling\Light\Core\Light $light, Ling\Light\Http\HttpRequestInterface $httpRequest, Ling\Light\Http\HttpResponseInterface &$httpResponse = null) : void
+public [LightFirewallService::run](https://github.com/lingtalfi/Light_Firewall/blob/master/doc/api/Ling/Light_Firewall/LightFirewallService/run.md)(Ling\Light\Core\Light $light, Ling\Light\Http\HttpRequestInterface $httpRequest, ?Ling\Light\Http\HttpResponseInterface &$httpResponse = null) : void
 
 
 

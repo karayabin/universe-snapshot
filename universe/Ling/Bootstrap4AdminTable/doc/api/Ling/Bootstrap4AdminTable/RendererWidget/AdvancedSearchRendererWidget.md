@@ -4,7 +4,7 @@
 
 The AdvancedSearchRendererWidget class
 ================
-2019-08-15 --> 2019-10-28
+2019-08-15 --> 2020-03-05
 
 
 
@@ -44,6 +44,7 @@ Properties
 - <span id="property-fields"><b>fields</b></span>
 
     This property holds the fields for this instance.
+    It's an array of alias => label representing the searchable columns.
     
     
 

@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::setRootDir](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L239-L242)
+See the source code for method [LightUserDataService::setRootDir](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L869-L872)
 
 
 See Also

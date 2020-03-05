@@ -1,0 +1,16 @@
+    /**
+     * Returns the resource row identified by the given [where conditions](https://github.com/lingtalfi/SimplePdoWrapper#the-where-conditions).
+     *
+     * If the row is not found, this method's return depends on the throwNotFoundEx flag:
+     * - if true, the method throws an exception
+     * - if false, the method returns the given default value
+     *
+     *
+     * @param $where
+     * @param array $markers
+     * @param null $default
+     * @param bool $throwNotFoundEx
+     * @return mixed
+     * @throws \Exception
+     */
+    public function getResource($where, array $markers = [], $default = null, bool $throwNotFoundEx = false);

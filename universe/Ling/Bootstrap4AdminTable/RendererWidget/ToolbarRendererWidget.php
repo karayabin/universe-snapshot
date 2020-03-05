@@ -65,7 +65,9 @@ class ToolbarRendererWidget extends AbstractRendererWidget implements ToolbarRen
                     $icon = $item['icon'] ?? null;
 
                     $csrf = $item['csrf_token'] ?? null;
-                    if (is_array($csrf)) {
+                    if (is_string($csrf)) {
+                        $attr['data-param-csrf_token'] = $csrf;
+                    } elseif (is_array($csrf)) {
                         $tokenValue = $csrf['value'];
                         $attr['data-param-csrf_token'] = $tokenValue;
                     }
@@ -112,7 +114,9 @@ class ToolbarRendererWidget extends AbstractRendererWidget implements ToolbarRen
                                     $subIcon = $subItem['icon'] ?? null;
                                     $attr = $subItem['attr'] ?? [];
                                     $csrf = $subItem['csrf_token'] ?? null;
-                                    if (is_array($csrf)) {
+                                    if (is_string($csrf)) {
+                                        $attr['data-param-csrf_token'] = $csrf;
+                                    } elseif (is_array($csrf)) {
                                         $tokenValue = $csrf['value'];
                                         $attr['data-param-csrf_token'] = $tokenValue;
                                     }

@@ -1,6 +1,6 @@
 Light_BreezeGenerator
 ===========
-2019-09-11
+2019-09-11 -> 2020-02-13
 
 
 
@@ -55,30 +55,6 @@ breeze_generator:
     methods:
         setContainer:
             container: @container()
-        setConf:
-            conf:
-                ling:
-                    class: Ling\Light_BreezeGenerator\Generator\LingBreezeGenerator
-                    conf:
-                        dir: ${app_dir}/tmp/Light_BreezeGenerator
-                        # If your tables use a prefix, set it here, then configure the behaviour
-                        # with the usePrefixInClassName property
-                        prefix: lud
-                        usePrefixInClassName: false
-                        factoryClassName: LightKitAdmin
-                        namespace: Ling\Test\$prefix
-                        # The suffix to add to the class name.
-                        # For instance if the class is User and the suffix is Object,
-                        # The class name will be UserObject
-                        # The default value is Object
-                        classSuffix: Object
-                        # Whether to overwrite existing files (if false, skip them)
-                        # Used mainly for debugging purposes, in production you probably should set this to false
-                        # The default value is false
-                        overwriteExisting: false
-                        generate:
-                            prefix: lud
-
 
 ```
 
@@ -88,6 +64,82 @@ breeze_generator:
 History Log
 =============
 
+- 1.19.1 -- 2020-02-13
+
+    - fix LingBreezeGenerator->getItemsXXXByHasMethod method wrong template 
+    
+- 1.19.0 -- 2020-02-13
+
+    - update LingBreezeGenerator, now generates getter methods based on has relationship 
+    
+- 1.18.0 -- 2020-02-06
+
+    - update LingBreezeGenerator, now generates documentation with link to the whereConds argument 
+    
+- 1.17.0 -- 2020-02-05
+
+    - update LingBreezeGenerator, now generates getObject and getObjects methods 
+    
+- 1.16.0 -- 2020-02-05
+
+    - update LingBreezeGenerator, now generates deleteByForeignKey methods for has tables 
+    
+- 1.15.0 -- 2020-02-04
+
+    - update LingBreezeGenerator, now generates factory methods only return interfaces 
+    
+- 1.14.1 -- 2020-02-04
+
+    - fix LingBreezeGenerator->getFactoryMethod not returning the child object instead of the Custom object
+    
+- 1.14.0 -- 2020-02-04
+
+    - LingBreezeGenerator now generates getIdByUniqueIndex methods
+    
+- 1.13.0 -- 2020-02-04
+
+    - LingBreezeGenerator now add abstract class if the child class is extended by a Custom class
+    
+- 1.12.0 -- 2020-02-04
+
+    - new version of LightBreezeGenerator, more organized, more flexible, new doc
+    
+- 1.11.2 -- 2020-01-31
+
+    - fix insertUser.tpl.txt not throwing exception when ignoreDuplicate flag is false
+    
+- 1.11.1 -- 2019-12-20
+
+    - fix LingBreezeGenerator->generate not generating the setContainer method for the factory class if useMicroPermission is set to false  
+    
+- 1.11.0 -- 2019-12-19
+
+    - add baseClassName system, re-factorize internal code  
+    
+- 1.10.0 -- 2019-12-18
+
+    - update to accommodate Light_MicroPermission 2.0  
+    
+- 1.9.3 -- 2019-12-17
+
+    - fix LingBreezeGenerator->getDoRicMethod, incorrectly replacing $user instead of array $user  
+    
+- 1.9.2 -- 2019-12-17
+
+    - fix LingBreezeGenerator not removing // getAllXXX comment in generated interface  
+    
+- 1.9.1 -- 2019-12-17
+
+    - fix getAllXXX.tpl.txt, missing asterisk in comment  
+    
+- 1.9.0 -- 2019-12-17
+
+    - update lsom, add getAllXXX method 
+    
+- 1.8.2 -- 2019-12-16
+
+    - update UserObjectInterface.phtml, added a doc link to ling standard object methods 
+    
 - 1.8.1 -- 2019-10-31
 
     - update LingBreezeGenerator, now useMicroPermission=false by default 

@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [LightInitializerUtil::registerInitializer](https://github.com/lingtalfi/Light_Initializer/blob/master/doc/api/Ling/Light_Initializer/Util/LightInitializerUtil/registerInitializer.md)([Ling\Light_Initializer\Initializer\LightInitializerInterface](https://github.com/lingtalfi/Light_Initializer/blob/master/doc/api/Ling/Light_Initializer/Initializer/LightInitializerInterface.md) $initializer, string $slot = null, string $parent = null) : void
+public [LightInitializerUtil::registerInitializer](https://github.com/lingtalfi/Light_Initializer/blob/master/doc/api/Ling/Light_Initializer/Util/LightInitializerUtil/registerInitializer.md)([Ling\Light_Initializer\Initializer\LightInitializerInterface](https://github.com/lingtalfi/Light_Initializer/blob/master/doc/api/Ling/Light_Initializer/Initializer/LightInitializerInterface.md) $initializer, ?string $slot = null, ?string $parent = null) : void
 
 
 
@@ -30,6 +30,8 @@ The slot should be either:
 
 
 For more information about the slot and parent parameters, please read the [initializer conception notes](https://github.com/lingtalfi/Light_Initializer/blob/master/doc/pages/initializer-conception-notes.md).
+
+Parent is the name of the parent plugin.
 
 
 
@@ -48,7 +50,7 @@ Parameters
 
 - parent
 
-    The name of the parent plugin.
+    
 
 
 Return values
@@ -65,7 +67,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightInitializerUtil::registerInitializer](https://github.com/lingtalfi/Light_Initializer/blob/master/Util/LightInitializerUtil.php#L73-L96)
+See the source code for method [LightInitializerUtil::registerInitializer](https://github.com/lingtalfi/Light_Initializer/blob/master/Util/LightInitializerUtil.php#L74-L97)
 
 
 See Also

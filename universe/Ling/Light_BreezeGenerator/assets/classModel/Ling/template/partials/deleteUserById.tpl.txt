@@ -3,7 +3,9 @@
      */
     public function deleteUserById(int $id)
     { //microperm
-        $this->doDeleteUserById($id);
+        $this->pdoWrapper->delete("user", [
+            "id" => $id,
+        ]);
     }
 
 // deleteXXX

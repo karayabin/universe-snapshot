@@ -141,6 +141,21 @@ See [PermTool::filePerms](https://github.com/lingtalfi/Bat/blob/master/PermTool.
      
      
 
+getDirectorySize
+-----------
+2020-02-07
+
+
+```php
+int getDirectorySize(string $path)
+```
+
+Returns the weight of the given directory in bytes.
+
+
+
+
+
 getFileExtension
 -----------
 2015-10-09
@@ -231,11 +246,34 @@ isDirectoryTraversalSafe
 2019-10-16
 
 
+```php
 bool        isDirectoryTraversalSafe( string:file, string:rootDir, bool:checkFileExists )
+```
 
 
 Returns whether the given file and is under the given rootDir.
 If the $checkFileExists is set, also checks whether the file exists.
+
+
+
+isValidFilename
+-----------
+2020-01-31
+
+
+```php
+bool        isValidFilename( string:filename)
+```
+
+
+Returns whether the given filename is considered valid.
+
+A filename is considered valid only if all conditions below are fulfilled:
+
+- the filename is not an empty string
+- the filename is different than ".."
+- the filename doesn't start and/or end with a space
+- the filename doesn't contain one of the following characters: /?*:;{}\
 
 
 

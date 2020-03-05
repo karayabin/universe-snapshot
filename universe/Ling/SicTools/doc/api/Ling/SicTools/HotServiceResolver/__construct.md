@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [HotServiceResolver::__construct](https://github.com/lingtalfi/SicTools/blob/master/HotServiceResolver.php#L38-L41)
+See the source code for method [HotServiceResolver::__construct](https://github.com/lingtalfi/SicTools/blob/master/HotServiceResolver.php#L40-L43)
 
 
 See Also

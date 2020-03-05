@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [TagApi::setPdoWrapper](https://github.com/lingtalfi/Light_UserData/blob/master/Api/TagApi.php#L130-L133)
+See the source code for method [TagApi::setPdoWrapper](https://github.com/lingtalfi/Light_UserData/blob/master/Api/TagApi.php#L119-L122)
 
 
 See Also

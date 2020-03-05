@@ -160,6 +160,8 @@ class HeliumRenderer implements ChloroformRendererInterface
             "printSubmitButton" => true,
             "printFormTag" => true,
             "formStyle" => "stack",
+            "cssId" => StringTool::getUniqueCssId(),
+
         ], $options);
 
 
@@ -178,7 +180,7 @@ class HeliumRenderer implements ChloroformRendererInterface
             $this->displayInlineErrors = true;
         }
 
-        $this->_formCssId = "";
+        $this->_formCssId = $this->options['cssId'];
         $this->_chloroform = [];
 
     }
@@ -197,10 +199,9 @@ class HeliumRenderer implements ChloroformRendererInterface
      */
     public function prepare(array $chloroform)
     {
-        $cssId = StringTool::getUniqueCssId();
+
         // storing cache vars
         $this->_chloroform = $chloroform;
-        $this->_formCssId = $cssId;
     }
 
     /**
@@ -239,13 +240,17 @@ class HeliumRenderer implements ChloroformRendererInterface
             $this->printFormTagClosing();
         }
 
+
         if (true === $this->options['printJsHandler']) {
             $this->printJsHandler();
         }
 
 
+        $this->printCustomScripts();
+
         return ob_get_clean();
     }
+
 
 
     /**
@@ -253,43 +258,56 @@ class HeliumRenderer implements ChloroformRendererInterface
      * form tag itself.
      *
      *
-     * @throws ChloroformHeliumRendererException
+     * @throws \Exception
      */
     public function printFormContent()
     {
+
+        $properties = $this->_chloroform['properties'];
+        //--------------------------------------------
+        // IFRAME SIGNAL TECHNIQUE
+        //--------------------------------------------
+        if (array_key_exists("iframe-signal", $properties)) {
+            // as for now we cannot change the css id, this might change if I need it...
+            $value = $properties['iframe-signal'];
+            echo '<div style="display: none;" id="iframe-signal" data-value="' . htmlspecialchars($value) . '"></div>';
+        }
+
+
         $this->printNotifications($this->_chloroform['notifications']);
         $this->printErrorSummary($this->_chloroform['errors']);
         $this->printFields($this->_chloroform['fields']);
+        $this->printJsCode($this->_chloroform['jsCode']);
     }
 
     /**
      * Prints the opening form tag.
      */
-public function printFormTagOpening()
-{
-    $isPosted = $this->_chloroform["isPosted"];
-    $sPosted = (true === $isPosted) ? "helium-was-validated" : "";
-    ?>
-    <form id="<?php echo $this->_formCssId; ?>" novalidate class="helium <?php echo $sPosted; ?>"
-          method="<?php echo $this->options['method']; ?>"
-          action="<?php echo htmlspecialchars($this->options['action']); ?>"
-        <?php if (true === $this->options['useEnctypeMultiformData']): ?>
-            enctype="multipart/form-data"
-        <?php endif; ?>
-    >
-        <?php
-        }
-
-
-        /**
-         * Prints the closing form tag.
-         */
-        public function printFormTagClosing()
-        {
+    public function printFormTagOpening()
+    {
+        $isPosted = $this->_chloroform["isPosted"];
+        $sPosted = (true === $isPosted) ? "helium-was-validated" : "";
         ?>
-    </form>
-    <?php
-}
+        <form id="<?php echo $this->_formCssId; ?>" novalidate class="helium <?php echo $sPosted; ?>"
+              method="<?php echo $this->options['method']; ?>"
+              action="<?php echo htmlspecialchars($this->options['action']); ?>"
+            <?php if (true === $this->options['useEnctypeMultiformData']): ?>
+                enctype="multipart/form-data"
+            <?php endif; ?>
+        >
+            <?php
+            }
+
+
+            /**
+             * Prints the closing form tag.
+             */
+            public function printFormTagClosing()
+            {
+            ?>
+        </form>
+        <?php
+    }
 
 
 
@@ -451,6 +469,9 @@ public function printFormTagOpening()
             case "Ling\Chloroform\Field\PasswordField":
                 $this->printPasswordField($field);
                 break;
+            case "Ling\Chloroform\Field\DecorativeField":
+                $this->printDecorativeField($field);
+                break;
             default:
                 if (true === $this->options['strict']) {
                     throw new ChloroformHeliumRendererException("Don't know how to handle this class name: $className (for fieldId=$id)");
@@ -541,9 +562,18 @@ public function printFormTagOpening()
      */
     public function printHiddenField(array $field)
     {
+
+        $attr = [];
+        $cssId = $this->getCssIdById($field['id']);
+
+        $attr['id'] = $cssId;
+
         ?>
-        <input type="hidden" name="<?php echo $field['htmlName']; ?>"
-               value="<?php echo htmlspecialchars($field['value']); ?>"/>
+        <input type="hidden"
+               name="<?php echo $field['htmlName']; ?>"
+               value="<?php echo htmlspecialchars($field['value']); ?>"
+            <?php echo StringTool::htmlAttributes($attr); ?>
+        />
         <?php
     }
 
@@ -702,7 +732,7 @@ public function printFormTagOpening()
 
 
         $value = (string)$field['value'];
-        $useSecond = $field['useSecond'];
+        $useSecond = $field['useSecond']?? true;
         $tempName = "_" . $field['htmlName'];
 
 
@@ -811,10 +841,15 @@ public function printFormTagOpening()
         if (true === $multiple) {
             $htmlName .= "[]";
         }
+        $fieldValue = $field['value'];
+        $fieldValueIsArray = is_array($field['value']);
+
 
 
         ?>
         <div class="field form-group">
+
+
             <?php $this->printFieldLabel($field); ?>
             <select
                     data-main="<?php echo $field['id']; ?>"
@@ -832,7 +867,13 @@ public function printFormTagOpening()
 
                 <?php if (false === $useOptGroup): ?>
                     <?php foreach ($field['items'] as $value => $label):
-                        $sSel = ($field['value'] === $value) ? ' selected="selected"' : '';
+                        $value = (string)$value;
+                    if(false===$fieldValueIsArray){
+                        $sSel = ($fieldValue === $value) ? ' selected="selected"' : '';
+                    }
+                    else{
+                        $sSel = in_array($value, $fieldValue, true)?' selected="selected"' : '';
+                    }
                         ?>
                         <option <?php echo $sSel; ?>
                                 value="<?php echo htmlspecialchars($value); ?>"><?php echo $label; ?></option>
@@ -841,7 +882,13 @@ public function printFormTagOpening()
                     <?php foreach ($field['items'] as $groupLabel => $fieldItems): ?>
                         <optgroup label="<?php echo htmlspecialchars($groupLabel); ?>">
                             <?php foreach ($fieldItems as $value => $label):
-                                $sSel = ($field['value'] === $value) ? ' selected="selected"' : '';
+                                                 $value = (string)$value;
+                    if(false===$fieldValueIsArray){
+                        $sSel = ($fieldValue === $value) ? ' selected="selected"' : '';
+                    }
+                    else{
+                        $sSel = in_array($value, $fieldValue, true)?' selected="selected"' : '';
+                    }
                                 ?>
                                 <option <?php echo $sSel; ?>
                                         value="<?php echo htmlspecialchars($value); ?>"><?php echo $label; ?></option>
@@ -886,6 +933,7 @@ public function printFormTagOpening()
         if ($field['errors']) {
             $sClass = "helium-is-invalid";
         }
+        $htmlAttr = $field['htmlAttr']??[];
 
 
         ?>
@@ -906,6 +954,9 @@ public function printFormTagOpening()
                                    class="form-check-input"
                                 <?php if (true === $hasHint): ?>
                                     aria-describedby="<?php echo $hintId; ?>"
+                                <?php endif; ?>
+                                <?php if($htmlAttr): ?>
+                                <?php echo StringTool::htmlAttributes($htmlAttr); ?>
                                 <?php endif; ?>
                             >
                             <?php echo $label; ?>
@@ -994,6 +1045,31 @@ public function printFormTagOpening()
 
 
     /**
+     *
+     * Prints the given decorative field.
+     *
+     * See the @page(Chloroform toArray method) and the @page(DecorativeField class) for more info about the field structure.
+     *
+     * @param array $field
+     */
+    public function printDecorativeField(array $field)
+    {
+        $decorationType = $field['deco_type'];
+        $decorationOptions = $field['deco_options'];
+        switch ($decorationType){
+                    case "hr":
+                        $cssClass =$decorationOptions["cssClass"]?? 'my-5 border border-secondary';
+                        ?>
+                        <hr class="<?php echo htmlspecialchars($cssClass); ?>">
+                        <?php
+                    break;
+                    default:
+                    break;
+                }
+    }
+
+
+    /**
      * Prints the javascript code to handle the validation of the form,
      * and some fields behaviours.
      *
@@ -1023,13 +1099,26 @@ public function printFormTagOpening()
         }
         ?>
         <script>
+        document.addEventListener("DOMContentLoaded", function(event) {
             $(document).ready(function () {
                 var formHandler = new HeliumFormHandler($('#<?php echo $cssId ?>'), <?php echo json_encode($fields); ?>, <?php echo json_encode($options); ?>);
                 formHandler.init();
             });
+        });
         </script>
         <?php
     }
+
+
+    /**
+     *
+     * Prints some custom scripts if necessary.
+     * @overrideMe
+     */
+    public function printCustomScripts(){
+
+    }
+
 
     //--------------------------------------------
     //
@@ -1054,20 +1143,59 @@ public function printFormTagOpening()
             $sClass = "helium-is-invalid";
         }
 
+        $icon = $field['icon'] ?? null;
+        $iconPosition = $field['icon_position'] ?? 'pre';
+
+        $button = $field['button'] ?? null;
+        $buttonPosition = $field['button_position'] ?? 'pre';
+
 
         ?>
         <div class="field form-group">
             <?php $this->printFieldLabel($field); ?>
-            <input data-main="<?php echo $field['id']; ?>"
-                   type="<?php echo $type; ?>"
-                   id="<?php echo $cssId; ?>"
-                   name="<?php echo $field['htmlName']; ?>"
-                   value="<?php echo htmlspecialchars($field['value']); ?>"
-                   class="form-control control-type-<?php echo $type; ?> <?php echo $sClass; ?>"
-                <?php if (true === $hasHint): ?>
-                    aria-describedby="<?php echo $hintId; ?>"
+
+
+
+            <?php if (null !== $icon || null !== $button): ?>
+            <div class="input-group mb-3">
+                <?php if (null !== $icon && 'pre' === $iconPosition): ?>
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="<?php echo htmlspecialchars($icon); ?>"></i></span>
+                    </div>
                 <?php endif; ?>
-            />
+                <?php if (null !== $button && 'pre' === $buttonPosition): ?>
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><?php echo $button; ?></span>
+                    </div>
+                <?php endif; ?>
+
+                <?php endif; ?>
+
+
+                <input data-main="<?php echo $field['id']; ?>"
+                       type="<?php echo $type; ?>"
+                       id="<?php echo $cssId; ?>"
+                       name="<?php echo $field['htmlName']; ?>"
+                       value="<?php echo htmlspecialchars($field['value']); ?>"
+                       class="form-control control-type-<?php echo $type; ?> <?php echo $sClass; ?>"
+                    <?php if (true === $hasHint): ?>
+                        aria-describedby="<?php echo $hintId; ?>"
+                    <?php endif; ?>
+                />
+                <?php if (null !== $icon || null !== $button): ?>
+                <?php if (null !== $icon && 'post' === $iconPosition): ?>
+                    <div class="input-group-append">
+                        <span class="input-group-text"><i class="<?php echo htmlspecialchars($icon); ?>"></i></span>
+                    </div>
+                <?php endif; ?>
+                <?php if (null !== $button && 'post' === $buttonPosition): ?>
+                    <div class="input-group-append">
+                        <?php echo $button; ?>
+                    </div>
+                <?php endif; ?>
+            </div>
+        <?php endif; ?>
+
 
             <?php $this->printErrorsAndHint($field); ?>
 
@@ -1147,4 +1275,21 @@ public function printFormTagOpening()
     {
         return str_replace('.', '-', $id);
     }
+
+
+
+    /**
+    * Prints the js code of the form, if any.
+    *
+    * @param string|null $jsCode
+    */
+    protected function printJsCode(?string $jsCode){
+        if($jsCode){
+            ?>
+            <script><?php echo $jsCode; ?></script>
+            <?php
+        }
+    }
+
+
 }

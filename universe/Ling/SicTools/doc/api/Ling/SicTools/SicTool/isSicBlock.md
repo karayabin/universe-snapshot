@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [SicTool::isSicBlock](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/SicTool/isSicBlock.md)(?$thing, $passKey = null) : bool
+public static [SicTool::isSicBlock](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/SicTool/isSicBlock.md)($thing, ?$passKey = null) : bool
 
 
 

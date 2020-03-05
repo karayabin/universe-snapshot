@@ -1,6 +1,6 @@
 DocTools
 ===========
-2019-02-19
+2019-02-19 -> 2020-03-02
 
 
 
@@ -649,6 +649,31 @@ This includes:
 History Log
 =============
 
+    
+- 1.13.6 -- 2020-03-02
+
+    - fix ClassParser->parse, conflict with default value for variadic parameters
+    
+- 1.13.5 -- 2020-02-25
+
+    - fix ClassParser->parse, inline tags not resolved for method parameter's descriptive text
+    
+- 1.13.4 -- 2019-12-16
+
+    - fix MethodHelper->getMethodReturnType not handling the Object[] notation very well
+    
+- 1.13.3 -- 2019-12-13
+
+    - fix HtmlReport not showing red bar when undefined keywords are found 
+    
+- 1.13.2 -- 2019-12-13
+
+    - update HtmlReport, now displays a green/red bar to indicate whether the generated documentation is clean 
+    
+- 1.13.1 -- 2019-11-08
+
+    - fix CommentHelper::$propertyReturnTagTypes not having "self"
+    
 - 1.13.0 -- 2019-10-25
 
     - add getters to ReportInterface

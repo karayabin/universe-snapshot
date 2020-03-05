@@ -4,14 +4,14 @@
 namespace Ling\Light_LightInstance\Service;
 
 use Ling\Light\Core\Light;
+use Ling\Light\Events\LightEvent;
 use Ling\Light\Http\HttpRequestInterface;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
-use Ling\Light_Initializer\Initializer\LightInitializerInterface;
 
 /**
  * The LightLightInstanceService class.
  */
-class LightLightInstanceService implements LightInitializerInterface
+class LightLightInstanceService
 {
 
     /**
@@ -45,12 +45,16 @@ class LightLightInstanceService implements LightInitializerInterface
 
 
     /**
-     * @implementation
+     * Listener for the @page(Light.initialize_1 event).
+     * It stores the light instance and the http request instance for other plugins to use.
+     *
+     * @param LightEvent $event
+     * @return void
      */
-    public function initialize(Light $light, HttpRequestInterface $httpRequest)
+    public function initialize(LightEvent $event)
     {
-        $this->light = $light;
-        $this->httpRequest = $httpRequest;
+        $this->light = $event->getLight();
+        $this->httpRequest = $event->getHttpRequest();
     }
 
 

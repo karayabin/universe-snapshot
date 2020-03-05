@@ -6,25 +6,6 @@ ajax_file_upload_manager:
         setContainer:
             container: @container()
     methods_collection: []
-#        -
-#            method: addActionLists
-#            args:
-#                actionLists:
-#                    lka_user_profile:
-#                        -
-#                            storeDir: www/uploads/test
-#                            returnUrlDir: /uploads/test
-#                            imageTransformer: resize(200)
-#                            db_update:
-#                                table: user
-#                                column: avatar_url
-#                                where:
-#                                    user_id: $userIdentifier
-#        -
-#            method: addValidationRules
-#            args:
-#                validationRules:
-#                    id_one: []
 
 
 

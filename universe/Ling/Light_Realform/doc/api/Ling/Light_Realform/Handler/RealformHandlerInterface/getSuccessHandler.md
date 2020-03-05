@@ -46,7 +46,7 @@ Returns [RealformSuccessHandlerInterface](https://github.com/lingtalfi/Light_Rea
 
 Source Code
 ===========
-See the source code for method [RealformHandlerInterface::getSuccessHandler](https://github.com/lingtalfi/Light_Realform/blob/master/Handler/RealformHandlerInterface.php#L49-L49)
+See the source code for method [RealformHandlerInterface::getSuccessHandler](https://github.com/lingtalfi/Light_Realform/blob/master/Handler/RealformHandlerInterface.php#L51-L51)
 
 
 See Also

@@ -53,21 +53,21 @@ Parameters
              Templates will use it to differentiate between the last update date and the project creation date.
 
 - generatedClassBaseDir: string. Where (in the filesystem) to write/create the documentation pages.
-- insertsBaseDir: string. The inserts base dir location. See @concept(inserts) for more info.
+- insertsBaseDir: string. The inserts base dir location. See [inserts](https://github.com/lingtalfi/DocTools/blob/master/README.md#inserts) for more info.
 - generatedClassBaseUrl: string. The base url for the generated classes.
 
-- ?copyModuleSrc: string. The source of the copy module. See @page(copy module) for more info.
-- ?copyModuleDst: string. The destination of the copy module. See @page(copy module) for more info.
-- ?copyModuleOptions: array. Options to pass to the copy module. See @page(copy module) for more info.
+- ?copyModuleSrc: string. The source of the copy module. See [copy module](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/CopyModule/CopyModuleInterface.md) for more info.
+- ?copyModuleDst: string. The destination of the copy module. See [copy module](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/CopyModule/CopyModuleInterface.md) for more info.
+- ?copyModuleOptions: array. Options to pass to the copy module. See [copy module](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/CopyModule/CopyModuleInterface.md) for more info.
              The available options are:
              - filter: array. An array of file name to not copy. This might be useful for files
-                 which documents the @concept(inline functions), and so you don't want to interpret the
+                 which documents the [inline functions](https://github.com/lingtalfi/DocTools/blob/master/doc/pages/doctool-markup-language.md#inline-functions), and so you don't want to interpret the
                  inline functions in it because it will try to interpret them, but they are part of the documentation
                  and shouldn't be interpreted as functions but as plain text.
 
 
 - ?keyWord2UrlMap: array. An array of keyword => (absolute) url to use for resolving keywords.
-             See the @keyword(keyword inline function page) for more details.
+             See the [keyword inline function page](https://github.com/lingtalfi/DocTools/blob/master/doc/pages/doctool-markup-language.md#inline-functions) for more details.
 - ?externalClass2Url: array. An array of external custom class name => url pointing to the class documentation.
              External custom class name means:
              - the class is external to the given planetDir
@@ -80,7 +80,7 @@ Parameters
          and docTool was having problem with generating the doc from PHPExcel because it required some autoloader files,
          and so I decided to just skip the documentation of PHPExcel (as it's not my tool anyway, and it probably has
          its proper documentation).
-- ?markdownTranslator: object. Instance of a @class(DocTools\Translator\MarkdownTranslatorInterface).
+- ?markdownTranslator: object. Instance of a [DocTools\Translator\MarkdownTranslatorInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Translator/MarkdownTranslatorInterface.md).
              If set, all generated files will be converted by this translator.
 - ?mode: string = md (html|md). Whether to generate md files or html files.
              By default, the md format is used (markdown).

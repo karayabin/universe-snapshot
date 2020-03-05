@@ -7,7 +7,7 @@
 
 
 use Ling\Chloroform\Form\Chloroform;
-use Ling\Light_AjaxFileUploadManager\Util\LightAjaxFileUploadManagerRenderingUtil;
+use Ling\Chloroform_HeliumLightRenderer\HeliumLightRenderer;
 use Ling\Light_Kit_Admin\Chloroform\LightKitAdminChloroformRendererUtil;
 use Ling\Light_Kit_Admin\Widget\Picasso\LightKitAdminChloroformWidget;
 
@@ -35,23 +35,28 @@ $fields = $chloroform['fields'];
 $pseudo = $fields['pseudo'];
 $password = $fields['password'];
 $avatar_url = $fields['avatar_url'];
+$cssId = 'user-profile-form';
 
 
-
-$uploaderUtil = new LightAjaxFileUploadManagerRenderingUtil();
-$uploaderUtil->setSuffix("avatar_url");
-
+$renderer = new HeliumLightRenderer([
+    'fullAjaxForm' => true,
+    'cssId' => $cssId,
+]);
+$renderer->setContainer($this->getContainer());
+$renderer->prepare($chloroform);
 
 ?>
 
-<div class="kit-lka-chloroform container-fluid mb-5 <?php echo htmlspecialchars($this->getCssClass()); ?>"
+
+<div class="kit-lka-chloroform mb-5 <?php echo htmlspecialchars($this->getCssClass()); ?>"
     <?php echo $this->getAttributesHtml(); ?>
 >
     <div class="container-fluid">
 
         <div class="row mb-3">
             <div class="col">
-                <form action="" method="post" enctype="multipart/form-data">
+                <form action="" method="post" enctype="multipart/form-data"
+                      id="<?php echo htmlspecialchars($cssId); ?>">
                     <div class="card">
                         <div class="card-header">
                             <?php echo $title; ?>
@@ -68,11 +73,6 @@ $uploaderUtil->setSuffix("avatar_url");
                                        class="form-control" id="id-control-pseudo"
                                        value="<?php echo htmlspecialchars($pseudo['value']); ?>">
                             </div>
-
-
-                            <?php $uploaderUtil->printField($avatar_url, [
-                                "sizeClass" => "w225",
-                            ]); ?>
 
 
                             <div class="form-group">
@@ -92,6 +92,7 @@ $uploaderUtil->setSuffix("avatar_url");
                                 </div>
                             </div>
 
+                            <?php echo $renderer->printField($fields['avatar_url']); ?>
 
                             <?php LightKitAdminChloroformRendererUtil::renderHiddenCommonFields($chloroform); ?>
                         </div>
@@ -104,11 +105,9 @@ $uploaderUtil->setSuffix("avatar_url");
                             </button>
                         </div>
                     </div>
-
                 </form>
+                <?php echo $renderer->printCustomScripts(); ?>
             </div>
-
-
         </div>
 
 

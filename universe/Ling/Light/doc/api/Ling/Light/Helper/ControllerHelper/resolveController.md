@@ -66,7 +66,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [ControllerHelper::resolveController](https://github.com/lingtalfi/Light/blob/master/Helper/ControllerHelper.php#L88-L132)
+See the source code for method [ControllerHelper::resolveController](https://github.com/lingtalfi/Light/blob/master/Helper/ControllerHelper.php#L92-L136)
 
 
 See Also

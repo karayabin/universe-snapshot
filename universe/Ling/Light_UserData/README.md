@@ -1,6 +1,6 @@
 Light_UserData
 ===========
-2019-09-27
+2019-09-27 -> 2020-03-05
 
 
 
@@ -30,6 +30,7 @@ Summary
 - [Light_UserData api](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData.md) (generated with [DocTools](https://github.com/lingtalfi/DocTools))
 - Pages
     - [Conception notes](https://github.com/lingtalfi/Light_UserData/blob/master/doc/pages/conception-notes.md)
+    - [Permissions](https://github.com/lingtalfi/Light_UserData/blob/master/doc/pages/permissions.md)
 - [Services](#services)
 
 
@@ -56,13 +57,8 @@ user_data:
             secret: P0zeg7e,4dD
         setRootDir:
             dir: ${app_dir}/user-data
-        setMicroPermissionPlugin:
-            plugin: ${user_data_vars.micro_permission_plugin}
 
 
-user_data_vars:
-    install_parent_plugin: Light_UserDatabase
-    micro_permission_plugin: Light_UserDatabase
 
 # --------------------------------------
 # hooks
@@ -81,27 +77,47 @@ $easy_route.methods_collection:
         args:
             file: config/data/Light_UserData/Light_EasyRoute/luda_routes.byml
 
-$initializer.methods_collection:
+
+$events.methods_collection:
     -
-        method: registerInitializer
+        method: registerListener
         args:
-            initializer: @service(user_data)
-            slot: install
-            parent: ${user_data_vars.install_parent_plugin}
+            events: Light_Database.on_lud_user_group_create
+            listener:
+                instance: @service(user_data)
+                callable_method: onUserGroupCreate
 
 
-$plugin_database_installer.methods_collection:
+$plugin_installer.methods_collection:
     -
-        method: registerInstaller
+        method: registerPlugin
         args:
             plugin: Light_UserData
-            installer:
-                -
-                    - @service(user_data)
-                    - installDatabase
-                -
-                    - @service(user_data)
-                    - uninstallDatabase
+            installer: @service(user_data)
+
+
+
+$realform_handler_alias_helper.methods_collection:
+    -
+        method: registerRealformHandlerAliasHelper
+        args:
+            plugin: Light_UserData
+            helper:
+                instance: Ling\Light_UserData\Realform\RealformHandlerAliasHelper\LightUserDataRealformHandlerAliasHelper
+
+
+
+$user_row_restriction.methods_collection:
+    -
+        method: registerRowRestrictionHandlerByTablePrefix
+        args:
+            prefix: luda
+            handler:
+                instance: Ling\Light_UserData\Light_UserRowRestriction\LightUserDataRowRestrictionHandler
+                methods:
+                    setContainer:
+                        container: @container()
+
 
 
 ```
@@ -113,6 +129,58 @@ $plugin_database_installer.methods_collection:
 History Log
 =============
 
+--- 1.15.1 -- 2020-03-05
+
+    - remove debug string in LightUserDataRowRestrictionHandler->checkRestriction  
+    
+- 1.15.0 -- 2020-03-05
+
+    - add LightUserDataRowRestrictionHandler class
+    
+- 1.14.0 -- 2020-02-25
+
+    - add Light_UserDataService->getFactory method
+    
+- 1.13.0 -- 2020-02-25
+
+    - add Light_UserData.user permission
+    
+- 1.12.1 -- 2020-02-24
+
+    - update LightUserDataService->list, remove debug stop
+    
+- 1.12.0 -- 2020-02-21
+
+    - handling fileEditor protocol
+    
+- 1.11.0 -- 2019-12-20
+
+    - update LightUserDataService, implemented Light_UserData.Light_UserData_MSC_10 option 
+    
+- 1.10.0 -- 2019-12-18
+
+    - update to accommodate Light_MicroPermission 2.0
+    
+- 1.9.1 -- 2019-12-17
+
+    - fix functional typo in service configuration
+    
+- 1.9.0 -- 2019-12-17
+
+    - update plugin to accommodate Light 0.50 new initialization system
+
+- 1.8.0 -- 2019-11-19
+
+    - update plugin to accommodate renamed Light_ReverseRouter service 
+    
+- 1.7.2 -- 2019-11-07
+
+    - fix LightUserData2SvpDataTransformer->transform validating non 2svp files
+    
+- 1.7.1 -- 2019-11-05
+
+    - fix LightUserDataService->list not returning an empty array if the dir does not exist 
+    
 - 1.7.0 -- 2019-10-31
 
     - updated configuration and api with new breeze generator's micro permission implementation, and allow for delegation of the micro permission handler. 

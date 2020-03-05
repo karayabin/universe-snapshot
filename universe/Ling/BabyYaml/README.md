@@ -627,6 +627,10 @@ The implementation is messy and without documentation, but it works.
 History Log
 ===============
     
+- 1.4.1 -- 2019-11-20
+
+    - fix BabyYamlWriterValueAdaptor->getValue not handling properly strings with whitespace at the beginning or end   
+    
 - 1.4.0 -- 2019-08-27
 
     - add BabyYamlUtil::parseCsv method 

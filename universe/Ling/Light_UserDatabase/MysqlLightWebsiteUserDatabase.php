@@ -6,31 +6,21 @@ namespace Ling\Light_UserDatabase;
 
 use Ling\ArrayToString\ArrayToStringTool;
 use Ling\Bat\ArrayTool;
-use Ling\Light\Core\Light;
-use Ling\Light\Http\HttpRequestInterface;
+use Ling\Light\Events\LightEvent;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
-use Ling\Light_Database\LightDatabasePdoWrapper;
-use Ling\Light_Initializer\Initializer\LightInitializerInterface;
+use Ling\Light_Events\Service\LightEventsService;
 use Ling\Light_PasswordProtector\Service\LightPasswordProtector;
-use Ling\Light_PluginDatabaseInstaller\Service\LightPluginDatabaseInstallerService;
-use Ling\Light_UserDatabase\Api\Mysql\MysqlPermissionApi;
-use Ling\Light_UserDatabase\Api\Mysql\MysqlPermissionGroupApi;
-use Ling\Light_UserDatabase\Api\Mysql\MysqlPermissionGroupHasPermissionApi;
-use Ling\Light_UserDatabase\Api\Mysql\MysqlUserHasPermissionGroupApi;
-use Ling\Light_UserDatabase\Api\PermissionApiInterface;
-use Ling\Light_UserDatabase\Api\PermissionGroupApiInterface;
-use Ling\Light_UserDatabase\Api\PermissionGroupHasPermissionApiInterface;
-use Ling\Light_UserDatabase\Api\UserHasPermissionGroupApiInterface;
+use Ling\Light_PluginInstaller\PluginInstaller\PluginInstallerInterface;
+use Ling\Light_PluginInstaller\Service\LightPluginInstallerService;
+use Ling\Light_UserDatabase\Api\Mysql\LightUserDatabaseApiFactory;
 use Ling\Light_UserDatabase\Exception\LightUserDatabaseException;
-use Ling\Light_UserDatabase\Tool\LightWebsiteUserDatabaseTool;
-use Ling\SimplePdoWrapper\Util\MysqlInfoUtil;
 use Ling\SqlWizard\Tool\MysqlSerializeTool;
 
 /**
  * The MysqlLightWebsiteUserDatabase interface.
  *
  * In this implementation, we create the tables if they don't exist, using the @page(initializer service).
- * The created tables are the ones defined in the @page(conception notes).
+ * The created tables are the ones defined in the @page(Light_UserDatabase conception notes).
  *
  *
  * Also, a root user is created along with the "user" table, so that the maintainer can connect directly to the gui
@@ -40,7 +30,7 @@ use Ling\SqlWizard\Tool\MysqlSerializeTool;
  *
  *
  */
-class MysqlLightWebsiteUserDatabase implements LightWebsiteUserDatabaseInterface, LightInitializerInterface
+class MysqlLightWebsiteUserDatabase extends LightUserDatabaseApiFactory implements LightWebsiteUserDatabaseInterface, PluginInstallerInterface
 {
 
 
@@ -51,19 +41,6 @@ class MysqlLightWebsiteUserDatabase implements LightWebsiteUserDatabaseInterface
      * @var string|null = null
      */
     protected $database;
-
-
-    /**
-     * This property holds the container for this instance.
-     * @var LightServiceContainerInterface
-     */
-    protected $container;
-
-    /**
-     * This property holds the pdoWrapper for this instance.
-     * @var LightDatabasePdoWrapper
-     */
-    protected $pdoWrapper;
 
 
     /**
@@ -115,18 +92,23 @@ class MysqlLightWebsiteUserDatabase implements LightWebsiteUserDatabaseInterface
 
 
     /**
-     * This property holds the registered new user's profiles for this instance.
-     * @var array
-     */
-    protected $newUserProfiles;
-
-
-    /**
      * This property holds the name table containing all the users.
      *
      * @var string = lud_user
      */
     private $table;
+
+    /**
+     * This property holds the isInstallMode for this instance.
+     * @var bool=false
+     */
+    private $isInstallMode;
+
+    /**
+     * This property holds the forceInstall for this instance.
+     * @var bool = false
+     */
+    private $forceInstall;
 
 
     /**
@@ -134,23 +116,23 @@ class MysqlLightWebsiteUserDatabase implements LightWebsiteUserDatabaseInterface
      */
     public function __construct()
     {
+        parent::__construct();
+
         $this->database = null;
         $this->table = "lud_user";
-        $this->container = null;
+
         $this->root_identifier = "root";
         $this->root_password = "root";
         $this->root_pseudo = "root";
         $this->root_avatar_url = "";
         $this->root_extra = [];
-        $this->newUserProfiles = [];
         $this->passwordProtector = null;
+        $this->isInstallMode = false;
+        $this->forceInstall = false;
     }
 
     /**
-     * Sets the container.
-     *
-     * @param LightServiceContainerInterface $container
-     * @throws \Exception
+     * @overrides
      */
     public function setContainer(LightServiceContainerInterface $container)
     {
@@ -237,6 +219,7 @@ class MysqlLightWebsiteUserDatabase implements LightWebsiteUserDatabaseInterface
     {
         $table = $this->dQuoteTable($this->table);
         $defaults = [
+            "user_group_id" => null,
             "identifier" => "",
             "password" => "",
             "pseudo" => "",
@@ -244,6 +227,19 @@ class MysqlLightWebsiteUserDatabase implements LightWebsiteUserDatabaseInterface
             "extra" => [],
         ];
         $array = ArrayTool::superimpose($userInfo, $defaults);
+
+
+        if (false === $this->isInstallMode) {
+            /**
+             * @var $dispatcher LightEventsService
+             */
+            $dispatcher = $this->container->get('events');
+            $event = LightEvent::createByContainer($this->container);
+            $event->setVar('userInfo', $array);
+            $dispatcher->dispatch('Light_UserDatabase.on_new_user_before', $event);
+            $array = $event->getVar('userInfo');
+        }
+
 
         if (null !== $this->passwordProtector) {
             $array['password'] = $this->passwordProtector->passwordHash($array['password']);
@@ -259,20 +255,6 @@ class MysqlLightWebsiteUserDatabase implements LightWebsiteUserDatabaseInterface
             }
             throw new LightUserDatabaseException("An error occurred with the database while inserting the user " . $array['identifier'] . ": $sErrorDetails.");
         }
-
-        //--------------------------------------------
-        // PROFILES
-        //--------------------------------------------
-        $allProfiles = LightWebsiteUserDatabaseTool::resolveProfiles($this->newUserProfiles, $array);
-
-        foreach ($allProfiles as $profile) {
-            $profileId = $this->getPermissionGroupApi()->getPermissionGroupIdByName($profile);
-            $this->getUserHasPermissionGroupApi()->insertUserHasPermissionGroup([
-                "user_id" => $userId,
-                "permission_group_id" => $profileId,
-            ]);
-        }
-
 
         return (int)$userId;
     }
@@ -354,10 +336,10 @@ class MysqlLightWebsiteUserDatabase implements LightWebsiteUserDatabaseInterface
      */
     public function getAllUserInfo(): array
     {
-        $ret=[];
+        $ret = [];
         $table = $this->dQuoteTable($this->table);
         $rows = $this->pdoWrapper->fetchAll("select * from $table");
-        foreach($rows as $k => $row){
+        foreach ($rows as $k => $row) {
             $this->unserialize($row);
             $ret[$k] = $row;
         }
@@ -365,20 +347,23 @@ class MysqlLightWebsiteUserDatabase implements LightWebsiteUserDatabaseInterface
     }
 
 
-
-
-
-    //--------------------------------------------
-    //
-    //--------------------------------------------
     /**
      * @implementation
      */
-    public function registerNewUserProfile($profile)
+    public function getAllUserIds(): array
     {
-        $this->newUserProfiles[] = $profile;
+        $ret = [];
+        $table = $this->dQuoteTable($this->table);
+        return $this->pdoWrapper->fetchAll("select id from $table", [], \PDO::FETCH_COLUMN);
     }
 
+    //--------------------------------------------
+    //
+    //--------------------------------------------
+
+
+
+
 
     //--------------------------------------------
     //
@@ -386,31 +371,18 @@ class MysqlLightWebsiteUserDatabase implements LightWebsiteUserDatabaseInterface
     /**
      * @implementation
      */
-    public function initialize(Light $light, HttpRequestInterface $httpRequest)
+    public function install()
     {
+
         /**
-         * @var $pih LightPluginDatabaseInstallerService
+         * @var $installer LightPluginInstallerService
          */
-        $pih = $this->container->get("plugin_database_installer");
-        if (false === $pih->isInstalled("Light_UserDatabase")) {
-            $pih->install("Light_UserDatabase");
-        }
-    }
+        $installer = $this->container->get("plugin_installer");
 
-    //--------------------------------------------
-    //
-    //--------------------------------------------
-    /**
-     * Installs the database part of this planet.
-     *
-     * @throws \Exception
-     */
-    public function installDatabase()
-    {
-        $util = new MysqlInfoUtil();
-        $util->setWrapper($this->pdoWrapper);
-        if (false === $util->hasTable($this->table)) {
+        if (true === $this->forceInstall || false === $installer->hasTable($this->table)) {
 
+
+            $this->isInstallMode = true; // we don't want other plugins to hook the new user creation.
 
             /**
              * We cannot put this statement inside the transaction, because of the mysql implicit commit rule:
@@ -427,13 +399,24 @@ class MysqlLightWebsiteUserDatabase implements LightWebsiteUserDatabaseInterface
 
 
                 /**
-                 * Reminder: we created the following: (in assets/fixtures/recreate-structure.sql)
-                 * - permission_group: 1 => root
-                 * - permission: 1 => *
-                 *
+                 * We want to create the following:
+                 * - the "default" user group
+                 * - the "root" user (with group default)
+                 * - the "root" permission group
+                 * - the "*" permission
+                 * - bind "*" permission to "root" permission group
+                 * - bind "root" user to "root" permission group
                  *
                  */
+                // default user group
+                $userGroupId = $this->getUserGroupApi()->insertUserGroup([
+                    "name" => "default",
+                ]);
+
+
+                // root user
                 $userId = $this->addUser([
+                    'user_group_id' => $userGroupId,
                     'identifier' => $this->root_identifier,
                     'pseudo' => $this->root_pseudo,
                     'password' => $this->root_password,
@@ -441,13 +424,35 @@ class MysqlLightWebsiteUserDatabase implements LightWebsiteUserDatabaseInterface
                     'extra' => $this->root_extra,
                 ]);
 
+
+                // root permission group
+                $permGroupId = $this->getPermissionGroupApi()->insertPermissionGroup([
+                    'name' => 'root',
+                ]);
+
+
+                // the * permission
+                $permId = $this->getPermissionApi()->insertPermission([
+                    'name' => '*',
+                ]);
+
+                // bind * permission to root permission group
+                $this->getPermissionGroupHasPermissionApi()->insertPermissionGroupHasPermission([
+                    "permission_group_id" => $permGroupId,
+                    "permission_id" => $permId,
+                ]);
+
+                // bind root user to root permission group
                 $this->getUserHasPermissionGroupApi()->insertUserHasPermissionGroup([
-                    "user_id" => $userId,
-                    "permission_group_id" => 1,
+                    'user_id' => $userId,
+                    'permission_group_id' => $permGroupId,
                 ]);
 
 
             }, $exception);
+
+            $this->isInstallMode = false;
+
             if (false === $res) {
                 throw $exception;
             }
@@ -458,65 +463,28 @@ class MysqlLightWebsiteUserDatabase implements LightWebsiteUserDatabaseInterface
 
 
     /**
-     * Uninstalls the database part of this planet.
-     *
-     * @throws \Exception
+     * @implementation
      */
-    public function uninstallDatabase()
+    public function uninstall()
     {
         $this->pdoWrapper->executeStatement("DROP table if exists lud_permission_group_has_permission");
         $this->pdoWrapper->executeStatement("DROP table if exists lud_user_has_permission_group");
         $this->pdoWrapper->executeStatement("DROP table if exists lud_permission_group");
         $this->pdoWrapper->executeStatement("DROP table if exists lud_permission");
+        $this->pdoWrapper->executeStatement("DROP table if exists lud_user_group_has_plugin_option");
+        $this->pdoWrapper->executeStatement("DROP table if exists lud_plugin_option");
         $this->pdoWrapper->executeStatement("DROP table if exists " . $this->table);
+        $this->pdoWrapper->executeStatement("DROP table if exists lud_user_group");
     }
 
-
-    //--------------------------------------------
-    //
-    //--------------------------------------------
 
     /**
      * @implementation
      */
-    public function getPermissionApi(): PermissionApiInterface
+    public function getDependencies(): array
     {
-        $o = new MysqlPermissionApi();
-        $o->setPdoWrapper($this->pdoWrapper);
-        return $o;
+        return [];
     }
-
-    /**
-     * @implementation
-     */
-    public function getPermissionGroupApi(): PermissionGroupApiInterface
-    {
-        $o = new MysqlPermissionGroupApi();
-        $o->setPdoWrapper($this->pdoWrapper);
-        return $o;
-    }
-
-    /**
-     * @implementation
-     */
-    public function getPermissionGroupHasPermissionApi(): PermissionGroupHasPermissionApiInterface
-    {
-        $o = new MysqlPermissionGroupHasPermissionApi();
-        $o->setPdoWrapper($this->pdoWrapper);
-        return $o;
-    }
-
-    /**
-     * @implementation
-     */
-    public function getUserHasPermissionGroupApi(): UserHasPermissionGroupApiInterface
-    {
-        $o = new MysqlUserHasPermissionGroupApi();
-        $o->setPdoWrapper($this->pdoWrapper);
-        return $o;
-    }
-
-
 
 
 

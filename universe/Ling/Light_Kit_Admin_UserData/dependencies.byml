@@ -1,0 +1,19 @@
+dependencies: 
+    Ling: 
+        - Bat
+        - Chloroform
+        - Light
+        - Light_Kit_Admin
+        - Light_Realform
+        - Light_Kit
+        - Light_UserRowRestriction
+        - Light_ControllerHub
+        - BabyYaml
+        - Light_BMenu
+        - Light_PluginInstaller
+        - Light_UserDatabase
+        - SimplePdoWrapper
+    
+
+post_install: 
+    map: true

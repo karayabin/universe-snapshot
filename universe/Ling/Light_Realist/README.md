@@ -1,6 +1,6 @@
-Light Realist
+Light_Realist
 ===========
-2019-08-09
+2019-08-09 -> 2020-03-05
 
 
 
@@ -30,7 +30,7 @@ Or just download it and place it where you want otherwise.
 
 Summary
 ===========
-- [Realist api](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist.md) (generated with [DocTools](https://github.com/lingtalfi/DocTools))
+- [Light_Realist api](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist.md) (generated with [DocTools](https://github.com/lingtalfi/DocTools))
 - [Conception notes](https://github.com/lingtalfi/Light-Realist/tree/master/doc/pages)
 - [Services](#services)
 
@@ -98,6 +98,106 @@ Related
 History Log
 =============
 
+- 1.31.0 -- 2020-03-05
+
+    - update, now takes into account the row restriction system
+    
+- 1.30.2 -- 2019-20-28
+
+    - fix LightRealistService->getSqlColumnsByRequestDeclaration not taking into account possible aliases
+    
+- 1.30.1 -- 2019-12-20
+
+    - add explicit dependency to Light_MicroPermission service 
+    
+- 1.30.0 -- 2019-12-18
+
+    - update to accommodate Light_MicroPermission 2.0
+    
+- 1.29.0 -- 2019-11-27
+
+    - use of csrf_session service replaces csrf_simple
+
+- 1.28.0 -- 2019-11-20
+
+    - update BaseRealistRowsRenderer->renderColumnContent add Light_Realist.mixer list action
+    
+- 1.27.1 -- 2019-11-19
+
+    - update BaseRealistRowsRenderer->getCsrfSimpleTokenValue add simple cache
+    
+- 1.27.0 -- 2019-11-19
+
+    - add BaseRealistRowsRenderer->getCsrfSimpleTokenValue 
+    
+- 1.26.0 -- 2019-11-19
+
+    - add BaseRealistRowsRenderer->getAjaxHandlerServiceUrl 
+    
+- 1.25.2 -- 2019-11-19
+
+    - update BaseRealistRowsRenderer->getControllerHubRoute now becomes protected (instead of private) 
+
+- 1.25.1 -- 2019-11-19
+
+    - update plugin to accommodate renamed Light_ReverseRouter service (forgot one instance) 
+    
+- 1.25.0 -- 2019-11-19
+
+    - update plugin to accommodate renamed Light_ReverseRouter service 
+
+- 1.24.1 -- 2019-11-13
+
+    - add cross column concept
+    
+- 1.24.0 -- 2019-11-13
+
+    - add Light_Realist.hub_link rows_renderer type
+    
+- 1.23.0 -- 2019-11-12
+
+    - update LightRealistService->getSqlColumnsByRequestDeclaration
+    
+- 1.22.1 -- 2019-11-12
+
+    - update realist conception notes
+    
+- 1.22.0 -- 2019-11-12
+
+    - add RealistHelper
+    
+- 1.21.0 -- 2019-11-12
+
+    - implemented hiddenColumns concept
+    
+- 1.20.0 -- 2019-11-12
+
+    - update RealistRowsRendererInterface->addDynamicColumn, removed label argument
+    
+- 1.19.0 -- 2019-11-11
+
+    - update $column variable, now can be replaced with colExpression from an alias column expression
+    
+- 1.18.2 -- 2019-11-11
+
+    - add precision to duelist documentation page
+
+- 1.18.1 -- 2019-11-11
+
+    - fix OpenAdminTableBaseRealistListRenderer->prepareByRequestDeclaration not updated with Light_CsrfSimple
+    
+- 1.18.0 -- 2019-11-07
+
+    - switch from Light_Csrf to Light_CsrfSimple
+    
+- 1.17.3 -- 2019-11-06
+
+    - add documentation precision in realist conception notes
+    
+- 1.17.2 -- 2019-11-05
+
+    - fix console.log remaining in the open-admin-table-helper.js file
+    
 - 1.17.1 -- 2019-11-01
 
     - fix plugin erroneously depending from Light_Kit_Admin

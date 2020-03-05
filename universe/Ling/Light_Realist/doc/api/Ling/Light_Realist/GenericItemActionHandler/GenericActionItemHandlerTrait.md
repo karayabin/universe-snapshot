@@ -4,7 +4,7 @@
 
 The GenericActionItemHandlerTrait trait
 ================
-2019-08-12 --> 2019-11-01
+2019-08-12 --> 2020-03-05
 
 
 
@@ -91,4 +91,4 @@ See the source code of [Ling\Light_Realist\GenericItemActionHandler\GenericActio
 
 SeeAlso
 ==============
-Previous class: [LightRealistException](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Exception/LightRealistException.md)<br>Next class: [LightRealistBaseListActionHandler](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/ListActionHandler/LightRealistBaseListActionHandler.md)<br>
+Previous class: [LightRealistException](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Exception/LightRealistException.md)<br>Next class: [DuelistHelper](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Helper/DuelistHelper.md)<br>

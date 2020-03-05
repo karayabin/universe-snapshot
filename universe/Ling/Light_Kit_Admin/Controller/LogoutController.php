@@ -5,6 +5,7 @@ namespace Ling\Light_Kit_Admin\Controller;
 
 
 use Ling\Light\Http\HttpResponseInterface;
+use Ling\Light_UserManager\Service\LightUserManagerService;
 
 /**
  * The LogoutController class.
@@ -26,7 +27,12 @@ class LogoutController extends AdminPageController
         //--------------------------------------------
         // REDIRECTING THE CONNECTED USER
         //--------------------------------------------
-        $this->getUser()->disconnect();
+        /**
+         * @var $userManager LightUserManagerService
+         */
+        $userManager = $this->getContainer()->get("user_manager");
+        $userManager->destroyUser();
+//        $this->getUser()->disconnect();
         $redirectRoute = $this->getKitAdmin()->getOption("login.login_route");
         return $this->redirectByRoute($redirectRoute);
     }

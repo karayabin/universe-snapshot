@@ -42,6 +42,9 @@ function displayMenuSection($title, array $menuItems)
     <?php
 }
 
+
+$headerColor = (true === $z['hasErrors']) ? '#9f463d' : '#3d9f4c';
+
 ?>
 
 
@@ -89,7 +92,7 @@ function displayMenuSection($title, array $menuItems)
         header {
             /*background: #1a88bc;*/
             /*background: #2866a4;*/
-            background: #3d879f;
+            background: <?php echo $headerColor; ?>;
             color: white;
             padding: 0 10px;
             height: 7vh;

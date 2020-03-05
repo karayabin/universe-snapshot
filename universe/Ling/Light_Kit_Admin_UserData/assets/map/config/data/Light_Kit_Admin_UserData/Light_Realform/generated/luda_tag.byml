@@ -1,0 +1,19 @@
+title: Tag form
+form_handler: 
+    id: realgen-luda_tag
+    fields: 
+        name: 
+            label: Name
+            type: string
+            validators: 
+                required: []
+            
+        
+    
+
+on_success_handler: 
+    type: database
+    params: 
+        table: luda_tag
+        pluginName: Light_Kit_Admin_UserData
+    

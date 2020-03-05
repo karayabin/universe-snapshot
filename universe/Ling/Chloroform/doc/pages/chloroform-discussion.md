@@ -239,10 +239,10 @@ because it's handled internally and eventually a fallback value becomes the actu
 
 The Chloroform synopsis
 ==========
-2019-04-10
+2019-04-10 -> 2019-12-03
 
 
-And so having discussed all that, here is my final version (so far) of the chloroform synopsis:
+And so having discussed all that, here is my final version (so far) of the chloroform synopsis (omitting the form.mode for now):
 
 
 ```php
@@ -287,7 +287,12 @@ a($form->toArray());
 ```
 
 
-Note: the validates method also injects the postedData values.
+Note that with this design, the **setValue** method of the fields (which is called indirectly by the **injectValues** method
+of the form) is not called when the form is used in **"insert" mode**. It's only used in **"update" mode**.
+
+Note that the validates method also injects the postedData values.
+
+
 
 
 

@@ -4,7 +4,7 @@
 
 The WebsiteLightUser class
 ================
-2019-05-10 --> 2019-09-18
+2019-05-10 --> 2020-02-25
 
 
 
@@ -36,7 +36,7 @@ A website user is defined by the following properties:
 - last_refresh_time: timestamp of the moment when the user was last refreshed (or false by default).
 - session_duration: int. The number of seconds to wait to turn a valid idle user into an invalid user
              The default is 300 (i.e. 5 minutes)
-- rights: array. The rights that this user has. See more about rights in the [user rights page](https://github.com/lingtalfi/Light_User/blob/master/doc/pages/conception.md#its-all-about-rights).
+- rights: array. The rights (aka [permissions](https://github.com/lingtalfi/Light_User/blob/master/doc/pages/permission-conception-notes.md)) that this user has. See more about rights in the [user rights page](https://github.com/lingtalfi/Light_User/blob/master/doc/pages/conception.md#its-all-about-rights).
 - extra: array. This array contains any other properties that the application wants to attach to the user.
 
 

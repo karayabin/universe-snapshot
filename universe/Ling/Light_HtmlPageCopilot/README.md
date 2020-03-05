@@ -57,7 +57,7 @@ Here is the content of the service configuration file:
 
 ```yaml
 html_page_copilot:
-    instance: Ling\HtmlPageTools\Copilot\HtmlPageCopilot
+    instance: Ling\Light_HtmlPageCopilot\Service\LightHtmlPageCopilotService
 
 ```
 
@@ -66,6 +66,10 @@ html_page_copilot:
 
 History Log
 =============
+
+- 1.0.3 -- 2019-11-25
+
+    - add dedicated copilot service class
 
 - 1.0.2 -- 2019-10-18
 

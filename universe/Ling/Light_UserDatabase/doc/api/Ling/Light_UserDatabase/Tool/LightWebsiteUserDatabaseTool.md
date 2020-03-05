@@ -4,7 +4,7 @@
 
 The LightWebsiteUserDatabaseTool class
 ================
-2019-07-19 --> 2019-10-30
+2019-07-19 --> 2019-12-16
 
 
 
@@ -52,4 +52,4 @@ See the source code of [Ling\Light_UserDatabase\Tool\LightWebsiteUserDatabaseToo
 
 SeeAlso
 ==============
-Previous class: [MysqlLightWebsiteUserDatabase](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/MysqlLightWebsiteUserDatabase.md)<br>
+Previous class: [LightUserDatabaseService](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Service/LightUserDatabaseService.md)<br>

@@ -1,6 +1,6 @@
 Ling/Light_BMenu
 ================
-2019-08-08 --> 2019-08-09
+2019-08-08 --> 2020-02-28
 
 
 
@@ -40,10 +40,13 @@ Table of contents
     - [LightBMenuService::registerHost](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Service/LightBMenuService/registerHost.md) &ndash; Registers a host.
     - [LightBMenuService::addDirectInjector](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Service/LightBMenuService/addDirectInjector.md) &ndash; Adds a direct injector to menu identified by $menuType.
     - [LightBMenuService::addDefaultItem](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Service/LightBMenuService/addDefaultItem.md) &ndash; Adds a default item to the menu identified by $menuType.
+- [LightBMenuTool](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Tool/LightBMenuTool.md) &ndash; The LightBMenuTool class.
+    - [LightBMenuTool::getActiveOpenInfo](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Tool/LightBMenuTool/getActiveOpenInfo.md) &ndash; - 0: bool, isActive.
 
 
 Dependencies
 ============
 - [DotMenu](https://github.com/lingtalfi/DotMenu)
+- [Bat](https://github.com/lingtalfi/Bat)
 
 

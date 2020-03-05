@@ -71,7 +71,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [ResourceHasTagApi::insertResourceHasTag](https://github.com/lingtalfi/Light_UserData/blob/master/Api/ResourceHasTagApi.php#L53-L57)
+See the source code for method [ResourceHasTagApi::insertResourceHasTag](https://github.com/lingtalfi/Light_UserData/blob/master/Api/ResourceHasTagApi.php#L31-L70)
 
 
 See Also

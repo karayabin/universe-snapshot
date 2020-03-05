@@ -196,6 +196,14 @@ Then we call the rth.listen method every time after a request is sent.
 History Log
 =============
 
+- 1.5.2 -- 2019-11-12
+
+    - fix redraw not triggered on first instantiation  
+    
+- 1.5.1 -- 2019-11-06
+
+    - changed default value for padding from auto to 0  
+    
 - 1.5.0 -- 2019-09-25
 
     - cloned table removed after every use was a bad idea (inconsistent results), put it back to hide mode  

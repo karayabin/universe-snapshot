@@ -3,10 +3,11 @@ title: Light Kit Admin User List
 zones:
     body:
         -
-            name: lka_chloroform
-            type: prototype
-            className: Ling\Light_Kit_Admin\Widget\Picasso\LightKitAdminChloroformWidget
-            widgetDir: templates/Light_Kit_Admin/widgets/picasso/LightKitAdminChloroformWidget
-            template: user/user_profile.php
-            template: templates/tmp-prototype.php
-            vars: []
+            name: light_realist
+            type: picasso
+            className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\LightRealistWidget
+            widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/LightRealistWidget
+            template: default.php
+            vars:
+                request_declaration_id: null
+                renderer: null

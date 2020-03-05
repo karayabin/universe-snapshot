@@ -7,7 +7,7 @@ Bootstrap4AdminTableRenderer::render
 
 
 
-Bootstrap4AdminTableRenderer::render — Prints the list.
+Bootstrap4AdminTableRenderer::render — Prints the html list.
 
 
 
@@ -21,7 +21,7 @@ public [Bootstrap4AdminTableRenderer::render](https://github.com/lingtalfi/Boots
 
 
 
-Prints the list.
+Prints the html list.
 
 
 
@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [Bootstrap4AdminTableRenderer::render](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/Renderer/Bootstrap4AdminTableRenderer.php#L115-L311)
+See the source code for method [Bootstrap4AdminTableRenderer::render](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/Renderer/Bootstrap4AdminTableRenderer.php#L126-L328)
 
 
 See Also

@@ -1,6 +1,6 @@
 Light_Events
 ===========
-2019-10-31
+2019-10-31 -> 2019-12-19
 
 
 
@@ -49,6 +49,10 @@ Here is an example of the service configuration:
 ```yaml
 events:
     instance: Ling\Light_Events\Service\LightEventsService
+#    instance: Ling\Light_Events\Service\DebugLightEventsService
+    methods:
+        setContainer:
+            container: @container()
 ```
 
 
@@ -58,6 +62,30 @@ events:
 History Log
 =============
 
+- 1.5.0 -- 2020-01-08
+
+    - add DebugLightEventsService
+    
+- 1.4.1 -- 2019-12-19
+
+    - fix LightEventsService, forgot setContainer method
+    
+- 1.4.0 -- 2019-12-19
+
+    - add LightEventsService->getDispatchedEvents method
+    
+- 1.3.0 -- 2019-12-19
+
+    - update LightEventsService, now transmits the container for listeners implementing LightServiceContainerAwareInterface
+    
+- 1.2.0 -- 2019-11-12
+
+    - add priority and stopPropagation systems
+    
+- 1.1.0 -- 2019-11-11
+
+    - update LightEventsService->registerListener, now accepts an array of events as first argument
+    
 - 1.0.0 -- 2019-10-31
 
     - initial commit

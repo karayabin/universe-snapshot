@@ -6,6 +6,7 @@
  */
 
 
+use Ling\Light_BMenu\Tool\LightBMenuTool;
 use Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\ZeroAdminSidebarWidget;
 
 
@@ -16,14 +17,17 @@ $container = $this->getContainer();
 $reverseRouter = $container->get('reverse_router');
 
 
+$currentUri = $container->getLight()->getHttpRequest()->getUri();
+
+
 $uniqueIdCpt = 1;
 
-function display_sidebar_link(array $item)
+function display_sidebar_link(array $item, string $currentUri)
 {
     global $uniqueIdCpt;
 
-    $is_active = $item['is_active'] ?? false;
-    $is_opened = $item['is_opened'] ?? false;
+
+    list($is_active, $is_opened) = LightBMenuTool::getActiveOpenInfo($item, $currentUri);
     $icon = $item['icon'] ?? "";
     $text = $item['text'];
     $url = $item['url'] ?? "";
@@ -33,6 +37,7 @@ function display_sidebar_link(array $item)
     $sActive = ($is_active) ? "active" : "";
 
     $children = $item['children'] ?? [];
+
 
 
     ?>
@@ -69,7 +74,7 @@ function display_sidebar_link(array $item)
             <ul class="collapse list-unstyled <?php echo $sShow; ?>"
                 id="<?php echo $sLinkId; ?>">
                 <?php foreach ($children as $child):
-                    display_sidebar_link($child);
+                    display_sidebar_link($child, $currentUri);
                     ?>
                 <?php endforeach; ?>
             </ul>
@@ -85,7 +90,7 @@ function display_sidebar_link(array $item)
 >
     <ul class="list-unstyled mt-2">
         <?php foreach ($links as $item):
-            display_sidebar_link($item); ?>
+            display_sidebar_link($item, $currentUri); ?>
         <?php endforeach; ?>
     </ul>
 </nav>

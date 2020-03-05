@@ -6,10 +6,13 @@ namespace Ling\Light_Kit\PageRenderer;
 
 use Ling\HtmlPageTools\Copilot\HtmlPageCopilot;
 use Ling\Kit\ConfStorage\ConfStorageInterface;
+use Ling\Kit\ConfStorage\VariableAwareConfStorageInterface;
 use Ling\Kit\PageRenderer\KitPageRenderer;
+use Ling\Light\Events\LightEvent;
 use Ling\Light\ServiceContainer\LightDummyServiceContainer;
 use Ling\Light\ServiceContainer\LightServiceContainerAwareInterface;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
+use Ling\Light_Events\Service\LightEventsService;
 use Ling\Light_Kit\Exception\LightKitException;
 use Ling\Light_Kit\PageConfigurationTransformer\DynamicVariableAwareInterface;
 use Ling\Light_Kit\PageConfigurationTransformer\PageConfigurationTransformerInterface;
@@ -145,6 +148,10 @@ class LightKitPageRenderer extends KitPageRenderer
                 //--------------------------------------------
                 // GET THE PAGE CONF
                 //--------------------------------------------
+                if ($this->confStorage instanceof VariableAwareConfStorageInterface) {
+                    $this->confStorage->setVariables($dynamicVariables);
+                }
+
                 $pageConf = $this->confStorage->getPageConf($pageName);
                 if (false !== $pageConf) {
 
@@ -152,7 +159,6 @@ class LightKitPageRenderer extends KitPageRenderer
                     //--------------------------------------------
                     // UPDATE THE CONF
                     //--------------------------------------------
-
                     if (null !== $pageConfUpdator) {
                         $pageConfUpdator->update($pageConf);
                     }
@@ -177,6 +183,15 @@ class LightKitPageRenderer extends KitPageRenderer
                     //--------------------------------------------
                     $this->pageName = $pageName;
                     $this->setPageConf($pageConf);
+
+
+                    /**
+                     * @var $events LightEventsService
+                     */
+                    $events = $this->container->get("events");
+                    $event = LightEvent::createByContainer($this->container);
+                    $event->setVar("pageConf", $pageConf);
+                    $events->dispatch('Light_Kit.on_page_conf_ready', $event);
 
 
                     ob_start();

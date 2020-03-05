@@ -49,7 +49,7 @@ Returns [RendererWidgetInterface](https://github.com/lingtalfi/Bootstrap4AdminTa
 
 Source Code
 ===========
-See the source code for method [Bootstrap4AdminTableRenderer::getWidget](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/Renderer/Bootstrap4AdminTableRenderer.php#L321-L327)
+See the source code for method [Bootstrap4AdminTableRenderer::getWidget](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/Renderer/Bootstrap4AdminTableRenderer.php#L338-L344)
 
 
 See Also

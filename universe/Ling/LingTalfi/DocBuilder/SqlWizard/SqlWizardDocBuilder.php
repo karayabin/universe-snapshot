@@ -140,7 +140,8 @@ class SqlWizardDocBuilder
              * This map in particular is the one used for the whole DocTools planet documentation (pages and api).
              */
             "keyWord2UrlMap" => [
-//                "the command line page" => $doc . '/pages/command-line.md',
+                "MysqlStructureReader example" => $doc . '/pages/mysql-structure-reader-example.md',
+                "Light_DatabaseInfo->getTableInfo" => "https://github.com/lingtalfi/Light_DatabaseInfo/blob/master/doc/api/Ling/Light_DatabaseInfo/Service/LightDatabaseInfoService/getTableInfo.md",
             ],
             /**
              * An array of external classes to url.

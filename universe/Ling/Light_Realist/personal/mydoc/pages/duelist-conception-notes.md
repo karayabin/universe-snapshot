@@ -315,7 +315,33 @@ he doesn't have much power.
 
 
 
+More useful tags
+--------------
+2019-11-07
 
+
+### in_rics
+
+I found out that I needed to be able to  select a subset of the displayed rows.
+
+In particular, the user needs to be able to make a custom selection of rows to apply some action on it, 
+such as deleting them, or printing them.
+
+
+And so I found this little tag that helped me, and thus that I wanted to share with whoever is interesting in it.
+Here are some examples:
+
+- in_rics: (user_id like :user_id and permission_group_id like :permission_group_id)
+- in_rics: (id like :id)
+- in_rics: (...the ric fields separated with an and keyword...)
+
+The first example is from a table user_has_permission_group with a primary key containing the user_id and permission_group_id columns.
+The second example is from a table user with a primary key containing the auto incremeneted id column.
+The third (non-working) example tries to give an idea of what should be inside the parenthesis.
+
+The main idea is that the in_rics tag's variables (provided by the user) will contain the ric items, and each ric item
+will be add another line to the computed sql query.
+In other words, the value of the in_rics tag is repeated x times, with x being the number of ric items provided by the gui user.
 
 
  

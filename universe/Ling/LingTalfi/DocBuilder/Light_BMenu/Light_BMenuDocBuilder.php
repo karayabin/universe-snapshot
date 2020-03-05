@@ -140,7 +140,8 @@ class Light_BMenuDocBuilder
              * This map in particular is the one used for the whole DocTools planet documentation (pages and api).
              */
             "keyWord2UrlMap" => [
-                "conception notes" => $doc . '/pages/conception-notes.md',
+                "bmenu conception notes" => $doc . '/pages/conception-notes.md',
+                "HttpRequest->getUri method" => "https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface/getUri.md",
             ],
             /**
              * An array of external classes to url.

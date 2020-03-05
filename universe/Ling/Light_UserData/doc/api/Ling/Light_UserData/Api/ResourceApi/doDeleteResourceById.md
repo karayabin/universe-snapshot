@@ -55,7 +55,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [ResourceApi::doDeleteResourceById](https://github.com/lingtalfi/Light_UserData/blob/master/Api/ResourceApi.php#L308-L314)
+See the source code for method [ResourceApi::doDeleteResourceById](https://github.com/lingtalfi/Light_UserData/blob/master/Api/ResourceApi.php#L292-L298)
 
 
 See Also

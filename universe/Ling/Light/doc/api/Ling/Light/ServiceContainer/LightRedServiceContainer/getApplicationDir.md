@@ -46,7 +46,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [LightRedServiceContainer::getApplicationDir](https://github.com/lingtalfi/Light/blob/master/ServiceContainer/LightRedServiceContainer.php#L34-L37)
+See the source code for method [LightRedServiceContainer::getApplicationDir](https://github.com/lingtalfi/Light/blob/master/ServiceContainer/LightRedServiceContainer.php#L42-L45)
 
 
 See Also
@@ -54,5 +54,5 @@ See Also
 
 The [LightRedServiceContainer](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightRedServiceContainer.md) class.
 
-Previous method: [__construct](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightRedServiceContainer/__construct.md)<br>Next method: [setApplicationDir](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightRedServiceContainer/setApplicationDir.md)<br>
+Previous method: [__construct](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightRedServiceContainer/__construct.md)<br>Next method: [getLight](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightRedServiceContainer/getLight.md)<br>
 

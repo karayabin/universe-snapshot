@@ -1,6 +1,6 @@
 SimplePdoWrapper
 ================
-2019-02-04 -> 2019-09-12
+2019-02-04 -> 2020-03-03
 
 
 
@@ -30,6 +30,7 @@ Or just download it and place it where you want otherwise.
 Summary
 =================
 * [SimplePdoWrapper api](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper.md) (generated with [DocTools](https://github.com/lingtalfi/DocTools))
+* [Conception notes](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/pages/conception-notes.md)
 * [SimplePdoWrapper](#simplepdowrapper-1)
 * [Connexion](#connexion)
   * [Using mysql](#using-mysql)
@@ -49,11 +50,13 @@ Summary
   * [Delete examples](#delete-examples)
      * [Deleting some records.](#deleting-some-records)
      * [Delete all records](#delete-all-records)
+  * [The where conditions](#the-where-conditions)
   * [Fetch examples](#fetch-examples)
      * [Fetch a single row](#fetch-a-single-row)
      * [Fetch, the count query](#fetch-the-count-query)
   * [Fetch all examples](#fetch-all-examples)
      * [Fetch all, simple call](#fetch-all-simple-call)
+     * [Fetch all with like](#fetch-all-with-like)
      * [Fetch all, single column](#fetch-all-single-column)
      * [Fetch all, simple map with unique keys](#fetch-all-simple-map-with-unique-keys)
      * [Fetch all, rows grouped by](#fetch-all-rows-grouped-by)
@@ -400,6 +403,8 @@ Or using the whereConds string, with markers:
 ```
 
 
+There are more forms of whereConds, see the **where conditions** section below for more details.
+
 
 Important, at least in mysql the update method will still return true even if
 the where clause doesn't match any row and no row was updated:
@@ -468,6 +473,10 @@ a($res); // 2 (or more generally the number or deleted rows)
 a($wrapper->getError()); // null
 ```
 
+
+There are more forms of whereConds, see the **where conditions** section below for more details.
+
+
 ### Delete all records
 
 
@@ -479,7 +488,113 @@ a($wrapper->getError()); // null
 ```
 
 
+The where conditions
+-------------------
+2020-02-06
 
+
+Both the **update** and the **delete** methods have a "where conditions" argument.
+In this section let's examine that argument in more depth.
+
+The **where conditions** argument can have 3 forms:
+
+
+### array of key/value pairs
+
+This ought to be the most common form.
+An implicit "equals" comparison operator is used, as well as an **AND** combination operator, as in the **WHERE key equals value AND** expression.
+
+Example:
+
+```php
+$whereConds = [
+    "category" => "fruit", // translates to: where category = fruit and ...
+    "item" => "apple",  // ...item = apple
+];
+```
+
+
+Note: under the hood, when translated to an actual query portion, pdo markers are used for each entry of the array, to avoid sql injection.
+
+
+### the string form
+
+The string form is the most flexible, as it lets you write the where portion of the query using the sql language directly (i.e. not treatment).
+You can be get as complex as you want with this form, the only limit is your sql syntax knowledge.
+
+Recommendation: remember to use pdo markers to avoid sql injection, and if you do use pdo markers don't forget to pass via the markers argument
+of the method.
+
+Example:
+
+
+```php
+$markers = [
+    ":category" => "category",
+    ":item" => "apple",
+];
+$whereConds = "category = :category and (item = :item or id <= 50)";
+```
+
+### the Where object
+
+Because it was hard for me to remember the **like** notation (i.e. using the addcslash php method and wild chars...), I created the **Where** object,
+which basically is a more elaborated form of the array, which handles all [standard mysql operators](https://github.com/lingtalfi/NotationFan/blob/master/sql-unofficial-standard-comparison-operators.md).
+
+This object is helping building the conditions list, we do so by alternating calls to the **key** method and an **comparison operator** method of our choice,
+until our conditions list is fulfilled. 
+
+Example:
+
+```php
+$whereConds = Where::inst()
+    ->key("category")->equals("fruit")
+    ->key("item")->equals("apple")
+    ->key("name")->like("e")
+    ;
+```
+
+The available combination methods are:
+
+- equals (value)
+- greaterThan (value)
+- greaterThanOrEqualTo (value)
+- lessThan (value)
+- lessThanOrEqualTo (value)
+- notEquals (value)
+- likeStrict (value, ?allowedWildChars): equivalent of using the **like** [susco](https://github.com/lingtalfi/NotationFan/blob/master/sql-unofficial-standard-comparison-operators.md) operator.
+    The allowedWildChars is the list of wild chars allowed to be interpreted as such in the value (by default no wild chars is allowed inside the value).
+    Possible wild chars in mysql are: "_" and "%".
+- like (value, ?allowedWildChars): same as likeStrict, but with the **%like%** susco operator.
+- likePre (value, ?allowedWildChars): same as likeStrict, but with the **%like** susco operator.
+- likePost (value, ?allowedWildChars): same as likeStrict, but with the **like%** susco operator.
+
+- contains (value, ?allowedWildChars): alias of **like**.
+- startsWith (value, ?allowedWildChars): alias of **likePre**.
+- endsWith (value, ?allowedWildChars): alias of **likePost**.
+
+- notLikeStrict (value, ?allowedWildChars): same as likeStrict, but with the **not_like** susco operator.
+- notLike (value, ?allowedWildChars): same as likeStrict, but with the **%not_like%** susco operator.
+- notLikePre (value, ?allowedWildChars): same as likeStrict, but with the **%not_like** susco operator.
+- notLikePost (value, ?allowedWildChars): same as likeStrict, but with the **not_like%** susco operator.
+
+- notContaining (value, ?allowedWildChars): alias of **notLike**.
+- notStartingWith (value, ?allowedWildChars): alias of **notLikePre**.
+- notEndingWith (value, ?allowedWildChars): alias of **notLikePost**.
+
+- in (array value)
+- notIn (array value)
+- between (value1, value2)
+- notBetween (value1, value2)
+- isNull ()
+- isNotNull ()
+
+See the [Where class](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/Where.md) for more details.
+
+
+Note: portion of sql generated from the **Where** object is always sql injection safe, as it uses pdo markers for all methods,
+including for each member of the the **in**/**not in** items. 
+ 
 
 
 Fetch examples
@@ -562,7 +677,6 @@ a($wrapper->getError()); // null
 Using markers:
 
 
-###
 
 ```php
 $rows = $wrapper->fetchAll("select * from layout where id < :id", [
@@ -588,6 +702,21 @@ a($rows);
  */
 a($wrapper->getError()); // null
 ```
+
+
+### Fetch all with like
+
+An example with like:
+
+```php
+
+$rows = $wrapper->fetchAll("select * from layout where name like :name", [
+    'name' => '%' . addcslashes($name, '%_') . '%', 
+]);
+a($rows);
+```
+
+
 
 
 ### Fetch all, single column
@@ -763,8 +892,7 @@ Transaction examples
 
 
 ```php
-/
-**
+/**
  * @var $exception \Exception
  */
 $exception = null;
@@ -838,6 +966,86 @@ Related
 History Log
 ------------------
 
+- 1.18.0 -- 2020-03-03
+
+    - add system call flag concept  
+    
+- 1.17.0 -- 2020-02-13
+
+    - add MysqlInfoUtil->getReferencedByTables method  
+    
+- 1.16.0 -- 2020-02-12
+
+    - add MysqlInfoUtil->getReverseForeignKeyMap and getHasItems methods  
+    
+- 1.15.3 -- 2020-02-07
+
+    - fix Where, inverted startingWith and endingWith methods functionality 
+
+- 1.15.2 -- 2020-02-06
+
+    - update README.md, add precision about Where 
+    
+- 1.15.1 -- 2020-02-06
+
+    - fix documentation error in Where.conditionsList 
+    
+- 1.15.0 -- 2020-02-06
+
+    - add alias methods to Where (contains, startsWith, endsWith, notContaining, notStartingWith, notEndingWith)
+    
+- 1.14.0 -- 2020-02-05
+
+    - add Where util 
+
+- 1.13.2 -- 2020-02-05
+
+    - update README.md, add link to like example 
+    
+- 1.13.1 -- 2020-02-03
+
+    - fix documentation typo in RicHelper::getRicByPkAndColumnsAndUniqueIndexes 
+    
+- 1.13.0 -- 2020-02-03
+
+    - add RicHelper::getRicByPkAndColumnsAndUniqueIndexes method   
+    
+- 1.12.0 -- 2020-02-03
+
+    - add SimpleTypeHelper   
+    
+- 1.11.0 -- 2019-12-16
+
+    - add SimplePdoWrapper->onSuccess hook method   
+    
+- 1.10.2 -- 2019-12-09
+
+    - fix documentation typo in README.md   
+    
+- 1.10.1 -- 2019-12-06
+
+    - fix RicHelper::getWhereByRics low security bug   
+    
+- 1.10.0 -- 2019-12-06
+
+    - add RicHelper   
+    
+- 1.9.2 -- 2019-12-03
+
+    - update SimplePdoWrapperInterface, add note about replace  
+    
+- 1.9.1 -- 2019-12-02
+
+    - add documentation example with like  
+    
+- 1.9.0 -- 2019-11-13
+
+    - add MysqlInfoUtil->getForeignKeysInfo 
+    
+- 1.8.5 -- 2019-11-04
+
+    - update MysqlInfoUtil->getRic, now accepts a useStrict argument 
+    
 - 1.8.4 -- 2019-10-04
 
     - fix MysqlInfoUtil->getRic not returning all columns when no primary key and no unique indexes 

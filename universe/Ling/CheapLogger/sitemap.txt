@@ -1,0 +1,5 @@
+https://github.com/lingtalfi/CheapLogger/blob/master/README.md
+https://github.com/lingtalfi/CheapLogger/blob/master/doc/api/Ling/CheapLogger/CheapLogger/log.md
+https://github.com/lingtalfi/CheapLogger/blob/master/doc/api/Ling/CheapLogger/CheapLogger.md
+https://github.com/lingtalfi/CheapLogger/blob/master/doc/api/Ling/CheapLogger.md
+https://github.com/lingtalfi/CheapLogger/blob/master/doc/pages/conception-notes.md

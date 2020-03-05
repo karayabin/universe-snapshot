@@ -16,13 +16,15 @@ Description
 ================
 
 
-abstract public [SimplePdoWrapperInterface::insert](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/SimplePdoWrapperInterface/insert.md)(?$table, array $fields = [], array $options = []) : false | string
+abstract public [SimplePdoWrapperInterface::insert](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/SimplePdoWrapperInterface/insert.md)($table, ?array $fields = [], ?array $options = []) : false | string
 
 
 
 
 Executes the insert statement and returns the lastInsertId.
 See more info in the class description.
+
+Options: not used at the moment.
 
 
 
@@ -65,7 +67,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [SimplePdoWrapperInterface::insert](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/SimplePdoWrapperInterface.php#L75-L75)
+See the source code for method [SimplePdoWrapperInterface::insert](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/SimplePdoWrapperInterface.php#L77-L77)
 
 
 See Also

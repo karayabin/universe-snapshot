@@ -4,7 +4,7 @@
 
 The BabyYamlPermissionGroupHasPermissionApi class
 ================
-2019-07-19 --> 2019-10-30
+2019-07-19 --> 2019-12-17
 
 
 
@@ -80,4 +80,4 @@ See the source code of [Ling\Light_UserDatabase\Api\BabyYaml\BabyYamlPermissionG
 
 SeeAlso
 ==============
-Previous class: [BabyYamlPermissionGroupApi](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/BabyYaml/BabyYamlPermissionGroupApi.md)<br>Next class: [BabyYamlUserHasPermissionGroupApi](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/BabyYaml/BabyYamlUserHasPermissionGroupApi.md)<br>
+Previous class: [BabyYamlPermissionGroupApi](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/BabyYaml/BabyYamlPermissionGroupApi.md)<br>Next class: [BabyYamlPermissionOptionsApi](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/BabyYaml/BabyYamlPermissionOptionsApi.md)<br>

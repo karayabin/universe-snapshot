@@ -7,7 +7,7 @@
 
 
 use Ling\Chloroform\Form\Chloroform;
-use Ling\Chloroform_HeliumRenderer\HeliumRenderer;
+use Ling\Chloroform_HeliumLightRenderer\HeliumLightRenderer;
 use Ling\Light_Kit_Admin\Widget\Picasso\LightKitAdminChloroformWidget;
 
 
@@ -16,51 +16,57 @@ use Ling\Light_Kit_Admin\Widget\Picasso\LightKitAdminChloroformWidget;
  */
 $form = $z['form'];
 $title = $z['title'] ?? "Form";
-
-$renderer = new HeliumRenderer([
-    "useEnctypeMultiformData" => true,
-    "printJsHandler" => false,
-    "printSubmitButton" => false,
-    "printFormTag" => false,
-]);
-$renderer->prepare($form->toArray());
-
-
+$relatedLinks = $z['related_links'] ?? [];
+$container = $this->getContainer();
 ?>
 
-<div class="kit-lka-chloroform container-fluid <?php echo htmlspecialchars($this->getCssClass()); ?>"
+<div class="kit-bwl-chloroform container-fluid <?php echo htmlspecialchars($this->getCssClass()); ?>"
     <?php echo $this->getAttributesHtml(); ?>
 >
-    <div class="container-fluid">
 
-        <div class="row">
-            <div class="col">
-                <?php $renderer->printFormTagOpening(); ?>
-                <div class="card">
-                    <div class="card-header">
-                        <?php echo $title; ?>
-                    </div>
-                    <div class="card-body">
-
-                        <?php
-                        $renderer->printFormContent();
-                        ?>
-                    </div>
-                    <div class="card-footer">
-                        <button class="btn btn-sm btn-primary" type="submit">
-                            Submit
-                        </button>
-                        <button class="btn btn-sm btn-danger" type="reset">
-                            Reset
-                        </button>
-                    </div>
+    <div class="row">
+        <div class="col m-auto">
+            <div class="card">
+                <div class="card-header">
+                    <h5><?php echo $title; ?></h5>
                 </div>
+                <div class="card-body">
 
-                <?php $renderer->printFormTagClosing(); ?>
+                    <?php if ($relatedLinks): ?>
+                        <ul class="list-unstyled">
+
+                            <?php foreach ($relatedLinks as $item):
+                                $text = $item['text'];
+                                $url = $item['url'];
+                                $icon = $item['icon'] ?? null;
+                                ?>
+
+                                <li>
+                                    <a href="<?php echo htmlspecialchars($url); ?>">
+                                        <?php if ($icon): ?>
+                                            <i class="<?php echo htmlspecialchars($icon); ?>"></i>
+                                        <?php endif; ?>
+                                        <?php echo $text; ?>
+                                    </a>
+                                </li>
+
+                            <?php endforeach; ?>
+                        </ul>
+                    <?php endif; ?>
+
+
+                    <?php
+                    $renderer = new HeliumLightRenderer([
+                        "useEnctypeMultiformData" => true,
+                        "printJsHandler" => false,
+                    ]);
+                    $renderer->setContainer($container);
+                    echo $renderer->render($form->toArray());
+
+
+                    ?>
+                </div>
             </div>
-
-
         </div>
-
     </div>
 </div>

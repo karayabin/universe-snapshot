@@ -51,7 +51,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [UserListController::render](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Controller/User/UserListController.php#L23-L29)
+See the source code for method [UserListController::render](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Controller/User/UserListController.php#L23-L33)
 
 
 See Also

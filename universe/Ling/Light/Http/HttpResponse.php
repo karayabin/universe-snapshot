@@ -122,6 +122,12 @@ class HttpResponse implements HttpResponseInterface
      */
     protected $fileName;
 
+    /**
+     * This property holds the headers for this instance.
+     * @var array
+     */
+    protected $headers;
+
 
     /**
      * Builds the HttpResponse instance.
@@ -136,6 +142,7 @@ class HttpResponse implements HttpResponseInterface
         $this->httpVersion = "1.1";
         $this->mimeType = null;
         $this->fileName = null;
+        $this->headers = [];
     }
 
     /**
@@ -155,6 +162,21 @@ class HttpResponse implements HttpResponseInterface
     public function setMimeType(?string $mimeType)
     {
         $this->mimeType = $mimeType;
+    }
+
+    /**
+     * Adds a header to this instance.
+     * In case the header already exists:
+     *      - if the replace flag is set to true (by default), it will replace the existing header
+     *      - if the replace flag is set to false, it will add another header with the same name
+     *
+     * @param string $name
+     * @param string $value
+     * @param bool $replace = true
+     */
+    public function setHeader(string $name, string $value, bool $replace = true)
+    {
+        $this->headers[] = [$name, $value, $replace];
     }
 
     /**
@@ -187,6 +209,13 @@ class HttpResponse implements HttpResponseInterface
         if (headers_sent()) {
             return;
         }
+
+        foreach ($this->headers as $header) {
+            list($name, $value, $replace) = $header;
+            header($name . ": " . $value, $replace);
+        }
+
+
         $statusText = "";
         if (array_key_exists($this->statusCode, self::$statusTexts)) {
             $statusText = self::$statusTexts[$this->statusCode];

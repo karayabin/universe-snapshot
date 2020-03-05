@@ -47,7 +47,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [ListGeneralActionRendererWidget::render](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/RendererWidget/ListGeneralActionRendererWidget.php#L45-L100)
+See the source code for method [ListGeneralActionRendererWidget::render](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/RendererWidget/ListGeneralActionRendererWidget.php#L45-L102)
 
 
 See Also

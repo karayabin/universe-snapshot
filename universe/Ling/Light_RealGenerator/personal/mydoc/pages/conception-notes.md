@@ -1,6 +1,6 @@
 Light Real Generator
 ================
-2019-10-23
+2019-10-23 -> 2020-02-26
 
 
 
@@ -44,6 +44,86 @@ The configuration block
 
 
 See the [configuration block document](https://github.com/lingtalfi/Light_RealGenerator/blob/master/doc/pages/realgen-configuration-block.md).
+
+
+
+
+
+The representative column
+---------------
+2019-11-13
+
+
+While implementing the concept of [cross columns](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/crossed-column.md) for this generator,
+I was looking for a term to designate the name of the more descriptive column (to help the foreign key look less robotic),
+and I came up with the term representative column.
+
+So for instance, let's take back the example from the **cross column** page, with the **user_has_permission** table.
+And let's push it a bit further and imagine this structure instead:
+
+
+```text
+
+- user:
+    - id
+    - full_name
+
+- user_has_permission:
+    - user_id
+    - permission_id
+
+- permission:
+    - id
+    - name
+
+```
+
+Then the representative column for the **user_has_permission.user_id** foreign key would be the **user.full_name** column,
+and the representative column for the **user_has_permission.permission_id** foreign key would be the **permission.name** column.
+
+
+In this example, things are deliberately simple, but in reality, the user table for instance would have more fields to choose from,
+and so one of the job of this generator is to use some heuristics to define which column is the best representative
+column, but, I digress. 
+
+
+
+
+The variables system
+------------
+2020-02-26
+
+The variables system lets you declare and reuse some custom strings, so that you can inject them wherever you want in the configuration file.
+To use the variables system, declare your variables as a key/value array at the root level, then to use a variable anywhere in the configuration file,
+just use the special variable notation described below.
+
+
+### Declaring variables example
+
+```yaml
+main:
+    variables:
+        plugin: Light_Kit_Admin_UserData
+        abc: 123
+# ...
+```
+
+
+### Using variables in fhe configuration file
+
+```yaml
+
+main:
+# ...
+    list:
+        target_dir: {app_dir}/config/data/{$plugin}/Light_Realist/generated
+# ...
+
+```
+
+
+
+ 
 
 
 

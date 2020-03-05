@@ -4,7 +4,7 @@
 
 The ParametrizedSqlQueryException class
 ================
-2019-08-12 --> 2019-10-11
+2019-08-12 --> 2020-02-26
 
 
 
@@ -54,4 +54,4 @@ See the source code of [Ling\ParametrizedSqlQuery\Exception\ParametrizedSqlQuery
 
 SeeAlso
 ==============
-Next class: [ParametrizedSqlQueryUtil](https://github.com/lingtalfi/ParametrizedSqlQuery/blob/master/doc/api/Ling/ParametrizedSqlQuery/ParametrizedSqlQueryUtil.md)<br>
+Next class: [ParametrizedSqlQueryHelper](https://github.com/lingtalfi/ParametrizedSqlQuery/blob/master/doc/api/Ling/ParametrizedSqlQuery/Helper/ParametrizedSqlQueryHelper.md)<br>

@@ -1,9 +1,18 @@
 Light_PluginDatabaseInstaller
 ===========
-2019-09-11
+2019-09-11 -> 2020-02-07
 
 
 
+Deprecation notice
+======
+Warning: this plugin is now deprecated in favour of the better [Light_PluginInstaller](https://github.com/lingtalfi/Light_PluginInstaller) plugin
+
+
+
+
+Overview
+======
 A [light](https://github.com/lingtalfi/Light) service to help plugin install their database part.
 
 
@@ -31,6 +40,7 @@ Summary
 - [Light_PluginDatabaseInstaller api](https://github.com/lingtalfi/Light_PluginDatabaseInstaller/blob/master/doc/api/Ling/Light_PluginDatabaseInstaller.md) (generated with [DocTools](https://github.com/lingtalfi/DocTools))
 - Pages
     - [Conception notes](https://github.com/lingtalfi/Light_PluginDatabaseInstaller/blob/master/doc/pages/conception-notes.md)
+    - [Events](https://github.com/lingtalfi/Light_PluginDatabaseInstaller/blob/master/doc/pages/events.md)
 
 - [Services](#services)
 
@@ -54,14 +64,12 @@ Here is the content of the service configuration file:
 plugin_database_installer:
     instance: Ling\Light_PluginDatabaseInstaller\Service\LightPluginDatabaseInstallerService
     methods:
+        setContainer:
+            container: @container()
         setAppDir:
             dir: ${app_dir}
         setForceInstall:
             bool: false
-
-
-
-
 
 
 ```
@@ -76,6 +84,22 @@ plugin_database_installer:
 History Log
 =============
 
+- 1.6.1 -- 2020-02-07
+
+    - add deprecation notice
+    
+- 1.6.0 -- 2020-02-06
+
+    - add LightPluginDatabaseInstallerService->getRegisteredPluginNames method
+    
+- 1.5.0 -- 2020-02-06
+
+    - add Light_PluginDatabaseInstaller.on_uninstall_before event
+    
+- 1.4.0 -- 2020-01-31
+
+    - update to fix LightPluginDatabaseInstallerService->uninstallAll method not taking into account the order of dependencies
+    
 - 1.3.0 -- 2019-10-03
 
     - add careless LightPluginDatabaseInstallerService->uninstallAll implementation, the dependency part

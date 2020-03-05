@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [SimplePdoWrapper::setErrorMode](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/SimplePdoWrapper/setErrorMode.md)(?$errorMode) : mixed
+public [SimplePdoWrapper::setErrorMode](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/SimplePdoWrapper/setErrorMode.md)($errorMode) : mixed
 
 
 
@@ -57,7 +57,7 @@ When the connection is not defined.
 
 Source Code
 ===========
-See the source code for method [SimplePdoWrapper::setErrorMode](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/SimplePdoWrapper.php#L88-L91)
+See the source code for method [SimplePdoWrapper::setErrorMode](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/SimplePdoWrapper.php#L96-L99)
 
 
 See Also

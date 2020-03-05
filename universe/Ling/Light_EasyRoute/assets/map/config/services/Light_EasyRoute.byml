@@ -5,8 +5,11 @@ easy_route:
 # --------------------------------------
 # hooks
 # --------------------------------------
-$initializer.methods_collection:
+$events.methods_collection:
     -
-        method: registerInitializer
+        method: registerListener
         args:
-            initializer: @service(easy_route)
+            events: Light.initialize_1
+            listener:
+                instance: @service(easy_route)
+                callable_method: initialize

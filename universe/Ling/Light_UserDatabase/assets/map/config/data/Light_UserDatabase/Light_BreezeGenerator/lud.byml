@@ -1,22 +1,20 @@
 
 class: Ling\Light_BreezeGenerator\Generator\LingBreezeGenerator
 conf:
-    dir: ${app_dir}/tmp/Light_BreezeGenerator
-    # If your tables use a prefix, set it here, then configure the behaviour
-    # with the usePrefixInClassName property
+    dir: ${app_dir}/universe/Ling/Light_UserDatabase/Api/Mysql
+
     prefix: lud
     usePrefixInClassName: false
-    factoryClassName: LightKitAdmin
+
+    factoryClassName: LightUserDatabaseApiFactory
+    baseClassName: MysqlBaseLightUserDatabaseApi
     namespace: Ling\Light_UserDatabase\Api\Mysql
-    # The suffix to add to the class name.
-    # For instance if the class is User and the suffix is Object,
-    # The class name will be UserObject
-    # The default value is Object
+
+
     classSuffix: Api
-    # Whether to overwrite existing files (if false, skip them)
-    # Used mainly for debugging purposes, in production you probably should set this to false
-    # The default value is false
-    overwriteExisting: false
+
     useMicroPermission: false
+
     generate:
-        prefix: lud
+#        prefix: lud
+        file: /komin/jin_site_demo/universe/Ling/Light_UserDatabase/assets/fixtures/recreate-structure.sql

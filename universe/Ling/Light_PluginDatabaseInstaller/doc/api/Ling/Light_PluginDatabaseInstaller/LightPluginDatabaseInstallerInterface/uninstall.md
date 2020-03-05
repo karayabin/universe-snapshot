@@ -16,7 +16,7 @@ Description
 ================
 
 
-abstract public [LightPluginDatabaseInstallerInterface::uninstall](https://github.com/lingtalfi/Light_PluginDatabaseInstaller/blob/master/doc/api/Ling/Light_PluginDatabaseInstaller/LightPluginDatabaseInstallerInterface/uninstall.md)(Ling\Light\ServiceContainer\LightServiceContainerInterface $container) : void
+abstract public [LightPluginDatabaseInstallerInterface::uninstall](https://github.com/lingtalfi/Light_PluginDatabaseInstaller/blob/master/doc/api/Ling/Light_PluginDatabaseInstaller/LightPluginDatabaseInstallerInterface/uninstall.md)([Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) $container) : void
 
 
 

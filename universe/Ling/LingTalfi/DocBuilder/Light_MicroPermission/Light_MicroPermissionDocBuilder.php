@@ -7,6 +7,7 @@ namespace Ling\LingTalfi\DocBuilder\Light_MicroPermission;
 use Ling\DocTools\DocBuilder\Git\PhpPlanet\LingGitPhpPlanetDocBuilder;
 use Ling\DocTools\Exception\DocBuilderException;
 use Ling\DocTools\Translator\ParseDownTranslator;
+use Ling\LingTalfi\DocTools\LingTalfiDocToolsHelper;
 
 
 /**
@@ -140,7 +141,9 @@ class Light_MicroPermissionDocBuilder
              * This map in particular is the one used for the whole DocTools planet documentation (pages and api).
              */
             "keyWord2UrlMap" => [
-//                "the command line page" => $doc . '/pages/command-line.md',
+                "micro-permission conception notes" => $doc . "/pages/conception-notes.md",
+                "micro-permission service" => "https://github.com/lingtalfi/Light_MicroPermission/",
+                "LightDatabasePdoWrapper class" => "https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/LightDatabasePdoWrapper.md",
             ],
             /**
              * An array of external classes to url.
@@ -153,6 +156,8 @@ class Light_MicroPermissionDocBuilder
              */
             "externalClass2Url" => [
                 "Ling\Light\ServiceContainer\LightServiceContainerInterface" => "https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md",
+                "Ling\Light_Database\EventHandler\LightDatabaseEventHandlerInterface" => "https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/EventHandler/LightDatabaseEventHandlerInterface.md",
+
             ],
         ];
 
@@ -188,6 +193,7 @@ class Light_MicroPermissionDocBuilder
          * and since we've defined a @kw(copy module), it will also copy the whole doc to another location.
          */
         $builder->buildDoc();
+        LingTalfiDocToolsHelper::generateCrumbs($builder);
 
         if ('cli' !== php_sapi_name()) {
 

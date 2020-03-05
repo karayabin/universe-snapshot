@@ -7,7 +7,7 @@ LightEndRoutineDebuggerHandler::__construct
 
 
 
-LightEndRoutineDebuggerHandler::__construct — Builds the ContainerAwareLightEndRoutineHandler instance.
+LightEndRoutineDebuggerHandler::__construct — Builds the LightEndRoutineDebuggerHandler instance.
 
 
 
@@ -21,7 +21,7 @@ public [LightEndRoutineDebuggerHandler::__construct](https://github.com/lingtalf
 
 
 
-Builds the ContainerAwareLightEndRoutineHandler instance.
+Builds the LightEndRoutineDebuggerHandler instance.
 
 
 
@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightEndRoutineDebuggerHandler::__construct](https://github.com/lingtalfi/Light_EndRoutine_Debugger/blob/master/Handler/LightEndRoutineDebuggerHandler.php#L45-L49)
+See the source code for method [LightEndRoutineDebuggerHandler::__construct](https://github.com/lingtalfi/Light_EndRoutine_Debugger/blob/master/Handler/LightEndRoutineDebuggerHandler.php#L53-L57)
 
 
 See Also
@@ -54,5 +54,5 @@ See Also
 
 The [LightEndRoutineDebuggerHandler](https://github.com/lingtalfi/Light_EndRoutine_Debugger/blob/master/doc/api/Ling/Light_EndRoutine_Debugger/Handler/LightEndRoutineDebuggerHandler.md) class.
 
-Next method: [handle](https://github.com/lingtalfi/Light_EndRoutine_Debugger/blob/master/doc/api/Ling/Light_EndRoutine_Debugger/Handler/LightEndRoutineDebuggerHandler/handle.md)<br>
+Next method: [setContainer](https://github.com/lingtalfi/Light_EndRoutine_Debugger/blob/master/doc/api/Ling/Light_EndRoutine_Debugger/Handler/LightEndRoutineDebuggerHandler/setContainer.md)<br>
 

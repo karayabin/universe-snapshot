@@ -12,9 +12,9 @@ use Ling\Bat\FileTool;
 use Ling\Bat\HashTool;
 use Ling\Bat\MimeTypeTool;
 use Ling\Bat\SmartCodeTool;
-use Ling\CSRFTools\CSRFProtector;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
 use Ling\Light_AjaxFileUploadManager\Exception\LightAjaxFileUploadManagerException;
+use Ling\Light_CsrfSession\Service\LightCsrfSessionService;
 use Ling\Light_Database\LightDatabasePdoWrapper;
 use Ling\Light_UserData\Service\LightUserDataService;
 use Ling\Light_UserManager\UserManager\LightUserManagerInterface;
@@ -26,27 +26,13 @@ use Ling\ThumbnailTools\ThumbnailTool;
 class LightAjaxFileUploadManagerService
 {
     /**
-     * This property holds the actionLists for this instance.
-     * It's an array of id => actionList.
-     * Each actionList is an array of action items.
-     * See the @page(action list) documentation for more details.
+     * This property holds the items for this instance.
+     * It's an array of id => item.
+     * See the @page(Light_AjaxFileUploadManager documentation page) for more details about the item structure.
      *
      * @var array
      */
-    protected $actionLists;
-
-    /**
-     * This property holds the validationRules for this instance.
-     * It's an array of id => validationRules.
-     * Each validationRules is an array of validationRuleName => parameters,
-     * where the form of parameters depends on the validationRuleName.
-     *
-     * See the @page(validation rules page) for more details.
-     *
-     *
-     * @var array
-     */
-    protected $validationRules;
+    protected $items;
 
 
     /**
@@ -73,8 +59,7 @@ class LightAjaxFileUploadManagerService
     public function __construct()
     {
         $this->applicationDir = null;
-        $this->actionLists = [];
-        $this->validationRules = [];
+        $this->items = [];
         $this->container = null;
     }
 
@@ -100,28 +85,20 @@ class LightAjaxFileUploadManagerService
 
 
     /**
-     * Adds action lists to this instance.
-     * @param array $actionLists
-     */
-    public function addActionLists(array $actionLists)
-    {
-        $this->actionLists = array_merge($this->actionLists, $actionLists);
-    }
-
-    /**
-     * Adds validation rules to this instance.
+     * Registers a @page(configuration item) with the given id.
      *
-     * @param array $validationRules
+     *
+     * @param string $id
+     * @param array $item
      */
-    public function addValidationRules(array $validationRules)
+    public function setItem(string $id, array $item)
     {
-        $this->validationRules = array_merge($this->validationRules, $validationRules);
+        $this->items[$id] = $item;
     }
 
 
     /**
-     * Adds the configuration items found in the given file.
-     * See the @page(configuration files page) for more info.
+     * Adds the @page(configuration items) found in the given @page(babyYaml) file.
      *
      *
      * @param string $file
@@ -131,16 +108,7 @@ class LightAjaxFileUploadManagerService
         $data = BabyYamlUtil::readFile($file);
         $items = $data['items'] ?? [];
         foreach ($items as $id => $confItem) {
-            if (array_key_exists("action", $confItem)) {
-                $this->addActionLists([
-                    $id => $confItem['action'],
-                ]);
-            }
-            if (array_key_exists("validation", $confItem)) {
-                $this->addValidationRules([
-                    $id => $confItem['validation'],
-                ]);
-            }
+            $this->setItem($id, $confItem);
         }
     }
 
@@ -149,12 +117,13 @@ class LightAjaxFileUploadManagerService
      * and tries to upload the given phpFileItem to the backend server,
      * and return the json array in the form of a php array.
      *
-     * The phpFileItem is a regular php $_FILES item with the following structure:
+     * The phpFileItem is either a regular php $_FILES item with the following structure:
      * - name
      * - type
      * - tmp_name
      * - error
      * - size
+     * Or phpFileItem can be null, if it's not used by the action defined by the given id.
      *
      *
      * The id is the identifier of an @page(action list) to execute on the uploaded file.
@@ -171,131 +140,149 @@ class LightAjaxFileUploadManagerService
      *
      *
      * @param string $id
-     * @param array $phpFileItem
+     * @param array|null $phpFileItem
      * @param array $params
      * @return array
+     * @throws \Exception
      */
-    public function uploadItem(string $id, array $phpFileItem, array $params = []): array
+    public function processItem(string $id, array $phpFileItem = null, array $params = []): array
     {
-        try {
 
 
-            //--------------------------------------------
-            // CSRF VALIDATION FIRST
-            //--------------------------------------------
+        if (false === array_key_exists($id, $this->items)) {
+            throw new LightAjaxFileUploadManagerException("Configuration item not found with id \"$id\".");
+        }
+
+        $confItem = $this->items[$id];
+        $useCsrfToken = $confItem['csrf_token'] ?? true;
+
+
+        //--------------------------------------------
+        // CSRF VALIDATION FIRST
+        //--------------------------------------------
+        if (true === $useCsrfToken) {
+
             if (array_key_exists("csrf_token", $params)) {
-                $tokenName = "ajax_file_upload_manager_service";
+
+                /**
+                 * @var $csrfService LightCsrfSessionService
+                 */
+                $csrfService = $this->container->get("csrf_session");
                 $tokenValue = $params['csrf_token'];
-                if (false === CSRFProtector::inst()->isValid($tokenName, $tokenValue, true)) {
+                if (false === $csrfService->isValid($tokenValue)) {
                     $ret = [
                         "type" => "error",
                         "error" => "Request denied: CSRF token invalid.",
                     ];
                     goto end;
                 }
+            } else {
+                throw new LightAjaxFileUploadManagerException("Configuration item with id \"$id\" requires csrf validation, yet the csrf_token property was not found in the \$_POST array.");
             }
+        }
 
 
-            //--------------------------------------------
-            // NOW FILE VALIDATION
-            //--------------------------------------------
-            if (null !== $this->applicationDir) {
-                if (is_dir($this->applicationDir)) {
+        //--------------------------------------------
+        // NOW FILE VALIDATION
+        //--------------------------------------------
+        if (null !== $this->applicationDir) {
+            if (is_dir($this->applicationDir)) {
 
 
-                    if (array_key_exists($id, $this->actionLists)) {
-                        $actionList = $this->actionLists[$id];
+                $actionList = $confItem['action'] ?? [];
 
-                        // ensuring that we work with a valid php file item
-                        $props = [
-                            "name" => null,
-                            "type" => null,
-                            "tmp_name" => null,
-                            "error" => null,
-                            "size" => null,
-                        ];
-                        $phpFileItem = array_intersect_key($phpFileItem, $props);
-                        if (5 === count($phpFileItem)) {
-
-                            if (true === is_uploaded_file($phpFileItem['tmp_name'])) {
-
-                                if (0 === (int)$phpFileItem['error']) {
-                                    if (0 !== (int)$phpFileItem['size']) {
-
-                                        //--------------------------------------------
-                                        // VALIDATION RULES TESTING
-                                        //--------------------------------------------
-                                        if (array_key_exists($id, $this->validationRules)) {
-                                            $validationRules = $this->validationRules[$id];
-                                            $errorMessage = null;
-                                            $isValid = true;
-                                            foreach ($validationRules as $name => $param) {
-                                                if (false === $this->validatePhpFileItem($name, $param, $phpFileItem, $errorMessage)) {
-                                                    $isValid = false;
-                                                    break;
-                                                }
-                                            }
-                                            if (false === $isValid) {
-                                                $ret = [
-                                                    "type" => "error",
-                                                    "error" => $errorMessage,
-                                                ];
-                                                goto end;
-                                            }
-                                        }
+                // ensuring that we work with a valid php file item
+                $props = [
+                    "name" => null,
+                    "type" => null,
+                    "tmp_name" => null,
+                    "error" => null,
+                    "size" => null,
+                ];
 
 
-                                        //--------------------------------------------
-                                        // EXECUTING THE ACTIONS
-                                        //--------------------------------------------
-                                        $pathToReturn = null;
-                                        foreach ($actionList as $action) {
-                                            $returnPath = $this->executeAction($action, $phpFileItem, $id);
-                                            if (null !== $returnPath) {
-                                                $pathToReturn = $returnPath;
+                //--------------------------------------------
+                // PHP FILE ITEM VALIDATION
+                //--------------------------------------------
+
+                if (null !== $phpFileItem) {
+                    $phpFileItem = array_intersect_key($phpFileItem, $props);
+                    if (5 === count($phpFileItem)) {
+
+                        if (true === is_uploaded_file($phpFileItem['tmp_name'])) {
+
+                            if (0 === (int)$phpFileItem['error']) {
+                                if (0 !== (int)$phpFileItem['size']) {
+
+                                    //--------------------------------------------
+                                    // VALIDATION RULES TESTING
+                                    //--------------------------------------------
+                                    $validationRules = $confItem['validation'] ?? [];
+                                    if ($validationRules) {
+
+                                        $errorMessage = null;
+                                        $isValid = true;
+                                        foreach ($validationRules as $name => $param) {
+                                            if (false === $this->validatePhpFileItem($name, $param, $phpFileItem, $errorMessage)) {
+                                                $isValid = false;
+                                                break;
                                             }
                                         }
-
-
-                                        if (null !== $pathToReturn) {
+                                        if (false === $isValid) {
                                             $ret = [
-                                                "type" => "success",
-                                                "url" => $pathToReturn,
+                                                "type" => "error",
+                                                "error" => $errorMessage,
                                             ];
-                                        } else {
-                                            throw new LightAjaxFileUploadManagerException("Bad configuration error: no action associated with id $id returned a path.");
+                                            goto end;
                                         }
-                                    } else {
-                                        throw new LightAjaxFileUploadManagerException("Upload error: the file " . $phpFileItem['name'] . " returned a size of 0, which is not allowed by this service.");
                                     }
                                 } else {
-                                    throw new LightAjaxFileUploadManagerException("Upload error: the file " . $phpFileItem['name'] . " returned the php error: " . $phpFileItem['error']);
+                                    throw new LightAjaxFileUploadManagerException("Upload error: the file " . $phpFileItem['name'] . " returned a size of 0, which is not allowed by this service.");
                                 }
-
                             } else {
-                                throw new LightAjaxFileUploadManagerException("Security violation error: this file was not uploaded via HTTP POST.");
+                                throw new LightAjaxFileUploadManagerException("Upload error: the file " . $phpFileItem['name'] . " returned the php error: " . $phpFileItem['error']);
                             }
 
                         } else {
-                            $c = count($phpFileItem);
-                            throw new LightAjaxFileUploadManagerException("Invalid php file item passed with $c elements (5 were expected).");
+                            throw new LightAjaxFileUploadManagerException("Security violation error: this file was not uploaded via HTTP POST.");
                         }
 
                     } else {
-                        throw new LightAjaxFileUploadManagerException("Bad configuration error: no action list found with the id $id.");
+                        $c = count($phpFileItem);
+                        throw new LightAjaxFileUploadManagerException("Invalid php file item passed with $c elements (5 were expected).");
                     }
-                } else {
-                    throw new LightAjaxFileUploadManagerException("Error: the applicationDir is not an existing directory ($this->applicationDir).");
+
                 }
+
+
+                //--------------------------------------------
+                // EXECUTING THE ACTIONS
+                //--------------------------------------------
+                $successArray = null;
+                foreach ($actionList as $action) {
+                    $return = $this->executeAction($action, $phpFileItem, $params, $id);
+                    if (null !== $return) {
+                        $successArray = $return;
+                    }
+                }
+
+
+                if (null !== $successArray) {
+                    $ret = array_merge([
+                        "type" => "success",
+                    ], $successArray);
+                } else {
+                    throw new LightAjaxFileUploadManagerException("Bad configuration error: no action associated with id $id returned a path.");
+                }
+
+
             } else {
-                throw new LightAjaxFileUploadManagerException("Bad configuration error: the applicationDir property cannot be null.");
+                throw new LightAjaxFileUploadManagerException("Error: the applicationDir is not an existing directory ($this->applicationDir).");
             }
-        } catch (\Exception $e) {
-            $ret = [
-                "type" => "error",
-                "error" => $e->getMessage(),
-            ];
+        } else {
+            throw new LightAjaxFileUploadManagerException("Bad configuration error: the applicationDir property cannot be null.");
         }
+
 
         end:
         return $ret;
@@ -355,7 +342,7 @@ class LightAjaxFileUploadManagerService
                     $allowedExtensions = [$allowedExtensions];
                 }
 
-                $fileExt = FileSystemTool::getFileExtension($phpFileItem['name']);
+                $fileExt = strtolower(FileSystemTool::getFileExtension($phpFileItem['name']));
 
                 if (false === in_array($fileExt, $allowedExtensions, true)) {
                     $sList = implode(", ", $allowedExtensions);
@@ -364,6 +351,15 @@ class LightAjaxFileUploadManagerService
                 }
 
                 break;
+//            case "maxFileNameLength":
+//                $maxFileNameLength = (int)$parameter;
+//                $fileLength = strlen($phpFileItem['name']);
+//                if ($fileLength > $maxFileNameLength) {
+//                    $errorMessage = "Validation error: the filename \"$fileName\" contains too many characters. The maximum number of characters allowed is $maxFileNameLength (The uploaded filename has $fileLength).";
+//                    return false;
+//                }
+//
+//                break;
             default:
                 throw new LightAjaxFileUploadManagerException("Unknown validation rule: $validationRuleName (with file name=$fileName).");
                 break;
@@ -373,36 +369,50 @@ class LightAjaxFileUploadManagerService
 
     /**
      * Executes the action array on the file which path is given,
-     * and returns the url (absolute, relative or even starting with http:// or https://),
-     * depending on the configuration of the given action.
+     * and returns an array of successful information in case of success.
+     *
+     * Usually, the returned array contains the url (absolute, relative or even starting with http:// or https://),
+     * but it depends on the configuration of the given action.
+     *
+     * In case of failure, this method throws an exception.
+     *
      *
      * The action array is defined in more details in the @page(action list) page.
      *
+     *
      * @param array $action
-     * @param array $phpFileItem
+     * @param array|null $phpFileItem
      * A valid php $_FILES item.
+     *
+     * @param array $params
      * @param string $actionId
      * The action id. This is used for debugging purposes.
      *
-     * @return string|null
+     * @return array|null
      * @throws \Exception
      */
-    protected function executeAction(array $action, array $phpFileItem, string $actionId)
+    protected function executeAction(array $action, $phpFileItem, array $params, string $actionId): ?array
     {
+
+
         $ret = null;
-        //--------------------------------------------
-        // NAME TRANSFORM
-        //--------------------------------------------
-        $name = $phpFileItem['name'];
-        if (array_key_exists('nameTransformer', $action)) {
-            $name = $this->getTransformedName($name, $action['nameTransformer']);
-        }
 
 
         //--------------------------------------------
         // USING THE OLD STORE DIR TECHNIQUE
         //--------------------------------------------
         if (array_key_exists('storeDir', $action)) {
+            if (null === $phpFileItem) {
+                throw new LightAjaxFileUploadManagerException("Invalid phpFileItem given with \"storeDir\" action.");
+            }
+
+            //--------------------------------------------
+            // NAME TRANSFORM
+            //--------------------------------------------
+            $name = $phpFileItem['name'];
+            if (array_key_exists('nameTransformer', $action)) {
+                $name = $this->getTransformedName($name, $action['nameTransformer']);
+            }
 
             $successfulCopy = false;
 
@@ -522,17 +532,92 @@ class LightAjaxFileUploadManagerService
                 }
             }
         } elseif (array_key_exists("use_Light_UserData", $action) && true === $action['use_Light_UserData']) {
+
+
+            /**
+             * @var $userDataService LightUserDataService
+             */
+            $userDataService = $this->container->get("user_data");
+
+
+            $protocol = $action['protocol'] ?? null;
+            $useFileEditor = ("fileEditor" === $protocol);
+
+
+            if (true === $useFileEditor) {
+                $fileEditorAction = $params['action'] ?? "add";
+                if ('remove' === $fileEditorAction) {
+
+                    if (false === array_key_exists("url", $params)) {
+                        throw new LightAjaxFileUploadManagerException("Missing parameter \"url\" for fileEditor.remove action.");
+                    }
+
+                    $url = $params['url'];
+                    $userDataService->removeResourceByUrl($url);
+                    return [
+                        "ok" => "1",
+                    ];
+                }
+            }
+
+
+            //--------------------------------------------
+            // ACTION VALIDATION
+            //--------------------------------------------
+            if (
+                array_key_exists("maxFileNameLength", $action) &&
+                array_key_exists("filename", $params)
+            ) {
+                $name = $params['filename'];
+                $maxLen = $action['maxFileNameLength'];
+                $nameLen = strlen($name);
+                if ($nameLen > $maxLen) {
+                    throw new LightAjaxFileUploadManagerException("File name too long ($name). Maximum of $maxLen characters allowed ($nameLen given).");
+                }
+            }
+
+
+            //--------------------------------------------
+            // NAME TRANSFORM
+            //--------------------------------------------
+            if (null === $phpFileItem) {
+                throw new LightAjaxFileUploadManagerException("Invalid phpFileItem given with \"use_Light_UserData\" action and add/update intent.");
+            }
+
+
+            $name = $phpFileItem['name'];
+            if (true === $useFileEditor) {
+                if (false === array_key_exists("filename", $params)) {
+                    throw new LightAjaxFileUploadManagerException("Missing parameter filename, required by the \"fileEditor\" protocol.");
+                }
+                $name = $params['filename'];
+            }
+            if (array_key_exists('nameTransformer', $action)) {
+                $name = $this->getTransformedName($name, $action['nameTransformer']);
+            }
+
+            //--------------------------------------------
+            // FILENAME SANITIZATION
+            //--------------------------------------------
+            $allowSlashInFilename = $action['allowSlashInFilename'] ?? false;
+            if (false === FileSystemTool::isValidFilename($name, $allowSlashInFilename)) {
+                throw new LightAjaxFileUploadManagerException("Invalid filename \"$name\". Try to use only alphanumerical characters and underscore, and dash.");
+            }
+
+
             if (array_key_exists("path", $action)) {
 
-                /**
-                 * @var $userDataService LightUserDataService
-                 */
-                $userDataService = $this->container->get("user_data");
 
-                $isPrivate = $action['isPrivate'] ?? false;
+                $defaultIsPrivate = false;
+                if (true === $useFileEditor) {
+                    $defaultIsPrivate = $params['is_private'] ?? false;
+                    $defaultIsPrivate = (bool)$defaultIsPrivate;
+                }
+                $isPrivate = $action['isPrivate'] ?? $defaultIsPrivate;
                 $use2Svp = $action['use_2svp'] ?? false;
-                $tags = $action['tags'] ?? [];
+                $tags = $action['tags'] ?? $params['tags'] ?? [];
                 $path = $action['path'];
+                $oldPath = null; // only used with action=update
 
 
                 if (false !== strpos($path, '{extension}')) {
@@ -542,6 +627,8 @@ class LightAjaxFileUploadManagerService
                     }
                     $path = str_replace('{extension}', $extension, $path);
                 }
+                $path = str_replace('{filename}', $name, $path);
+
 
                 if (true === $use2Svp) {
                     $p = explode('.', $path, 2);
@@ -567,12 +654,22 @@ class LightAjaxFileUploadManagerService
                 $options = [
                     "is_private" => $isPrivate,
                     "tags" => $tags,
+                    "overwrite" => $action['overwrite'] ?? false,
+                    "keepOriginal" => $action['keepOriginal'] ?? false,
                 ];
+
+                if (true === $useFileEditor && 'update' === $fileEditorAction) {
+                    if (false === array_key_exists("url", $params)) {
+                        throw new LightAjaxFileUploadManagerException("Missing parameter url, required by the \"fileEditor\" protocol for the update action.");
+                    }
+                    $options['url'] = $params['url'];
+
+                }
 
 
                 $url = $userDataService->save($path, file_get_contents($phpFileItem['tmp_name']), $options);
                 unlink($phpFileItem['tmp_name']); // do never forget this!!!
-                return $url;
+                $ret = $url;
 
 
             } else {
@@ -581,6 +678,13 @@ class LightAjaxFileUploadManagerService
         } else {
             // some actions might not want to create copies of the uploaded file.
             // code of such actions would go here.
+        }
+
+
+        if (null !== $ret) {
+            $ret = [
+                "url" => $ret,
+            ];
         }
         return $ret;
     }

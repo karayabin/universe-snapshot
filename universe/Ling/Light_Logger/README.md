@@ -50,11 +50,6 @@ Here is an example of service configuration:
 ```yaml
 logger:
     instance: Ling\Light_Logger\LightLoggerService
-    methods:
-        setFormat:
-            format: [{channel}]: {dateTime} -- {message}
-        setUseExpandedArray:
-            bool: true
     methods_collection: []
         -
             method: addListener
@@ -66,6 +61,8 @@ logger:
                         configure:
                             options:
                                 file: ${app_dir}/log/light_log.log
+                                format: [{channel}]: {dateTime} -- {message}
+                                expand_array: true
                 minus:
                     - todo
         -
@@ -78,6 +75,8 @@ logger:
                         configure:
                             options:
                                 file: ${app_dir}/log/todo.log
+                                format: [{channel}]: {dateTime} -- {message}
+                                expand_array: true
 #        -
 #            method: addListener
 #            args:
@@ -87,6 +86,10 @@ logger:
 #                    methods:
 #                        setFile:
 #                            file: ${app_dir}/log/light_log_last.txt
+#                        configure:
+#                            options:
+#                                format: [{channel}]: {dateTime} -- {message}
+#                                expand_array: true
 ```
 
 
@@ -94,6 +97,34 @@ logger:
 History Log
 =============
 
+- 1.8.2 -- 2020-01-08
+
+    - fix LightFileLoggerListener->listen printing debug string (typo) 
+
+- 1.8.1 -- 2020-01-08
+
+    - fix LightLoggerService->dispatch not handling * channel correctly (functional typo) 
+    
+- 1.8.0 -- 2019-12-12
+
+    - update LightLoggerListenerInterface->listen, the msg argument can now be of any type 
+    
+- 1.7.2 -- 2019-12-12
+
+    - fix BaseLoggerListener->configure documentation comment markdown formatting 
+    
+- 1.7.1 -- 2019-12-11
+
+    - update BaseLoggerListener->configure comment for the documentation 
+    
+- 1.7.0 -- 2019-12-11
+
+    - update LightLoggerService, the setFormat method has beend moved to the listeners 
+
+- 1.6.0 -- 2019-11-11
+
+    - update LightLoggerService->getFormattedMessage, now can log \Exception instances
+    
 - 1.5.0 -- 2019-10-17
 
     - add LightLoggerService->addListener minus argument

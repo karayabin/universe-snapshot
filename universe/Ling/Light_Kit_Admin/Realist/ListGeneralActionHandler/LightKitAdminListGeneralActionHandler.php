@@ -8,6 +8,7 @@ use Ling\Bat\CaseTool;
 use Ling\Light_Bullsheet\Service\LightBullsheetService;
 use Ling\Light_DatabaseUtils\Service\LightDatabaseUtilsService;
 use Ling\Light_Kit_Admin\Exception\LightKitAdminException;
+use Ling\Light_Realist\Helper\DuelistHelper;
 use Ling\Light_Realist\ListGeneralActionHandler\LightRealistBaseListGeneralActionHandler;
 use Ling\Light_Realist\Service\LightRealistService;
 use Ling\Light_Realist\Tool\LightRealistTool;
@@ -32,7 +33,7 @@ class LightKitAdminListGeneralActionHandler extends LightRealistBaseListGeneralA
             case "realist-generate_random_rows":
                 $this->decorateGenericActionItemByAssets($actionName, $genericActionItem, $requestId, __DIR__);
                 $table = $this->getTableNameByRequestId($requestId);
-                return $this->hasMicroPermission("Light_Kit_Admin.tables.$table.create");
+                return $this->hasMicroPermission("tables.$table.create");
                 break;
             case "realist-save_table":
                 $table = $this->getTableNameByRequestId($requestId);
@@ -43,7 +44,7 @@ class LightKitAdminListGeneralActionHandler extends LightRealistBaseListGeneralA
                         "table" => $table,
                     ],
                 ]);
-                return $this->hasMicroPermission("Light_Kit_Admin.tables.$table.read");
+                return $this->hasMicroPermission("tables.$table.read");
                 break;
             case "realist-load_table":
                 $table = $this->getTableNameByRequestId($requestId);
@@ -59,7 +60,7 @@ class LightKitAdminListGeneralActionHandler extends LightRealistBaseListGeneralA
                         "table" => $table,
                     ],
                 ]);
-                return $this->hasMicroPermission("Light_Kit_Admin.tables.$table.create");
+                return $this->hasMicroPermission("tables.$table.create");
                 break;
             default:
                 break;
@@ -113,7 +114,7 @@ class LightKitAdminListGeneralActionHandler extends LightRealistBaseListGeneralA
                  */
                 $service = $this->container->get("realist");
                 $conf = $service->getConfigurationArrayByRequestId($requestId);
-                $table = $conf['table'];
+                $table = DuelistHelper::getRawTableName($conf['table']);
 
 
                 $item = LightRealistTool::getListGeneralActionItemByActionId($actionId, $conf);
@@ -128,7 +129,7 @@ class LightKitAdminListGeneralActionHandler extends LightRealistBaseListGeneralA
                 //--------------------------------------------
                 // CHECK PERMISSION
                 //--------------------------------------------
-                $this->checkMicroPermission("Light_Kit_Admin.tables.$table.create");
+                $this->checkMicroPermission("tables.$table.create");
 
 
                 //--------------------------------------------
@@ -192,7 +193,7 @@ class LightKitAdminListGeneralActionHandler extends LightRealistBaseListGeneralA
                      */
                     $service = $this->container->get("realist");
                     $conf = $service->getConfigurationArrayByRequestId($requestId);
-                    $table = $conf['table'];
+                    $table = DuelistHelper::getRawTableName($conf['table']);
 
 
                     $item = LightRealistTool::getListGeneralActionItemByActionId($actionId, $conf);
@@ -207,7 +208,7 @@ class LightKitAdminListGeneralActionHandler extends LightRealistBaseListGeneralA
                     //--------------------------------------------
                     // CHECK PERMISSION
                     //--------------------------------------------
-                    $this->checkMicroPermission("Light_Kit_Admin.tables.$table.read");
+                    $this->checkMicroPermission("tables.$table.read");
 
 
                     //--------------------------------------------
@@ -276,7 +277,7 @@ class LightKitAdminListGeneralActionHandler extends LightRealistBaseListGeneralA
                  */
                 $service = $this->container->get("realist");
                 $conf = $service->getConfigurationArrayByRequestId($requestId);
-                $table = $conf['table'];
+                $table = DuelistHelper::getRawTableName($conf['table']);
 
 
                 $item = LightRealistTool::getListGeneralActionItemByActionId($actionId, $conf);
@@ -291,7 +292,7 @@ class LightKitAdminListGeneralActionHandler extends LightRealistBaseListGeneralA
                 //--------------------------------------------
                 // CHECK PERMISSION
                 //--------------------------------------------
-                $this->checkMicroPermission("Light_Kit_Admin.tables.$table.create");
+                $this->checkMicroPermission("tables.$table.create");
 
 
                 //--------------------------------------------

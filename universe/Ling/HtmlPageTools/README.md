@@ -38,6 +38,10 @@ Summary
 History Log
 =============
 
+- 2.1.1 -- 2019-12-12
+
+    - update HtmlPageCopilot->registerLibrary, add comment 
+
 - 2.1.0 -- 2019-09-26
 
     - add support for modals

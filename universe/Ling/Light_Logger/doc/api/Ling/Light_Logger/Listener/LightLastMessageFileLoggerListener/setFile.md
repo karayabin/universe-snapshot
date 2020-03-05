@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightLastMessageFileLoggerListener::setFile](https://github.com/lingtalfi/Light_Logger/blob/master/Listener/LightLastMessageFileLoggerListener.php#L40-L43)
+See the source code for method [LightLastMessageFileLoggerListener::setFile](https://github.com/lingtalfi/Light_Logger/blob/master/Listener/LightLastMessageFileLoggerListener.php#L41-L44)
 
 
 See Also

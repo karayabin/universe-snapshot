@@ -7,7 +7,7 @@ LightEndRoutineDebuggerHandler::handle
 
 
 
-LightEndRoutineDebuggerHandler::handle — Executes the end routine.
+LightEndRoutineDebuggerHandler::handle — Listener for the [Light.end_routine event](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md).
 
 
 
@@ -21,7 +21,10 @@ public [LightEndRoutineDebuggerHandler::handle](https://github.com/lingtalfi/Lig
 
 
 
-Executes the end routine.
+Listener for the [Light.end_routine event](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md).
+
+Writes some debug variables into a file.
+Both the debug variables and the file are defined in the service configuration.
 
 
 
@@ -46,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightEndRoutineDebuggerHandler::handle](https://github.com/lingtalfi/Light_EndRoutine_Debugger/blob/master/Handler/LightEndRoutineDebuggerHandler.php#L55-L99)
+See the source code for method [LightEndRoutineDebuggerHandler::handle](https://github.com/lingtalfi/Light_EndRoutine_Debugger/blob/master/Handler/LightEndRoutineDebuggerHandler.php#L75-L119)
 
 
 See Also
@@ -54,5 +57,5 @@ See Also
 
 The [LightEndRoutineDebuggerHandler](https://github.com/lingtalfi/Light_EndRoutine_Debugger/blob/master/doc/api/Ling/Light_EndRoutine_Debugger/Handler/LightEndRoutineDebuggerHandler.md) class.
 
-Previous method: [__construct](https://github.com/lingtalfi/Light_EndRoutine_Debugger/blob/master/doc/api/Ling/Light_EndRoutine_Debugger/Handler/LightEndRoutineDebuggerHandler/__construct.md)<br>Next method: [setOptions](https://github.com/lingtalfi/Light_EndRoutine_Debugger/blob/master/doc/api/Ling/Light_EndRoutine_Debugger/Handler/LightEndRoutineDebuggerHandler/setOptions.md)<br>
+Previous method: [setContainer](https://github.com/lingtalfi/Light_EndRoutine_Debugger/blob/master/doc/api/Ling/Light_EndRoutine_Debugger/Handler/LightEndRoutineDebuggerHandler/setContainer.md)<br>Next method: [setOptions](https://github.com/lingtalfi/Light_EndRoutine_Debugger/blob/master/doc/api/Ling/Light_EndRoutine_Debugger/Handler/LightEndRoutineDebuggerHandler/setOptions.md)<br>
 

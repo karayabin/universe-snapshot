@@ -79,6 +79,8 @@ interface SimplePdoWrapperInterface
     /**
      * Executes the replace statement and returns the lastInsertId.
      *
+     * Note that **replace** is a mysql extension of the sql standard.
+     *
      * Note: at least in mysql a replace statement always create a new record,
      * and potentially delete the old record (based on primary key or unique index detection)
      * if it gets in the way.
@@ -100,7 +102,6 @@ interface SimplePdoWrapperInterface
      * @param $table
      * @param array $fields
      * @param mixed $whereConds : the where conditions. This has two possible forms:
-     *
      *      - string: the where statement (not including the leading where keyword) directly.
      *                  The user is then responsible for using prepared statement markers if she needs them.
      *      - array of key => value: will concatenate a where statement using the AND operator, like this:
@@ -109,6 +110,11 @@ interface SimplePdoWrapperInterface
      *                              key = :marker_for_value
      *                              (AND key2 = :marker_for_value2)*
      *                          Note that in this case the markers are set automatically (sql injection safe).
+     *
+     *      - a Where object. See more details in the @page(where class) or in the @page(where section of the documentation). Usage:
+     *
+     *              Where::inst()->key("category")->equals("fruit")
+     *                           ->key("name")->like("a");
      *
      *
      *

@@ -1,0 +1,62 @@
+title: Resource form
+form_handler: 
+    id: realgen-luda_resource
+    fields: 
+        lud_user_id: 
+            label: Lud user id
+            type: table_list
+            validators: 
+                required: []
+            
+            tableListIdentifier: Light_Kit_Admin_UserData.lud_user.id
+        
+        resource_identifier: 
+            label: Resource identifier
+            type: string
+            validators: 
+                required: []
+            
+        
+        dir: 
+            label: Dir
+            type: string
+            validators: 
+                required: []
+            
+        
+        filename: 
+            label: Filename
+            type: string
+            validators: 
+                required: []
+            
+        
+        is_private: 
+            label: Is private
+            type: string
+            validators: 
+                required: []
+            
+        
+        date_creation: 
+            label: Date creation
+            type: datetime
+            validators: 
+                required: []
+            
+        
+        date_last_update: 
+            label: Date last update
+            type: datetime
+            validators: 
+                required: []
+            
+        
+    
+
+on_success_handler: 
+    type: database
+    params: 
+        table: luda_resource
+        pluginName: Light_Kit_Admin_UserData
+    

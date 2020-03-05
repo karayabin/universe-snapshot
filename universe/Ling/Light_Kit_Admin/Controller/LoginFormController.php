@@ -27,6 +27,8 @@ class LoginFormController extends LightKitAdminController
      */
     public function render()
     {
+
+
         $updator = null;
 
         if (
@@ -41,6 +43,7 @@ class LoginFormController extends LightKitAdminController
              * @var $userDb LightUserDatabaseInterface
              */
             $userDb = $this->getContainer()->get('user_database');
+
             $userInfo = $userDb->getUserInfoByCredentials($userName, $password);
 
             if (false !== $userInfo) {
@@ -60,6 +63,12 @@ class LoginFormController extends LightKitAdminController
                 $user->setRights($userInfo['rights']);
                 $user->setExtra($userInfo['extra']);
                 $user->connect();
+
+
+                if (session_status() === PHP_SESSION_NONE) { // reduce risk of session fixation
+                    session_start();
+                    session_regenerate_id();
+                }
 
 
 

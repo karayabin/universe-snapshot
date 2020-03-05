@@ -4,7 +4,7 @@
 
 The DummyHtmlPageCopilot class
 ================
-2019-08-30 --> 2019-10-18
+2019-08-30 --> 2019-11-25
 
 
 
@@ -111,3 +111,6 @@ See the source code of [Ling\Light_HtmlPageCopilot\Dependency\DummyHtmlPageCopil
 
 
 
+SeeAlso
+==============
+Next class: [LightHtmlPageCopilotService](https://github.com/lingtalfi/Light_HtmlPageCopilot/blob/master/doc/api/Ling/Light_HtmlPageCopilot/Service/LightHtmlPageCopilotService.md)<br>

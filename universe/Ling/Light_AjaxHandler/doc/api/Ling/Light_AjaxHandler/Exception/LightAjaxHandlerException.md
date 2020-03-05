@@ -4,7 +4,7 @@
 
 The LightAjaxHandlerException class
 ================
-2019-09-19 --> 2019-09-30
+2019-09-19 --> 2019-11-28
 
 
 
@@ -54,4 +54,4 @@ See the source code of [Ling\Light_AjaxHandler\Exception\LightAjaxHandlerExcepti
 
 SeeAlso
 ==============
-Previous class: [LightAjaxHandlerController](https://github.com/lingtalfi/Light_AjaxHandler/blob/master/doc/api/Ling/Light_AjaxHandler/Controller/LightAjaxHandlerController.md)<br>Next class: [ContainerAwareLightAjaxHandler](https://github.com/lingtalfi/Light_AjaxHandler/blob/master/doc/api/Ling/Light_AjaxHandler/Handler/ContainerAwareLightAjaxHandler.md)<br>
+Previous class: [LightAjaxHandlerController](https://github.com/lingtalfi/Light_AjaxHandler/blob/master/doc/api/Ling/Light_AjaxHandler/Controller/LightAjaxHandlerController.md)<br>Next class: [BaseLightAjaxHandler](https://github.com/lingtalfi/Light_AjaxHandler/blob/master/doc/api/Ling/Light_AjaxHandler/Handler/BaseLightAjaxHandler.md)<br>

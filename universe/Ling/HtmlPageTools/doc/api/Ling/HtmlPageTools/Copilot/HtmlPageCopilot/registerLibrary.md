@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [HtmlPageCopilot::registerLibrary](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot/registerLibrary.md)(string $name, array $js = [], array $css = []) : void
+public [HtmlPageCopilot::registerLibrary](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot/registerLibrary.md)(string $name, ?array $js = [], ?array $css = []) : void
 
 
 
@@ -29,6 +29,12 @@ Please for the names of your library, use the camelNotation, examples:
 - jquery
 - bootstrap
 - myLibrary
+
+If you're using a library that comes from a universe planet, then use the planet name directly:
+
+- Chloroform_HeliumRenderer
+- JSortTable
+- ...
 
 
 
@@ -64,7 +70,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [HtmlPageCopilot::registerLibrary](https://github.com/lingtalfi/HtmlPageTools/blob/master/Copilot/HtmlPageCopilot.php#L225-L230)
+See the source code for method [HtmlPageCopilot::registerLibrary](https://github.com/lingtalfi/HtmlPageTools/blob/master/Copilot/HtmlPageCopilot.php#L242-L247)
 
 
 See Also

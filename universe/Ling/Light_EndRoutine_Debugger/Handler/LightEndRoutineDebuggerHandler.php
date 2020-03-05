@@ -6,13 +6,14 @@ namespace Ling\Light_EndRoutine_Debugger\Handler;
 use Ling\ArrayToString\ArrayToStringTool;
 use Ling\BabyYaml\BabyYamlUtil;
 use Ling\Bat\BDotTool;
-use Ling\Light_EndRoutine\Handler\ContainerAwareLightEndRoutineHandler;
+use Ling\Light\ServiceContainer\LightServiceContainerAwareInterface;
+use Ling\Light\ServiceContainer\LightServiceContainerInterface;
 use Ling\Light_Logger\LightLoggerService;
 
 /**
  * The LightEndRoutineDebuggerHandler class.
  */
-class LightEndRoutineDebuggerHandler extends ContainerAwareLightEndRoutineHandler
+class LightEndRoutineDebuggerHandler implements LightServiceContainerAwareInterface
 {
 
 
@@ -40,17 +41,36 @@ class LightEndRoutineDebuggerHandler extends ContainerAwareLightEndRoutineHandle
     protected $options;
 
     /**
-     * @overrides
+     * This property holds the container for this instance.
+     * @var LightServiceContainerInterface
+     */
+    protected $container;
+
+
+    /**
+     * Builds the LightEndRoutineDebuggerHandler instance.
      */
     public function __construct()
     {
-        parent::__construct();
         $this->options = [];
+        $this->container = null;
+    }
+
+    /**
+     * @implementation
+     */
+    public function setContainer(LightServiceContainerInterface $container)
+    {
+        $this->container = $container;
     }
 
 
     /**
-     * @implementation
+     * Listener for the @page(Light.end_routine event).
+     *
+     * Writes some debug variables into a file.
+     * Both the debug variables and the file are defined in the service configuration.
+     *
      */
     public function handle()
     {

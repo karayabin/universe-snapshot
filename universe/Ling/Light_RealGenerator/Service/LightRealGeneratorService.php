@@ -5,7 +5,6 @@ namespace Ling\Light_RealGenerator\Service;
 
 
 use Ling\BabyYaml\BabyYamlUtil;
-use Ling\Bat\SmartCodeTool;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
 use Ling\Light_RealGenerator\Exception\LightRealGeneratorException;
 use Ling\Light_RealGenerator\Generator\FormConfigGenerator;
@@ -55,6 +54,18 @@ class LightRealGeneratorService
 
         if (array_key_exists($identifier, $conf)) {
             $genConf = $conf[$identifier];
+
+
+            // replacing variables now
+            $variables = $genConf['variables'] ?? [];
+            array_walk_recursive($genConf, function (&$v) use (&$n, $variables) {
+                foreach ($variables as $variable => $value) {
+                    if (false !== strpos($v, '{$' . $variable . '}')) {
+                        $v = str_replace('{$' . $variable . '}', $value, $v);
+                    }
+                }
+            });
+
 
 
             if (array_key_exists("list", $genConf)) {

@@ -11,17 +11,21 @@ use Ling\Bat\BDotTool;
 use Ling\Bat\SmartCodeTool;
 use Ling\Light\ServiceContainer\LightServiceContainerAwareInterface;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
-use Ling\Light\Tool\LightTool;
-use Ling\Light_Csrf\Service\LightCsrfService;
+use Ling\Light_CsrfSession\Service\LightCsrfSessionService;
 use Ling\Light_Database\LightDatabasePdoWrapper;
 use Ling\Light_Realist\ActionHandler\LightRealistActionHandlerInterface;
 use Ling\Light_Realist\DynamicInjection\RealistDynamicInjectionHandlerInterface;
 use Ling\Light_Realist\Exception\LightRealistException;
+use Ling\Light_Realist\Helper\DuelistHelper;
+use Ling\Light_Realist\Helper\RealistHelper;
 use Ling\Light_Realist\ListActionHandler\LightRealistListActionHandlerInterface;
 use Ling\Light_Realist\ListGeneralActionHandler\LightRealistListGeneralActionHandlerInterface;
 use Ling\Light_Realist\Rendering\RealistListRendererInterface;
 use Ling\Light_Realist\Rendering\RealistRowsRendererInterface;
+use Ling\Light_Realist\Rendering\RequestIdAwareRendererInterface;
 use Ling\Light_Realist\Tool\LightRealistTool;
+use Ling\Light_UserRowRestriction\Service\LightUserRowRestrictionService;
+use Ling\ParametrizedSqlQuery\Helper\ParametrizedSqlQueryHelper;
 use Ling\ParametrizedSqlQuery\ParametrizedSqlQueryUtil;
 
 /**
@@ -215,34 +219,47 @@ class LightRealistService
      */
     public function executeRequestById(string $requestId, array $params = []): array
     {
+
         $requestDeclaration = $this->getConfigurationArrayByRequestId($requestId);
-
-        $pluginName = $requestDeclaration['plugin'];
-        $table = $requestDeclaration['table'];
-
+        $table = DuelistHelper::getRawTableName($requestDeclaration['table']);
 
         //--------------------------------------------
         // CHECKING CSRF TOKEN
         //--------------------------------------------
-        $csrfTokenPass = $params['csrf_token_pass'] ?? false;
-        $csrfToken = $requestDeclaration['csrf_token'] ?? null;
-        if (false === $csrfTokenPass) {
-            if (null !== $csrfToken) {
-                $csrfTokenName = $csrfToken['name'] ?? "realist-request";
-                $this->checkCsrfToken($csrfTokenName, $params);
-            }
+        $csrfToken = $requestDeclaration['csrf_token'] ?? true;
+        if (true === $csrfToken) {
+            $csrfTokenValue = $params['csrf_token'] ?? '';
+            $this->checkCsrfToken($csrfTokenValue);
         }
+
+//        $csrfTokenPass = $params['csrf_token_pass'] ?? false;
+//        if (false === $csrfTokenPass) {
+//            if (null !== $csrfToken) {
+//                $csrfTokenValue = $params['csrf_token'] ?? '';
+//                $this->checkCsrfToken($csrfTokenValue);
+//            }
+//        }
 
 
         $tags = $params['tags'] ?? [];
 
 
         //--------------------------------------------
-        // CHECKING MICRO PERMISSION
+        // ROW RESTRICTION
+        //--------------------------------------------
+        $rowRestrictionMode = $requestDeclaration['row_restriction_mode'] ?? null;
+        if ("strict" === $rowRestrictionMode) {
+            LightUserRowRestrictionService::$mode = LightUserRowRestrictionService::MODE_STRICT;
+        } elseif ("permissive" === $rowRestrictionMode) {
+            LightUserRowRestrictionService::$mode = LightUserRowRestrictionService::MODE_PERMISSIVE;
+        }
+
+        //--------------------------------------------
+        // CHECKING MICRO PERMISSION...deprecated???
         //--------------------------------------------
         $useMicroPermission = $requestDeclaration['use_micro_permission'] ?? true;
         if (true === $useMicroPermission) {
-            $microPermission = "$pluginName.tables.$table.read";
+            $microPermission = "tables.$table.read";
             if (false === $this->container->get("micro_permission")->hasMicroPermission($microPermission)) {
                 throw new LightRealistException("Access denied: you don't have the micro-permission: $microPermission.");
             }
@@ -305,6 +322,10 @@ class LightRealistService
                 $rowsRendererInstance->setContainer($this->container);
             }
 
+            if ($rowsRendererInstance instanceof RequestIdAwareRendererInterface) {
+                $rowsRendererInstance->setRequestId($requestId);
+            }
+
             $ric = $requestDeclaration['ric'] ?? [];
             $rowsRendererInstance->setRic($ric);
 
@@ -324,18 +345,22 @@ class LightRealistService
             if (array_key_exists('checkbox_column', $rowsRenderer)) {
                 $conf = $rowsRenderer['checkbox_column'];
                 $name = $conf['name'] ?? 'checkbox';
-                $label = $conf['label'] ?? '#';
-                $rowsRendererInstance->addDynamicColumn($name, $label, 'pre');
+                $rowsRendererInstance->addDynamicColumn($name, 'pre');
             }
 
 
             // adding special action column
-            if (array_key_exists('action_column', $rowsRenderer)) {
-                $conf = $rowsRenderer['action_column'];
-                $name = $conf['name'] ?? 'action';
-                $label = $conf['label'] ?? 'Actions';
-                $rowsRendererInstance->addDynamicColumn($name, $label, 'post');
+            $actionColName = RealistHelper::getActionColumnNameByRequestDeclaration($requestDeclaration);
+            if (false !== $actionColName) {
+                $rowsRendererInstance->addDynamicColumn($actionColName, 'post');
             }
+
+
+            // hidden columns
+            if (array_key_exists("hidden_columns", $rendering)) {
+                $rowsRendererInstance->setHiddenColumns($rendering["hidden_columns"]);
+            }
+
 
             $rowsHtml = $rowsRendererInstance->render($rows);
 
@@ -564,6 +589,7 @@ class LightRealistService
     public function getListRendererByRequestId(string $requestId): RealistListRendererInterface
     {
         $requestDeclaration = $this->getConfigurationArrayByRequestId($requestId);
+
         $rendering = $requestDeclaration['rendering'] ?? [];
         $listRendererConf = $rendering['list_renderer'] ?? [];
         $listRendererId = $listRendererConf['identifier'] ?? null;
@@ -573,7 +599,6 @@ class LightRealistService
         if (false === array_key_exists($listRendererId, $this->listRenderers)) {
             $this->error("List renderer not found with identifier $listRendererId (requestId=$requestId).");
         }
-
 
         $listRenderer = $this->listRenderers[$listRendererId];
 
@@ -742,8 +767,7 @@ class LightRealistService
     {
         if (array_key_exists("csrf_token", $item)) {
             if (array_key_exists("csrf_token", $params)) {
-                $tokenValue = $params['csrf_token'];
-                LightRealistTool::checkAjaxToken($item['csrf_token'], $tokenValue, $this->container);
+                LightRealistTool::checkAjaxToken($params['csrf_token'], $this->container);
             } else {
                 $this->error("The csrf_token entry was not provided with the post params.");
             }
@@ -795,9 +819,8 @@ class LightRealistService
 
     /**
      * Returns the columns used in the sql query by parsing the given request declaration.
-     * Usually, this is just the base_fields array, but with some more dynamic requests,
-     * it might involve a little bit more computation.
-     *
+     * It's an array of alias => column_expression, usually based on the base_fields property.
+     * See the @page(duelist) page for more info.
      *
      * @param array $requestDeclaration
      * @return array
@@ -805,7 +828,9 @@ class LightRealistService
     public function getSqlColumnsByRequestDeclaration(array $requestDeclaration): array
     {
         $ret = $requestDeclaration['base_fields'] ?? [];
-        return $ret;
+        $alias2Expr = ParametrizedSqlQueryHelper::getColumnName2ColumnExpression($ret);
+        $labels = BDotTool::getDotValue("rendering.column_labels", $requestDeclaration, []);
+        return array_intersect_key($labels, $alias2Expr);
     }
 
 
@@ -849,23 +874,19 @@ class LightRealistService
     /**
      * Checks whether the csrf token is valid, throws an exception if that's not the case.
      *
-     * @param string $tokenName
-     * @param array $params
+     * @param string $token
      * @throws \Exception
      */
-    protected function checkCsrfToken(string $tokenName, array $params)
+    protected function checkCsrfToken(string $token)
     {
-        if (array_key_exists("csrf_token", $params)) {
-            /**
-             * @var $csrf LightCsrfService
-             */
-            $csrf = $this->container->get("csrf");
-            if (true === $csrf->isValid($tokenName, $params['csrf_token'], true)) {
-                return;
-            }
-            $this->error("Invalid csrf token value provided for token $tokenName.");
+        /**
+         * @var $csrfService LightCsrfSessionService
+         */
+        $csrfService = $this->container->get("csrf_session");
+        if (true === $csrfService->isValid($token)) {
+            return;
         }
-        $this->error("The \"csrf_token\" key was not provided with the payload.");
+        $this->error("Invalid csrf token value provided.");
     }
 
 
@@ -907,7 +928,7 @@ class LightRealistService
 
     /**
      * Parses the given item, and converts csrf_token = true
-     * entries to an actual csrf_token = [ name: theTokenName, value: theTokenValue ] array.
+     * entries to an actual csrf_token value.
      *
      * Note: if ajax, then the value is not generated, and a fake value is used.
      *
@@ -918,23 +939,11 @@ class LightRealistService
     private function convertCsrfTokenByItem(array &$item, string $requestId)
     {
         if (array_key_exists("csrf_token", $item) && true === $item['csrf_token']) {
-
-            $p = explode('.', $item['action_id'], 2);
-            $pluginName = array_shift($p);
-            $tokenName = $requestId . "-" . $pluginName . "-" . implode(".", $p);
-            $tokenValue = "";
-            // we create the csrf token value only from the main index.php script, not from ajax services
-            if (false === LightTool::isAjax($this->container)) {
-                /**
-                 * @var $csrf LightCsrfService
-                 */
-                $csrf = $tokenValue = $this->container->get('csrf');
-                $tokenValue = $csrf->createToken($tokenName);
-            }
-            $item['csrf_token'] = [
-                "name" => $tokenName,
-                "value" => $tokenValue,
-            ];
+            /**
+             * @var $csrfService LightCsrfSessionService
+             */
+            $csrfService = $this->container->get('csrf_session');
+            $item['csrf_token'] = $csrfService->getToken();
         }
     }
 }

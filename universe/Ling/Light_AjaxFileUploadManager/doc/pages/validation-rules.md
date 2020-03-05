@@ -1,23 +1,20 @@
 Validation rules
 =============
-2019-08-02
+2019-08-02 -> 2020-01-28
 
 
 
-The validation rules is actually an array of id => validation rules.
+The validation rules is actually an array of validation rules.
 
 Where validation rules is an array of validationRuleName => parameters
 
-The id is just any string.
 
 The main use of it is to validate/cancel the upload of a file before it's treated by the [actions](https://github.com/lingtalfi/Light_AjaxFileUploadManager/blob/master/doc/pages/action-list.md).
 
 Each validation rule is basically a test which returns a boolean: whether the validation rule passed.
 
-An id is bound to any number of validation rules.
-
-So when the file is uploaded, if the id (passed along with the uploaded file) has some validation rules associated with it,
-then all validation rules are tested. 
+When the file is uploaded, all the validation rules bound to the chosen [configuration item](https://github.com/lingtalfi/Light_AjaxFileUploadManager/blob/master/doc/pages/configuration-files.md#the-configuration-item) are tested.
+ 
 If at least one validation rule fails, then the file will not be uploaded, and the service will return an error message,
 as defined in the [ajax file upload protocol](https://github.com/lingtalfi/Light_AjaxFileUploadManager/blob/master/doc/pages/ajax-file-upload-protocol.md).
 
@@ -51,7 +48,7 @@ $ajax_file_upload_manager.methods_collection:
         method: addValidationRules
         args:
             validationRules:
-                lka_user_profile: []
+                lka_user_profile: 
                     maxFileSize: 2M
                     extensions:
                         - png

@@ -1,0 +1,44 @@
+label: Light Kit Admin Home
+layout: templates/Light_Kit_Admin/layouts/zeroadmin/zeroadmin_standalone_layout.php
+layout_vars:
+    # iframe style
+    style: none
+
+
+title: Light_Kit_Admin solo page
+description: <
+    This is a light_kit_admin solo page
+>
+
+zones:
+    notifications: []
+#        -
+#            name: zeroadmin_notification_alert
+#            type: picasso
+#            className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\ZeroAdminNotificationAlertWidget
+#            widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ZeroAdminNotificationAlertWidget
+#            template: default.php
+#            vars:
+#                alert_class: alert-primary
+#                title: Well done!
+#                body: A simple primary alert—check it out!
+#                is_dismissible: true
+
+    toasts: []
+#        -
+#            name: zeroadmin_notification_toast
+#            type: picasso
+#            className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\ZeroAdminNotificationToastWidget
+#            widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ZeroAdminNotificationToastWidget
+#            template: default.php
+#            vars:
+#                title: Bootstrap
+#                icon: fas fa-square
+#                icon_color: "#007bff"
+#                body: Hello, world! This is a toast message.
+#                time_string: 11 mins ago
+#                is_dismissible: true
+#                delay: 100000
+
+
+    body: []

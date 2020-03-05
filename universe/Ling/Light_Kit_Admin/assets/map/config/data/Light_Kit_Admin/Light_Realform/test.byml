@@ -1,3 +1,5 @@
+# The form handler section is responsible for configuring the form handler (not to confound with the realform handler).
+# Usually, the form handler ends up being a Chloroform instance.
 form_handler:
     # The chloroform instance, otherwise the realform handler should provide a default instance.
     ?class: MyClass\Blabla
@@ -92,5 +94,14 @@ form_handler:
             type: text
             label: Extra
 
-on_success_handler: MyClass\Blabla
+# This section is used to configure the RealformSuccessHandlerInterface instance
+on_success_handler:
+    # The type is an arbitrary identifier representing the type of success handler required for this realform process.
+    # The type is specific to the concrete realform handler instance (i.e. see the concrete realform handler class for the available types),
+    type: database
+
+    # The params is an array of parameters to go along with the type (see the type entry just above).
+    # This is also specific to the concrete realform handler instance.
+    params:
+        table: lud_user
 

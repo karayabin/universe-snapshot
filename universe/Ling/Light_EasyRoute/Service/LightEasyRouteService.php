@@ -5,15 +5,13 @@ namespace Ling\Light_EasyRoute\Service;
 
 
 use Ling\BabyYaml\BabyYamlUtil;
-use Ling\Light\Core\Light;
-use Ling\Light\Http\HttpRequestInterface;
+use Ling\Light\Events\LightEvent;
 use Ling\Light_EasyRoute\Exception\LightEasyRouteException;
-use Ling\Light_Initializer\Initializer\LightInitializerInterface;
 
 /**
  * The LightEasyRouteService class.
  */
-class LightEasyRouteService implements LightInitializerInterface
+class LightEasyRouteService
 {
 
     /**
@@ -34,11 +32,19 @@ class LightEasyRouteService implements LightInitializerInterface
         $this->bundleFiles = [];
     }
 
+
+
     /**
-     * @implementation
+     * Listener for the @page(Light.initialize_1 event).
+     * It will register all the routes from the files registered by other plugins.
+     *
+     *
+     * @param LightEvent $event
+     * @throws LightEasyRouteException
      */
-    public function initialize(Light $light, HttpRequestInterface $httpRequest)
+    public function initialize(LightEvent $event)
     {
+        $light = $event->getLight();
         $appDir = $light->getApplicationDir();
         foreach ($this->bundleFiles as $path) {
             $absolutePath = $appDir . "/" . $path;

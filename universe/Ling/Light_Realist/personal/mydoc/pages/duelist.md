@@ -61,9 +61,18 @@ The user has almost no interaction with it.
 
 The developer writes this section by using the following settings:
 
-- table: the name of the table to interact with
-- ric: the row identifier columns array. See the ric section for more details.
-- base_fields: the list of columns used in the sql request (expressions with aliases are allowed)
+- table: the name of the table to interact with. 
+            It can be followed by an alias (with exactly one space between the table and the alias).
+            For instance, those are valid table values:
+            - my_table 
+            - my_table m
+            - my_table my_alias
+            
+- ric: the row identifier columns array. 
+            Unless you have specific needs, we suggest using the strict ric.
+            See the ric section for more details.
+- base_fields: the list of columns used in the sql request.
+            Expressions with aliases are allowed if they use the AS keyword (case doesn't matter).
 - ?base_joins: array|string. Each item being a join expression.
         Example: 
             - inner join user u on i.user_id=u.id 
@@ -179,6 +188,37 @@ Also, there are some reserved variable names, which basically trigger automatica
 - $page_length: converts the variable to an int. The "all" special value means: no pagination at all (i.e. there is only one page with all the rows in it)
 
 If the check fails, the request is rejected.
+
+
+
+#### Special variables treatment
+
+In addition to that, some variables have an extra special treatment.
+
+##### $column
+
+The $column variable is replaced by a value based on the ones defined in the **base_fields** property:
+        - if the corresponding base field doesn't use an alias, the $column variable is replaced by the column name
+        - if the corresponding base field uses an alias, the $column variable is replaced by the column expression before the alias
+        
+So for instance if the base_fields contains those two entries:
+
+- concat(user_id, '. ', u.pseudo) as user_id
+- the_date
+
+Then if a $column variable is passed and equals "the_date", it will be left unchanged (or replaced with the_date). 
+But if that $column variable is equal to "user_id", it will be replaced with concat(user_id, '. ', u.pseudo).
+
+This gives us more (notation) power when creating (relatively more involved) where expressions. 
+ 
+
+
+
+
+
+
+
+
 
 
 ### Inner markers

@@ -4,7 +4,7 @@
 
 The LightUserData2SvpDataTransformer class
 ================
-2019-09-27 --> 2019-10-31
+2019-09-27 --> 2020-03-05
 
 
 
@@ -80,4 +80,4 @@ See the source code of [Ling\Light_UserData\Chloroform\DataTransformer\LightUser
 
 SeeAlso
 ==============
-Previous class: [TagApiInterface](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/TagApiInterface.md)<br>Next class: [ValidUserDataUrlValidator](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Chloroform/Validator/ValidUserDataUrlValidator.md)<br>
+Previous class: [LightUserDataApiFactory](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/LightUserDataApiFactory.md)<br>Next class: [ValidUserDataUrlValidator](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Chloroform/Validator/ValidUserDataUrlValidator.md)<br>

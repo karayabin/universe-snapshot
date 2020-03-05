@@ -22,6 +22,7 @@ protected [BaseRealformHandler::getChloroformField](https://github.com/lingtalfi
 
 
 Returns a chloroform field.
+Note: fields from the [Light_ChloroformExtension plugin](https://github.com/lingtalfi/Light_ChloroformExtension) also work.
 
 
 
@@ -66,7 +67,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [BaseRealformHandler::getChloroformField](https://github.com/lingtalfi/Light_Realform/blob/master/Handler/BaseRealformHandler.php#L252-L300)
+See the source code for method [BaseRealformHandler::getChloroformField](https://github.com/lingtalfi/Light_Realform/blob/master/Handler/BaseRealformHandler.php#L265-L320)
 
 
 See Also

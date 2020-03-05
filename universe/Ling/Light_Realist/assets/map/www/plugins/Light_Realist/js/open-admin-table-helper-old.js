@@ -10,7 +10,7 @@
  *
  *
  */
-if ("undefined" === typeof window.OpenAdminTableHelper) {
+if ("undefined" === typeof window.zzOpenAdminTableHelper) {
 
     (function () {
 
@@ -28,8 +28,8 @@ if ("undefined" === typeof window.OpenAdminTableHelper) {
 
         var $ = jQuery;
 
-        window.OpenAdminTableHelper = function (options) {
-            this.options = $.extend({}, window.OpenAdminTableHelper._defaults, options);
+        window.zzOpenAdminTableHelper = function (options) {
+            this.options = $.extend({}, window.zzOpenAdminTableHelper._defaults, options);
             this.jContainer = this.options.jContainer;
             this.jTable = this.jContainer.find(this.options.table_selector);
             this.useSpinKit = this.options.use_spinkit_helper;
@@ -80,7 +80,7 @@ if ("undefined" === typeof window.OpenAdminTableHelper) {
 
         };
 
-        window.OpenAdminTableHelper.prototype = {
+        window.zzOpenAdminTableHelper.prototype = {
             listen: function () {
                 var $this = this;
 
@@ -683,7 +683,7 @@ if ("undefined" === typeof window.OpenAdminTableHelper) {
                 return ret;
             },
             error: function (msg) {
-                throw new Error("OpenAdminTableHelper error: " + msg);
+                throw new Error("zzOpenAdminTableHelper error: " + msg);
             },
             onServerError: function (msg) {
 
@@ -691,7 +691,7 @@ if ("undefined" === typeof window.OpenAdminTableHelper) {
         };
 
 
-        window.OpenAdminTableHelper._defaults = {
+        window.zzOpenAdminTableHelper._defaults = {
             service_url: '/ajax-handler',
             ajax_handler_id: 'Light_Realist',
             ajax_action_id: 'realist-request',

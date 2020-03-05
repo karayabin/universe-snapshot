@@ -49,7 +49,7 @@ Returns mixed.
 
 Source Code
 ===========
-See the source code for method [LightRealistDynamicInjectionHandler::handle](https://github.com/lingtalfi/Light_Realist/blob/master/DynamicInjection/LightRealistDynamicInjectionHandler.php#L22-L58)
+See the source code for method [LightRealistDynamicInjectionHandler::handle](https://github.com/lingtalfi/Light_Realist/blob/master/DynamicInjection/LightRealistDynamicInjectionHandler.php#L21-L70)
 
 
 See Also

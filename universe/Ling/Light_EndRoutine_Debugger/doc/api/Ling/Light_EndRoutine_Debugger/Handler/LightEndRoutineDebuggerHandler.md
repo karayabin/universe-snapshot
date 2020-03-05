@@ -4,7 +4,7 @@
 
 The LightEndRoutineDebuggerHandler class
 ================
-2019-09-20 --> 2019-09-23
+2019-09-20 --> 2019-12-19
 
 
 
@@ -22,21 +22,17 @@ Class synopsis
 ==============
 
 
-class <span class="pl-k">LightEndRoutineDebuggerHandler</span> extends [ContainerAwareLightEndRoutineHandler](https://github.com/lingtalfi/Light_EndRoutine/blob/master/doc/api/Ling/Light_EndRoutine/Handler/ContainerAwareLightEndRoutineHandler.md) implements [LightServiceContainerAwareInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerAwareInterface.md), [LightEndRoutineHandlerInterface](https://github.com/lingtalfi/Light_EndRoutine/blob/master/doc/api/Ling/Light_EndRoutine/Handler/LightEndRoutineHandlerInterface.md) {
+class <span class="pl-k">LightEndRoutineDebuggerHandler</span> implements [LightServiceContainerAwareInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerAwareInterface.md) {
 
 - Properties
     - protected array [$options](#property-options) ;
-
-- Inherited properties
-    - protected [Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) [ContainerAwareLightEndRoutineHandler::$container](#property-container) ;
+    - protected [Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) [$container](#property-container) ;
 
 - Methods
     - public [__construct](https://github.com/lingtalfi/Light_EndRoutine_Debugger/blob/master/doc/api/Ling/Light_EndRoutine_Debugger/Handler/LightEndRoutineDebuggerHandler/__construct.md)() : void
+    - public [setContainer](https://github.com/lingtalfi/Light_EndRoutine_Debugger/blob/master/doc/api/Ling/Light_EndRoutine_Debugger/Handler/LightEndRoutineDebuggerHandler/setContainer.md)([Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) $container) : void
     - public [handle](https://github.com/lingtalfi/Light_EndRoutine_Debugger/blob/master/doc/api/Ling/Light_EndRoutine_Debugger/Handler/LightEndRoutineDebuggerHandler/handle.md)() : void
     - public [setOptions](https://github.com/lingtalfi/Light_EndRoutine_Debugger/blob/master/doc/api/Ling/Light_EndRoutine_Debugger/Handler/LightEndRoutineDebuggerHandler/setOptions.md)(array $options) : void
-
-- Inherited methods
-    - public ContainerAwareLightEndRoutineHandler::setContainer([Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) $container) : void
 
 }
 
@@ -72,10 +68,10 @@ Properties
 Methods
 ==============
 
-- [LightEndRoutineDebuggerHandler::__construct](https://github.com/lingtalfi/Light_EndRoutine_Debugger/blob/master/doc/api/Ling/Light_EndRoutine_Debugger/Handler/LightEndRoutineDebuggerHandler/__construct.md) &ndash; Builds the ContainerAwareLightEndRoutineHandler instance.
-- [LightEndRoutineDebuggerHandler::handle](https://github.com/lingtalfi/Light_EndRoutine_Debugger/blob/master/doc/api/Ling/Light_EndRoutine_Debugger/Handler/LightEndRoutineDebuggerHandler/handle.md) &ndash; Executes the end routine.
+- [LightEndRoutineDebuggerHandler::__construct](https://github.com/lingtalfi/Light_EndRoutine_Debugger/blob/master/doc/api/Ling/Light_EndRoutine_Debugger/Handler/LightEndRoutineDebuggerHandler/__construct.md) &ndash; Builds the LightEndRoutineDebuggerHandler instance.
+- [LightEndRoutineDebuggerHandler::setContainer](https://github.com/lingtalfi/Light_EndRoutine_Debugger/blob/master/doc/api/Ling/Light_EndRoutine_Debugger/Handler/LightEndRoutineDebuggerHandler/setContainer.md) &ndash; Sets the light service container interface.
+- [LightEndRoutineDebuggerHandler::handle](https://github.com/lingtalfi/Light_EndRoutine_Debugger/blob/master/doc/api/Ling/Light_EndRoutine_Debugger/Handler/LightEndRoutineDebuggerHandler/handle.md) &ndash; Listener for the [Light.end_routine event](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md).
 - [LightEndRoutineDebuggerHandler::setOptions](https://github.com/lingtalfi/Light_EndRoutine_Debugger/blob/master/doc/api/Ling/Light_EndRoutine_Debugger/Handler/LightEndRoutineDebuggerHandler/setOptions.md) &ndash; Sets the options.
-- ContainerAwareLightEndRoutineHandler::setContainer &ndash; Sets the light service container interface.
 
 
 

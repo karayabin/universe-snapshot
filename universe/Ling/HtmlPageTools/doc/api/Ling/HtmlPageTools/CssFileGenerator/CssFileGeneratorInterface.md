@@ -4,7 +4,7 @@
 
 The CssFileGeneratorInterface class
 ================
-2019-04-24 --> 2019-09-04
+2019-04-24 --> 2019-12-12
 
 
 
@@ -30,7 +30,7 @@ Class synopsis
 abstract class <span class="pl-k">CssFileGeneratorInterface</span>  {
 
 - Methods
-    - abstract public [generate](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/CssFileGenerator/CssFileGeneratorInterface/generate.md)([Ling\HtmlPageTools\Copilot\HtmlPageCopilot](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot.md) $copilot, string $identifier = null) : string
+    - abstract public [generate](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/CssFileGenerator/CssFileGeneratorInterface/generate.md)([Ling\HtmlPageTools\Copilot\HtmlPageCopilot](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot.md) $copilot, ?string $identifier = null) : string
 
 }
 

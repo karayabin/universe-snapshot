@@ -5,8 +5,15 @@ dependencies:
         - Chloroform
         - BabyYaml
         - Bat
+        - Light_ChloroformExtension
+        - Light_DatabaseInfo
+        - Light_Events
+        - Light_Flasher
         - Light_MicroPermission
         - SimplePdoWrapper
+        - WiseTool
+        - Light_Database
+        - Light_Crud
     
 
 post_install: 

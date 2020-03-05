@@ -143,6 +143,15 @@ class Light_RealformDocBuilder
                 "conception notes" => $doc . '/pages/conception-notes.md',
                 "dynamic injection handler" => $doc . '/pages/conception-notes-linear.md#dynamic-injection',
                 "recommended micro-permission notation for database" =>  'https://github.com/lingtalfi/Light_MicroPermission/blob/master/doc/pages/recommended-micropermission-notation.md',
+                "Light_ChloroformExtension plugin" =>  'https://github.com/lingtalfi/Light_ChloroformExtension',
+                "crud service" =>  'https://github.com/lingtalfi/Light_Crud',
+                "iframe signal" =>  'https://github.com/lingtalfi/TheBar/blob/master/discussions/iframe-signal.md',
+                "micro-permissions" =>  'https://github.com/lingtalfi/Light_MicroPermission/blob/master/doc/pages/conception-notes.md',
+                "micro-permission recommended notation for database interaction" =>  'https://github.com/lingtalfi/Light_MicroPermission/blob/master/doc/pages/recommended-micropermission-notation.md#database-interaction',
+                "flash service" =>  'https://github.com/lingtalfi/Light_Flasher/',
+                "the form multiplier pattern" =>  'https://github.com/lingtalfi/TheBar/blob/master/discussions/form-multiplier.md',
+                "the form multiplier trick document" =>  'https://github.com/lingtalfi/TheBar/blob/master/discussions/form-multiplier.md',
+                "standard micro-permission notation for database interaction" =>  'https://github.com/lingtalfi/Light_MicroPermission/blob/master/doc/pages/recommended-micropermission-notation.md#database-interaction',
             ],
             /**
              * An array of external classes to url.

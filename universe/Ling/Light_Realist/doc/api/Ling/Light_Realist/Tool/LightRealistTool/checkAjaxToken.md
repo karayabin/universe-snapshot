@@ -7,7 +7,7 @@ LightRealistTool::checkAjaxToken
 
 
 
-LightRealistTool::checkAjaxToken — Checks whether the given token is valid.
+LightRealistTool::checkAjaxToken — Checks whether the given token is valid and throws an exception if it's not the case.
 
 
 
@@ -16,16 +16,12 @@ Description
 ================
 
 
-public static [LightRealistTool::checkAjaxToken](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Tool/LightRealistTool/checkAjaxToken.md)(array $token, string $tokenValue, [Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) $container) : void
+public static [LightRealistTool::checkAjaxToken](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Tool/LightRealistTool/checkAjaxToken.md)(string $token, [Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) $container) : void
 
 
 
 
-Checks whether the given token is valid.
-The token is given as an array:
-
-- name: the token name
-- value: the token value (not used in this method, but that's the unofficial notation of a token in realist)
+Checks whether the given token is valid and throws an exception if it's not the case.
 
 
 
@@ -35,10 +31,6 @@ Parameters
 
 
 - token
-
-    
-
-- tokenValue
 
     
 
@@ -66,7 +58,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightRealistTool::checkAjaxToken](https://github.com/lingtalfi/Light_Realist/blob/master/Tool/LightRealistTool.php#L82-L97)
+See the source code for method [LightRealistTool::checkAjaxToken](https://github.com/lingtalfi/Light_Realist/blob/master/Tool/LightRealistTool.php#L76-L85)
 
 
 See Also

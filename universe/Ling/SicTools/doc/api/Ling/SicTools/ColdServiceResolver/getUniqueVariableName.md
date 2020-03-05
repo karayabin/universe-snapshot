@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [ColdServiceResolver::getUniqueVariableName](https://github.com/lingtalfi/SicTools/blob/master/ColdServiceResolver.php#L340-L343)
+See the source code for method [ColdServiceResolver::getUniqueVariableName](https://github.com/lingtalfi/SicTools/blob/master/ColdServiceResolver.php#L359-L362)
 
 
 See Also
@@ -54,5 +54,5 @@ See Also
 
 The [ColdServiceResolver](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/ColdServiceResolver.md) class.
 
-Previous method: [encode](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/ColdServiceResolver/encode.md)<br>Next method: [resolveArgs](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/ColdServiceResolver/resolveArgs.md)<br>
+Previous method: [decode](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/ColdServiceResolver/decode.md)<br>Next method: [resolveArgs](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/ColdServiceResolver/resolveArgs.md)<br>
 

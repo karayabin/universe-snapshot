@@ -141,6 +141,10 @@ class SimplePdoWrapperDocBuilder
              */
             "keyWord2UrlMap" => [
                 "ric" => 'https://github.com/lingtalfi/NotationFan/blob/master/ric.md',
+                "QuickPdoInfoTool" => 'https://github.com/lingtalfi/QuickPdo/blob/master/QuickPdoInfoTool.php',
+                "ric definition" => 'https://github.com/lingtalfi/NotationFan/blob/master/ric.md',
+                "the conception notes about has table information" => 'https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/pages/conception-notes.md#the-has-table-information',
+                "SimplePdoWrapper conception notes" => $doc . "/pages/conception-notes.md",
             ],
             /**
              * An array of external classes to url.

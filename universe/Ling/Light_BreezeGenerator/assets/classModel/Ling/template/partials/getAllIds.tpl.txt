@@ -1,0 +1,7 @@
+    /**
+     * @implementation
+     */
+    public function getAllIds(): array
+    { //microperm
+         return $this->pdoWrapper->fetchAll("select id from `user`", [], \PDO::FETCH_COLUMN);
+    }

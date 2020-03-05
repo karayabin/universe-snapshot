@@ -53,7 +53,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [HttpResponse::__construct](https://github.com/lingtalfi/Light/blob/master/Http/HttpResponse.php#L132-L139)
+See the source code for method [HttpResponse::__construct](https://github.com/lingtalfi/Light/blob/master/Http/HttpResponse.php#L138-L146)
 
 
 See Also

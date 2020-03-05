@@ -49,7 +49,7 @@ Returns [BabyYamlConfStorage](https://github.com/lingtalfi/Kit/blob/master/doc/a
 
 Source Code
 ===========
-See the source code for method [BabyYamlConfStorage::setRootDir](https://github.com/lingtalfi/Kit/blob/master/ConfStorage/BabyYamlConfStorage.php#L160-L164)
+See the source code for method [BabyYamlConfStorage::setRootDir](https://github.com/lingtalfi/Kit/blob/master/ConfStorage/BabyYamlConfStorage.php#L197-L201)
 
 
 See Also

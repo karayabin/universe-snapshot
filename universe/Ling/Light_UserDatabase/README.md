@@ -1,6 +1,6 @@
 Light_UserDatabase
 ===========
-2019-07-19
+2019-07-19 -> 2020-02-07
 
 
 
@@ -31,6 +31,8 @@ Summary
 - [Light_UserDatabase api](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase.md) (generated with [DocTools](https://github.com/lingtalfi/DocTools))
 - Pages
     - [Conception notes](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/pages/conception-notes.md) 
+    - [Schema conception notes](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/pages/schema-conception-notes.md) 
+    - [Events](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/pages/events.md) 
 - [Services](#services)
 - [Related](#related)
 
@@ -44,7 +46,7 @@ Services
 
 This plugin provides the following services:
 
-- user_database         (returns LightWebsiteUserDatabaseInterface)
+- user_database         (returns LightUserDatabaseService)
 
 
 Any data related to an user can be stored in the database, although the primary intent
@@ -57,7 +59,7 @@ Here is an example of the service configuration file using a database stored in 
 
 ```yaml
 user_database:
-    instance: Ling\Light_UserDatabase\MysqlLightWebsiteUserDatabase
+    instance: Ling\Light_UserDatabase\Service\LightUserDatabaseService
     methods:
         setContainer:
             container: @container()
@@ -73,7 +75,8 @@ user_database_vars:
 #    methods:
 #        setFile:
 #            file: ${app_dir}/config/data/Light_UserDatabase/database.byml
-
+#        setContainer:
+#            container: @container()
 
 # --------------------------------------
 # hooks
@@ -84,14 +87,6 @@ $breeze_generator.methods_collection:
         args:
             key: lud
             file: ${app_dir}/config/data/Light_UserDatabase/Light_BreezeGenerator/lud.byml
-
-
-$initializer.methods_collection:
-    -
-        method: registerInitializer
-        args:
-            initializer: @service(user_database)
-            slot: install
 
 
 $bullsheet.methods_collection:
@@ -107,6 +102,19 @@ $bullsheet.methods_collection:
                     setAvatarImgDir:
                         dir: ${user_database_vars.bullsheeter_avatar_img_dir}
 
+$events.methods_collection:
+    -
+        method: registerListener
+        args:
+            events: Light.initialize_1
+            listener:
+                instance: @service(user_database)
+                callable_method: initialize
+
+
+
+
+
 $plugin_database_installer.methods_collection:
     -
         method: registerInstaller
@@ -119,6 +127,18 @@ $plugin_database_installer.methods_collection:
                 -
                     - @service(user_database)
                     - uninstallDatabase
+
+
+
+#$user_row_ownership.methods_collection:
+#    -
+#        method: registerRowInspector
+#        args:
+#            inspector:
+#                instance: Ling\Light_UserDatabase\UserRowOwnership\LightUserDatabaseRowInspector
+#                methods:
+#                    setHandledTablesFile:
+#                        file: ${app_dir}/config/data/Light_UserDatabase/Light_UserRowOwnership/handled_tables.byml
 ```
 
 
@@ -136,6 +156,127 @@ Related
 History Log
 =============
 
+- 1.28.0 -- 2020-02-07
+
+    - add PluginOptionApiInterface->getOptionByCategoryAndUserId method  
+    
+- 1.27.0 -- 2020-02-07
+
+    - update schema: added lud_plugin_option.category  
+    
+- 1.26.0 -- 2020-02-07
+
+    - update plugin, now uses the Light_PluginInstaller system 
+    
+- 1.25.0 -- 2020-02-06
+
+    - update api with new BreezeGenerator organization (new documentation links to whereConds)
+    
+- 1.24.0 -- 2020-02-05
+
+    - update api with new BreezeGenerator organization (new getObject and getObjects methods)
+    
+- 1.23.0 -- 2020-02-04
+
+    - update api with new BreezeGenerator organization
+    
+- 1.22.2 -- 2020-01-31
+
+    - fix schema, forgot to remove lud_plugin_option.plugin as stated in 1.21.0
+    
+- 1.22.1 -- 2020-01-31
+
+    - fix api insert methods not throwing exceptions when ignoreDuplicate flag is false
+    
+- 1.22.0 -- 2020-01-31
+
+    - update MysqlLightWebsiteUserDatabase->initialize, now transmits initialize level to plugin_database_installer
+    
+- 1.21.0 -- 2020-01-31
+
+    - update schema, removed lud_plugin_option.plugin field
+    
+- 1.20.5 -- 2020-01-31
+
+    - add precision to schema conception notes
+    
+- 1.20.4 -- 2020-01-31
+
+    - add schema conception notes document
+    
+- 1.20.3 -- 2019-12-20
+
+    - removed micro-permission automatic checking in MysqlLightWebsiteUserDatabase
+    
+- 1.20.2 -- 2019-12-20
+
+    - fix MysqlLightWebsiteUserDatabase->getUserInfoByCredentials throwing micro-permission denied exception
+    
+- 1.20.1 -- 2019-12-19
+
+    - update events page
+    
+- 1.20.0 -- 2019-12-19
+
+    - add PluginOptionApiInterface->getPluginOptionByName method
+    
+- 1.19.5 -- 2019-12-19
+
+    - add link in conception notes
+    
+- 1.19.4 -- 2019-12-19
+
+    - add link to events page in README.md
+    
+- 1.19.3 -- 2019-12-19
+
+    - add "plugin author memo" section in conception notes
+    
+- 1.19.2 -- 2019-12-19
+
+    - update MysqlLightWebsiteUserDatabase->installDatabase, now uses micro-permission disable namespace feature
+
+- 1.19.1 -- 2019-12-19
+
+    - restore inadvertently removed UserGroupApiInterface->getUserGroupIdByName method
+    
+- 1.19.0 -- 2019-12-19
+
+    - update api internal code using new BreezeGenerator
+    
+- 1.18.1 -- 2019-12-17
+
+    - fix MysqlUserGroupApi->getUserGroupIdByName returning an array instead of string
+    
+- 1.18.0 -- 2019-12-17
+
+    - add UserGroupApiInterface->getUserGroupIdByName method
+    
+- 1.17.0 -- 2019-12-17
+
+    - update schema, add user_group and plugin_options tables
+    - removed BabyYaml implementation
+    
+- 1.16.1 -- 2019-12-17
+
+    - fix functional typo in service configuration
+    
+- 1.16.0 -- 2019-12-17
+
+    - update plugin to accommodate Light 0.50 new initialization system
+
+- 1.15.0 -- 2019-12-16
+
+    - add LightWebsiteUserDatabaseInterface.getAllUserIds method
+    
+- 1.14.0 -- 2019-12-16
+
+    - add Light_UserDatabase.on_new_user_before event
+    
+- 1.13.0 -- 2019-12-16
+
+    - add lud_user_options and lud_permission_options tables
+    
 - 1.12.4 -- 2019-10-30
 
     - fix missing useMicroPermission implicitly set to true in the breeze configuration

@@ -1,0 +1,2 @@
+https://github.com/lingtalfi/JSortableLists/blob/master/README.md
+https://github.com/lingtalfi/JSortableLists/blob/master/doc/api/Ling/JSortableLists.md
