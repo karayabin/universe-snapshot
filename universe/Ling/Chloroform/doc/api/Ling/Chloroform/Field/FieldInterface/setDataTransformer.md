@@ -49,7 +49,7 @@ Returns [FieldInterface](https://github.com/lingtalfi/Chloroform/blob/master/doc
 
 Source Code
 ===========
-See the source code for method [FieldInterface::setDataTransformer](https://github.com/lingtalfi/Chloroform/blob/master/Field/FieldInterface.php#L40-L40)
+See the source code for method [FieldInterface::setDataTransformer](https://github.com/lingtalfi/Chloroform/blob/master/Field/FieldInterface.php#L39-L39)
 
 
 See Also

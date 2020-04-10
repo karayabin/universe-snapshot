@@ -1,6 +1,6 @@
 Light_MicroPermission
 ===========
-2019-09-26 -> 2020-03-02
+2019-09-26 -> 2020-03-10
 
 
 
@@ -32,6 +32,7 @@ Summary
     - [Conception notes](https://github.com/lingtalfi/Light_MicroPermission/blob/master/doc/pages/conception-notes.md)
     - [Recommended micro permission notation](https://github.com/lingtalfi/Light_MicroPermission/blob/master/doc/pages/recommended-micropermission-notation.md)
 - [Services](#services)
+- [Related](#related)
 
 
 
@@ -55,19 +56,6 @@ micro_permission:
             container: @container()
 
 
-# --------------------------------------
-# hooks
-# --------------------------------------
-#$database.methods_collection:
-#    -
-#        method: registerEventHandler
-#        args:
-#            handler:
-#                instance: Ling\Light_MicroPermission\Light_Database\LightMicroPermissionDatabaseEventHandler
-#                methods:
-#                    setContainer:
-#                        container: @container()
-
 
 
 
@@ -76,9 +64,21 @@ micro_permission:
 
 
 
+Related
+===========
+- [Light_UserRowRestriction](https://github.com/lingtalfi/Light_UserRowRestriction)
+
+
+
+
+
 History Log
 =============
 
+- 2.5.0 -- 2020-03-10
+
+    - removed LightMicroPermissionDatabaseEventHandler class
+    
 - 2.4.0 -- 2020-03-02
 
     - add LightMicroPermissionDatabaseEventHandler class

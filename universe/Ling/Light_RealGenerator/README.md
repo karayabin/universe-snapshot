@@ -1,6 +1,6 @@
 Light_RealGenerator
 ===========
-2019-10-24 -> 2020-03-03
+2019-10-24 -> 2020-03-10
 
 
 
@@ -82,6 +82,10 @@ Related
 History Log
 =============
 
+- 1.20.0 -- 2020-03-10
+
+    - update generator config, add form.on_success_handler.use_row_restriction property for database handler 
+    
 - 1.19.1 -- 2020-03-03
 
     - fix ListConfigGenerator not generating table alias for non crossed columns

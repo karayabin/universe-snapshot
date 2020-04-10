@@ -1,6 +1,6 @@
 Light_AjaxFileUploadManager
 ===========
-2019-08-01 -> 2020-02-21
+2019-08-01 -> 2020-03-19
 
 
 
@@ -110,6 +110,11 @@ Basically what you want to do is create a [configuration item](https://github.co
 History Log
 =============
 
+    
+--- 1.8.0 -- 2020-04-10
+
+    - deprecated in favor of ajax handler
+    
 - 1.7.0 -- 2020-02-21
 
     - reorganized LightAjaxFileUploadManagerService to handle items more efficiently

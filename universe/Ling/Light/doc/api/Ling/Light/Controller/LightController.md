@@ -4,7 +4,7 @@
 
 The LightController class
 ================
-2019-04-09 --> 2020-02-24
+2019-04-09 --> 2020-04-10
 
 
 
@@ -37,6 +37,7 @@ class <span class="pl-k">LightController</span> implements [LightControllerInter
     - protected [getLight](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Controller/LightController/getLight.md)() : [Light](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light.md)
     - protected [getContainer](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Controller/LightController/getContainer.md)() : [LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md)
     - protected [getHttpRequest](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Controller/LightController/getHttpRequest.md)() : [HttpRequestInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface.md)
+    - protected [hasService](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Controller/LightController/hasService.md)(string $serviceName) : bool
 
 }
 
@@ -62,6 +63,7 @@ Methods
 - [LightController::getLight](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Controller/LightController/getLight.md) &ndash; Returns the light application.
 - [LightController::getContainer](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Controller/LightController/getContainer.md) &ndash; Returns the service container.
 - [LightController::getHttpRequest](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Controller/LightController/getHttpRequest.md) &ndash; Returns the http request bound to the light instance.
+- [LightController::hasService](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Controller/LightController/hasService.md) &ndash; Returns whether the container contains the service which name is given.
 
 
 

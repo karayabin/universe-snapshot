@@ -52,7 +52,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [FieldInterface::getErrors](https://github.com/lingtalfi/Chloroform/blob/master/Field/FieldInterface.php#L72-L72)
+See the source code for method [FieldInterface::getErrors](https://github.com/lingtalfi/Chloroform/blob/master/Field/FieldInterface.php#L71-L71)
 
 
 See Also

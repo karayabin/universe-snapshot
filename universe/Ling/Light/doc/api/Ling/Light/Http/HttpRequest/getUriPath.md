@@ -48,7 +48,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [HttpRequest::getUriPath](https://github.com/lingtalfi/Light/blob/master/Http/HttpRequest.php#L224-L227)
+See the source code for method [HttpRequest::getUriPath](https://github.com/lingtalfi/Light/blob/master/Http/HttpRequest.php#L225-L228)
 
 
 See Also

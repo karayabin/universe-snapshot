@@ -1,6 +1,6 @@
 Light_Database
 ===========
-2019-07-22 -> 2020-03-03
+2019-07-22 -> 2020-03-10
 
 
 
@@ -94,6 +94,10 @@ database:
 History Log
 =============
 
+- 1.11.0 -- 2020-03-10
+
+    - removed system call concept, implement user row restriction system
+    
 - 1.10.0 -- 2020-03-03
 
     - implement system call concept

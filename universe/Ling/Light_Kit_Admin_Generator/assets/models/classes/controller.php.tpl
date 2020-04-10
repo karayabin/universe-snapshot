@@ -53,8 +53,8 @@ class TheController extends TheBaseController
             $this->setOnSuccessIframeSignal("done");
         }
 
-        LightUserRowRestrictionService::$mode = LightUserRowRestrictionService::MODE_STRICT;
         $form = $this->processForm($identifier, $table);
+
 
 
         //--------------------------------------------

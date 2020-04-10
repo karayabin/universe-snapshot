@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightBullsheetService::setSilentMode](https://github.com/lingtalfi/Light_Bullsheet/blob/master/Service/LightBullsheetService.php#L141-L144)
+See the source code for method [LightBullsheetService::setSilentMode](https://github.com/lingtalfi/Light_Bullsheet/blob/master/Service/LightBullsheetService.php#L144-L147)
 
 
 See Also

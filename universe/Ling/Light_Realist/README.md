@@ -1,6 +1,6 @@
 Light_Realist
 ===========
-2019-08-09 -> 2020-03-05
+2019-08-09 -> 2020-04-10
 
 
 
@@ -98,6 +98,14 @@ Related
 History Log
 =============
 
+--- 1.33.0 -- 2020-04-10
+
+    - update for new Light_AjaxHandler api
+
+- 1.32.0 -- 2020-03-06
+
+    - update revisited the row restriction system implementation
+    
 - 1.31.0 -- 2020-03-05
 
     - update, now takes into account the row restriction system

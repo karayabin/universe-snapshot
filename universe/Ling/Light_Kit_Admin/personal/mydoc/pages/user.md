@@ -4,7 +4,7 @@ User
 
 
 
-In light kit admin, we use the **WebsiteLightUser** user class to represent our user.
+In light kit admin, we use the **LightWebsiteUser** user class to represent our user.
 And a MysqlLightWebsiteUserDatabase instance for the **user_database** service.
 
 We provide two users:
@@ -27,6 +27,6 @@ Their avatar urls have been taken from: https://pickaface.net/
 
 For more information:
 
-- [the website user class](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/WebsiteLightUser.md)
+- [the website user class](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser.md)
 - [the website user database class](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/MysqlLightWebsiteUserDatabase.md)
 

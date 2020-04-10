@@ -54,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightRealistService::error](https://github.com/lingtalfi/Light_Realist/blob/master/Service/LightRealistService.php#L847-L850)
+See the source code for method [LightRealistService::error](https://github.com/lingtalfi/Light_Realist/blob/master/Service/LightRealistService.php#L854-L857)
 
 
 See Also

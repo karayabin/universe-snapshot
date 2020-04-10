@@ -4,6 +4,7 @@
 namespace Ling\Light_Realist\AjaxHandler;
 
 
+use Ling\Light\Http\HttpRequestInterface;
 use Ling\Light_AjaxHandler\Handler\ContainerAwareLightAjaxHandler;
 use Ling\Light_Realist\Exception\LightRealistException;
 use Ling\Light_Realist\Service\LightRealistService;
@@ -23,9 +24,10 @@ class LightRealistAjaxHandler extends ContainerAwareLightAjaxHandler
      *
      * @implementation
      */
-    public function handle(string $actionId, array $params): array
+    public function handle(string $actionId, HttpRequestInterface $request): array
     {
         $response = [];
+        $params = $request->getPost();
 
 
         switch ($actionId) {

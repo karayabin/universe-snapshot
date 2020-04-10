@@ -7,8 +7,6 @@ dependencies:
         - Chloroform
         - Light_User
         - Bat
-        - CheapLogger
-        - Light_UserRowRestriction
         - Light_Realform
         - DirScanner
         - Light_PluginInstaller

@@ -4,6 +4,7 @@
 namespace Ling\Light_AjaxHandler\Handler;
 
 
+use Ling\Light\Http\HttpRequestInterface;
 use Ling\Light_AjaxHandler\Exception\LightAjaxHandlerException;
 use Ling\Light_CsrfSession\Service\LightCsrfSessionService;
 
@@ -17,23 +18,28 @@ abstract class BaseLightAjaxHandler extends ContainerAwareLightAjaxHandler
 {
 
     /**
-     * Handles the action identified by actionId and params,
-     * and returns a json array as specified in the @page(ajax communication protocol).
+     * Handles the given action and returns an @page(alcp response), or throws an exception in case of problems.
      *
-     *
-     * @param string $actionId
-     * @param array $params
-     * @return mixed
+     * @param string $action
+     * @param HttpRequestInterface $request
+     * @return array
      */
-    abstract protected function doHandle(string $actionId, array $params);
+    abstract protected function doHandle(string $action, HttpRequestInterface $request): array;
+
+
+
 
     /**
      * @implementation
      */
-    public function handle(string $actionId, array $params): array
+    public function handle(string $action, HttpRequestInterface $request): array
     {
-        if (false === array_key_exists('csrf_token', $params)) {
-            throw new LightAjaxHandlerException("Csrf token not provided for action $actionId.");
+        //--------------------------------------------
+        // FORCED CSRF TOKEN VALIDATION
+        //--------------------------------------------
+        $csrfToken = $request->getPostValue("csrf_token", false);
+        if (null === $csrfToken) {
+            throw new LightAjaxHandlerException("Csrf token not provided for action \"$action\".");
         }
 
 
@@ -41,11 +47,10 @@ abstract class BaseLightAjaxHandler extends ContainerAwareLightAjaxHandler
          * @var $csrfService LightCsrfSessionService
          */
         $csrfService = $this->container->get('csrf_session');
-        if (false === $csrfService->isValid($params['csrf_token'])) {
-            throw new LightAjaxHandlerException("Invalid csrf token provided: " . $params['csrf_token'] . " for action $actionId.");
+        if (false === $csrfService->isValid($csrfToken)) {
+            throw new LightAjaxHandlerException("Invalid csrf token provided: " . $csrfToken . " for action \"$action\".");
         }
-
-        return $this->doHandle($actionId, $params);
+        return $this->doHandle($action, $request);
     }
 
 

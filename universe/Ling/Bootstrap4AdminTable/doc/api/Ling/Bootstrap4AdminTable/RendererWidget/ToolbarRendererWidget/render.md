@@ -48,7 +48,7 @@ the first level of children, but we don't implement children of children).
 
 Source Code
 ===========
-See the source code for method [ToolbarRendererWidget::render](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/RendererWidget/ToolbarRendererWidget.php#L50-L152)
+See the source code for method [ToolbarRendererWidget::render](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/RendererWidget/ToolbarRendererWidget.php#L50-L165)
 
 
 See Also

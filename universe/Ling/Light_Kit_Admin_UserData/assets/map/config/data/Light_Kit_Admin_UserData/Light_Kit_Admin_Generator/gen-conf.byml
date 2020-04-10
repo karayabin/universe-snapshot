@@ -2,6 +2,7 @@ main:
 
     variables:
         plugin: Light_Kit_Admin_UserData
+        shortName: lka_userdata
 
 
     # The plugin name is used in various places, including:
@@ -83,17 +84,19 @@ main:
         # dynamic values.
         title: {Label} list
 
+
         # Bool=true, whether to add the use_micro_permission setting in the request declaration.
         # See the miscellaneous section of the realist conception notes for more details:
         # https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/realist-conception-notes.md#miscellaneous
         ?use_micro_permission: true
 
-        # The row restriction mode (https://github.com/lingtalfi/Light_UserRowRestriction/blob/master/doc/pages/conception-notes.md)
-        # Can be one of:
-        # - null
-        # - strict
-        # - permissive
-        row_restriction_mode: strict
+        # Whether to use the row restriction system https://github.com/lingtalfi/Light_UserRowRestriction/blob/master/doc/pages/conception-notes.md.
+        # The default value is false.
+        use_row_restriction: false
+
+        # When executing the stmt request and there is an error: whether to show the query/markers information along with the
+        # error message (true), or just display the error message (false, by default)
+        query_error_show_debug_info: true
 
 
         # Whether to use the action column (added to every row). Defaults to true.
@@ -273,6 +276,18 @@ main:
         # This property is provided by Light_Kit_Admin_Generator (i.e. not in Light_RealGenerator).
         use_link_to_list: true
 
+        # An array, empty by default, which can contain the row restriction to apply. The possible options are:
+        # - read
+        # - update
+        #
+        # Note: regular forms usually delegate the process of the form info to the RealformSuccessHandlerInterface,
+        # which uses its own row restriction (see the on_success_handler property in this section for more details).
+        # The "update" option here applies for potential external tools, such as an external multiple rows form editor for instance.
+        #
+        row_restriction: []
+#            - read
+#            - update
+
         # The target_dir is the path of the dir where to generate the files
         # It's an absolute path.
         # The tag {app_dir} can be used, and will be replaced with the actual "application root directory".
@@ -305,7 +320,7 @@ main:
         # - table: the name of the current table
         # - field: the name of the current field (or empty string if not available)
         variables:
-            plugin_prefix: lka_userdata
+            plugin_prefix: {$shortName}
 
 
         # Overrides completely or partially the fields items.
@@ -375,7 +390,7 @@ main:
                 # Each entry's key will have the following format:
                 #       - {referencedTable}.{referencedField}
                 # For the values, please refer to the actual implementation.
-                table_list_config_file: {app_dir}/config/data/{$plugin}/Light_ChloroformExtension/generated/lka_userdata.table_list.byml
+                table_list_config_file: {app_dir}/config/data/{$plugin}/Light_ChloroformExtension/generated/{$shortName}.table_list.byml
 
 
         # An array of table => notRequiredFields, with notRequiredFields being an array of the fields for which you don't
@@ -386,11 +401,15 @@ main:
 #                - avatar_url
 
         # Array, defines how the on_success_handler section (of the realform config file) is generated.
-        ?on_success_handler:
+        on_success_handler:
             # string, defines the type of success handler
             # The available values are:
             # - database
             type: database
+            # More options, depending on the success handler type
+            options:
+                # option for database type only, whether to use the row restriction system
+                use_row_restriction: true
 
         # Bool. Optional. Defaults to true.
         # Whether to use the multiplier mode on has tables.
@@ -415,7 +434,7 @@ main:
         # The target_file is the path of the file to generate.
         # It's an absolute path.
         # The tag {app_dir} can be used, and will be replaced with the actual "application root directory".
-        target_file: {app_dir}/config/data/{$plugin}/bmenu/generated/lka_userdata.admin_mainmenu_1.byml
+        target_file: {app_dir}/config/data/{$plugin}/bmenu/generated/{$shortName}.admin_mainmenu_1.byml
 
 
         # By default, we generate routes using the controller_hub service (to avoid having too many routes).
@@ -432,8 +451,8 @@ main:
         # Whether to group the menu items by table prefix. Defaults to true.
         group_by_prefix: true
 
-        item_prefix_parent: lka_userdata
-        item_prefix_child: lka_userdata
+        item_prefix_parent: {$shortName}
+        item_prefix_child: {$shortName}
         item_plugin: {$plugin}
         ?item_default_right: {$plugin}.user
 

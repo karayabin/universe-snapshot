@@ -98,12 +98,14 @@ main:
         # https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/realist-conception-notes.md#miscellaneous
         ?use_micro_permission: true
 
-        # The row restriction mode (https://github.com/lingtalfi/Light_UserRowRestriction/blob/master/doc/pages/conception-notes.md)
-        # Can be one of:
-        # - null
-        # - strict
-        # - permissive
-        ?row_restriction_mode: null
+
+        # Whether to use the row restriction system https://github.com/lingtalfi/Light_UserRowRestriction/blob/master/doc/pages/conception-notes.md.
+        # The default value is false.
+        ?use_row_restriction: false
+
+        # When executing the stmt request and there is an error: whether to show the query/markers information along with the
+        # error message (true), or just display the error message (false, by default)
+        ?query_error_show_debug_info: false
 
         # Whether to use the action column (added to every row). Defaults to true.
         ?use_action_column: true
@@ -268,6 +270,23 @@ main:
         # The tag {app_dir} can be used, and will be replaced with the actual "application root directory".
         target_dir: {app_dir}/config/data/{$plugin}/Light_Realform/generated
 
+        # Whether to create a link to the corresponding list.
+        # The default value is true.
+        # This property is provided by Light_Kit_Admin_Generator (i.e. not in Light_RealGenerator).
+        use_link_to_list: true
+
+        # An array, empty by default, which can contain the row restriction to apply. The possible options are:
+        # - read
+        # - update
+        #
+        # Note: regular forms usually delegate the process of the form info to the RealformSuccessHandlerInterface,
+        # which uses its own row restriction (see the on_success_handler property in this section for more details).
+        # The "update" option here applies for potential external tools, such as an external multiple rows form editor for instance.
+        #
+        ?row_restriction: []
+#            - read
+#            - update
+
 
         # This array let you ignore/skip columns that you want to exclude from the generated form config file.
         # It's an array of table => columnNames, with columnNames being an array of column names.
@@ -357,6 +376,10 @@ main:
             # The available values are:
             # - database
             type: database
+            # More options, depending on the success handler type
+            ?options:
+                # option for database type only, whether to use the row restriction system
+                use_row_restriction: true
 
 
     # This section defines the behaviour of the menu configuration file generator

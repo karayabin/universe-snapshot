@@ -1,6 +1,6 @@
 Ling/Light
 ================
-2019-04-09 --> 2020-02-24
+2019-04-09 --> 2020-04-10
 
 
 
@@ -110,9 +110,13 @@ Table of contents
     - [HttpRequest::getHeaders](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/getHeaders.md) &ndash; Returns an array of the http headers attached to the http request.
     - [HttpRequest::getHeader](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/getHeader.md) &ndash; Returns the value of a specific header.
     - [HttpRequest::getGet](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/getGet.md) &ndash; Returns the original $_GET array attached with the http request.
+    - [HttpRequest::getGetValue](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/getGetValue.md) &ndash; Returns the value corresponding to the given key in the $_GET array attached with the request.
     - [HttpRequest::getPost](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/getPost.md) &ndash; Returns the original $_POST array attached with the http request.
+    - [HttpRequest::getPostValue](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/getPostValue.md) &ndash; Returns the value corresponding to the given key in the $_POST array attached with the request.
     - [HttpRequest::getFiles](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/getFiles.md) &ndash; https://github.com/karayabin/universe-snapshot/tree/master/planets/PhpUploadFileFix for more info).
+    - [HttpRequest::getFilesValue](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/getFilesValue.md) &ndash; Returns the value corresponding to the given key in the $_FILES array attached with the request.
     - [HttpRequest::getCookie](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/getCookie.md) &ndash; Returns the original $_COOKIE array attached with the http request.
+    - [HttpRequest::getCookieValue](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/getCookieValue.md) &ndash; Returns the value corresponding to the given key in the $_COOKIE array attached with the request.
 - [HttpRequestInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface.md) &ndash; The HttpRequestInterface interface.
     - [HttpRequestInterface::getMethod](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface/getMethod.md) &ndash; Returns the http method used for the request, in lower case.
     - [HttpRequestInterface::getUri](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface/getUri.md) &ndash; Returns the uri of the http request.
@@ -128,9 +132,13 @@ Table of contents
     - [HttpRequestInterface::getHeaders](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface/getHeaders.md) &ndash; Returns an array of the http headers attached to the http request.
     - [HttpRequestInterface::getHeader](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface/getHeader.md) &ndash; Returns the value of a specific header.
     - [HttpRequestInterface::getGet](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface/getGet.md) &ndash; Returns the original $_GET array attached with the http request.
+    - [HttpRequestInterface::getGetValue](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface/getGetValue.md) &ndash; Returns the value corresponding to the given key in the $_GET array attached with the request.
     - [HttpRequestInterface::getPost](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface/getPost.md) &ndash; Returns the original $_POST array attached with the http request.
+    - [HttpRequestInterface::getPostValue](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface/getPostValue.md) &ndash; Returns the value corresponding to the given key in the $_POST array attached with the request.
     - [HttpRequestInterface::getFiles](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface/getFiles.md) &ndash; https://github.com/karayabin/universe-snapshot/tree/master/planets/PhpUploadFileFix for more info).
+    - [HttpRequestInterface::getFilesValue](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface/getFilesValue.md) &ndash; Returns the value corresponding to the given key in the $_FILES array attached with the request.
     - [HttpRequestInterface::getCookie](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface/getCookie.md) &ndash; Returns the original $_COOKIE array attached with the http request.
+    - [HttpRequestInterface::getCookieValue](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface/getCookieValue.md) &ndash; Returns the value corresponding to the given key in the $_COOKIE array attached with the request.
 - [HttpResponse](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponse.md) &ndash; The HttpResponse class.
     - [HttpResponse::__construct](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponse/__construct.md) &ndash; Builds the HttpResponse instance.
     - [HttpResponse::setHttpVersion](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponse/setHttpVersion.md) &ndash; Sets the http version of this http response.
@@ -140,6 +148,7 @@ Table of contents
     - [HttpResponse::send](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponse/send.md) &ndash; Sends the headers and prints the response body to the output.
 - [HttpResponseInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponseInterface.md) &ndash; The HttpResponseInterface interface.
     - [HttpResponseInterface::send](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponseInterface/send.md) &ndash; Sends the headers and prints the response body to the output.
+    - [HttpResponseInterface::setHeader](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponseInterface/setHeader.md) &ndash; Adds a header to this instance.
 - [LightRouter](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Router/LightRouter.md) &ndash; The LightRouter class.
     - [LightRouter::__construct](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Router/LightRouter/__construct.md) &ndash; Builds the LightRouter instance.
     - [LightRouter::match](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Router/LightRouter/match.md) &ndash; Tests the given httpRequest against the routes until one matches.

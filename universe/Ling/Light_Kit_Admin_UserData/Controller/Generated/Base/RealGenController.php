@@ -61,15 +61,15 @@ abstract class RealGenController extends AdminPageController
     *
     * @param string $realformIdentifier
     * @param string $table
+    * @param array $options
     * @return Chloroform
     * @throws \Exception
     */
-    protected function processForm(string $realformIdentifier, string $table): Chloroform
+    protected function processForm(string $realformIdentifier, string $table, array $options = []): Chloroform
     {
 
         $routineOne = new LightRealformRoutineOne();
         $routineOne->setContainer($this->getContainer());
-        $options = [];
         if (null !== $this->iframeSignal) {
             $options['iframeSignal'] = $this->iframeSignal;
         } else {

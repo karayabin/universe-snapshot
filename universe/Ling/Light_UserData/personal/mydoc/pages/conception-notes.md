@@ -1,6 +1,6 @@
 Light_UserData, conception notes
 =====================
-2019-09-27 -> 2020-02-21
+2019-09-27 -> 2020-03-12
 
 
 
@@ -44,7 +44,7 @@ Warnings
 
 
 - This plugin depends on the [Light_UserDatabase](https://github.com/lingtalfi/Light_UserDatabase) plugin.
-- This plugin only works with the [WebsiteLightUser](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/WebsiteLightUser.md) (i.e. not with any light user).
+- This plugin only works with the [LightWebsiteUser](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser.md) (i.e. not with any light user).
 
 
 
@@ -212,7 +212,7 @@ Tables & information
 - **luda_resource**: a resource is a file owned by an user.
     - id: aik
     - user_id: fk to the **lud_user.id** field brought by the [Light_UserDatabase](https://github.com/lingtalfi/Light_UserDatabase) plugin (we depend from that plugin).  
-        This plugin only works with the [WebsiteLightUser](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/WebsiteLightUser.md).
+        This plugin only works with the [LightWebsiteUser](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser.md).
               
     - resource_identifier: uq, str 128 the resource identifier.
         
@@ -287,6 +287,11 @@ and it accepts the following parameters:
 - original: optional, string (0|1) = 0.
     Whether to return the default file (aka processed file), or the original file. 
     See the "original file concept" in this document for more details.
+
+
+
+
+
 
 
 

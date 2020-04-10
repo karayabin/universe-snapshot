@@ -4,7 +4,7 @@
 
 The WebsiteUserManager class
 ================
-2019-05-10 --> 2019-12-20
+2019-05-10 --> 2020-03-26
 
 
 
@@ -16,7 +16,7 @@ Introduction
 
 The WebsiteUserManager class.
 
-This class returns a refreshed website user ( [WebsiteLightUser](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/WebsiteLightUser.md) ).
+This class returns a refreshed website user ( [LightWebsiteUser](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser.md) ).
 
 Under the hood, the website user is stored in a php session.
 

@@ -1,6 +1,6 @@
 Light_ExceptionHandler
 ===========
-2019-11-11
+2019-11-11 -> 2020-04-10
 
 
 
@@ -59,7 +59,7 @@ $events.methods_collection:
         args:
             events:
                 - Light.on_unhandled_exception_caught
-                - Light_AjaxHandler.on_controller_exception_caught
+                - Light_AjaxHandler.on_handle_exception_caught
                 - Light_AjaxFileUploadManager.on_controller_exception_caught
                 - Light_RealGenerator.on_realform_exception_caught
             listener:
@@ -87,6 +87,10 @@ $logger.methods_collection:
 History Log
 =============
 
+-- 1.2.0 -- 2020-04-10
+
+    - adapt api for updated Light_AjaxHandler events
+    
 - 1.1.0 -- 2019-11-28
 
     - update service configuration, now handles Light_RealGenerator.on_realform_exception_caught event

@@ -25,6 +25,7 @@ use Ling\ThumbnailTools\ThumbnailTool;
  */
 class LightAjaxFileUploadManagerService
 {
+
     /**
      * This property holds the items for this instance.
      * It's an array of id => item.
@@ -288,6 +289,132 @@ class LightAjaxFileUploadManagerService
         return $ret;
     }
 
+
+
+    /**
+     * Transforms the srcPath image according to the given imageTransformer,
+     * and stores it in dstPath.
+     * Returns whether the creation of the copy was successful.
+     *
+     * In case of errors throws exceptions.
+     *
+     *
+     * @param string $srcPath
+     * The path to a supposedly valid image.
+     *
+     * @param string $dstPath
+     * @param string $imageTransformer
+     * @param string $fileName
+     * This is given for enhancing the error messages only.
+     *
+     * @return bool
+     * @throws \Exception
+     */
+    public function transformImage(string $srcPath, string $dstPath, string $imageTransformer, string $fileName): bool
+    {
+        list($transformerId, $transformerParams) = $this->extractFunctionInfo($imageTransformer);
+        switch ($transformerId) {
+            case "resize":
+                $width = $transformerParams[0] ?? null;
+                $height = $transformerParams[0] ?? null;
+
+                $extension = FileSystemTool::getFileExtension($dstPath);
+                if (empty($extension)) {
+                    $extension = FileSystemTool::getFileExtension($fileName);
+                }
+
+                $options = [
+                    "extension" => $extension,
+                ];
+                if (true === ThumbnailTool::biggest($srcPath, $dstPath, $width, $height, $options)) {
+                    return true;
+                } else {
+                    throw new LightAjaxFileUploadManagerException("ThumbnailTool error: couldn't resize the image (file name=$fileName).");
+                }
+                break;
+            default:
+                throw new LightAjaxFileUploadManagerException("Bad configuration error: the imageTransformer function $transformerId is not recognized yet (file name=$fileName).");
+                break;
+        }
+        return false;
+    }
+
+
+    /**
+     * Transforms the name according to the given nameTransformer, and returns the transformed name.
+     *
+     * @param string $name
+     * @param string $nameTransformer
+     * @return string
+     * @throws \Exception
+     */
+    public function getTransformedName(string $name, string $nameTransformer): string
+    {
+
+
+        $extension = FileSystemTool::getFileExtension($name);
+        $fileName = FileSystemTool::getFileName($name);
+        list($transformerId, $transformerParams) = $this->extractFunctionInfo($nameTransformer);
+
+        switch ($transformerId) {
+            case "randomize":
+                if (count($transformerParams) > 0) {
+                    $length = $transformerParams[0];
+                    if ($length > 0) {
+                        $keepExtension = true;
+                        if (array_key_exists(1, $transformerParams)) {
+                            $keepExtension = $transformerParams[1];
+                        }
+                        $name = HashTool::getRandomHash64($length);
+                        if (true === $keepExtension) {
+                            if ($extension) {
+                                $name .= "." . $extension;
+                            }
+                        }
+                    } else {
+                        throw new LightAjaxFileUploadManagerException("Bad configuration error: the length parameter of the randomize nameTransformer function must be greater than 0 (file name=$name).");
+                    }
+                } else {
+                    throw new LightAjaxFileUploadManagerException("Bad configuration error: the length parameter of the randomize nameTransformer function is mandatory (file name=$name).");
+                }
+
+                break;
+            case "changeFileName":
+                if (count($transformerParams) > 0) {
+                    $newName = $transformerParams[0];
+                    $name = $newName;
+                    if ($extension) {
+                        $name .= "." . $extension;
+                    }
+                } else {
+                    throw new LightAjaxFileUploadManagerException("Bad configuration error: the newName parameter of the changeFileName nameTransformer function is mandatory (file name=$name).");
+                }
+                break;
+            case "set":
+                if (count($transformerParams) > 0) {
+                    $newName = $transformerParams[0];
+                    $name = $newName;
+                } else {
+                    throw new LightAjaxFileUploadManagerException("Bad configuration error: the newName parameter of the set nameTransformer function is mandatory (file name=$name).");
+                }
+                break;
+            case "snake":
+                $name = CaseTool::toSnake($fileName);
+                if ($extension) {
+                    $name .= "." . $extension;
+                }
+                break;
+            default:
+                throw new LightAjaxFileUploadManagerException("Bad configuration error: the nameTransformer function $transformerId is not recognized yet (file name=$name).");
+                break;
+        }
+
+        return $name;
+    }
+
+
+
+
     //--------------------------------------------
     //
     //--------------------------------------------
@@ -385,13 +512,13 @@ class LightAjaxFileUploadManagerService
      * A valid php $_FILES item.
      *
      * @param array $params
-     * @param string $actionId
+     * @param string $confItemId
      * The action id. This is used for debugging purposes.
      *
      * @return array|null
      * @throws \Exception
      */
-    protected function executeAction(array $action, $phpFileItem, array $params, string $actionId): ?array
+    protected function executeAction(array $action, $phpFileItem, array $params, string $confItemId): ?array
     {
 
 
@@ -504,10 +631,10 @@ class LightAjaxFileUploadManagerService
                                      * Note: the developer calling this action must make sure that the user has a getId method.
                                      * This class just calls the method without knowing if it actually exists.
                                      *
-                                     * Note2: this usually depends on your application, for instance if your app uses a WebsiteLightUser,
-                                     * this will work because the WebsiteLightUser has a getId method.
+                                     * Note2: this usually depends on your application, for instance if your app uses a LightWebsiteUser,
+                                     * this will work because the LightWebsiteUser has a getId method.
                                      *
-                                     * For more info about the WebsiteLightUser: https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/WebsiteLightUser.md
+                                     * For more info about the LightWebsiteUser: https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser.md
                                      *
                                      *
                                      */
@@ -522,7 +649,7 @@ class LightAjaxFileUploadManagerService
 
 
                         } else {
-                            throw new LightAjaxFileUploadManagerException("Bad configuration error: the db_update array must contain all the following keys: table, column, where. File name was " . $phpFileItem['name'] . ", action id=" . $actionId . ".");
+                            throw new LightAjaxFileUploadManagerException("Bad configuration error: the db_update array must contain all the following keys: table, column, where. File name was " . $phpFileItem['name'] . ", confItemId=" . $confItemId . ".");
                         }
                     }
 
@@ -538,143 +665,10 @@ class LightAjaxFileUploadManagerService
              * @var $userDataService LightUserDataService
              */
             $userDataService = $this->container->get("user_data");
+            return $userDataService->handleAjaxFileUploaderAction($action, $phpFileItem, $params, $confItemId);
 
 
-            $protocol = $action['protocol'] ?? null;
-            $useFileEditor = ("fileEditor" === $protocol);
 
-
-            if (true === $useFileEditor) {
-                $fileEditorAction = $params['action'] ?? "add";
-                if ('remove' === $fileEditorAction) {
-
-                    if (false === array_key_exists("url", $params)) {
-                        throw new LightAjaxFileUploadManagerException("Missing parameter \"url\" for fileEditor.remove action.");
-                    }
-
-                    $url = $params['url'];
-                    $userDataService->removeResourceByUrl($url);
-                    return [
-                        "ok" => "1",
-                    ];
-                }
-            }
-
-
-            //--------------------------------------------
-            // ACTION VALIDATION
-            //--------------------------------------------
-            if (
-                array_key_exists("maxFileNameLength", $action) &&
-                array_key_exists("filename", $params)
-            ) {
-                $name = $params['filename'];
-                $maxLen = $action['maxFileNameLength'];
-                $nameLen = strlen($name);
-                if ($nameLen > $maxLen) {
-                    throw new LightAjaxFileUploadManagerException("File name too long ($name). Maximum of $maxLen characters allowed ($nameLen given).");
-                }
-            }
-
-
-            //--------------------------------------------
-            // NAME TRANSFORM
-            //--------------------------------------------
-            if (null === $phpFileItem) {
-                throw new LightAjaxFileUploadManagerException("Invalid phpFileItem given with \"use_Light_UserData\" action and add/update intent.");
-            }
-
-
-            $name = $phpFileItem['name'];
-            if (true === $useFileEditor) {
-                if (false === array_key_exists("filename", $params)) {
-                    throw new LightAjaxFileUploadManagerException("Missing parameter filename, required by the \"fileEditor\" protocol.");
-                }
-                $name = $params['filename'];
-            }
-            if (array_key_exists('nameTransformer', $action)) {
-                $name = $this->getTransformedName($name, $action['nameTransformer']);
-            }
-
-            //--------------------------------------------
-            // FILENAME SANITIZATION
-            //--------------------------------------------
-            $allowSlashInFilename = $action['allowSlashInFilename'] ?? false;
-            if (false === FileSystemTool::isValidFilename($name, $allowSlashInFilename)) {
-                throw new LightAjaxFileUploadManagerException("Invalid filename \"$name\". Try to use only alphanumerical characters and underscore, and dash.");
-            }
-
-
-            if (array_key_exists("path", $action)) {
-
-
-                $defaultIsPrivate = false;
-                if (true === $useFileEditor) {
-                    $defaultIsPrivate = $params['is_private'] ?? false;
-                    $defaultIsPrivate = (bool)$defaultIsPrivate;
-                }
-                $isPrivate = $action['isPrivate'] ?? $defaultIsPrivate;
-                $use2Svp = $action['use_2svp'] ?? false;
-                $tags = $action['tags'] ?? $params['tags'] ?? [];
-                $path = $action['path'];
-                $oldPath = null; // only used with action=update
-
-
-                if (false !== strpos($path, '{extension}')) {
-                    $extension = FileSystemTool::getFileExtension($name);
-                    if ('' === $extension) {
-                        throw new LightAjaxFileUploadManagerException("An extension is required for the file name: " . $name);
-                    }
-                    $path = str_replace('{extension}', $extension, $path);
-                }
-                $path = str_replace('{filename}', $name, $path);
-
-
-                if (true === $use2Svp) {
-                    $p = explode('.', $path, 2);
-                    $path = $p[0] . '.2svp';
-                    if (2 === count($p)) {
-                        $path .= '.' . $p[1];
-                    }
-                }
-
-
-                //--------------------------------------------
-                // IMAGE TRANSFORM
-                //--------------------------------------------
-                $fileTmpPath = $phpFileItem['tmp_name'];
-                $fileTmpPathDest = $fileTmpPath;
-                if (true === FileTool::isImage($fileTmpPath)) {
-                    if (array_key_exists("imageTransformer", $action)) {
-                        $this->transformImage($fileTmpPath, $fileTmpPathDest, $action['imageTransformer'], $phpFileItem['name']);
-                    }
-                }
-
-
-                $options = [
-                    "is_private" => $isPrivate,
-                    "tags" => $tags,
-                    "overwrite" => $action['overwrite'] ?? false,
-                    "keepOriginal" => $action['keepOriginal'] ?? false,
-                ];
-
-                if (true === $useFileEditor && 'update' === $fileEditorAction) {
-                    if (false === array_key_exists("url", $params)) {
-                        throw new LightAjaxFileUploadManagerException("Missing parameter url, required by the \"fileEditor\" protocol for the update action.");
-                    }
-                    $options['url'] = $params['url'];
-
-                }
-
-
-                $url = $userDataService->save($path, file_get_contents($phpFileItem['tmp_name']), $options);
-                unlink($phpFileItem['tmp_name']); // do never forget this!!!
-                $ret = $url;
-
-
-            } else {
-                throw new LightAjaxFileUploadManagerException("The \"path\" key is not defined.");
-            }
         } else {
             // some actions might not want to create copies of the uploaded file.
             // code of such actions would go here.
@@ -687,127 +681,6 @@ class LightAjaxFileUploadManagerService
             ];
         }
         return $ret;
-    }
-
-    /**
-     * Transforms the srcPath image according to the given imageTransformer,
-     * and stores it in dstPath.
-     * Returns whether the creation of the copy was successful.
-     *
-     * In case of errors throws exceptions.
-     *
-     *
-     * @param string $srcPath
-     * The path to a supposedly valid image.
-     *
-     * @param string $dstPath
-     * @param string $imageTransformer
-     * @param string $fileName
-     * This is given for enhancing the error messages only.
-     *
-     * @return bool
-     * @throws \Exception
-     */
-    protected function transformImage(string $srcPath, string $dstPath, string $imageTransformer, string $fileName): bool
-    {
-        list($transformerId, $transformerParams) = $this->extractFunctionInfo($imageTransformer);
-        switch ($transformerId) {
-            case "resize":
-                $width = $transformerParams[0] ?? null;
-                $height = $transformerParams[0] ?? null;
-
-                $extension = FileSystemTool::getFileExtension($dstPath);
-                if (empty($extension)) {
-                    $extension = FileSystemTool::getFileExtension($fileName);
-                }
-
-                $options = [
-                    "extension" => $extension,
-                ];
-                if (true === ThumbnailTool::biggest($srcPath, $dstPath, $width, $height, $options)) {
-                    return true;
-                } else {
-                    throw new LightAjaxFileUploadManagerException("ThumbnailTool error: couldn't resize the image (file name=$fileName).");
-                }
-                break;
-            default:
-                throw new LightAjaxFileUploadManagerException("Bad configuration error: the imageTransformer function $transformerId is not recognized yet (file name=$fileName).");
-                break;
-        }
-        return false;
-    }
-
-
-    /**
-     * Transforms the name according to the given nameTransformer, and returns the transformed name.
-     *
-     * @param string $name
-     * @param string $nameTransformer
-     * @return string
-     * @throws \Exception
-     */
-    protected function getTransformedName(string $name, string $nameTransformer): string
-    {
-
-
-        $extension = FileSystemTool::getFileExtension($name);
-        $fileName = FileSystemTool::getFileName($name);
-        list($transformerId, $transformerParams) = $this->extractFunctionInfo($nameTransformer);
-
-        switch ($transformerId) {
-            case "randomize":
-                if (count($transformerParams) > 0) {
-                    $length = $transformerParams[0];
-                    if ($length > 0) {
-                        $keepExtension = true;
-                        if (array_key_exists(1, $transformerParams)) {
-                            $keepExtension = $transformerParams[1];
-                        }
-                        $name = HashTool::getRandomHash64($length);
-                        if (true === $keepExtension) {
-                            if ($extension) {
-                                $name .= "." . $extension;
-                            }
-                        }
-                    } else {
-                        throw new LightAjaxFileUploadManagerException("Bad configuration error: the length parameter of the randomize nameTransformer function must be greater than 0 (file name=$name).");
-                    }
-                } else {
-                    throw new LightAjaxFileUploadManagerException("Bad configuration error: the length parameter of the randomize nameTransformer function is mandatory (file name=$name).");
-                }
-
-                break;
-            case "changeFileName":
-                if (count($transformerParams) > 0) {
-                    $newName = $transformerParams[0];
-                    $name = $newName;
-                    if ($extension) {
-                        $name .= "." . $extension;
-                    }
-                } else {
-                    throw new LightAjaxFileUploadManagerException("Bad configuration error: the newName parameter of the changeFileName nameTransformer function is mandatory (file name=$name).");
-                }
-                break;
-            case "set":
-                if (count($transformerParams) > 0) {
-                    $newName = $transformerParams[0];
-                    $name = $newName;
-                } else {
-                    throw new LightAjaxFileUploadManagerException("Bad configuration error: the newName parameter of the set nameTransformer function is mandatory (file name=$name).");
-                }
-                break;
-            case "snake":
-                $name = CaseTool::toSnake($fileName);
-                if ($extension) {
-                    $name .= "." . $extension;
-                }
-                break;
-            default:
-                throw new LightAjaxFileUploadManagerException("Bad configuration error: the nameTransformer function $transformerId is not recognized yet (file name=$name).");
-                break;
-        }
-
-        return $name;
     }
 
 

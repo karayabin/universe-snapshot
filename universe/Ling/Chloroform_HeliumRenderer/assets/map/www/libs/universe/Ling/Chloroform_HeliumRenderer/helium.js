@@ -5,6 +5,24 @@ if (false === ("HeliumFormHandler" in window)) {
     (function () {
 
 
+        // https://stackoverflow.com/questions/2360655/jquery-event-handlers-always-execute-in-order-they-were-bound-any-way-around-t
+        $.fn.heliumBindFirst = function (name, fn) {
+            // bind as you normally would
+            // don't want to miss out on any jQuery magic
+            this.on(name, fn);
+
+            // Thanks to a comment by @Martin, adding support for
+            // namespaced events too.
+            this.each(function () {
+                var handlers = $._data(this, 'events')[name.split('.')[0]];
+                // take out the handler we just inserted from the end
+                var handler = handlers.pop();
+                // move it at the beginning
+                handlers.splice(0, 0, handler);
+            });
+        };
+
+
         function HeliumFormHandler(jForm, fields, options) {
 
             this.form = jForm;
@@ -24,7 +42,7 @@ if (false === ("HeliumFormHandler" in window)) {
             $this.initSummaryLinks();
 
 
-            this.form.on('submit', function () {
+            this.form.heliumBindFirst('submit', function (e) {
 
 
                 $this.form.addClass('helium-was-validated');
@@ -37,6 +55,8 @@ if (false === ("HeliumFormHandler" in window)) {
                     var res = $this.validate();
                     if (false === res) {
                         document.location.hash = $this.form.attr('id');
+                        e.stopPropagation();
+                        e.stopImmediatePropagation();
                         return false;
                     }
                 }
@@ -426,8 +446,6 @@ if (false === ("HeliumFormHandler" in window)) {
                     // also adding the helium-is-invalid class to form controls
                     jParentField.find('.form-control').addClass("helium-is-invalid");
                     jParentField.find('.form-check-label').addClass("helium-is-invalid");
-
-
 
 
                 } else {

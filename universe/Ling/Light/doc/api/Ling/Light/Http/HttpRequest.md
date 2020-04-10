@@ -4,7 +4,7 @@
 
 The HttpRequest class
 ================
-2019-04-09 --> 2020-02-24
+2019-04-09 --> 2020-04-10
 
 
 
@@ -64,9 +64,13 @@ class <span class="pl-k">HttpRequest</span> implements [HttpRequestInterface](ht
     - public [getHeaders](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/getHeaders.md)() : array
     - public [getHeader](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/getHeader.md)(string $header, ?$default = null) : string | mixed
     - public [getGet](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/getGet.md)() : array
+    - public [getGetValue](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/getGetValue.md)(string $key, ?bool $throwEx = true) : mixed
     - public [getPost](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/getPost.md)() : array
+    - public [getPostValue](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/getPostValue.md)(string $key, ?bool $throwEx = true) : mixed
     - public [getFiles](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/getFiles.md)() : array
+    - public [getFilesValue](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/getFilesValue.md)(string $key, ?bool $throwEx = true) : mixed
     - public [getCookie](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/getCookie.md)() : array
+    - public [getCookieValue](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/getCookieValue.md)(string $key, ?bool $throwEx = true) : mixed
 
 }
 
@@ -205,9 +209,13 @@ Methods
 - [HttpRequest::getHeaders](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/getHeaders.md) &ndash; Returns an array of the http headers attached to the http request.
 - [HttpRequest::getHeader](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/getHeader.md) &ndash; Returns the value of a specific header.
 - [HttpRequest::getGet](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/getGet.md) &ndash; Returns the original $_GET array attached with the http request.
+- [HttpRequest::getGetValue](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/getGetValue.md) &ndash; Returns the value corresponding to the given key in the $_GET array attached with the request.
 - [HttpRequest::getPost](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/getPost.md) &ndash; Returns the original $_POST array attached with the http request.
+- [HttpRequest::getPostValue](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/getPostValue.md) &ndash; Returns the value corresponding to the given key in the $_POST array attached with the request.
 - [HttpRequest::getFiles](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/getFiles.md) &ndash; https://github.com/karayabin/universe-snapshot/tree/master/planets/PhpUploadFileFix for more info).
+- [HttpRequest::getFilesValue](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/getFilesValue.md) &ndash; Returns the value corresponding to the given key in the $_FILES array attached with the request.
 - [HttpRequest::getCookie](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/getCookie.md) &ndash; Returns the original $_COOKIE array attached with the http request.
+- [HttpRequest::getCookieValue](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/getCookieValue.md) &ndash; Returns the value corresponding to the given key in the $_COOKIE array attached with the request.
 
 
 

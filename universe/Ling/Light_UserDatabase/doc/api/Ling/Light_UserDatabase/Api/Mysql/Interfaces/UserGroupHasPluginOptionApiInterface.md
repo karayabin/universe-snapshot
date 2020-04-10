@@ -4,7 +4,7 @@
 
 The UserGroupHasPluginOptionApiInterface class
 ================
-2019-07-19 --> 2020-02-07
+2019-07-19 --> 2020-03-26
 
 
 

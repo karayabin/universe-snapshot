@@ -4,7 +4,7 @@
 
 The LightUserDataRealformHandlerAliasHelper class
 ================
-2019-09-27 --> 2020-03-05
+2019-09-27 --> 2020-03-10
 
 
 
@@ -54,4 +54,4 @@ See the source code of [Ling\Light_UserData\Realform\RealformHandlerAliasHelper\
 
 SeeAlso
 ==============
-Previous class: [LightUserDataRowRestrictionHandler](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Light_UserRowRestriction/LightUserDataRowRestrictionHandler.md)<br>Next class: [LightUserDataService](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService.md)<br>
+Previous class: [LightUserDataException](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Exception/LightUserDataException.md)<br>Next class: [LightUserDataService](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService.md)<br>

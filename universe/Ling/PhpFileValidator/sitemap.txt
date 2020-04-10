@@ -1,0 +1,5 @@
+https://github.com/lingtalfi/PhpFileValidator/blob/master/README.md
+https://github.com/lingtalfi/PhpFileValidator/blob/master/doc/api/Ling/PhpFileValidator/Exception/PhpFileValidatorException.md
+https://github.com/lingtalfi/PhpFileValidator/blob/master/doc/api/Ling/PhpFileValidator/PhpFileValidator/checkPhpFile.md
+https://github.com/lingtalfi/PhpFileValidator/blob/master/doc/api/Ling/PhpFileValidator/PhpFileValidator.md
+https://github.com/lingtalfi/PhpFileValidator/blob/master/doc/api/Ling/PhpFileValidator.md

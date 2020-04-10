@@ -4,7 +4,7 @@
 
 The LightBullsheeterInterface class
 ================
-2019-08-14 --> 2019-09-26
+2019-08-14 --> 2020-03-10
 
 
 
@@ -25,7 +25,7 @@ Class synopsis
 abstract class <span class="pl-k">LightBullsheeterInterface</span>  {
 
 - Methods
-    - abstract public [generateRows](https://github.com/lingtalfi/Light_Bullsheet/blob/master/doc/api/Ling/Light_Bullsheet/Bullsheeter/LightBullsheeterInterface/generateRows.md)(int $nbRows) : void
+    - abstract public [generateRows](https://github.com/lingtalfi/Light_Bullsheet/blob/master/doc/api/Ling/Light_Bullsheet/Bullsheeter/LightBullsheeterInterface/generateRows.md)(int $nbRows, ?array $options = []) : void
 
 }
 

@@ -78,7 +78,6 @@ class MultipleFormEditController extends AdminPageController
 
         $routine = new LightRealformRoutineTwo();
         $routine->setContainer($this->getContainer());
-        LightUserRowRestrictionService::$mode = LightUserRowRestrictionService::MODE_STRICT;
         $form = $routine->processForm($realFormIdentifier, $table, $rics, [
             'post' => [
                 "table" => $table,

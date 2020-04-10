@@ -51,9 +51,4 @@ interface RealformHandlerInterface
     public function getSuccessHandler(): RealformSuccessHandlerInterface;
 
 
-    /**
-     * Returns the form renderer for this instance.
-     * @return RealformRendererInterface
-     */
-//    public function getFormRenderer(): RealformRendererInterface;
 }

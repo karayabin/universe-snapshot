@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightWebsiteUserDatabaseBullsheeter::__construct](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Bullsheet/LightWebsiteUserDatabaseBullsheeter.php#L42-L47)
+See the source code for method [LightWebsiteUserDatabaseBullsheeter::__construct](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Bullsheet/LightWebsiteUserDatabaseBullsheeter.php#L41-L46)
 
 
 See Also

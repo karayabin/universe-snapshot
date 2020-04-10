@@ -4,7 +4,7 @@
 
 The LightMicroPermissionService class
 ================
-2019-09-26 --> 2020-03-02
+2019-09-26 --> 2020-03-10
 
 
 
@@ -89,4 +89,4 @@ See the source code of [Ling\Light_MicroPermission\Service\LightMicroPermissionS
 
 SeeAlso
 ==============
-Previous class: [LightMicroPermissionDatabaseEventHandler](https://github.com/lingtalfi/Light_MicroPermission/blob/master/doc/api/Ling/Light_MicroPermission/Light_Database/LightMicroPermissionDatabaseEventHandler.md)<br>Next class: [LightMicroPermissionTrait](https://github.com/lingtalfi/Light_MicroPermission/blob/master/doc/api/Ling/Light_MicroPermission/Traits/LightMicroPermissionTrait.md)<br>
+Previous class: [LightMicroPermissionException](https://github.com/lingtalfi/Light_MicroPermission/blob/master/doc/api/Ling/Light_MicroPermission/Exception/LightMicroPermissionException.md)<br>Next class: [LightMicroPermissionTrait](https://github.com/lingtalfi/Light_MicroPermission/blob/master/doc/api/Ling/Light_MicroPermission/Traits/LightMicroPermissionTrait.md)<br>

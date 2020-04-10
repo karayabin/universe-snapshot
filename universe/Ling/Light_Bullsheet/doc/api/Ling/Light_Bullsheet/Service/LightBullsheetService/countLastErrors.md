@@ -46,7 +46,7 @@ Returns int.
 
 Source Code
 ===========
-See the source code for method [LightBullsheetService::countLastErrors](https://github.com/lingtalfi/Light_Bullsheet/blob/master/Service/LightBullsheetService.php#L163-L166)
+See the source code for method [LightBullsheetService::countLastErrors](https://github.com/lingtalfi/Light_Bullsheet/blob/master/Service/LightBullsheetService.php#L166-L169)
 
 
 See Also

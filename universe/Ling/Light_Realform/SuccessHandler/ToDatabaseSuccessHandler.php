@@ -67,6 +67,12 @@ class ToDatabaseSuccessHandler implements RealformSuccessHandlerInterface
      */
     protected $multiplier;
 
+    /**
+     * Whether to use @page(the user row restriction system).
+     * @var bool = false
+     */
+    protected $useRowRestriction;
+
 
     /**
      * Builds the ToDatabaseSuccessHandler instance.
@@ -77,6 +83,7 @@ class ToDatabaseSuccessHandler implements RealformSuccessHandlerInterface
         $this->container = null;
         $this->pluginName = null;
         $this->multiplier = null;
+        $this->useRowRestriction = false;
     }
 
 
@@ -111,6 +118,7 @@ class ToDatabaseSuccessHandler implements RealformSuccessHandlerInterface
             $crud->execute($contextId, $this->table, 'update', [
                 'data' => $data,
                 'updateRic' => $updateRic,
+                'useRowRestriction' => $this->useRowRestriction,
             ]);
         }
         //--------------------------------------------
@@ -120,6 +128,7 @@ class ToDatabaseSuccessHandler implements RealformSuccessHandlerInterface
             $crud->execute($contextId, $this->table, 'create', [
                 'data' => $data,
                 'multiplier' => $this->multiplier,
+                'useRowRestriction' => $this->useRowRestriction,
             ]);
         }
     }
@@ -167,6 +176,17 @@ class ToDatabaseSuccessHandler implements RealformSuccessHandlerInterface
     {
         $this->multiplier = $multiplier;
     }
+
+    /**
+     * Sets the useRowRestriction.
+     *
+     * @param bool $useRowRestriction
+     */
+    public function setUseRowRestriction(bool $useRowRestriction)
+    {
+        $this->useRowRestriction = $useRowRestriction;
+    }
+
 
 
 }

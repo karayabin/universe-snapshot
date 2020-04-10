@@ -4,7 +4,7 @@
 
 The HttpResponseInterface class
 ================
-2019-04-09 --> 2020-02-24
+2019-04-09 --> 2020-04-10
 
 
 
@@ -26,6 +26,7 @@ abstract class <span class="pl-k">HttpResponseInterface</span>  {
 
 - Methods
     - abstract public [send](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponseInterface/send.md)() : void
+    - abstract public [setHeader](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponseInterface/setHeader.md)(string $name, string $value, ?bool $replace = true) : void
 
 }
 
@@ -38,6 +39,7 @@ Methods
 ==============
 
 - [HttpResponseInterface::send](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponseInterface/send.md) &ndash; Sends the headers and prints the response body to the output.
+- [HttpResponseInterface::setHeader](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponseInterface/setHeader.md) &ndash; Adds a header to this instance.
 
 
 

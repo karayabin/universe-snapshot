@@ -7,7 +7,7 @@ Light_UserDatabase, conception notes
 So, this service provides an interface to a [light user](https://github.com/lingtalfi/Light_User).
 
 
-In particular, we provide an interface for the [LightWebsiteUser](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/WebsiteLightUser.md), which is a special type of light user more suitable
+In particular, we provide an interface for the [LightWebsiteUser](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser.md), which is a special type of light user more suitable
 for web applications.
 
 

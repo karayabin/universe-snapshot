@@ -53,7 +53,7 @@ Returns string | mixed.
 
 Source Code
 ===========
-See the source code for method [HttpRequest::getHeader](https://github.com/lingtalfi/Light/blob/master/Http/HttpRequest.php#L309-L312)
+See the source code for method [HttpRequest::getHeader](https://github.com/lingtalfi/Light/blob/master/Http/HttpRequest.php#L310-L313)
 
 
 See Also

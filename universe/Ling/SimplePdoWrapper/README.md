@@ -1,6 +1,6 @@
 SimplePdoWrapper
 ================
-2019-02-04 -> 2020-03-03
+2019-02-04 -> 2020-03-10
 
 
 
@@ -966,6 +966,10 @@ Related
 History Log
 ------------------
 
+- 1.19.0 -- 2020-03-10
+
+    - removed system call flag concept  
+    
 - 1.18.0 -- 2020-03-03
 
     - add system call flag concept  

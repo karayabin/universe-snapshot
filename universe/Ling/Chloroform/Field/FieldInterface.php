@@ -30,7 +30,6 @@ interface FieldInterface
     public function addValidator(ValidatorInterface $validator);
 
 
-
     /**
      * Sets the dataTransformer for this field.
      *
@@ -95,7 +94,6 @@ interface FieldInterface
     public function getFallbackValue();
 
 
-
     /**
      * Returns the array representation of the field.
      * It should contain at least the following keys:
@@ -132,4 +130,25 @@ interface FieldInterface
      * @return DataTransformerInterface|null
      */
     public function getDataTransformer(): ?DataTransformerInterface;
+
+
+    /**
+     * Sets the properties of this field.
+     * Note: each concrete class might respond differently to the properties being set.
+     *
+     * @param array $properties
+     * @return void
+     */
+    public function setProperties(array $properties);
+
+    /**
+     * Sets a property to this field.
+     * Note: each concrete class might respond differently to the properties being set.
+     *
+     *
+     * @param string $name
+     * @param $value
+     * @return void
+     */
+    public function setProperty(string $name, $value);
 }

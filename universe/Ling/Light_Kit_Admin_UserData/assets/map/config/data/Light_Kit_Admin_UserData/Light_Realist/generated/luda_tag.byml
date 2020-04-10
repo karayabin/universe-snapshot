@@ -46,7 +46,8 @@ default:
         value: REALIST(Light_Realist, csrf_token, realist-request)
     
     use_micro_permission: true
-    row_restriction_mode: strict
+    use_row_restriction: false
+    query_error_show_debug_info: true
     rendering: 
         title: Tag list
         list_general_actions: 

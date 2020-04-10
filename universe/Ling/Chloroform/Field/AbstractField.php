@@ -289,6 +289,24 @@ abstract class AbstractField implements FieldInterface
         return $this;
     }
 
+    /**
+     * @implementation
+     */
+    public function setProperties(array $properties)
+    {
+        $this->properties = $properties;
+    }
+
+    /**
+     * @implementation
+     */
+    public function setProperty(string $name, $value)
+    {
+        $this->properties[$name] = $value;
+    }
+
+
+
 
 
 

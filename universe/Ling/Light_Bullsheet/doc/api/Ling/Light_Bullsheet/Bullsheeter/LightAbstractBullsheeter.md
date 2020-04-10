@@ -4,7 +4,7 @@
 
 The LightAbstractBullsheeter class
 ================
-2019-08-14 --> 2019-09-26
+2019-08-14 --> 2020-03-10
 
 
 
@@ -32,7 +32,7 @@ abstract class <span class="pl-k">LightAbstractBullsheeter</span> implements [Li
     - public [setContainer](https://github.com/lingtalfi/Light_Bullsheet/blob/master/doc/api/Ling/Light_Bullsheet/Bullsheeter/LightAbstractBullsheeter/setContainer.md)([Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) $container) : void
 
 - Inherited methods
-    - abstract public [LightBullsheeterInterface::generateRows](https://github.com/lingtalfi/Light_Bullsheet/blob/master/doc/api/Ling/Light_Bullsheet/Bullsheeter/LightBullsheeterInterface/generateRows.md)(int $nbRows) : void
+    - abstract public [LightBullsheeterInterface::generateRows](https://github.com/lingtalfi/Light_Bullsheet/blob/master/doc/api/Ling/Light_Bullsheet/Bullsheeter/LightBullsheeterInterface/generateRows.md)(int $nbRows, ?array $options = []) : void
 
 }
 

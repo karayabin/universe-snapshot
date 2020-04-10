@@ -5,6 +5,7 @@ namespace Ling\Light_Crud\AjaxHandler;
 
 
 use Ling\Bat\ArrayTool;
+use Ling\Light\Http\HttpRequestInterface;
 use Ling\Light_AjaxHandler\Handler\BaseLightAjaxHandler;
 use Ling\Light_Crud\Exception\LightCrudException;
 use Ling\Light_Crud\Service\LightCrudService;
@@ -19,8 +20,9 @@ class LightCrudAjaxHandler extends BaseLightAjaxHandler
     /**
      * @implementation
      */
-    public function doHandle(string $actionId, array $params): array
+    public function doHandle(string $actionId, HttpRequestInterface $request): array
     {
+        $params = $request->getPost();
         $response = [];
         switch ($actionId) {
             case "delete_rows":

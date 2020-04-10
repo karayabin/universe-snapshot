@@ -27,7 +27,7 @@ $csrfToken = $csrf->getToken();
 
 //$identifier = "user_" . date("Y-m-d");
 //
-//$user = new  WebsiteLightUser();
+//$user = new  LightWebsiteUser();
 //$user->setPseudo("Michel");
 //$user->setIdentifier($identifier);
 //$user->connect();

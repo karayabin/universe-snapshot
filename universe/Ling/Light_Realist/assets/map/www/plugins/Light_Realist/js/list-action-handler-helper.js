@@ -12,6 +12,7 @@ if ('undefined' === typeof ListActionHandlerHelper) {
         function startsWith(haystack, needle) {
             return haystack.substring(0, needle.length) === needle;
         }
+
         /**
          *
          * Returns the hep associative array.
@@ -30,7 +31,6 @@ if ('undefined' === typeof ListActionHandlerHelper) {
             });
             return attr;
         }
-
 
 
         window.ListActionHandlerHelper = function (options) {
@@ -80,40 +80,43 @@ if ('undefined' === typeof ListActionHandlerHelper) {
                 var rics = this.options.ricHelper.getSelectedRic();
 
 
-
                 for (var i in this.options.listActionLeaves) {
                     var item = this.options.listActionLeaves[i];
                     var actionId = item["action_id"];
-                    var jButton = this.jContainer.find('.lah-button[data-action-id="' + actionId + '"]');
-                    if (jButton.length) {
+                    if ('undefined' !== typeof actionId) {  // some actions, the user might have been denied the permission to do it, and so the actionId would result in being undefined...
 
 
-                        var behaviour = item["enabled_behaviour"];
-                        if ('undefined' === typeof behaviour) {
-                            behaviour = 'oneOrMore';
-                        }
+                        var jButton = this.jContainer.find('.lah-button[data-action-id="' + actionId + '"]');
+                        if (jButton.length) {
 
-                        var isDisabled = false;
 
-                        if ("string" === typeof behaviour) {
-                            switch (behaviour) {
-                                case 'oneOrMore':
-                                    if (0 === rics.length) {
-                                        isDisabled = true;
-                                    }
-                                    break;
-                                case 'always':
-                                    break;
+                            var behaviour = item["enabled_behaviour"];
+                            if ('undefined' === typeof behaviour) {
+                                behaviour = 'oneOrMore';
                             }
+
+                            var isDisabled = false;
+
+                            if ("string" === typeof behaviour) {
+                                switch (behaviour) {
+                                    case 'oneOrMore':
+                                        if (0 === rics.length) {
+                                            isDisabled = true;
+                                        }
+                                        break;
+                                    case 'always':
+                                        break;
+                                }
+                            } else {
+                                // assuming it's a callable
+                                isDisabled = behaviour(this.options.ricHelper, rics);
+                            }
+
+                            jButton.prop('disabled', isDisabled);
+
                         } else {
-                            // assuming it's a callable
-                            isDisabled = behaviour(this.options.ricHelper, rics);
+                            this.error("Button not found with action id=" + actionId);
                         }
-
-                        jButton.prop('disabled', isDisabled);
-
-                    } else {
-                        this.error("Button not found with action id=" + actionId);
                     }
                 }
             },

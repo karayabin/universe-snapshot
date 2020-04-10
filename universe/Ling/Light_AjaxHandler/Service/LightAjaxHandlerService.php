@@ -4,10 +4,14 @@
 namespace Ling\Light_AjaxHandler\Service;
 
 
+use Ling\Bat\ClassTool;
+use Ling\Light\Events\LightEvent;
+use Ling\Light\Http\HttpRequestInterface;
 use Ling\Light\ServiceContainer\LightServiceContainerAwareInterface;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
 use Ling\Light_AjaxHandler\Exception\LightAjaxHandlerException;
 use Ling\Light_AjaxHandler\Handler\LightAjaxHandlerInterface;
+use Ling\Light_Events\Service\LightEventsService;
 use Ling\Light_ReverseRouter\Service\LightReverseRouterService;
 
 /**
@@ -40,6 +44,7 @@ class LightAjaxHandlerService
         $this->handlers = [];
         $this->container = null;
     }
+
 
     /**
      * Sets the container.
@@ -116,6 +121,53 @@ class LightAjaxHandlerService
          *
          */
         return "lah_route-ajax_handler";
+    }
+
+
+    /**
+     * Handles the request and returns an @page(alcp response).
+     * @param HttpRequestInterface $request
+     * @return array
+     */
+    public function handle(HttpRequestInterface $request): array
+    {
+
+        try {
+
+            $handler = $request->getPostValue("handler");
+            $action = $request->getPostValue("action");
+            $handler = $this->getHandler($handler);
+            $response = $handler->handle($action, $request);
+
+        } catch (\Exception $e) {
+
+            $response = [
+                "type" => "error",
+                "error" => $e->getMessage(),
+                "exception" => ClassTool::getShortName($e),
+            ];
+
+            try {
+
+                // dispatch the exception (to allow deeper investigation)
+                /**
+                 * @var $events LightEventsService
+                 */
+                $events = $this->container->get("events");
+                $data = LightEvent::createByContainer($this->container);
+                $data->setVar('exception', $e);
+                $events->dispatch("Light_AjaxHandler.on_handle_exception_caught", $data);
+            } catch (\Exception $e) {
+                $response = [
+                    "type" => "error",
+                    "error" => $e->getMessage(),
+                    "exception" => ClassTool::getShortName($e),
+                ];
+            }
+
+        }
+
+        return $response;
     }
 
 

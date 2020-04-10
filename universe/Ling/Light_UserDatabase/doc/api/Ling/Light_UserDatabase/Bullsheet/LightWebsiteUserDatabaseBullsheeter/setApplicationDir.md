@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightWebsiteUserDatabaseBullsheeter::setApplicationDir](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Bullsheet/LightWebsiteUserDatabaseBullsheeter.php#L122-L125)
+See the source code for method [LightWebsiteUserDatabaseBullsheeter::setApplicationDir](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Bullsheet/LightWebsiteUserDatabaseBullsheeter.php#L121-L124)
 
 
 See Also

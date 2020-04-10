@@ -5,42 +5,17 @@ namespace Ling\Light_UserRowRestriction\Service;
 
 
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
-use Ling\Light_Database\EventHandler\LightDatabaseEventHandlerInterface;
 use Ling\Light_Database\Helper\LightDatabaseHelper;
 use Ling\Light_UserManager\Service\LightUserManagerService;
-use Ling\Light_UserRowRestriction\Exception\LightUserRowRestrictionException;
+use Ling\Light_UserRowRestriction\Exception\RowRestrictionViolationException;
 use Ling\Light_UserRowRestriction\RowRestrictionHandler\RowRestrictionHandlerInterface;
 use Ling\SqlWizard\Tool\SqlWizardGeneralTool;
 
 /**
  * The LightUserRowRestrictionService class.
  */
-class LightUserRowRestrictionService implements LightDatabaseEventHandlerInterface
+class LightUserRowRestrictionService
 {
-
-    /**
-     * The inactive mode, which is the default mode. See the $mode property for more details.
-     */
-    const MODE_INACTIVE = 0;
-
-
-    /**
-     * The strict mode. See the $mode property for more details.
-     */
-    const MODE_STRICT = 1;
-
-    /**
-     * The permissive mode. See the $mode property for more details.
-     */
-    const MODE_PERMISSIVE = 2;
-
-
-    /**
-     * This property holds the mode for this instance.
-     * See @page(the Light_UserRowRestriction conception notes, service mode section) for more details.
-     * @var int = 0
-     */
-    public static $mode = self::MODE_INACTIVE;
 
 
     /**
@@ -99,68 +74,61 @@ class LightUserRowRestrictionService implements LightDatabaseEventHandlerInterfa
     //
     //--------------------------------------------
     /**
-     * @implementation
+     * Checks that the current user is granted to do the crud operation (eventName argument).
+     * If that's not the case, it throws a RowRestrictionViolationException.
+     *
+     * @param string $eventName
+     * @param mixed ...$args
+     * @throws RowRestrictionViolationException
      */
-    public function handle(string $eventName, bool $isSystemCall, ...$args)
+    public function checkRestrictions(string $eventName, ...$args)
     {
-        /**
-         * We don't treat system calls at all for now
-         */
-        if (true === $isSystemCall) {
-            return;
-        }
+        try {
+            switch ($eventName) {
+                case "insert":
+                case "replace":
+                case "delete":
+                case "update":
+                    $table = $args[0];
+                    break;
+                case "fetch":
+                case "fetchAll":
+                    $q = $args[0];
+                    $tables = LightDatabaseHelper::getTablesByQuery($q);
 
-        if (self::MODE_INACTIVE === self::$mode) {
-            return;
-        }
-
-
-        switch ($eventName) {
-            case "insert.before":
-                $type = "create";
-                $table = $args[0];
-                break;
-            case "replace.before":
-            case "update.before":
-                $type = "update";
-                $table = $args[0];
-                break;
-            case "delete.before":
-                $type = "delete";
-                $table = $args[0];
-                break;
-            case "fetch.before":
-            case "fetchAll.before":
-                $q = $args[0];
-                $tables = LightDatabaseHelper::getTablesByQuery($q);
-
-                /**
-                 * For now assuming that the main table is the first one found.
-                 */
-                $table = array_shift($tables);
-                $type = "read";
-                break;
-            default:
-                throw new LightUserRowRestrictionException("Unknown eventName \"$eventName\".");
-                break;
-        }
-
-
-        /**
-         * For now my handlers only use table prefix (might change later when needed)
-         */
-        $prefix = SqlWizardGeneralTool::getTablePrefix($table);
-        if (array_key_exists($prefix, $this->prefix2RowRestrictionsHandlers)) {
+                    /**
+                     * For now assuming that the main table is the first one found.
+                     */
+                    $table = array_shift($tables);
+                    break;
+                default:
+                    throw new RowRestrictionViolationException("Light_UserRowRestriction: Unknown eventName \"$eventName\".");
+                    break;
+            }
 
 
             /**
-             * @var $manager LightUserManagerService
+             * For now my handlers only use table prefix (might change later when needed)
              */
-            $manager = $this->container->get("user_manager");
-            $user = $manager->getUser();
+            $prefix = SqlWizardGeneralTool::getTablePrefix($table);
+            if (array_key_exists($prefix, $this->prefix2RowRestrictionsHandlers)) {
 
-            $handler = $this->prefix2RowRestrictionsHandlers[$prefix];
-            $handler->checkRestriction($user, $table, $type, ...$args);
+
+                /**
+                 * @var $manager LightUserManagerService
+                 */
+                $manager = $this->container->get("user_manager");
+                $user = $manager->getUser();
+
+                $handler = $this->prefix2RowRestrictionsHandlers[$prefix];
+
+                $handler->checkRestriction($user, ...$args);
+
+            }
+        } catch (\Exception $e) {
+            $exc = new RowRestrictionViolationException($e->getMessage(), $e->getCode(), $e);
+            throw $exc;
+
         }
     }
 

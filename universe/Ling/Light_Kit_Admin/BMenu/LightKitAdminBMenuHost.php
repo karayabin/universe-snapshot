@@ -11,7 +11,7 @@ use Ling\Light_BMenu\Host\LightBMenuAbstractHost;
 use Ling\Light_BMenu\Menu\LightBMenu;
 use Ling\Light_Kit_Admin\Exception\LightKitAdminException;
 use Ling\Light_ReverseRouter\Service\LightReverseRouterService;
-use Ling\Light_User\WebsiteLightUser;
+use Ling\Light_User\LightWebsiteUser;
 use Ling\Light_UserManager\UserManager\LightUserManagerInterface;
 
 
@@ -85,7 +85,7 @@ class LightKitAdminBMenuHost extends LightBMenuAbstractHost
         $userManager = $this->container->get("user_manager");
 
         /**
-         * @var $user WebsiteLightUser
+         * @var $user LightWebsiteUser
          */
         $user = $userManager->getUser();
         $menu = ArrayTool::filterRecursive($menu, function ($v) use ($user) {

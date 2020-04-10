@@ -59,10 +59,23 @@ class ToolbarRendererWidget extends AbstractRendererWidget implements ToolbarRen
                 foreach ($this->groups as $item):
 
                     $actionId = $item['action_id'] ?? null;
+
+
                     $text = $item['text'];
                     $items = $item['items'] ?? [];
                     $attr = $item['attr'] ?? [];
                     $icon = $item['icon'] ?? null;
+
+
+                    /**
+                     * Some actions might have been defined to the user due a permission system (such as micropermission for instance),
+                     * when that's the case, the actionId is null, and we don't want to display those buttons.
+                     *
+                     * Also, a parent item has no actionId, and here we filter out parent with no children.
+                     */
+                    if (null === $actionId && empty($items)) {
+                        continue;
+                    }
 
                     $csrf = $item['csrf_token'] ?? null;
                     if (is_string($csrf)) {

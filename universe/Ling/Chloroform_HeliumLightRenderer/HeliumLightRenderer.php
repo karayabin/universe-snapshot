@@ -125,12 +125,20 @@ class HeliumLightRenderer extends HeliumRenderer
             'https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css',
         ]);
 
+//        $copilot->registerLibrary("JFileUploader", [
+//            '/libs/universe/Ling/JFileUploader/fileuploader.js',
+//            '/libs/universe/Ling/JFileUploader/lang/lang-eng.js',
+//            '/libs/universe/Ling/JFileUploader/theme/theme-bootstrap.js',
+//        ], [
+//            '/libs/universe/Ling/JFileUploader/theme/theme-bootstrap.css',
+//        ]);
+
         $copilot->registerLibrary("JFileUploader", [
-            '/libs/universe/Ling/JFileUploader/fileuploader.js',
-            '/libs/universe/Ling/JFileUploader/lang/lang-eng.js',
-            '/libs/universe/Ling/JFileUploader/theme/theme-bootstrap.js',
+            '/libs/universe/Ling/JFileUploader/dist/js/main.min.js',
+//            '/libs/universe/Ling/JFileUploader/lang/lang-eng.js',
+//            '/libs/universe/Ling/JFileUploader/theme/theme-bootstrap.js',
         ], [
-            '/libs/universe/Ling/JFileUploader/theme/theme-bootstrap.css',
+            '/libs/universe/Ling/JFileUploader/dist/css/theme/theme-bootstrap.min.css',
         ]);
 
         $copilot->registerLibrary("cropperJs", [

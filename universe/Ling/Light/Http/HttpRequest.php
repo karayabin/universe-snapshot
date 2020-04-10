@@ -3,6 +3,7 @@
 
 namespace Ling\Light\Http;
 
+use Ling\Light\Exception\LightException;
 use Ling\PhpUploadFileFix\PhpUploadFileFixTool;
 
 /**
@@ -322,10 +323,40 @@ class HttpRequest implements HttpRequestInterface
     /**
      * @implementation
      */
+    public function getGetValue(string $key, bool $throwEx = true)
+    {
+        if (array_key_exists($key, $this->get)) {
+            return $this->get[$key];
+        }
+        if (true === $throwEx) {
+            throw new LightException("No value found for key \"$key\" in get.");
+        }
+        return null;
+    }
+
+
+    /**
+     * @implementation
+     */
     public function getPost(): array
     {
         return $this->post;
     }
+
+    /**
+     * @implementation
+     */
+    public function getPostValue(string $key, bool $throwEx = true)
+    {
+        if (array_key_exists($key, $this->post)) {
+            return $this->post[$key];
+        }
+        if (true === $throwEx) {
+            throw new LightException("No value found for key \"$key\" in post.");
+        }
+        return null;
+    }
+
 
     /**
      * @implementation
@@ -338,9 +369,38 @@ class HttpRequest implements HttpRequestInterface
     /**
      * @implementation
      */
+    public function getFilesValue(string $key, bool $throwEx = true)
+    {
+        if (array_key_exists($key, $this->files)) {
+            return $this->files[$key];
+        }
+        if (true === $throwEx) {
+            throw new LightException("No value found for key \"$key\" in files.");
+        }
+        return null;
+    }
+
+
+    /**
+     * @implementation
+     */
     public function getCookie(): array
     {
         return $this->cookie;
+    }
+
+    /**
+     * @implementation
+     */
+    public function getCookieValue(string $key, bool $throwEx = true)
+    {
+        if (array_key_exists($key, $this->cookie)) {
+            return $this->cookie[$key];
+        }
+        if (true === $throwEx) {
+            throw new LightException("No value found for key \"$key\" in cookie.");
+        }
+        return null;
     }
 
 

@@ -47,7 +47,7 @@ Returns mixed.
 
 Source Code
 ===========
-See the source code for method [FieldInterface::getFallbackValue](https://github.com/lingtalfi/Chloroform/blob/master/Field/FieldInterface.php#L95-L95)
+See the source code for method [FieldInterface::getFallbackValue](https://github.com/lingtalfi/Chloroform/blob/master/Field/FieldInterface.php#L94-L94)
 
 
 See Also

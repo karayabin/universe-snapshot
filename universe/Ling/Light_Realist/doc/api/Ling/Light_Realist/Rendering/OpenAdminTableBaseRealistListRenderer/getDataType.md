@@ -50,7 +50,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [OpenAdminTableBaseRealistListRenderer::getDataType](https://github.com/lingtalfi/Light_Realist/blob/master/Rendering/OpenAdminTableBaseRealistListRenderer.php#L415-L421)
+See the source code for method [OpenAdminTableBaseRealistListRenderer::getDataType](https://github.com/lingtalfi/Light_Realist/blob/master/Rendering/OpenAdminTableBaseRealistListRenderer.php#L416-L422)
 
 
 See Also

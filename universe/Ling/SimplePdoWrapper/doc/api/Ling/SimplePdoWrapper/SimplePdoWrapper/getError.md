@@ -49,7 +49,7 @@ The pdo error info objects (http://php.net/manual/en/pdo.errorinfo.php)     - 0:
 
 Source Code
 ===========
-See the source code for method [SimplePdoWrapper::getError](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/SimplePdoWrapper.php#L105-L115)
+See the source code for method [SimplePdoWrapper::getError](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/SimplePdoWrapper.php#L99-L109)
 
 
 See Also

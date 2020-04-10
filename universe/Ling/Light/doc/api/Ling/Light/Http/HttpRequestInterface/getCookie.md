@@ -46,7 +46,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [HttpRequestInterface::getCookie](https://github.com/lingtalfi/Light/blob/master/Http/HttpRequestInterface.php#L150-L150)
+See the source code for method [HttpRequestInterface::getCookie](https://github.com/lingtalfi/Light/blob/master/Http/HttpRequestInterface.php#L191-L191)
 
 
 See Also
@@ -54,5 +54,5 @@ See Also
 
 The [HttpRequestInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface.md) class.
 
-Previous method: [getFiles](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface/getFiles.md)<br>
+Previous method: [getFilesValue](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface/getFilesValue.md)<br>Next method: [getCookieValue](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface/getCookieValue.md)<br>
 

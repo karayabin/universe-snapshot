@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [HttpResponse::setFileName](https://github.com/lingtalfi/Light/blob/master/Http/HttpResponse.php#L187-L190)
+See the source code for method [HttpResponse::setFileName](https://github.com/lingtalfi/Light/blob/master/Http/HttpResponse.php#L180-L183)
 
 
 See Also

@@ -200,7 +200,7 @@ class Bootstrap4AdminTableRenderer extends OpenAdminTableBaseRealistListRenderer
 
 
             ?>
-            <div class="row">
+            <div class="row mb-2">
                 <?php if ($hasNbRows): ?>
                     <div class="col-sm-<?php echo $colSize; ?>">
                         <?php $this->getWidget("number_of_rows_info")->render(); ?>
@@ -475,6 +475,7 @@ class Bootstrap4AdminTableRenderer extends OpenAdminTableBaseRealistListRenderer
     protected function printJavascript()
     {
 
+
         $contentRowStartIndex = 1;
         if ($this->isWidgetEnabled("neck_filters")) {
             $contentRowStartIndex = 2;
@@ -483,6 +484,8 @@ class Bootstrap4AdminTableRenderer extends OpenAdminTableBaseRealistListRenderer
         $sCollapse = json_encode($this->collapsibleColumnIndexes);
         $listActionLeaves = $this->getListActionGroupLeafItems();
         $listGeneralActionLeaves = $this->listGeneralActions;
+
+
 
 
         if (null !== $this->container) {

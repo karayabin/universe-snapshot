@@ -115,130 +115,138 @@ class LightRealformRoutineTwo
         $ric = $tableInfo['ricStrict'];
         $useShare = (count($rics) > 1);
 
-
-        //--------------------------------------------
-        // FIRST GET THE ROWS FROM THE DATABASE
-        //--------------------------------------------
-        $microPermissionError = null;
-        /**
-         * Using recommended notation for micro-permission interaction with database.
-         */
-        $microPermission = "tables.$table.read";
-        /**
-         * @var $microService LightMicroPermissionService
-         */
-        $microService = $this->container->get("micro_permission");
-        if (false === $microService->hasMicroPermission($microPermission)) {
-            $microPermissionError = "You don't have the permission to access this page (you miss the \"$microPermission\" microPermission).";
-        }
+        try {
 
 
-        /**
-         * @var $db LightDatabaseService
-         */
-        $db = $this->container->get('database');
-        $markers = [];
-        $sWhere = RicHelper::getWhereByRics($ric, $rics, $markers);
+            $microPermissionError = null;
+            /**
+             * Using recommended notation for micro-permission interaction with database.
+             */
+            $microPermission = "tables.$table.read";
+            /**
+             * @var $microService LightMicroPermissionService
+             */
+            $microService = $this->container->get("micro_permission");
+            if (false === $microService->hasMicroPermission($microPermission)) {
+                throw new LightRealformException("You don't have the permission to access this page (you miss the \"$microPermission\" microPermission).");
+            }
 
-        $q = "select * from `$table` where $sWhere";
-        $rows = $db->fetchAll($q, $markers);
-        $nbRows = count($rows);
+
+            //--------------------------------------------
+            // CONVERT THE ROWS TO THE FORM CONTROLS
+            //--------------------------------------------
+            /**
+             * In order to do that, we will hack the traditional realform handler.
+             */
+            /**
+             * @var $rf LightRealformService
+             */
+            $rf = $this->container->get("realform");
+            // we will use this rf handler as a tool to access the raw configuration...
+            $rfHandler = $rf->getFormHandler($realformIdentifier);
+
+            // ...but now we will tweak that configuration for each item, to add
+            // our "_$number" suffixes for each field
+            $conf = $rfHandler->getConfiguration();
+            $confFormHandler = $conf['form_handler'];
+            $rowRestriction = $confFormHandler['row_restriction'] ?? [];
+            $useRowRestrictionRead = (in_array('read', $rowRestriction, true));
+            $useRowRestrictionUpdate = (in_array('update', $rowRestriction, true));
 
 
-        //--------------------------------------------
-        // NOW CONVERTS THE ROWS TO THE FORM CONTROLS
-        //--------------------------------------------
-        /**
-         * In order to do that, we will hack the traditional realform handler.
-         */
-        /**
-         * @var $rf LightRealformService
-         */
-        $rf = $this->container->get("realform");
-        // we will use this rf handler as a tool to access the raw configuration...
-        $rfHandler = $rf->getFormHandler($realformIdentifier);
+            //--------------------------------------------
+            // GET THE ROWS FROM THE DATABASE
+            //--------------------------------------------
+            /**
+             * @var $db LightDatabaseService
+             */
+            $db = $this->container->get('database');
+            $markers = [];
+            $sWhere = RicHelper::getWhereByRics($ric, $rics, $markers);
 
-        // ...but now we will tweak that configuration for each item, to add
-        // our "_$number" suffixes for each field
-        $conf = $rfHandler->getConfiguration();
-        $fields = $conf['form_handler']['fields'];
-        $fieldKeys = array_keys($fields);
-        $ourFields = [];
+            $q = "select * from `$table` where $sWhere";
+            if (false === $useRowRestrictionRead) {
+                $rows = $db->fetchAll($q, $markers);
+            } else {
+                $rows = $db->pfetchAll($q, $markers);
+            }
+            $nbRows = count($rows);
 
-        for ($i = 1; $i <= $nbRows; $i++) {
-            $suffix = "_$i";
 
-            $id2Labels = [];
+            $fields = $confFormHandler['fields'];
+            $fieldKeys = array_keys($fields);
+            $ourFields = [];
 
-            foreach ($fields as $id => $fieldData) {
-                if (array_key_exists('htmlName', $fieldData)) {
-                    $fieldData['htmlName'] .= $suffix;
+            for ($i = 1; $i <= $nbRows; $i++) {
+                $suffix = "_$i";
+
+                $id2Labels = [];
+
+                foreach ($fields as $id => $fieldData) {
+                    if (array_key_exists('htmlName', $fieldData)) {
+                        $fieldData['htmlName'] .= $suffix;
+                    }
+                    if (array_key_exists('errorName', $fieldData)) {
+                        $fieldData['errorName'] .= $suffix;
+                    }
+
+
+                    $ourId = $id . $suffix;
+                    $ourFields[$ourId] = $fieldData;
+
+                    $id2Labels[$id] = $fieldData['label'];
                 }
-                if (array_key_exists('errorName', $fieldData)) {
-                    $fieldData['errorName'] .= $suffix;
+
+
+                // add share value checkbox
+                $items = [];
+                foreach ($id2Labels as $id => $label) {
+                    $items[$id] = "Share this value of <b>\"$label\"</b> with all the items.";
+                }
+                $shareFieldId = "lrfr2-share-" . $suffix;
+                $shareField = [
+                    "id" => $shareFieldId,
+                    "htmlAttr" => [
+                        "data-number" => $i,
+                    ],
+                    "label" => null,
+                    "type" => "checkbox",
+                    "items" => $items,
+                ];
+                if (true === $useShare) {
+                    $ourFields[$shareFieldId] = $shareField;
                 }
 
 
-                $ourId = $id . $suffix;
-                $ourFields[$ourId] = $fieldData;
+                // add hr deco
+                $hrId = 'lrfr2-hr' . $suffix;
+                $hrField = [
+                    "id" => $hrId,
+                    "deco_type" => 'hr',
+                    "type" => 'decorative',
+                ];
 
-                $id2Labels[$id] = $fieldData['label'];
+                // add my own fields
+                $ourFields[$hrId] = $hrField;
             }
 
 
-            // add share value checkbox
-            $items = [];
-            foreach ($id2Labels as $id => $label) {
-                $items[$id] = "Share this value of <b>\"$label\"</b> with all the items.";
-            }
-            $shareFieldId = "lrfr2-share-" . $suffix;
-            $shareField = [
-                "id" => $shareFieldId,
-                "htmlAttr" => [
-                    "data-number" => $i,
-                ],
-                "label" => null,
-                "type" => "checkbox",
-                "items" => $items,
-            ];
-            if (true === $useShare) {
-                $ourFields[$shareFieldId] = $shareField;
-            }
+            $formCssId = StringTool::getUniqueCssId("lrfr2-form-");
+            $ourConf = $conf;
+            $ourConf["form_handler"]['fields'] = $ourFields;
+            $form = $rfHandler->getFormHandler($ourConf);
+            $form->setCssId($formCssId);
+            $form->setMode("update");
 
+            // adding multiple edit checkbox share behaviour
+            $jsCode = file_get_contents(__DIR__ . "/js/multiple-edit-helper.js");
+            $jsCode = str_replace([
+                '$formId',
+            ], [
+                $formCssId
+            ], $jsCode);
+            $form->setJsCode($jsCode);
 
-            // add hr deco
-            $hrId = 'lrfr2-hr' . $suffix;
-            $hrField = [
-                "id" => $hrId,
-                "deco_type" => 'hr',
-                "type" => 'decorative',
-            ];
-
-            // add my own fields
-            $ourFields[$hrId] = $hrField;
-        }
-
-
-        $formCssId = StringTool::getUniqueCssId("lrfr2-form-");
-        $ourConf = $conf;
-        $ourConf["form_handler"]['fields'] = $ourFields;
-        $form = $rfHandler->getFormHandler($ourConf);
-        $form->setCssId($formCssId);
-        $form->setMode("update");
-
-        // adding multiple edit checkbox share behaviour
-        $jsCode = file_get_contents(__DIR__ . "/js/multiple-edit-helper.js");
-        $jsCode = str_replace([
-            '$formId',
-        ], [
-            $formCssId
-        ], $jsCode);
-        $form->setJsCode($jsCode);
-
-
-        if (null !== $microPermissionError) {
-            $form->addNotification(ErrorFormNotification::create($microPermissionError));
-        } else {
 
             /**
              * @var $flasher LightFlasherService
@@ -263,113 +271,96 @@ class LightRealformRoutineTwo
                     //--------------------------------------------
                     // UPDATE THE DATABASE
                     //--------------------------------------------
-                    try {
 
-
-                        /**
-                         * Using recommended notation for micro-permission interaction with database.
-                         */
-                        $microPermission = "tables.$table.update";
-                        /**
-                         * @var $microService LightMicroPermissionService
-                         */
-                        $microService = $this->container->get("micro_permission");
-                        if (false === $microService->hasMicroPermission($microPermission)) {
-                            $form->addNotification(ErrorFormNotification::create("You don't have the permission to access this page (you miss the \"$microPermission\" microPermission)."));
-                        } else {
-
-
-                            //--------------------------------------------
-                            // RESOLVE SHARE VALUES
-                            //--------------------------------------------
-                            $updateRows = [];
-                            /**
-                             * First compute back the data (resolve shared values if any)
-                             */
-                            $sharedKey2Value = []; // shared values
-                            for ($i = 1; $i <= $nbRows; $i++) {
-                                $thisUpdateRow = [];
-                                foreach ($fieldKeys as $key) {
-                                    $rowKey = $key . "_" . $i;
-                                    // ensure we have all the keys (reject malicious users tries...)
-                                    if (false === array_key_exists($rowKey, $vid)) {
-                                        throw new LightRealformException("Key missing: \"$rowKey\" from the given \$_POST array.");
-                                    }
-                                    $thisUpdateRow[$key] = $vid[$rowKey];
-
-                                    $shareVal = $vid['lrfr2-share-_' . $i] ?? null;
-                                    if ($shareVal && is_array($shareVal)) {
-                                        foreach ($shareVal as $shareField) {
-                                            $sharedKey2Value[$shareField] = $vid[$shareField . '_' . $i];
-                                        }
-                                    }
-                                }
-                                $updateRows[] = $thisUpdateRow;
-                            }
-
-
-                            /**
-                             * Now apply the shared values
-                             */
-                            foreach ($updateRows as $k => $row) {
-                                $row = array_replace($row, $sharedKey2Value);
-                                $updateRows[$k] = $row;
-                            }
-
-
-                            /**
-                             * Now update the rows
-                             */
-                            if (count($rics) === count($updateRows)) {
-
-                                /**
-                                 * @var $db LightDatabaseService
-                                 */
-                                $db = $this->container->get("database");
-                                /**
-                                 * @var $exception \Exception
-                                 */
-                                $exception = null;
-                                $res = $db->transaction(function () use ($db, $ric, $rics, $updateRows, $table) {
-                                    foreach ($rics as $k => $userRic) {
-                                        // re-check userRic
-                                        if (true === ArrayTool::arrayKeyExistAll($ric, $userRic, true)) {
-                                            $userRic = ArrayTool::intersect($userRic, $ric);
-                                        }
-                                        $row = $updateRows[$k];
-                                        $db->update($table, $row, $userRic);
-                                    }
-                                }, $exception);
-                                if (false === $res) {
-                                    throw $exception;
-                                }
-                            } else {
-                                $nbRics = count($rics);
-                                $nbUpdateRows = count($updateRows);
-                                throw new LightRealformException("Count mismatch between rics ($nbRics) and updateRows ($nbUpdateRows).");
-                            }
-
-
-                            $formIsHandledSuccessfully = true;
-                        }
-
-                    } catch (\Exception $e) {
-                        $form->addNotification(ErrorFormNotification::create($e->getMessage()));
-
-                        // dispatch the exception (to allow deeper investigation)
-                        /**
-                         * @var $events LightEventsService
-                         */
-                        $events = $this->container->get("events");
-                        $data = LightEvent::createByContainer($this->container);
-                        $data->setVar('exception', $e);
-                        /**
-                         * Note from the Light_RealGenerator authors: we chose to use our plugin name as the handler
-                         * rather than the host plugin, because it would be more practical for plugins
-                         * like Light_ExceptionHandler (which dispatching below is mainly intended to) to deal with.
-                         */
-                        $events->dispatch("Light_RealGenerator.on_realform_exception_caught", $data);
+                    /**
+                     * Using recommended notation for micro-permission interaction with database.
+                     */
+                    $microPermission = "tables.$table.update";
+                    /**
+                     * @var $microService LightMicroPermissionService
+                     */
+                    $microService = $this->container->get("micro_permission");
+                    if (false === $microService->hasMicroPermission($microPermission)) {
+                        throw new LightRealformException("You don't have the permission to access this page (you miss the \"$microPermission\" microPermission).");
                     }
+
+
+                    //--------------------------------------------
+                    // RESOLVE SHARE VALUES
+                    //--------------------------------------------
+                    $updateRows = [];
+                    /**
+                     * First compute back the data (resolve shared values if any)
+                     */
+                    $sharedKey2Value = []; // shared values
+                    for ($i = 1; $i <= $nbRows; $i++) {
+                        $thisUpdateRow = [];
+                        foreach ($fieldKeys as $key) {
+                            $rowKey = $key . "_" . $i;
+                            // ensure we have all the keys (reject malicious users tries...)
+                            if (false === array_key_exists($rowKey, $vid)) {
+                                throw new LightRealformException("Key missing: \"$rowKey\" from the given \$_POST array.");
+                            }
+                            $thisUpdateRow[$key] = $vid[$rowKey];
+
+                            $shareVal = $vid['lrfr2-share-_' . $i] ?? null;
+                            if ($shareVal && is_array($shareVal)) {
+                                foreach ($shareVal as $shareField) {
+                                    $sharedKey2Value[$shareField] = $vid[$shareField . '_' . $i];
+                                }
+                            }
+                        }
+                        $updateRows[] = $thisUpdateRow;
+                    }
+
+
+                    /**
+                     * Now apply the shared values
+                     */
+                    foreach ($updateRows as $k => $row) {
+                        $row = array_replace($row, $sharedKey2Value);
+                        $updateRows[$k] = $row;
+                    }
+
+
+                    /**
+                     * Now update the rows
+                     */
+                    if (count($rics) === count($updateRows)) {
+
+                        /**
+                         * @var $db LightDatabaseService
+                         */
+                        $db = $this->container->get("database");
+                        /**
+                         * @var $exception \Exception
+                         */
+                        $exception = null;
+                        $res = $db->transaction(function () use ($db, $ric, $rics, $updateRows, $table, $useRowRestrictionUpdate) {
+                            foreach ($rics as $k => $userRic) {
+                                // re-check userRic
+                                if (true === ArrayTool::arrayKeyExistAll($ric, $userRic, true)) {
+                                    $userRic = ArrayTool::intersect($userRic, $ric);
+                                }
+                                $row = $updateRows[$k];
+                                if (false === $useRowRestrictionUpdate) {
+                                    $db->update($table, $row, $userRic);
+                                } else {
+                                    $db->pupdate($table, $row, $userRic);
+                                }
+                            }
+                        }, $exception);
+                        if (false === $res) {
+                            throw $exception;
+                        }
+                    } else {
+                        $nbRics = count($rics);
+                        $nbUpdateRows = count($updateRows);
+                        throw new LightRealformException("Count mismatch between rics ($nbRics) and updateRows ($nbUpdateRows).");
+                    }
+
+
+                    $formIsHandledSuccessfully = true;
 
 
                     if (true === $formIsHandledSuccessfully) {
@@ -410,6 +401,37 @@ class LightRealformRoutineTwo
                 }
 
             }
+
+
+        } catch (\Exception $e) {
+
+
+            if ($e instanceof LightRedirectException) {
+                throw $e;
+            }
+
+            /**
+             * This happens if the user is not allowed (via row restriction) to read from the table.
+             */
+            if (false === isset($form)) {
+                $form = new Chloroform();
+            }
+
+            $form->addNotification(ErrorFormNotification::create($e->getMessage()));
+
+            // dispatch the exception (to allow deeper investigation)
+            /**
+             * @var $events LightEventsService
+             */
+            $events = $this->container->get("events");
+            $data = LightEvent::createByContainer($this->container);
+            $data->setVar('exception', $e);
+            /**
+             * Note from the Light_RealGenerator authors: we chose to use our plugin name as the handler
+             * rather than the host plugin, because it would be more practical for plugins
+             * like Light_ExceptionHandler (which dispatching below is mainly intended to) to deal with.
+             */
+            $events->dispatch("Light_RealGenerator.on_realform_exception_caught", $data);
         }
 
 

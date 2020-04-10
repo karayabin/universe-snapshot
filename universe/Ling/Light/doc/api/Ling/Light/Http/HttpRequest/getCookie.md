@@ -46,7 +46,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [HttpRequest::getCookie](https://github.com/lingtalfi/Light/blob/master/Http/HttpRequest.php#L341-L344)
+See the source code for method [HttpRequest::getCookie](https://github.com/lingtalfi/Light/blob/master/Http/HttpRequest.php#L387-L390)
 
 
 See Also
@@ -54,5 +54,5 @@ See Also
 
 The [HttpRequest](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest.md) class.
 
-Previous method: [getFiles](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/getFiles.md)<br>
+Previous method: [getFilesValue](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/getFilesValue.md)<br>Next method: [getCookieValue](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/getCookieValue.md)<br>
 

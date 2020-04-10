@@ -30,7 +30,11 @@ If you are developing in the **Light_Kit_Admin** environment, make sure to read 
 
 ### The auto-admin
 
-Use [Light_Kit_Admin_Generator_](https://github.com/lingtalfi/Light_Kit_Admin_Generator#usage-example).
+
+If you are developing a plugin for Light_Kit_Admin, you can generate the admin related things: menus, controllers, configuration files including kit pages, lists, forms, and more,
+just by using the [Light_Kit_Admin_Generator_](https://github.com/lingtalfi/Light_Kit_Admin_Generator#usage-example).
+
+A concrete example of a configuration file for a **Light_Kit_Admin** plugin is the one in **Light_Kit_Admin_UserData** (which is the first **Light_Kit_Admin** plugin made). 
 
 
 

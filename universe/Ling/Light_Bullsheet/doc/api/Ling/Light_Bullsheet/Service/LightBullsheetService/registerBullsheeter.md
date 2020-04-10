@@ -53,7 +53,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightBullsheetService::registerBullsheeter](https://github.com/lingtalfi/Light_Bullsheet/blob/master/Service/LightBullsheetService.php#L121-L124)
+See the source code for method [LightBullsheetService::registerBullsheeter](https://github.com/lingtalfi/Light_Bullsheet/blob/master/Service/LightBullsheetService.php#L124-L127)
 
 
 See Also

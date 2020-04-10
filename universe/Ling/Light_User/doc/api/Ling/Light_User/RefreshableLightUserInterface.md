@@ -4,7 +4,7 @@
 
 The RefreshableLightUserInterface class
 ================
-2019-05-10 --> 2020-02-25
+2019-05-10 --> 2020-03-26
 
 
 
@@ -61,4 +61,4 @@ See the source code of [Ling\Light_User\RefreshableLightUserInterface](https://g
 
 SeeAlso
 ==============
-Previous class: [LightUserInterface](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightUserInterface.md)<br>Next class: [WebsiteLightUser](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/WebsiteLightUser.md)<br>
+Previous class: [LightWebsiteUser](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser.md)<br>

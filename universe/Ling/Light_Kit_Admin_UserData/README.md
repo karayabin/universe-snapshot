@@ -1,6 +1,6 @@
 Light_Kit_Admin_UserData
 ===========
-2020-02-28 -> 2020-03-05
+2020-02-28 -> 2020-03-06
 
 
 
@@ -166,6 +166,19 @@ $realist.methods_collection:
             plugin: Light_Kit_Admin_UserData
             renderer:
                 instance: Ling\Light_Kit_Admin\Realist\ListGeneralActionHandler\LightKitAdminListGeneralActionHandler
+
+
+$user_row_restriction.methods_collection:
+    -
+        method: registerRowRestrictionHandlerByTablePrefix
+        args:
+            prefix: luda
+            handler:
+                instance: Ling\Light_Kit_Admin_UserData\Light_UserRowRestriction\LightKitAdminUserDataRowRestrictionHandler
+                methods:
+                    setContainer:
+                        container: @container()
+
 ```
 
 
@@ -173,6 +186,10 @@ $realist.methods_collection:
 History Log
 =============
 
+- 1.2.0 -- 2020-03-06
+
+    - update kit admin generator config: use a shortName variable to make it more compact
+    
 - 1.1.0 -- 2020-03-05
 
     - change kit admin generator config to take into account user row restriction

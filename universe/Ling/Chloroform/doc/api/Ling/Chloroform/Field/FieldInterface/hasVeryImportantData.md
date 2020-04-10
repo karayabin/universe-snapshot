@@ -46,7 +46,7 @@ Returns bool.
 
 Source Code
 ===========
-See the source code for method [FieldInterface::hasVeryImportantData](https://github.com/lingtalfi/Chloroform/blob/master/Field/FieldInterface.php#L126-L126)
+See the source code for method [FieldInterface::hasVeryImportantData](https://github.com/lingtalfi/Chloroform/blob/master/Field/FieldInterface.php#L124-L124)
 
 
 See Also

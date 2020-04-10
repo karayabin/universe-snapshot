@@ -1,6 +1,6 @@
 Bootstrap4AdminTable
 ===========
-2019-08-15 -> 2020-03-05
+2019-08-15 -> 2020-03-09
 
 
 
@@ -57,6 +57,10 @@ Related
 History Log
 =============
 
+- 1.13.1 -- 2020-03-09
+
+    - fix ToolbarRendererWidget rendering buttons with actionId=null   
+    
 - 1.13.0 -- 2020-03-05
 
     - update Bootstrap4AdminTableRenderer, add jsVars property   

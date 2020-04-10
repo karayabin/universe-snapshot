@@ -4,6 +4,7 @@
 namespace Ling\Light_ChloroformExtension\AjaxHandler;
 
 
+use Ling\Light\Http\HttpRequestInterface;
 use Ling\Light_AjaxHandler\Handler\ContainerAwareLightAjaxHandler;
 use Ling\Light_ChloroformExtension\Exception\LightChloroformExtensionException;
 use Ling\Light_ChloroformExtension\Field\TableList\TableListService;
@@ -20,8 +21,9 @@ class LightChloroformExtensionAjaxHandler extends ContainerAwareLightAjaxHandler
     /**
      * @implementation
      */
-    public function handle(string $actionId, array $params): array
+    public function handle(string $actionId, HttpRequestInterface $request): array
     {
+        $params = $request->getPost();
         $response = [];
         switch ($actionId) {
             case "table_list.autocomplete":

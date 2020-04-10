@@ -77,4 +77,15 @@ class LightController implements LightControllerInterface, LightAwareInterface
         return $this->light->getHttpRequest();
     }
 
+
+    /**
+     * Returns whether the container contains the service which name is given.
+     *
+     * @param string $serviceName
+     * @return bool
+     */
+    protected function hasService(string $serviceName): bool
+    {
+        return $this->getContainer()->has($serviceName);
+    }
 }

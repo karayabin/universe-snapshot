@@ -1,6 +1,6 @@
 Light_UserManager
 ===========
-2019-05-10 -> 2019-12-20
+2019-05-10 -> 2020-03-26
 
 
 
@@ -69,6 +69,10 @@ Related
 History Log
 =============
 
+- 1.5.0 -- 2020-03-26
+
+    - adapt change from Light_User 1.6.5
+    
 - 1.4.0 -- 2019-12-20
 
     - add LightUserManagerInterface->destroyUser method

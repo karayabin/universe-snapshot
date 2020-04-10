@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [HttpRequest::__construct](https://github.com/lingtalfi/Light/blob/master/Http/HttpRequest.php#L141-L144)
+See the source code for method [HttpRequest::__construct](https://github.com/lingtalfi/Light/blob/master/Http/HttpRequest.php#L142-L145)
 
 
 See Also

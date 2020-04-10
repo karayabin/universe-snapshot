@@ -24,7 +24,6 @@ use Ling\Light_Realist\Rendering\RealistListRendererInterface;
 use Ling\Light_Realist\Rendering\RealistRowsRendererInterface;
 use Ling\Light_Realist\Rendering\RequestIdAwareRendererInterface;
 use Ling\Light_Realist\Tool\LightRealistTool;
-use Ling\Light_UserRowRestriction\Service\LightUserRowRestrictionService;
 use Ling\ParametrizedSqlQuery\Helper\ParametrizedSqlQueryHelper;
 use Ling\ParametrizedSqlQuery\ParametrizedSqlQueryUtil;
 
@@ -222,6 +221,9 @@ class LightRealistService
 
         $requestDeclaration = $this->getConfigurationArrayByRequestId($requestId);
         $table = DuelistHelper::getRawTableName($requestDeclaration['table']);
+        $useRowRestriction = $requestDeclaration['use_row_restriction'] ?? false;
+        $showQueryErrorDebug = $requestDeclaration['query_error_show_debug_info'] ?? false;
+
 
         //--------------------------------------------
         // CHECKING CSRF TOKEN
@@ -245,17 +247,7 @@ class LightRealistService
 
 
         //--------------------------------------------
-        // ROW RESTRICTION
-        //--------------------------------------------
-        $rowRestrictionMode = $requestDeclaration['row_restriction_mode'] ?? null;
-        if ("strict" === $rowRestrictionMode) {
-            LightUserRowRestrictionService::$mode = LightUserRowRestrictionService::MODE_STRICT;
-        } elseif ("permissive" === $rowRestrictionMode) {
-            LightUserRowRestrictionService::$mode = LightUserRowRestrictionService::MODE_PERMISSIVE;
-        }
-
-        //--------------------------------------------
-        // CHECKING MICRO PERMISSION...deprecated???
+        // CHECKING MICRO PERMISSION
         //--------------------------------------------
         $useMicroPermission = $requestDeclaration['use_micro_permission'] ?? true;
         if (true === $useMicroPermission) {
@@ -281,19 +273,32 @@ class LightRealistService
 
         try {
 
-            $rows = $db->fetchAll($stmt, $markers);
-            $countRow = $db->fetch($countStmt, $markers);
+            if (false === $useRowRestriction) {
+                $rows = $db->fetchAll($stmt, $markers);
+                $countRow = $db->fetch($countStmt, $markers);
+            } else {
+                $rows = $db->pfetchAll($stmt, $markers);
+                $countRow = $db->pfetch($countStmt, $markers);
+            }
+
+
         } catch (\Exception $e) {
 
             $sMarkers = nl2br(ArrayToStringTool::toPhpArray($markers));
 
-            // sometimes it's easier to have the stmt displayed too, when debugging
-            $debugMsg = "<ul>
+            if (false === $showQueryErrorDebug) {
+                $debugMsg = $e->getMessage();
+            } else {
+
+                // sometimes it's easier to have the stmt displayed too, when debugging
+                $debugMsg = "<ul>
 <li><b>Query</b>: $stmt</li>
 <li><b>Markers</b>: $sMarkers</li>
 <li><b>Error</b>: {$e->getMessage()}</li>
 </ul>
 ";
+            }
+
             throw new LightRealistException($debugMsg);
         }
 
@@ -620,6 +625,7 @@ class LightRealistService
      */
     public function prepareListActionGroups(array &$items, string $requestId)
     {
+
         foreach ($items as $k => $item) {
             if (array_key_exists('action_id', $item)) {
                 $res = $this->prepareGenericActionItem($item, $this->listActionHandlers, $requestId);
@@ -638,6 +644,7 @@ class LightRealistService
             }
 
         }
+
     }
 
 

@@ -60,7 +60,7 @@ If not overwritten, the default values are:
 - is_secure_protocol: null
 - is_ajax: false
 
-See the @page(route page) for more details.
+See the [route page](https://github.com/lingtalfi/Light/blob/master/doc/pages/route.md) for more details.
 
 
 Return values

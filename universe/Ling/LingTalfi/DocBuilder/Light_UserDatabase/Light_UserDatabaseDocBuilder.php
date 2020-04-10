@@ -144,7 +144,7 @@ class Light_UserDatabaseDocBuilder
                 "Light_Database plugin" => 'https://github.com/lingtalfi/Light_Database',
                 "initializer service" => 'https://github.com/lingtalfi/Light_Initializer/',
                 "passwordProtector" => 'https://github.com/lingtalfi/Light_PasswordProtector/',
-                "light website user" => 'https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/WebsiteLightUser.md',
+                "light website user" => 'https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser.md',
                 "rights of the user" => 'https://github.com/lingtalfi/Light_User/blob/master/doc/pages/conception.md#its-all-about-rights',
                 "BabyYamlDatabase" => 'https://github.com/lingtalfi/BabyYamlDatabase/',
                 "lsom" => 'https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/pages/ling-standard-object-methods.md',

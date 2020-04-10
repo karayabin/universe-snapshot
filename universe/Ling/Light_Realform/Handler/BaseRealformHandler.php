@@ -104,7 +104,6 @@ abstract class BaseRealformHandler implements RealformHandlerInterface, LightSer
         }
 
 
-
         $formHandlerConf = $conf['form_handler'] ?? [];
 
 
@@ -210,6 +209,9 @@ abstract class BaseRealformHandler implements RealformHandlerInterface, LightSer
                     }
                     if (array_key_exists("multiplier", $params)) {
                         $o->setMultiplier($params['multiplier']);
+                    }
+                    if (array_key_exists("useRowRestriction", $params)) {
+                        $o->setUseRowRestriction($params['useRowRestriction']);
                     }
                     return $o;
                     break;

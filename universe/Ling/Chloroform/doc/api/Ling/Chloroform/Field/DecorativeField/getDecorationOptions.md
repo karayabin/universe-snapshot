@@ -46,7 +46,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [DecorativeField::getDecorationOptions](https://github.com/lingtalfi/Chloroform/blob/master/Field/DecorativeField.php#L197-L200)
+See the source code for method [DecorativeField::getDecorationOptions](https://github.com/lingtalfi/Chloroform/blob/master/Field/DecorativeField.php#L215-L218)
 
 
 See Also

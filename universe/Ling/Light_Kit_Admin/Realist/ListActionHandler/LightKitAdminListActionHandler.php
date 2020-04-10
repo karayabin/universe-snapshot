@@ -8,7 +8,6 @@ use Ling\Bat\BDotTool;
 use Ling\Bat\DebugTool;
 use Ling\Light_Crud\Service\LightCrudService;
 use Ling\Light_Kit_Admin\Exception\LightKitAdminException;
-use Ling\Light_Kit_Admin\Service\LightKitAdminService;
 use Ling\Light_Realist\Helper\DuelistHelper;
 use Ling\Light_Realist\Helper\RealistHelper;
 use Ling\Light_Realist\ListActionHandler\LightRealistBaseListActionHandler;
@@ -124,11 +123,13 @@ class LightKitAdminListActionHandler extends LightRealistBaseListActionHandler
                 $requestId = $params['request_id'];
                 $rics = $params['rics'];
 
+
                 /**
                  * @var $service LightRealistService
                  */
                 $service = $this->container->get("realist");
                 $conf = $service->getConfigurationArrayByRequestId($requestId);
+                $useRowRestriction = $conf['use_row_restriction'] ?? false;
                 $table = DuelistHelper::getRawTableName($conf['table']);
                 $toolbarItem = LightRealistTool::getToolbarItemByActionId($actionId, $conf);
 
@@ -140,31 +141,6 @@ class LightKitAdminListActionHandler extends LightRealistBaseListActionHandler
 
 
                 //--------------------------------------------
-                // CHECK PERMISSION
-                //--------------------------------------------
-                // already checked by the Light_Crud plugin below
-//                /**
-//                 * Note: we use the requestDeclaration.plugin property to decide which plugin is handling
-//                 * the micro-permission for deleting rows.
-//                 * In other words, we trust developers.
-//                 */
-//                $handlerPlugin = $conf['plugin'] ?? 'Light_Kit_Admin';
-//                $this->checkMicroPermission("$handlerPlugin.tables.$table.delete");
-
-
-                //--------------------------------------------
-                // CHECK OWNERSHIP
-                //--------------------------------------------
-                /**
-                 * @var $kitAdmin LightKitAdminService
-                 */
-//                $kitAdmin = $this->container->get("kit_admin");
-//                $ownershipManager = $kitAdmin->getUserRowOwnershipManager();
-//                foreach ($rics as $ric) {
-//                    $ownershipManager->checkOwnership($table, $ric);
-//                }
-
-                //--------------------------------------------
                 // DELETING THE ROWS
                 //--------------------------------------------
                 /**
@@ -174,6 +150,7 @@ class LightKitAdminListActionHandler extends LightRealistBaseListActionHandler
                 $contextId = 'Light_Kit_Admin.realist-list_action-delete_rows';
                 $crud->execute($contextId, $table, 'deleteMultiple', [
                     'rics' => $rics,
+                    'useRowRestriction' => $useRowRestriction,
                 ]);
                 $response = [
                     "type" => "success",
@@ -190,80 +167,6 @@ class LightKitAdminListActionHandler extends LightRealistBaseListActionHandler
 
 
 
-
-    /**
-     * Executes the "rows to csv" action and returns information about the resulting generated content.
-     *
-     * @param string $actionId
-     * @param array $params
-     * @return array
-     * @throws \Exception
-     */
-//    protected function executeRowsToCsvListAction(string $actionId, array $params): array
-//    {
-//
-//        $response = [];
-//        if (array_key_exists("request_id", $params)) {
-//            if (array_key_exists("rics", $params) && is_array($params['rics'])) {
-//
-//                $requestId = $params['request_id'];
-//                $rics = $params['rics'];
-//
-//                /**
-//                 * @var $service LightRealistService
-//                 */
-//                $service = $this->container->get("realist");
-//                $conf = $service->getConfigurationArrayByRequestId($requestId);
-//                $table = $conf['table'];
-//                $toolbarItem = LightRealistTool::getToolbarItemByActionId($actionId, $conf);
-//
-//
-//                //--------------------------------------------
-//                // CSRF TOKEN CHECK?
-//                //--------------------------------------------
-//                $service->checkCsrfTokenByGenericActionItem($toolbarItem, $params);
-//
-//
-//                //--------------------------------------------
-//                // CHECK PERMISSION
-//                //--------------------------------------------
-//                $this->checkMicroPermission("Light_Kit_Admin.tables.$table.read");
-//
-//
-//                //--------------------------------------------
-//                // GENERATING CSV
-//                //--------------------------------------------
-//                /**
-//                 * @var $db SimplePdoWrapperInterface
-//                 */
-//                $db = $this->container->get('database');
-//                $confRics = $conf['ric'];
-//                if (1 === count($confRics)) {
-//                    $primaryColumn = current($confRics);
-//                    $sRics = LightRealistTool::ricsToIntegersOnlyInString($rics);
-//                    $rows = $db->fetchAll("select * from `$table` where $primaryColumn in ($sRics)");
-//                    $delimiter = ",";
-//                    $content = CsvUtil::getString($rows, $delimiter);
-//                    $response = [
-//                        "type" => "success",
-//                        "content" => $content,
-//                        "contentType" => "text-csv",
-//                        "filename" => "$table-" . date("Y-m-d--h:i:s") . ".csv",
-//                    ];
-//
-//
-//                } else {
-//                    $this->error("Not implemented yet with ric containing more than one column.");
-//                }
-//            } else {
-//                $this->error("rics not provided or not an array.");
-//            }
-//        } else {
-//            $this->error("request_id not provided.");
-//        }
-//
-//        return $response;
-//    }
 
 
     /**

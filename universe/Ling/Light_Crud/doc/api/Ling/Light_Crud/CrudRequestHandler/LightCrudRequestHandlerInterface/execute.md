@@ -38,6 +38,9 @@ The params depend on the action, we suggest the following:
      - rics: array of ric items, each of which being an array of key/value pairs representing the ric of a row to delete
 
 
+Other params might be added by plugin authors when necessary.
+
+
 
 
 Parameters
@@ -80,7 +83,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightCrudRequestHandlerInterface::execute](https://github.com/lingtalfi/Light_Crud/blob/master/CrudRequestHandler/LightCrudRequestHandlerInterface.php#L39-L39)
+See the source code for method [LightCrudRequestHandlerInterface::execute](https://github.com/lingtalfi/Light_Crud/blob/master/CrudRequestHandler/LightCrudRequestHandlerInterface.php#L41-L41)
 
 
 See Also

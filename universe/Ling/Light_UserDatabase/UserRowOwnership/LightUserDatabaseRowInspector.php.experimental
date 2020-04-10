@@ -18,7 +18,7 @@ class LightUserDatabaseRowInspector extends LightBaseRowInspector
      */
     public function getInfoBit(string $table, array $ricRow)
     {
-        $user = $this->getWebsiteLightUser();
+        $user = $this->getLightWebsiteUser();
         switch ($table) {
             case "lud_permission":
                 ArrayTool::arrayKeyExistAll("id", $ricRow, true);

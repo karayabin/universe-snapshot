@@ -84,7 +84,6 @@ class ListConfigGenerator extends BaseConfigGenerator
         $listActionGroupsPluginName = $this->getKeyValue('list.list_action_groups_plugin_name', false, $pluginName);
         $listGeneralActionsPluginName = $this->getKeyValue('list.list_general_actions_plugin_name', false, $pluginName);
         $useMicroPermission = $this->getKeyValue('list.use_micro_permission', false, true);
-        $rowRestrictionMode = $this->getKeyValue('list.row_restriction_mode', false, null);
         $ignoreColumns = $this->getKeyValue("list.ignore_columns.$table", false, []);
         $globalIgnoreColumns = $this->getKeyValue("ignore_columns.$table", false, []);
         $useActionColumn = $this->getKeyValue("list.use_action_column", false, true);
@@ -108,6 +107,8 @@ class ListConfigGenerator extends BaseConfigGenerator
         $crossColumnHubLinkTablePrefix2Plugin = $this->getKeyValue("list.cross_column_hub_link_table_prefix_2_plugin", false, []);
         $relatedLinks = $this->getKeyValue("list.related_links", false, []);
         $listTitle = $this->getKeyValue("list.title", false, "{Label} list");
+        $useRowRestriction = $this->getKeyValue("list.use_row_restriction", false, false);
+        $queryErrorShowDebugInfo = $this->getKeyValue("list.query_error_show_debug_info", false, false);
 
 
         $ignoreColumns = array_unique(array_merge($globalIgnoreColumns, $ignoreColumns));
@@ -344,7 +345,8 @@ class ListConfigGenerator extends BaseConfigGenerator
                 "value" => 'REALIST(Light_Realist, csrf_token, realist-request)',
             ];
             $main['use_micro_permission'] = $useMicroPermission;
-            $main['row_restriction_mode'] = $rowRestrictionMode;
+            $main['use_row_restriction'] = $useRowRestriction;
+            $main['query_error_show_debug_info'] = $queryErrorShowDebugInfo;
 
 
             //--------------------------------------------

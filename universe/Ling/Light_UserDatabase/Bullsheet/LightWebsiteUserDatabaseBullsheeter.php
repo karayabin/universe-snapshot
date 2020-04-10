@@ -10,7 +10,6 @@ use Ling\Light_Bullsheet\Bullsheeter\LightAbstractBullsheeter;
 use Ling\Light_Database\LightDatabasePdoWrapper;
 use Ling\Light_PasswordProtector\Service\LightPasswordProtector;
 use Ling\Light_UserDatabase\Exception\LightUserDatabaseException;
-use Ling\Light_UserDatabase\LightWebsiteUserDatabaseInterface;
 use Ling\Light_UserDatabase\MysqlLightWebsiteUserDatabase;
 use Ling\TinyBullsheeter\TinyBullsheeterTool;
 
@@ -50,7 +49,7 @@ class LightWebsiteUserDatabaseBullsheeter extends LightAbstractBullsheeter
     /**
      * @implementation
      */
-    public function generateRows(int $nbRows)
+    public function generateRows(int $nbRows, array $options = [])
     {
         if ($nbRows > 0) {
 

@@ -60,7 +60,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [HttpResponse::setHeader](https://github.com/lingtalfi/Light/blob/master/Http/HttpResponse.php#L177-L180)
+See the source code for method [HttpResponse::setHeader](https://github.com/lingtalfi/Light/blob/master/Http/HttpResponse.php#L170-L173)
 
 
 See Also

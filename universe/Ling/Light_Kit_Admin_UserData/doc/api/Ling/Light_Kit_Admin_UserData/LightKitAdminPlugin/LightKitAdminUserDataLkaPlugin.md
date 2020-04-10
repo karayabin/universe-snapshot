@@ -4,7 +4,7 @@
 
 The LightKitAdminUserDataLkaPlugin class
 ================
-2020-02-28 --> 2020-03-05
+2020-02-28 --> 2020-03-10
 
 
 
@@ -59,4 +59,4 @@ See the source code of [Ling\Light_Kit_Admin_UserData\LightKitAdminPlugin\LightK
 
 SeeAlso
 ==============
-Previous class: [LightKitAdminUserDataControllerHubHandler](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/doc/api/Ling/Light_Kit_Admin_UserData/ControllerHub/LightKitAdminUserDataControllerHubHandler.md)<br>Next class: [LightKitAdminUserDataService](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/doc/api/Ling/Light_Kit_Admin_UserData/Service/LightKitAdminUserDataService.md)<br>
+Previous class: [LightKitAdminUserDataException](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/doc/api/Ling/Light_Kit_Admin_UserData/Exception/LightKitAdminUserDataException.md)<br>Next class: [LightKitAdminUserDataRowRestrictionHandler](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/doc/api/Ling/Light_Kit_Admin_UserData/Light_UserRowRestriction/LightKitAdminUserDataRowRestrictionHandler.md)<br>

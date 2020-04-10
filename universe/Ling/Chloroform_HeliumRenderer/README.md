@@ -1,6 +1,6 @@
 Chloroform_HeliumRenderer
 ===========
-2019-07-26 -> 2020-02-27
+2019-07-26 -> 2020-03-11
 
 
 
@@ -385,6 +385,10 @@ Related
 History Log
 =============
 
+- 1.15.0 -- 2020-03-11
+
+    - update helium.js to ensure that the form submit event handler is bound first
+    
 - 1.14.2 -- 2020-02-27
 
     - fix HeliumRenderer->printJsHandler assuming that jquery is loaded right away

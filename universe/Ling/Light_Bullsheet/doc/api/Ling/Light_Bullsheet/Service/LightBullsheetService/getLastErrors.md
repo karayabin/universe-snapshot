@@ -47,7 +47,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [LightBullsheetService::getLastErrors](https://github.com/lingtalfi/Light_Bullsheet/blob/master/Service/LightBullsheetService.php#L153-L156)
+See the source code for method [LightBullsheetService::getLastErrors](https://github.com/lingtalfi/Light_Bullsheet/blob/master/Service/LightBullsheetService.php#L156-L159)
 
 
 See Also

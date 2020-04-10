@@ -8,6 +8,7 @@ dependencies:
         - Light_Kit
         - Light_UserRowRestriction
         - Light_ControllerHub
+        - Light_User
         - BabyYaml
         - Light_BMenu
         - Light_PluginInstaller

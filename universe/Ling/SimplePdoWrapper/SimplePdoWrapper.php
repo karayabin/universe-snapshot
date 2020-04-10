@@ -15,12 +15,6 @@ use Ling\SimplePdoWrapper\Util\Where;
 class SimplePdoWrapper implements SimplePdoWrapperInterface
 {
 
-    /**
-     * This property holds the isSystemCall for this instance.
-     * See the @page(SimplePdoWrapper conception notes) for more info.
-     * @var bool = false
-     */
-    public static $isSystemCall = false;
 
     /**
      * This property holds the default fetch style value for the fetch and fetchAll methods.

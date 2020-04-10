@@ -1,6 +1,6 @@
 Ling/Light_MicroPermission
 ================
-2019-09-26 --> 2020-03-02
+2019-09-26 --> 2020-03-10
 
 
 
@@ -9,10 +9,6 @@ Table of contents
 ===========
 
 - [LightMicroPermissionException](https://github.com/lingtalfi/Light_MicroPermission/blob/master/doc/api/Ling/Light_MicroPermission/Exception/LightMicroPermissionException.md) &ndash; The LightMicroPermissionException class.
-- [LightMicroPermissionDatabaseEventHandler](https://github.com/lingtalfi/Light_MicroPermission/blob/master/doc/api/Ling/Light_MicroPermission/Light_Database/LightMicroPermissionDatabaseEventHandler.md) &ndash; The LightMicroPermissionDatabaseEventHandler class.
-    - [LightMicroPermissionDatabaseEventHandler::__construct](https://github.com/lingtalfi/Light_MicroPermission/blob/master/doc/api/Ling/Light_MicroPermission/Light_Database/LightMicroPermissionDatabaseEventHandler/__construct.md) &ndash; Builds the LightMicroPermissionDatabaseListener instance.
-    - [LightMicroPermissionDatabaseEventHandler::setContainer](https://github.com/lingtalfi/Light_MicroPermission/blob/master/doc/api/Ling/Light_MicroPermission/Light_Database/LightMicroPermissionDatabaseEventHandler/setContainer.md) &ndash; Sets the container.
-    - [LightMicroPermissionDatabaseEventHandler::handle](https://github.com/lingtalfi/Light_MicroPermission/blob/master/doc/api/Ling/Light_MicroPermission/Light_Database/LightMicroPermissionDatabaseEventHandler/handle.md) &ndash; Reacts to the given event, which name and args are given.
 - [LightMicroPermissionService](https://github.com/lingtalfi/Light_MicroPermission/blob/master/doc/api/Ling/Light_MicroPermission/Service/LightMicroPermissionService.md) &ndash; The LightMicroPermissionService class.
     - [LightMicroPermissionService::__construct](https://github.com/lingtalfi/Light_MicroPermission/blob/master/doc/api/Ling/Light_MicroPermission/Service/LightMicroPermissionService/__construct.md) &ndash; Builds the LightMicroPermissionService instance.
     - [LightMicroPermissionService::setContainer](https://github.com/lingtalfi/Light_MicroPermission/blob/master/doc/api/Ling/Light_MicroPermission/Service/LightMicroPermissionService/setContainer.md) &ndash; Sets the container.
@@ -27,9 +23,8 @@ Table of contents
 
 Dependencies
 ============
-- [Light](https://github.com/lingtalfi/Light)
-- [Light_Database](https://github.com/lingtalfi/Light_Database)
 - [BabyYaml](https://github.com/lingtalfi/BabyYaml)
+- [Light](https://github.com/lingtalfi/Light)
 - [Light_UserManager](https://github.com/lingtalfi/Light_UserManager)
 - [Light_User](https://github.com/lingtalfi/Light_User)
 

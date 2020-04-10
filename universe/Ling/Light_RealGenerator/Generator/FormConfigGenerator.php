@@ -68,6 +68,7 @@ class FormConfigGenerator extends BaseConfigGenerator
         $globalIgnoreColumns = $this->getKeyValue("ignore_columns.$table", false, []);
         $ignoreColumns = $this->getKeyValue("form.ignore_columns.$table", false, []);
         $customFields = $this->getKeyValue("form.fields.$table", false, []);
+        $rowRestriction = $this->getKeyValue("form.row_restriction", false, []);
         $notRequiredCols = $this->getKeyValue("form.not_required.$table", false, []);
         $customVariables = $this->getKeyValue("form.variables", false, []);
         $fieldsMergeSpecific = $this->getKeyValue("form.fields_merge_specific.$table", false, []);
@@ -76,6 +77,7 @@ class FormConfigGenerator extends BaseConfigGenerator
         $specialFields = $this->getKeyValue("form.special_fields", false, []);
         $onSuccessHandlerType = $onSuccessHandler['type'] ?? "database";
         $onSuccessHandlerOptions = $onSuccessHandler['options'] ?? [];
+        $useRowRestriction = $onSuccessHandlerOptions['use_row_restriction'] ?? true;
         $useMultiplierOnHas = $this->getKeyValue("form.use_multiplier_on_has", false, true);
 
 
@@ -212,6 +214,7 @@ class FormConfigGenerator extends BaseConfigGenerator
             }
         }
         $formHandler['fields'] = $fields;
+        $formHandler['row_restriction'] = $rowRestriction;
 
 
         $arr['form_handler'] = $formHandler;
@@ -228,7 +231,8 @@ class FormConfigGenerator extends BaseConfigGenerator
                     "type" => "database",
                     "params" => [
                         "table" => $table,
-                        "pluginName" => $pluginName
+                        "pluginName" => $pluginName,
+                        "useRowRestriction" => $useRowRestriction,
                     ],
                 ];
                 if (true === $useMultiplierOnHas && true === $isHasTable) {

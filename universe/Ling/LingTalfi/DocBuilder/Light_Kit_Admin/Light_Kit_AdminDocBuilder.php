@@ -234,7 +234,7 @@ class Light_Kit_AdminDocBuilder
                 "Ling\Light\Http\HttpResponseInterface" => "https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponseInterface.md",
                 "Ling\Light\Controller\LightController" => "https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Controller/LightController.md",
                 "Ling\Light_Flasher\Service\LightFlasher" => "https://github.com/lingtalfi/Light_Flasher/blob/master/doc/api/Ling/Light_Flasher/Service/LightFlasher.md",
-                "Ling\Light_User\WebsiteLightUser" => "https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/WebsiteLightUser.md",
+                "Ling\Light_User\LightWebsiteUser" => "https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser.md",
                 "Ling\Light_MicroPermission\MicroPermissionResolver\BabyYamlMicroPermissionResolver" => "https://github.com/lingtalfi/Light_MicroPermission/blob/master/doc/api/Ling/Light_MicroPermission/MicroPermissionResolver/BabyYamlMicroPermissionResolver.md",
                 "Ling\Light_MicroPermission\MicroPermissionResolver\LightMicroPermissionResolverInterface" => "https://github.com/lingtalfi/Light_MicroPermission/blob/master/doc/api/Ling/Light_MicroPermission/MicroPermissionResolver/LightMicroPermissionResolverInterface.md",
                 "Ling\Light_Kit\PageConfigurationTransformer\PageConfigurationTransformerInterface" => "https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageConfigurationTransformer/PageConfigurationTransformerInterface.md",

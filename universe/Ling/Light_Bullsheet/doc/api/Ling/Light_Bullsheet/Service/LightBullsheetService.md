@@ -4,7 +4,7 @@
 
 The LightBullsheetService class
 ================
-2019-08-14 --> 2019-09-26
+2019-08-14 --> 2020-03-10
 
 
 
@@ -33,7 +33,7 @@ class <span class="pl-k">LightBullsheetService</span>  {
 
 - Methods
     - public [__construct](https://github.com/lingtalfi/Light_Bullsheet/blob/master/doc/api/Ling/Light_Bullsheet/Service/LightBullsheetService/__construct.md)() : void
-    - public [generateRows](https://github.com/lingtalfi/Light_Bullsheet/blob/master/doc/api/Ling/Light_Bullsheet/Service/LightBullsheetService/generateRows.md)(string $identifier, int $nbRows = 50) : void
+    - public [generateRows](https://github.com/lingtalfi/Light_Bullsheet/blob/master/doc/api/Ling/Light_Bullsheet/Service/LightBullsheetService/generateRows.md)(string $identifier, ?int $nbRows = 50, ?array $options = []) : void
     - public [registerBullsheeter](https://github.com/lingtalfi/Light_Bullsheet/blob/master/doc/api/Ling/Light_Bullsheet/Service/LightBullsheetService/registerBullsheeter.md)(string $identifier, [Ling\Light_Bullsheet\Bullsheeter\LightBullsheeterInterface](https://github.com/lingtalfi/Light_Bullsheet/blob/master/doc/api/Ling/Light_Bullsheet/Bullsheeter/LightBullsheeterInterface.md) $bullsheeter) : void
     - public [setContainer](https://github.com/lingtalfi/Light_Bullsheet/blob/master/doc/api/Ling/Light_Bullsheet/Service/LightBullsheetService/setContainer.md)([Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) $container) : void
     - public [setSilentMode](https://github.com/lingtalfi/Light_Bullsheet/blob/master/doc/api/Ling/Light_Bullsheet/Service/LightBullsheetService/setSilentMode.md)(bool $silentMode) : void

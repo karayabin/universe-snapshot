@@ -46,7 +46,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [DecorativeField::getDecorationType](https://github.com/lingtalfi/Chloroform/blob/master/Field/DecorativeField.php#L187-L190)
+See the source code for method [DecorativeField::getDecorationType](https://github.com/lingtalfi/Chloroform/blob/master/Field/DecorativeField.php#L205-L208)
 
 
 See Also
@@ -54,5 +54,5 @@ See Also
 
 The [DecorativeField](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/DecorativeField.md) class.
 
-Previous method: [getDataTransformer](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/DecorativeField/getDataTransformer.md)<br>Next method: [getDecorationOptions](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/DecorativeField/getDecorationOptions.md)<br>
+Previous method: [setProperty](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/DecorativeField/setProperty.md)<br>Next method: [getDecorationOptions](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/DecorativeField/getDecorationOptions.md)<br>
 

@@ -4,7 +4,7 @@
 
 The LightKitAdminUserDataService class
 ================
-2020-02-28 --> 2020-03-05
+2020-02-28 --> 2020-03-10
 
 
 
@@ -74,4 +74,4 @@ See the source code of [Ling\Light_Kit_Admin_UserData\Service\LightKitAdminUserD
 
 SeeAlso
 ==============
-Previous class: [LightKitAdminUserDataLkaPlugin](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/doc/api/Ling/Light_Kit_Admin_UserData/LightKitAdminPlugin/LightKitAdminUserDataLkaPlugin.md)<br>
+Previous class: [LightKitAdminUserDataRowRestrictionHandler](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/doc/api/Ling/Light_Kit_Admin_UserData/Light_UserRowRestriction/LightKitAdminUserDataRowRestrictionHandler.md)<br>

@@ -59,7 +59,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightRealistService::prepareListGeneralActions](https://github.com/lingtalfi/Light_Realist/blob/master/Service/LightRealistService.php#L653-L663)
+See the source code for method [LightRealistService::prepareListGeneralActions](https://github.com/lingtalfi/Light_Realist/blob/master/Service/LightRealistService.php#L660-L670)
 
 
 See Also

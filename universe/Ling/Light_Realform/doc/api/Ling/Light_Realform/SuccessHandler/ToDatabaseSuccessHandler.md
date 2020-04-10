@@ -4,7 +4,7 @@
 
 The ToDatabaseSuccessHandler class
 ================
-2019-10-21 --> 2020-02-28
+2019-10-21 --> 2020-03-10
 
 
 
@@ -48,6 +48,7 @@ class <span class="pl-k">ToDatabaseSuccessHandler</span> implements [RealformSuc
     - protected [Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) [$container](#property-container) ;
     - protected string [$pluginName](#property-pluginName) ;
     - protected array [$multiplier](#property-multiplier) ;
+    - protected bool [$useRowRestriction](#property-useRowRestriction) ;
 
 - Methods
     - public [__construct](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/SuccessHandler/ToDatabaseSuccessHandler/__construct.md)() : void
@@ -56,6 +57,7 @@ class <span class="pl-k">ToDatabaseSuccessHandler</span> implements [RealformSuc
     - public [setTable](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/SuccessHandler/ToDatabaseSuccessHandler/setTable.md)(string $table) : void
     - public [setPluginName](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/SuccessHandler/ToDatabaseSuccessHandler/setPluginName.md)(string $pluginName) : void
     - public [setMultiplier](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/SuccessHandler/ToDatabaseSuccessHandler/setMultiplier.md)(array $multiplier) : void
+    - public [setUseRowRestriction](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/SuccessHandler/ToDatabaseSuccessHandler/setUseRowRestriction.md)(bool $useRowRestriction) : void
 
 }
 
@@ -91,6 +93,12 @@ Properties
     
     
 
+- <span id="property-useRowRestriction"><b>useRowRestriction</b></span>
+
+    Whether to use [the user row restriction system](https://github.com/lingtalfi/Light_UserRowRestriction/blob/master/doc/pages/conception-notes.md).
+    
+    
+
 
 
 Methods
@@ -102,6 +110,7 @@ Methods
 - [ToDatabaseSuccessHandler::setTable](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/SuccessHandler/ToDatabaseSuccessHandler/setTable.md) &ndash; Sets the table.
 - [ToDatabaseSuccessHandler::setPluginName](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/SuccessHandler/ToDatabaseSuccessHandler/setPluginName.md) &ndash; Sets the pluginName.
 - [ToDatabaseSuccessHandler::setMultiplier](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/SuccessHandler/ToDatabaseSuccessHandler/setMultiplier.md) &ndash; Sets the multiplier.
+- [ToDatabaseSuccessHandler::setUseRowRestriction](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/SuccessHandler/ToDatabaseSuccessHandler/setUseRowRestriction.md) &ndash; Sets the useRowRestriction.
 
 
 

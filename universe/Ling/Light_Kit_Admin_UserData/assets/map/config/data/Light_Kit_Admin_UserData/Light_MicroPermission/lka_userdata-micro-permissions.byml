@@ -1,21 +1,22 @@
 # --------------------------------------
 # luda
 # --------------------------------------
+# Permissions for general tool, such as generated auto-admin gui: only the admin can use them
+# See https://github.com/lingtalfi/Light_UserRowRestriction/blob/master/doc/pages/conception-notes.md for more details.
+tables.luda_resource.create: Light_UserData.admin
+tables.luda_resource.read: Light_UserData.admin
+tables.luda_resource.update: Light_UserData.admin
+tables.luda_resource.delete: Light_UserData.admin
 
-tables.luda_resource.read: Light_UserData.user
-tables.luda_resource.create: Light_UserData.user
-tables.luda_resource.update: Light_UserData.user
-tables.luda_resource.delete: Light_UserData.user
+tables.luda_resource_has_tag.create: Light_UserData.admin
+tables.luda_resource_has_tag.read: Light_UserData.admin
+tables.luda_resource_has_tag.update: Light_UserData.admin
+tables.luda_resource_has_tag.delete: Light_UserData.admin
 
-tables.luda_resource_has_tag.read: Light_UserData.user
-tables.luda_resource_has_tag.create: Light_UserData.user
-tables.luda_resource_has_tag.update: Light_UserData.user
-tables.luda_resource_has_tag.delete: Light_UserData.user
-
-tables.luda_tag.read: Light_UserData.user
-tables.luda_tag.create: Light_UserData.user
-tables.luda_tag.update: Light_UserData.user
-tables.luda_tag.delete: Light_UserData.user
+tables.luda_tag.create: Light_UserData.admin
+tables.luda_tag.read: Light_UserData.admin
+tables.luda_tag.update: Light_UserData.admin
+tables.luda_tag.delete: Light_UserData.admin
 
 
 

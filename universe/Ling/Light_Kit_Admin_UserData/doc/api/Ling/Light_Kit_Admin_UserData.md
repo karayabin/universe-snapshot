@@ -1,6 +1,6 @@
 Ling/Light_Kit_Admin_UserData
 ================
-2020-02-28 --> 2020-03-05
+2020-02-28 --> 2020-03-10
 
 
 
@@ -50,10 +50,15 @@ Table of contents
     - [LightKitAdminUserDataControllerHubHandler::handle](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/doc/api/Ling/Light_Kit_Admin_UserData/ControllerHub/LightKitAdminUserDataControllerHubHandler/handle.md) &ndash; Process the given controllerIdentifier and returns an appropriate http response.
     - LightBaseControllerHubHandler::__construct &ndash; Builds the LightKitAdminControllerHubHandler instance.
     - LightBaseControllerHubHandler::setContainer &ndash; Sets the container.
+- [LightKitAdminUserDataException](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/doc/api/Ling/Light_Kit_Admin_UserData/Exception/LightKitAdminUserDataException.md) &ndash; The LightKitAdminUserDataException class.
 - [LightKitAdminUserDataLkaPlugin](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/doc/api/Ling/Light_Kit_Admin_UserData/LightKitAdminPlugin/LightKitAdminUserDataLkaPlugin.md) &ndash; The LightKitAdminUserDataLkaPlugin class.
     - BaseLightKitAdminPlugin::__construct &ndash; Builds the BaseLightKitAdminPlugin instance.
     - BaseLightKitAdminPlugin::getPluginOptions &ndash; Returns the options of this kit admin plugin.
     - BaseLightKitAdminPlugin::setOptionsFile &ndash; Sets the file.
+- [LightKitAdminUserDataRowRestrictionHandler](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/doc/api/Ling/Light_Kit_Admin_UserData/Light_UserRowRestriction/LightKitAdminUserDataRowRestrictionHandler.md) &ndash; The LightKitAdminUserDataRowRestrictionHandler class.
+    - [LightKitAdminUserDataRowRestrictionHandler::__construct](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/doc/api/Ling/Light_Kit_Admin_UserData/Light_UserRowRestriction/LightKitAdminUserDataRowRestrictionHandler/__construct.md) &ndash; Builds the LightUserDataRowRestrictionHandler instance.
+    - [LightKitAdminUserDataRowRestrictionHandler::setContainer](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/doc/api/Ling/Light_Kit_Admin_UserData/Light_UserRowRestriction/LightKitAdminUserDataRowRestrictionHandler/setContainer.md) &ndash; Sets the container.
+    - [LightKitAdminUserDataRowRestrictionHandler::checkRestriction](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/doc/api/Ling/Light_Kit_Admin_UserData/Light_UserRowRestriction/LightKitAdminUserDataRowRestrictionHandler/checkRestriction.md) &ndash; table and parameters.
 - [LightKitAdminUserDataService](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/doc/api/Ling/Light_Kit_Admin_UserData/Service/LightKitAdminUserDataService.md) &ndash; The LightKitAdminUserDataService class.
     - [LightKitAdminUserDataService::__construct](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/doc/api/Ling/Light_Kit_Admin_UserData/Service/LightKitAdminUserDataService/__construct.md) &ndash; Builds the LightKitAdminUserDataService instance.
     - [LightKitAdminUserDataService::setContainer](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/doc/api/Ling/Light_Kit_Admin_UserData/Service/LightKitAdminUserDataService/setContainer.md) &ndash; Sets the container.
@@ -73,6 +78,7 @@ Dependencies
 - [Light_Kit](https://github.com/lingtalfi/Light_Kit)
 - [Light_UserRowRestriction](https://github.com/lingtalfi/Light_UserRowRestriction)
 - [Light_ControllerHub](https://github.com/lingtalfi/Light_ControllerHub)
+- [Light_User](https://github.com/lingtalfi/Light_User)
 - [BabyYaml](https://github.com/lingtalfi/BabyYaml)
 - [Light_BMenu](https://github.com/lingtalfi/Light_BMenu)
 - [Light_PluginInstaller](https://github.com/lingtalfi/Light_PluginInstaller)

@@ -1,6 +1,6 @@
 Light_Bullsheet
 ===========
-2019-08-14
+2019-08-14 -> 2020-03-10
 
 
 
@@ -116,6 +116,10 @@ $bull->generateRows("Light_UserDatabase.lud_user", 50);
 History Log
 =============
 
+- 1.1.0 -- 2020-03-10
+
+    - add LightBullsheeterInterface->generateRows.options property
+    
 - 1.0.3 -- 2019-09-26
 
     - fix README.md typo

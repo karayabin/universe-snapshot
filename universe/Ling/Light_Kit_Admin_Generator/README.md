@@ -1,6 +1,6 @@
 Light_Kit_Admin_Generator
 ===========
-2019-11-06 -> 2020-03-05
+2019-11-06 -> 2020-03-06
 
 
 
@@ -79,6 +79,10 @@ az($container->get("kit_admin_generator")->generate($configFile));
 History Log
 =============
 
+- 1.12.0 -- 2020-03-06
+
+    - update row restriction system
+    
 - 1.11.0 -- 2020-03-05
 
     - update controller.php.tpl, now uses row restriction service

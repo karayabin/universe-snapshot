@@ -53,10 +53,12 @@ form_handler:
             
         
     
+    row_restriction: []
 
 on_success_handler: 
     type: database
     params: 
         table: luda_resource
         pluginName: Light_Kit_Admin_UserData
+        useRowRestriction: true
     

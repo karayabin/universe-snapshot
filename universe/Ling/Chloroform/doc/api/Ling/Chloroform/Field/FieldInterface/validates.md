@@ -52,7 +52,7 @@ Returns bool.
 
 Source Code
 ===========
-See the source code for method [FieldInterface::validates](https://github.com/lingtalfi/Chloroform/blob/master/Field/FieldInterface.php#L57-L57)
+See the source code for method [FieldInterface::validates](https://github.com/lingtalfi/Chloroform/blob/master/Field/FieldInterface.php#L56-L56)
 
 
 See Also

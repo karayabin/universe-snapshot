@@ -144,6 +144,7 @@ class Light_DatabaseDocBuilder
                 "recommended micro-permission notation for database interaction" => "https://github.com/lingtalfi/Light_MicroPermission/blob/master/doc/pages/recommended-micropermission-notation.md",
                 "LightDatabasePdoWrapper class" => "https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/LightDatabasePdoWrapper.md",
                 "SimplePdoWrapper conception notes" => "https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/pages/conception-notes.md",
+                "the user row restriction checking" => "https://github.com/lingtalfi/Light_UserRowRestriction/blob/master/doc/pages/conception-notes.md",
             ],
             /**
              * An array of external classes to url.

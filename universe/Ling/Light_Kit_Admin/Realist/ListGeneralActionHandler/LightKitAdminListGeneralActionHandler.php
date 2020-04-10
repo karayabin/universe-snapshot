@@ -142,7 +142,8 @@ class LightKitAdminListGeneralActionHandler extends LightRealistBaseListGeneralA
                         $bullsheetTable = "Light_UserDatabase.lud_user";
                         break;
                     default:
-                        $this->error("Unhandled table $table.");
+                        $bullsheetTable = "Light_Kit_Admin.default";
+//                        $this->error("Unhandled table $table.");
                         break;
                 }
 
@@ -152,7 +153,9 @@ class LightKitAdminListGeneralActionHandler extends LightRealistBaseListGeneralA
                  */
                 $bull = $this->container->get("bullsheet");
 
-                $bull->generateRows($bullsheetTable, $number);
+                $bull->generateRows($bullsheetTable, $number, [
+                    "table" => $table,
+                ]);
                 return [
                     "type" => "success",
                     "toast_type" => "success",

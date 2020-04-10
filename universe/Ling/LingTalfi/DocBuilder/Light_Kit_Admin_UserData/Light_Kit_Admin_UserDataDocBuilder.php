@@ -180,6 +180,8 @@ class Light_Kit_Admin_UserDataDocBuilder
                 "Ling\Light_Kit_Admin\LightKitAdminPlugin\LightKitAdminPluginInterface" => "https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/LightKitAdminPlugin/LightKitAdminPluginInterface.md",
                 "Ling\Light_PluginInstaller\PluginInstaller\PluginInstallerInterface" => "https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/PluginInstaller/PluginInstallerInterface.md",
                 "Ling\Light_BMenu\DirectInjection\BMenuDirectInjectorInterface" => "https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/DirectInjection/BMenuDirectInjectorInterface.md",
+                "Ling\Light_UserRowRestriction\RowRestrictionHandler\RowRestrictionHandlerInterface" => "https://github.com/lingtalfi/Light_UserRowRestriction/blob/master/doc/api/Ling/Light_UserRowRestriction/RowRestrictionHandler/RowRestrictionHandlerInterface.md",
+
 
             ],
             "ignoreFilesStartingWith" => [

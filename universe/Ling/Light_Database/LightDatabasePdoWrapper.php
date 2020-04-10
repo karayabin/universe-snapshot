@@ -5,9 +5,9 @@ namespace Ling\Light_Database;
 
 use Ling\Light\Events\LightEvent;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
-use Ling\Light_Database\EventHandler\LightDatabaseEventHandlerInterface;
 use Ling\Light_Database\Exception\LightDatabaseException;
 use Ling\Light_Events\Service\LightEventsService;
+use Ling\Light_UserRowRestriction\Service\LightUserRowRestrictionService;
 use Ling\SimplePdoWrapper\SimplePdoWrapper;
 
 /**
@@ -32,13 +32,6 @@ class LightDatabasePdoWrapper extends SimplePdoWrapper
     protected $container;
 
 
-    /**
-     * This property holds the eventHandlers for this instance.
-     *
-     * @var LightDatabaseEventHandlerInterface[]
-     */
-    protected $eventHandlers;
-
 
     /**
      * Builds the LightDatabasePdoWrapper instance.
@@ -48,7 +41,6 @@ class LightDatabasePdoWrapper extends SimplePdoWrapper
         parent::__construct();
         $this->pdoException = null;
         $this->container = null;
-        $this->eventHandlers = [];
     }
 
 
@@ -165,74 +157,131 @@ class LightDatabasePdoWrapper extends SimplePdoWrapper
 
 
     //--------------------------------------------
-    //
+    // ROW RESTRICTION PROTECTED SET
     //--------------------------------------------
     /**
-     * @overrides
+     * Same as insert method, but triggers @page(the user row restriction checking) before hand (if available).
+     *
+     * @param $table
+     * @param array $fields
+     * @param array $options
+     * @return false|string
+     * @throws \Exception
      */
-    public function insert($table, array $fields = [], array $options = [])
+    public function pinsert($table, array $fields = [], array $options = [])
     {
-        $isSystemCall = $this->peakSystemCall();
-        $this->dispatch("insert.before", $isSystemCall, $table, $fields, $options);
+        /**
+         * @var $urr LightUserRowRestrictionService
+         */
+        $urr = $this->container->get("user_row_restriction");
+        $urr->checkRestrictions("insert", $table, $fields, $options);
         return parent::insert($table, $fields, $options);
     }
 
 
-
     /**
-     * @overrides
+     * Same as replace method, but triggers @page(the user row restriction checking) before hand (if available).
+     *
+     * @param $table
+     * @param array $fields
+     * @param array $options
+     * @return false|string
+     * @throws \Exception
      */
-    public function replace($table, array $fields = [], array $options = [])
+    public function preplace($table, array $fields = [], array $options = [])
     {
-        $isSystemCall = $this->peakSystemCall();
-        $this->dispatch("replace.before", $isSystemCall, $table, $fields, $options);
+        /**
+         * @var $urr LightUserRowRestrictionService
+         */
+        $urr = $this->container->get("user_row_restriction");
+        $urr->checkRestrictions("replace", $table, $fields, $options);
         return parent::replace($table, $fields, $options);
     }
 
+
     /**
-     * @overrides
+     * Same as update method, but triggers @page(the user row restriction checking) before hand (if available).
+     *
+     * @param $table
+     * @param array $fields
+     * @param null $whereConds
+     * @param array $markers
+     * @return bool
+     * @throws \Exception
      */
-    public function update($table, array $fields, $whereConds = null, array $markers = [])
+    public function pupdate($table, array $fields, $whereConds = null, array $markers = [])
     {
-        $isSystemCall = $this->peakSystemCall();
-        $this->dispatch("update.before", $isSystemCall, $table, $fields, $whereConds, $markers);
+        /**
+         * @var $urr LightUserRowRestrictionService
+         */
+        $urr = $this->container->get("user_row_restriction");
+        $urr->checkRestrictions("update", $table, $fields, $whereConds, $markers);
         return parent::update($table, $fields, $whereConds, $markers);
     }
 
+
     /**
-     * @overrides
+     *
+     * Same as delete method, but triggers @page(the user row restriction checking) before hand (if available).
+     *
+     * @param $table
+     * @param null $whereConds
+     * @param array $markers
+     * @return false|int
+     * @throws \Exception
      */
-    public function delete($table, $whereConds = null, $markers = [])
+    public function pdelete($table, $whereConds = null, $markers = [])
     {
-        $isSystemCall = $this->peakSystemCall();
-        $this->dispatch("delete.before", $isSystemCall, $table, $whereConds, $markers);
+        /**
+         * @var $urr LightUserRowRestrictionService
+         */
+        $urr = $this->container->get("user_row_restriction");
+        $urr->checkRestrictions("delete", $table, $whereConds, $markers);
         return parent::delete($table, $whereConds, $markers);
     }
 
+
     /**
-     * @overrides
+     * Same as fetch method, but triggers @page(the user row restriction checking) before hand (if available).
+     *
+     * @param $query
+     * @param array $markers
+     * @param null $fetchStyle
+     * @return array|false
+     * @throws \Exception
      */
-    public function fetch($query, array $markers = [], $fetchStyle = null)
+    public function pfetch($query, array $markers = [], $fetchStyle = null)
     {
-        $isSystemCall = $this->peakSystemCall();
-        $this->dispatch("fetch.before", $isSystemCall, $query, $markers, $fetchStyle);
+        /**
+         * @var $urr LightUserRowRestrictionService
+         */
+        $urr = $this->container->get("user_row_restriction");
+        $urr->checkRestrictions("fetch", $query, $markers, $fetchStyle);
         return parent::fetch($query, $markers, $fetchStyle);
     }
 
 
     /**
-     * @overrides
+     *
+     * Same as fetchAll method, but triggers @page(the user row restriction checking) before hand (if available).
+     *
+     * @param $query
+     * @param array $markers
+     * @param null $fetchStyle
+     * @param null $fetchArg
+     * @param array $ctorArgs
+     * @return array|false
+     * @throws \Exception
      */
-    public function fetchAll($query, array $markers = [], $fetchStyle = null, $fetchArg = null, array $ctorArgs = [])
+    public function pfetchAll($query, array $markers = [], $fetchStyle = null, $fetchArg = null, array $ctorArgs = [])
     {
-        $isSystemCall = $this->peakSystemCall();
-        $this->dispatch("fetchAll.before", $isSystemCall, $query, $markers, $fetchStyle, $fetchArg, $ctorArgs);
+        /**
+         * @var $urr LightUserRowRestrictionService
+         */
+        $urr = $this->container->get("user_row_restriction");
+        $urr->checkRestrictions("fetchAll", $query, $markers, $fetchStyle, $fetchArg, $ctorArgs);
         return parent::fetchAll($query, $markers, $fetchStyle, $fetchArg, $ctorArgs);
     }
-
-
-
-
 
     //--------------------------------------------
     //
@@ -245,17 +294,6 @@ class LightDatabasePdoWrapper extends SimplePdoWrapper
     public function setContainer(LightServiceContainerInterface $container)
     {
         $this->container = $container;
-    }
-
-
-    /**
-     * Registers a event handler.
-     *
-     * @param LightDatabaseEventHandlerInterface $handler
-     */
-    public function registerEventHandler(LightDatabaseEventHandlerInterface $handler)
-    {
-        $this->eventHandlers[] = $handler;
     }
 
 
@@ -293,35 +331,5 @@ class LightDatabasePdoWrapper extends SimplePdoWrapper
                 $eventType,
             ]);
         $dispatcher->dispatch($eventName, $event);
-    }
-
-
-    /**
-     * Dispatches the event which name is given with the given args.
-     * The arguments are the same as those from the function being called.
-     *
-     * @param string $eventName
-     * @param ...$args
-     * @throws \Exception
-     */
-    protected function dispatch(string $eventName, ...$args)
-    {
-        foreach ($this->eventHandlers as $handler) {
-            $handler->handle($eventName, ...$args);
-        }
-    }
-
-
-
-    /**
-     * Returns whether the current call was a system call, and turns the system call flag back down.
-     * See more details in the @page(SimplePdoWrapper conception notes).
-     * @return bool
-     */
-    protected function peakSystemCall(): bool
-    {
-        $isSystemCall = SimplePdoWrapper::$isSystemCall;
-        SimplePdoWrapper::$isSystemCall = false;
-        return $isSystemCall;
     }
 }

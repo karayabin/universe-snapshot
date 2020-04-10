@@ -1,6 +1,6 @@
 Ling/Light_UserData
 ================
-2019-09-27 --> 2020-03-05
+2019-09-27 --> 2020-03-10
 
 
 
@@ -166,10 +166,6 @@ Table of contents
     - LightController::__construct &ndash; Builds the LightController instance.
     - LightController::setLight &ndash; Sets the light instance.
 - [LightUserDataException](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Exception/LightUserDataException.md) &ndash; The LightUserDataException class.
-- [LightUserDataRowRestrictionHandler](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Light_UserRowRestriction/LightUserDataRowRestrictionHandler.md) &ndash; The LightUserDataRowRestrictionHandler class.
-    - [LightUserDataRowRestrictionHandler::__construct](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Light_UserRowRestriction/LightUserDataRowRestrictionHandler/__construct.md) &ndash; Builds the LightUserDataRowRestrictionHandler instance.
-    - [LightUserDataRowRestrictionHandler::setContainer](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Light_UserRowRestriction/LightUserDataRowRestrictionHandler/setContainer.md) &ndash; Sets the container.
-    - [LightUserDataRowRestrictionHandler::checkRestriction](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Light_UserRowRestriction/LightUserDataRowRestrictionHandler/checkRestriction.md) &ndash; table, crudType, eventName and args parameters.
 - [LightUserDataRealformHandlerAliasHelper](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Realform/RealformHandlerAliasHelper/LightUserDataRealformHandlerAliasHelper.md) &ndash; The LightUserDataRealformHandlerAliasHelper class.
     - [LightUserDataRealformHandlerAliasHelper::getChloroformValidator](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Realform/RealformHandlerAliasHelper/LightUserDataRealformHandlerAliasHelper/getChloroformValidator.md) &ndash; Returns a configured validator instance, based on the given type and validatorConf array.
     - [LightUserDataRealformHandlerAliasHelper::getDataTransformer](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Realform/RealformHandlerAliasHelper/LightUserDataRealformHandlerAliasHelper/getDataTransformer.md) &ndash; Returns the data transformer instance based on the given alias and parameters.
@@ -207,8 +203,6 @@ Dependencies
 - [Chloroform](https://github.com/lingtalfi/Chloroform)
 - [Light_User](https://github.com/lingtalfi/Light_User)
 - [Bat](https://github.com/lingtalfi/Bat)
-- [CheapLogger](https://github.com/lingtalfi/CheapLogger)
-- [Light_UserRowRestriction](https://github.com/lingtalfi/Light_UserRowRestriction)
 - [Light_Realform](https://github.com/lingtalfi/Light_Realform)
 - [DirScanner](https://github.com/lingtalfi/DirScanner)
 - [Light_PluginInstaller](https://github.com/lingtalfi/Light_PluginInstaller)

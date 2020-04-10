@@ -46,7 +46,7 @@ Returns [DataTransformerInterface](https://github.com/lingtalfi/Chloroform/blob/
 
 Source Code
 ===========
-See the source code for method [FieldInterface::getDataTransformer](https://github.com/lingtalfi/Chloroform/blob/master/Field/FieldInterface.php#L134-L134)
+See the source code for method [FieldInterface::getDataTransformer](https://github.com/lingtalfi/Chloroform/blob/master/Field/FieldInterface.php#L132-L132)
 
 
 See Also
@@ -54,5 +54,5 @@ See Also
 
 The [FieldInterface](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/FieldInterface.md) class.
 
-Previous method: [hasVeryImportantData](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/FieldInterface/hasVeryImportantData.md)<br>
+Previous method: [hasVeryImportantData](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/FieldInterface/hasVeryImportantData.md)<br>Next method: [setProperties](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/FieldInterface/setProperties.md)<br>
 

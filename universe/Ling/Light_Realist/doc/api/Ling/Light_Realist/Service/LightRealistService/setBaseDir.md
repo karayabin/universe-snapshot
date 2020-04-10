@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightRealistService::setBaseDir](https://github.com/lingtalfi/Light_Realist/blob/master/Service/LightRealistService.php#L439-L442)
+See the source code for method [LightRealistService::setBaseDir](https://github.com/lingtalfi/Light_Realist/blob/master/Service/LightRealistService.php#L444-L447)
 
 
 See Also

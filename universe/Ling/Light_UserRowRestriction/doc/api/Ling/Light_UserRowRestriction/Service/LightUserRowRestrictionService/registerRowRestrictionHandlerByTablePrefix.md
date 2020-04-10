@@ -53,7 +53,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightUserRowRestrictionService::registerRowRestrictionHandlerByTablePrefix](https://github.com/lingtalfi/Light_UserRowRestriction/blob/master/Service/LightUserRowRestrictionService.php#L78-L81)
+See the source code for method [LightUserRowRestrictionService::registerRowRestrictionHandlerByTablePrefix](https://github.com/lingtalfi/Light_UserRowRestriction/blob/master/Service/LightUserRowRestrictionService.php#L53-L56)
 
 
 See Also

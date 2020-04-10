@@ -12,8 +12,8 @@ use Ling\Light\ServiceContainer\LightServiceContainerInterface;
 use Ling\Light_DatabaseInfo\Service\LightDatabaseInfoService;
 use Ling\Light_Events\Service\LightEventsService;
 use Ling\Light_Flasher\Service\LightFlasherService;
-use Ling\Light_MicroPermission\Service\LightMicroPermissionService;
 use Ling\Light_Realform\Service\LightRealformService;
+use Ling\Light_UserRowRestriction\Exception\RowRestrictionViolationException;
 use Ling\SimplePdoWrapper\SimplePdoWrapper;
 use Ling\SimplePdoWrapper\SimplePdoWrapperInterface;
 use Ling\WiseTool\WiseTool;
@@ -60,9 +60,6 @@ class LightRealformRoutineOne
      * - the posted data are handled using the on_success_handler (defined by the realform configuration),
      *              and a success callback can also be triggered (if defined in the options)
      *
-     *
-     * The table and pluginName arguments are used to help with default @page(micro-permissions) used
-     * by this routine, which uses the @page(micro-permission recommended notation for database interaction).
      *
      *
      * Errors and success messages are handled using the @page(flash service).
@@ -149,6 +146,11 @@ class LightRealformRoutineOne
         } else {
             $form->setMode("insert");
         }
+        $conf = $rfHandler->getConfiguration();
+        $confFh = $conf['form_handler'];
+        $confRr = $confFh['row_restriction'] ?? [];
+        $useRowRestrictionRead = (in_array("read", $confRr, true));
+
 
         //--------------------------------------------
         // Posting the form and validating data
@@ -260,36 +262,29 @@ class LightRealformRoutineOne
         } else {
 
             $valuesFromDb = [];
+            if (true === $isUpdate) {
+                /**
+                 * @var $db SimplePdoWrapperInterface
+                 */
+                $db = $this->container->get("database");
+                $query = "select * from `$table`";
+                $markers = [];
+                SimplePdoWrapper::addWhereSubStmt($query, $markers, $updateRic);
+                try {
 
-
-            /**
-             * Using recommended notation for micro-permission interaction with database.
-             */
-            $microPermission = "tables.$table.read";
-            /**
-             * @var $microService LightMicroPermissionService
-             */
-            $microService = $this->container->get("micro_permission");
-            if (false === $microService->hasMicroPermission($microPermission)) {
-                $form->addNotification(ErrorFormNotification::create("You don't have the permission to access this page (you miss the \"$microPermission\" microPermission)."));
-            } else {
-
-
-                if (true === $isUpdate) {
-                    /**
-                     * @var $db SimplePdoWrapperInterface
-                     */
-                    $db = $this->container->get("database");
-                    $query = "select * from `$table`";
-                    $markers = [];
-                    SimplePdoWrapper::addWhereSubStmt($query, $markers, $updateRic);
-                    $row = $db->fetch($query, $markers);
+                    if (false === $useRowRestrictionRead) {
+                        $row = $db->fetch($query, $markers);
+                    } else {
+                        $row = $db->pfetch($query, $markers);
+                    }
                     if (false !== $row) {
                         $valuesFromDb = $row;
                     }
+                } catch (RowRestrictionViolationException $e) {
+                    $form->addNotification(ErrorFormNotification::create($e->getMessage()));
                 }
-                $form->injectValues($valuesFromDb);
             }
+            $form->injectValues($valuesFromDb);
 
 
             if ($flasher->hasFlash($table)) {

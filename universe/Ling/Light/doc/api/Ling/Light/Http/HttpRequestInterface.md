@@ -4,7 +4,7 @@
 
 The HttpRequestInterface class
 ================
-2019-04-09 --> 2020-02-24
+2019-04-09 --> 2020-04-10
 
 
 
@@ -39,9 +39,13 @@ abstract class <span class="pl-k">HttpRequestInterface</span>  {
     - abstract public [getHeaders](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface/getHeaders.md)() : array
     - abstract public [getHeader](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface/getHeader.md)(string $header, ?$default = null) : string | mixed
     - abstract public [getGet](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface/getGet.md)() : array
+    - abstract public [getGetValue](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface/getGetValue.md)(string $key, ?bool $throwEx = true) : mixed
     - abstract public [getPost](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface/getPost.md)() : array
+    - abstract public [getPostValue](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface/getPostValue.md)(string $key, ?bool $throwEx = true) : mixed
     - abstract public [getFiles](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface/getFiles.md)() : array
+    - abstract public [getFilesValue](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface/getFilesValue.md)(string $key, ?bool $throwEx = true) : mixed
     - abstract public [getCookie](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface/getCookie.md)() : array
+    - abstract public [getCookieValue](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface/getCookieValue.md)(string $key, ?bool $throwEx = true) : mixed
 
 }
 
@@ -67,9 +71,13 @@ Methods
 - [HttpRequestInterface::getHeaders](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface/getHeaders.md) &ndash; Returns an array of the http headers attached to the http request.
 - [HttpRequestInterface::getHeader](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface/getHeader.md) &ndash; Returns the value of a specific header.
 - [HttpRequestInterface::getGet](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface/getGet.md) &ndash; Returns the original $_GET array attached with the http request.
+- [HttpRequestInterface::getGetValue](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface/getGetValue.md) &ndash; Returns the value corresponding to the given key in the $_GET array attached with the request.
 - [HttpRequestInterface::getPost](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface/getPost.md) &ndash; Returns the original $_POST array attached with the http request.
+- [HttpRequestInterface::getPostValue](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface/getPostValue.md) &ndash; Returns the value corresponding to the given key in the $_POST array attached with the request.
 - [HttpRequestInterface::getFiles](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface/getFiles.md) &ndash; https://github.com/karayabin/universe-snapshot/tree/master/planets/PhpUploadFileFix for more info).
+- [HttpRequestInterface::getFilesValue](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface/getFilesValue.md) &ndash; Returns the value corresponding to the given key in the $_FILES array attached with the request.
 - [HttpRequestInterface::getCookie](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface/getCookie.md) &ndash; Returns the original $_COOKIE array attached with the http request.
+- [HttpRequestInterface::getCookieValue](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface/getCookieValue.md) &ndash; Returns the value corresponding to the given key in the $_COOKIE array attached with the request.
 
 
 

@@ -117,3 +117,15 @@ $realist.methods_collection:
             plugin: Light_Kit_Admin_UserData
             renderer:
                 instance: Ling\Light_Kit_Admin\Realist\ListGeneralActionHandler\LightKitAdminListGeneralActionHandler
+
+
+$user_row_restriction.methods_collection:
+    -
+        method: registerRowRestrictionHandlerByTablePrefix
+        args:
+            prefix: luda
+            handler:
+                instance: Ling\Light_Kit_Admin_UserData\Light_UserRowRestriction\LightKitAdminUserDataRowRestrictionHandler
+                methods:
+                    setContainer:
+                        container: @container()

@@ -8,7 +8,7 @@ user_manager:
     methods: []
 #        setUser:
 #            user:
-#                instance: Ling\Light_User\WebsiteLightUser
+#                instance: Ling\Light_User\LightWebsiteUser
 #                methods:
 #                    setEmail:
 #                        email: lingtalfi@gmail.com

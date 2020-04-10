@@ -544,9 +544,6 @@ class Light
             }
 
 
-
-
-
             if ($response instanceof HttpResponseInterface) {
                 $response->send();
             }
@@ -570,8 +567,15 @@ class Light
      */
     protected function renderDebugPage(\Exception $e)
     {
-
         $response = null;
+        $responseStatus = 200;
+
+        if ($e instanceof LightException) {
+            if ("404" === $e->getLightErrorCode()) {
+                $responseStatus = 404;
+            }
+        }
+
 
         if (null !== $this->container) {
             if ($this->container->has("pretty_error")) {
@@ -585,7 +589,7 @@ class Light
             echo nl2br((string)$e);
             $response = ob_get_clean();
         }
-        return $response;
+        return new HttpResponse($response, $responseStatus);
     }
 
 

@@ -1,6 +1,6 @@
 Light_UserRowRestriction
 ===========
-2020-03-03 -> 2020-03-05
+2020-03-03 -> 2020-03-10
 
 
 
@@ -33,6 +33,7 @@ Summary
 
 
 - [Services](#services)
+- [Related](#related)
 
 
 
@@ -57,30 +58,25 @@ user_row_restriction:
             container: @container()
 
 
-# --------------------------------------
-# hooks
-# --------------------------------------
-$database.methods_collection:
-    -
-        method: registerEventHandler
-        args:
-            handler: @service(user_row_restriction)
-
-
-
-
-
 
 
 
 ```
 
 
+Related
+===========
+- [Light_MicroPermission](https://github.com/lingtalfi/Light_MicroPermission)
+
 
 
 History Log
 =============
 
+- 1.3.0 -- 2020-03-10
+
+    - implement the new row restriction system 
+    
 - 1.2.0 -- 2020-03-05
 
     - add LightUserRowRestrictionService::$mode property 

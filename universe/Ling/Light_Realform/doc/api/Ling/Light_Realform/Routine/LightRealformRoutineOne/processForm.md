@@ -41,9 +41,6 @@ If the form is posted correctly, either:
              and a success callback can also be triggered (if defined in the options)
 
 
-The table and pluginName arguments are used to help with default [micro-permissions](https://github.com/lingtalfi/Light_MicroPermission/blob/master/doc/pages/conception-notes.md) used
-by this routine, which uses the [micro-permission recommended notation for database interaction](https://github.com/lingtalfi/Light_MicroPermission/blob/master/doc/pages/recommended-micropermission-notation.md#database-interaction).
-
 
 Errors and success messages are handled using the [flash service](https://github.com/lingtalfi/Light_Flasher/).
 
@@ -93,7 +90,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightRealformRoutineOne::processForm](https://github.com/lingtalfi/Light_Realform/blob/master/Routine/LightRealformRoutineOne.php#L86-L302)
+See the source code for method [LightRealformRoutineOne::processForm](https://github.com/lingtalfi/Light_Realform/blob/master/Routine/LightRealformRoutineOne.php#L83-L297)
 
 
 See Also

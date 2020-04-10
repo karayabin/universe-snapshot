@@ -1,8 +1,7 @@
 dependencies: 
     Ling: 
-        - Light
-        - Light_Database
         - BabyYaml
+        - Light
         - Light_UserManager
         - Light_User
     

@@ -58,15 +58,5 @@ $realform_handler_alias_helper.methods_collection:
 
 
 
-$user_row_restriction.methods_collection:
-    -
-        method: registerRowRestrictionHandlerByTablePrefix
-        args:
-            prefix: luda
-            handler:
-                instance: Ling\Light_UserData\Light_UserRowRestriction\LightUserDataRowRestrictionHandler
-                methods:
-                    setContainer:
-                        container: @container()
 
 

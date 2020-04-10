@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [LightBullsheetService::generateRows](https://github.com/lingtalfi/Light_Bullsheet/blob/master/doc/api/Ling/Light_Bullsheet/Service/LightBullsheetService/generateRows.md)(string $identifier, int $nbRows = 50) : void
+public [LightBullsheetService::generateRows](https://github.com/lingtalfi/Light_Bullsheet/blob/master/doc/api/Ling/Light_Bullsheet/Service/LightBullsheetService/generateRows.md)(string $identifier, ?int $nbRows = 50, ?array $options = []) : void
 
 
 
@@ -36,6 +36,10 @@ Parameters
     
 
 - nbRows
+
+    
+
+- options
 
     
 
@@ -59,7 +63,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightBullsheetService::generateRows](https://github.com/lingtalfi/Light_Bullsheet/blob/master/Service/LightBullsheetService.php#L83-L112)
+See the source code for method [LightBullsheetService::generateRows](https://github.com/lingtalfi/Light_Bullsheet/blob/master/Service/LightBullsheetService.php#L84-L115)
 
 
 See Also

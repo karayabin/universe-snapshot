@@ -6,12 +6,12 @@ namespace Ling\Light_UserManager\UserManager;
 
 use Ling\Light_User\LightUserInterface;
 use Ling\Light_User\RefreshableLightUserInterface;
-use Ling\Light_User\WebsiteLightUser;
+use Ling\Light_User\LightWebsiteUser;
 
 /**
  * The WebsiteUserManager class.
  *
- * This class returns a refreshed website user ( @page(WebsiteLightUser) ).
+ * This class returns a refreshed website user ( @page(LightWebsiteUser) ).
  *
  * Under the hood, the website user is stored in a php session.
  *
@@ -53,7 +53,7 @@ class WebsiteUserManager implements LightUserManagerInterface
         if (array_key_exists($this->sessionKey, $_SESSION)) {
             $sessionUser = $_SESSION[$this->sessionKey];
         } else {
-            $sessionUser = new WebsiteLightUser();
+            $sessionUser = new LightWebsiteUser();
             $_SESSION[$this->sessionKey] = $sessionUser;
         }
 

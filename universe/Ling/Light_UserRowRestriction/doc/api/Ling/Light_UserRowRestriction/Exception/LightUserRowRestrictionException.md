@@ -4,7 +4,7 @@
 
 The LightUserRowRestrictionException class
 ================
-2020-03-03 --> 2020-03-05
+2020-03-03 --> 2020-03-10
 
 
 
@@ -54,4 +54,4 @@ See the source code of [Ling\Light_UserRowRestriction\Exception\LightUserRowRest
 
 SeeAlso
 ==============
-Next class: [RowRestrictionHandlerInterface](https://github.com/lingtalfi/Light_UserRowRestriction/blob/master/doc/api/Ling/Light_UserRowRestriction/RowRestrictionHandler/RowRestrictionHandlerInterface.md)<br>
+Next class: [RowRestrictionViolationException](https://github.com/lingtalfi/Light_UserRowRestriction/blob/master/doc/api/Ling/Light_UserRowRestriction/Exception/RowRestrictionViolationException.md)<br>

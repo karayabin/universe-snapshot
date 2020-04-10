@@ -2,6 +2,7 @@ dependencies:
     Ling: 
         - Light
         - Light_Events
+        - Light_UserRowRestriction
         - SimplePdoWrapper
     
 

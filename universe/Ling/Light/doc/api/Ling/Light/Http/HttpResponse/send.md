@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [HttpResponse::send](https://github.com/lingtalfi/Light/blob/master/Http/HttpResponse.php#L196-L200)
+See the source code for method [HttpResponse::send](https://github.com/lingtalfi/Light/blob/master/Http/HttpResponse.php#L189-L193)
 
 
 See Also

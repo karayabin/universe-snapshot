@@ -86,7 +86,6 @@ class MysqlInfoUtil
     public function getDatabase(): string
     {
         // http://stackoverflow.com/questions/9322302/how-to-get-database-name-in-pdo
-        SimplePdoWrapper::$isSystemCall = true;
         $res = $this->wrapper->fetch("select database()");
         return current($res);
     }
@@ -119,7 +118,6 @@ class MysqlInfoUtil
                 return true;
             };
         }
-        SimplePdoWrapper::$isSystemCall = true;
         return array_filter($this->wrapper->fetchAll('show databases', [], \PDO::FETCH_COLUMN), $filter);
     }
 
@@ -133,7 +131,6 @@ class MysqlInfoUtil
      */
     public function getTables(string $prefix = null): array
     {
-        SimplePdoWrapper::$isSystemCall = true;
         $tables = $this->wrapper->fetchAll('show tables', [], \PDO::FETCH_COLUMN);
         if (null !== $prefix) {
             $tables = array_filter($tables, function ($v) use ($prefix) {
@@ -164,7 +161,6 @@ WHERE table_schema = '$db'
 AND table_name = '$table'
 LIMIT 1;
 EEE;
-        SimplePdoWrapper::$isSystemCall = true;
         $res = $this->wrapper->fetch($query);
         return ($res !== false);
     }
@@ -180,7 +176,6 @@ EEE;
     public function getColumnNames(string $table): array
     {
         $ret = [];
-        SimplePdoWrapper::$isSystemCall = true;
         $cols = $this->wrapper->fetchAll("describe `$table`;");
         foreach ($cols as $col) {
             $ret[] = $col['Field'];
@@ -207,7 +202,6 @@ EEE;
      */
     public function getPrimaryKey(string $table, bool $returnAllIfEmpty = false, bool &$hasPrimaryKey = true): array
     {
-        SimplePdoWrapper::$isSystemCall = true;
         $rows = $this->wrapper->fetchAll("SHOW INDEX FROM `$table` WHERE Key_name = 'PRIMARY'");
         $ret = [];
         if (false !== $rows) {
@@ -266,7 +260,6 @@ EEE;
     public function getUniqueIndexes(string $table): array
     {
         $ret = [];
-        SimplePdoWrapper::$isSystemCall = true;
         $info = $this->wrapper->fetchAll("SHOW INDEX FROM `$table`");
         if (false !== $info) {
             $indexes = [];
@@ -303,7 +296,6 @@ EEE;
     public function getColumnTypes(string $table, bool $precision = false)
     {
         $types = [];
-        SimplePdoWrapper::$isSystemCall = true;
         $info = $this->wrapper->fetchAll("SHOW COLUMNS FROM `$table`");
 
         foreach ($info as $_info) {
@@ -326,7 +318,6 @@ EEE;
     public function getAutoIncrementedKey(string $table)
     {
         $q = "show columns from `$table` where extra='auto_increment'";
-        SimplePdoWrapper::$isSystemCall = true;
         if (false !== ($rows = $this->wrapper->fetchAll($q))) {
             if (array_key_exists(0, $rows)) {
                 return $rows[0]['Field'];
@@ -349,8 +340,6 @@ EEE;
     {
         $ret = [];
         list($schema, $table) = $this->splitTableName($table);
-
-        SimplePdoWrapper::$isSystemCall = true;
         if (false !== ($rows = $this->wrapper->fetchAll("
 select 
 COLUMN_NAME,

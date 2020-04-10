@@ -152,6 +152,7 @@ class Light_RealformDocBuilder
                 "the form multiplier pattern" =>  'https://github.com/lingtalfi/TheBar/blob/master/discussions/form-multiplier.md',
                 "the form multiplier trick document" =>  'https://github.com/lingtalfi/TheBar/blob/master/discussions/form-multiplier.md',
                 "standard micro-permission notation for database interaction" =>  'https://github.com/lingtalfi/Light_MicroPermission/blob/master/doc/pages/recommended-micropermission-notation.md#database-interaction',
+                "the user row restriction system" =>  'https://github.com/lingtalfi/Light_UserRowRestriction/blob/master/doc/pages/conception-notes.md',
             ],
             /**
              * An array of external classes to url.

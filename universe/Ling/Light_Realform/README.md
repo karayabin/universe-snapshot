@@ -1,6 +1,6 @@
 Light_Realform
 ===========
-2019-10-21 -> 2020-02-28
+2019-10-21 -> 2020-03-06
 
 
 
@@ -70,6 +70,10 @@ Related
 History Log
 =============
 
+- 1.14.0 -- 2020-03-06
+
+    - update to accomodate user row restriction system
+    
 - 1.13.1 -- 2020-02-28
 
     - fix LightRealformRoutineTwo->processForm displaying share checkboxes even when there is only one record to edit

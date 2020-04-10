@@ -4,7 +4,7 @@
 
 The LightWebsiteUserDatabaseInterface class
 ================
-2019-07-19 --> 2020-02-07
+2019-07-19 --> 2020-03-26
 
 
 
@@ -16,7 +16,7 @@ Introduction
 
 The LightWebsiteUserDatabaseInterface interface.
 
-The info representing the database user are the one that match the [light website user](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/WebsiteLightUser.md):
+The info representing the database user are the one that match the [light website user](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser.md):
 
 - id: int. A unique identifier for the user. This field is created automatically by the concrete class.
 - identifier: string. A unique identifier for the user. In most applications, this is the email of the user.

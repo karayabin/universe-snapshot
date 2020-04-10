@@ -78,9 +78,10 @@ class LightBullsheetService
      *
      * @param string $identifier
      * @param int $nbRows
+     * @param array $options
      * @throws \Exception
      */
-    public function generateRows(string $identifier, int $nbRows = 50)
+    public function generateRows(string $identifier, int $nbRows = 50, array $options = [])
     {
         $this->errors = [];
         if (array_key_exists($identifier, $this->bullsheeters)) {
@@ -91,7 +92,9 @@ class LightBullsheetService
 
 
             try {
-                $bullsheeter->generateRows($nbRows);
+
+                $bullsheeter->generateRows($nbRows, $options);
+
             } catch (\Exception $e) {
                 $this->errorCount++;
                 $shortName = ClassTool::getShortName($bullsheeter);

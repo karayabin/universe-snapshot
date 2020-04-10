@@ -1,6 +1,6 @@
 Light_User
 ===========
-2019-05-10 -> 2020-02-25
+2019-05-10 -> 2020-03-26
 
 
 
@@ -45,6 +45,10 @@ Related
 History Log
 =============
 
+- 1.6.5 -- 2020-03-26
+
+    - rename WebsiteLightUser -> LightWebsiteUser 
+    
 - 1.6.4 -- 2020-02-25
 
     - update WebsiteLightUser, add precision to class comment

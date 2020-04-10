@@ -1,6 +1,6 @@
 Light_ChloroformExtension
 ===========
-2019-11-18
+2019-11-18 -> 2020-04-10
 
 
 
@@ -81,6 +81,10 @@ Related
 History Log
 =============
 
+-- 1.5.0 -- 2020-04-10
+
+    - adapt for new Light_AjaxHandler api 
+    
 - 1.4.2 -- 2019-12-09
 
     - fix TableListField inducing multiple=true in update mode 

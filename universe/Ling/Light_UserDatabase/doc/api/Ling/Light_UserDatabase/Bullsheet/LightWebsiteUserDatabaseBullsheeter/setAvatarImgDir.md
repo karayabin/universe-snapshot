@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightWebsiteUserDatabaseBullsheeter::setAvatarImgDir](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Bullsheet/LightWebsiteUserDatabaseBullsheeter.php#L112-L115)
+See the source code for method [LightWebsiteUserDatabaseBullsheeter::setAvatarImgDir](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Bullsheet/LightWebsiteUserDatabaseBullsheeter.php#L111-L114)
 
 
 See Also

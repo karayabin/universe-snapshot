@@ -19,7 +19,7 @@ use Ling\Light_Kit\PageRenderer\LightKitPageRenderer;
 use Ling\Light_Kit_Admin\Exception\LightKitAdminException;
 use Ling\Light_Kit_Admin\Service\LightKitAdminService;
 use Ling\Light_MicroPermission\Service\LightMicroPermissionService;
-use Ling\Light_User\WebsiteLightUser;
+use Ling\Light_User\LightWebsiteUser;
 use Ling\Light_UserManager\Service\LightUserManagerService;
 
 
@@ -82,12 +82,12 @@ class LightKitAdminController extends LightController implements RouteAwareContr
 
     /**
      * Returns the current user.
-     * Note: in light kit admin, we use the WebsiteLightUser
+     * Note: in light kit admin, we use the LightWebsiteUser
      *
-     * @return WebsiteLightUser
+     * @return LightWebsiteUser
      * @throws \Exception
      */
-    protected function getUser(): WebsiteLightUser
+    protected function getUser(): LightWebsiteUser
     {
         /**
          * @var $userManager LightUserManagerService

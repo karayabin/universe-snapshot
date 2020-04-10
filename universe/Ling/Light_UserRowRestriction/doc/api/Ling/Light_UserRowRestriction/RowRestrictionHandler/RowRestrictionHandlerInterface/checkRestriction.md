@@ -7,7 +7,7 @@ RowRestrictionHandlerInterface::checkRestriction
 
 
 
-RowRestrictionHandlerInterface::checkRestriction — table, crudType, eventName and args parameters.
+RowRestrictionHandlerInterface::checkRestriction — table and parameters.
 
 
 
@@ -16,21 +16,15 @@ Description
 ================
 
 
-abstract public [RowRestrictionHandlerInterface::checkRestriction](https://github.com/lingtalfi/Light_UserRowRestriction/blob/master/doc/api/Ling/Light_UserRowRestriction/RowRestrictionHandler/RowRestrictionHandlerInterface/checkRestriction.md)(Ling\Light_User\LightUserInterface $user, string $table, string $crudType, ?...$args) : void
+abstract public [RowRestrictionHandlerInterface::checkRestriction](https://github.com/lingtalfi/Light_UserRowRestriction/blob/master/doc/api/Ling/Light_UserRowRestriction/RowRestrictionHandler/RowRestrictionHandlerInterface/checkRestriction.md)(Ling\Light_User\LightUserInterface $user, string $table, ?...$args) : void
 
 
 
 
 Checks that the current user is allowed to execute the action she/he wants, which is described by the
-table, crudType, eventName and args parameters.
+table and parameters.
 
 An exception is thrown if that's not the case.
-
-The crudType is one of:
-- create
-- read
-- update (includes replace for now)
-- delete
 
 
 
@@ -44,10 +38,6 @@ Parameters
     
 
 - table
-
-    
-
-- crudType
 
     
 
@@ -75,7 +65,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [RowRestrictionHandlerInterface::checkRestriction](https://github.com/lingtalfi/Light_UserRowRestriction/blob/master/RowRestrictionHandler/RowRestrictionHandlerInterface.php#L38-L38)
+See the source code for method [RowRestrictionHandlerInterface::checkRestriction](https://github.com/lingtalfi/Light_UserRowRestriction/blob/master/RowRestrictionHandler/RowRestrictionHandlerInterface.php#L33-L33)
 
 
 See Also

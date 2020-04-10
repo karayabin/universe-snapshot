@@ -27,6 +27,8 @@ interface LightCrudRequestHandlerInterface
      *      - rics: array of ric items, each of which being an array of key/value pairs representing the ric of a row to delete
      *
      *
+     * Other params might be added by plugin authors when necessary.
+     *
      *
      *
      * @param string $pluginContextIdentifier

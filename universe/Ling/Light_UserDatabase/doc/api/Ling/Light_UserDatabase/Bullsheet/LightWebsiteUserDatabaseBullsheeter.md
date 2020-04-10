@@ -4,7 +4,7 @@
 
 The LightWebsiteUserDatabaseBullsheeter class
 ================
-2019-07-19 --> 2020-02-07
+2019-07-19 --> 2020-03-26
 
 
 
@@ -33,7 +33,7 @@ class <span class="pl-k">LightWebsiteUserDatabaseBullsheeter</span> extends [Lig
 
 - Methods
     - public [__construct](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Bullsheet/LightWebsiteUserDatabaseBullsheeter/__construct.md)() : void
-    - public [generateRows](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Bullsheet/LightWebsiteUserDatabaseBullsheeter/generateRows.md)(int $nbRows) : void
+    - public [generateRows](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Bullsheet/LightWebsiteUserDatabaseBullsheeter/generateRows.md)(int $nbRows, ?array $options = []) : void
     - public [setAvatarImgDir](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Bullsheet/LightWebsiteUserDatabaseBullsheeter/setAvatarImgDir.md)(string $avatarImgDir) : void
     - public [setApplicationDir](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Bullsheet/LightWebsiteUserDatabaseBullsheeter/setApplicationDir.md)(string $applicationDir) : void
 

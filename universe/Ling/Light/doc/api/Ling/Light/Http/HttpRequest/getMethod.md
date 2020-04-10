@@ -47,7 +47,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [HttpRequest::getMethod](https://github.com/lingtalfi/Light/blob/master/Http/HttpRequest.php#L208-L211)
+See the source code for method [HttpRequest::getMethod](https://github.com/lingtalfi/Light/blob/master/Http/HttpRequest.php#L209-L212)
 
 
 See Also

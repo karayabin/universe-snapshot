@@ -67,6 +67,7 @@ https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realf
 https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/SuccessHandler/ToDatabaseSuccessHandler/setMultiplier.md
 https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/SuccessHandler/ToDatabaseSuccessHandler/setPluginName.md
 https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/SuccessHandler/ToDatabaseSuccessHandler/setTable.md
+https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/SuccessHandler/ToDatabaseSuccessHandler/setUseRowRestriction.md
 https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/SuccessHandler/ToDatabaseSuccessHandler.md
 https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform.md
 https://github.com/lingtalfi/Light_Realform/blob/master/doc/pages/conception-notes-linear.md
