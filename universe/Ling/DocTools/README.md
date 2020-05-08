@@ -1,6 +1,6 @@
 DocTools
 ===========
-2019-02-19 -> 2020-03-02
+2019-02-19 -> 2020-04-17
 
 
 
@@ -649,6 +649,10 @@ This includes:
 History Log
 =============
 
+    
+- 1.13.7 -- 2020-04-17
+
+    - fix CommentHelper class not handling resource parameter type
     
 - 1.13.6 -- 2020-03-02
 

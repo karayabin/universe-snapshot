@@ -1,23 +1,40 @@
 Light_UserData, conception notes
 =====================
-2019-09-27 -> 2020-03-12
+2019-09-27 -> 2020-04-20
 
 
 
 
-Often times, user have the ability to create some kind of data.
+Often times, users have the ability to create some kind of data.
 
-For instance, an admin user could create a backup of a certain table (via the gui).
+For instance, an admin user could create a backup of a certain table (via the gui),
+or a web user could upload his avatar file.
 
 
-The idea behind this plugin is to gather all the data created by a given user to one place,
-hoping to make the data easier to manage. 
+The idea behind this plugin is to gather all the data created by a given user in one place,
+hoping to make the data more organized and easier to manage. 
 
 
 The data related to a given user is stored in a directory in the filesystem called the user directory.
 
 
-All directories are stored under a predefined **root directory**.
+All directories handled by our plugin are stored under a predefined **root directory**, which has the following substructure:
+
+- (root dir)
+    - users
+    - original
+    - vm
+    
+
+The **users** sub-directory contains real user uploaded files.
+The **original** sub-directory contains some files that the user might want to re-use later.
+    This was created for the case when the user cropped an image for instance and wants to access back to the non-cropped image to make a new crop.
+    But it could potentially serve other use cases as well.
+    
+The **vm** sub-directory contains all the files managed by the virtual file system that our plugin uses to provide the user with the ability
+    to cancel some file uploads (amongst other things).
+
+     
 
 
 How a user directory is organized depends on the user of this plugin (i.e. the developer),
@@ -258,35 +275,74 @@ So, to help a gui provide such a functionality where the user can access the ori
 of the image being requested.
 
 
+The virtual machine
+----------
+2020-04-20
 
-The web service
+
+See the [virtual machine](https://github.com/lingtalfi/Light_UserData/blob/master/doc/pages/virtual-machine.md) notes.
+
+
+
+Our web service
 --------------
-2020-02-21
+2020-02-21 -> 2020-04-20
+
 
 The **Light_UserData** plugin provides a web interface to upload/interact with user files.
 
-First of all, the [fileEditor extension of the ajax file upload protocol](https://github.com/lingtalfi/Light_AjaxFileUploadManager/blob/master/doc/pages/ajax-file-upload-protocol.md#the-fileeditor-protocol-addition) support is implemented.
+
+We use the [file manager protocol](https://github.com/lingtalfi/TheBar/blob/master/discussions/file-manager-protocol.md).
+
+In addition to that, we use the [Light_UploadGems](https://github.com/lingtalfi/Light_UploadGems) plugin under the hood.
+Plugin authors can provide their own configuration via the gem config section.
+
+In particular, our service will understand the following properties:
 
 
-In addition to that, we provide an interface to access the user files.
-Its default url is: **/user-data** (defined in /app/config/data/Light_UserData/Light_EasyRoute/luda_routes.byml),
+- useVfs: bool=false. Whether to use the **virtual machine**. See the virtual machine section for more details.
+- keepOriginal: bool=false. Whether to keep an original of the file. See the **original file** section for more details.
+- path: string, the path where to put the file. It's a relative path from the user directory.
+    It accepts the following tags:
+    - filename: will be replaced with the filename (including file extension).
+    
+    To call a tag, place it within curly braces like {that}.
+
+
+
+
+
+
+
+We also provide an interface to access the user files.
+
+
+The access url is: **/user-data** (defined in /app/config/data/Light_UserData/Light_EasyRoute/luda_routes.byml),
 and it accepts the following parameters:
 
 - id: mandatory, string. The resource identifier of the file to access.
-- meta: optional, bool=false. Whether to add meta to the returned http response.
-    If true, those meta are the following:
+- m: optional, string (0|1) = 0. Whether to add meta to the returned http response.
+    If true, the meta will be added via the [panda headers protocol](https://github.com/lingtalfi/TheBar/blob/master/discussions/panda-headers-protocol.md).
+    The meta are:
         - fe_is_private: 0|1. Whether the file is private.
-        - fe_date_creation: datetime. The time when the file was added.
-        - fe_date_last_update: datetime. The last time when the file was updated.
-        - fe_protocol: fileEditor. Just a string that js gui can use if they want.
+        - ?fe_date_creation: datetime. The time (mysql datetime format) when the file was added. Not available with the virtual machine.
+        - ?fe_date_last_update: datetime. The last time when the file was updated. Not available with the virtual machine.
         - fe_original_url: string. The original url associated with the file, or an empty string if there is no original url
             bound to that particular file.
             
             See the "original files" concept in this document for more details.
-        - fe_tags: string. The comma separated list of the tags bound to the file.
-- original: optional, string (0|1) = 0.
-    Whether to return the default file (aka processed file), or the original file. 
+        - fe_tags: string. The comma separated list of the tags bound to the file. 
+        
+- o: optional, string (0|1) = 0.
+    Whether to return the file targeted by the url (by default), or the original file associated with it (if any). 
     See the "original file concept" in this document for more details.
+- c: optional, string. The uploadGem configuration id. This is required if you want to override the default settings of the server (which is
+    to give access to the file on the real server when permitted, meaning if the file is public or if the caller is the owner of the file).
+    So generally, while using the filemanager gui, you always want to pass this option.
+    However for generic rendering (for instance from your application front), you don't need this.   
+    
+    
+
 
 
 

@@ -6,7 +6,6 @@ namespace Ling\Light_UserData\AjaxHandler;
 
 use Ling\Light\Http\HttpRequestInterface;
 use Ling\Light_AjaxHandler\Handler\BaseLightAjaxHandler;
-use Ling\Light_UploadGems\Service\LightUploadGemsService;
 use Ling\Light_UserData\Exception\LightUserDataException;
 
 class LightUserDataAjaxHandler extends BaseLightAjaxHandler
@@ -19,6 +18,7 @@ class LightUserDataAjaxHandler extends BaseLightAjaxHandler
     {
 //        a("OK HERE", __FILE__);
 
+        $response = [];
 
         //--------------------------------------------
         // IMPLEMENTATION OF FILE MANAGER PROTOCOL
@@ -26,35 +26,17 @@ class LightUserDataAjaxHandler extends BaseLightAjaxHandler
         // https://github.com/lingtalfi/TheBar/blob/master/discussions/file-manager-protocol.md
         switch ($action) {
             case "add":
-
-                /**
-                 * @var $gemService LightUploadGemsService
-                 */
-                $gemService = $this->container->get("upload_gems");
-
-
-                $gemId = $request->getPostValue("configId");
-                $phpFile = $request->getFilesValue("file");
-                $gemService->checkPhpFile($phpFile);
-                $helper = $gemService->getHelper($gemId);
-                $filename = $request->getPostValue("file") ?? $phpFile['name'];
-                $helper->setFilename($filename);
-                az($filename);
-
-
-
-
+            case "delete":
+            case "update":
+            case "reset":
+                $response = $this->container->get("user_data")->handleFileManagerProtocol($action, $request);
                 break;
             default:
                 $this->error("Unknown action \"$action\".");
                 break;
         }
 
-
-
-
-        az($action, $request->getPost());
-        return [];
+        return $response;
     }
 
 

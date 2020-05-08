@@ -70,7 +70,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [Light_BMenuDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Light_BMenu/Light_BMenuDocBuilder.php#L44-L200)
+See the source code for method [Light_BMenuDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Light_BMenu/Light_BMenuDocBuilder.php#L44-L201)
 
 
 See Also

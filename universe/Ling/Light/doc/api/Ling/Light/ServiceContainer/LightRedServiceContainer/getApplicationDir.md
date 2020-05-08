@@ -46,7 +46,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [LightRedServiceContainer::getApplicationDir](https://github.com/lingtalfi/Light/blob/master/ServiceContainer/LightRedServiceContainer.php#L42-L45)
+See the source code for method [LightRedServiceContainer::getApplicationDir](https://github.com/lingtalfi/Light/blob/master/ServiceContainer/LightRedServiceContainer.php#L43-L46)
 
 
 See Also

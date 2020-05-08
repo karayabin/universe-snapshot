@@ -4,7 +4,7 @@
 
 The CommentHelper class
 ================
-2019-02-21 --> 2020-03-02
+2019-02-21 --> 2020-04-17
 
 
 
@@ -26,8 +26,8 @@ Class synopsis
 class <span class="pl-k">CommentHelper</span>  {
 
 - Properties
-    - public static array [$propertyVarTagTypes](#property-propertyVarTagTypes) = ['int','float','false','bool','bool[]','mixed','null','array','callable','callable[]','string'] ;
-    - public static array [$propertyReturnTagTypes](#property-propertyReturnTagTypes) = ['array','bool','callable','false','float','int','mixed','null','object','self','static','string','true','void'] ;
+    - public static array [$propertyVarTagTypes](#property-propertyVarTagTypes) = ['array','bool','bool[]','callable','callable[]','float','false','int','mixed','null','resource','string'] ;
+    - public static array [$propertyReturnTagTypes](#property-propertyReturnTagTypes) = ['array','bool','callable','false','float','int','mixed','null','object','resource','self','static','string','true','void'] ;
 
 - Methods
     - public static [displaySeeAlsoItemsSentence](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Helper/CommentHelper/displaySeeAlsoItemsSentence.md)([Ling\DocTools\Info\CommentInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/CommentInfo.md) $comment) : string | null

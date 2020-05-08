@@ -70,7 +70,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [Chloroform_HeliumLightRendererDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Chloroform_HeliumLightRenderer/Chloroform_HeliumLightRendererDocBuilder.php#L44-L220)
+See the source code for method [Chloroform_HeliumLightRendererDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Chloroform_HeliumLightRenderer/Chloroform_HeliumLightRendererDocBuilder.php#L44-L222)
 
 
 See Also

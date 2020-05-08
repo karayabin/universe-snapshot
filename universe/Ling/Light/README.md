@@ -51,6 +51,18 @@ Summary
 History Log
 =============
     
+- 0.63.1 -- 2020-04-17
+
+    - fix HttpResponse->addHeader not handling strings correctly
+    
+- 0.63.0 -- 2020-04-17
+
+    - update HttpResponseInterface
+        
+- 0.62.1 -- 2020-04-10
+
+    - update LightRedServiceContainer/LightBlueServiceContainer setApplicationDir method now throws an exception if the dir doesn't exist 
+    
 - 0.62.0 -- 2020-04-10
 
     - add HttpRequestInterface->getGetValue, getFilesValue, getCookieValue methods 

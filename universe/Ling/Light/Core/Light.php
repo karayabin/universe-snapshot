@@ -332,6 +332,20 @@ class Light
 
 
     /**
+     * An alias for the registerRoute method.
+     *
+     * @param string $pattern
+     * @param $controller
+     * @param string|null $name
+     * @param array $route
+     */
+    public function get(string $pattern, $controller, string $name = null, array $route = [])
+    {
+        $this->registerRoute($pattern, $controller, $name, $route);
+    }
+
+
+    /**
      * Triggers the initialize phase if set in the service container.
      *
      * This method was created for debugging purposes only.

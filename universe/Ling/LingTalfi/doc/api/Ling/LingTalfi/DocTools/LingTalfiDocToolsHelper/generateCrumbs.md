@@ -21,7 +21,7 @@ public static [LingTalfiDocToolsHelper::generateCrumbs](https://github.com/lingt
 
 
 
-Creates two files to help you with feeding a DocBuilder class information:
+Creates two files to help you with feeding [a DocBuilder class](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/DocBuilder/DocBuilder.md) information:
 
 - /tmp/doctools-unresolved-class-references.md contains the content to put into the **externalClass2Url** key
 - /tmp/doctools-unresolved-method-references.md contains the content to put into the **reportIgnore** key

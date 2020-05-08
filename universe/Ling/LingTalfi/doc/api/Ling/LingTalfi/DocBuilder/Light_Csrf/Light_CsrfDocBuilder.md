@@ -4,7 +4,7 @@
 
 The Light_CsrfDocBuilder class
 ================
-2019-03-13 --> 2019-10-25
+2019-03-13 --> 2020-04-15
 
 
 
@@ -52,4 +52,4 @@ See the source code of [Ling\LingTalfi\DocBuilder\Light_Csrf\Light_CsrfDocBuilde
 
 SeeAlso
 ==============
-Previous class: [Light_BullsheetDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Bullsheet/Light_BullsheetDocBuilder.md)<br>Next class: [Light_DatabaseDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Database/Light_DatabaseDocBuilder.md)<br>
+Previous class: [Light_CrudDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Crud/Light_CrudDocBuilder.md)<br>Next class: [Light_CsrfSessionDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_CsrfSession/Light_CsrfSessionDocBuilder.md)<br>

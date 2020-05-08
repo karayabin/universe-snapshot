@@ -1,6 +1,6 @@
 Bat
 ==========
-2015-10-07 --> 2020-04-07
+2015-10-07 --> 2020-04-20
 
 
 
@@ -66,6 +66,7 @@ Tools       |       Description
 [ShortCodeTool]( https://github.com/lingtalfi/Bat/blob/master/ShortCodeTool.md )          |       Tools for manipulating shortcodes
 [SmartCodeTool]( https://github.com/lingtalfi/Bat/blob/master/SmartCodeTool.md )          |       Tools for manipulating smart codes
 [StringTool]( https://github.com/lingtalfi/Bat/blob/master/StringTool.md )          |       Tools for string manipulation
+[TagTool]( https://github.com/lingtalfi/Bat/blob/master/TagTool.md )          |       Tools for helping with tags
 [UploadTool]( https://github.com/lingtalfi/Bat/blob/master/UploadTool.md )          |       Tools for helping with php file uploads
 [UriTool]( https://github.com/lingtalfi/Bat/blob/master/UriTool.md )          |       Tools for uri manipulation
 [ValidationTool]( https://github.com/lingtalfi/Bat/blob/master/ValidationTool.md )          |       Tools for validating data
@@ -84,6 +85,26 @@ Dependencies
 
 History Log
 ------------------
+    
+- 1.229 -- 2020-04-20
+
+    - add UriTool::getParams
+    
+- 1.228 -- 2020-04-20
+
+    - rename UriTool::appendQueryString to appendParams
+    
+- 1.227 -- 2020-04-14
+
+    - add TagTool
+    
+- 1.226 -- 2020-04-13
+
+    - update FileSystemTool::mkTmpCopy, now accepts filename argument instead of extension keeping
+    
+- 1.225 -- 2020-04-13
+
+    - add FileSystemTool::mkTmpCopy
     
 - 1.224 -- 2020-04-07
 

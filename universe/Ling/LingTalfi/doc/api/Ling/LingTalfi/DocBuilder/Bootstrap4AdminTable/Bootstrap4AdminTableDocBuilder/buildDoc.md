@@ -70,7 +70,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [Bootstrap4AdminTableDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Bootstrap4AdminTable/Bootstrap4AdminTableDocBuilder.php#L44-L209)
+See the source code for method [Bootstrap4AdminTableDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Bootstrap4AdminTable/Bootstrap4AdminTableDocBuilder.php#L44-L211)
 
 
 See Also

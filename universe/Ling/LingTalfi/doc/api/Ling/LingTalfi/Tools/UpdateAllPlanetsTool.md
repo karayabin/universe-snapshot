@@ -4,7 +4,7 @@
 
 The UpdateAllPlanetsTool class
 ================
-2019-03-13 --> 2019-10-25
+2019-03-13 --> 2020-04-15
 
 
 
@@ -58,4 +58,4 @@ See the source code of [Ling\LingTalfi\Tools\UpdateAllPlanetsTool](https://githu
 
 SeeAlso
 ==============
-Previous class: [ReadmeUtil](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/ReadmeUtil.md)<br>
+Previous class: [PhpStormMetaHelper](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/PhpStormMeta/PhpStormMetaHelper.md)<br>

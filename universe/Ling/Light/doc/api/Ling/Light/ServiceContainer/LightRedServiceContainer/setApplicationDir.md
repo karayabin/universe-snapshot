@@ -41,6 +41,11 @@ Return values
 Returns void.
 
 
+Exceptions thrown
+================
+
+- [Exception](http://php.net/manual/en/class.exception.php).&nbsp;
+
 
 
 
@@ -49,7 +54,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightRedServiceContainer::setApplicationDir](https://github.com/lingtalfi/Light/blob/master/ServiceContainer/LightRedServiceContainer.php#L72-L75)
+See the source code for method [LightRedServiceContainer::setApplicationDir](https://github.com/lingtalfi/Light/blob/master/ServiceContainer/LightRedServiceContainer.php#L74-L81)
 
 
 See Also

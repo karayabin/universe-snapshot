@@ -49,7 +49,7 @@ Returns mixed.
 
 Source Code
 ===========
-See the source code for method [LightRedServiceContainer::setLight](https://github.com/lingtalfi/Light/blob/master/ServiceContainer/LightRedServiceContainer.php#L59-L62)
+See the source code for method [LightRedServiceContainer::setLight](https://github.com/lingtalfi/Light/blob/master/ServiceContainer/LightRedServiceContainer.php#L60-L63)
 
 
 See Also

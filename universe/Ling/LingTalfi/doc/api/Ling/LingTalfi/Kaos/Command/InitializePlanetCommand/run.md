@@ -60,7 +60,7 @@ If null, 0 should be assumed.
 
 Source Code
 ===========
-See the source code for method [InitializePlanetCommand::run](https://github.com/lingtalfi/LingTalfi/blob/master/Kaos/Command/InitializePlanetCommand.php#L37-L239)
+See the source code for method [InitializePlanetCommand::run](https://github.com/lingtalfi/LingTalfi/blob/master/Kaos/Command/InitializePlanetCommand.php#L37-L257)
 
 
 See Also

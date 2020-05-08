@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [HttpAttachmentResponse::create](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpAttachmentResponse/create.md)(string $file, ?string $filename = null) : [HttpAttachmentResponse](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpAttachmentResponse.md)
+public static [HttpAttachmentResponse::create](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpAttachmentResponse/create.md)(string $path, ?string $filename = null) : [HttpAttachmentResponse](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpAttachmentResponse.md)
 
 
 
@@ -30,7 +30,7 @@ Parameters
 ================
 
 
-- file
+- path
 
     
 
@@ -53,7 +53,7 @@ Returns [HttpAttachmentResponse](https://github.com/lingtalfi/Light/blob/master/
 
 Source Code
 ===========
-See the source code for method [HttpAttachmentResponse::create](https://github.com/lingtalfi/Light/blob/master/Http/HttpAttachmentResponse.php#L39-L45)
+See the source code for method [HttpAttachmentResponse::create](https://github.com/lingtalfi/Light/blob/master/Http/HttpAttachmentResponse.php#L35-L40)
 
 
 See Also
@@ -61,5 +61,5 @@ See Also
 
 The [HttpAttachmentResponse](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpAttachmentResponse.md) class.
 
-Next method: [sendHeaders](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpAttachmentResponse/sendHeaders.md)<br>
+Next method: [setFile](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpAttachmentResponse/setFile.md)<br>
 

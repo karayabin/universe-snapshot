@@ -24,16 +24,17 @@ class CommentHelper
      * * http://php.net/manual/en/functions.arguments.php#functions.arguments.type-declaration.types
      */
     public static $propertyVarTagTypes = [
-        'int',
-        'float',
-        'false',
+        'array',
         'bool',
         'bool[]',
-        'mixed',
-        'null',
-        'array',
         'callable',
         'callable[]',
+        'float',
+        'false',
+        'int',
+        'mixed',
+        'null',
+        'resource',
         'string',
     ];
 
@@ -56,6 +57,7 @@ class CommentHelper
         'mixed',
         'null',
         'object',
+        'resource',
         'self',
         'static',
         'string',

@@ -4,7 +4,7 @@
 
 The LightTool class
 ================
-2019-04-09 --> 2020-04-10
+2019-04-09 --> 2020-04-17
 
 
 
@@ -54,4 +54,4 @@ See the source code of [Ling\Light\Tool\LightTool](https://github.com/lingtalfi/
 
 SeeAlso
 ==============
-Previous class: [LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md)<br>
+Previous class: [LightStringStream](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Stream/LightStringStream.md)<br>

@@ -4,6 +4,9 @@
 namespace Ling\Light\Http;
 
 
+use Ling\Light\Stream\LightStreamInterface;
+use Ling\Light\Stream\LightStringStream;
+
 /**
  * The HttpResponse class.
  */
@@ -94,6 +97,16 @@ class HttpResponse implements HttpResponseInterface
      */
     protected $statusCode;
 
+
+    /**
+     * The text message accompanying the status code.
+     *
+     * The null value means use the default text (see array above).
+     *
+     * @var string=null
+     */
+    protected $statusText;
+
     /**
      * This property holds the http version of the http response.
      * @var int
@@ -132,57 +145,34 @@ class HttpResponse implements HttpResponseInterface
     /**
      * Builds the HttpResponse instance.
      *
-     * @param string $body
+     * @param string|LightStreamInterface $body
      * @param int $code
      */
     public function __construct($body = "", $code = 200)
     {
-        $this->body = $body;
+
+        if ($body instanceof LightStreamInterface) {
+            $this->body = $body;
+        } else {
+            $this->body = new LightStringStream();
+            $this->body->append($body);
+        }
+
+
         $this->statusCode = $code;
+        $this->statusText = null;
         $this->httpVersion = "1.1";
         $this->mimeType = null;
         $this->fileName = null;
         $this->headers = [];
     }
 
-    /**
-     * Sets the http version of this http response.
-     * @param string $version
-     */
-    public function setHttpVersion(string $version)
-    {
-        $this->httpVersion = $version;
-    }
-
-    /**
-     * Sets the mimeType.
-     *
-     * @param string|null $mimeType
-     */
-    public function setMimeType(?string $mimeType)
-    {
-        $this->mimeType = $mimeType;
-    }
-
-    /**
-     * @implementation
-     */
-    public function setHeader(string $name, string $value, bool $replace = true)
-    {
-        $this->headers[] = [$name, $value, $replace];
-    }
-
-    /**
-     * Sets the fileName.
-     *
-     * @param string|null $fileName
-     */
-    public function setFileName(?string $fileName)
-    {
-        $this->fileName = $fileName;
-    }
 
 
+
+    //--------------------------------------------
+    //
+    //--------------------------------------------
     /**
      * @implementation
      */
@@ -191,6 +181,162 @@ class HttpResponse implements HttpResponseInterface
         $this->sendHeaders();
         $this->displayBody();
     }
+
+
+    /**
+     * @implementation
+     */
+    public function getBody(): LightStreamInterface
+    {
+        return $this->body;
+    }
+
+
+    /**
+     * @implementation
+     */
+    public function setHeader(string $name, $value): HttpResponseInterface
+    {
+        if (false === is_array($value)) {
+            $value = [$value];
+        }
+        $this->headers[$this->getNormalizedKey($name)] = $value;
+        return $this;
+    }
+
+    /**
+     * @implementation
+     */
+    public function addHeader(string $name, string $value): HttpResponseInterface
+    {
+        $name = $this->getNormalizedKey($name);
+        if (false === array_key_exists($name, $this->headers)) {
+            $this->headers[$name] = [];
+        }
+        $this->headers[$name][] = $value;
+        return $this;
+    }
+
+    /**
+     * @implementation
+     */
+    public function getHeader(string $name): ?array
+    {
+        $ret = null;
+
+        $name = $this->getNormalizedKey($name);
+        if (array_key_exists($name, $this->headers)) {
+            return $this->headers[$name];
+        }
+        return $ret;
+    }
+
+    /**
+     * @implementation
+     */
+    public function getHeaders(): array
+    {
+        return $this->headers;
+    }
+
+
+    /**
+     * @implementation
+     */
+    public function setStatusCode(int $code, string $text = null): HttpResponseInterface
+    {
+        $this->statusCode = $code;
+        $this->statusText = $text;
+        return $this;
+    }
+
+    /**
+     * @implementation
+     */
+    public function getStatusCode(): int
+    {
+        return $this->statusCode;
+    }
+
+    /**
+     * @implementation
+     */
+    public function getStatusText(): string
+    {
+        $statusText = $this->statusText;
+        if (null === $statusText && array_key_exists($this->statusCode, self::$statusTexts)) {
+            $statusText = self::$statusTexts[$this->statusCode];
+        }
+        return (string)$statusText;
+    }
+
+    /**
+     * @implementation
+     */
+    public function setHttpVersion(string $httpVersion): HttpResponseInterface
+    {
+        $this->httpVersion = $httpVersion;
+        return $this;
+    }
+
+    /**
+     * @implementation
+     */
+    public function getHttpVersion(): string
+    {
+        return $this->httpVersion;
+    }
+
+
+
+
+
+    //--------------------------------------------
+    //
+    //--------------------------------------------
+
+
+    /**
+     * Shortcut to set the value of the Content-type header.
+     *
+     * @param string $mimeType
+     */
+    public function setContentType(string $mimeType)
+    {
+        $this->addHeader("Content-type", $mimeType);
+    }
+
+
+    //--------------------------------------------
+    //
+    //--------------------------------------------
+    /**
+     * Returns the response as a string.
+     *
+     * @return string
+     */
+    public function __toString()
+    {
+        $eol = "\r\n";
+
+        $output = sprintf(
+            'HTTP/%s %s %s',
+            $this->getHttpVersion(),
+            $this->getStatusCode(),
+            $this->getStatusText()
+        );
+        $output .= $eol;
+        foreach ($this->headers as $name => $values) {
+            // note: the comma might not suit every use case, we might set a custom separator in the future...
+            $output .= sprintf('%s: %s', $name, implode(", ", $values)) . $eol;
+        }
+        $output .= $eol;
+        $output .= (string)$this->body;
+        return $output;
+    }
+
+
+
     //--------------------------------------------
     //
     //--------------------------------------------
@@ -203,28 +349,10 @@ class HttpResponse implements HttpResponseInterface
             return;
         }
 
-        foreach ($this->headers as $header) {
-            list($name, $value, $replace) = $header;
-            header($name . ": " . $value, $replace);
+        foreach ($this->headers as $name => $values) {
+            header($name . ": " . implode(', ', $values), false);
         }
-
-
-        $statusText = "";
-        if (array_key_exists($this->statusCode, self::$statusTexts)) {
-            $statusText = self::$statusTexts[$this->statusCode];
-        }
-        header(sprintf('HTTP/%s %s %s', $this->httpVersion, $this->statusCode, $statusText), true, $this->statusCode);
-
-        if (null !== $this->fileName) {
-            $fileName = str_replace('"', '\"', $this->fileName);
-            header("Content-Disposition: inline; filename=\"$fileName\"");
-        }
-
-        if (null !== $this->mimeType) {
-            header("Content-type: " . $this->mimeType);
-        }
-
-
+        header(sprintf('HTTP/%s %s %s', $this->httpVersion, $this->statusCode, $this->getStatusText()), true, $this->statusCode);
     }
 
 
@@ -236,4 +364,21 @@ class HttpResponse implements HttpResponseInterface
         echo $this->body;
     }
 
+
+    //--------------------------------------------
+    //
+    //--------------------------------------------
+    /**
+     * Returns a normalized name for the given header name.
+     * We can do this because http header are case INSENSITIVE.
+     *
+     * https://stackoverflow.com/questions/5258977/are-http-headers-case-sensitive
+     *
+     * @param string $key
+     * @return string
+     */
+    private function getNormalizedKey(string $key): string
+    {
+        return strtolower($key);
+    }
 }

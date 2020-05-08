@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [HttpResponse::displayBody](https://github.com/lingtalfi/Light/blob/master/Http/HttpResponse.php#L234-L237)
+See the source code for method [HttpResponse::displayBody](https://github.com/lingtalfi/Light/blob/master/Http/HttpResponse.php#L362-L365)
 
 
 See Also
@@ -54,5 +54,5 @@ See Also
 
 The [HttpResponse](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponse.md) class.
 
-Previous method: [sendHeaders](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponse/sendHeaders.md)<br>
+Previous method: [sendHeaders](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponse/sendHeaders.md)<br>Next method: [getNormalizedKey](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponse/getNormalizedKey.md)<br>
 

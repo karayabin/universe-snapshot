@@ -70,7 +70,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [SqlWizardDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/SqlWizard/SqlWizardDocBuilder.php#L44-L199)
+See the source code for method [SqlWizardDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/SqlWizard/SqlWizardDocBuilder.php#L44-L200)
 
 
 See Also

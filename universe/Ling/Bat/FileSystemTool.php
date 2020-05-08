@@ -458,6 +458,36 @@ class FileSystemTool
     }
 
 
+    /**
+     * Makes a temporary copy of the given file path.
+     * A filename can be provided.
+     *
+     *
+     * @param string $path
+     * @param string|null $filename = null
+     * @return string
+     */
+    public static function mkTmpCopy(string $path, string $filename = null): string
+    {
+        $tmp = tempnam(sys_get_temp_dir(), "");
+
+
+        $dst = $tmp;
+        $newLocation = false;
+        if (null !== $filename) {
+            $dir = dirname($dst);
+            $dst = $dir . "/" . $filename;
+            $newLocation = true;
+        }
+
+        self::copyFile($path, $dst);
+        if (true === $newLocation) {
+            unlink($tmp);
+        }
+        return $dst;
+    }
+
+
     public static function move(string $src, string $dst)
     {
         return self::rename($src, $dst);

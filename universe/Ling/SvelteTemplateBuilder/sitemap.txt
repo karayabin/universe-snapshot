@@ -1,0 +1,8 @@
+https://github.com/lingtalfi/SvelteTemplateBuilder/blob/master/README.md
+https://github.com/lingtalfi/SvelteTemplateBuilder/blob/master/doc/api/Ling/SvelteTemplateBuilder/MySvelteComponentBuilder/__construct.md
+https://github.com/lingtalfi/SvelteTemplateBuilder/blob/master/doc/api/Ling/SvelteTemplateBuilder/MySvelteComponentBuilder/build.md
+https://github.com/lingtalfi/SvelteTemplateBuilder/blob/master/doc/api/Ling/SvelteTemplateBuilder/MySvelteComponentBuilder/setBaseDir.md
+https://github.com/lingtalfi/SvelteTemplateBuilder/blob/master/doc/api/Ling/SvelteTemplateBuilder/MySvelteComponentBuilder/setComponentName.md
+https://github.com/lingtalfi/SvelteTemplateBuilder/blob/master/doc/api/Ling/SvelteTemplateBuilder/MySvelteComponentBuilder/setDirName.md
+https://github.com/lingtalfi/SvelteTemplateBuilder/blob/master/doc/api/Ling/SvelteTemplateBuilder/MySvelteComponentBuilder.md
+https://github.com/lingtalfi/SvelteTemplateBuilder/blob/master/doc/api/Ling/SvelteTemplateBuilder.md

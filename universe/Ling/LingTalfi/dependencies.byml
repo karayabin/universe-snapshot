@@ -10,6 +10,7 @@ dependencies:
         - Uni2
         - PlanetSitemap
         - SimpleCurl
+        - Light
     
 
 post_install: []

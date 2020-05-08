@@ -4,6 +4,7 @@ namespace Ling\Light\ServiceContainer;
 
 
 use Ling\Light\Core\Light;
+use Ling\Light\Exception\LightException;
 use Ling\Octopus\ServiceContainer\BlueOctopusServiceContainer;
 
 /**
@@ -64,10 +65,15 @@ class LightBlueServiceContainer extends BlueOctopusServiceContainer implements L
     /**
      * Sets the application directory.
      * @param string $appDir
+     * @throws \Exception
      */
     public function setApplicationDir(string $appDir)
     {
-        $this->appDir = $appDir;
+        $realPath = realpath($appDir);
+        if (false === $realPath) {
+            throw new LightException("Application dir does not exist: \"$appDir\".");
+        }
+        $this->appDir = $realPath;
     }
 
 

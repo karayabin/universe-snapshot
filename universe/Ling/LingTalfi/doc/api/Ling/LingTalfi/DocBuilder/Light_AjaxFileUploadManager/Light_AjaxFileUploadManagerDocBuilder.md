@@ -4,7 +4,7 @@
 
 The Light_AjaxFileUploadManagerDocBuilder class
 ================
-2019-03-13 --> 2019-10-25
+2019-03-13 --> 2020-04-15
 
 
 
@@ -52,4 +52,4 @@ See the source code of [Ling\LingTalfi\DocBuilder\Light_AjaxFileUploadManager\Li
 
 SeeAlso
 ==============
-Previous class: [LightDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light/LightDocBuilder.md)<br>Next class: [Light_AjaxHandlerDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_AjaxHandler/Light_AjaxHandlerDocBuilder.md)<br>
+Previous class: [Light_404LoggerDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_404Logger/Light_404LoggerDocBuilder.md)<br>Next class: [Light_AjaxHandlerDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_AjaxHandler/Light_AjaxHandlerDocBuilder.md)<br>

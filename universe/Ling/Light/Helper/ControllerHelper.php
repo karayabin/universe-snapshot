@@ -198,6 +198,7 @@ class ControllerHelper
                 $specialTypes = [
                     "Ling\Light\Core\Light",
                     "Ling\Light\Http\HttpRequestInterface",
+                    "Ling\Light\Http\HttpResponse",
                     "Ling\Light\ServiceContainer\LightServiceContainerInterface",
                 ];
                 if (in_array($hintType, $specialTypes, true)) {
@@ -207,6 +208,8 @@ class ControllerHelper
                         $controllerArgs[] = $httpRequest;
                     } elseif ("Ling\Light\ServiceContainer\LightServiceContainerInterface" === $hintType) {
                         $controllerArgs[] = $light->getContainer();
+                    }elseif ("Ling\Light\Http\HttpResponse" === $hintType) {
+                        $controllerArgs[] = new HttpResponse();
                     }
                 } else {
 

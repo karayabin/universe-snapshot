@@ -4,6 +4,23 @@ Light_UserData
 
 
 
+
+- todo: solve problem
+- todo: solve problem
+- todo: solve problem
+- todo: solve problem
+
+CURRENT PROBLEM: when an upload is aborted, do we check the max capacity per user?
+If not, potential security leak
+
+- todo: solve problem
+- todo: solve problem
+- todo: solve problem
+- todo: solve problem
+
+
+
+
 A light service to manage user assets.
 
 This is a [Light framework plugin](https://github.com/lingtalfi/Light/blob/master/doc/pages/plugin.md).

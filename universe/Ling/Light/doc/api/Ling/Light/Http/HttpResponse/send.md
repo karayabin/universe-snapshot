@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [HttpResponse::send](https://github.com/lingtalfi/Light/blob/master/Http/HttpResponse.php#L189-L193)
+See the source code for method [HttpResponse::send](https://github.com/lingtalfi/Light/blob/master/Http/HttpResponse.php#L179-L183)
 
 
 See Also
@@ -54,5 +54,5 @@ See Also
 
 The [HttpResponse](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponse.md) class.
 
-Previous method: [setFileName](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponse/setFileName.md)<br>Next method: [sendHeaders](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponse/sendHeaders.md)<br>
+Previous method: [__construct](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponse/__construct.md)<br>Next method: [getBody](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponse/getBody.md)<br>
 

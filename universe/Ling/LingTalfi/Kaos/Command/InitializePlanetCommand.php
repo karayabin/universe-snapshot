@@ -44,10 +44,17 @@ class InitializePlanetCommand extends KaosGenericCommand
         $planetDir = $this->application->getCurrentDirectory();
 
 
+        $applicationDir = $input->getOption('application');
+
+
         $pInfo = PlanetTool::getGalaxyNamePlanetNameByDir($planetDir);
         if (false !== $pInfo) {
 
             list($galaxyName, $planetName) = $pInfo;
+
+
+            $isLight = (0 === strpos($planetName, "Light_"));
+
 
             H::info(H::i($indentLevel) . "Initializing planet <blue>$galaxyName/$planetName</blue>:" . PHP_EOL, $output);
 
@@ -91,6 +98,17 @@ class InitializePlanetCommand extends KaosGenericCommand
             if (false === file_exists($readMeDst)) {
                 H::info(H::i($indentLevel + 1) . "Creating <b>README.md</b> file...", $output);
                 $readMeUtil = new ReadmeUtil();
+
+
+                if (true === $isLight && null !== $applicationDir) {
+                    $readMeUtil->setIsLight($isLight);
+                    $serviceFile = $applicationDir . "/config/services/$planetName.byml";
+                    if (file_exists($serviceFile)) {
+                        $readMeUtil->setServiceContent(file_get_contents($serviceFile));
+                    }
+
+
+                }
 
 
                 if ('Ling' === $galaxyName) {

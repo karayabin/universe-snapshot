@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://raw.githubusercontent.com/lingtalfi/SvelteTemplateBuilder/master/sitemap.txt

@@ -4,7 +4,7 @@
 
 The Light_DatabaseInfoDocBuilder class
 ================
-2019-03-13 --> 2019-10-25
+2019-03-13 --> 2020-04-15
 
 
 

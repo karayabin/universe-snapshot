@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [HttpAttachmentResponse::sendHeaders](https://github.com/lingtalfi/Light/blob/master/Http/HttpAttachmentResponse.php#L51-L59)
+See the source code for method [HttpAttachmentResponse::sendHeaders](https://github.com/lingtalfi/Light/blob/master/Http/HttpAttachmentResponse.php#L60-L70)
 
 
 See Also
@@ -54,5 +54,5 @@ See Also
 
 The [HttpAttachmentResponse](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpAttachmentResponse.md) class.
 
-Previous method: [create](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpAttachmentResponse/create.md)<br>
+Previous method: [setFile](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpAttachmentResponse/setFile.md)<br>
 

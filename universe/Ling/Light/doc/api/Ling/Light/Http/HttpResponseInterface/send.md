@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [HttpResponseInterface::send](https://github.com/lingtalfi/Light/blob/master/Http/HttpResponseInterface.php#L18-L18)
+See the source code for method [HttpResponseInterface::send](https://github.com/lingtalfi/Light/blob/master/Http/HttpResponseInterface.php#L20-L20)
 
 
 See Also
@@ -54,5 +54,5 @@ See Also
 
 The [HttpResponseInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponseInterface.md) class.
 
-Next method: [setHeader](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponseInterface/setHeader.md)<br>
+Next method: [getBody](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponseInterface/getBody.md)<br>
 

@@ -18,6 +18,19 @@ class ReadmeUtil
      */
     protected $errors;
 
+    /**
+     * This property holds the isLight for this instance.
+     * @var bool
+     */
+    protected $isLight;
+
+
+    /**
+     * This property holds the serviceContent for this instance.
+     * @var string
+     */
+    protected $serviceContent;
+
 
     /**
      * Builds the ReadmeUtil instance.
@@ -25,6 +38,28 @@ class ReadmeUtil
     public function __construct()
     {
         $this->errors = [];
+        $this->isLight = false;
+        $this->serviceContent = '';
+    }
+
+    /**
+     * Sets the isLight.
+     *
+     * @param bool $isLight
+     */
+    public function setIsLight(bool $isLight)
+    {
+        $this->isLight = $isLight;
+    }
+
+    /**
+     * Sets the serviceContent.
+     *
+     * @param string $serviceContent
+     */
+    public function setServiceContent(string $serviceContent)
+    {
+        $this->serviceContent = $serviceContent;
     }
 
 
@@ -47,19 +82,36 @@ class ReadmeUtil
      */
     public function createBasicReadmeFile($readmeFile, array $tags)
     {
-        $tpl = __DIR__ . "/../assets/README.tpl.md";
-        $content = file_get_contents($tpl);
-        $content = str_replace([
+
+        if (false === $this->isLight) {
+            $tpl = __DIR__ . "/../assets/README.tpl.md";
+        } else {
+            $tpl = __DIR__ . "/../assets/README-light.tpl.md";
+        }
+
+
+        $keys = [
             "Ling",
             "WebBox",
             "2019-02-22",
             "__summary_links__",
-        ], [
+        ];
+        $values = [
             $tags['galaxy'] ?? "Ling",
             $tags['planet'] ?? "WebBox",
             $tags['date'] ?? date('Y-m-d'),
             $tags['summaryLinks'] ?? "",
-        ], $content);
+        ];
+
+
+        if (true === $this->isLight) {
+            $keys[] = "theBabyYamlHere";
+            $values[] = $this->serviceContent;
+        }
+
+
+        $content = file_get_contents($tpl);
+        $content = str_replace($keys, $values, $content);
         return FileSystemTool::mkfile($readmeFile, $content);
     }
 

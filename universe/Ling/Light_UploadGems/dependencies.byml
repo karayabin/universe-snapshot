@@ -1,0 +1,12 @@
+dependencies: 
+    Ling: 
+        - Bat
+        - Light
+        - Light_AjaxFileUploadManager
+        - ThumbnailTools
+        - BabyYaml
+        - PhpFileValidator
+    
+
+post_install: 
+    map: true

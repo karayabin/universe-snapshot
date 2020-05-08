@@ -4,7 +4,7 @@
 
 The CSRFToolsDocBuilder class
 ================
-2019-03-13 --> 2019-10-25
+2019-03-13 --> 2020-04-15
 
 
 
@@ -52,4 +52,4 @@ See the source code of [Ling\LingTalfi\DocBuilder\CSRFTools\CSRFToolsDocBuilder]
 
 SeeAlso
 ==============
-Previous class: [Bootstrap4AdminTableDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Bootstrap4AdminTable/Bootstrap4AdminTableDocBuilder.md)<br>Next class: [ChloroformDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Chloroform/ChloroformDocBuilder.md)<br>
+Previous class: [Bootstrap4AdminTableDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Bootstrap4AdminTable/Bootstrap4AdminTableDocBuilder.md)<br>Next class: [CheapLoggerDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/CheapLogger/CheapLoggerDocBuilder.md)<br>

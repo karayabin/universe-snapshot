@@ -134,7 +134,7 @@ galaxies:
             post_install: []
         
         Bat: 
-            version: 1.224
+            version: 1.229
             dependencies: 
                 Ling: 
                     - ArrayToString
@@ -453,7 +453,7 @@ galaxies:
             post_install: []
         
         DocTools: 
-            version: 1.13.6
+            version: 1.13.7
             dependencies: 
                 Ling: 
                     - Bat
@@ -877,7 +877,7 @@ galaxies:
             post_install: []
         
         Light: 
-            version: 0.62.0
+            version: 0.63.1
             dependencies: 
                 Ling: 
                     - Light_Events
@@ -1570,6 +1570,22 @@ galaxies:
                 map: true
             
         
+        Light_UploadGems: 
+            version: 1.5.0
+            dependencies: 
+                Ling: 
+                    - Bat
+                    - Light
+                    - Light_AjaxFileUploadManager
+                    - ThumbnailTools
+                    - BabyYaml
+                    - PhpFileValidator
+                
+            
+            post_install: 
+                map: true
+            
+        
         Light_User: 
             version: 1.6.5
             dependencies: []
@@ -1658,13 +1674,26 @@ galaxies:
                 map: true
             
         
+        Light_ZouUploader: 
+            version: 1.1.1
+            dependencies: 
+                Ling: 
+                    - Bat
+                    - Light
+                    - PhpFileValidator
+                
+            
+            post_install: 
+                map: true
+            
+        
         LinearFile: 
             version: 1.0.0
             dependencies: []
             post_install: []
         
         LingTalfi: 
-            version: 1.14.1
+            version: 1.17.0
             dependencies: 
                 Ling: 
                     - DocTools
@@ -1677,6 +1706,7 @@ galaxies:
                     - Uni2
                     - PlanetSitemap
                     - SimpleCurl
+                    - Light
                 
             
             post_install: []
@@ -2269,6 +2299,15 @@ galaxies:
             dependencies: []
             post_install: []
         
+        SvelteTemplateBuilder: 
+            version: 1.0.0
+            dependencies: 
+                Ling: 
+                    - Bat
+                
+            
+            post_install: []
+        
         SvgGridGenerator: 
             version: 1.0.0
             dependencies: []
@@ -2283,13 +2322,23 @@ galaxies:
             
             post_install: []
         
+        TemporaryVirtualFileSystem: 
+            version: 1.2.1
+            dependencies: 
+                Ling: 
+                    - BabyYaml
+                    - Bat
+                
+            
+            post_install: []
+        
         TheAnarchist: 
             version: 1.0.0
             dependencies: []
             post_install: []
         
         TheBar: 
-            version: 1.11.1
+            version: 1.13.0
             dependencies: []
             post_install: []
         

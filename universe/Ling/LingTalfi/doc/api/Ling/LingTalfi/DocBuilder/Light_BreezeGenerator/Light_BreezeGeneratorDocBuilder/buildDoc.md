@@ -70,7 +70,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [Light_BreezeGeneratorDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Light_BreezeGenerator/Light_BreezeGeneratorDocBuilder.php#L44-L200)
+See the source code for method [Light_BreezeGeneratorDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Light_BreezeGenerator/Light_BreezeGeneratorDocBuilder.php#L44-L201)
 
 
 See Also

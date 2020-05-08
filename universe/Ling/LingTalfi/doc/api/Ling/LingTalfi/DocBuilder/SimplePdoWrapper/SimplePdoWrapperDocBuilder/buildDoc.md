@@ -70,7 +70,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [SimplePdoWrapperDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/SimplePdoWrapper/SimplePdoWrapperDocBuilder.php#L44-L199)
+See the source code for method [SimplePdoWrapperDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/SimplePdoWrapper/SimplePdoWrapperDocBuilder.php#L44-L203)
 
 
 See Also

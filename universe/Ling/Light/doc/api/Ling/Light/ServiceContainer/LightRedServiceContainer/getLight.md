@@ -46,7 +46,7 @@ Returns [Light](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Ligh
 
 Source Code
 ===========
-See the source code for method [LightRedServiceContainer::getLight](https://github.com/lingtalfi/Light/blob/master/ServiceContainer/LightRedServiceContainer.php#L51-L54)
+See the source code for method [LightRedServiceContainer::getLight](https://github.com/lingtalfi/Light/blob/master/ServiceContainer/LightRedServiceContainer.php#L52-L55)
 
 
 See Also

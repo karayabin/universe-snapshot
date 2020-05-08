@@ -53,7 +53,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [HttpResponse::__construct](https://github.com/lingtalfi/Light/blob/master/Http/HttpResponse.php#L138-L146)
+See the source code for method [HttpResponse::__construct](https://github.com/lingtalfi/Light/blob/master/Http/HttpResponse.php#L151-L168)
 
 
 See Also
@@ -61,5 +61,5 @@ See Also
 
 The [HttpResponse](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponse.md) class.
 
-Next method: [setHttpVersion](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponse/setHttpVersion.md)<br>
+Next method: [send](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponse/send.md)<br>
 
