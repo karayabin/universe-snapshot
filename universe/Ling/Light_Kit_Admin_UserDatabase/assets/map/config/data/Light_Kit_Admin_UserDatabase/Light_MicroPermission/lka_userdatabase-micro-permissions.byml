@@ -1,0 +1,45 @@
+# --------------------------------------
+# lud
+# --------------------------------------
+# Permissions for general tool, such as generated auto-admin gui: only the admin can use them
+# See https://github.com/lingtalfi/Light_UserRowRestriction/blob/master/doc/pages/conception-notes.md for more details.
+tables.lud_permission.create: Light_Kit_Admin.admin
+tables.lud_permission.read: Light_Kit_Admin.admin
+tables.lud_permission.update: Light_Kit_Admin.admin
+tables.lud_permission.delete: Light_Kit_Admin.admin
+
+
+tables.lud_permission_group.create: Light_Kit_Admin.admin
+tables.lud_permission_group.read: Light_Kit_Admin.admin
+tables.lud_permission_group.update: Light_Kit_Admin.admin
+tables.lud_permission_group.delete: Light_Kit_Admin.admin
+
+tables.lud_permission_group_has_permission.create: Light_Kit_Admin.admin
+tables.lud_permission_group_has_permission.read: Light_Kit_Admin.admin
+tables.lud_permission_group_has_permission.update: Light_Kit_Admin.admin
+tables.lud_permission_group_has_permission.delete: Light_Kit_Admin.admin
+
+tables.lud_plugin_option.create: Light_Kit_Admin.admin
+tables.lud_plugin_option.read: Light_Kit_Admin.admin
+tables.lud_plugin_option.update: Light_Kit_Admin.admin
+tables.lud_plugin_option.delete: Light_Kit_Admin.admin
+
+tables.lud_user.create: Light_Kit_Admin.admin
+tables.lud_user.read: Light_Kit_Admin.admin
+tables.lud_user.update: Light_Kit_Admin.admin
+tables.lud_user.delete: Light_Kit_Admin.admin
+
+tables.lud_user_group.create: Light_Kit_Admin.admin
+tables.lud_user_group.read: Light_Kit_Admin.admin
+tables.lud_user_group.update: Light_Kit_Admin.admin
+tables.lud_user_group.delete: Light_Kit_Admin.admin
+
+tables.lud_user_group_has_plugin_option.create: Light_Kit_Admin.admin
+tables.lud_user_group_has_plugin_option.read: Light_Kit_Admin.admin
+tables.lud_user_group_has_plugin_option.update: Light_Kit_Admin.admin
+tables.lud_user_group_has_plugin_option.delete: Light_Kit_Admin.admin
+
+tables.lud_user_has_permission_group.create: Light_Kit_Admin.admin
+tables.lud_user_has_permission_group.read: Light_Kit_Admin.admin
+tables.lud_user_has_permission_group.update: Light_Kit_Admin.admin
+tables.lud_user_has_permission_group.delete: Light_Kit_Admin.admin

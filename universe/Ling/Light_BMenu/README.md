@@ -1,6 +1,6 @@
 Light_BMenu
 ===========
-2019-08-08 -> 2020-02-28
+2019-08-08 -> 2020-07-02
 
 
 
@@ -71,7 +71,7 @@ $bmenu.methods_collection:
                     setMenuStructureId:
                         id: lka_mainmenu_1
                     setDefaultItemsParentPath:
-                        path: plugins
+                        path: lka-plugins
 ``` 
 
 
@@ -80,6 +80,14 @@ $bmenu.methods_collection:
 History Log
 =============
 
+- 1.7.0 -- 2020-07-02
+
+    - add LightBMenuService->addDefaultItemByFile method  
+    
+- 1.6.0 -- 2020-07-02
+
+    - update LightBMenu, now uses strictMode by default  
+    
 - 1.5.2 -- 2020-02-28
 
     - update documentation 

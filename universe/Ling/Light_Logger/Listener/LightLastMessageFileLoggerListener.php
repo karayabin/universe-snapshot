@@ -44,6 +44,27 @@ class LightLastMessageFileLoggerListener extends BaseLoggerListener implements L
     }
 
 
+    /**
+     * Configures this instance.
+     *
+     * The available options are:
+     * - file
+     *
+     * Note: you can also use the setFile method to set the file if you prefer.
+     *
+     *
+     * @param array $options
+     */
+    public function configure(array $options)
+    {
+        parent::configure($options);
+
+        if (array_key_exists("file", $options)) {
+            $this->file = $options['file'];
+        }
+    }
+
+
     //--------------------------------------------
     //
     //--------------------------------------------

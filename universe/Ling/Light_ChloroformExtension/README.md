@@ -1,6 +1,6 @@
 Light_ChloroformExtension
 ===========
-2019-11-18 -> 2020-04-10
+2019-11-18 -> 2020-06-04
 
 
 
@@ -81,7 +81,7 @@ Related
 History Log
 =============
 
--- 1.5.0 -- 2020-04-10
+- 1.5.0 -- 2020-06-04
 
     - adapt for new Light_AjaxHandler api 
     

@@ -1,6 +1,6 @@
 Action list
 =============
-2019-08-01 -> 2020-02-21
+2019-08-01 -> 2020-03-19
 
 
 
@@ -123,64 +123,12 @@ Note that all entries are optional, depending on the action.
     A token is basically replaced with another value when computing the sql statement.
     The available tokens are:
     - $userIdentifier: the user identifier (the user being the user returned by the user_manager service's getUser method) 
-    - $userId: the user id (assuming that the user has a getId method, which is the case for a [WebsiteLightUser](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/WebsiteLightUser.md)) 
+    - $userId: the user id (assuming that the user has a getId method, which is the case for a [LightWebsiteUser](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser.md)) 
                              
                              
-- use_Light_UserData: bool. Whether to use the Light_UserData pattern, which is considered a better alternative than the storeDir property (see examples below).
+- ...other  properties added by third-party plugins
     
-    If the data you want to upload belongs to an user, you might want to consider this option.
-    This pattern uses the [Light_UserData](https://github.com/lingtalfi/Light_UserData) plugin under the hood, to help implementing a more secure ajax upload system, 
-    where the uploaded files are uploaded OUTSIDE the web root directory.
-    
-    Along with this property, you also need to define the path (see the path property below).
-    All the properties below are available only when **use_Light_UserData** is set to true.
-                        
-    - protocol: string(fileEditor|null)=null.
-    
-        The protocol to use.
-        The only available choice for now is the **fileEditor** protocol, which means that the server would work in compliance
-        with the [file editor protocol defined as an extension of the ajax file upload protocol](https://github.com/lingtalfi/Light_AjaxFileUploadManager/blob/master/doc/pages/ajax-file-upload-protocol.md).
-        The following properties are exclusively used with the **fileEditor** protocol.        
-         
-        - ?maxFileNameLength: int.
-            The maximum length for the given filename. It ensures that the user won't try to hack the server by sending very long filenames.
-                 
-    - path: string. The relative path from the user directory (See the [Light_UserData](https://github.com/lingtalfi/Light_UserData) plugin documentation for more info)
-        to the file name you want to upload.
-                     
-        The uploaded file will be stored into the current user directory (as defined by the LightUserDataService->save method, which is used
-        under the hood). 
-                     
-        The string accepts the following tags:
-        - {extension}: will be replaced with the file extension from the name (or transformed name if the name is transformed)
-        - {filename}: will be replaced with the file name, which is like the output of the php basename function (i.e. it includes the file extension)
-        
-    - ?allowSlashInFilename: bool=false.
-        This property defines whether or not the forward slashes are allowed in the file name provided by the user.        
-        
-    - ?isPrivate: bool=false. 
-        
-        Defines whether the uploaded file is private. The concept of privacy is the one defined in the [Light_UserData conception notes](https://github.com/lingtalfi/Light_UserData/blob/master/doc/pages/conception-notes.md).
-        If not set, the user can provide her own value using the [file editor extension of the ajax file upload protocol](https://github.com/lingtalfi/Light_AjaxFileUploadManager/blob/master/doc/pages/ajax-file-upload-protocol.md).
-        
-    - ?tags: array=[]. 
-        
-        Defines the [tags](https://github.com/lingtalfi/Light_UserData/blob/master/doc/pages/conception-notes.md#tags) to attach to the file.
-        If not set, the user can provide her own value using the [file editor extension of the ajax file upload protocol](https://github.com/lingtalfi/Light_AjaxFileUploadManager/blob/master/doc/pages/ajax-file-upload-protocol.md).
-          
-    - overwrite: bool=false.    
-        Whether to allow that the file sent by the user overwrites a file already existing in the filesystem (in case of name conflict).
-        
-    - keepOriginal: bool=false.
-        The Light_UserData has this concept of [original files](https://github.com/lingtalfi/Light_UserData/blob/master/doc/pages/conception-notes.md#the-original-file),
-        This property defines whether or not to keep an original of the uploaded file.
-                      
-    - use_2svp: bool=false. 
-        
-        You should only use this if you use the [symbolic file name](https://github.com/lingtalfi/TheBar/blob/master/discussions/ajax-file-upload.md#symbolic-file-names) system (which is now deprecated).
-        See the [2 steps validation process](https://github.com/lingtalfi/TheBar/blob/master/discussions/ajax-file-upload.md#2-steps-validation-process) section for more details.
-        Note: in this plugin we only implement the first part of the 2svp system, where we save the file with the 2svp extension.
-        The second part (removing the 2svp extension) is outside the scope of this plugin.
+  
          
                                                
                              
@@ -190,46 +138,8 @@ Examples
 
 
 
-Example #1: using the Light_UserData plugin
--------------------------
-This example uses the [Light_UserData](https://github.com/lingtalfi/Light_UserData) plugin,
-which basically allows you to store the user uploads outside the web root directory.
 
-The configuration excerpt below comes from the Light_Kit_Admin (currently in development as I write those lines):
-
-```yaml
-# /my_app/config/data/Light_Kit_Admin/Light_AjaxFileUploadManager/main.byml
-items:
-    lka_user_profile:
-        csrf_token: true
-        action:
-            -
-                use_Light_UserData: true
-                protocol: fileEditor
-                path: images/{filename}
-                imageTransformer: resize(200)
-#                isPrivate: false
-                maxFileNameLength: 64
-                allowSlashInFilename: true
-                overwrite: false
-                keepOriginal: true
-        validation:
-            maxFileSize: 2M
-#            maxFileSize: 2g
-            extensions:
-                - png
-                - jpeg
-                - jpg
-                - gif
-                - mts
-
-```
-
-
-
-
-
-Example #2: An old example storing the files in the web root directory
+Example #1: An old example storing the files in the web root directory
 -------------------------
 The example below is deprecated, because it stores the file directly in the web root directory,
 however, it's technically possible to use this technique.

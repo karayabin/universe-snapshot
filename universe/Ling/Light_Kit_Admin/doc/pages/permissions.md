@@ -49,7 +49,7 @@ For instance:
 
 ```yaml
 micro_permissions:
-    Light_Kit_Admin.tables.lud_user.create: Light_Kit_Admin.admin
+    tables.lud_user.create: Light_Kit_Admin.admin
 
 
 ```

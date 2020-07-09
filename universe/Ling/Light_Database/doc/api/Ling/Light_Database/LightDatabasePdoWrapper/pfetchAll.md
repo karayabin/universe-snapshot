@@ -70,7 +70,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightDatabasePdoWrapper::pfetchAll](https://github.com/lingtalfi/Light_Database/blob/master/LightDatabasePdoWrapper.php#L276-L284)
+See the source code for method [LightDatabasePdoWrapper::pfetchAll](https://github.com/lingtalfi/Light_Database/blob/master/LightDatabasePdoWrapper.php#L281-L289)
 
 
 See Also

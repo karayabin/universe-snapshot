@@ -4,7 +4,7 @@
 
 The TinyBullsheeterDocBuilder class
 ================
-2019-03-13 --> 2020-04-15
+2019-03-13 --> 2020-06-29
 
 
 
@@ -52,4 +52,4 @@ See the source code of [Ling\LingTalfi\DocBuilder\TinyBullsheeter\TinyBullsheete
 
 SeeAlso
 ==============
-Previous class: [SqlWizardDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/SqlWizard/SqlWizardDocBuilder.md)<br>Next class: [Uni2DocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Uni2/Uni2DocBuilder.md)<br>
+Previous class: [TemporaryVirtualFileSystemDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/TemporaryVirtualFileSystem/TemporaryVirtualFileSystemDocBuilder.md)<br>Next class: [Uni2DocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Uni2/Uni2DocBuilder.md)<br>

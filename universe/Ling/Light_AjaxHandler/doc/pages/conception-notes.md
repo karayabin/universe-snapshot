@@ -1,6 +1,6 @@
 Light Ajax Handler, conception notes
 ===================
-2019-09-19
+2019-09-19 -> 2020-04-10
 
 
 
@@ -39,6 +39,22 @@ I thought this document would be longer, but that's pretty much all I have to sa
 
 Time for me to implement that idea!
     
+ 
+
+
+Implementation notes
+-----------
+2020-04-10
+
+
+In order to do so, all operations are ruled by the [ajax light communication protocol](https://github.com/lingtalfi/Light_AjaxHandler/blob/master/doc/pages/ajax-light-communication-protocol.md).
+
+In order to help the **handlers** do their job, I'll provide some helpers along the way.
+
+
+
+
+
     
     
 The print idea

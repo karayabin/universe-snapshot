@@ -1,6 +1,6 @@
 Light_Events
 ===========
-2019-10-31 -> 2019-12-19
+2019-10-31 -> 2020-06-26
 
 
 
@@ -49,10 +49,28 @@ Here is an example of the service configuration:
 ```yaml
 events:
     instance: Ling\Light_Events\Service\LightEventsService
-#    instance: Ling\Light_Events\Service\DebugLightEventsService
     methods:
         setContainer:
             container: @container()
+        setOptions:
+            options:
+                useDebug: false         # default is false
+
+
+# --------------------------------------
+# hooks
+# --------------------------------------
+$logger.methods_collection:
+    -
+        method: addListener
+        args:
+            channels: events.debug
+            listener:
+                instance: Ling\Light_Logger\Listener\LightCleanableFileLoggerListener
+                methods:
+                    configure:
+                        options:
+                            file: ${app_dir}/log/events_debug.txt
 ```
 
 
@@ -62,6 +80,14 @@ events:
 History Log
 =============
 
+- 1.7.0 -- 2020-06-25
+
+    - update service configuration, now has a dedicated logger listener
+    
+- 1.6.0 -- 2020-06-25
+
+    - update log system, DebugLightEventsService is now integrated by default with useDebug option
+    
 - 1.5.0 -- 2020-01-08
 
     - add DebugLightEventsService

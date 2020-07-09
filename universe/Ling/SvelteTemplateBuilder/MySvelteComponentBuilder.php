@@ -88,10 +88,15 @@ class MySvelteComponentBuilder
         // COPY THE DIR
         //--------------------------------------------
         $src = __DIR__ . "/assets/my-svelte-component";
-        $target = $this->baseDir . "/" . $this->componentName;
+        $target = $this->baseDir . "/" . $this->dirName;
         FileSystemTool::copyDir($src, $target);
 
 
+
+
+        //--------------------------------------------
+        // MAIN PART
+        //--------------------------------------------
         /**
          * main.js
          */
@@ -117,6 +122,43 @@ class MySvelteComponentBuilder
         $sourceIndexContent = file_get_contents($sourceIndex);
         $sourceIndexContent = str_replace('MyComponent', $this->componentName, $sourceIndexContent);
         FileSystemTool::mkfile($sourceIndex, $sourceIndexContent);
+
+
+        //--------------------------------------------
+        // TEST PART
+        //--------------------------------------------
+        $componentName = $this->componentName . "Test";
+        /**
+         * test.js
+         */
+        $sourceMain = __DIR__ . "/assets/my-svelte-component/src/test.js";
+        $sourceMainContent = file_get_contents($sourceMain);
+        $sourceMainContent = str_replace('MyComponentTest', $componentName, $sourceMainContent);
+        $targetMain = $target . "/src/test.js";
+        FileSystemTool::mkfile($targetMain, $sourceMainContent);
+
+
+        /**
+         * update & rename MyComponentTestFile
+         */
+        $sourceComponent = $target . "/src/MyComponentTest.svelte";
+        $sourceComponentContent = file_get_contents($sourceComponent);
+        $sourceComponentContent = str_replace("MyComponent",$this->componentName, $sourceComponentContent);
+        $targetComponent = $target . "/src/$componentName.svelte";
+        FileSystemTool::mkfile($targetComponent, $sourceComponentContent);
+        unlink($sourceComponent);
+
+
+
+        /**
+         * change reference in index-test.html
+         */
+        $sourceIndex = $target . "/index-test.html";
+        $sourceIndexContent = file_get_contents($sourceIndex);
+        $sourceIndexContent = str_replace('MyComponentTest', $componentName, $sourceIndexContent);
+        FileSystemTool::mkfile($sourceIndex, $sourceIndexContent);
+
+
 
 
     }

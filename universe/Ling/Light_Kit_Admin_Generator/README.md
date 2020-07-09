@@ -1,6 +1,6 @@
 Light_Kit_Admin_Generator
 ===========
-2019-11-06 -> 2020-03-06
+2019-11-06 -> 2020-07-06
 
 
 
@@ -57,8 +57,25 @@ kit_admin_generator:
     methods:
         setContainer:
             container: @container()
+        setOptions:
+            options:
+                useDebug: true                          # default is false
+                debugLogChannel: lka_generator.debug   # default is real_generator.debug
 
-
+# --------------------------------------
+# hooks
+# --------------------------------------
+$logger.methods_collection:
+    -
+        method: addListener
+        args:
+            channels: lka_generator.debug
+            listener:
+                instance: Ling\Light_Logger\Listener\LightCleanableFileLoggerListener
+                methods:
+                    configure:
+                        options:
+                            file: ${app_dir}/log/lka_generator_debug.txt
 
 ```
 
@@ -79,6 +96,26 @@ az($container->get("kit_admin_generator")->generate($configFile));
 History Log
 =============
 
+- 1.15.1 -- 2020-07-06
+
+    - update config example
+    
+- 1.15.0 -- 2020-07-03
+
+    - update generated controller models to adapt new LightKitAdminController->getRedirectResponseByRoute
+    
+- 1.14.0 -- 2020-07-02
+
+    - add menu.mode configuration option
+    
+- 1.13.1 -- 2020-06-30
+
+    - add log section in conception notes
+    
+- 1.13.0 -- 2020-06-30
+
+    - update generator, add log system
+    
 - 1.12.0 -- 2020-03-06
 
     - update row restriction system

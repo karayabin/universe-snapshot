@@ -66,7 +66,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [Where::apply](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/Util/Where.php#L508-L642)
+See the source code for method [Where::apply](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/Util/Where.php#L592-L745)
 
 
 See Also
@@ -74,5 +74,5 @@ See Also
 
 The [Where](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/Where.md) class.
 
-Previous method: [operator](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/Where/operator.md)<br>Next method: [getConditions](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/Where/getConditions.md)<br>
+Previous method: [cp](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/Where/cp.md)<br>Next method: [getConditions](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/Where/getConditions.md)<br>
 

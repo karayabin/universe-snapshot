@@ -1,6 +1,6 @@
 TemporaryVirtualFileSystem
 ===========
-2020-04-17 -> 2020-04-20
+2020-04-17 -> 2020-06-01
 
 
 
@@ -38,6 +38,74 @@ Summary
 History Log
 =============
 
+- 1.11.3 -- 2020-06-01
+
+    - fix TemporaryVirtualFileSystem->addEntry not allowing path=null
+    
+- 1.11.2 -- 2020-05-22
+
+    - fix TemporaryVirtualFileSystem->updateEntry allowing path=null
+    
+- 1.11.1 -- 2020-05-21
+
+    - fix TemporaryVirtualFileSystem->addEntry returning wrong array
+    
+- 1.11.0 -- 2020-05-20
+
+    - the path property of an update operation can now be null
+    
+- 1.10.1 -- 2020-05-19
+
+    - change TemporaryVirtualFileSystemInterface->commit option name to reset
+    
+- 1.10.0 -- 2020-05-19
+
+    - add TemporaryVirtualFileSystemInterface->commit options argument
+    
+- 1.9.0 -- 2020-05-19
+
+    - add abs_path to the commit list
+    
+- 1.8.0 -- 2020-05-19
+
+    - implement TemporaryVirtualFileSystem->commit
+    
+- 1.7.0 -- 2020-05-15
+
+    - add TemporaryVirtualFileSystem->onFileRemovedAfter hook method
+    
+- 1.6.1 -- 2020-05-14
+
+    - fix TemporaryVirtualFileSystem->getRawOperations typo
+    
+- 1.6.0 -- 2020-05-14
+
+    - add TemporaryVirtualFileSystem->getRawOperations method
+    
+- 1.5.0 -- 2020-05-14
+
+    - add TemporaryVirtualFileSystem->doGetEntryRealPathByOperation
+    
+- 1.4.2 -- 2020-05-13
+
+    - fix TemporaryVirtualFileSystem->updateEntry not merging with old meta
+    
+- 1.4.1 -- 2020-05-13
+
+    - fix TemporaryVirtualFileSystem->onFileAddedAfter hook not called properly
+
+- 1.4.0 -- 2020-05-13
+
+    - update TemporaryVirtualFileSystem->onFileAddedAfter hook method, now can update the operation
+    
+- 1.3.0 -- 2020-05-13
+
+    - update TemporaryVirtualFileSystemInterface->update method, now returns an array
+    
+- 1.2.2 -- 2020-05-13
+
+    - optimize TemporaryVirtualFileSystem copying files when not necessary
+    
 - 1.2.1 -- 2020-04-20
 
     - fix TemporaryVirtualFileSystem->removeEntry not removing the associated binary file

@@ -4,6 +4,7 @@ dependencies:
         - Light_Events
         - Light_UserRowRestriction
         - SimplePdoWrapper
+        - ArrayToString
     
 
 post_install: 

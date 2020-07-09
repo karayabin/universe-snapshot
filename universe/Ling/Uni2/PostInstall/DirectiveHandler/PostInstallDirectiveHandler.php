@@ -100,6 +100,7 @@ class PostInstallDirectiveHandler
                 $this->info("Calling the <bold>handler</bold> directive:", $indentLevel, $output);
                 if (is_array($directiveConf)) {
 
+
                     if (true === $this->hasOptions(["name"], $directiveConf, $indentLevel, $output)) {
 
 

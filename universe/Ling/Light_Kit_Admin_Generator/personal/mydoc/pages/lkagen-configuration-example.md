@@ -1,6 +1,6 @@
 Configuration example
 ------------------
-2019-11-06
+2019-11-06 -> 2020-07-02
 
 
 Below is the file I've used to generate parts of the [Light_Kit_Admin](https://github.com/lingtalfi/Light_Kit_Admin) plugin itself.
@@ -224,13 +224,13 @@ main:
         # The generic_tags (defined in the list option at the root level) are available.
         rows_renderer_types_general:
             avatar_url: $img100
-            action:
+            _action:
                 type: lka-edit_link_hub
                 text: Edit
                 url_params:
                     controller: Generated/{TableClass}Controller
                     m: f
-            checkbox: checkbox
+            _checkbox: checkbox
 
         # Defines rows renderer types to add for a specific table.
         # It has precedence over the rows_renderer_type_general option.
@@ -389,6 +389,19 @@ main:
         # It's an absolute path.
         # The tag {app_dir} can be used, and will be replaced with the actual "application root directory".
         target_file: {app_dir}/config/data/{$plugin}/bmenu/main_menu/generated/lka_mainmenu_generated_1.byml
+
+        # The menu generator can operate in two different modes, which affects how the menu configuration is generated.
+        # By default (i.e. mode=default), the menu generator assumes that you want to generate menu configs for plugin
+        # that use "direct injection" (see the Light_BMenu conception notes for more details),
+        # and the generated array contains the menu items as entries.
+        #
+        # However, if you rely on the "host" to add the menu items for you, you should use to "plugin" mode, in which
+        # it's assumed that your plugin has only one table prefix, and in which case the parent menu item's properties
+        # are direct children of the generated menu config.
+        #
+        # The possible values are: default|plugin (default=default)
+        #
+        mode: default
 
 
         # By default, we generate routes using the controller_hub service (to avoid having too many routes).

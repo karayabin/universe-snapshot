@@ -60,7 +60,7 @@ Returns bool.
 
 Source Code
 ===========
-See the source code for method [TemporaryVirtualFileSystemInterface::has](https://github.com/lingtalfi/TemporaryVirtualFileSystem/blob/master/TemporaryVirtualFileSystemInterface.php#L76-L76)
+See the source code for method [TemporaryVirtualFileSystemInterface::has](https://github.com/lingtalfi/TemporaryVirtualFileSystem/blob/master/TemporaryVirtualFileSystemInterface.php#L83-L83)
 
 
 See Also

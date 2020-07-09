@@ -1,6 +1,6 @@
 Ling/Light_ChloroformExtension
 ================
-2019-11-18 --> 2019-12-09
+2019-11-18 --> 2020-06-04
 
 
 
@@ -9,7 +9,7 @@ Table of contents
 ===========
 
 - [LightChloroformExtensionAjaxHandler](https://github.com/lingtalfi/Light_ChloroformExtension/blob/master/doc/api/Ling/Light_ChloroformExtension/AjaxHandler/LightChloroformExtensionAjaxHandler.md) &ndash; The LightChloroformExtensionAjaxHandler class.
-    - [LightChloroformExtensionAjaxHandler::handle](https://github.com/lingtalfi/Light_ChloroformExtension/blob/master/doc/api/Ling/Light_ChloroformExtension/AjaxHandler/LightChloroformExtensionAjaxHandler/handle.md) &ndash; and returns a json array as specified in the [ajax communication protocol](https://github.com/lingtalfi/AjaxCommunicationProtocol).
+    - [LightChloroformExtensionAjaxHandler::handle](https://github.com/lingtalfi/Light_ChloroformExtension/blob/master/doc/api/Ling/Light_ChloroformExtension/AjaxHandler/LightChloroformExtensionAjaxHandler/handle.md) &ndash; Handles the given action and returns an [alcp response](https://github.com/lingtalfi/Light_AjaxHandler/blob/master/doc/pages/ajax-light-communication-protocol.md), or throws an exception in case of problems.
     - ContainerAwareLightAjaxHandler::__construct &ndash; Builds the ContainerAwareLightAjaxHandler instance.
     - ContainerAwareLightAjaxHandler::setContainer &ndash; Sets the light service container interface.
 - [LightChloroformExtensionException](https://github.com/lingtalfi/Light_ChloroformExtension/blob/master/doc/api/Ling/Light_ChloroformExtension/Exception/LightChloroformExtensionException.md) &ndash; The LightChloroformExtensionException class.
@@ -45,6 +45,8 @@ Table of contents
     - AbstractField::hasVeryImportantData &ndash; Returns whether this field contains [very important data](https://github.com/lingtalfi/Chloroform/blob/master/doc/pages/chloroform-discussion.md#the-concept-of-very-important-data).
     - AbstractField::getDataTransformer &ndash; Returns the data transformer of this field if any, or null otherwise.
     - AbstractField::setDataTransformer &ndash; Sets the dataTransformer for this field.
+    - AbstractField::setProperties &ndash; Sets the properties of this field.
+    - AbstractField::setProperty &ndash; Sets a property to this field.
     - AbstractField::setId &ndash; Sets the id.
     - AbstractField::setFallbackValue &ndash; Sets the fallbackValue.
     - AbstractField::setLabel &ndash; Sets the label.
@@ -60,11 +62,11 @@ Table of contents
 
 Dependencies
 ============
+- [Light](https://github.com/lingtalfi/Light)
 - [Light_AjaxHandler](https://github.com/lingtalfi/Light_AjaxHandler)
 - [Light_CsrfSession](https://github.com/lingtalfi/Light_CsrfSession)
 - [Light_MicroPermission](https://github.com/lingtalfi/Light_MicroPermission)
 - [BabyYaml](https://github.com/lingtalfi/BabyYaml)
-- [Light](https://github.com/lingtalfi/Light)
 - [Light_Database](https://github.com/lingtalfi/Light_Database)
 - [SimplePdoWrapper](https://github.com/lingtalfi/SimplePdoWrapper)
 - [Chloroform](https://github.com/lingtalfi/Chloroform)

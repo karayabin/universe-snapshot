@@ -58,7 +58,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightKitAdminListGeneralActionHandler::executeGenerateRandomRowsListGeneralAction](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Realist/ListGeneralActionHandler/LightKitAdminListGeneralActionHandler.php#L104-L169)
+See the source code for method [LightKitAdminListGeneralActionHandler::executeGenerateRandomRowsListGeneralAction](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Realist/ListGeneralActionHandler/LightKitAdminListGeneralActionHandler.php#L104-L172)
 
 
 See Also

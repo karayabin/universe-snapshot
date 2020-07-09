@@ -4,7 +4,7 @@
 
 The ArrayVariableResolverDocBuilder class
 ================
-2019-03-13 --> 2020-04-15
+2019-03-13 --> 2020-06-29
 
 
 
@@ -52,4 +52,4 @@ See the source code of [Ling\LingTalfi\DocBuilder\ArrayVariableResolver\ArrayVar
 
 SeeAlso
 ==============
-Next class: [BabyYamlDatabaseDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/BabyYamlDatabase/BabyYamlDatabaseDocBuilder.md)<br>
+Previous class: [ArrayDiffDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/ArrayDiff/ArrayDiffDocBuilder.md)<br>Next class: [BabyYamlDatabaseDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/BabyYamlDatabase/BabyYamlDatabaseDocBuilder.md)<br>

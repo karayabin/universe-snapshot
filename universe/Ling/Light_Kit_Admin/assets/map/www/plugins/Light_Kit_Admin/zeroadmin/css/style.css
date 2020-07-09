@@ -185,4 +185,13 @@ a {
       .app-body main.main {
         margin-left: 0 !important; } }
 
+/*------------------------------------
+- FORMS, bootstrap
+------------------------------------*/
+.b-form-error {
+  width: 100%;
+  margin-top: .25rem;
+  font-size: 2em;
+  color: #dc3545; }
+
 /*# sourceMappingURL=style.css.map */

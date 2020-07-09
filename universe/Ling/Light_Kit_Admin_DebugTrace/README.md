@@ -1,6 +1,6 @@
 Light_Kit_Admin_DebugTrace
 ===========
-2019-11-07 -> 2019-12-20
+2019-11-07 -> 2020-06-25
 
 
 
@@ -121,6 +121,10 @@ $events.methods_collection:
 History Log
 =============
 
+- 1.6.4 -- 2020-06-25
+
+    - update conception notes
+    
 - 1.6.3 -- 2019-12-20
 
     - fix LightKitAdminDebugTraceService->onEndRoutine erroneously handling refuted requests

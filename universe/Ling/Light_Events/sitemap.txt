@@ -10,6 +10,7 @@ https://github.com/lingtalfi/Light_Events/blob/master/doc/api/Ling/Light_Events/
 https://github.com/lingtalfi/Light_Events/blob/master/doc/api/Ling/Light_Events/Service/LightEventsService/onListenerProcessBefore.md
 https://github.com/lingtalfi/Light_Events/blob/master/doc/api/Ling/Light_Events/Service/LightEventsService/registerListener.md
 https://github.com/lingtalfi/Light_Events/blob/master/doc/api/Ling/Light_Events/Service/LightEventsService/setContainer.md
+https://github.com/lingtalfi/Light_Events/blob/master/doc/api/Ling/Light_Events/Service/LightEventsService/setOptions.md
 https://github.com/lingtalfi/Light_Events/blob/master/doc/api/Ling/Light_Events/Service/LightEventsService.md
 https://github.com/lingtalfi/Light_Events/blob/master/doc/api/Ling/Light_Events.md
 https://github.com/lingtalfi/Light_Events/blob/master/doc/pages/conception-notes.md

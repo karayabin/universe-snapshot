@@ -9,7 +9,7 @@ use Ling\Bat\CaseTool;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
 use Ling\Light_DatabaseInfo\Service\LightDatabaseInfoService;
 use Ling\Light_RealGenerator\Exception\LightRealGeneratorException;
-use Ling\SqlWizard\Tool\SqlWizardGeneralTool;
+use Ling\SqlWizard\Util\MysqlStructureReader;
 
 /**
  * The BaseConfigGenerator class.
@@ -30,6 +30,15 @@ class BaseConfigGenerator
      */
     protected $config;
 
+
+    /**
+     * This function to call for debugging log messages.
+     *
+     *
+     * @var callable = null
+     */
+    protected $debugCallable;
+
     /**
      * Builds the ListConfigGenerator instance.
      */
@@ -37,6 +46,7 @@ class BaseConfigGenerator
     {
         $this->container = null;
         $this->config = [];
+        $this->debugCallable = null;
     }
 
 
@@ -55,9 +65,54 @@ class BaseConfigGenerator
         $this->container = $container;
     }
 
+    /**
+     * Sets the debugCallable.
+     *
+     * @param callable $debugCallable
+     */
+    public function setDebugCallable(callable $debugCallable)
+    {
+        $this->debugCallable = $debugCallable;
+    }
+
+
     //--------------------------------------------
     //
     //--------------------------------------------
+    /**
+     * Calls the debugCallable function if set.
+     *
+     * @param string $msg
+     */
+    protected function debugLog(string $msg)
+    {
+        if (null !== $this->debugCallable) {
+            call_user_func($this->debugCallable, $msg);
+        }
+    }
+
+
+    /**
+     * Returns the given absolute path, with the application directory replaced by a symbol if found.
+     * If not, the path is returned as is.
+     *
+     *
+     * For instance: [app]/my/image.png
+     *
+     * @param string $path
+     * @return string
+     */
+    protected function getSymbolicPath(string $path): string
+    {
+        $appDir = $this->container->getApplicationDir();
+        $p = explode($appDir, $path, 2);
+        if (2 === count($p)) {
+            return '[app]' . array_pop($p);
+        }
+        return $path;
+    }
+
+
     /**
      * Returns the tables to generate a config file for.
      * @return array
@@ -174,7 +229,6 @@ class BaseConfigGenerator
     }
 
 
-
     /**
      * Returns whether the given table is a **has** table (aka a many to many table, such as user_has_permission for instance).
      * @param string $table
@@ -192,5 +246,40 @@ class BaseConfigGenerator
             }
         }
         return false;
+    }
+
+
+    /**
+     * Returns the tableInfo array, either from the createFile, or from the database, depending on the configuration.
+     *
+     * @param string $table
+     * @return array
+     * @throws LightRealGeneratorException
+     * @throws \Exception
+     */
+    protected function getTableInfo(string $table): array
+    {
+        $createFile = $this->getKeyValue('create_file', false, null);
+        if (null !== $createFile) {
+            $createFile = str_replace('{app_dir}', $this->container->getApplicationDir(), $createFile);
+        }
+        $useCreateFile = $this->getKeyValue('use_create_file', false, false);
+        $database = $this->getKeyValue('database_name', false, null);
+        if (true === $useCreateFile) {
+            $reader = new MysqlStructureReader();
+            $readerArray = $reader->readFile($createFile);
+            if (array_key_exists($table, $readerArray)) {
+                $tableInfo = MysqlStructureReader::readerArrayToTableInfo($readerArray[$table], $this->container->get("database"));
+            } else {
+                throw new LightRealGeneratorException("Table \"$table\" not defined in create file: $createFile.");
+            }
+        } else {
+            /**
+             * @var $dbInfo LightDatabaseInfoService
+             */
+            $dbInfo = $this->container->get('database_info');
+            $tableInfo = $dbInfo->getTableInfo($table, $database);
+        }
+        return $tableInfo;
     }
 }

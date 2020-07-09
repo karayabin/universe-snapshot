@@ -28,4 +28,4 @@ $logger.methods_collection:
                 methods:
                     configure:
                         options:
-                            file: ${app_dir}/log/exception.txt
+                            file: ${app_dir}/log/exceptions/{date}.txt

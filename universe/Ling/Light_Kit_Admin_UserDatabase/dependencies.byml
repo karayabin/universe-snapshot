@@ -1,0 +1,20 @@
+dependencies: 
+    Ling: 
+        - Bat
+        - Chloroform
+        - GormanJsonDecoder
+        - Light
+        - Light_CsrfSession
+        - Light_Kit_Admin
+        - Light_UserData
+        - Light_UserDatabase
+        - Light_User
+        - WiseTool
+        - Light_ControllerHub
+        - BabyYaml
+        - Light_BMenu
+        - Light_PluginInstaller
+    
+
+post_install: 
+    map: true

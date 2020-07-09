@@ -60,6 +60,7 @@ class LightMicroPermissionService
     /**
      * Disable the micro-permission system for the given namespace, so that the
      * hasMicroPermission method will always return true for all micro-permissions of that namespace.
+     * This is mainly use for test purposes.
      *
      * @param string $namespace
      */
@@ -104,6 +105,29 @@ class LightMicroPermissionService
     public function registerMicroPermissionsByFile(string $file)
     {
         $this->microPermissionsMap = array_merge_recursive($this->microPermissionsMap, BabyYamlUtil::readFile($file));
+    }
+
+
+    /**
+     * Registers the micro-permissions profile.
+     * See more details in the @page(micro-permission conception notes).
+     *
+     *
+     * @param string $file
+     */
+    public function registerMicroPermissionsByProfile(string $file)
+    {
+        $profile = BabyYamlUtil::readFile($file);
+        foreach ($profile as $permission => $microPerms) {
+            foreach ($microPerms as $mp) {
+                if (false === array_key_exists($mp, $this->microPermissionsMap)) {
+                    $this->microPermissionsMap[$mp] = [];
+                } elseif (false === is_array($this->microPermissionsMap[$mp])) {
+                    $this->microPermissionsMap[$mp] = [$this->microPermissionsMap[$mp]];
+                }
+                $this->microPermissionsMap[$mp][] = $permission;
+            }
+        }
     }
 
 

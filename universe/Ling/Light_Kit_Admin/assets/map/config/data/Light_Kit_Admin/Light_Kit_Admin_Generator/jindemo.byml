@@ -8,7 +8,6 @@ main:
     # - as a prefix of the rendering.list_action_groups.action_id (list)
     # - as the plugin name in rendering.list_renderer.identifier (list)
     # - as the plugin name in plugin (described in the miscellaneous "section" of the realist conception notes)
-    # - as the micro permission plugin name for the on_success_handler (form) of type database
     plugin_name: Light_Kit_Admin
 
 

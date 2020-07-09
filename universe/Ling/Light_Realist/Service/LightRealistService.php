@@ -601,6 +601,7 @@ class LightRealistService
         if (null === $listRendererId) {
             $this->error("The list renderer id was not defined (requestId=$requestId).");
         }
+
         if (false === array_key_exists($listRendererId, $this->listRenderers)) {
             $this->error("List renderer not found with identifier $listRendererId (requestId=$requestId).");
         }

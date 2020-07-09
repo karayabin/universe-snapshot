@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [LightUserDataController::render](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Controller/LightUserDataController/render.md)(string $id) : [HttpResponseInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponseInterface.md)
+public [LightUserDataController::render](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Controller/LightUserDataController/render.md)(string $id, Ling\Light\Http\HttpRequestInterface $request) : void
 
 
 
@@ -41,11 +41,15 @@ Parameters
 
     
 
+- request
+
+    
+
 
 Return values
 ================
 
-Returns [HttpResponseInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponseInterface.md).
+Returns void.
 
 
 Exceptions thrown
@@ -61,7 +65,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightUserDataController::render](https://github.com/lingtalfi/Light_UserData/blob/master/Controller/LightUserDataController.php#L37-L88)
+See the source code for method [LightUserDataController::render](https://github.com/lingtalfi/Light_UserData/blob/master/Controller/LightUserDataController.php#L39-L104)
 
 
 See Also

@@ -1,6 +1,6 @@
 Ling/Light_Realist
 ================
-2019-08-12 --> 2020-03-10
+2019-08-12 --> 2020-07-06
 
 
 
@@ -126,8 +126,8 @@ Table of contents
 
 Dependencies
 ============
-- [Light_AjaxHandler](https://github.com/lingtalfi/Light_AjaxHandler)
 - [Light](https://github.com/lingtalfi/Light)
+- [Light_AjaxHandler](https://github.com/lingtalfi/Light_AjaxHandler)
 - [Light_CsrfSession](https://github.com/lingtalfi/Light_CsrfSession)
 - [Light_ReverseRouter](https://github.com/lingtalfi/Light_ReverseRouter)
 - [Light_MicroPermission](https://github.com/lingtalfi/Light_MicroPermission)

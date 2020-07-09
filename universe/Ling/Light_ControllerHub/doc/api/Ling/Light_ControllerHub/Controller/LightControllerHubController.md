@@ -4,7 +4,7 @@
 
 The LightControllerHubController class
 ================
-2019-10-28 --> 2019-12-16
+2019-10-28 --> 2020-07-02
 
 
 
@@ -36,6 +36,7 @@ class <span class="pl-k">LightControllerHubController</span> extends [LightContr
     - protected LightController::getLight() : [Light](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light.md)
     - protected LightController::getContainer() : [LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md)
     - protected LightController::getHttpRequest() : Ling\Light\Http\HttpRequestInterface
+    - protected LightController::hasService(string $serviceName) : bool
 
 }
 
@@ -53,6 +54,7 @@ Methods
 - LightController::getLight &ndash; Returns the light application.
 - LightController::getContainer &ndash; Returns the service container.
 - LightController::getHttpRequest &ndash; Returns the http request bound to the light instance.
+- LightController::hasService &ndash; Returns whether the container contains the service which name is given.
 
 
 

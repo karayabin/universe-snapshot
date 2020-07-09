@@ -1,11 +1,13 @@
 Realist conception notes
 ======================
-2019-08-28
+2019-08-28 -> 2020-07-06
 
 
 
 Overview
 ===========
+2019-08-28
+
 
 The goal of realist is to be the medium between the developer and the (my)sql database as far as fetching rows 
 is concerned.
@@ -48,6 +50,7 @@ In addition to the duelist idea, realist provides the following settings:
    
 Rendering
 ===========
+2019-08-28
 
 The **rendering** setting basically let us control (at least partially) the gui side of the list.
 
@@ -59,6 +62,8 @@ See an example later in this document.
 
 List renderer
 -------------
+2019-08-28
+
 
 A list renderer is basically the object which displays the list structure, including all gravitating widgets, such as the pagination,
 the search widget, etc...
@@ -74,6 +79,8 @@ by a specialized object called the "rows renderer".
 
 Rows renderer
 --------------
+2019-08-28
+
 
 We basically provide an interface for rendering rows: **RealistRowsRendererInterface**.
 
@@ -96,6 +103,8 @@ to render as img tags, or arrays that we would like to display as a list, or oth
 
 
 ### Types, the column transformers
+2019-08-28
+
 
 Types (aka column transformers) allow us to transform the content of individual columns.
 We can use type to transform an image url into an actual html img tag, or create links, or trim a too long content, etc.
@@ -128,6 +137,8 @@ See more in the code source of [the BaseRealistRowRenderer object](https://githu
 
 ### Dynamic columns
 
+2019-08-28
+
 Sometimes, we need to decorate the rows.
 
 For instance, in an admin list, we often have an extra "action" column with some action buttons,
@@ -141,6 +152,8 @@ Two common dynamic columns for admin lists are "checkbox" and "action".
 
 
 # Checkbox and Action special columns
+
+2019-08-28 -> 2020-07-06
 
 
 In the **rows_renderer** settings, we have two special properties:
@@ -156,17 +169,21 @@ Both share similar characteristics:
         they indicate that the dynamic column shouldn't be used.    
 
 
-The default name for the checkbox dynamic column is checkbox.
-The default name for the action dynamic column is action.
+The default name for the checkbox dynamic column is "_checkbox".
+The default name for the action dynamic column is "_action".
 
-Note: the default name is used as long as you don't define the the checkbox_column.name or action_column.name specifically. 
+Note: the default name is used as long as you don't define the checkbox_column.name or action_column.name specifically. 
 
 
 
 
 # About ric implementation
 
-We recommend to use the [ric admin table helper](https://github.com/lingtalfi/JRicAdminTableHelper) js tool to handle
+2019-08-28
+
+
+
+We recommend using the [ric admin table helper](https://github.com/lingtalfi/JRicAdminTableHelper) js tool to handle
 your ric related actions, but you can use any tool really. 
  
  
@@ -179,6 +196,11 @@ Hidden columns are columns hidden from the view, but which data is still availab
 
 
 ### Why did I implement hidden columns ?
+
+2019-08-28
+
+
+
 
 I needed them when I wanted to create enhanced columns (aka crossed columns).
 
@@ -204,6 +226,9 @@ for the rest of the gui.
  
 Cheatsheet for the developer
 ------------------------
+2019-08-28
+
+
 There are two sides to the realist:
 
 - server side
@@ -235,6 +260,10 @@ The array structure used is the [generic action item](https://github.com/lingtal
 
 
 ### Button markup
+
+2019-09-25
+
+
  
 We recommend that a list general action button has the following markup:
 
@@ -246,6 +275,8 @@ We provide a **list-general-action-handler-helper.js** tool to help with the imp
       
       
 ### Js code
+2019-09-25
+
 
 The callable is the function f, same as for the list action handler, but the arguments are different:
 

@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [LightRealformRoutineTwo::processForm](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Routine/LightRealformRoutineTwo/processForm.md)(string $realformIdentifier, string $table, array $rics, ?array $options = []) : [Chloroform](https://github.com/lingtalfi/Chloroform)
+public [LightRealformRoutineTwo::processForm](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Routine/LightRealformRoutineTwo/processForm.md)(string $realformIdentifier, string $table, array $rics, ?array $options = []) : [Chloroform](https://github.com/lingtalfi/Chloroform) | [HttpResponseInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponseInterface.md)
 
 
 
@@ -27,6 +27,11 @@ and returns a chloroform instance.
 The available options are:
 
 - post: array. Optional = []. Some extra parameters to add to the form.
+- onSuccess: callable to execute on success.
+     The callable signature is this:
+     - fn (  ): ?HttpResponseInterface
+
+     If a response is returned, it will be the return of the processForm method as well.
 
 
 
@@ -55,7 +60,7 @@ Parameters
 Return values
 ================
 
-Returns [Chloroform](https://github.com/lingtalfi/Chloroform).
+Returns [Chloroform](https://github.com/lingtalfi/Chloroform) | [HttpResponseInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponseInterface.md).
 
 
 Exceptions thrown
@@ -71,7 +76,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightRealformRoutineTwo::processForm](https://github.com/lingtalfi/Light_Realform/blob/master/Routine/LightRealformRoutineTwo.php#L98-L439)
+See the source code for method [LightRealformRoutineTwo::processForm](https://github.com/lingtalfi/Light_Realform/blob/master/Routine/LightRealformRoutineTwo.php#L103-L435)
 
 
 See Also

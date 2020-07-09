@@ -62,7 +62,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightDatabasePdoWrapper::pinsert](https://github.com/lingtalfi/Light_Database/blob/master/LightDatabasePdoWrapper.php#L171-L179)
+See the source code for method [LightDatabasePdoWrapper::pinsert](https://github.com/lingtalfi/Light_Database/blob/master/LightDatabasePdoWrapper.php#L176-L184)
 
 
 See Also

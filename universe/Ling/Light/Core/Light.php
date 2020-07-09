@@ -6,9 +6,7 @@ namespace Ling\Light\Core;
 
 use Ling\Light\Events\LightEvent;
 use Ling\Light\Exception\LightException;
-use Ling\Light\Exception\LightRedirectException;
 use Ling\Light\Helper\ControllerHelper;
-use Ling\Light\Http\HttpRedirectResponse;
 use Ling\Light\Http\HttpRequest;
 use Ling\Light\Http\HttpRequestInterface;
 use Ling\Light\Http\HttpResponse;
@@ -17,7 +15,6 @@ use Ling\Light\Router\LightRouter;
 use Ling\Light\ServiceContainer\LightDummyServiceContainer;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
 use Ling\Light_Events\Service\LightEventsService;
-use Ling\Light_ReverseRouter\Service\LightReverseRouterService;
 
 /**
  * The Light class.
@@ -478,61 +475,46 @@ class Light
         } catch (\Exception $e) {
 
 
-            //--------------------------------------------
-            // use light redirection?
-            //--------------------------------------------
-            if ($e instanceof LightRedirectException && $this->getContainer()->has("reverse_router")) {
+            $wasHandled = false;
 
-                /**
-                 * @var $rr LightReverseRouterService
-                 */
-                $rr = $this->getContainer()->get("reverse_router");
-                /**
-                 * Note that we don't use the httpRequest object's get array, because we want
-                 * the dev to be able to override the urlParams (by using $_GET) if necessary.
-                 */
-                $urlParams = $_GET;
-                $url = $rr->getUrl($e->getRedirectRoute(), $urlParams, true);
-                $response = HttpRedirectResponse::create($url);
-            } else {
+            if (true === $container->has('events')) {
+                $data = LightEvent::createByContainer($container);
+                $data->setVar('exception', $e);
 
-                $washHandled = false;
+                $events->dispatch("Light.on_exception_caught", $data);
 
-                if (true === $container->has('events')) {
-                    $data = LightEvent::createByContainer($container);
-                    $data->setVar('exception', $e);
-                    $events->dispatch("Light.on_exception_caught", $data);
+                // some plugins can change the exception
+                $e = $data->getVar('exception');
 
-
-                    $httpResponse = $data->getVar('httpResponse');
-                    if ($httpResponse instanceof HttpResponseInterface) {
-                        $washHandled = true;
-                        $response = $httpResponse;
-                    }
-                }
-
-
-                if (false === $washHandled) {
-
-
-                    if (true === $container->has('events')) {
-                        /**
-                         * This event is just used for logging (i.e. no fallback response possible...).
-                         */
-                        $data = LightEvent::createByContainer($container);
-                        $data->setVar('exception', $e);
-                        $events->dispatch("Light.on_unhandled_exception_caught", $data);
-                    }
-
-
-                    if (false === $this->debug) {
-                        $response = $this->renderInternalServerErrorPage();
-
-                    } else {
-                        $response = $this->renderDebugPage($e);
-                    }
+                $httpResponse = $data->getVar('httpResponse');
+                if ($httpResponse instanceof HttpResponseInterface) {
+                    $wasHandled = true;
+                    $response = $httpResponse;
                 }
             }
+
+
+            if (false === $wasHandled) {
+
+
+                if (true === $container->has('events')) {
+                    /**
+                     * This event is just used for logging (i.e. no fallback response possible...).
+                     */
+                    $data = LightEvent::createByContainer($container);
+                    $data->setVar('exception', $e);
+                    $events->dispatch("Light.on_unhandled_exception_caught", $data);
+                }
+
+
+                if (false === $this->debug) {
+                    $response = $this->renderInternalServerErrorPage();
+
+                } else {
+                    $response = $this->renderDebugPage($e);
+                }
+            }
+
         }
 
 

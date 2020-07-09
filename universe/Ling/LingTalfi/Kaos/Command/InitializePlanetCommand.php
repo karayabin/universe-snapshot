@@ -10,6 +10,7 @@ use Ling\CliTools\Helper\VirginiaMessageHelper as H;
 use Ling\CliTools\Input\InputInterface;
 use Ling\CliTools\Output\OutputInterface;
 use Ling\DirScanner\YorgDirScannerTool;
+use Ling\LingTalfi\Kaos\Tool\PreferencesTool;
 use Ling\LingTalfi\Kaos\Util\ReadmeUtil;
 use Ling\UniverseTools\PlanetTool;
 
@@ -37,6 +38,10 @@ class InitializePlanetCommand extends KaosGenericCommand
     public function run(InputInterface $input, OutputInterface $output)
     {
 
+
+        $prefs = PreferencesTool::getPreferences();
+
+
         $indentLevel = $this->application->getBaseIndentLevel();
         $createDocBuilder = $input->hasFlag('d');
         $success = true;
@@ -44,7 +49,7 @@ class InitializePlanetCommand extends KaosGenericCommand
         $planetDir = $this->application->getCurrentDirectory();
 
 
-        $applicationDir = $input->getOption('application');
+        $applicationDir = $prefs["application"] ?? $input->getOption('application');
 
 
         $pInfo = PlanetTool::getGalaxyNamePlanetNameByDir($planetDir);

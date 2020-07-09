@@ -96,7 +96,7 @@ class Light_Kit_AdminDocBuilder
                 "Ling\Bootstrap4AdminTable\Renderer\Bootstrap4AdminTableRenderer",
                 "Ling\Light_Realist\Rendering\OpenAdminTableBaseRealistListRenderer",
                 "Ling\Light_RowLookup\ConfigurationStorage\BaseRowLookupConfigurationStorage",
-
+                "Ling\Light_AjaxHandler\Handler\BaseLightAjaxHandler",
 
             ],
             /**
@@ -203,6 +203,13 @@ class Light_Kit_AdminDocBuilder
                 "Light.initialize_2 event" => "https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md",
                 "light events page" => "https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md",
                 "Light_UserDatabase plugin" => "https://github.com/lingtalfi/Light_UserDatabase",
+                "alcp response" => "https://github.com/lingtalfi/Light_AjaxHandler/blob/master/doc/pages/ajax-light-communication-protocol.md",
+                "bmenu conception notes" => "https://github.com/lingtalfi/Light_BMenu/blob/master/doc/pages/conception-notes.md",
+                "chloroform array" => "https://github.com/lingtalfi/Chloroform/blob/master/doc/pages/chloroform-array.md",
+                "babyYaml" => "https://github.com/lingtalfi/BabyYaml",
+                "Light kit admin plugins document" => $doc . '/pages/lka-plugins.md',
+                "the content of the Bootstrap4AdminTableRenderer->printJavascript method" => "https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/Renderer/Bootstrap4AdminTableRenderer.php#L475-L650",
+                "Light_PluginInstaller conception notes" => "https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/pages/conception-notes.md",
             ],
             /**
              * An array of external classes to url.
@@ -272,6 +279,11 @@ class Light_Kit_AdminDocBuilder
                 "Ling\Light_Realist\Rendering\RequestIdAwareRendererInterface" => "https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Rendering/RequestIdAwareRendererInterface.md",
                 "Ling\Light_RowLookup\ConfigurationStorage\BaseRowLookupConfigurationStorage" => "https://github.com/lingtalfi/Light_RowLookup/blob/master/doc/api/Ling/Light_RowLookup/ConfigurationStorage/BaseRowLookupConfigurationStorage.md",
                 "Ling\Light_RowLookup\ConfigurationStorage\LightRowLookupConfigurationStorageInterface" => "https://github.com/lingtalfi/Light_RowLookup/blob/master/doc/api/Ling/Light_RowLookup/ConfigurationStorage/LightRowLookupConfigurationStorageInterface.md",
+                "Ling\Light_AjaxHandler\Handler\BaseLightAjaxHandler" => "https://github.com/lingtalfi/Light_AjaxHandler/blob/master/doc/api/Ling/Light_AjaxHandler/Handler/BaseLightAjaxHandler.md",
+                "Ling\Light_Bullsheet\Bullsheeter\LightBullsheeterInterface" => "https://github.com/lingtalfi/Light_Bullsheet/blob/master/doc/api/Ling/Light_Bullsheet/Bullsheeter/LightBullsheeterInterface.md",
+                "Ling\Light\Http\HttpRedirectResponse" => "https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRedirectResponse.md",
+                "Ling\Light_PluginInstaller\PluginInstaller\PluginInstallerInterface" => "https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/PluginInstaller/PluginInstallerInterface.md",
+
             ],
         ];
 

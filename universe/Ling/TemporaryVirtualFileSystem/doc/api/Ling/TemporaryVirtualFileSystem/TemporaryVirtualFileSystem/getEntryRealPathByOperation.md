@@ -16,14 +16,14 @@ Description
 ================
 
 
-private [TemporaryVirtualFileSystem::getEntryRealPathByOperation](https://github.com/lingtalfi/TemporaryVirtualFileSystem/blob/master/doc/api/Ling/TemporaryVirtualFileSystem/TemporaryVirtualFileSystem/getEntryRealPathByOperation.md)(string $contextId, array $operation) : string
+private [TemporaryVirtualFileSystem::getEntryRealPathByOperation](https://github.com/lingtalfi/TemporaryVirtualFileSystem/blob/master/doc/api/Ling/TemporaryVirtualFileSystem/TemporaryVirtualFileSystem/getEntryRealPathByOperation.md)(string $contextId, array $operation, ?array $options = []) : string
 
 
 
 
 Returns the realpath of the file associated with the given operation entry.
 
-Throws an exception if the operation doesn't have a file associated with it (i.e. delete operation).
+Throws an exception if the operation doesn't have a file associated with it (i.e. remove operation).
 
 
 
@@ -37,6 +37,10 @@ Parameters
     
 
 - operation
+
+    
+
+- options
 
     
 
@@ -60,7 +64,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [TemporaryVirtualFileSystem::getEntryRealPathByOperation](https://github.com/lingtalfi/TemporaryVirtualFileSystem/blob/master/TemporaryVirtualFileSystem.php#L509-L516)
+See the source code for method [TemporaryVirtualFileSystem::getEntryRealPathByOperation](https://github.com/lingtalfi/TemporaryVirtualFileSystem/blob/master/TemporaryVirtualFileSystem.php#L676-L684)
 
 
 See Also

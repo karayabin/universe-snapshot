@@ -77,7 +77,9 @@ to check that the app is doing ok.
 Amongst the different loggers, the ones below as the one I use the most:
 
 - [Light_404Logger](https://github.com/lingtalfi/Light_404Logger) to monitor missing assets
-- [Light_ExceptionHandler](https://github.com/lingtalfi/Light_ExceptionHandler) to monitor uncaught exceptions 
+- [Light_ExceptionHandler](https://github.com/lingtalfi/Light_ExceptionHandler) to monitor uncaught exceptions. 
+    This service by default stores all uncaught exceptions in **${app_dir}/log/exception.txt**, so I have a bash alias:
+    when I type "exc" in my terminal it opens the **exception.txt** file.
 
 
 

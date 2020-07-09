@@ -7,7 +7,7 @@ LightAjaxHandlerInterface::handle
 
 
 
-LightAjaxHandlerInterface::handle — and returns a json array as specified in the [ajax communication protocol](https://github.com/lingtalfi/AjaxCommunicationProtocol).
+LightAjaxHandlerInterface::handle — Handles the given action and returns an [alcp response](https://github.com/lingtalfi/Light_AjaxHandler/blob/master/doc/pages/ajax-light-communication-protocol.md), or throws an exception in case of problems.
 
 
 
@@ -16,13 +16,12 @@ Description
 ================
 
 
-abstract public [LightAjaxHandlerInterface::handle](https://github.com/lingtalfi/Light_AjaxHandler/blob/master/doc/api/Ling/Light_AjaxHandler/Handler/LightAjaxHandlerInterface/handle.md)(string $actionId, array $params) : array
+abstract public [LightAjaxHandlerInterface::handle](https://github.com/lingtalfi/Light_AjaxHandler/blob/master/doc/api/Ling/Light_AjaxHandler/Handler/LightAjaxHandlerInterface/handle.md)(string $action, Ling\Light\Http\HttpRequestInterface $request) : array
 
 
 
 
-Handles the action identified by actionId and params,
-and returns a json array as specified in the [ajax communication protocol](https://github.com/lingtalfi/AjaxCommunicationProtocol).
+Handles the given action and returns an [alcp response](https://github.com/lingtalfi/Light_AjaxHandler/blob/master/doc/pages/ajax-light-communication-protocol.md), or throws an exception in case of problems.
 
 
 
@@ -31,11 +30,11 @@ Parameters
 ================
 
 
-- actionId
+- action
 
     
 
-- params
+- request
 
     
 
@@ -59,7 +58,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightAjaxHandlerInterface::handle](https://github.com/lingtalfi/Light_AjaxHandler/blob/master/Handler/LightAjaxHandlerInterface.php#L24-L24)
+See the source code for method [LightAjaxHandlerInterface::handle](https://github.com/lingtalfi/Light_AjaxHandler/blob/master/Handler/LightAjaxHandlerInterface.php#L25-L25)
 
 
 See Also

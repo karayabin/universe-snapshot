@@ -142,6 +142,7 @@ class Light_BMenuDocBuilder
             "keyWord2UrlMap" => [
                 "bmenu conception notes" => $doc . '/pages/conception-notes.md',
                 "HttpRequest->getUri method" => "https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequestInterface/getUri.md",
+                "babyYaml" => 'https://github.com/lingtalfi/BabyYaml',
             ],
             /**
              * An array of external classes to url.

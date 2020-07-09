@@ -80,7 +80,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [Where::operator](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/Util/Where.php#L470-L485)
+See the source code for method [Where::operator](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/Util/Where.php#L467-L481)
 
 
 See Also
@@ -88,5 +88,5 @@ See Also
 
 The [Where](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/Where.md) class.
 
-Previous method: [isNotNull](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/Where/isNotNull.md)<br>Next method: [apply](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/Where/apply.md)<br>
+Previous method: [isNotNull](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/Where/isNotNull.md)<br>Next method: [or](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/Where/or.md)<br>
 

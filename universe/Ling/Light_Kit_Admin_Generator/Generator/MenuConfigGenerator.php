@@ -26,6 +26,7 @@ class MenuConfigGenerator extends LkaGenBaseConfigGenerator
 
         $appDir = $this->container->getApplicationDir();
         $targetFile = $this->getKeyValue("menu.target_file");
+        $mode = $this->getKeyValue("menu.mode", false, "default");
         $controllerFormat = $this->getKeyValue("menu.controller_format");
         $targetFile = str_replace('{app_dir}', $appDir, $targetFile);
         $prefixes = $this->getKeyValue("menu.prefixes", false, []);
@@ -36,6 +37,7 @@ class MenuConfigGenerator extends LkaGenBaseConfigGenerator
         $groupByPrefix = $this->getKeyValue("menu.group_by_prefix", false, true);
         $prefix2Rights = $this->getKeyValue("menu.prefix_to_rights", false, []);
 
+        $menuItemIconParent = $this->getKeyValue("menu.item_icon_parent", false, "fas fa-bars");
         $menuItemPrefixParent = $this->getKeyValue("menu.item_prefix_parent", false, "lka_gen");
         $menuItemPrefixChild = $this->getKeyValue("menu.item_prefix_child", false, "lkagen_id");
         $menuItemPlugin = $this->getKeyValue("menu.item_plugin", false, "Light_Kit_Admin");
@@ -76,6 +78,7 @@ class MenuConfigGenerator extends LkaGenBaseConfigGenerator
         $rootChildren = $groups["_"] ?? [];
         unset($groups['_']);
 
+
         // adding prefixed tables
         foreach ($groups as $prefix => $tableInfoItems) {
             $children = [];
@@ -85,12 +88,18 @@ class MenuConfigGenerator extends LkaGenBaseConfigGenerator
             $parentLabel = $prefixes[$prefix] ?? ucfirst(strtolower($prefix));
             $parentItem = [
                 'id' => $menuItemPrefixParent . '-' . $prefix,
-                'icon' => 'fas fa-bars',
+                'icon' => $menuItemIconParent,
                 'text' => $parentLabel,
                 'route' => null,
                 'children' => $children,
             ];
-            $items[] = $parentItem;
+
+            if ('default' === $mode) {
+                $items[] = $parentItem;
+            } else { // plugin mode
+                $items = $parentItem;
+                break; // assuming there is only one prefix
+            }
         }
 
 
@@ -99,6 +108,8 @@ class MenuConfigGenerator extends LkaGenBaseConfigGenerator
             $items[] = $childItem;
         }
 
+
+        $this->debugLog("Creating bmenu target file in \"" . $this->getSymbolicPath($targetFile) . "\".");
         FileSystemTool::mkfile($targetFile, BabyYamlUtil::getBabyYamlString($items));
     }
 

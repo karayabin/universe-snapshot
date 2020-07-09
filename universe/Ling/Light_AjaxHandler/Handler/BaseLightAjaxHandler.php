@@ -27,8 +27,6 @@ abstract class BaseLightAjaxHandler extends ContainerAwareLightAjaxHandler
     abstract protected function doHandle(string $action, HttpRequestInterface $request): array;
 
 
-
-
     /**
      * @implementation
      */
@@ -39,7 +37,10 @@ abstract class BaseLightAjaxHandler extends ContainerAwareLightAjaxHandler
         //--------------------------------------------
         $csrfToken = $request->getPostValue("csrf_token", false);
         if (null === $csrfToken) {
-            throw new LightAjaxHandlerException("Csrf token not provided for action \"$action\".");
+            $csrfToken = $request->getGetValue("csrf_token", false);
+            if (null === $csrfToken) {
+                throw new LightAjaxHandlerException("Csrf token not provided for action \"$action\".");
+            }
         }
 
 

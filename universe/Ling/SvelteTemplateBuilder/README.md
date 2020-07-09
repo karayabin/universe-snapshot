@@ -1,6 +1,6 @@
 SvelteTemplateBuilder
 ===========
-2020-05-08
+2020-05-08 -> 2020-05-11
 
 
 
@@ -48,23 +48,27 @@ Open a terminal and type this:
 
 ```bash
 cd /myapp
-php -f /path/to/universe/Ling/SvelteTemplateBuilder/scripts/my-svelte-component.php -- MyTestComponent my-test-component  
+php -f /path/to/universe/Ling/SvelteTemplateBuilder/scripts/my-svelte-component.php -- MyAwesomeComponent my-test-component  
 ```
 
 This command will create the following structure:
 
 ```text 
 - /myapp/
------ MyTestComponent/
+----- MyAwesomeComponent/
 --------- .gitignore
 --------- dist/
 --------- index.html
+--------- index-test.html
 --------- package.json
 --------- README.md
 --------- rollup.config.js
+--------- rollup.config-test.js
 --------- src/
 ------------- main.js
-------------- MyTestComponent.svelte
+------------- MyAwesomeComponent.svelte
+------------- MyAwesomeComponentTest.svelte
+------------- test.js
 
 ```
   
@@ -72,10 +76,36 @@ Then to use your component, type the following:
 
 
 ```bash 
-cd MyTestComponent
+cd MyAwesomeComponent
 npm install
+```
+
+
+And then either:
+
+```bash 
 npm run dev
 ```
+
+this will build the bundle file(s) and open the **index.html** page which displays your component.
+
+
+or:
+
+```bash 
+npm run dev-test
+```
+
+this will build the bundle file(s) and open the **index-test.html** page, which displays the Test version of your component.
+This command is good for testing/updating your component.
+
+
+
+
+
+More info in the [my-svelte-component](https://github.com/lingtalfi/my-svelte-component) page.
+
+
 
 
 That's it.
@@ -95,7 +125,7 @@ alias sveltecompo='php -f /path/to/universe/Ling/SvelteTemplateBuilder/scripts/m
 Now to create a svelte component, just do:
 
 ```bash 
-sveltecompo MyTestComponent my-test-component 
+sveltecompo MyAwesomeComponent my-test-component 
 ```
 
 
@@ -106,6 +136,10 @@ sveltecompo MyTestComponent my-test-component
 History Log
 =============
 
+- 1.1.0 -- 2020-05-11
+
+    - add test rig implementation, and fix using componentName instead of dirName
+    
 - 1.0.0 -- 2020-05-08
 
     - initial commit

@@ -4,7 +4,7 @@
 
 The StandardBootstrap4AdminTableRenderer class
 ================
-2019-08-15 --> 2020-03-10
+2019-08-15 --> 2020-07-06
 
 
 

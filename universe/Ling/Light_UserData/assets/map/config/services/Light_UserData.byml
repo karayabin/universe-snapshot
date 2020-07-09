@@ -14,6 +14,15 @@ user_data:
 # --------------------------------------
 # hooks
 # --------------------------------------
+$ajax_handler.methods_collection:
+    -
+        method: registerHandler
+        args:
+            id: Light_UserData
+            handler:
+                instance: Ling\Light_UserData\AjaxHandler\LightUserDataAjaxHandler
+
+
 $breeze_generator.methods_collection:
     -
         method: addConfigurationEntryByFile

@@ -4,7 +4,7 @@
 
 The FileUploadController class
 ================
-2019-08-01 --> 2020-02-21
+2019-08-01 --> 2020-06-04
 
 
 
@@ -63,6 +63,7 @@ class <span class="pl-k">FileUploadController</span> extends [LightController](h
     - protected LightController::getLight() : [Light](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light.md)
     - protected LightController::getContainer() : [LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md)
     - protected LightController::getHttpRequest() : Ling\Light\Http\HttpRequestInterface
+    - protected LightController::hasService(string $serviceName) : bool
 
 }
 
@@ -80,6 +81,7 @@ Methods
 - LightController::getLight &ndash; Returns the light application.
 - LightController::getContainer &ndash; Returns the service container.
 - LightController::getHttpRequest &ndash; Returns the http request bound to the light instance.
+- LightController::hasService &ndash; Returns whether the container contains the service which name is given.
 
 
 

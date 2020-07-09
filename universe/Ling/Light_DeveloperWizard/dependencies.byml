@@ -1,0 +1,18 @@
+dependencies: 
+    Ling: 
+        - Bat
+        - Light
+        - UniverseTools
+        - WebWizardTools
+        - BabyYaml
+        - SqlWizard
+        - Light_DatabaseInfo
+        - Light_UserDatabase
+        - SimplePdoWrapper
+        - Light_ControllerHub
+        - Light_Kit_Admin
+        - Jquery
+    
+
+post_install: 
+    map: true

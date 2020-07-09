@@ -8,15 +8,15 @@ use Ling\HtmlPageTools\Copilot\HtmlPageCopilot;
 use Ling\Light\Controller\LightController;
 use Ling\Light\Controller\RouteAwareControllerInterface;
 use Ling\Light\Events\LightEvent;
-use Ling\Light\Exception\LightRedirectException;
+use Ling\Light\Http\HttpRedirectResponse;
 use Ling\Light\Http\HttpResponse;
 use Ling\Light\Http\HttpResponseInterface;
 use Ling\Light_Events\Service\LightEventsService;
-use Ling\Light_Flasher\Service\LightFlasher;
 use Ling\Light_Flasher\Service\LightFlasherService;
 use Ling\Light_Kit\PageConfigurationUpdator\PageConfUpdator;
 use Ling\Light_Kit\PageRenderer\LightKitPageRenderer;
 use Ling\Light_Kit_Admin\Exception\LightKitAdminException;
+use Ling\Light_Kit_Admin\Exception\LightKitAdminMicroPermissionDeniedException;
 use Ling\Light_Kit_Admin\Service\LightKitAdminService;
 use Ling\Light_MicroPermission\Service\LightMicroPermissionService;
 use Ling\Light_User\LightWebsiteUser;
@@ -152,31 +152,31 @@ class LightKitAdminController extends LightController implements RouteAwareContr
     //
     //--------------------------------------------
     /**
-     * Redirects the user to the given route.
+     * Creates and returns an HttpRedirectResponse, based on the given arguments.
      *
-     * Note: it uses the internal exception handling mechanism of the Core/Light instance.
-     *
-     * @param string $redirectRoute
+     * @param string $route
+     * @param array $urlParams
+     * @return HttpRedirectResponse
      * @throws \Exception
      */
-    protected function redirectByRoute(string $redirectRoute)
+    protected function getRedirectResponseByRoute(string $route, array $urlParams = [])
     {
-        throw LightRedirectException::create()->setRedirectRoute($redirectRoute);
+        return $this->getKitAdmin()->getRedirectResponseByRoute($route, $urlParams);
     }
 
 
     /**
      * Ensures that the current user is connected and has the right provided in the arguments.
-     * If not, the user will be redirected (http redirect) to a page defined in the
-     * light kit admin service configuration.
+     * If not, returns an httpRedirect response that redirects the user to a login page.
      *
      *
      * @param string $right
-     * @throws LightRedirectException
+     * @return HttpResponseInterface|null
      */
-    protected function checkRight(string $right)
+    protected function checkRight(string $right): ?HttpResponseInterface
     {
 
+        $response = null;
         $user = $this->getUser();
 
 
@@ -186,15 +186,18 @@ class LightKitAdminController extends LightController implements RouteAwareContr
         // non connected users are redirected to the login page
         if (false === $user->isValid()) {
             $redirectRoute = $this->getKitAdmin()->getOption("login.login_route");
-            throw LightRedirectException::create()->setRedirectRoute($redirectRoute);
+            $urlParams = $_GET;
+            $response = $this->getRedirectResponseByRoute($redirectRoute, $urlParams);
         } else {
             // users without the appropriate access right are redirected
             if (is_string($right) && false === $user->hasRight($right)) {
                 $this->getFlasher()->addFlash("AdminPageControllerForbidden", "You don't have the right to access this page (you miss the \"$right\" right).", "w");
                 $redirectRoute = $this->getKitAdmin()->getOption("access_denied.access_denied_route");
-                throw LightRedirectException::create()->setRedirectRoute($redirectRoute);
+                $urlParams = $_GET;
+                $response = $this->getRedirectResponseByRoute($redirectRoute, $urlParams);
             }
         }
+        return $response;
     }
 
 
@@ -212,9 +215,7 @@ class LightKitAdminController extends LightController implements RouteAwareContr
          */
         $microService = $this->getContainer()->get("micro_permission");
         if (false === $microService->hasMicroPermission($microPermission)) {
-            $this->getFlasher()->addFlash("AdminPageControllerForbidden", "You don't have the permission to access this page (you miss the \"$microPermission\" microPermission).", "w");
-            $redirectRoute = $this->getKitAdmin()->getOption("access_denied.access_denied_route");
-            throw LightRedirectException::create()->setRedirectRoute($redirectRoute);
+            throw new LightKitAdminMicroPermissionDeniedException("You don't have the permission to access this page (you miss the \"$microPermission\" microPermission).");
         }
     }
 
@@ -229,4 +230,10 @@ class LightKitAdminController extends LightController implements RouteAwareContr
     {
         throw new LightKitAdminException($msg);
     }
+
+    //--------------------------------------------
+    //
+    //--------------------------------------------
+
+
 }

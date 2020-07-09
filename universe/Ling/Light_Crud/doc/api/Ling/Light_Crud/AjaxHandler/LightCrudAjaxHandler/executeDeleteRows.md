@@ -54,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightCrudAjaxHandler::executeDeleteRows](https://github.com/lingtalfi/Light_Crud/blob/master/AjaxHandler/LightCrudAjaxHandler.php#L61-L81)
+See the source code for method [LightCrudAjaxHandler::executeDeleteRows](https://github.com/lingtalfi/Light_Crud/blob/master/AjaxHandler/LightCrudAjaxHandler.php#L63-L83)
 
 
 See Also

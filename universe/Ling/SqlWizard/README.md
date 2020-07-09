@@ -1,6 +1,6 @@
 SqlWizard
 =========
-2019-02-04 -> 2020-02-28
+2019-02-04 -> 2020-07-07
 
 
 
@@ -43,6 +43,38 @@ Summary
 History Log
 ------------------
 
+- 1.11.0 -- 2020-07-07
+
+    - update MysqlStructureReader->readFile, throws an exception if the file doesn't exist
+    
+- 1.10.0 -- 2020-06-16
+
+    - add SqlWizardGeneralTool::decorateStatement and statementDisableFkChecksUqChecks methods
+    
+- 1.9.0 -- 2020-06-12
+
+    - update MysqlStructureReader->readContent fkeyDetails to accept foreign keys with multiple columns and or referenced columns
+    
+- 1.8.2 -- 2020-06-11
+
+    - fix MysqlStructureReader->readContent indexes returning only the last index info
+    
+- 1.8.1 -- 2020-06-11
+
+    - fix MysqlStructureReader->readContent uindDetails returning only the last index info
+    
+- 1.8.0 -- 2020-06-11
+
+    - fix MysqlStructureReader->readContent and getCreateStatementsFromContent parsing double dash comments
+    
+- 1.7.0 -- 2020-06-09
+
+    - add MysqlStructureReader->getCreateStatementsFromContent method
+    
+- 1.6.0 -- 2020-06-09
+
+    - update MysqlStructureReader->readContent, now returns uindDetails, indexes, fkeyDetails and engine information 
+    
 - 1.5.0 -- 2020-02-28
 
     - add SqlWizardGeneralTool class

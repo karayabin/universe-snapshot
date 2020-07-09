@@ -5,8 +5,11 @@ namespace Ling\Light_Kit_Admin\Service;
 
 
 use Ling\BabyYaml\Helper\BdotTool;
+use Ling\Light\Events\LightEvent;
+use Ling\Light\Http\HttpRedirectResponse;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
 use Ling\Light_ControllerHub\Service\LightControllerHubService;
+use Ling\Light_Kit_Admin\Exception\LightKitAdminMicroPermissionDeniedException;
 use Ling\Light_Kit_Admin\LightKitAdminPlugin\LightKitAdminPluginInterface;
 use Ling\Light_Kit_Admin\Notification\LightKitAdminNotification;
 use Ling\Light_PluginInstaller\PluginInstaller\PluginInstallerInterface;
@@ -127,7 +130,7 @@ class LightKitAdminService implements PluginInstallerInterface
 
 
     /**
-     * Registers the give plugin to the light kit admin service.
+     * Registers the given plugin to the light kit admin service.
      *
      * @param string $pluginName
      * @param LightKitAdminPluginInterface $plugin
@@ -225,9 +228,49 @@ class LightKitAdminService implements PluginInstallerInterface
     }
 
 
+    /**
+     * Creates and returns an HttpRedirectResponse, based on the given arguments.
+     *
+     * @param string $route
+     * @param array $urlParams
+     * @return HttpRedirectResponse
+     * @throws \Exception
+     */
+    public function getRedirectResponseByRoute(string $route, array $urlParams = [])
+    {
+        /**
+         * @var $rr LightReverseRouterService
+         */
+        $rr = $this->container->get("reverse_router");
+        $url = $rr->getUrl($route, $urlParams, true);
+        return HttpRedirectResponse::create($url);
+    }
 
 
-
+    /**
+     *
+     * Handles the following exceptions in a special way:
+     *
+     * - LightKitAdminMicroPermissionDeniedException:
+     *      redirect the user to the "access denied" page (access_denied.access_denied_route in the service configuration)
+     *
+     *
+     *
+     *
+     * @param LightEvent $event
+     *
+     */
+    public function onLightExceptionCaught(LightEvent $event): void
+    {
+        $e = $event->getVar("exception");
+        if ($e instanceof LightKitAdminMicroPermissionDeniedException) {
+            $redirectRoute = $this->getOption("access_denied.access_denied_route");
+            $urlParams = $_GET;
+            $this->container->get("flasher")->addFlash("AdminPageControllerForbidden", $e->getMessage(), "w");
+            $response = $this->getRedirectResponseByRoute($redirectRoute, $urlParams);
+            $event->setVar("httpResponse", $response);
+        }
+    }
 
 
     //--------------------------------------------
@@ -240,16 +283,19 @@ class LightKitAdminService implements PluginInstallerInterface
     {
 
         //--------------------------------------------
-        // PROTECTIVE INSTALL
+        // DB TABLES INSTALL
         //--------------------------------------------
         /**
-         * @var $installer LightPluginInstallerService
+         * The peculiarity of lka plugin is that it doesn't own any tables.
+         * Instead, it uses the tables provided by the Light_UserDatabase plugin.
+         *
          */
-        $installer = $this->container->get("plugin_installer");
-        if (
-            true === $installer->hasTable("lud_permission_group") &&
-            true === $installer->tableHasColumnValue("lud_permission_group", "name", "Light_Kit_Admin.admin")
-        ) {
+
+
+        //--------------------------------------------
+        // PROTECTIVE INSTALL
+        //--------------------------------------------
+        if (true === $this->isInstalled()) {
             return;
         }
 
@@ -272,6 +318,13 @@ class LightKitAdminService implements PluginInstallerInterface
          * @var $exception \Exception
          */
         $exception = null;
+
+
+        /**
+         * @var $installer LightPluginInstallerService
+         */
+        $installer = $this->container->get("plugin_installer");
+        $installer->debugLog("kit_admin: adding tables content.");
         $res = $db->transaction(function () use ($userDb) {
 
 
@@ -383,13 +436,17 @@ class LightKitAdminService implements PluginInstallerInterface
          * @var $installer LightPluginInstallerService
          */
         $installer = $this->container->get("plugin_installer");
+        $installer->debugLog("kit_admin: removing tables content.");
+
+        /**
+         * @var $wrapper SimplePdoWrapperInterface
+         */
+        $wrapper = $this->container->get('database');
+
+
         if (true === $installer->hasTable("lud_user")) {
 
 
-            /**
-             * @var $wrapper SimplePdoWrapperInterface
-             */
-            $wrapper = $this->container->get('database');
             /**
              * @var $exception \Exception
              */
@@ -403,12 +460,44 @@ class LightKitAdminService implements PluginInstallerInterface
                 $wrapper->delete("lud_user", [
                     "identifier" => "lka_admin",
                 ]);
+            }, $exception);
+
+            if (false === $res) {
+                throw $exception;
+            }
+        }
+
+        if (true === $installer->hasTable("lud_permission_group")) {
+
+
+            /**
+             * @var $exception \Exception
+             */
+            $exception = null;
+            $res = $wrapper->transaction(function () use ($wrapper) {
+
                 $wrapper->delete("lud_permission_group", [
                     "name" => "Light_Kit_Admin.admin",
                 ]);
                 $wrapper->delete("lud_permission_group", [
                     "name" => "Light_Kit_Admin.user",
                 ]);
+
+            }, $exception);
+
+            if (false === $res) {
+                throw $exception;
+            }
+        }
+
+        if (true === $installer->hasTable("lud_permission")) {
+
+
+            /**
+             * @var $exception \Exception
+             */
+            $exception = null;
+            $res = $wrapper->transaction(function () use ($wrapper) {
 
                 $wrapper->delete("lud_permission", [
                     "name" => "Light_Kit_Admin.admin",
@@ -425,6 +514,26 @@ class LightKitAdminService implements PluginInstallerInterface
             }
         }
     }
+
+
+    /**
+     * @implementation
+     */
+    public function isInstalled(): bool
+    {
+        /**
+         * @var $installer LightPluginInstallerService
+         */
+        $installer = $this->container->get("plugin_installer");
+        if (
+            true === $installer->hasTable("lud_permission_group") &&
+            true === $installer->tableHasColumnValue("lud_permission_group", "name", "Light_Kit_Admin.admin")
+        ) {
+            return true;
+        }
+        return false;
+    }
+
 
     /**
      * @implementation

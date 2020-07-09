@@ -4,7 +4,7 @@
 
 The DependencyMasterHelper class
 ================
-2019-03-12 --> 2019-08-30
+2019-03-12 --> 2020-06-25
 
 
 
@@ -30,7 +30,7 @@ class <span class="pl-k">DependencyMasterHelper</span>  {
     - public static [getGalaxies](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Helper/DependencyMasterHelper/getGalaxies.md)(array $dependencyMaster) : array
     - public static [getPlanetItem](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Helper/DependencyMasterHelper/getPlanetItem.md)(array $dependencyMaster, string $longPlanetName) : array | false
     - public static [getDependencyMapByPlanetName](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Helper/DependencyMasterHelper/getDependencyMapByPlanetName.md)(string $planetName, array $dependencyMaster) : array
-    - private static [collectDependenciesByPlanetName](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Helper/DependencyMasterHelper/collectDependenciesByPlanetName.md)(string $longPlanetName, array $dependencyMaster, array $galaxies, array &$dependencies = [], array &$postInstalls = [], bool $isRoot = false) : void
+    - private static [collectDependenciesByPlanetName](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Helper/DependencyMasterHelper/collectDependenciesByPlanetName.md)(string $longPlanetName, array $dependencyMaster, array $galaxies, ?array &$dependencies = [], ?array &$postInstalls = [], ?bool $isRoot = false) : void
 
 }
 

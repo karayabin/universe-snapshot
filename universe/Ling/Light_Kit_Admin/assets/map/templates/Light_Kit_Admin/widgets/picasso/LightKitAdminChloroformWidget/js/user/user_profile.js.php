@@ -9,9 +9,6 @@ use Ling\Light_AjaxFileUploadManager\Util\LightAjaxFileUploadManagerRenderingUti
  * @var $this LightKitAdminChloroformWidget
  */
 
-$util = new LightAjaxFileUploadManagerRenderingUtil();
-$util->setSuffix("avatar_url");
-$util->setContainer($this->getContainer());
 
 $formArray = $z['form']->toArray();
 
@@ -27,10 +24,4 @@ $(document).ready(function () {
             jPassword.closest(".form-group").hide();
         }
     });
-
-
-    <?php $util->printJavascript($formArray['fields']["avatar_url"]); ?>
-
-
-
 });

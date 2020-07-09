@@ -282,7 +282,6 @@ class LightKitAdminListActionHandler extends LightRealistBaseListActionHandler
      */
     protected function executePrintListAction(string $actionId, array $params): array
     {
-
         $response = [];
         if (array_key_exists("request_id", $params)) {
             if (array_key_exists("rics", $params) && is_array($params['rics'])) {

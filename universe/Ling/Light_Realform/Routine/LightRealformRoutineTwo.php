@@ -6,11 +6,11 @@ namespace Ling\Light_Realform\Routine;
 
 use Ling\Bat\ArrayTool;
 use Ling\Bat\StringTool;
-use Ling\Bat\UriTool;
 use Ling\Chloroform\Form\Chloroform;
 use Ling\Chloroform\FormNotification\ErrorFormNotification;
 use Ling\Light\Events\LightEvent;
 use Ling\Light\Exception\LightRedirectException;
+use Ling\Light\Http\HttpResponseInterface;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
 use Ling\Light_Database\Service\LightDatabaseService;
 use Ling\Light_DatabaseInfo\Service\LightDatabaseInfoService;
@@ -84,6 +84,11 @@ class LightRealformRoutineTwo
      * The available options are:
      *
      * - post: array. Optional = []. Some extra parameters to add to the form.
+     * - onSuccess: callable to execute on success.
+     *      The callable signature is this:
+     *      - fn (  ): ?HttpResponseInterface
+     *
+     *      If a response is returned, it will be the return of the processForm method as well.
      *
      *
      *
@@ -92,10 +97,10 @@ class LightRealformRoutineTwo
      * @param string $table
      * @param array $rics
      * @param array $options
-     * @return Chloroform
+     * @return Chloroform|HttpResponseInterface
      * @throws \Exception
      */
-    public function processForm(string $realformIdentifier, string $table, array $rics, array $options = []): Chloroform
+    public function processForm(string $realformIdentifier, string $table, array $rics, array $options = [])
     {
 
         /**
@@ -114,6 +119,9 @@ class LightRealformRoutineTwo
         $tableInfo = $dbInfoService->getTableInfo($table);
         $ric = $tableInfo['ricStrict'];
         $useShare = (count($rics) > 1);
+
+        $onSuccess = $options['onSuccess'] ?? null;
+
 
         try {
 
@@ -361,21 +369,13 @@ class LightRealformRoutineTwo
 
 
                     $formIsHandledSuccessfully = true;
-
-
                     if (true === $formIsHandledSuccessfully) {
-
-                        //--------------------------------------------
-                        // REDIRECTING TO THE SAME PAGE
-                        //--------------------------------------------
-                        /**
-                         * @var $flasher LightFlasherService
-                         */
-                        $flasher = $this->container->get('flasher');
-                        $flasher->addFlash($table, "Congrats, the form was successfully processed.");
-                        $lightInstance = $this->container->getLight();
-                        UriTool::randomize($_GET, '_r');
-                        throw LightRedirectException::create()->setRedirectRoute($lightInstance->getMatchingRoute()['name']);
+                        if (null !== $onSuccess) {
+                            $res = call_user_func($onSuccess);
+                            if ($res instanceof HttpResponseInterface) {
+                                return $res;
+                            }
+                        }
                     }
 
                 } else {
@@ -405,10 +405,6 @@ class LightRealformRoutineTwo
 
         } catch (\Exception $e) {
 
-
-            if ($e instanceof LightRedirectException) {
-                throw $e;
-            }
 
             /**
              * This happens if the user is not allowed (via row restriction) to read from the table.

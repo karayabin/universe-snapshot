@@ -1,4 +1,5 @@
 https://github.com/lingtalfi/JFileUploader/blob/master/README.md
 https://github.com/lingtalfi/JFileUploader/blob/master/doc/api/Ling/JFileUploader.md
+https://github.com/lingtalfi/JFileUploader/blob/master/doc/pages/conception-notes-old.md
 https://github.com/lingtalfi/JFileUploader/blob/master/doc/pages/conception-notes.md
 https://github.com/lingtalfi/JFileUploader/blob/master/doc/pages/file-editor-conception-notes.md

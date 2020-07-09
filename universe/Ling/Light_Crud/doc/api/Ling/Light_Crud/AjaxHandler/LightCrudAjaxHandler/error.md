@@ -54,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightCrudAjaxHandler::error](https://github.com/lingtalfi/Light_Crud/blob/master/AjaxHandler/LightCrudAjaxHandler.php#L47-L50)
+See the source code for method [LightCrudAjaxHandler::error](https://github.com/lingtalfi/Light_Crud/blob/master/AjaxHandler/LightCrudAjaxHandler.php#L49-L52)
 
 
 See Also

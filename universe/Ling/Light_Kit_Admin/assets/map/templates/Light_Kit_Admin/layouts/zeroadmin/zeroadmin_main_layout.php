@@ -9,10 +9,23 @@ use Ling\Bat\StringTool;
 use Ling\Light_Kit\PageRenderer\LightKitPageRenderer;
 
 
+$this->copilot->registerLibrary("FontAwesome", [], [
+    '/libs/universe/Ling/FontAwesome/5.13/css/all.min.css',
+]);
+
+$this->copilot->registerLibrary("Jquery", [], [], [
+    'override' => true,
+]); // hard written in this file
+
+
+
+
+
 $container = $this->getContainer();
 $jsLibs = $this->copilot->getJsUrls();
 $cssLibs = $this->copilot->getCssUrls();
 $modals = $this->copilot->getModals()
+
 
 ?>
 <!DOCTYPE html>
@@ -22,14 +35,10 @@ $modals = $this->copilot->getModals()
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/plugins/Light_Kit_Admin/libs/fontawesome/css/all.min.css"
 
 
-          integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
     <?php foreach ($cssLibs as $url): ?>
         <link rel="stylesheet" href="<?php echo htmlspecialchars($url); ?>">
@@ -520,12 +529,21 @@ echo StringTool::htmlAttributes($this->copilot->getBodyTagAttributes()); ?>>
 
 <?php endif; ?>
 
-<script
-        src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+
+<!--<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"-->
+<!--        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"-->
+<!--        crossorigin="anonymous"></script>-->
+
+<script src="/libs/universe/Ling/Jquery/3.5.1/jquery.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
         crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
 
 
 <?php foreach ($jsLibs as $url): ?>
@@ -550,8 +568,11 @@ echo StringTool::htmlAttributes($this->copilot->getBodyTagAttributes()); ?>>
 
 
 <script>
-    $(document).ready(function () {
-        $(".toast").toast("show");
+    document.addEventListener("DOMContentLoaded", function (event) {
+
+        $(document).ready(function () {
+            $(".toast").toast("show");
+        });
     });
 </script>
 

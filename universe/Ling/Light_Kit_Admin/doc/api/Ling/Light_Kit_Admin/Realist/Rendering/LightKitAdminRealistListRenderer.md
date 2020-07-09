@@ -4,7 +4,7 @@
 
 The LightKitAdminRealistListRenderer class
 ================
-2019-05-17 --> 2019-12-17
+2019-05-17 --> 2020-07-07
 
 
 
@@ -27,6 +27,7 @@ class <span class="pl-k">LightKitAdminRealistListRenderer</span> extends [Standa
 - Inherited properties
     - protected [Ling\Bootstrap4AdminTable\RendererWidget\RendererWidgetInterface[]](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/RendererWidgetInterface.md) [Bootstrap4AdminTableRenderer::$widgets](#property-widgets) ;
     - protected bool [Bootstrap4AdminTableRenderer::$useSpinKitService](#property-useSpinKitService) ;
+    - protected array [Bootstrap4AdminTableRenderer::$jsSnippets](#property-jsSnippets) ;
     - protected array [OpenAdminTableBaseRealistListRenderer::$dataTypes](#property-dataTypes) ;
     - protected array [OpenAdminTableBaseRealistListRenderer::$labels](#property-labels) ;
     - protected array [OpenAdminTableBaseRealistListRenderer::$hiddenColumns](#property-hiddenColumns) ;
@@ -42,8 +43,10 @@ class <span class="pl-k">LightKitAdminRealistListRenderer</span> extends [Standa
     - protected array [OpenAdminTableBaseRealistListRenderer::$relatedLinks](#property-relatedLinks) ;
     - protected string|null [OpenAdminTableBaseRealistListRenderer::$title](#property-title) ;
 
+- Methods
+    - public [__construct](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Realist/Rendering/LightKitAdminRealistListRenderer/__construct.md)() : void
+
 - Inherited methods
-    - public StandardBootstrap4AdminTableRenderer::__construct() : void
     - public Bootstrap4AdminTableRenderer::registerWidget(string $identifier, [Ling\Bootstrap4AdminTable\RendererWidget\RendererWidgetInterface](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/RendererWidgetInterface.md) $rendererWidget) : void
     - public Bootstrap4AdminTableRenderer::setUseSpinKitService(bool $useSpinKitService) : void
     - public Bootstrap4AdminTableRenderer::renderListGeneralActions() : void
@@ -83,7 +86,7 @@ class <span class="pl-k">LightKitAdminRealistListRenderer</span> extends [Standa
 Methods
 ==============
 
-- StandardBootstrap4AdminTableRenderer::__construct &ndash; Builds the Bootstrap4AdminTableRenderer instance.
+- [LightKitAdminRealistListRenderer::__construct](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Realist/Rendering/LightKitAdminRealistListRenderer/__construct.md) &ndash; Builds the Bootstrap4AdminTableRenderer instance.
 - Bootstrap4AdminTableRenderer::registerWidget &ndash; Registers a widget.
 - Bootstrap4AdminTableRenderer::setUseSpinKitService &ndash; Sets the useSpinKitService.
 - Bootstrap4AdminTableRenderer::renderListGeneralActions &ndash; Prints the list general actions.

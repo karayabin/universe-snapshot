@@ -56,7 +56,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [HeliumLightRenderer::printAjaxFileBoxField_FileUploader](https://github.com/lingtalfi/Chloroform_HeliumLightRenderer/blob/master/HeliumLightRenderer.php#L108-L232)
+See the source code for method [HeliumLightRenderer::printAjaxFileBoxField_FileUploader](https://github.com/lingtalfi/Chloroform_HeliumLightRenderer/blob/master/HeliumLightRenderer.php#L109-L175)
 
 
 See Also

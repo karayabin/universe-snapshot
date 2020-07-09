@@ -1,3 +1,9 @@
-dependencies: []
+dependencies: 
+    Ling: 
+        - FontAwesome
+        - Jquery
+        - Select2
+    
+
 post_install: 
     map: true

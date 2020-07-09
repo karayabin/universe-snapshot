@@ -1,0 +1,52 @@
+name: []
+
+
+name_validation:
+    maxFileNameLength: 64
+    allowSlashInFilename: false
+    extensions:
+        - png
+        - jpeg
+        - jpg
+        - gif
+        - md
+
+chunk_validation:
+    mimeType:
+        - image/png
+        - image/jpg
+        - image/gif
+        - text/plain
+
+
+
+validation:
+    maxFileSize: 2M
+copies:
+    -
+        dir: images/tarte
+    -
+        filename: michel-24x24.png
+        dir: images/pin
+        imageTransformer: resize(800, 800)
+    -
+        dir: {user_dir}/p
+        input: 1
+#    -
+#        imageTransformer: resize(200)
+config:
+    csrf_token: true
+    path: images/{filename}
+#                isPrivate: false
+    acceptKeepOriginal: true
+    useVfs: true
+
+    # todo: allowSubdir
+    # Equivalent of name_validation:allowSlashInFilename, but more intuitive to find it here
+    allowSubDir: false
+
+    # todo: replace path with baseDir + fileName below
+    baseDir: images
+    # this is optional and defaults to the file's name, but with this option we can
+    # set it to a fixed value if we wanted
+    fileName: {filename}

@@ -1,0 +1,12 @@
+dependencies: 
+    Ling: 
+        - ArrayToString
+        - ArrayVariableResolver
+        - Bat
+        - Light
+        - Light_Events
+        - Light_Logger
+    
+
+post_install: 
+    map: true

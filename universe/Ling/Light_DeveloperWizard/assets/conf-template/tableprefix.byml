@@ -1,0 +1,26 @@
+class: Ling\Light_BreezeGenerator\Generator\LingBreezeGenerator2
+conf:
+    source:
+#        Use either file or database as the source
+        file: $file
+#        database: true
+#        tables: []
+
+
+#        Used to filter the tables to parse
+        prefix: $prefix
+
+
+        prefixes:
+            - $prefix
+# $otherprefixes
+
+
+    target:
+        dir: ${app_dir}/universe/$galaxyName/$planetName/Api
+        namespace: $galaxyName\$planetName\Api
+        apiName: $apiName
+
+
+    options:
+        dev: false

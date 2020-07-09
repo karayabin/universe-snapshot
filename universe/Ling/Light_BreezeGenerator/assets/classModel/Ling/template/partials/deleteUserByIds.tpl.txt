@@ -1,0 +1,9 @@
+    /**
+     * @implementation
+     */
+    public function deleteUserByMultiples(array $ids)
+    {
+        $this->pdoWrapper->delete($this->table, Where::inst()->key("id")->in($ids));
+    }
+
+// deletesXXX

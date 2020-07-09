@@ -1,6 +1,6 @@
 Light_BreezeGenerator
 ===========
-2019-09-11 -> 2020-02-13
+2019-09-11 -> 2020-07-03
 
 
 
@@ -31,6 +31,7 @@ Summary
 - [BreezeGenerator api](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator.md) (generated with [DocTools](https://github.com/lingtalfi/DocTools))
 - Pages
     - [Conception notes](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/pages/conception-notes.md)
+    - [Ling breeze generator 2](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/pages/ling-breeze-generator-2.md)
     - [Ling breeze generator](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/pages/ling-breeze-generator.md)
     - [Ling standard object methods](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/pages/ling-standard-object-methods.md)
 - [Services](#services)
@@ -64,6 +65,46 @@ breeze_generator:
 History Log
 =============
 
+- 1.27.1 -- 2020-07-03
+
+    - fix LingBreezeGenerator2 generated insert method not taking SimplePdoWrapperQueryException into account 
+    
+- 1.27.0 -- 2020-07-03
+
+    - update LingBreezeGenerator2 now generates multiple insert method 
+
+- 1.26.0 -- 2020-06-08
+
+    - fix LingBreezeGenerator2 generating wrong method names for some templates 
+
+- 1.25.0 -- 2020-06-08
+
+    - update LingBreezeGenerator2, now the source file can use the ${app_dir} tag 
+    
+- 1.24.1 -- 2020-06-08
+
+    - update ling-breeze-generator-2.md document, add suggestion for the getFactory method 
+    
+- 1.24.0 -- 2020-06-02
+
+    - add LingBreezeGenerator2 methods: getTagsColumn, getTagsColumns, getTagsKey2Value 
+    
+- 1.23.0 -- 2020-05-28
+
+    - add LingBreezeGenerator2 delete methods 
+    
+- 1.22.0 -- 2020-05-21
+
+    - add LingBreezeGenerator2 deleteXXXByIds methods 
+    
+- 1.21.0 -- 2020-05-21
+
+    - LingBreezeGenerator2 custom interfaces now extends generated interfaces 
+    
+- 1.20.0 -- 2020-05-21
+
+    - add LingBreezeGenerator2 
+    
 - 1.19.1 -- 2020-02-13
 
     - fix LingBreezeGenerator->getItemsXXXByHasMethod method wrong template 

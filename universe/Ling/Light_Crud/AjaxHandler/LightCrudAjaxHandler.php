@@ -20,16 +20,16 @@ class LightCrudAjaxHandler extends BaseLightAjaxHandler
     /**
      * @implementation
      */
-    public function doHandle(string $actionId, HttpRequestInterface $request): array
+    public function doHandle(string $action, HttpRequestInterface $request): array
     {
         $params = $request->getPost();
         $response = [];
-        switch ($actionId) {
+        switch ($action) {
             case "delete_rows":
                 $response = $this->executeDeleteRows($params);
                 break;
             default:
-                throw new LightCrudException("LightCrudAjaxHandler: Unknown action $actionId.");
+                throw new LightCrudException("LightCrudAjaxHandler: Unknown action $action.");
                 break;
         }
         return $response;

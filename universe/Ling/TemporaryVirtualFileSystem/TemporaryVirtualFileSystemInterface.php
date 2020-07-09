@@ -33,10 +33,17 @@ interface TemporaryVirtualFileSystemInterface
      * Returns the commit list, which is the minimal list of operations to execute to reproduce the operations stored in the given context of this vfs.
      * See the @page(TemporaryVirtualFileSystem conception notes) for more details.
      *
+     * By default, it also resets the context directory (i.e. remove the directory and its content).
+     * This behaviour can be changed with the options:
+     *
+     * - reset: bool=true
+     *
+     *
      * @param string $contextId
+     * @param array $options
      * @return array
      */
-    public function commit(string $contextId): array;
+    public function commit(string $contextId, array $options = []): array;
 
 
     /**
@@ -114,7 +121,8 @@ interface TemporaryVirtualFileSystemInterface
     public function remove(string $contextId, string $id);
 
     /**
-     * Adds an "update" operation to the commit list for the file identified by the given parameters.
+     * Adds an "update" operation to the commit list for the file identified by the given parameters,
+     * and returns the updated entry, similar to the return of the add method's return (see the add method for more info).
      *
      * For more details see the heuristic section of the @page(TemporaryVirtualFileSystem conception notes).
      *
@@ -123,13 +131,17 @@ interface TemporaryVirtualFileSystemInterface
      *
      * You can pass some extra options to the concrete class via this options array.
      *
+     * Note: if the given path is null, it means that the binary file didn't change.
+     *
+     *
      * @param string $contextId
      * @param string $id
-     * @param string $path
+     * @param string|null $path
      * @param array $meta
      * @param array $options
+     * @return array
      */
-    public function update(string $contextId, string $id, string $path, array $meta, array $options = []);
+    public function update(string $contextId, string $id, ?string $path, array $meta, array $options = []): array;
 
 
 }

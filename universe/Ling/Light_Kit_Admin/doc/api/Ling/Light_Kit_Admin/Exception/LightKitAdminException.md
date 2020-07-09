@@ -4,7 +4,7 @@
 
 The LightKitAdminException class
 ================
-2019-05-17 --> 2019-12-17
+2019-05-17 --> 2020-07-07
 
 
 
@@ -54,4 +54,4 @@ See the source code of [Ling\Light_Kit_Admin\Exception\LightKitAdminException](h
 
 SeeAlso
 ==============
-Previous class: [NotificationsDataExtractor](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/DataExtractor/NotificationsDataExtractor.md)<br>Next class: [LightKitAdminMicroPermissionResolver](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/MicroPermission/LightKitAdminMicroPermissionResolver.md)<br>
+Previous class: [NotificationsDataExtractor](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/DataExtractor/NotificationsDataExtractor.md)<br>Next class: [LightKitAdminMicroPermissionDeniedException](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Exception/LightKitAdminMicroPermissionDeniedException.md)<br>

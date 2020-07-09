@@ -24,6 +24,10 @@ public [LightUserDataService::removeResourceByUrl](https://github.com/lingtalfi/
 Removes the resource which url is given from the database and the filesystem.
 Throws an exception in case of a problem.
 
+It also removes the following files if found:
+- original file (see the [original file](https://github.com/lingtalfi/TheBar/blob/master/discussions/file-manager-protocol.md#keeporiginalurl) section for more details)
+- related files (see the [related-files.md](https://github.com/lingtalfi/Light_UserData/blob/master/doc/pages/related-files.md) document for more info)
+
 
 
 
@@ -55,7 +59,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::removeResourceByUrl](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L524-L536)
+See the source code for method [LightUserDataService::removeResourceByUrl](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L767-L790)
 
 
 See Also
@@ -63,5 +67,5 @@ See Also
 
 The [LightUserDataService](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService.md) class.
 
-Previous method: [save](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/save.md)<br>Next method: [getResourceUrlByResourceIdentifier](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/getResourceUrlByResourceIdentifier.md)<br>
+Previous method: [save](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/save.md)<br>Next method: [removeAllFilesByResourceIdentifier](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/removeAllFilesByResourceIdentifier.md)<br>
 

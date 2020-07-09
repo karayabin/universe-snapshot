@@ -1,6 +1,6 @@
 Schema conception notes
 ===========
-2019-12-13 -> 2020-02-07
+2019-12-13 -> 2020-06-23
 
 
 
@@ -14,6 +14,7 @@ Schema conception notes
     
         This is important because it might be relied upon by third-party plugins, such as the [Light_UserData](https://github.com/lingtalfi/Light_UserData) plugin.
     - pseudo: str 64
+    - email: str 128
     - password: str 64
     - avatar_url: str 512
     - extra: txt. An array of extra parameters. 

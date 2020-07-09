@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [MultipleFormEditController::render](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/Tools/MultipleFormEditController/render.md)() : [HttpResponseInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponseInterface.md)
+public [MultipleFormEditController::render](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/Tools/MultipleFormEditController/render.md)(Ling\Light\Http\HttpRequestInterface $request) : [HttpResponseInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponseInterface.md)
 
 
 
@@ -29,7 +29,10 @@ Returns the http response, which body contains a multiple form edit page.
 Parameters
 ================
 
-This method has no parameters.
+
+- request
+
+    
 
 
 Return values
@@ -51,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [MultipleFormEditController::render](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Controller/Tools/MultipleFormEditController.php#L29-L89)
+See the source code for method [MultipleFormEditController::render](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Controller/Tools/MultipleFormEditController.php#L34-L121)
 
 
 See Also

@@ -52,8 +52,9 @@ class DependencyTool
      * @return string
      * @throws UniverseToolsException
      */
-    public static function parseDumpDependencies(string $planetDir, array &$conf = [], array $postInstall = [], array $options=[])
+    public static function parseDumpDependencies(string $planetDir, array &$conf = [], array $postInstall = [], array $options = [])
     {
+
         if (false === is_dir($planetDir)) {
             throw new UniverseToolsException("Dir not found: $planetDir");
         }
@@ -70,7 +71,6 @@ class DependencyTool
             $files = YorgDirScannerTool::getFilesWithExtension($planetDir, 'php', false, true, true);
 
 
-
             foreach ($files as $file) {
 
                 /**
@@ -85,9 +85,7 @@ class DependencyTool
                 }
 
 
-
                 $content = file_get_contents($planetDir . "/" . $file);
-
 
                 /**
                  * Filtering scripts starting with:
@@ -113,13 +111,34 @@ class DependencyTool
                             "includeInterfaces" => true,
                         ]);
 
+
                         if ($classNames) { // ensure that the file contains a class
+
+
+                            /**
+                             * Some classes extend external libraries.
+                             * This was the case for Ling\Updf\Tcpdf\Utcpdf which extends \TCPDF (third party library).
+                             *
+                             * If we try to instantiate a class which parent doesn't exist we get a fatal error.
+                             *
+                             */
+                            $parentExists = true;
+                            $parent = TokenFinderTool::getParentClassName($tokens);
+                            if (false !== $parent) {
+                                $parentFile = $planetDir . "/" . str_replace('\\', '/', $parent) . ".php";
+                                if (false === file_exists($parentFile)) {
+                                    $parentExists = false;
+                                }
+                            }
 
 
                             $useStatements = TokenFinderTool::getUseDependencies($tokens);
 
 
-                            $o = new \ReflectionClass($className);
+                            if (true === $parentExists) {
+                                $o = new \ReflectionClass($className);
+                            }
+
 
                             // filtering out internal use statements (statements referencing a class inside the planet being parsed)
                             $useStatements = array_filter($useStatements, function ($v) use ($planetName, $galaxy) {
@@ -137,7 +156,6 @@ class DependencyTool
                     }
 
                 }
-
             }
 
 
@@ -145,7 +163,7 @@ class DependencyTool
             // UNIVERSE ASSET DEPENDENCIES TRICK
             //--------------------------------------------
             $universeAssetDeps = self::getUniverseAssetDependencies($planetDir);
-            if($universeAssetDeps){
+            if ($universeAssetDeps) {
                 $allUseStatements = array_merge($allUseStatements, $universeAssetDeps);
             }
 
@@ -376,8 +394,9 @@ class DependencyTool
      * @return bool
      * @throws UniverseToolsException
      */
-    public static function writeDependencies(string $planetDir, array $postInstall = [], array $options=[])
+    public static function writeDependencies(string $planetDir, array $postInstall = [], array $options = [])
     {
+
         $dependencyFile = $planetDir . "/dependencies.byml";
         $_postInstall = [];
         $conf = [];
@@ -389,6 +408,7 @@ class DependencyTool
         $_postInstall = array_merge($_postInstall, $postInstall);
 
         $dependenciesString = self::parseDumpDependencies($planetDir, $conf, $_postInstall, $options);
+
         return FileSystemTool::mkfile($dependencyFile, $dependenciesString);
     }
 }

@@ -16,7 +16,7 @@ Description
 ================
 
 
-protected [LightUserDataService::getResourceByPath](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/getResourceByPath.md)(string $path, ?[Ling\Light_User\WebsiteLightUser](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/WebsiteLightUser.md) $user = null) : array | false
+protected [LightUserDataService::getResourceByPath](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/getResourceByPath.md)(string $path, ?[Ling\Light_User\LightWebsiteUser](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser.md) $user = null) : array | false
 
 
 
@@ -64,7 +64,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::getResourceByPath](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L994-L1004)
+See the source code for method [LightUserDataService::getResourceByPath](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L1444-L1454)
 
 
 See Also

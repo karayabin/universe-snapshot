@@ -1,6 +1,6 @@
 Umail
 ============
-2017-02-06 --> 2017-02-07
+2017-02-06 --> 2020-06-26
 
 
 
@@ -17,7 +17,7 @@ Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
 uni import Ling/Umail
 ```
 
-It also uses [SwiftMailer](http://swiftmailer.org/) library, which you need to install separately.
+It also uses [SwiftMailer](http://swiftmailer.org/) library under the hood.
 
 
 
@@ -38,14 +38,12 @@ Features
 
 Example 1: send an email
 --------------------------
-
-Note: I tested this example on 2017-02-06, and it worked 
-on my local machine (macbook pro). However, it failed on my iMac (late 2009)(gate timeout error).
-
-Note2: retested on my new iMac (late 2015), it works fine.
+2017-02-06 -> 2020-06-26
 
 
-In other words, if your machine allows it, you can send emails without using smtp settings (username, password, ...).
+The following example uses the default transport of Umail, which is [Swift_SendmailTransport](https://swiftmailer.symfony.com/docs/sending.html#the-sendmail-transport).
+It might work, depending on whether you have sendmail installed.
+
 
 
 ```php
@@ -70,8 +68,9 @@ a($res);
 ```
 
 
-I've been testing the above code with success on my computer, although the message went directly in the junk.
-You might want to set a transport to make your messages more trustworthy:
+
+We recommend using smtp though.
+From my experience it's more reliable:
 
 ```php
 $transport = (new Swift_SmtpTransport('smtp.example.org', 25, 'ssl'))
@@ -89,6 +88,8 @@ $res = Umail::create()
 
 Example 2: using batch mode or merge mode
 --------------------------
+2017-02-06 -> 2020-06-26
+
 
 In batch mode, each recipient sees only its own mail in the "to" field (of the mail software).
 If batch mode is off, each recipient sees all the recipients to which the email was sent. 
@@ -98,8 +99,8 @@ Default is batch on.
 $batchMode = true; // change this to true|false and observe the "to" field in the received emails
 $res = Umail::create()
     ->to([
-        'lingtalfi@gmail.com' => 'ling',
-        'agenceweb37@gmail.com',
+        'paul@gmail.com' => 'paulo the great',
+        'marie@gmail.com',
     ], $batchMode)
     ->from('johndoe@gmail.com')
     ->subject("Hi, just a test mail")
@@ -854,6 +855,14 @@ Dependencies
 
 History Log
 ------------------
+    
+- 1.6.0 -- 2020-06-26
+
+    - update the library so that it works with SwiftMailer 6.0 
+    
+- 1.5.0 -- 2020-06-25
+
+    - update dependencies, now automatically import SwiftMailer via composer 
     
 - 1.4.0 -- 2018-06-04
 

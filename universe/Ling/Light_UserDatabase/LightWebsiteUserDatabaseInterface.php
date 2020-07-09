@@ -5,13 +5,7 @@ namespace Ling\Light_UserDatabase;
 
 
 
-use Ling\Light_UserDatabase\Api\Mysql\Interfaces\PermissionApiInterface;
-use Ling\Light_UserDatabase\Api\Mysql\Interfaces\PermissionGroupApiInterface;
-use Ling\Light_UserDatabase\Api\Mysql\Interfaces\PermissionGroupHasPermissionApiInterface;
-use Ling\Light_UserDatabase\Api\Mysql\Interfaces\PluginOptionApiInterface;
-use Ling\Light_UserDatabase\Api\Mysql\Interfaces\UserGroupApiInterface;
-use Ling\Light_UserDatabase\Api\Mysql\Interfaces\UserGroupHasPluginOptionApiInterface;
-use Ling\Light_UserDatabase\Api\Mysql\Interfaces\UserHasPermissionGroupApiInterface;
+
 use Ling\Light_UserDatabase\Exception\LightUserDatabaseException;
 
 /**
@@ -87,52 +81,5 @@ interface LightWebsiteUserDatabaseInterface extends LightUserDatabaseInterface
      */
     public function getAllUserIds(): array;
 
-
-
-
-    //--------------------------------------------
-    //
-    //--------------------------------------------
-    /**
-     * Returns a PermissionApiInterface instance.
-     * @return PermissionApiInterface
-     */
-    public function getPermissionApi(): PermissionApiInterface;
-
-    /**
-     * Returns a PermissionGroupApiInterface instance.
-     * @return PermissionGroupApiInterface
-     */
-    public function getPermissionGroupApi(): PermissionGroupApiInterface;
-
-    /**
-     * Returns a PermissionGroupHasPermissionApiInterface instance.
-     * @return PermissionGroupHasPermissionApiInterface
-     */
-    public function getPermissionGroupHasPermissionApi(): PermissionGroupHasPermissionApiInterface;
-
-    /**
-     * Returns a UserHasPermissionGroupApiInterface instance.
-     * @return UserHasPermissionGroupApiInterface
-     */
-    public function getUserHasPermissionGroupApi(): UserHasPermissionGroupApiInterface;
-
-    /**
-     * Returns a UserGroupApiInterface instance.
-     * @return UserGroupApiInterface
-     */
-    public function getUserGroupApi(): UserGroupApiInterface;
-
-    /**
-     * Returns a PluginOptionApiInterface instance.
-     * @return PluginOptionApiInterface
-     */
-    public function getPluginOptionApi(): PluginOptionApiInterface;
-
-    /**
-     * Returns a UserGroupHasPluginOptionApiInterface instance.
-     * @return UserGroupHasPluginOptionApiInterface
-     */
-    public function getUserGroupHasPluginOptionApi(): UserGroupHasPluginOptionApiInterface;
 
 }

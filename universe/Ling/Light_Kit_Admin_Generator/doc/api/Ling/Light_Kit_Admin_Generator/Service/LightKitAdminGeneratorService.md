@@ -4,7 +4,7 @@
 
 The LightKitAdminGeneratorService class
 ================
-2019-11-06 --> 2020-03-10
+2019-11-06 --> 2020-07-06
 
 
 
@@ -26,6 +26,7 @@ class <span class="pl-k">LightKitAdminGeneratorService</span> extends [LightReal
 
 - Inherited properties
     - protected [Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) [LightRealGeneratorService::$container](#property-container) ;
+    - protected array [LightRealGeneratorService::$options](#property-options) ;
 
 - Methods
     - protected [onGenerateAfter](https://github.com/lingtalfi/Light_Kit_Admin_Generator/blob/master/doc/api/Ling/Light_Kit_Admin_Generator/Service/LightKitAdminGeneratorService/onGenerateAfter.md)(array $configBlock) : void
@@ -34,6 +35,9 @@ class <span class="pl-k">LightKitAdminGeneratorService</span> extends [LightReal
     - public LightRealGeneratorService::__construct() : void
     - public LightRealGeneratorService::generate(string $file, ?string $identifier = null) : void
     - public LightRealGeneratorService::setContainer([Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) $container) : void
+    - public LightRealGeneratorService::setOptions(array $options) : void
+    - public LightRealGeneratorService::debugLog(string $msg) : void
+    - protected LightRealGeneratorService::getSymbolicPath(string $path) : string
     - protected LightRealGeneratorService::error(string $msg) : void
 
 }
@@ -50,6 +54,9 @@ Methods
 - LightRealGeneratorService::__construct &ndash; Builds the LightRealGeneratorService instance.
 - LightRealGeneratorService::generate &ndash; according to the [configuration block](https://github.com/lingtalfi/Light_Kit_Admin_Generator/blob/master/doc/pages/lkagen-configuration-example.md) identified by the given file and identifier.
 - LightRealGeneratorService::setContainer &ndash; Sets the container.
+- LightRealGeneratorService::setOptions &ndash; Sets the options.
+- LightRealGeneratorService::debugLog &ndash; Sends a message to the debugLog, if the **useDebug** option is set to true.
+- LightRealGeneratorService::getSymbolicPath &ndash; Returns the given absolute path, with the application directory replaced by a symbol if found.
 - LightRealGeneratorService::error &ndash; Throws an exception with the given error message.
 
 

@@ -630,8 +630,8 @@ if ("undefined" === typeof window.OpenAdminTableHelper) {
 
 
                 $.post(this.options.service_url, {
-                    ajax_handler_id: this.options.ajax_handler_id,
-                    ajax_action_id: this.options.ajax_action_id,
+                    handler: this.options.handler,
+                    action: this.options.action,
                     request_id: this.options.request_id,
                     csrf_token: this.options.csrf_token,
                     tags: tags,
@@ -958,8 +958,8 @@ if ("undefined" === typeof window.OpenAdminTableHelper) {
 
         window.OpenAdminTableHelper._defaults = {
             service_url: '/ajax-handler',
-            ajax_handler_id: 'Light_Realist',
-            ajax_action_id: 'realist-request',
+            handler: 'Light_Realist',
+            action: 'realist-request',
             request_id: 'none',
             csrf_token: 'your_csrf_token_value',
             use_spinkit_helper: true,

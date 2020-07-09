@@ -98,7 +98,6 @@ class PageUtil
      */
     public function createPage(string $file, string $template, array $variables)
     {
-
         if (null === $this->rootDir) {
             throw new DocToolsException("Root directory must be set.");
         }
@@ -134,6 +133,7 @@ class PageUtil
         }
 
         $wizard = new TemplateWizard($insertDir);
+
 
         //--------------------------------------------
         //

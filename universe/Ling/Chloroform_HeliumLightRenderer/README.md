@@ -1,6 +1,6 @@
 Chloroform_HeliumLightRenderer
 ===========
-2019-10-21 -> 2020-02-24
+2019-10-21 -> 2020-06-04
 
 
 
@@ -46,6 +46,10 @@ Related
 History Log
 =============
 
+- 1.6.0 -- 2020-06-04
+
+    - update HeliumLightRenderer->printAjaxFileBoxField_FileUploader to work with jFileUploader v3 
+    
 - 1.5.0 -- 2020-02-24
 
     - add HeliumLightRenderer->printAjaxFileBoxField_FileUploader handler to handle jFileUploader script 

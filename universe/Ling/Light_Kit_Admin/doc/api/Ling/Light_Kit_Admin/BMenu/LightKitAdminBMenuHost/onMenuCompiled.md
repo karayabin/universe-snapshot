@@ -52,7 +52,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightKitAdminBMenuHost::onMenuCompiled](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/BMenu/LightKitAdminBMenuHost.php#L77-L120)
+See the source code for method [LightKitAdminBMenuHost::onMenuCompiled](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/BMenu/LightKitAdminBMenuHost.php#L79-L123)
 
 
 See Also

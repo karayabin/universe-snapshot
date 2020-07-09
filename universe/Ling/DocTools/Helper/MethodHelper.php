@@ -163,29 +163,81 @@ class MethodHelper
             } else {
                 $hint = $parameter->getClass();
 
-                if (null !== $hint) {
 
-                    $propertyClassName = $hint->name;
+                /**
+                 * The problem, commented below
+                 * was solved by adding the missing autoloader in console environment,
+                 * using kaos preferences...
+                 */
+                $isSpecialExternalHint = false;
 
-                    if (false === $hint->isUserDefined()) {
-                        $propertyClassName = '\\' . $propertyClassName;
-                    }
 
-                    if (array_key_exists($propertyClassName, $generatedItems2Url)) {
-                        $propertyClassName = '[' . $propertyClassName . '](' . $generatedItems2Url[$propertyClassName] . ')';
-                    } else {
-                        if (null !== $report) {
-                            $report->addUnresolvedClassReference($propertyClassName, "method " . $method->getName() . ", param " . $parameter->getName());
+//                try {
+//                    $hint = $parameter->getClass();
+//                } catch (\ReflectionException $e) {
+//                    if (preg_match("!Class ([a-zA-Z0-9_]*) does not exist!", $e->getMessage(), $match)) {
+//                        $isSpecialExternalHint = true;
+//
+//
+//                        $culpritClass = $match[1];
+//                        /**
+//                         * 2020-06-29
+//                         * Happened with LightMailerService->sendMessage( \Swift_Mailer $mailer, ... )
+//                         * With exception message: "Class Swift_Mailer does not exist".
+//                         *
+//                         *
+//                         * Probably an autoloader problem: not the same autoloader environment when I generate the doc via the web
+//                         * than when I generated the doc via console...
+//                         *
+//                         * In this case we cannot access the hint, so take it from the exception message,
+//                         * assuming this specific error occurred.
+//                         *
+//                         * I know it's ugly, but I didn't find another way yet...
+//                         *
+//                         */
+//                        if (array_key_exists($culpritClass, $generatedItems2Url)) {
+//                            $propertyClassName = '[' . $culpritClass . '](' . $generatedItems2Url[$culpritClass] . ')';
+//                            $s .= $propertyClassName . " ";
+//                        } else {
+//                            if (null !== $report) {
+//                                $report->addUnresolvedClassReference($culpritClass, "method " . $method->getName() . ", param " . $parameter->getName());
+//                            }
+//                            $s .= '\\' . $culpritClass . ' ';
+//                        }
+//
+//                    } else {
+//                        throw $e;
+//                    }
+//                }
+
+
+                if (false === $isSpecialExternalHint) {
+
+                    if (null !== $hint) {
+
+                        $propertyClassName = $hint->name;
+
+                        if (false === $hint->isUserDefined()) {
+                            $propertyClassName = '\\' . $propertyClassName;
                         }
-                    }
-                    $s .= $propertyClassName . " ";
-                } else {
-                    $paramType = $parameter->getType();
-                    if (null !== $paramType) {
-                        $s .= $paramType . ' ';
+
+                        if (array_key_exists($propertyClassName, $generatedItems2Url)) {
+                            $propertyClassName = '[' . $propertyClassName . '](' . $generatedItems2Url[$propertyClassName] . ')';
+                        } else {
+                            if (null !== $report) {
+                                $report->addUnresolvedClassReference($propertyClassName, "method " . $method->getName() . ", param " . $parameter->getName());
+                            }
+                        }
+                        $s .= $propertyClassName . " ";
+                    } else {
+                        $paramType = $parameter->getType();
+                        if (null !== $paramType) {
+                            $s .= $paramType . ' ';
+                        }
                     }
                 }
             }
+
 
             if (true === $parameter->isPassedByReference()) {
                 $s .= '&';

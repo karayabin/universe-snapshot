@@ -4,10 +4,12 @@
 namespace Ling\Light_Events\Service;
 
 
+use Ling\Bat\DebugTool;
 use Ling\Light\ServiceContainer\LightServiceContainerAwareInterface;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
 use Ling\Light_Events\Exception\LightEventsException;
 use Ling\Light_Events\Listener\LightEventsListenerInterface;
+use Ling\Light_Logger\LightLoggerService;
 
 /**
  * The LightEventsService class.
@@ -42,6 +44,20 @@ class LightEventsService
      */
     protected $dispatchedEvents;
 
+    /**
+     * This property holds the options for this instance.
+     *
+     * Available options are:
+     *
+     * - useDebug: bool = false.
+     *      If true, we log the dispatching details in a a log.
+     *      See more details in the @page(Light_Events conception notes).
+     *
+     *
+     * @var array
+     */
+    protected $options;
+
 
     /**
      * Builds the LightEventsService instance.
@@ -51,6 +67,7 @@ class LightEventsService
         $this->listeners = [];
         $this->dispatchedEvents = [];
         $this->container = null;
+        $this->options = [];
     }
 
     /**
@@ -141,12 +158,27 @@ class LightEventsService
         $this->container = $container;
     }
 
+    /**
+     * Sets the options.
+     *
+     * @param array $options
+     */
+    public function setOptions(array $options)
+    {
+        $this->options = $options;
+    }
+
+
+
 
     //--------------------------------------------
     //
     //--------------------------------------------
     /**
      * A hook called just before a listener is triggered.
+     *
+     * By default, we log the listener details if the useDebug option is true.
+     *
      *
      * @param $listener
      * @param string $event
@@ -157,6 +189,22 @@ class LightEventsService
     protected function onListenerProcessBefore($listener, string $event, $data)
     {
 
+        $useDebug = $this->options['useDebug'] ?? false;
+        if (true === $useDebug) {
+            $listenerName = null;
+            if ($listener instanceof LightEventsListenerInterface) {
+                $listenerName = get_class($listener);
+            } else {
+                $listenerName = DebugTool::toString($listener);
+            }
+            $sentence = "Calling listener $listenerName on event $event.";
+
+            /**
+             * @var $logger LightLoggerService
+             */
+            $logger = $this->container->get("logger");
+            $logger->log($sentence, "events.debug");
+        }
     }
 
 }

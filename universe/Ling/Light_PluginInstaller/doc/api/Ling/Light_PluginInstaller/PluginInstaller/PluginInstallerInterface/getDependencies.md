@@ -48,7 +48,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [PluginInstallerInterface::getDependencies](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/PluginInstaller/PluginInstallerInterface.php#L41-L41)
+See the source code for method [PluginInstallerInterface::getDependencies](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/PluginInstaller/PluginInstallerInterface.php#L53-L53)
 
 
 See Also

@@ -64,6 +64,8 @@ class LightKitAdminBMenuHost extends LightBMenuAbstractHost
         }
 
         $menuItems = BabyYamlUtil::readFile($menuStructureFile);
+
+
         $menu->setItems($menuItems);
 
     }
@@ -76,6 +78,7 @@ class LightKitAdminBMenuHost extends LightBMenuAbstractHost
      */
     public function onMenuCompiled(array &$menu)
     {
+
         //--------------------------------------------
         // RIGHTS MANAGEMENT
         //--------------------------------------------

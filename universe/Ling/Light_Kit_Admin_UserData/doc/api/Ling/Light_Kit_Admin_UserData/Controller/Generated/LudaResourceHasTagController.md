@@ -4,7 +4,7 @@
 
 The LudaResourceHasTagController class
 ================
-2020-02-28 --> 2020-03-10
+2020-02-28 --> 2020-06-23
 
 
 
@@ -42,16 +42,17 @@ class <span class="pl-k">LudaResourceHasTagController</span> extends [RealGenCon
     - public LightKitAdminController::setRoute(array $route) : void
     - protected LightKitAdminController::getKitAdmin() : Ling\Light_Kit_Admin\Service\LightKitAdminService
     - protected LightKitAdminController::getFlasher() : Ling\Light_Flasher\Service\LightFlasherService
-    - protected LightKitAdminController::getUser() : Ling\Light_User\WebsiteLightUser
+    - protected LightKitAdminController::getUser() : Ling\Light_User\LightWebsiteUser
     - public LightKitAdminController::renderPage(string $page, ?array $dynamicVariables = [], ?Ling\Light_Kit\PageConfigurationUpdator\PageConfUpdator $updator = null) : [HttpResponseInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponseInterface.md)
-    - protected LightKitAdminController::redirectByRoute(string $redirectRoute) : void
-    - protected LightKitAdminController::checkRight(string $right) : void
+    - protected LightKitAdminController::getRedirectResponseByRoute(string $route, ?array $urlParams = []) : Ling\Light\Http\HttpRedirectResponse
+    - protected LightKitAdminController::checkRight(string $right) : [HttpResponseInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponseInterface.md) | null
     - protected LightKitAdminController::checkMicroPermission(string $microPermission) : void
     - protected LightKitAdminController::error(string $msg) : void
     - public LightController::setLight([Ling\Light\Core\Light](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light.md) $light) : void
     - protected LightController::getLight() : [Light](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light.md)
     - protected LightController::getContainer() : [LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md)
     - protected LightController::getHttpRequest() : Ling\Light\Http\HttpRequestInterface
+    - protected LightController::hasService(string $serviceName) : bool
 
 }
 
@@ -75,7 +76,7 @@ Methods
 - LightKitAdminController::getFlasher &ndash; Returns a flasher instance.
 - LightKitAdminController::getUser &ndash; Returns the current user.
 - LightKitAdminController::renderPage &ndash; Renders the given page using the [kit service](https://github.com/lingtalfi/Light_Kit).
-- LightKitAdminController::redirectByRoute &ndash; Redirects the user to the given route.
+- LightKitAdminController::getRedirectResponseByRoute &ndash; Creates and returns an HttpRedirectResponse, based on the given arguments.
 - LightKitAdminController::checkRight &ndash; Ensures that the current user is connected and has the right provided in the arguments.
 - LightKitAdminController::checkMicroPermission &ndash; redirects to the access_denied page.
 - LightKitAdminController::error &ndash; Throws an exception.
@@ -83,6 +84,7 @@ Methods
 - LightController::getLight &ndash; Returns the light application.
 - LightController::getContainer &ndash; Returns the service container.
 - LightController::getHttpRequest &ndash; Returns the http request bound to the light instance.
+- LightController::hasService &ndash; Returns whether the container contains the service which name is given.
 
 
 

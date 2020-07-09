@@ -48,8 +48,8 @@ class LightKitAdminRealistRowsRenderer extends BaseRealistRowsRenderer
                 $url = $this->getAjaxHandlerServiceUrl();
                 $attr = [
                     'data-param-url' => $url,
-                    'data-param-ajax_handler_id' => 'Light_Kit_Admin',
-                    'data-param-ajax_action_id' => $actionId,
+                    'data-param-handler' => 'Light_Kit_Admin',
+                    'data-param-action' => $actionId,
                     'data-param-request_id' => $this->requestId,
                     'data-confirm' => "Are you sure you want to delete this row?",
                     'data-success-after' => "realist-refresh",

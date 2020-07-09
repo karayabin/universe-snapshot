@@ -1,6 +1,6 @@
 Light_PluginInstaller
 ===========
-2020-02-07 -> 2020-03-03
+2020-02-07 -> 2020-06-23
 
 
 
@@ -58,6 +58,10 @@ plugin_installer:
             container: @container()
         setRootDir:
             dir: ${app_dir}/config/data/Light_PluginInstaller
+        setOptions:
+            options:
+                useDebug: false      # default is false
+                useCache: true     # default is true
 
 
 # --------------------------------------
@@ -74,6 +78,18 @@ $events.methods_collection:
 
 
 
+$logger.methods_collection:
+    -
+        method: addListener
+        args:
+            channels: plugin_installer.debug
+            listener:
+                instance: Ling\Light_Logger\Listener\LightCleanableFileLoggerListener
+                methods:
+                    configure:
+                        options:
+                            file: ${app_dir}/log/plugin_installer_debug.txt
+
 
 ```
 
@@ -84,6 +100,12 @@ $events.methods_collection:
 History Log
 =============
 
+- 1.4.0 -- 2020-06-23
+
+    - update install concept, now has two phases  
+    - add PluginInstallerInterface->isInstalled 
+    - update the service, add useDebug and useCache options, add synchronizeByCreateFile method
+    
 - 1.3.0 -- 2020-03-03
 
     - update LightPluginInstallerService, add $uninstallStrictMode property

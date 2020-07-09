@@ -141,6 +141,7 @@ class Light_AjaxHandlerDocBuilder
              */
             "keyWord2UrlMap" => [
                 "ajax communication protocol" => 'https://github.com/lingtalfi/AjaxCommunicationProtocol',
+                "alcp response" => 'https://github.com/lingtalfi/Light_AjaxHandler/blob/master/doc/pages/ajax-light-communication-protocol.md',
             ],
             /**
              * An array of external classes to url.

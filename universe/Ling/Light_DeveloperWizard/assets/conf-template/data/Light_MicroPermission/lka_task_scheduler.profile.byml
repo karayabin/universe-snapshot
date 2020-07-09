@@ -1,0 +1,3 @@
+Light_TaskScheduler.admin:
+    - tables.lts_task_schedule.create
+

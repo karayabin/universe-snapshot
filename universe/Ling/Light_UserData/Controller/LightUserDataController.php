@@ -11,6 +11,7 @@ use Ling\Light\Http\HttpRequestInterface;
 use Ling\Light\Http\HttpResponse;
 use Ling\Light\Http\HttpResponseInterface;
 use Ling\Light_UserData\Service\LightUserDataService;
+use Ling\Panda_Headers\Panda_Headers_Tool;
 
 
 /**
@@ -32,7 +33,7 @@ class LightUserDataController extends LightController
      *
      *
      * @param string $id
-     * @return HttpResponseInterface
+     * @param HttpRequestInterface $request
      * @throws \Exception
      */
     public function render(string $id, HttpRequestInterface $request): HttpResponseInterface
@@ -46,11 +47,7 @@ class LightUserDataController extends LightController
 
         $original = (bool)($get['o'] ?? false);
         $configId = $get['c'] ?? null;
-        $useVirtual = false;
-        if (null !== $configId) {
-            $config = $this->getContainer()->get("upload_gems")->getHelper($configId)->getCustomConfig();
-            $useVirtual = (bool)($config['useVfs'] ?? false);
-        }
+        $useVirtual = (bool)($get['v'] ?? false);
 
 
         $options = [
@@ -59,7 +56,6 @@ class LightUserDataController extends LightController
             'configId' => $configId,
             'vm' => $useVirtual,
         ];
-
 
 
         /**
@@ -76,11 +72,10 @@ class LightUserDataController extends LightController
         $extension = FileSystemTool::getFileExtension($relPath);
 
         $found = true;
-        $mime = MimeTypeTool::getMimeTypeByFileExtension($extension, null, $found);
+        $mime = MimeTypeTool::getMimeType($file);
         if (false === $found) {
             $this->getContainer()->get('logger')->log("Mime type not found in MimeTypeTool::getMimeTypeByFileExtension with extension $extension.", "todo");
         }
-
 
 
         $response = new HttpResponse(file_get_contents($file));
@@ -91,16 +86,18 @@ class LightUserDataController extends LightController
 
         if (true === $getMetaInfo) {
 
-            $response->setHeader("fe_is_private", $info['is_private']);
-            $response->setHeader("fe_date_creation", $info['date_creation']);
-            $response->setHeader("fe_date_last_update", $info['date_last_update']);
-            $response->setHeader("fe_protocol", "fileEditor");
-            $response->setHeader("fe_original_url", $info['original_url']);
-            $tags = $info['tags'];
-            foreach ($tags as $tag) {
-                $response->addHeader("fe_tags", $tag); // note: tag mustn't contain a comma with this implementation
-            }
+            Panda_Headers_Tool::attachHeaders([
+                "is_private" => $info['is_private'],
+                "date_creation" => $info['date_creation'],
+                "date_last_update" => $info['date_last_update'],
+                "original_url" => $info['original_url'],
+                "tags" => $info['tags'],
+                "name" => $info['filename'],
+                "directory" => $info['dir'],
+            ], $response);
         }
+
+//        az($response);
 
         return $response;
 

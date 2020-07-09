@@ -45,6 +45,17 @@ $bullsheet.methods_collection:
 
 
 
+$file_watcher.methods_collection:
+    -
+        method: registerCallable
+        args:
+            path: ${app_dir}/universe/Ling/Light_UserDatabase/assets/fixtures/recreate-structure.sql
+            callable:
+                instance: @service(user_database)
+                callable_method: onCreateFileChange
+
+
+
 
 $plugin_installer.methods_collection:
     -

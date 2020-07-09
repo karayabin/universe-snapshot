@@ -249,6 +249,7 @@ https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light.md
 https://github.com/lingtalfi/Light/blob/master/doc/pages/diary.md
 https://github.com/lingtalfi/Light/blob/master/doc/pages/efficiency-tips.md
 https://github.com/lingtalfi/Light/blob/master/doc/pages/events.md
+https://github.com/lingtalfi/Light/blob/master/doc/pages/how-to-debug.md
 https://github.com/lingtalfi/Light/blob/master/doc/pages/light-application-recommended-structure.md
 https://github.com/lingtalfi/Light/blob/master/doc/pages/light-general-philosophy.md
 https://github.com/lingtalfi/Light/blob/master/doc/pages/light-service-container.md

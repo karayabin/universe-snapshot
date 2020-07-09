@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [DependencyMasterBuilderUtil::createDependencyMasterByUniverseDir](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Util/DependencyMasterBuilderUtil/createDependencyMasterByUniverseDir.md)(string $universeDir, string $file, array &$errors = [], array $allowedGalaxies = null) : void
+public [DependencyMasterBuilderUtil::createDependencyMasterByUniverseDir](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Util/DependencyMasterBuilderUtil/createDependencyMasterByUniverseDir.md)(string $universeDir, string $file, ?array &$errors = [], ?array $allowedGalaxies = null) : void
 
 
 

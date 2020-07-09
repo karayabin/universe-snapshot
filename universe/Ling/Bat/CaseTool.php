@@ -103,43 +103,18 @@ class CaseTool
     }
 
 
-    /**
-     * Returns a portable file name.
-     * For more details: https://github.com/lingtalfi/NotationFan/blob/master/portable-filename.md
-     *
-     * @param string $fileName
-     * @return string
-     */
-    public static function toPortableFilename(string $fileName): string
+    public static function toConstant(string $str)
     {
-        return preg_replace('![^a-zA-Z0-9._-]!', '', $fileName);
-
+        return strtoupper(self::toSnake($str));
     }
 
-    public static function toFlexibleCamel(string $str)
+    public static function toDash(string $str)
     {
-        $str = StringTool::removeAccents($str);
+        $str = strtolower(StringTool::removeAccents($str));
         $str = preg_replace('![^a-zA-Z0-9]!', '-', $str);
         $str = preg_replace('!-+!', '-', $str);
-        $p = explode('-', $str);
-        $first = lcfirst(array_shift($p));
-        $p = array_map(function ($v) {
-            return ucfirst($v);
-        }, $p);
-
-        return $first . implode('', $p);
-    }
-
-
-    public static function toPascal(string $str)
-    {
-        return ucfirst(self::toCamel($str));
-    }
-
-
-    public static function toFlexiblePascal(string $str)
-    {
-        return ucfirst(self::toFlexibleCamel($str));
+        $str = trim($str, '-');
+        return $str;
     }
 
 
@@ -164,6 +139,96 @@ class CaseTool
     }
 
 
+    public static function toFlexibleDash(string $str)
+    {
+        $str = StringTool::removeAccents($str);
+        $str = preg_replace('![^a-zA-Z0-9]!', '-', $str);
+        $str = preg_replace('!-+!', '-', $str);
+        $str = trim($str, '-');
+        return $str;
+    }
+
+
+    public static function toFlexiblePascal(string $str)
+    {
+        return ucfirst(self::toFlexibleCamel($str));
+    }
+
+
+    /**
+     * Returns the [human flat case](https://github.com/lingtalfi/ConventionGuy/blob/master/nomenclature.stringCases.eng.md#humanflatcase) version of the given string.
+     *
+     * @param string $str
+     * @return string
+     */
+    public static function toHumanFlatCase(string $str): string
+    {
+        $str = str_replace('_', ' ', $str);
+        $str = preg_replace('!([a-z0-9])([A-Z])!', '$1 $2', $str);
+        return strtolower($str);
+    }
+
+    /**
+     * Returns a portable file name.
+     * For more details: https://github.com/lingtalfi/NotationFan/blob/master/portable-filename.md
+     *
+     * @param string $fileName
+     * @return string
+     */
+    public static function toPortableFilename(string $fileName): string
+    {
+        return preg_replace('![^a-zA-Z0-9._-]!', '', $fileName);
+
+    }
+
+
+    /**
+     * Returns the [flexible camel](https://github.com/lingtalfi/ConventionGuy/blob/master/nomenclature.stringCases.eng.md#flexiblecamelcase) version of the given string.
+     *
+     *
+     *
+     * @param string $str
+     * @return string
+     */
+    public static function toFlexibleCamel(string $str): string
+    {
+        $str = StringTool::removeAccents($str);
+        $str = preg_replace('![^a-zA-Z0-9]!', '-', $str);
+        $str = preg_replace('!-+!', '-', $str);
+        $p = explode('-', $str);
+        $first = lcfirst(array_shift($p));
+        $p = array_map(function ($v) {
+            return ucfirst($v);
+        }, $p);
+
+        return $first . implode('', $p);
+    }
+
+
+    /**
+     * Returns the [pascal](https://github.com/lingtalfi/ConventionGuy/blob/master/nomenclature.stringCases.eng.md#pascalcase) version of the given string.
+     *
+     * @param string $str
+     * @return string
+     */
+    public static function toPascal(string $str): string
+    {
+        return ucfirst(self::toCamel($str));
+    }
+
+
+    /**
+     * Returns a php variable version of the given string.
+     *
+     * @param string $str
+     * @return string
+     */
+    public static function toVariableName(string $str): string
+    {
+        return lcfirst(self::toFlexiblePascal(preg_replace('!^[0-9]*!', '', $str)));
+    }
+
+
     public static function toSnake(string $str, $processUpperLetters = false)
     {
         if (true === $processUpperLetters) {
@@ -176,28 +241,6 @@ class CaseTool
         return $str;
     }
 
-    public static function toConstant(string $str)
-    {
-        return strtoupper(self::toSnake($str));
-    }
-
-    public static function toDash(string $str)
-    {
-        $str = strtolower(StringTool::removeAccents($str));
-        $str = preg_replace('![^a-zA-Z0-9]!', '-', $str);
-        $str = preg_replace('!-+!', '-', $str);
-        $str = trim($str, '-');
-        return $str;
-    }
-
-    public static function toFlexibleDash(string $str)
-    {
-        $str = StringTool::removeAccents($str);
-        $str = preg_replace('![^a-zA-Z0-9]!', '-', $str);
-        $str = preg_replace('!-+!', '-', $str);
-        $str = trim($str, '-');
-        return $str;
-    }
 
     public static function unsnake($str)
     {

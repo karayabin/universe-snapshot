@@ -24,13 +24,13 @@ class LightRealistAjaxHandler extends ContainerAwareLightAjaxHandler
      *
      * @implementation
      */
-    public function handle(string $actionId, HttpRequestInterface $request): array
+    public function handle(string $action, HttpRequestInterface $request): array
     {
         $response = [];
         $params = $request->getPost();
 
 
-        switch ($actionId) {
+        switch ($action) {
             case "realist-request":
 
 
@@ -72,11 +72,11 @@ class LightRealistAjaxHandler extends ContainerAwareLightAjaxHandler
 
                 } elseif (array_key_exists('action_id', $params)) {
                     az(__FILE__, "reorganize this?");
-                    $actionId = $params['action_id'];
-                    $handler = $this->getContainer()->get("realist")->getActionHandler($actionId);
+                    $action = $params['action_id'];
+                    $handler = $this->getContainer()->get("realist")->getActionHandler($action);
                     $_params = $params;
                     unset($_params['action_id']);
-                    $response = $handler->execute($actionId, $_params);
+                    $response = $handler->execute($action, $_params);
                 } else {
                     $this->error("Request type not implemented yet.");
                 }
@@ -84,7 +84,7 @@ class LightRealistAjaxHandler extends ContainerAwareLightAjaxHandler
 
                 break;
             default:
-                throw new LightRealistException("Unknown action $actionId.");
+                throw new LightRealistException("Unknown action $action.");
                 break;
         }
         return $response;

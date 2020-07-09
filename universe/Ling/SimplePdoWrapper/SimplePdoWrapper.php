@@ -6,6 +6,7 @@ namespace Ling\SimplePdoWrapper;
 
 use Ling\SimplePdoWrapper\Exception\NoPdoConnectionException;
 use Ling\SimplePdoWrapper\Exception\SimplePdoWrapperException;
+use Ling\SimplePdoWrapper\Exception\SimplePdoWrapperQueryException;
 use Ling\SimplePdoWrapper\Util\Where;
 
 /**
@@ -172,7 +173,14 @@ class SimplePdoWrapper implements SimplePdoWrapperInterface
         $this->storeQueryObject($stmt);
 
 
-        if (true === $stmt->execute($markers)) {
+        try {
+            $res = $stmt->execute($markers);
+        } catch (\Exception $e) {
+            $res = null;
+            $this->handleException($e, $markers);
+        }
+
+        if (true === $res) {
             $lastInsertId = $pdo->lastInsertId();
             $this->onSuccess('insert', $table, $query, [$fields, $options], $lastInsertId);
             return $lastInsertId;
@@ -205,8 +213,14 @@ class SimplePdoWrapper implements SimplePdoWrapperInterface
         $stmt = $pdo->prepare($query);
         $this->storeQueryObject($stmt);
 
+        try {
+            $res = $stmt->execute($markers);
+        } catch (\Exception $e) {
+            $res = null;
+            $this->handleException($e, $markers);
+        }
 
-        if (true === $stmt->execute($markers)) {
+        if (true === $res) {
             $lastInsertId = $pdo->lastInsertId();
             $this->onSuccess('replace', $table, $query, [$fields, $options], $lastInsertId);
             return $lastInsertId;
@@ -239,7 +253,14 @@ class SimplePdoWrapper implements SimplePdoWrapperInterface
         $this->storeQueryObject($stmt);
 
 
-        if (true === $stmt->execute($allMarkers)) {
+        try {
+            $res = $stmt->execute($allMarkers);
+        } catch (\Exception $e) {
+            $res = null;
+            $this->handleException($e, $allMarkers);
+        }
+
+        if (true === $res) {
             $this->onSuccess('update', $table, $query, [$fields, $whereConds, $markers], true);
             return true;
         }
@@ -252,18 +273,28 @@ class SimplePdoWrapper implements SimplePdoWrapperInterface
     public function delete($table, $whereConds = null, $markers = [])
     {
         $query = 'delete from ' . $table;
-        self::addWhereSubStmt($query, $markers, $whereConds);
+        if ($whereConds) {
+            self::addWhereSubStmt($query, $markers, $whereConds);
+        }
 
 
         // setup
         $pdo = $this->boot();
         $this->query = $query;
 
-
         $stmt = $pdo->prepare($query);
         $this->storeQueryObject($stmt);
 
-        if (true === $stmt->execute($markers)) {
+
+        try {
+            $res = $stmt->execute($markers);
+        } catch (\Exception $e) {
+            $res = null;
+            $this->handleException($e, $markers);
+        }
+
+
+        if (true === $res) {
             $rowCount = $stmt->rowCount();
             $this->onSuccess('delete', $table, $query, [$whereConds, $markers], $rowCount);
             return $rowCount;
@@ -288,7 +319,16 @@ class SimplePdoWrapper implements SimplePdoWrapperInterface
         $stmt = $pdo->prepare($query);
         $this->storeQueryObject($stmt);
 
-        if (true === $stmt->execute($markers)) {
+
+        try {
+            $res = $stmt->execute($markers);
+        } catch (\Exception $e) {
+            $res = null;
+            $this->handleException($e);
+        }
+
+
+        if (true === $res) {
             return $stmt->fetch($fetchStyle);
         }
         return false;
@@ -312,7 +352,16 @@ class SimplePdoWrapper implements SimplePdoWrapperInterface
         $stmt = $pdo->prepare($query);
         $this->storeQueryObject($stmt);
 
-        if (true === $stmt->execute($markers)) {
+
+        try {
+            $res = $stmt->execute($markers);
+        } catch (\Exception $e) {
+            $res = null;
+            $this->handleException($e, $markers);
+        }
+
+
+        if (true === $res) {
             if (null === $fetchArg) {
                 return $stmt->fetchAll($fetchStyle);
             } else {
@@ -335,6 +384,7 @@ class SimplePdoWrapper implements SimplePdoWrapperInterface
         // setup
         $pdo = $this->boot();
         $this->query = $query;
+
         $this->storeQueryObject($pdo);
         if (false !== $r = $pdo->exec($query)) {
             return $r;
@@ -524,4 +574,30 @@ class SimplePdoWrapper implements SimplePdoWrapperInterface
     }
 
 
+    //--------------------------------------------
+    //
+    //--------------------------------------------
+
+    /**
+     * Will rethrow a custom exception based on the one given.
+     *
+     * @param \Exception $e
+     * @param array $markers
+     * @throws \Exception
+     */
+    private function handleException(\Exception $e, array $markers = [])
+    {
+        /**
+         * Note: I couldn't pass the exception code, I had an error (I believe it's a bug, but no time to investigate):
+         * Fatal error: Uncaught Error: Wrong parameters for Ling\SimplePdoWrapper\Exception\SimplePdoWrapperQueryException([string $message [, long $code [, Throwable $previous = NULL]]])
+         * It probably expects an int, but the PDO exception's code is a string.
+         * https://www.php.net/manual/en/exception.getcode.php
+         *
+         */
+//        $ex = new SimplePdoWrapperQueryException($e->getMessage(), $e->getCode(), $e);
+        $ex = new SimplePdoWrapperQueryException($e->getMessage(), null, $e);
+        $ex->setQuery($this->query);
+        $ex->setMarkers($markers);
+        throw $ex;
+    }
 }

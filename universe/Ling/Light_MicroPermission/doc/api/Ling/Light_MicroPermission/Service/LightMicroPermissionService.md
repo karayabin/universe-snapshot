@@ -4,7 +4,7 @@
 
 The LightMicroPermissionService class
 ================
-2019-09-26 --> 2020-03-10
+2019-09-26 --> 2020-07-06
 
 
 
@@ -35,6 +35,7 @@ class <span class="pl-k">LightMicroPermissionService</span>  {
     - public [disableNamespace](https://github.com/lingtalfi/Light_MicroPermission/blob/master/doc/api/Ling/Light_MicroPermission/Service/LightMicroPermissionService/disableNamespace.md)(string $namespace) : void
     - public [restoreNamespaces](https://github.com/lingtalfi/Light_MicroPermission/blob/master/doc/api/Ling/Light_MicroPermission/Service/LightMicroPermissionService/restoreNamespaces.md)(?$namespace = null) : void
     - public [registerMicroPermissionsByFile](https://github.com/lingtalfi/Light_MicroPermission/blob/master/doc/api/Ling/Light_MicroPermission/Service/LightMicroPermissionService/registerMicroPermissionsByFile.md)(string $file) : void
+    - public [registerMicroPermissionsByProfile](https://github.com/lingtalfi/Light_MicroPermission/blob/master/doc/api/Ling/Light_MicroPermission/Service/LightMicroPermissionService/registerMicroPermissionsByProfile.md)(string $file) : void
     - public [hasMicroPermission](https://github.com/lingtalfi/Light_MicroPermission/blob/master/doc/api/Ling/Light_MicroPermission/Service/LightMicroPermissionService/hasMicroPermission.md)(string $microPermission) : bool
 
 }
@@ -74,6 +75,7 @@ Methods
 - [LightMicroPermissionService::disableNamespace](https://github.com/lingtalfi/Light_MicroPermission/blob/master/doc/api/Ling/Light_MicroPermission/Service/LightMicroPermissionService/disableNamespace.md) &ndash; hasMicroPermission method will always return true for all micro-permissions of that namespace.
 - [LightMicroPermissionService::restoreNamespaces](https://github.com/lingtalfi/Light_MicroPermission/blob/master/doc/api/Ling/Light_MicroPermission/Service/LightMicroPermissionService/restoreNamespaces.md) &ndash; Restores all the disabled namespaces by default, or only the ones specified in the arguments.
 - [LightMicroPermissionService::registerMicroPermissionsByFile](https://github.com/lingtalfi/Light_MicroPermission/blob/master/doc/api/Ling/Light_MicroPermission/Service/LightMicroPermissionService/registerMicroPermissionsByFile.md) &ndash; Register the micro-permission bindings defined in the given file.
+- [LightMicroPermissionService::registerMicroPermissionsByProfile](https://github.com/lingtalfi/Light_MicroPermission/blob/master/doc/api/Ling/Light_MicroPermission/Service/LightMicroPermissionService/registerMicroPermissionsByProfile.md) &ndash; Registers the micro-permissions profile.
 - [LightMicroPermissionService::hasMicroPermission](https://github.com/lingtalfi/Light_MicroPermission/blob/master/doc/api/Ling/Light_MicroPermission/Service/LightMicroPermissionService/hasMicroPermission.md) &ndash; Returns whether the current user has the given micro-permission.
 
 

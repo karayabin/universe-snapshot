@@ -4,7 +4,7 @@ lud_permission_group.id:
     column: id
     search_column: concat(id, '. ', name)
     csrf_token: true
-    micro_permission: Light_Kit_Admin.tables.lud_permission_group.read
+    micro_permission: tables.lud_permission_group.read
 
 lud_permission.id: 
     fields: id as value, concat(id, '. ', name) as label
@@ -12,7 +12,23 @@ lud_permission.id:
     column: id
     search_column: concat(id, '. ', name)
     csrf_token: true
-    micro_permission: Light_Kit_Admin.tables.lud_permission.read
+    micro_permission: tables.lud_permission.read
+
+lud_user_group.id: 
+    fields: id as value, concat(id, '. ', name) as label
+    table: lud_user_group
+    column: id
+    search_column: concat(id, '. ', name)
+    csrf_token: true
+    micro_permission: tables.lud_user_group.read
+
+lud_plugin_option.id: 
+    fields: id as value, concat(id, '. ', plugin) as label
+    table: lud_plugin_option
+    column: id
+    search_column: concat(id, '. ', plugin)
+    csrf_token: true
+    micro_permission: tables.lud_plugin_option.read
 
 lud_user.id: 
     fields: id as value, concat(id, '. ', pseudo) as label
@@ -20,7 +36,7 @@ lud_user.id:
     column: id
     search_column: concat(id, '. ', pseudo)
     csrf_token: true
-    micro_permission: Light_Kit_Admin.tables.lud_user.read
+    micro_permission: tables.lud_user.read
 
 luda_resource.id: 
     fields: id as value, concat(id, '. ', real_path) as label
@@ -28,7 +44,7 @@ luda_resource.id:
     column: id
     search_column: concat(id, '. ', real_path)
     csrf_token: true
-    micro_permission: Light_Kit_Admin.tables.luda_resource.read
+    micro_permission: tables.luda_resource.read
 
 luda_tag.id: 
     fields: id as value, concat(id, '. ', name) as label
@@ -36,4 +52,4 @@ luda_tag.id:
     column: id
     search_column: concat(id, '. ', name)
     csrf_token: true
-    micro_permission: Light_Kit_Admin.tables.luda_tag.read
+    micro_permission: tables.luda_tag.read

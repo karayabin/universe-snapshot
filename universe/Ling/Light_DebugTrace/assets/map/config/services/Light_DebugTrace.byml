@@ -1,0 +1,50 @@
+debugtrace:
+    instance: Ling\Light_DebugTrace\Service\LightDebugTraceService
+    methods:
+        setContainer:
+            container: @container()
+        setTargetFile:
+            file: ${app_dir}/log/Light_DebugTrace/light_debugtrace.txt
+        setTargetDir:
+            dir: ${app_dir}/log/Light_DebugTrace/all
+        setHttpRequestFilters:
+            filters:
+                urlIgnoreIfStartWith: []
+                    - /user-data
+                    - /ajax-handler
+                    - /css/tmp/
+                    - /browser-sync/
+
+
+# --------------------------------------
+# hooks
+# --------------------------------------
+$events.methods_collection:
+    -
+        method: registerListener
+        args:
+            event: Light.on_route_found
+            listener:
+                instance: @service(debugtrace)
+                callable_method: onRouteFound
+    -
+        method: registerListener
+        args:
+            event: Light.initialize_1
+            listener:
+                instance: @service(debugtrace)
+                callable_method: initialize
+    -
+        method: registerListener
+        args:
+            event: Light.end_routine
+            listener:
+                instance: @service(debugtrace)
+                callable_method: onEndRoutine
+    -
+        method: registerListener
+        args:
+            event: Light_CsrfSimple.on_csrf_token_regenerated
+            listener:
+                instance: @service(debugtrace)
+                callable_method: onCsrfTokenRegenerated

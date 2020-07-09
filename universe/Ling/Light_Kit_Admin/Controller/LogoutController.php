@@ -34,6 +34,6 @@ class LogoutController extends AdminPageController
         $userManager->destroyUser();
 //        $this->getUser()->disconnect();
         $redirectRoute = $this->getKitAdmin()->getOption("login.login_route");
-        return $this->redirectByRoute($redirectRoute);
+        return $this->getRedirectResponseByRoute($redirectRoute);
     }
 }

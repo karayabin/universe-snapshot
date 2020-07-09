@@ -1,0 +1,48 @@
+class: Ling\Light_BreezeGenerator\Generator\LingBreezeGenerator
+conf:
+    dir: ${app_dir}/universe/Ling/Light_UserData/Api
+    # If your tables use a prefix, set it here, then configure the behaviour
+    # with the usePrefixInClassName property
+    prefix: luda
+    usePrefixInClassName: false
+    allPrefixes:
+        - luda
+        - lud
+    relativeDirs:
+        classes: Classes
+        interfaces: Interfaces
+        baseApi: Classes
+        factory: null
+        custom: Custom
+
+    factoryClassName: LightUserDataApiFactory
+    baseClassName: LightUserDataBaseApi
+
+    namespace: Ling\Light_UserData\Api
+
+
+
+
+    # The suffix to add to the class name.
+    # For instance if the class is User and the suffix is Object,
+    # The class name will be UserObject
+    # The default value is Object
+    classSuffix: Api
+    interfaceSuffix: Interface
+    customPrefix: Custom
+
+
+    overwrite:
+        classes: true
+        interfaces: false
+        baseApi: false
+        factory: true
+
+
+    useMicroPermission: false
+    microPermissionPluginName: Light_UserData
+    generate:
+        prefix: luda
+        # generate the tables from a file.
+        # This is handy because you don't need to create the database to generate the classes
+        file: /komin/jin_site_demo/universe/Ling/Light_UserData/assets/fixtures/recreate-structure.sql

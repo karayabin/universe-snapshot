@@ -1,6 +1,6 @@
 Uni2
 ===========
-2019-03-07
+2019-03-07 -> 2020-06-25
 
 
 
@@ -27,7 +27,7 @@ Or just download it and place it where you want otherwise.
 
 Summary
 ===========
-- [Uni2 api](https://github.com/lingtalfi/WebBox/blob/master/doc/api/Uni2.md) (generated with [DocTools](https://github.com/lingtalfi/DocTools))
+- [Uni2 api](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2.md) (generated with [DocTools](https://github.com/lingtalfi/DocTools))
 - [What is Uni2?](#what-is-uni2)
     - [Help](#help)
 - [The concepts behind Uni2](#the-concepts-behing-uni2)
@@ -59,7 +59,7 @@ Summary
 
 What is Uni2?
 ===================
-
+2019-03-07
 
 Uni2 is a **console application** based on [CliTools](https://github.com/lingtalfi/CliTools/).
 
@@ -80,6 +80,8 @@ It can do the following:
 
 Help
 ---------
+2019-03-07
+
 
 Here is the help of Uni2, which you can access via the **"help"** command:
 
@@ -206,7 +208,7 @@ Commands list:
 
 The concepts behind Uni2
 ==========================
-
+2019-03-07
 
 Uni2 is a powerful tool.
 
@@ -218,6 +220,8 @@ In the rest of this documentation, I'll explain the main concepts behind Uni2, s
 
 Universe, galaxies, planets
 ============================
+2019-03-07
+
 
 The first concept to understand is the general organization of the **universe**.
 
@@ -253,6 +257,9 @@ To identify a planet, we have different "tools" at our disposal:
 
 The planet long name
 -------------
+2019-03-07
+
+
 
 The planet long name is the name of a planet from the universe's perspective.
 It's the galaxy name followed by a slash followed by the planet name.
@@ -272,6 +279,9 @@ Examples:
 
 The planet short name
 ----------------
+2019-03-07
+
+
 
 The planet short name is the name of a planet from a galaxy's perspective.
 It's the same as the directory name.
@@ -287,6 +297,9 @@ Examples:
 
 The planet id
 ----------
+2019-03-07
+
+
 
 The planet id is a variant of the planet long name.
 It's the planet long name with the slash replaced with a dot.
@@ -311,10 +324,14 @@ The rules for naming planets are defined in the [BSR-1](https://github.com/lingt
 
 Dependencies
 =================
+2019-03-07
+
 
 
 Introduction
 --------------
+2019-03-07
+
 
 Now let's tackle the most challenging concept of Uni2: dependencies.
 
@@ -348,6 +365,8 @@ in the above example).
 
 Meet the naive system
 -------------------
+2019-03-07
+
 
 However, it does so in a particular manner that I'm going to explain right now.
 
@@ -478,6 +497,9 @@ or break the dependency by freezing it somewhere where you have control on it.
 
 Dependencies to non-planets
 ------------------
+2019-03-07
+
+
 
 So far, we've assumed that a dependency is a dependency to a planet.
 
@@ -509,6 +531,8 @@ When a non-planet dependency is imported, it's imported in a special **universe-
 
 The planet structure
 ====================
+2019-03-07
+
 
 As we've seen earlier, the planet is represented by a directory in the filesystem.
 
@@ -521,6 +545,8 @@ However to be a planet, this directory needs two special files:
 
 meta-info.byml
 -------------------
+2019-03-07
+
 
 The **meta-info.byml** file is a [babyYaml](https://github.com/lingtalfi/BabyYaml) file containing meta information about your **planet**.
 
@@ -541,6 +567,9 @@ The version number is used by **Uni2** tool to upgrade/not upgrade a **planet** 
 
 dependencies.byml
 -----------------
+2019-03-07 -> 2020-06-25
+
+
 
 The **dependencies.byml** file is only required if your **planet** has dependencies to other items.
 
@@ -570,7 +599,7 @@ is always the planet short name.
 
 The **post_install** section contains directives to execute after the dependencies have been imported.
 
-See the original [dependencies system page](#https://github.com/lingtalfi/TheScientist/blob/master/universe-dependencies-2019.md) for more info.
+See the original [dependencies system page](https://github.com/lingtalfi/TheScientist/blob/master/universe-dependencies-2019.md) for more info.
 
 
 Here is the formal notation for the stucture of the **dependencies.byml** file:
@@ -598,6 +627,18 @@ dependencies:
 
 post_install: []
 ```
+
+And here is an example of the **Updf** planet's dependency file, which use post_install directives to install the external tcpdf library via composer:
+
+
+```yaml
+dependencies: []
+post_install:
+    composer:
+        - require tecnickcom/tcpdf
+```
+
+
 
 
 The post_install array looks like this:
@@ -629,11 +670,15 @@ The work around I found in this case was simply to retry until it works (general
 
 The local server
 =================
+2019-03-07
 
 
 
 Introducing the local server
 -------------------
+2019-03-07
+
+
 
 The local server serves as a cache for the universe dependencies.
 
@@ -645,6 +690,9 @@ This yields much faster imports.
 
 The local server on your machine
 -----------------
+2019-03-07
+
+
 
 
 The local server is just an empty directory at first.
@@ -696,6 +744,9 @@ The storing scheme used by the local server is the following:
 
 The Uni2 configuration
 =====================
+2019-03-07
+
+
 
 The Uni2 tool has its own configuration.
 
@@ -730,6 +781,8 @@ So for instance you can de-activate the local server completely by setting the *
 
 The local server section
 ------------------
+2019-03-07
+
 
 This section configures the [local server](#the-local-server).
 
@@ -745,6 +798,9 @@ Note: the root_dir must be set before the local server is activated.
 
 The automatic updates section
 ----------------
+2019-03-07
+
+
 
 This section defines how and how often the Uni2 planet upgrades itself.
 
@@ -770,6 +826,10 @@ if necessary (meaning if the web version number is greater than the local versio
 
 The clean_items key
 -------------------
+2019-03-07
+
+
+
 
 This key holds the type of files to delete when the **clean** command is executed.
 See the clean command in the [help](#help) for more info.
@@ -793,6 +853,10 @@ So, when you execute the **clean** command, it will remove those files from the 
 
 Dependency systems and importers
 ================
+2019-03-07
+
+
+
 
 A dependency system is actually a dependency download system.
 
@@ -816,6 +880,7 @@ Now the actual object responsible for the downloading is called an importer.
 
 Package import name vs package symbolic name
 --------------
+2019-03-07 -> 2020-06-25
 
 An importer has also other responsibilities, like returning the **package symbolic name** out of a **package import name**.
 
@@ -823,7 +888,7 @@ An importer has also other responsibilities, like returning the **package symbol
 The **package import name** is a fancy word to designate the "name" of the package to import, and the **dependency system**
 is basically the name of the download technique used to import this package.
 
-If the particular case where the item to download is a planet, the **dependency system** is always the galaxy name,
+In the particular case where the item to download is a planet, the **dependency system** is always the galaxy name,
 and the **package import name** is always the **planet short name**.
 
 Now the **package symbolic name** is the name used by the [local server](#the-local-server) to store the **dependency item**.
@@ -845,6 +910,9 @@ So to recap, a **dependency system importer** is the actual object that download
 
 The dependency master file
 =====================
+2019-03-07
+
+
 
 The **dependency master file** contains all the dependencies of all planets of the universe.
 
@@ -876,6 +944,9 @@ the local **dependency master file** and the web **dependency master file**.
 
 The upgrade system
 =================
+2019-03-07
+
+
 
 The upgrade system is the system that upgrades the Uni2 environment.
 
@@ -896,6 +967,14 @@ When triggered, the upgrade process does the following steps:
 History Log
 =============
 
+- 1.9.4 -- 2020-06-25
+
+    - update documentation
+    
+- 1.9.3 -- 2020-06-25
+
+    - fix link to doc
+    
 - 1.9.2 -- 2019-08-30
 
     - fix typo

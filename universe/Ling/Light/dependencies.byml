@@ -1,7 +1,6 @@
 dependencies: 
     Ling: 
         - Light_Events
-        - Light_ReverseRouter
         - SicTools
         - Bat
         - DirScanner

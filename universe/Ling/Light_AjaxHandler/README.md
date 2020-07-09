@@ -1,6 +1,6 @@
 Light_AjaxHandler
 ===========
-2019-09-19 -> 2020-04-10
+2019-09-19 -> 2020-07-06
 
 
 
@@ -32,6 +32,7 @@ Summary
 - Pages
     - [Conception notes](https://github.com/lingtalfi/Light_AjaxHandler/blob/master/doc/pages/conception-notes.md)
     - [Events](https://github.com/lingtalfi/Light_AjaxHandler/blob/master/doc/pages/events.md)
+    - [ajax light communication protocol](https://github.com/lingtalfi/Light_AjaxHandler/blob/master/doc/pages/ajax-light-communication-protocol.md)
 - [Services](#services)
 
 
@@ -79,7 +80,19 @@ $easy_route.methods_collection:
 History Log
 =============
     
---- 2.0.0 -- 2020-04-10
+- 2.1.1 -- 2020-07-06
+
+    - fix BaseLightAjaxHandler->handle not allowing csrf_token param to be passed via GET
+    
+- 2.1.0 -- 2020-07-06
+
+    - fix LightAjaxHandlerService->handle not allowing main params passed via GET
+    
+- 2.0.1 -- 2020-06-04
+
+    - update README.md add link to ajax light communication protocol
+    
+- 2.0.0 -- 2020-06-04
 
     - new api 
     

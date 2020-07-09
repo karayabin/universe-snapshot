@@ -4,7 +4,7 @@
 
 The LightFileLoggerListener class
 ================
-2019-08-01 --> 2020-01-08
+2019-08-01 --> 2020-06-18
 
 
 
@@ -15,6 +15,12 @@ Introduction
 ============
 
 The LightFileLoggerListener class is a simple logger listener which writes the log messages to a specified file.
+
+
+The file path can contain the following tags:
+
+- {date}: the date in mysql format (i.e. 2020-06-01)
+
 
 When the file size get bigger than a certain threshold, the file is rotated (copied to an archive file,
 and the original file is emptied so that we can log new messages into it again).
@@ -72,7 +78,7 @@ class <span class="pl-k">LightFileLoggerListener</span> extends [BaseLoggerListe
     - public [__construct](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Listener/LightFileLoggerListener/__construct.md)() : void
     - public [configure](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Listener/LightFileLoggerListener/configure.md)(array $options) : void
     - public [listen](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Listener/LightFileLoggerListener/listen.md)($msg, string $channel) : void
-    - protected [getFileFormat](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Listener/LightFileLoggerListener/getFileFormat.md)() : string
+    - protected [getFileFormat](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Listener/LightFileLoggerListener/getFileFormat.md)(string $filePath) : string
 
 - Inherited methods
     - protected [BaseLoggerListener::getFormattedMessage](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Listener/BaseLoggerListener/getFormattedMessage.md)(string $channel, $msg) : string
@@ -192,4 +198,4 @@ See the source code of [Ling\Light_Logger\Listener\LightFileLoggerListener](http
 
 SeeAlso
 ==============
-Previous class: [BaseLoggerListener](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Listener/BaseLoggerListener.md)<br>Next class: [LightLastMessageFileLoggerListener](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Listener/LightLastMessageFileLoggerListener.md)<br>
+Previous class: [LightCleanableFileLoggerListener](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Listener/LightCleanableFileLoggerListener.md)<br>Next class: [LightLastMessageFileLoggerListener](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Listener/LightLastMessageFileLoggerListener.md)<br>

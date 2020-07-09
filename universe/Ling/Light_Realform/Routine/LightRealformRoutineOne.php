@@ -8,6 +8,7 @@ use Ling\Bat\ArrayTool;
 use Ling\Chloroform\Form\Chloroform;
 use Ling\Chloroform\FormNotification\ErrorFormNotification;
 use Ling\Light\Events\LightEvent;
+use Ling\Light\Http\HttpResponseInterface;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
 use Ling\Light_DatabaseInfo\Service\LightDatabaseInfoService;
 use Ling\Light_Events\Service\LightEventsService;
@@ -58,7 +59,9 @@ class LightRealformRoutineOne
      *
      * - an @page(iframe signal) is triggered (if defined in the options)
      * - the posted data are handled using the on_success_handler (defined by the realform configuration),
-     *              and a success callback can also be triggered (if defined in the options)
+     *              and a success callback can also be triggered (if defined in the options).
+     *              That success callback (from the options) can return a http response to use directly.
+     *
      *
      *
      *
@@ -77,10 +80,10 @@ class LightRealformRoutineOne
      * @param string $realformIdentifier
      * @param string $table
      * @param array $options
-     * @return Chloroform
+     * @return Chloroform|HttpResponseInterface
      * @throws \Exception
      */
-    public function processForm(string $realformIdentifier, string $table, array $options = []): Chloroform
+    public function processForm(string $realformIdentifier, string $table, array $options = [])
     {
 
         $iframeSignal = $options['iframeSignal'] ?? null;
@@ -251,7 +254,10 @@ class LightRealformRoutineOne
 
 
                         if (is_callable($onSuccess)) {
-                            $onSuccess();
+                            $res = $onSuccess();
+                            if($res instanceof HttpResponseInterface){
+                                return $res;
+                            }
                         }
                     }
                 }

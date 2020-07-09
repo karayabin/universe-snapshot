@@ -4,7 +4,7 @@
 
 The Light_PluginDatabaseInstallerDocBuilder class
 ================
-2019-03-13 --> 2020-04-15
+2019-03-13 --> 2020-06-29
 
 
 

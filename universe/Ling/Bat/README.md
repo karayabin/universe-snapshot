@@ -1,6 +1,6 @@
 Bat
 ==========
-2015-10-07 --> 2020-04-20
+2015-10-07 --> 2020-07-03
 
 
 
@@ -85,6 +85,62 @@ Dependencies
 
 History Log
 ------------------
+    
+- 1.243 -- 2020-07-03
+
+    - fix CaseTool::toVariableName returning wrong case
+    
+- 1.242 -- 2020-07-03
+
+    - add CaseTool::toVariableName method
+    
+- 1.241 -- 2020-07-03
+
+    - add CaseTool::toHumanFlatCase method
+    
+- 1.240 -- 2020-07-02
+
+    - add ArrayTool::arrayWalkKeysRecursive method
+    
+- 1.239 -- 2020-06-29
+
+    - add ArrayTool::arrayWalkKeys method
+    
+- 1.238 -- 2020-06-29
+
+    - update ArrayTool::arrayKeyExistAll, add missingKeys parameter
+    
+- 1.237 -- 2020-06-11
+
+    - add ArrayTool::isIdentical
+    
+- 1.236 -- 2020-06-11
+
+    - add ArrayTool::hasSameValues
+        
+- 1.235 -- 2020-06-08
+
+    - update HashTool::getHashByFile, now returns file if the file doesn't exist instead of throwing an exception
+    
+- 1.234 -- 2020-06-08
+
+    - add HashTool::getHashByFile method
+    
+- 1.233 -- 2020-06-02
+
+    - add FileSystemTool::isEmptyDir and cleanDir methods
+    
+- 1.232 -- 2020-06-01
+
+    - add ConsoleTool::getUserHomeDirectory method
+    
+- 1.231 -- 2020-06-01
+
+    - add ConvertTool::getPhpErrorLabel method
+    
+- 1.230 -- 2020-05-13
+
+    - fix UriTool::getParams not returning an array in some cases.
     
 - 1.229 -- 2020-04-20
 

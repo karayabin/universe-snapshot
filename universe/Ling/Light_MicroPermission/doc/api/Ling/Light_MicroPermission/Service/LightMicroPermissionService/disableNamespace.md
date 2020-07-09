@@ -23,6 +23,7 @@ public [LightMicroPermissionService::disableNamespace](https://github.com/lingta
 
 Disable the micro-permission system for the given namespace, so that the
 hasMicroPermission method will always return true for all micro-permissions of that namespace.
+This is mainly use for test purposes.
 
 
 
@@ -50,7 +51,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightMicroPermissionService::disableNamespace](https://github.com/lingtalfi/Light_MicroPermission/blob/master/Service/LightMicroPermissionService.php#L66-L71)
+See the source code for method [LightMicroPermissionService::disableNamespace](https://github.com/lingtalfi/Light_MicroPermission/blob/master/Service/LightMicroPermissionService.php#L67-L72)
 
 
 See Also

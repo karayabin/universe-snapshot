@@ -16,7 +16,7 @@ Description
 ================
 
 
-protected [PostInstallDirectiveHandler::checkType](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/PostInstall/DirectiveHandler/PostInstallDirectiveHandler/checkType.md)(string $thingName, ?$thing, string $expectedType, int $indentLevel, Ling\CliTools\Output\OutputInterface $output) : bool
+protected [PostInstallDirectiveHandler::checkType](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/PostInstall/DirectiveHandler/PostInstallDirectiveHandler/checkType.md)(string $thingName, $thing, string $expectedType, int $indentLevel, Ling\CliTools\Output\OutputInterface $output) : bool
 
 
 
@@ -66,7 +66,7 @@ Returns bool.
 
 Source Code
 ===========
-See the source code for method [PostInstallDirectiveHandler::checkType](https://github.com/lingtalfi/Uni2/blob/master/PostInstall/DirectiveHandler/PostInstallDirectiveHandler.php#L183-L192)
+See the source code for method [PostInstallDirectiveHandler::checkType](https://github.com/lingtalfi/Uni2/blob/master/PostInstall/DirectiveHandler/PostInstallDirectiveHandler.php#L184-L193)
 
 
 See Also

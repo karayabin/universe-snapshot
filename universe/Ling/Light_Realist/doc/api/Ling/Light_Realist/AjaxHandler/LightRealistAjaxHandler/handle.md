@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [LightRealistAjaxHandler::handle](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/AjaxHandler/LightRealistAjaxHandler/handle.md)(string $actionId, array $params) : array
+public [LightRealistAjaxHandler::handle](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/AjaxHandler/LightRealistAjaxHandler/handle.md)(string $action, Ling\Light\Http\HttpRequestInterface $request) : array
 
 
 
@@ -26,8 +26,7 @@ The [realist-tag-transfer protocol](https://github.com/lingtalfi/Light_Realist/b
 
 
 
-Handles the action identified by actionId and params,
-and returns a json array as specified in the [ajax communication protocol](https://github.com/lingtalfi/AjaxCommunicationProtocol).
+Handles the given action and returns an [alcp response](https://github.com/lingtalfi/Light_AjaxHandler/blob/master/doc/pages/ajax-light-communication-protocol.md), or throws an exception in case of problems.
 
 
 
@@ -36,11 +35,11 @@ Parameters
 ================
 
 
-- actionId
+- action
 
     
 
-- params
+- request
 
     
 
@@ -64,7 +63,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightRealistAjaxHandler::handle](https://github.com/lingtalfi/Light_Realist/blob/master/AjaxHandler/LightRealistAjaxHandler.php#L26-L89)
+See the source code for method [LightRealistAjaxHandler::handle](https://github.com/lingtalfi/Light_Realist/blob/master/AjaxHandler/LightRealistAjaxHandler.php#L27-L91)
 
 
 See Also

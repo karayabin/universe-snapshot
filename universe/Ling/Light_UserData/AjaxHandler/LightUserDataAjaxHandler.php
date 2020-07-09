@@ -8,6 +8,10 @@ use Ling\Light\Http\HttpRequestInterface;
 use Ling\Light_AjaxHandler\Handler\BaseLightAjaxHandler;
 use Ling\Light_UserData\Exception\LightUserDataException;
 
+
+/**
+ * The LightUserDataAjaxHandler class.
+ */
 class LightUserDataAjaxHandler extends BaseLightAjaxHandler
 {
 

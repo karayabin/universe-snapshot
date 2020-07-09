@@ -5,12 +5,14 @@ namespace Ling\Light_Kit_Admin\Controller\Tools;
 
 
 use Ling\Bat\SessionTool;
+use Ling\Bat\UriTool;
+use Ling\Light\Http\HttpRequestInterface;
 use Ling\Light\Http\HttpResponseInterface;
 use Ling\Light_CsrfSession\Service\LightCsrfSessionService;
+use Ling\Light_Flasher\Service\LightFlasherService;
 use Ling\Light_Kit\PageConfigurationUpdator\PageConfUpdator;
 use Ling\Light_Kit_Admin\Controller\AdminPageController;
 use Ling\Light_Realform\Routine\LightRealformRoutineTwo;
-use Ling\Light_UserRowRestriction\Service\LightUserRowRestrictionService;
 use Ling\SqlWizard\Tool\SqlWizardGeneralTool;
 
 
@@ -25,10 +27,11 @@ class MultipleFormEditController extends AdminPageController
      *
      *
      *
+     * @param HttpRequestInterface $request
      * @return HttpResponseInterface
      * @throws \Exception
      */
-    public function render(): HttpResponseInterface
+    public function render(HttpRequestInterface $request): HttpResponseInterface
     {
 
         if (
@@ -47,7 +50,6 @@ class MultipleFormEditController extends AdminPageController
             $table = $arr['table'];
             $rics = $arr['rics'];
         }
-
 
         //--------------------------------------------
         // CSRF PROTECTION
@@ -78,12 +80,32 @@ class MultipleFormEditController extends AdminPageController
 
         $routine = new LightRealformRoutineTwo();
         $routine->setContainer($this->getContainer());
-        $form = $routine->processForm($realFormIdentifier, $table, $rics, [
+        $res = $routine->processForm($realFormIdentifier, $table, $rics, [
             'post' => [
                 "table" => $table,
                 "rics" => $rics,
             ],
+            'onSuccess' => function () use ($table, $request) {
+                //--------------------------------------------
+                // REDIRECTING TO THE SAME PAGE
+                //--------------------------------------------
+                /**
+                 * @var $flasher LightFlasherService
+                 */
+                $flasher = $this->getContainer()->get('flasher');
+                $flasher->addFlash($table, "Congrats, the form was successfully processed.");
+                $lightInstance = $this->getLight();
+                $urlParams = $request->getGet();
+                UriTool::randomize($urlParams, '_r');
+                return $this->getRedirectResponseByRoute($lightInstance->getMatchingRoute()['name'], $urlParams);
+            }
         ]);
+
+
+        if ($res instanceof HttpResponseInterface) {
+            return $res;
+        }
+        $form = $res;
 
 
         //--------------------------------------------

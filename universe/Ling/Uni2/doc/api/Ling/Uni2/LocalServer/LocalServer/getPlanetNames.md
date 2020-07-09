@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [LocalServer::getPlanetNames](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/LocalServer/LocalServer/getPlanetNames.md)(array $galaxies, bool $useVersionNumber = false) : array
+public [LocalServer::getPlanetNames](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/LocalServer/LocalServer/getPlanetNames.md)(array $galaxies, ?bool $useVersionNumber = false) : array
 
 
 

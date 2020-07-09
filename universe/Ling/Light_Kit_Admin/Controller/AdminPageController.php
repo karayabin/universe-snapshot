@@ -44,7 +44,12 @@ class AdminPageController extends LightKitAdminController
      */
     public function renderAdminPage(string $page, $params = [], PageConfUpdator $updator = null): HttpResponseInterface
     {
-        $this->checkRight('Light_Kit_Admin.user');
+        $response = $this->checkRight('Light_Kit_Admin.user');
+        if (null !== $response) {
+            return $response; // redirect the user
+        }
+
+
         $user = $this->getUser();
         $user = ArrayTool::objectToArray($user);
         $params['user'] = $user;

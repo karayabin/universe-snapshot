@@ -29,6 +29,7 @@ The options are (all optional):
 - type: string. The possible values are:
      - update: means that the operation is an update for a file that is not registered yet in the vfs (but probably exists
          on the real server)
+- move: bool=false. Whether to move or copy the file from the given path to the destination.
 
 
 
@@ -72,7 +73,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [TemporaryVirtualFileSystem::addEntry](https://github.com/lingtalfi/TemporaryVirtualFileSystem/blob/master/TemporaryVirtualFileSystem.php#L177-L227)
+See the source code for method [TemporaryVirtualFileSystem::addEntry](https://github.com/lingtalfi/TemporaryVirtualFileSystem/blob/master/TemporaryVirtualFileSystem.php#L190-L267)
 
 
 See Also

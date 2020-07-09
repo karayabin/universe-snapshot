@@ -56,7 +56,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [RightsHelper::getGroupedRights](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Rights/RightsHelper.php#L45-L70)
+See the source code for method [RightsHelper::getGroupedRights](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Rights/RightsHelper.php#L101-L126)
 
 
 See Also
@@ -64,5 +64,5 @@ See Also
 
 The [RightsHelper](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Rights/RightsHelper.md) class.
 
-Previous method: [isRoot](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Rights/RightsHelper/isRoot.md)<br>
+Previous method: [hasMicroPermission](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Rights/RightsHelper/hasMicroPermission.md)<br>
 

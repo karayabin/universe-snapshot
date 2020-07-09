@@ -3,6 +3,9 @@ database:
     methods:
         init:
             settings: []
+        setOptions:
+            options:
+                devMode: true
         setContainer:
             container: @container()
 
@@ -19,3 +22,15 @@ database:
 
 
 
+# --------------------------------------
+# hooks
+# --------------------------------------
+$events.methods_collection:
+    -
+        method: registerListener
+        args:
+            events:
+                - Light.on_exception_caught
+            listener:
+                instance: @service(database)
+                callable_method: onExceptionCaught

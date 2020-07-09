@@ -190,6 +190,20 @@ class LightDatabaseInfoService
         return $tables;
     }
 
+    /**
+     * Returns whether the given database contains the given table.
+     * If the database is null, it will be guessed.
+     *
+     * @param string $table
+     * @param string|null $database
+     * @return bool
+     */
+    public function hasTable(string $table, string $database = null): bool
+    {
+        $util = $this->prepareMysqlInfoUtil($database);
+        return $util->hasTable($table);
+    }
+
 
     //--------------------------------------------
     //

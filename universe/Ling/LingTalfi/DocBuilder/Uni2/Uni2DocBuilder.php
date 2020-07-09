@@ -201,6 +201,8 @@ class Uni2DocBuilder
                 "importMode definition" => "$git/doc/pages/import-mode.md",
                 "\"import\" import mode" => "$git/doc/pages/import-mode.md",
                 "\"store\" import mode" => "$git/doc/pages/import-mode.md",
+                "Uni2 documentation" => "https://github.com/lingtalfi/Uni2/blob/master/README.md",
+                "dependency system page" => "https://github.com/lingtalfi/TheScientist/blob/master/universe-dependencies-2019.md",
             ],
             /**
              * An array of external classes to url.

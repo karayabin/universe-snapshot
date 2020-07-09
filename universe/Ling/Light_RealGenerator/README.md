@@ -1,6 +1,6 @@
 Light_RealGenerator
 ===========
-2019-10-24 -> 2020-03-10
+2019-10-24 -> 2020-07-07
 
 
 
@@ -55,6 +55,22 @@ real_generator:
     methods:
         setContainer:
             container: @container()
+
+
+# --------------------------------------
+# hooks
+# --------------------------------------
+$logger.methods_collection:
+    -
+        method: addListener
+        args:
+            channels: real_generator.debug
+            listener:
+                instance: Ling\Light_Logger\Listener\LightCleanableFileLoggerListener
+                methods:
+                    configure:
+                        options:
+                            file: ${app_dir}/log/real_generator_debug.txt
 ```
 
 
@@ -81,6 +97,38 @@ Related
 
 History Log
 =============
+
+- 1.25.0 -- 2020-07-07
+
+    - add create_file and use_create_file directives
+
+- 1.24.1 -- 2020-07-06
+
+    - update configuration block example
+    
+- 1.24.0 -- 2020-07-06
+
+    - update ListConfigGenerator to accommodate new _action dynamic column name
+
+- 1.23.2 -- 2020-07-02
+
+    - fix LightRealGeneratorService->generate not replacing multiple variables in the same string
+    
+- 1.23.1 -- 2020-07-02
+
+    - fix LightRealGeneratorService->generate not replacing string variables correctly
+    
+- 1.23.0 -- 2020-07-02
+
+    - update LightRealGeneratorService, now can use variables to replace keys, and non-scalar are accepted for values replacement 
+    
+- 1.22.0 -- 2020-06-30
+
+    - update generator logs, now uses symbolic path to make it more readable 
+    
+- 1.21.0 -- 2020-06-30
+
+    - update generator, add log system 
 
 - 1.20.0 -- 2020-03-10
 

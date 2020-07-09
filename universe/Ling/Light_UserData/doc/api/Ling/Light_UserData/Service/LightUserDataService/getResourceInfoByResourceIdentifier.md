@@ -25,20 +25,34 @@ Returns an info array matching the file which resourceIdentifier is given.
 
 Throws an exception if the file is private and the user calling the file is not the owner.
 
-The info array is a resource row, with the additional fields added to it:
+The info array contains the following:
 
-- abs_path: absolute path to the file
-- rel_path: relative path to the file (from the user directory).
-- user_identifier: the user identifier
-- original_url: string|false. The url to the original file (which might be saved, or not, depending on the configuration).
-     If no original url was saved, then false is returned.
+- abs_path: string, absolute path to the file
+- rel_path: string, relative path to the file (from the user directory)
+- is_private: bool, whether the file is private
+- original_url: string|null. The url to the original file (which might be saved, or not, depending on the configuration).
+     If no original url was saved, then false is returned
+- date_creation: string, the mysql datetime when the file was first registered in the system. Not available in the virtual machine (at least for now).
+- date_last_update: string, the mysql datetime when the file was last updated in the system. Not available in the virtual machine (at least for now).
+
+
+Also, if the addExtraInfo option (see below) is set to true, the following extra information is returned:
+- tags: array, the tag names bound to the resource
+
+
+
+Personal note: I didnt' include the date_creation and date_last_update info from the virtual machine because I was lazy and I didn't think that was essential:
+my vision is to provide those information in the file manager gui, which does not use the vm. We will see how this evolves in the future, and if the vm
+does need this info.
 
 
 The available options are:
-- addExtraInfo: bool=false. If true, the following entries are added to the returned array:
-     - tags: array of tag names bound to that resource
+- addExtraInfo: bool=false. If true, adds meta information to the returned array (see notes above).
 - original: bool=false. If true, the file paths (absolute and relative) reference the original image rather than the processed one.
      Note: the original image is kept only depending on the plugin configuration.
+- vm: bool=false. Whether to get the information from the virtual machine.
+- onFileNotExistThrowEx: bool=true. If the file does not exist in the file system, by default an exception is thrown.
+     To prevent the throwing of the exception, we can set this flag to false. The abs_path property will then be set to false.
 
 
 
@@ -49,7 +63,7 @@ Parameters
 
 - resourceIdentifier
 
-    
+    The generic resource identifier. See the [related-files.md](https://github.com/lingtalfi/Light_UserData/blob/master/doc/pages/related-files.md) document for more info.
 
 - options
 
@@ -65,8 +79,11 @@ Returns array.
 Exceptions thrown
 ================
 
+- [LightUserDataResourceNotFoundException](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Exception/LightUserDataResourceNotFoundException.md).&nbsp;
+- When the resource is not found
 - [LightUserDataException](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Exception/LightUserDataException.md).&nbsp;
-
+- When the user is not allowed to access the data
+- When the file is missing but the entry exists in the database
 
 
 
@@ -75,7 +92,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::getResourceInfoByResourceIdentifier](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L604-L651)
+See the source code for method [LightUserDataService::getResourceInfoByResourceIdentifier](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L964-L1043)
 
 
 See Also

@@ -134,8 +134,17 @@ class LightAjaxHandlerService
 
         try {
 
-            $handler = $request->getPostValue("handler");
-            $action = $request->getPostValue("action");
+            $handler = $request->getPostValue("handler", false);
+            if (null === $handler) {
+                $handler = $request->getGetValue("handler");
+            }
+
+
+            $action = $request->getPostValue("action", false);
+            if (null === $action) {
+                $action = $request->getGetValue("action");
+            }
+
             $handler = $this->getHandler($handler);
             $response = $handler->handle($action, $request);
 

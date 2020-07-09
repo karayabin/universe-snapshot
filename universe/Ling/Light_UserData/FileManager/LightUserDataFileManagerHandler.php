@@ -4,9 +4,9 @@
 namespace Ling\Light_UserData\FileManager;
 
 
+use Ling\Bat\ConvertTool;
 use Ling\Bat\FileSystemTool;
 use Ling\Bat\UriTool;
-use Ling\CheapLogger\CheapLogger;
 use Ling\Light\Http\HttpRequestInterface;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
 use Ling\Light_UploadGems\GemHelper\GemHelperInterface;
@@ -14,7 +14,6 @@ use Ling\Light_UserData\Exception\LightUserDataFileManagerHandlerException;
 use Ling\Light_UserData\Service\LightUserDataService;
 use Ling\Light_UserData\TemporaryVirtualFileSystem\LightUserDataTemporaryVirtualFileSystem;
 use Ling\Light_ZouUploader\ZouUploader;
-use Ling\TemporaryVirtualFileSystem\TemporaryVirtualFileSystemInterface;
 
 /**
  * The LightUserDataFileManagerHandler class.
@@ -61,6 +60,124 @@ class LightUserDataFileManagerHandler
 
 
     /**
+     * Commits the operations found in the virtual file server.
+     *
+     * @throws \Exception
+     */
+    public function commit()
+    {
+        $contextId = $this->getVirtualServerContextId();
+        $vfs = $this->getVirtualServerInstance();
+        $ops = $vfs->commit($contextId, [
+            "reset" => false,
+        ]);
+
+
+        foreach ($ops as $op) {
+            $type = $op['type'];
+
+
+            switch ($type) {
+                case "add":
+                case "update":
+
+
+                    //--------------------------------------------
+                    // REGULAR
+                    //--------------------------------------------
+                    $resourceId = $op['id'];
+                    $meta = $op['meta'];
+                    $meta['dir'] = $meta['directory'];
+                    $meta['resourceId'] = $resourceId;
+                    $meta['is_private'] = (int)$meta['is_private'];
+                    $hasOriginal = $meta['has_original'] ?? false;
+                    $meta['file_path'] = $op['abs_path'];
+                    if (true === $hasOriginal) {
+                        $meta['original_file_path'] = $meta['original_abs_path'];
+                    }
+                    $this->service->save($meta);
+
+
+                    //--------------------------------------------
+                    // RELATED
+                    //--------------------------------------------
+                    $related = $meta['related'] ?? [];
+
+
+                    /**
+                     * This happens when the user updates an existing file which was not defined in the vfs,
+                     * and the user doesn't update the binary file, but just the meta info such as is_private for instance.
+                     * In this case, the vfs will not provide the necessary/expected related (see the related-files.md for more info) entries
+                     * which would lead to sync problems.
+                     *
+                     * So to fix this, when that happens we recreate the related entries directly from the database,
+                     * so that the logic below still works fine.
+                     */
+                    if ('update' === $type && null === $op['path']) {
+                        $related = [];
+
+
+                        // convert them to vfs format
+                        $dbRelated = $this->service->getFactory()->getResourceApi()->getRelatedByResourceIdentifier($resourceId);
+                        foreach ($dbRelated as $dbRel) {
+                            $related[] = [
+                                "directory" => $dbRel['dir'],
+                                "filename" => $dbRel['filename'],
+                                "abs_path" => null,
+                            ];
+                        }
+
+                    }
+
+
+                    if ($related) {
+                        foreach ($related as $index => $item) {
+                            $relatedMeta = $meta;
+                            unset($relatedMeta['original_file_path']);
+                            $relatedMeta['dir'] = $item['directory'];
+                            $relatedMeta['filename'] = $item['filename'];
+                            $relatedMeta['resourceId'] = $resourceId . '-' . $index;
+                            $relatedMeta['has_original'] = false;
+                            $relatedMeta['file_path'] = $item['abs_path'];
+                            $this->service->save($relatedMeta);
+                        }
+                    }
+
+
+                    break;
+                case 'remove':
+                    /**
+                     * We want to:
+                     * - remove the entries from the database
+                     * - remove the files from the filesystem
+                     */
+
+                    //--------------------------------------------
+                    // remove entries in the database
+                    //--------------------------------------------
+                    $resourceId = $op['id'];
+                    $rows = $this->service->getFactory()->getResourceApi()->getSourceAndRelatedByResourceIdentifier($resourceId);
+                    $ids = [];
+                    foreach ($rows as $row) {
+                        $ids[] = $row['id'];
+                    }
+                    $this->service->getFactory()->getResourceApi()->deleteResourceByIds($ids);;
+
+
+                    //--------------------------------------------
+                    // remove files from the file system
+                    //--------------------------------------------
+                    $this->service->removeAllFilesByResourceIdentifier($resourceId);
+                    break;
+                default:
+                    $this->error("Unknown operation type: \"$type\".");
+                    break;
+            }
+        }
+        $vfs->reset($contextId);
+    }
+
+    /**
      * Handles the given @page(file manager protocol) action, and returns the appropriate response.
      *
      * Or throws an exception in case of error.
@@ -79,9 +196,7 @@ class LightUserDataFileManagerHandler
 
         switch ($action) {
             case "reset":
-
-                $configId = $request->getPostValue("configId");
-                $contextId = $this->getVirtualServerContextId($configId);
+                $contextId = $this->getVirtualServerContextId();
                 $vfs = $this->getVirtualServerInstance();
                 $vfs->reset($contextId);
 
@@ -99,17 +214,20 @@ class LightUserDataFileManagerHandler
 
                 if (true === $isVirtual) {
                     $resourceId = $this->service->getIdentifierByUrl($url);
-
-                    $contextId = $this->getVirtualServerContextId($configId);
+                    $contextId = $this->getVirtualServerContextId();
                     $vfs = $this->getVirtualServerInstance();
                     $vfs->remove($contextId, $resourceId);
 
                 } else {
-                    $this->error("not handled yet with real server.");
+                    $this->service->removeResourceByUrl($url);
                 }
                 break;
             case "add":
             case "update":
+
+
+                $user = $this->service->getValidWebsiteUser();
+
 
                 // part of the file manager protocol response...
                 $success['is_fully_uploaded'] = 0;
@@ -121,43 +239,124 @@ class LightUserDataFileManagerHandler
 
                 // get all mandatory properties first
                 $configId = $request->getPostValue("configId");
-                $phpFile = $request->getFilesValue("file");
+                $phpFile = $request->getFilesValue("file", false) ?? null;
                 $gemService = $this->container->get("upload_gems");
                 $gemHelper = $gemService->getHelper($configId);
+                $config = $gemHelper->getCustomConfig();
+                $useVfs = $config['useVfs'] ?? false;
+
+
+                //--------------------------------------------
+                // EARLY MAX CAPACITY CHECK
+                //--------------------------------------------
+                /**
+                 * We need to do this to avoid the following problem:
+                 * a user keeps uploading chunks with different names every time, thus trying to upload more
+                 * than the allowed max file size (if we didn't check the max file size before every chunk is uploaded).
+                 */
+                if (false === $useVfs) {
+                    $maxBytes = $this->service->getMaximumCapacityByUser($user);
+                    $prodBytes = $this->service->getCurrentCapacityByUser($user);
+                    if ($prodBytes > $maxBytes) {
+                        $this->error("Maximum storage capacity limit reached (" . ConvertTool::convertBytes($maxBytes, "h") . "). Please remove some files on your account before uploading new ones.");
+                    }
+
+                }
+
+
                 $url = null;
                 if ("update" === $action) {
                     $url = $request->getPostValue("url");
+                } else {
+                    if (null === $phpFile) {
+                        $this->error("With the add action, the file parameter is mandatory.");
+                    }
                 }
 
 
                 //--------------------------------------------
                 // FILENAME BASED VALIDATION
                 //--------------------------------------------
-                $filename = $request->getPostValue("filename", false) ?? $phpFile['name'];
+                $filename = $request->getPostValue("filename", false);
+                if (null === $filename && 'add' === $action) {
+                    $filename = $phpFile['name'];
+                }
+
                 $filename = $gemHelper->applyNameTransform($filename);
                 $res = $gemHelper->applyNameValidation($filename);
-                if (false === $res) {
+                if (is_string($res)) {
                     $this->error($res);
                 }
+
+
+                //--------------------------------------------
+                // CHUNK VALIDATION
+                //--------------------------------------------
+                if (null !== $phpFile) {
+                    $res = $gemHelper->applyChunkValidation($phpFile['tmp_name']);
+                    if (is_string($res)) {
+                        $this->error($res);
+                    }
+                }
+
 
                 //--------------------------------------------
                 // WAIT UNTIL THE FILE IS UPLOADED..
                 //--------------------------------------------
-                $uploadedFile = FileSystemTool::mkTmpFile("", '');
-                $zou = new ZouUploader();
-                $zou->setOptions([
-                    "override" => true,
-                ]);
-                $zou->setDestinationPath($uploadedFile);
-
-                if (true === $zou->isUploaded($request)) {
+                $hasFileAttached = (null !== $phpFile);
 
 
-                    $config = $gemHelper->getCustomConfig();
+                if (true === $hasFileAttached) {
+
+                    $userId = $user->getIdentifier();
+                    $uploadedFile = sys_get_temp_dir() . "/LightUserDataFileManagerHandler-$userId-$configId";
+                    $zou = new ZouUploader();
+                    $zou->setOptions([
+                        "override" => true,
+                    ]);
+                    $zou->setDestinationPath($uploadedFile);
+                } else {
+                    $uploadedFile = null;
+                }
+
+                if (false === $hasFileAttached || true === $zou->isUploaded($request)) {
+
+
+                    //--------------------------------------------
+                    // FILE VALIDATION
+                    //--------------------------------------------
+                    if (null !== $uploadedFile) {
+                        $ret = $gemHelper->applyValidation($uploadedFile);
+                        if (is_string($ret)) {
+                            unlink($uploadedFile);
+                            $this->error($ret);
+                        }
+                    }
 
 
                     $relPath = $this->getDestinationPath($request, $gemHelper);
-                    $useVfs = $config['useVfs'] ?? false;
+
+
+                    // generic vars
+                    $acceptKeepOriginal = $config['acceptKeepOriginal'];
+                    $keepOriginal = (bool)$request->getPostValue("keep_original", false);
+                    $willKeepOriginal = (true === $acceptKeepOriginal && true === $keepOriginal);
+
+
+                    $tags = $request->getPostValue("tags", false) ?? [];
+                    if ('' === $tags) {
+                        $tags = [];
+                    }
+
+
+                    $filename = basename($relPath);
+                    $directory = dirname($relPath);
+                    $meta = [
+                        "filename" => $filename,
+                        "directory" => $directory,
+                        "tags" => $tags,
+                        "is_private" => (bool)$request->getPostValue("is_private", false),
+                    ];
 
 
                     if (true === $useVfs)
@@ -166,57 +365,102 @@ class LightUserDataFileManagerHandler
                         //--------------------------------------------
                     {
 
-                        $contextId = $this->getVirtualServerContextId($configId);
+                        $contextId = $this->getVirtualServerContextId();
                         $vfs = $this->getVirtualServerInstance();
 
 
-                        $tags = $request->getPostValue("tags", false) ?? [];
+                        //--------------------------------------------
+                        // QUICK/DIRTY MAX CAPACITY ESTIMATION
+                        //--------------------------------------------
+                        if (null !== $uploadedFile) {
+                            $vfsBytes = $vfs->getCurrentCapacity($contextId, ['add' => true]);
+                            $maxBytes = $this->service->getMaximumCapacityByUser($user);
+                            $prodBytes = $this->service->getCurrentCapacityByUser($user);
+                            $curBytes = $vfsBytes + $prodBytes;
+                            if (false !== ($fileBytes = filesize($uploadedFile))) {
+                                $curBytes += $fileBytes;
+                            }
+                            if ($curBytes >= $maxBytes) {
+                                $currentHuman = ConvertTool::convertBytes($vfsBytes + $prodBytes, 'h');
+                                $maxHuman = ConvertTool::convertBytes($maxBytes, 'h');
+                                $fileHuman = ConvertTool::convertBytes($fileBytes, 'h');
+                                $this->error("Max capacity reached. Your current directory contains $currentHuman of data, and you're trying to upload a file that weights $fileHuman, but your maximum allowed capacity is $maxHuman. Please consider removing some files, or uploading a lighter file.");
+                                unlink($uploadedFile);
+                            }
+                        }
 
 
-
-                        $filename = basename($relPath);
-                        $directory = dirname($relPath);
-                        $meta = [
-                            "filename" => $filename,
-                            "directory" => $directory,
-                            "tags" => $tags,
-                            "is_private" => (bool)$request->getPostValue("is_private", false),
+                        $options = [
+                            "keepOriginal" => $willKeepOriginal,
+                            "move" => true,
+                            "gemHelper" => $gemHelper,
                         ];
 
-
+                        //--------------------------------------------
+                        // ACTION ADD
+                        //--------------------------------------------
                         if ('add' === $action) {
 
-                            $options = [
-                                "keepOriginal" => $config['keepOriginal'] ?? false,
-                                "move" => true,
-                            ];
 
                             $ret = $vfs->add($contextId, $uploadedFile, $meta, $options);
-
-
-                            /**
-                             * Todo: apply copies...
-                             * Todo: apply copies...
-                             * Todo: apply copies...
-                             * Todo: apply copies...
-                             * Todo: apply copies...
-                             */
-
+                            $url = UriTool::appendParams($this->service->getResourceUrlByResourceIdentifier($ret['id']), [
+//                                "c" => $configId,
+                            ]);
+                            $originalUrl = null;
+                            $hasOriginal = $ret['meta']['has_original'] ?? false;
+                            if (true === $hasOriginal) {
+                                $originalUrl = UriTool::appendParams($url, [
+                                    'o' => 1,
+                                ]);
+                            }
 
                             $_success = [
                                 "is_fully_uploaded" => 1,
-                                "url" => UriTool::appendParams($this->service->getResourceUrlByResourceIdentifier($ret['id']), [
-                                    "c" => $configId,
-                                ]),
+                                "url" => $url,
+
                                 "filename" => $ret['meta']['filename'],
                                 "directory" => $ret['meta']['directory'],
                                 "tags" => $ret['meta']['tags'],
                                 "is_private" => (int)$ret['meta']['is_private'],
+                                "original_url" => $originalUrl,
                             ];
-                        } else // action = update
-                        {
-                            $fileId = $this->service->getIdentifierByUrl($url);
-                            $vfs->update($contextId, $fileId, $uploadedFile, $meta);
+                        } else {
+                            //--------------------------------------------
+                            // ACTION UPDATE
+                            //--------------------------------------------
+                            $fileId = $this->service->getIdentifierByUrl($url, false);
+
+                            /**
+                             * support for external urls.
+                             * Note that the file must be provided to claim that support.
+                             */
+                            if (false === $fileId) {
+                                $fileId = $this->service->getNewResourceIdentifier();
+                            }
+
+                            $ret = $vfs->update($contextId, $fileId, $uploadedFile, $meta, $options);
+
+                            $url = UriTool::appendParams($this->service->getResourceUrlByResourceIdentifier($ret['id']), [
+//                                "c" => $configId,
+                            ]);
+                            $originalUrl = null;
+                            $hasOriginal = $ret['meta']['has_original'] ?? false;
+                            if (true === $hasOriginal) {
+                                $originalUrl = UriTool::appendParams($url, [
+                                    'o' => 1,
+                                ]);
+                            }
+
+
+                            $_success = [
+                                "is_fully_uploaded" => 1,
+                                "url" => $url,
+                                "filename" => $ret['meta']['filename'],
+                                "directory" => $ret['meta']['directory'],
+                                "tags" => $ret['meta']['tags'],
+                                "is_private" => (int)$ret['meta']['is_private'],
+                                "original_url" => $originalUrl,
+                            ];
                         }
 
 
@@ -227,7 +471,90 @@ class LightUserDataFileManagerHandler
                     {
 
 
-                        $this->error("This is not implemented yet: regular system.");
+                        if ('update' === $action) {
+                            $resourceId = $this->service->getIdentifierByUrl($url);
+                            $meta['resourceId'] = $resourceId;
+                        } else {
+                            if (false === $hasFileAttached) {
+                                $this->error("No file provided with the add action.");
+                            }
+                        }
+
+
+                        $meta['file_path'] = $uploadedFile;
+
+
+                        $ret = $this->service->save($meta, [
+                            'keep_original' => $willKeepOriginal,
+                        ]);
+
+
+                        //--------------------------------------------
+                        // RELATED
+                        //--------------------------------------------
+                        $userDir = $this->service->getUserDir();
+                        $info = $this->service->getResourceInfoByResourceIdentifier($ret['resource_identifier']);
+                        $absPath = $info['abs_path'];
+                        $prefixDir = $userDir . "/files/";
+                        $resourceId = $ret['resource_identifier'];
+                        $relatedFilesDir = $userDir . "/files/" . $resourceId . "-";
+
+                        $gemHelper->applyCopies($absPath, [
+                            'onBeforeCopy' => function () use ($relatedFilesDir) {
+                                FileSystemTool::remove($relatedFilesDir);
+                            },
+                            'onDstReady' => function (&$dst, $copyIndex, $copyItem) use ($absPath, $prefixDir, $relatedFilesDir, $resourceId, $meta) {
+
+
+                                $p = explode($prefixDir, $dst);
+                                if (2 === count($p)) {
+
+
+                                    $path = array_pop($p);
+
+                                    $dirname = $copyItem['dir'] ?? dirname($path);
+                                    $filename = $copyItem['filename'] ?? basename($path);
+
+
+                                    $copyMeta = $meta;
+                                    $copyMeta["resourceId"] = $resourceId . "-" . $copyIndex;
+                                    $copyMeta["filename"] = $filename;
+                                    $copyMeta["dir"] = $dirname;
+                                    $copyMeta["file_path"] = $dst;
+                                    $this->service->save($copyMeta, [
+                                        'check_msc' => false,
+                                        'treat_file' => false,
+                                    ]);
+                                    $dst = $relatedFilesDir . "/$copyIndex";
+
+                                } else {
+                                    $this->error("The copy does not seem to be located under the server's files directory, resourceId=$resourceId, copy index=$copyIndex.");
+                                }
+
+                            }
+                        ]);
+
+
+                        $url = $this->service->getResourceUrlByResourceIdentifier($ret['resource_identifier']);
+                        $originalUrl = null;
+                        $originalFile = $userDir . "/original/" . $ret['resource_identifier'];
+                        if (file_exists($originalFile)) {
+                            $originalUrl = UriTool::appendParams($url, [
+                                'o' => 1,
+                            ]);
+                        }
+
+                        $_success = [
+                            "is_fully_uploaded" => 1,
+                            "url" => $url,
+
+                            "filename" => $ret['filename'],
+                            "directory" => $ret['dir'],
+                            "tags" => $ret['tags'],
+                            "is_private" => (int)$ret['is_private'],
+                            "original_url" => $originalUrl,
+                        ];
+
                     }
 
 
@@ -239,7 +566,7 @@ class LightUserDataFileManagerHandler
                 /**
                  * Remove the tmp file.
                  */
-                if (file_exists($uploadedFile)) {
+                if (true === $hasFileAttached && file_exists($uploadedFile)) {
                     unlink($uploadedFile);
                 }
 
@@ -269,30 +596,42 @@ class LightUserDataFileManagerHandler
      *
      *
      * @param string $resourceId
-     * @param string $configId
      * @param array $options
      */
-    public function getResourceInfoFromVirtualMachine(string $resourceId, string $configId, array $options = [])
+    public function getResourceInfoFromVirtualMachine(string $resourceId, array $options = [])
     {
-        /**
-         * todo: original option.
-         */
+
         $addExtraInfo = (bool)($options['addExtraInfo'] ?? false);
+        $useOriginal = $options['original'] ?? false;
 
 
-        $contextId = $this->getVirtualServerContextId($configId);
+        $contextId = $this->getVirtualServerContextId();
         $vfs = $this->getVirtualServerInstance();
-        $vmInfo = $vfs->get($contextId, $resourceId, ['realpath' => true]);
+        $vmInfo = $vfs->get($contextId, $resourceId, [
+            'realpath' => true,
+            'original' => $useOriginal,
+        ]);
         $absPath = $vmInfo['realpath'];
         $meta = $vmInfo['meta'];
+
+
         $relPath = $meta['directory'] . "/" . $meta['filename'];
         $ret = [
             'abs_path' => $absPath,
             'rel_path' => $relPath,
         ];
+        $ret['is_private'] = $meta['is_private'];
+        $hasOriginal = $ret['meta']['has_original'] ?? false;
+        if (true === $hasOriginal) {
+            $ret['original_url'] = UriTool::appendParams($this->service->getResourceUrlByResourceIdentifier($resourceId), [
+                'o' => 1,
+            ]);
+        } else {
+            $ret['original_url'] = null;
+        }
+
+
         if (true === $addExtraInfo) {
-            $ret['is_private'] = $meta['is_private'];
-            $ret['original_url'] = false;
             $ret['tags'] = $meta['tags'];
         }
         return $ret;
@@ -318,13 +657,23 @@ class LightUserDataFileManagerHandler
 
 
         if (false !== strpos($path, '{filename}')) {
-            $phpFile = $request->getFilesValue("file");
-            $filename = $request->getPostValue("filename", false) ?? $phpFile['name'];
+            $phpFile = $request->getFilesValue("file", false);
+            $filename = $request->getPostValue("filename", false);
+            if (null === $filename && null !== $phpFile) {
+                $filename = $phpFile['name'];
+
+            }
+            if (null === $filename) {
+                $this->error("filename not defined.");
+            }
             $filename = $helper->applyNameTransform($filename);
 
-            if (false === FileSystemTool::isValidFilename($filename)) {
-                $this->error("Invalid filename: \"$filename\".");
-            }
+            /**
+             * Not required since we use a flat filesystem
+             */
+//            if (false === FileSystemTool::isValidFilename($filename)) {
+//                $this->error("Invalid filename: \"$filename\".");
+//            }
 
         }
         return str_replace([
@@ -353,10 +702,10 @@ class LightUserDataFileManagerHandler
     /**
      * Returns a vfs instance.
      *
-     * @return TemporaryVirtualFileSystemInterface
+     * @return LightUserDataTemporaryVirtualFileSystem
      * @throws \Exception
      */
-    private function getVirtualServerInstance(): TemporaryVirtualFileSystemInterface
+    private function getVirtualServerInstance(): LightUserDataTemporaryVirtualFileSystem
     {
         $o = new LightUserDataTemporaryVirtualFileSystem();
         $o->setContainer($this->container);
@@ -368,13 +717,11 @@ class LightUserDataFileManagerHandler
     /**
      * Returns the context id for the vfs.
      *
-     * @param string $configId
      * @return string
      * @throws \Exception
      */
-    private function getVirtualServerContextId(string $configId)
+    private function getVirtualServerContextId()
     {
-        $userId = $this->container->get("user_data")->getValidWebsiteUser()->getIdentifier();
-        return $userId . "-" . $configId;
+        return $this->container->get("user_data")->getValidWebsiteUser()->getIdentifier();
     }
 }

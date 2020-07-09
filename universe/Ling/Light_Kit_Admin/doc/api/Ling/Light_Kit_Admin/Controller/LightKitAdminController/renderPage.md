@@ -7,7 +7,7 @@ LightKitAdminController::renderPage
 
 
 
-LightKitAdminController::renderPage — Renders the given page using the [kit service](https://github.com/lingtalfi/Light_Kit_Admin).
+LightKitAdminController::renderPage — Renders the given page using the [kit service](https://github.com/lingtalfi/Light_Kit).
 
 
 
@@ -21,7 +21,7 @@ public [LightKitAdminController::renderPage](https://github.com/lingtalfi/Light_
 
 
 
-Renders the given page using the [kit service](https://github.com/lingtalfi/Light_Kit_Admin).
+Renders the given page using the [kit service](https://github.com/lingtalfi/Light_Kit).
 
 
 
@@ -62,7 +62,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightKitAdminController::renderPage](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Controller/LightKitAdminController.php#L105-L143)
+See the source code for method [LightKitAdminController::renderPage](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Controller/LightKitAdminController.php#L110-L148)
 
 
 See Also
@@ -70,5 +70,5 @@ See Also
 
 The [LightKitAdminController](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController.md) class.
 
-Previous method: [getUser](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController/getUser.md)<br>Next method: [redirectByRoute](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController/redirectByRoute.md)<br>
+Previous method: [getUser](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController/getUser.md)<br>Next method: [getRedirectResponseByRoute](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController/getRedirectResponseByRoute.md)<br>
 

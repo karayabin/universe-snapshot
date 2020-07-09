@@ -8,12 +8,14 @@ use Ling\ArrayToString\ArrayToStringTool;
 use Ling\Bat\ArrayTool;
 use Ling\Light\Events\LightEvent;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
+use Ling\Light_Database\Service\LightDatabaseService;
 use Ling\Light_Events\Service\LightEventsService;
 use Ling\Light_PasswordProtector\Service\LightPasswordProtector;
 use Ling\Light_PluginInstaller\PluginInstaller\PluginInstallerInterface;
 use Ling\Light_PluginInstaller\Service\LightPluginInstallerService;
-use Ling\Light_UserDatabase\Api\Mysql\LightUserDatabaseApiFactory;
+use Ling\Light_UserDatabase\Api\Custom\CustomLightUserDatabaseApiFactory;
 use Ling\Light_UserDatabase\Exception\LightUserDatabaseException;
+use Ling\SimplePdoWrapper\Util\Where;
 use Ling\SqlWizard\Tool\MysqlSerializeTool;
 
 /**
@@ -30,7 +32,7 @@ use Ling\SqlWizard\Tool\MysqlSerializeTool;
  *
  *
  */
-class MysqlLightWebsiteUserDatabase extends LightUserDatabaseApiFactory implements LightWebsiteUserDatabaseInterface, PluginInstallerInterface
+class MysqlLightWebsiteUserDatabase implements LightWebsiteUserDatabaseInterface, PluginInstallerInterface
 {
 
 
@@ -55,6 +57,12 @@ class MysqlLightWebsiteUserDatabase extends LightUserDatabaseApiFactory implemen
      * @var string = root
      */
     protected $root_password;
+
+    /**
+     * This property holds the root_email for this instance.
+     * @var string = root@app.com
+     */
+    protected $root_email;
 
 
     /**
@@ -92,6 +100,29 @@ class MysqlLightWebsiteUserDatabase extends LightUserDatabaseApiFactory implemen
 
 
     /**
+     * This property holds the container for this instance.
+     * @var LightServiceContainerInterface
+     */
+    protected $container;
+
+
+    /**
+     * This property holds the pdoWrapper for this instance.
+     * @var LightDatabaseService
+     */
+    protected $pdoWrapper;
+
+
+    /**
+     * This property holds the factory for this instance.
+     * @var CustomLightUserDatabaseApiFactory
+     */
+    private $factory;
+
+
+
+
+    /**
      * This property holds the name table containing all the users.
      *
      * @var string = lud_user
@@ -104,19 +135,12 @@ class MysqlLightWebsiteUserDatabase extends LightUserDatabaseApiFactory implemen
      */
     private $isInstallMode;
 
-    /**
-     * This property holds the forceInstall for this instance.
-     * @var bool = false
-     */
-    private $forceInstall;
-
 
     /**
      * Builds the MysqlLightUserDatabase instance.
      */
     public function __construct()
     {
-        parent::__construct();
 
         $this->database = null;
         $this->table = "lud_user";
@@ -124,20 +148,16 @@ class MysqlLightWebsiteUserDatabase extends LightUserDatabaseApiFactory implemen
         $this->root_identifier = "root";
         $this->root_password = "root";
         $this->root_pseudo = "root";
+        $this->root_email = "root@app.com";
         $this->root_avatar_url = "";
         $this->root_extra = [];
         $this->passwordProtector = null;
         $this->isInstallMode = false;
-        $this->forceInstall = false;
-    }
 
-    /**
-     * @overrides
-     */
-    public function setContainer(LightServiceContainerInterface $container)
-    {
-        $this->container = $container;
-        $this->pdoWrapper = $container->get("database");
+
+        $this->factory = null;
+        $this->container = null;
+        $this->pdoWrapper = null;
     }
 
     //--------------------------------------------
@@ -175,7 +195,7 @@ class MysqlLightWebsiteUserDatabase extends LightUserDatabaseApiFactory implemen
             //--------------------------------------------
             // ADDING PERMISSIONS TO THE USER INFO ARRAY
             //--------------------------------------------
-            $rights = $this->getPermissionApi()->getPermissionNamesByUserId($ret['id']);
+            $rights = $this->getFactory()->getPermissionApi()->getPermissionNamesByUserId($ret['id']);
             if (in_array('*', $rights, true)) {
                 $rights = ["*"];
             }
@@ -223,6 +243,7 @@ class MysqlLightWebsiteUserDatabase extends LightUserDatabaseApiFactory implemen
             "identifier" => "",
             "password" => "",
             "pseudo" => "",
+            "email" => "",
             "avatar_url" => "",
             "extra" => [],
         ];
@@ -357,11 +378,6 @@ class MysqlLightWebsiteUserDatabase extends LightUserDatabaseApiFactory implemen
         return $this->pdoWrapper->fetchAll("select id from $table", [], \PDO::FETCH_COLUMN);
     }
 
-    //--------------------------------------------
-    //
-    //--------------------------------------------
-
-
 
 
 
@@ -374,91 +390,98 @@ class MysqlLightWebsiteUserDatabase extends LightUserDatabaseApiFactory implemen
     public function install()
     {
 
+
+        $createFile = __DIR__ . "/assets/fixtures/recreate-structure.sql";
+
         /**
          * @var $installer LightPluginInstallerService
          */
         $installer = $this->container->get("plugin_installer");
+        $installer->debugLog("user_database: synchronizing tables.");
+        $installer->synchronizeByCreateFile("Light_UserDatabase", $createFile, [
+            "scope" => $this->getScopeTables(),
+        ]);
 
-        if (true === $this->forceInstall || false === $installer->hasTable($this->table)) {
+
+        $this->isInstallMode = true; // we don't want other plugins to hook the new user creation.
+
+//        /**
+//         * We cannot put this statement inside the transaction, because of the mysql implicit commit rule:
+//         * https://dev.mysql.com/doc/refman/8.0/en/implicit-commit.html
+//         */
+//        $res = $this->pdoWrapper->executeStatement(file_get_contents($createFile));
 
 
-            $this->isInstallMode = true; // we don't want other plugins to hook the new user creation.
+        /**
+         * @var $exception \Exception
+         */
+        $exception = null;
+        $installer->debugLog("user_database: adding tables content.");
+        $res = $this->pdoWrapper->transaction(function () {
+
 
             /**
-             * We cannot put this statement inside the transaction, because of the mysql implicit commit rule:
-             * https://dev.mysql.com/doc/refman/8.0/en/implicit-commit.html
+             * We want to create the following:
+             * - the "default" user group
+             * - the "root" user (with group default)
+             * - the "root" permission group
+             * - the "*" permission
+             * - bind "*" permission to "root" permission group
+             * - bind "root" user to "root" permission group
+             *
              */
-            $this->pdoWrapper->executeStatement(file_get_contents(__DIR__ . "/assets/fixtures/recreate-structure.sql"));
+            // default user group
+            $userGroupId = $this->getUserGroupApi()->insertUserGroup([
+                "name" => "default",
+            ]);
 
 
-            /**
-             * @var $exception \Exception
-             */
-            $exception = null;
-            $res = $this->pdoWrapper->transaction(function () {
+            // root user
+            $userId = $this->addUser([
+                'user_group_id' => $userGroupId,
+                'identifier' => $this->root_identifier,
+                'pseudo' => $this->root_pseudo,
+                'email' => $this->root_email,
+                'password' => $this->root_password,
+                'avatar_url' => $this->root_avatar_url,
+                'extra' => $this->root_extra,
+            ]);
 
 
-                /**
-                 * We want to create the following:
-                 * - the "default" user group
-                 * - the "root" user (with group default)
-                 * - the "root" permission group
-                 * - the "*" permission
-                 * - bind "*" permission to "root" permission group
-                 * - bind "root" user to "root" permission group
-                 *
-                 */
-                // default user group
-                $userGroupId = $this->getUserGroupApi()->insertUserGroup([
-                    "name" => "default",
-                ]);
+            // root permission group
+            $permGroupId = $this->getPermissionGroupApi()->insertPermissionGroup([
+                'name' => 'root',
+            ]);
 
 
-                // root user
-                $userId = $this->addUser([
-                    'user_group_id' => $userGroupId,
-                    'identifier' => $this->root_identifier,
-                    'pseudo' => $this->root_pseudo,
-                    'password' => $this->root_password,
-                    'avatar_url' => $this->root_avatar_url,
-                    'extra' => $this->root_extra,
-                ]);
+            // the * permission
+            $permId = $this->getPermissionApi()->insertPermission([
+                'name' => '*',
+            ]);
+
+            // bind * permission to root permission group
+            $this->getPermissionGroupHasPermissionApi()->insertPermissionGroupHasPermission([
+                "permission_group_id" => $permGroupId,
+                "permission_id" => $permId,
+            ]);
+
+            // bind root user to root permission group
+            $this->getUserHasPermissionGroupApi()->insertUserHasPermissionGroup([
+                'user_id' => $userId,
+                'permission_group_id' => $permGroupId,
+            ]);
 
 
-                // root permission group
-                $permGroupId = $this->getPermissionGroupApi()->insertPermissionGroup([
-                    'name' => 'root',
-                ]);
+        }, $exception);
+
+        $this->isInstallMode = false;
 
 
-                // the * permission
-                $permId = $this->getPermissionApi()->insertPermission([
-                    'name' => '*',
-                ]);
-
-                // bind * permission to root permission group
-                $this->getPermissionGroupHasPermissionApi()->insertPermissionGroupHasPermission([
-                    "permission_group_id" => $permGroupId,
-                    "permission_id" => $permId,
-                ]);
-
-                // bind root user to root permission group
-                $this->getUserHasPermissionGroupApi()->insertUserHasPermissionGroup([
-                    'user_id' => $userId,
-                    'permission_group_id' => $permGroupId,
-                ]);
-
-
-            }, $exception);
-
-            $this->isInstallMode = false;
-
-            if (false === $res) {
-                throw $exception;
-            }
-
-
+        if (false === $res) {
+            throw $exception;
         }
+
+
     }
 
 
@@ -481,6 +504,38 @@ class MysqlLightWebsiteUserDatabase extends LightUserDatabaseApiFactory implemen
     /**
      * @implementation
      */
+    public function isInstalled(): bool
+    {
+        /**
+         * @var $installer LightPluginInstallerService
+         */
+        $installer = $this->container->get("plugin_installer");
+        if (
+            true === $installer->hasTable("lud_user_group") &&
+            true === $installer->hasTable("lud_user") &&
+            true === $installer->hasTable("lud_permission_group") &&
+            true === $installer->hasTable("lud_permission") &&
+            true === $installer->hasTable("lud_user_has_permission_group") &&
+            true === $installer->hasTable("lud_permission_group_has_permission") &&
+            true === $installer->hasTable("lud_plugin_option") &&
+            true === $installer->hasTable("lud_user_group_has_plugin_option")
+        ) {
+
+
+            $col = $installer->fetchRowColumn("lud_user_group", "name", Where::inst()->key("name")->equals("default"));
+            if (false === $col) {
+                return false;
+            }
+
+            return true;
+        }
+        return false;
+    }
+
+
+    /**
+     * @implementation
+     */
     public function getDependencies(): array
     {
         return [];
@@ -493,6 +548,38 @@ class MysqlLightWebsiteUserDatabase extends LightUserDatabaseApiFactory implemen
     //--------------------------------------------
     //
     //--------------------------------------------
+    /**
+     * Sets the container.
+     *
+     * @param LightServiceContainerInterface $container
+     */
+    public function setContainer(LightServiceContainerInterface $container)
+    {
+        $this->container = $container;
+        /**
+         * @var $databaseService LightDatabaseService
+         */
+        $databaseService = $container->get("database");
+        $this->pdoWrapper = $databaseService;
+    }
+
+
+    /**
+     * Returns the factory for this plugin's api.
+     *
+     * @return CustomLightUserDatabaseApiFactory
+     */
+    public function getFactory(): CustomLightUserDatabaseApiFactory
+    {
+        if (null === $this->factory) {
+            $this->factory = new CustomLightUserDatabaseApiFactory();
+            $this->factory->setContainer($this->container);
+            $this->factory->setPdoWrapper($this->pdoWrapper);
+        }
+        return $this->factory;
+    }
+
+
     /**
      * Sets the database.
      *
@@ -544,6 +631,17 @@ class MysqlLightWebsiteUserDatabase extends LightUserDatabaseApiFactory implemen
     }
 
     /**
+     * Sets the root_email.
+     *
+     * @param string $root_email
+     */
+    public function setRootEmail(string $root_email)
+    {
+        $this->root_email = $root_email;
+    }
+
+
+    /**
      * Sets the root_avatar_url.
      *
      * @param string $root_avatar_url
@@ -552,6 +650,7 @@ class MysqlLightWebsiteUserDatabase extends LightUserDatabaseApiFactory implemen
     {
         $this->root_avatar_url = $root_avatar_url;
     }
+
 
     /**
      * Sets the root_extra.
@@ -624,5 +723,26 @@ class MysqlLightWebsiteUserDatabase extends LightUserDatabaseApiFactory implemen
     protected function serialize(array &$array)
     {
         MysqlSerializeTool::serialize($array, ['extra']);
+    }
+
+
+    /**
+     * Returns the array of tables that this plugin uses.
+     *
+     * @return array
+     */
+    protected function getScopeTables(): array
+    {
+        return [
+            'lud_permission',
+            'lud_permission_group',
+            'lud_permission_group_has_permission',
+            'lud_plugin_option',
+            'lud_user',
+            'lud_user_group',
+            'lud_user_group_has_plugin_option',
+            'lud_user_has_permission_group',
+            'tes_table1',
+        ];
     }
 }

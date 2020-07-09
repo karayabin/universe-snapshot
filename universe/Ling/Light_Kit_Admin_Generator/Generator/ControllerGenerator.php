@@ -152,6 +152,7 @@ class ControllerGenerator extends LkaGenBaseConfigGenerator
             $_tplController = str_replace('{formTitle}', $theFormTitle, $_tplController);
             $f = $classRootDir . "/" . str_replace('\\', '/', $resolvedControllerClassName) . ".php";
             FileSystemTool::mkfile($f, $_tplController);
+            $this->debugLog("Creating Controller $controllerShortClassName in \"" . $this->getSymbolicPath($f) . "\".");
 
 
             //--------------------------------------------
@@ -170,6 +171,7 @@ class ControllerGenerator extends LkaGenBaseConfigGenerator
                  */
                 if (false === file_exists($f)) {
                     FileSystemTool::mkfile($f, $_tplCustomController);
+                    $this->debugLog("Creating CustomController $controllerShortClassName in \"" . $this->getSymbolicPath($f) . "\".");
                 }
             }
 
@@ -204,14 +206,14 @@ class ControllerGenerator extends LkaGenBaseConfigGenerator
             ];
 
 
-
             $pathForm = $appDir . "/" . $formConfigPath;
             $pathList = $appDir . "/" . $listConfigPath;
             $_tplFormConf = $this->resolveTags($tplFormConf, $kitTags);
             $_tplListConf = $this->resolveTags($tplListConf, $kitTags);
             FileSystemTool::mkfile($pathForm, $_tplFormConf);
             FileSystemTool::mkfile($pathList, $_tplListConf);
-
+            $this->debugLog("Creating form widget config in \"" . $this->getSymbolicPath($pathForm) . "\".");
+            $this->debugLog("Creating list widget config in \"" . $this->getSymbolicPath($pathList) . "\".");
 
         }
 
@@ -239,7 +241,9 @@ class ControllerGenerator extends LkaGenBaseConfigGenerator
 
 
         $f = $classRootDir . "/" . str_replace('\\', '/', $baseControllerClassName) . ".php";
+
         FileSystemTool::mkfile($f, $tplBaseController);
+        $this->debugLog("Creating BaseController in \"". $this->getSymbolicPath($f) ."\".");
     }
 
 

@@ -33,6 +33,8 @@ class LightDatabasePdoWrapper extends SimplePdoWrapper
 
 
 
+
+
     /**
      * Builds the LightDatabasePdoWrapper instance.
      */
@@ -42,6 +44,9 @@ class LightDatabasePdoWrapper extends SimplePdoWrapper
         $this->pdoException = null;
         $this->container = null;
     }
+
+
+
 
 
     /**

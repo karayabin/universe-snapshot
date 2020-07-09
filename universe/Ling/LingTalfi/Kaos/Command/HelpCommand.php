@@ -61,6 +61,8 @@ class HelpCommand extends KaosGenericCommand
         $output->write(H::s(1) . "- Place the planet to the local server (if it's not there already), and create a link back to the current directory." . PHP_EOL);
         $output->write(H::s(1) . "- Create a default <b>README.md</b> file." . PHP_EOL);
         $output->write(H::j(1) . $this->o("-d") . ": docBuilder. With this option, will also create a default <b>docBuilder</b> class if it doesn't exist already." . PHP_EOL);
+        $output->write(H::j(1) . $this->o("?application=\$application_path") . ": this option works only with <b>Light</b> plugins, and will inject the content of the service configuration in the <b>README.md</b>." . PHP_EOL);
+        $output->write(H::s(2) . "Note that you can store the application parameter in the kaos preferences (~/kaos.byml), see the conception notes for more details." . PHP_EOL);
 
 
         $output->write("- $packLightMap: copies some special files from the application to the map directory of the Light plugin." . PHP_EOL);

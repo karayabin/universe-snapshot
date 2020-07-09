@@ -7,7 +7,7 @@ HasDualPaneWidget::useAcpHep
 
 
 
-HasDualPaneWidget::useAcpHep — Registers the jAcpHep assets.
+HasDualPaneWidget::useAcpHep — Registers the [jAcpHep](https://github.com/lingtalfi/JAcpHep) assets.
 
 
 
@@ -21,7 +21,7 @@ protected [HasDualPaneWidget::useAcpHep](https://github.com/lingtalfi/Light_Kit_
 
 
 
-Registers the jAcpHep assets.
+Registers the [jAcpHep](https://github.com/lingtalfi/JAcpHep) assets.
 
 
 

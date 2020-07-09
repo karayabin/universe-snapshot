@@ -4,7 +4,7 @@
 
 The SimplePdoWrapperException class
 ================
-2019-07-22 --> 2020-03-10
+2019-07-22 --> 2020-06-19
 
 
 
@@ -54,4 +54,4 @@ See the source code of [Ling\SimplePdoWrapper\Exception\SimplePdoWrapperExceptio
 
 SeeAlso
 ==============
-Previous class: [NoPdoConnectionException](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Exception/NoPdoConnectionException.md)<br>Next class: [SimplePdoWrapper](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/SimplePdoWrapper.md)<br>
+Previous class: [NoPdoConnectionException](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Exception/NoPdoConnectionException.md)<br>Next class: [SimplePdoWrapperQueryException](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Exception/SimplePdoWrapperQueryException.md)<br>

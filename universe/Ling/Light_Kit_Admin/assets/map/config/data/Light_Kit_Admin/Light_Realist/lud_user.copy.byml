@@ -93,7 +93,7 @@ default:
                     ajax_handler_id: Light_Kit_Admin
                     ajax_action_id: Light_Kit_Admin.realist-print
                     request_id: Light_Kit_Admin:lud_user
-                micro_permission: Light_Kit_Admin.tables.lud_user.read
+                micro_permission: tables.lud_user.read
             -
                 action_id: Light_Kit_Admin.realist-delete_rows
                 text: Delete
@@ -106,7 +106,7 @@ default:
                     ajax_handler_id: Light_Kit_Admin
                     ajax_action_id: Light_Kit_Admin.realist-delete_rows
                     request_id: Light_Kit_Admin:lud_user
-                micro_permission: Light_Kit_Admin.tables.lud_user.delete
+                micro_permission: tables.lud_user.delete
             -
                 text: Share
                 icon: fas fa-share-square

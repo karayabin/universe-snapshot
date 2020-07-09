@@ -1,0 +1,15 @@
+    /**
+     * @implementation
+     */
+    public function insertPermissions(array $permissions, bool $ignoreDuplicate = true, bool $returnRic = false)
+    {
+        $ret = [];
+        foreach ($permissions as $xxx) {
+            $res = $this->insertPermission($xxx, $ignoreDuplicate, $returnRic);
+            if (false === $res) {
+                return false;
+            }
+            $ret[] = $res;
+        }
+        return $ret;
+    }

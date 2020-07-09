@@ -78,6 +78,10 @@ class Light_UserDataDocBuilder
                 "Ling\Light\Controller\LightController",
                 "Ling\Chloroform\Validator\AbstractValidator",
                 "Ling\Chloroform\DataTransformer\BaseDataTransformer",
+                "Ling\Light_AjaxHandler\Handler\BaseLightAjaxHandler",
+                "Ling\Light_AjaxHandler\Handler\ContainerAwareLightAjaxHandler",
+                "Ling\TemporaryVirtualFileSystem\TemporaryVirtualFileSystem",
+
             ],
             /**
              * Your project start date.
@@ -156,6 +160,14 @@ class Light_UserDataDocBuilder
                 "Light_Database.on_lud_user_group_create event" => 'https://github.com/lingtalfi/Light_Database/blob/master/personal/mydoc/pages/events.md',
                 "the original file section in the conception notes" => $doc . '/pages/conception-notes.md#the-original-file',
                 "Light_UserData permissions document" => $doc . '/pages/permissions.md',
+                "alcp response" => "https://github.com/lingtalfi/Light_AjaxHandler/blob/master/doc/pages/ajax-light-communication-protocol.md",
+                "related files" => $doc . "/pages/related-files.md",
+                "related-files.md" => $doc . "/pages/related-files.md",
+                "file manager protocol" => "https://github.com/lingtalfi/TheBar/blob/master/discussions/file-manager-protocol.md",
+                "original file" => "https://github.com/lingtalfi/TheBar/blob/master/discussions/file-manager-protocol.md#keeporiginalurl",
+                "Light_UserData conception notes" => $doc . "/pages/conception-notes.md",
+                "TemporaryVirtualFileSystem conception notes" =>  "https://github.com/lingtalfi/TemporaryVirtualFileSystem/blob/master/doc/pages/conception-notes.md",
+                "temporary virtual file system conception notes" =>  "https://github.com/lingtalfi/TemporaryVirtualFileSystem/blob/master/doc/pages/conception-notes.md",
             ],
             /**
              * An array of external classes to url.
@@ -187,6 +199,12 @@ class Light_UserDataDocBuilder
                 "Ling\Light_PluginInstaller\PluginInstaller\PluginInstallerInterface" => "https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/PluginInstaller/PluginInstallerInterface.md",
                 "Ling\Light_User\LightWebsiteUser" => "https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser.md",
                 "Ling\Light_UserRowRestriction\RowRestrictionHandler\RowRestrictionHandlerInterface" => "https://github.com/lingtalfi/Light_UserRowRestriction/blob/master/doc/api/Ling/Light_UserRowRestriction/RowRestrictionHandler/RowRestrictionHandlerInterface.md",
+                "Ling\Light_AjaxHandler\Handler\BaseLightAjaxHandler" => "https://github.com/lingtalfi/Light_AjaxHandler/blob/master/doc/api/Ling/Light_AjaxHandler/Handler/BaseLightAjaxHandler.md",
+                "Ling\Light_AjaxHandler\Handler\LightAjaxHandlerInterface" => "https://github.com/lingtalfi/Light_AjaxHandler/blob/master/doc/api/Ling/Light_AjaxHandler/Handler/LightAjaxHandlerInterface.md",
+                "Ling\Light\ServiceContainer\LightServiceContainerAwareInterface" => "https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerAwareInterface.md",
+                "Ling\TemporaryVirtualFileSystem\TemporaryVirtualFileSystem" => "https://github.com/lingtalfi/TemporaryVirtualFileSystem/blob/master/doc/api/Ling/TemporaryVirtualFileSystem/TemporaryVirtualFileSystem.md",
+                "Ling\TemporaryVirtualFileSystem\TemporaryVirtualFileSystemInterface" => "https://github.com/lingtalfi/TemporaryVirtualFileSystem/blob/master/doc/api/Ling/TemporaryVirtualFileSystem/TemporaryVirtualFileSystemInterface.md",
+                "Ling\Light_PluginInstaller\PluginInstaller\PluginPostInstallerInterface" => "https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/PluginInstaller/PluginPostInstallerInterface.md",
 
 
             ],

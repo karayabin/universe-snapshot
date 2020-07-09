@@ -152,6 +152,7 @@ class Light_ChloroformExtensionDocBuilder
                 "very important data" => 'https://github.com/lingtalfi/Chloroform/blob/master/doc/pages/chloroform-discussion.md#the-concept-of-very-important-data',
                 "chloroformExtension conception notes" => $doc . '/pages/conception-notes.md',
                 "form multiplier trick" =>  'https://github.com/lingtalfi/TheBar/blob/master/discussions/form-multiplier.md',
+                "alcp response" =>  'https://github.com/lingtalfi/Light_AjaxHandler/blob/master/doc/pages/ajax-light-communication-protocol.md',
             ],
             /**
              * An array of external classes to url.

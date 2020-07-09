@@ -11,9 +11,9 @@ csrf_token: true
 
 # Array|String. Optional=[]. Array of micro permissions that the user must have to access the data.
 micro_permissions:
-    - Light_Kit_Admin.tables.lud_user.read
-    - Light_Kit_Admin.tables.lud_permission_group.read
-    - Light_Kit_Admin.tables.lud_user_has_permission_group.read
+    - tables.lud_user.read
+    - tables.lud_permission_group.read
+    - tables.lud_user_has_permission_group.read
 
 # # Array. Mandatory. Configuration for pane1.
 pane1:

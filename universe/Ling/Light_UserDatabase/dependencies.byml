@@ -1,9 +1,8 @@
 dependencies: 
     Ling: 
+        - SimplePdoWrapper
         - Light
         - Light_Database
-        - Light_MicroPermission
-        - SimplePdoWrapper
         - Bat
         - Light_Bullsheet
         - Light_PasswordProtector
@@ -12,6 +11,9 @@ dependencies:
         - Light_Events
         - Light_PluginInstaller
         - SqlWizard
+        - Light_BreezeGenerator
+        - Light_DbSynchronizer
+        - Light_FileWatcher
     
 
 post_install: 

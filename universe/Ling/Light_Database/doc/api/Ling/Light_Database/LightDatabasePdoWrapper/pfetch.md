@@ -62,7 +62,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightDatabasePdoWrapper::pfetch](https://github.com/lingtalfi/Light_Database/blob/master/LightDatabasePdoWrapper.php#L253-L261)
+See the source code for method [LightDatabasePdoWrapper::pfetch](https://github.com/lingtalfi/Light_Database/blob/master/LightDatabasePdoWrapper.php#L258-L266)
 
 
 See Also

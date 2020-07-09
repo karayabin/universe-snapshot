@@ -32,7 +32,7 @@ Parameters
 
 - dependencySystemName
 
-    The name of the dependency system. See the @page(dependency system page) for more details.
+    The name of the dependency system. See the [dependency system page](https://github.com/lingtalfi/TheScientist/blob/master/universe-dependencies-2019.md) for more details.
 
 - packageSymbolicName
 

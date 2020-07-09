@@ -1,0 +1,13 @@
+    /**
+     * Deletes the resource rows matching the given where conditions, and returns the number of deleted rows.
+     * If where is null, all the rows of the table will be deleted.
+     *
+     * False might be returned in case of a problem and if you don't catch db exceptions.
+     *
+     *
+     *
+     * @param null $where
+     * @param array $markers
+     * @return false|int
+     */
+    public function delete($where = null, array $markers = []);

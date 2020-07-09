@@ -4,7 +4,7 @@
 
 The LightChloroformExtensionAjaxHandler class
 ================
-2019-11-18 --> 2019-12-09
+2019-11-18 --> 2020-06-04
 
 
 
@@ -28,7 +28,7 @@ class <span class="pl-k">LightChloroformExtensionAjaxHandler</span> extends [Con
     - protected [Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) [ContainerAwareLightAjaxHandler::$container](#property-container) ;
 
 - Methods
-    - public [handle](https://github.com/lingtalfi/Light_ChloroformExtension/blob/master/doc/api/Ling/Light_ChloroformExtension/AjaxHandler/LightChloroformExtensionAjaxHandler/handle.md)(string $actionId, array $params) : array
+    - public [handle](https://github.com/lingtalfi/Light_ChloroformExtension/blob/master/doc/api/Ling/Light_ChloroformExtension/AjaxHandler/LightChloroformExtensionAjaxHandler/handle.md)(string $action, Ling\Light\Http\HttpRequestInterface $request) : array
 
 - Inherited methods
     - public ContainerAwareLightAjaxHandler::__construct() : void
@@ -45,7 +45,7 @@ class <span class="pl-k">LightChloroformExtensionAjaxHandler</span> extends [Con
 Methods
 ==============
 
-- [LightChloroformExtensionAjaxHandler::handle](https://github.com/lingtalfi/Light_ChloroformExtension/blob/master/doc/api/Ling/Light_ChloroformExtension/AjaxHandler/LightChloroformExtensionAjaxHandler/handle.md) &ndash; and returns a json array as specified in the [ajax communication protocol](https://github.com/lingtalfi/AjaxCommunicationProtocol).
+- [LightChloroformExtensionAjaxHandler::handle](https://github.com/lingtalfi/Light_ChloroformExtension/blob/master/doc/api/Ling/Light_ChloroformExtension/AjaxHandler/LightChloroformExtensionAjaxHandler/handle.md) &ndash; Handles the given action and returns an [alcp response](https://github.com/lingtalfi/Light_AjaxHandler/blob/master/doc/pages/ajax-light-communication-protocol.md), or throws an exception in case of problems.
 - ContainerAwareLightAjaxHandler::__construct &ndash; Builds the ContainerAwareLightAjaxHandler instance.
 - ContainerAwareLightAjaxHandler::setContainer &ndash; Sets the light service container interface.
 - ContainerAwareLightAjaxHandler::getContainer &ndash; Returns the container instance.

@@ -1,6 +1,6 @@
 Chloroform
 ===========
-2019-04-12 -> 2020-03-18
+2019-04-12 -> 2020-06-01
 
 
 
@@ -762,6 +762,14 @@ Here is a list of known chloroform renderers:
 History Log
 =============
 
+- 1.30.0 -- 2020-06-01
+
+    - update Chloroform->getPostedData now doesn't filter out empty files (undo previous step)
+    
+- 1.29.0 -- 2020-06-01
+
+    - update Chloroform->getPostedData now filters out empty files
+    
 - 1.28.0 -- 2020-03-18
 
     - add FieldInterface->setProperty method 

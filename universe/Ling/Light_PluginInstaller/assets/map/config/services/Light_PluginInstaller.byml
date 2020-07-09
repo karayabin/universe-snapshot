@@ -5,6 +5,10 @@ plugin_installer:
             container: @container()
         setRootDir:
             dir: ${app_dir}/config/data/Light_PluginInstaller
+        setOptions:
+            options:
+                useDebug: true      # default is false
+                useCache: true     # default is true
 
 
 # --------------------------------------
@@ -19,3 +23,16 @@ $events.methods_collection:
                 instance: @service(plugin_installer)
                 callable_method: onInitialize
 
+
+
+$logger.methods_collection:
+    -
+        method: addListener
+        args:
+            channels: plugin_installer.debug
+            listener:
+                instance: Ling\Light_Logger\Listener\LightCleanableFileLoggerListener
+                methods:
+                    configure:
+                        options:
+                            file: ${app_dir}/log/plugin_installer_debug.txt

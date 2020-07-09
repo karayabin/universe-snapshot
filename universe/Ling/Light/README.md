@@ -1,6 +1,6 @@
 Light
 ===========
-2019-04-05 -> 2020-04-10
+2019-04-05 -> 2020-07-06
 
 
 
@@ -42,6 +42,7 @@ Summary
     - [Application recommended structure](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/light-application-recommended-structure.md)
     - [Security](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/security.md)
     - [Efficiency tips](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/efficiency-tips.md)
+    - [how to debug](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/how-to-debug.md)
 - [License](https://lingtalfi.com/no-license)
 
 
@@ -50,6 +51,18 @@ Summary
 
 History Log
 =============
+    
+- 0.65.0 -- 2020-07-06
+
+    - checkpoint commit
+    
+- 0.64.0 -- 2020-06-02
+
+    - removed LightRedirectionException, judged bad design for now
+    
+- 0.63.2 -- 2020-06-01
+
+    - update events documentation
     
 - 0.63.1 -- 2020-04-17
 

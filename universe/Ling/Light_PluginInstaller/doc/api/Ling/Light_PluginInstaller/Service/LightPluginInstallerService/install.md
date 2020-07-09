@@ -16,13 +16,18 @@ Description
 ================
 
 
-public [LightPluginInstallerService::install](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/install.md)(string $name) : void
+public [LightPluginInstallerService::install](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/install.md)(string $name, ?array $options = []) : void
 
 
 
 
 Installs a registered plugin by its name.
-If the plugin is already installed, this method does nothing.
+
+Available options are:
+- dependencyName: string, in the debug log, will indicate the relationship between the parent/child plugins.
+         You probably never need this, it's used for internal purposes.
+- indent: int=0. An internal option that I use to enhance the display of the debug (i.e. you probably should't mess with this).
+         It's the number of indent chars to prefix the log message with.
 
 
 
@@ -32,6 +37,10 @@ Parameters
 
 
 - name
+
+    
+
+- options
 
     
 
@@ -55,7 +64,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightPluginInstallerService::install](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/Service/LightPluginInstallerService.php#L126-L150)
+See the source code for method [LightPluginInstallerService::install](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/Service/LightPluginInstallerService.php#L243-L305)
 
 
 See Also
@@ -63,5 +72,5 @@ See Also
 
 The [LightPluginInstallerService](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService.md) class.
 
-Previous method: [getRegisteredPluginNames](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/getRegisteredPluginNames.md)<br>Next method: [uninstall](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/uninstall.md)<br>
+Previous method: [pluginsAreBeingInstalled](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/pluginsAreBeingInstalled.md)<br>Next method: [uninstall](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/uninstall.md)<br>
 

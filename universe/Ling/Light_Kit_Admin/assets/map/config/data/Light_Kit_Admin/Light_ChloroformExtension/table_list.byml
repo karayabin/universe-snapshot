@@ -5,4 +5,4 @@
 #    table: lud_user_has_permission_group h
 #    joins: inner join lud_user u on u.id=h.user_id
 #    csrf_token: true
-#    micro_permission: Light_Kit_Admin.tables.lud_user_has_permission_group.read
+#    micro_permission: tables.lud_user_has_permission_group.read

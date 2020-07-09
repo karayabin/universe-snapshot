@@ -1,11 +1,14 @@
 String Cases
 ==========================
-2015-10-14 --> 2018-05-01
+2015-10-14 --> 2020-07-03
 
 
 
 Motivation
 --------------
+2015-10-14
+
+
 
 This document can serve as a reference for tools that need to distinguish between different string cases.
 
@@ -14,6 +17,8 @@ This document can serve as a reference for tools that need to distinguish betwee
 
 Different cases
 -----------------------
+2015-10-14
+
 
 
 - A **word** contains only the [a-Z0-9_] chars.
@@ -21,17 +26,21 @@ Different cases
 - A **alphaNumericChar** is a char in the [a-Z0-9] range.
 
 
-**For all cases, accents are stripped.**
+For all cases except **human flat case**, accents are stripped.
 
 
-- [camelCase](#camelcase)
-- [flexibleCamelCase](#flexiblecamelcase)
-- [pascalCase](#pascalcase)
-- [flexiblePascalCase](#flexiblepascalcase)
-- [snakeCase](#snakecase)
-- [constantCase](#constantcase)
-- [dashCase](#dashcase)
-- [flexibleDashCase](#flexibledashcase)
+- [camel case](#camelcase)
+- [constant case](#constantcase)
+- [dash case](#dashcase)
+- [flexible camel case](#flexiblecamelcase)
+- [flexible dash case](#flexibledashcase)
+- [flexible pascal case](#flexiblepascalcase)
+- [human flat case](#humanflatcase)
+- [pascal case](#pascalcase)
+- [snake case](#snakecase)
+
+
+
 
 Old cases (deprecated)
 - hotDog-case: keep original case, convert accentuated letters to non accentuated, and replace any non **wordChars** with a dash. No dash can precede another dash.
@@ -65,6 +74,9 @@ Old cases (deprecated)
 
 camelCase
 -------------
+2015-10-14
+
+
 
 Consider underscore and spaces as words separators.
 Everything to lower case, then uppercase the first letter of each word but the first.
@@ -86,10 +98,13 @@ tai(tai)-PEI+MAURICE | taiTaiPeiMaurice
 
 flexibleCamelCase
 -------------
+2015-10-14 -> 2020-07-03
+
+
 
 Like [camelCase](#camelcase), but keeps the existing case (uppercase or lowercase), except for:
-- the first of the first word is always lowercase
-- the first of the non-first words is always uppercase
+- the first letter of the first word is always lowercase
+- the first letter of the non-first words is always uppercase
 
 
 input            |       output
@@ -107,6 +122,9 @@ tai(tai)-PEI+MAURICE | taiTaiPEIMAURICE
 
 pascalCase
 -------------
+2015-10-14
+
+
 
 Like [camelCase](#camelcase), but the first letter is uppercase.
 
@@ -126,6 +144,9 @@ tai(tai)-PEI+MAURICE | TaiTaiPeiMaurice
 
 flexiblePascalCase
 -------------
+2015-10-14
+
+
 
 Like [flexibleCamelCase](#flexiblecamelcase), but the first letter is uppercase.
 
@@ -146,6 +167,8 @@ tai(tai)-PEI+MAURICE | TaiTaiPEIMAURICE
 
 snakeCase
 -------------
+2015-10-14
+
 
 The whole string is converted to lowercase, and every non **alphaNumeric** char is replaced with an underscore.
 Consecutive underscores are merged to one.
@@ -167,6 +190,8 @@ tai(tai)-PEI+MAURICE | tai_tai_pei_maurice
 
 constantCase
 -------------
+2015-10-14
+
 
 Like [snakeCase](#snakecase), but everything is set to uppercase.
 
@@ -187,6 +212,7 @@ tai(tai)-PEI+MAURICE | TAI_TAI_PEI_MAURICE
 
 dashCase
 -------------
+2015-10-14
 
 The whole string is converted to lowercase, and every non **alphaNumeric** char is replaced with a dash.
 Consecutive dashes are merged to one.
@@ -208,6 +234,9 @@ tai(tai)-PEI+MAURICE | tai-tai-pei-maurice
 
 flexibleDashCase
 -------------
+2015-10-14
+
+
 
 Like [dashCase](#dashcase), but the string conserves its original case.
 
@@ -226,6 +255,35 @@ tai(tai)-PEI+MAURICE | tai-tai-PEI-MAURICE
 
 
 
+humanFlatCase
+-------------
+2020-07-03
+
+
+It's just another name for lower case, and space separated words.
+
+- underscores are replaced with spaces
+- uppercase letters inside a word are prefixed with a space
+
+
+
+
+
+
+input            |       output
+-------------  | -------------
+this is not correct | this is not correct
+camelCase | camel case
+simple XML | simple xml
+local db 2 remote | local db 2 remote
+XML element | xml element
+some_tool_here | some tool here
+SOMe_tool_HERe | some tool here
+tai-tai-PEI.MAURICE | tai-tai-pei.maurice
+tai(tai)-PEI+MAURICE | tai(tai)-pei+maurice
+
+
+
 
 
 
@@ -233,6 +291,10 @@ tai(tai)-PEI+MAURICE | tai-tai-PEI-MAURICE
 History Log
 ------------------
 
+- 4.0 -- 2020-07-03
+
+    - add human flat case
+    
 - 3.0 -- 2018-05-01
 
     - reforged cases definitions

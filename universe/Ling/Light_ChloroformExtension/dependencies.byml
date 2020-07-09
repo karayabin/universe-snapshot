@@ -1,10 +1,10 @@
 dependencies: 
     Ling: 
+        - Light
         - Light_AjaxHandler
         - Light_CsrfSession
         - Light_MicroPermission
         - BabyYaml
-        - Light
         - Light_Database
         - SimplePdoWrapper
         - Chloroform

@@ -320,6 +320,7 @@ class LingGitPhpPlanetDocBuilder extends DocBuilder
         //--------------------------------------------
         $planetInfo = $this->_planetInfo;
         $this->buildPlanetPage();
+
         foreach ($planetInfo->getClasses() as $classInfo) {
             $this->buildClassPage($classInfo);
 

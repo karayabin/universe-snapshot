@@ -58,7 +58,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightKitAdminListGeneralActionHandler::executeSaveTableListGeneralAction](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Realist/ListGeneralActionHandler/LightKitAdminListGeneralActionHandler.php#L179-L254)
+See the source code for method [LightKitAdminListGeneralActionHandler::executeSaveTableListGeneralAction](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Realist/ListGeneralActionHandler/LightKitAdminListGeneralActionHandler.php#L182-L257)
 
 
 See Also

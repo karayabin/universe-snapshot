@@ -99,15 +99,19 @@ class DotMenu
             $realParentPath = implode('.', $components);
 
 
+
+
+
             // now let's append the item
             $parent = BDotTool::getDotValue($realParentPath, $this->items, null);
+
             if (null !== $parent) {
                 $parent[$item[$this->idKey]] = $item;
                 BDotTool::setDotValue($realParentPath, $parent, $this->items);
             } else {
                 // parentPath not found
                 if (true === $this->strictMode) {
-                    throw new DotMenuException("Parent path not found: $parentPath.");
+                    throw new DotMenuException("Parent path not found: $parentPath ($realParentPath).");
                 }
             }
         }

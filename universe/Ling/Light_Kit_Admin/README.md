@@ -1,10 +1,10 @@
 Light_Kit_Admin
 ===========
-2019-10-24
+2019-10-24 -> 2020-07-07
 
 
 
-THIS IS A WORK IN PROGRESS -- COME BACK IN A FEW MONTHS...
+
 
 An admin system with gui for the [Light](https://github.com/lingtalfi/Light) framework.
 
@@ -37,8 +37,11 @@ Summary
     - [Conception notes](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/pages/conception-notes.md)
     - [Error handling](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/pages/error-handling.md)
     - [Events](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/pages/events.md)
+    - [How to debug](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/pages/how-to-debug.md)
     - [Light kit admin js environment](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/pages/light-kit-admin-js-environment.md)
+    - [Light kit admin plugins](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/pages/lka-plugins.md)
     - [Pages](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/pages/pages.md)
+    - [Permissions](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/pages/permissions.md)
     - [Procedures](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/pages/procedures.md)
     - [Service dependencies](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/pages/service-dependencies.md)
     - [User data](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/pages/user-data.md)
@@ -92,17 +95,6 @@ kit_admin:
 # --------------------------------------
 # hooks
 # --------------------------------------
-
-
-$ajax_file_upload_manager.methods_collection:
-    -
-        method: addConfigurationItemsByFile
-        args:
-            file: ${app_dir}/config/data/Light_Kit_Admin/Light_AjaxFileUploadManager/main.byml
-
-
-
-
 $ajax_handler.methods_collection:
     -
         method: registerHandler
@@ -116,7 +108,7 @@ $bmenu.methods_collection:
     -
         method: registerHost
         args:
-            menu_type: main_menu
+            menu_type: admin_main_menu
             host:
                 instance: Ling\Light_Kit_Admin\BMenu\LightKitAdminBMenuHost
                 methods:
@@ -127,7 +119,16 @@ $bmenu.methods_collection:
                     setMenuStructureId:
                         id: lka_mainmenu_1
                     setDefaultItemsParentPath:
-                        path: plugins
+                        path: lka-plugins
+
+$bullsheet.methods_collection:
+    -
+        method: registerBullsheeter
+        args:
+            identifier: Light_Kit_Admin.default
+            bullsheeter:
+                instance: Ling\Light_Kit_Admin\Bullsheet\LightKitAdminGeneralBullsheeter
+
 
 
 $chloroform_extension.methods_collection:
@@ -176,13 +177,11 @@ $events.methods_collection:
     -
         method: registerListener
         args:
-            events: Light.initialize_2
+            events:
+                - Light.on_exception_caught
             listener:
                 instance: @service(kit_admin)
-                callable_method: initialize
-
-
-
+                callable_method: onLightExceptionCaught
 
 
 $kit.methods_collection:
@@ -192,25 +191,14 @@ $kit.methods_collection:
             -
                 instance: Ling\Light_Kit_Admin\PageConfigurationTransformer\LightKitAdminPageConfigurationTransformer
 
-$micro_permission.methods_collection:
-    -
-        method: registerMicroPermissionsByFile
-        args:
-            file: ${app_dir}/config/data/Light_Kit_Admin/Light_MicroPermission/lka-micro-permissions.byml
 
-$plugin_database_installer.methods_collection:
+
+$plugin_installer.methods_collection:
     -
-        method: registerInstaller
+        method: registerPlugin
         args:
             plugin: Light_Kit_Admin
-            installer:
-                -
-                    - @service(kit_admin)
-                    - installDatabase
-                -
-                    - @service(kit_admin)
-                    - uninstallDatabase
-
+            installer: @service(kit_admin)
 
 
 $realform.methods_collection:
@@ -257,17 +245,6 @@ $realist.methods_collection:
                 instance: Ling\Light_Kit_Admin\Realist\ListGeneralActionHandler\LightKitAdminListGeneralActionHandler
 
 
-$row_lookup.methods_collection:
-    -
-        method: registerConfigurationStorage
-        args:
-            plugin: Light_Kit_Admin
-            storage:
-                instance: Ling\Light_Kit_Admin\RowLookup\ConfigurationStorage\LightKitAdminRowLookupConfigurationStorage
-                methods:
-                    setBaseDir:
-                        dir: ${app_dir}/config/data/Light_Kit_Admin/Light_RowLookup/tables
-
 
 
 $user_database.methods_collection:
@@ -289,6 +266,7 @@ $user_database_vars.bullsheeter_avatar_img_dir: ${app_dir}/www/plugins/Light_Kit
 
 
 
+
 ```
 
 
@@ -305,6 +283,18 @@ $user_database_vars.bullsheeter_avatar_img_dir: ${app_dir}/www/plugins/Light_Kit
 History Log
 =============
         
+- 0.7.0 -- 2020-07-07
+
+    - checkpoint commit
+    
+- 0.6.0 -- 2020-06-23
+
+    - checkpoint commit
+    
+- 0.5.0 -- 2020-06-04
+
+    - checkpoint commit
+    
 - 0.4.1 -- 2019-12-17
 
     - fix functional typo in service configuration

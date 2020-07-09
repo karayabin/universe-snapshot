@@ -33,7 +33,7 @@ Parameters
 
 - chloroform
 
-    The @page(chloroform array).
+    The [chloroform array](https://github.com/lingtalfi/Chloroform/blob/master/doc/pages/chloroform-array.md).
 
 
 Return values

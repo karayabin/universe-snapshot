@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [MysqlInfoUtil::getReverseForeignKeyMap](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/MysqlInfoUtil/getReverseForeignKeyMap.md)(?array $databases = null) : array
+public [MysqlInfoUtil::getReverseForeignKeyMap](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/MysqlInfoUtil/getReverseForeignKeyMap.md)(?array $databases = null, ?array $options = []) : array
 
 
 
@@ -29,6 +29,10 @@ With:
 - tableId: string, the full table name, using the notation $db.$table
 - referencedByTableIds: array of referencedByTableId items, each of which being a full table name using the notation $db.$table.
 
+Available options are:
+
+- useDbPrefix: bool=true. Whether to prefix the table names with the database name.
+
 
 
 
@@ -37,6 +41,10 @@ Parameters
 
 
 - databases
+
+    
+
+- options
 
     
 
@@ -60,7 +68,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [MysqlInfoUtil::getReverseForeignKeyMap](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/Util/MysqlInfoUtil.php#L395-L415)
+See the source code for method [MysqlInfoUtil::getReverseForeignKeyMap](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/Util/MysqlInfoUtil.php#L541-L566)
 
 
 See Also

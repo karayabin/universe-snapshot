@@ -4,7 +4,7 @@
 
 The TableListField class
 ================
-2019-11-18 --> 2019-12-09
+2019-11-18 --> 2020-06-04
 
 
 
@@ -64,6 +64,8 @@ class <span class="pl-k">TableListField</span> extends [SelectField](https://git
     - public AbstractField::hasVeryImportantData() : bool
     - public AbstractField::getDataTransformer() : [DataTransformerInterface](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/DataTransformer/DataTransformerInterface.md) | null
     - public AbstractField::setDataTransformer([Ling\Chloroform\DataTransformer\DataTransformerInterface](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/DataTransformer/DataTransformerInterface.md) $dataTransformer) : [FieldInterface](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/FieldInterface.md)
+    - public AbstractField::setProperties(array $properties) : void
+    - public AbstractField::setProperty(string $name, $value) : void
     - public AbstractField::setId(string $id) : Ling\Chloroform\Field\AbstractField
     - public AbstractField::setFallbackValue($fallbackValue) : void
     - public AbstractField::setLabel(string $label) : Ling\Chloroform\Field\AbstractField
@@ -206,6 +208,8 @@ Methods
 - AbstractField::hasVeryImportantData &ndash; Returns whether this field contains [very important data](https://github.com/lingtalfi/Chloroform/blob/master/doc/pages/chloroform-discussion.md#the-concept-of-very-important-data).
 - AbstractField::getDataTransformer &ndash; Returns the data transformer of this field if any, or null otherwise.
 - AbstractField::setDataTransformer &ndash; Sets the dataTransformer for this field.
+- AbstractField::setProperties &ndash; Sets the properties of this field.
+- AbstractField::setProperty &ndash; Sets a property to this field.
 - AbstractField::setId &ndash; Sets the id.
 - AbstractField::setFallbackValue &ndash; Sets the fallbackValue.
 - AbstractField::setLabel &ndash; Sets the label.

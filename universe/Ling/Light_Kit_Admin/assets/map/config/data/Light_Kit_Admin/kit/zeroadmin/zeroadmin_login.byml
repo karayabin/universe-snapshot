@@ -44,5 +44,5 @@ zones:
                     text: Login
                 use_link_forgot_password: true
                 link_forgot_password:
-                    link: (::ROUTE::)/pages/b-forgot-password
+                    link: (::ROUTE::)lka_route-forgotten_password
                     text: Forgot password?

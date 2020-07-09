@@ -21,7 +21,7 @@ public [AdminPageController::renderAdminPage](https://github.com/lingtalfi/Light
 
 
 
-Renders the given page using the [kit service](https://github.com/lingtalfi/Light_Kit_Admin), or redirects the user to the login page
+Renders the given page using the [kit service](https://github.com/lingtalfi/Light_Kit), or redirects the user to the login page
 if she is not connected yet.
 
 
@@ -63,7 +63,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [AdminPageController::renderAdminPage](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Controller/AdminPageController.php#L45-L52)
+See the source code for method [AdminPageController::renderAdminPage](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Controller/AdminPageController.php#L45-L57)
 
 
 See Also

@@ -53,7 +53,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightBMenuService::addDefaultItem](https://github.com/lingtalfi/Light_BMenu/blob/master/Service/LightBMenuService.php#L183-L189)
+See the source code for method [LightBMenuService::addDefaultItem](https://github.com/lingtalfi/Light_BMenu/blob/master/Service/LightBMenuService.php#L184-L190)
 
 
 See Also
@@ -61,5 +61,5 @@ See Also
 
 The [LightBMenuService](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Service/LightBMenuService.md) class.
 
-Previous method: [addDirectInjector](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Service/LightBMenuService/addDirectInjector.md)<br>
+Previous method: [addDirectInjector](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Service/LightBMenuService/addDirectInjector.md)<br>Next method: [addDefaultItemByFile](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Service/LightBMenuService/addDefaultItemByFile.md)<br>
 

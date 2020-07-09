@@ -21,11 +21,11 @@ class LightChloroformExtensionAjaxHandler extends ContainerAwareLightAjaxHandler
     /**
      * @implementation
      */
-    public function handle(string $actionId, HttpRequestInterface $request): array
+    public function handle(string $action, HttpRequestInterface $request): array
     {
         $params = $request->getPost();
         $response = [];
-        switch ($actionId) {
+        switch ($action) {
             case "table_list.autocomplete":
 
                 if (array_key_exists("tableListIdentifier", $params)) {
@@ -59,12 +59,12 @@ class LightChloroformExtensionAjaxHandler extends ContainerAwareLightAjaxHandler
                             $csrfService = $this->container->get('csrf_session');
                             $csrfToken = $params['csrf_token'];
                             if (false === $csrfService->isValid($csrfToken)) {
-                                throw new LightChloroformExtensionException("Invalid csrf token provided for action $actionId and table list identifier $tableListIdentifier.");
+                                throw new LightChloroformExtensionException("Invalid csrf token provided for action $action and table list identifier $tableListIdentifier.");
                             }
 
                         } else {
                             throw new LightChloroformExtensionException("Configuration for $tableListIdentifier requires csrf token check,
-                             but no csrf_token value was provided (action = $actionId).");
+                             but no csrf_token value was provided (action = $action).");
                         }
                     }
 
@@ -80,7 +80,7 @@ class LightChloroformExtensionAjaxHandler extends ContainerAwareLightAjaxHandler
                          */
                         $microS = $this->container->get('micro_permission');
                         if (false === $microS->hasMicroPermission($microPermission)) {
-                            throw new LightChloroformExtensionException("Micro permission denied: $microPermission, for action $actionId and table list identifier $tableListIdentifier.");
+                            throw new LightChloroformExtensionException("Micro permission denied: $microPermission, for action $action and table list identifier $tableListIdentifier.");
                         }
                     }
 
@@ -96,11 +96,11 @@ class LightChloroformExtensionAjaxHandler extends ContainerAwareLightAjaxHandler
 
 
                 } else {
-                    throw new LightChloroformExtensionException("Missing parameter tableListIdentifier for action $actionId.");
+                    throw new LightChloroformExtensionException("Missing parameter tableListIdentifier for action $action.");
                 }
                 break;
             default:
-                throw new LightChloroformExtensionException("LightChloroformExtensionAjaxHandler: Unknown action $actionId.");
+                throw new LightChloroformExtensionException("LightChloroformExtensionAjaxHandler: Unknown action $action.");
                 break;
         }
         return $response;

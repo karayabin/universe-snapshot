@@ -1,6 +1,6 @@
 HtmlPageTools
 ===========
-2019-04-24
+2019-04-24 -> 2020-05-28
 
 
 
@@ -38,6 +38,10 @@ Summary
 History Log
 =============
 
+- 2.2.0 -- 2020-05-28
+
+    - update HtmlPageCopilot->registerLibrary, add override option 
+    
 - 2.1.1 -- 2019-12-12
 
     - update HtmlPageCopilot->registerLibrary, add comment 

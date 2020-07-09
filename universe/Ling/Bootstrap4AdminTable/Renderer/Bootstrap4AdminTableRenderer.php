@@ -564,6 +564,7 @@ class Bootstrap4AdminTableRenderer extends OpenAdminTableBaseRealistListRenderer
                     });
                     listGeneralActionHelper.listen();
 
+
                     if (true === useResponsiveTableHelper) {
                         rth = new ResponsiveTableHelper({
                             jTable: jTable,

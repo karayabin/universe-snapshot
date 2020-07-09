@@ -1,6 +1,6 @@
 Light_Database
 ===========
-2019-07-22 -> 2020-03-10
+2019-07-22 -> 2020-06-02
 
 
 
@@ -62,6 +62,9 @@ database:
     methods:
         init:
             settings: []
+        setOptions:
+            options:
+                devMode: true
         setContainer:
             container: @container()
 
@@ -78,6 +81,18 @@ database:
 
 
 
+# --------------------------------------
+# hooks
+# --------------------------------------
+$events.methods_collection:
+    -
+        method: registerListener
+        args:
+            events:
+                - Light.on_exception_caught
+            listener:
+                instance: @service(database)
+                callable_method: onExceptionCaught
 
 
 ```
@@ -94,6 +109,14 @@ database:
 History Log
 =============
 
+- 1.13.0 -- 2020-06-02
+
+    - update service, embellished SimplePdoWrapperQueryException message now contains marker information as well
+    
+- 1.12.0 -- 2020-06-02
+
+    - update service, embellish SimplePdoWrapperQueryException message when devMode=true
+    
 - 1.11.0 -- 2020-03-10
 
     - removed system call concept, implement user row restriction system

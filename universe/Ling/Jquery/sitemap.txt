@@ -1,0 +1,2 @@
+https://github.com/lingtalfi/Jquery/blob/master/README.md
+https://github.com/lingtalfi/Jquery/blob/master/doc/api/Ling/JQuery.md

@@ -1,6 +1,5 @@
-dependencies: 
-    Ling: 
-        - DirScanner
+dependencies: []
+post_install: 
+    composer: 
+        - require swiftmailer/swiftmailer:^6.0
     
-
-post_install: []

@@ -1,6 +1,6 @@
 Light_Realform
 ===========
-2019-10-21 -> 2020-03-06
+2019-10-21 -> 2020-07-07
 
 
 
@@ -70,9 +70,17 @@ Related
 History Log
 =============
 
+- 1.16.0 -- 2020-07-07
+
+    - update LightRealformRoutineTwo->processForm, add onSuccess option, and update signature
+    
+- 1.15.0 -- 2020-07-06
+
+    - update LightRealformRoutineOne->processForm, now the onSuccess callback can return an http response directly
+    
 - 1.14.0 -- 2020-03-06
 
-    - update to accomodate user row restriction system
+    - update to accommodate user row restriction system
     
 - 1.13.1 -- 2020-02-28
 

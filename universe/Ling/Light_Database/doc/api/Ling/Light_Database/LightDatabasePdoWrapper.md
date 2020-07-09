@@ -4,7 +4,7 @@
 
 The LightDatabasePdoWrapper class
 ================
-2019-07-22 --> 2020-03-10
+2019-07-22 --> 2020-06-02
 
 
 
@@ -63,6 +63,7 @@ class <span class="pl-k">LightDatabasePdoWrapper</span> extends [SimplePdoWrappe
     - protected SimplePdoWrapper::boot() : [PDO](https://www.php.net/manual/en/class.pdo.php) | null
     - protected SimplePdoWrapper::storeQueryObject($queryObject) : void
     - protected static SimplePdoWrapper::addAssignmentListSubStmt(&$stmt, array &$markers, array $fields, ?$firstForm = false) : void
+    - private SimplePdoWrapper::handleException([\Exception](http://php.net/manual/en/class.exception.php) $e, ?array $markers = []) : void
 
 }
 
@@ -136,6 +137,7 @@ Methods
 - SimplePdoWrapper::boot &ndash; You can use this method to initialize a "query method" (see SimplePdoWrapperInterface for more details).
 - SimplePdoWrapper::storeQueryObject &ndash; Stores the query object so that we can get the errors out of it.
 - SimplePdoWrapper::addAssignmentListSubStmt &ndash; for INSERT or UPDATE like statements.
+- SimplePdoWrapper::handleException &ndash; Will rethrow a custom exception based on the one given.
 
 
 

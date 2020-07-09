@@ -25,7 +25,7 @@ Returns the entry in the operations.byml file of the given context that matches 
 
 The options are:
 - realpath: bool=false. If true, the **realpath** entry is added to the returned array, and contains the
-         realpath to the file. This only works if the operation type allows it (i.e. not delete).
+         realpath to the file. This only works if the operation type allows it (i.e. not remove).
 
 
 
@@ -66,7 +66,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [TemporaryVirtualFileSystem::getEntry](https://github.com/lingtalfi/TemporaryVirtualFileSystem/blob/master/TemporaryVirtualFileSystem.php#L381-L402)
+See the source code for method [TemporaryVirtualFileSystem::getEntry](https://github.com/lingtalfi/TemporaryVirtualFileSystem/blob/master/TemporaryVirtualFileSystem.php#L473-L493)
 
 
 See Also

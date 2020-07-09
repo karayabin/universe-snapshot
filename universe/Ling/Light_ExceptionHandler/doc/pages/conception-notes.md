@@ -1,10 +1,9 @@
 Light_ExceptionHandler conception notes
 =======================
-2019-11-11
+2019-11-11 -> 2020-06-01
 
 
-The main idea with this plugin is to catch all the "in-your-face" exceptions (i.e. the exceptions that penalize the user),
-and log them into a log/exception.txt file.
+The main idea with this plugin is to log all the exceptions caught by your application into a log/exception.txt file (or any file that you want).
 
 
 On a more abstract level, the main idea is to centralize those exceptions so that it's generally easier to do handle them.
@@ -18,7 +17,7 @@ The implementation I foresee is the following:
 - an event listener will listen to all exceptions being dispatched  
 - when such an event is detected, this plugin (Light_ExceptionHandler) will dispatch a log message on 
 the exception channel (using the [Light_Logger](https://github.com/lingtalfi/Light_Logger)).
-- this plugin also provides a logger listener to write the exception to the **log/exception.txt** file
+- this plugin also provides a logger listener to write the exception to a **log/exception.txt** file (or any file you like)
 - other plugins can use our service to add their own callables, so that they can do extra actions upon an exception reception (such as sending emails for instance)  
 
 

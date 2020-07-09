@@ -1,0 +1,4 @@
+https://github.com/lingtalfi/Light_ErrorPop/blob/master/README.md
+https://github.com/lingtalfi/Light_ErrorPop/blob/master/doc/api/Ling/Light_ErrorPop/Service/LightErrorPopService.md
+https://github.com/lingtalfi/Light_ErrorPop/blob/master/doc/api/Ling/Light_ErrorPop.md
+https://github.com/lingtalfi/Light_ErrorPop/blob/master/doc/pages/conception-notes.md

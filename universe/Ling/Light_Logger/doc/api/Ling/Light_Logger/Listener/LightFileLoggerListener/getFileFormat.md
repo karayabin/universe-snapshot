@@ -16,7 +16,7 @@ Description
 ================
 
 
-protected [LightFileLoggerListener::getFileFormat](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Listener/LightFileLoggerListener/getFileFormat.md)() : string
+protected [LightFileLoggerListener::getFileFormat](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Listener/LightFileLoggerListener/getFileFormat.md)(string $filePath) : string
 
 
 
@@ -30,7 +30,10 @@ Returns the file format of the rotated file.
 Parameters
 ================
 
-This method has no parameters.
+
+- filePath
+
+    
 
 
 Return values
@@ -47,7 +50,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [LightFileLoggerListener::getFileFormat](https://github.com/lingtalfi/Light_Logger/blob/master/Listener/LightFileLoggerListener.php#L206-L213)
+See the source code for method [LightFileLoggerListener::getFileFormat](https://github.com/lingtalfi/Light_Logger/blob/master/Listener/LightFileLoggerListener.php#L223-L230)
 
 
 See Also

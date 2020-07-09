@@ -1,0 +1,39 @@
+-
+    id: lka-dashboard
+    icon: fas fa-bars
+    text: Dashboard
+    route: lka_route-home
+    children: []
+    _right: Light_Kit_Admin.user
+-
+    id: lka-user
+    icon: fas fa-user
+    text: User
+    route: null
+    children: []
+#        -
+#            id: user-file_manager
+#            icon: ""
+#            text: User File Manager
+#            route: lka_route-user_file_manager
+#            children: []
+#            _right: Light_Kit_Admin.user
+
+    _right: Light_Kit_Admin.user
+
+
+
+-
+    id: lka-admin
+    icon: fas fa-user-cog
+    text: Admin
+    route: null
+    _right: Light_Kit_Admin.admin
+    children: []
+
+
+-
+    id: lka-plugins
+    icon: fas fa-plug
+    text: Plugins
+    children: []

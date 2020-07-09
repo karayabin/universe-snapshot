@@ -23,7 +23,7 @@ public [LightKitAdminBMenuHost::prepareBaseMenu](https://github.com/lingtalfi/Li
 
 Injects the base menu structure in the given menu.
 
-See the [conception notes](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/pages/conception-notes.md) for more details.
+See the [bmenu conception notes](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/pages/conception-notes.md) for more details.
 
 
 
@@ -51,7 +51,7 @@ Returns mixed.
 
 Source Code
 ===========
-See the source code for method [LightKitAdminBMenuHost::prepareBaseMenu](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/BMenu/LightKitAdminBMenuHost.php#L52-L69)
+See the source code for method [LightKitAdminBMenuHost::prepareBaseMenu](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/BMenu/LightKitAdminBMenuHost.php#L52-L71)
 
 
 See Also

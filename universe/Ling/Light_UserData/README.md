@@ -1,22 +1,10 @@
 Light_UserData
 ===========
-2019-09-27 -> 2020-03-12
+2019-09-27 -> 2020-06-23
 
 
 
 
-- todo: solve problem
-- todo: solve problem
-- todo: solve problem
-- todo: solve problem
-
-CURRENT PROBLEM: when an upload is aborted, do we check the max capacity per user?
-If not, potential security leak
-
-- todo: solve problem
-- todo: solve problem
-- todo: solve problem
-- todo: solve problem
 
 
 
@@ -145,7 +133,11 @@ $realform_handler_alias_helper.methods_collection:
 History Log
 =============
 
---- 1.17.0 -- 2020-03-12
+- 1.18.0 -- 2020-06-23
+
+    - update service for new Light_PluginInstaller interface
+
+- 1.17.0 -- 2020-06-04
 
     - add virtual machine concept and implementation
     

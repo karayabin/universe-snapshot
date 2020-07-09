@@ -10,6 +10,7 @@ use Ling\CliTools\Helper\VirginiaMessageHelper as H;
 use Ling\CliTools\Input\ArrayInput;
 use Ling\CliTools\Input\InputInterface;
 use Ling\CliTools\Output\OutputInterface;
+use Ling\LingTalfi\Kaos\Tool\PreferencesTool;
 use Ling\LingTalfi\Kaos\Util\ReadmeUtil;
 use Ling\PlanetSitemap\PlanetSitemapHelper;
 use Ling\SimpleCurl\SimpleCurl;
@@ -54,6 +55,10 @@ class PushCommand extends KaosGenericCommand
      */
     public function run(InputInterface $input, OutputInterface $output)
     {
+
+        $prefs = PreferencesTool::getPreferences();
+        $docToolExtraLoaders = $prefs['docToolExtraLoaders'] ?? [];
+
 
         $indentLevel = $this->application->getBaseIndentLevel();
         $gitAccount = "lingtalfi";
@@ -180,6 +185,7 @@ class PushCommand extends KaosGenericCommand
                             "ignoreFilesStartingWith" => $ignoreFilesStartingWith,
                         ];
 
+
                         if (true === DependencyTool::writeDependencies($planetDir, $postInstall, $options)) {
 
                             $output->write('<success>ok</success>' . PHP_EOL);
@@ -219,8 +225,16 @@ class PushCommand extends KaosGenericCommand
                             H::info(H::i($indentLevel + 1) . "Checking for documentation builder." . PHP_EOL, $output);
 
                             if (class_exists($docBuilderClass)) {
+
+
                                 H::discover(H::i($indentLevel + 2) . "Found <b>$docBuilderClass</b>." . PHP_EOL, $output);
                                 H::info(H::i($indentLevel + 2) . "Creating documentation....", $output);
+
+                                if ($docToolExtraLoaders) {
+                                    foreach ($docToolExtraLoaders as $docToolExtraLoader) {
+                                        require_once $docToolExtraLoader;
+                                    }
+                                }
 
                                 call_user_func([$docBuilderClass, "buildDoc"], false);
                                 $output->write('<success>ok</success>' . PHP_EOL);

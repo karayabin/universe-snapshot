@@ -53,7 +53,7 @@ abstract class LightBaseControllerHubHandler implements LightControllerHubHandle
     /**
      * Executes the controller identified by the given controllerDir and controllerIdentifier, and returns the appropriate http response.
      *
-     * The controller dir is the directory where to find the controller.
+     * The controller dir is the absolute path to the directory where to find the controller (the name of this directory is usually "Controller").
      * The controller identifier is a string representing the controller, it has the following notation:
      *
      * - $controllerPath  (->$method)?

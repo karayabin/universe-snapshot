@@ -52,7 +52,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [TestPageController::render](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Controller/TestPageController.php#L26-L72)
+See the source code for method [TestPageController::render](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Controller/TestPageController.php#L25-L54)
 
 
 See Also

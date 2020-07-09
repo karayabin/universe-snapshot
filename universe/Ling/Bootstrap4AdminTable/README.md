@@ -1,6 +1,6 @@
 Bootstrap4AdminTable
 ===========
-2019-08-15 -> 2020-03-09
+2019-08-15 -> 2020-07-06
 
 
 
@@ -57,6 +57,14 @@ Related
 History Log
 =============
 
+- 1.14.1 -- 2020-07-06
+
+    - fix functional typo   
+    
+- 1.14.0 -- 2020-07-06
+
+    - update to accommodate new Light_Realist action -> _action evolution   
+    
 - 1.13.1 -- 2020-03-09
 
     - fix ToolbarRendererWidget rendering buttons with actionId=null   

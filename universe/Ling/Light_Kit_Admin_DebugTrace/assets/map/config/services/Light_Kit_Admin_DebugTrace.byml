@@ -13,6 +13,7 @@ kit_admin_debugtrace:
                     - /user-data
                     - /ajax-handler
                     - /css/tmp/
+                    - /browser-sync/
 
 
 # --------------------------------------

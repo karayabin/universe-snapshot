@@ -6,22 +6,21 @@ namespace Ling\Light_UserData\Service;
 
 use Ling\Bat\ConvertTool;
 use Ling\Bat\FileSystemTool;
-use Ling\Bat\FileTool;
 use Ling\Bat\UriTool;
 use Ling\DirScanner\YorgDirScannerTool;
 use Ling\Light\Events\LightEvent;
 use Ling\Light\Http\HttpRequestInterface;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
-use Ling\Light_AjaxFileUploadManager\Exception\LightAjaxFileUploadManagerException;
-use Ling\Light_AjaxFileUploadManager\Service\LightAjaxFileUploadManagerService;
 use Ling\Light_Database\Service\LightDatabaseService;
 use Ling\Light_PluginInstaller\PluginInstaller\PluginInstallerInterface;
+use Ling\Light_PluginInstaller\PluginInstaller\PluginPostInstallerInterface;
 use Ling\Light_PluginInstaller\Service\LightPluginInstallerService;
 use Ling\Light_ReverseRouter\Service\LightReverseRouterService;
 use Ling\Light_User\LightUserInterface;
 use Ling\Light_User\LightWebsiteUser;
-use Ling\Light_UserData\Api\LightUserDataApiFactory;
+use Ling\Light_UserData\Api\Custom\CustomLightUserDataApiFactory;
 use Ling\Light_UserData\Exception\LightUserDataException;
+use Ling\Light_UserData\Exception\LightUserDataResourceNotFoundException;
 use Ling\Light_UserData\FileManager\LightUserDataFileManagerHandler;
 use Ling\Light_UserDatabase\Service\LightUserDatabaseService;
 use Ling\SimplePdoWrapper\SimplePdoWrapperInterface;
@@ -31,7 +30,7 @@ use Ling\SimplePdoWrapper\SimplePdoWrapperInterface;
  *
  * For more details, refer to the @page(conception notes).
  */
-class LightUserDataService implements PluginInstallerInterface
+class LightUserDataService implements PluginInstallerInterface, PluginPostInstallerInterface
 {
 
 
@@ -69,7 +68,7 @@ class LightUserDataService implements PluginInstallerInterface
 
     /**
      * This property holds the factory for this instance.
-     * @var LightUserDataApiFactory
+     * @var CustomLightUserDataApiFactory
      */
     protected $factory;
 
@@ -87,6 +86,12 @@ class LightUserDataService implements PluginInstallerInterface
      */
     private $originalDirectoryName;
 
+    /**
+     * This property holds the fileManagerProtocolHandler for this instance.
+     * @var LightUserDataFileManagerHandler
+     */
+    private $fileManagerProtocolHandler;
+
 
     /**
      * Builds the LightUserDataService instance.
@@ -96,9 +101,10 @@ class LightUserDataService implements PluginInstallerInterface
         $this->container = null;
         $this->rootDir = null;
         $this->currentUser = null;
-        $this->factory = new LightUserDataApiFactory();
+        $this->factory = new CustomLightUserDataApiFactory();
         $this->directoryKey = "directory";
         $this->originalDirectoryName = "__original__";
+        $this->fileManagerProtocolHandler = null;
     }
 
 
@@ -118,79 +124,82 @@ class LightUserDataService implements PluginInstallerInterface
          * @var $installer LightPluginInstallerService
          */
         $installer = $this->container->get("plugin_installer");
-        if (false === $installer->hasTable("luda_resource")) {
+
+
+        /**
+         * @var $db SimplePdoWrapperInterface
+         */
+        $db = $this->container->get("database");
+
+        /**
+         * Here we do the following:
+         *
+         * - create the following tables:
+         *      - luda_resource
+         *      - luda_resource_has_tag
+         *      - luda_tag
+         *
+         * - create the "Light_UserData.Light_UserData_MSC_10" plugin option with value = 20M
+         * - bind the "Light_UserData.Light_UserData_MSC_10" plugin option to the "default" user group (see [Light_UserDatabase](https://github.com/lingtalfi/Light_UserDatabase) plugin for more details)
+         * - creates the Light_UserData.user permission in the lud_permission table
+         *
+         *
+         *
+         */
+        $installer->debugLog("user_data: synchronizing tables.");
+
+        $installer->synchronizeByCreateFile("Light_UserData", __DIR__ . "/../assets/fixtures/recreate-structure.sql", [
+            "scope" => [
+                "luda_resource",
+                "luda_resource_has_tag",
+                "luda_tag",
+            ],
+        ]);
+
+
+        /**
+         * However for the part below, we can put all the statements in a transaction.
+         */
+        /**
+         * @var $exception \Exception
+         */
+        $exception = null;
+        $installer->debugLog("user_data: adding tables content.");
+        $res = $db->transaction(function () {
 
             /**
-             * @var $db SimplePdoWrapperInterface
+             * @var $userDb LightUserDatabaseService
              */
-            $db = $this->container->get("database");
-
-            /**
-             * Here we do the following:
-             *
-             * - create the following tables:
-             *      - luda_resource
-             *      - luda_resource_has_tag
-             *      - luda_tag
-             *
-             * - create the "Light_UserData.Light_UserData_MSC_10" plugin option with value = 20M
-             * - bind the "Light_UserData.Light_UserData_MSC_10" plugin option to the "default" user group (see [Light_UserDatabase](https://github.com/lingtalfi/Light_UserDatabase) plugin for more details)
-             * - creates the Light_UserData.user permission in the lud_permission table
-             *
-             *
-             *
-             */
+            $userDb = $this->container->get('user_database');
+            $optionId = $userDb->getPluginOptionApi()->insertPluginOption([
+                "category" => 'Light_UserData.MSC',
+                "name" => 'default',
+                "value" => '20M',
+                "description" => "The maximum storage capacity for the \"default\" user. Example: 20M, 50M, etc.",
+            ]);
 
 
-            /**
-             * We cannot put this statement inside the transaction, because of the mysql implicit commit rule:
-             * https://dev.mysql.com/doc/refman/8.0/en/implicit-commit.html
-             */
-            $db->executeStatement(file_get_contents(__DIR__ . "/../assets/fixtures/recreate-structure.sql"));
+            $userDb->getUserGroupHasPluginOptionApi()->insertUserGroupHasPluginOption([
+                'user_group_id' => $userDb->getUserGroupApi()->getUserGroupIdByName('default'),
+                'plugin_option_id' => $optionId,
+            ]);
 
 
-            /**
-             * However for the part below, we can put all the statements in a transaction.
-             */
-            /**
-             * @var $exception \Exception
-             */
-            $exception = null;
-            $res = $db->transaction(function () {
+            $userDb->getPermissionApi()->insertPermission([
+                "name" => "Light_UserData.user",
+            ]);
 
-                /**
-                 * @var $userDb LightUserDatabaseService
-                 */
-                $userDb = $this->container->get('user_database');
-                $optionId = $userDb->getPluginOptionApi()->insertPluginOption([
-                    "category" => 'Light_UserData.MSC',
-                    "name" => 'default',
-                    "value" => '20M',
-                    "description" => "The maximum storage capacity for the \"default\" user. Example: 20M, 50M, etc.",
-                ]);
+            $userDb->getPermissionApi()->insertPermission([
+                "name" => "Light_UserData.admin",
+            ]);
 
 
-                $userDb->getUserGroupHasPluginOptionApi()->insertUserGroupHasPluginOption([
-                    'user_group_id' => $userDb->getUserGroupApi()->getUserGroupIdByName('default'),
-                    'plugin_option_id' => $optionId,
-                ]);
+        }, $exception);
 
-
-                $userDb->getPermissionApi()->insertPermission([
-                    "name" => "Light_UserData.user",
-                ]);
-
-                $userDb->getPermissionApi()->insertPermission([
-                    "name" => "Light_UserData.admin",
-                ]);
-
-
-            }, $exception);
-
-            if (false === $res) {
-                throw $exception;
-            }
+        if (false === $res) {
+            throw $exception;
         }
+
     }
 
 
@@ -252,12 +261,45 @@ class LightUserDataService implements PluginInstallerInterface
     /**
      * @implementation
      */
+    public function isInstalled(): bool
+    {
+        $installer = $this->container->get("plugin_installer");
+        if (
+            true === $installer->hasTable("luda_tag") &&
+            true === $installer->hasTable("luda_resource") &&
+            true === $installer->hasTable("luda_resource_has_tag")
+        ) {
+            return true;
+        }
+        return false;
+    }
+
+
+    /**
+     * @implementation
+     */
     public function getDependencies(): array
     {
         return [
             "Light_UserDatabase",
         ];
     }
+
+    /**
+     * @implementation
+     */
+    public function registerPostInstallerCallables(): array
+    {
+        return [
+            [
+                0,
+                [$this, 'updateUserGroupHasPluginOptionTable']
+            ],
+        ];
+    }
+
+
+
 
 
 
@@ -274,33 +316,40 @@ class LightUserDataService implements PluginInstallerInterface
      */
     public function onUserGroupCreate(LightEvent $event)
     {
-        $this->doInitialize();
-        $groupId = $event->getVar("return");
+
         /**
-         * @var $userDb LightUserDatabaseService
+         * @var $installer LightPluginInstallerService
          */
-        $userDb = $this->container->get("user_database");
+        $installer = $this->container->get("plugin_installer");
+        if (false === $installer->pluginsAreBeingInstalled()) {
+
+            $groupId = $event->getVar("return");
+            /**
+             * @var $userDb LightUserDatabaseService
+             */
+            $userDb = $this->container->get("user_database");
 
 
-        $pluginOption = $userDb->getPluginOptionApi()->getPluginOption([
-            "category" => "Light_UserData.MSC",
-            "name" => "default",
-        ], [], null, true);
+            $pluginOptionId = $userDb->getPluginOptionApi()->getPluginOptionsColumn('id', [
+                "category" => "Light_UserData.MSC",
+                "name" => "default",
+            ], []);
 
 
-        $userDb->getUserGroupHasPluginOptionApi()->insertUserGroupHasPluginOption([
-            'user_group_id' => $groupId,
-            'plugin_option_id' => $pluginOption['id'],
-        ]);
+            $userDb->getUserGroupHasPluginOptionApi()->insertUserGroupHasPluginOption([
+                'user_group_id' => $groupId,
+                'plugin_option_id' => $pluginOptionId,
+            ]);
+        }
     }
 
 
     /**
-     * Returns the Light_USerData factory.
+     * Returns the Light_UserData factory.
      *
-     * @return LightUserDataApiFactory
+     * @return CustomLightUserDataApiFactory
      */
-    public function getFactory(): LightUserDataApiFactory
+    public function getFactory(): CustomLightUserDataApiFactory
     {
         return $this->factory;
     }
@@ -339,128 +388,250 @@ class LightUserDataService implements PluginInstallerInterface
 
 
     /**
+     *
+     *
+     * Saves the given meta array, and returns an array of information related to the saved file.
+     *
+     *
+     * If the maximum user storage capacity is reached, the resource is not uploaded and an exception is thrown.
+     *
+     *
+     *
      * The save method has two modes:
      *
      * - insert mode
      * - update mode
      *
-     * In both cases, the database is updated accordingly.
+     * The insert mode is triggered when no "resourceId" is provided, or when the provided "resourceId" doesn't match
+     * any entry in the database.
+     *
+     * If the resourceId is provided and match an existing entry in the database, then the update mode is executed.
      *
      *
-     * ### insert mode
+     * The meta array contains the following properties, all optional, with their default values:
      *
-     * The goal is to add a new file to the hard drive.
-     * The destination of that file is given by the path argument.
-     * If the destination file doesn't exist already, it will be created.
-     * Otherwise if the destination file already exists on the hard drive, this method will throw an exception by default, forcing
-     * the user to remove a file before using it.
-     * If you want to replace the already existing file, use the overwrite option and set it to true.
+     * - resourceId: string=null, the resource identifier
+     * - dir: undefined
+     * - directory: undefined (it's an alias of dir, use one or the other, dir has precedence)
+     * - filename: undefined
+     * - is_private: 0|1
+     * - date_creation: (the current datetime)
+     * - date_last_update: (the current datetime)
+     * - tags: []
      *
+     * - file: string=null, the binary data of the file, or alternately you can specify the "file_path" property instead.
+     * - file_path: string=null, the path to the file, or alternately you can specify the "file" property instead.
+     *      Note: this method will potentially move the **file_path** to another location, which means that after
+     *      calling this method, file_exists (file_path) will return false.
      *
-     * ### update mode
-     *
-     * The goal is to update an already existing file.
-     * The new destination of that file is given by the path argument.
-     * The old/existing file to replace is identified by the **url** passed via the options array.
-     * Passing the url option will trigger this method to use the update mode, otherwise the insert mode
-     * is assumed by default.
-     * If the destination already exists on the hard drive AND IS THE SAME as the old/existing file, then the file will be updated normally.
-     * However if the destination already exists on the hard drive AND IS NOT THE SAME as the old/existing file, then by default
-     * this method will throw an exception, forcing the user to remove a file before using it.
-     * If you want this method to replace the already existing file without warning, use the overwrite option and set it to true.
+     * - original_file_path: string=null, the path to the original file if any. If passed, this method will store the original file in the
+     *      original directory.
      *
      *
+     * The file property (or file_path) is mandatory in insert mode.
      *
-     * If the maximum user storage capacity is reached, the resource is not uploaded and an exception is thrown.
+     *
+     * Note: we've added the file_path and original_file_path properties to be able to move files rather than copying them (much faster if
+     * the files are on the same drive), for when committing the virtual file server.
+     * While the file property is still useful to deal with js gui interaction.
+     *
+     *
+     * Both modes, when successful, will result in an alteration of the database, and possibly the filesystem (if a file was provided).
+     *
+     *
+     *
      *
      * The available options are:
-     * - tags: an array of tags to bind to the given resource
-     * - is_private: bool=false
-     * - overwrite: bool=false. Whether to overwrite an existing file. If false (by default), will throw an exception instead of replacing the file.
-     *      The only case were overwriting a file is ok even when overwrite=false is when in update mode if the new and old file have the same name.
-     *      See my update notes above for more details.
-     * - keep_original: bool=false. Whether to keep a copy of the given file (the copy is kept in the __original__ directory of the user).
+     *
+     * - keep_original: bool=false. Whether to keep a copy of the given file.
      *      See the @page(the original file section in the conception notes).
-     * - virtual_context_id: string=null. If set, this method uses the virtual storage. If null, it doesn't.
-     *      See @page(the virtual storage conception notes) for more details.
+     * - check_msc: bool=true. Whether to check the maximum storage capacity.
+     * - treat_file: bool=true. Whether to treat the file on the filesystem.
+     *      If false, the file won't be copied to its expected destination, and the original
+     *      file won't be created. This option can be used by virtual file server which take
+     *      care of that part.
      *
      *
-     * @param string $path
-     * The relative path, from the user dir, to the resource.
      *
-     * @param string $data
+     * The returned array
+     * ----------
+     *
+     * - resource_identifier: string, the resource identifier
+     * - lud_user_id: string, the id of the user owning the file
+     * - dir: string, the directory associated with the file
+     * - filename: string, the filename associated with the file
+     * - is_private: 0|1, whether the file is private or public
+     * - date_creation: datetime, the datetime when the file was saved for the first time
+     * - date_last_update: datetime, the datetime when the file was last saved
+     * - tags: array, the tag associated with the file
+     *
+     *
+     *
+     * @param array $meta
      * @param array $options
-     * @return string
+     * @return array
      * @throws \Exception
      */
-    public function save(string $path, string $data, array $options = []): string
+    public function save(array $meta = [], array $options = []): array
     {
+        $ret = [];
 //        az($path, $options);
 
         $this->checkPermission();
         $user = $this->getValidWebsiteUser();
         $userDir = $this->getUserDir(); // assuming the user calling the save method owns the file (for now...)
-
-        $this->checkUserMaximumStorageLimit(strlen($data), $user);
-
-        $tags = $options['tags'] ?? [];
-        $overwrite = $options['overwrite'] ?? false;
-        $keepOriginal = $options['keep_original'] ?? false;
-        $is_private = (int)(bool)($options['is_private'] ?? false);
         $userId = $user->getId();
-        $resourceIdentifier = $this->getNewResourceIdentifier();
-        $file = $userDir . "/$path";
-        if (false === FileSystemTool::isValidFilename($path, true)) {
-            throw new LightUserDataException("Invalid path provided: $path.");
-        }
-
-
-        $oldFile = null;
-        $resource = null;
-        $isUpdate = (array_key_exists('url', $options)) ? true : false;
         $date = date("Y-m-d H:i:s");
 
 
-        if (true == $isUpdate) {
-            $resource = $this->getResourceInfoByResourceUrl($options['url']);
-            $oldFile = $resource['abs_path'];
-
-            // prepare resource to be updated in db
-            unset($resource["abs_path"]);
-            unset($resource["rel_path"]);
-            unset($resource["user_identifier"]);
-            unset($resource["original_url"]);
-            $resource['is_private'] = $is_private;
-            $resource['dir'] = dirname($path);
-            $resource['filename'] = basename($path);
-            $resource['date_last_update'] = $date;
-            $resourceIdentifier = $resource['resource_identifier'];
-
+        //
+        $onFileNotExistThrowEx = true;
+        $keepOriginal = $options['keep_original'] ?? false;
+        $checkMsc = $options['check_msc'] ?? true;
+        $treatFile = $options['treat_file'] ?? true;
+        if (false === $treatFile) {
+            $onFileNotExistThrowEx = false;
         }
 
 
-        //--------------------------------------------
-        // CHECKING THAT THE FILE DOES NOT EXIST OR CAN BE OVERWRITTEN
-        //--------------------------------------------
+        //
+        $is_private = (int)(bool)($meta['is_private'] ?? false);
+        $tags = $meta['tags'] ?? [];
 
-        if (false === $overwrite && file_exists($file)) {
-            if (true === $isUpdate && realpath($oldFile) === realpath($file)) {
-                // update of a file with the same name is allowed
-            } else {
-                throw new LightUserDataException("Permission denied. The file already exists. You cannot overwrite the file; it's forbidden by the server configuration.");
+
+        $resourceId = $meta['resourceId'] ?? null;
+        $resourceFound = true;
+        if (null !== $resourceId) {
+            try {
+                $resource = $this->getResourceInfoByResourceIdentifier($resourceId, [
+                    "onFileNotExistThrowEx" => $onFileNotExistThrowEx,
+                ]);
+            } catch (LightUserDataResourceNotFoundException $e) {
+                $resourceFound = false;
             }
         }
 
 
-        $insertRow = [
-            "lud_user_id" => $userId,
-            "resource_identifier" => $resourceIdentifier,
-            "dir" => dirname($path),
-            "filename" => basename($path),
-            "is_private" => $is_private,
-            "date_creation" => $date,
-            "date_last_update" => $date,
-        ];
+        $isAddOperation = (
+            null === $resourceId ||
+            (null !== $resourceId && false === $resourceFound)
+        );
+
+
+        //--------------------------------------------
+        // ADD
+        //--------------------------------------------
+        if (true === $isAddOperation) {
+
+
+            if (
+                false === array_key_exists("file", $meta) &&
+                false === array_key_exists("file_path", $meta)
+            ) {
+                $this->error("The \"add\" operation requires a \"file\" or \"file_path\" property which was not given.");
+            }
+
+
+            if (true === $checkMsc) {
+
+                $fileSize = 0;
+                if (array_key_exists("file", $meta)) {
+                    $fileSize = strlen($meta['file']);
+                } else {
+                    $fileSize = filesize($meta['file_path']);
+                    if (false === $fileSize) {
+                        $this->error("Couldn't get the file size from the file_path: \"" . $meta['file_path'] . "\"");
+                    }
+                }
+                $this->checkUserMaximumStorageLimit($fileSize, $user);
+            }
+
+
+            $resourceIdentifier = $resourceId ?? $this->getNewResourceIdentifier();
+
+            $row = [
+                "lud_user_id" => $userId,
+                "resource_identifier" => $resourceIdentifier,
+                //
+                "dir" => $meta["dir"] ?? $meta["directory"] ?? 'undefined',
+                "filename" => $meta["filename"] ?? 'undefined',
+                "is_private" => $is_private,
+                "date_creation" => $meta["date_creation"] ?? $date,
+                "date_last_update" => $meta["date_last_update"] ?? $date,
+            ];
+        }
+        //--------------------------------------------
+        // UPDATE
+        //--------------------------------------------
+        else {
+
+            if (false === $resourceFound) {
+                $this->error("Resource not found in the database with resourceId=\"$resourceId\". Update cancelled.");
+            }
+
+            $oldFile = $resource['abs_path'];
+
+
+            // check maximum storage capacity
+            if (true === $checkMsc) {
+
+                if (
+                    array_key_exists("file", $meta) ||
+                    array_key_exists("file_path", $meta)
+                ) {
+
+
+                    $fileSize = 0;
+                    if (array_key_exists("file", $meta)) {
+                        $fileSize = strlen($meta['file']);
+                    } else {
+                        if (null !== $meta['file_path']) {
+                            $fileSize = filesize($meta['file_path']);
+                            if (false === $fileSize) {
+                                $this->error("Couldn't get the file size from the file_path: \"" . $meta['file_path'] . "\"");
+                            }
+                        } else {
+                            /**
+                             * The file hasn't changed, we do nothing.
+                             */
+                        }
+                    }
+                    if (0 !== $fileSize) {
+                        $oldFileSize = 0;
+                        if (file_exists($oldFile)) {
+                            $oldFileSize = filesize($oldFile);
+                        }
+                        if ($fileSize > $oldFileSize) {
+                            $nbBytesToAdd = $fileSize - $oldFileSize;
+                            $this->checkUserMaximumStorageLimit($nbBytesToAdd, $user);
+                        }
+                    }
+                }
+            }
+
+
+            $resourceIdentifier = $resource['resource_identifier'];
+
+            // prepare resource to be updated in db
+            $row = $resource;
+            unset($row["abs_path"]);
+            unset($row["rel_path"]);
+            unset($row["user_identifier"]);
+            unset($row["original_url"]);
+            $row['is_private'] = $is_private;
+            $row['date_last_update'] = $date;
+            $row['filename'] = $meta['filename'];
+            $row['dir'] = $meta['dir'] ?? $meta['directory'] ?? $resource['dir'];
+        }
+
+
+        if (array_key_exists('dir', $row)) {
+            $this->checkDirname($row['dir']);
+        }
+
+        $relPath = $this->getBaseRelativePathByResourceIdentifier($resourceIdentifier);
+        $filePath = $userDir . "/files/$relPath";
+
 
         /**
          * @var $db SimplePdoWrapperInterface
@@ -470,14 +641,14 @@ class LightUserDataService implements PluginInstallerInterface
          * @var $exception \Exception
          */
         $exception = null;
-        $res = $db->transaction(function () use ($insertRow, $date, $tags, $resource, $isUpdate) {
+        $res = $db->transaction(function () use ($row, $date, $tags, $isAddOperation) {
 
 
-            if (false === $isUpdate) {
-                $resourceId = $this->factory->getResourceApi()->insertResource($insertRow);
+            if (true === $isAddOperation) {
+                $resourceId = $this->factory->getResourceApi()->insertResource($row);
             } else {
-                $this->factory->getResourceApi()->updateResourceById($resource['id'], $resource);
-                $resourceId = $resource['id'];
+                $this->factory->getResourceApi()->updateResourceById($row['id'], $row);
+                $resourceId = $row['id'];
             }
 
 
@@ -485,7 +656,7 @@ class LightUserDataService implements PluginInstallerInterface
             // TAGS
             //--------------------------------------------
             if ($tags) {
-                if (true === $isUpdate) {
+                if (false === $isAddOperation) {
                     $this->factory->getResourceHasTagApi()->deleteResourceHasTagByResourceId($resourceId);
 //                    $this->factory->getTagApi()->removeUnusedTags(); // shall we?
                 }
@@ -509,30 +680,84 @@ class LightUserDataService implements PluginInstallerInterface
             throw $exception;
         }
 
-        if (true === $isUpdate) {
-            FileSystemTool::remove($oldFile);
-        }
 
-        // create or overwrite the file
-        FileSystemTool::mkfile($file, $data);
-        if (false === $isUpdate && true === $keepOriginal) {
-            if (false !== ($originalFile = $this->getOriginalPathFromAbsolutePath($file))) {
-                FileSystemTool::mkfile($originalFile, $data);
+        if (true === $treatFile) {
+
+
+            if (
+                array_key_exists("file", $meta) ||
+                array_key_exists("file_path", $meta)
+            ) {
+
+
+                $fileHasChanged = true;
+                if (
+                    (true === array_key_exists("file_path", $meta) && null === $meta['file_path']) ||
+                    (true === array_key_exists("file", $meta) && null === $meta['file'])
+                ) {
+                    $fileHasChanged = false;
+                }
+
+
+                if (true === $fileHasChanged) {
+
+                    if (false === $isAddOperation) {
+                        FileSystemTool::remove($oldFile);
+                    }
+                    if (array_key_exists("file_path", $meta)) {
+                        if (file_exists($meta['file_path'])) {
+                            FileSystemTool::move($meta['file_path'], $filePath);
+                        } else {
+                            $this->error("File does not exist: " . $meta['file_path']);
+                        }
+                    } else {
+                        FileSystemTool::mkfile($filePath, $meta['file']);
+                    }
+                }
+            }
+
+
+            if (true === $keepOriginal) {
+                if (false !== strpos($resourceIdentifier, "-")) {
+                    $this->error("An original file cannot originate from a related file.");
+                }
+                $originalPath = $this->getOriginalPathFromAbsolutePath($filePath);
+                if (array_key_exists("file", $meta)) {
+                    FileSystemTool::mkfile($originalPath, $meta['file']);
+                } elseif (array_key_exists("file_path", $meta)) {
+                    FileSystemTool::mkfile($originalPath, file_get_contents($filePath));
+                } else {
+                    $this->error("Parameter file or file_path not defined: will not keep original.");
+                }
+            }
+
+
+            if (array_key_exists("original_file_path", $meta)) {
+                if (false !== strpos($resourceIdentifier, "-")) {
+                    $this->error("An original file cannot originate from a related file.");
+                }
+                $originalPath = $userDir . "/original/$resourceIdentifier";;
+                FileSystemTool::move($meta['original_file_path'], $originalPath);
             }
         }
 
-
         //--------------------------------------------
-        // RETURNING THE LINK
+        // RETURNING THE ARRAY
         //--------------------------------------------
-//        az(__FILE__, "pp");
-        return $this->getResourceUrlByResourceIdentifier($resourceIdentifier);
+        $ret = $row;
+        $ret['resource_identifier'] = $resourceIdentifier;
+        $ret['tags'] = $tags;
+        return $ret;
     }
 
 
     /**
      * Removes the resource which url is given from the database and the filesystem.
      * Throws an exception in case of a problem.
+     *
+     * It also removes the following files if found:
+     * - original file (see the @page(original file) section for more details)
+     * - related files (see the @page(related-files.md) document for more info)
      *
      *
      *
@@ -544,12 +769,103 @@ class LightUserDataService implements PluginInstallerInterface
         $this->checkPermission();
         $info = $this->getResourceInfoByResourceUrl($url);
         $id = $info['id'];
-        $path = $info['abs_path'];
-        $this->factory->getResourceApi()->deleteResourceById($id);
-        unlink($path);
 
+        $path = $info['abs_path'];
+        $resourceId = $info['resource_identifier'];
+        $userDir = $this->getUserDir();
+        $relatedDir = $userDir . "/files/$resourceId-";
+
+        $resourceApi = $this->getFactory()->getResourceApi();
+        $relatedIds = $resourceApi->getRelatedIdsByResourceIdentifier($resourceId);
+        $resourceApi->deleteResourceByIds(array_merge([$id], $relatedIds));
+
+
+        unlink($path);
         if (false !== ($originalPath = $this->getOriginalPathFromAbsolutePath($path))) {
-            unlink($originalPath);
+            if (file_exists($originalPath)) {
+                unlink($originalPath);
+            }
+        }
+        FileSystemTool::remove($relatedDir);
+    }
+
+
+    /**
+     * Removes all the files related to the given resource id.
+     *
+     * This includes:
+     *
+     * - the regular file
+     * - the original file (see the original file section of the @page(Light_UserData conception notes) for more info.
+     * - the related files (see the @page(related-files.md) document for more info)
+     *
+     *
+     * @param string $resourceId
+     * @param LightWebsiteUser|null $user
+     */
+    public function removeAllFilesByResourceIdentifier(string $resourceId, LightWebsiteUser $user = null)
+    {
+
+        if (null === $user) {
+            $user = $this->getValidWebsiteUser();
+        }
+        $userDir = $this->rootDir . "/users/" . $user->getIdentifier();
+
+        // remove regular file
+        $f = $userDir . "/files/$resourceId";
+        FileSystemTool::remove($f);
+
+
+        // related files
+        $d = $userDir . "/files/$resourceId-";
+        FileSystemTool::remove($d);
+
+
+        // original file
+        $f = $userDir . "/original/$resourceId";
+        FileSystemTool::remove($f);
+    }
+
+
+    /**
+     * Removes the resources on the filesystem that aren't referenced in the database,
+     * for the user which identifier is given.
+     *
+     *
+     * @param LightWebsiteUser $user
+     * @return void
+     */
+    public function removeUnlinkedResourcesByUser(LightWebsiteUser $user): void
+    {
+        $userDir = $this->rootDir . "/users/" . $user->getIdentifier();
+        $userResourceIdentifiers = $this->factory->getResourceApi()->getResourcesColumn("resource_identifier", [
+            "lud_user_id" => $user->getId(),
+        ]);
+        $userFiles = YorgDirScannerTool::getFiles($userDir, true, true);
+        $hasDelete = false;
+
+
+        foreach ($userFiles as $f) {
+            $basename = basename($f);
+            $dir = basename(dirname($f));
+            $identifier = $basename;
+            if (
+                'f' === substr($dir, 0, 1) &&
+                '-' === substr($dir, -1) &&
+                preg_match('!^[0-9]+$!', $basename)
+            ) {
+                $identifier = $dir . $basename;
+
+            }
+
+            if (false === in_array($identifier, $userResourceIdentifiers)) {
+                unlink($userDir . "/" . $f);
+                $hasDelete = true;
+            }
+        }
+
+        if (true === $hasDelete) {
+            FileSystemTool::cleanDir($userDir);
         }
     }
 
@@ -574,7 +890,6 @@ class LightUserDataService implements PluginInstallerInterface
         $getOriginalUrl = $options['original'] ?? false;
 
 
-
         /**
          * @var $rr LightReverseRouterService
          */
@@ -585,7 +900,6 @@ class LightUserDataService implements PluginInstallerInterface
         if (true === $getOriginalUrl) {
             $params['o'] = "1";
         }
-
 
 
         /**
@@ -608,15 +922,16 @@ class LightUserDataService implements PluginInstallerInterface
      *
      * - abs_path: string, absolute path to the file
      * - rel_path: string, relative path to the file (from the user directory)
-     *
-     * Also, if the addExtraInfo option is set to true (see below), the following extra information is returned:
-     *
      * - is_private: bool, whether the file is private
-     * - original_url: string|false. The url to the original file (which might be saved, or not, depending on the configuration).
+     * - original_url: string|null. The url to the original file (which might be saved, or not, depending on the configuration).
      *      If no original url was saved, then false is returned
-     * - tags: array, the tag names bound to the resource
      * - date_creation: string, the mysql datetime when the file was first registered in the system. Not available in the virtual machine (at least for now).
      * - date_last_update: string, the mysql datetime when the file was last updated in the system. Not available in the virtual machine (at least for now).
+     *
+     *
+     * Also, if the addExtraInfo option (see below) is set to true, the following extra information is returned:
+     * - tags: array, the tag names bound to the resource
+     *
      *
      *
      * Personal note: I didnt' include the date_creation and date_last_update info from the virtual machine because I was lazy and I didn't think that was essential:
@@ -629,16 +944,22 @@ class LightUserDataService implements PluginInstallerInterface
      * - original: bool=false. If true, the file paths (absolute and relative) reference the original image rather than the processed one.
      *      Note: the original image is kept only depending on the plugin configuration.
      * - vm: bool=false. Whether to get the information from the virtual machine.
-     * - ?configId: string=null. Required if vm=true. The configuration id for the virtual machine.
+     * - onFileNotExistThrowEx: bool=true. If the file does not exist in the file system, by default an exception is thrown.
+     *      To prevent the throwing of the exception, we can set this flag to false. The abs_path property will then be set to false.
      *
      *
      *
      *
      *
      * @param string $resourceIdentifier
+     * The generic resource identifier. See the @page(related-files.md) document for more info.
      * @param array $options
      * @return array
+     * @throws LightUserDataResourceNotFoundException
+     * - When the resource is not found
      * @throws LightUserDataException
+     * - When the user is not allowed to access the data
+     * - When the file is missing but the entry exists in the database
      */
     public function getResourceInfoByResourceIdentifier(string $resourceIdentifier, array $options = []): array
     {
@@ -648,35 +969,27 @@ class LightUserDataService implements PluginInstallerInterface
         $addExtraInfo = $options['addExtraInfo'] ?? false;
         $useOriginal = $options['original'] ?? false;
         $useVirtualMachine = $options['vm'] ?? null;
+        $onFileNotExistThrowEx = $options['onFileNotExistThrowEx'] ?? true;
 
         if (true === $useVirtualMachine) {
-
-            $configId = $options['configId'];
             $handler = new LightUserDataFileManagerHandler();
             $handler->setService($this);
-            $ret = $handler->getResourceInfoFromVirtualMachine($resourceIdentifier, $configId, $options);
+            $ret = $handler->getResourceInfoFromVirtualMachine($resourceIdentifier, $options);
 
         } else {
-            $this->error("Not implemented yet no virtual machine.");
 
 
-            /**
-             * Note: when the vm is used, since the vm only records changes, it might not have info about file
-             * that the user didn't change, that's why we use the api as a fallback of the vm for the fetch operation.
-             * See more in my virtual-machine notes (next to the conception notes of this plugin).
-             */
-            if (false === $row) {
-                $row = $this->factory->getResourceApi()->getResourceInfoByResourceIdentifier($resourceIdentifier);
-                if (null === $row) {
-                    throw new LightUserDataException("Row not found with resource identifier \"$resourceIdentifier\".");
-                }
+            $row = $this->factory->getResourceApi()->getResourceInfoByResourceIdentifier($resourceIdentifier);
+
+
+            if (null !== $row) {
+
+
                 if (true === $addExtraInfo) {
                     $row['tags'] = $this->factory->getTagApi()->getTagNamesByResourceResourceIdentifier($resourceIdentifier);
                 }
-            }
 
 
-            if (false !== $row) {
                 $user = null;
                 if (1 === (int)$row['is_private']) {
                     $user = $this->getValidWebsiteUser();
@@ -686,35 +999,42 @@ class LightUserDataService implements PluginInstallerInterface
                 }
 
 
-                $relPath = $row['dir'] . "/" . $row['filename'];
+                // using the flat file system and the related files convention (see the related files document for more info).
+                $baseResourceId = $resourceIdentifier;
+                $relPath = $this->getBaseRelativePathByResourceIdentifier($resourceIdentifier);
+
+                $prefix = (true === $useOriginal) ? 'original' : 'files';
+                $relPath = $prefix . "/" . $relPath;
+                $absPath = $this->rootDir . "/users/" . $row['user_identifier'] . "/" . $relPath;
 
 
-                $file = $this->rootDir . "/" . $row['user_identifier'] . "/" . $relPath;
-                $originalDir = $this->rootDir . "/$this->originalDirectoryName/" . $row['user_identifier'];
-
-                $originalFile = $originalDir . "/" . $relPath;
-
-                if (true === $useOriginal) {
-                    $file = $originalFile;
+                $originalUrl = null;
+                $originalFile = $this->rootDir . "/users/" . $row['user_identifier'] . "/original/$baseResourceId";
+                if (file_exists($originalFile)) {
+                    $originalUrl = $this->getResourceUrlByResourceIdentifier($row['resource_identifier'], [
+                        'original' => true,
+                    ]);
                 }
 
-                $originalUrl = (true === file_exists($originalFile)) ? $this->getResourceUrlByResourceIdentifier($row['resource_identifier'], [
-                    'original' => true,
-                    'vm' => (null !== $virtualContextId),
-                ]) : false;
 
-
-                if (false === file_exists($file)) {
-                    throw new LightUserDataException("File missing: resource found, but the file was missing on the hard drive.");
+                if (false === file_exists($absPath)) {
+                    if (true === $onFileNotExistThrowEx) {
+                        throw new LightUserDataException("File missing: resource found (resourceId=\"$resourceIdentifier\"), but the file was missing on the hard drive (path=\"$absPath\").");
+                    }
+                    $absPath = false;
                 }
-                $row['abs_path'] = $file;
+
+
+                $row['abs_path'] = $absPath;
                 $row['rel_path'] = $relPath;
                 $row['original_url'] = $originalUrl;
 
 
-                return $row;
+                $ret = $row;
+
+
             } else {
-                throw new LightUserDataException("Resource not found with resource identifier \"$resourceIdentifier\".");
+                throw new LightUserDataResourceNotFoundException("Row not found with resource identifier \"$resourceIdentifier\".");
             }
         }
 
@@ -908,184 +1228,23 @@ class LightUserDataService implements PluginInstallerInterface
      */
     public function handleFileManagerProtocol(string $action, HttpRequestInterface $request)
     {
-        $handler = new LightUserDataFileManagerHandler();
-        $handler->setService($this);
+        $handler = $this->getFileManagerProtocolHandler();
         return $handler->handle($action, $request);
     }
 
 
     /**
-     * Handles the @page(Light_UserData ajax file uploader action) and returns the appropriate response (depending on the action settings).
-     *
-     *
-     *
-     * @param array $action
-     * @param array|null $phpFileItem
-     * @param array $params
-     * @param string $confItemId
-     *
-     * @return array|null
-     * @throws \Exception
+     * Returns a prepared instance of the file manager handler.
+     * @return LightUserDataFileManagerHandler
      */
-    public function handleAjaxFileUploaderAction(array $action, ?array $phpFileItem, array $params, string $confItemId)
+    public function getFileManagerProtocolHandler(): LightUserDataFileManagerHandler
     {
-
-//        az($action, $phpFileItem, $params, $confItemId);
-
-        /**
-         * @var $afum LightAjaxFileUploadManagerService
-         */
-        $afum = $this->container->get("ajax_file_upload_manager");
-
-        $ret = null;
-
-        $protocol = $action['protocol'] ?? null;
-        $useFileEditor = ("fileEditor" === $protocol);
-
-
-        //--------------------------------------------
-        // NAME TRANSFORM FEATURE
-        //--------------------------------------------
-        $name = $phpFileItem['name'];
-        if (true === $useFileEditor) {
-            if (false === array_key_exists("filename", $params)) {
-                throw new LightAjaxFileUploadManagerException("Missing parameter filename, required by the \"fileEditor\" protocol.");
-            }
-            $name = $params['filename'];
+        if (null === $this->fileManagerProtocolHandler) {
+            $handler = new LightUserDataFileManagerHandler();
+            $handler->setService($this);
+            $this->fileManagerProtocolHandler = $handler;
         }
-        if (array_key_exists('nameTransformer', $action)) {
-            $name = $afum->getTransformedName($name, $action['nameTransformer']);
-        }
-
-
-        //--------------------------------------------
-        // REMOVE ACTION
-        //--------------------------------------------
-        if (true === $useFileEditor) {
-            $fileEditorAction = $params['action'] ?? "add";
-            if ('remove' === $fileEditorAction) {
-
-                if (false === array_key_exists("url", $params)) {
-                    throw new LightAjaxFileUploadManagerException("Missing parameter \"url\" for fileEditor.remove action.");
-                }
-
-                $url = $params['url'];
-                $this->removeResourceByUrl($url);
-                return [
-                    "ok" => "1",
-                ];
-            }
-        }
-
-
-        //--------------------------------------------
-        // ACTION VALIDATION
-        //--------------------------------------------
-        if (
-            array_key_exists("maxFileNameLength", $action) &&
-            array_key_exists("filename", $params)
-        ) {
-            $name = $params['filename'];
-            $maxLen = $action['maxFileNameLength'];
-            $nameLen = strlen($name);
-            if ($nameLen > $maxLen) {
-                throw new LightAjaxFileUploadManagerException("File name too long ($name). Maximum of $maxLen characters allowed ($nameLen given).");
-            }
-        }
-
-
-        //--------------------------------------------
-        // NAME TRANSFORM
-        //--------------------------------------------
-        if (null === $phpFileItem) {
-            throw new LightAjaxFileUploadManagerException("Invalid phpFileItem given with \"use_Light_UserData\" action and add/update intent.");
-        }
-
-
-        //--------------------------------------------
-        // FILENAME SANITIZATION
-        //--------------------------------------------
-        $allowSlashInFilename = $action['allowSlashInFilename'] ?? false;
-        if (false === FileSystemTool::isValidFilename($name, $allowSlashInFilename)) {
-            throw new LightAjaxFileUploadManagerException("Invalid filename \"$name\". Try to use only alphanumerical characters and underscore, and dash.");
-        }
-
-
-        //--------------------------------------------
-        // STORING FILE IN THE FILESYSTEM AND DATABASE
-        //--------------------------------------------
-        if (array_key_exists("path", $action)) {
-            $defaultIsPrivate = false;
-            if (true === $useFileEditor) {
-                $defaultIsPrivate = $params['is_private'] ?? false;
-                $defaultIsPrivate = (bool)$defaultIsPrivate;
-            }
-            $isPrivate = $action['isPrivate'] ?? $defaultIsPrivate;
-            $use2Svp = $action['use_2svp'] ?? false;
-            $tags = $action['tags'] ?? $params['tags'] ?? [];
-            $path = $action['path'];
-            $oldPath = null; // only used with action=update
-
-
-            if (false !== strpos($path, '{extension}')) {
-                $extension = FileSystemTool::getFileExtension($name);
-                if ('' === $extension) {
-                    throw new LightAjaxFileUploadManagerException("An extension is required for the file name: " . $name);
-                }
-                $path = str_replace('{extension}', $extension, $path);
-            }
-            $path = str_replace('{filename}', $name, $path);
-
-
-            if (true === $use2Svp) {
-                $p = explode('.', $path, 2);
-                $path = $p[0] . '.2svp';
-                if (2 === count($p)) {
-                    $path .= '.' . $p[1];
-                }
-            }
-
-
-            //--------------------------------------------
-            // IMAGE TRANSFORM
-            //--------------------------------------------
-            $fileTmpPath = $phpFileItem['tmp_name'];
-            $fileTmpPathDest = $fileTmpPath;
-            if (true === FileTool::isImage($fileTmpPath)) {
-                if (array_key_exists("imageTransformer", $action)) {
-                    $afum->transformImage($fileTmpPath, $fileTmpPathDest, $action['imageTransformer'], $phpFileItem['name']);
-                }
-            }
-
-
-            $vid = null;
-            $options = [
-                "is_private" => $isPrivate,
-                "tags" => $tags,
-                "overwrite" => $action['overwrite'] ?? false,
-                "keep_original" => $action['keepOriginal'] ?? false,
-                "virtual_context_id" => $vid,
-            ];
-
-            if (true === $useFileEditor && 'update' === $fileEditorAction) {
-                if (false === array_key_exists("url", $params)) {
-                    throw new LightAjaxFileUploadManagerException("Missing parameter url, required by the \"fileEditor\" protocol for the update action.");
-                }
-                $options['url'] = $params['url'];
-
-            }
-
-
-            $url = $this->save($path, file_get_contents($phpFileItem['tmp_name']), $options);
-            unlink($phpFileItem['tmp_name']); // do never forget this!!!
-            return [
-                "url" => $url,
-            ];
-
-
-        } else {
-            throw new LightAjaxFileUploadManagerException("The \"path\" key is not defined.");
-        }
+        return $this->fileManagerProtocolHandler;
     }
 
 
@@ -1185,7 +1344,7 @@ class LightUserDataService implements PluginInstallerInterface
             $user = $this->getValidWebsiteUser();
         }
         $identifier = $user->getIdentifier();
-        return $this->rootDir . "/" . $identifier;
+        return $this->rootDir . "/users/" . $identifier;
     }
 
 
@@ -1217,18 +1376,26 @@ class LightUserDataService implements PluginInstallerInterface
 
     /**
      * Returns the identifier from a given url.
+     * If the identifier isn't recognized, then it either throws an exception or returns false,
+     * depending on the value of the throwEx flag.
+     *
+     *
      *
      * @param string $url
-     * @return string
+     * @param bool $throwEx
+     * @return string|false.
      * @throws \Exception
      */
-    public function getIdentifierByUrl(string $url): string
+    public function getIdentifierByUrl(string $url, bool $throwEx = true)
     {
         $params = UriTool::getParams($url);
         if (array_key_exists("id", $params)) {
             return $params['id'];
         }
-        $this->error("No resource id found in this url: \"$url\".");
+        if (true === $throwEx) {
+            $this->error("No resource id found in this url: \"$url\".");
+        }
+        return false;
     }
 
 
@@ -1239,7 +1406,7 @@ class LightUserDataService implements PluginInstallerInterface
      */
     public function getNewResourceIdentifier(): string
     {
-        return "f" . microtime(true) . "-" . rand(0, 1000);
+        return "f" . microtime(true) . "." . rand(0, 1000);
     }
 
 
@@ -1335,6 +1502,31 @@ class LightUserDataService implements PluginInstallerInterface
     }
 
 
+    /**
+     * Makes sure every entry in the lud_user_group table is bound to our plugin's option(s).
+     */
+    protected function updateUserGroupHasPluginOptionTable()
+    {
+        /**
+         * @var $userDb LightUserDatabaseService
+         */
+        $lud = $this->container->get("user_database");
+        $api = $lud->getFactory();
+        $ids = $api->getUserGroupApi()->getAllIds();
+        $pluginOptionId = $lud->getPluginOptionApi()->getPluginOptionsColumn('id', [
+            "category" => "Light_UserData.MSC",
+            "name" => "default",
+        ]);
+
+        foreach ($ids as $id) {
+            $api->getUserGroupHasPluginOptionApi()->insertUserGroupHasPluginOption([
+                'user_group_id' => $id,
+                'plugin_option_id' => $pluginOptionId,
+            ]);
+        }
+    }
+
+
     //--------------------------------------------
     //
     //--------------------------------------------
@@ -1363,36 +1555,81 @@ class LightUserDataService implements PluginInstallerInterface
 
 
     /**
-     * The working horse behind the initialize method.
-     * See the initialize method of this class for more details.
+     * Returns the path of the original copy of a given file
      *
-     *
-     * @throws \Exception
+     * @param string $path
+     * @return string
      */
-    private function doInitialize()
+    private function getOriginalPathFromAbsolutePath(string $path): string
     {
+        if (0 !== strpos($path, $this->rootDir)) {
+            $this->error("Invalid path provided: it doesn't seem to be a child of the root dir: \"$path\".");
+        }
+        $p = explode($this->rootDir, $path, 2);
+        $rel = array_pop($p);
         /**
-         * @var $installer LightPluginInstallerService
+         * Note: because of the line below,
+         * the user shouldn't be able to create a relative path containing the /files/ or /original/ sub-paths.
          */
-        $installer = $this->container->get("plugin_installer");
-        $installer->install("Light_UserData");
+        $rel = str_replace("/files/", "/original/", $rel);
+        return $this->rootDir . "/" . $rel;
     }
 
 
     /**
-     * Returns the path of the original copy of a given file, or false if that file doesn't exist.
+     * Returns the base relative path from the given resourceId.
+     * This is like the relative bath, but without the files/original parent directory included.
      *
-     * @param string $path
-     * @return string|false
+     *
+     * @param string $resourceId
+     * @return string
      */
-    private function getOriginalPathFromAbsolutePath(string $path)
+    private function getBaseRelativePathByResourceIdentifier(string $resourceId): string
     {
-        if (0 === strpos($path, $this->rootDir)) {
-            $p = explode($this->rootDir, $path, 2);
-            $rel = array_pop($p);
-            return $this->rootDir . "/$this->originalDirectoryName" . $rel;
+        $isRelated = (false !== strpos($resourceId, '-'));
+        if (false === $isRelated) {
+            $relPath = $resourceId;
+        } else {
+            list($baseResourceId, $relatedFileIndex) = explode('-', $resourceId, 2);
+            $relPath = $baseResourceId . "-/$relatedFileIndex";
         }
-        return false;
+        return $relPath;
+    }
+
+
+    /**
+     * Returns whether the given dirname is valid.
+     * It's valid if it doesnt' contain the following subdirs:
+     * - original
+     * - files
+     *
+     *
+     * @param string $dirName
+     */
+    private function checkDirname(string $dirName)
+    {
+        $forbidden = [
+            "original",
+            "files",
+        ];
+        $isValid = true;
+        foreach ($forbidden as $test) {
+            if ($test === $dirName) {
+                $isValid = false;
+            }
+
+            if (preg_match('!^' . $test . '/!', $dirName)) {
+                $isValid = false;
+            }
+
+            if (preg_match('!/' . $test . '(/|$)!', $dirName)) {
+                $isValid = false;
+            }
+        }
+
+        if (false === $isValid) {
+            $this->error("The dirname must not contain the following subdirectories: original, files.");
+        }
     }
 
 

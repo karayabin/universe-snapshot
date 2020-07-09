@@ -1,6 +1,6 @@
 Light_UploadGems, conception notes
 =============
-2020-04-10 -> 2020-04-17
+2020-04-10 -> 2020-05-14
 
 
 
@@ -26,7 +26,7 @@ and basic actions (such as copying a file, redimensioning images, those kind of 
 
 The basic synopsis
 -----------
-2020-04-10 -> 2020-04-17
+2020-04-10 -> 2020-05-14
 
 
 When your script receives the gem id, he asks for our helper, using the **getHelper** method.
@@ -39,6 +39,7 @@ You can use the following methods:
 
 - **applyNameTransform** to update the name via some of our methods (such as randomization).
 - **applyNameValidation** to validate the name against some validation rules defined in the **name_validation** section of the gem (see the name_validation section below). 
+- **applyChunkValidation** to validate the current chunk against the validation rules defined in the gem (see the chunk validation section below).
 - **applyValidation** to validate the file against the validation rules defined in the gem (see the validation section below).
 - **applyCopies** to create copies of the uploaded file.
 - **getCustomConfig** to access the custom **config** section of the gem file.
@@ -79,13 +80,14 @@ That's where your **gem** file should be (otherwise an error will be thrown).
 
 The gem structure
 -------------
-2020-04-10 -> 2020-04-17
+2020-04-10 -> 2020-05-14
 
 
-A **gem** contains four parts (all optional):
+A **gem** contains five parts (all optional):
 
 - name
 - name_validation
+- chunk_validation
 - validation
 - copies
 - config
@@ -156,7 +158,16 @@ or an error message otherwise (if the validation fails).
 The **validation** configuration is as following (all optional):
 
 - maxFileSize: string, the maximum size for the file. You can put human like values (2M, 500ko, 1g, ...).    
-- mimeTypes: string|array, the allowed mime types.  
+- mimeType: string|array, the allowed mime types.  
+
+
+Chunk validation
+----------
+2020-05-14
+
+Same as **validation**, but meant to be applied at the chunk level rather than at the whole file level.
+
+
 
 
 Copies

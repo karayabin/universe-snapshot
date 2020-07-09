@@ -1,6 +1,6 @@
 SimplePdoWrapper
 ================
-2019-02-04 -> 2020-03-10
+2019-02-04 -> 2020-06-19
 
 
 
@@ -31,10 +31,11 @@ Summary
 =================
 * [SimplePdoWrapper api](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper.md) (generated with [DocTools](https://github.com/lingtalfi/DocTools))
 * [Conception notes](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/pages/conception-notes.md)
-* [SimplePdoWrapper](#simplepdowrapper-1)
+* [SimplePdoWrapper](#simplepdowrapper-overview)
 * [Connexion](#connexion)
   * [Using mysql](#using-mysql)
   * [Using sqlite](#using-sqlite)
+* [SimplePdoWrapperQueryException](#the-simplepdowrapperqueryexception)
 * [Examples](#examples)
   * [Insert examples](#insert-examples)
      * [Insert (without error)](#insert-without-error)
@@ -73,7 +74,9 @@ Summary
 
 
 
-SimplePdoWrapper
+
+
+SimplePdoWrapper overview
 ================
 
 The SimplePdoWrapper tool provides a SimplePdoWrapperInterface object, which
@@ -225,6 +228,54 @@ try {
     die();
 }
 ```
+
+
+
+The SimplePdoWrapperQueryException
+===========
+2020-06-02
+
+
+For the following methods:
+
+- insert
+- replace
+- update
+- delete
+- fetchAll
+- fetch
+
+if your **pdo** configuration throws exceptions, then the SimplePdoWrapper will intercept them and rethrow a special exception: 
+the **SimplePdoWrapperQueryException**.
+
+This special exception has the same message and code as the original thrown exception, but has an extra **query** information
+that you can access using the **getQuery** method. 
+
+The problem it solves is that often, you get cryptic error messages such as this one for instance:
+
+```html
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') )' at line 1
+```
+
+which gives you a pointer to the error, but you don't know exactly what's going on.
+
+If we had the query information, debugging would be a breeze.
+
+For instance, in the example above, the query was:
+
+```sql 
+delete from luda_resource WHERE (`id` in () )
+```
+
+We now obviously see the problem in the query, an empty array has been passed.
+
+So, now because we throw a **SimplePdoWrapperQueryException** for the aforementioned method, you always have the option to access the query if you want to (for instance
+in development/debug mode, it can be good to show both the exception message AND the query).
+
+
+
+The idea behind this exception is that then you have 
+
 
 
 
@@ -490,7 +541,7 @@ a($wrapper->getError()); // null
 
 The where conditions
 -------------------
-2020-02-06
+2020-02-06 -> 2020-05-21
 
 
 Both the **update** and the **delete** methods have a "where conditions" argument.
@@ -594,6 +645,42 @@ See the [Where class](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/
 
 Note: portion of sql generated from the **Where** object is always sql injection safe, as it uses pdo markers for all methods,
 including for each member of the the **in**/**not in** items. 
+ 
+ 
+ 
+#### Special operators
+
+In addition to the combination methods above, we have **special operators**, with which we can create AND/OR groups and parenthesis, so this is possible for instance:
+
+```php
+$where = Where::inst()
+    ->key("resource_identifier")
+    ->openingParenthesis()
+    ->equals($resource_identifier)->or()->likePost($resource_identifier . "-")
+    ->closingParenthesis()
+;
+
+```
+
+Note that in this specific case the parenthesis (call to **openingParenthesis** and **closingParenthesis**) are optional,
+but it's just to show you the possibilities.
+
+
+The available special operators are:
+
+- **openingParenthesis**: writes an opening parenthesis in the query
+- **closingParenthesis**: writes a closing parenthesis in the query
+- **or**: writes the **OR** keyword in the query
+- **and**: writes the **AND** keyword in the query
+- **op**: alias for openingParenthesis
+- **cp**: alias for closingParenthesis
+
+
+
+
+
+
+
  
 
 
@@ -966,6 +1053,54 @@ Related
 History Log
 ------------------
 
+- 1.28.0 -- 2020-06-19
+
+    - add MysqlInfoUtil->getEngine method 
+    
+- 1.27.0 -- 2020-06-12
+
+    - update MysqlInfoUtil->getReverseForeignKeyMap add options parameter 
+    
+- 1.26.1 -- 2020-06-11
+
+    - fix MysqlInfoUtil->getUniqueIndexesDetails functional typo 
+    
+- 1.26.0 -- 2020-06-11
+
+    - add MysqlInfoUtil->getIndexesDetails 
+
+- 1.26.0 -- 2020-06-11
+
+    - add MysqlInfoUtil->getUniqueIndexesDetails 
+    
+- 1.25.0 -- 2020-06-11
+
+    - add MysqlInfoUtil->getColumnNullabilities 
+    
+- 1.24.0 -- 2020-06-11
+
+    - add MysqlInfoUtil->getCreateStatement 
+    
+- 1.23.1 -- 2020-06-02
+
+    - fix SimplePdoWrapper->update misspelled variable name 
+
+- 1.23.0 -- 2020-06-02
+
+    - update SimplePdoWrapperQueryException now accepts markers 
+
+- 1.22.0 -- 2020-06-02
+
+    - add SimplePdoWrapperQueryException->setMessage method 
+    
+- 1.21.0 -- 2020-06-02
+
+    - add SimplePdoWrapperQueryException concept 
+     
+- 1.20.0 -- 2020-05-21
+
+    - add Where special operators  
+    
 - 1.19.0 -- 2020-03-10
 
     - removed system call flag concept  

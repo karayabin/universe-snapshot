@@ -98,9 +98,20 @@ abstract class TemporaryVirtualFileSystem implements TemporaryVirtualFileSystemI
     /**
      * @implementation
      */
-    public function commit(string $contextId): array
+    public function commit(string $contextId, array $options = []): array
     {
-        // TODO: Implement commit() method.
+        $remove = $options['reset'] ?? true;
+
+        $ops = $this->getRawOperations($contextId);
+        foreach ($ops as $k => $op) {
+            if ('remove' !== $op['type']) {
+                $ops[$k]['abs_path'] = $this->doGetEntryRealPathByOperation($contextId, $op);
+            }
+        }
+        if (true === $remove) {
+            $this->reset($contextId);
+        }
+        return $ops;
     }
 
     /**
@@ -126,7 +137,7 @@ abstract class TemporaryVirtualFileSystem implements TemporaryVirtualFileSystemI
     public function add(string $contextId, string $path, array $meta, array $options = []): array
     {
         $id = $this->getFileId($contextId, $path, $meta);
-        return $this->addEntry($contextId, $id, $path, $meta);
+        return $this->addEntry($contextId, $id, $path, $meta, $options);
     }
 
 
@@ -142,9 +153,9 @@ abstract class TemporaryVirtualFileSystem implements TemporaryVirtualFileSystemI
     /**
      * @implementation
      */
-    public function update(string $contextId, string $id, string $path, array $meta, array $options = [])
+    public function update(string $contextId, string $id, ?string $path, array $meta, array $options = []): array
     {
-        $this->updateEntry($contextId, $id, $path, $meta, $options);
+        return $this->updateEntry($contextId, $id, $path, $meta, $options);
     }
 
 
@@ -171,14 +182,16 @@ abstract class TemporaryVirtualFileSystem implements TemporaryVirtualFileSystemI
      *
      * @param string $contextId
      * @param string $id
-     * @param string $path
+     * @param string|null $path
      * @param array $meta
      * @param array $options
      * @return array
      */
-    protected function addEntry(string $contextId, string $id, string $path, array $meta, array $options = []): array
+    protected function addEntry(string $contextId, string $id, ?string $path, array $meta, array $options = []): array
     {
-        $path = $this->getRealPath($path);
+        if (null !== $path) {
+            $path = $this->getRealPath($path);
+        }
 
         $type = $options['type'] ?? 'add';
         $useMove = (bool)($options['move'] ?? false);
@@ -191,12 +204,20 @@ abstract class TemporaryVirtualFileSystem implements TemporaryVirtualFileSystemI
         }
 
 
-        $relPath = $this->getFileRelativePath($contextId, $id, $path, $meta);
-        $dst = $this->getContextDir($contextId) . "/files/" . $relPath;
-        if (true === $useMove) {
-            FileSystemTool::move($path, $dst);
+        if (null !== $path) {
+
+            $relPath = $this->getFileRelativePath($contextId, $id, $path, $meta);
+            $dst = $this->getContextDir($contextId) . "/files/" . $relPath;
+            if ($path !== $dst) {
+                if (true === $useMove) {
+                    FileSystemTool::move($path, $dst);
+                } else {
+                    FileSystemTool::copyFile($path, $dst);
+                }
+            }
         } else {
-            FileSystemTool::copyFile($path, $dst);
+            $relPath = null;
+            $dst = null;
         }
 
 
@@ -226,17 +247,23 @@ abstract class TemporaryVirtualFileSystem implements TemporaryVirtualFileSystemI
                 }
             }
         }
+
+
         if (false === $found) {
-            $ops[] = $addOperation;
+            $op = $addOperation;
+        }
+        $this->onFileAddedAfter($contextId, $op, $path, $dst, $options);
+        if (false === $found) {
+            $ops[] = $op;
+        } else {
+            $ops[$k] = $op;
         }
 
 
         BabyYamlUtil::writeFile($ops, $opFile);
 
 
-        $this->onFileAddedAfter($contextId, $id, $path, $meta, $type, $dst);
-
-        return $addOperation;
+        return $op;
     }
 
 
@@ -282,6 +309,8 @@ abstract class TemporaryVirtualFileSystem implements TemporaryVirtualFileSystemI
          * If the entry is found, we remove it directly from the operations.
          */
         $addTheDeleteEntry = true;
+        $realpath = null;
+        $op = null;
         foreach ($ops as $k => $op) {
             if ($id === $op['id']) {
                 $addTheDeleteEntry = false;
@@ -314,10 +343,13 @@ abstract class TemporaryVirtualFileSystem implements TemporaryVirtualFileSystemI
             ];
         }
 
+        $this->onFileRemovedAfter($contextId, $id, $op, $realpath);
+
         $ops = array_merge($ops);
         BabyYamlUtil::writeFile($ops, $opFile);
 
     }
+
 
     /**
      * Updates the entry in the operations.byml file of the given context that matches the given id.
@@ -331,13 +363,15 @@ abstract class TemporaryVirtualFileSystem implements TemporaryVirtualFileSystemI
      *
      * @param string $contextId
      * @param string $id
-     * @param string $path
+     * @param string|null $path
      * @param array $meta
      * @param array $options
      */
-    protected function updateEntry(string $contextId, string $id, string $path, array $meta, array $options = [])
+    protected function updateEntry(string $contextId, string $id, ?string $path, array $meta, array $options = [])
     {
-        $path = $this->getRealPath($path);
+        if (null !== $path) {
+            $path = $this->getRealPath($path);
+        }
 
         $opFile = $this->getOperationsFile($contextId);
         $ops = BabyYamlUtil::readFile($opFile);
@@ -349,12 +383,26 @@ abstract class TemporaryVirtualFileSystem implements TemporaryVirtualFileSystemI
             if ($id === $op['id']) {
                 $found = true;
 
-                $relPath = $this->getFileRelativePath($contextId, $id, $path, $meta);
-                $dst = $this->getContextDir($contextId) . "/files/" . $relPath;
-                if (true === $useMove) {
-                    FileSystemTool::move($path, $dst);
+
+                $meta = array_merge($op["meta"], $meta);
+
+
+                if (null !== $path) {
+
+
+                    $relPath = $this->getFileRelativePath($contextId, $id, $path, $meta);
+                    $dst = $this->getContextDir($contextId) . "/files/" . $relPath;
+
+                    if ($path !== $dst) {
+                        if (true === $useMove) {
+                            FileSystemTool::move($path, $dst);
+                        } else {
+                            FileSystemTool::copyFile($path, $dst);
+                        }
+                    }
                 } else {
-                    FileSystemTool::copyFile($path, $dst);
+                    $relPath = null;
+                    $dst = null;
                 }
 
 
@@ -362,13 +410,21 @@ abstract class TemporaryVirtualFileSystem implements TemporaryVirtualFileSystemI
                 switch ($type) {
                     case "add":
                     case "update":
-
-
                         $op['meta'] = $meta;
-                        $op['path'] = $relPath;
+
+
+                        /**
+                         * The bottom line is that in the vfs entry, the path must be set (i.e. not null).
+                         * We allow for the user to pass path=null for an "update" action, for performances reasons, which means that the user
+                         * didn't change the file but might have updated the meta; however we still need to set the path
+                         * in the vfs entry.
+                         *
+                         * Therefore if the user passes path=null, we don't update the path (we keep the existing one)
+                         */
+                        if (null !== $relPath) {
+                            $op['path'] = $relPath;
+                        }
                         $ops[$k] = $op;
-
-
                         break;
                     case "remove":
                         $ops[$k] = [
@@ -381,22 +437,23 @@ abstract class TemporaryVirtualFileSystem implements TemporaryVirtualFileSystemI
                 }
 
 
+                break;
             }
         }
 
         if (false === $found) {
-            $this->addEntry($contextId, $id, $path, $meta, [
+            return $this->addEntry($contextId, $id, $path, $meta, array_merge($options, [
                 "type" => "update",
-            ]);
+            ]));
         } else {
+            // we only call this when a file has been really added to our vfs
+            $this->onFileAddedAfter($contextId, $op, $path, $dst, $options);
+
+            $ops[$k] = $op;
             $ops = array_merge($ops);
             BabyYamlUtil::writeFile($ops, $opFile);
-
-            // we only call this when a file has been really added to our vfs
-            $this->onFileAddedAfter($contextId, $id, $path, $meta, $type, $dst);
+            return $op;
         }
-
-
     }
 
     /**
@@ -404,7 +461,7 @@ abstract class TemporaryVirtualFileSystem implements TemporaryVirtualFileSystemI
      *
      * The options are:
      * - realpath: bool=false. If true, the **realpath** entry is added to the returned array, and contains the
-     *          realpath to the file. This only works if the operation type allows it (i.e. not delete).
+     *          realpath to the file. This only works if the operation type allows it (i.e. not remove).
      *
      *
      * @param string $contextId
@@ -424,8 +481,7 @@ abstract class TemporaryVirtualFileSystem implements TemporaryVirtualFileSystemI
             if ($id === $op['id']) {
 
                 if (true === $useRealpath) {
-
-                    $op['realpath'] = $this->getEntryRealPathByOperation($contextId, $op);
+                    $op['realpath'] = $this->getEntryRealPathByOperation($contextId, $op, $options);
                 }
 
                 return $op;
@@ -466,6 +522,25 @@ abstract class TemporaryVirtualFileSystem implements TemporaryVirtualFileSystemI
     }
 
 
+    /**
+     * Returns the array of operations, as stored in the operations file.
+     *
+     *
+     * @param string $contextId
+     * @return array
+     */
+    protected function getRawOperations(string $contextId): array
+    {
+
+        $ret = [];
+        $opFile = $this->getContextDir($contextId) . "/operations.byml";
+        if (true === file_exists($opFile)) {
+            return BabyYamlUtil::readFile($opFile);
+        }
+        return $ret;
+    }
+
+
     //--------------------------------------------
     // EXTEND
     //--------------------------------------------
@@ -487,24 +562,60 @@ abstract class TemporaryVirtualFileSystem implements TemporaryVirtualFileSystemI
 
 
     /**
-     * Hook called after the file has been added to the virtual file system.
      *
-     * Path is the absolute path to the source file being copied;
-     * dst is the absolute path to the copied file.
+     * Returns the realpath of the file associated with the given operation entry.
      *
      *
      * @param string $contextId
-     * @param string $id
-     * @param string $path
-     * @param array $meta
-     * @param string $type
-     * @param string $dst
+     * @param array $operation
+     * @param array $options
+     * @return string
      */
-    protected function onFileAddedAfter(string $contextId, string $id, string $path, array $meta, string $type, string $dst)
+    protected function doGetEntryRealPathByOperation(string $contextId, array $operation, array $options = [])
+    {
+        return $this->getContextDir($contextId) . "/files/" . $operation['path'];
+    }
+
+    /**
+     * Hook called after the file has been added to the virtual file system.
+     *
+     *
+     * - operation is the entry representing the file operation.
+     * - path is the absolute path to the source file being copied;
+     * - dst is the absolute path to the copied file.
+     *
+     *
+     *
+     * @param string $contextId
+     * @param array $operation
+     * @param string|null $path
+     * @param string|null $dst
+     * @param array $options
+     */
+    protected function onFileAddedAfter(string $contextId, array &$operation, ?string $path, ?string $dst, array $options = [])
     {
 
     }
 
+    /**
+     * Hook called after the file has been removed from the virtual file system.
+     *
+     * - id: the file identifier
+     * - op: the operation if one was deleted, or null otherwise
+     * - realpath: the realpath of the deleted file if one was deleted, or null otherwise
+     *
+     *
+     *
+     *
+     * @param string $contextId
+     * @param string $id
+     * @param array|null $op
+     * @param string|null $realpath
+     */
+    protected function onFileRemovedAfter(string $contextId, string $id, ?array $op, ?string $realpath)
+    {
+
+    }
 
     /**
      * Returns the file id for the file identified by the given parameters.
@@ -528,7 +639,7 @@ abstract class TemporaryVirtualFileSystem implements TemporaryVirtualFileSystemI
      */
     private function error(string $msg)
     {
-        throw new TemporaryVirtualFileSystemException($msg);
+        throw new TemporaryVirtualFileSystemException("TemporaryVirtualFileSystem: " . $msg);
     }
 
 
@@ -553,20 +664,24 @@ abstract class TemporaryVirtualFileSystem implements TemporaryVirtualFileSystemI
     /**
      * Returns the realpath of the file associated with the given operation entry.
      *
-     * Throws an exception if the operation doesn't have a file associated with it (i.e. delete operation).
+     * Throws an exception if the operation doesn't have a file associated with it (i.e. remove operation).
      *
      *
      * @param string $contextId
      * @param array $operation
+     * @param array $options
      * @return string
      * @throws \Exception
      */
-    private function getEntryRealPathByOperation(string $contextId, array $operation): string
+    private function getEntryRealPathByOperation(string $contextId, array $operation, array $options = []): string
     {
-        if ('delete' === $operation['type']) {
+        if ('remove' === $operation['type']) {
             $id = $operation['id'];
-            $this->error("Cannot get realpath from a delete operation, with contextId=\"$contextId\" and id=\"$id\".");
+            $this->error("Cannot get realpath from a remove operation, with contextId=\"$contextId\" and id=\"$id\".");
         }
-        return $this->getContextDir($contextId) . "/files/" . $operation['path'];
+
+        return $this->doGetEntryRealPathByOperation($contextId, $operation, $options);
     }
+
+
 }

@@ -1,0 +1,9 @@
+    /**
+     * @implementation
+     */
+    public function getResourcesColumn(string $column, $where, array $markers = [])
+    {
+        $q = "select `$column` from `$this->table`";
+        SimplePdoWrapper::addWhereSubStmt($q, $markers, $where);
+        return $this->pdoWrapper->fetchAll($q, $markers, \PDO::FETCH_COLUMN);
+    }

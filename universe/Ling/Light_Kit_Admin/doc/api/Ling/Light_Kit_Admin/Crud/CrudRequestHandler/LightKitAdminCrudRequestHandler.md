@@ -4,7 +4,7 @@
 
 The LightKitAdminCrudRequestHandler class
 ================
-2019-05-17 --> 2019-12-17
+2019-05-17 --> 2020-07-07
 
 
 
@@ -25,13 +25,10 @@ Class synopsis
 class <span class="pl-k">LightKitAdminCrudRequestHandler</span> extends [LightBaseCrudRequestHandler](https://github.com/lingtalfi/Light_Crud/blob/master/doc/api/Ling/Light_Crud/CrudRequestHandler/LightBaseCrudRequestHandler.md) implements [LightServiceContainerAwareInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerAwareInterface.md), [LightCrudRequestHandlerInterface](https://github.com/lingtalfi/Light_Crud/blob/master/doc/api/Ling/Light_Crud/CrudRequestHandler/LightCrudRequestHandlerInterface.md) {
 
 - Inherited properties
-    - protected string [LightBaseCrudRequestHandler::$pluginName](#property-pluginName) ;
     - protected [Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) [LightBaseCrudRequestHandler::$container](#property-container) ;
 
-- Methods
-    - public [__construct](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Crud/CrudRequestHandler/LightKitAdminCrudRequestHandler/__construct.md)() : void
-
 - Inherited methods
+    - public LightBaseCrudRequestHandler::__construct() : void
     - public LightBaseCrudRequestHandler::setContainer([Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) $container) : void
     - public LightBaseCrudRequestHandler::execute(string $pluginContextIdentifier, string $table, string $action, ?array $params = []) : mixed
     - protected LightBaseCrudRequestHandler::executeCreate(string $pluginContextIdentifier, string $table, ?array $params = []) : void
@@ -51,7 +48,7 @@ class <span class="pl-k">LightKitAdminCrudRequestHandler</span> extends [LightBa
 Methods
 ==============
 
-- [LightKitAdminCrudRequestHandler::__construct](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Crud/CrudRequestHandler/LightKitAdminCrudRequestHandler/__construct.md) &ndash; Builds the LightBaseCrudRequestHandler instance.
+- LightBaseCrudRequestHandler::__construct &ndash; Builds the LightBaseCrudRequestHandler instance.
 - LightBaseCrudRequestHandler::setContainer &ndash; Sets the light service container interface.
 - LightBaseCrudRequestHandler::execute &ndash; and throws an exception if a problem occurs.
 - LightBaseCrudRequestHandler::executeCreate &ndash; Executes the crud.create request.

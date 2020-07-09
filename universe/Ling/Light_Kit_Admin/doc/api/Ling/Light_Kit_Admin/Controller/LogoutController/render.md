@@ -51,7 +51,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LogoutController::render](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Controller/LogoutController.php#L24-L32)
+See the source code for method [LogoutController::render](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Controller/LogoutController.php#L25-L38)
 
 
 See Also

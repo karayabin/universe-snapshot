@@ -1,20 +1,29 @@
-
-class: Ling\Light_BreezeGenerator\Generator\LingBreezeGenerator
+class: Ling\Light_BreezeGenerator\Generator\LingBreezeGenerator2
 conf:
-    dir: ${app_dir}/universe/Ling/Light_UserDatabase/Api/Mysql
 
-    prefix: lud
-    usePrefixInClassName: false
+    source:
 
-    factoryClassName: LightUserDatabaseApiFactory
-    baseClassName: MysqlBaseLightUserDatabaseApi
-    namespace: Ling\Light_UserDatabase\Api\Mysql
+#        Use either file or database as the source
+        file: ${app_dir}/universe/Ling/Light_UserDatabase/assets/fixtures/recreate-structure.sql
+#        database: true
+#        tables: []
 
 
-    classSuffix: Api
+#        Used to filter the tables to parse
+        prefix: lud
 
-    useMicroPermission: false
 
-    generate:
-#        prefix: lud
-        file: /komin/jin_site_demo/universe/Ling/Light_UserDatabase/assets/fixtures/recreate-structure.sql
+        prefixes:
+            - luda
+            - lud
+
+
+    target:
+        dir: ${app_dir}/tmp/test-gen
+        dir: ${app_dir}/universe/Ling/Light_UserDatabase/Api
+        namespace: Ling\Light_UserDatabase\Api
+        apiName: LightUserDatabase
+
+
+    options:
+        dev: false

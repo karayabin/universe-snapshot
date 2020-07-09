@@ -1,0 +1,10 @@
+db_synchronizer: 
+    scope: 
+        - lts_task_schedule
+    
+
+breeze_generator: 
+    table_prefix: lts
+
+general: 
+    table_prefix: lts

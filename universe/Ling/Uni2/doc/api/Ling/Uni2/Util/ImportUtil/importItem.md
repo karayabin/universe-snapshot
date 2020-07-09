@@ -16,7 +16,7 @@ Description
 ================
 
 
-protected [ImportUtil::importItem](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Util/ImportUtil/importItem.md)(?$dependencySystem, ?$packageImportName, ?$appItemDir, Ling\CliTools\Output\OutputInterface $output, array $postInstall, array $options = []) : void
+protected [ImportUtil::importItem](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Util/ImportUtil/importItem.md)($dependencySystem, $packageImportName, $appItemDir, Ling\CliTools\Output\OutputInterface $output, array $postInstall, ?array $options = []) : void
 
 
 
@@ -131,7 +131,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [ImportUtil::importItem](https://github.com/lingtalfi/Uni2/blob/master/Util/ImportUtil.php#L222-L529)
+See the source code for method [ImportUtil::importItem](https://github.com/lingtalfi/Uni2/blob/master/Util/ImportUtil.php#L222-L540)
 
 
 See Also

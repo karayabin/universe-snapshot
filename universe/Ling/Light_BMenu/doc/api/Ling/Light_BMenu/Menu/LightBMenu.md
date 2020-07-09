@@ -4,7 +4,7 @@
 
 The LightBMenu class
 ================
-2019-08-08 --> 2020-02-28
+2019-08-08 --> 2020-07-02
 
 
 
@@ -30,8 +30,10 @@ class <span class="pl-k">LightBMenu</span> extends [DotMenu](https://github.com/
     - protected array [DotMenu::$items](#property-items) ;
     - protected bool [DotMenu::$strictMode](#property-strictMode) ;
 
+- Methods
+    - public [__construct](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Menu/LightBMenu/__construct.md)() : void
+
 - Inherited methods
-    - public DotMenu::__construct() : void
     - public DotMenu::appendItem(array $item, ?string $parentPath = null) : void
     - public DotMenu::getItems() : array
     - public DotMenu::setItems(array $items) : void
@@ -49,7 +51,7 @@ class <span class="pl-k">LightBMenu</span> extends [DotMenu](https://github.com/
 Methods
 ==============
 
-- DotMenu::__construct &ndash; Builds the DotMenu instance.
+- [LightBMenu::__construct](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Menu/LightBMenu/__construct.md) &ndash; Builds the DotMenu instance.
 - DotMenu::appendItem &ndash; by the given $parentPath, which is a bdot path.
 - DotMenu::getItems &ndash; Return the items.
 - DotMenu::setItems &ndash; Sets the items.

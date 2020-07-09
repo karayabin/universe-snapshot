@@ -3,6 +3,22 @@ real_generator:
     methods:
         setContainer:
             container: @container()
+        setOptions:
+            options:
+                useDebug: true                          # default is false
+                debugLogChannel: real_generator.debug   # default is real_generator.debug
 
-
-
+# --------------------------------------
+# hooks
+# --------------------------------------
+$logger.methods_collection:
+    -
+        method: addListener
+        args:
+            channels: real_generator.debug
+            listener:
+                instance: Ling\Light_Logger\Listener\LightCleanableFileLoggerListener
+                methods:
+                    configure:
+                        options:
+                            file: ${app_dir}/log/real_generator_debug.txt

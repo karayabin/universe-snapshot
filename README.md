@@ -1,6 +1,6 @@
 Universe
 ==============
-2015-10-14 --> 2020-05-08
+2015-10-14 --> 2020-07-09
 
 
 
@@ -24,11 +24,15 @@ See the [list of all the planets here](https://github.com/karayabin/universe-sna
 
 Summary
 -------
+2015-10-14
+
+
 - [How to install?](#how-to-install)
 - [How to use?](#how-to-use)
 - [Big bang: the beginning of the universe](#big-bang-the-beginning-of-the-universe)
     - [The class directory](#the-class-directory)
     - [The a and az functions](#the-a-and-az-functions)
+- [The planet identifier](#theplanetidentifier)
 - [Uni tool: a manager to install planets](#uni-tool-a-manager-to-install-planets)
 - [Related](#related)
 
@@ -38,6 +42,8 @@ Summary
 
 How to install?
 ---------------
+2015-10-14
+
 
 If you're new to the universe, the simplest way of testing it is probably to download all the planets at once into your application.
 
@@ -49,6 +55,8 @@ If you're new to the universe, the simplest way of testing it is probably to dow
 
 How to use?
 -----------
+2015-10-14
+
 
 Now that you've successfully installed the universe in your application, you can start using its planets.
 In the section below, I will demonstrate how to use my favorite planet: [Bat](https://github.com/karayabin/universe-snapshot/tree/master/universe/Bat).
@@ -112,6 +120,8 @@ The next step is to explore the [universe's planets](https://github.com/karayabi
 
 Big bang: the beginning of the universe
 -----------------------------------------
+2015-10-14
+
 
 The universe started with a big bang...
 
@@ -136,6 +146,9 @@ To change this behaviour (add other directories to parse for instance), modify t
 
 
 ### The class directory
+2015-10-14
+
+
 
 The class directory contains application specific classes.
 
@@ -204,6 +217,9 @@ It should print hello.
 
 
 ### The a and az functions
+2015-10-14
+
+
 
 The **bigbang.php** script also provides two immensely useful debug functions: a and az.
 
@@ -235,8 +251,44 @@ array(2) {
 
 
 
+The planet identifier
+--------------------------------------
+2020-07-09
+
+
+A possible way to organize planets is to use this convention:
+
+- Galaxy/PlanetName
+
+
+So for instance:
+
+```txt
+- /path/to/my_app/                      # this is the root directory of the application
+----- universe/                         # this directory contains the universe's planets
+--------- MyGalaxy/
+------------- MyPlanet.php
+```
+
+
+If you do name your planets using this system, then you can use the **planet identifier**.
+
+The **planet identifier** is the string identifying your planet in the universe, it looks like this:
+
+- $GalaxyName/$PlanetName
+
+
+
+
+
+
+
+
+
 Uni tool: a manager to install planets
 --------------------------------------
+2015-10-14
+
 
 In the [How to install?](#how-to-install) section, we've downloaded the whole universe into our app.
 
@@ -251,6 +303,9 @@ If this is the case, check out the [uni tool](https://github.com/lingtalfi/unive
 
 Related
 ===========
+2015-10-14
+
+
 - [uni tool](https://github.com/lingtalfi/universe-naive-importer): a tool to import/manage the planets in your application
 - [universe assets](https://github.com/lingtalfi/NotationFan/blob/master/universe-assets.md): a recommendation to organize the web assets in your planet
 - [UniverseTools](https://github.com/lingtalfi/UniverseTools): some various tools to help with the universe dependencies and meta

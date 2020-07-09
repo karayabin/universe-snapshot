@@ -49,6 +49,13 @@ $crud.methods_collection:
                 instance: Ling\Light_Kit_Admin\Crud\CrudRequestHandler\LightKitAdminCrudRequestHandler
 
 
+$easy_route.methods_collection:
+    -
+        method: registerBundleFile
+        args:
+            file: config/data/Light_Kit_Admin_UserData/Light_EasyRoute/lka_userdata_routes.byml
+
+
 $kit_admin.methods_collection:
     -
         method: registerPlugin

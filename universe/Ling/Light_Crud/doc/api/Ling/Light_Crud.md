@@ -1,6 +1,6 @@
 Ling/Light_Crud
 ================
-2019-11-28 --> 2020-03-10
+2019-11-28 --> 2020-06-04
 
 
 
@@ -9,8 +9,8 @@ Table of contents
 ===========
 
 - [LightCrudAjaxHandler](https://github.com/lingtalfi/Light_Crud/blob/master/doc/api/Ling/Light_Crud/AjaxHandler/LightCrudAjaxHandler.md) &ndash; The LightCrudAjaxHandler class.
-    - [LightCrudAjaxHandler::doHandle](https://github.com/lingtalfi/Light_Crud/blob/master/doc/api/Ling/Light_Crud/AjaxHandler/LightCrudAjaxHandler/doHandle.md) &ndash; and returns a json array as specified in the [ajax communication protocol](https://github.com/lingtalfi/AjaxCommunicationProtocol).
-    - BaseLightAjaxHandler::handle &ndash; and returns a json array as specified in the [ajax communication protocol](https://github.com/lingtalfi/AjaxCommunicationProtocol).
+    - [LightCrudAjaxHandler::doHandle](https://github.com/lingtalfi/Light_Crud/blob/master/doc/api/Ling/Light_Crud/AjaxHandler/LightCrudAjaxHandler/doHandle.md) &ndash; Handles the given action and returns an [alcp response](https://github.com/lingtalfi/Light_AjaxHandler/blob/master/doc/pages/ajax-light-communication-protocol.md), or throws an exception in case of problems.
+    - BaseLightAjaxHandler::handle &ndash; Handles the given action and returns an [alcp response](https://github.com/lingtalfi/Light_AjaxHandler/blob/master/doc/pages/ajax-light-communication-protocol.md), or throws an exception in case of problems.
     - ContainerAwareLightAjaxHandler::__construct &ndash; Builds the ContainerAwareLightAjaxHandler instance.
     - ContainerAwareLightAjaxHandler::setContainer &ndash; Sets the light service container interface.
 - [LightBaseCrudRequestHandler](https://github.com/lingtalfi/Light_Crud/blob/master/doc/api/Ling/Light_Crud/CrudRequestHandler/LightBaseCrudRequestHandler.md) &ndash; The LightBaseCrudRequestHandler class.
@@ -30,8 +30,8 @@ Table of contents
 Dependencies
 ============
 - [Bat](https://github.com/lingtalfi/Bat)
-- [Light_AjaxHandler](https://github.com/lingtalfi/Light_AjaxHandler)
 - [Light](https://github.com/lingtalfi/Light)
+- [Light_AjaxHandler](https://github.com/lingtalfi/Light_AjaxHandler)
 - [Light_DatabaseInfo](https://github.com/lingtalfi/Light_DatabaseInfo)
 - [Light_Database](https://github.com/lingtalfi/Light_Database)
 - [Light_MicroPermission](https://github.com/lingtalfi/Light_MicroPermission)

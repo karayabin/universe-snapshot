@@ -7,7 +7,7 @@ BaseLightAjaxHandler::doHandle
 
 
 
-BaseLightAjaxHandler::doHandle — and returns a json array as specified in the [ajax communication protocol](https://github.com/lingtalfi/AjaxCommunicationProtocol).
+BaseLightAjaxHandler::doHandle — Handles the given action and returns an [alcp response](https://github.com/lingtalfi/Light_AjaxHandler/blob/master/doc/pages/ajax-light-communication-protocol.md), or throws an exception in case of problems.
 
 
 
@@ -16,13 +16,12 @@ Description
 ================
 
 
-abstract protected [BaseLightAjaxHandler::doHandle](https://github.com/lingtalfi/Light_AjaxHandler/blob/master/doc/api/Ling/Light_AjaxHandler/Handler/BaseLightAjaxHandler/doHandle.md)(string $actionId, array $params) : mixed
+abstract protected [BaseLightAjaxHandler::doHandle](https://github.com/lingtalfi/Light_AjaxHandler/blob/master/doc/api/Ling/Light_AjaxHandler/Handler/BaseLightAjaxHandler/doHandle.md)(string $action, Ling\Light\Http\HttpRequestInterface $request) : array
 
 
 
 
-Handles the action identified by actionId and params,
-and returns a json array as specified in the [ajax communication protocol](https://github.com/lingtalfi/AjaxCommunicationProtocol).
+Handles the given action and returns an [alcp response](https://github.com/lingtalfi/Light_AjaxHandler/blob/master/doc/pages/ajax-light-communication-protocol.md), or throws an exception in case of problems.
 
 
 
@@ -31,11 +30,11 @@ Parameters
 ================
 
 
-- actionId
+- action
 
     
 
-- params
+- request
 
     
 
@@ -43,7 +42,7 @@ Parameters
 Return values
 ================
 
-Returns mixed.
+Returns array.
 
 
 
@@ -54,7 +53,7 @@ Returns mixed.
 
 Source Code
 ===========
-See the source code for method [BaseLightAjaxHandler::doHandle](https://github.com/lingtalfi/Light_AjaxHandler/blob/master/Handler/BaseLightAjaxHandler.php#L28-L28)
+See the source code for method [BaseLightAjaxHandler::doHandle](https://github.com/lingtalfi/Light_AjaxHandler/blob/master/Handler/BaseLightAjaxHandler.php#L27-L27)
 
 
 See Also

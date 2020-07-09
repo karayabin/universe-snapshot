@@ -1,0 +1,14 @@
+https://github.com/lingtalfi/ConventionGuy/blob/master/README.md
+https://github.com/lingtalfi/ConventionGuy/blob/master/convention/btests-directory/convention.btests-directory.eng.md
+https://github.com/lingtalfi/ConventionGuy/blob/master/convention/convention.columns.vns/convention.columns.vns.1.0.0.eng.md
+https://github.com/lingtalfi/ConventionGuy/blob/master/convention/convention.din.vns/convention.din.vns.1.0.0.eng.md
+https://github.com/lingtalfi/ConventionGuy/blob/master/convention/convention.xdot.vns/convention.xdot.vns.1.0.0.eng.md
+https://github.com/lingtalfi/ConventionGuy/blob/master/convention/wass0/convention.wass0.eng.md
+https://github.com/lingtalfi/ConventionGuy/blob/master/convention.fileNames.eng.md
+https://github.com/lingtalfi/ConventionGuy/blob/master/convention.quotesEscapingModes.eng.md
+https://github.com/lingtalfi/ConventionGuy/blob/master/nomenclature/nomenclature.uri.eng.md
+https://github.com/lingtalfi/ConventionGuy/blob/master/nomenclature.fileName.eng.md
+https://github.com/lingtalfi/ConventionGuy/blob/master/nomenclature.stringCases.eng.md
+https://github.com/lingtalfi/ConventionGuy/blob/master/notation/notation.trimail-template.eng.md
+https://github.com/lingtalfi/ConventionGuy/blob/master/paradigm/paradigm.strictMode.eng.md
+https://github.com/lingtalfi/ConventionGuy/blob/master/paradigm/paradigm.suspiciousException.eng.md

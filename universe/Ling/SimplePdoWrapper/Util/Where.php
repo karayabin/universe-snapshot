@@ -264,7 +264,6 @@ class Where
     }
 
 
-
     /**
      * Proxy to the operator method, with a predefined operator of "not_like".
      *
@@ -334,7 +333,6 @@ class Where
     }
 
 
-
     /**
      * Proxy to the operator method, with a predefined operator of "not_like%".
      *
@@ -360,7 +358,6 @@ class Where
     {
         return $this->operator("not_like%", $value, $allowedWildChars);
     }
-
 
 
     /**
@@ -480,10 +477,97 @@ class Where
             $option,
         ];
 
-        $this->key = null; // reinitialize key for the next condition list item
         return $this;
     }
 
+
+
+    //--------------------------------------------
+    // SPECIAL METHODS
+    //--------------------------------------------
+    /**
+     * Adds an "or" keyword in the query.
+     *
+     * @return $this
+     */
+    public function or(): self
+    {
+        $this->conditionsList[] = [
+            ' OR ',
+            true,
+        ];
+        return $this;
+    }
+
+    /**
+     * Adds an "and" keyword in the query.
+     *
+     * @return $this
+     */
+    public function and(): self
+    {
+        $this->conditionsList[] = [
+            ' AND ',
+            true,
+        ];
+        return $this;
+    }
+
+    /**
+     * Adds an opening parenthesis in the query.
+     *
+     * @return $this
+     */
+    public function openingParenthesis(): self
+    {
+        $this->conditionsList[] = [
+            ' ( ',
+            true,
+        ];
+        return $this;
+    }
+
+    /**
+     * Alias for the openingParenthesis method.
+     *
+     * @return $this
+     */
+    public function op(): self
+    {
+        $this->conditionsList[] = [
+            ' ( ',
+            true,
+        ];
+        return $this;
+    }
+
+    /**
+     * Adds a closing parenthesis in the query.
+     *
+     * @return $this
+     */
+    public function closingParenthesis(): self
+    {
+        $this->conditionsList[] = [
+            ' ) ',
+            true,
+        ];
+        return $this;
+    }
+
+    /**
+     * Alias for the closingParenthesis method.
+     *
+     * @return $this
+     */
+    public function cp(): self
+    {
+        $this->conditionsList[] = [
+            ' ) ',
+            true,
+        ];
+        return $this;
+    }
 
 
     //--------------------------------------------
@@ -510,18 +594,37 @@ class Where
         $mkCpt = 0;
         $mk = 'wm_';
         $first = true;
+        $nextSkipAndCombining = false;
 
 
         foreach ($this->getConditions() as $condition) {
 
-            list($field, $operator, $value) = $condition;
+
+            $skipAndCombining = false;
+            if (true === $nextSkipAndCombining) {
+                $skipAndCombining = true;
+            }
+
+
+            if (2 === count($condition)) {
+                list($conditionString, $nextSkipAndCombining) = $condition;
+                $query .= $conditionString;
+                continue;
+            } else {
+                list($field, $operator, $value) = $condition;
+                $nextSkipAndCombining = false;
+            }
+
+
             $option = $condition[3] ?? null;
 
 
             if (true === $first) {
                 $first = false;
             } else {
-                $query .= ' AND ';
+                if (false === $skipAndCombining) {
+                    $query .= ' AND ';
+                }
             }
 
             if (null === $value && false === in_array($operator, [

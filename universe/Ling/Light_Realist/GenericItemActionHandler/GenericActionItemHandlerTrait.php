@@ -100,8 +100,8 @@ trait GenericActionItemHandlerTrait
             $params = $item['params'] ?? [];
             $params = array_merge($params, [
                 "url" => $this->container->get("reverse_router")->getUrl('lah_route-ajax_handler'),
-                "ajax_handler_id" => $pluginName,
-                "ajax_action_id" => $actionName,
+                "handler" => $pluginName,
+                "action" => $actionName,
                 "request_id" => $requestId,
             ]);
             $item['params'] = $params;

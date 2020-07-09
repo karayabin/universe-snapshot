@@ -1,6 +1,6 @@
 Light_ControllerHub
 ===========
-2019-10-28
+2019-10-28 -> 2020-07-02
 
 
 
@@ -69,6 +69,10 @@ $easy_route.methods_collection:
 History Log
 =============
 
+- 1.2.1 -- 2020-07-02
+
+    - add precisions in the LightBaseControllerHubHandler-> doHandle comments
+    
 - 1.2.0 -- 2019-12-16
 
     - update plugin to accommodate new Light service container

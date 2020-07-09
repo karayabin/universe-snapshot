@@ -332,7 +332,7 @@ The user
 -----------
 2019-07-26
 
-In LightKitAdmin, we use the [WebsiteLightUser](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/WebsiteLightUser.md),
+In LightKitAdmin, we use the [LightWebsiteUser](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser.md),
 and we use the [user_database service](https://github.com/lingtalfi/Light_UserDatabase) and [user_manager service](https://github.com/lingtalfi/Light_UserManager/) to access it.
 
 When the database is first created, a root user is created with the following properties:

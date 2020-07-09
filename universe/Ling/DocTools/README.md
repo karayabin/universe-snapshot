@@ -1,6 +1,6 @@
 DocTools
 ===========
-2019-02-19 -> 2020-04-17
+2019-02-19 -> 2020-06-29
 
 
 
@@ -30,6 +30,7 @@ Or just download it and place it where you want otherwise.
 
 QuickNav
 ===========
+2019-02-19 -> 2020-06-29
 
 
 - [DocTools api](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools.md) (generated with DocTools)
@@ -41,6 +42,7 @@ QuickNav
     - [Lizard scheme](#lizard-scheme)
 - [The docTool notation](#the-doctool-notation)
 - [Tutorials](#tutorials)
+- [Troubleshoot](#troubleshoot)
 - [Dictionary](#dictionary)
     - [Template](#template)
     - [Inserts](#inserts)
@@ -54,6 +56,7 @@ QuickNav
 
 What is DocTools
 ===================
+2019-02-19
 
 DocTools is an ensemble of classes which help creating a consistent documentation.
 
@@ -79,6 +82,8 @@ And another one with the todo detection (since 1.6.0):
 
 How to use?
 ==============
+2019-02-19
+
 
 If you just want to generate a php style documentation for git (markdown) like the [DocTools api here](https://github.com/lingtalfi/DocTools/blob/master/doc/api/DocTools.md),
 then your fastest option is probably to just re-use the [LingGitPhpPlanetDocBuilder](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/DocBuilder/Git/PhpPlanet/LingGitPhpPlanetDocBuilder.md) [DocBuilder](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/DocBuilder/DocBuilder.md) that I made.
@@ -350,6 +355,9 @@ A good place to start is this documentation:
 
 Why documentation is important?
 ====================
+2019-02-19
+
+
 
 I believe that once you've created a tool, you're only 50% there.
 The other 50% is the documentation.
@@ -368,6 +376,7 @@ however DocTools is like a wizard that will tell you what you've missed, and can
 
 How does DocTools work, overview
 =================================
+2019-02-19
 
 
 - phase 1: document your code
@@ -407,6 +416,8 @@ To dive into the code, go to the [tutorials section](#tutorials).
 
 The documentation organization scheme
 ======================
+2019-02-19
+
 
 How will your documentation look in the filesystem once finished?
 
@@ -415,6 +426,7 @@ If you don't have any idea, you can use the following scheme, which I will call 
 
 Lizard scheme
 ---------------
+2019-02-19
 
 
 ```txt
@@ -441,6 +453,9 @@ Planning the documentation structure allows us to:
 
 The docTool notation
 =====================
+2019-02-19
+
+
 
 The docTool notation is a notation built on top of the markdown notation.
 
@@ -452,14 +467,29 @@ See the [docTool notation page](https://github.com/lingtalfi/DocTools/blob/maste
 
 Tutorials
 =============
+2019-02-19
+
+
   
 - [How to create a php style documentation ready for git: Walk through the LingGitPhpPlanetDocBuilder class](https://github.com/lingtalfi/DocTools/blob/master/doc/pages/tutorial-linggitphpplanetdocbuilder.md)   
   
   
 
+Troubleshoot 
+============
+2020-06-29
+
+
+- Autoloader problem: 
+    When generating documentation, make sure the environment generating the documentation has access to the classes related to the generated documentation.
+    In particular, if your library uses third-party libraries, make sure that they can be autoloaded when generating the doc, otherwise you might encounter problems.
+
+
+
+
 Dictionary 
 ============
-
+2019-02-19
 
 
 Template
@@ -649,6 +679,14 @@ This includes:
 History Log
 =============
 
+    
+- 1.13.9 -- 2020-06-29
+
+    - add Troubleshoot section to the README.md
+    
+- 1.13.8 -- 2020-05-28
+
+    - fix HtmlReport->_toString method assuming that parsedBlockLevelTags is always an array
     
 - 1.13.7 -- 2020-04-17
 

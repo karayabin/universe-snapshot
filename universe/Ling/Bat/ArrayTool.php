@@ -7,41 +7,43 @@ use Ling\Bat\Exception\BatException;
 
 /**
  * The ArrayTool class.
- * LingTalfi 2015-12-20 -> 2019-09-17
+ * LingTalfi 2015-12-20 -> 2020-06-29
  */
 class ArrayTool
 {
 
 
     /**
-     * Checks that every given keys exist in the given pool array, and by default
-     * returns the result as a boolean.
+     * Checks that every given keys exist in the given pool array, and returns the result as a boolean.
      *
-     * If the throwEx flag is set to true, then this method throws an exception if
-     * one key (or more) is not found.
+     * If the throwEx flag is set to true, then this method throws an exception as soon as a missing key is found.
+     * If it's set to false, the missing keys are available via the missingKeys array.
      *
      *
      *
      * @param array|string $keys
      * @param array $pool
      * @param bool $throwEx
+     * @param array $missingKeys
      * @return bool
      * @throws \Exception
      */
-    public static function arrayKeyExistAll($keys, array $pool, bool $throwEx = false)
+    public static function arrayKeyExistAll($keys, array $pool, bool $throwEx = false, array &$missingKeys = []): bool
     {
         if (false === is_array($keys)) {
             $keys = [$keys];
         }
+        $hasAll = true;
         foreach ($keys as $key) {
             if (false === array_key_exists($key, $pool)) {
                 if (true === $throwEx) {
                     throw new BatException("Key not found: $key.");
                 }
-                return false;
+                $hasAll = false;
+                $missingKeys[] = $key;
             }
         }
-        return true;
+        return $hasAll;
     }
 
 
@@ -162,6 +164,62 @@ class ArrayTool
 
 
     /**
+     * Walks the given array, applying the given callable to every key.
+     *
+     * The callable must return a valid key (i.e. a string or a number).
+     *
+     *
+     * @param array $arr
+     * @param callable $fn
+     * @return void
+     */
+    public static function arrayWalkKeys(array &$arr, callable $fn)
+    {
+        $ret = [];
+        foreach ($arr as $k => $v) {
+            $k = $fn($k);
+            $ret[$k] = $v;
+        }
+        $arr = $ret;
+    }
+
+
+    /**
+     * Walks the given array recursively, applying the given callable to every key.
+     *
+     * The callable must return a valid key (i.e. a string or a number).
+     *
+     *
+     * @param array $arr
+     * @param callable $fn
+     * @return void
+     */
+    public static function arrayWalkKeysRecursive(array &$arr, callable $fn)
+    {
+        $ret = [];
+        $pathsToRemove = [];
+        BDotTool::walk($arr, function ($v, $k, $curPath) use (&$ret, $fn, &$pathsToRemove) {
+
+            $newK = call_user_func($fn, $k);
+            if ($k !== $newK) {
+                $pathsToRemove[] = $curPath;
+                $components = BDotTool::getPathComponents($curPath);
+                array_pop($components);
+                $components[] = str_replace('.', '\.', $newK);
+                $curPath = implode('.', $components);
+            }
+
+            BDotTool::setDotValue($curPath, $v, $ret);
+        });
+
+        foreach ($pathsToRemove as $p) {
+            BDotTool::unsetDotValue($p, $ret);
+        }
+
+        $arr = $ret;
+    }
+
+    /**
      * Returns the $array, without the entries which keys are NOT listed in $allowed.
      *
      * Example:
@@ -247,6 +305,29 @@ class ArrayTool
 
 
     /**
+     * Returns whether array a and b contains the same values;
+     * The order doesn't matter.
+     *
+     * https://stackoverflow.com/questions/21138505/check-if-two-arrays-have-the-same-values
+     *
+     * @param array $a
+     * @param array $b
+     * @return bool
+     */
+    public static function hasSameValues(array $a, array $b): bool
+    {
+        $copy = $a;
+        foreach ($b as $element) {
+            $key = array_search($element, $copy, true);
+            if ($key === false) {
+                return false;
+            }
+            unset($copy[$key]);
+        }
+        return empty($copy);
+    }
+
+    /**
      * Insert the given row into the rows;
      *
      *
@@ -306,6 +387,19 @@ class ArrayTool
         return false;
     }
 
+
+    /**
+     * Returns whether array a and b are identical.
+     * The order of keys matters.
+     *
+     * @param array $a
+     * @param array $b
+     * @return bool
+     */
+    public static function isIdentical(array $a, array $b): bool
+    {
+        return ($a === $b);
+    }
 
     /**
      * Return an array with keys equal to values.

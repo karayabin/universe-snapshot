@@ -1,6 +1,6 @@
 The configuration block
 --------------
-2019-10-24
+2019-10-24 -> 2020-07-07
 
 
 A configuration block is an array.
@@ -21,6 +21,17 @@ main:
     # - as the plugin name in rendering.list_renderer.identifier (list)
     # - as the plugin name in plugin (described in the miscellaneous "section" of the realist conception notes)
     plugin_name: Light_Kit_Admin
+
+    # The path to a create file, see the use_create_file directive for more info
+    # The {app_dir} tag will be replaced with the absolute path to the application directory.
+    create_file: /path/to/the/create_file.sql
+
+    # Whether or not to use the "create file" defined with the create_file directive.
+    # If true, the generators will use the info from the create file to do their things.
+    # If false, the generators will use the info from the actual database instead.
+    # Learn more about create file here: https://github.com/lingtalfi/TheBar/blob/master/discussions/create-file.md
+    # default value is false
+    use_create_file: true
 
 
     # This section defines the table to generate configuration files for.
@@ -227,7 +238,7 @@ main:
         # The generic_tags (defined in the list option at the root level) are available.
         ?rows_renderer_types_general:
             avatar_url: $img100
-            checkbox: checkbox
+            _checkbox: checkbox
 
         # Defines rows renderer types to add for a specific table.
         # It has precedence over the rows_renderer_type_general option.

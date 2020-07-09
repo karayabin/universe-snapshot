@@ -1,6 +1,6 @@
 ConventionGuy
 =============
-2015-10-14
+2015-10-14 -> 2020-07-03
 
 
 
@@ -60,6 +60,10 @@ Paradigms
 History Log
 ===============
 
+- 1.1.0 -- 2020-07-03
+
+    - update string cases document
+    
 - 1.0.0 -- 2015-10-14
 
     - initial commit

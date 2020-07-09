@@ -75,7 +75,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [ImportUtil::handlePostInstallDirectives](https://github.com/lingtalfi/Uni2/blob/master/Util/ImportUtil.php#L544-L566)
+See the source code for method [ImportUtil::handlePostInstallDirectives](https://github.com/lingtalfi/Uni2/blob/master/Util/ImportUtil.php#L555-L577)
 
 
 See Also

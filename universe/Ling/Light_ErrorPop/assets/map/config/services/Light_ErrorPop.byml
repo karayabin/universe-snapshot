@@ -1,0 +1,28 @@
+error_pop:
+    instance: Ling\Light_ErrorPop\Service\LightErrorPopService
+
+# --------------------------------------
+# hooks
+# --------------------------------------
+
+$logger.methods_collection:
+    -
+        method: addListener
+        args:
+            channels: error_handler
+            listener:
+                instance: Ling\Light_Logger\Listener\LightLastMessageFileLoggerListener
+                methods:
+                    setFile:
+                        file: /tmp/error_pop.txt
+    -
+        method: addListener
+        args:
+            channels: fatal_error_handler
+            listener:
+                instance: Ling\Light_Logger\Listener\LightLastMessageFileLoggerListener
+                methods:
+                    setFile:
+                        file: /tmp/error_pop.txt
+
+

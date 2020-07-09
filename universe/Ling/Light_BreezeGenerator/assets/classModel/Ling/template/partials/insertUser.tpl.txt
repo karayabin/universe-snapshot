@@ -3,6 +3,11 @@
      */
     public function insertUser(array $user, bool $ignoreDuplicate = true, bool $returnRic = false)
     { //microperm
+
+        $errorInfo = null;
+
+
+
         try {
 
             $lastInsertId = $this->pdoWrapper->insert("user", $user);
@@ -15,7 +20,14 @@
             return $ric;
 
         } catch (\PDOException $e) {
-            if ('23000' === $e->errorInfo[0]) {
+            $errorInfo = $e->errorInfo;
+        } catch (SimplePdoWrapperQueryException $e) {
+            $errorInfo = $e->getPrevious()->errorInfo;
+        }
+
+
+        if (null !== $errorInfo) {
+            if ('23000' === $errorInfo[0]) {
                 if (false === $ignoreDuplicate) {
                     throw $e;
                 }
@@ -36,5 +48,6 @@
             }
             throw $e;
         }
+
         return false;
     }

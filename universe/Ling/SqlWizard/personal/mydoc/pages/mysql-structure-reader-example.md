@@ -1,6 +1,6 @@
 Mysql structure reader example
 ============
-2020-01-31
+2020-01-31 -> 2020-06-09
 
 
 
@@ -96,7 +96,7 @@ And produces this output:
 
 ```html
 array(3) {
-  [0] => array(9) {
+  ["luda_tag"] => array(14) {
     ["db"] => NULL
     ["table"] => string(8) "luda_tag"
     ["pk"] => array(1) {
@@ -107,7 +107,20 @@ array(3) {
         [0] => string(4) "name"
       }
     }
+    ["uindDetails"] => array(2) {
+      ["name"] => string(11) "name_UNIQUE"
+      ["keys"] => array(1) {
+        [0] => array(2) {
+          ["colName"] => string(4) "name"
+          ["ascDesc"] => string(3) "ASC"
+        }
+      }
+    }
+    ["indexes"] => array(0) {
+    }
     ["fkeys"] => array(0) {
+    }
+    ["fkeyDetails"] => array(0) {
     }
     ["columnNames"] => array(2) {
       [0] => string(2) "id"
@@ -122,8 +135,19 @@ array(3) {
       ["name"] => bool(false)
     }
     ["ai"] => string(2) "id"
+    ["referencedByTables"] => array(2) {
+      [0] => array(2) {
+        [0] => NULL
+        [1] => string(13) "luda_resource"
+      }
+      [1] => array(2) {
+        [0] => NULL
+        [1] => string(21) "luda_resource_has_tag"
+      }
+    }
+    ["engine"] => string(6) "InnoDB"
   }
-  [1] => array(9) {
+  ["luda_resource"] => array(14) {
     ["db"] => NULL
     ["table"] => string(13) "luda_resource"
     ["pk"] => array(1) {
@@ -134,11 +158,40 @@ array(3) {
         [0] => string(19) "resource_identifier"
       }
     }
+    ["uindDetails"] => array(2) {
+      ["name"] => string(26) "resource_identifier_UNIQUE"
+      ["keys"] => array(1) {
+        [0] => array(2) {
+          ["colName"] => string(19) "resource_identifier"
+          ["ascDesc"] => string(3) "ASC"
+        }
+      }
+    }
+    ["indexes"] => array(2) {
+      ["name"] => string(30) "fk_luda_resource_lud_user1_idx"
+      ["keys"] => array(1) {
+        [0] => array(2) {
+          ["colName"] => string(11) "lud_user_id"
+          ["ascDesc"] => string(3) "ASC"
+        }
+      }
+    }
     ["fkeys"] => array(1) {
       ["lud_user_id"] => array(3) {
         [0] => NULL
         [1] => string(8) "lud_user"
         [2] => string(2) "id"
+      }
+    }
+    ["fkeyDetails"] => array(1) {
+      ["fk_luda_resource_lud_user1"] => array(4) {
+        ["fk"] => string(11) "lud_user_id"
+        ["references"] => array(2) {
+          ["table"] => string(8) "lud_user"
+          ["column"] => string(2) "id"
+        }
+        ["onDelete"] => string(7) "CASCADE"
+        ["onUpdate"] => string(7) "CASCADE"
       }
     }
     ["columnNames"] => array(6) {
@@ -166,8 +219,15 @@ array(3) {
       ["is_private"] => bool(false)
     }
     ["ai"] => string(2) "id"
+    ["referencedByTables"] => array(1) {
+      [0] => array(2) {
+        [0] => NULL
+        [1] => string(21) "luda_resource_has_tag"
+      }
+    }
+    ["engine"] => string(6) "InnoDB"
   }
-  [2] => array(9) {
+  ["luda_resource_has_tag"] => array(14) {
     ["db"] => NULL
     ["table"] => string(21) "luda_resource_has_tag"
     ["pk"] => array(2) {
@@ -175,6 +235,17 @@ array(3) {
       [1] => string(6) "tag_id"
     }
     ["uind"] => array(0) {
+    }
+    ["uindDetails"] => array(0) {
+    }
+    ["indexes"] => array(2) {
+      ["name"] => string(47) "fk_luda_resource_has_luda_tag_luda_resource_idx"
+      ["keys"] => array(1) {
+        [0] => array(2) {
+          ["colName"] => string(11) "resource_id"
+          ["ascDesc"] => string(3) "ASC"
+        }
+      }
     }
     ["fkeys"] => array(2) {
       ["resource_id"] => array(3) {
@@ -186,6 +257,26 @@ array(3) {
         [0] => NULL
         [1] => string(8) "luda_tag"
         [2] => string(2) "id"
+      }
+    }
+    ["fkeyDetails"] => array(2) {
+      ["fk_luda_resource_has_luda_tag_luda_resource"] => array(4) {
+        ["fk"] => string(11) "resource_id"
+        ["references"] => array(2) {
+          ["table"] => string(13) "luda_resource"
+          ["column"] => string(2) "id"
+        }
+        ["onDelete"] => string(7) "CASCADE"
+        ["onUpdate"] => string(7) "CASCADE"
+      }
+      ["fk_luda_resource_has_luda_tag_luda_tag1"] => array(4) {
+        ["fk"] => string(6) "tag_id"
+        ["references"] => array(2) {
+          ["table"] => string(8) "luda_tag"
+          ["column"] => string(2) "id"
+        }
+        ["onDelete"] => string(7) "CASCADE"
+        ["onUpdate"] => string(7) "CASCADE"
       }
     }
     ["columnNames"] => array(2) {
@@ -201,10 +292,11 @@ array(3) {
       ["tag_id"] => bool(false)
     }
     ["ai"] => NULL
+    ["referencedByTables"] => array(0) {
+    }
+    ["engine"] => string(6) "InnoDB"
   }
 }
-
-
 
 
 ```

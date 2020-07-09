@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [Light::setDebug](https://github.com/lingtalfi/Light/blob/master/Core/Light.php#L164-L167)
+See the source code for method [Light::setDebug](https://github.com/lingtalfi/Light/blob/master/Core/Light.php#L161-L164)
 
 
 See Also

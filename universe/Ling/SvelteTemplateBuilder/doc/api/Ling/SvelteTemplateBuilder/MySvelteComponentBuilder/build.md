@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [MySvelteComponentBuilder::build](https://github.com/lingtalfi/SvelteTemplateBuilder/blob/master/MySvelteComponentBuilder.php#L84-L122)
+See the source code for method [MySvelteComponentBuilder::build](https://github.com/lingtalfi/SvelteTemplateBuilder/blob/master/MySvelteComponentBuilder.php#L84-L164)
 
 
 See Also

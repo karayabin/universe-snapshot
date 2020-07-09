@@ -99,19 +99,17 @@ class HtmlReport extends AbstractReport
         );
 
 
-
-
         //--------------------------------------------
         // MISSING COMMENTS
         //--------------------------------------------
         $nbClassesWithoutComment = count($this->classesWithoutComment);
         $nbMethodsWithoutComment = count($this->methodsWithoutComment);
         $nbPropertiesWithoutComment = count($this->propertiesWithoutComment);
-        if(
+        if (
             $nbClassesWithoutComment > 0 ||
             $nbMethodsWithoutComment > 0 ||
             $nbPropertiesWithoutComment > 0
-        ){
+        ) {
             $hasErrors = true;
         }
 
@@ -150,10 +148,10 @@ class HtmlReport extends AbstractReport
         $nbMethodsWithoutReturnTag = count($this->methodsWithoutReturnTag);
         $nbPropertiesWithoutVarTag = count($this->propertiesWithoutVarTag);
         $nbParamsWithoutParamTag = count($this->parametersWithoutParamTag);
-        if(
+        if (
             $nbPropertiesWithoutVarTag > 0 ||
             $nbParamsWithoutParamTag > 0
-        ){
+        ) {
             $hasErrors = true;
         }
 
@@ -197,11 +195,11 @@ class HtmlReport extends AbstractReport
         $nbClassesWithEmptyMainText = count($this->classesWithEmptyMainText);
         $nbPropertiesWithEmptyMainText = count($this->propertiesWithEmptyMainText);
         $nbMethodsWithEmptyMainText = count($this->methodsWithEmptyMainText);
-        if(
+        if (
             $nbClassesWithEmptyMainText > 0 ||
             $nbPropertiesWithEmptyMainText > 0 ||
             $nbMethodsWithEmptyMainText > 0
-        ){
+        ) {
             $hasErrors = true;
         }
 
@@ -240,10 +238,10 @@ class HtmlReport extends AbstractReport
         //--------------------------------------------
         $nbUnresoledClassRefs = count($this->unresolvedClassReferences);
         $nbUnresoledMethodRefs = count($this->unresolvedMethodReferences);
-        if(
+        if (
             $nbUnresoledClassRefs > 0 ||
             $nbUnresoledMethodRefs > 0
-        ){
+        ) {
             $hasErrors = true;
         }
 
@@ -296,13 +294,12 @@ class HtmlReport extends AbstractReport
 
         $nbUndefinedInlineKeyword = count($this->undefinedInlineKeywords);
         $nbUndefinedInlineClass = count($this->undefinedInlineClasses);
-        if(
+        if (
             $nbUndefinedInlineKeyword > 0 ||
             $nbUndefinedInlineClass > 0
-        ){
+        ) {
             $hasErrors = true;
         }
-
 
 
         $uif = $this->unknownInlineFunctions;
@@ -365,17 +362,20 @@ class HtmlReport extends AbstractReport
         $blockLevelTagsCount = [];
         $totalBlockLevelTagsUsage = 0;
         $blockLevelTagsDetails = [];
-        foreach ($this->parsedBlockLevelTags as $item) {
-            $name = $item[0];
-            $blockLevelTagsDetails[] = [
-                $item[0],
-                $item[1],
-            ];
-            if (false === array_key_exists($name, $blockLevelTagsCount)) {
-                $blockLevelTagsCount[$name] = [$name, 0];
+        if (is_array($this->parsedBlockLevelTags)) {
+
+            foreach ($this->parsedBlockLevelTags as $item) {
+                $name = $item[0];
+                $blockLevelTagsDetails[] = [
+                    $item[0],
+                    $item[1],
+                ];
+                if (false === array_key_exists($name, $blockLevelTagsCount)) {
+                    $blockLevelTagsCount[$name] = [$name, 0];
+                }
+                $totalBlockLevelTagsUsage++;
+                $blockLevelTagsCount[$name][1]++;
             }
-            $totalBlockLevelTagsUsage++;
-            $blockLevelTagsCount[$name][1]++;
         }
 
         $blockUsageSection = $this->getTableSection(
@@ -401,10 +401,10 @@ class HtmlReport extends AbstractReport
 
         $nbUnresolvedImplementation = count($this->unresolvedImplementationTags);
         $nbUnresolvedOverrides = count($this->unresolvedOverridesTags);
-        if(
+        if (
             $nbUnresolvedImplementation > 0 ||
             $nbUnresolvedOverrides > 0
-        ){
+        ) {
             $hasErrors = true;
         }
 

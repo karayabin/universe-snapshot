@@ -7,7 +7,7 @@ LightUserDataService::getFactory
 
 
 
-LightUserDataService::getFactory — Returns the Light_USerData factory.
+LightUserDataService::getFactory — Returns the Light_UserData factory.
 
 
 
@@ -16,12 +16,12 @@ Description
 ================
 
 
-public [LightUserDataService::getFactory](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/getFactory.md)() : [LightUserDataApiFactory](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/LightUserDataApiFactory.md)
+public [LightUserDataService::getFactory](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/getFactory.md)() : [CustomLightUserDataApiFactory](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Custom/CustomLightUserDataApiFactory.md)
 
 
 
 
-Returns the Light_USerData factory.
+Returns the Light_UserData factory.
 
 
 
@@ -35,7 +35,7 @@ This method has no parameters.
 Return values
 ================
 
-Returns [LightUserDataApiFactory](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/LightUserDataApiFactory.md).
+Returns [CustomLightUserDataApiFactory](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Custom/CustomLightUserDataApiFactory.md).
 
 
 
@@ -46,7 +46,7 @@ Returns [LightUserDataApiFactory](https://github.com/lingtalfi/Light_UserData/bl
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::getFactory](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L295-L298)
+See the source code for method [LightUserDataService::getFactory](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L352-L355)
 
 
 See Also

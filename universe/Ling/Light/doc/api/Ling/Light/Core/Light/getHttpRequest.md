@@ -46,7 +46,7 @@ Returns [HttpRequestInterface](https://github.com/lingtalfi/Light/blob/master/do
 
 Source Code
 ===========
-See the source code for method [Light::getHttpRequest](https://github.com/lingtalfi/Light/blob/master/Core/Light.php#L243-L246)
+See the source code for method [Light::getHttpRequest](https://github.com/lingtalfi/Light/blob/master/Core/Light.php#L240-L243)
 
 
 See Also

@@ -1,6 +1,6 @@
 Light Breeze generator
 ==================
-2019-09-11 -> 2020-01-31
+2019-09-11 -> 2020-05-21
 
 
 
@@ -29,6 +29,7 @@ So basically, this tool will help you by saving you the typing of repetitive cla
 
 
 
-As for now there is only one generator:
+As for now the available generators are:
 
+- [LingBreezeGenerator2](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/pages/ling-breeze-generator-2.md): my latest breeze generator
 - [LingBreezeGenerator](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/pages/ling-breeze-generator.md): my first breeze generator

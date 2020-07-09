@@ -158,7 +158,7 @@ default:
                 action:
                     type: lka-edit_link
                     text: Edit
-                    route: lka_route-user_profile
+                    route: lka_userdatabase_route-user_profile
                 checkbox: checkbox
             checkbox_column: []
             action_column: []

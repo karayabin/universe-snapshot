@@ -4,7 +4,7 @@
 
 The OutputHelper class
 ================
-2019-03-12 --> 2019-08-30
+2019-03-12 --> 2020-06-25
 
 
 
@@ -26,15 +26,15 @@ Class synopsis
 class <span class="pl-k">OutputHelper</span> extends [VirginiaMessageHelper](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Helper/VirginiaMessageHelper.md)  {
 
 - Inherited methods
-    - public static [VirginiaMessageHelper::success](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Helper/VirginiaMessageHelper/success.md)(?$message, Ling\CliTools\Output\OutputInterface $output, int $indent = 0) : void
-    - public static [VirginiaMessageHelper::info](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Helper/VirginiaMessageHelper/info.md)(?$message, Ling\CliTools\Output\OutputInterface $output, int $indent = 0) : void
-    - public static [VirginiaMessageHelper::command](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Helper/VirginiaMessageHelper/command.md)(?$message, Ling\CliTools\Output\OutputInterface $output, int $indent = 0) : void
-    - public static [VirginiaMessageHelper::warning](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Helper/VirginiaMessageHelper/warning.md)(?$message, Ling\CliTools\Output\OutputInterface $output, int $indent = 0) : void
-    - public static [VirginiaMessageHelper::error](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Helper/VirginiaMessageHelper/error.md)(?$message, Ling\CliTools\Output\OutputInterface $output, int $indent = 0) : void
-    - public static [VirginiaMessageHelper::discover](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Helper/VirginiaMessageHelper/discover.md)(?$message, Ling\CliTools\Output\OutputInterface $output, int $indent = 0) : void
-    - public static [VirginiaMessageHelper::i](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Helper/VirginiaMessageHelper/i.md)($level = 0) : string
-    - public static [VirginiaMessageHelper::j](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Helper/VirginiaMessageHelper/j.md)($level = 0) : string
-    - public static [VirginiaMessageHelper::s](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Helper/VirginiaMessageHelper/s.md)($level = 0) : string
+    - public static [VirginiaMessageHelper::success](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Helper/VirginiaMessageHelper/success.md)($message, Ling\CliTools\Output\OutputInterface $output, ?int $indent = 0) : void
+    - public static [VirginiaMessageHelper::info](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Helper/VirginiaMessageHelper/info.md)($message, Ling\CliTools\Output\OutputInterface $output, ?int $indent = 0) : void
+    - public static [VirginiaMessageHelper::command](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Helper/VirginiaMessageHelper/command.md)($message, Ling\CliTools\Output\OutputInterface $output, ?int $indent = 0) : void
+    - public static [VirginiaMessageHelper::warning](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Helper/VirginiaMessageHelper/warning.md)($message, Ling\CliTools\Output\OutputInterface $output, ?int $indent = 0) : void
+    - public static [VirginiaMessageHelper::error](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Helper/VirginiaMessageHelper/error.md)($message, Ling\CliTools\Output\OutputInterface $output, ?int $indent = 0) : void
+    - public static [VirginiaMessageHelper::discover](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Helper/VirginiaMessageHelper/discover.md)($message, Ling\CliTools\Output\OutputInterface $output, ?int $indent = 0) : void
+    - public static [VirginiaMessageHelper::i](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Helper/VirginiaMessageHelper/i.md)(?$level = 0) : string
+    - public static [VirginiaMessageHelper::j](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Helper/VirginiaMessageHelper/j.md)(?$level = 0) : string
+    - public static [VirginiaMessageHelper::s](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Helper/VirginiaMessageHelper/s.md)(?$level = 0) : string
 
 }
 

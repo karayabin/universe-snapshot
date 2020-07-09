@@ -236,7 +236,7 @@ class VariableDescriptionDocWriterUtil
                                                 '${widgets}',
                                             ], [
                                                 $this->documentTitle,
-                                                $this->documentDate,
+                                                $this->documentDate . " -> " . date("Y-m-d"),
                                                 $summary,
                                                 $sWidgets,
                                             ], $content);

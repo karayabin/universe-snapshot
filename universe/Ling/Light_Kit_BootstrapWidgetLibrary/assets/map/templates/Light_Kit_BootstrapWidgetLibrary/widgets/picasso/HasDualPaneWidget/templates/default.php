@@ -18,8 +18,8 @@ $this->useAcpHep();
 
 $container = $this->kitPageRenderer->getContainer();
 $identifier = $z['identifier'];
-$ajaxHandlerId = $z['ajax_handler_id'];
-$ajaxHandlerUrl = $z['ajax_handler_url'];
+$ajaxHandlerId = $z['handler'];
+$ajaxHandlerUrl = $z['action'];
 $crudDeleteContextIdentifier = $z['crud_delete_context_identifier'];
 $title = $z['title'] ?? '';
 $csrfToken = $z['csrf_token'] ?? '';

@@ -4,7 +4,7 @@
 
 The HasDualPaneWidget class
 ================
-2019-04-26 --> 2020-02-25
+2019-04-26 --> 2020-06-04
 
 
 
@@ -64,7 +64,7 @@ class <span class="pl-k">HasDualPaneWidget</span> extends [EasyLightPicassoWidge
 Methods
 ==============
 
-- [HasDualPaneWidget::useAcpHep](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/Widget/Picasso/HasDualPaneWidget/useAcpHep.md) &ndash; Registers the jAcpHep assets.
+- [HasDualPaneWidget::useAcpHep](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/Widget/Picasso/HasDualPaneWidget/useAcpHep.md) &ndash; Registers the [jAcpHep](https://github.com/lingtalfi/JAcpHep) assets.
 - EasyLightPicassoWidget::__construct &ndash; Builds the EasyPicassoWidget instance.
 - EasyLightPicassoWidget::setKitPageRenderer &ndash; Sets the KitPageRenderer instance.
 - EasyLightPicassoWidget::getKitPageRenderer &ndash; 

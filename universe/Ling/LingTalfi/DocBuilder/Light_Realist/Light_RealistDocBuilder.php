@@ -168,6 +168,7 @@ class Light_RealistDocBuilder
                 "controller hub service" => 'https://github.com/lingtalfi/Light_ControllerHub',
                 "ajax handler service" => 'https://github.com/lingtalfi/Light_AjaxHandler',
                 "Light_CsrfSession plugin" => 'https://github.com/lingtalfi/Light_CsrfSession',
+                "alcp response" => 'https://github.com/lingtalfi/Light_AjaxHandler/blob/master/doc/pages/ajax-light-communication-protocol.md',
 
             ],
             /**

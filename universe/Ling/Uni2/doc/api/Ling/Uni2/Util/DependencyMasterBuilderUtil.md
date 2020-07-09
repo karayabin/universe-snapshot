@@ -4,7 +4,7 @@
 
 The DependencyMasterBuilderUtil class
 ================
-2019-03-12 --> 2019-08-30
+2019-03-12 --> 2020-06-25
 
 
 
@@ -28,7 +28,7 @@ Class synopsis
 class <span class="pl-k">DependencyMasterBuilderUtil</span>  {
 
 - Methods
-    - public [createDependencyMasterByUniverseDir](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Util/DependencyMasterBuilderUtil/createDependencyMasterByUniverseDir.md)(string $universeDir, string $file, array &$errors = [], array $allowedGalaxies = null) : void
+    - public [createDependencyMasterByUniverseDir](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Util/DependencyMasterBuilderUtil/createDependencyMasterByUniverseDir.md)(string $universeDir, string $file, ?array &$errors = [], ?array $allowedGalaxies = null) : void
 
 }
 

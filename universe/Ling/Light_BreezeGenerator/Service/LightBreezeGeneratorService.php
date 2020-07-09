@@ -75,10 +75,12 @@ class LightBreezeGeneratorService
      * Sets the conf.
      *
      * @param array $conf
+     * @return LightBreezeGeneratorService
      */
-    public function setConf(array $conf)
+    public function setConf(array $conf): LightBreezeGeneratorService
     {
         $this->conf = $conf;
+        return $this;
     }
 
 
@@ -88,19 +90,23 @@ class LightBreezeGeneratorService
      *
      * @param string $key
      * @param string $file
+     * @return LightBreezeGeneratorService
      */
-    public function addConfigurationEntryByFile(string $key, string $file)
+    public function addConfigurationEntryByFile(string $key, string $file): LightBreezeGeneratorService
     {
         $this->conf[$key] = BabyYamlUtil::readFile($file);
+        return $this;
     }
 
     /**
      * Sets the container.
      *
      * @param LightServiceContainerInterface $container
+     * @return LightBreezeGeneratorService
      */
-    public function setContainer(LightServiceContainerInterface $container)
+    public function setContainer(LightServiceContainerInterface $container): LightBreezeGeneratorService
     {
         $this->container = $container;
+        return $this;
     }
 }

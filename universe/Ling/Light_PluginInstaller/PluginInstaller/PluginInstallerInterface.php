@@ -20,6 +20,15 @@ interface PluginInstallerInterface
      */
     public function install();
 
+
+    /**
+     * Returns whether the core install phase of the plugin is fully completed.
+     * See the @page(Light_PluginInstaller conception notes) for more details.
+     *
+     * @return bool
+     */
+    public function isInstalled(): bool;
+
     /**
      * Uninstalls the plugin.
      * If the plugin is already uninstalled, this method does nothing.
@@ -30,6 +39,9 @@ interface PluginInstallerInterface
      * @throws \Exception
      */
     public function uninstall();
+
+
+
 
     /**
      * Returns the array of dependencies.

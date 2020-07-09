@@ -1,0 +1,13 @@
+    /**
+     * @implementation
+     */
+    public function getResourcesColumns($columns, $where, array $markers = [])
+    {
+        $sCols = $columns;
+        if (is_array($sCols)) {
+            $sCols = '`' . implode("`,`", $columns) . '`';
+        }
+        $q = "select $sCols  from `$this->table`";
+        SimplePdoWrapper::addWhereSubStmt($q, $markers, $where);
+        return $this->pdoWrapper->fetchAll($q, $markers);
+    }

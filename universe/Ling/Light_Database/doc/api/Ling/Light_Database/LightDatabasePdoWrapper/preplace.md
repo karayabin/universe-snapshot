@@ -62,7 +62,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightDatabasePdoWrapper::preplace](https://github.com/lingtalfi/Light_Database/blob/master/LightDatabasePdoWrapper.php#L191-L199)
+See the source code for method [LightDatabasePdoWrapper::preplace](https://github.com/lingtalfi/Light_Database/blob/master/LightDatabasePdoWrapper.php#L196-L204)
 
 
 See Also

@@ -233,16 +233,37 @@ class HtmlPageCopilot
      *
      *
      *
+     * Available options:
+     * - override: bool=false.
+     *      If true, the library will be overwritten in case of conflicts.
+     *
+     *
+     * Tip with override
+     * --------
+     * If your template has a jquery link hardcoded in it, you can use override like this in your template,
+     * so that all modules that use jquery use the version that's hardcoded in your template:
+     *
+     * ```php
+     * $copilot->registerLibrary("Jquery", [], [], [
+     * '    override' => true,
+     * ]);
+     * ```
+     *
+     *
+     *
+     *
      *
      *
      *
      * @param string $name
      * @param array $js
      * @param array $css
+     * @param array $options
      */
-    public function registerLibrary(string $name, array $js = [], array $css = [])
+    public function registerLibrary(string $name, array $js = [], array $css = [], array $options = [])
     {
-        if (false === array_key_exists($name, $this->libraries)) {
+        $override = $options['override'] ?? false;
+        if (true === $override || false === array_key_exists($name, $this->libraries)) {
             $this->libraries[$name] = [$js, $css];
         }
     }

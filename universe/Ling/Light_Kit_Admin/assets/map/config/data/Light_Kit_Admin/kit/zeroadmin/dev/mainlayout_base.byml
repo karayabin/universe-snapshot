@@ -86,7 +86,7 @@ zones:
                 pseudo: ${user.pseudo}
                 links:
                     -
-                        url: (::ROUTE::)lka_route-user_profile
+                        url: (::ROUTE::)lka_userdatabase_route-user_profile
                         icon: fas fa-user
                         text: Profile
                     -
@@ -151,7 +151,7 @@ zones:
                 attr:
                     id: body-sidebar
                 sidebar_toggler_id: header-navbar-toggler
-                links: (::METHOD_CALL::)@bmenu->getItems(main_menu)
+                links: (::METHOD_CALL::)@bmenu->getItems(admin_main_menu)
                 linkszzz:
                     -
                         is_active: true

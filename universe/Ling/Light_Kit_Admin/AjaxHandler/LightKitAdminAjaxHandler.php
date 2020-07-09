@@ -19,11 +19,14 @@ class LightKitAdminAjaxHandler extends BaseLightAjaxHandler
     /**
      * @implementation
      */
-    protected function doHandle(string $actionId, HttpRequestInterface $request): array
+    protected function doHandle(string $action, HttpRequestInterface $request): array
     {
-        $params = $request->getPost();
+        $post = $request->getPost();
+        $get = $request->getGet();
+        $params = array_replace($get, $post);
+
         $response = [];
-        switch ($actionId) {
+        switch ($action) {
             //--------------------------------------------
             // LIST ACTIONS
             //--------------------------------------------
@@ -36,7 +39,7 @@ class LightKitAdminAjaxHandler extends BaseLightAjaxHandler
             case "realist-rows_to_html":
             case "realist-rows_to_csv":
             case "realist-rows_to_pdf":
-                $response = $this->executeListAction($actionId, $params);
+                $response = $this->executeListAction($action, $params);
                 break;
             //--------------------------------------------
             // GENERAL LIST ACTIONS
@@ -44,10 +47,10 @@ class LightKitAdminAjaxHandler extends BaseLightAjaxHandler
             case "realist-generate_random_rows":
             case "realist-save_table":
             case "realist-load_table":
-                $response = $this->executeListGeneralAction($actionId, $params);
+                $response = $this->executeListGeneralAction($action, $params);
                 break;
             default:
-                throw new LightKitAdminException("LightKitAdminAjaxHandler: Unknown action $actionId.");
+                throw new LightKitAdminException("LightKitAdminAjaxHandler: Unknown action $action.");
                 break;
         }
         return $response;

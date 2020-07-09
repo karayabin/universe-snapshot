@@ -377,8 +377,8 @@ if ('undefined' === typeof window.HasDualPaneWidget) {
                             });
                             url = $this.ajaxHandlerUrl;
                             var data = {
-                                ajax_handler_id: 'Light_Crud',
-                                ajax_action_id: 'delete_rows',
+                                handler: 'Light_Crud',
+                                action: 'delete_rows',
                                 contextIdentifier: $this.crudDeleteContextIdentifier,
                                 table: paneTable,
                                 rics: rics,

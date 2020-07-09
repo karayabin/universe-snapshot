@@ -1,0 +1,46 @@
+error_handler:
+    instance: Ling\Light_ErrorHandler\Service\LightErrorHandlerService
+    methods:
+        setContainer:
+            container: @container()
+        setOptions:
+            options:
+                handleFatalErrors: true
+                handleErrors: true
+
+# --------------------------------------
+# hooks
+# --------------------------------------
+$events.methods_collection:
+    -
+        method: registerListener
+        args:
+            events: Light.initialize_1
+            listener:
+                instance: @service(error_handler)
+                callable_method: registerFunctions
+
+
+$logger.methods_collection:
+    -
+        method: addListener
+        args:
+            channels: error_handler
+            listener:
+                instance: Ling\Light_Logger\Listener\LightFileLoggerListener
+                methods:
+                    configure:
+                        options:
+                            file: ${app_dir}/log/errors/{date}.txt
+    -
+        method: addListener
+        args:
+            channels: fatal_error_handler
+            listener:
+                instance: Ling\Light_Logger\Listener\LightFileLoggerListener
+                methods:
+                    configure:
+                        options:
+                            file: ${app_dir}/log/errors/{date}.txt
+
+

@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [TemporaryVirtualFileSystem::add](https://github.com/lingtalfi/TemporaryVirtualFileSystem/blob/master/doc/api/Ling/TemporaryVirtualFileSystem/TemporaryVirtualFileSystem/add.md)(string $contextId, string $path, array $meta) : array
+public [TemporaryVirtualFileSystem::add](https://github.com/lingtalfi/TemporaryVirtualFileSystem/blob/master/doc/api/Ling/TemporaryVirtualFileSystem/TemporaryVirtualFileSystem/add.md)(string $contextId, string $path, array $meta, ?array $options = []) : array
 
 
 
@@ -29,6 +29,13 @@ and returns the added entry, which is an array containing at least the following
 
 
 For more details see the heuristic section of the [TemporaryVirtualFileSystem conception notes](https://github.com/lingtalfi/TemporaryVirtualFileSystem/blob/master/doc/pages/conception-notes.md).
+
+The options are:
+-  move: bool=false. Whether to move or copy the given path to the destination.
+
+
+
+You can pass some extra options to the concrete class via this options array.
 
 
 
@@ -49,6 +56,10 @@ Parameters
 
     
 
+- options
+
+    
+
 
 Return values
 ================
@@ -64,7 +75,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [TemporaryVirtualFileSystem::add](https://github.com/lingtalfi/TemporaryVirtualFileSystem/blob/master/TemporaryVirtualFileSystem.php#L126-L130)
+See the source code for method [TemporaryVirtualFileSystem::add](https://github.com/lingtalfi/TemporaryVirtualFileSystem/blob/master/TemporaryVirtualFileSystem.php#L137-L141)
 
 
 See Also

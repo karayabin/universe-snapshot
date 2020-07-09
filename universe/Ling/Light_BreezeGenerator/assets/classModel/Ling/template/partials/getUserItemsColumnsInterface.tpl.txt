@@ -1,0 +1,17 @@
+    /**
+     * Returns a subset of the resource rows identified by the given [where conditions](https://github.com/lingtalfi/SimplePdoWrapper#the-where-conditions).
+     * That subset is an array containing the given $columns.
+     * The columns parameter can be either an array or a string.
+     * If it's an array, the column names will be escaped with back ticks.
+     * If it's a string, no escaping will be done. This lets you write custom expression, such as using aliases for instance.
+     *
+     * In both cases, you shall pass the pdo markers when necessary.
+     *
+     *
+     * @param array|string $columns
+     * @param $where
+     * @param array $markers
+     * @return array
+     * @throws \Exception
+     */
+    public function getResourcesColumns($columns, $where, array $markers = []);

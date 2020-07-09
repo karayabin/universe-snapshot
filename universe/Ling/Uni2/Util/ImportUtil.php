@@ -252,8 +252,10 @@ class ImportUtil
          * @var $importer DependencySystemImporterInterface
          */
         $importer = $this->application->getImporter($dependencySystem);
+
         if (null !== $importer) {
             $packageSymbolicName = $importer->getPackageSymbolicName($packageImportName);
+
 
 
             /**
@@ -346,6 +348,7 @@ class ImportUtil
             }
 
 
+
             if (true === $doImportItem) {
 
 
@@ -368,6 +371,7 @@ class ImportUtil
                         }
                     }
                 }
+
 
 
                 if (false === $upgradeSuccessful) {
@@ -423,14 +427,17 @@ class ImportUtil
                 }
 
 
+
                 //--------------------------------------------
                 // DEPENDENCIES
                 //--------------------------------------------
                 if (true === $resolveDependencies && true === $isPlanet && true === $upgradeSuccessful) {
 
 
+
                     $longPlanetName = $dependencySystem . "/" . $packageSymbolicName;
                     $dependencies = DependencyMasterHelper::getDependencyMapByPlanetName($longPlanetName, $depMaster);
+
 
 
                     if (count($dependencies['dependencies']) > 0) {
@@ -464,6 +471,9 @@ class ImportUtil
                                  * @var $depImporter DependencySystemImporterInterface
                                  */
                                 $depImporter = $this->application->getImporter($system);
+
+
+
                                 if (null !== $depImporter) {
 
                                     foreach ($packages as $package => $version) {
@@ -480,6 +490,7 @@ class ImportUtil
                                             $depSymbolicName = $depImporter->getPackageSymbolicName($package);
                                             $depItemDir = $appUniverseDependenciesDir . "/$system/$depSymbolicName";
                                         }
+
 
                                         //--------------------------------------------
                                         // PROCESSING POST INSTALLS

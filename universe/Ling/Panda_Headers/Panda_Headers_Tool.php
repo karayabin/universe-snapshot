@@ -52,7 +52,9 @@ class Panda_Headers_Tool
             if (true === is_array($value)) {
                 foreach ($value as $v) {
                     if (false !== strpos($v, ',')) {
-                        $v = self::escapeCommas($v);
+                        if (null !== $v) {
+                            $v = self::escapeCommas($v);
+                        }
                     }
                     if (null !== $response) {
                         $response->setHeader("panda_$name", $v, false);
@@ -62,7 +64,9 @@ class Panda_Headers_Tool
                 }
                 $arrays[] = $name;
             } else {
-                $value = self::escapeCommas($value);
+                if (null !== $value) {
+                    $value = self::escapeCommas($value);
+                }
                 if (null !== $response) {
                     $response->setHeader("panda_$name", $value);
                 } else {

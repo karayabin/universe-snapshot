@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [PostInstallDirectiveHandler::handleDirective](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/PostInstall/DirectiveHandler/PostInstallDirectiveHandler/handleDirective.md)(string $directiveName, ?$directiveConf, Ling\CliTools\Output\OutputInterface $output, array $options = []) : void
+public [PostInstallDirectiveHandler::handleDirective](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/PostInstall/DirectiveHandler/PostInstallDirectiveHandler/handleDirective.md)(string $directiveName, $directiveConf, Ling\CliTools\Output\OutputInterface $output, ?array $options = []) : void
 
 
 
@@ -55,7 +55,7 @@ Parameters
 
     The post install directive configuration.
 It can be a string or an array and depends on the type.
-See the @page(post install directives page) for more info.
+See the [post install directives page](https://github.com/lingtalfi/Uni2/blob/master/README.md#dependenciesbyml) for more info.
 
 - output
 
@@ -90,7 +90,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [PostInstallDirectiveHandler::handleDirective](https://github.com/lingtalfi/Uni2/blob/master/PostInstall/DirectiveHandler/PostInstallDirectiveHandler.php#L66-L158)
+See the source code for method [PostInstallDirectiveHandler::handleDirective](https://github.com/lingtalfi/Uni2/blob/master/PostInstall/DirectiveHandler/PostInstallDirectiveHandler.php#L66-L159)
 
 
 See Also

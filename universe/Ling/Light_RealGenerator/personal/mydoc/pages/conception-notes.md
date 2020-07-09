@@ -1,6 +1,6 @@
 Light Real Generator
 ================
-2019-10-23 -> 2020-02-26
+2019-10-23 -> 2020-07-02
 
 
 
@@ -91,9 +91,10 @@ column, but, I digress.
 
 The variables system
 ------------
-2020-02-26
+2020-02-26 -> 2020-07-02
 
-The variables system lets you declare and reuse some custom strings, so that you can inject them wherever you want in the configuration file.
+The variables system lets you declare some custom variables, and inject them wherever you want in the configuration file.
+
 To use the variables system, declare your variables as a key/value array at the root level, then to use a variable anywhere in the configuration file,
 just use the special variable notation described below.
 
@@ -105,6 +106,11 @@ main:
     variables:
         plugin: Light_Kit_Admin_UserData
         abc: 123
+        myKey: sport
+        # you can inject non-scalar values if you want
+        fruits:  
+            - apple
+            - banana
 # ...
 ```
 
@@ -122,8 +128,40 @@ main:
 ```
 
 
+### Replacing keys
 
- 
+You can also replace a key of an array by a variable, like this:
+
+```yaml
+
+main:
+# ...
+    list:
+        {myKey}: judo 
+# ...
+
+```
+
+
+
+
+
+
+
+Logs
+----------
+2020-06-30
+
+
+We believe in logs.
+
+We use the [Light_Logger](https://github.com/lingtalfi/Light_Logger) plugin under the hood to provide a debugging mechanism, should you need to examine what we are doing in more details.
+
+To enable the debug messages, you need to set the **useDebug** option to true, at our service configuration level.
+
+By default, we send debug messages via the **real_generator.debug** channel, but you can change it via the options. See the api documentation for more details. 
+
+Our service also exposes a **debugLog** method, if you want to write to our log (this is mainly intended for plugin authors who extend our service classes). 
 
 
 

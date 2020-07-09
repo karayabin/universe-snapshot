@@ -1,0 +1,9 @@
+    /**
+     * @implementation
+     */
+    public function getResourcesKey2Value(string $key, string $value, $where, array $markers = [])
+    {
+        $q = "select `$key`, `$value` from `$this->table`";
+        SimplePdoWrapper::addWhereSubStmt($q, $markers, $where);
+        return $this->pdoWrapper->fetchAll($q, $markers, \PDO::FETCH_COLUMN | \PDO::FETCH_UNIQUE);
+    }

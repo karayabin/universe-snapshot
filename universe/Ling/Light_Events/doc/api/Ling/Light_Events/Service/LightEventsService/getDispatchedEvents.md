@@ -46,7 +46,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [LightEventsService::getDispatchedEvents](https://github.com/lingtalfi/Light_Events/blob/master/Service/LightEventsService.php#L129-L132)
+See the source code for method [LightEventsService::getDispatchedEvents](https://github.com/lingtalfi/Light_Events/blob/master/Service/LightEventsService.php#L146-L149)
 
 
 See Also

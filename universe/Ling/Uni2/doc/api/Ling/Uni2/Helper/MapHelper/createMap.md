@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [MapHelper::createMap](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Helper/MapHelper/createMap.md)(string $planetDir, string $dstFile, bool $addBumbleBee = false) : bool
+public static [MapHelper::createMap](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Helper/MapHelper/createMap.md)(string $planetDir, string $dstFile, ?bool $addBumbleBee = false) : bool
 
 
 

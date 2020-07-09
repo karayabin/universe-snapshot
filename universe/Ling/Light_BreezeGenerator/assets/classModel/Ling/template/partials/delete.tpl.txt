@@ -1,0 +1,8 @@
+    /**
+     * @implementation
+     */
+    public function delete($where = null, array $markers = [])
+    {
+        return $this->pdoWrapper->delete($this->table, $where, $markers);
+
+    }

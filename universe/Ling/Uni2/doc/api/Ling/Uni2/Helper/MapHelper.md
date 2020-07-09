@@ -4,7 +4,7 @@
 
 The MapHelper class
 ================
-2019-03-12 --> 2019-08-30
+2019-03-12 --> 2020-06-25
 
 
 
@@ -26,7 +26,7 @@ class <span class="pl-k">MapHelper</span>  {
 
 - Methods
     - public static [getMapEntries](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Helper/MapHelper/getMapEntries.md)(string $planetDir) : array
-    - public static [createMap](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Helper/MapHelper/createMap.md)(string $planetDir, string $dstFile, bool $addBumbleBee = false) : bool
+    - public static [createMap](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Helper/MapHelper/createMap.md)(string $planetDir, string $dstFile, ?bool $addBumbleBee = false) : bool
 
 }
 

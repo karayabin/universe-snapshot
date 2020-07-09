@@ -1,6 +1,6 @@
 Light Kit Admin DebugTrace
 ==================
-2019-11-07
+2019-11-07 -> 2020-06-25
 
 
 
@@ -14,7 +14,7 @@ This debug tool gives access to basic information:
 - the controller being used
 - the kit page being used
 - the templates being used
-- the csrf token values (if you use the [csrf_simple](/komin/jin_site_demo/universe/Ling/Light_CsrfSimple) service)
+- the csrf token values (if you use the [csrf_simple](/komin/jin_site_demo/universe/Ling/Light_CsrfSimple) or [csrf_session](https://github.com/lingtalfi/Light_CsrfSession) service)
 - events being used (i.e. events with some listeners attached to it)
 - session variables
 
@@ -23,6 +23,8 @@ This debug tool gives access to basic information:
 
 Prints to a file
 -----------
+2019-11-07
+
 
 It outputs everything to external file(s).
 The idea here is to open that file in a text editor with live update capabilities (such as sublime text for instance),
@@ -41,6 +43,9 @@ Or you could use both at the same time.
 
 A live debugger
 -----------
+2019-11-07
+
+
 One nice thing about this debugger is that it's a live debugger: it writes to the file bit of information after bit.
 That's because sometimes, you encounter an error (like a fatal error) that interrupts the application.
 When that happens, you still have all the information that the debugTrace service could collect before the script was interrupted,
@@ -50,6 +55,8 @@ which is a valuable information for debugging.
 
 httpRequest filters
 --------------
+2019-11-07
+
 
 Not all requests are relevant to your debugging session.
 
@@ -67,6 +74,8 @@ The http request filters let you do that in the form of an array with the follow
 
 Security warning
 -------------
+2019-11-07
+
 
 We recommend that you never use this plugin in production, only in a development environment.
 Why, because this will log information to a file, and that information is potentially critical.

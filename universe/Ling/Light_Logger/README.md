@@ -1,6 +1,6 @@
 Light_Logger
 ===========
-2019-08-01
+2019-08-01 -> 2020-06-18
 
 
 
@@ -97,6 +97,22 @@ logger:
 History Log
 =============
 
+- 1.11.1 -- 2020-06-18
+
+    - update LightCleanableFileLoggerListener, add class comment
+    
+- 1.11.0 -- 2020-06-18
+
+    - add LightCleanableFileLoggerListener class
+    
+- 1.10.0 -- 2020-06-18
+
+    - update LightLastMessageFileLoggerListener, now accepts the file option like LightFileLoggerListener
+    
+- 1.9.0 -- 2020-06-01
+
+    - update LightFileLoggerListener, now accepts the {date} tag 
+    
 - 1.8.2 -- 2020-01-08
 
     - fix LightFileLoggerListener->listen printing debug string (typo) 

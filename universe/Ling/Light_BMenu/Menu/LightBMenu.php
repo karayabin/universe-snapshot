@@ -12,4 +12,15 @@ use Ling\DotMenu\DotMenu;
 class LightBMenu extends DotMenu
 {
 
+
+    /**
+     * @overrides
+     */
+    public function __construct()
+    {
+        parent::__construct();
+        $this->setStrictMode(true);
+    }
+
+
 }

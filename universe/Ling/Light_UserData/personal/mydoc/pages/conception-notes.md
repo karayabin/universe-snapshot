@@ -1,8 +1,13 @@
 Light_UserData, conception notes
 =====================
-2019-09-27 -> 2020-04-20
+2019-09-27 -> 2020-05-22
 
 
+
+
+Intro
+---------
+2019-09-27
 
 
 Often times, users have the ability to create some kind of data.
@@ -15,42 +20,72 @@ The idea behind this plugin is to gather all the data created by a given user in
 hoping to make the data more organized and easier to manage. 
 
 
-The data related to a given user is stored in a directory in the filesystem called the user directory.
 
 
-All directories handled by our plugin are stored under a predefined **root directory**, which has the following substructure:
+The filesystem
+--------------
+2019-09-27 -> 2020-05-18
 
-- (root dir)
-    - users
-    - original
-    - vm
+
+We store the data related to a given user in the filesystem, in a directory called the **user directory**.
+
+We store all **user directories** in a **root directory**, which has the following substructure:
+
+```txt 
+- (root dir)/
+----- users/
+----- vm/
+```
     
+    
+We use a [flat filesystem](https://github.com/lingtalfi/TheBar/blob/master/discussions/flat-filesystem.md) to reduce the general complexity of our plugin.
 
-The **users** sub-directory contains real user uploaded files.
-The **original** sub-directory contains some files that the user might want to re-use later.
-    This was created for the case when the user cropped an image for instance and wants to access back to the non-cropped image to make a new crop.
-    But it could potentially serve other use cases as well.
+
+The **users** sub-directory contains the files uploaded by the user.
     
 The **vm** sub-directory contains all the files managed by the virtual file system that our plugin uses to provide the user with the ability
-    to cancel some file uploads (amongst other things).
-
-     
+    to cancel some file uploads (amongst other things). See the [virtual-machine.md](https://github.com/lingtalfi/Light_UserData/blob/master/doc/pages/virtual-machine.md) document for more info.
 
 
-How a user directory is organized depends on the user of this plugin (i.e. the developer),
-we just provide a service that helps storing/accessing the user data.
+Both directories share the same file organization:
 
+```txt 
+- (users or vm directory)/
+----- $userId/
+--------- files/
+------------- $baseResourceId
+------------- ?$baseResourceId-/
+----------------- $relatedFileIndex
+--------- original/
+------------- $baseResourceId
+--------- ?operations.byml   (only in the vm directory)
+```
+
+
+The **userId** is the identifier of the user (it's unique).
 
 We use the [Light_User](https://github.com/lingtalfi/Light_User) plugin under the hood,
 which has an identifier.
 
 
-The user directory is based on the Light_User identifier.
+The **files** directory contains the files uploaded by the user.
 
-You might want to obfuscate the user directory name to avoid malicious users to access an user's content
-too easily.
+Since we use a flat file system, the file names are the file identifiers (**baseResourceId**) (they don't have a file extension).
+We store the related files in a directory which name is the **baseResourceId** with a dash in the end.
 
-I might provide some help to implement such an obfuscating system.  
+See more info in the [related-files.md](https://github.com/lingtalfi/Light_UserData/blob/master/doc/pages/related-files.md) document. 
+
+
+The **original** sub-directory contains some files that the user might want to re-use later.
+    This was created for the case when the user cropped an image for instance and wants to access back to the non-cropped image to make a new crop.
+    It could potentially serve other use cases as well.
+    Only the regular files can have an original variant; the related files can't.     
+
+
+We provide a service to store/access the user data.
+See our service's source code for more info.
+
+ 
 
 
 
@@ -150,7 +185,7 @@ directory under the application root, but not inside the web root directory:
 
 Maximum storage capacity
 -------------------
-2019-12-16
+2019-12-16 - 2020-05-28
 
 
 
@@ -195,6 +230,18 @@ And it binds them to both the existing users and the newly created ones (assumin
 
 
 For security reasons, an user without an msc class bound to him/her will be denied any storage (i.e. equivalent to msc=0).
+
+
+
+Implementation note about related files:
+When an user uploads a file, depending on the server configuration, this file can have an original file and some related files associated with it.
+When this is the case, to avoid some cpu work we don't check the size of those extra files.
+This means that the actual size used by an user can potentially be a little more than the limit number.
+
+Note however that on the very next upload, the limit computation takes into account all the files of the user (including the related files and original files).
+This means that the user can only cheat the limit once.
+
+
 
 
 
@@ -259,20 +306,8 @@ The original file
 -------------
 2020-02-18
 
-Generally, when the user uploads a file, we resize it to fit our application better.
 
-However, sometimes it's useful to keep the original file.
-
-In particular in regard to cropping. For instance imagine a user uploads an avatar and crops it using a gui interface (such as the file editor
-provided with the [fileuploader](https://github.com/lingtalfi/JFileUploader) script).
-
-So she uploads the cropped file, but then imagine she changed her mind and wants to crop another part of the image.
-
-If we didn't keep the original image, we would only be able to provide the cropped version to the user, and she basically wouldn't be able to 
-crop from the original image again (unless she uploads it again).
-
-So, to help a gui provide such a functionality where the user can access the original image again, we provide the url to the original image in the headers
-of the image being requested.
+See the keepOriginalUrl section of the [file manager protocol](https://github.com/lingtalfi/TheBar/blob/master/discussions/file-manager-protocol.md).
 
 
 The virtual machine
@@ -286,13 +321,17 @@ See the [virtual machine](https://github.com/lingtalfi/Light_UserData/blob/maste
 
 Our web service
 --------------
-2020-02-21 -> 2020-04-20
+2020-02-21 -> 2020-05-22
 
 
 The **Light_UserData** plugin provides a web interface to upload/interact with user files.
 
 
-We use the [file manager protocol](https://github.com/lingtalfi/TheBar/blob/master/discussions/file-manager-protocol.md).
+We use the [file manager protocol](https://github.com/lingtalfi/TheBar/blob/master/discussions/file-manager-protocol.md)
+with the **standard set** of parameters.
+
+
+    
 
 In addition to that, we use the [Light_UploadGems](https://github.com/lingtalfi/Light_UploadGems) plugin under the hood.
 Plugin authors can provide their own configuration via the gem config section.
@@ -301,7 +340,8 @@ In particular, our service will understand the following properties:
 
 
 - useVfs: bool=false. Whether to use the **virtual machine**. See the virtual machine section for more details.
-- keepOriginal: bool=false. Whether to keep an original of the file. See the **original file** section for more details.
+- acceptKeepOriginal: bool=false. Whether to allow keeping an original of the file. See the **original file** section for more details.
+    Note that the client must set the keep_original flag to 1, in addition to acceptKeepOriginal being true, to effectively create the original resource on the server. 
 - path: string, the path where to put the file. It's a relative path from the user directory.
     It accepts the following tags:
     - filename: will be replaced with the filename (including file extension).
@@ -316,6 +356,8 @@ In particular, our service will understand the following properties:
 
 We also provide an interface to access the user files.
 
+We follow the recommendations of the [file manager protocol](https://github.com/lingtalfi/TheBar/blob/master/discussions/file-manager-protocol.md), along with some extra properties.
+
 
 The access url is: **/user-data** (defined in /app/config/data/Light_UserData/Light_EasyRoute/luda_routes.byml),
 and it accepts the following parameters:
@@ -324,23 +366,32 @@ and it accepts the following parameters:
 - m: optional, string (0|1) = 0. Whether to add meta to the returned http response.
     If true, the meta will be added via the [panda headers protocol](https://github.com/lingtalfi/TheBar/blob/master/discussions/panda-headers-protocol.md).
     The meta are:
-        - fe_is_private: 0|1. Whether the file is private.
-        - ?fe_date_creation: datetime. The time (mysql datetime format) when the file was added. Not available with the virtual machine.
-        - ?fe_date_last_update: datetime. The last time when the file was updated. Not available with the virtual machine.
-        - fe_original_url: string. The original url associated with the file, or an empty string if there is no original url
+        - is_private: 0|1. Whether the file is private.
+        - date_creation: datetime. The time (mysql datetime format) when the file was added. Not available with the virtual machine.
+        - date_last_update: datetime. The last time when the file was updated. Not available with the virtual machine.
+        - original_url: string|null. The original url associated with the file, or null if there is no original url
             bound to that particular file.
-            
+                        
             See the "original files" concept in this document for more details.
-        - fe_tags: string. The comma separated list of the tags bound to the file. 
+        - tags: string. The comma separated list of the tags bound to the file.
+        - name: string. The file name.
+        - directory: string. The relative path of the directory containing the file.
+         
         
 - o: optional, string (0|1) = 0.
     Whether to return the file targeted by the url (by default), or the original file associated with it (if any). 
     See the "original file concept" in this document for more details.
-- c: optional, string. The uploadGem configuration id. This is required if you want to override the default settings of the server (which is
-    to give access to the file on the real server when permitted, meaning if the file is public or if the caller is the owner of the file).
-    So generally, while using the filemanager gui, you always want to pass this option.
-    However for generic rendering (for instance from your application front), you don't need this.   
+- c: optional, string. The uploadGem configuration id. This is required when you are in the process of adding or
+    updating a file. The configuration tells our service where the file should go, what validation rules to apply, etc...
+- v: optional, string (0|1). 
+    When the js client wants to access a file by its url, this flag defines whether the file comes from the virtual server or the real server.
+    By default, the real server serves the file.
+    If the url is handled by the virtual server, then the flag must be set to 1.
     
+    That's because our service basically uses a single url that will work for both the virtual environment and the 
+    production environment (for practical reasons, so that we don't do the work twice).
+    However, for this to work, the client must specify whether he wants to retrieve the file from the virtual server or the real server.
+     
     
 
 

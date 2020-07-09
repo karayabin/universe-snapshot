@@ -1,0 +1,10 @@
+    /**
+     * Deletes the user rows identified by the given ids.
+     *
+     * @param array $ids
+     * @return void
+     * @throws \Exception
+     */
+    public function deleteAllByIds(array $ids);
+
+// deletesXXX

@@ -54,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [RightsHelper::isRoot](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Rights/RightsHelper.php#L23-L30)
+See the source code for method [RightsHelper::isRoot](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Rights/RightsHelper.php#L26-L33)
 
 
 See Also
@@ -62,5 +62,5 @@ See Also
 
 The [RightsHelper](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Rights/RightsHelper.md) class.
 
-Next method: [getGroupedRights](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Rights/RightsHelper/getGroupedRights.md)<br>
+Next method: [hasPermission](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Rights/RightsHelper/hasPermission.md)<br>
 

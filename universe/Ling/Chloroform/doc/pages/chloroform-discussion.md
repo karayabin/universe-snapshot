@@ -1,6 +1,6 @@
 Chloroform discussion
 ==========
-2019-04-10
+2019-04-10 -> 2020-06-01
 
 
 
@@ -96,13 +96,14 @@ if form->validates ( $postedData ):
 
 The posted data
 ===============
-2019-04-10
+2019-04-10 -> 2020-06-01
 
 When a form is posted, an array of key/value pairs is created representing the form data.
 
 In Chloroform, this array contains a merge of the $_POST and the flattened version of the $_FILES.
 
 By flattened, I mean dot flattened using the PhpUploadFileFixTool from [the PhpUploadFileFix planet](https://github.com/lingtalfi/PhpUploadFileFix).
+
 
 
 The postedData is a concept used a lot in chloroform.

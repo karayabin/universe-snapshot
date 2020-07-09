@@ -53,9 +53,13 @@ class TheController extends TheBaseController
             $this->setOnSuccessIframeSignal("done");
         }
 
-        $form = $this->processForm($identifier, $table);
+        $res = $this->processForm($identifier, $table);
 
-
+        if ($res instanceof HttpResponseInterface) {
+            return $res;
+        } else {
+            $form = $res;
+        }
 
         //--------------------------------------------
         // RENDERING

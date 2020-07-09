@@ -12,6 +12,12 @@ use Ling\Bat\ZipTool;
 /**
  * The LightFileLoggerListener class is a simple logger listener which writes the log messages to a specified file.
  *
+ *
+ * The file path can contain the following tags:
+ *
+ * - {date}: the date in mysql format (i.e. 2020-06-01)
+ *
+ *
  * When the file size get bigger than a certain threshold, the file is rotated (copied to an archive file,
  * and the original file is emptied so that we can log new messages into it again).
  *
@@ -165,20 +171,30 @@ class LightFileLoggerListener extends BaseLoggerListener
 
         $msg = $this->getFormattedMessage($channel, $msg);
 
+
+        $filePath = $this->file;
+        $date = date("Y-m-d");
+        $filePath = str_replace([
+            "{date}",
+        ], [
+            $date,
+        ], $filePath);
+
+
         // first log
-        FileTool::append($msg . PHP_EOL, $this->file);
+        FileTool::append($msg . PHP_EOL, $filePath);
 
         // then handle rotation
         if (true === $this->isFileRotationEnabled) {
             $maxSizeInBytes = ConvertTool::convertHumanSizeToBytes($this->maxFileSize);
-            $curLogSize = filesize($this->file);
+            $curLogSize = filesize($filePath);
             if ($curLogSize >= $maxSizeInBytes) {
 
-                $format = $this->getFileFormat();
+                $format = $this->getFileFormat($filePath);
 
                 // now copy the log to the rotated file, and empty the log
-                FileSystemTool::copyFile($this->file, $format);
-                FileSystemTool::mkfile($this->file, "", 0777, 0);
+                FileSystemTool::copyFile($filePath, $format);
+                FileSystemTool::mkfile($filePath, "", 0777, 0);
 
 
                 // zip file?
@@ -201,11 +217,12 @@ class LightFileLoggerListener extends BaseLoggerListener
     /**
      * Returns the file format of the rotated file.
      *       Note: the addition of the .zip extension is not handled by this method.
+     * @param string $filePath
      * @return string
      */
-    protected function getFileFormat(): string
+    protected function getFileFormat(string $filePath): string
     {
-        $format = $this->file . "-" . date("Y-m-d__H-i-s");
+        $format = $filePath . "-" . date("Y-m-d__H-i-s");
         if ($this->rotatedFileExtension) {
             $format .= "." . $this->rotatedFileExtension;
         }

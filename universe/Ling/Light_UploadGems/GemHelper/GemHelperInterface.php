@@ -63,6 +63,19 @@ interface GemHelperInterface
 
 
     /**
+     * Applies the defined validation constraints to the chunk which path is given, and returns
+     * true if they all pass, or returns the error message returned by the first failing constraint otherwise.
+     *
+     *
+     * @param string $path
+     * The absolute path to the chunk to validate.
+     *
+     * @return true|string
+     */
+    public function applyChunkValidation(string $path);
+
+
+    /**
      * Applies the defined validation constraints to the file which path is given, and returns
      * true if they all pass, or returns the error message returned by the first failing constraint otherwise.
      *
@@ -83,9 +96,29 @@ interface GemHelperInterface
      * @param string $path
      * The absolute path to the file to copy.
      *
+     * @param array $options
+     *      - onDstReady: a callable triggered when the destination path is set.
+     *          This is triggered before each copy is actually written to the destination path.
+     *          Use this callable to change the destination path for each copy.
+     *          The callable signature is:
+     *          - onDstReady ( string &$dst, int $copyIndex, array $copyItem )
+     *              With:
+     *              - dst: the destination path were the copy is going to be written (you can change it)
+     *              - copyIndex: the numerical index of this copy
+     *              - copyItem: the copy configuration item (from the gem config)
+     *      - onBeforeCopy: a callable triggered if there is at least one copy, and before the first copy is processed.
+     *      - onCopyAfter: a callable triggered after the copy has been copied.
+     *          The callable signature is:
+     *          - onCopyAfter ( string $dst, int $copyIndex, array $copyItem )
+     *              With:
+     *              - dst: the destination path were the copy was written to
+     *              - copyIndex: the numerical index of this copy
+     *              - copyItem: the copy configuration item (from the gem config)
+     *
+     *
      * @return string
      * @throws \Exception
      */
-    public function applyCopies(string $path): string;
+    public function applyCopies(string $path, array $options = []): string;
 
 }

@@ -4,6 +4,7 @@
 namespace Ling\Light_BMenu\Service;
 
 
+use Ling\BabyYaml\BabyYamlUtil;
 use Ling\Light_BMenu\DirectInjection\BMenuDirectInjectorInterface;
 use Ling\Light_BMenu\Exception\LightBMenuException;
 use Ling\Light_BMenu\Host\LightBMenuHostInterface;
@@ -186,6 +187,21 @@ class LightBMenuService
             $this->defaultItems[$menuType] = [];
         }
         $this->defaultItems[$menuType][] = $item;
+    }
+
+
+    /**
+     * Adds a default item stored in $path, to the menu identified by $menuType.
+     *
+     * Note: the path must target a @page(babyYaml) file.
+     *
+     * @param string $menuType
+     * @param string $path
+     */
+    public function addDefaultItemByFile(string $menuType, string $path)
+    {
+        $item = BabyYamlUtil::readFile($path);
+        $this->addDefaultItem($menuType, $item);
     }
 
 }

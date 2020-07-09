@@ -53,7 +53,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [MenuConfigGenerator::getDefaultLabel](https://github.com/lingtalfi/Light_Kit_Admin_Generator/blob/master/Generator/MenuConfigGenerator.php#L217-L230)
+See the source code for method [MenuConfigGenerator::getDefaultLabel](https://github.com/lingtalfi/Light_Kit_Admin_Generator/blob/master/Generator/MenuConfigGenerator.php#L228-L241)
 
 
 See Also

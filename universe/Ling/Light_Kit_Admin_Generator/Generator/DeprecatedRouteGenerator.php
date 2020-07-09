@@ -6,14 +6,15 @@ namespace Ling\Light_Kit_Admin_Generator\Generator;
 use Ling\BabyYaml\BabyYamlUtil;
 
 /**
- * The RouteGenerator class.
+ * The RouteConfigGenerator class.
  *
  */
-class DeprecatedRouteGenerator extends LkaGenBaseConfigGenerator
+class RouteConfigGenerator extends LkaGenBaseConfigGenerator
 {
 
     /**
      * Generates the route configuration file according to the given @page(configuration block).
+     *
      * @param array $config
      * @throws \Exception
      */

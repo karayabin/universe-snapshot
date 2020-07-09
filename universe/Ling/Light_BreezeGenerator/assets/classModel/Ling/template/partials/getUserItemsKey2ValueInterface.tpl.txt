@@ -1,0 +1,12 @@
+    /**
+     * Returns an array of $key => $value from the resource rows identified by the given [where conditions](https://github.com/lingtalfi/SimplePdoWrapper#the-where-conditions).
+     *
+     *
+     * @param string $key
+     * @param string $value
+     * @param $where
+     * @param array $markers
+     * @return array
+     * @throws \Exception
+     */
+    public function getResourcesKey2Value(string $key, string $value, $where, array $markers = []);

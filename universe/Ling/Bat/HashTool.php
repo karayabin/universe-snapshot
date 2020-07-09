@@ -13,13 +13,40 @@ class HashTool
 {
 
 
-    public static function getHashByArray(array $arr)
+    /**
+     * Returns a hash for the given array.
+     *
+     * @param array $arr
+     * @return string
+     */
+    public static function getHashByArray(array $arr): string
     {
         if ($arr) {
             asort($arr);
             return hash('ripemd160', serialize($arr));
         }
         return '';
+    }
+
+
+    /**
+     * Returns the hash for the given file, or false if the file doesn't exist.
+     *
+     * Note: this can be slow on big files like videos...
+     *
+     * This method was meant to be used with small files.
+     *
+     *
+     * @param string $file
+     * @return string|false
+     * @throws \Exception
+     */
+    public static function getHashByFile(string $file)
+    {
+        if (file_exists($file)) {
+            return hash_file("haval160,4", $file);
+        }
+        return false;
     }
 
     /**
@@ -72,8 +99,6 @@ class HashTool
     {
         return password_hash($password, PASSWORD_DEFAULT);
     }
-
-
 
 
 }

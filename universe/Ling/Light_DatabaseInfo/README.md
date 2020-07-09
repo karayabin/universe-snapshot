@@ -1,6 +1,6 @@
 Light_DatabaseInfo
 ===========
-2019-09-12 -> 2020-02-13
+2019-09-12 -> 2020-07-07
 
 
 
@@ -66,6 +66,10 @@ database_info:
 History Log
 =============
 
+    
+- 1.12.0 -- 2020-07-07
+
+    - add LightDatabaseInfoService->hasTable
     
 - 1.11.0 -- 2020-02-13
 

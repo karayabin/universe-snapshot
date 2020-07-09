@@ -4,7 +4,7 @@
 
 The PostInstallDirectiveHandler class
 ================
-2019-03-12 --> 2019-08-30
+2019-03-12 --> 2020-06-25
 
 
 
@@ -26,8 +26,8 @@ Class synopsis
 class <span class="pl-k">PostInstallDirectiveHandler</span>  {
 
 - Methods
-    - public [handleDirective](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/PostInstall/DirectiveHandler/PostInstallDirectiveHandler/handleDirective.md)(string $directiveName, ?$directiveConf, Ling\CliTools\Output\OutputInterface $output, array $options = []) : void
-    - protected [checkType](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/PostInstall/DirectiveHandler/PostInstallDirectiveHandler/checkType.md)(string $thingName, ?$thing, string $expectedType, int $indentLevel, Ling\CliTools\Output\OutputInterface $output) : bool
+    - public [handleDirective](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/PostInstall/DirectiveHandler/PostInstallDirectiveHandler/handleDirective.md)(string $directiveName, $directiveConf, Ling\CliTools\Output\OutputInterface $output, ?array $options = []) : void
+    - protected [checkType](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/PostInstall/DirectiveHandler/PostInstallDirectiveHandler/checkType.md)(string $thingName, $thing, string $expectedType, int $indentLevel, Ling\CliTools\Output\OutputInterface $output) : bool
     - protected [hasOptions](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/PostInstall/DirectiveHandler/PostInstallDirectiveHandler/hasOptions.md)(array $requiredOptions, array $currentOptions, int $indentLevel, Ling\CliTools\Output\OutputInterface $output) : bool
     - protected [warn](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/PostInstall/DirectiveHandler/PostInstallDirectiveHandler/warn.md)(string $msg, int $indentLevel, Ling\CliTools\Output\OutputInterface $output) : void
     - protected [info](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/PostInstall/DirectiveHandler/PostInstallDirectiveHandler/info.md)(string $msg, int $indentLevel, Ling\CliTools\Output\OutputInterface $output) : void

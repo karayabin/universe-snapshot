@@ -4,7 +4,7 @@
 
 The LightRealistAjaxHandler class
 ================
-2019-08-12 --> 2020-03-10
+2019-08-12 --> 2020-07-06
 
 
 
@@ -28,7 +28,7 @@ class <span class="pl-k">LightRealistAjaxHandler</span> extends [ContainerAwareL
     - protected [Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) [ContainerAwareLightAjaxHandler::$container](#property-container) ;
 
 - Methods
-    - public [handle](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/AjaxHandler/LightRealistAjaxHandler/handle.md)(string $actionId, array $params) : array
+    - public [handle](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/AjaxHandler/LightRealistAjaxHandler/handle.md)(string $action, Ling\Light\Http\HttpRequestInterface $request) : array
     - protected [error](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/AjaxHandler/LightRealistAjaxHandler/error.md)(string $msg) : void
     - protected [prepareTags](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/AjaxHandler/LightRealistAjaxHandler/prepareTags.md)(array $tags) : array
 

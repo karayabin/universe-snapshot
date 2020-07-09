@@ -160,16 +160,52 @@ class GemHelper implements GemHelperInterface
     /**
      * @implementation
      */
-    public function applyCopies(string $path): string
+    public function applyChunkValidation(string $path)
+    {
+        $validationRules = $this->config['chunk_validation'] ?? [];
+        if ($validationRules) {
+
+            $errorMessage = null;
+            $isValid = true;
+
+            foreach ($validationRules as $name => $param) {
+                if (false === $this->executeValidationRule($name, $param, $path, $errorMessage)) {
+                    $isValid = false;
+                    break;
+                }
+            }
+            if (false === $isValid) {
+                return $errorMessage;
+            }
+        }
+        return true;
+    }
+
+
+    /**
+     * @implementation
+     */
+    public function applyCopies(string $path, array $options = []): string
     {
         // reserved tag
         $this->tags['app_dir'] = $this->container->getApplicationDir();
+
+
+        $baseDir = dirname($path);
+
+        $onDstReady = $options['onDstReady'] ?? null;
+        $onCopyAfter = $options['onCopyAfter'] ?? null;
 
         $desiredCopyPath = $path;
         $copies = $this->config['copies'] ?? [];
         $last = null;
 
         if ($copies) {
+
+            $onBeforeCopy = $options['onBeforeCopy'] ?? null;
+            if (is_callable($onBeforeCopy)) {
+                $onBeforeCopy();
+            }
 
             $fileToRemove = null;
 
@@ -178,8 +214,9 @@ class GemHelper implements GemHelperInterface
             $previousPath = $path;
 
 
-            foreach ($copies as $copy) {
+            foreach ($copies as $k => $copy) {
 
+                $copyBaseDir = $baseDir;
 
                 TagTool::applyTags($this->tags, $copy);
 
@@ -207,29 +244,37 @@ class GemHelper implements GemHelperInterface
                     $dst = $copy['path'];
                     if ('/' !== $dst[0]) {
                         // relative path
-                        $dir = dirname($src);
+                        $dir = $baseDir;
                         $dst = $dir . "/" . $dst;
                     }
                 } elseif (array_key_exists('dir', $copy)) {
                     $dir = $copy['dir'];
                     if ('/' !== $dir[0]) {
                         // relative path
-                        $srcDir = dirname($src);
+                        $srcDir = $baseDir;
                         $dir = $srcDir . "/" . $dir;
                     }
+                    $copyBaseDir = $dir;
+
                     $basename = basename($dst);
                     $dst = $dir . "/" . $basename;
                 }
 
                 if (array_key_exists('basename', $copy)) {
-                    $dir = dirname($dst);
                     $ext = FileSystemTool::getFileExtension($dst);
-                    $dst = $dir . "/" . $copy['basename'] . "." . $ext;
+                    $dst = $copyBaseDir . "/" . $copy['basename'] . "." . $ext;
                 }
 
                 if (array_key_exists('filename', $copy)) {
-                    $dir = dirname($dst);
-                    $dst = $dir . "/" . $copy['filename'];
+                    $dst = $copyBaseDir . "/" . $copy['filename'];
+                }
+
+
+                //--------------------------------------------
+                // on dst ready
+                //--------------------------------------------
+                if (is_callable($onDstReady)) {
+                    $onDstReady($dst, $k, $copy);
                 }
 
 
@@ -261,6 +306,9 @@ class GemHelper implements GemHelperInterface
                 $previousPath = $dst;
                 $desiredCopyPath = $dst;
                 $dstPaths[] = $dst;
+                if(is_callable($onCopyAfter)){
+                    $onCopyAfter($dst, $k, $copy);
+                }
 
             }
 
@@ -543,7 +591,10 @@ class GemHelper implements GemHelperInterface
                 $width = $transformerParams[0] ?? null;
                 $height = $transformerParams[0] ?? null;
 
-                $extension = FileSystemTool::getFileExtension($dstPath);
+
+                $type = MimeTypeTool::getMimeType($srcPath);
+                $extension = substr($type, 6); // strip image/ from the mime type
+
                 $options = [
                     "extension" => $extension,
                 ];

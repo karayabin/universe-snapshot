@@ -76,7 +76,7 @@ class LoginFormController extends LightKitAdminController
                 // REDIRECTING THE CONNECTED USER
                 //--------------------------------------------
                 $redirectRoute = $this->getKitAdmin()->getOption("login.on_success_route");
-                return $this->redirectByRoute($redirectRoute);
+                return $this->getRedirectResponseByRoute($redirectRoute);
 
             } else {
                 //--------------------------------------------

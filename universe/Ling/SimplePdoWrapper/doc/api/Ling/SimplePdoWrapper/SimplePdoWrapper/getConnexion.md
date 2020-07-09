@@ -53,7 +53,7 @@ When the connexion is not set
 
 Source Code
 ===========
-See the source code for method [SimplePdoWrapper::getConnexion](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/SimplePdoWrapper.php#L78-L84)
+See the source code for method [SimplePdoWrapper::getConnexion](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/SimplePdoWrapper.php#L79-L85)
 
 
 See Also

@@ -1,6 +1,6 @@
 Light_UserManager
 ===========
-2019-05-10 -> 2020-03-26
+2019-05-10 -> 2020-06-04
 
 
 
@@ -51,11 +51,25 @@ Below is the service configuration for such an user manager.
 
 ```yaml
 user_manager:
-    instance: Ling\Light_UserManager\UserManager\DevUserManager
-    methods:
-        setUser:
-            user:
-                instance: Ling\Light_User\AdamLightUser
+#    instance: Ling\Light_UserManager\UserManager\DevUserManager
+#    methods:
+#        setUser:
+#            user:
+#                instance: Ling\Light_User\AdamLightUser
+    instance: Ling\Light_UserManager\Service\LightUserManagerService
+    methods: []
+#        setUser:
+#            user:
+#                instance: Ling\Light_User\LightWebsiteUser
+#                methods:
+#                    setEmail:
+#                        email: lingtalfi@gmail.com
+#                    setAvatarUrl:
+#                        url: /plugins/Light_Kit_Admin/zeroadmin/img/avatars/photo-1.jpg
+#                    setPseudo:
+#                        pseudo: Ling
+#                    connect: []
+#                    disconnect: []
 ```
                 
                 
@@ -69,6 +83,10 @@ Related
 History Log
 =============
 
+- 1.5.1 -- 2020-06-04
+
+    - check routine commit
+    
 - 1.5.0 -- 2020-03-26
 
     - adapt change from Light_User 1.6.5

@@ -70,7 +70,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [Light_ChloroformExtensionDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Light_ChloroformExtension/Light_ChloroformExtensionDocBuilder.php#L45-L227)
+See the source code for method [Light_ChloroformExtensionDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Light_ChloroformExtension/Light_ChloroformExtensionDocBuilder.php#L45-L228)
 
 
 See Also

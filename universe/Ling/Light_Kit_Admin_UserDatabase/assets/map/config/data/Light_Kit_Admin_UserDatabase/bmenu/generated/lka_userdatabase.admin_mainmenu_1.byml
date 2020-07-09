@@ -1,0 +1,103 @@
+- 
+    id: lka_userdatabase-lud
+    icon: fas fa-bars
+    text: Database
+    route: null
+    children: 
+        - 
+            id: lka_userdatabase-lud_permission
+            icon: fas fa-asterisk
+            text: Permission
+            route: lch_route-hub
+            route_url_params: 
+                plugin: Light_Kit_Admin_UserDatabase
+                controller: Generated/LudPermissionController
+            
+            _right: Light_Kit_Admin.admin
+            children: []
+        
+        - 
+            id: lka_userdatabase-lud_permission_group
+            icon: fas fa-asterisk
+            text: Permission group
+            route: lch_route-hub
+            route_url_params: 
+                plugin: Light_Kit_Admin_UserDatabase
+                controller: Generated/LudPermissionGroupController
+            
+            _right: Light_Kit_Admin.admin
+            children: []
+        
+        - 
+            id: lka_userdatabase-lud_permission_group_has_permission
+            icon: fas fa-asterisk
+            text: Permission group/Permission
+            route: lch_route-hub
+            route_url_params: 
+                plugin: Light_Kit_Admin_UserDatabase
+                controller: Generated/LudPermissionGroupHasPermissionController
+            
+            _right: Light_Kit_Admin.admin
+            children: []
+        
+        - 
+            id: lka_userdatabase-lud_plugin_option
+            icon: fas fa-asterisk
+            text: Plugin option
+            route: lch_route-hub
+            route_url_params: 
+                plugin: Light_Kit_Admin_UserDatabase
+                controller: Generated/LudPluginOptionController
+            
+            _right: Light_Kit_Admin.admin
+            children: []
+        
+        - 
+            id: lka_userdatabase-lud_user
+            icon: fas fa-asterisk
+            text: User
+            route: lch_route-hub
+            route_url_params: 
+                plugin: Light_Kit_Admin_UserDatabase
+                controller: Generated/LudUserController
+            
+            _right: Light_Kit_Admin.admin
+            children: []
+        
+        - 
+            id: lka_userdatabase-lud_user_group
+            icon: fas fa-asterisk
+            text: User group
+            route: lch_route-hub
+            route_url_params: 
+                plugin: Light_Kit_Admin_UserDatabase
+                controller: Generated/LudUserGroupController
+            
+            _right: Light_Kit_Admin.admin
+            children: []
+        
+        - 
+            id: lka_userdatabase-lud_user_group_has_plugin_option
+            icon: fas fa-asterisk
+            text: User group/Plugin option
+            route: lch_route-hub
+            route_url_params: 
+                plugin: Light_Kit_Admin_UserDatabase
+                controller: Generated/LudUserGroupHasPluginOptionController
+            
+            _right: Light_Kit_Admin.admin
+            children: []
+        
+        - 
+            id: lka_userdatabase-lud_user_has_permission_group
+            icon: fas fa-asterisk
+            text: User/Permission group
+            route: lch_route-hub
+            route_url_params: 
+                plugin: Light_Kit_Admin_UserDatabase
+                controller: Generated/LudUserHasPermissionGroupController
+            
+            _right: Light_Kit_Admin.admin
+            children: []
+        
+    

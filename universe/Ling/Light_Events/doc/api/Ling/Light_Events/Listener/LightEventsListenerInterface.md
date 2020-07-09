@@ -4,7 +4,7 @@
 
 The LightEventsListenerInterface class
 ================
-2019-10-31 --> 2020-01-08
+2019-10-31 --> 2020-06-26
 
 
 
@@ -52,4 +52,4 @@ See the source code of [Ling\Light_Events\Listener\LightEventsListenerInterface]
 
 SeeAlso
 ==============
-Previous class: [LightEventsException](https://github.com/lingtalfi/Light_Events/blob/master/doc/api/Ling/Light_Events/Exception/LightEventsException.md)<br>Next class: [DebugLightEventsService](https://github.com/lingtalfi/Light_Events/blob/master/doc/api/Ling/Light_Events/Service/DebugLightEventsService.md)<br>
+Previous class: [LightEventsException](https://github.com/lingtalfi/Light_Events/blob/master/doc/api/Ling/Light_Events/Exception/LightEventsException.md)<br>Next class: [LightEventsService](https://github.com/lingtalfi/Light_Events/blob/master/doc/api/Ling/Light_Events/Service/LightEventsService.md)<br>

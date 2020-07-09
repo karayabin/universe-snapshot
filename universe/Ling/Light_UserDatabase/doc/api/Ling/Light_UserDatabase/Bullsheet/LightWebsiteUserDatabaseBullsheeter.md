@@ -4,7 +4,7 @@
 
 The LightWebsiteUserDatabaseBullsheeter class
 ================
-2019-07-19 --> 2020-03-26
+2019-07-19 --> 2020-06-25
 
 
 
@@ -91,4 +91,4 @@ See the source code of [Ling\Light_UserDatabase\Bullsheet\LightWebsiteUserDataba
 
 SeeAlso
 ==============
-Previous class: [LightUserDatabaseApiFactory](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Mysql/LightUserDatabaseApiFactory.md)<br>Next class: [LightUserDatabaseException](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Exception/LightUserDatabaseException.md)<br>
+Previous class: [LightUserDatabaseApiFactory](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/LightUserDatabaseApiFactory.md)<br>Next class: [LightUserDatabaseException](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Exception/LightUserDatabaseException.md)<br>

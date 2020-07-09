@@ -146,6 +146,7 @@ class Light_Kit_BootstrapWidgetLibraryDocBuilder
             "keyWord2UrlMap" => [
                 "widget configuration array" => 'https://github.com/lingtalfi/Kit_PicassoWidget#the-picasso-widget-array',
                 "html page copilot" => 'https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot.md',
+                "jAcpHep" => 'https://github.com/lingtalfi/JAcpHep',
             ],
             /**
              * An array of external classes to url.

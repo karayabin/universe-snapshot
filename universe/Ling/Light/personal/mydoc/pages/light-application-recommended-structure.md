@@ -1,6 +1,6 @@
 Light application recommended structure
 =============
-2019-04-09
+2019-04-09 -> 2020-05-28
 
 
 
@@ -28,7 +28,7 @@ Here are the potential directories of my ideal light web app:
     /templates:                             # a directory containing templates of the light plugins, and/or templates in general 
         /Light_MyPlugin:                    # the directory containing templates for the Light_MyPlugin plugin
             - ...
-    /www:                                   # the web root directory
+    /www:                                   # the web root directory (www stands for generic "world wide web" expression, not for the specific www domain name)
         /plugins:                           # the directory for light plugins web assets
             /Light_MyPlugin:                # the web assets dir for the Light_MyPlugin planet
                 /css:                       # an example directory, not part of the recommendation

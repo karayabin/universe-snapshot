@@ -1,6 +1,6 @@
 Temporary virtual file system, conception notes
 ==============
-2020-04-14
+2020-04-14 -> 2020-05-20
 
 
 
@@ -82,7 +82,7 @@ The operations are stored like this in the **vfs**:
 
 - id: string, the file identifier
 - type: string, the type of operation to execute on the real server (add, remove or update)
-- ?path: string, the path to the uploaded file
+- ?path: string, the relative path to the uploaded file, from a directory defined by your application
 - ?meta: array, the meta attached to the file
 
 
@@ -101,6 +101,17 @@ When you call the **add** method, it returns you the operation entry stored in t
 
 When the **commit** method is called, the list of all stored operations is accessible to the commit handler, which is the
 class/service responsible for committing the operations to the real environment of the application.
+
+
+
+The **commit list** contains some extra information: the absolute paths to the stored files:
+
+
+- id: string, the file identifier
+- type: string, the type of operation to execute on the real server (add, remove or update)
+- ?abs_path: string, the absolute path to the uploaded file
+- ?path: string|null, the relative path to the uploaded file. This must be provided with the **add** operation, but can be null with an **update** operation if the file didn't change (to save some cpu work)
+- ?meta: array, the meta attached to the file
 
 
 
@@ -130,9 +141,9 @@ The heuristics described below take that into account.
 - update:
     - If no entry exists with the same id then the entry is added with type=update.
     
-    - If an "add" entry already exists with the same id then the entry is updated, but it's type remains unchanged (type=add).
+    - If an "add" entry already exists with the same id then the entry is updated, but it's type remains unchanged (type=add). Any attached binary file is updated as well.
     
-    - If an "update" entry already exists with the same id then the entry is updated, and it's type remains unchanged (type=update).
+    - If an "update" entry already exists with the same id then the entry is updated, and it's type remains unchanged (type=update). Any attached binary file is updated as well.
     
     - If a "remove" entry already exists with the same id (note that it doesn't make much sense gui wise), the remove entry is (removed and) replaced with the new entry of type=update.
 

@@ -377,6 +377,7 @@ class SicFileCombinerUtil
 
 
 
+
             //--------------------------------------------
             // Now inject the lazy overrides variables
             //--------------------------------------------
@@ -401,7 +402,6 @@ class SicFileCombinerUtil
                 }
                 BDotTool::setDotValue($key, $targetValue, $ret);
             }
-
 
 
             //--------------------------------------------
@@ -435,6 +435,7 @@ class SicFileCombinerUtil
                     }
                 }
             });
+
 
 
             foreach ($dotPathsWithVars as $src => $target) {

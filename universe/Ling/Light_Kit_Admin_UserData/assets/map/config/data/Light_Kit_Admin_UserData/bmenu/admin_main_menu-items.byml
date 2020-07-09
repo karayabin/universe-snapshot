@@ -6,7 +6,7 @@ user:
         id: lka_userdata-file_manager
         icon: ""
         text: User File Manager
-        route: lka_route-user_file_manager
+        route: lka_userdata_route-user_file_manager
         children: []
         _right: Light_UserData.user
 

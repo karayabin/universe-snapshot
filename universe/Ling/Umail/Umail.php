@@ -9,8 +9,17 @@ use Ling\Umail\Renderer\Renderer;
 use Ling\Umail\Renderer\RendererInterface;
 use Ling\Umail\TemplateLoader\FileTemplateLoader;
 use Ling\Umail\TemplateLoader\TemplateLoaderInterface;
-use Ling\Umail\VarLoader\VarLoaderInterface;
 
+/**
+ * The Umail class.
+ *
+ * This requires the following dependencies:
+ *
+ * - SwiftMailer 6.0
+ *
+ *
+ *
+ */
 class  Umail implements UmailInterface
 {
 
@@ -90,7 +99,7 @@ class  Umail implements UmailInterface
         if (false === class_exists('Swift_SmtpTransport')) {
             throw new UmailException("Swift mailer not available");
         }
-        $this->message = \Swift_Message::newInstance();
+        $this->message = new \Swift_Message();
         $this->hooks = [];
         $this->toRecipients = [];
         $this->commonVars = [];
@@ -112,7 +121,7 @@ class  Umail implements UmailInterface
     public function getMailer()
     {
         $transport = $this->getTransport();
-        return \Swift_Mailer::newInstance($transport);
+        return new \Swift_Mailer($transport);
     }
 
     public function getMessage()
@@ -230,7 +239,7 @@ class  Umail implements UmailInterface
                 $embed->setContentType($mimeType);
             }
         } else {
-            $embed = \Swift_EmbeddedFile::newInstance($file, $fileName, $mimeType);
+            $embed = new \Swift_EmbeddedFile($file, $fileName, $mimeType);
         }
         return $this->message->embed($embed);
     }
@@ -340,7 +349,7 @@ class  Umail implements UmailInterface
     protected function getTransport()
     {
         if (null === $this->transport) {
-            $this->transport = \Swift_MailTransport::newInstance();
+            $this->transport = new \Swift_SendmailTransport();
         }
         return $this->transport;
     }
@@ -450,7 +459,7 @@ class  Umail implements UmailInterface
                         $attachment->setFilename($fileName);
                     }
                 } else {
-                    $attachment = \Swift_Attachment::newInstance($file, $fileName, $mimeType);
+                    $attachment = new \Swift_Attachment($file, $fileName, $mimeType);
                 }
                 if (true === $inline) {
                     $attachment->setDisposition('inline');

@@ -33,6 +33,10 @@ class FormConfigGenerator extends BaseConfigGenerator
         $targetDir = $this->getKeyValue("form.target_dir");
         $targetDir = str_replace('{app_dir}', $appDir, $targetDir);
 
+
+        $this->debugLog("Generating " . count($tables) . " form config(s) in the following directory: " . $this->getSymbolicPath($targetDir) . ".");
+
+
         foreach ($tables as $table) {
             $content = $this->getFileContent($table);
             $fileName = $table . ".byml";
@@ -100,11 +104,7 @@ class FormConfigGenerator extends BaseConfigGenerator
 
 
         $ignoreColumns = array_unique(array_merge($globalIgnoreColumns, $ignoreColumns));
-        /**
-         * @var $dbInfo LightDatabaseInfoService
-         */
-        $dbInfo = $this->container->get('database_info');
-        $tableInfo = $dbInfo->getTableInfo($table, $database);
+        $tableInfo = $this->getTableInfo($table);
         $foreignKeysInfo = $tableInfo['foreignKeysInfo'];
         $autoIncrementedKey = $tableInfo['autoIncrementedKey'];
         if (false !== $autoIncrementedKey) {
@@ -350,7 +350,10 @@ class FormConfigGenerator extends BaseConfigGenerator
 
             $arr = [];
             foreach ($tables as $table) {
-                $tableInfo = $dbInfo->getTableInfo($table, $database);
+                $tableInfo = $this->getTableInfo($table);
+
+
+
                 $columns = $tableInfo['columns'];
                 $foreignKeysInfo = $tableInfo['foreignKeysInfo'];
                 foreach ($columns as $col) {

@@ -4,7 +4,7 @@
 
 The ImportUtil class
 ================
-2019-03-12 --> 2019-08-30
+2019-03-12 --> 2020-06-25
 
 
 
@@ -38,8 +38,8 @@ class <span class="pl-k">ImportUtil</span>  {
 - Methods
     - public [__construct](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Util/ImportUtil/__construct.md)() : void
     - public [setErrorSummary](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Util/ImportUtil/setErrorSummary.md)([Ling\Uni2\ErrorSummary\ErrorSummary](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/ErrorSummary/ErrorSummary.md) $errorSummary) : void
-    - public [importPlanet](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Util/ImportUtil/importPlanet.md)(string $longPlanetName, [Ling\Uni2\Application\UniToolApplication](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Application/UniToolApplication.md) $application, Ling\CliTools\Output\OutputInterface $output, array $options = []) : void
-    - protected [importItem](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Util/ImportUtil/importItem.md)(?$dependencySystem, ?$packageImportName, ?$appItemDir, Ling\CliTools\Output\OutputInterface $output, array $postInstall, array $options = []) : void
+    - public [importPlanet](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Util/ImportUtil/importPlanet.md)(string $longPlanetName, [Ling\Uni2\Application\UniToolApplication](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Application/UniToolApplication.md) $application, Ling\CliTools\Output\OutputInterface $output, ?array $options = []) : void
+    - protected [importItem](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Util/ImportUtil/importItem.md)($dependencySystem, $packageImportName, $appItemDir, Ling\CliTools\Output\OutputInterface $output, array $postInstall, ?array $options = []) : void
     - protected [handlePostInstallDirectives](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Util/ImportUtil/handlePostInstallDirectives.md)(array $postInstall, string $galaxy, string $planetName, [Ling\Uni2\Application\UniToolApplication](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Application/UniToolApplication.md) $application, int $indentLevel, Ling\CliTools\Output\OutputInterface $output) : void
 
 }

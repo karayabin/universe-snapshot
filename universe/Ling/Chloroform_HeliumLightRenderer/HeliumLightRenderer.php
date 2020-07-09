@@ -6,6 +6,7 @@ namespace Ling\Chloroform_HeliumLightRenderer;
 use Ling\Bat\StringTool;
 use Ling\Chloroform_HeliumLightRenderer\Exception\ChloroformHeliumLightRendererException;
 use Ling\Chloroform_HeliumRenderer\HeliumRenderer;
+use Ling\GormanJsonDecoder\GormanJsonDecoder;
 use Ling\HtmlPageTools\Copilot\HtmlPageCopilot;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
 use Ling\Light_AjaxHandler\Service\LightAjaxHandlerService;
@@ -108,128 +109,62 @@ class HeliumLightRenderer extends HeliumRenderer
     protected function printAjaxFileBoxField_FileUploader(array $field)
     {
 
-
-        $dialogZIndex = $field['dialogZIndex'] ?? 2000;
-
         /**
          * @var $copilot HtmlPageCopilot
          */
         $copilot = $this->container->get('html_page_copilot');
 
-        /**
-         * Assuming fontAwesome and jquery are already loaded with the bootstrap.
-         */
-        $copilot->registerLibrary("jqueryUi", [
-            'https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js',
-        ], [
-            'https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css',
+
+        $copilot->registerLibrary("Jquery", [
+            '/libs/universe/Ling/Jquery/3.5.1/jquery.min.js',
         ]);
 
-//        $copilot->registerLibrary("JFileUploader", [
-//            '/libs/universe/Ling/JFileUploader/fileuploader.js',
-//            '/libs/universe/Ling/JFileUploader/lang/lang-eng.js',
-//            '/libs/universe/Ling/JFileUploader/theme/theme-bootstrap.js',
-//        ], [
-//            '/libs/universe/Ling/JFileUploader/theme/theme-bootstrap.css',
-//        ]);
-
-        $copilot->registerLibrary("JFileUploader", [
-            '/libs/universe/Ling/JFileUploader/dist/js/main.min.js',
-//            '/libs/universe/Ling/JFileUploader/lang/lang-eng.js',
-//            '/libs/universe/Ling/JFileUploader/theme/theme-bootstrap.js',
-        ], [
-            '/libs/universe/Ling/JFileUploader/dist/css/theme/theme-bootstrap.min.css',
+        $copilot->registerLibrary("FontAwesome", [], [
+            '/libs/universe/Ling/FontAwesome/5.13/css/all.min.css',
         ]);
 
-        $copilot->registerLibrary("cropperJs", [
-            '/libs/universe/Ling/jCropperJs/cropper.js',
-            '/libs/universe/Ling/jCropperJs/jquery-cropper.js',
-        ], [
-            '/libs/universe/Ling/jCropperJs/cropper.css',
+
+        $lang = $field['lang'] ?? 'eng';
+        $jsLibs = [
+            '/libs/universe/Ling/JFileUploader/dist/bundle.js',
+            '/libs/universe/Ling/JFileUploader/dist/lang/lang-' . $lang . '.js',
+        ];
+
+        $copilot->registerLibrary("JFileUploader", $jsLibs, [
+            '/libs/universe/Ling/JFileUploader/dist/bundle.css',
+            '/libs/universe/Ling/JFileUploader/dist/css/cropper-1.5.6.css',
         ]);
 
-        $copilot->registerLibrary("select2", [
-            'https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js',
+
+        $copilot->registerLibrary("Select2", [
+            '/libs/universe/Ling/Select2/4.0.13/select2.min.js',
         ], [
-            'https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css',
+            '/libs/universe/Ling/Select2/4.0.13/select2.min.css',
         ]);
 
 
         $cssId = $this->getCssIdById($field['id']);
+        $cssContainerId = StringTool::getUniqueCssId('fileuploader-');
 
 
         ?>
-        <style type="text/css">
-            .ui-dialog {
-                z-index: <?php echo $dialogZIndex; ?> !important;
-            }
-        </style>
+
 
         <div class="field form-group">
             <?php $this->printFieldLabel($field); ?>
-            <div id="<?php echo $cssId; ?>" class="fileuploader-widget theme-bootstrap"></div>
-
-
             <?php $this->printErrorsAndHint($field); ?>
+            <div id="<?php echo $cssContainerId; ?>"></div>
         </div>
 
         <script>
+
+            var options = <?php echo GormanJsonDecoder::decode($field); ?>;
             document.addEventListener("DOMContentLoaded", function (event) {
-
-                var $ = jQuery;
-
-                $(document).ready(function () {
-
-                    var options = <?php echo json_encode($field); ?>;
-
-                    var fileUploader = new FileUploader($.extend(true, {}, {
-                        theme: "bootstrap",
-                        container: $("#<?php echo $cssId; ?>"),
-                        urls: [
-                            // "/plugins/Light_Kit_Admin/img/avatars/root_avatar.png",
-                            // "/img/cat.png",
-                            // "/user-data?id=f1581394664.3162-256",
-                        ],
-                        // name: "avatar_url",
-                        maxFile: 5,
-                        maxFileSize: -1,
-                        maxFileNameLength: 64,
-                        mimeType: null,
-                        serverUrl: "/ajax_file_upload_manager",
-                        uploadItemExtraFields: {
-                            // id: "lka_user_profile",
-                            // csrf_token: csrfToken,
-                        },
-                        immediateUpload: false,
-                        fileEditor: {
-                            useFileName: true,
-                            useCropper: true,
-                            usePrivacy: true,
-                            useTags: true,
-                            //
-                            allowCustomTags: true,
-                            fileName: null,
-                            // parentDir: "images",
-                            availableTags: [
-                                // "Maurice",
-                                // "Taekwondo",
-                            ],
-                            privacyDefaultValue: 0,
-                            originalDefaultValue: 0,
-                            originalFixedValue: 0, // 0 | 1 | null
-                            tagsMaxLength: 2,
-                        },
-                        themeOptions: {
-                            defaultView: "image",
-                            // defaultView: "text",
-                            showHiddenInput: false,
-
-                        },
-                        useFileEditor: true,
-                    }, options));
-                    fileUploader.init();
-
-
+                new FileUploader({
+                    target: document.getElementById("<?php echo $cssContainerId; ?>"),
+                    props: {
+                        options: options,
+                    }
                 });
             });
         </script>
@@ -454,8 +389,8 @@ https://github.com/bassjobsen/Bootstrap-3-Typeahead/pull/125#issuecomment-115151
                                         url: '<?php echo $baseUrl; ?>',
                                         type: 'POST',
                                         data: {
-                                            ajax_handler_id: 'Light_ChloroformExtension',
-                                            ajax_action_id: 'table_list.autocomplete',
+                                            handler: 'Light_ChloroformExtension',
+                                            action: 'table_list.autocomplete',
                                             tableListIdentifier: '<?php echo $tableListIdentifier; ?>',
                                             csrf_token: '<?php echo $csrfToken; ?>',
                                             q: query,

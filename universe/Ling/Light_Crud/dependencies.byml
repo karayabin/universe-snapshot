@@ -1,8 +1,8 @@
 dependencies: 
     Ling: 
         - Bat
-        - Light_AjaxHandler
         - Light
+        - Light_AjaxHandler
         - Light_DatabaseInfo
         - Light_Database
         - Light_MicroPermission

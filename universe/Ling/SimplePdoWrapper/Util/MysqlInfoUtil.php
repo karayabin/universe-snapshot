@@ -5,7 +5,7 @@ namespace Ling\SimplePdoWrapper\Util;
 
 
 use Ling\SimplePdoWrapper\Exception\MysqlInfoUtilException;
-use Ling\SimplePdoWrapper\SimplePdoWrapper;
+use Ling\SimplePdoWrapper\Exception\SimplePdoWrapperException;
 use Ling\SimplePdoWrapper\SimplePdoWrapperInterface;
 
 /**
@@ -185,6 +185,40 @@ EEE;
 
 
     /**
+     * Returns the engine used for the given table.
+     *
+     *
+     * @param string $table
+     * @return string
+     */
+    public function getEngine(string $table): string
+    {
+        list($db, $table) = $this->splitTableName($table);
+        $row = $this->wrapper->fetch("SHOW TABLE STATUS FROM `$db` WHERE Name='$table'");
+        if (false !== $row) {
+            return $row['Engine'];
+        }
+        throw new SimplePdoWrapperException("Could not get the create statement for table $table.");
+    }
+
+    /**
+     * Returns the create statement for the given table.
+     *
+     * @param string $table
+     * @return string
+     * @throws \Exception
+     */
+    public function getCreateStatement(string $table): string
+    {
+
+        $row = $this->wrapper->fetch("SHOW CREATE TABLE `$table`");
+        if (false !== $row) {
+            return $row['Create Table'];
+        }
+        throw new SimplePdoWrapperException("Could not get the create statement for table $table.");
+    }
+
+    /**
      * Returns the array of columns composing the primary key.
      * If there is no primary key:
      * - it returns an empty array if the $returnAllIfEmpty is set to false (default)
@@ -281,6 +315,102 @@ EEE;
 
 
     /**
+     * Returns an information array about the unique indexes of the given table.
+     * It's an array of indexName => indexDetails
+     * The indexDetails item are ordered by ascending index number.
+     * Each indexDetails item has the following structure:
+     *      - colName: the name of the column
+     *      - ascDesc: null | ASC | DESC, the direction of the unique index column.
+     *
+     *
+     *
+     *
+     *
+     * @param string $table
+     * @return array
+     * @throws \Exception
+     */
+    public function getUniqueIndexesDetails(string $table): array
+    {
+        return $this->getIndexesDetails($table, ['unique' => true]);
+    }
+
+
+    /**
+     * Returns an information array about the regular indexes (i.e. not unique, and not the index for the primary key) of the given table.
+     *
+     * It's an array of indexName => indexDetails
+     * The indexDetails item are ordered by ascending index number.
+     * Each indexDetails item has the following structure:
+     *      - colName: the name of the column
+     *      - ascDesc: null | ASC | DESC, the direction of the index column.
+     *
+     *
+     *
+     * The available options are:
+     *
+     * - unique: bool=false. If true, the method returns info about the unique indexes only.
+     *
+     *
+     *
+     * @param string $table
+     * @param array $options
+     * @return array
+     * @throws \Exception
+     */
+    public function getIndexesDetails(string $table, array $options = []): array
+    {
+
+        $unique = $options['unique'] ?? false;
+        if (true === $unique) {
+            $uniqueValue = "0";
+        } else {
+            $uniqueValue = "1";
+        }
+
+        $ret = [];
+        $info = $this->wrapper->fetchAll("SHOW INDEX FROM `$table`");
+        if (false !== $info) {
+            $indexes = [];
+            foreach ($info as $_info) {
+                if (
+                    $uniqueValue === $_info['Non_unique'] &&
+                    'PRIMARY' !== $_info['Key_name']
+                ) {
+                    $dir = $_info['Collation'];
+                    if (null === $dir || 'NULL' === $dir) { // which one is it?
+                        $dir = null;
+                    } else {
+                        switch ($dir) {
+                            case "A":
+                                $dir = 'ASC';
+                                break;
+                            case "D":
+                                $dir = 'DESC';
+                                break;
+                            default:
+                                $this->error("Unknown collation case with \"$dir\".");
+                                break;
+                        }
+                    }
+
+
+                    $indexes[$_info['Key_name']][$_info['Seq_in_index']] = [
+                        'colName' => $_info['Column_name'],
+                        'ascDesc' => $dir,
+                    ];
+                }
+            }
+            foreach ($indexes as $name => $keys) {
+                $keys = array_merge($keys);
+                $ret[$name] = $keys;
+            };
+        }
+        return $ret;
+    }
+
+
+    /**
      * Returns an array of columnName => type.
      *
      * The type is the string returned by mysql (such as int(11) or varchar(128) for instance).
@@ -297,6 +427,9 @@ EEE;
     {
         $types = [];
         $info = $this->wrapper->fetchAll("SHOW COLUMNS FROM `$table`");
+        if (false === $info) {
+            $this->error("Problem with the show columns query.");
+        }
 
         foreach ($info as $_info) {
             $type = $_info['Type'];
@@ -307,6 +440,29 @@ EEE;
         }
         return $types;
     }
+
+
+    /**
+     * Returns an array of columnName => isNullable (a boolean).
+     *
+     *
+     * @param $table
+     * @return array
+     * @throws \Exception
+     */
+    public function getColumnNullabilities($table): array
+    {
+        $defaults = [];
+        $info = $this->wrapper->fetchAll("SHOW COLUMNS FROM `$table`");
+        if (false === $info) {
+            $this->error("Problem with the show columns query.");
+        }
+        foreach ($info as $_info) {
+            $defaults[$_info['Field']] = ('YES' === $_info['Null']) ? true : false;
+        }
+        return $defaults;
+    }
+
 
     /**
      * Returns the name of the auto-incremented field, or false if there is none.
@@ -358,22 +514,6 @@ and CONSTRAINT_TYPE = 'FOREIGN KEY'
                 $ret[$row['COLUMN_NAME']] = [$row['REFERENCED_TABLE_SCHEMA'], $row['REFERENCED_TABLE_NAME'], $row['REFERENCED_COLUMN_NAME']];
             }
         }
-
-
-//        if (true === $resolve) {
-//            foreach ($ret as $col => $info) {
-//                $db = $info[0];
-//                $table = $info[1];
-//                $column = $info[2];
-//                $this->getResolvedForeignKeyInfo($db, $table, $column);
-//                $ret[$col] = [
-//                    $db,
-//                    $table,
-//                    $column,
-//                ];
-//            }
-//        }
-
         return $ret;
     }
 
@@ -387,13 +527,20 @@ and CONSTRAINT_TYPE = 'FOREIGN KEY'
      * - tableId: string, the full table name, using the notation $db.$table
      * - referencedByTableIds: array of referencedByTableId items, each of which being a full table name using the notation $db.$table.
      *
+     * Available options are:
+     *
+     * - useDbPrefix: bool=true. Whether to prefix the table names with the database name.
+     *
+     *
      *
      * @param array|null $databases
+     * @param array $options
      * @return array
      * @throws \Exception
      */
-    public function getReverseForeignKeyMap(array $databases = null): array
+    public function getReverseForeignKeyMap(array $databases = null, array $options = []): array
     {
+        $useDbPrefix = $options['useDbPrefix'] ?? true;
         $currentDb = $this->getDatabase();
         if (null === $databases) {
             $databases = [$currentDb];
@@ -406,7 +553,11 @@ and CONSTRAINT_TYPE = 'FOREIGN KEY'
                 $fks = $this->getForeignKeysInfo($database . "." . $table);
                 foreach ($fks as $col => $fkInfo) {
                     list($fdb, $ftable, $fcol) = $fkInfo;
-                    $ret["$fdb.$ftable"][] = "$database.$table";
+                    if (true === $useDbPrefix) {
+                        $ret["$fdb.$ftable"][] = "$database.$table";
+                    } else {
+                        $ret[$ftable][] = $table;
+                    }
                 }
             }
         }
@@ -741,6 +892,18 @@ and CONSTRAINT_TYPE = 'FOREIGN KEY'
 
         return false;
 
+    }
+
+
+    /**
+     * Throws an exception.
+     *
+     * @param string $msg
+     * @throws \Exception
+     */
+    private function error(string $msg)
+    {
+        throw new MysqlInfoUtilException($msg);
     }
 
 }

@@ -1,6 +1,6 @@
 Ling/Chloroform_HeliumLightRenderer
 ================
-2019-10-21 --> 2020-02-27
+2019-10-21 --> 2020-06-04
 
 
 
@@ -44,10 +44,14 @@ Dependencies
 ============
 - [Bat](https://github.com/lingtalfi/Bat)
 - [Chloroform_HeliumRenderer](https://github.com/lingtalfi/Chloroform_HeliumRenderer)
+- [GormanJsonDecoder](https://github.com/lingtalfi/GormanJsonDecoder)
 - [HtmlPageTools](https://github.com/lingtalfi/HtmlPageTools)
 - [Light](https://github.com/lingtalfi/Light)
 - [Light_AjaxHandler](https://github.com/lingtalfi/Light_AjaxHandler)
 - [Light_CsrfSession](https://github.com/lingtalfi/Light_CsrfSession)
+- [FontAwesome](https://github.com/lingtalfi/FontAwesome)
 - [JSortableLists](https://github.com/lingtalfi/JSortableLists)
+- [Jquery](https://github.com/lingtalfi/Jquery)
+- [Select2](https://github.com/lingtalfi/Select2)
 
 

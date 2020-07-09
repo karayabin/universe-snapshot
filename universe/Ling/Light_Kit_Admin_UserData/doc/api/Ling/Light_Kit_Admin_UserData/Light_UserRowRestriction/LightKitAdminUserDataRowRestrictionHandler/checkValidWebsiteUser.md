@@ -7,7 +7,7 @@ LightKitAdminUserDataRowRestrictionHandler::checkValidWebsiteUser
 
 
 
-LightKitAdminUserDataRowRestrictionHandler::checkValidWebsiteUser — Checks that the given user is a valid WebsiteLightUser, and throws an exception if that's not the case.
+LightKitAdminUserDataRowRestrictionHandler::checkValidWebsiteUser — Checks that the given user is a valid LightWebsiteUser, and throws an exception if that's not the case.
 
 
 
@@ -21,7 +21,7 @@ protected [LightKitAdminUserDataRowRestrictionHandler::checkValidWebsiteUser](ht
 
 
 
-Checks that the given user is a valid WebsiteLightUser, and throws an exception if that's not the case.
+Checks that the given user is a valid LightWebsiteUser, and throws an exception if that's not the case.
 
 
 

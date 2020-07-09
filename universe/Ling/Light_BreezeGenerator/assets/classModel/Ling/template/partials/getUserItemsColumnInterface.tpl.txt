@@ -1,0 +1,12 @@
+    /**
+     * Returns an array which values are the given $column, from the resource rows
+     * identified by the given [where conditions](https://github.com/lingtalfi/SimplePdoWrapper#the-where-conditions).
+     *
+     *
+     * @param string $column
+     * @param $where
+     * @param array $markers
+     * @return array
+     * @throws \Exception
+     */
+    public function getResourcesColumn(string $column, $where, array $markers = []);

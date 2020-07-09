@@ -1,6 +1,6 @@
 ArrayTool
 =====================
-2015-12-20 -> 2019-12-20
+2015-12-20 -> 2020-07-02
 
 
 
@@ -20,10 +20,14 @@ Table of Contents
 * [arrayKeyExistAll](#arraykeyexistall)
 * [arrayMergeReplaceRecursive](#arraymergereplacerecursive)
 * [arrayUniqueRecursive](#arrayuniquerecursive)
+* [arrayWalkKeys](#arraywalkkeys)
+* [arrayWalkKeysRecursive](#arraywalkkeysrecursive)
 * [filterByAllowed](#filterbyallowed)
 * [filterRecursive](#filterrecursive)
 * [getMissingKeys](#getmissingkeys)
+* [hasSameValues](#hassamevalues)
 * [insertRowAfter](#insertrowafter)
+* [isIdentical](#isidentical)
 * [isNumericalArray](#isnumericalarray)
 * [keysSameAsValues](#keyssameasvalues)
 * [mirrorRange](#mirrorrange)
@@ -39,18 +43,18 @@ Table of Contents
 
 arrayKeyExistAll
 -------------
-2018-01-18 -> 2019-10-31
+2018-01-18 -> 2020-06-29
 
 
 ```php
-bool    arrayKeyExistAll ( mixed:keys, array:pool, bool throwEx=false)
+bool    arrayKeyExistAll ( mixed:keys, array:pool, bool throwEx=false, array &missingKeys = [])
 ```
 
-Checks that every given keys exist in the given pool array, and by default
-returns the result as a boolean.
+Checks that every given keys exist in the given pool array, and returns the result as a boolean.
 
-If the throwEx flag is set to true, then this method throws an exception if
-one key (or more) is not found.
+If the throwEx flag is set to true, then this method throws an exception as soon as a missing key is found.
+If it's set to false, the missing keys are available via the missingKeys array.
+
 
 
 
@@ -178,6 +182,113 @@ $input = array_merge_recursive($profile1, $profile2);
 $input = Bat::arrayUniqueRecursive($input);
 
 ```
+
+
+
+    
+arrayWalkKeys
+-------------
+2020-06-29
+
+
+```php
+array    arrayWalkKeys ( array:&arr, callable:fn)
+```
+
+Walks the given array, applying the given callable to every key.
+
+The callable must return a valid key (i.e. a string or a number).
+
+
+
+### Example
+
+
+The following, 
+
+```php
+<?php
+
+$tags = [
+    'fruit' => 'apple',
+    'color' => 'red',
+];
+ArrayTool::arrayWalkKeys($tags, function ($k) {
+    return '{' . $k . '}';
+});
+az($tags);
+
+```
+
+
+will output something like this:
+
+
+```html
+array(2) {
+  ["{fruit}"] => string(5) "apple"
+  ["{color}"] => string(3) "red"
+}
+
+```
+
+
+    
+arrayWalkKeysRecursive
+-------------
+2020-07-02
+
+
+```php
+array    arrayWalkKeysRecursive ( array:&arr, callable:fn)
+```
+
+Walks the given array recursively, applying the given callable to every key.
+
+The callable must return a valid key (i.e. a string or a number).
+
+
+
+### Example
+
+
+The following, 
+
+```php
+<?php
+
+$a = [
+    "fruits" => [
+        "apple" => 64,
+        "banana" => 65,
+    ],
+];
+ArrayTool::arrayWalkKeysRecursive($a, function($k){
+    if('apple' === $k){
+        $k = "pomme";
+    }
+    return $k;
+});
+
+az($a);
+
+
+
+```
+
+
+will output something like this:
+
+
+```html
+array(1) {
+    ["fruits"] => array(2) {
+        ["banana"] => int(65)
+        ["pomme"] => int(64)
+  }
+}
+```
+
      
      
      
@@ -361,6 +472,36 @@ a(ArrayTool::getMissingKeys($arr, ['firstName', 'lastName']));  // false
 ```
 
 
+   
+    
+hasSameValues
+-------------
+2020-06-11
+
+
+```php
+bool    hasSameValues ( array:a, array:b)
+```
+
+Returns whether array a and b contains the same values;
+The order doesn't matter.
+
+
+### Example
+
+```php
+<?php 
+
+$a = ["a", "b"];
+$b = ["b", "a"];
+
+az(ArrayTool::hasSameValues($a, $b)); // true
+
+```
+
+
+    
+        
     
 insertRowAfter
 -------------
@@ -466,6 +607,31 @@ array(0) {
 
 
 
+isIdentical
+-------------
+2020-06-11
+
+
+```php
+bool    isIdentical ( array:a, array:b )
+```
+
+Returns whether array a and b are identical.
+The order of keys matters.
+
+
+
+### Example
+
+```php
+<?php 
+
+$a = ['a' => [1, 2]];
+$b = ['a' => [1, 3]];
+
+az(ArrayTool::isIdentical($a, $b)); // false
+
+```
 
     
 isNumericalArray

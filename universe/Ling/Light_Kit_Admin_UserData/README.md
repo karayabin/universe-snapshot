@@ -1,6 +1,6 @@
 Light_Kit_Admin_UserData
 ===========
-2020-02-28 -> 2020-03-06
+2020-02-28 -> 2020-06-23
 
 
 
@@ -185,6 +185,10 @@ $user_row_restriction.methods_collection:
 
 History Log
 =============
+
+- 1.3.0 -- 2020-06-23
+
+    - update service to adapt new plugin installer service
 
 - 1.2.0 -- 2020-03-06
 

@@ -1,17 +1,21 @@
 dependencies: 
     Ling: 
         - Light
-        - Light_Database
-        - Light_MicroPermission
+        - Light_AjaxHandler
         - SimplePdoWrapper
+        - Light_Database
         - Chloroform
         - Light_User
         - Bat
+        - Panda_Headers
+        - Light_UploadGems
+        - Light_ZouUploader
         - Light_Realform
         - DirScanner
         - Light_PluginInstaller
         - Light_ReverseRouter
         - Light_UserDatabase
+        - TemporaryVirtualFileSystem
     
 
 post_install: 

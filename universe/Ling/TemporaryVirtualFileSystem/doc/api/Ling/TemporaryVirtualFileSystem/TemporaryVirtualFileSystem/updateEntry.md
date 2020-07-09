@@ -16,7 +16,7 @@ Description
 ================
 
 
-protected [TemporaryVirtualFileSystem::updateEntry](https://github.com/lingtalfi/TemporaryVirtualFileSystem/blob/master/doc/api/Ling/TemporaryVirtualFileSystem/TemporaryVirtualFileSystem/updateEntry.md)(string $contextId, string $id, string $path, array $meta) : void
+protected [TemporaryVirtualFileSystem::updateEntry](https://github.com/lingtalfi/TemporaryVirtualFileSystem/blob/master/doc/api/Ling/TemporaryVirtualFileSystem/TemporaryVirtualFileSystem/updateEntry.md)(string $contextId, string $id, string $path, array $meta, ?array $options = []) : void
 
 
 
@@ -24,6 +24,10 @@ protected [TemporaryVirtualFileSystem::updateEntry](https://github.com/lingtalfi
 Updates the entry in the operations.byml file of the given context that matches the given id.
 
 Throws an exception if the file wasn't found, or in case of problems.
+
+The options are:
+
+- move: bool=false. Whether to move or copy the file from the given path to the destination.
 
 
 
@@ -48,6 +52,10 @@ Parameters
 
     
 
+- options
+
+    
+
 
 Return values
 ================
@@ -63,7 +71,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [TemporaryVirtualFileSystem::updateEntry](https://github.com/lingtalfi/TemporaryVirtualFileSystem/blob/master/TemporaryVirtualFileSystem.php#L318-L365)
+See the source code for method [TemporaryVirtualFileSystem::updateEntry](https://github.com/lingtalfi/TemporaryVirtualFileSystem/blob/master/TemporaryVirtualFileSystem.php#L370-L457)
 
 
 See Also

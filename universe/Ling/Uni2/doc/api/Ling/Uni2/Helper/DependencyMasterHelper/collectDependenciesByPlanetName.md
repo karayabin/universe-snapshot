@@ -16,7 +16,7 @@ Description
 ================
 
 
-private static [DependencyMasterHelper::collectDependenciesByPlanetName](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Helper/DependencyMasterHelper/collectDependenciesByPlanetName.md)(string $longPlanetName, array $dependencyMaster, array $galaxies, array &$dependencies = [], array &$postInstalls = [], bool $isRoot = false) : void
+private static [DependencyMasterHelper::collectDependenciesByPlanetName](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Helper/DependencyMasterHelper/collectDependenciesByPlanetName.md)(string $longPlanetName, array $dependencyMaster, array $galaxies, ?array &$dependencies = [], ?array &$postInstalls = [], ?bool $isRoot = false) : void
 
 
 

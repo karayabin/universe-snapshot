@@ -54,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightBMenuService::getItems](https://github.com/lingtalfi/Light_BMenu/blob/master/Service/LightBMenuService.php#L95-L140)
+See the source code for method [LightBMenuService::getItems](https://github.com/lingtalfi/Light_BMenu/blob/master/Service/LightBMenuService.php#L96-L141)
 
 
 See Also

@@ -58,7 +58,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [Where::notBetween](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/Util/Where.php#L413-L416)
+See the source code for method [Where::notBetween](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/Util/Where.php#L410-L413)
 
 
 See Also

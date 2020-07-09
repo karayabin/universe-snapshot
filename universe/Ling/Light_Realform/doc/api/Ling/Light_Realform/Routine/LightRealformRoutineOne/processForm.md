@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [LightRealformRoutineOne::processForm](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Routine/LightRealformRoutineOne/processForm.md)(string $realformIdentifier, string $table, ?array $options = []) : [Chloroform](https://github.com/lingtalfi/Chloroform)
+public [LightRealformRoutineOne::processForm](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Routine/LightRealformRoutineOne/processForm.md)(string $realformIdentifier, string $table, ?array $options = []) : [Chloroform](https://github.com/lingtalfi/Chloroform) | [HttpResponseInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponseInterface.md)
 
 
 
@@ -38,7 +38,9 @@ If the form is posted correctly, either:
 
 - an [iframe signal](https://github.com/lingtalfi/TheBar/blob/master/discussions/iframe-signal.md) is triggered (if defined in the options)
 - the posted data are handled using the on_success_handler (defined by the realform configuration),
-             and a success callback can also be triggered (if defined in the options)
+             and a success callback can also be triggered (if defined in the options).
+             That success callback (from the options) can return a http response to use directly.
+
 
 
 
@@ -74,7 +76,7 @@ Parameters
 Return values
 ================
 
-Returns [Chloroform](https://github.com/lingtalfi/Chloroform).
+Returns [Chloroform](https://github.com/lingtalfi/Chloroform) | [HttpResponseInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponseInterface.md).
 
 
 Exceptions thrown
@@ -90,7 +92,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightRealformRoutineOne::processForm](https://github.com/lingtalfi/Light_Realform/blob/master/Routine/LightRealformRoutineOne.php#L83-L297)
+See the source code for method [LightRealformRoutineOne::processForm](https://github.com/lingtalfi/Light_Realform/blob/master/Routine/LightRealformRoutineOne.php#L86-L303)
 
 
 See Also

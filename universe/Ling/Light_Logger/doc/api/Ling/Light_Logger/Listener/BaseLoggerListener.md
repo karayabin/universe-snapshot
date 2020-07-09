@@ -4,7 +4,7 @@
 
 The BaseLoggerListener class
 ================
-2019-08-01 --> 2020-01-08
+2019-08-01 --> 2020-06-18
 
 
 
@@ -87,4 +87,4 @@ See the source code of [Ling\Light_Logger\Listener\BaseLoggerListener](https://g
 
 SeeAlso
 ==============
-Previous class: [LightLoggerService](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService.md)<br>Next class: [LightFileLoggerListener](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Listener/LightFileLoggerListener.md)<br>
+Previous class: [LightLoggerService](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/LightLoggerService.md)<br>Next class: [LightCleanableFileLoggerListener](https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Listener/LightCleanableFileLoggerListener.md)<br>

@@ -4,7 +4,7 @@
 
 The LightUserDataController class
 ================
-2019-09-27 --> 2020-03-10
+2019-09-27 --> 2020-06-23
 
 
 
@@ -28,7 +28,7 @@ class <span class="pl-k">LightUserDataController</span> extends [LightController
     - protected [Ling\Light\Core\Light](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light.md) [LightController::$light](#property-light) ;
 
 - Methods
-    - public [render](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Controller/LightUserDataController/render.md)(string $id) : [HttpResponseInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponseInterface.md)
+    - public [render](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Controller/LightUserDataController/render.md)(string $id, Ling\Light\Http\HttpRequestInterface $request) : void
 
 - Inherited methods
     - public LightController::__construct() : void
@@ -36,6 +36,7 @@ class <span class="pl-k">LightUserDataController</span> extends [LightController
     - protected LightController::getLight() : [Light](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light.md)
     - protected LightController::getContainer() : [LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md)
     - protected LightController::getHttpRequest() : Ling\Light\Http\HttpRequestInterface
+    - protected LightController::hasService(string $serviceName) : bool
 
 }
 
@@ -53,6 +54,7 @@ Methods
 - LightController::getLight &ndash; Returns the light application.
 - LightController::getContainer &ndash; Returns the service container.
 - LightController::getHttpRequest &ndash; Returns the http request bound to the light instance.
+- LightController::hasService &ndash; Returns whether the container contains the service which name is given.
 
 
 

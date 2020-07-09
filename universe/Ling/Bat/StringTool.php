@@ -243,6 +243,21 @@ class StringTool
     }
 
 
+//    /**
+//     * Returns whether the two given strings are identical.
+//     *
+//     * https://stackoverflow.com/questions/3643135/two-identical-strings-yet-different-lengths-trimmed-cleansed-etc
+//     *
+//     *
+//     * @param string $a
+//     * @param string $b
+//     * @return bool
+//     */
+//    public static function isIdentical(string $a, string $b): bool
+//    {
+//        return (bin2hex($a) === bin2hex($b));
+//    }
+
     /**
      * Returns whether the given value can be turned into a string.
      *
@@ -561,6 +576,9 @@ class StringTool
     /**
      * Split the given (assumed) string into an array of multi-byte characters.
      * The internal encoding used is the one returned by the php's mb_internal_encoding function.
+     *
+     * Note: if you have php 7.4+, consider using mb_str_split instead.
+     * (this method was written before that time).
      *
      */
     public static function split($string)

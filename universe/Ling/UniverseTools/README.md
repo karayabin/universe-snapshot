@@ -1,6 +1,6 @@
 UniverseTools
 ===========
-2019-02-08
+2019-02-08 -> 2020-06-25
 
 
 
@@ -36,6 +36,10 @@ Summary
 History Log
 ==============
 
+- 1.19.1 -- 2020-06-05
+
+    - fix DependencyTool::parseDumpDependencies trying to instantiate class with not existing parent
+    
 - 1.19.0 -- 2019-10-08
 
     - add DependencyTool::parseDumpDependencies ignoreFilesStartingWith option

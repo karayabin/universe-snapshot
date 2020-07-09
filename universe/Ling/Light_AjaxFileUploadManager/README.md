@@ -1,8 +1,10 @@
 Light_AjaxFileUploadManager
 ===========
-2019-08-01 -> 2020-03-19
+2019-08-01 -> 2020-06-04
 
 
+
+**WARNING: This plugin is deprecated in favor of** [Light_AjaxHandler](https://github.com/lingtalfi/Light_AjaxHandler). 
 
 
 A centralized ajax file upload manager for your [Light](https://github.com/lingtalfi/Light) application.
@@ -111,7 +113,7 @@ History Log
 =============
 
     
---- 1.8.0 -- 2020-04-10
+- 1.8.0 -- 2020-06-04
 
     - deprecated in favor of ajax handler
     

@@ -1,8 +1,11 @@
 dependencies: 
     Ling: 
+        - ArrayToString
         - Bat
         - Light
         - Light_Database
+        - Light_DbSynchronizer
+        - Light_Logger
         - SimplePdoWrapper
     
 

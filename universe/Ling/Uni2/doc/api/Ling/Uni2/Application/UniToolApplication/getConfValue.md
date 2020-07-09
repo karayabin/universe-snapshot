@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [UniToolApplication::getConfValue](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Application/UniToolApplication/getConfValue.md)(string $key, $default = null) : mixed
+public [UniToolApplication::getConfValue](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Application/UniToolApplication/getConfValue.md)(string $key, ?$default = null) : mixed
 
 
 
