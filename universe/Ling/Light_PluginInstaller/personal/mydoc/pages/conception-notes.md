@@ -156,10 +156,10 @@ The core install phase let plugins write their files (if necessary),
 and create their tables in the database, and insert their rows (if any).
 
 
-Most plugin just require the core install phase to be full installed.
+Most plugin just require the core install phase to be fully installed.
 
 The **isInstall** method of our provided **PluginInstallerInterface** interface returns whether or not the core install
-phase is full completed.
+phase is fully completed.
 
 
 So, what's the post install phase then?
@@ -198,7 +198,8 @@ In order to do that, it will need to do something like this:
 - parse all existing groups, and then foreach of them create a corresponding entry in the **user_group_has_options** table
 
 
-But before it can launch this routine, it needs to make sure that all groups are indeed in the **user_group** table.
+But before it can launch this routine, it needs to make sure that all groups are indeed in the **user_group** table (i.e. that the core install phase
+of all other plugins is done).
 
 That's the reason why we have two different phases.
 

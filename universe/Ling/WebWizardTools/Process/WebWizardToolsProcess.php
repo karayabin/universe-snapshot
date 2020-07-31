@@ -97,7 +97,14 @@ abstract class WebWizardToolsProcess
         $this->params = [];
         $this->webWizard = null;
         $this->enabled = true;
-        $this->category = null;
+
+
+        // default vategory
+        $class = get_class($this);
+        $p = explode('\\', $class);
+        array_pop($p);
+        $category = array_pop($p);
+        $this->category = $category;
 
     }
 
@@ -330,6 +337,19 @@ abstract class WebWizardToolsProcess
         } catch (\Exception $e) {
             $this->exceptionMessage($e);
         }
+    }
+
+
+    /**
+     * Adds a message of the given type to the log.
+     *
+     *
+     * @param string $msg
+     * @param string $type
+     */
+    public function addLogMessage(string $msg, string $type)
+    {
+        $this->message($msg, $type);
     }
 
 

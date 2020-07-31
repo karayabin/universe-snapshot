@@ -4,19 +4,19 @@
 namespace Ling\Light_TaskScheduler\Api\Custom;
 
 
-use Ling\Light_TaskScheduler\Api\Generated\LightTaskschedulerApiFactory;
+use Ling\Light_TaskScheduler\Api\Generated\LightTaskSchedulerApiFactory;
 
 
 
 /**
- * The CustomLightTaskschedulerApiFactory class.
+ * The CustomLightTaskSchedulerApiFactory class.
  */
-class CustomLightTaskschedulerApiFactory extends LightTaskschedulerApiFactory
+class CustomLightTaskSchedulerApiFactory extends LightTaskSchedulerApiFactory
 {
 
 
     /**
-     * Builds the CustomLightTaskschedulerApiFactory instance.
+     * Builds the CustomLightTaskSchedulerApiFactory instance.
      */
     public function __construct()
     {

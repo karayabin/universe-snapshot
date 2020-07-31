@@ -11,6 +11,7 @@ namespace Ling\Light_TaskScheduler\Api\Generated\Interfaces;
 interface TaskScheduleApiInterface
 {
 
+
     /**
      * Inserts the given taskSchedule in the database.
      * By default, it returns the result of the PDO::lastInsertId method.
@@ -54,6 +55,28 @@ interface TaskScheduleApiInterface
      * @throws \Exception
      */
     public function insertTaskSchedules(array $taskSchedules, bool $ignoreDuplicate = true, bool $returnRic = false);
+
+    /**
+     * Returns the rows corresponding to given components.
+     * The components is an array of [fetch all components](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/pages/fetch-all-components.md).
+     *
+     *
+     * @param array $components
+     * @return array
+     */
+    public function fetchAll(array $components = []): array;
+
+
+    /**
+     *
+     * Returns the first row corresponding to given components, or false if there is no match.
+     *
+     * The components is an array of [fetch all components](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/pages/fetch-all-components.md).
+     *
+     * @param array $components
+     * @return array
+     */
+    public function fetch(array $components = []);
 
     /**
      * Returns the taskSchedule row identified by the given id.

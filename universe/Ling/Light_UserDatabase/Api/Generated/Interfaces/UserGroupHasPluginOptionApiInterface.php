@@ -47,13 +47,13 @@ interface UserGroupHasPluginOptionApiInterface
      *
      *
      *
-     * @param array $userGroupHasPluginOptionGroupHasPluginOptions
+     * @param array $userGroupHasPluginOptions
      * @param bool $ignoreDuplicate
      * @param bool $returnRic
      * @return mixed
      * @throws \Exception
      */
-    public function insertUserGroupHasPluginOptions(array $userGroupHasPluginOptionGroupHasPluginOptions, bool $ignoreDuplicate = true, bool $returnRic = false);
+    public function insertUserGroupHasPluginOptions(array $userGroupHasPluginOptions, bool $ignoreDuplicate = true, bool $returnRic = false);
 
     /**
      * Returns the userGroupHasPluginOption row identified by the given user_group_id and plugin_option_id.

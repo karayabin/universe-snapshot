@@ -72,7 +72,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [DeveloperWizardBreezeGeneratorHelper::spawnConfFile](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/Helper/DeveloperWizardBreezeGeneratorHelper.php#L45-L93)
+See the source code for method [DeveloperWizardBreezeGeneratorHelper::spawnConfFile](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/Helper/DeveloperWizardBreezeGeneratorHelper.php#L45-L94)
 
 
 See Also

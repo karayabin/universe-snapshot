@@ -6,11 +6,23 @@ namespace Ling\ClassCooker\Helper;
 
 use Ling\ClassCooker\Exception\ClassCookerException;
 
+
+/**
+ * The ClassCookerHelper class.
+ */
 class ClassCookerHelper
 {
 
 
-    public static function createSectionComment($label, $tabIndent=1)
+    /**
+     * Creates a section comment.
+     *
+     *
+     * @param $label
+     * @param int $tabIndent
+     * @return string
+     */
+    public static function createSectionComment($label, $tabIndent = 1)
     {
         $sp = str_repeat("\t", $tabIndent);
         $s = <<<EEE
@@ -23,10 +35,11 @@ EEE;
         return $s;
     }
 
-    //--------------------------------------------
-    // THIS IS A SECTION
-    //--------------------------------------------
+
     /**
+     *
+     * Returns the number of the line (in the file) containing the beginning of the @page(section comment), or false if the section wasn't found.
+     *
      *
      * A section is a special type of comment written on 3 lines, it looks like the one just above this comment.
      * It's easier to find a section if your section label contains only alpha-numeric chars (see the source code
@@ -34,12 +47,11 @@ EEE;
      *
      *
      *
-     * @param $sectionLabel
-     * @param $file
-     * @return false|int, return the number of the line (in the file) of the beginning of the section comment,
-     *          or false if the section wasn't found
+     * @param string $sectionLabel
+     * @param string $file
+     * @return false|int
      */
-    public static function getSectionLineNumber($sectionLabel, $file)
+    public static function getSectionLineNumber(string $sectionLabel, string $file)
     {
         $lines = file($file);
 
@@ -64,6 +76,8 @@ EEE;
 
 
     /**
+     * Returns an array of method => [startLine, endLine].
+     *
      * This method will get the startLine and endLine number of every methods it finds.
      * However, in order for this method to work correctly, the class needs to be formatted in a certain way:
      *
@@ -81,8 +95,10 @@ EEE;
      *
      *
      *
-     * @return array of method => [startLine, endLine]
-     * @throws ClassCookerException
+     * @param string $file
+     * @param array $signatureTags
+     * @return array
+     * @throws \Exception
      */
     public static function getMethodsBoundaries(string $file, array $signatureTags = []): array
     {
@@ -176,7 +192,13 @@ EEE;
     //--------------------------------------------
     //
     //--------------------------------------------
-    private static function getTagsByLine($line)
+    /**
+     * Returns the tags found in the given line.
+     *
+     * @param string $line
+     * @return array
+     */
+    private static function getTagsByLine(string $line): array
     {
         $p = explode('function', $line, 2);
         $tags = explode(' ', $p[0]);

@@ -5,6 +5,9 @@ namespace Ling\Bat;
 
 
 use Ling\Bat\Exception\BatException;
+use Ling\Bat\Util\AnotherExtendedReflectionClass;
+use Ling\Bat\Util\ExtendedReflectionClass;
+use Ling\TokenFun\TokenFinder\Tool\TokenFinderTool;
 
 /**
  * The ClassTool class.
@@ -146,6 +149,48 @@ class ClassTool
 
 
     /**
+     *
+     * Returns the class name of the first class found in the given file.
+     *
+     * If the file doesn't exist or doesn't contain an autoloader reachable class, an exception is thrown.
+     *
+     *
+     * @param string $file
+     * @return string
+     * @throws \Exception
+     */
+    public static function getClassNameByFile(string $file): string
+    {
+        if (file_exists($file)) {
+
+            $tokens = token_get_all(file_get_contents($file));
+            $items = TokenFinderTool::getClassNames($tokens, true, [
+                "includeInterfaces" => false,
+            ]);
+            if ($items) {
+                $className = array_shift($items);
+                return $className;
+            }
+            throw new BatException("No class found in file: $file.");
+
+        }
+        throw new BatException("Class file doesn't exist: $file.");
+    }
+
+
+    /**
+     * This is a proxy to the [TokenFinderTool](https://github.com/lingtalfi/TokenFun/blob/master/TokenFinder/Tool/TokenFinderTool.php) method with the same name.
+     *
+     *
+     * @return array
+     */
+    public static function getClassPropertyBasicInfo(string $className): array
+    {
+        return TokenFinderTool::getClassPropertyBasicInfo($className);
+    }
+
+
+    /**
      * Returns the class signature of the given $class.
      *
      * Example:
@@ -214,6 +259,38 @@ class ClassTool
             }
         }
         return $s;
+    }
+
+
+    /**
+     * Returns the number of the line where the first class is declared in the given file.
+     *
+     * Note: the class must be reachable by the current autoloader(s), otherwise an exception will be thrown.
+     *
+     * @param string $file
+     * @return int
+     */
+    public static function getClassStartLineByFile(string $file): int
+    {
+        $className = self::getClassNameByFile($file);
+        $o = new \ReflectionClass($className);
+        return $o->getStartLine();
+    }
+
+
+    /**
+     * Returns the absolute path of the file containing the given class.
+     *
+     * Note: the class must be reachable by the current autoloader(s), otherwise an exception will be thrown.
+     *
+     * @param string $className
+     * @return string
+     * @throws \Exception
+     */
+    public static function getFile(string $className): string
+    {
+        $o = new \ReflectionClass($className);
+        return $o->getFileName();
     }
 
 
@@ -384,6 +461,75 @@ class ClassTool
 
 
     /**
+     * Returns the number of the line containing the first namespace declaration found,
+     * or false if no namespace declaration was found.
+     *
+     * @param string $file
+     * @return int|false
+     */
+    public static function getNamespaceLineNumberByFile(string $file)
+    {
+        $className = self::getClassNameByFile($file);
+        $o = new AnotherExtendedReflectionClass($className);
+        return $o->getNamespaceLineNumber();
+    }
+
+
+    /**
+     * Returns an info array of the given property, or false if the property doesn't exist.
+     *
+     *
+     * The returned array looks like this:
+     * - 0: line number of the property declaration
+     * - 1: end line number of the comment
+     * - 2: the comment text
+     *
+     *
+     * Note: the given class name must be reachable by the current autoloader(s).
+     *
+     *
+     *
+     *
+     *
+     * @param string $className
+     * @param string $propertyName
+     * @return array|false
+     * @throws \Exception
+     */
+    public static function getPropertyInfo(string $className, string $propertyName)
+    {
+        $o = new \ReflectionClass($className);
+        if (true === $o->hasProperty($propertyName)) {
+            $p = $o->getProperty($propertyName);
+
+
+            $docComment = $p->getDocComment();
+            if (false !== $docComment) {
+                return $docComment;
+            }
+        }
+        return false;
+    }
+
+
+    /**
+     * Returns the reflection class instance corresponding to the given className.
+     *
+     * False is returned if the reflection class can't be instantiated.
+     *
+     * @param string $className
+     * @return false|\ReflectionClass
+     */
+    public static function getReflectionClass(string $className)
+    {
+        try {
+            return new \ReflectionClass($className);
+        } catch (\Exception $e) {
+            return false;
+        }
+    }
+
+    /**
      * @return string, the short name for the given class.
      * For instance if the class is A\B\CCC,
      * it returns CCC.
@@ -393,6 +539,163 @@ class ClassTool
     {
         $p = explode('\\', get_class($object));
         return array_pop($p);
+    }
+
+
+    /**
+     * Extracts the class from the given useStatement and returns it.
+     *
+     *
+     * @param string $useStatement
+     * @return string
+     */
+    public static function getUseStatementClassByUseStatement(string $useStatement): string
+    {
+        $useStatement = trim($useStatement);
+        $useStatement = substr($useStatement, 3); // get rid of the use prefix
+        $useStatement = trim($useStatement, ' ;');
+        $p = preg_split('!\s+as\s+!', $useStatement, 2);
+        return array_shift($p);
+    }
+
+
+    /**
+     * Returns the class names found in the use statements for the given class.
+     *
+     * If the useAliasNames flag is set to true, it will return aliases (when defined) instead of the class names.
+     *
+     *
+     * @param string $className
+     * @param bool $useAliasNames
+     * @return array
+     * @throws \Exception
+     */
+    public static function getUseStatements(string $className, bool $useAliasNames = false): array
+    {
+
+        $ret = [];
+        $o = new ExtendedReflectionClass($className);
+        $statements = $o->getUseStatements();
+        foreach ($statements as $statement) {
+            if (false === $useAliasNames) {
+                $ret[] = $statement['class'];
+            } else {
+                $ret[] = $statement['as'];
+            }
+        }
+        return $ret;
+    }
+
+    /**
+     * Returns an array of items, each of which:
+     *
+     * - 0: use statement: string, the whole use statement line as written (for instance: use Ling\Bat\ClassTool as CTool;), also including // comments if any,
+     *      and including the last "PHP_EOL" char
+     * - 1: line number: int, the number of the line at which that use statement was found
+     *
+     *
+     * This method assumes that each "use statement" is only defined on a single line, and that there is at most one use statement defined by line.
+     *
+     *
+     * Note: the statements are ordered by ascending line number.
+     *
+     *
+     * @param string $file
+     * @return array
+     * @throws \Exception
+     */
+    public static function getUseStatementsInfoByFile(string $file): array
+    {
+        $className = self::getClassNameByFile($file);
+        $o = new AnotherExtendedReflectionClass($className);
+        return $o->getUseStatementsInfo();
+    }
+
+    /**
+     * Returns whether the given class contains the given method.
+     *
+     * Note: the class name must be in the reach of the current autoloader in order
+     * for this method to work correctly.
+     *
+     * @param string $className
+     * @param string $method
+     * @return bool
+     */
+    public static function hasMethod(string $className, string $method): bool
+    {
+        $methods = self::getMethodNames($className);
+        return in_array($method, $methods, true);
+    }
+
+
+    /**
+     * Returns whether the class, contained in the given file, contains the given method.
+     *
+     * Note: the class name must be in the reach of the current autoloader in order
+     * for this method to work correctly.
+     * It is also assumed that the given class file exists, and that it contains only one class.
+     *
+     *
+     *
+     * @param string $classFile
+     * @param string $method
+     * @return bool
+     * @throws \Exception
+     */
+    public static function hasMethodByFile(string $classFile, string $method): bool
+    {
+        $className = self::getClassNameByFile($classFile);
+        $c = new \ReflectionClass($className);
+        return $c->hasMethod($method);
+    }
+
+
+    /**
+     * Returns whether the given class contains the given property.
+     * Note: the given class must be reachable by the current autoloader(s).
+     *
+     *
+     * @param string $className
+     * @param string $propertyName
+     * @return bool
+     */
+    public static function hasProperty(string $className, string $propertyName): bool
+    {
+        $o = new \ReflectionClass($className);
+        return $o->hasProperty($propertyName);
+    }
+
+
+    /**
+     * Returns whether the given class is referenced from an use statement in the given file.
+     *
+     * Note: this method ignore use statement aliases and always use the "real" class.
+     *
+     *
+     *
+     *
+     *
+     * @param string $file
+     * @param string $useStatementClass
+     * @return bool
+     */
+    public static function hasUseStatementByFile(string $file, string $useStatementClass): bool
+    {
+        $className = self::getClassNameByFile($file);
+        $useStatements = self::getUseStatements($className);
+        return in_array($useStatementClass, $useStatements, true);
+    }
+
+
+    /**
+     * Returns whether the given class is loaded (i.e. accessible via auto-loaders).
+     *
+     * @param string $className
+     * @return bool
+     */
+    public static function isLoaded(string $className): bool
+    {
+        return class_exists($className, true);
     }
 
     /**

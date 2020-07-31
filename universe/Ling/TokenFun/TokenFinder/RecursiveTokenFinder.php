@@ -6,9 +6,7 @@ namespace Ling\TokenFun\TokenFinder;
 use Ling\TokenFun\TokenArrayIterator\TokenArrayIteratorInterface;
 
 /**
- * RecursiveTokenFinder
- * @author Lingtalfi
- * 2016-01-02
+ * The RecursiveTokenFinder class.
  *
  *
  *
@@ -27,19 +25,34 @@ abstract class RecursiveTokenFinder implements TokenFinderInterface
 {
 
 
+    /**
+     * This property holds the nestedMode for this instance.
+     * @var bool
+     */
     protected $nestedMode;
 
+    /**
+     * Builds the RecursiveTokenFinder instance.
+     */
     public function __construct()
     {
         $this->nestedMode = false;
     }
 
+    /**
+     * Returns whether the nested mode is turned on.
+     * @return bool
+     */
     public function isNestedMode()
     {
         return $this->nestedMode;
     }
 
-    public function setNestedMode($nestedMode)
+    /**
+     * Sets the nested mode
+     * @param bool $nestedMode
+     */
+    public function setNestedMode(bool $nestedMode)
     {
         $this->nestedMode = $nestedMode;
     }
@@ -47,6 +60,12 @@ abstract class RecursiveTokenFinder implements TokenFinderInterface
     //------------------------------------------------------------------------------/
     // 
     //------------------------------------------------------------------------------/
+    /**
+     * Hook to do something when a match is found.
+     *
+     * @param $start
+     * @param TokenArrayIteratorInterface $tai
+     */
     protected function onMatchFound($start, TokenArrayIteratorInterface $tai)
     {
         if (true === $this->nestedMode) {

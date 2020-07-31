@@ -46,7 +46,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [WebWizardToolsProcess::getLearnMore](https://github.com/lingtalfi/WebWizardTools/blob/master/Process/WebWizardToolsProcess.php#L216-L219)
+See the source code for method [WebWizardToolsProcess::getLearnMore](https://github.com/lingtalfi/WebWizardTools/blob/master/Process/WebWizardToolsProcess.php#L228-L231)
 
 
 See Also

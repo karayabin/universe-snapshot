@@ -1,6 +1,6 @@
 SimplePdoWrapper
 ================
-2019-02-04 -> 2020-06-19
+2019-02-04 -> 2020-07-27
 
 
 
@@ -30,7 +30,9 @@ Or just download it and place it where you want otherwise.
 Summary
 =================
 * [SimplePdoWrapper api](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper.md) (generated with [DocTools](https://github.com/lingtalfi/DocTools))
-* [Conception notes](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/pages/conception-notes.md)
+* Pages
+    * [Conception notes](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/pages/conception-notes.md)
+    * [Fetch all components](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/pages/fetch-all-components.md)
 * [SimplePdoWrapper](#simplepdowrapper-overview)
 * [Connexion](#connexion)
   * [Using mysql](#using-mysql)
@@ -1053,6 +1055,27 @@ Related
 History Log
 ------------------
 
+- 1.30.2 -- 2020-07-27
+
+    - fix functional bug, Columns->getMode returning null instead of "default" 
+    
+- 1.30.1 -- 2020-07-27
+
+    - update OrderBy->apply, now escapes the column names with backticks 
+    
+- 1.30.0 -- 2020-07-27
+
+    - add Columns->getColumns method 
+    
+- 1.29.1 -- 2020-07-27
+
+    - add "fetch all components" page 
+    
+- 1.29.0 -- 2020-07-27
+
+    - add OrderBy, Limit and Columns utils 
+    - fix Where->isNull not applied to the request correctly 
+    
 - 1.28.0 -- 2020-06-19
 
     - add MysqlInfoUtil->getEngine method 

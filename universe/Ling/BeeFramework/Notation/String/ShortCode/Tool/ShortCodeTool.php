@@ -95,17 +95,6 @@ use Ling\BeeFramework\Notation\String\StringParser\ExpressionDiscoverer\Miscella
  *
  *
  *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
  */
 class ShortCodeTool
 {

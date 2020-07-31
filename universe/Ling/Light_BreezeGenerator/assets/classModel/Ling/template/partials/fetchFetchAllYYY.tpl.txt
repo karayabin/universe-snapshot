@@ -1,0 +1,25 @@
+    /**
+     * @implementation
+     */
+    public function fetchAll(array $components = []): array
+    {
+        $markers = [];
+        $q = '';
+        $options = $this->fetchRoutine($q, $markers, $components);
+        $fetchStyle = null;
+        if (true === $options['singleColumns']) {
+            $fetchStyle = \PDO::FETCH_COLUMN;
+        }
+        return $this->pdoWrapper->fetchAll($q, $markers, $fetchStyle);
+    }
+
+    /**
+     * @implementation
+     */
+    public function fetch(array $components = [])
+    {
+        $markers = [];
+        $q = '';
+        $this->fetchRoutine($q, $markers, $components);
+        return $this->pdoWrapper->fetch($q, $markers);
+    }

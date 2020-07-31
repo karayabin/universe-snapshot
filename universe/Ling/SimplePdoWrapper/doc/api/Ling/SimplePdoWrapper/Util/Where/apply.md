@@ -29,7 +29,7 @@ Note: the WHERE keyword is not appended by this method, nor are parenthesis.
 Note2: the query portion returned by this method is sql safe (i.e. protected against sql injection by
 using :markers).
 
-Note3: the appended query parts are separated using the AND combination operator.
+Note3: the appended query parts are separated using the AND combination operator by default.
 
 
 
@@ -66,7 +66,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [Where::apply](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/Util/Where.php#L592-L745)
+See the source code for method [Where::apply](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/Util/Where.php#L592-L746)
 
 
 See Also

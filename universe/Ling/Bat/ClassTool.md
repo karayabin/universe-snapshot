@@ -1,6 +1,6 @@
 ClassTool
 =====================
-2016-12-22
+2016-12-22 -> 2020-07-31
 
 
 
@@ -209,6 +209,47 @@ a(ClassTool::getAncestors($class, true)); // B C D E F G
 
 
 
+getClassNameByFile
+-----------------
+2020-07-10
+
+
+
+```php
+str    getClassNameByFile ( str:file )
+```
+
+Returns the class name of the first class found in the given file.
+     
+If the file doesn't exist or doesn't contain an autoloader reachable class, an exception is thrown.
+
+ 
+```php
+az(ClassTool::getClassNameByFile($file)); // Ling\Light_Train\TrainTest
+
+```
+
+
+getClassPropertyBasicInfo
+----------
+2020-07-10
+
+
+```php
+array    getClassPropertyBasicInfo ( str:className )
+```
+
+
+This is a proxy to the [TokenFinderTool](https://github.com/lingtalfi/TokenFun/blob/master/TokenFinder/Tool/TokenFinderTool.php) method with the same name.
+See the comments of that method to know what it returns.
+
+
+
+
+
+
+
+
 getClassSignature
 -----------------
 2019-02-08
@@ -246,6 +287,40 @@ Will output:
 string(72) "class ArrayRefResolverException extends \Exception implements \Throwable"
 
 ```
+
+
+
+
+getClassStartLineByFile
+-----------
+2020-07-10
+
+
+
+```php
+int    getClassStartLineByFile ( string:file )
+```
+
+Returns the number of the line where the first class is declared in the given file.
+Note: the class must be reachable by the current autoloader(s), otherwise an exception will be thrown.
+
+
+
+
+
+getFile
+-----------
+2020-07-10
+
+
+
+```php
+str    getFile ( string:className )
+```
+
+Returns the absolute path of the file containing the given class.
+
+Note: the class must be reachable by the current autoloader(s), otherwise an exception will be thrown.
 
 
 
@@ -356,6 +431,25 @@ a(ClassTool::getMethodSignature($method)); // public static function pou(array &
 ``` 
 
 
+
+
+getReflectionClass
+-----------
+2020-07-30
+
+
+
+```php
+false|ReflectionClass   getReflectionClass ( str:className )
+```
+
+Returns the reflection class instance corresponding to the given className.
+
+False is returned if the reflection class can't be instantiated.
+
+
+
+
 getShortName
 -----------
 2017-04-23
@@ -370,6 +464,231 @@ Return the short name for the given class.
 
 For instance if the class is A\B\CCC,
 it returns CCC.
+
+
+
+getUseStatementClassByUseStatement
+-----------
+2020-07-21
+
+
+
+```php
+string    getUseStatementClassByUseStatement ( str:useStatement )
+```
+
+Extracts the class from the given useStatement and returns it.
+
+
+```php
+$useStatement = 'use Ling\Light_Logger\LightLoggerService;';
+a(ClassTool::getUseStatementClassByUseStatement($useStatement)); // Ling\Light_Logger\LightLoggerService
+
+//
+$useStatement = 'use Ling\Light_Logger\LightLoggerService as Maurice;';
+a(ClassTool::getUseStatementClassByUseStatement($useStatement)); // Ling\Light_Logger\LightLoggerService
+
+
+```
+
+
+
+
+
+
+getUseStatements
+-----------
+2020-07-09
+
+
+
+```php
+array    getUseStatements ( str:className, bool useAliasNames = false )
+```
+
+Returns the class names found in the use statements for the given class.
+
+If the useAliasNames flag is set to true, it will return aliases (when defined) instead of the class names.
+
+
+
+
+getUseStatementsInfoByFile
+-----------
+2020-07-10
+
+
+
+```php
+array    getUseStatementsInfoByFile ( str:file)
+```
+
+Returns an array of items, each of which:
+
+- 0: use statement: string, the whole use statement line as written (for instance: use Ling\Bat\ClassTool as CTool;), also including // comments if any,
+     and including the last "PHP_EOL" char
+- 1: line number: int, the number of the line at which that use statement was found
+
+
+This method assumes that each "use statement" is only defined on a single line, and that there is at most one use statement defined by line.
+
+Note: the statements are ordered by ascending line number.
+
+
+### Example
+
+Given the following class:
+
+
+```php
+
+<?php
+
+
+namespace Ling\Light_Train;
+
+
+use Ling\ClassCooker\ClassCooker as Maurice; // stop
+use Ling\Light_Logger\LightLoggerService;
+
+
+class TrainTest
+{
+
+    /**
+     * This property holds the color for this instance.
+     * @var string
+     */
+    protected $color;
+
+    protected $cooker;
+
+    /**
+     * Builds the TrainTest instance.
+     * @param string $color
+     */
+    public function __construct(string $color)
+    {
+        $this->color = $color;
+    $this->cooker = new Maurice();
+    $a = new LightLoggerService();
+
+    }
+}
+```
+
+
+The following code:
+
+```php
+$file = "/komin/jin_site_demo/universe/Ling/Light_Train/TrainTest.php";
+az(ClassTool::getUseStatementsInfoByFile($file));
+
+```
+
+Will output something like this:
+
+```html
+
+array(2) {
+  [0] => array(2) {
+    [0] => string(53) "use Ling\ClassCooker\ClassCooker as Maurice; // stop
+"
+    [1] => int(7)
+  }
+  [1] => array(2) {
+    [0] => string(42) "use Ling\Light_Logger\LightLoggerService;
+"
+    [1] => int(8)
+  }
+}
+
+```
+
+
+
+
+
+
+hasMethod
+----------
+2020-07-09
+
+```php
+bool hasMethod ( str:className, str: methodName )
+```
+
+Returns whether the given class contains the given method.
+
+Note: the class name must be in the reach of the current autoloader in order for this method to work correctly.
+
+
+
+
+
+hasMethodByFile 
+----------
+2020-07-09
+
+```php
+bool hasMethodByFile ( str:file, str: methodName )
+```
+
+Returns whether the class, contained in the given file, contains the given method.
+
+Note: the class name must be in the reach of the current autoloader in order
+for this method to work correctly.
+It is also assumed that the given class file exists, and that it contains only one class.
+
+
+
+hasProperty 
+----------
+2020-07-10
+
+```php
+bool hasProperty ( str:className, str: propertyName )
+```
+
+Returns whether the given class contains the given property.
+Note: the given class must be reachable by the current autoloader(s).
+
+
+
+hasUseStatementByFile 
+----------
+2020-07-10
+
+```php
+bool hasUseStatementByFile ( str:file, str: useStatementClass )
+```
+
+Returns whether the given class is referenced from an use statement in the given file.
+
+Note: this method ignore use statement aliases and always use the "real" class.
+
+
+Example:
+
+```php
+az(ClassTool::hasUseStatementByFile($file, "Ling\Light_Logger\LightLoggerService")); // true
+
+```
+
+
+
+
+isLoaded 
+----------
+2020-07-24
+
+```php
+bool isLoaded ( str:className )
+```
+
+Returns whether the given class is loaded (i.e. accessible via auto-loaders).
+
+
 
 
 

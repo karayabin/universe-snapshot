@@ -118,7 +118,7 @@ galaxies:
             post_install: []
         
         BabyYaml: 
-            version: 1.4.1
+            version: 1.7.3
             dependencies: 
                 Ling: 
                     - Bat
@@ -143,15 +143,17 @@ galaxies:
             post_install: []
         
         Bat: 
-            version: 1.243
+            version: 1.266
             dependencies: 
                 Ling: 
+                    - TokenFun
                     - ArrayToString
                     - BeeFramework
                     - CopyDir
                     - DirScanner
                     - BabyYaml
                     - Tiphaine
+                    - ClassCooker
                 
             
             post_install: []
@@ -293,8 +295,13 @@ galaxies:
             post_install: []
         
         ClassCooker: 
-            version: 1.7.0
-            dependencies: []
+            version: 1.13.0
+            dependencies: 
+                Ling: 
+                    - Bat
+                    - TokenFun
+                
+            
             post_install: []
         
         ClassCreator: 
@@ -919,7 +926,7 @@ galaxies:
             post_install: []
         
         Light: 
-            version: 0.65.0
+            version: 0.66.0
             dependencies: 
                 Ling: 
                     - Light_Events
@@ -996,7 +1003,7 @@ galaxies:
             
         
         Light_BreezeGenerator: 
-            version: 1.27.1
+            version: 1.28.0
             dependencies: 
                 Ling: 
                     - Bat
@@ -1178,18 +1185,21 @@ galaxies:
             
         
         Light_DeveloperWizard: 
-            version: 1.2.1
+            version: 1.14.0
             dependencies: 
                 Ling: 
                     - Bat
                     - Light
+                    - Light_PluginInstaller
                     - UniverseTools
-                    - WebWizardTools
                     - BabyYaml
+                    - ClassCooker
+                    - TokenFun
+                    - WebWizardTools
                     - SqlWizard
                     - Light_DatabaseInfo
+                    - Light_LingStandardService
                     - Light_UserDatabase
-                    - SimplePdoWrapper
                     - Light_ControllerHub
                     - Light_Kit_Admin
                     - Jquery
@@ -1532,6 +1542,22 @@ galaxies:
                 map: true
             
         
+        Light_LingStandardService: 
+            version: 1.5.0
+            dependencies: 
+                Ling: 
+                    - Light_UserDatabase
+                    - Light
+                    - Light_Logger
+                    - Light_PluginInstaller
+                    - UniverseTools
+                    - SimplePdoWrapper
+                
+            
+            post_install: 
+                map: true
+            
+        
         Light_Logger: 
             version: 1.11.1
             dependencies: 
@@ -1546,7 +1572,7 @@ galaxies:
             
         
         Light_Mailer: 
-            version: 1.0.0
+            version: 1.0.1
             dependencies: 
                 Ling: 
                     - ArrayToString
@@ -1601,7 +1627,7 @@ galaxies:
             
         
         Light_PluginInstaller: 
-            version: 1.4.0
+            version: 1.7.0
             dependencies: 
                 Ling: 
                     - ArrayToString
@@ -1687,7 +1713,7 @@ galaxies:
             
         
         Light_Realist: 
-            version: 1.34.1
+            version: 1.34.2
             dependencies: 
                 Ling: 
                     - Light
@@ -1749,6 +1775,21 @@ galaxies:
                 map: true
             
         
+        Light_TaskScheduler: 
+            version: 1.0.0
+            dependencies: 
+                Ling: 
+                    - Light
+                    - Light_Database
+                    - SimplePdoWrapper
+                    - Bat
+                    - Light_Logger
+                
+            
+            post_install: 
+                map: true
+            
+        
         Light_UploadGems: 
             version: 1.8.0
             dependencies: 
@@ -1799,7 +1840,7 @@ galaxies:
             
         
         Light_UserDatabase: 
-            version: 1.30.0
+            version: 1.31.0
             dependencies: 
                 Ling: 
                     - SimplePdoWrapper
@@ -2407,7 +2448,7 @@ galaxies:
             post_install: []
         
         SimplePdoWrapper: 
-            version: 1.28.0
+            version: 1.30.2
             dependencies: 
                 Ling: 
                     - Bat
@@ -2531,7 +2572,7 @@ galaxies:
             post_install: []
         
         TheBar: 
-            version: 1.18.0
+            version: 1.20.0
             dependencies: []
             post_install: []
         
@@ -2579,7 +2620,7 @@ galaxies:
             post_install: []
         
         TokenFun: 
-            version: 1.3.0
+            version: 1.11.2
             dependencies: 
                 Ling: 
                     - Bat
@@ -2654,7 +2695,7 @@ galaxies:
             post_install: []
         
         UniverseTools: 
-            version: 1.19.1
+            version: 1.20.1
             dependencies: 
                 Ling: 
                     - BabyYaml
@@ -2725,7 +2766,7 @@ galaxies:
             post_install: []
         
         WebWizardTools: 
-            version: 1.1.0
+            version: 1.3.0
             dependencies: 
                 Ling: 
                     - Jquery

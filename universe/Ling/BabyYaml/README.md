@@ -1,6 +1,6 @@
 BabyYaml
 ============
-2016-12-28
+2016-12-28 -> 2020-07-17
 
 
 php implementation of a babyYaml reader.
@@ -29,6 +29,9 @@ uni import Ling/BabyYaml
 
 Summary
 ============
+2016-12-28 -> 2020-07-16
+
+
 - [Is BabyYaml same as Yaml?](#is-babyyaml-same-as-yaml)
 - [How to use?](#how-to-use)
 - [BabyYaml syntax example](#babyyaml-syntax-example)
@@ -42,6 +45,8 @@ Summary
     - [Comments](#comments)
 
 - [Note](#note)
+- Pages
+    - [node-info-parser.md](https://github.com/lingtalfi/BabyYaml/blob/master/personal/mydoc/pages/node-info-parser.md)
 - [History Log](#history-log)
 
 
@@ -50,6 +55,8 @@ Summary
 
 Is BabyYaml same as Yaml?
 ===========================
+2016-12-28
+
 
 Baby yaml is not yaml: it's a subset of yaml.
 
@@ -63,6 +70,7 @@ In other words, baby yaml is easier than yaml.
 
 How to use?
 ==============
+2016-12-28
 
 There is only one class to use: BabyYamlUtil.
 
@@ -102,6 +110,9 @@ BabyYamlUtil::writeFile($array, $destFile); // writing the array to the $destFil
 
 BabyYaml syntax example
 ==============================
+2016-12-28
+
+
 The following babyYaml code:
 
 ```yaml
@@ -242,6 +253,8 @@ As you can see here..."
 
 So what is the BabyYaml syntax?
 =================================
+2016-12-28
+
 
 I swear to god I knew you would ask that question.
 
@@ -296,6 +309,7 @@ $defs = [
 
 Keys
 --------
+2016-12-28
 
 
 Using dashes is useful to add values to the array.
@@ -347,6 +361,8 @@ Note: you can quote a key using the double quotes or the single quotes.
 
 Nesting arrays
 -----------------
+2016-12-28
+
 
 To create an array inside another, instead of typing the value,
 type a newline and indent it with 4 spaces.
@@ -388,6 +404,9 @@ $defs = [
 
 Values
 ----------------
+2016-12-28
+
+
 
 You can use spaces in the values, don't need to escape.
 
@@ -433,13 +452,15 @@ $defs = [
 
 Special Values and types
 -----------------
+2016-12-28 -> 2020-07-17
+
+
 
 Here are the special values and types used by babyYaml.
 
 
 ```yaml
 doo: null
-but:
 true: true
 false: false
 int: 64
@@ -454,7 +475,6 @@ float: 6.4
 
 $defs = [
     'doo' => null,
-    'but' => '',
     'true' => true,
     'false' => false,
     'int' => 64,
@@ -463,9 +483,42 @@ $defs = [
 ```
 
 
+Don't use the empty value like below, with the **mo** key):
+
+```yaml
+mo: 
+mo2: some value
+```
+
+Although technically it might return an empty string, always use an explicit empty string
+instead, like this:
+
+
+```yaml
+mo: "" 
+mo2: some value
+```
+
+That's because the empty syntax is not fully supported by all the BabyYaml tools, namely
+if you try to write a file back, a comment attached to an empty value is currently ignored (i.e. you will loose it).
+
+Plus, semantically, it's confusing to have an empty value, so I have no plan to make it work, instead the
+empty value is not a feature, it's an accidental side effect, and you should never use it.
+
+ 
+
+
+
+
+
+
+
+
 
 Sequences and mappings
 ------------------------
+2016-12-28
+
 
 You can also write arrays inline (on one line).
 
@@ -525,6 +578,8 @@ $defs = [
 
 Multiline
 -------------
+2016-12-28
+
 
 BabyYaml has its own multiline system.
 You start the value with the opening angular bracket, and start 
@@ -536,8 +591,8 @@ When you are done, go to the next line and close the angular bracket.
 ```yaml
 doo: null
 roo: <
-this is a multiline
-this is a multiline
+    this is a multiline
+    this is a multiline
 >
 joo: eee
 
@@ -565,13 +620,14 @@ $defs = [
 
 Comments
 --------------
+2016-12-28 -> 2020-07-16
+
 
 Comments start with the hash symbol (#).
 
 Comments can be written on their own line, or at the end of a value.
 
-If a comment is written at the end of a value, the hash symbol (#) must be preceded by a space. 
- 
+If a comment is written at the end of a value, the hash symbol (#) must be preceded by a space.  
  
 This yaml file:
 
@@ -584,7 +640,7 @@ true: true
 false: "ji # not a comment"
 dup: ji # is a comment
 arr: [soo] # this is a comment
-glued: this is#not a comment
+glued: this is#not a comment, because no space preceding the hash symbol
 
 
 ```
@@ -611,11 +667,16 @@ $defs = [
 
 
 
+
+
+
 Note
 ============
+2016-12-28
+
 
 It's an old implementation "stolen/quickly adapted" from my older framework [bee](https://github.com/lingtalfi/bee/tree/master/bee/modules/Bee/Notation/File/BabyYaml).
-The implementation is messy and without documentation, but it works.
+The implementation is messy and without too much documentation, but it works.
 
 
 
@@ -626,6 +687,28 @@ The implementation is messy and without documentation, but it works.
 
 History Log
 ===============
+   
+    
+- 1.7.3 -- 2020-07-17
+
+    - add comments option to BabyYamlUtil::writeFile, fix some bugs (test commit)
+    
+- 1.6.1 -- 2020-07-17
+
+    - fake commit to test uni2 potential problem when uploading BabyYaml
+    
+- 1.6.0 -- 2020-07-17
+
+    - add nodeInfo map system
+    
+- 1.5.1 -- 2020-07-16
+
+    - fix doc links  
+    
+- 1.5.0 -- 2020-07-16
+
+    - fix comment symbol not working properly when placed after multiline comment opening/closing symbols  
+    - add tools for comments  
     
 - 1.4.1 -- 2019-11-20
 

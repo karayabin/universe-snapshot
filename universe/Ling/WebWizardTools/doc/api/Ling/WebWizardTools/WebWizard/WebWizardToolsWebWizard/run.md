@@ -7,7 +7,7 @@ WebWizardToolsWebWizard::run
 
 
 
-WebWizardToolsWebWizard::run — Returns the currently executed process if any, or null otherwise.
+WebWizardToolsWebWizard::run — Prepares all processes, and executes the called one if any.
 
 
 
@@ -16,12 +16,12 @@ Description
 ================
 
 
-public [WebWizardToolsWebWizard::run](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/WebWizard/WebWizardToolsWebWizard/run.md)() : [WebWizardToolsProcess](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/Process/WebWizardToolsProcess.md) | null
+public [WebWizardToolsWebWizard::run](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/WebWizard/WebWizardToolsWebWizard/run.md)() : void
 
 
 
 
-Returns the currently executed process if any, or null otherwise.
+Prepares all processes, and executes the called one if any.
 
 
 
@@ -35,7 +35,7 @@ This method has no parameters.
 Return values
 ================
 
-Returns [WebWizardToolsProcess](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/Process/WebWizardToolsProcess.md) | null.
+Returns void.
 
 
 
@@ -46,7 +46,7 @@ Returns [WebWizardToolsProcess](https://github.com/lingtalfi/WebWizardTools/blob
 
 Source Code
 ===========
-See the source code for method [WebWizardToolsWebWizard::run](https://github.com/lingtalfi/WebWizardTools/blob/master/WebWizard/WebWizardToolsWebWizard.php#L128-L146)
+See the source code for method [WebWizardToolsWebWizard::run](https://github.com/lingtalfi/WebWizardTools/blob/master/WebWizard/WebWizardToolsWebWizard.php#L135-L168)
 
 
 See Also
@@ -54,5 +54,5 @@ See Also
 
 The [WebWizardToolsWebWizard](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/WebWizard/WebWizardToolsWebWizard.md) class.
 
-Previous method: [render](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/WebWizard/WebWizardToolsWebWizard/render.md)<br>Next method: [getProcesses](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/WebWizard/WebWizardToolsWebWizard/getProcesses.md)<br>
+Previous method: [render](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/WebWizard/WebWizardToolsWebWizard/render.md)<br>Next method: [getExecutedProcess](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/WebWizard/WebWizardToolsWebWizard/getExecutedProcess.md)<br>
 

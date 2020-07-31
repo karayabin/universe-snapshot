@@ -7,18 +7,24 @@ namespace Ling\TokenFun\TokenArrayIterator;
 use Ling\TokenFun\Tool\TokenTool;
 
 
-
 /**
- * TokenArrayIterator
- * @author Lingtalfi
- * 2016-01-02
+ * The TokenArrayIterator class.
  *
  */
 class TokenArrayIterator implements TokenArrayIteratorInterface
 {
 
+    /**
+     * This property holds the array for this instance.
+     * @var array
+     */
     protected $array;
 
+
+    /**
+     * Builds the TokenArrayIterator instance.
+     * @param array $array
+     */
     public function __construct(array $array)
     {
         $this->array = $array;
@@ -31,8 +37,7 @@ class TokenArrayIterator implements TokenArrayIteratorInterface
     // IMPLEMENTS TokenArrayIteratorInterface
     //------------------------------------------------------------------------------/
     /**
-     * @return mixed|false, the current array key,
-     *                  false is returned if the internal pointer is beyond the inner array.
+     * @implementation
      */
     public function key()
     {
@@ -43,8 +48,7 @@ class TokenArrayIterator implements TokenArrayIteratorInterface
     }
 
     /**
-     * @return mixed|false, the current array value,
-     *                  false is returned if the internal pointer is beyond the inner array.
+     * @implementation
      */
     public function current()
     {
@@ -52,8 +56,7 @@ class TokenArrayIterator implements TokenArrayIteratorInterface
     }
 
     /**
-     * @return bool, moves the internal array pointer forward one place.
-     *                  Returns true, or false if there is no more element after the current pointer.
+     * @implementation
      */
     public function next()
     {
@@ -64,8 +67,7 @@ class TokenArrayIterator implements TokenArrayIteratorInterface
     }
 
     /**
-     * @return bool, moves the internal array pointer backward one place.
-     *                  Returns true, or false if there is no more element before the current pointer.
+     * @implementation
      */
     public function prev()
     {
@@ -76,6 +78,9 @@ class TokenArrayIterator implements TokenArrayIteratorInterface
     }
 
 
+    /**
+     * @implementation
+     */
     public function valid()
     {
         return (null !== key($this->array));
@@ -83,10 +88,7 @@ class TokenArrayIterator implements TokenArrayIteratorInterface
 
 
     /**
-     * Seek to index.
-     * If index is not found, does not move the cursor, and returns false.
-     *
-     * @return bool, whether or not the method has succeeded in positioning the cursor at the given index.
+     * @implementation
      */
     public function seek($index)
     {
@@ -101,8 +103,9 @@ class TokenArrayIterator implements TokenArrayIteratorInterface
         return false;
     }
 
+
     /**
-     * @return array, the inner array.
+     * @implementation
      */
     public function getArray()
     {
@@ -114,12 +117,21 @@ class TokenArrayIterator implements TokenArrayIteratorInterface
     //------------------------------------------------------------------------------/
     // 
     //------------------------------------------------------------------------------/
+    /**
+     * Displays the token explicit names of the tokens parsed by this iterator.
+     *
+     * If the fromCurrent flag is set to false, all tokens will be dumped,
+     * otherwise if it's set to true, only the tokens from the current position to the end
+     * will be dumped.
+     *
+     *
+     * @param bool $fromCurrent
+     */
     public function dump($fromCurrent = false)
     {
         if (false === $fromCurrent) {
             var_dump(TokenTool::explicitTokenNames($this->getArray()));
-        }
-        else {
+        } else {
             $debug = $this->getArray();
             $key = $this->key();
             if (false !== $key) {

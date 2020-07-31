@@ -46,7 +46,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [WebWizardToolsProcess::getCategory](https://github.com/lingtalfi/WebWizardTools/blob/master/Process/WebWizardToolsProcess.php#L277-L280)
+See the source code for method [WebWizardToolsProcess::getCategory](https://github.com/lingtalfi/WebWizardTools/blob/master/Process/WebWizardToolsProcess.php#L289-L292)
 
 
 See Also

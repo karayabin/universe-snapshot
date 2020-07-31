@@ -178,7 +178,7 @@ class BaseRealistRowsRenderer implements RealistRowsRendererInterface, LightServ
                 if (false === in_array($col, $this->hiddenColumns, true)) {
                     $type = $this->types[$col] ?? ["text", []];
                     $s .= '<td>';
-                    $s .= $this->renderColumnContent($val, $type[0], $type[1], $row);
+                    $s .= $this->renderColumnContent((string)$val, $type[0], $type[1], $row);
                     $s .= '</td>';
                 }
             }

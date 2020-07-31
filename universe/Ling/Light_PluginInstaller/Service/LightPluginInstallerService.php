@@ -44,8 +44,8 @@ class LightPluginInstallerService
     protected $container;
 
     /**
-     * Whether the uninstall method throws exceptions (true) or silently ignore them (false=default).
-     * @var bool = false
+     * Whether the uninstall method throws exceptions (true) or silently ignore them (false).
+     * @var bool = true
      */
     protected $uninstallStrictMode;
 
@@ -114,7 +114,7 @@ class LightPluginInstallerService
         $this->rootDir = "/tmp";
         $this->container = null;
         $this->mysqlInfoUtil = null;
-        $this->uninstallStrictMode = false;
+        $this->uninstallStrictMode = true;
         $this->pluginExtensions = [];
         $this->options = [];
         $this->postInstallers = [];
@@ -130,6 +130,20 @@ class LightPluginInstallerService
     public function setOptions(array $options)
     {
         $this->options = $options;
+    }
+
+
+    /**
+     * Returns the value of the option which name was given, or the given defaultValue otherwise (if the option was not found).
+     *
+     *
+     * @param string $key
+     * @param null $defaultValue
+     * @return mixed
+     */
+    public function getOption(string $key, $defaultValue = null)
+    {
+        return $this->options[$key] ?? $defaultValue;
     }
 
 
@@ -213,6 +227,35 @@ class LightPluginInstallerService
         $this->pluginExtensions[] = $extension;
     }
 
+
+    /**
+     * Returns whether the given plugin has a cache entry.
+     *
+     * Note: if so, this means that our service considers that this plugin is installed.
+     *
+     *
+     *
+     * @param string $pluginName
+     * @return bool
+     */
+    public function pluginHasCacheEntry(string $pluginName): bool
+    {
+        $f = $this->getPluginInstallFile($pluginName);
+        return file_exists($f);
+    }
+
+
+    /**
+     * Removes the cache entry, if any, for the given plugin.
+     *
+     *
+     * @param string $pluginName
+     */
+    public function removeCacheEntry(string $pluginName)
+    {
+        $f = $this->getPluginInstallFile($pluginName);
+        unlink($f);
+    }
 
     /**
      * Returns whether the service is currently in the middle of core installing plugins.

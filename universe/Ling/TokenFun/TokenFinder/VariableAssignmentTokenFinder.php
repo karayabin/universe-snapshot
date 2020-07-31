@@ -3,13 +3,11 @@
 namespace Ling\TokenFun\TokenFinder;
 
 use Ling\TokenFun\TokenArrayIterator\TokenArrayIterator;
-use Ling\TokenFun\Tool\TokenTool;
 use Ling\TokenFun\TokenArrayIterator\Tool\TokenArrayIteratorTool;
+use Ling\TokenFun\Tool\TokenTool;
 
 /**
- * VariableAssignmentTokenFinder
- * @author Lingtalfi
- * 2016-01-02
+ * The VariableAssignmentTokenFinder class.
  *
  * If finds a variable assignment, like for instance:
  *
@@ -86,7 +84,7 @@ use Ling\TokenFun\TokenArrayIterator\Tool\TokenArrayIteratorTool;
  * Variables inside for loops conditions are skipped by default.
  * Set the skipForLoopCondition flag to false (true by default) to override this behaviour.
  *
- *          for( $i=0; $i <= 10; $i++ ){ 
+ *          for( $i=0; $i <= 10; $i++ ){
  *              // do something
  *          }
  *
@@ -103,17 +101,17 @@ use Ling\TokenFun\TokenArrayIterator\Tool\TokenArrayIteratorTool;
  *                  $o = 6;
  *              }
  *
- *              switch ($o){ 
+ *              switch ($o){
  *                  case "pou":
  *                      $p = 9;
  *                  break;
  *              }
  *
- *              foreach($doom as $do){ 
+ *              foreach($doom as $do){
  *                  $p = 8;
  *              }
  *
- *              for($i=0; $i<=10; $i++){ 
+ *              for($i=0; $i<=10; $i++){
  *                  $p = 8;
  *              }
  *
@@ -144,15 +142,49 @@ class VariableAssignmentTokenFinder extends RecursiveTokenFinder
 {
 
 
+    /**
+     * This property holds the skipClass for this instance.
+     * @var bool
+     */
     protected $skipClass;
+
+    /**
+     * This property holds the skipFunction for this instance.
+     * @var bool
+     */
     protected $skipFunction;
+
+    /**
+     * This property holds the skipForLoopCondition for this instance.
+     * @var bool
+     */
     protected $skipForLoopCondition;
+
+    /**
+     * This property holds the skipControlStructure for this instance.
+     * @var bool
+     */
     protected $skipControlStructure;
+
+    /**
+     * This property holds the allowArrayAffectation for this instance.
+     * @var bool
+     */
     protected $allowArrayAffectation;
+
+    /**
+     * This property holds the allowDynamic for this instance.
+     * @var bool
+     */
     protected $allowDynamic;
 
+
+    /**
+     * Builds the VariableAssignmentTokenFinder instance.
+     */
     public function __construct()
     {
+        parent::__construct();
         $this->skipClass = true;
         $this->skipFunction = true;
         $this->skipForLoopCondition = true;
@@ -163,13 +195,7 @@ class VariableAssignmentTokenFinder extends RecursiveTokenFinder
 
 
     /**
-     * @return array of match
-     *                  every match is an array with the following entries:
-     *                          0: int startIndex
-     *                                      the index at which the pattern starts
-     *                          1: int endIndex
-     *                                      the index at which the pattern ends
-     *
+     * @implementation
      */
     public function find(array $tokens)
     {
@@ -195,8 +221,7 @@ class VariableAssignmentTokenFinder extends RecursiveTokenFinder
                             $parseStart = $start;
                             $start = $tai->key();
                             $tai->seek($parseStart);
-                        }
-                        else {
+                        } else {
                             $tai->next();
                         }
                     }
@@ -215,8 +240,7 @@ class VariableAssignmentTokenFinder extends RecursiveTokenFinder
                             $tai->prev();
                         }
                     }
-                }
-                else {
+                } else {
                     if (true === $this->skipControlStructure) {
                         if (true === TokenTool::match('{', $tai->current())) {
                             TokenArrayIteratorTool::moveToCorrespondingEnd($tai);
@@ -238,8 +262,7 @@ class VariableAssignmentTokenFinder extends RecursiveTokenFinder
                         }
                     }
                 }
-            }
-            else {
+            } else {
 
                 $found = false;
                 TokenArrayIteratorTool::skipWhiteSpaces($tai);
@@ -251,14 +274,13 @@ class VariableAssignmentTokenFinder extends RecursiveTokenFinder
                             TokenArrayIteratorTool::skipWhiteSpaces($tai);
                             if (TokenTool::match(['(', '[', '{'], $tai->current())) {
                                 TokenArrayIteratorTool::moveToCorrespondingEnd($tai);
-                            }
-                            /**
+                            } /**
                              *
                              * A closing brace means probably that we are not on the right way.
                              * Look at the following example that would otherwise match if we
                              * did not add the following condition:
                              *
-                             * while (false !== $n = getMax()) { 
+                             * while (false !== $n = getMax()) {
                              *
                              * }
                              * echo "pou";  // the semi-column on this line would be used
@@ -267,8 +289,7 @@ class VariableAssignmentTokenFinder extends RecursiveTokenFinder
                                 break;
                             }
 
-                        }
-                        else {
+                        } else {
                             break;
                         }
                         $tai->next();
@@ -292,67 +313,122 @@ class VariableAssignmentTokenFinder extends RecursiveTokenFinder
         return $ret;
     }
 
-    //------------------------------------------------------------------------------/
-    // 
-    //------------------------------------------------------------------------------/
-
-
-    public function isSkipClass()
+    /**
+     * Returns the skipClass of this instance.
+     *
+     * @return bool
+     */
+    public function isSkipClass(): bool
     {
         return $this->skipClass;
     }
 
-    public function setSkipClass($skipClass)
+    /**
+     * Sets the skipClass.
+     *
+     * @param bool $skipClass
+     */
+    public function setSkipClass(bool $skipClass)
     {
         $this->skipClass = $skipClass;
     }
 
-    public function isSkipFunction()
+    /**
+     * Returns the skipFunction of this instance.
+     *
+     * @return bool
+     */
+    public function isSkipFunction(): bool
     {
         return $this->skipFunction;
     }
 
-    public function setSkipFunction($skipFunction)
+    /**
+     * Sets the skipFunction.
+     *
+     * @param bool $skipFunction
+     */
+    public function setSkipFunction(bool $skipFunction)
     {
         $this->skipFunction = $skipFunction;
     }
 
-    public function isSkipForLoopCondition()
+    /**
+     * Returns the skipForLoopCondition of this instance.
+     *
+     * @return bool
+     */
+    public function isSkipForLoopCondition(): bool
     {
         return $this->skipForLoopCondition;
     }
 
-    public function setSkipForLoopCondition($skipForLoopCondition)
+    /**
+     * Sets the skipForLoopCondition.
+     *
+     * @param bool $skipForLoopCondition
+     */
+    public function setSkipForLoopCondition(bool $skipForLoopCondition)
     {
         $this->skipForLoopCondition = $skipForLoopCondition;
     }
 
-    public function isSkipControlStructure()
+    /**
+     * Returns the skipControlStructure of this instance.
+     *
+     * @return bool
+     */
+    public function isSkipControlStructure(): bool
     {
         return $this->skipControlStructure;
     }
 
-    public function setSkipControlStructure($skipControlStructure)
+    /**
+     * Sets the skipControlStructure.
+     *
+     * @param bool $skipControlStructure
+     */
+    public function setSkipControlStructure(bool $skipControlStructure)
     {
         $this->skipControlStructure = $skipControlStructure;
     }
 
-    public function isAllowArrayAffectation()
+    /**
+     * Returns the allowArrayAffectation of this instance.
+     *
+     * @return bool
+     */
+    public function isAllowArrayAffectation(): bool
     {
         return $this->allowArrayAffectation;
     }
 
-    public function setAllowArrayAffectation($allowArrayAffectation)
+    /**
+     * Sets the allowArrayAffectation.
+     *
+     * @param bool $allowArrayAffectation
+     */
+    public function setAllowArrayAffectation(bool $allowArrayAffectation)
     {
         $this->allowArrayAffectation = $allowArrayAffectation;
     }
 
-    public function isAllowDynamic()
+    /**
+     * Returns the allowDynamic of this instance.
+     *
+     * @return bool
+     */
+    public function isAllowDynamic(): bool
     {
         return $this->allowDynamic;
     }
 
-    public function setAllowDynamic($allowDynamic)
+    /**
+     * Sets the allowDynamic.
+     *
+     * @param bool $allowDynamic
+     */
+    public function setAllowDynamic(bool $allowDynamic)
     {
         $this->allowDynamic = $allowDynamic;
     }

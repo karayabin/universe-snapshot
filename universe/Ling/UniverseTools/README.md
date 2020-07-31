@@ -1,6 +1,6 @@
 UniverseTools
 ===========
-2019-02-08 -> 2020-06-25
+2019-02-08 -> 2020-07-09
 
 
 
@@ -26,6 +26,7 @@ Or just download it and place it where you want otherwise.
 Summary
 =======
 - [UniverseTools api](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools.md) (generated with [DocTools](https://github.com/lingtalfi/DocTools))
+- [Nomenclature](https://github.com/lingtalfi/UniverseTools/blob/master/doc/pages/nomenclature.md) 
 
 
 
@@ -36,6 +37,14 @@ Summary
 History Log
 ==============
 
+- 1.20.1 -- 2020-07-09
+
+    - fix typo
+    
+- 1.20.0 -- 2020-07-09
+
+    - add PlanetTool::getTightPlanetName method
+    
 - 1.19.1 -- 2020-06-05
 
     - fix DependencyTool::parseDumpDependencies trying to instantiate class with not existing parent

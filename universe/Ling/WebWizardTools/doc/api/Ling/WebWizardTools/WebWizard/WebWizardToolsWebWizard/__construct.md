@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [WebWizardToolsWebWizard::__construct](https://github.com/lingtalfi/WebWizardTools/blob/master/WebWizard/WebWizardToolsWebWizard.php#L84-L96)
+See the source code for method [WebWizardToolsWebWizard::__construct](https://github.com/lingtalfi/WebWizardTools/blob/master/WebWizard/WebWizardToolsWebWizard.php#L91-L104)
 
 
 See Also

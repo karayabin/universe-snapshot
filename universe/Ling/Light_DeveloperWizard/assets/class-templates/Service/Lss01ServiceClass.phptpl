@@ -1,0 +1,50 @@
+<?php
+
+
+namespace Ling\Light_XXX\Service;
+
+
+use Ling\Light_LingStandardService\Service\LightLingStandardService01;
+use Ling\Light_XXX\Api\Custom\CustomLightXXXApiFactory;
+
+/**
+ * The LightXXXService class.
+ */
+class LightXXXService extends LightLingStandardService01
+{
+
+
+    /**
+     * This property holds the factory for this instance.
+     * @var CustomLightXXXApiFactory
+     */
+    protected $factory;
+
+
+    /**
+     * Builds the LightXXXService instance.
+     */
+    public function __construct()
+    {
+        parent::__construct();
+        $this->factory = null;
+    }
+
+
+
+
+    /**
+     * Returns the factory for this plugin's api.
+     *
+     * @return CustomLightXXXApiFactory
+     */
+    public function getFactory(): CustomLightXXXApiFactory
+    {
+        if (null === $this->factory) {
+            $this->factory = new CustomLightXXXApiFactory();
+            $this->factory->setContainer($this->container);
+            $this->factory->setPdoWrapper($this->container->get("database"));
+        }
+        return $this->factory;
+    }
+}

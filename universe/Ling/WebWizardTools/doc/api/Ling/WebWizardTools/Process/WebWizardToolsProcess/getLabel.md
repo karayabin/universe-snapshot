@@ -46,7 +46,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [WebWizardToolsProcess::getLabel](https://github.com/lingtalfi/WebWizardTools/blob/master/Process/WebWizardToolsProcess.php#L176-L179)
+See the source code for method [WebWizardToolsProcess::getLabel](https://github.com/lingtalfi/WebWizardTools/blob/master/Process/WebWizardToolsProcess.php#L188-L191)
 
 
 See Also

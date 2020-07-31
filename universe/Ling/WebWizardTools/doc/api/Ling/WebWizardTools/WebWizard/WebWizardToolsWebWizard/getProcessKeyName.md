@@ -46,7 +46,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [WebWizardToolsWebWizard::getProcessKeyName](https://github.com/lingtalfi/WebWizardTools/blob/master/WebWizard/WebWizardToolsWebWizard.php#L276-L279)
+See the source code for method [WebWizardToolsWebWizard::getProcessKeyName](https://github.com/lingtalfi/WebWizardTools/blob/master/WebWizard/WebWizardToolsWebWizard.php#L310-L313)
 
 
 See Also

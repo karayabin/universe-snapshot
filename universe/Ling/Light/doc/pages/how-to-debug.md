@@ -1,6 +1,6 @@
 How to debug?
 ===========
-2020-06-19 -> 2020-07-06
+2020-06-19 -> 2020-07-07
 
 
 
@@ -17,7 +17,7 @@ First of all, use my aliases (or equivalent):
 
 ```bash
 alias logg='tail -f -n 100 "/komin/jin_site_demo/log/light_log.log"'
-alias logdd='open "/komin/jin_site_demo/log"'
+alias logopen='open "/komin/jin_site_demo/log"'
 alias ldd='open "/komin/jin_site_demo/log/Light_DebugTrace/light_debugtrace.txt"'
 alias lddd='open "/komin/jin_site_demo/log/Light_DebugTrace/all"'
 alias logex='tail -f -n 100 "/komin/jin_site_demo/log/exception.txt"'

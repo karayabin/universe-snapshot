@@ -45,6 +45,9 @@ class LightDeveloperWizardWebWizard extends WebWizardToolsDefaultWebWizard
     }
 
 
+    /**
+     * @overrides
+     */
     public function setProcess(WebWizardToolsProcess $process): WebWizardToolsWebWizard
     {
         if ($process instanceof LightServiceContainerAwareInterface) {

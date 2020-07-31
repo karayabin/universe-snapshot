@@ -1,0 +1,8 @@
+
+
+    /**
+     * This property holds the factory for this instance.
+     * @var CustomLightTaskSchedulerApiFactory
+     */
+    protected $factory;
+

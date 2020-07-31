@@ -191,7 +191,7 @@ It's common to route the trace, info, error and important messages altogether to
 
 Processes in practice
 -----------
-2020-07-06
+2020-07-06 -> 2020-07-09
 
 
 In practice, a process is set up in three steps.
@@ -205,6 +205,11 @@ In practice, a process is set up in three steps.
 The **execute** method of the wizard will execute the chosen action,
 while the **render** method will take care of displaying both the invite and the report,
 depending on whether a process has been executed.
+
+
+
+Each process has also a **prepare** method, which is used to create the controls (if any), and/or to change the label of the process dynamically.
+
 
 
 
@@ -244,6 +249,26 @@ Category
 
 
 A category helps organize processes in groups at the gui level.
+
+
+
+
+The default synopsis
+--------
+2020-07-09
+
+
+Usually, a client using our wizard tools will implement something like this (pseudo code):
+
+
+- instantiate the webwizard
+- add the processes (webwizard->setProcess)
+- set the context if necessary (webwizard->setContext)
+- run the processes (webwizard->run)
+- display the gui (webwizard->render)
+
+
+
 
 
 

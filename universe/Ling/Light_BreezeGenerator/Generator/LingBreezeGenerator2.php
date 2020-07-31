@@ -452,6 +452,7 @@ class LingBreezeGenerator2 implements BreezeGeneratorInterface, LightServiceCont
         //--------------------------------------------
         // HEADER METHODS
         //--------------------------------------------
+        $content = str_replace('// fetchFetchAllXXX', $this->getRicMethod("fetchFetchAllYYY", $variables), $content);
         $content = str_replace('// getXXX', $this->getRicMethod("getUserById", $variables), $content);
         $content = str_replace('// getTheItems', $this->getItemsMethod($variables), $content);
         $content = str_replace('// getThe_ItemsColumn', $this->getItemsMethod($variables, 'getUserItemsColumn'), $content);
@@ -562,8 +563,12 @@ class LingBreezeGenerator2 implements BreezeGeneratorInterface, LightServiceCont
         $content = str_replace('The\ObjectNamespace', $namespace, $content);
         $content = str_replace('UserObjectInterface', $objectClassName, $content);
 
-        $content = str_replace('// insertXXX', $this->getInterfaceMethod('insertXXX', $variables), $content);
         $content = str_replace('// multipleInsertXXX', $this->getInterfaceMethod('multipleInsertXXX', $variables), $content);
+
+        $content = str_replace('// fetchFetchAllXXX', $this->getInterfaceMethod('fetchFetchAllXXX', $variables), $content);
+
+        $content = str_replace('// insertXXX', $this->getInterfaceMethod('insertXXX', $variables), $content);
+
         $content = str_replace('// getXXX', $this->getInterfaceMethod('getXXXById', $variables), $content);
 
         $content = str_replace('// getTheItems', $this->getItemsInterfaceMethod($variables), $content);
@@ -857,6 +862,7 @@ class LingBreezeGenerator2 implements BreezeGeneratorInterface, LightServiceCont
         $baseClassName = $variables['baseClassName'];
         $content = str_replace('The\ObjectNamespace', $namespace, $content);
         $content = str_replace('BaseLightUserDatabaseApi', $baseClassName, $content);
+
 
 
         return $content;
@@ -1817,7 +1823,13 @@ class LingBreezeGenerator2 implements BreezeGeneratorInterface, LightServiceCont
         /**
          *
          */
-        $content = str_replace('user', $variableName, $content);
+        if ('multipleInsertXXX' === $methodName) {
+            $content = str_replace('zertopy', $variableName, $content);
+        } else {
+            $content = str_replace('user', $variableName, $content);
+        }
+
+
         $content = str_replace('insertXXX', 'insert' . $className, $content);
         $content = str_replace('by the given id', $ricVariables['byTheGivenString'], $content);
         $content = str_replace('* @param int $id', $ricVariables['paramDeclarationString'], $content);
@@ -1974,12 +1986,12 @@ class LingBreezeGenerator2 implements BreezeGeneratorInterface, LightServiceCont
     {
         $tpl = __DIR__ . "/../assets/classModel/Ling/template/partials/multipleInsertUser.tpl.txt";
         $content = file_get_contents($tpl);
-        $content=  str_replace([
+        $content = str_replace([
             'insertPermissions',
             '$permissions',
             '$xxx',
             '$this->insertPermission',
-        ],[
+        ], [
             'insert' . $variables['classNamePlural'],
             '$' . $variables['variableNamePlural'],
             '$' . $variables['variableName'],

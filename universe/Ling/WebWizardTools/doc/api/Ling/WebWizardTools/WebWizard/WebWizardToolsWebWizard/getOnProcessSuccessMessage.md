@@ -46,7 +46,7 @@ Returns string | null.
 
 Source Code
 ===========
-See the source code for method [WebWizardToolsWebWizard::getOnProcessSuccessMessage](https://github.com/lingtalfi/WebWizardTools/blob/master/WebWizard/WebWizardToolsWebWizard.php#L306-L309)
+See the source code for method [WebWizardToolsWebWizard::getOnProcessSuccessMessage](https://github.com/lingtalfi/WebWizardTools/blob/master/WebWizard/WebWizardToolsWebWizard.php#L340-L343)
 
 
 See Also

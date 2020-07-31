@@ -1,0 +1,12 @@
+dependencies: 
+    Ling: 
+        - Light_UserDatabase
+        - Light
+        - Light_Logger
+        - Light_PluginInstaller
+        - UniverseTools
+        - SimplePdoWrapper
+    
+
+post_install: 
+    map: true

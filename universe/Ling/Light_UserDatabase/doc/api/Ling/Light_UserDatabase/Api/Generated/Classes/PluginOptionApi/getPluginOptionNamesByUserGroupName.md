@@ -49,7 +49,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [PluginOptionApi::getPluginOptionNamesByUserGroupName](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Classes/PluginOptionApi.php#L255-L265)
+See the source code for method [PluginOptionApi::getPluginOptionNamesByUserGroupName](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Classes/PluginOptionApi.php#L285-L295)
 
 
 See Also

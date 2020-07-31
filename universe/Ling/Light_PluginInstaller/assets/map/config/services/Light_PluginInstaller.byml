@@ -7,7 +7,7 @@ plugin_installer:
             dir: ${app_dir}/config/data/Light_PluginInstaller
         setOptions:
             options:
-                useDebug: true      # default is false
+                useDebug: false      # default is false
                 useCache: true     # default is true
 
 

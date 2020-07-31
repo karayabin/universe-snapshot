@@ -46,7 +46,7 @@ Returns [WebWizardToolsProcess](https://github.com/lingtalfi/WebWizardTools/blob
 
 Source Code
 ===========
-See the source code for method [WebWizardToolsWebWizard::getProcesses](https://github.com/lingtalfi/WebWizardTools/blob/master/WebWizard/WebWizardToolsWebWizard.php#L154-L163)
+See the source code for method [WebWizardToolsWebWizard::getProcesses](https://github.com/lingtalfi/WebWizardTools/blob/master/WebWizard/WebWizardToolsWebWizard.php#L187-L196)
 
 
 See Also
@@ -54,5 +54,5 @@ See Also
 
 The [WebWizardToolsWebWizard](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/WebWizard/WebWizardToolsWebWizard.md) class.
 
-Previous method: [run](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/WebWizard/WebWizardToolsWebWizard/run.md)<br>Next method: [setTriggerExtraParams](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/WebWizard/WebWizardToolsWebWizard/setTriggerExtraParams.md)<br>
+Previous method: [getExecutedProcess](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/WebWizard/WebWizardToolsWebWizard/getExecutedProcess.md)<br>Next method: [setTriggerExtraParams](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/WebWizard/WebWizardToolsWebWizard/setTriggerExtraParams.md)<br>
 

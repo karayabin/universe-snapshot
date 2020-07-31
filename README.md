@@ -1,6 +1,6 @@
 Universe
 ==============
-2015-10-14 --> 2020-07-09
+2015-10-14 --> 2020-07-31
 
 
 
@@ -24,7 +24,7 @@ See the [list of all the planets here](https://github.com/karayabin/universe-sna
 
 Summary
 -------
-2015-10-14
+2015-10-14 -> 2020-07-31
 
 
 - [How to install?](#how-to-install)
@@ -32,7 +32,7 @@ Summary
 - [Big bang: the beginning of the universe](#big-bang-the-beginning-of-the-universe)
     - [The class directory](#the-class-directory)
     - [The a and az functions](#the-a-and-az-functions)
-- [The planet identifier](#theplanetidentifier)
+- [The planet identifier](#the-planet-identifier)
 - [Uni tool: a manager to install planets](#uni-tool-a-manager-to-install-planets)
 - [Related](#related)
 

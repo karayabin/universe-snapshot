@@ -49,7 +49,7 @@ Returns [WebWizardToolsWebWizard](https://github.com/lingtalfi/WebWizardTools/bl
 
 Source Code
 ===========
-See the source code for method [WebWizardToolsWebWizard::setProcess](https://github.com/lingtalfi/WebWizardTools/blob/master/WebWizard/WebWizardToolsWebWizard.php#L234-L238)
+See the source code for method [WebWizardToolsWebWizard::setProcess](https://github.com/lingtalfi/WebWizardTools/blob/master/WebWizard/WebWizardToolsWebWizard.php#L267-L271)
 
 
 See Also

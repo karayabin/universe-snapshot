@@ -1,9 +1,9 @@
 ClassCooker
 ===========
-2017-04-11
+2017-04-11 -> 2020-07-30
 
 
-A tool to add/remove/update methods in a class.
+A tool to cook your class: add/remove methods, properties, stuff like that.
 
 
 This is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
@@ -21,63 +21,29 @@ Or just download it and place it where you want otherwise.
 
 
 
-Features
-============
 
-The following tools are available:
-
-- getMethodsBoundaries ( ?signatureTags )
-    - access the boundaries (i.e. startLine/endLine of a method) of all methods
-- getMethodBoundariesByName ( name )
-    - access the boundaries (i.e. startLine/endLine of a method) of a given method
-- removeMethod ( methodName )
-    - remove the method from the class file
-- getMethodContent ( methodName )
-    - get the content of a method, including the signature and wrapping curly brackets 
-- addMethod ( methodName, content )
-    - add a method, if it doesn't exist, to an existing class file 
-- updateMethodContent ( methodName, fn updator )
-    - update the inner content of a method, using a callable updator function
-- getMethods ( ?signatureTags )
-    - returns the list of methods, with an optional filter (filter on method's visibility and static property)
+Summary
+===========
+- [ClassCooker api](https://github.com/lingtalfi/ClassCooker/blob/master/doc/api/Ling/ClassCooker.md) (generated with [DocTools](https://github.com/lingtalfi/DocTools))
+- [About ClassCooker](#about-classcooker)
+- [FryingPan conception notes](https://github.com/lingtalfi/ClassCooker/blob/master/doc/pages/frying-pan-conception-notes.md)
 
 
 
 
-Raw example
-=============
+
+About ClassCooker
+-----------
+2020-07-23
 
 
-Straight from my working file.
 
-```php
-<?php
+ClassCooker methods are based on tokens rather than php built-in reflection.
 
-use Ling\ClassCooker\ClassCooker;
+Why? Because reflection doesn't handle dynamic file changes, whereas token based methods don't have this problem.
 
-require_once __DIR__ . "/../boot.php";
-require_once __DIR__ . "/../init.php";
+As a result, we can add/remove methods, properties, etc... multiple times during the same script execution.
 
-
-header("content-type: text/plain");
-
-$f = '/myphp/kaminos/app/hachis.txt';
-$f = '/myphp/kaminos/app/class-core/Services/X.php';
-a(ClassCooker::create()->setFile($f)->getMethodsBoundaries());
-a(ClassCooker::create()->setFile($f)->getMethodsBoundaries(['protected', 'static']));
-a(ClassCooker::create()->setFile($f)->getMethods(['protected', 'static']));
-a(ClassCooker::create()->setFile($f)->getMethodBoundariesByName("Connexion_foo"));
-//a(ClassCooker::create()->setFile($f)->removeMethod("Connexion_foo"));
-
-$content = ClassCooker::create()->setFile($f)->getMethodContent("Connexion_foo");
-a($content);
-$newContent = str_replace('Connexion_foo', 'Connexion_shoo', $content);
-a(ClassCooker::create()->setFile($f)->addMethod("Connexion_shoo", $newContent));
-a(ClassCooker::create()->setFile($f)->updateMethodContent("Core_webApplicationHandler", function ($content) {
-    return $content .  "\t\t// oooo" . PHP_EOL;
-}));
-
-```
 
 
 
@@ -88,6 +54,38 @@ a(ClassCooker::create()->setFile($f)->updateMethodContent("Core_webApplicationHa
 
 History Log
 ------------------
+    
+- 1.13.0 -- 2020-07-30
+
+    - update ParentIngredient, now also add parent::__construct if necessary
+    
+- 1.12.0 -- 2020-07-28
+
+    - add ClassCooker->updateClassSignature and addParentClass methods
+    
+- 1.11.0 -- 2020-07-24
+
+    - add FryingPan class
+    
+- 1.10.0 -- 2020-07-23
+
+    - update ClassCooker methods to work with tokens instead of reflection
+    
+- 1.9.0 -- 2020-07-21
+
+    - add ClassCooker->addContent method
+    
+- 1.8.2 -- 2020-07-17
+
+    - fake test commit to test uni2 (2)
+    
+- 1.8.1 -- 2020-07-17
+
+    - fake test commit to test uni2
+    
+- 1.8.0 -- 2020-07-10
+
+    - add ClassCooker->updatePropertyComment methods and some other methods
     
 - 1.7.0 -- 2018-03-25
 

@@ -46,7 +46,7 @@ Returns [WebWizardToolsOptionList](https://github.com/lingtalfi/WebWizardTools/b
 
 Source Code
 ===========
-See the source code for method [WebWizardToolsWebWizard::getOptionList](https://github.com/lingtalfi/WebWizardTools/blob/master/WebWizard/WebWizardToolsWebWizard.php#L211-L214)
+See the source code for method [WebWizardToolsWebWizard::getOptionList](https://github.com/lingtalfi/WebWizardTools/blob/master/WebWizard/WebWizardToolsWebWizard.php#L244-L247)
 
 
 See Also

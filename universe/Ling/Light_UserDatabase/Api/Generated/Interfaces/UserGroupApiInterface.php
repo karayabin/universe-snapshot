@@ -47,13 +47,13 @@ interface UserGroupApiInterface
      *
      *
      *
-     * @param array $userGroupGroups
+     * @param array $userGroups
      * @param bool $ignoreDuplicate
      * @param bool $returnRic
      * @return mixed
      * @throws \Exception
      */
-    public function insertUserGroups(array $userGroupGroups, bool $ignoreDuplicate = true, bool $returnRic = false);
+    public function insertUserGroups(array $userGroups, bool $ignoreDuplicate = true, bool $returnRic = false);
 
     /**
      * Returns the userGroup row identified by the given id.

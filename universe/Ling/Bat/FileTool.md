@@ -1,6 +1,6 @@
 FileTool
 =====================
-2016-12-23
+2016-12-23 -> 2020-07-10
 
 
 
@@ -69,6 +69,57 @@ Each slice is an array:
 
 Slices must not overlap.
 
+
+ 
+getContent
+-------------
+2020-07-10
+
+
+```php
+string    getContent ( string:file, int:startLine, int:endLine )
+```
+
+
+Returns the content of the file between the given start/end lines (both included).
+Note: the returned content includes any "PHP_EOL" char found with the line(s).
+
+
+### Example
+
+For the given file:
+
+
+```php
+<?php
+
+
+namespace Ling\Light_Train;
+
+class TrainTest
+{
+
+}
+
+```
+
+The following code:
+
+
+```php
+
+$file = "/komin/jin_site_demo/universe/Ling/Light_Train/TrainTest.php";
+az(FileTool::getContent($file, 4, 4));
+```
+
+Will output something like this:
+
+```html
+
+string(28) "namespace Ling\Light_Train;
+"
+
+```
 
  
      
@@ -144,6 +195,77 @@ bool    prepend ( string:file, string:text )
 
 Prepends the given $text to the given $file and returns whether the operation was successful.
      
+
+replace
+-------
+2020-07-10
+
+```php
+void    replace ( string:file, int:startLine, int:endLine, mixed:newContent )
+```
+
+Removes the portion of the file starting and ending at the given lines, and replaces it with the given newContent.
+
+If newContent is false, then the portion delimited by start and end line is just removed.
+
+Note: don't forget the PHP_EOL at the end of the content you insert.
+
+Throws an exception if the file doesn't exist, or if the file doesn't contain the start/end lines.
+
+
+### Example
+
+For the given file:
+
+```php
+<?php
+
+
+namespace Ling\Light_Train;
+
+
+use Ling\ClassCooker\ClassCooker as Maurice; // stop
+use Ling\Light_Logger\LightLoggerService;
+// kick me out (i'm on line 9)
+
+
+class TrainTest
+{
+
+}
+```
+
+
+If you do this:
+
+```php
+
+$file = "/komin/jin_site_demo/universe/Ling/Light_Train/TrainTest.php";
+FileTool::replace($file, 9, 9, "// kick me in" . PHP_EOL);
+```
+
+You will obtain this:
+
+```php
+<?php
+
+
+namespace Ling\Light_Train;
+
+
+use Ling\ClassCooker\ClassCooker as Maurice; // stop
+use Ling\Light_Logger\LightLoggerService;
+// kick me in
+
+
+class TrainTest
+{
+
+}
+```
+
+
+
 
 
 

@@ -1,6 +1,6 @@
 Light_Realist
 ===========
-2019-08-09 -> 2020-07-06
+2019-08-09 -> 2020-07-21
 
 
 
@@ -108,6 +108,10 @@ Related
 History Log
 =============
 
+- 1.34.2 -- 2020-07-21
+
+    - fix BaseRealistRowsRenderer->render passing potentially null value to renderColumnContent method, where string was expected
+    
 - 1.34.1 -- 2020-07-06
 
     - typo in commit date

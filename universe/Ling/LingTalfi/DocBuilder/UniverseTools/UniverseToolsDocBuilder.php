@@ -154,6 +154,7 @@ class UniverseToolsDocBuilder
                 "bsr-1" => "https://github.com/lingtalfi/TheScientist/blob/master/bsr-1.md",
                 "BSR-1" => "https://github.com/lingtalfi/TheScientist/blob/master/bsr-1.md",
                 "universe asset dependencies" => "https://github.com/lingtalfi/NotationFan/blob/master/universe-assets.md#the-universeassetdependencies-trick",
+                "tight planet name" => $doc . "/pages/nomenclature.md#tight-planet-name",
             ],
             /**
              * An array of external classes to url.

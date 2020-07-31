@@ -1,0 +1,15 @@
+<?php
+
+
+namespace Ling\Light_Kit_Admin_XXX\Service;
+
+
+use Ling\Light_LingStandardService\Service\LightLingStandardServiceKitAdminPlugin;
+
+/**
+ * The LightKitAdminXXXService class.
+ */
+class LightKitAdminXXXService extends LightLingStandardServiceKitAdminPlugin
+{
+
+}

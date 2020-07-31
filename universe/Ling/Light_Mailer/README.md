@@ -1,6 +1,6 @@
 Light_Mailer
 ===========
-2020-06-29
+2020-06-29 -> 2020-07-27
 
 
 
@@ -106,6 +106,11 @@ $logger.methods_collection:
 History Log
 =============
 
+- 1.0.1 -- 2020-07-27
+
+    - fix typo in LightMailerService->sendMessage
+    
+    
 - 1.0.0 -- 2020-06-29
 
     - initial commit

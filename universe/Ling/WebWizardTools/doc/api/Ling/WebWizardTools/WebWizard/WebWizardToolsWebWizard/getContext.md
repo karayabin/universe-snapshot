@@ -46,7 +46,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [WebWizardToolsWebWizard::getContext](https://github.com/lingtalfi/WebWizardTools/blob/master/WebWizard/WebWizardToolsWebWizard.php#L266-L269)
+See the source code for method [WebWizardToolsWebWizard::getContext](https://github.com/lingtalfi/WebWizardTools/blob/master/WebWizard/WebWizardToolsWebWizard.php#L299-L302)
 
 
 See Also

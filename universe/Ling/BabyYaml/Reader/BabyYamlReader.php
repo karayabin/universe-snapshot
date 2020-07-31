@@ -4,7 +4,6 @@
 namespace Ling\BabyYaml\Reader;
 
 
-
 use Ling\BabyYaml\Reader\Exception\ParseErrorException;
 use Ling\BabyYaml\Reader\NodeToArrayConvertor\NodeToArrayConvertor;
 use Ling\BabyYaml\Reader\ValueInterpreter\BabyYamlValueInterpreter;
@@ -15,17 +14,17 @@ class BabyYamlReader
     /**
      * @var BabyYamlBuilder
      */
-    private $builder;
+    protected $builder;
 
     /**
      * @var NodeToArrayConvertor
      */
-    private $convertor;
+    protected $convertor;
 
     /**
      * @var ValueInterpreter
      */
-    private $interpreter;
+    protected $interpreter;
 
 
     public function __construct()

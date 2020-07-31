@@ -8,7 +8,6 @@ use Ling\BabyYaml\Reader\StringIterator\StringIteratorInterface;
 use Ling\BabyYaml\Reader\StringParser\ExpressionDiscoverer\ExpressionDiscoverer;
 
 
-
 /**
  * ContainerExpressionDiscoverer
  * @author Lingtalfi
@@ -23,6 +22,7 @@ abstract class ContainerExpressionDiscoverer extends ExpressionDiscoverer
 {
 
     use ClassicMonitorTrait;
+
     private $beginSep;
     private $beginSepLen;
     private $valueSep;
@@ -82,10 +82,10 @@ abstract class ContainerExpressionDiscoverer extends ExpressionDiscoverer
             if (false !== $values = $this->parseContainer($it)) {
                 $this->value = $values;
                 $this->pos = $it->getPosition();
+                $this->onParseSuccessful($string, $this->value);
                 return true;
             }
-        }
-        else {
+        } else {
             $this->say("<purple>container begin not found</purple>");
         }
         return false;
@@ -142,6 +142,19 @@ abstract class ContainerExpressionDiscoverer extends ExpressionDiscoverer
     //------------------------------------------------------------------------------/
     // 
     //------------------------------------------------------------------------------/
+    /**
+     * Hook when the container was successfully parsed..
+     *
+     * @param string $string
+     * @param $value
+     * @overrideMe
+     */
+    protected function onParseSuccessful(string $string, $value)
+    {
+
+    }
+
+
     protected function isContainerBegin(StringIteratorInterface $it)
     {
         return ($this->beginSep === mb_substr($it->getString(), $it->getPosition(), $this->getBeginSepLen()));
@@ -165,13 +178,11 @@ abstract class ContainerExpressionDiscoverer extends ExpressionDiscoverer
     {
         if (1 === $itLen) {
             $it->next();
-        }
-        elseif ($itLen > 1) {
+        } elseif ($itLen > 1) {
             for ($i = 0; $i < $itLen; $i++) {
                 $it->next();
             }
-        }
-        else {
+        } else {
             throw new \LogicException("itLen cannot be less than 1, $itLen given");
         }
     }
@@ -180,8 +191,9 @@ abstract class ContainerExpressionDiscoverer extends ExpressionDiscoverer
     {
         $this->error($m);
     }
-    
-    protected function moveCursorToFirstContainerElement(StringIteratorInterface $it){
+
+    protected function moveCursorToFirstContainerElement(StringIteratorInterface $it)
+    {
         $this->next($this->getBeginSepLen(), $it);
     }
 

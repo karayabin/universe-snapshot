@@ -1,0 +1,16 @@
+
+    /**
+     * Returns the factory for this plugin's api.
+     *
+     * @return CustomLightTaskSchedulerApiFactory
+     */
+    public function getFactory(): CustomLightTaskSchedulerApiFactory
+    {
+        if (null === $this->factory) {
+            $this->factory = new CustomLightTaskSchedulerApiFactory();
+            $this->factory->setContainer($this->container);
+            $this->factory->setPdoWrapper($this->container->get("database"));
+        }
+        return $this->factory;
+    }
+

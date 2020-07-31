@@ -78,6 +78,18 @@ class WebWizardToolsDefaultWebWizardRenderer implements WebWizardToolsWebWizardR
             }
 
 
+            .nobr {
+                white-space: nowrap;
+            }
+
+            .category-tr {
+                background: #5259ce;
+                color: white;
+                font-weight: bold;
+                text-transform: capitalize;
+
+            }
+
             .process-table {
                 border-collapse: collapse;
             }
@@ -90,7 +102,7 @@ class WebWizardToolsDefaultWebWizardRenderer implements WebWizardToolsWebWizardR
                 padding: 4px;
             }
 
-            .process-table th{
+            .process-table th {
                 cursor: pointer;
             }
 
@@ -108,8 +120,6 @@ class WebWizardToolsDefaultWebWizardRenderer implements WebWizardToolsWebWizardR
             }
 
 
-
-
         </style>
 
 
@@ -118,7 +128,7 @@ class WebWizardToolsDefaultWebWizardRenderer implements WebWizardToolsWebWizardR
         $processKeyName = $wizard->getProcessKeyName();
         $triggerExtraParams = $wizard->getTriggerExtraParams();
 
-        $executedProcess = $wizard->run();
+        $executedProcess = $wizard->getExecutedProcess();
 
 
         ?>
@@ -216,54 +226,71 @@ class WebWizardToolsDefaultWebWizardRenderer implements WebWizardToolsWebWizardR
         <?php if (null !== $executedProcess && true === $isSuccessful): ?>
         <?php echo $wizard->getOnProcessSuccessMessage(); ?>
 
-    <?php else: ?>
+    <?php else:
+
+        $cat2Processes = [];
+        foreach ($processes as $process) {
+            $cat = $process->getCategory();
+            if (false === array_key_exists($cat, $cat2Processes)) {
+                $cat2Processes[$cat] = [];
+            }
+            $cat2Processes[$cat][] = $process;
+        }
+        ?>
 
 
         <div class="tasklist">
             <h3>Available processes</h3>
-            <table class="process-table" id="the-process-table">
 
+
+            <table class="process-table">
                 <tr>
                     <th>Category</th>
                     <th>Label</th>
                     <th>Learn more</th>
                     <th>Disabled reason</th>
                 </tr>
-                <?php foreach ($processes as $process):
-                    $isEnabled = $process->isEnabled();
-                    $sClass = (true === $isEnabled) ? "process-enabled" : "process-disabled";
-                    ?>
-                    <tr class="<?php echo $sClass; ?>">
-                        <td>
-                            <?php echo $process->getCategory(); ?>
-                        </td>
-                        <td>
-                            <?php if (true === $isEnabled): ?>
-                                <form method="post" action="#">
-                                    <a class="wwt-trigger" href="#">
-                                        <?php echo $process->getLabel(); ?>
-                                    </a>
-                                    <input type="hidden" name="<?php echo htmlspecialchars($processKeyName); ?>"
-                                           value="<?php echo htmlspecialchars($process->getName()); ?>"/>
-                                    <?php foreach ($triggerExtraParams as $k => $v): ?>
-                                        <input type="hidden" name="<?php echo htmlspecialchars($k); ?>"
-                                               value="<?php echo htmlspecialchars($v); ?>"/>
-                                    <?php endforeach; ?>
-                                </form>
-                            <?php else: ?>
-                                <span><?php echo $process->getLabel(); ?></span>
-                            <?php endif; ?>
+                <?php foreach ($cat2Processes as $cat => $_processes): ?>
 
-
-                        </td>
-                        <td>
-                            <?php echo $process->getLearnMore(); ?>
-                        </td>
-                        <td>
-                            <?php echo $process->getDisabledReason(); ?>
-                        </td>
-                        <?php ?>
+                    <tr class="category-tr">
+                        <td class="nobr"><?php echo $cat; ?></td>
+                        <td colspan="3">&nbsp;</td>
                     </tr>
+
+                    <?php foreach ($_processes as $process):
+                        $isEnabled = $process->isEnabled();
+                        $sClass = (true === $isEnabled) ? "process-enabled" : "process-disabled";
+
+                        ?>
+                        <tr class="<?php echo $sClass; ?>">
+                            <td></td>
+                            <td>
+                                <?php if (true === $isEnabled): ?>
+                                    <form method="post" action="#">
+                                        <a class="wwt-trigger" href="#">
+                                            <?php echo $process->getLabel(); ?>
+                                        </a>
+                                        <input type="hidden" name="<?php echo htmlspecialchars($processKeyName); ?>"
+                                               value="<?php echo htmlspecialchars($process->getName()); ?>"/>
+                                        <?php foreach ($triggerExtraParams as $k => $v): ?>
+                                            <input type="hidden" name="<?php echo htmlspecialchars($k); ?>"
+                                                   value="<?php echo htmlspecialchars($v); ?>"/>
+                                        <?php endforeach; ?>
+                                    </form>
+                                <?php else: ?>
+                                    <span><?php echo $process->getLabel(); ?></span>
+                                <?php endif; ?>
+
+
+                            </td>
+                            <td>
+                                <?php echo $process->getLearnMore(); ?>
+                            </td>
+                            <td>
+                                <?php echo $process->getDisabledReason(); ?>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
                 <?php endforeach; ?>
             </table>
         </div>
@@ -278,6 +305,9 @@ class WebWizardToolsDefaultWebWizardRenderer implements WebWizardToolsWebWizardR
         <script>
 
 
+            //----------------------------------------
+            // SORTING
+            //----------------------------------------
             const getCellValue = (tr, idx) => tr.children[idx].innerText || tr.children[idx].textContent;
 
             const comparer = (idx, asc) => (a, b) => ((v1, v2) =>
@@ -286,7 +316,7 @@ class WebWizardToolsDefaultWebWizardRenderer implements WebWizardToolsWebWizardR
 
 
             // do the work...
-            document.querySelectorAll('#the-process-table th').forEach(th => th.addEventListener('click', (() => {
+            document.querySelectorAll('.process-table th').forEach(th => th.addEventListener('click', (() => {
                 const table = th.closest('table');
                 Array.from(table.querySelectorAll('tr:nth-child(n+2)'))
                     .sort(comparer(Array.from(th.parentNode.children).indexOf(th), this.asc = !this.asc))
@@ -294,6 +324,9 @@ class WebWizardToolsDefaultWebWizardRenderer implements WebWizardToolsWebWizardR
             })));
 
 
+            //----------------------------------------
+            // GENERAL EVENTS
+            //----------------------------------------
             document.addEventListener("DOMContentLoaded", function (event) {
                 $(document).ready(function () {
                     $('.wwt-trigger').on('click', function () {

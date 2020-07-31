@@ -172,6 +172,18 @@ class PlanetTool
 
 
     /**
+     * Returns the @page(tight planet name) for a given planet.
+     *
+     * @param string $planetName
+     * @return string
+     */
+    public static function getTightPlanetName(string $planetName): string
+    {
+        return str_replace("_", "", $planetName);
+    }
+
+
+    /**
      * Returns an array containing the galaxy name and the short planet name extracted from the given $planetName.
      * Returns false if the given $planetName is invalid.
      *

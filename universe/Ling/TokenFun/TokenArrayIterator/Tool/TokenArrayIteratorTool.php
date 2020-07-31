@@ -8,19 +8,22 @@ use Ling\TokenFun\Tool\TokenTool;
 
 
 /**
- * TokenArrayIteratorTool
- * @author Lingtalfi
- * 2016-01-02
- *
+ * The TokenArrayIteratorTool class.
  *
  * Concepts to understand before using this class:
- * see tokenTool for info about tokenProp
+ * See the @page(tokenProp definition).
  *
  */
 class TokenArrayIteratorTool
 {
 
 
+    /**
+     * Returns whether the current element of the given iterator is a whitespace.
+     *
+     * @param TokenArrayIteratorInterface $tai
+     * @return bool
+     */
     public static function isWhiteSpace(TokenArrayIteratorInterface $tai)
     {
         $c = $tai->current();
@@ -30,6 +33,9 @@ class TokenArrayIteratorTool
 
     /**
      * Look at the "opening" token at the current position and tries to move to the corresponding closing token.
+     * Returns whether or not the cursor could be moved to the corresponding end.
+     *
+     *
      * An opening token is one of:
      *      - {
      *      - (
@@ -40,9 +46,14 @@ class TokenArrayIteratorTool
      *      - ]
      *
      *
-     * @return bool, whether or not the cursor could be moved to the corresponding end.
+     *
+     *
+     * @param TokenArrayIteratorInterface $tai
+     * @param array|null $tokens
+     * @param array $capture
+     * @return bool
      */
-    public static function moveToCorrespondingEnd(TokenArrayIteratorInterface $tai, array $tokens = null, array &$capture = [])
+    public static function moveToCorrespondingEnd(TokenArrayIteratorInterface $tai, array $tokens = null, array &$capture = []): bool
     {
         $ret = false;
         $token = $tai->current();
@@ -83,19 +94,23 @@ class TokenArrayIteratorTool
 
 
     /**
+     *
+     * Moves the iterator pointer forward skipping class definition, and returns whether or not a class definition has been skipped.
+     *
      * Skips a string like:
      *
-     *          class Do {}
-     *          class \Do extends \Foo {}
-     *          abstract class \Do\Foo extends \Foo\Zoo {}
-     *          abstract class \Do implements \Foo {}
-     *          interface \Do {}
-     *          ...
+     * - class Do {}
+     * - class \Do extends \Foo {}
+     * - abstract class \Do\Foo extends \Foo\Zoo {}
+     * - abstract class \Do implements \Foo {}
+     * - interface \Do {}
+     * - ...
      *
      * if it is found at the current position of tai.
-     * If a match was found, the cursor is placed just AT the last bracket.
+     * If a match was found, the cursor is placed just AT the last bracket, and true is returned; otherwise false is returned.
      *
-     * @return bool, whether or not a class has been skipped.
+     * @param TokenArrayIteratorInterface $tai
+     * @return bool
      */
     public static function skipClassLike(TokenArrayIteratorInterface $tai)
     {
@@ -154,6 +169,9 @@ class TokenArrayIteratorTool
     }
 
     /**
+     * Moves the iterator pointer forward skipping bracket wrappings, and returns whether a bracket wrapping has been skipped.
+     *
+     *
      * Skips a string like:
      *
      *          ["pou"]
@@ -162,9 +180,10 @@ class TokenArrayIteratorTool
      * if it is found at the current position of tai.
      * If a match was found, the cursor is placed just AT the last bracket.
      *
-     * @return bool, whether or not a class has been skipped.
+     * @param TokenArrayIteratorInterface $tai
+     * @return bool
      */
-    public static function skipSquareBracketsChain(TokenArrayIteratorInterface $tai)
+    public static function skipSquareBracketsChain(TokenArrayIteratorInterface $tai): bool
     {
         $ret = false;
 
@@ -196,16 +215,18 @@ class TokenArrayIteratorTool
     }
 
     /**
+     * Moves the iterator pointer forward skipping functions, and returns whether a function has been skipped.
      * Skips a function like:
      *
-     *          function(){ 
+     *          function(){
      *              // do something
      *          }
      *
      * only if it is found at the current position of tai.
      * If a match was found, the cursor is placed just AT the last bracket.
      *
-     * @return bool, whether or not a function has been skipped.
+     * @param TokenArrayIteratorInterface $tai
+     * @return bool
      */
     public static function skipFunction(TokenArrayIteratorInterface $tai)
     {
@@ -246,14 +267,17 @@ class TokenArrayIteratorTool
 
 
     /**
+     * Moves the iterator pointer forward skipping namespace chain, and returns whether a namespace chain has been skipped.
+     *
+     * In case of a successful match, the cursor position is AFTER the last token of the ns chain.
+     *
      * Skips a chain like \My\Object or My\Object
      *
-     * @return bool, whether or not a ns chain could have been found at the current tai position.
-     *                  In case of a successful match, the cursor position is AFTER the last token
-     *                  of the ns chain.
+     * @param TokenArrayIteratorInterface $tai
+     * @return bool
      *
      */
-    public static function skipNsChain(TokenArrayIteratorInterface $tai)
+    public static function skipNsChain(TokenArrayIteratorInterface $tai): bool
     {
         $ret = false;
         if (false !== $startKey = $tai->key()) {
@@ -294,6 +318,7 @@ class TokenArrayIteratorTool
     /**
      * Skips whitespaces and positions the cursor AFTER the last whitespace.
      *
+     * @param TokenArrayIteratorInterface $tai
      */
     public static function skipWhiteSpaces(TokenArrayIteratorInterface $tai)
     {
@@ -308,6 +333,7 @@ class TokenArrayIteratorTool
     /**
      * Skips whitespaces and commas, and positions the cursor AFTER the last whitespace or comma.
      *
+     * @param TokenArrayIteratorInterface $tai
      */
     public static function skipWhiteSpacesOrComma(TokenArrayIteratorInterface $tai)
     {
@@ -319,6 +345,40 @@ class TokenArrayIteratorTool
             $tai->next();
             $cur = $tai->current();
         }
+    }
+
+
+    /**
+     * Iterates the given tokenArrayIterator until it finds the given tokenProp.
+     * It returns true when the tokenProp is matched, and false if there is no match.
+     *
+     * If $includeLast is false, the matching tokenProp will NOT be included in the result (this is the default), otherwise it will.
+     *
+     *
+     * @param TokenArrayIteratorInterface $tai
+     * @param $tokenProp
+     * @param bool $includeLast
+     * @return bool
+     * @throws \Exception
+     */
+    public static function skipUntil(TokenArrayIteratorInterface $tai, $tokenProp, bool $includeLast = false)
+    {
+        $cur = $tai->current();
+        while (true) {
+
+            if (TokenTool::match($tokenProp, $cur)) {
+                if (false === $includeLast) {
+                    $tai->prev();
+                }
+                return true;
+            }
+            $hasNext = $tai->next();
+            $cur = $tai->current();
+            if (false === $hasNext) {
+                break;
+            }
+        }
+        return false;
     }
 
 }

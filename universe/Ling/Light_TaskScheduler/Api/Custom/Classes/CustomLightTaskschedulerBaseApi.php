@@ -4,19 +4,19 @@
 namespace Ling\Light_TaskScheduler\Api\Custom\Classes;
 
 
-use Ling\Light_TaskScheduler\Api\Generated\Classes\LightTaskschedulerBaseApi;
+use Ling\Light_TaskScheduler\Api\Generated\Classes\LightTaskSchedulerBaseApi;
 
 
 
 /**
- * The CustomLightTaskschedulerBaseApi class.
+ * The CustomLightTaskSchedulerBaseApi class.
  */
-class CustomLightTaskschedulerBaseApi extends LightTaskschedulerBaseApi
+class CustomLightTaskSchedulerBaseApi extends LightTaskSchedulerBaseApi
 {
 
 
     /**
-     * Builds the CustomLightTaskschedulerBaseApi instance.
+     * Builds the CustomLightTaskSchedulerBaseApi instance.
      */
     public function __construct()
     {

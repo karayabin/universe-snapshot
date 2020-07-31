@@ -4,7 +4,7 @@
 
 The DeveloperWizardFileTool class
 ================
-2020-06-30 --> 2020-07-07
+2020-06-30 --> 2020-07-31
 
 
 
@@ -63,4 +63,4 @@ See the source code of [Ling\Light_DeveloperWizard\Tool\DeveloperWizardFileTool]
 
 SeeAlso
 ==============
-Previous class: [LightDeveloperWizardService](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/Service/LightDeveloperWizardService.md)<br>Next class: [AddStandardPermissionsProcess](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/WebWizardTools/Process/AddStandardPermissionsProcess.md)<br>
+Previous class: [LightDeveloperWizardService](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/Service/LightDeveloperWizardService.md)<br>Next class: [ServiceManagerUtil](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/Util/ServiceManagerUtil.md)<br>

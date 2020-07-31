@@ -7,7 +7,7 @@ use Ling\BabyYaml\Helper\QuoteTool;
 /**
  * QuoteExpressionDiscoverer
  * @author Lingtalfi
- * 2015-05-12
+ * 2015-05-12 -> 2020-07-14
  *
  * This quote discoverer uses a backslash recursive escaping mechanism.
  *
@@ -47,6 +47,9 @@ class QuoteExpressionDiscoverer extends ExpressionDiscoverer
             if (false !== $s = QuoteTool::unquote($quoted, $this->escapingMode)) {
                 $this->value = $s;
                 $this->pos = $lastPos;
+
+                $this->onValueDiscovered($string, $lastPos);
+
                 return true;
             }
         }
@@ -54,4 +57,19 @@ class QuoteExpressionDiscoverer extends ExpressionDiscoverer
     }
 
 
+
+
+    //--------------------------------------------
+    //
+    //--------------------------------------------
+    /**
+     *
+     * Hook for subclasses to extend.
+     * @param string $string
+     * @param int $lastPos
+     * @overrideMe
+     */
+    protected function onValueDiscovered(string $string, int $lastPos){
+
+    }
 }

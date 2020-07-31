@@ -4,7 +4,7 @@
 
 The SimplePdoWrapperInterface class
 ================
-2019-07-22 --> 2020-06-19
+2019-07-22 --> 2020-07-27
 
 
 
@@ -115,4 +115,4 @@ See the source code of [Ling\SimplePdoWrapper\SimplePdoWrapperInterface](https:/
 
 SeeAlso
 ==============
-Previous class: [SimplePdoWrapper](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/SimplePdoWrapper.md)<br>Next class: [MysqlInfoUtil](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/MysqlInfoUtil.md)<br>
+Previous class: [SimplePdoWrapper](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/SimplePdoWrapper.md)<br>Next class: [Columns](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/Columns.md)<br>

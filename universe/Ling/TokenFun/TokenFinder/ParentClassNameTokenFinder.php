@@ -8,9 +8,7 @@ use Ling\TokenFun\TokenArrayIterator\Tool\TokenArrayIteratorTool;
 use Ling\TokenFun\Tool\TokenTool;
 
 /**
- * ParentClassNameTokenFinder
- * @author Lingtalfi
- * 2017-03-23
+ * The ParentClassNameTokenFinder class.
  *
  *
  * It assumes that the php code is valid.
@@ -29,13 +27,7 @@ class ParentClassNameTokenFinder extends RecursiveTokenFinder
 {
 
     /**
-     * @return array of match
-     *                  every match is an array with the following entries:
-     *                          0: int startIndex
-     *                                      the index at which the pattern starts
-     *                          1: int endIndex
-     *                                      the index at which the pattern ends
-     *
+     * @implementation
      */
     public function find(array $tokens)
     {

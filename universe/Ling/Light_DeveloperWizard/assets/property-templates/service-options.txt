@@ -1,0 +1,13 @@
+
+    /**
+    * This property holds the options for this instance.
+    *
+    * Available options are:
+    *
+    * See the @page(Light_XXX conception notes) for more details.
+    *
+    *
+    * @var array
+    */
+    protected $options;
+

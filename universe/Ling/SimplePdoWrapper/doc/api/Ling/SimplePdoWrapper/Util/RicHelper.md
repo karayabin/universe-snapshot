@@ -4,7 +4,7 @@
 
 The RicHelper class
 ================
-2019-07-22 --> 2020-06-19
+2019-07-22 --> 2020-07-27
 
 
 
@@ -54,4 +54,4 @@ See the source code of [Ling\SimplePdoWrapper\Util\RicHelper](https://github.com
 
 SeeAlso
 ==============
-Previous class: [MysqlInfoUtil](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/MysqlInfoUtil.md)<br>Next class: [SimpleTypeHelper](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/SimpleTypeHelper.md)<br>
+Previous class: [OrderBy](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/OrderBy.md)<br>Next class: [SimpleTypeHelper](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/SimpleTypeHelper.md)<br>

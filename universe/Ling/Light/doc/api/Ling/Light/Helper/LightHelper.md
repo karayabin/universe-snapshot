@@ -4,7 +4,7 @@
 
 The LightHelper class
 ================
-2019-04-09 --> 2020-07-06
+2019-04-09 --> 2020-07-28
 
 
 
@@ -54,4 +54,4 @@ See the source code of [Ling\Light\Helper\LightHelper](https://github.com/lingta
 
 SeeAlso
 ==============
-Previous class: [LightClassHelper](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/LightClassHelper.md)<br>Next class: [ServiceContainerHelper](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ServiceContainerHelper.md)<br>
+Previous class: [LightClassHelper](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/LightClassHelper.md)<br>Next class: [LightNamesAndPathHelper](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/LightNamesAndPathHelper.md)<br>

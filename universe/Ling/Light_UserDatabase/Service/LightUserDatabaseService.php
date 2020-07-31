@@ -47,7 +47,7 @@ class LightUserDatabaseService extends MysqlLightWebsiteUserDatabase
          */
         $filewatcher->debugLog("user_database: synchronizing database.");
         $dbsync = $this->container->get("db_synchronizer");
-        $dbsync->synchronize(__DIR__ . "/../assets/fixtures/recreate-structure.sql", [
+        $dbsync->synchronize(__DIR__ . "/../assets/fixtures/create-structure.sql", [
             "scope" => $this->getScopeTables(),
         ]);
         $filewatcher->debugLog("user_database: re-generating the api.");

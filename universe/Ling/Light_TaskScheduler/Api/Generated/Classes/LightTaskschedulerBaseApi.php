@@ -8,9 +8,9 @@ use Ling\Light_Database\Service\LightDatabaseService;
 use Ling\SimplePdoWrapper\SimplePdoWrapperInterface;
 
 /**
- * The LightTaskschedulerBaseApi class.
+ * The LightTaskSchedulerBaseApi class.
  */
-class LightTaskschedulerBaseApi
+class LightTaskSchedulerBaseApi
 {
     /**
      * This property holds the pdoWrapper for this instance.

@@ -42,11 +42,11 @@ class BabyYamlBuilder
 
     // keep track of the file name to improve error messages
     private $file;
-    private $_currentLineNb;
+    protected $_currentLineNb;
 
     //
     private $level2Node;
-    private $lastNode;
+    protected $lastNode;
     private $multiLineNode;
     private $multiLineLevel;
     private $indentCharLen;
@@ -90,8 +90,8 @@ class BabyYamlBuilder
         //------------------------------------------------------------------------------/
         // BABYYAML BUILDER
         //------------------------------------------------------------------------------/
-        $this->multiLineDelimiter = new SingleCharMultiLineDelimiter();
-        $this->multiLineCompiler = new WithLeftMarginMultiLineCompiler();
+        $this->multiLineDelimiter = null;
+        $this->multiLineCompiler = null;
         $this->keyFinder = new KeyFinder();
     }
 
@@ -161,6 +161,7 @@ class BabyYamlBuilder
             if (false !== $handle = fopen($file, 'rb')) { // triggers E_WARNING in case of failure
                 $this->file = $file;
                 $ret = $this->buildFromHandle($handle);
+                fclose($handle);
             } else {
                 throw new \RuntimeException(sprintf("Invalid file, cannot open it: %s", $file));
             }
@@ -181,6 +182,7 @@ class BabyYamlBuilder
                 fwrite($handle, $string);
                 rewind($handle);
                 $ret = $this->buildFromHandle($handle);
+                fclose($handle);
             } else {
                 throw new \RuntimeException(sprintf("Couldn't open the given string: %s", $string));
             }
@@ -241,17 +243,30 @@ class BabyYamlBuilder
         $this->options[$name] = $value;
     }
 
+    //--------------------------------------------
+    //
+    //--------------------------------------------
+    /**
+     * Returns a new node instance.
+     * @return NodeInterface
+     */
+    protected function getNodeInstance(string $value = '', $key = null): NodeInterface
+    {
+        return new Node($value, $key);
+    }
 
     //------------------------------------------------------------------------------/
     //
     //------------------------------------------------------------------------------/
+
+
     private function buildFromHandle($handle)
     {
         $ret = false;
 
         $previousLevel = -1;
         $this->_currentLineNb = 0;
-        $root = new Node();
+        $root = $this->getNodeInstance();
         $useMultiline = $this->options['useMultiline'];
         $muliLineMode = false;
         $multiLines = [];
@@ -286,7 +301,6 @@ class BabyYamlBuilder
             if (true === $muliLineMode) {
 
                 // is it the end of multiLine mode ?
-
                 if (true === $multiLineDelimiter->isEnd($line, $this->nbIndentCharPerLevel * $level, $this->indentChar)) {
 
                     $this->processMultiLines($multiLines, $multiLineCompiler);
@@ -305,7 +319,7 @@ class BabyYamlBuilder
             //------------------------------------------------------------------------------/
             // ONE LINE MODE
             //------------------------------------------------------------------------------/
-            if (false === $this->skipLine($trimmed)) {
+            if (false === $this->skipLine($trimmed, $line)) {
                 $error = null;
                 if (false !== $level = $this->getLineLevel($line)) {
                     if (false !== $lineContent = $this->getLineWithoutIndent($line)) {
@@ -313,10 +327,10 @@ class BabyYamlBuilder
                         if (false !== $key = $this->getKey($lineContent, $valuePos)) {
 
                             $value = ltrim(substr($lineContent, $valuePos));
-                            $value = $this->stripLeadingComment($value);
+                            $value = $this->stripLeadingComment($value, $lineContent);
 
 
-                            $currentNode = new Node($value, $key);
+                            $currentNode = $this->getNodeInstance($value, $key);
 
 
                             if (true === $useMultiline && true === $multiLineDelimiter->isBegin($lineContent)) {
@@ -349,6 +363,11 @@ class BabyYamlBuilder
                             }
                             $this->lastNode = $currentNode;
                             $this->level2Node[$level] = $currentNode;
+
+
+                            $this->onCurrentNodeProcessed($currentNode);
+
+
                             $previousLevel = $level;
                         } else {
                             $this->parseError("Couldn't find the key for line: " . $line);
@@ -364,7 +383,17 @@ class BabyYamlBuilder
     }
 
 
-    protected function skipLine($trimmedLine)
+    /**
+     * @overrideMe
+     * @param NodeInterface $node
+     */
+    protected function onCurrentNodeProcessed(NodeInterface $node)
+    {
+
+    }
+
+
+    protected function skipLine(string $trimmedLine, string $line)
     {
         if ('' === $trimmedLine || 0 === strpos($trimmedLine, $this->options['commentSymbol'])) {
             return true;
@@ -377,7 +406,7 @@ class BabyYamlBuilder
      * Parses the value (which starts at a non blank char), and if the first thing found is a comment,
      * it is stripped out, and the stripped value is returned.
      */
-    protected function stripLeadingComment($value)
+    protected function stripLeadingComment(string $value, string $lineContent)
     {
         if (0 === strpos($value, $this->options['commentSymbol'])) {
             return '';
@@ -434,7 +463,17 @@ class BabyYamlBuilder
         if ($multiLines && $multiLineNode instanceof NodeInterface) {
             $value = $compiler->getValue($multiLines, $this->multiLineLevel);
             $multiLineNode->setValue($value);
+            $this->onCurrentMultiNodeProcessed($multiLineNode);
         }
+    }
+
+    /**
+     * @overrideMe
+     * @param NodeInterface $node
+     */
+    protected function onCurrentMultiNodeProcessed(NodeInterface $node)
+    {
+
     }
 
     private function parseError($msg)

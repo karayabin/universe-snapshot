@@ -1,6 +1,6 @@
 Ling/WebWizardTools
 ================
-2020-07-06 --> 2020-07-09
+2020-07-06 --> 2020-07-24
 
 
 
@@ -48,6 +48,7 @@ Table of contents
 - [WebWizardToolsException](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/Exception/WebWizardToolsException.md) &ndash; The WebWizardToolsException class.
 - [WebWizardToolsProcess](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/Process/WebWizardToolsProcess.md) &ndash; The WebWizardToolsProcess class.
     - [WebWizardToolsProcess::__construct](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/Process/WebWizardToolsProcess/__construct.md) &ndash; Builds the WebWizardToolsProcess instance.
+    - [WebWizardToolsProcess::prepare](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/Process/WebWizardToolsProcess/prepare.md) &ndash; An opportunity for the process to create the controls, and/or to change the label of the process dynamically.
     - [WebWizardToolsProcess::getReport](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/Process/WebWizardToolsProcess/getReport.md) &ndash; Returns the report of this instance.
     - [WebWizardToolsProcess::getControls](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/Process/WebWizardToolsProcess/getControls.md) &ndash; Returns the controls of this instance.
     - [WebWizardToolsProcess::setWebWizard](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/Process/WebWizardToolsProcess/setWebWizard.md) &ndash; Sets the webWizard.
@@ -67,6 +68,7 @@ Table of contents
     - [WebWizardToolsProcess::getCategory](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/Process/WebWizardToolsProcess/getCategory.md) &ndash; Returns the category of this instance.
     - [WebWizardToolsProcess::setCategory](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/Process/WebWizardToolsProcess/setCategory.md) &ndash; Sets the category.
     - [WebWizardToolsProcess::execute](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/Process/WebWizardToolsProcess/execute.md) &ndash; Executes the process.
+    - [WebWizardToolsProcess::addLogMessage](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/Process/WebWizardToolsProcess/addLogMessage.md) &ndash; Adds a message of the given type to the log.
 - [WebWizardToolsReport](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/Report/WebWizardToolsReport.md) &ndash; The WebWizardToolsReport class.
     - [WebWizardToolsReport::__construct](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/Report/WebWizardToolsReport/__construct.md) &ndash; Builds the WebWizardToolsReport instance.
     - [WebWizardToolsReport::isSuccessful](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/Report/WebWizardToolsReport/isSuccessful.md) &ndash; Returns whether the report is successful.
@@ -89,7 +91,8 @@ Table of contents
 - [WebWizardToolsDefaultWebWizard](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/WebWizard/WebWizardToolsDefaultWebWizard.md) &ndash; The WebWizardToolsDefaultWebWizard class.
     - [WebWizardToolsDefaultWebWizard::__construct](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/WebWizard/WebWizardToolsDefaultWebWizard/__construct.md) &ndash; Builds the WebWizardToolsWebWizard instance.
     - [WebWizardToolsWebWizard::render](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/WebWizard/WebWizardToolsWebWizard/render.md) &ndash; Displays the web wizard gui.
-    - [WebWizardToolsWebWizard::run](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/WebWizard/WebWizardToolsWebWizard/run.md) &ndash; Returns the currently executed process if any, or null otherwise.
+    - [WebWizardToolsWebWizard::run](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/WebWizard/WebWizardToolsWebWizard/run.md) &ndash; Prepares all processes, and executes the called one if any.
+    - [WebWizardToolsWebWizard::getExecutedProcess](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/WebWizard/WebWizardToolsWebWizard/getExecutedProcess.md) &ndash; Returns the currently executed process if any, or null otherwise.
     - [WebWizardToolsWebWizard::getProcesses](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/WebWizard/WebWizardToolsWebWizard/getProcesses.md) &ndash; Returns the processes of this instance.
     - [WebWizardToolsWebWizard::setTriggerExtraParams](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/WebWizard/WebWizardToolsWebWizard/setTriggerExtraParams.md) &ndash; Sets the triggerExtraParams.
     - [WebWizardToolsWebWizard::getTriggerExtraParams](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/WebWizard/WebWizardToolsWebWizard/getTriggerExtraParams.md) &ndash; Returns the triggerExtraParams of this instance.
@@ -107,7 +110,8 @@ Table of contents
 - [WebWizardToolsWebWizard](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/WebWizard/WebWizardToolsWebWizard.md) &ndash; The WebWizardToolsWebWizard class.
     - [WebWizardToolsWebWizard::__construct](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/WebWizard/WebWizardToolsWebWizard/__construct.md) &ndash; Builds the WebWizardToolsWebWizard instance.
     - [WebWizardToolsWebWizard::render](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/WebWizard/WebWizardToolsWebWizard/render.md) &ndash; Displays the web wizard gui.
-    - [WebWizardToolsWebWizard::run](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/WebWizard/WebWizardToolsWebWizard/run.md) &ndash; Returns the currently executed process if any, or null otherwise.
+    - [WebWizardToolsWebWizard::run](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/WebWizard/WebWizardToolsWebWizard/run.md) &ndash; Prepares all processes, and executes the called one if any.
+    - [WebWizardToolsWebWizard::getExecutedProcess](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/WebWizard/WebWizardToolsWebWizard/getExecutedProcess.md) &ndash; Returns the currently executed process if any, or null otherwise.
     - [WebWizardToolsWebWizard::getProcesses](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/WebWizard/WebWizardToolsWebWizard/getProcesses.md) &ndash; Returns the processes of this instance.
     - [WebWizardToolsWebWizard::setTriggerExtraParams](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/WebWizard/WebWizardToolsWebWizard/setTriggerExtraParams.md) &ndash; Sets the triggerExtraParams.
     - [WebWizardToolsWebWizard::getTriggerExtraParams](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/WebWizard/WebWizardToolsWebWizard/getTriggerExtraParams.md) &ndash; Returns the triggerExtraParams of this instance.

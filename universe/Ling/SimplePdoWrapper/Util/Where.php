@@ -582,7 +582,7 @@ class Where
      * Note2: the query portion returned by this method is sql safe (i.e. protected against sql injection by
      * using :markers).
      *
-     * Note3: the appended query parts are separated using the AND combination operator.
+     * Note3: the appended query parts are separated using the AND combination operator by default.
      *
      *
      * @param string $query
@@ -735,6 +735,7 @@ class Where
                     break;
                 case "null":
                     $query .= '`' . $field . '` IS NULL';
+                    break;
                 case "is_not_null":
                     $query .= '`' . $field . '` IS NOT NULL';
                     break;

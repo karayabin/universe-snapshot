@@ -1,0 +1,11 @@
+task_xxx:
+    instance: Ling\Light_XXX\Service\LightXXXService
+    methods:
+        setContainer:
+            container: @container()
+        setOptions:
+            options: []
+
+
+
+

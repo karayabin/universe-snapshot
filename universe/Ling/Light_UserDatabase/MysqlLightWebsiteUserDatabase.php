@@ -391,7 +391,7 @@ class MysqlLightWebsiteUserDatabase implements LightWebsiteUserDatabaseInterface
     {
 
 
-        $createFile = __DIR__ . "/assets/fixtures/recreate-structure.sql";
+        $createFile = __DIR__ . "/assets/fixtures/create-structure.sql";
 
         /**
          * @var $installer LightPluginInstallerService
@@ -420,6 +420,9 @@ class MysqlLightWebsiteUserDatabase implements LightWebsiteUserDatabaseInterface
         $res = $this->pdoWrapper->transaction(function () {
 
 
+            $factory = $this->getFactory();
+
+
             /**
              * We want to create the following:
              * - the "default" user group
@@ -431,7 +434,7 @@ class MysqlLightWebsiteUserDatabase implements LightWebsiteUserDatabaseInterface
              *
              */
             // default user group
-            $userGroupId = $this->getUserGroupApi()->insertUserGroup([
+            $userGroupId = $factory->getUserGroupApi()->insertUserGroup([
                 "name" => "default",
             ]);
 
@@ -449,24 +452,24 @@ class MysqlLightWebsiteUserDatabase implements LightWebsiteUserDatabaseInterface
 
 
             // root permission group
-            $permGroupId = $this->getPermissionGroupApi()->insertPermissionGroup([
+            $permGroupId = $factory->getPermissionGroupApi()->insertPermissionGroup([
                 'name' => 'root',
             ]);
 
 
             // the * permission
-            $permId = $this->getPermissionApi()->insertPermission([
+            $permId = $factory->getPermissionApi()->insertPermission([
                 'name' => '*',
             ]);
 
             // bind * permission to root permission group
-            $this->getPermissionGroupHasPermissionApi()->insertPermissionGroupHasPermission([
+            $factory->getPermissionGroupHasPermissionApi()->insertPermissionGroupHasPermission([
                 "permission_group_id" => $permGroupId,
                 "permission_id" => $permId,
             ]);
 
             // bind root user to root permission group
-            $this->getUserHasPermissionGroupApi()->insertUserHasPermissionGroup([
+            $factory->getUserHasPermissionGroupApi()->insertUserHasPermissionGroup([
                 'user_id' => $userId,
                 'permission_group_id' => $permGroupId,
             ]);

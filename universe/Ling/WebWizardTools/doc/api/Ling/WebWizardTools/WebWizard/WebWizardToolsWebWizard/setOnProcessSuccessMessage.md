@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [WebWizardToolsWebWizard::setOnProcessSuccessMessage](https://github.com/lingtalfi/WebWizardTools/blob/master/WebWizard/WebWizardToolsWebWizard.php#L316-L319)
+See the source code for method [WebWizardToolsWebWizard::setOnProcessSuccessMessage](https://github.com/lingtalfi/WebWizardTools/blob/master/WebWizard/WebWizardToolsWebWizard.php#L350-L353)
 
 
 See Also

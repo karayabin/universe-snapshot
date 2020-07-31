@@ -1,1 +1,2 @@
 https://github.com/lingtalfi/BabyYaml/blob/master/README.md
+https://github.com/lingtalfi/BabyYaml/blob/master/personal/mydoc/pages/node-info-parser.md

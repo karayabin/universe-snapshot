@@ -12,9 +12,9 @@ use Ling\Light_TaskScheduler\Api\Custom\Interfaces\CustomTaskScheduleApiInterfac
 
 
 /**
- * The LightTaskschedulerApiFactory class.
+ * The LightTaskSchedulerApiFactory class.
  */
-class LightTaskschedulerApiFactory
+class LightTaskSchedulerApiFactory
 {
 
     /**
@@ -32,7 +32,7 @@ class LightTaskschedulerApiFactory
 
 
     /**
-     * Builds the LightTaskschedulerApiFactoryObjectFactory instance.
+     * Builds the LightTaskSchedulerApiFactoryObjectFactory instance.
      */
     public function __construct()
     {

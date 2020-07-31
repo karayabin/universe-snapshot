@@ -4,7 +4,7 @@
 
 The WebWizardToolsDefaultWebWizard class
 ================
-2020-07-06 --> 2020-07-09
+2020-07-06 --> 2020-07-24
 
 
 
@@ -39,7 +39,8 @@ class <span class="pl-k">WebWizardToolsDefaultWebWizard</span> extends [WebWizar
 
 - Inherited methods
     - public [WebWizardToolsWebWizard::render](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/WebWizard/WebWizardToolsWebWizard/render.md)() : void
-    - public [WebWizardToolsWebWizard::run](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/WebWizard/WebWizardToolsWebWizard/run.md)() : [WebWizardToolsProcess](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/Process/WebWizardToolsProcess.md) | null
+    - public [WebWizardToolsWebWizard::run](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/WebWizard/WebWizardToolsWebWizard/run.md)() : void
+    - public [WebWizardToolsWebWizard::getExecutedProcess](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/WebWizard/WebWizardToolsWebWizard/getExecutedProcess.md)() : [WebWizardToolsProcess](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/Process/WebWizardToolsProcess.md) | null
     - public [WebWizardToolsWebWizard::getProcesses](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/WebWizard/WebWizardToolsWebWizard/getProcesses.md)() : [WebWizardToolsProcess](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/Process/WebWizardToolsProcess.md)
     - public [WebWizardToolsWebWizard::setTriggerExtraParams](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/WebWizard/WebWizardToolsWebWizard/setTriggerExtraParams.md)(array $triggerExtraParams) : void
     - public [WebWizardToolsWebWizard::getTriggerExtraParams](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/WebWizard/WebWizardToolsWebWizard/getTriggerExtraParams.md)() : array
@@ -68,7 +69,8 @@ Methods
 
 - [WebWizardToolsDefaultWebWizard::__construct](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/WebWizard/WebWizardToolsDefaultWebWizard/__construct.md) &ndash; Builds the WebWizardToolsWebWizard instance.
 - [WebWizardToolsWebWizard::render](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/WebWizard/WebWizardToolsWebWizard/render.md) &ndash; Displays the web wizard gui.
-- [WebWizardToolsWebWizard::run](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/WebWizard/WebWizardToolsWebWizard/run.md) &ndash; Returns the currently executed process if any, or null otherwise.
+- [WebWizardToolsWebWizard::run](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/WebWizard/WebWizardToolsWebWizard/run.md) &ndash; Prepares all processes, and executes the called one if any.
+- [WebWizardToolsWebWizard::getExecutedProcess](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/WebWizard/WebWizardToolsWebWizard/getExecutedProcess.md) &ndash; Returns the currently executed process if any, or null otherwise.
 - [WebWizardToolsWebWizard::getProcesses](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/WebWizard/WebWizardToolsWebWizard/getProcesses.md) &ndash; Returns the processes of this instance.
 - [WebWizardToolsWebWizard::setTriggerExtraParams](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/WebWizard/WebWizardToolsWebWizard/setTriggerExtraParams.md) &ndash; Sets the triggerExtraParams.
 - [WebWizardToolsWebWizard::getTriggerExtraParams](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/WebWizard/WebWizardToolsWebWizard/getTriggerExtraParams.md) &ndash; Returns the triggerExtraParams of this instance.

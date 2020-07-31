@@ -76,6 +76,8 @@ class Light_DeveloperWizardDocBuilder
              */
             "reportIgnore" => [
                 "Ling\WebWizardTools\Process\WebWizardToolsProcess",
+                "Ling\WebWizardTools\WebWizard\WebWizardToolsWebWizard",
+
 
             ],
             /**
@@ -145,6 +147,15 @@ class Light_DeveloperWizardDocBuilder
                 "Light_DeveloperWizard conception notes" => $doc . '/pages/conception-notes.md',
                 "ling breeze generator 2 documentation" => 'https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/pages/ling-breeze-generator-2.md',
                 "WebWizardTools conception notes" => "https://github.com/lingtalfi/WebWizardTools/blob/master/doc/pages/conception-notes.md",
+                "planet identifier" => "https://github.com/lingtalfi/UniverseTools/blob/master/doc/pages/nomenclature.md#planet-identifier",
+                "tight planet name" => "https://github.com/lingtalfi/UniverseTools/blob/master/doc/pages/nomenclature.md#tight-planet-name",
+                "basic service" => $doc . "/pages/conventions.md#basic-service",
+                'class cooker\'s addProperty documentation' => 'https://github.com/lingtalfi/ClassCooker/blob/master/doc/api/Ling/ClassCooker/ClassCooker/addProperty.md',
+                "standard service config file" => 'https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/pages/conventions.md#standard-service-configuration-file',
+                "Light documentation" => 'https://github.com/lingtalfi/Light',
+                "basic service convention" => 'https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/pages/conventions.md#basic-service',
+                "the basic service config file" => 'https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/pages/conventions.md#basic-service',
+                "Light_Train conception notes" => 'https://github.com/lingtalfi/Light', // this is a fake link in the documentation somewhere
             ],
             /**
              * An array of external classes to url.
@@ -161,6 +172,14 @@ class Light_DeveloperWizardDocBuilder
                 "Ling\WebWizardTools\Report\WebWizardToolsReport" => "https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/Report/WebWizardToolsReport.md",
                 "Ling\WebWizardTools\Controls\WebWizardToolsControl" => "https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/Controls/WebWizardToolsControl.md",
                 "Ling\WebWizardTools\WebWizard\WebWizardToolsWebWizard" => "https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/WebWizard/WebWizardToolsWebWizard.md",
+                "Ling\Light_DeveloperWizard\Util\serviceManagerUtil" => "https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/Util/serviceManagerUtil.md",
+                "Ling\Light_DeveloperWizard\Service\ServiceManagerUtil" => "https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/Service/ServiceManagerUtil.md",
+                "Ling\Light\ServiceContainer\LightServiceContainerAwareInterface" => "https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerAwareInterface.md",
+                "Ling\WebWizardTools\WebWizard\WebWizardToolsDefaultWebWizard" => "https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/WebWizard/WebWizardToolsDefaultWebWizard.md",
+                "Ling\WebWizardTools\Controls\WebWizardToolsOptionList" => "https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/Controls/WebWizardToolsOptionList.md",
+                "Ling\WebWizardTools\WebWizard\Renderer\WebWizardToolsWebWizardRendererInterface" => "https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/WebWizard/Renderer/WebWizardToolsWebWizardRendererInterface.md",
+                "Ling\ClassCooker\ClassCooker" => "https://github.com/lingtalfi/ClassCooker/blob/master/doc/api/Ling/ClassCooker/ClassCooker.md",
+                "Ling\ClassCooker\FryingPan\FryingPan" => "https://github.com/lingtalfi/ClassCooker/blob/master/doc/api/Ling/ClassCooker/FryingPan/FryingPan.md",
 
 
             ],

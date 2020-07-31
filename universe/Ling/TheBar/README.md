@@ -1,6 +1,6 @@
 TheBar
 ======
-2015-11-03 -> 2020-07-03
+2015-11-03 -> 2020-07-10
 
 
 
@@ -13,6 +13,7 @@ Listen to some of our customer's stories.
 - [create-file](https://github.com/lingtalfi/TheBar/blob/master/discussions/create-file.md): the create file
 - [database identity usurpation](https://github.com/lingtalfi/TheBar/blob/master/discussions/database-identity-usurpation.md): a discussion about some database identity usurpation 
 - [DevicesResolutions](https://github.com/lingtalfi/TheBar/blob/master/DevicesResolutions/devices-resolutions.md): devices resolutions cheat sheet
+- [docblock comment](https://github.com/lingtalfi/TheBar/blob/master/discussions/docblock-comment.md): a doc block comment definition
 - [file-manager-protocol](https://github.com/lingtalfi/TheBar/blob/master/discussions/file-manager-protocol.md): the file manager protocol 
 - [flat-filesystem](https://github.com/lingtalfi/TheBar/blob/master/discussions/flat-filesystem.md): A flat filesystem 
 - [form multiplier trick](https://github.com/lingtalfi/TheBar/blob/master/discussions/form-multiplier.md): a discussion about php session security
@@ -26,6 +27,7 @@ Listen to some of our customer's stories.
 - [php session security](https://github.com/lingtalfi/TheBar/blob/master/discussions/php-session-security.md): a discussion about php session security
 - [Preventing path traversal attacks](https://github.com/lingtalfi/TheBar/blob/master/discussions/preventing-path-traversal-attacks.md): a discussion about directory traversal attacks and how to prevent them in php
 - [Secure file upload discussion](https://github.com/lingtalfi/TheBar/blob/master/discussions/secure-file-upload.md): a discussion about secure file upload
+- [Section comment](https://github.com/lingtalfi/TheBar/blob/master/discussions/section-comment.md): a definition of a section comment
 - [simple chunk-upload protocol](https://github.com/lingtalfi/TheBar/blob/master/discussions/simple-chunk-upload-protocol.md): the simple chunk upload protocol 
 - [webapp security checklist](https://github.com/lingtalfi/TheBar/blob/master/discussions/webapp-security-checklist.md): a minimum security level checklist for web apps
 
@@ -47,6 +49,14 @@ uni import Ling/TheBar
 
 History Log
 ===============
+    
+- 1.20.0 -- 2020-07-21
+
+    - add section comment definition
+    
+- 1.19.0 -- 2020-07-10
+
+    - add docblock comment definition
     
 - 1.18.0 -- 2020-07-03
 

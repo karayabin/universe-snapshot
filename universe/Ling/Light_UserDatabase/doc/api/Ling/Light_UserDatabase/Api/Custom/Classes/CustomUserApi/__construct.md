@@ -54,5 +54,5 @@ See Also
 
 The [CustomUserApi](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Custom/Classes/CustomUserApi.md) class.
 
-
+Next method: [getUsersByEmail](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Custom/Classes/CustomUserApi/getUsersByEmail.md)<br>
 

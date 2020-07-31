@@ -46,7 +46,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [WebWizardToolsWebWizard::getTriggerExtraParams](https://github.com/lingtalfi/WebWizardTools/blob/master/WebWizard/WebWizardToolsWebWizard.php#L200-L203)
+See the source code for method [WebWizardToolsWebWizard::getTriggerExtraParams](https://github.com/lingtalfi/WebWizardTools/blob/master/WebWizard/WebWizardToolsWebWizard.php#L233-L236)
 
 
 See Also

@@ -65,27 +65,23 @@ class ValueContainerExpressionDiscoverer extends TriContainerExpressionDiscovere
                 if (true === $firstIteration || true === $lastWasSep) {
                     if (true === $this->implicitValues) {
                         $values[] = $this->getDefaultImplicitValue();
-                    }
-                    else {
+                    } else {
                         return false;
                     }
                 }
                 $lastWasSep = true;
-            }
-            elseif ($this->isContainerEnd($it)) {
+            } elseif ($this->isContainerEnd($it)) {
                 if (true === $lastWasSep) {
                     if (true === $this->implicitValues) {
                         $values[] = $this->getDefaultImplicitValue();
-                    }
-                    else {
+                    } else {
                         return false;
                     }
                 }
                 $this->adjustIteratorPosition($it);
                 $this->notice("container end found, pos=" . $it->getPosition());
                 return $values;
-            }
-            else {
+            } else {
                 $lastWasSep = false;
                 $found = false;
                 $this->notice("trying to parse value...");
@@ -93,8 +89,7 @@ class ValueContainerExpressionDiscoverer extends TriContainerExpressionDiscovere
                 if (true === $found) {
                     $values[] = $v;
                     $this->warning("value found: " . VarTool::toString($v, ['details' => true]) . ", pos=" . $it->getPosition());
-                }
-                else {
+                } else {
                     $this->notice("value not found");
                     return false;
                 }
@@ -108,15 +103,14 @@ class ValueContainerExpressionDiscoverer extends TriContainerExpressionDiscovere
                 if (true === $lastWasSep) {
                     if (true === $this->implicitValues) {
                         $values[] = $this->getDefaultImplicitValue();
-                    }
-                    else {
+                    } else {
                         return false;
                     }
                 }
                 $this->adjustIteratorPosition($it);
                 $this->notice("container end found, pos=" . $it->getPosition());
                 return $values;
-            }            
+            }
         }
 
         return false;

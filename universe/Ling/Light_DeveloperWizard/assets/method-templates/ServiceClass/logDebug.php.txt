@@ -1,0 +1,20 @@
+
+    /**
+     * Sends a message to the debug log, only if the useDebug option is set to true.
+     * If useDebug is set to false, this method does nothing.
+     *
+     * @param string $msg
+     * @throws \Exception
+     */
+    public function logDebug(string $msg)
+    {
+        $useDebug = $this->options['useDebug'] ?? false;
+        if (true === $useDebug) {
+            /**
+             * @var $logger LightLoggerService
+             */
+            $logger = $this->container->get("logger");
+            $logger->log($msg, "task_scheduler.debug");
+        }
+    }
+

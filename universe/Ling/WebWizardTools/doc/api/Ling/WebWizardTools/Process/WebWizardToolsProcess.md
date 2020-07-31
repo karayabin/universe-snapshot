@@ -4,7 +4,7 @@
 
 The WebWizardToolsProcess class
 ================
-2020-07-06 --> 2020-07-09
+2020-07-06 --> 2020-07-24
 
 
 
@@ -38,6 +38,7 @@ abstract class <span class="pl-k">WebWizardToolsProcess</span>  {
 
 - Methods
     - public [__construct](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/Process/WebWizardToolsProcess/__construct.md)() : void
+    - public [prepare](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/Process/WebWizardToolsProcess/prepare.md)() : void
     - public [getReport](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/Process/WebWizardToolsProcess/getReport.md)() : array
     - public [getControls](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/Process/WebWizardToolsProcess/getControls.md)() : [WebWizardToolsControl](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/Controls/WebWizardToolsControl.md)
     - public [setWebWizard](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/Process/WebWizardToolsProcess/setWebWizard.md)([Ling\WebWizardTools\WebWizard\WebWizardToolsWebWizard](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/WebWizard/WebWizardToolsWebWizard.md) $webWizard) : [WebWizardToolsProcess](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/Process/WebWizardToolsProcess.md)
@@ -57,6 +58,7 @@ abstract class <span class="pl-k">WebWizardToolsProcess</span>  {
     - public [getCategory](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/Process/WebWizardToolsProcess/getCategory.md)() : string
     - public [setCategory](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/Process/WebWizardToolsProcess/setCategory.md)(string $category) : self
     - public [execute](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/Process/WebWizardToolsProcess/execute.md)(?array $options = []) : void
+    - public [addLogMessage](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/Process/WebWizardToolsProcess/addLogMessage.md)(string $msg, string $type) : void
     - abstract protected [doExecute](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/Process/WebWizardToolsProcess/doExecute.md)(?array $options = []) : void
     - protected [getContextVar](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/Process/WebWizardToolsProcess/getContextVar.md)(string $varName, ?$defaultValue = null, ?bool $throwEx = true) : void
     - protected [traceMessage](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/Process/WebWizardToolsProcess/traceMessage.md)(string $msg) : void
@@ -144,6 +146,7 @@ Methods
 ==============
 
 - [WebWizardToolsProcess::__construct](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/Process/WebWizardToolsProcess/__construct.md) &ndash; Builds the WebWizardToolsProcess instance.
+- [WebWizardToolsProcess::prepare](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/Process/WebWizardToolsProcess/prepare.md) &ndash; An opportunity for the process to create the controls, and/or to change the label of the process dynamically.
 - [WebWizardToolsProcess::getReport](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/Process/WebWizardToolsProcess/getReport.md) &ndash; Returns the report of this instance.
 - [WebWizardToolsProcess::getControls](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/Process/WebWizardToolsProcess/getControls.md) &ndash; Returns the controls of this instance.
 - [WebWizardToolsProcess::setWebWizard](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/Process/WebWizardToolsProcess/setWebWizard.md) &ndash; Sets the webWizard.
@@ -163,6 +166,7 @@ Methods
 - [WebWizardToolsProcess::getCategory](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/Process/WebWizardToolsProcess/getCategory.md) &ndash; Returns the category of this instance.
 - [WebWizardToolsProcess::setCategory](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/Process/WebWizardToolsProcess/setCategory.md) &ndash; Sets the category.
 - [WebWizardToolsProcess::execute](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/Process/WebWizardToolsProcess/execute.md) &ndash; Executes the process.
+- [WebWizardToolsProcess::addLogMessage](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/Process/WebWizardToolsProcess/addLogMessage.md) &ndash; Adds a message of the given type to the log.
 - [WebWizardToolsProcess::doExecute](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/Process/WebWizardToolsProcess/doExecute.md) &ndash; Executes the process.
 - [WebWizardToolsProcess::getContextVar](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/Process/WebWizardToolsProcess/getContextVar.md) &ndash; Returns a variable from the wizard context.
 - [WebWizardToolsProcess::traceMessage](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/Process/WebWizardToolsProcess/traceMessage.md) &ndash; Adds a message of type "trace" to the process report.

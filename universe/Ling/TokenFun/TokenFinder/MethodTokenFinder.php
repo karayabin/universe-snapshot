@@ -8,9 +8,7 @@ use Ling\TokenFun\TokenArrayIterator\Tool\TokenArrayIteratorTool;
 use Ling\TokenFun\Tool\TokenTool;
 
 /**
- * MethodTokenFinder
- * @author Lingtalfi
- * 2016-01-02
+ * The MethodTokenFinder class.
  *
  * If finds a method, like for instance:
  *
@@ -35,16 +33,11 @@ class MethodTokenFinder extends RecursiveTokenFinder
 
 
     /**
-     * @return array of match
-     *                  every match is an array with the following entries:
-     *                          0: int startIndex
-     *                                      the index at which the pattern starts
-     *                          1: int endIndex
-     *                                      the index at which the pattern ends
-     *
+     * @implementation
      */
     public function find(array $tokens)
     {
+
         $ret = [];
         $tai = new TokenArrayIterator($tokens);
         $start = null;
@@ -62,7 +55,10 @@ class MethodTokenFinder extends RecursiveTokenFinder
                     T_STATIC,
                 ], $cur)
                 ) {
+
                     $key = $tai->key();
+
+
 
                     if (TokenTool::match([
                         T_COMMENT,
@@ -72,6 +68,19 @@ class MethodTokenFinder extends RecursiveTokenFinder
                         $tai->next();
                         TokenArrayIteratorTool::skipWhiteSpaces($tai);
                         $cur = $tai->current();
+
+
+                        // skip all comments except the one that is just above the method
+                        if (TokenTool::match([
+                            T_COMMENT,
+                            T_DOC_COMMENT,
+                        ], $cur)
+                        ) {
+                            $start = null;
+                            continue;
+                        }
+
+
                     }
 
                     while (true === TokenTool::match([
@@ -102,14 +111,25 @@ class MethodTokenFinder extends RecursiveTokenFinder
                         }
                     }
                 }
-            }
-            else {
+            } else {
                 $found = false;
                 TokenArrayIteratorTool::skipWhiteSpaces($tai);
                 if (TokenTool::match('(', $tai->current())) {
                     if (true === TokenArrayIteratorTool::moveToCorrespondingEnd($tai)) {
                         $tai->next();
                         TokenArrayIteratorTool::skipWhiteSpaces($tai);
+
+
+                        // hint
+                        if (TokenTool::match(':', $tai->current())) {
+                            $tai->next();
+                            TokenArrayIteratorTool::skipWhiteSpaces($tai);
+                            if (TokenTool::match(T_STRING, $tai->current())) {
+                                $tai->next();
+                                TokenArrayIteratorTool::skipWhiteSpaces($tai);
+                            }
+                        }
+
                         if (TokenTool::match('{', $tai->current())) {
                             if (true === TokenArrayIteratorTool::moveToCorrespondingEnd($tai)) {
                                 $found = true;

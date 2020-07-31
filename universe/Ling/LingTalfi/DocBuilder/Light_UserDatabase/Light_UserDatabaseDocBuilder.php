@@ -76,6 +76,9 @@ class Light_UserDatabaseDocBuilder
              */
             "reportIgnore" => [
                 "Ling\Light_Bullsheet\Bullsheeter\LightAbstractBullsheeter",
+//                "Ling\Light_UserDatabase\Api\Generated\Classes\LightUserdatabaseBaseApi",
+//                "Ling\Light_UserDatabase\Api\Generated\LightUserdatabaseApiFactory",
+
             ],
             /**
              * Your project start date.
@@ -182,6 +185,8 @@ class Light_UserDatabaseDocBuilder
                 "Ling\Light_Database\Service\LightDatabaseService" => "https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/Service/LightDatabaseService.md",
                 "Ling\Light_PluginInstaller\PluginInstaller\PluginInstallerInterface" => "https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/PluginInstaller/PluginInstallerInterface.md",
                 "Ling\Light_FileWatcher\Refreshable\LightPluginInstallerRefreshableInterface" => "https://github.com/lingtalfi/Light_FileWatcher/blob/master/doc/api/Ling/Light_FileWatcher/Refreshable/LightPluginInstallerRefreshableInterface.md",
+//                "Ling\Light_UserDatabase\Api\Generated\Classes\LightUserdatabaseBaseApi" => "https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/LightUserdatabaseBaseApi.md",
+//                "Ling\Light_UserDatabase\Api\Generated\LightUserdatabaseApiFactory" => "https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/LightUserdatabaseApiFactory.md",
 
             ],
         ];

@@ -1,6 +1,6 @@
 Bat
 ==========
-2015-10-07 --> 2020-07-03
+2015-10-07 --> 2020-07-31
 
 
 
@@ -67,6 +67,7 @@ Tools       |       Description
 [SmartCodeTool]( https://github.com/lingtalfi/Bat/blob/master/SmartCodeTool.md )          |       Tools for manipulating smart codes
 [StringTool]( https://github.com/lingtalfi/Bat/blob/master/StringTool.md )          |       Tools for string manipulation
 [TagTool]( https://github.com/lingtalfi/Bat/blob/master/TagTool.md )          |       Tools for helping with tags
+[TimeTool]( https://github.com/lingtalfi/Bat/blob/master/TimeTool.md )          |       Tools for helping with time
 [UploadTool]( https://github.com/lingtalfi/Bat/blob/master/UploadTool.md )          |       Tools for helping with php file uploads
 [UriTool]( https://github.com/lingtalfi/Bat/blob/master/UriTool.md )          |       Tools for uri manipulation
 [ValidationTool]( https://github.com/lingtalfi/Bat/blob/master/ValidationTool.md )          |       Tools for validating data
@@ -85,6 +86,98 @@ Dependencies
 
 History Log
 ------------------
+    
+- 1.266 -- 2020-07-31
+
+    - add ClassTool::getReflectionClass method
+    
+- 1.265 -- 2020-07-28
+
+    - fix ExtendedReflectionClass and AnotherExtendedReflectionClass relying on reflection to get the start line
+    
+- 1.264 -- 2020-07-27
+
+    - add shortcode tool documentation link to smartcode tool 
+    
+- 1.263 -- 2020-07-27
+
+    - fix ExtendedReflectionClass::tokenizeSource, token_get_all complaining when parsing unfinished comment 
+    
+- 1.262 -- 2020-07-24
+
+    - add ClassTool::isLoaded method 
+    
+- 1.261 -- 2020-07-24
+
+    - add TimeTool class 
+    
+- 1.260 -- 2020-07-23
+
+    - fix AnotherExtendedReflectionClass::isUseStatementLine triggering warning if line contains unclosed comment 
+    
+- 1.259 -- 2020-07-21
+
+    - add ClassTool::getUseStatementClassByUseStatement method 
+    
+- 1.258 -- 2020-07-20
+
+    - add BDotTool::escape and unescape methods 
+    
+- 1.257 -- 2020-07-10
+
+    - add ClassTool::getClassPropertyBasicInfo method 
+    
+- 1.256 -- 2020-07-10
+
+    - add ClassTool::getFile method 
+    
+- 1.255 -- 2020-07-10
+
+    - add ClassTool::hasProperty method 
+    
+- 1.254 -- 2020-07-10
+
+    - add ClassTool::hasUseStatementByFile method 
+    
+- 1.253 -- 2020-07-10
+
+    - add ClassTool::getClassStartLineByFile method 
+    
+- 1.252 -- 2020-07-10
+
+    - add FileTool::getContent method 
+    
+- 1.251 -- 2020-07-10
+
+    - update ClassTool::getUseStatementsInfoByFile method comment again
+    
+- 1.250 -- 2020-07-10
+
+    - update ClassTool::getUseStatementsInfoByFile method comment
+    
+- 1.249 -- 2020-07-10
+
+    - add FileTool::replace method
+    
+- 1.248 -- 2020-07-10
+
+    - add ClassTool::getUseStatementsInfoByFile method
+    
+- 1.247 -- 2020-07-10
+
+    - add ClassTool::getClassNameByFile method
+    
+- 1.246 -- 2020-07-09
+
+    - add ClassTool::getUseStatements method
+    
+- 1.245 -- 2020-07-09
+
+    - add ClassTool::hasMethodByFile method
+    
+- 1.244 -- 2020-07-09
+
+    - add ClassTool::hasMethod method
     
 - 1.243 -- 2020-07-03
 

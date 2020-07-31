@@ -253,4 +253,23 @@ A category helps organize processes in groups at the gui level.
 
 
 
+The default synopsis
+--------
+2020-07-09
+
+
+Usually, a client using our wizard tools will implement something like this (pseudo code):
+
+
+- instantiate the webwizard
+- add the processes (webwizard->setProcess)
+- set the context if necessary (webwizard->setContext)
+- run the processes (webwizard->run)
+- display the gui (webwizard->render)
+
+
+
+
+
+
  

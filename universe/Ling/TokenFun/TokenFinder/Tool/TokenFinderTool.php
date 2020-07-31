@@ -3,11 +3,15 @@
 
 namespace Ling\TokenFun\TokenFinder\Tool;
 
+use Ling\Bat\ClassTool;
 use Ling\Bat\FileSystemTool;
 use Ling\DirScanner\DirScanner;
+use Ling\TokenFun\Exception\TokenFunException;
 use Ling\TokenFun\TokenArrayIterator\TokenArrayIterator;
 use Ling\TokenFun\TokenArrayIterator\Tool\TokenArrayIteratorTool;
 use Ling\TokenFun\TokenFinder\ClassNameTokenFinder;
+use Ling\TokenFun\TokenFinder\ClassPropertyTokenFinder;
+use Ling\TokenFun\TokenFinder\ClassSignatureTokenFinder;
 use Ling\TokenFun\TokenFinder\InterfaceTokenFinder;
 use Ling\TokenFun\TokenFinder\MethodTokenFinder;
 use Ling\TokenFun\TokenFinder\NamespaceTokenFinder;
@@ -17,17 +21,20 @@ use Ling\TokenFun\Tool\TokenTool;
 
 
 /**
- * TokenFinderTool
- * @author Lingtalfi
- * 2016-01-02
- *
+ * The TokenFinderTool class.
  */
 class TokenFinderTool
 {
 
 
     /**
-     * @param array $matches , an array of matches as returned by a TokenFinder object.
+     *
+     * Replace the matches with their actual content.
+     *
+     * The matches parameter is the array of matches as returned by a TokenFinder object.
+     *
+     * @param array $matches
+     * @param array $tokens
      */
     public static function matchesToString(array &$matches, array $tokens)
     {
@@ -49,11 +56,16 @@ class TokenFinderTool
 
     /**
      *
+     * Returns the class names found in the given tokens, prefixed with namespace if $withNamespaces=true.
+     *
      * Options:
      * - includeInterfaces: bool=false, whether to include interfaces
      *
      *
-     * @return array of class names found, prefixed with namespace if $withNamespaces=true
+     * @param array $tokens
+     * @param bool $withNamespaces
+     * @param array $options
+     * @return array
      *
      */
     public static function getClassNames(array $tokens, $withNamespaces = true, array $options = [])
@@ -76,15 +88,118 @@ class TokenFinderTool
         return $ret;
     }
 
+
     /**
-     * @return string|false, the classname of the parent class if any,
-     * and include the full name if $fullName is set to true.
+     * Returns an array of basic information for every class properties of the given class.
+     * The variable names are used as indexes.
+     *
+     * Note: the given class must be reachable by the auto-loaders.
+     *
+     *
+     *
+     * Each basic info array contains the following:
+     *
+     * - varName: string, the variable name
+     * - hasDocComment: bool, whether this property has a docblock comment attached to it (it's a comment that starts with slash double asterisk)
+     * - doComment: string, the docblock comment if any (an empty string otherwise)
+     * - isPublic: bool, whether the property's visibility is public
+     * - isProtected: bool, whether the property's visibility is protected
+     * - isPrivate: bool, whether the property's visibility is private
+     * - isStatic: bool, whether the property is declared as static
+     * - content: string, the whole property declaration, as written in the file, including the multi-line comments if any
+     * - startLine: int, the line number at which the property "block" (i.e. including the doc block comment if any) starts
+     * - endLine: int, the line number at which the property "block" ends
+     * - commentStartLine: int, the line number at which the doc bloc comment starts, or false if there is no block comment
+     * - commentEndLine: int, the line number at which the doc bloc comment ends, or false if there is no block comment
+     *
+     *
+     * @param string $className
+     * @return array
+     */
+    public static function getClassPropertyBasicInfo(string $className): array
+    {
+        $ret = [];
+        $file = ClassTool::getFile($className);
+        $tokens = token_get_all(file_get_contents($file));
+        $o = new ClassPropertyTokenFinder();
+        $matches = $o->find($tokens);
+        foreach ($matches as $match) {
+            list($startIndex, $endIndex) = $match;
+            $slice = TokenTool::slice($tokens, $startIndex, $endIndex);
+
+            $hasComment = TokenTool::matchAny([
+                T_DOC_COMMENT,
+            ], $slice);
+
+            $isPublic = TokenTool::matchAny([
+                T_PUBLIC,
+            ], $slice);
+            $isProtected = TokenTool::matchAny([
+                T_PROTECTED,
+            ], $slice);
+            $isPrivate = TokenTool::matchAny([
+                T_PRIVATE,
+            ], $slice);
+            $isStatic = TokenTool::matchAny([
+                T_STATIC,
+            ], $slice);
+
+//            az(TokenTool::explicitTokenNames($slice));
+            $varToken = TokenTool::fetch($slice, [T_VARIABLE]);
+            $varName = substr($varToken[1], 1); // removing the dollar symbol
+
+            $commentToken = TokenTool::fetch($slice, [T_DOC_COMMENT]);
+            $docComment = '';
+            $docCommentStartLine = false;
+            $docCommentEndLine = false;
+            if (false !== $commentToken) {
+                $docComment = $commentToken[1];
+                $docCommentStartLine = $commentToken[2];
+                $p = explode(PHP_EOL, $docComment);
+                $nbLines = count($p);
+                $docCommentEndLine = $docCommentStartLine + $nbLines - 1;
+
+
+            }
+
+
+            list($startLine, $endLine) = TokenTool::getStartEndLineByTokens($slice);
+            $content = TokenTool::tokensToString($slice);
+            $ret[$varName] = [
+                "varName" => $varName,
+                "hasDocComment" => $hasComment,
+                "docComment" => $docComment,
+                "isPublic" => $isPublic,
+                "isProtected" => $isProtected,
+                "isPrivate" => $isPrivate,
+                "isStatic" => $isStatic,
+                "content" => $content,
+                "startLine" => $startLine,
+                "endLine" => $endLine,
+                "commentStartLine" => $docCommentStartLine,
+                "commentEndLine" => $docCommentEndLine,
+            ];
+        }
+        return $ret;
+    }
+
+
+    /**
+     * Returns the parent class name, or false if no parent was found.
+     * If $fullName is set to true, the fullName of the parent is returned.
+     *
      *
      * When fullName is true, it tries to see if there is a use statement matching
      * the parent class name, and returns it if it exists.
      * Otherwise, it just prepends the namespace (if no use statement matched the parent class name).
      *
      * Note: as for now it doesn't take into account the "as" alias (i.e. use My\Class as Something)
+     *
+     *
+     * @param array $tokens
+     * @param bool $fullName
+     * @return string|false
+     *
      *
      */
     public static function getParentClassName(array $tokens, $fullName = true)
@@ -123,11 +238,56 @@ class TokenFinderTool
 
 
     /**
-     * @return array, the names of the implemented interfaces (search for the "CCC implements XXX" expression) if any,
+     * Returns an array containing info about the first class signature found in the tokens, or false if no class signature was found.
+     *
+     * In case of success, the returned array structure is:
+     *
+     * - 0: the class signature, including comments if any
+     * - 1: the start line of the signature
+     * - 2: the end line of the signature
+     *
+     *
+     *
+     *
+     * @param array $tokens
+     * @return array
+     * @throws \Exception
+     */
+    public static function getClassSignatureInfo(array $tokens)
+    {
+        $finder = new ClassSignatureTokenFinder();
+        $matches = $finder->find($tokens);
+        if ($matches) {
+            $firstMatch = array_shift($matches);
+            list($startIndex, $endIndex) = $firstMatch;
+
+            $slice = array_slice($tokens, $startIndex, $endIndex - $startIndex + 1);
+            $content = TokenTool::tokensToString($slice);
+            $firstToken = array_shift($slice); // we know by definition that this must has a line info
+            $startLine = $firstToken[2];
+
+            $lastToken = array_pop($slice); // assuming this has a line info
+            if (is_array($lastToken)) {
+                $endLine = $lastToken[2];
+                return [
+                    $content,
+                    $startLine,
+                    $endLine,
+                ];
+            } else {
+                throw new TokenFunException("Oops, the last token of the class signature was not an array, cannot get the end line info. The token was: $lastToken.");
+            }
+        }
+        return false;
+    }
+
+
+    /**
+     *
+     * Returns the interfaces found in the given tokens.
+     *
+     * It returns the names of the implemented interfaces (search for the "CCC implements XXX" expression) if any,
      * and include the full name if $fullName is set to true.
-     *
-     *
-     *
      *
      * When fullName is true, it tries to see if there is a use statement matching
      * the interface class name, and returns it if it exists.
@@ -135,8 +295,16 @@ class TokenFinderTool
      *
      * Note: as for now it doesn't take into account the "as" alias (i.e. use My\Class as Something)
      *
+     *
+     *
+     * @param array $tokens
+     * @param bool $fullName
+     * @return array
+     *
+     *
+     *
      */
-    public static function getInterfaces(array $tokens, $fullName = true)
+    public static function getInterfaces(array $tokens, $fullName = true): array
     {
         $o = new InterfaceTokenFinder();
         $matches = $o->find($tokens);
@@ -180,31 +348,57 @@ class TokenFinderTool
 
     /**
      *
-     * @return array of <info>, each info is an array with the following properties:
-     *      - startIndex: int, the index at which the pattern starts
-     *      - comment: null|string
-     *      - commentType: null|oneLine\multiLine
+     * Returns some info about the methods found in the given tokens.
+     *
+     * The returned array is an array of methodName => info, each info is an array with the following properties:
+     *      - name: string
      *      - visibility: public (default)|private|protected
      *      - abstract: bool
-     *      - name: string
-     *      - args: string
+     *      - final: bool
+     *      - static: bool
+     *      - methodStartLine: int
+     *      - methodEndLine: int
      *      - content: string
+     *      - args: string
+     *      - commentType: null|regular\docBlock
+     *      - commentStartLine: null|int
+     *      - commentEndLine: null|int
+     *      - comment: null|string
+     *      - startIndex: int, the index at which the pattern starts
+     *
+     *
+     * @param array $tokens
+     * @return array
+     * @throws \Exception
      */
-    public static function getMethodsInfo(array $tokens)
+    public static function getMethodsInfo(array $tokens): array
     {
 
         $ret = [];
         $o = new MethodTokenFinder();
         $matches = $o->find($tokens);
+
+
         if ($matches) {
 
+
             foreach ($matches as $match) {
+
+
                 $length = $match[1] - $match[0];
-                $tokens = array_slice($tokens, $match[0], $length);
+                $matchTokens = array_slice($tokens, $match[0], $length);
+
+
                 $comment = null;
                 $commentType = null;
+                $commentStartLine = null;
+                $commentEndLine = null;
+                $methodStartLine = null;
+                $methodEndLine = null;
                 $visibility = 'public';
                 $abstract = false;
+                $final = false;
+                $static = false;
                 $name = null;
                 $args = '';
                 $content = '';
@@ -213,28 +407,54 @@ class TokenFinderTool
                 $nameFound = false;
 
 
-                $tai = new TokenArrayIterator($tokens);
+                $tai = new TokenArrayIterator($matchTokens);
 
                 while ($tai->valid()) {
                     $token = $tai->current();
                     if (false === $nameFound) {
                         if (true === TokenTool::match([T_COMMENT, T_DOC_COMMENT], $token)) {
                             if (true === TokenTool::match(T_COMMENT, $token)) {
-                                $commentType = 'oneLine';
+                                $commentType = 'regular';
                             } else {
-                                $commentType = 'multiLine';
+                                $commentType = 'docBlock';
                             }
                             $comment = $token[1];
+                            $commentStartLine = $token[2];
                         }
 
                         if (true === TokenTool::match([T_PUBLIC, T_PROTECTED, T_PRIVATE], $token)) {
                             $visibility = $token[1];
+                            $methodStartLine = $token[2];
                         }
 
                         if (true === TokenTool::match(T_ABSTRACT, $token)) {
                             $abstract = true;
+                            if (null === $methodStartLine) {
+                                $methodStartLine = $token[2];
+                            }
                         }
+
+                        if (true === TokenTool::match(T_STATIC, $token)) {
+                            $static = true;
+                            if (null === $methodStartLine) {
+                                $methodStartLine = $token[2];
+                            }
+                        }
+
+                        if (true === TokenTool::match(T_FINAL, $token)) {
+                            $final = true;
+                            if (null === $methodStartLine) {
+                                $methodStartLine = $token[2];
+                            }
+                        }
+
+
                         if (true === TokenTool::match(T_FUNCTION, $token)) {
+
+                            if (null === $methodStartLine) {
+                                $methodStartLine = $token[2];
+                            }
+
                             $tai->next();
                             TokenArrayIteratorTool::skipWhiteSpaces($tai);
                             $name = $tai->current()[1];
@@ -253,6 +473,7 @@ class TokenFinderTool
                     if (false === $contentStarted && true === TokenTool::match('{', $tai->current())) {
                         $contentTokens = [];
                         TokenArrayIteratorTool::moveToCorrespondingEnd($tai, null, $contentTokens);
+
                         $content = TokenTool::tokensToString($contentTokens);
                         $contentStarted = true;
                     }
@@ -260,15 +481,38 @@ class TokenFinderTool
                 }
 
 
-                $ret[] = [
-                    'startIndex' => $match[0],
-                    'comment' => $comment,
-                    'commentType' => $commentType,
+                $p = explode(PHP_EOL, $content);
+                $methodEndLine = $methodStartLine + count($p);
+
+
+                if (null !== $commentStartLine) {
+                    if ('//' === substr(trim($comment), 0, 2)) {
+                        $commentEndLine = $commentStartLine;
+                    } else {
+                        $p = explode(PHP_EOL, $comment);
+                        $commentEndLine = $commentStartLine + count($p) - 1;
+                    }
+
+
+                }
+
+
+                $ret[$name] = [
+                    'name' => $name,
                     'visibility' => $visibility,
                     'abstract' => $abstract,
-                    'name' => $name,
-                    'args' => $args,
+                    'final' => $final,
+                    'static' => $static,
+                    'methodStartLine' => $methodStartLine,
+                    'methodEndLine' => $methodEndLine,
                     'content' => $content,
+                    'args' => $args,
+
+                    'commentType' => $commentType,
+                    'commentStartLine' => $commentStartLine,
+                    'commentEndLine' => $commentEndLine,
+                    'comment' => $comment,
+                    'startIndex' => $match[0],
                 ];
             }
         }
@@ -276,8 +520,10 @@ class TokenFinderTool
     }
 
     /**
+     * Returns the first namespace found in the given tokens, or false otherwise.
+     *
      * @param array $tokens
-     * @return false|string, the first namespace found or false if there is no namespace
+     * @return false|string
      */
     public static function getNamespace(array $tokens)
     {
@@ -296,9 +542,13 @@ class TokenFinderTool
 
 
     /**
-     * @return array of use statements' class names
+     *
+     * Returns an array of use statements' class names found in the given tokens.
+     * @param array $tokens
+     * @param bool $sort
+     * @return array
      */
-    public static function getUseDependencies(array $tokens, $sort = true)
+    public static function getUseDependencies(array $tokens, $sort = true): array
     {
         $ret = [];
         $o = new UseStatementsTokenFinder();
@@ -319,9 +569,12 @@ class TokenFinderTool
     }
 
     /**
-     * @return array of use statements' class names inside the given directory
+     * Returns an array of use statements' class names inside the given directory.
+     *
+     * @param string $dir
+     * @return array
      */
-    public static function getUseDependenciesByFolder($dir)
+    public static function getUseDependenciesByFolder(string $dir): array
     {
         $ret = [];
         DirScanner::create()->scanDir($dir, function ($path, $rPath, $level) use (&$ret) {
@@ -352,5 +605,71 @@ class TokenFinderTool
         $ret = array_unique($ret);
         sort($ret);
         return $ret;
+    }
+
+
+    /**
+     * Removes the php comments from the given valid php string, and returns the result.
+     *
+     * Note: a valid php string must start with <?php.
+     *
+     * If the preserveWhiteSpace option is true, it will replace the comments with some whitespaces, so that
+     * the line numbers are preserved.
+     *
+     *
+     * @param string $str
+     * @param bool $preserveWhiteSpace
+     * @return string
+     */
+    public static function removePhpComments(string $str, bool $preserveWhiteSpace = true): string
+    {
+        $commentTokens = [
+            \T_COMMENT,
+            \T_DOC_COMMENT,
+        ];
+        $tokens = token_get_all($str);
+
+
+        if (true === $preserveWhiteSpace) {
+            $lines = explode(PHP_EOL, $str);
+        }
+
+
+        $s = '';
+        foreach ($tokens as $token) {
+            if (is_array($token)) {
+                if (in_array($token[0], $commentTokens)) {
+                    if (true === $preserveWhiteSpace) {
+                        $comment = $token[1];
+                        $lineNb = $token[2];
+                        $firstLine = $lines[$lineNb - 1];
+                        $p = explode(PHP_EOL, $comment);
+                        $nbLineComments = count($p);
+                        if ($nbLineComments < 1) {
+                            $nbLineComments = 1;
+                        }
+                        $firstCommentLine = array_shift($p);
+
+                        $isStandAlone = (trim($firstLine) === trim($firstCommentLine));
+
+                        if (false === $isStandAlone) {
+                            if (2 === $nbLineComments) {
+                                $s .= PHP_EOL;
+                            }
+
+                            continue; // just remove inline comments
+                        }
+
+                        // stand alone case
+                        $s .= str_repeat(PHP_EOL, $nbLineComments - 1);
+                    }
+                    continue;
+                }
+                $token = $token[1];
+            }
+
+            $s .= $token;
+        }
+        return $s;
     }
 }

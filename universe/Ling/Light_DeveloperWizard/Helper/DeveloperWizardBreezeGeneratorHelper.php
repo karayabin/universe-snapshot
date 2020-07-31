@@ -61,7 +61,8 @@ class DeveloperWizardBreezeGeneratorHelper
         $createFilePath = $params['createFilePath'];
         $prefix = $params['prefix'];
         $otherPrefixes = $params["otherPrefixes"] ?? [];
-        $apiName = CaseTool::toPascal($planetName);
+        $apiName = CaseTool::toFlexiblePascal($planetName);
+
         $sOtherPrefixes = '';
         if ($otherPrefixes) {
             foreach ($otherPrefixes as $otherPrefix) {

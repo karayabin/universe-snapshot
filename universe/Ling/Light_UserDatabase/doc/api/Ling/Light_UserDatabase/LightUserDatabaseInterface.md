@@ -4,7 +4,7 @@
 
 The LightUserDatabaseInterface class
 ================
-2019-07-19 --> 2020-06-25
+2019-07-19 --> 2020-07-21
 
 
 

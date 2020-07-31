@@ -1,6 +1,6 @@
 Light_BreezeGenerator
 ===========
-2019-09-11 -> 2020-07-03
+2019-09-11 -> 2020-07-27
 
 
 
@@ -65,6 +65,14 @@ breeze_generator:
 History Log
 =============
 
+- 1.28.0 -- 2020-07-27
+
+    - update LingBreezeGenerator2, add fetch and fetchAll methods 
+    
+- 1.27.2 -- 2020-07-21
+
+    - fix LingBreezeGenerator2, conflict when generating interface method using the "user" variable 
+    
 - 1.27.1 -- 2020-07-03
 
     - fix LingBreezeGenerator2 generated insert method not taking SimplePdoWrapperQueryException into account 

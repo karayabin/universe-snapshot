@@ -161,9 +161,8 @@ class ClassSynopsisWidget extends Widget
         $originalClassName = $className;
         $parent = $class->getParentClass();
         if (false !== $parent) {
+
             $classUrl = $this->getClassUrl($parent, 'extends');
-
-
             $className = $parent->getShortName();
             if (false === $parent->isUserDefined()) {
                 $className = '\\' . $className;

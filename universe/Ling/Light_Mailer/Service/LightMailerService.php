@@ -309,7 +309,7 @@ class LightMailerService
             $dryTrace = $options['dryTrace'] ?? false;
             if (true === $dryTrace) {
                 echo nl2br($message);
-                az();
+                exit;
             }
 
 

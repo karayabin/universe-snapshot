@@ -82,6 +82,8 @@ class MandatoryKeyContainerExpressionDiscoverer extends TriContainerExpressionDi
                     $this->failure("The combination of the valueSep symbol followed by the end symbol would imply the creation of an implicit key, which is forbidden with this mandatoryKey class");
                     return false;
                 }
+
+                $this->onContainerEnd($string);
                 $this->notice("Container end Found");
                 $this->adjustIteratorPosition($it);
                 return $values;
@@ -209,4 +211,18 @@ class MandatoryKeyContainerExpressionDiscoverer extends TriContainerExpressionDi
 
 
 
+
+    //--------------------------------------------
+    //
+    //--------------------------------------------
+    /**
+     * Hook called when the container end was detected.
+     *
+     * @param string $string
+     * @overrideMe
+     */
+    protected function onContainerEnd(string $string)
+    {
+
+    }
 }

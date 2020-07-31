@@ -47,13 +47,13 @@ interface UserHasPermissionGroupApiInterface
      *
      *
      *
-     * @param array $userHasPermissionGroupHasPermissionGroups
+     * @param array $userHasPermissionGroups
      * @param bool $ignoreDuplicate
      * @param bool $returnRic
      * @return mixed
      * @throws \Exception
      */
-    public function insertUserHasPermissionGroups(array $userHasPermissionGroupHasPermissionGroups, bool $ignoreDuplicate = true, bool $returnRic = false);
+    public function insertUserHasPermissionGroups(array $userHasPermissionGroups, bool $ignoreDuplicate = true, bool $returnRic = false);
 
     /**
      * Returns the userHasPermissionGroup row identified by the given user_id and permission_group_id.

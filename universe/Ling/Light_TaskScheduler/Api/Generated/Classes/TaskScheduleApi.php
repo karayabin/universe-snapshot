@@ -4,9 +4,13 @@
 namespace Ling\Light_TaskScheduler\Api\Generated\Classes;
 
 use Ling\SimplePdoWrapper\SimplePdoWrapper;
-use Ling\SimplePdoWrapper\Util\Where;
 use Ling\SimplePdoWrapper\Exception\SimplePdoWrapperQueryException;
-use Ling\Light_TaskScheduler\Api\Custom\Classes\CustomLightTaskschedulerBaseApi;
+use Ling\SimplePdoWrapper\Util\Columns;
+use Ling\SimplePdoWrapper\Util\Limit;
+use Ling\SimplePdoWrapper\Util\OrderBy;
+use Ling\SimplePdoWrapper\Util\Where;
+
+use Ling\Light_TaskScheduler\Api\Custom\Classes\CustomLightTaskSchedulerBaseApi;
 use Ling\Light_TaskScheduler\Api\Generated\Interfaces\TaskScheduleApiInterface;
 
 
@@ -14,7 +18,7 @@ use Ling\Light_TaskScheduler\Api\Generated\Interfaces\TaskScheduleApiInterface;
 /**
  * The TaskScheduleApi class.
  */
-class TaskScheduleApi extends CustomLightTaskschedulerBaseApi implements TaskScheduleApiInterface
+class TaskScheduleApi extends CustomLightTaskSchedulerBaseApi implements TaskScheduleApiInterface
 {
 
 
@@ -26,6 +30,8 @@ class TaskScheduleApi extends CustomLightTaskschedulerBaseApi implements TaskSch
         parent::__construct();
         $this->table = "lts_task_schedule";
     }
+
+
 
 
 
@@ -100,6 +106,32 @@ class TaskScheduleApi extends CustomLightTaskschedulerBaseApi implements TaskSch
             $ret[] = $res;
         }
         return $ret;
+    }
+
+    /**
+     * @implementation
+     */
+    public function fetchAll(array $components = []): array
+    {
+        $markers = [];
+        $q = '';
+        $options = $this->fetchRoutine($q, $markers, $components);
+        $fetchStyle = null;
+        if (true === $options['singleColumns']) {
+            $fetchStyle = \PDO::FETCH_COLUMN;
+        }
+        return $this->pdoWrapper->fetchAll($q, $markers, $fetchStyle);
+    }
+
+    /**
+     * @implementation
+     */
+    public function fetch(array $components = [])
+    {
+        $markers = [];
+        $q = '';
+        $this->fetchRoutine($q, $markers, $components);
+        return $this->pdoWrapper->fetch($q, $markers);
     }
 
     /**
@@ -258,6 +290,71 @@ class TaskScheduleApi extends CustomLightTaskschedulerBaseApi implements TaskSch
 
 
 
+    //--------------------------------------------
+    //
+    //--------------------------------------------
+    /**
+     * Appends the given components to the given query, and returns an array of options.
+     *
+     * The options are:
+     *
+     * - singleColumn: bool, whether the singleColumn mode was triggered with the Columns component
+     *
+     *
+     * @param string $q
+     * @param array $markers
+     * @param array $components
+     * @return array
+     * @throws \Exception
+     */
+    private function fetchRoutine(string &$q, array &$markers, array $components): array
+    {
+        $sWhere = '';
+        $sCols = '';
+        $sOrderBy = '';
+        $sLimit = '';
+        $singleColumn = false;
+
+        foreach ($components as $component) {
+            if ($component instanceof Columns) {
+                $component->apply($sCols);
+                $mode = $component->getMode();
+                if ('singleColumn' === $mode) {
+                    $singleColumn = true;
+                }
+            } elseif ($component instanceof Where) {
+                SimplePdoWrapper::addWhereSubStmt($sWhere, $markers, $component);
+            } elseif ($component instanceof OrderBy) {
+                $sOrderBy .= PHP_EOL . ' ORDER BY ';
+                $component->apply($sOrderBy);
+            } elseif ($component instanceof Limit) {
+                $sOrderBy .= PHP_EOL . ' LIMIT ';
+                $component->apply($sOrderBy);
+            }
+        }
+
+
+        if ('' === $sCols) {
+            $sCols = '*';
+        }
+
+
+        $q = "select $sCols from `$this->table`";
+        if ($sWhere) {
+            $q .= $sWhere;
+        }
+        if ($sOrderBy) {
+            $q .= $sOrderBy;
+        }
+        if ($sLimit) {
+            $q .= $sLimit;
+        }
+
+
+        return [
+            'singleColumn' => $singleColumn,
+        ];
+    }
 
 
 }

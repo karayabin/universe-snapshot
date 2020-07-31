@@ -55,7 +55,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightPluginInstallerService::registerPostInstaller](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/Service/LightPluginInstallerService.php#L189-L195)
+See the source code for method [LightPluginInstallerService::registerPostInstaller](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/Service/LightPluginInstallerService.php#L203-L209)
 
 
 See Also

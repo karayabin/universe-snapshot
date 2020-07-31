@@ -8,10 +8,7 @@ use Ling\TokenFun\TokenArrayIterator\Tool\TokenArrayIteratorTool;
 use Ling\TokenFun\Tool\TokenTool;
 
 /**
- * ClassTokenFinder
- * @author Lingtalfi
- * 2016-01-02
- *
+ * The ClassTokenFinder class.
  *
  * It assumes that the php code is valid.
  * If finds a className, like for instance if the given code is
@@ -30,6 +27,10 @@ class ClassNameTokenFinder extends RecursiveTokenFinder
 {
 
 
+    /**
+     * This property holds the namespace for this instance.
+     * @var string
+     */
     protected $namespace;
 
     /**
@@ -63,13 +64,7 @@ class ClassNameTokenFinder extends RecursiveTokenFinder
 
 
     /**
-     * @return array of match
-     *                  every match is an array with the following entries:
-     *                          0: int startIndex
-     *                                      the index at which the pattern starts
-     *                          1: int endIndex
-     *                                      the index at which the pattern ends
-     *
+     * @implementation
      */
     public function find(array $tokens)
     {

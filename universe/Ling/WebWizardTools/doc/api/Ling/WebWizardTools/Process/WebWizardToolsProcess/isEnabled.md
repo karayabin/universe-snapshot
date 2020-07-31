@@ -46,7 +46,7 @@ Returns bool.
 
 Source Code
 ===========
-See the source code for method [WebWizardToolsProcess::isEnabled](https://github.com/lingtalfi/WebWizardTools/blob/master/Process/WebWizardToolsProcess.php#L236-L239)
+See the source code for method [WebWizardToolsProcess::isEnabled](https://github.com/lingtalfi/WebWizardTools/blob/master/Process/WebWizardToolsProcess.php#L248-L251)
 
 
 See Also

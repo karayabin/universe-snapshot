@@ -10,7 +10,7 @@ use Ling\BabyYaml\Reader\StringParser\ExpressionDiscoverer\Exception\HybridComme
 /**
  * HybridExpressionDiscoverer
  * @author Lingtalfi
- * 2015-05-12
+ * 2015-05-12 -> 2020-07-14
  *
  *
  * This hybrid can handle comments (with fixed length start symbol), but you have
@@ -25,9 +25,9 @@ use Ling\BabyYaml\Reader\StringParser\ExpressionDiscoverer\Exception\HybridComme
 class HybridExpressionDiscoverer extends ExpressionDiscoverer implements GreedyExpressionDiscovererInterface
 {
 
-    private $symbols;
-    private $commentSymbol;
-    private $autoCast;
+    protected $symbols;
+    protected $commentSymbol;
+    protected $autoCast;
 
     public function __construct()
     {
@@ -81,17 +81,16 @@ class HybridExpressionDiscoverer extends ExpressionDiscoverer implements GreedyE
             $e = new  HybridCommentException();
             $e->setHybridValue($value);
             throw $e;
-        }
-        else {
+        } else {
             /**
              * Default routine for hybrid
              */
             if (false !== $symbolPos = StringTool::strposMultiple($string, $this->symbols, $pos)) {
+                $this->onSymbolDetected($string);
                 $value = trim(mb_substr($string, $pos, $symbolPos - $pos));
                 $pos = $symbolPos - 1;
 
-            }
-            else {
+            } else {
                 $sub = mb_substr($string, $pos);
                 $value = trim($sub);
                 $pos = mb_strlen($string) - 1;
@@ -103,6 +102,7 @@ class HybridExpressionDiscoverer extends ExpressionDiscoverer implements GreedyE
         $value = $this->resolveValue($value);
         $this->value = $value;
         $this->pos = $pos;
+
 
         return true;
     }
@@ -142,6 +142,15 @@ class HybridExpressionDiscoverer extends ExpressionDiscoverer implements GreedyE
             return StringTool::autoCast($v);
         }
         return $v;
+    }
+
+    /**
+     * @param string $string
+     * @overrideMe
+     */
+    protected function onSymbolDetected(string $string)
+    {
+
     }
 
 
