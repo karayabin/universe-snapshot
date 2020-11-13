@@ -8,11 +8,9 @@ use Ling\BabyYaml\BabyYamlUtil;
 use Ling\Bat\ArrayTool;
 use Ling\Bat\CaseTool;
 use Ling\Bat\FileSystemTool;
-use Ling\Light_DatabaseInfo\Service\LightDatabaseInfoService;
 use Ling\Light_RealGenerator\Exception\LightRealGeneratorException;
 use Ling\Light_RealGenerator\Util\RepresentativeColumnFinderUtil;
 use Ling\SqlWizard\Tool\SqlWizardGeneralTool;
-use Ling\SqlWizard\Util\MysqlStructureReader;
 
 /**
  * The ListConfigGenerator class.
@@ -46,12 +44,13 @@ class ListConfigGenerator extends BaseConfigGenerator
         $appDir = $this->container->getApplicationDir();
         $targetDir = $this->getKeyValue("list.target_dir");
         $targetDir = str_replace('{app_dir}', $appDir, $targetDir);
+        $targetBaseName = $this->getKeyValue("list.target_basename", false, "{table}.byml");
 
         $this->debugLog("Generating " . count($tables) . " list config(s) in the following directory: " . $this->getSymbolicPath($targetDir) . ".");
 
         foreach ($tables as $table) {
             $content = $this->getFileContent($table);
-            $fileName = $table . ".byml";
+            $fileName = str_replace('{table}', $table, $targetBaseName);
             $path = $targetDir . '/' . $fileName;
             FileSystemTool::mkfile($path, $content);
         }
@@ -78,17 +77,18 @@ class ListConfigGenerator extends BaseConfigGenerator
         //--------------------------------------------
         //
         //--------------------------------------------
-        $arr = [];
-        $identifier = "default";
+
         $main = [];
-        $main['table'] = $table;
-        $database = $this->getKeyValue('database_name', false, null);
 
 
         $pluginName = $this->getKeyValue('plugin_name');
-        $listActionGroupsPluginName = $this->getKeyValue('list.list_action_groups_plugin_name', false, $pluginName);
-        $listGeneralActionsPluginName = $this->getKeyValue('list.list_general_actions_plugin_name', false, $pluginName);
-        $useMicroPermission = $this->getKeyValue('list.use_micro_permission', false, true);
+
+
+        // lka is quite popular...
+        $actionHandlerClass = $this->getKeyValue('list.action_handler_class', false, 'Ling\Light_Kit_Admin\Realist\ListActionHandler\LightKitAdminListActionHandler');
+        $listRendererClass = $this->getKeyValue('list.list_renderer_class', false, 'Ling\Light_Kit_Admin\Realist\Rendering\LightKitAdminRealistListRenderer');
+
+
         $ignoreColumns = $this->getKeyValue("list.ignore_columns.$table", false, []);
         $globalIgnoreColumns = $this->getKeyValue("ignore_columns.$table", false, []);
         $useActionColumn = $this->getKeyValue("list.use_action_column", false, true);
@@ -96,8 +96,10 @@ class ListConfigGenerator extends BaseConfigGenerator
         $columnActionName = $this->getKeyValue("list.column_action_name", false, '_action');
         $columnCheckboxName = $this->getKeyValue("list.column_checkbox_name", false, '_checkbox');
         $columnActionLabel = $this->getKeyValue("list.column_action_label", false, "Actions");
+        $columnCheckboxLabel = $this->getKeyValue("list.column_checkbox_label", false, "Checkbox");
+
         $rowsRendererIdentifier = $this->getKeyValue("list.rows_renderer_identifier", false);
-        $rowsRendererClass = $this->getKeyValue("list.rows_renderer_class", false);
+        $rowsRendererClass = $this->getKeyValue("list.rows_renderer_class", false, 'Ling\Light_Kit_Admin\Realist\Rendering\LightKitAdminRealistListItemRenderer');
         $rowsRendererTypeAliases = $this->getKeyValue("list.rows_renderer_type_aliases", false, []);
         $rowsRendererTypesGeneral = $this->getKeyValue("list.rows_renderer_types_general", false, []);
         $rowsRendererTypesSpecific = $this->getKeyValue("list.rows_renderer_types_specific.$table", false, []);
@@ -112,23 +114,32 @@ class ListConfigGenerator extends BaseConfigGenerator
         $crossColumnHubLinkTablePrefix2Plugin = $this->getKeyValue("list.cross_column_hub_link_table_prefix_2_plugin", false, []);
         $relatedLinks = $this->getKeyValue("list.related_links", false, []);
         $listTitle = $this->getKeyValue("list.title", false, "{Label} list");
-        $useRowRestriction = $this->getKeyValue("list.use_row_restriction", false, false);
         $queryErrorShowDebugInfo = $this->getKeyValue("list.query_error_show_debug_info", false, false);
 
 
+        $main['_vars'] = [
+            "table" => $table,
+            "plugin" => $pluginName,
+        ];
+
+        $duelist = [];
+        $duelist['table'] = '%{table}';
+
+
         $ignoreColumns = array_unique(array_merge($globalIgnoreColumns, $ignoreColumns));
+        $colToCross = [];
 
 
         $tableInfo = $this->getTableInfo($table);
 
 
         $tableRic = $tableInfo['ric'];
-        $main['ric'] = $tableRic;
+        $duelist['ric'] = $tableRic;
         $dbName = $tableInfo['database'];
         $columns = array_merge(array_diff($tableInfo['columns'], $ignoreColumns));
 
         $mainTableAlias = $this->findAlias($table);
-        $main['table'] .= " " . $mainTableAlias;
+        $duelist['table'] .= " " . $mainTableAlias;
 
 
         $baseFields = array_map(function ($v) use ($mainTableAlias) {
@@ -138,7 +149,6 @@ class ListConfigGenerator extends BaseConfigGenerator
         $baseJoins = [];
         $fkToConcat = [];
         $crossColumnLabels = [];
-        $hiddenColumns = [];
         $fkCrossColumnRenderTypes = [];
         $crossColumnAlias2OpenAdminDataTypes = [];
 
@@ -169,6 +179,9 @@ class ListConfigGenerator extends BaseConfigGenerator
                     $crossColumnAlias = $this->findRepresentativeColumnAlias($fk);
 
                     $representativeCol = $reprFinder->findRepresentativeColumn($rfTable);
+
+
+
                     $fkToRepresentative[$fk] = $representativeCol;
                     $rfTableAlias = $this->findAlias($rfTable);
                     $tableToAlias[$rfDb . '.' . $rfTable] = $rfTableAlias;
@@ -208,9 +221,9 @@ class ListConfigGenerator extends BaseConfigGenerator
 
 
                     //--------------------------------------------
-                    // hidden columns
+                    // replace regular column with their cross equivalent
                     //--------------------------------------------
-                    $hiddenColumns[] = $fk;
+                    $colToCross[$fk] = $crossColumnAlias;
 
 
                     //--------------------------------------------
@@ -236,7 +249,7 @@ class ListConfigGenerator extends BaseConfigGenerator
                             $rfCol => $fk,
                         ],
                         "url_params" => [
-                            'plugin' => $crossColumnPluginName,
+                            'plugin' => '%{plugin}',
                             'controller' => str_replace([
                                 '{Table}',
                             ], [
@@ -248,9 +261,9 @@ class ListConfigGenerator extends BaseConfigGenerator
                 }
             }
         }
-        $main['base_fields'] = $baseFields;
+        $duelist['base_fields'] = $baseFields;
         if ($baseJoins) {
-            $main['base_joins'] = $baseJoins;
+            $duelist['base_joins'] = $baseJoins;
         }
 
 
@@ -263,7 +276,7 @@ class ListConfigGenerator extends BaseConfigGenerator
             //--------------------------------------------
             // ORDER
             //--------------------------------------------
-            $main['order'] = [
+            $duelist['order'] = [
                 "col_order" => '$column $direction',
             ];
 
@@ -291,7 +304,7 @@ class ListConfigGenerator extends BaseConfigGenerator
                 }
             }
 
-            $main['where'] = [
+            $duelist['where'] = [
                 "general_search" => $sGeneralSearch,
                 "generic_filter" => '$column $operator :operator_value',
                 "generic_sub_filter" => '$column like :%operator_value%',
@@ -302,21 +315,21 @@ class ListConfigGenerator extends BaseConfigGenerator
 //            if ('id' === $autoIncrementedKey) {
 //                $main['where']['in_ids'] = 'id in ($ids)';
 //            }
-            $main['where']['open_parenthesis'] = '(';
-            $main['where']['close_parenthesis'] = ')';
-            $main['where']['and'] = 'and';
-            $main['where']['or'] = 'or';
+            $duelist['where']['open_parenthesis'] = '(';
+            $duelist['where']['close_parenthesis'] = ')';
+            $duelist['where']['and'] = 'and';
+            $duelist['where']['or'] = 'or';
 
             $sInRics = implode(' and ', array_map(function ($v) use ($mainTableAlias) {
                 return "$mainTableAlias.$v like :$v";
             }, $tableRic));
-            $main['where']['in_rics'] = '(' . $sInRics . ')';
+            $duelist['where']['in_rics'] = '(' . $sInRics . ')';
 
 
             //--------------------------------------------
             // LIMIT
             //--------------------------------------------
-            $main['limit'] = [
+            $duelist['limit'] = [
                 "page" => '$page',
                 "page_length" => '$page_length',
             ];
@@ -325,7 +338,7 @@ class ListConfigGenerator extends BaseConfigGenerator
             //--------------------------------------------
             // OPTIONS
             //--------------------------------------------
-            $main['options'] = [
+            $duelist['options'] = [
                 "wiring" => [],
                 "default_limit_page" => 1,
                 "default_limit_page_length" => 20,
@@ -340,17 +353,24 @@ class ListConfigGenerator extends BaseConfigGenerator
             ];
 
 
+            $main['duelist'] = $duelist;
+
+
             //--------------------------------------------
             // MISCELLANEOUS
             //--------------------------------------------
-            $main['plugin'] = $pluginName;
-            $main['csrf_token'] = [
-                "name" => 'realist-request',
-                "value" => 'REALIST(Light_Realist, csrf_token, realist-request)',
-            ];
-            $main['use_micro_permission'] = $useMicroPermission;
-            $main['use_row_restriction'] = $useRowRestriction;
             $main['query_error_show_debug_info'] = $queryErrorShowDebugInfo;
+
+
+            //--------------------------------------------
+            // ACTION HANDLER PLACEHOLDER
+            //--------------------------------------------
+            $main['action_handler'] = [
+                'class' => $actionHandlerClass,
+                'allowed_actions' => [
+                    "my_action",
+                ],
+            ];
 
 
             //--------------------------------------------
@@ -358,82 +378,71 @@ class ListConfigGenerator extends BaseConfigGenerator
             //--------------------------------------------
             $listGeneralActions = [
                 [
-                    'action_id' => "$listGeneralActionsPluginName.realist-generate_random_rows",
+                    'action_id' => "realist-generate_random_rows",
                     'text' => "Generate",
                     'icon' => "fas fa-spray-can",
-                    'csrf_token' => true,
                 ],
                 [
-                    'action_id' => "$listGeneralActionsPluginName.realist-save_table",
+                    'action_id' => "realist-save_table",
                     'text' => "Save table content",
                     'icon' => "fas fa-download",
-                    'csrf_token' => true,
                 ],
                 [
-                    'action_id' => "$listGeneralActionsPluginName.realist-load_table",
+                    'action_id' => "realist-load_table",
                     'text' => "Load table content",
                     'icon' => "fas fa-upload",
-                    'csrf_token' => true,
                 ],
             ];
             $listActionGroups = [
                 [
-                    'action_id' => "$listActionGroupsPluginName.realist-print",
+                    'action_id' => "realist-print_rows",
                     'text' => "Print",
                     'icon' => "fas fa-print",
-                    'csrf_token' => true,
                 ],
                 [
-                    'action_id' => "$listActionGroupsPluginName.realist-delete_rows",
+                    'action_id' => "realist-delete_rows",
                     'text' => "Delete",
                     'icon' => "far fa-trash-alt",
-                    'csrf_token' => true,
                 ],
                 [
-                    'action_id' => "$listActionGroupsPluginName.realist-edit_rows",
+                    'action_id' => "realist-edit_rows",
                     'text' => "Edit",
                     'icon' => "fas fa-edit",
-                    'csrf_token' => true,
+                    'realform_id' => '%{plugin}:generated/%{table}',
                 ],
                 [
                     'text' => "Share",
                     'icon' => "fas fa-share-square",
                     'items' => [
                         [
-                            'action_id' => "$listActionGroupsPluginName.realist-rows_to_ods",
+                            'action_id' => "realist-rows_to_ods",
                             'text' => "OpenOffice ods",
                             'icon' => "far fa-file-alt",
-                            'csrf_token' => true,
                         ],
                         [
-                            'action_id' => "$listActionGroupsPluginName.realist-rows_to_xlsx",
+                            'action_id' => "realist-rows_to_xlsx",
                             'text' => "Excel xlsx",
                             'icon' => "far fa-file-excel",
-                            'csrf_token' => true,
                         ],
                         [
-                            'action_id' => "$listActionGroupsPluginName.realist-rows_to_xls",
+                            'action_id' => "realist-rows_to_xls",
                             'text' => "Excel xls",
                             'icon' => "far fa-file-excel",
-                            'csrf_token' => true,
                         ],
                         [
-                            'action_id' => "$listActionGroupsPluginName.realist-rows_to_html",
+                            'action_id' => "realist-rows_to_html",
                             'text' => "Html",
                             'icon' => "far fa-file-code",
-                            'csrf_token' => true,
                         ],
                         [
-                            'action_id' => "$listActionGroupsPluginName.realist-rows_to_csv",
+                            'action_id' => "realist-rows_to_csv",
                             'text' => "Csv",
                             'icon' => "fas fa-file-csv",
-                            'csrf_token' => true,
                         ],
                         [
-                            'action_id' => "$listActionGroupsPluginName.realist-rows_to_pdf",
+                            'action_id' => "realist-rows_to_pdf",
                             'text' => "Pdf",
                             'icon' => "far fa-file-pdf",
-                            'csrf_token' => true,
                         ],
                     ],
                 ],
@@ -447,32 +456,47 @@ class ListConfigGenerator extends BaseConfigGenerator
 
 
             if (true === $useActionColumn) {
-                $dataTypes[$columnActionName] = '_action';
+                $dataTypes[$columnActionName] = 'action';
+            }
+
+            if (true === $useCheckboxColumn) {
+                $dataTypes[$columnCheckboxName] = 'checkbox';
             }
 
 
-            /**
-             * Note: we don't add the checkbox in the labels, as it might conflict with the checkbox widget of the renderer.
-             * See the realist conception notes for more info.
-             */
+            $propertiesToDisplay = array_values($columns);
+            if (true === $useCrossColumns) {
+                foreach ($propertiesToDisplay as $k => $col) {
+                    if (array_key_exists($col, $colToCross)) {
+                        $propertiesToDisplay[$k] = $colToCross[$col];
+                    }
+                }
+            }
+            if (true === $useCheckboxColumn) {
+                array_unshift($propertiesToDisplay, $columnCheckboxName);
+            }
+            if (true === $useActionColumn) {
+                $propertiesToDisplay[] = $columnActionName;
+            }
+
+
             $columnLabels = $this->createColumnLabels($columns, $table);
             if (true === $useCrossColumns) {
                 $columnLabels = array_merge($columnLabels, $crossColumnLabels);
             }
-
             if (true === $useActionColumn) {
                 $columnLabels[$columnActionName] = $columnActionLabel;
+            }
+            if (true === $useCheckboxColumn) {
+                $columnLabels[$columnCheckboxName] = $columnCheckboxLabel;
             }
 
 
             $rowsRenderer = [];
-            if (null !== $rowsRendererClass) {
-                $rowsRenderer['identifier'] = $rowsRendererClass;
-            } else {
-                if (null === $rowsRendererIdentifier) {
-                    $rowsRendererIdentifier = $pluginName;
-                }
+            if (null !== $rowsRendererIdentifier) {
                 $rowsRenderer['identifier'] = $rowsRendererIdentifier;
+            } else {
+                $rowsRenderer['class'] = $rowsRendererClass;
             }
 
 
@@ -487,26 +511,22 @@ class ListConfigGenerator extends BaseConfigGenerator
                 $rowsRenderer['types'] = $rowsRendererTypes;
             }
 
-
+            $dynamic = [];
             if (true === $useCheckboxColumn) {
-                $rowsRenderer['checkbox_column'] = [
-                    'name' => $columnCheckboxName,
-                ];
+                $dynamic[] = $columnCheckboxName;
             }
-
             if (true === $useActionColumn) {
-                $rowsRenderer['action_column'] = [
-                    'name' => $columnActionName,
-                ];
+                $dynamic[] = $columnActionName;
             }
+            $rowsRenderer['dynamic'] = $dynamic;
 
 
             $main['rendering'] = [
                 "title" => $listTitle,
                 "list_general_actions" => $listGeneralActions,
-                "list_action_groups" => $listActionGroups,
+                "list_item_group_actions" => $listActionGroups,
                 "list_renderer" => [
-                    'identifier' => $pluginName,
+                    'class' => $listRendererClass,
                 ],
                 "responsive_table_helper" => [
                     'collapsible_column_indexes' => 'admin',
@@ -520,7 +540,7 @@ class ListConfigGenerator extends BaseConfigGenerator
                         'table' => true,
                         'head' => true,
                         'head_sort' => true,
-                        'checkbox' => true,
+                        'checkbox' => $useCheckboxColumn,
                         'neck_filters' => true,
                         'pagination' => true,
                         'number_of_items_per_page' => true,
@@ -528,9 +548,10 @@ class ListConfigGenerator extends BaseConfigGenerator
                     ],
                     'data_types' => $dataTypes,
                 ],
-                "column_labels" => $columnLabels,
-                "hidden_columns" => $hiddenColumns,
-                "rows_renderer" => $rowsRenderer,
+                "properties_to_display" => $propertiesToDisplay,
+                "property_labels" => $columnLabels,
+
+                "list_item_renderer" => $rowsRenderer,
                 "related_links" => $relatedLinks,
             ];
 
@@ -540,8 +561,7 @@ class ListConfigGenerator extends BaseConfigGenerator
         }
 
 
-        $arr[$identifier] = $main;
-        return BabyYamlUtil::getBabyYamlString($arr);
+        return BabyYamlUtil::getBabyYamlString($main);
     }
 
 

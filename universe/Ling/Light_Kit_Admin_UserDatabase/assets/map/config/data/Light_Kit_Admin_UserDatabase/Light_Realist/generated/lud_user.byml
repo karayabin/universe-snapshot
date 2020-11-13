@@ -8,6 +8,7 @@ default:
         - u.user_group_id
         - u.identifier
         - u.pseudo
+        - u.email
         - u.password
         - u.avatar_url
         - u.extra
@@ -25,6 +26,7 @@ default:
             concat(u.user_group_id, '. ', ug.name) like :%expression% or
             u.identifier like :%expression% or
             u.pseudo like :%expression% or
+            u.email like :%expression% or
             u.password like :%expression% or
             u.avatar_url like :%expression% or
             u.extra like :%expression%
@@ -55,10 +57,7 @@ default:
         
     
     plugin: Light_Kit_Admin_UserDatabase
-    csrf_token: 
-        name: realist-request
-        value: REALIST(Light_Realist, csrf_token, realist-request)
-    
+    csrf_token: true
     use_micro_permission: true
     use_row_restriction: false
     query_error_show_debug_info: true
@@ -172,11 +171,12 @@ default:
                 user_group_id: number
                 identifier: string
                 pseudo: string
+                email: string
                 password: string
                 avatar_url: string
                 extra: string
                 user_group_id_plus: string
-                action: action
+                _action: _action
             
         
         column_labels: 
@@ -184,11 +184,12 @@ default:
             user_group_id: User group id
             identifier: Identifier
             pseudo: Pseudo
+            email: Email
             password: Password
             avatar_url: Avatar url
             extra: Extra
             user_group_id_plus: User group
-            action: Actions
+            _action: Actions
         
         hidden_columns: 
             - user_group_id
@@ -238,10 +239,10 @@ default:
                 
             
             checkbox_column: 
-                name: checkbox
+                name: _checkbox
             
             action_column: 
-                name: action
+                name: _action
             
         
         related_links: 

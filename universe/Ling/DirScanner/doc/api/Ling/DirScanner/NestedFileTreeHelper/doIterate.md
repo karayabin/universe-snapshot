@@ -16,7 +16,7 @@ Description
 ================
 
 
-private static [NestedFileTreeHelper::doIterate](https://github.com/lingtalfi/DirScanner/blob/master/doc/api/Ling/DirScanner/NestedFileTreeHelper/doIterate.md)(string $dir, array $options = []) : array
+private static [NestedFileTreeHelper::doIterate](https://github.com/lingtalfi/DirScanner/blob/master/doc/api/Ling/DirScanner/NestedFileTreeHelper/doIterate.md)(string $dir, ?array $options = []) : array
 
 
 

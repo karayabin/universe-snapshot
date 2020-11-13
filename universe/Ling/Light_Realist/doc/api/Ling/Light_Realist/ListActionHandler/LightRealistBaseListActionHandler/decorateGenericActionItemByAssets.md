@@ -16,7 +16,7 @@ Description
 ================
 
 
-protected [LightRealistBaseListActionHandler::decorateGenericActionItemByAssets](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/ListActionHandler/LightRealistBaseListActionHandler/decorateGenericActionItemByAssets.md)(string $actionName, array &$item, string $requestId, string $dir, ?array $options = []) : void
+protected [LightRealistBaseListActionHandler::decorateGenericActionItemByAssets](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/ListActionHandler/LightRealistBaseListActionHandler/decorateGenericActionItemByAssets.md)(string $actionName, array &$item, string $dir, ?array $options = []) : void
 
 
 
@@ -34,6 +34,7 @@ The available options are:
 - jsActionName: the name of the action name to use to detect js files.
                  I used this when I had different action names pointing to the same js handler (export_to_csv, export_to_html, export_to_pdf, ...,
                  all pointing to a single export_to_file handler).
+- params: array, some extra parameters to pass to add to the item params
 
 
 
@@ -47,10 +48,6 @@ Parameters
     
 
 - item
-
-    
-
-- requestId
 
     
 
@@ -82,7 +79,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightRealistBaseListActionHandler::decorateGenericActionItemByAssets](https://github.com/lingtalfi/Light_Realist/blob/master/ListActionHandler/LightRealistBaseListActionHandler.php#L87-L131)
+See the source code for method [LightRealistBaseListActionHandler::decorateGenericActionItemByAssets](https://github.com/lingtalfi/Light_Realist/blob/master/ListActionHandler/LightRealistBaseListActionHandler.php#L88-L141)
 
 
 See Also

@@ -1,6 +1,6 @@
 Ling/Light_Crud
 ================
-2019-11-28 --> 2020-06-04
+2019-11-28 --> 2020-10-01
 
 
 
@@ -22,8 +22,7 @@ Table of contents
 - [LightCrudException](https://github.com/lingtalfi/Light_Crud/blob/master/doc/api/Ling/Light_Crud/Exception/LightCrudException.md) &ndash; The LightCrudException class.
 - [LightCrudService](https://github.com/lingtalfi/Light_Crud/blob/master/doc/api/Ling/Light_Crud/Service/LightCrudService.md) &ndash; The LightCrudService class.
     - [LightCrudService::__construct](https://github.com/lingtalfi/Light_Crud/blob/master/doc/api/Ling/Light_Crud/Service/LightCrudService/__construct.md) &ndash; Builds the LightCrudService instance.
-    - [LightCrudService::registerHandler](https://github.com/lingtalfi/Light_Crud/blob/master/doc/api/Ling/Light_Crud/Service/LightCrudService/registerHandler.md) &ndash; Registers a crud request handler.
-    - [LightCrudService::execute](https://github.com/lingtalfi/Light_Crud/blob/master/doc/api/Ling/Light_Crud/Service/LightCrudService/execute.md) &ndash; Executes the sql request and dispatches an event.
+    - [LightCrudService::execute](https://github.com/lingtalfi/Light_Crud/blob/master/doc/api/Ling/Light_Crud/Service/LightCrudService/execute.md) &ndash; Executes the given crud action for the given table.
     - [LightCrudService::setContainer](https://github.com/lingtalfi/Light_Crud/blob/master/doc/api/Ling/Light_Crud/Service/LightCrudService/setContainer.md) &ndash; Sets the container.
 
 
@@ -36,6 +35,5 @@ Dependencies
 - [Light_Database](https://github.com/lingtalfi/Light_Database)
 - [Light_MicroPermission](https://github.com/lingtalfi/Light_MicroPermission)
 - [SimplePdoWrapper](https://github.com/lingtalfi/SimplePdoWrapper)
-- [Light_Events](https://github.com/lingtalfi/Light_Events)
 
 

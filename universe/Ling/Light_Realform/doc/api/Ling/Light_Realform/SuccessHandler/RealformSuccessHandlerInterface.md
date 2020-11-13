@@ -4,7 +4,7 @@
 
 The RealformSuccessHandlerInterface class
 ================
-2019-10-21 --> 2020-07-07
+2019-10-21 --> 2020-09-21
 
 
 
@@ -25,7 +25,7 @@ Class synopsis
 abstract class <span class="pl-k">RealformSuccessHandlerInterface</span>  {
 
 - Methods
-    - abstract public [processData](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/SuccessHandler/RealformSuccessHandlerInterface/processData.md)(array $data, ?array $options = []) : mixed
+    - abstract public [execute](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/SuccessHandler/RealformSuccessHandlerInterface/execute.md)(array $data, ?array $options = []) : void
 
 }
 
@@ -37,7 +37,7 @@ abstract class <span class="pl-k">RealformSuccessHandlerInterface</span>  {
 Methods
 ==============
 
-- [RealformSuccessHandlerInterface::processData](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/SuccessHandler/RealformSuccessHandlerInterface/processData.md) &ndash; Process the given data, and throws an exception if something unexpected happens.
+- [RealformSuccessHandlerInterface::execute](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/SuccessHandler/RealformSuccessHandlerInterface/execute.md) &ndash; Process the given data, and throws an exception if something unexpected happens.
 
 
 

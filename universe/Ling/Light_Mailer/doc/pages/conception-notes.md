@@ -1,6 +1,6 @@
 Light_Mailer, conception notes
 =============
-2020-06-26 -> 2020-06-29
+2020-06-26 -> 2020-08-14
 
 
    
@@ -41,7 +41,7 @@ and create the template, which is explained below.
 
 What's the template
 -----------
-2020-06-26
+2020-06-26 -> 2020-08-14
 
 
 By default, we have all the templates in the **${app_dir}/templates/Light_Mailer** directory.

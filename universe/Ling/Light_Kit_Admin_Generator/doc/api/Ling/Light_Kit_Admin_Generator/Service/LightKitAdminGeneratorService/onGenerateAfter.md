@@ -50,7 +50,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightKitAdminGeneratorService::onGenerateAfter](https://github.com/lingtalfi/Light_Kit_Admin_Generator/blob/master/Service/LightKitAdminGeneratorService.php#L19-L53)
+See the source code for method [LightKitAdminGeneratorService::onGenerateAfter](https://github.com/lingtalfi/Light_Kit_Admin_Generator/blob/master/Service/LightKitAdminGeneratorService.php#L19-L62)
 
 
 See Also

@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::unsetTemporaryUser](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L1328-L1331)
+See the source code for method [LightUserDataService::unsetTemporaryUser](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L1329-L1332)
 
 
 See Also

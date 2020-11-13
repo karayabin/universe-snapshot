@@ -1,10 +1,13 @@
 How to create a widget
 =================
-2019-05-13 -> 2020-06-04
+2019-05-13 -> 2020-08-10
 
 
 Intro
 ---------
+2019-05-13
+
+
 Below is the current technique I use to create a widget.
 I write it down for two reasons:
 
@@ -17,6 +20,8 @@ I write it down for two reasons:
 
 The steps explained
 -------------
+2019-05-13 -> 2020-08-10
+
 
 Here are the steps for a widget named IconTeaserWidget.
 
@@ -89,8 +94,8 @@ $boxes = $z['boxes'] ?? [];
 
 
 
-3. Open the page configuration file I'm working on (for instance **my_app/config/kit/pages/Light_Kit_Demo/glozzom/glozzom_home.byml**), and add the widget to the page,
-    so that I can have a preview of the widget as I'm creating it.
+3. Open the kit page configuration file (for instance **my_app/config/data/Light_Kit_Demo/kit/glozzom/glozzom_home.byml**), and add the widget to the page,
+    so that you can have a preview of the widget while creating it.
     
     I often start with a prototype that I already have, so that I have a precise idea of how the widget look.
     I always start by creating the widget description, storing it in the widget configuration under the temporary _descr property in the page configuration file.

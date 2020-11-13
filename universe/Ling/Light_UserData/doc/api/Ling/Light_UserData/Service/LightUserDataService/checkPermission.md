@@ -56,7 +56,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::checkPermission](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L1493-L1502)
+See the source code for method [LightUserDataService::checkPermission](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L1494-L1503)
 
 
 See Also

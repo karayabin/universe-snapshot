@@ -6,6 +6,7 @@ namespace Ling\Light_Kit_Admin\Service;
 
 use Ling\BabyYaml\Helper\BdotTool;
 use Ling\Light\Events\LightEvent;
+use Ling\Light\Helper\LightNamesAndPathHelper;
 use Ling\Light\Http\HttpRedirectResponse;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
 use Ling\Light_ControllerHub\Service\LightControllerHubService;
@@ -14,6 +15,7 @@ use Ling\Light_Kit_Admin\LightKitAdminPlugin\LightKitAdminPluginInterface;
 use Ling\Light_Kit_Admin\Notification\LightKitAdminNotification;
 use Ling\Light_PluginInstaller\PluginInstaller\PluginInstallerInterface;
 use Ling\Light_PluginInstaller\Service\LightPluginInstallerService;
+use Ling\Light_Realform\Service\LightRealformLateServiceRegistrationInterface;
 use Ling\Light_ReverseRouter\Service\LightReverseRouterService;
 use Ling\Light_UserDatabase\Service\LightUserDatabaseService;
 use Ling\SimplePdoWrapper\SimplePdoWrapperInterface;
@@ -71,6 +73,14 @@ class LightKitAdminService implements PluginInstallerInterface
      */
     protected $lkaPluginOptions;
 
+
+    /**
+     * This property holds the array of plugin names dynamically registering to some other services.
+     * @var array
+     */
+    private $lateRegister;
+
+
 //    /**
 //     * This property holds the userRowOwnershipManager for this instance.
 //     * @var LightKitAdminUserRowOwnershipManager
@@ -88,6 +98,7 @@ class LightKitAdminService implements PluginInstallerInterface
         $this->lkaPlugins = [];
         $this->lkaPluginOptions = [];
         $this->container = null;
+        $this->lateRegister = [];
     }
 
 
@@ -269,6 +280,61 @@ class LightKitAdminService implements PluginInstallerInterface
             $this->container->get("flasher")->addFlash("AdminPageControllerForbidden", $e->getMessage(), "w");
             $response = $this->getRedirectResponseByRoute($redirectRoute, $urlParams);
             $event->setVar("httpResponse", $response);
+        }
+    }
+
+
+    /**
+     * Allows lka plugins to register their services to some plugins in a dynamic way.
+     *
+     * See the @page(late registration concept) for more details.
+     *
+     * The services plugins can register to are defined in the type, which can be one of:
+     *
+     * - realform: @page(the realform service)
+     *
+     *
+     * If the type is realform, then the identifier must be of the form:
+     *
+     * - planet.formIdentifier
+     *
+     * With:
+     *
+     * - planet: the planet name
+     * - formIdentifier: an arbitrary identifier representing the form
+     *
+     *
+     *
+     *
+     * @param string $type
+     * @param string $identifier
+     */
+    public function lateRegistration(string $type, string $identifier)
+    {
+        switch ($type) {
+            case "realform":
+                if (false === in_array('realform-' . $identifier, $this->lateRegister, true)) {
+
+                    $p = explode('.', $identifier, 2);
+                    if (2 === count($p)) {
+                        $planet = array_shift($p);
+                        $serviceName = LightNamesAndPathHelper::getServiceName($planet);
+
+                        if (true === $this->container->has($serviceName)) {
+                            $this->lateRegister[] = 'realform-' . $identifier;
+                            /**
+                             * @var $service LightRealformLateServiceRegistrationInterface
+                             */
+                            $service = $this->container->get($serviceName);
+                            if ($service instanceof LightRealformLateServiceRegistrationInterface) {
+                                $service->registerRealformByIdentifier($identifier);
+                            }
+                        }
+                    }
+                }
+                break;
+            default:
+                break;
         }
     }
 
@@ -546,4 +612,7 @@ class LightKitAdminService implements PluginInstallerInterface
     }
 
 
+    //--------------------------------------------
+    //
+    //--------------------------------------------
 }

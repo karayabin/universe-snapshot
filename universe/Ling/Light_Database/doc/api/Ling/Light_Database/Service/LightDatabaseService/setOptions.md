@@ -23,11 +23,6 @@ public [LightDatabaseService::setOptions](https://github.com/lingtalfi/Light_Dat
 
 Sets the options.
 
-Available options are:
-
-- devMode: bool=false.
-     If true, will add the query to the SimplePdoWrapperQueryException exception message.
-
 
 
 
@@ -54,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightDatabaseService::setOptions](https://github.com/lingtalfi/Light_Database/blob/master/Service/LightDatabaseService.php#L47-L50)
+See the source code for method [LightDatabaseService::setOptions](https://github.com/lingtalfi/Light_Database/blob/master/Service/LightDatabaseService.php#L49-L52)
 
 
 See Also

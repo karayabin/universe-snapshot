@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightTaskSchedulerApiFactory::setPdoWrapper](https://github.com/lingtalfi/Light_TaskScheduler/blob/master/Api/Generated/LightTaskSchedulerApiFactory.php#L68-L71)
+See the source code for method [LightTaskSchedulerApiFactory::setPdoWrapper](https://github.com/lingtalfi/Light_TaskScheduler/blob/master/Api/Generated/LightTaskSchedulerApiFactory.php#L69-L72)
 
 
 See Also

@@ -11,6 +11,7 @@ namespace Ling\Light_UserData\Api\Generated\Interfaces;
 interface ResourceApiInterface
 {
 
+
     /**
      * Inserts the given resource in the database.
      * By default, it returns the result of the PDO::lastInsertId method.
@@ -20,7 +21,7 @@ interface ResourceApiInterface
      * If the row you're trying to insert triggers a duplicate error, the behaviour of this method depends on
      * the ignoreDuplicate flag:
      * - if true, the error will be caught internally, the return of the method is not affected
-     * - if false, the error will not be caught, and depending on your configuration, it might either
+     * - if false, the error will not be caught, and depending on your pdo configuration, it might either
      *          trigger an exception, or fail silently in which case this method returns false.
      *
      *
@@ -32,6 +33,50 @@ interface ResourceApiInterface
      * @throws \Exception
      */
     public function insertResource(array $resource, bool $ignoreDuplicate = true, bool $returnRic = false);
+
+    /**
+     * Inserts the given resource rows in the database.
+     * By default, it returns an array of the result of the PDO::lastInsertId method for each insert.
+     * If the returnRic flag is set to true, the method will return an array of the ric array (for each insert) instead of the lastInsertId.
+     *
+     *
+     * If the rows you're trying to insert triggers a duplicate error, the behaviour of this method depends on
+     * the ignoreDuplicate flag:
+     * - if true, the error will be caught internally, the return of the method is not affected
+     * - if false, the error will not be caught, and depending on your configuration, it might either
+     *          trigger an exception, or fail silently in which case this method returns false.
+     *
+     *
+     *
+     * @param array $resources
+     * @param bool $ignoreDuplicate
+     * @param bool $returnRic
+     * @return mixed
+     * @throws \Exception
+     */
+    public function insertResources(array $resources, bool $ignoreDuplicate = true, bool $returnRic = false);
+
+    /**
+     * Returns the rows corresponding to given components.
+     * The components is an array of [fetch all components](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/pages/fetch-all-components.md).
+     *
+     *
+     * @param array $components
+     * @return array
+     */
+    public function fetchAll(array $components = []): array;
+
+
+    /**
+     *
+     * Returns the first row corresponding to given components, or false if there is no match.
+     *
+     * The components is an array of [fetch all components](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/pages/fetch-all-components.md).
+     *
+     * @param array $components
+     * @return array
+     */
+    public function fetch(array $components = []);
 
     /**
      * Returns the resource row identified by the given id.
@@ -50,20 +95,21 @@ interface ResourceApiInterface
     public function getResourceById(int $id, $default = null, bool $throwNotFoundEx = false);
 
     /**
-     * Returns the resource row identified by the given resource_identifier.
+     * Returns the resource row identified by the given lud_user_id and canonical.
      *
      * If the row is not found, this method's return depends on the throwNotFoundEx flag:
      * - if true, the method throws an exception
      * - if false, the method returns the given default value
      *
      *
-     * @param string $resource_identifier
+     * @param int $lud_user_id
+	 * @param string $canonical
      * @param mixed $default = null
      * @param bool $throwNotFoundEx = false
      * @return mixed
      * @throws \Exception
      */
-    public function getResourceByResourceIdentifier(string $resource_identifier, $default = null, bool $throwNotFoundEx = false);
+    public function getResourceByLudUserIdAndCanonical(int $lud_user_id, string $canonical, $default = null, bool $throwNotFoundEx = false);
 
 
 
@@ -151,12 +197,13 @@ interface ResourceApiInterface
      * - if true, the method throws an exception
      * - if false, the method returns the given default value
      *
-     * @param string $resource_identifier
+     * @param int $lud_user_id
+	 * @param string $canonical
      * @param null $default
      * @param bool $throwNotFoundEx
      * @return string|mixed
      */
-    public function getResourceIdByResourceIdentifier(string $resource_identifier, $default = null, bool $throwNotFoundEx = false);
+    public function getResourceIdByLudUserIdAndCanonical(int $lud_user_id, string $canonical, $default = null, bool $throwNotFoundEx = false);
 
 
 
@@ -179,21 +226,40 @@ interface ResourceApiInterface
      *
      * @param int $id
      * @param array $resource
+     * @param array $extraWhere
+     * @param array $markers
      * @return void
      * @throws \Exception
      */
-    public function updateResourceById(int $id, array $resource);
+    public function updateResourceById(int $id, array $resource, array $extraWhere = [], array $markers = []);
 
 
     /**
-     * Updates the resource row identified by the given resource_identifier.
+     * Updates the resource row identified by the given lud_user_id and canonical.
      *
-     * @param string $resource_identifier
+     * @param int $lud_user_id
+	 * @param string $canonical
      * @param array $resource
+     * @param array $extraWhere
+     * @param array $markers
      * @return void
      * @throws \Exception
      */
-    public function updateResourceByResourceIdentifier(string $resource_identifier, array $resource);
+    public function updateResourceByLudUserIdAndCanonical(int $lud_user_id, string $canonical, array $resource, array $extraWhere = [], array $markers = []);
+
+
+
+
+    /**
+     * Updates the resource row.
+     *
+     * @param array $resource
+     * @param mixed $where
+     * @param array $markers
+     * @return void
+     * @throws \Exception
+     */
+    public function updateResource(array $resource, $where = null, array $markers = []);
 
 
 
@@ -221,13 +287,14 @@ interface ResourceApiInterface
     public function deleteResourceById(int $id);
 
     /**
-     * Deletes the resource identified by the given resource_identifier.
+     * Deletes the resource identified by the given lud_user_id and canonical.
      *
-     * @param string $resource_identifier
+     * @param int $lud_user_id
+	 * @param string $canonical
      * @return void
      * @throws \Exception
      */
-    public function deleteResourceByResourceIdentifier(string $resource_identifier);
+    public function deleteResourceByLudUserIdAndCanonical(int $lud_user_id, string $canonical);
 
 
 
@@ -241,14 +308,22 @@ interface ResourceApiInterface
     public function deleteResourceByIds(array $ids);
 
     /**
-     * Deletes the resource rows identified by the given resource_identifiers.
+     * Deletes the resource rows identified by the given lud_user_ids.
      *
-     * @param array $resource_identifiers
+     * @param array $lud_user_ids
      * @return void
      * @throws \Exception
      */
-    public function deleteResourceByResourceIdentifiers(array $resource_identifiers);
+    public function deleteResourceByLudUserIdsAndCanonicals(array $lud_user_ids);
 
 
+
+
+
+    /**
+     * Deletes the resource rows having the given user id.
+     * @param int $userId
+     */
+    public function deleteResourceByLudUserId(int $userId);
 
 }

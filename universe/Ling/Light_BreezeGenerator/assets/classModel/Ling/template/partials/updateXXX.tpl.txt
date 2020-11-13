@@ -1,0 +1,13 @@
+
+    /**
+     * Updates the !user row.
+     *
+     * @param array $user
+     * @param mixed $where
+     * @param array $markers
+     * @return void
+     * @throws \Exception
+     */
+    public function updateXXX(array $user, $where = null, array $markers = []);
+
+// updateRawXXX

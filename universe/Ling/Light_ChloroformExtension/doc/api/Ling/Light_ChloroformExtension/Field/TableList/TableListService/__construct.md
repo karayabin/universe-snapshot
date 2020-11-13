@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [TableListService::__construct](https://github.com/lingtalfi/Light_ChloroformExtension/blob/master/Field/TableList/TableListService.php#L48-L54)
+See the source code for method [TableListService::__construct](https://github.com/lingtalfi/Light_ChloroformExtension/blob/master/Field/TableList/TableListService.php#L45-L49)
 
 
 See Also
@@ -54,5 +54,5 @@ See Also
 
 The [TableListService](https://github.com/lingtalfi/Light_ChloroformExtension/blob/master/doc/api/Ling/Light_ChloroformExtension/Field/TableList/TableListService.md) class.
 
-Next method: [getNumberOfItems](https://github.com/lingtalfi/Light_ChloroformExtension/blob/master/doc/api/Ling/Light_ChloroformExtension/Field/TableList/TableListService/getNumberOfItems.md)<br>
+Next method: [setNugget](https://github.com/lingtalfi/Light_ChloroformExtension/blob/master/doc/api/Ling/Light_ChloroformExtension/Field/TableList/TableListService/setNugget.md)<br>
 

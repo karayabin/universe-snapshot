@@ -118,3 +118,5 @@ $realist.methods_collection:
             plugin: Light_Kit_Admin_XXX
             renderer:
                 instance: Ling\Light_Kit_Admin\Realist\ListGeneralActionHandler\LightKitAdminListGeneralActionHandler
+
+

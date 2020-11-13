@@ -54,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [FormConfigGenerator::generate](https://github.com/lingtalfi/Light_RealGenerator/blob/master/Generator/FormConfigGenerator.php#L27-L49)
+See the source code for method [FormConfigGenerator::generate](https://github.com/lingtalfi/Light_RealGenerator/blob/master/Generator/FormConfigGenerator.php#L86-L108)
 
 
 See Also
@@ -62,5 +62,5 @@ See Also
 
 The [FormConfigGenerator](https://github.com/lingtalfi/Light_RealGenerator/blob/master/doc/api/Ling/Light_RealGenerator/Generator/FormConfigGenerator.md) class.
 
-Next method: [getFileContent](https://github.com/lingtalfi/Light_RealGenerator/blob/master/doc/api/Ling/Light_RealGenerator/Generator/FormConfigGenerator/getFileContent.md)<br>
+Previous method: [__construct](https://github.com/lingtalfi/Light_RealGenerator/blob/master/doc/api/Ling/Light_RealGenerator/Generator/FormConfigGenerator/__construct.md)<br>Next method: [getFileContent](https://github.com/lingtalfi/Light_RealGenerator/blob/master/doc/api/Ling/Light_RealGenerator/Generator/FormConfigGenerator/getFileContent.md)<br>
 

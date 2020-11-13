@@ -93,4 +93,20 @@ abstract class TheBaseController extends TheParentController
         $this->iframeSignal = $iframeSignal;
     }
 
+    /**
+    * Potentially register the plugin to the realform service.
+    *
+    * The plugin name is given in the identifier.
+    * See the realform documentation for more info.
+    *
+    *
+    *
+    *
+    * @param string $identifier
+    */
+    protected function lateRealFormRegistration(string $identifier)
+    {
+        $this->getContainer()->get("kit_admin")->lateRegistration('realform', $identifier);
+    }
+
 }

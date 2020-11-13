@@ -51,7 +51,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [RemoveServiceProcess::doExecute](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/WebWizardTools/Process/Service/RemoveServiceProcess.php#L32-L73)
+See the source code for method [RemoveServiceProcess::doExecute](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/WebWizardTools/Process/Service/RemoveServiceProcess.php#L33-L86)
 
 
 See Also

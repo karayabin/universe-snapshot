@@ -71,7 +71,7 @@ class DeveloperWizardBreezeGeneratorHelper
         }
 
 
-        $tpl = __DIR__ . "/../assets/conf-template/tableprefix.byml";
+        $tpl = __DIR__ . "/../assets/conf-template/data/Light_BreezeGenerator/breeze-conf.byml";
         $content = file_get_contents($tpl);
         $content = str_replace([
             '$file',

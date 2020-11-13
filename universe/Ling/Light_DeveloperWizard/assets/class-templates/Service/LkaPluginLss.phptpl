@@ -4,12 +4,12 @@
 namespace Ling\Light_Kit_Admin_XXX\Service;
 
 
-use Ling\Light_LingStandardService\Service\LightLingStandardServiceKitAdminPlugin;
+use Ling\Light_Kit_Admin\Service\LightKitAdminStandardServicePlugin;
 
 /**
  * The LightKitAdminXXXService class.
  */
-class LightKitAdminXXXService extends LightLingStandardServiceKitAdminPlugin
+class LightKitAdminXXXService extends LightKitAdminStandardServicePlugin
 {
 
 }

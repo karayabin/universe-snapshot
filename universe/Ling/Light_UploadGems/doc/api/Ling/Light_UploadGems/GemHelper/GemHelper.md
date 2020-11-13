@@ -4,7 +4,7 @@
 
 The GemHelper class
 ================
-2020-04-13 --> 2020-05-26
+2020-04-13 --> 2020-11-06
 
 
 
@@ -22,7 +22,7 @@ Class synopsis
 ==============
 
 
-class <span class="pl-k">GemHelper</span> implements [GemHelperInterface](https://github.com/lingtalfi/Light_UploadGems/blob/master/doc/api/Ling/Light_UploadGems/GemHelper/GemHelperInterface.md) {
+class <span class="pl-k">GemHelper</span>  {
 
 - Properties
     - protected array [$config](#property-config) ;
@@ -44,8 +44,6 @@ class <span class="pl-k">GemHelper</span> implements [GemHelperInterface](https:
     - private [executeNameValidationRule](https://github.com/lingtalfi/Light_UploadGems/blob/master/doc/api/Ling/Light_UploadGems/GemHelper/GemHelper/executeNameValidationRule.md)(string $validationRuleName, $parameter, string $filename, ?string &$errorMessage = null) : bool
     - private [executeValidationRule](https://github.com/lingtalfi/Light_UploadGems/blob/master/doc/api/Ling/Light_UploadGems/GemHelper/GemHelper/executeValidationRule.md)(string $validationRuleName, $parameter, string $path, ?string &$errorMessage = null) : bool
     - private [getTransformedName](https://github.com/lingtalfi/Light_UploadGems/blob/master/doc/api/Ling/Light_UploadGems/GemHelper/GemHelper/getTransformedName.md)(string $name, string $nameTransformer) : string
-    - private [extractFunctionInfo](https://github.com/lingtalfi/Light_UploadGems/blob/master/doc/api/Ling/Light_UploadGems/GemHelper/GemHelper/extractFunctionInfo.md)(string $transformer) : array
-    - private [transformImage](https://github.com/lingtalfi/Light_UploadGems/blob/master/doc/api/Ling/Light_UploadGems/GemHelper/GemHelper/transformImage.md)(string $srcPath, string $dstPath, string $imageTransformer) : bool
     - private [error](https://github.com/lingtalfi/Light_UploadGems/blob/master/doc/api/Ling/Light_UploadGems/GemHelper/GemHelper/error.md)(string $msg) : void
 
 }
@@ -93,8 +91,6 @@ Methods
 - [GemHelper::executeNameValidationRule](https://github.com/lingtalfi/Light_UploadGems/blob/master/doc/api/Ling/Light_UploadGems/GemHelper/GemHelper/executeNameValidationRule.md) &ndash; and return a boolean result.
 - [GemHelper::executeValidationRule](https://github.com/lingtalfi/Light_UploadGems/blob/master/doc/api/Ling/Light_UploadGems/GemHelper/GemHelper/executeValidationRule.md) &ndash; and return a boolean result.
 - [GemHelper::getTransformedName](https://github.com/lingtalfi/Light_UploadGems/blob/master/doc/api/Ling/Light_UploadGems/GemHelper/GemHelper/getTransformedName.md) &ndash; Transforms the name according to the given nameTransformer, and returns the transformed name.
-- [GemHelper::extractFunctionInfo](https://github.com/lingtalfi/Light_UploadGems/blob/master/doc/api/Ling/Light_UploadGems/GemHelper/GemHelper/extractFunctionInfo.md) &ndash; 
-- [GemHelper::transformImage](https://github.com/lingtalfi/Light_UploadGems/blob/master/doc/api/Ling/Light_UploadGems/GemHelper/GemHelper/transformImage.md) &ndash; Transforms the srcPath image according to the given imageTransformer, and stores it in dstPath.
 - [GemHelper::error](https://github.com/lingtalfi/Light_UploadGems/blob/master/doc/api/Ling/Light_UploadGems/GemHelper/GemHelper/error.md) &ndash; Throws an error.
 
 
@@ -110,4 +106,4 @@ See the source code of [Ling\Light_UploadGems\GemHelper\GemHelper](https://githu
 
 SeeAlso
 ==============
-Previous class: [LightUploadGemsException](https://github.com/lingtalfi/Light_UploadGems/blob/master/doc/api/Ling/Light_UploadGems/Exception/LightUploadGemsException.md)<br>Next class: [GemHelperInterface](https://github.com/lingtalfi/Light_UploadGems/blob/master/doc/api/Ling/Light_UploadGems/GemHelper/GemHelperInterface.md)<br>
+Previous class: [LightUploadGemsException](https://github.com/lingtalfi/Light_UploadGems/blob/master/doc/api/Ling/Light_UploadGems/Exception/LightUploadGemsException.md)<br>Next class: [GemHelperTool](https://github.com/lingtalfi/Light_UploadGems/blob/master/doc/api/Ling/Light_UploadGems/GemHelper/GemHelperTool.md)<br>

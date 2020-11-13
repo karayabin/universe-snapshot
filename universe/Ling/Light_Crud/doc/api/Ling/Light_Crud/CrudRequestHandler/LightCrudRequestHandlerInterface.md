@@ -4,7 +4,7 @@
 
 The LightCrudRequestHandlerInterface class
 ================
-2019-11-28 --> 2020-06-04
+2019-11-28 --> 2020-10-01
 
 
 
@@ -25,7 +25,7 @@ Class synopsis
 abstract class <span class="pl-k">LightCrudRequestHandlerInterface</span>  {
 
 - Methods
-    - abstract public [execute](https://github.com/lingtalfi/Light_Crud/blob/master/doc/api/Ling/Light_Crud/CrudRequestHandler/LightCrudRequestHandlerInterface/execute.md)(string $pluginContextIdentifier, string $table, string $action, ?array $params = []) : mixed
+    - abstract public [execute](https://github.com/lingtalfi/Light_Crud/blob/master/doc/api/Ling/Light_Crud/CrudRequestHandler/LightCrudRequestHandlerInterface/execute.md)(string $table, string $action, ?array $params = []) : mixed
 
 }
 

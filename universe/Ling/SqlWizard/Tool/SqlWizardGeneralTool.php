@@ -107,4 +107,39 @@ class SqlWizardGeneralTool
         ]);
     }
 
+
+    /**
+     * Parses the given expression, and returns an array containing:
+     * - 0: string, the flattened expression, which is the expression in which the backtick escaped strings are replaced with variables in the form __ref1__, __ref2__, ...
+     * - 1: array of references (i.e. like __ref1__) => original backtick escaped string (but without the backticks around)
+     *
+     *
+     * Available options are:
+     * - keyword: string=null, the keyword to use for the references. The default is "ref". The keyword is always preceded and followed with 2 consecutive underscores.
+     *
+     *
+     *
+     * @param string $expression
+     * @param array $options
+     * @return array
+     */
+    public static function flattenBackticks(string $expression, array $options = []): array
+    {
+        $keyword = $options['keyword'] ?? 'ref';
+        $refs = [];
+        $refCpt = 1;
+        $expression = preg_replace_callback('!`([^`]+)`!m', function ($match) use (&$refs, &$refCpt, $keyword) {
+
+            $content = $match[1];
+            $ref = "__" . $keyword . $refCpt++ . "__";
+            $refs[$ref] = $content;
+            return $ref;
+        }, $expression);
+
+
+        return [
+            $expression,
+            $refs,
+        ];
+    }
 }

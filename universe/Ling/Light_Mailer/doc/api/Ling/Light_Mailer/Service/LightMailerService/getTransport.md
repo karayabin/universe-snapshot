@@ -49,7 +49,7 @@ Returns [Swift_Transport](https://github.com/swiftmailer/swiftmailer/blob/master
 
 Source Code
 ===========
-See the source code for method [LightMailerService::getTransport](https://github.com/lingtalfi/Light_Mailer/blob/master/Service/LightMailerService.php#L425-L464)
+See the source code for method [LightMailerService::getTransport](https://github.com/lingtalfi/Light_Mailer/blob/master/Service/LightMailerService.php#L451-L490)
 
 
 See Also

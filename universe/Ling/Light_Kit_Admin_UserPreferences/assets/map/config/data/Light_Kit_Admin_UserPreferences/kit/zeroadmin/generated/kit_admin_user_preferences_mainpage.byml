@@ -1,0 +1,14 @@
+_parent: ${parent_layout}
+title: User preference Form
+zones:
+    body:
+        -
+            name: lka_chloroform
+            type: picasso
+            className: Ling\Light_Kit_Admin\Widget\Picasso\LightKitAdminChloroformWidget
+            widgetDir: templates/Light_Kit_Admin_UserPreferences/widgets/picasso/LightKitAdminChloroformWidget
+            template: user-mainpage.php
+            vars: []
+                title: User preferences
+                form: ${form}
+                plugin2Rows: ${plugin2Rows}

@@ -58,7 +58,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [Where::notEndingWith](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/Util/Where.php#L330-L333)
+See the source code for method [Where::notEndingWith](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/Util/Where.php#L339-L342)
 
 
 See Also

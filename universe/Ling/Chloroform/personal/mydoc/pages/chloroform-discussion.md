@@ -1,19 +1,40 @@
 Chloroform discussion
 ==========
-2019-04-10 -> 2020-06-01
+2019-04-10 -> 2020-11-10
 
 
 
 Summary
 ===========
+- [The form id](#the-form-id)
 - [The form anatomy and general behaviour](#the-form-anatomy-and-general-behaviour)
     - [The field id](#the-field-id)
     - [Formatting/transforming form values](#formattingtransforming-field-values)
 - [The posted data](#the-posted-data)
 - [The isPosted method and form concurrency](#the-isposted-method-and-form-concurrency)
 - [The concept of very important data](#the-concept-of-very-important-data)
-- [Data transformers](#data-transformers)
+- [the getFormattedValue method](#the-getformattedvalue-method)
 - [The Chloroform synopsis](#the-chloroform-synopsis)
+- [Data transformers](#data-transformers)
+
+
+
+
+
+
+
+
+
+The form id
+-------------
+2020-09-22
+
+
+The form id is primarily used to know whether this form in particular (as opposed to another form on the same page) is posted.
+
+Chloroform is also aware of the [clever form initiative](https://github.com/lingtalfi/TheBar/blob/master/discussions/clever-form-initiative.md), which also uses the form id.
+
+
 
 
 The form anatomy and general behaviour
@@ -45,20 +66,24 @@ In terms of design, I will so delegate validators and error messages to the fiel
 
 
 
-
 The field id
 -------------
-2019-04-10
+2019-04-10 -> 2020-09-17
 
 Each field has an id. 
 An id can be translated to an html name (the html form name for the element).
 
-The field id is basically the dot version of the html name.
+The field id is the dot version of the html name.
 
 For instance if the html name is ```colors[red]```, then the id would be **colors.red**.
 
 
+This means that the fieldId is the bdot path to a concrete value in the posted array.
+  
+
 The field id is important, because it allows to target the data a field should validate against (could be an array, or a string generally).
+
+
 
 
 
@@ -166,32 +191,53 @@ because I'm not sure that would be a good idea, maybe it's just some parasite in
 
 
 
-Data transformers
-===============
-2019-10-22
 
 
-I created the concept of data transformers based on one use case only, and so here is how it works:
-
-so the form has been posted, validated, and now you've got your very important data, you're about to do something with them.
-
-But the very important data, they don't have their final form yet.
-
-So you apply the data transformers, and now you use the very important data as you like (i.e. updating the database, sending an email, ...).
+The getFormattedValue method
+---------
+2020-09-14
 
 
-So what's the use case for data transformer?
+**getFormattedValue** is a method of the FieldInterface.
 
-It's about a form with an ajax file upload field, and we use the [2svp idea](https://github.com/lingtalfi/TheBar/blob/master/discussions/ajax-file-upload.md#2-steps-validation-process),
-so basically the very important data contains the name of the temporary file (i.e. with the 2svp extension), but before we can use this data, we need to have the final file (i.e. remove
-the 2svp extension). So that's why the data transformer concept was originally created for: to give me a hook allowing for removing this temporary file extension in a programmatic way (because
-I intend to generate forms later, and so I need the DataTransformer phase to be handled automatically on the generated forms).
-
-So, data transformer is a bit special, and you might not use it yourself, unless you use ajax file uploads with 2svp, but it's there.
+The idea behind this is to be able to format the value of a field before it's passed for processing.
 
 
-The data transformers also don't appear in the [form array](https://github.com/lingtalfi/Chloroform/blob/master/doc/pages/chloroform-array.md),
-as it's an internal feature, and the **form array** is intended to be processed by renderers (the view side of the MVC model).
+This concept is similar to the "data transformers" (see section above), the main difference is that data-transformers need
+to be set manually, whereas the **getFormattedValue** is part of the Field's core, and thus is automatically executed.
+
+
+The **getFormattedValue**'s output is what you get when you call the form's **getVeryImportantData** method, which you should always
+call to get the real values out of your (chloro)form. By real, I mean the ones that you will actually process for your business (i.e. inserting
+in a database, sending by email, etc...).
+
+
+
+The reason we have this method is to solve the problem exposed below.
+
+Sometimes, you, as the developer, expect a control to give you back a data which can either be null or something else.
+Typically, you have a datetime field in your table, which is nullable, and so it's just natural to expect either a datetime or the null
+value from your control.
+
+From that observation, two main implementation strategies are the following:
+
+- we could change the control's form, so that the user can toggle a "is null" button 
+- we can let the field transform the value of the user if it's close enough to null (for example an empty string would be converted to null)
+
+
+As you can guess, I didn't like the first idea that much, because it puts more pressure on the user, which is always a bad thing gui wise.
+Therefore, the less evil of the two aforementioned strategies is the second one, hence the **getFormattedValue** method.
+
+This is a bit like polymorphism is to oop, where an argument can be interpreted differently based on its concrete value.
+Only this time it's the field itself which analyzes its own value and might return null (or, more generally any value it wants), or not, 
+depending on its core rules.
+  
+  
+Note: I wanted to have separated **getValue** and **getFormattedValue** methods, as the raw/current value of the Field could be used
+somehow. 
+  
+ 
+
 
 
 
@@ -240,10 +286,10 @@ because it's handled internally and eventually a fallback value becomes the actu
 
 The Chloroform synopsis
 ==========
-2019-04-10 -> 2019-12-03
+2019-04-10 -> 2020-09-07
 
 
-And so having discussed all that, here is my final version (so far) of the chloroform synopsis (omitting the form.mode for now):
+And so having discussed all that, here is my final version (so far) of the chloroform synopsis:
 
 
 ```php
@@ -288,14 +334,40 @@ a($form->toArray());
 ```
 
 
-Note that with this design, the **setValue** method of the fields (which is called indirectly by the **injectValues** method
-of the form) is not called when the form is used in **"insert" mode**. It's only used in **"update" mode**.
-
 Note that the validates method also injects the postedData values.
 
 
 
+ 
+
+
+Data transformers
+===============
+2019-10-22 -> 2020-11-10
+
+Warning: This is now deprecated, since the use case is not used anymore.
 
 
 
+I created the concept of data transformers based on one use case only, and so here is how it works:
+
+so the form has been posted, validated, and now you've got your very important data, you're about to do something with them.
+
+But the very important data, they don't have their final form yet.
+
+So you apply the data transformers, and now you use the very important data as you like (i.e. updating the database, sending an email, ...).
+
+
+So what's the use case for data transformer?
+
+It's about a form with an ajax file upload field, and we use the [2svp idea](https://github.com/lingtalfi/TheBar/blob/master/discussions/ajax-file-upload.md#2-steps-validation-process),
+so basically the very important data contains the name of the temporary file (i.e. with the 2svp extension), but before we can use this data, we need to have the final file (i.e. remove
+the 2svp extension). So that's why the data transformer concept was originally created for: to give me a hook allowing for removing this temporary file extension in a programmatic way (because
+I intend to generate forms later, and so I need the DataTransformer phase to be handled automatically on the generated forms).
+
+So, data transformer is a bit special, and you might not use it yourself, unless you use ajax file uploads with 2svp, but it's there.
+
+
+The data transformers also don't appear in the [form array](https://github.com/lingtalfi/Chloroform/blob/master/doc/pages/chloroform-array.md),
+as it's an internal feature, and the **form array** is intended to be processed by renderers (the view side of the MVC model).
 

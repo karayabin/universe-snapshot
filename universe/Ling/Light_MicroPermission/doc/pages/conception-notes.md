@@ -1,10 +1,9 @@
 Light_MicroPermission, conception notes
 =================
-2019-09-26 -> 2020-07-03
+2019-09-26 -> 2020-08-21
 
 
 
-I'm trying to make a permission system that makes sense for the soon to come [Light_Kit_Admin](https://github.com/lingtalfi/Light_Kit_Admin) plugin (maybe as you read those lines it has come out already?).
 
 
 I've read the [permissions conception notes](https://github.com/lingtalfi/Light_User/blob/master/doc/pages/permission-conception-notes.md),
@@ -33,16 +32,16 @@ So here is my alternative solution: micro permission.
 
 How does it work?
 -------------------
-2019-09-26
+2019-09-26 -> 2020-08-21
 
 
 The micro-permission system basically consists of a map of micro-permission names to permissions (as defined in the [permission conception notes](https://github.com/lingtalfi/Light_User/blob/master/doc/pages/permission-conception-notes.md)).
 
 Something like this:
 
-- tables.lud_user.create:
+- store.lud_user.create:
     - Light_Kit_Admin.admin
-- tables.lud_user.read:
+- store.lud_user.read:
     - Light_Kit_Admin.admin
     - Light_Kit_Admin.user
     - PluginABC.permission123
@@ -61,7 +60,7 @@ There is a micro-permission handler (that we provide), which basically holds tha
 
 Registering the micro-permissions
 -----------
-2020-07-03
+2020-07-03 -> 2020-08-21
 
 
 We provide two ways for plugin authors to register their micro-permissions.
@@ -76,11 +75,11 @@ We provide two ways for plugin authors to register their micro-permissions.
 and the permissions are the values, like this for instance:
 
 ```yaml 
-tables.luda_resource.create: Light_UserData.admin
-tables.luda_resource.read: 
+store.luda_resource.create: Light_UserData.admin
+store.luda_resource.read: 
     - Light_UserData.user
     - Light_UserData.admin
-tables.luda_resource.update: Light_UserData.admin
+store.luda_resource.update: Light_UserData.admin
 ``` 
 
 
@@ -93,13 +92,13 @@ as a profile, where **permissions** are the keys, and **micro-permissions** are 
 
 ```yaml 
 Light_TaskScheduler.admin:
-    - tables.lts_task_schedule.create
-    - tables.lts_task_schedule.read
-    - tables.lts_task_schedule.update
-    - tables.lts_task_schedule.delete
+    - store.lts_task_schedule.create
+    - store.lts_task_schedule.read
+    - store.lts_task_schedule.update
+    - store.lts_task_schedule.delete
 
 Light_TaskScheduler.user:
-    - tables.lts_task_schedule.read
+    - store.lts_task_schedule.read
 ```
 
 
@@ -112,79 +111,56 @@ Apart from registration semantics, both methods achieve exactly the same result.
 
 Namespaces
 ---------------
-2019-09-26
+2019-09-26 -> 2020-08-21
 
 
-By convention, a micro-permission name is a dot separated string, where the first component is called the namespace.
+By convention, a micro-permission name is a dot separated string.
 
-That's because as we said, the micro-permission system is used for when we have a lot of permissions to deal with, and
-so more often than not we can group those in namespaces.
+Each component is like a namespace that encapsulates its right sibling.
 
+So for instance let's imagine that our application only uses those micro permissions:
 
-We can disable namespaces temporarily, which can be useful sometimes.
-For instance, we have this [recommended micro-permission notation for database interaction](https://github.com/lingtalfi/Light_MicroPermission/blob/master/doc/pages/recommended-micropermission-notation.md#database-interaction), 
-which has the "tables" namespace, and during a plugin A installation phase (assuming plugin A installs tables in the database),
-we can temporarily disable the "tables" namespace to allow the plugin A to install itself.
-
-
-In other words, the micro-permission system is aimed towards the current user, but we can disable it temporarily 
-when the executing actions on the behalf of the developer or plugin author.  
+- store.lts_task_schedule.create
+- store.lts_task_schedule.read
+- store.table2.create
+- store.table2.read
+- pluginName.permissionA
 
 
+From there, if you have the "store" **micro-permission**, then you can execute the following:
+
+- store.lts_task_schedule.create
+- store.lts_task_schedule.read
+- store.table2.create
+- store.table2.read
+
+However, if you have the "store.table2" micro-permission, then you can only execute the following:
+
+- store.table2.create
+- store.table2.read
 
 
+If you have only the "store.table2.create" micro-permission, then you can only execute the following:
 
-
-
-
-
-
-
-Recommended way to work with micro-permissions
-================
-2020-07-03
-
-
-In this section I try to lay down the best practical way to work with micro-permissions, based on concrete experience.
-
-This is still a work in progress to this day (i.e. I've not experienced enough use cases so far to be confident that
-this system is the best for handling permissions in an app).
-
-
-Here is the vision you should have when working with permissions in [Light](https://github.com/lingtalfi/Light).
-
-The user belongs to one **permission group**.
-
-The **permission group** can contain any number of **permissions**.
-
-Each **permission** contains any number of **micro-permissions**.
-
-In other words, the **permission** is a profile of what the user can/cannot do.
-
-And those profiles can be combined together with **permission groups**.
-
-
-I recommend that the micro-permission authors use names that are as agnostic as possible.
+- store.table2.create
 
 
 
-
-
-
-
-
-
-
-
+Note: the namespace system was implemented I believe in the first version of this plugin, but then I removed it in version 2,
+and now I add it back again in version 3, as I believe it makes the job easier to grant the admin all the rights at once.
 
  
 
 
+Micro-permission profiles
+-----------------
+2020-08-21
 
 
+A **micro-permission profile** is a set of **micro-permissions**, carefully chosen. A **micro-permission profile**
+is generally assigned to a [permission](https://github.com/lingtalfi/Light_User/blob/master/doc/pages/permission-conception-notes.md). 
 
-
-
+ 
 
 
 

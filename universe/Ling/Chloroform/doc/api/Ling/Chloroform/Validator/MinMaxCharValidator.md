@@ -4,7 +4,7 @@
 
 The MinMaxCharValidator class
 ================
-2019-04-10 --> 2020-06-01
+2019-04-10 --> 2020-11-10
 
 
 
@@ -84,4 +84,4 @@ See the source code of [Ling\Chloroform\Validator\MinMaxCharValidator](https://g
 
 SeeAlso
 ==============
-Previous class: [FileMimeTypeValidator](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Validator/FileMimeTypeValidator.md)<br>Next class: [MinMaxDateValidator](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Validator/MinMaxDateValidator.md)<br>
+Previous class: [IsNumberValidator](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Validator/IsNumberValidator.md)<br>Next class: [MinMaxDateValidator](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Validator/MinMaxDateValidator.md)<br>

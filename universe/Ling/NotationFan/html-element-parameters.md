@@ -1,6 +1,6 @@
 Html element parameters
 ==================
-2019-09-18
+2019-09-18 -> 2020-09-18
 
 
 
@@ -9,6 +9,10 @@ This is an idea of how we can assign parameters to any html element, such as a s
 
 I know there's already an html spec on that (https://html.spec.whatwg.org/multipage/dom.html#dom-dataset), and it's used by jquery too with their data method (https://api.jquery.com/data/),
 but I don't like it because it forces you to use camelCase, and I prefer a more flexible solution where you can use any case you like, such as the snake_case for instance.
+
+
+However, from my tests, html put everything to lowercase, therefore I strongly recommend not using the camelCase, as you might encounter problems.
+In fact, I recommend using [snake case](https://github.com/lingtalfi/ConventionGuy/blob/master/nomenclature.stringCases.eng.md#snakecase), or dash case. You've been warned.
 
 
 So, here it is:
@@ -26,7 +30,8 @@ So for instance, considering the following html element:
 <div
     data-param-one="1"
     data-param-one-two="2"
-    data-param-oneTwo="3"
+    data-param-oneTwo="not recommended"
+    data-param-one_two="4"
     data-paramjson-arr='{"fruit": "apple", "color": "red"}'
 ></div>
 ```        
@@ -36,7 +41,8 @@ It would have the following hep parameters (using [BabyYaml](https://github.com/
 ```yaml
 one: 1
 one-two: 2
-oneTwo: 3
+oneTwo: not recommended
+one_two: 4
 arr: 
     fruit: apple
     color: red

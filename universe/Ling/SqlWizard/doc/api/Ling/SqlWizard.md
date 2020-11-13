@@ -1,6 +1,6 @@
 Ling/SqlWizard
 ================
-2019-07-23 --> 2020-07-07
+2019-07-23 --> 2020-09-14
 
 
 
@@ -33,6 +33,13 @@ Table of contents
     - [SqlWizardGeneralTool::removeDoubleDashComments](https://github.com/lingtalfi/SqlWizard/blob/master/doc/api/Ling/SqlWizard/Tool/SqlWizardGeneralTool/removeDoubleDashComments.md) &ndash; Removes the double-dash comments from the given content, and returns the stripped content.
     - [SqlWizardGeneralTool::decorateStatement](https://github.com/lingtalfi/SqlWizard/blob/master/doc/api/Ling/SqlWizard/Tool/SqlWizardGeneralTool/decorateStatement.md) &ndash; Decorates the statement with some temporarily defined (system) variables.
     - [SqlWizardGeneralTool::statementDisableFkChecksUqChecks](https://github.com/lingtalfi/SqlWizard/blob/master/doc/api/Ling/SqlWizard/Tool/SqlWizardGeneralTool/statementDisableFkChecksUqChecks.md) &ndash; will be disabled for that statement.
+    - [SqlWizardGeneralTool::flattenBackticks](https://github.com/lingtalfi/SqlWizard/blob/master/doc/api/Ling/SqlWizard/Tool/SqlWizardGeneralTool/flattenBackticks.md) &ndash; - 0: string, the flattened expression, which is the expression in which the backtick escaped strings are replaced with variables in the form __ref1__, __ref2__, ...
+- [MysqlSelectQueryParser](https://github.com/lingtalfi/SqlWizard/blob/master/doc/api/Ling/SqlWizard/Util/MysqlSelectQueryParser.md) &ndash; The SelectQueryParser class.
+    - [MysqlSelectQueryParser::recompileParts](https://github.com/lingtalfi/SqlWizard/blob/master/doc/api/Ling/SqlWizard/Util/MysqlSelectQueryParser/recompileParts.md) &ndash; Takes a queryParts array, and recompiles it into an executable sql select query; returns the recompiled result.
+    - [MysqlSelectQueryParser::combineWhere](https://github.com/lingtalfi/SqlWizard/blob/master/doc/api/Ling/SqlWizard/Util/MysqlSelectQueryParser/combineWhere.md) &ndash; Takes the given queryParts, and adds the "where" part to it, based on the given mode.
+    - [MysqlSelectQueryParser::getQueryParts](https://github.com/lingtalfi/SqlWizard/blob/master/doc/api/Ling/SqlWizard/Util/MysqlSelectQueryParser/getQueryParts.md) &ndash; Returns an array containing the different parts of the given mysql query.
+    - [MysqlSelectQueryParser::getFieldsInfo](https://github.com/lingtalfi/SqlWizard/blob/master/doc/api/Ling/SqlWizard/Util/MysqlSelectQueryParser/getFieldsInfo.md) &ndash; Returns an array containing some info about the given fields.
+    - [MysqlSelectQueryParser::getFromInfo](https://github.com/lingtalfi/SqlWizard/blob/master/doc/api/Ling/SqlWizard/Util/MysqlSelectQueryParser/getFromInfo.md) &ndash; The getFromInfo method
 - [MysqlStructureReader](https://github.com/lingtalfi/SqlWizard/blob/master/doc/api/Ling/SqlWizard/Util/MysqlStructureReader.md) &ndash; The MysqlStructureReader class.
     - [MysqlStructureReader::readerArrayToTableInfo](https://github.com/lingtalfi/SqlWizard/blob/master/doc/api/Ling/SqlWizard/Util/MysqlStructureReader/readerArrayToTableInfo.md) &ndash; which structure is defined in the [Light_DatabaseInfo->getTableInfo](https://github.com/lingtalfi/Light_DatabaseInfo/blob/master/doc/api/Ling/Light_DatabaseInfo/Service/LightDatabaseInfoService/getTableInfo.md) method.
     - [MysqlStructureReader::readFile](https://github.com/lingtalfi/SqlWizard/blob/master/doc/api/Ling/SqlWizard/Util/MysqlStructureReader/readFile.md) &ndash; Same as the readContent method, but takes a file as argument.

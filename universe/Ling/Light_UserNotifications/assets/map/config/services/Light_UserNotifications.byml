@@ -1,0 +1,23 @@
+user_notifications: 
+    instance: Ling\Light_UserNotifications\Service\LightUserNotificationsService
+    methods: 
+        setContainer: 
+            container: @container()
+        
+        setOptions: 
+            options:
+                messageArchiveTime: 30          # default is 30
+        
+    
+
+# --------------------------------------
+# hooks
+# --------------------------------------
+$plugin_installer.methods_collection: 
+    - 
+        method: registerPlugin
+        args: 
+            plugin: Light_UserNotifications
+            installer: @service(user_notifications)
+        
+    

@@ -1,6 +1,6 @@
 GormanJsonDecoder
 ===========
-2020-05-28
+2020-05-28 -> 2020-10-02
 
 
 
@@ -77,7 +77,7 @@ $arr = GormanJsonDecoder::encode([
     let arr = <?php echo GormanJsonDecoder::decode($arr); ?>;
     console.log(arr.e("hello"));
     // will output:
-    // I was called with arg
+    // I was called with arg: hello
     // 456
 
 
@@ -96,6 +96,10 @@ See more in the [conception notes](https://github.com/lingtalfi/GormanJsonDecode
 History Log
 =============
 
+- 1.1.1 -- 2020-10-02
+
+    - fix misleading example in the documentation
+    
 - 1.1.0 -- 2020-05-28
 
     - changed workflow

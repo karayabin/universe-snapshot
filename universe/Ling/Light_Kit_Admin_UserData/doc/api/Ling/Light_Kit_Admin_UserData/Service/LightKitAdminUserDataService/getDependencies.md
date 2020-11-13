@@ -48,7 +48,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [LightKitAdminUserDataService::getDependencies](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/Service/LightKitAdminUserDataService.php#L246-L252)
+See the source code for method [LightKitAdminUserDataService::getDependencies](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/Service/LightKitAdminUserDataService.php#L256-L262)
 
 
 See Also

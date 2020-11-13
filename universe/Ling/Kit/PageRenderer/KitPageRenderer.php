@@ -244,7 +244,7 @@ class KitPageRenderer implements KitPageRendererInterface
                 $layout = $this->layoutRootDir . "/" . $this->pageConf['layout'];
 
 
-                if (file_exists($layout)) {
+                if (is_file($layout)){
 
 
                     /**

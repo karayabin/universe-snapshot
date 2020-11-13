@@ -10,9 +10,13 @@ use Ling\Kit_PicassoWidget\Widget\PicassoWidget;
 $title = $z['title'] ?? "Forgot password";
 $description = $z['description'] ?? "Enter your email address and your password will be reset and emailed to you.";
 $btnText = $z['btnText'] ?? "Send new password";
-$inputPlaceholder = $z['inputPlaceholder'] ?? "Email";
+$inputFormKeyName = $z['inputFormKeyName'] ?? "forgotten_password_key";
 $formMethod = $z['formMethod'] ?? "POST";
 $formAction = $z['formAction'] ?? "";
+
+$inputEmailPlaceholder = $z['inputEmailPlaceholder'] ?? "Email";
+$inputEmailValue = $z['inputEmailValue'] ?? "";
+$inputEmailError = $z['inputEmailError'] ?? "";
 
 
 ?>
@@ -36,8 +40,8 @@ $formAction = $z['formAction'] ?? "";
                         <div class="row">
 
                             <div class="col-lg-12">
-                                <form class="m-t" role="form" method="<?php echo htmlspecialchars($z['formMethod']); ?>"
-                                      action="<?php echo htmlspecialchars($z['formAction']); ?>"
+                                <form class="m-t" role="form" method="<?php echo htmlspecialchars($formMethod); ?>"
+                                      action="<?php echo htmlspecialchars($formAction); ?>"
                                 >
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
@@ -45,9 +49,22 @@ $formAction = $z['formAction'] ?? "";
                                 <i class="fas fa-envelope"></i>
                             </span>
                                         </div>
-                                        <input class="form-control" type="text"
-                                               placeholder="<?php echo htmlspecialchars($inputPlaceholder); ?>">
+                                        <input
+                                                name="email"
+                                                class="form-control" type="text"
+                                                value="<?php echo htmlspecialchars($inputEmailValue); ?>"
+                                                placeholder="<?php echo htmlspecialchars($inputEmailPlaceholder); ?>">
+                                        <?php if ($inputEmailError): ?>
+                                            <div class="b-form-error">
+                                                <?php echo $inputEmailError; ?>
+                                            </div>
+                                        <?php endif; ?>
+
                                     </div>
+
+
+                                    <input type="hidden" name="<?php echo htmlspecialchars($inputFormKeyName); ?>"
+                                           value="1">
 
                                     <button type="submit"
                                             class="btn btn-primary block full-width m-b"><?php echo $btnText; ?></button>

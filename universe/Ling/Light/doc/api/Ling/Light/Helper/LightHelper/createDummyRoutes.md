@@ -57,7 +57,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightHelper::createDummyRoutes](https://github.com/lingtalfi/Light/blob/master/Helper/LightHelper.php#L28-L39)
+See the source code for method [LightHelper::createDummyRoutes](https://github.com/lingtalfi/Light/blob/master/Helper/LightHelper.php#L29-L40)
 
 
 See Also

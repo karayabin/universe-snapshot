@@ -1,0 +1,37 @@
+<?php
+
+
+$arr = [
+    'boat' => 123,
+    'fruit' => 'rf(array)fr',
+    'machine' => [
+        'gun' => 'rf(maurice)fr',
+    ],
+];
+
+
+$pmp = new ParenthesisMirrorParser();
+$pmp->setIdentifier("rf");
+$pmp->setConverter(function (string $s) {
+    if ('array' === $s) {
+        return [1, 2, 3];
+    }
+    return "s: " . $s;
+});
+
+az($pmp->parseArray($arr));
+
+/**
+ * Output:
+ * array(3) {
+ * ["boat"] => string(3) "123"
+ * ["fruit"] => array(3) {
+ * [0] => int(1)
+ * [1] => int(2)
+ * [2] => int(3)
+ * }
+ * ["machine"] => array(1) {
+ * ["gun"] => string(10) "s: maurice"
+ * }
+ * }
+ */

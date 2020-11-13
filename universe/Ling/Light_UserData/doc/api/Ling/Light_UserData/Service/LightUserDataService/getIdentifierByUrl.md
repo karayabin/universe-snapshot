@@ -60,7 +60,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::getIdentifierByUrl](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L1389-L1399)
+See the source code for method [LightUserDataService::getIdentifierByUrl](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L1390-L1400)
 
 
 See Also

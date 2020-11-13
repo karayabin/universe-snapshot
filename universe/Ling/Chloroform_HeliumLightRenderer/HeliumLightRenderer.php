@@ -77,6 +77,12 @@ class HeliumLightRenderer extends HeliumRenderer
                 /**
                  * Since there can be many js clients to handle the AjaxFileBox, in this class we decide to use
                  * the **type** property to decide which js client in particular we want to use.
+                 *
+                 * The following clients are available:
+                 *
+                 *
+                 * - fileuploader: [JFileUploader](https://github.com/lingtalfi/jFileUploader)
+                 *
                  */
                 $type = $field['type'] ?? "fileUploader";
 
@@ -90,6 +96,9 @@ class HeliumLightRenderer extends HeliumRenderer
             case "Ling\Light_ChloroformExtension\Field\TableListField":
                 $this->printTableListField($field);
                 break;
+            case "Ling\Light_CsrfSession\Chloroform\Field\LightCsrfSessionField":
+                $this->printCSRFField($field);
+                break;
             default:
                 return parent::printField($field);
                 break;
@@ -99,7 +108,7 @@ class HeliumLightRenderer extends HeliumRenderer
 
     /**
      *
-     * Prints an ajax file box field.
+     * Prints an ajax file box field to work with the [JFileUploader](https://github.com/lingtalfi/jFileUploader) client.
      *
      * See the @page(Chloroform toArray) method for more info about the field structure.
      *
@@ -108,6 +117,9 @@ class HeliumLightRenderer extends HeliumRenderer
      */
     protected function printAjaxFileBoxField_FileUploader(array $field)
     {
+
+
+
 
         /**
          * @var $copilot HtmlPageCopilot
@@ -147,10 +159,16 @@ class HeliumLightRenderer extends HeliumRenderer
         $cssContainerId = StringTool::getUniqueCssId('fileuploader-');
 
 
+
+        $gormanArray =  GormanJsonDecoder::encode($field, ['isExternalUrl']);
+
+
+
+
         ?>
 
 
-        <div class="field form-group">
+        <div class="field form-group cfi-control" data-cfi-id="<?php echo htmlspecialchars($field['id']); ?>">
             <?php $this->printFieldLabel($field); ?>
             <?php $this->printErrorsAndHint($field); ?>
             <div id="<?php echo $cssContainerId; ?>"></div>
@@ -158,7 +176,7 @@ class HeliumLightRenderer extends HeliumRenderer
 
         <script>
 
-            var options = <?php echo GormanJsonDecoder::decode($field); ?>;
+            var options = <?php echo GormanJsonDecoder::decode($gormanArray); ?>;
             document.addEventListener("DOMContentLoaded", function (event) {
                 new FileUploader({
                     target: document.getElementById("<?php echo $cssContainerId; ?>"),
@@ -186,7 +204,6 @@ class HeliumLightRenderer extends HeliumRenderer
      */
     protected function printTableListField(array $field)
     {
-
         /**
          * @var $service LightAjaxHandlerService
          */
@@ -194,82 +211,96 @@ class HeliumLightRenderer extends HeliumRenderer
         $baseUrl = $service->getServiceUrl();
         $useAutoComplete = $field['useAutoComplete'] ?? false;
 
-
         if (false === $useAutoComplete) {
             $this->printSelectField($field);
         } else {
 
-            $formMode = $this->_chloroform['mode'];
+            ?>
+            <div class="cfi-control field" data-cfi-id="<?php echo htmlspecialchars($field['id']); ?>">
+                <?php
 
-            $mode = $field['mode'] ?? 'default';
-            $isMultiplier = ('multiplier' === $mode);
-            $tableListIdentifier = $field['tableListIdentifier'];
-            /**
-             * @var $csrfService LightCsrfSessionService
-             */
-            $csrfService = $this->container->get('csrf_session');
-            $csrfToken = $csrfService->getToken();
+                $formMode = $this->_chloroform['mode'];
 
-            /**
-             * Here I use two input texts.
-             * One of them is the regular input text, but I hide it.
-             * The other one is the auto-complete control, with which the user interacts.
-             * When the user selects an item, it updates the value of the hidden field.
-             *
-             * In terms of posted data, only the regular hidden input text value will be taken into account.
-             * The auto-complete control will use a fake/irrelevant name that should be ignored.
-             *
-             * Also, note that this tool expects the ajax-service to return an array of rows, each
-             * of which having the following structure:
-             *
-             * - label: the label
-             * - value: the value
-             *
-             *
-             */
-            $fieldAutoComplete = [
-                "label" => $field['label'],
-                "id" => $field['id'] . "_autocomplete_helper_",
-                "hint" => $field['hint'],
-                "errorName" => $field['errorName'],
-                "value" => $field['autoCompleteLabel'] ?? '',
-                "htmlName" => '_autocomplete_helper_',
-                "errors" => [],
-                "className" => 'Ling\Chloroform\Field\StringField',
-                // add an icon
-                'icon' => 'fas fa-search',
-                'icon' => 'far fa-list-alt',
-                'icon_position' => 'pre',
-            ];
+                $mode = $field['mode'] ?? 'default';
+                $isMultiplier = ('multiplier' === $mode);
+                $tableListId = $field['tableListDirectiveId'] ?? $field['tableListIdentifier'];
 
-            $addBindingButtonId = '';
-            if ($isMultiplier && 'insert' === $formMode) {
-                $addBindingButtonId = StringTool::getUniqueCssId("tm-add-binding-btn-");
-                $fieldAutoComplete['button'] = '<button id="' . htmlspecialchars($addBindingButtonId) . '" class="add-binding-btn btn btn-outline-primary btn-sm"><i class="fas fa-plus"></i></button>';
-                $fieldAutoComplete['button_position'] = 'post';
-            }
+                /**
+                 * @var $csrfService LightCsrfSessionService
+                 */
+                $csrfService = $this->container->get('csrf_session');
+                $csrfToken = $csrfService->getToken();
 
-            $field['className'] = 'Ling\Chloroform\Field\HiddenField';
-//            $field['className'] = 'Ling\Chloroform\Field\StringField';
-            $field['label'] = '(real field)';
+                /**
+                 * Here I use two input texts.
+                 * One of them is the regular input text, but I hide it.
+                 * The other one is the auto-complete control, with which the user interacts.
+                 * When the user selects an item, it updates the value of the hidden field.
+                 *
+                 * In terms of posted data, only the regular hidden input text value will be taken into account.
+                 * The auto-complete control will use a fake/irrelevant name that should be ignored.
+                 *
+                 * Also, note that this tool expects the ajax-service to return an array of rows, each
+                 * of which having the following structure:
+                 *
+                 * - label: the label
+                 * - value: the value
+                 *
+                 *
+                 */
+                $fieldAutoComplete = [
+                    "label" => $field['label'],
+                    "id" => $field['id'] . "_autocomplete_helper_",
+                    "hint" => $field['hint'],
+                    "errorName" => $field['errorName'],
+                    "value" => $field['autoCompleteValueToLabels'] ?? '',
+                    "htmlName" => '_autocomplete_helper_',
+                    "errors" => [],
+                    "className" => 'Ling\Chloroform\Field\StringField',
+                    // add an icon
+                    'icon' => 'fas fa-search',
+                    'icon' => 'far fa-list-alt',
+                    'icon_position' => 'pre',
+                    /**
+                     * Some say readonly is more reliable, but I don't like the dimmed design,
+                     * autocomplete off worked fine for me in chrome and firefox 2020-09-24
+                     * https://gist.github.com/niksumeiko/360164708c3b326bd1c8
+                     */
+                    'htmlAttributes' => [
+                        "autocomplete" => "off",
+                    ],
+
+                ];
 
 
-            /**
-             * @var $copilot HtmlPageCopilot
-             */
-            $copilot = $this->container->get('html_page_copilot');
-            $copilot->registerLibrary("bootstrapAutocomplete", [
-                '/libs/universe/Ling/JBootstrapAutocomplete/bootstrap-typeahead.js',
+                $addBindingButtonId = '';
+                if (true === $isMultiplier) {
+                    $addBindingButtonId = StringTool::getUniqueCssId("tm-add-binding-btn-");
+                    $fieldAutoComplete['button'] = '<button id="' . htmlspecialchars($addBindingButtonId) . '" class="add-binding-btn btn btn-outline-primary btn-sm"><i class="fas fa-plus"></i></button>';
+                    $fieldAutoComplete['button_position'] = 'post';
+                }
+
+                $field['className'] = 'Ling\Chloroform\Field\HiddenField';
+                //            $field['className'] = 'Ling\Chloroform\Field\StringField';
+                $field['label'] = '(real field)';
+
+
+                /**
+                 * @var $copilot HtmlPageCopilot
+                 */
+                $copilot = $this->container->get('html_page_copilot');
+                $copilot->registerLibrary("bootstrapAutocomplete", [
+                    '/libs/universe/Ling/JBootstrapAutocomplete/bootstrap-typeahead.js',
 //                '/libs/universe/Ling/JBootstrapAutocomplete/bloodhound.js',
-            ], [
-                '/libs/universe/Ling/JBootstrapAutocomplete/style.css',
-            ]);
-            if (true === $isMultiplier) {
-                $copilot->registerLibrary("tableList", [
-                    '/libs/universe/Ling/Chloroform_HeliumLightRenderer/tablelist/tablelist-multiplier-helper.js',
                 ], [
-                    '/libs/universe/Ling/Chloroform_HeliumLightRenderer/tablelist/tablelist-multiplier.css',
+                    '/libs/universe/Ling/JBootstrapAutocomplete/style.css',
                 ]);
+                if (true === $isMultiplier) {
+                    $copilot->registerLibrary("tableList", [
+                        '/libs/universe/Ling/Chloroform_HeliumLightRenderer/tablelist/tablelist-multiplier-helper.js',
+                    ], [
+                        '/libs/universe/Ling/Chloroform_HeliumLightRenderer/tablelist/tablelist-multiplier.css',
+                    ]);
 
 //                $copilot->registerLibrary("sortableJs", [
 //                    /**
@@ -278,184 +309,196 @@ class HeliumLightRenderer extends HeliumRenderer
 //                    'https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js',
 //                    'https://cdn.jsdelivr.net/npm/jquery-sortablejs@latest/jquery-sortable.js',
 //                ]);
-                $itemInputName = $field['htmlName'];
-                if ('[]' !== substr($itemInputName, -2)) {
-                    $itemInputName .= '[]';
-                }
-            }
-
-
-            $fieldAutoComplete['errors'] = $field['errors'];
-            $fieldId = $field['id'];
-            $fieldAutoCompleteId = $fieldAutoComplete['id'];
-
-            $this->printStringField($fieldAutoComplete);
-            $this->printHiddenField($field);
-            $tableMultiplierItemsId = StringTool::getUniqueCssId("table-multiplier-items-")
-
-            ?>
-
-            <!--
-https://github.com/bassjobsen/Bootstrap-3-Typeahead/pull/125#issuecomment-115151206
- -->
-            <style type="text/css">
-                ul.typeahead {
-                    height: auto;
-                    max-height: 300px;
-                    overflow-x: hidden;
+                    $itemInputName = $field['htmlName'];
+                    if ('[]' !== substr($itemInputName, -2)) {
+                        $itemInputName .= '[]';
+                    }
                 }
 
-            </style>
+
+                $fieldAutoComplete['errors'] = $field['errors'];
+                $fieldId = $field['id'];
+                $fieldAutoCompleteId = $fieldAutoComplete['id'];
+
+                if (false === $isMultiplier) {
+                    $fieldAutoComplete['value'] = array_shift($fieldAutoComplete['value']);
+                }
+
+                $this->printStringField($fieldAutoComplete);
+
+                if (false === $isMultiplier) {
+                    $this->printHiddenField($field);
+                }
+                $tableMultiplierItemsId = StringTool::getUniqueCssId("table-multiplier-items-")
+
+                ?>
+
+                <!--
+    https://github.com/bassjobsen/Bootstrap-3-Typeahead/pull/125#issuecomment-115151206
+     -->
+                <style type="text/css">
+                    ul.typeahead {
+                        height: auto;
+                        max-height: 300px;
+                        overflow-x: hidden;
+                    }
+
+                </style>
 
 
-            <ul class="list-unstyled tablelist-multiplier-items"
-                id="<?php echo htmlspecialchars($tableMultiplierItemsId); ?>">
-                <?php if (false === "designPrototype"): ?>
-                    <?php for ($i = 1; $i <= 7; $i++): ?>
+                <ul class="list-unstyled tablelist-multiplier-items"
+                    id="<?php echo htmlspecialchars($tableMultiplierItemsId); ?>">
+                    <?php if (false === "designPrototype"): ?>
+                        <?php for ($i = 1; $i <= 7; $i++): ?>
 
-                        <li>
-                            <div class="d-flex tablelist-multiplier-item">
-                                <span>1. Root</span>
-                                <input type="hidden" value="1"/>
-                                <div class="ml-auto">
-                                    <span class="drag-item-btn"><i class="fas fa-arrows-alt fa-2x"></i></span>
-                                    <span class="remove-item-btn"><i class="far fa-times-circle fa-2x"></i></span>
+                            <li>
+                                <div class="d-flex tablelist-multiplier-item">
+                                    <span>1. Root</span>
+                                    <input type="hidden" value="1"/>
+                                    <div class="ml-auto">
+                                        <span class="drag-item-btn"><i class="fas fa-arrows-alt fa-2x"></i></span>
+                                        <span class="remove-item-btn"><i class="far fa-times-circle fa-2x"></i></span>
+                                    </div>
+
                                 </div>
-
-                            </div>
-                        </li>
-                    <?php endfor; ?>
-                <?php endif; ?>
-            </ul>
-            <script>
+                            </li>
+                        <?php endfor; ?>
+                    <?php endif; ?>
+                </ul>
+                <script>
 
 
-                window.Chloroform_HeliumLightRenderer_TableList_ErrorHandler = function (errData) {
-                    console.log(errData);
-                    throw new Error("An error occurred. Static call: HeliumLightRenderer->printTableListField, check the console.");
-                };
+                    window.Chloroform_HeliumLightRenderer_TableList_ErrorHandler = function (errData) {
+                        console.log(errData);
+                        throw new Error("An error occurred. Static call: HeliumLightRenderer->printTableListField, check the console.");
+                    };
 
-                document.addEventListener("DOMContentLoaded", function (event) {
+                    document.addEventListener("DOMContentLoaded", function (event) {
 
-                    var $ = jQuery;
+                        var $ = jQuery;
 
-                    $(document).ready(function () {
-
-
-                        var useMultiplier = <?php echo ('insert' === $formMode && true === $isMultiplier) ? 'true' : 'false'; ?>;
+                        $(document).ready(function () {
 
 
-                        var errorFunc = function (errData) {
-                            window.Chloroform_HeliumLightRenderer_TableList_ErrorHandler(errData);
-                        };
-
-                        //----------------------------------------
-                        // MULTIPLIER
-                        //----------------------------------------
-                        if (true === useMultiplier) {
-                            var tableListMultiplierHelper = new TableListMultiplierHelper({
-                                itemInputName: '<?php echo $itemInputName; ?>',
-                                jAddBindingBtn: $('#<?php echo $addBindingButtonId; ?>'),
-                                jBindingLabelInput: $('#<?php echo $fieldAutoCompleteId; ?>'),
-                                jBindingInput: $('#<?php echo $fieldId; ?>'),
-                                jItemsContainer: $('#<?php echo $tableMultiplierItemsId; ?>'),
-                            });
-                            tableListMultiplierHelper.listen();
-                        }
+                            var useMultiplier = <?php echo (true === $isMultiplier) ? 'true' : 'false'; ?>;
 
 
-                        //----------------------------------------
-                        // AUTOCOMPLETE
-                        //----------------------------------------
-                        var jField = $('#<?php echo $fieldId; ?>');
-                        var cache = {};
-                        var jAutocompleteControl = $("#<?php echo $fieldAutoCompleteId; ?>");
+                            var errorFunc = function (errData) {
+                                window.Chloroform_HeliumLightRenderer_TableList_ErrorHandler(errData);
+                            };
 
-                        /**
-                         * Doc links:
-                         * https://github.com/bassjobsen/Bootstrap-3-Typeahead
-                         * http://twitter.github.io/typeahead.js/examples/
-                         * https://github.com/twitter/typeahead.js/blob/master/doc/jquery_typeahead.md
-                         *
-                         */
-                        jAutocompleteControl.typeahead({
 
-                            // data source
-                            source: function (query, process) {
-                                if (query in cache) {
-                                    process(cache[query]);
-                                } else {
-                                    $.ajax({
-                                        url: '<?php echo $baseUrl; ?>',
-                                        type: 'POST',
-                                        data: {
-                                            handler: 'Light_ChloroformExtension',
-                                            action: 'table_list.autocomplete',
-                                            tableListIdentifier: '<?php echo $tableListIdentifier; ?>',
-                                            csrf_token: '<?php echo $csrfToken; ?>',
-                                            q: query,
-                                        },
-                                        dataType: 'JSON',
-                                        success: function (data) {
-                                            if ('success' === data.type) {
-                                                cache[query] = data.rows;
-                                                process(data.rows);
-                                            } else {
-                                                errorFunc(data);
+                            //----------------------------------------
+                            // MULTIPLIER
+                            //----------------------------------------
+                            if (true === useMultiplier) {
+                                var tableListMultiplierHelper = new TableListMultiplierHelper({
+                                    itemInputName: '<?php echo $itemInputName; ?>',
+                                    jAddBindingBtn: $('#<?php echo $addBindingButtonId; ?>'),
+                                    jBindingLabelInput: $('#<?php echo $fieldAutoCompleteId; ?>'),
+                                    jBindingInput: $('#<?php echo $fieldId; ?>'),
+                                    jItemsContainer: $('#<?php echo $tableMultiplierItemsId; ?>'),
+                                    <?php if(is_array($fieldAutoComplete['value'])): ?>
+                                    itemsContainerValues: <?php echo json_encode($fieldAutoComplete['value']); ?>,
+                                    <?php endif; ?>
+                                });
+                                tableListMultiplierHelper.listen();
+                            }
+
+
+                            //----------------------------------------
+                            // AUTOCOMPLETE
+                            //----------------------------------------
+                            var jField = $('#<?php echo $fieldId; ?>');
+                            var cache = {};
+                            var jAutocompleteControl = $("#<?php echo $fieldAutoCompleteId; ?>");
+
+                            /**
+                             * Doc links:
+                             * https://github.com/bassjobsen/Bootstrap-3-Typeahead
+                             * http://twitter.github.io/typeahead.js/examples/
+                             * https://github.com/twitter/typeahead.js/blob/master/doc/jquery_typeahead.md
+                             *
+                             */
+                            jAutocompleteControl.typeahead({
+
+                                // data source
+                                source: function (query, process) {
+                                    if (query in cache) {
+                                        process(cache[query]);
+                                    } else {
+                                        $.ajax({
+                                            url: '<?php echo $baseUrl; ?>',
+                                            type: 'POST',
+                                            data: {
+                                                handler: 'Light_ChloroformExtension',
+                                                action: 'table_list.autocomplete',
+                                                tableListId: '<?php echo $tableListId; ?>',
+                                                csrf_token: '<?php echo $csrfToken; ?>',
+                                                q: query,
+                                            },
+                                            dataType: 'JSON',
+                                            success: function (data) {
+                                                if ('success' === data.type) {
+                                                    cache[query] = data.rows;
+                                                    process(data.rows);
+                                                } else {
+                                                    errorFunc(data);
+                                                }
                                             }
-                                        }
-                                    });
-                                }
-                            },
-
-                            // how many items to show
-                            items: 'all',
-
-                            // default template
-                            menu: '<ul class="typeahead dropdown-menu" role="listbox"></ul>',
-                            item: '<li><a class="dropdown-item" href="#" role="option"></a></li>',
-                            headerHtml: '<li class="dropdown-header"></li>',
-                            headerDivider: '<li class="divider" role="separator"></li>',
-                            itemContentSelector: 'a',
-                            displayText: function (item) {
-                                return item.label;
-                            },
-
-                            // min length to trigger the suggestion list
-                            minLength: 0,
-
-                            // number of pixels the scrollable parent container scrolled down
-                            scrollHeight: 0,
-
-                            // auto selects the first item
-                            autoSelect: true,
-
-                            // callbacks
-                            afterSelect: function (item) {
-                                if ($.isPlainObject(item)) {
-                                    jField.val(item.value);
-                                    if (true === useMultiplier) {
-                                        var items = {};
-                                        items[item.value] = item.label;
-                                        tableListMultiplierHelper.addItems(items);
+                                        });
                                     }
+                                },
 
-                                }
-                            },
-                            afterEmptySelect: $.noop,
+                                // how many items to show
+                                items: 'all',
 
-                            // adds an item to the end of the list
-                            addItem: false,
+                                // default template
+                                menu: '<ul class="typeahead dropdown-menu" role="listbox"></ul>',
+                                item: '<li><a class="dropdown-item" href="#" role="option"></a></li>',
+                                headerHtml: '<li class="dropdown-header"></li>',
+                                headerDivider: '<li class="divider" role="separator"></li>',
+                                itemContentSelector: 'a',
+                                displayText: function (item) {
+                                    return item.label;
+                                },
 
-                            // delay between lookups
-                            delay: 0,
+                                // min length to trigger the suggestion list
+                                minLength: 0,
+
+                                // number of pixels the scrollable parent container scrolled down
+                                scrollHeight: 0,
+
+                                // auto selects the first item
+                                autoSelect: true,
+
+                                // callbacks
+                                afterSelect: function (item) {
+                                    if ($.isPlainObject(item)) {
+                                        jField.val(item.value);
+                                        if (true === useMultiplier) {
+                                            var items = {};
+                                            items[item.value] = item.label;
+                                            tableListMultiplierHelper.addItems(items);
+                                        }
+
+                                    }
+                                },
+                                afterEmptySelect: $.noop,
+
+                                // adds an item to the end of the list
+                                addItem: false,
+
+                                // delay between lookups
+                                delay: 0,
+
+                            });
+
 
                         });
-
-
                     });
-                });
-            </script>
+                </script>
+            </div>
             <?php
 
         }

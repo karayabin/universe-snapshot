@@ -41,11 +41,13 @@ export default class Validator {
         // adding maxFileSize rule
         if (options.hasOwnProperty("maxFileSize")) {
             if (options.maxFileSize !== -1) {
+                var bytesMaxFileSize = jsx.convertHumanSizeToBytes(options.maxFileSize);
+
                 this.addRule(oFile => {
-                    if (oFile.size > options.maxFileSize) {
+                    if (oFile.size > bytesMaxFileSize) {
                         var tags = {
                             "fileName": '<strong>' + oFile.name + '</strong>',
-                            "maxSize": jsx.humanSize(options.maxFileSize),
+                            "maxSize": jsx.humanSize(bytesMaxFileSize),
                             "fileSize": jsx.humanSize(oFile.size),
                         };
                         return this.translatee._("err.maxFileExceeded", tags);

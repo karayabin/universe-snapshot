@@ -114,4 +114,6 @@ class LightKitAdminUserDatabaseService implements PluginInstallerInterface, BMen
             $menu->appendItem($item, $parentPath);
         }
     }
+
+
 }

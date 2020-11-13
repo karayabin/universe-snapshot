@@ -7,7 +7,7 @@ ResourceHasTagApi::updateResourceHasTagByResourceIdAndTagId
 
 
 
-ResourceHasTagApi::updateResourceHasTagByResourceIdAndTagId — Updates the resourceHasTag row identified by the given resource_id and tag_id.
+ResourceHasTagApi::updateResourceHasTagByResourceIdAndTagId — Updates the resource has tag row identified by the given resource_id and tag_id.
 
 
 
@@ -16,12 +16,12 @@ Description
 ================
 
 
-public [ResourceHasTagApi::updateResourceHasTagByResourceIdAndTagId](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Classes/ResourceHasTagApi/updateResourceHasTagByResourceIdAndTagId.md)(int $resource_id, int $tag_id, array $resourceHasTag) : void
+public [ResourceHasTagApi::updateResourceHasTagByResourceIdAndTagId](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Classes/ResourceHasTagApi/updateResourceHasTagByResourceIdAndTagId.md)(int $resource_id, int $tag_id, array $resourceHasTag, ?array $extraWhere = [], ?array $markers = []) : void
 
 
 
 
-Updates the resourceHasTag row identified by the given resource_id and tag_id.
+Updates the resource has tag row identified by the given resource_id and tag_id.
 
 
 
@@ -39,6 +39,14 @@ Parameters
     
 
 - resourceHasTag
+
+    
+
+- extraWhere
+
+    
+
+- markers
 
     
 
@@ -62,7 +70,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [ResourceHasTagApi::updateResourceHasTagByResourceIdAndTagId](https://github.com/lingtalfi/Light_UserData/blob/master/Api/Generated/Classes/ResourceHasTagApi.php#L185-L192)
+See the source code for method [ResourceHasTagApi::updateResourceHasTagByResourceIdAndTagId](https://github.com/lingtalfi/Light_UserData/blob/master/Api/Generated/Classes/ResourceHasTagApi.php#L251-L258)
 
 
 See Also
@@ -70,5 +78,5 @@ See Also
 
 The [ResourceHasTagApi](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Classes/ResourceHasTagApi.md) class.
 
-Previous method: [getResourceHasTagsKey2Value](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Classes/ResourceHasTagApi/getResourceHasTagsKey2Value.md)<br>Next method: [delete](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Classes/ResourceHasTagApi/delete.md)<br>
+Previous method: [getResourceHasTagsKey2Value](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Classes/ResourceHasTagApi/getResourceHasTagsKey2Value.md)<br>Next method: [updateResourceHasTag](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Classes/ResourceHasTagApi/updateResourceHasTag.md)<br>
 

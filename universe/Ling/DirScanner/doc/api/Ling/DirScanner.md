@@ -1,6 +1,6 @@
 Ling/DirScanner
 ================
-2019-03-20 --> 2019-10-04
+2019-03-20 --> 2020-08-18
 
 
 
@@ -24,6 +24,7 @@ Table of contents
     - [YorgDirScannerTool::getFilesWithPrefix](https://github.com/lingtalfi/DirScanner/blob/master/doc/api/Ling/DirScanner/YorgDirScannerTool/getFilesWithPrefix.md) &ndash; Returns the list of files which name start with the given $prefix.
     - [YorgDirScannerTool::getFilesWithExtension](https://github.com/lingtalfi/DirScanner/blob/master/doc/api/Ling/DirScanner/YorgDirScannerTool/getFilesWithExtension.md) &ndash; Return the list of files (not dirs) having the given $extension(s).
     - [YorgDirScannerTool::getFilesWithoutExtension](https://github.com/lingtalfi/DirScanner/blob/master/doc/api/Ling/DirScanner/YorgDirScannerTool/getFilesWithoutExtension.md) &ndash; Return the list of files (not dirs) NOT ending with the given $extension(s).
+    - [YorgDirScannerTool::getFilesWithName](https://github.com/lingtalfi/DirScanner/blob/master/doc/api/Ling/DirScanner/YorgDirScannerTool/getFilesWithName.md) &ndash; Return the list of files (not dirs) which matches the given $name(s).
 
 
 

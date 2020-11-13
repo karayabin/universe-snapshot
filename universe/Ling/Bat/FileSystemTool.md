@@ -1,6 +1,6 @@
 FileSystemTool
 =====================
-2015-10-07 -> 2020-06-02
+2015-10-07 -> 2020-10-23
 
 
 
@@ -153,6 +153,21 @@ See [PermTool::filePerms](https://github.com/lingtalfi/Bat/blob/master/PermTool.
      
      
 
+     
+
+getBasename
+-----------
+2020-10-19 -> 2020-10-23
+
+
+```php
+string    getBasename ( string:path )
+```
+
+Returns the [basename](https://github.com/lingtalfi/NotationFan/blob/master/filename-basename.md) of the given path.
+
+
+
 getDirectorySize
 -----------
 2020-02-07
@@ -199,33 +214,20 @@ a(FileSystemTool::getFileExtension($f)); // jpg
      
      
 
-getFileName
+getFilename 
 -----------
-2015-10-25
+2015-10-25 -> 2020-11-06
 
 
 ```php
-string    getFileName ( string:file )
+string    getFilename ( string:file )
 ```
 
-Returns the [file name](https://github.com/lingtalfi/ConventionGuy/blob/master/nomenclature.fileName.eng.md)
-of a file which path is given, which is the file name without the last extension.
-
-
-
-If the file path has multiple extensions, only the last one will be cut off.
-
-Examples:
-
-- /www/htdocs/inc/lib.inc.php    --> "lib.inc"
-- /path/emptyextension.          --> "emptyextension"
-- /path/noextension              --> "noextension"
-     
-     
+Returns the [filename](https://github.com/lingtalfi/NotationFan/blob/master/filename-basename.md) of the given path.
 
 ```php
 $f = '/path/to/myfile.jpg';
-a(FileSystemTool::getFileName($f)); // myfile
+a(FileSystemTool::getFilename($f)); // myfile.jpg
 ```
  
      
@@ -584,6 +586,22 @@ string(82) "/komin/jin_site_demo/www-doc/api/DocTools/TemplateWizard/TemplateWiz
 ```
 
 
+
+
+
+
+
+
+removeTraversalDots
+-----------
+2020-08-24
+
+
+```php
+string        removeTraversalDots(string:file)
+```
+
+Replaces the double dot (..) traversal string from the given path with an empty string, and returns the result.
 
 
 rename

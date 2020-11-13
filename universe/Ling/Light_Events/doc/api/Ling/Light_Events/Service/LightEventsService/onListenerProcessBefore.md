@@ -60,7 +60,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightEventsService::onListenerProcessBefore](https://github.com/lingtalfi/Light_Events/blob/master/Service/LightEventsService.php#L189-L208)
+See the source code for method [LightEventsService::onListenerProcessBefore](https://github.com/lingtalfi/Light_Events/blob/master/Service/LightEventsService.php#L260-L287)
 
 
 See Also
@@ -68,5 +68,5 @@ See Also
 
 The [LightEventsService](https://github.com/lingtalfi/Light_Events/blob/master/doc/api/Ling/Light_Events/Service/LightEventsService.md) class.
 
-Previous method: [setOptions](https://github.com/lingtalfi/Light_Events/blob/master/doc/api/Ling/Light_Events/Service/LightEventsService/setOptions.md)<br>
+Previous method: [setOptions](https://github.com/lingtalfi/Light_Events/blob/master/doc/api/Ling/Light_Events/Service/LightEventsService/setOptions.md)<br>Next method: [getFormattedMessage](https://github.com/lingtalfi/Light_Events/blob/master/doc/api/Ling/Light_Events/Service/LightEventsService/getFormattedMessage.md)<br>
 

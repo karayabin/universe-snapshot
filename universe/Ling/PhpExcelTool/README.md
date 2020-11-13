@@ -1,6 +1,6 @@
 PhpExcelTool
 ===========
-2017-10-17
+2017-10-17 -> 2020-11-06
 
 
 Deprecated warning: this planet is now deprecated in favor of the better
@@ -163,6 +163,10 @@ Related
 
 History Log
 ------------------
+    
+- 1.9.4 -- 2019-11-06
+
+    - update api to work with Bat 1.279
     
 - 1.9.3 -- 2019-10-08
 

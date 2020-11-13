@@ -50,6 +50,7 @@ class LightTaskSchedulerApiFactory
     {
         $o = new CustomTaskScheduleApi();
         $o->setPdoWrapper($this->pdoWrapper);
+        $o->setContainer($this->container);
         return $o;
     }
 

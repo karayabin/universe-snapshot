@@ -16,7 +16,7 @@ Description
 ================
 
 
-private [LightUserDataService::error](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/error.md)(string $msg) : void
+private [LightUserDataService::error](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/error.md)(string $msg, ?int $code = null) : void
 
 
 
@@ -31,6 +31,10 @@ Parameters
 
 
 - msg
+
+    
+
+- code
 
     
 
@@ -54,7 +58,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::error](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L1642-L1645)
+See the source code for method [LightUserDataService::error](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L1355-L1358)
 
 
 See Also
@@ -62,5 +66,5 @@ See Also
 
 The [LightUserDataService](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService.md) class.
 
-Previous method: [checkDirname](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/checkDirname.md)<br>
+Previous method: [createFileItems](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/createFileItems.md)<br>
 

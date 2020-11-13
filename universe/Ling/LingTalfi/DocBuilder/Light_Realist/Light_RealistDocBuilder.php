@@ -7,6 +7,7 @@ namespace Ling\LingTalfi\DocBuilder\Light_Realist;
 use Ling\DocTools\DocBuilder\Git\PhpPlanet\LingGitPhpPlanetDocBuilder;
 use Ling\DocTools\Exception\DocBuilderException;
 use Ling\DocTools\Translator\ParseDownTranslator;
+use Ling\LingTalfi\DocTools\LingTalfiDocToolsHelper;
 
 
 /**
@@ -169,6 +170,21 @@ class Light_RealistDocBuilder
                 "ajax handler service" => 'https://github.com/lingtalfi/Light_AjaxHandler',
                 "Light_CsrfSession plugin" => 'https://github.com/lingtalfi/Light_CsrfSession',
                 "alcp response" => 'https://github.com/lingtalfi/Light_AjaxHandler/blob/master/doc/pages/ajax-light-communication-protocol.md',
+                "late registration concept" => 'https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/design/late-service-registration.md',
+                "late registration" => 'https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/design/late-service-registration.md',
+                "duelist developer variables concept" => 'https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/duelist.md#providing-developer-variables',
+                "realist request declaration page" => 'https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/2020/request-declaration.md',
+                "request declaration document" => 'https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/2020/request-declaration.md',
+                "details about the list actions" => 'https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/2020/list-actions.md',
+                "realist list-actions document" => 'https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/2020/list-actions.md',
+                "realist list actions" => 'https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/2020/list-actions.md',
+                "list item renderer documentation" => 'https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/2020/list-item-renderer.md',
+                "list item renderer page" => 'https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/2020/list-item-renderer.md',
+                "dynamic properties of the list item renderer page" => 'https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/2020/list-item-renderer.md#dynamic-properties',
+                "realist action-items document" => 'https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/2020/action-items.md',
+                "realist action items document" => 'https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/2020/action-items.md',
+                "realist generic action item section" => 'https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/2020/action-items.md#generic-action-item',
+                "realist action handler section" => 'https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/2020/realist-protagonists.md#the-action-handler',
 
             ],
             /**
@@ -229,6 +245,7 @@ class Light_RealistDocBuilder
          * and since we've defined a @kw(copy module), it will also copy the whole doc to another location.
          */
         $builder->buildDoc();
+        LingTalfiDocToolsHelper::generateCrumbs($builder);
 
         if ('cli' !== php_sapi_name()) {
 

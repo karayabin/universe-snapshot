@@ -49,7 +49,7 @@ Returns [HttpRedirectResponse](https://github.com/lingtalfi/Light/blob/master/do
 
 Source Code
 ===========
-See the source code for method [HttpRedirectResponse::create](https://github.com/lingtalfi/Light/blob/master/Http/HttpRedirectResponse.php#L21-L40)
+See the source code for method [HttpRedirectResponse::create](https://github.com/lingtalfi/Light/blob/master/Http/HttpRedirectResponse.php#L52-L57)
 
 
 See Also
@@ -57,5 +57,5 @@ See Also
 
 The [HttpRedirectResponse](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRedirectResponse.md) class.
 
-
+Previous method: [setUrl](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRedirectResponse/setUrl.md)<br>Next method: [getRedirectBody](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRedirectResponse/getRedirectBody.md)<br>
 

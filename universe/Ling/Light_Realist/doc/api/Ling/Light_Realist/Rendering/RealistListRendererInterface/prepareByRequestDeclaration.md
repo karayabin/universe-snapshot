@@ -16,7 +16,7 @@ Description
 ================
 
 
-abstract public [RealistListRendererInterface::prepareByRequestDeclaration](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Rendering/RealistListRendererInterface/prepareByRequestDeclaration.md)(string $requestId, array $requestDeclaration, [Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) $container) : void
+abstract public [RealistListRendererInterface::prepareByRequestDeclaration](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Rendering/RealistListRendererInterface/prepareByRequestDeclaration.md)(string $requestId, array $requestDeclaration) : void
 
 
 
@@ -39,10 +39,6 @@ Parameters
 
     
 
-- container
-
-    
-
 
 Return values
 ================
@@ -58,7 +54,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [RealistListRendererInterface::prepareByRequestDeclaration](https://github.com/lingtalfi/Light_Realist/blob/master/Rendering/RealistListRendererInterface.php#L26-L26)
+See the source code for method [RealistListRendererInterface::prepareByRequestDeclaration](https://github.com/lingtalfi/Light_Realist/blob/master/Rendering/RealistListRendererInterface.php#L23-L23)
 
 
 See Also

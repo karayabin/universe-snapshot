@@ -302,7 +302,6 @@ class LightDbSynchronizerService
             //--------------------------------------------
             $addRemoveTables = array_merge($tablesToAdd, $tablesToRemove);
 
-
             if ($scope) {
 
                 $unchangedTables = array_diff($effectiveScope, $addRemoveTables);
@@ -1159,9 +1158,9 @@ class LightDbSynchronizerService
                  */
                 $logger = $this->container->get("logger");
                 $logger->log($msg, "db_synchronizer.debug");
-                $this->logDebugMessages[] = $msg;
             }
         }
+        $this->logDebugMessages[] = $msg;
     }
 
 

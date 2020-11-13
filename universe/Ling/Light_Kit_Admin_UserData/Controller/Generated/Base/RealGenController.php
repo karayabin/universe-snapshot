@@ -55,17 +55,17 @@ abstract class RealGenController extends AdminPageController
     //
     //--------------------------------------------
     /**
-    * Applies a standard routine to the form identified by the given realformIdentifier, and returns a chloroform instance.
-    * See more details in the @page(LightRealformRoutineOne instance).
+    * Applies a standard routine to the form identified by the given realformIdentifier, and returns either a chloroform instance,
+    * or a response directly.
     *
     *
     * @param string $realformIdentifier
     * @param string $table
     * @param array $options
-    * @return Chloroform
+    * @return Chloroform|HttpResponseInterface
     * @throws \Exception
     */
-    protected function processForm(string $realformIdentifier, string $table, array $options = []): Chloroform
+    protected function processForm(string $realformIdentifier, string $table, array $options = [])
     {
 
         $routineOne = new LightRealformRoutineOne();
@@ -76,7 +76,7 @@ abstract class RealGenController extends AdminPageController
             $options['onSuccess'] = function () use ($table) {
                 $this->getFlasher()->addFlash($table, "Congrats, the form was successfully processed.");
                 UriTool::randomize($_GET, '_r');
-                $this->redirectByRoute($this->getLight()->getMatchingRoute()['name']);
+                return $this->getRedirectResponseByRoute($this->getLight()->getMatchingRoute()['name'], $_GET);
             };
         }
         $form = $routineOne->processForm($realformIdentifier, $table, $options);
@@ -92,6 +92,22 @@ abstract class RealGenController extends AdminPageController
     public function setOnSuccessIframeSignal(string $iframeSignal)
     {
         $this->iframeSignal = $iframeSignal;
+    }
+
+    /**
+    * Potentially register the plugin to the realform service.
+    *
+    * The plugin name is given in the identifier.
+    * See the realform documentation for more info.
+    *
+    *
+    *
+    *
+    * @param string $identifier
+    */
+    protected function lateRealFormRegistration(string $identifier)
+    {
+        $this->getContainer()->get("kit_admin")->lateRegistration('realform', $identifier);
     }
 
 }

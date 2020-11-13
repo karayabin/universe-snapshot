@@ -1,10 +1,12 @@
 dependencies: 
     Ling: 
+        - CheapLogger
         - Light
         - Light_Events
-        - Light_UserRowRestriction
+        - Light_Logger
         - SimplePdoWrapper
         - ArrayToString
+        - CliTools
     
 
 post_install: 

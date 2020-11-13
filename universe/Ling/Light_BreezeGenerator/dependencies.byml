@@ -5,6 +5,7 @@ dependencies:
         - Light_DatabaseInfo
         - Light_Database
         - SqlWizard
+        - CheapLogger
         - BabyYaml
     
 

@@ -1,6 +1,6 @@
 Chloroform_HeliumRenderer
 ===========
-2019-07-26 -> 2020-03-11
+2019-07-26 -> 2020-10-01
 
 
 
@@ -45,6 +45,8 @@ Summary
 
 What is it?
 ============
+2019-07-26 -> 2020-09-22
+
 
 [Chloroform Helium demo here](https://lingtalfi.com/universe/Ling/Chloroform_HeliumRenderer/demo).
 
@@ -61,6 +63,9 @@ This is my second [Chloroform](https://github.com/lingtalfi/Chloroform) renderer
 It basically renders a Chloroform form, using bootstrap 4 framework.
 
 
+It's compliant with the [clever form initiative](https://github.com/lingtalfi/TheBar/blob/master/discussions/clever-form-initiative.md).
+
+
 
 It also provides js validation for free.
 
@@ -72,6 +77,7 @@ This means you don't have to type a single line of javascript, the HeliumRendere
 
 Quick note about validation
 ---------
+2019-07-26
 
 Note: I found the bootstrap form validation class confusing to use, so I recreated them, inspired by them.
 
@@ -93,6 +99,9 @@ this class takes effect only if the form has class **helium-was-validated**).
 
 Implemented fields
 -------------
+2019-07-26
+
+
 
 The Helium renderer can render the following fields:
 
@@ -118,10 +127,17 @@ See the [Chloroform available fields](https://github.com/lingtalfi/Chloroform#th
 
 Implemented js validators
 -----------
+2019-07-26 -> 2020-08-11
+
+
 
 The Helium renderer's js layer will handle the following validators:
 
 
+- IsIntegerValidator
+- IsNumberValidator
+- IsMysqlDateValidator
+- IsMysqlDatetimeValidator
 - MinMaxCharValidator
 - MinMaxNumberValidator
 - MinMaxDateValidator
@@ -130,6 +146,7 @@ The Helium renderer's js layer will handle the following validators:
 - FileMimeTypeValidator
 - RequiredValidator
 - RequiredDateValidator
+- RequiredDatetimeValidator
 - PasswordConfirmValidator
 
 See the complete [list of Chloroform validators here](https://github.com/lingtalfi/Chloroform#the-available-validators).
@@ -140,6 +157,7 @@ See the complete [list of Chloroform validators here](https://github.com/lingtal
 
 How to use
 ==============
+2019-07-26
 
 
 You first need to import the assets.
@@ -385,6 +403,54 @@ Related
 History Log
 =============
 
+- 1.19.8 -- 2020-10-01
+
+    - fix typo in HeliumRenderer's error message
+    
+- 1.19.7 -- 2020-09-29
+
+    - update Chloroform_HeliumRenderer->printCheckboxField, now handles default if items is an array
+    
+- 1.19.6 -- 2020-09-25
+
+    - update Chloroform_HeliumRenderer->printInputField, now accepts htmlAttributes property
+    
+- 1.19.5 -- 2020-09-25
+
+    - fix Chloroform_HeliumRenderer->prepare setting cssId even if it's null
+    
+- 1.19.4 -- 2020-09-22
+
+    - now Chloroform_HeliumRenderer is compliant with the clever form initiative
+    
+- 1.19.3 -- 2020-09-22
+
+    - fix HeliumRenderer._formCssId not being synced with the chloroform cssId
+    
+- 1.19.2 -- 2020-09-17
+
+    - update HeliumRenderer->printSelectField, now accepts the size parameter
+    
+- 1.19.1 -- 2020-09-14
+
+    - add support for chloroform's RequiredDatetimeValidator
+    
+- 1.19.0 -- 2020-08-13
+
+    - update HeliumRenderer->printNotifications, now also accepts an array of FormNotificationInterface 
+
+- 1.18.0 -- 2020-08-11
+
+    - update helium.js, now supports IsMysqlDateValidator and IsMysqlDatetimeValidator
+    
+- 1.17.0 -- 2020-08-11
+
+    - update helium.js, now supports isIntegerValidator.mode option
+    
+- 1.16.0 -- 2020-08-11
+
+    - update helium.js, add support for isIntegerValidator and isNumberValidator
+    
 - 1.15.0 -- 2020-03-11
 
     - update helium.js to ensure that the form submit event handler is bound first

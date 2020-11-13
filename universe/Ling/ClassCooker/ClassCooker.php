@@ -187,6 +187,9 @@ class ClassCooker
      * - afterMethod: string, the name of the method after which you wish to add the new method
      * - throwEx: bool=true, whether to throw an exception if the given methodName already exists in the class.
      *      If false and the method already exists, the method will return false.
+     * - checkDuplicate: bool=true, if true, will not add the method if it already exists.
+     *      In some rare cases, you might want to set this to false, so that you can add the method as
+     *      a comment for instance.
      *
      *
      *
@@ -199,8 +202,9 @@ class ClassCooker
      */
     public function addMethod($methodName, $content, array $options = [])
     {
+        $checkDuplicate = $options['checkDuplicate'] ?? true;
 
-        if (true === $this->hasMethod($methodName)) {
+        if (true === $checkDuplicate && true === $this->hasMethod($methodName)) {
             $throwEx = $options['throwEx'] ?? true;
             if (true === $throwEx) {
                 $this->error("The method \"$methodName\" already exists in the class.");

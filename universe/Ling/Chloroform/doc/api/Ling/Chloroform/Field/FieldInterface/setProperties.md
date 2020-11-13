@@ -50,7 +50,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [FieldInterface::setProperties](https://github.com/lingtalfi/Chloroform/blob/master/Field/FieldInterface.php#L142-L142)
+See the source code for method [FieldInterface::setProperties](https://github.com/lingtalfi/Chloroform/blob/master/Field/FieldInterface.php#L150-L150)
 
 
 See Also

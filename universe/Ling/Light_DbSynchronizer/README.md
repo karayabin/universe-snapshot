@@ -1,6 +1,6 @@
 Light_DbSynchronizer
 ===========
-2020-06-19 -> 2020-06-22
+2020-06-19 -> 2020-08-11
 
 
 
@@ -91,6 +91,10 @@ $logger.methods_collection:
 History Log
 =============
 
+- 1.2.0 -- 2020-08-11
+
+    - update LightDbSynchronizerService->logDebug, now can return logDebug messages on demand even with logDebug turned off
+    
 - 1.1.1 -- 2020-06-22
 
     - add create file section in conception notes

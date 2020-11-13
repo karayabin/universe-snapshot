@@ -1,6 +1,6 @@
 Light_Realform
 ===============
-2019-10-14 -> 2019-11-05
+2019-10-14 -> 2020-09-04
 
 
 
@@ -74,7 +74,7 @@ if (true === $form->isPosted()) {
 
 The realform handler
 ==================
-2019-10-14
+2019-10-14 -> 2020-09-04
 
 
 The service provides the following method:
@@ -84,7 +84,7 @@ The service provides the following method:
 
 The identifier is very important and has the following structure:
 
-- identifier: {pluginName}.{id}
+- identifier: {pluginName}:{id}
 
 With: 
 

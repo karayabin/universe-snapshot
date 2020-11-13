@@ -4,11 +4,10 @@
 namespace Ling\Light_TaskScheduler\Service;
 
 use Ling\Bat\SmartCodeTool;
+use Ling\Light\ServiceContainer\LightServiceContainerInterface;
 use Ling\Light_LingStandardService\Service\LightLingStandardService01;
 use Ling\Light_TaskScheduler\Api\Custom\CustomLightTaskSchedulerApiFactory;
-use Ling\SimplePdoWrapper\Util\OrderBy;
 use Ling\SimplePdoWrapper\Util\Where;
-use Ling\Light\ServiceContainer\LightServiceContainerInterface;
 
 
 /**
@@ -16,13 +15,12 @@ use Ling\Light\ServiceContainer\LightServiceContainerInterface;
  */
 class LightTaskSchedulerService extends LightLingStandardService01
 {
-         
+
     /**
      * This property holds the container for this instance.
      * @var LightServiceContainerInterface
      */
     protected $container;
-    
 
 
     /**
@@ -39,7 +37,7 @@ class LightTaskSchedulerService extends LightLingStandardService01
     {
         parent::__construct();
         $this->factory = null;
-        $this->container = null;        
+        $this->container = null;
     }
 
     /**
@@ -51,7 +49,6 @@ class LightTaskSchedulerService extends LightLingStandardService01
     {
         $this->container = $container;
     }
-    
 
 
     /**
@@ -71,37 +68,71 @@ class LightTaskSchedulerService extends LightLingStandardService01
         $executionMode = $this->options['executionMode'] ?? "lastOnly";
         $this->logDebug("Executing run method with execution mode \"$executionMode\".");
 
+
+        //--------------------------------------------
+        // FIND THE TASKS TO EXECUTE
+        //--------------------------------------------
         $taskRows = [];
         $tsApi = $this->getFactory()->getTaskScheduleApi();
 
-        switch ($executionMode) {
-            case "lastOnly":
-            case "firstOnly":
 
-                $dir = ("firstOnly" === $executionMode) ? 'asc' : 'desc';
+        $taskRows = $tsApi->fetchAll([
+            Where::inst()->key("last_execution_end_date")->isNull(),
+        ]);
 
-                $now = date("Y-m-d H:i:s");
-                $taskRow = $tsApi->fetch([
-                    Where::inst()->key("execution_end_date")->isNull()->and()->key("scheduled_date")->lessThan($now),
-                    OrderBy::inst()->add("scheduled_date", $dir),
-                ]);
-                if (false !== $taskRow) {
-                    $taskRows[] = $taskRow;
+        list($year, $month, $day, $hour, $minute) = explode('-', date("Y-m-d-H-i"));
+
+        $taskToExecute = [];
+
+        foreach ($taskRows as $k => $row) {
+            if ("-1" === $row['year'] || $year >= $row['year']) {
+                $yearPass = ($year > $row['year']);
+                if (true === $yearPass || "-1" === $row['month'] || $month >= $row['month']) {
+                    $monthPass = ($month > $row['month']) || $yearPass;
+                    if (true === $monthPass || "-1" === $row['day'] || $day >= $row['day']) {
+                        $dayPass = ($day > $row['day']) || $monthPass;
+                        if (true === $dayPass || "-1" === $row['hour'] || $hour >= $row['hour']) {
+                            $hourPass = ($hour > $row['hour']) || $dayPass;
+                            if (true === $hourPass || "-1" === $row['minute'] || $minute >= $row['minute']) {
+
+                                $taskTime = '';
+                                $taskTime .= ("-1" === $row['year']) ? $year : $row['year'];
+                                $taskTime .= '-' . sprintf('%02d', (string)(("-1" === $row['month']) ? $month : $row['month']));
+                                $taskTime .= '-' . sprintf('%02d', (string)(("-1" === $row['day']) ? $day : $row['day']));
+                                $taskTime .= '-' . sprintf('%02d', (string)(("-1" === $row['hour']) ? $hour : $row['hour']));
+                                $taskTime .= '-' . sprintf('%02d', (string)(("-1" === $row['minute']) ? $minute : $row['minute']));
+
+
+                                $taskToExecute[$taskTime] = $row;
+                            }
+                        }
+                    }
                 }
-                break;
-            case "allRemaining":
-                $now = date("Y-m-d H:i:s");
-                $taskRows = $tsApi->fetchAll([
-                    Where::inst()->key("execution_end_date")->isNull()->and()->key("scheduled_date")->lessThan($now),
-                    OrderBy::inst()->add("scheduled_date", 'asc'),
-                ]);
-                break;
-            default:
-                $this->error("Unknown execution mode \"$executionMode\".");
-                break;
+            }
+        }
+
+        if ($taskToExecute) {
+            switch ($executionMode) {
+                case "lastOnly":
+                    ksort($taskToExecute);
+                    $taskToExecute = [array_pop($taskToExecute)];
+                    break;
+                case "firstOnly":
+                    ksort($taskToExecute);
+                    $taskToExecute = [array_shift($taskToExecute)];
+                    break;
+                case "allRemaining":
+                    break;
+                default:
+                    $this->error("Unknown execution mode \"$executionMode\".");
+                    break;
+            }
         }
 
 
+        //--------------------------------------------
+        // EXECUTE THE TASKS
+        //--------------------------------------------
         $nbTasks = count($taskRows);
         $this->logDebug("$nbTasks task(s) to execute.");
 

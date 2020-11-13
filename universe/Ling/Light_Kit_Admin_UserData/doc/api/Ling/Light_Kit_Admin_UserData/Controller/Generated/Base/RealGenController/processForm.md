@@ -7,7 +7,7 @@ RealGenController::processForm
 
 
 
-RealGenController::processForm — Applies a standard routine to the form identified by the given realformIdentifier, and returns a chloroform instance.
+RealGenController::processForm — or a response directly.
 
 
 
@@ -16,13 +16,13 @@ Description
 ================
 
 
-protected [RealGenController::processForm](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/doc/api/Ling/Light_Kit_Admin_UserData/Controller/Generated/Base/RealGenController/processForm.md)(string $realformIdentifier, string $table, ?array $options = []) : [Chloroform](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform.md)
+protected [RealGenController::processForm](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/doc/api/Ling/Light_Kit_Admin_UserData/Controller/Generated/Base/RealGenController/processForm.md)(string $realformIdentifier, string $table, ?array $options = []) : [Chloroform](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform.md) | [HttpResponseInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponseInterface.md)
 
 
 
 
-Applies a standard routine to the form identified by the given realformIdentifier, and returns a chloroform instance.
-See more details in the [LightRealformRoutineOne instance](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Routine/LightRealformRoutineOne.md).
+Applies a standard routine to the form identified by the given realformIdentifier, and returns either a chloroform instance,
+or a response directly.
 
 
 
@@ -47,7 +47,7 @@ Parameters
 Return values
 ================
 
-Returns [Chloroform](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform.md).
+Returns [Chloroform](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform.md) | [HttpResponseInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponseInterface.md).
 
 
 Exceptions thrown

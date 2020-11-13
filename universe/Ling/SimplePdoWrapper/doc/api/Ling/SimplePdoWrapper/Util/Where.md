@@ -4,7 +4,7 @@
 
 The Where class
 ================
-2019-07-22 --> 2020-07-27
+2019-07-22 --> 2020-11-12
 
 
 
@@ -49,6 +49,7 @@ class <span class="pl-k">Where</span>  {
     - public [__construct](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/Where/__construct.md)() : void
     - public static [inst](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/Where/inst.md)() : static
     - public [key](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/Where/key.md)(string $key) : [Where](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/Where.md)
+    - public [merge](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/Where/merge.md)([Ling\SimplePdoWrapper\Util\Where](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/Where.md) $where) : void
     - public [equals](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/Where/equals.md)($value) : [Where](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/Where.md)
     - public [greaterThan](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/Where/greaterThan.md)($value) : [Where](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/Where.md)
     - public [greaterThanOrEqualTo](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/Where/greaterThanOrEqualTo.md)($value) : [Where](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/Where.md)
@@ -121,6 +122,7 @@ Methods
 - [Where::__construct](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/Where/__construct.md) &ndash; Builds the Where instance.
 - [Where::inst](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/Where/inst.md) &ndash; Creates a new instance and returns it.
 - [Where::key](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/Where/key.md) &ndash; Sets the current key and return this instance for chaining.
+- [Where::merge](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/Where/merge.md) &ndash; Merges the given Where component into the current one.
 - [Where::equals](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/Where/equals.md) &ndash; Proxy to the operator method, with a predefined operator of "=".
 - [Where::greaterThan](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/Where/greaterThan.md) &ndash; Proxy to the operator method, with a predefined operator of ">".
 - [Where::greaterThanOrEqualTo](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/Where/greaterThanOrEqualTo.md) &ndash; Proxy to the operator method, with a predefined operator of ">=".

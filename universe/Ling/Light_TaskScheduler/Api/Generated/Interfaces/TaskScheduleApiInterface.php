@@ -194,10 +194,26 @@ interface TaskScheduleApiInterface
      *
      * @param int $id
      * @param array $taskSchedule
+     * @param array $extraWhere
+     * @param array $markers
      * @return void
      * @throws \Exception
      */
-    public function updateTaskScheduleById(int $id, array $taskSchedule);
+    public function updateTaskScheduleById(int $id, array $taskSchedule, array $extraWhere = [], array $markers = []);
+
+
+
+
+    /**
+     * Updates the taskSchedule row.
+     *
+     * @param array $taskSchedule
+     * @param mixed $where
+     * @param array $markers
+     * @return void
+     * @throws \Exception
+     */
+    public function updateTaskSchedule(array $taskSchedule, $where = null, array $markers = []);
 
 
 

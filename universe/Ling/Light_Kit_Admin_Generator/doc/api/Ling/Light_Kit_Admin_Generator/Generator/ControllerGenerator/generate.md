@@ -54,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [ControllerGenerator::generate](https://github.com/lingtalfi/Light_Kit_Admin_Generator/blob/master/Generator/ControllerGenerator.php#L33-L247)
+See the source code for method [ControllerGenerator::generate](https://github.com/lingtalfi/Light_Kit_Admin_Generator/blob/master/Generator/ControllerGenerator.php#L34-L251)
 
 
 See Also

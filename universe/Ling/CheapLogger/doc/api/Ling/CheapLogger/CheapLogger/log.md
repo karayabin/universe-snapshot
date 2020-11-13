@@ -7,7 +7,7 @@ CheapLogger::log
 
 
 
-CheapLogger::log — Logs the thing to the log file.
+CheapLogger::log — Logs the given argument(s) to the log file.
 
 
 
@@ -16,12 +16,14 @@ Description
 ================
 
 
-public static [CheapLogger::log](https://github.com/lingtalfi/CheapLogger/blob/master/doc/api/Ling/CheapLogger/CheapLogger/log.md)($thing) : void
+public static [CheapLogger::log](https://github.com/lingtalfi/CheapLogger/blob/master/doc/api/Ling/CheapLogger/CheapLogger/log.md)() : void
 
 
 
 
-Logs the thing to the log file.
+Logs the given argument(s) to the log file.
+If only one argument is given, it will be logged directly.
+If more than one argument is given, the array of arguments will be logged.
 
 
 
@@ -29,10 +31,7 @@ Logs the thing to the log file.
 Parameters
 ================
 
-
-- thing
-
-    
+This method has no parameters.
 
 
 Return values
@@ -49,7 +48,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [CheapLogger::log](https://github.com/lingtalfi/CheapLogger/blob/master/CheapLogger.php#L30-L41)
+See the source code for method [CheapLogger::log](https://github.com/lingtalfi/CheapLogger/blob/master/CheapLogger.php#L31-L40)
 
 
 See Also
@@ -57,5 +56,5 @@ See Also
 
 The [CheapLogger](https://github.com/lingtalfi/CheapLogger/blob/master/doc/api/Ling/CheapLogger/CheapLogger.md) class.
 
-
+Next method: [getLogMessage](https://github.com/lingtalfi/CheapLogger/blob/master/doc/api/Ling/CheapLogger/CheapLogger/getLogMessage.md)<br>
 

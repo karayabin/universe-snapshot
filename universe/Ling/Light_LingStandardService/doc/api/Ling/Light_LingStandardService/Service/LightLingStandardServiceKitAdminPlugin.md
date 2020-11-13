@@ -4,7 +4,7 @@
 
 The LightLingStandardServiceKitAdminPlugin class
 ================
-2020-07-28 --> 2020-07-31
+2020-07-28 --> 2020-08-07
 
 
 
@@ -22,7 +22,7 @@ Class synopsis
 ==============
 
 
-abstract class <span class="pl-k">LightLingStandardServiceKitAdminPlugin</span> implements [PluginInstallerInterface](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/PluginInstaller/PluginInstallerInterface.md) {
+abstract class <span class="pl-k">LightLingStandardServiceKitAdminPlugin</span> implements [PluginInstallerInterface](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/PluginInstaller/PluginInstallerInterface.md), [LightRealistCustomServiceInterface](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Service/LightRealistCustomServiceInterface.md) {
 
 - Properties
     - protected [Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) [$container](#property-container) ;
@@ -39,6 +39,7 @@ abstract class <span class="pl-k">LightLingStandardServiceKitAdminPlugin</span> 
     - public [isInstalled](https://github.com/lingtalfi/Light_LingStandardService/blob/master/doc/api/Ling/Light_LingStandardService/Service/LightLingStandardServiceKitAdminPlugin/isInstalled.md)() : bool
     - public [uninstall](https://github.com/lingtalfi/Light_LingStandardService/blob/master/doc/api/Ling/Light_LingStandardService/Service/LightLingStandardServiceKitAdminPlugin/uninstall.md)() : void
     - public [getDependencies](https://github.com/lingtalfi/Light_LingStandardService/blob/master/doc/api/Ling/Light_LingStandardService/Service/LightLingStandardServiceKitAdminPlugin/getDependencies.md)() : array
+    - public [registerByRequestId](https://github.com/lingtalfi/Light_LingStandardService/blob/master/doc/api/Ling/Light_LingStandardService/Service/LightLingStandardServiceKitAdminPlugin/registerByRequestId.md)(string $requestId) : mixed | void
     - protected [error](https://github.com/lingtalfi/Light_LingStandardService/blob/master/doc/api/Ling/Light_LingStandardService/Service/LightLingStandardServiceKitAdminPlugin/error.md)(string $msg) : void
     - private [prepareTheNames](https://github.com/lingtalfi/Light_LingStandardService/blob/master/doc/api/Ling/Light_LingStandardService/Service/LightLingStandardServiceKitAdminPlugin/prepareTheNames.md)() : void
 
@@ -96,6 +97,7 @@ Methods
 - [LightLingStandardServiceKitAdminPlugin::isInstalled](https://github.com/lingtalfi/Light_LingStandardService/blob/master/doc/api/Ling/Light_LingStandardService/Service/LightLingStandardServiceKitAdminPlugin/isInstalled.md) &ndash; Returns whether the core install phase of the plugin is fully completed.
 - [LightLingStandardServiceKitAdminPlugin::uninstall](https://github.com/lingtalfi/Light_LingStandardService/blob/master/doc/api/Ling/Light_LingStandardService/Service/LightLingStandardServiceKitAdminPlugin/uninstall.md) &ndash; Uninstalls the plugin.
 - [LightLingStandardServiceKitAdminPlugin::getDependencies](https://github.com/lingtalfi/Light_LingStandardService/blob/master/doc/api/Ling/Light_LingStandardService/Service/LightLingStandardServiceKitAdminPlugin/getDependencies.md) &ndash; Returns the array of dependencies.
+- [LightLingStandardServiceKitAdminPlugin::registerByRequestId](https://github.com/lingtalfi/Light_LingStandardService/blob/master/doc/api/Ling/Light_LingStandardService/Service/LightLingStandardServiceKitAdminPlugin/registerByRequestId.md) &ndash; Registers the plugin dynamically to [the realist plugin](https://github.com/lingtalfi/Light_Realist/).
 - [LightLingStandardServiceKitAdminPlugin::error](https://github.com/lingtalfi/Light_LingStandardService/blob/master/doc/api/Ling/Light_LingStandardService/Service/LightLingStandardServiceKitAdminPlugin/error.md) &ndash; Throws an exception.
 - [LightLingStandardServiceKitAdminPlugin::prepareTheNames](https://github.com/lingtalfi/Light_LingStandardService/blob/master/doc/api/Ling/Light_LingStandardService/Service/LightLingStandardServiceKitAdminPlugin/prepareTheNames.md) &ndash; prepareTheNames names used by this class.
 

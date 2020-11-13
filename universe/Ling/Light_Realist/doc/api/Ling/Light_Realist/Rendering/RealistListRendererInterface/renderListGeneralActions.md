@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [RealistListRendererInterface::renderListGeneralActions](https://github.com/lingtalfi/Light_Realist/blob/master/Rendering/RealistListRendererInterface.php#L46-L46)
+See the source code for method [RealistListRendererInterface::renderListGeneralActions](https://github.com/lingtalfi/Light_Realist/blob/master/Rendering/RealistListRendererInterface.php#L43-L43)
 
 
 See Also

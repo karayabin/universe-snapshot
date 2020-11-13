@@ -1,6 +1,6 @@
 ParametrizedSqlQuery
 ===========
-2019-08-12 -> 2020-02-26
+2019-08-12 -> 2020-08-20
 
 
 
@@ -441,6 +441,14 @@ array(4) {
 
 History Log
 =============
+    
+- 1.10.0 -- 2020-08-20
+
+    - update ParametrizedSqlQueryUtil->getSqlQuery, now implements developer variables concept
+    
+- 1.9.0 -- 2020-08-20
+
+    - update ParametrizedSqlQueryUtil->getSqlQuery, now implements base_where concept
     
 - 1.8.0 -- 2020-02-26
 

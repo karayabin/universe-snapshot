@@ -52,7 +52,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::checkDirname](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L1609-L1633)
+See the source code for method [LightUserDataService::checkDirname](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L1610-L1634)
 
 
 See Also

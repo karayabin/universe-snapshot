@@ -4,7 +4,7 @@
 
 The LightCleanableFileLoggerListener class
 ================
-2019-08-01 --> 2020-06-18
+2019-08-01 --> 2020-11-06
 
 
 
@@ -38,6 +38,7 @@ class <span class="pl-k">LightCleanableFileLoggerListener</span> extends [LightF
     - protected string [LightFileLoggerListener::$maxFileSize](#property-maxFileSize) ;
     - protected string|null [LightFileLoggerListener::$rotatedFileExtension](#property-rotatedFileExtension) ;
     - protected bool [LightFileLoggerListener::$zipRotatedFiles](#property-zipRotatedFiles) ;
+    - protected array [LightFileLoggerListener::$channel2Formatting](#property-channel2Formatting) ;
     - protected string [BaseLoggerListener::$format](#property-format) ;
     - protected bool [BaseLoggerListener::$expandArray](#property-expandArray) ;
 
@@ -94,6 +95,13 @@ Properties
 
     This property holds whether the rotated files should be zipped.
     If true, then the rotated files are zipped.
+    
+    
+
+- <span id="property-channel2Formatting"><b>channel2Formatting</b></span>
+
+    This property holds the channel2Formatting for this instance.
+    Array of channel to [bashtml](https://github.com/lingtalfi/CliTools/blob/master/doc/pages/bashtml.md) formatting
     
     
 

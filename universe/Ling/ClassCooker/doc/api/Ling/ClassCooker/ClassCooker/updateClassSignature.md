@@ -56,7 +56,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [ClassCooker::updateClassSignature](https://github.com/lingtalfi/ClassCooker/blob/master/ClassCooker.php#L831-L860)
+See the source code for method [ClassCooker::updateClassSignature](https://github.com/lingtalfi/ClassCooker/blob/master/ClassCooker.php#L835-L864)
 
 
 See Also

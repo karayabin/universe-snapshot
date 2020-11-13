@@ -1,6 +1,6 @@
 Jin
 ===
-2019-01-16
+2019-01-16 -> 2020-11-06
 
 
 A framework to build web apps.
@@ -30,6 +30,10 @@ uni import Ling/Jin
 History Log
 ===============
 
+- 1.0.1 -- 2020-11-06
+
+    - update api to work with Bat 1.279
+    
 - 1.0.0 -- 2019-01-16
 
     - initial commit

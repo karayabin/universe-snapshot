@@ -1,6 +1,6 @@
 SicTools
 ========
-2019-02-06
+2019-02-06 -> 2020-08-17
 
 
 
@@ -31,6 +31,7 @@ Summary
 - [HotServiceResolver](https://github.com/lingtalfi/SicTools/blob/master/doc/HotServiceResolver.md)
 - [ColdServiceResolver](https://github.com/lingtalfi/SicTools/blob/master/doc/ColdServiceResolver.md)
 - [SicTool](https://github.com/lingtalfi/SicTools/blob/master/doc/SicTool.md)
+- [Conception notes](https://github.com/lingtalfi/SicTools/blob/master/doc/pages/conception-notes.md)
 
 
 
@@ -43,6 +44,10 @@ Summary
 History Log
 ------------------
 
+- 1.6.0 -- 2020-08-17
+
+    - update SicFileCombinerUtil, now handle internal variable references
+    
 - 1.5.2 -- 2019-12-09
 
     - check commit 

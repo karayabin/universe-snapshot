@@ -22,7 +22,8 @@ protected [LingBreezeGenerator2::getRicVariables](https://github.com/lingtalfi/L
 
 
 Returns some useful variables based on the ric array.
-It returns the following entries:
+
+It returns at least the following entries (see the source code for all details):
 
 - byString: the string to append to a method name based on ric.
         Ex:
@@ -89,7 +90,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [LingBreezeGenerator2::getRicVariables](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/Generator/LingBreezeGenerator2.php#L935-L1032)
+See the source code for method [LingBreezeGenerator2::getRicVariables](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/Generator/LingBreezeGenerator2.php#L987-L1105)
 
 
 See Also

@@ -1,6 +1,6 @@
 Light_UploadGems, conception notes
 =============
-2020-04-10 -> 2020-05-14
+2020-04-10 -> 2020-10-23
 
 
 
@@ -10,17 +10,17 @@ It's used when the user uploads a file via a js client, and you want to process 
 
 It helps you organize your data in **gems**.
 
-Each **gem** is a [babyYaml](https://github.com/lingtalfi/BabyYaml) file which contain the information necessary for your server
+Each **gem** is a [babyYaml](https://github.com/lingtalfi/BabyYaml) file which contains the information necessary for your server
 side script to do the upload in the way you want.
 
 Basically, you can put information that you want in a gem, and the client refers to it with an id.
 
-Our service basically helps getting access to those gems. 
-The **gems** are put in a directory chosen by your plugin, the default is **${app_dir}/config/data/${yourPluginName}/Light_UploadGems**, but
+Our service basically helps access those gems. 
+The **gems** are usually put in a directory chosen by your plugin, the default is **${app_dir}/config/data/${yourPluginName}/Light_UploadGems**, but
 you can change it.
 
 In addition to that, we provide useful tools that can speed up your development time, such as validation tools on the uploaded blob,
-and basic actions (such as copying a file, redimensioning images, those kind of things...).
+and basic actions (such as copying a file, redimensioning images, these kinds of things...).
 
 
 
@@ -49,26 +49,18 @@ You can use the following methods:
 
 The gem id and the gems organization
 -------------
-2020-04-10
+2020-04-10 -> 2020-10-23
 
 
 The **gem id** is passed by the client, and parsed by our service which returns a helper object.
 
-In order for this system to work, your plugin must first register to our service.
-You can set the path to the **gems directory** if you want, or use our default value. 
+To access the configuration, we use the [Light_Nugget](https://github.com/lingtalfi/Light_Nugget/blob/master/doc/pages/conception-notes.md) system,
+with **relPath** being: 
+
+- Light_UploadGems/gems  
 
 
-Then the **gem id** notation must be follow this convention: 
-
-- gemId: $pluginName.$gemName
-
-
-From that **gem id**, our service will guess the path to the gem file like this:
-
-- gemPath: $gemsDirectory/$gemName.byml
-
-
-That's where your **gem** file should be (otherwise an error will be thrown).
+Please refer to their documentation for more info.
 
 
 

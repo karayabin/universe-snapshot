@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightMailerService::setOptions](https://github.com/lingtalfi/Light_Mailer/blob/master/Service/LightMailerService.php#L124-L127)
+See the source code for method [LightMailerService::setOptions](https://github.com/lingtalfi/Light_Mailer/blob/master/Service/LightMailerService.php#L150-L153)
 
 
 See Also

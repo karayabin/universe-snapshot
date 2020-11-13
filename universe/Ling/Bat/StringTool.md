@@ -1,6 +1,6 @@
 StringTool
 =====================
-2015-10-14
+2015-10-14 -> 2020-10-23
 
 
 
@@ -57,7 +57,7 @@ See the CaseTool:camel2Constant documentation for more info.
 
 cutNumericalSuffix
 -----------
-2015-11-02
+2015-11-02 -> 2020-10-23
 
 ```php
 array(str:string, false|int:numericalSuffix)    cutNumericalSuffix( str:string )
@@ -69,12 +69,33 @@ This method takes a string, and returns an array containing two entries:
 - the string without the numerical suffix
 - the numerical suffix or false if the last chars are not numerical
 
-For instance,
+For instance:
+```txt
+hello68 => [hello, 68]
+hello => [hello, false]
+hello-78.79 => [hello78., 79]
+123 => ["", 123]
+```
 
-    hello68 => [hello, 68]
-    hello => [hello, false]
-    hello-78.79 => [hello78., 79]
-    123 => ["", 123]
+
+
+endsWith
+-----------
+2020-10-23
+
+
+```php
+bool      endsWith (string:haystack, string:needle)
+```
+
+Returns whether the given haystack string ends with the given needle string.
+
+
+```php
+a(StringTool::endsWith("boris", 'bo')); // false
+az(StringTool::endsWith("boris", 'ris')); // true
+
+```
 
 
 
@@ -449,6 +470,23 @@ a(StringTool::split($string));  // [é, t, é]
 
 
 
+startsWith
+-----------
+2020-10-23
+
+
+```php
+bool      startsWith (string:haystack, string:needle)
+```
+
+Returns whether the given haystack string starts with the given needle string.
+
+
+```php
+a(StringTool::startsWith("boris", 'bo')); // true
+az(StringTool::startsWith("boris", 'ris')); // false
+```
+
 
 
 
@@ -513,6 +551,32 @@ array (size=2)
   1 => int 32
 
 ```
+
+
+
+
+
+
+
+
+toCsv
+-----------
+2020-09-08
+
+```php
+string toCsv( arr:keyValueParams, arr:options=[] )
+```
+
+
+Returns a comma separated string version of the given key/value pairs array.
+Note: by default there is a space after each comma separator.
+
+Available options are:
+- commaSep: string, the expression to use as the comma separator. The default value is a comma followed by a space (, ).
+- equalSep: string, the expression to use as the equal separator (i.e. between the key and the value). The default value is the equal symbol (=).
+
+
+
 
 
 

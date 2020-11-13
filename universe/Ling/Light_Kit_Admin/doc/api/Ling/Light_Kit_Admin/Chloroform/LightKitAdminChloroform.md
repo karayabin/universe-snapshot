@@ -4,7 +4,7 @@
 
 The LightKitAdminChloroform class
 ================
-2019-05-17 --> 2020-07-07
+2019-05-17 --> 2020-08-21
 
 
 
@@ -32,6 +32,7 @@ class <span class="pl-k">LightKitAdminChloroform</span> extends [Chloroform](htt
     - protected string [Chloroform::$mode](#property-mode) ;
     - protected string|null [Chloroform::$jsCode](#property-jsCode) ;
     - protected string|null [Chloroform::$cssId](#property-cssId) ;
+    - protected array [Chloroform::$validationErrors](#property-validationErrors) ;
 
 - Methods
     - public [prepare](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Chloroform/LightKitAdminChloroform/prepare.md)([Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) $container) : void
@@ -41,7 +42,8 @@ class <span class="pl-k">LightKitAdminChloroform</span> extends [Chloroform](htt
     - public Chloroform::setFormId(string $formId) : void
     - public Chloroform::isPosted() : bool
     - public Chloroform::getPostedData() : array
-    - public Chloroform::validates() : bool
+    - public Chloroform::validates(?bool $injectValue = true) : bool
+    - public Chloroform::getValidationErrors() : array
     - public Chloroform::getVeryImportantData() : array
     - public Chloroform::executeDataTransformers(array &$postedData) : void
     - public Chloroform::getFields() : [FieldInterface](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/FieldInterface.md)
@@ -78,6 +80,7 @@ Methods
 - Chloroform::isPosted &ndash; Returns whether this form instance was posted.
 - Chloroform::getPostedData &ndash; Returns an array of posted data (for this instance).
 - Chloroform::validates &ndash; Returns whether all fields attached to this form validate.
+- Chloroform::getValidationErrors &ndash; Returns the validationErrors of this instance.
 - Chloroform::getVeryImportantData &ndash; Returns the [very important data](https://github.com/lingtalfi/Chloroform/blob/master/doc/pages/chloroform-discussion.md#the-concept-of-very-important-data) of a form.
 - Chloroform::executeDataTransformers &ndash; Execute the data transformers (see the [DataTransformerInterface](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/DataTransformer/DataTransformerInterface.md) for more details) on the given postedData.
 - Chloroform::getFields &ndash; Returns the fields of this instance.

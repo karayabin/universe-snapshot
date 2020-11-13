@@ -1,5 +1,5 @@
     /**
-     * Deletes the user rows identified by the given ids.
+     * Deletes the !user rows identified by the given !ids.
      *
      * @param array $ids
      * @return void

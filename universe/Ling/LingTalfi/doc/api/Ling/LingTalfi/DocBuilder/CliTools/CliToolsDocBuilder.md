@@ -4,7 +4,7 @@
 
 The CliToolsDocBuilder class
 ================
-2019-03-13 --> 2020-06-29
+2019-03-13 --> 2020-11-09
 
 
 
@@ -52,4 +52,4 @@ See the source code of [Ling\LingTalfi\DocBuilder\CliTools\CliToolsDocBuilder](h
 
 SeeAlso
 ==============
-Previous class: [Chloroform_HydrogenRendererDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Chloroform_HydrogenRenderer/Chloroform_HydrogenRendererDocBuilder.md)<br>Next class: [CsvDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Csv/CsvDocBuilder.md)<br>
+Previous class: [ClassCookerDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/ClassCooker/ClassCookerDocBuilder.md)<br>Next class: [CsvDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Csv/CsvDocBuilder.md)<br>

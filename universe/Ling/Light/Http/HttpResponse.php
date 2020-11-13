@@ -331,7 +331,7 @@ class HttpResponse implements HttpResponseInterface
             $output .= sprintf('%s: %s', $name, implode(", ", $values)) . $eol;
         }
         $output .= $eol;
-        $output .= (string)$this->body;
+        $output .= (string)$this->getBody();
         return $output;
     }
 
@@ -361,7 +361,7 @@ class HttpResponse implements HttpResponseInterface
      */
     protected function displayBody()
     {
-        echo $this->body;
+        echo $this->getBody();
     }
 
 

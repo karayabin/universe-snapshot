@@ -4,8 +4,6 @@
 namespace Ling\Light_Realist\Rendering;
 
 
-use Ling\Light\ServiceContainer\LightServiceContainerInterface;
-
 /**
  * The RealistListRendererInterface interface.
  * This interface renders a list, including the gravitating widgets.
@@ -20,10 +18,9 @@ interface RealistListRendererInterface
      *
      * @param string $requestId
      * @param array $requestDeclaration
-     * @param LightServiceContainerInterface $container
      * @return void
      */
-    public function prepareByRequestDeclaration(string $requestId, array $requestDeclaration, LightServiceContainerInterface $container);
+    public function prepareByRequestDeclaration(string $requestId, array $requestDeclaration);
 
 
     /**

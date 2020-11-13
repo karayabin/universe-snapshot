@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightCrudService::setContainer](https://github.com/lingtalfi/Light_Crud/blob/master/Service/LightCrudService.php#L93-L96)
+See the source code for method [LightCrudService::setContainer](https://github.com/lingtalfi/Light_Crud/blob/master/Service/LightCrudService.php#L59-L62)
 
 
 See Also

@@ -4,7 +4,7 @@
 
 The LightUserDataFileManagerHandler class
 ================
-2019-09-27 --> 2020-06-23
+2019-09-27 --> 2020-08-31
 
 
 

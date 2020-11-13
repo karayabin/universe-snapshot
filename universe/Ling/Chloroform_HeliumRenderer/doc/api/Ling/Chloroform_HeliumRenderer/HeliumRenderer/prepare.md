@@ -54,7 +54,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [HeliumRenderer::prepare](https://github.com/lingtalfi/Chloroform_HeliumRenderer/blob/master/HeliumRenderer.php#L200-L205)
+See the source code for method [HeliumRenderer::prepare](https://github.com/lingtalfi/Chloroform_HeliumRenderer/blob/master/HeliumRenderer.php#L200-L208)
 
 
 See Also

@@ -1,6 +1,6 @@
 Light_MicroPermission
 ===========
-2019-09-26 -> 2020-07-06
+2019-09-26 -> 2020-09-15
 
 
 
@@ -64,17 +64,28 @@ micro_permission:
 
 
 
-Related
-===========
-- [Light_UserRowRestriction](https://github.com/lingtalfi/Light_UserRowRestriction)
-
-
 
 
 
 History Log
 =============
 
+- 3.0.4 -- 2020-09-15
+
+    - add service.checkMicroPermission method
+    
+- 3.0.3 -- 2020-09-08
+
+    - update recommended permissions document
+    
+- 3.0.2 -- 2020-08-21
+
+    - update conception notes, add micro-permissions profile concept
+    
+- 3.0.1 -- 2020-08-21
+
+    - new api, new recommendations
+    
 - 2.6.1 -- 2020-07-06
 
     - fix LightMicroPermissionService->registerMicroPermissionsByProfile not working properly

@@ -179,7 +179,7 @@ class ConfigurationFileParserOld
         $conf = [];
 
         $dir = dirname($filePath);
-        $fileName = FileSystemTool::getFileName($filePath);
+        $fileName = FileSystemTool::getBasename($filePath);
         $profilePath = $dir . "/$fileName-" . $this->profile . ".yml";
 
 

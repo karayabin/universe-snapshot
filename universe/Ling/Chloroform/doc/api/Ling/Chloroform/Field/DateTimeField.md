@@ -4,7 +4,7 @@
 
 The DateTimeField class
 ================
-2019-04-10 --> 2020-06-01
+2019-04-10 --> 2020-11-10
 
 
 
@@ -30,6 +30,14 @@ If useSecond is false, the format is:
 - yyyy-mm-dd hh:mm
 
 
+The "nullable" property defines whether this field can return null as its formatted value.
+If "nullable" is true (default is false), then if the date part (yyyy-mm-dd) of the datetime is missing,
+null will be returned. This allows the renderer to use a control widget which renders date and time separately.
+
+
+See the [getFormattedValue concept in the chloroform conception notes](https://github.com/lingtalfi/Chloroform/blob/master/doc/pages/chloroform-discussion.md#the-getformattedvalue-method) for more details.
+
+
 
 Class synopsis
 ==============
@@ -53,6 +61,7 @@ class <span class="pl-k">DateTimeField</span> extends [AbstractField](https://gi
 - Methods
     - public static [create](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/DateTimeField/create.md)(string $label, ?array $properties = []) : [DateTimeField](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/DateTimeField.md)
     - public [getValue](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/DateTimeField/getValue.md)() : mixed
+    - public [getFormattedValue](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/DateTimeField/getFormattedValue.md)() : mixed
 
 - Inherited methods
     - public [AbstractField::__construct](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/AbstractField/__construct.md)(?array $properties = []) : void
@@ -88,6 +97,7 @@ Methods
 
 - [DateTimeField::create](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/DateTimeField/create.md) &ndash; Builds and returns the instance.
 - [DateTimeField::getValue](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/DateTimeField/getValue.md) &ndash; Returns the value of the field.
+- [DateTimeField::getFormattedValue](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/DateTimeField/getFormattedValue.md) &ndash; Returns the formatted value of this field.
 - [AbstractField::__construct](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/AbstractField/__construct.md) &ndash; Builds the AbstractField instance.
 - [AbstractField::getId](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/AbstractField/getId.md) &ndash; Returns the field id.
 - [AbstractField::addValidator](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/AbstractField/addValidator.md) &ndash; Adds a validator to this instance.

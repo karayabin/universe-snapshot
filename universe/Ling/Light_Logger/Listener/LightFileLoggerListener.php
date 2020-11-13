@@ -8,6 +8,7 @@ use Ling\Bat\ConvertTool;
 use Ling\Bat\FileSystemTool;
 use Ling\Bat\FileTool;
 use Ling\Bat\ZipTool;
+use Ling\CliTools\Formatter\BashtmlFormatter;
 
 /**
  * The LightFileLoggerListener class is a simple logger listener which writes the log messages to a specified file.
@@ -106,6 +107,13 @@ class LightFileLoggerListener extends BaseLoggerListener
      */
     protected $zipRotatedFiles;
 
+    /**
+     * This property holds the channel2Formatting for this instance.
+     * Array of channel to [bashtml](https://github.com/lingtalfi/CliTools/blob/master/doc/pages/bashtml.md) formatting
+     * @var array = null
+     */
+    protected $channel2Formatting;
+
 
     /**
      * Builds the LightFileLoggerListener instance.
@@ -118,6 +126,7 @@ class LightFileLoggerListener extends BaseLoggerListener
         $this->maxFileSize = "2M";
         $this->rotatedFileExtension = "log";
         $this->zipRotatedFiles = true;
+        $this->channel2Formatting = null;
     }
 
 
@@ -157,6 +166,9 @@ class LightFileLoggerListener extends BaseLoggerListener
         if (array_key_exists("zipRotatedFiles", $options)) {
             $this->zipRotatedFiles = (bool)$options['zipRotatedFiles'];
         }
+        if (array_key_exists("formatting", $options)) {
+            $this->channel2Formatting = $options['formatting'];
+        }
     }
 
     /**
@@ -170,8 +182,25 @@ class LightFileLoggerListener extends BaseLoggerListener
     {
 
         $msg = $this->getFormattedMessage($channel, $msg);
+        //--------------------------------------------
+        // CHANNEL 2 FORMATTING
+        //--------------------------------------------
+        if (
+            null !== $this->channel2Formatting &&
+            true === array_key_exists($channel, $this->channel2Formatting)) {
+            $formatting = $this->channel2Formatting[$channel];
+            if (null !== $formatting) {
+                $f = new BashtmlFormatter();
+                $b = '<' . $formatting . '>';
+                $e = '</' . $formatting . '>';
+                $msg = $f->format($b . $msg . $e);
+            }
+        }
 
 
+        //--------------------------------------------
+        //
+        //--------------------------------------------
         $filePath = $this->file;
         $date = date("Y-m-d");
         $filePath = str_replace([

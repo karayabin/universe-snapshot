@@ -1,6 +1,6 @@
 Ling/Light_Realform
 ================
-2019-10-21 --> 2020-07-07
+2019-10-21 --> 2020-09-21
 
 
 
@@ -19,26 +19,29 @@ Table of contents
 - [RealformDynamicInjectionHandlerInterface](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/DynamicInjection/RealformDynamicInjectionHandlerInterface.md) &ndash; The RealformDynamicInjectionHandlerInterface interface.
     - [RealformDynamicInjectionHandlerInterface::handle](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/DynamicInjection/RealformDynamicInjectionHandlerInterface/handle.md) &ndash; Returns a result depending on the given arguments.
 - [LightRealformException](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Exception/LightRealformException.md) &ndash; The LightRealformException class.
+- [RealformDatabaseFeeder](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Feeder/RealformDatabaseFeeder.md) &ndash; The RealformDatabaseFeeder class.
+    - [RealformDatabaseFeeder::__construct](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Feeder/RealformDatabaseFeeder/__construct.md) &ndash; Builds the RealformDatabaseFeeder instance.
+    - [RealformDatabaseFeeder::setContainer](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Feeder/RealformDatabaseFeeder/setContainer.md) &ndash; Sets the light service container interface.
+    - [RealformDatabaseFeeder::getDefaultValues](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Feeder/RealformDatabaseFeeder/getDefaultValues.md) &ndash; Returns the default values of the form.
+- [RealformFeederInterface](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Feeder/RealformFeederInterface.md) &ndash; The RealformFeederInterface interface.
+    - [RealformFeederInterface::getDefaultValues](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Feeder/RealformFeederInterface/getDefaultValues.md) &ndash; Returns the default values of the form.
 - [BaseRealformHandlerAliasHelper](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Handler/AliasHelper/BaseRealformHandlerAliasHelper.md) &ndash; The BaseRealformHandlerAliasHelper class.
     - [BaseRealformHandlerAliasHelper::getChloroformValidator](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Handler/AliasHelper/BaseRealformHandlerAliasHelper/getChloroformValidator.md) &ndash; Returns a configured validator instance, based on the given type and validatorConf array.
     - [BaseRealformHandlerAliasHelper::getDataTransformer](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Handler/AliasHelper/BaseRealformHandlerAliasHelper/getDataTransformer.md) &ndash; Returns the data transformer instance based on the given alias and parameters.
 - [RealformHandlerAliasHelperInterface](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Handler/AliasHelper/RealformHandlerAliasHelperInterface.md) &ndash; The RealformHandlerAliasHelperInterface interface.
     - [RealformHandlerAliasHelperInterface::getChloroformValidator](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Handler/AliasHelper/RealformHandlerAliasHelperInterface/getChloroformValidator.md) &ndash; Returns a configured validator instance, based on the given type and validatorConf array.
     - [RealformHandlerAliasHelperInterface::getDataTransformer](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Handler/AliasHelper/RealformHandlerAliasHelperInterface/getDataTransformer.md) &ndash; Returns the data transformer instance based on the given alias and parameters.
-- [BaseRealformHandler](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Handler/BaseRealformHandler.md) &ndash; The BaseRealformHandler class.
-    - [BaseRealformHandler::__construct](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Handler/BaseRealformHandler/__construct.md) &ndash; Builds the BaseRealformHandler instance.
-    - [BaseRealformHandler::setContainer](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Handler/BaseRealformHandler/setContainer.md) &ndash; Sets the light service container interface.
-    - [BaseRealformHandler::setId](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Handler/BaseRealformHandler/setId.md) &ndash; Sets the realform id.
-    - [BaseRealformHandler::getFormHandler](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Handler/BaseRealformHandler/getFormHandler.md) &ndash; Returns a chloroform instance configured based on the realform id.
-    - [BaseRealformHandler::getConfiguration](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Handler/BaseRealformHandler/getConfiguration.md) &ndash; Returns the realform configuration based on the realform id.
-    - [BaseRealformHandler::getSuccessHandler](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Handler/BaseRealformHandler/getSuccessHandler.md) &ndash; Returns the success handler for this instance.
-    - [BaseRealformHandler::setConfDir](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Handler/BaseRealformHandler/setConfDir.md) &ndash; Sets the confDir.
-- [RealformHandlerInterface](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Handler/RealformHandlerInterface.md) &ndash; The RealformHandlerInterface interface.
-    - [RealformHandlerInterface::setId](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Handler/RealformHandlerInterface/setId.md) &ndash; Sets the realform id.
-    - [RealformHandlerInterface::getFormHandler](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Handler/RealformHandlerInterface/getFormHandler.md) &ndash; Returns a chloroform instance configured based on the realform id.
-    - [RealformHandlerInterface::getConfiguration](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Handler/RealformHandlerInterface/getConfiguration.md) &ndash; Returns the realform configuration based on the realform id.
-    - [RealformHandlerInterface::getSuccessHandler](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Handler/RealformHandlerInterface/getSuccessHandler.md) &ndash; Returns the success handler for this instance.
 - [RealformRendererInterface](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Renderer/RealformRendererInterface.md) &ndash; The RealformRendererInterface interface.
+- [RealformResult](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Result/RealformResult.md) &ndash; The RealformResult class.
+    - [RealformResult::__construct](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Result/RealformResult/__construct.md) &ndash; Builds the RealformResult instance.
+    - [RealformResult::getChloroform](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Result/RealformResult/getChloroform.md) &ndash; Returns the chloroform of this instance.
+    - [RealformResult::setChloroform](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Result/RealformResult/setChloroform.md) &ndash; Sets the chloroform.
+    - [RealformResult::getValidPostedData](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Result/RealformResult/getValidPostedData.md) &ndash; Returns the validPostedData of this instance.
+    - [RealformResult::setValidPostedData](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Result/RealformResult/setValidPostedData.md) &ndash; Sets the validPostedData.
+    - [RealformResult::isSuccessful](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Result/RealformResult/isSuccessful.md) &ndash; Returns the isSuccessful of this instance.
+    - [RealformResult::setIsSuccessful](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Result/RealformResult/setIsSuccessful.md) &ndash; Sets the isSuccessful.
+    - [RealformResult::getRedirectionUrl](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Result/RealformResult/getRedirectionUrl.md) &ndash; Returns the redirectionUrl of this instance.
+    - [RealformResult::setRedirectionUrl](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Result/RealformResult/setRedirectionUrl.md) &ndash; Sets the redirectionUrl.
 - [LightRealformRoutineOne](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Routine/LightRealformRoutineOne.md) &ndash; The LightRealformRoutineOne class.
     - [LightRealformRoutineOne::__construct](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Routine/LightRealformRoutineOne/__construct.md) &ndash; Builds the LightRealformRoutineOne instance.
     - [LightRealformRoutineOne::processForm](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Routine/LightRealformRoutineOne/processForm.md) &ndash; and returns a chloroform instance.
@@ -53,42 +56,49 @@ Table of contents
     - [LightRealformHandlerAliasHelperService::getChloroformValidator](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Service/LightRealformHandlerAliasHelperService/getChloroformValidator.md) &ndash; Returns a configured validator instance, based on the given type and validatorConf.
     - [LightRealformHandlerAliasHelperService::getDataTransformer](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Service/LightRealformHandlerAliasHelperService/getDataTransformer.md) &ndash; Returns a configured dataTransformer instance, based on the given alias and parameters.
     - [LightRealformHandlerAliasHelperService::setContainer](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Service/LightRealformHandlerAliasHelperService/setContainer.md) &ndash; Sets the container.
+- [LightRealformLateServiceRegistrationInterface](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Service/LightRealformLateServiceRegistrationInterface.md) &ndash; The LightRealformLateServiceRegistrationInterface interface.
+    - [LightRealformLateServiceRegistrationInterface::registerRealformByIdentifier](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Service/LightRealformLateServiceRegistrationInterface/registerRealformByIdentifier.md) &ndash; Registers the plugin to the realform service.
 - [LightRealformService](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Service/LightRealformService.md) &ndash; The LightRealformService class.
     - [LightRealformService::__construct](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Service/LightRealformService/__construct.md) &ndash; Builds the LightRealformService instance.
-    - [LightRealformService::getFormHandler](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Service/LightRealformService/getFormHandler.md) &ndash; Returns the realform handler instance corresponding to the given identifier.
-    - [LightRealformService::registerFormHandler](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Service/LightRealformService/registerFormHandler.md) &ndash; Registers a realform handler.
+    - [LightRealformService::getNugget](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Service/LightRealformService/getNugget.md) &ndash; Returns the configuration nugget based on the given nuggetId.
+    - [LightRealformService::getChloroformByConfiguration](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Service/LightRealformService/getChloroformByConfiguration.md) &ndash; Returns the chloroform instance based on the given configuration.
+    - [LightRealformService::executeRealform](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Service/LightRealformService/executeRealform.md) &ndash; instance.
     - [LightRealformService::registerDynamicInjectionHandler](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Service/LightRealformService/registerDynamicInjectionHandler.md) &ndash; Registers a [dynamic injection handler](https://github.com/lingtalfi/Light_Realform/blob/master/doc/pages/conception-notes-linear.md#dynamic-injection).
     - [LightRealformService::getDynamicInjectionHandler](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Service/LightRealformService/getDynamicInjectionHandler.md) &ndash; or throws an exception if it's not there.
     - [LightRealformService::setContainer](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Service/LightRealformService/setContainer.md) &ndash; Sets the container.
-    - [LightRealformService::setHandlers](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Service/LightRealformService/setHandlers.md) &ndash; Sets the handlers.
+    - [LightRealformService::getCurrentWebsiteUser](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Service/LightRealformService/getCurrentWebsiteUser.md) &ndash; Returns the current valid website user, or throws an exception.
+    - [LightRealformService::executeSuccessHandler](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Service/LightRealformService/executeSuccessHandler.md) &ndash; Executes the success handler defined in the given nugget.
+    - [LightRealformService::injectDefaultValues](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Service/LightRealformService/injectDefaultValues.md) &ndash; Injects the default values into the given form, based on the given nugget.
 - [RealformSuccessHandlerInterface](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/SuccessHandler/RealformSuccessHandlerInterface.md) &ndash; The RealformSuccessHandlerInterface interface.
-    - [RealformSuccessHandlerInterface::processData](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/SuccessHandler/RealformSuccessHandlerInterface/processData.md) &ndash; Process the given data, and throws an exception if something unexpected happens.
+    - [RealformSuccessHandlerInterface::execute](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/SuccessHandler/RealformSuccessHandlerInterface/execute.md) &ndash; Process the given data, and throws an exception if something unexpected happens.
 - [ToDatabaseSuccessHandler](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/SuccessHandler/ToDatabaseSuccessHandler.md) &ndash; The ToDatabaseSuccessHandler class.
     - [ToDatabaseSuccessHandler::__construct](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/SuccessHandler/ToDatabaseSuccessHandler/__construct.md) &ndash; Builds the ToDatabaseSuccessHandler instance.
-    - [ToDatabaseSuccessHandler::processData](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/SuccessHandler/ToDatabaseSuccessHandler/processData.md) &ndash; - ?updateRic: the array of key => value pairs representing the row to update (i.e.
-    - [ToDatabaseSuccessHandler::setContainer](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/SuccessHandler/ToDatabaseSuccessHandler/setContainer.md) &ndash; Sets the container.
-    - [ToDatabaseSuccessHandler::setTable](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/SuccessHandler/ToDatabaseSuccessHandler/setTable.md) &ndash; Sets the table.
-    - [ToDatabaseSuccessHandler::setPluginName](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/SuccessHandler/ToDatabaseSuccessHandler/setPluginName.md) &ndash; Sets the pluginName.
-    - [ToDatabaseSuccessHandler::setMultiplier](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/SuccessHandler/ToDatabaseSuccessHandler/setMultiplier.md) &ndash; Sets the multiplier.
-    - [ToDatabaseSuccessHandler::setUseRowRestriction](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/SuccessHandler/ToDatabaseSuccessHandler/setUseRowRestriction.md) &ndash; Sets the useRowRestriction.
+    - [ToDatabaseSuccessHandler::setContainer](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/SuccessHandler/ToDatabaseSuccessHandler/setContainer.md) &ndash; Sets the light service container interface.
+    - [ToDatabaseSuccessHandler::execute](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/SuccessHandler/ToDatabaseSuccessHandler/execute.md) &ndash; Process the given data, and throws an exception if something unexpected happens.
+- [DatabaseUpdateEntryChecker](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/UpdateEntryChecker/DatabaseUpdateEntryChecker.md) &ndash; The DatabaseUpdateEntryChecker class.
+    - [DatabaseUpdateEntryChecker::__construct](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/UpdateEntryChecker/DatabaseUpdateEntryChecker/__construct.md) &ndash; Builds the DatabaseUpdateEntryChecker instance.
+    - [DatabaseUpdateEntryChecker::setContainer](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/UpdateEntryChecker/DatabaseUpdateEntryChecker/setContainer.md) &ndash; Sets the light service container interface.
+    - [DatabaseUpdateEntryChecker::isGranted](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/UpdateEntryChecker/DatabaseUpdateEntryChecker/isGranted.md) &ndash; Returns whether the current user is granted an action defined the given parameters.
 
 
 Dependencies
 ============
 - [Light](https://github.com/lingtalfi/Light)
 - [Light_Csrf](https://github.com/lingtalfi/Light_Csrf)
+- [SimplePdoWrapper](https://github.com/lingtalfi/SimplePdoWrapper)
 - [Chloroform](https://github.com/lingtalfi/Chloroform)
-- [BabyYaml](https://github.com/lingtalfi/BabyYaml)
 - [Bat](https://github.com/lingtalfi/Bat)
-- [Light_ChloroformExtension](https://github.com/lingtalfi/Light_ChloroformExtension)
 - [Light_DatabaseInfo](https://github.com/lingtalfi/Light_DatabaseInfo)
 - [Light_Events](https://github.com/lingtalfi/Light_Events)
 - [Light_Flasher](https://github.com/lingtalfi/Light_Flasher)
-- [Light_UserRowRestriction](https://github.com/lingtalfi/Light_UserRowRestriction)
-- [SimplePdoWrapper](https://github.com/lingtalfi/SimplePdoWrapper)
 - [WiseTool](https://github.com/lingtalfi/WiseTool)
+- [Light_CsrfSession](https://github.com/lingtalfi/Light_CsrfSession)
 - [Light_Database](https://github.com/lingtalfi/Light_Database)
 - [Light_MicroPermission](https://github.com/lingtalfi/Light_MicroPermission)
+- [Light_ChloroformExtension](https://github.com/lingtalfi/Light_ChloroformExtension)
+- [Light_Nugget](https://github.com/lingtalfi/Light_Nugget)
+- [Light_UserManager](https://github.com/lingtalfi/Light_UserManager)
+- [Light_User](https://github.com/lingtalfi/Light_User)
 - [Light_Crud](https://github.com/lingtalfi/Light_Crud)
 
 

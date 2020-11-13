@@ -1,13 +1,13 @@
 Ajax light communication protocol
 ================
-2020-04-10
+2020-04-10 -> 2020-08-21
 
 
 
 
 This protocol describes the communication between two actors:
 
-- an client
+- a client
 - a server
 
 The communication operates via ajax.

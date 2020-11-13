@@ -46,7 +46,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [DecorativeField::getDecorationType](https://github.com/lingtalfi/Chloroform/blob/master/Field/DecorativeField.php#L205-L208)
+See the source code for method [DecorativeField::getDecorationType](https://github.com/lingtalfi/Chloroform/blob/master/Field/DecorativeField.php#L214-L217)
 
 
 See Also

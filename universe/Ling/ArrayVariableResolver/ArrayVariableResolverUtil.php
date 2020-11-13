@@ -160,8 +160,8 @@ class ArrayVariableResolverUtil
         $end = preg_quote($this->closingBracket);
         $regex = '!' . $begin . '([^' . $end . ']*)' . $end . '!';
 
-        BDotTool::walk($array, function (&$v, $key, $dotPath) use (&$array, $variables, $regex) {
 
+        BDotTool::walk($array, function (&$v, $key, $dotPath) use (&$array, $variables, $regex) {
             if (is_string($v)) {
                 if (false !== strpos($v, $this->firstSymbol . $this->openingBracket)) {
 
@@ -169,7 +169,6 @@ class ArrayVariableResolverUtil
                     if (preg_match_all($regex, $v, $matches)) {
 
                         if ($matches) {
-
                             $varNames = $matches[1];
                             foreach ($varNames as $varName) {
 

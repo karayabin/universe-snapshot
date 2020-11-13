@@ -54,7 +54,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [FieldInterface::setProperty](https://github.com/lingtalfi/Chloroform/blob/master/Field/FieldInterface.php#L153-L153)
+See the source code for method [FieldInterface::setProperty](https://github.com/lingtalfi/Chloroform/blob/master/Field/FieldInterface.php#L161-L161)
 
 
 See Also

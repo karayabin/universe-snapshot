@@ -59,6 +59,17 @@ class LightBMenuService
     protected $directInjectors;
 
     /**
+     * This property holds the directItems for this instance.
+     *
+     * It's an array of menuType => menuPath2Items,
+     *
+     * with menuPath2Items: array of @page(bdot) menuPath to menu items
+     *
+     * @var array
+     */
+    protected $directItems;
+
+    /**
      * This property holds the defaultItems for this instance.
      *
      * An array of menuType => defaultItems.
@@ -83,6 +94,7 @@ class LightBMenuService
         $this->hosts = [];
         $this->directInjectors = [];
         $this->defaultItems = [];
+        $this->directItems = [];
     }
 
 
@@ -110,6 +122,7 @@ class LightBMenuService
         //--------------------------------------------
         // TECHNIQUE #1: DIRECT INJECTION
         //--------------------------------------------
+        // via interface
         $injectors = $this->directInjectors[$menuType] ?? [];
         foreach ($injectors as $injector) {
             if ($injector instanceof BMenuDirectInjectorInterface) {
@@ -119,6 +132,14 @@ class LightBMenuService
             }
         }
 
+
+        // via config file
+        $directItems = $this->directItems[$menuType] ?? [];
+        foreach ($directItems as $parentPath => $items) {
+            foreach ($items as $item) {
+                $menu->appendItem($item, $parentPath);
+            }
+        }
 
         //--------------------------------------------
         // TECHNIQUE #2: HOST DRIVEN INJECTION
@@ -174,6 +195,54 @@ class LightBMenuService
         }
     }
 
+
+    /**
+     * Add direct items to this instance.
+     *
+     * The items are found in the given file.
+     * In the form of an array of menuParentPath => items.
+     *
+     * @param string $menuType
+     * @param string $file
+     */
+    public function addDirectItemsByFile(string $menuType, string $file)
+    {
+        if (false === array_key_exists($menuType, $this->directItems)) {
+            $this->directItems[$menuType] = [];
+        }
+        $menuPath2items = BabyYamlUtil::readFile($file);
+        foreach ($menuPath2items as $menuPath => $items) {
+            if (false === array_key_exists($menuPath, $this->directItems[$menuType])) {
+                $this->directItems[$menuType][$menuPath] = [];
+            }
+            $this->directItems[$menuType][$menuPath] = array_merge($this->directItems[$menuType][$menuPath], $items);
+        }
+    }
+
+    /**
+     * Add direct items to this instance.
+     *
+     * The items are found in the given file.
+     * In the form of an array items.
+     * They will be appended at the given parentPath key.
+     *
+     *
+     *
+     * @param string $menuType
+     * @param string $file
+     * @param string $parentPath
+     */
+    public function addDirectItemsByFileAndParentPath(string $menuType, string $file, string $parentPath)
+    {
+        if (false === array_key_exists($menuType, $this->directItems)) {
+            $this->directItems[$menuType] = [];
+        }
+        $items = BabyYamlUtil::readFile($file);
+        if (false === array_key_exists($parentPath, $this->directItems[$menuType])) {
+            $this->directItems[$menuType][$parentPath] = [];
+        }
+        $this->directItems[$menuType][$parentPath] = array_merge($this->directItems[$menuType][$parentPath], $items);
+    }
 
     /**
      * Adds a default item to the menu identified by $menuType.

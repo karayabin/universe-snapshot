@@ -3,7 +3,7 @@ function f(jBtn, rics, jContainer, jTable, params) {
     var url = params.url;
     var theParams = {
         rics: rics,
-        table: params.table,
+        realform_id: params.realform_id,
     };
     if (params.csrf_token) {
         theParams.csrf_token = params.csrf_token;

@@ -7,7 +7,7 @@ LightUserDataService::getNewResourceIdentifier
 
 
 
-LightUserDataService::getNewResourceIdentifier — Returns the resource identifier using the given resource id.
+LightUserDataService::getNewResourceIdentifier — the luda_resource.resouce_identifier value.
 
 
 
@@ -21,7 +21,8 @@ public [LightUserDataService::getNewResourceIdentifier](https://github.com/lingt
 
 
 
-Returns the resource identifier using the given resource id.
+Returns a unique resource identifier that can be inserted in the database, as
+the luda_resource.resouce_identifier value.
 
 
 
@@ -46,7 +47,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::getNewResourceIdentifier](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L1407-L1410)
+See the source code for method [LightUserDataService::getNewResourceIdentifier](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L1157-L1160)
 
 
 See Also
@@ -54,5 +55,5 @@ See Also
 
 The [LightUserDataService](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService.md) class.
 
-Previous method: [getIdentifierByUrl](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/getIdentifierByUrl.md)<br>Next method: [getUserIdentifier](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/getUserIdentifier.md)<br>
+Previous method: [updateResourceByFileItems](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/updateResourceByFileItems.md)<br>Next method: [getResourceIdentifierByUrl](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/getResourceIdentifierByUrl.md)<br>
 

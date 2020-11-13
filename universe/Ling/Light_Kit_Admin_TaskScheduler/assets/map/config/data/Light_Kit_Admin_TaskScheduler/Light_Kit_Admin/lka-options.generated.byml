@@ -1,0 +1,5 @@
+multipleFormEditor:
+    prefixes:
+        lts:
+            realform_identifier: Light_Kit_Admin_TaskScheduler.generated/{table}
+            kit_page: Light_Kit_Admin_TaskScheduler/kit/zeroadmin/generated/{table}_form

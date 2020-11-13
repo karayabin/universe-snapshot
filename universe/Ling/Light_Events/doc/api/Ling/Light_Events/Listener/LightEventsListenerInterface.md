@@ -4,7 +4,7 @@
 
 The LightEventsListenerInterface class
 ================
-2019-10-31 --> 2020-06-26
+2019-10-31 --> 2020-11-06
 
 
 

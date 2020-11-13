@@ -4,7 +4,7 @@
 
 The LightKitAdminGeneratorService class
 ================
-2019-11-06 --> 2020-07-06
+2019-11-06 --> 2020-09-18
 
 
 
@@ -33,7 +33,8 @@ class <span class="pl-k">LightKitAdminGeneratorService</span> extends [LightReal
 
 - Inherited methods
     - public LightRealGeneratorService::__construct() : void
-    - public LightRealGeneratorService::generate(string $file, ?string $identifier = null) : void
+    - public LightRealGeneratorService::generate(string $file) : array
+    - public LightRealGeneratorService::generateByConf(array $conf, ?array $options = []) : void
     - public LightRealGeneratorService::setContainer([Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) $container) : void
     - public LightRealGeneratorService::setOptions(array $options) : void
     - public LightRealGeneratorService::debugLog(string $msg) : void
@@ -52,7 +53,8 @@ Methods
 
 - [LightKitAdminGeneratorService::onGenerateAfter](https://github.com/lingtalfi/Light_Kit_Admin_Generator/blob/master/doc/api/Ling/Light_Kit_Admin_Generator/Service/LightKitAdminGeneratorService/onGenerateAfter.md) &ndash; Hook called at the end of the [generate method](https://github.com/lingtalfi/Light_Kit_Admin_Generator/blob/master/doc/api/Ling/Light_RealGenerator/Service/LightRealGeneratorService/generate.md).
 - LightRealGeneratorService::__construct &ndash; Builds the LightRealGeneratorService instance.
-- LightRealGeneratorService::generate &ndash; according to the [configuration block](https://github.com/lingtalfi/Light_Kit_Admin_Generator/blob/master/doc/pages/lkagen-configuration-example.md) identified by the given file and identifier.
+- LightRealGeneratorService::generate &ndash; Same as generateByConf method, but takes the file path instead of the array.
+- LightRealGeneratorService::generateByConf &ndash; according to the [configuration block](https://github.com/lingtalfi/Light_Kit_Admin_Generator/blob/master/doc/pages/lkagen-configuration-example.md) identified by the given file and identifier.
 - LightRealGeneratorService::setContainer &ndash; Sets the container.
 - LightRealGeneratorService::setOptions &ndash; Sets the options.
 - LightRealGeneratorService::debugLog &ndash; Sends a message to the debugLog, if the **useDebug** option is set to true.

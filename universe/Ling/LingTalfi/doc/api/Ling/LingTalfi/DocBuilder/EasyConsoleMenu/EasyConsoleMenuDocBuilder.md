@@ -4,7 +4,7 @@
 
 The EasyConsoleMenuDocBuilder class
 ================
-2019-03-13 --> 2020-06-29
+2019-03-13 --> 2020-11-09
 
 
 
@@ -52,4 +52,4 @@ See the source code of [Ling\LingTalfi\DocBuilder\EasyConsoleMenu\EasyConsoleMen
 
 SeeAlso
 ==============
-Previous class: [DotMenuDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/DotMenu/DotMenuDocBuilder.md)<br>Next class: [FontAwesomeDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/FontAwesome/FontAwesomeDocBuilder.md)<br>
+Previous class: [DotMenuDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/DotMenu/DotMenuDocBuilder.md)<br>Next class: [ExceptionCodesDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/ExceptionCodes/ExceptionCodesDocBuilder.md)<br>

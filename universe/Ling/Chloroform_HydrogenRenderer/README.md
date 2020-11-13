@@ -1,6 +1,6 @@
 Chloroform_HydrogenRenderer
 ===========
-2019-04-18
+2019-04-18 -> 2020-08-11
 
 
 
@@ -28,6 +28,10 @@ Or just download it and place it where you want otherwise.
 
 Summary
 ===========
+2019-04-18
+
+
+
 * [Chloroform_HydrogenRenderer api](https://github.com/lingtalfi/Chloroform_HydrogenRenderer/blob/master/doc/api/Ling/Chloroform_HydrogenRenderer.md) (generated with [DocTools](https://github.com/lingtalfi/DocTools))
 * [What is it?](#what-is-it)
     * [Implemented fields](#implemented-fields)
@@ -43,7 +47,7 @@ Summary
 
 What is it?
 ============
-
+2019-04-18
 
 ![screenshot](https://lingtalfi.com/img/universe/Chloroform_HydrogenRenderer/Chloroform_HydrogenRenderer.png)
 
@@ -72,6 +76,8 @@ It should give you a pretty good idea of how the renderer looks like.
 
 Implemented fields
 -------------
+2019-04-18
+
 
 The Hydrogen renderer can render the following fields:
 
@@ -96,10 +102,15 @@ See the [Chloroform available fields](https://github.com/lingtalfi/Chloroform#th
 
 Implemented js validators
 -----------
+2019-04-18 -> 2020-08-11
 
 The Hydrogen renderer's js layer will handle the following validators:
 
 
+- IsIntegerValidator
+- IsMysqlDateValidator
+- IsMysqlDatetimeValidator
+- IsNumberValidator
 - MinMaxCharValidator
 - MinMaxNumberValidator
 - MinMaxDateValidator
@@ -118,6 +129,8 @@ See the complete [list of Chloroform validators here](https://github.com/lingtal
 
 How to use
 ==============
+2019-04-18
+
 
 
 You first need to import the assets.
@@ -328,6 +341,9 @@ echo $renderer->render($form->toArray());
 
 Creating other renderers
 ===========
+2019-04-18
+
+
 
 Now that this hydrogen renderer is created, I can see how much time would be saved by just copy pasting adapting
 this renderer instead of re-creating a new renderer from scratch.
@@ -369,6 +385,18 @@ Related
 History Log
 =============
 
+- 1.5.0 -- 2020-08-11
+
+    - update hydrogen.js, now supports IsMysqlDateValidator and IsMysqlDatetimeValidator
+    
+- 1.4.0 -- 2020-08-11
+
+    - update hydrogen.js, now supports isIntegerValidator.mode option
+    
+- 1.3.0 -- 2020-08-11
+
+    - add support for IsIntegerValidator and isNumberValidator
+    
 - 1.2.3 -- 2019-10-24
 
     - add link in README.md

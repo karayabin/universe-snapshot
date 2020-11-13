@@ -1,0 +1,4 @@
+https://github.com/lingtalfi/ExceptionCodes/blob/master/README.md
+https://github.com/lingtalfi/ExceptionCodes/blob/master/doc/api/Ling/ExceptionCodes/ExceptionCode.md
+https://github.com/lingtalfi/ExceptionCodes/blob/master/doc/api/Ling/ExceptionCodes.md
+https://github.com/lingtalfi/ExceptionCodes/blob/master/doc/pages/conception-notes.md

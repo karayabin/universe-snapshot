@@ -7,6 +7,7 @@ namespace Ling\Light_RealGenerator\Service;
 use Ling\BabyYaml\BabyYamlUtil;
 use Ling\Bat\ArrayTool;
 use Ling\Bat\BDotTool;
+use Ling\CheapLogger\CheapLogger;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
 use Ling\Light_Logger\LightLoggerService;
 use Ling\Light_RealGenerator\Exception\LightRealGeneratorException;
@@ -57,38 +58,68 @@ class LightRealGeneratorService
 
 
     /**
-     * Generates the configuration files for both the @page(realist) and @page(realform) plugins,
-     * according to the @page(configuration block) identified by the given file and identifier.
+     * Same as generateByConf method, but takes the file path instead of the array.
+     * Also, it doesn't have an options argument.
      *
-     * The default identifier defaults to "main".
      *
      *
      * @param string $file
-     * @param string|null $identifier
+     * @return array
      * @throws \Exception
      */
-    public function generate(string $file, string $identifier = null)
+    public function generate(string $file): array
     {
         $conf = BabyYamlUtil::readFile($file);
-        if (null === $identifier) {
-            $identifier = 'main';
+        return $this->generateByConf($conf, [
+            'file' => $file,
+        ]);
+    }
+
+
+    /**
+     * Generates the configuration files for both the @page(realist) and @page(realform) plugins,
+     * according to the @page(configuration block) identified by the given file and identifier.
+     *
+     * Returns the configuration array used.
+     *
+     *
+     * The default identifier defaults to "main".
+     *
+     * Available options are:
+     * - file: the path to the file from which the conf originated (if it does originate from a file).
+     *      This will only be used in debug messages, to provide more info to the debugging developer.
+     *
+     *
+     *
+     * @param array $conf
+     * @param array $options
+     * @throws \Exception
+     */
+    public function generateByConf(array $conf, array $options = []): array
+    {
+        $sDebug = '';
+        if (array_key_exists("file", $options)) {
+            $sDebug .= ", file=" . $this->getSymbolicPath(realpath($options['file']));
         }
 
-
         $this->debugLog("--clean--"); // reinitializing the log file
-        $this->debugLog("Launching real_generator with identifier=\"$identifier\" and file=\"" . $this->getSymbolicPath(realpath($file)) . "\".");
+        $this->debugLog("Launching real_generator$sDebug.");
 
 
-        if (array_key_exists($identifier, $conf)) {
-            $genConf = $conf[$identifier];
+        $genConf = $conf;
 
 
-            // replacing variables now
-            $variables = $genConf['variables'] ?? [];
+        //--------------------------------------------
+        // VARIABLE REPLACEMENT
+        //--------------------------------------------
+        $variables = $genConf['variables'] ?? [];
 
-            $replaceFn = function ($value, $isValue = false) use ($variables) {
 
-                if (preg_match_all('!\{\$([a-zA-Z0-9_]*)\}!', $value, $matches)) {
+        $replaceFn = function ($value, $isValue = false) use ($variables) {
+
+
+            if (false === is_array($value)) {
+                if (preg_match_all('!\!\{([a-zA-Z0-9_]*)\}!', $value, $matches)) {
 
                     $varNames = $matches[1];
                     $ret = $value;
@@ -99,44 +130,46 @@ class LightRealGeneratorService
                             $newValue = $variables[$varName];
                             if (true === $isValue) {
                                 if (true === is_scalar($newValue)) {
-                                    $ret = str_replace('{$' . $varName . '}', $newValue, $ret);
+                                    $ret = str_replace('!{' . $varName . '}', $newValue, $ret);
                                 } else {
                                     $ret = $newValue;
                                 }
                             } else {
-                                $ret = str_replace('{$' . $varName . '}', $newValue, $ret);
+                                $ret = str_replace('!{' . $varName . '}', $newValue, $ret);
                             }
                         }
                     }
                     return $ret;
                 }
-                return $value;
-            };
+            }
+            return $value;
+        };
 
 
-            /**
-             * replacing keys
-             */
-            ArrayTool::arrayWalkKeysRecursive($genConf, function ($key) use ($variables, $replaceFn) {
-                return $replaceFn($key);
-            });
+        /**
+         * replacing keys
+         */
+        ArrayTool::arrayWalkKeysRecursive($genConf, function ($key) use ($variables, $replaceFn) {
+            return $replaceFn($key);
+        });
 
 
-
-            /**
-             * replacing values
-             */
-            BDotTool::walk($genConf, function (&$v) use ($replaceFn) {
-                $v = $replaceFn($v, true);
-            });
-
+        /**
+         * replacing values
+         */
+        BDotTool::walk($genConf, function (&$v) use ($replaceFn) {
+            $v = $replaceFn($v, true);
+        });
 
 
+        $debugCallable = [$this, "debugLog"];
 
 
-            $debugCallable = [$this, "debugLog"];
+        $useList = $genConf['use_list'] ?? true;
 
-
+        if (false === $useList) {
+            $this->debugLog("use_list=false, skipping list configuration.");
+        } else {
             if (array_key_exists("list", $genConf)) {
                 $this->debugLog("List configuration found.");
                 $listGenerator = new ListConfigGenerator();
@@ -146,8 +179,13 @@ class LightRealGeneratorService
             } else {
                 $this->debugLog("No list configuration found.");
             }
+        }
 
 
+        $useForm = $genConf['use_form'] ?? true;
+        if (false === $useForm) {
+            $this->debugLog("use_form=false, skipping form configuration.");
+        } else {
             if (array_key_exists("form", $genConf)) {
                 $this->debugLog("Form configuration found.");
                 $formGenerator = new FormConfigGenerator();
@@ -157,14 +195,13 @@ class LightRealGeneratorService
             } else {
                 $this->debugLog("No form configuration found.");
             }
-
-
-            $this->onGenerateAfter($genConf);
-
-
-        } else {
-            $this->error("Identifier not found: $identifier, in $file.");
         }
+
+
+        $this->onGenerateAfter($genConf);
+
+
+        return $genConf;
     }
 
 
@@ -199,9 +236,10 @@ class LightRealGeneratorService
      */
     public function debugLog(string $msg)
     {
-        $useDebug = $this->options['useDebug'] ?? false;
-        if (true === $useDebug) {
 
+        $useDebug = $this->options['useDebug'] ?? false;
+
+        if (true === $useDebug) {
             /**
              * @var $logger LightLoggerService
              */

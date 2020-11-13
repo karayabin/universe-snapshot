@@ -4,7 +4,7 @@
 
 The IconTeaserWidget class
 ================
-2019-04-26 --> 2020-06-04
+2019-04-26 --> 2020-08-10
 
 
 
@@ -81,4 +81,4 @@ See the source code of [Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\Ico
 
 SeeAlso
 ==============
-Previous class: [HasDualPaneWidget](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/Widget/Picasso/HasDualPaneWidget.md)<br>Next class: [LightRealistWidget](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/Widget/Picasso/LightRealistWidget.md)<br>
+Previous class: [HelloWorldWidget](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/Widget/Picasso/HelloWorldWidget.md)<br>Next class: [LightRealistWidget](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/api/Ling/Light_Kit_BootstrapWidgetLibrary/Widget/Picasso/LightRealistWidget.md)<br>

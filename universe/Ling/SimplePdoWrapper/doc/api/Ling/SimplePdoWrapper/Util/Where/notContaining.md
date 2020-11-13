@@ -58,7 +58,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [Where::notContaining](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/Util/Where.php#L303-L306)
+See the source code for method [Where::notContaining](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/Util/Where.php#L312-L315)
 
 
 See Also

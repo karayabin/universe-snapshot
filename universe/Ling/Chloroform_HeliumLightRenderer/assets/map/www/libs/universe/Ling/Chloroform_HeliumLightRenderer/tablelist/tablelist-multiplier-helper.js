@@ -21,6 +21,8 @@ if ('undefined' === typeof window.TableListMultiplierHelper) {
 
 
         window.TableListMultiplierHelper = function (options) {
+
+
             /**
              * The items container is the ul that contains of the li, each of which representing
              * a binding. Visually, it's a line with the label in it ("2. Michel" for instance),
@@ -53,10 +55,8 @@ if ('undefined' === typeof window.TableListMultiplierHelper) {
             this.jBindingLabelInput = options.jBindingLabelInput;
 
 
-
-
             /**
-             * An array containing all the values currently in the items container.
+             * A map of value => label to add to the items container.
              * It doesn't make much sense in the multiplier pattern to have duplicate values (or does it?).
              *
              * See more details about the multiplier techniquer here:
@@ -65,6 +65,14 @@ if ('undefined' === typeof window.TableListMultiplierHelper) {
              *
              */
             this.itemsContainerValues = [];
+
+
+            var values = options.itemsContainerValues;
+            if (values) {
+                this.addItems(values)
+            }
+
+
         };
 
         var $ = jQuery;
@@ -102,7 +110,6 @@ if ('undefined' === typeof window.TableListMultiplierHelper) {
              * The given items is an array of value => label.
              */
             addItems: function (items) {
-
                 var jLi;
                 for (var value in items) {
                     if (-1 === $.inArray(value, this.itemsContainerValues)) {
@@ -126,7 +133,7 @@ if ('undefined' === typeof window.TableListMultiplierHelper) {
                     '<li>\n' +
                     '    <div class="d-flex tablelist-multiplier-item">\n' +
                     '        <span>' + label + '</span>\n' +
-                    '        <input class="theinput" type="hidden" name="'+ escapeHtml(this.itemInputName) +'" value="' + escapeHtml(value) + '"/>\n' +
+                    '        <input class="theinput" type="hidden" name="' + escapeHtml(this.itemInputName) + '" value="' + escapeHtml(value) + '"/>\n' +
                     '        <div class="ml-auto">\n' +
                     '            <span class="remove-item-btn"><i class="far fa-times-circle fa-2x"></i></span>\n' +
                     '        </div>\n' +

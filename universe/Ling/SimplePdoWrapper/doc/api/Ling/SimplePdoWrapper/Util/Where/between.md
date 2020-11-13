@@ -58,7 +58,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [Where::between](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/Util/Where.php#L396-L399)
+See the source code for method [Where::between](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/Util/Where.php#L405-L408)
 
 
 See Also

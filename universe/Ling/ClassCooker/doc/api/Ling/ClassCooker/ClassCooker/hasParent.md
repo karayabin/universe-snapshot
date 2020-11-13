@@ -46,7 +46,7 @@ Returns bool.
 
 Source Code
 ===========
-See the source code for method [ClassCooker::hasParent](https://github.com/lingtalfi/ClassCooker/blob/master/ClassCooker.php#L500-L505)
+See the source code for method [ClassCooker::hasParent](https://github.com/lingtalfi/ClassCooker/blob/master/ClassCooker.php#L504-L509)
 
 
 See Also

@@ -4,7 +4,7 @@
 
 The BaseConfigGenerator class
 ================
-2019-10-24 --> 2020-07-07
+2019-10-24 --> 2020-11-12
 
 
 
@@ -42,6 +42,7 @@ class <span class="pl-k">BaseConfigGenerator</span>  {
     - protected [getTableWithoutPrefix](https://github.com/lingtalfi/Light_RealGenerator/blob/master/doc/api/Ling/Light_RealGenerator/Generator/BaseConfigGenerator/getTableWithoutPrefix.md)(string $table) : string
     - protected [isHasTable](https://github.com/lingtalfi/Light_RealGenerator/blob/master/doc/api/Ling/Light_RealGenerator/Generator/BaseConfigGenerator/isHasTable.md)(string $table) : bool
     - protected [getTableInfo](https://github.com/lingtalfi/Light_RealGenerator/blob/master/doc/api/Ling/Light_RealGenerator/Generator/BaseConfigGenerator/getTableInfo.md)(string $table) : array
+    - protected [getHumanTableName](https://github.com/lingtalfi/Light_RealGenerator/blob/master/doc/api/Ling/Light_RealGenerator/Generator/BaseConfigGenerator/getHumanTableName.md)(string $table) : string
 
 }
 
@@ -87,6 +88,7 @@ Methods
 - [BaseConfigGenerator::getTableWithoutPrefix](https://github.com/lingtalfi/Light_RealGenerator/blob/master/doc/api/Ling/Light_RealGenerator/Generator/BaseConfigGenerator/getTableWithoutPrefix.md) &ndash; Returns the table name without prefix.
 - [BaseConfigGenerator::isHasTable](https://github.com/lingtalfi/Light_RealGenerator/blob/master/doc/api/Ling/Light_RealGenerator/Generator/BaseConfigGenerator/isHasTable.md) &ndash; Returns whether the given table is a **has** table (aka a many to many table, such as user_has_permission for instance).
 - [BaseConfigGenerator::getTableInfo](https://github.com/lingtalfi/Light_RealGenerator/blob/master/doc/api/Ling/Light_RealGenerator/Generator/BaseConfigGenerator/getTableInfo.md) &ndash; Returns the tableInfo array, either from the createFile, or from the database, depending on the configuration.
+- [BaseConfigGenerator::getHumanTableName](https://github.com/lingtalfi/Light_RealGenerator/blob/master/doc/api/Ling/Light_RealGenerator/Generator/BaseConfigGenerator/getHumanTableName.md) &ndash; Returns the human version of the given table name.
 
 
 

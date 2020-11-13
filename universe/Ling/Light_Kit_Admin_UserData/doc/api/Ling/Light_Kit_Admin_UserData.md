@@ -1,6 +1,6 @@
 Ling/Light_Kit_Admin_UserData
 ================
-2020-02-28 --> 2020-06-23
+2020-02-28 --> 2020-08-21
 
 
 
@@ -74,6 +74,8 @@ Table of contents
     - [LightKitAdminUserDataService::isInstalled](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/doc/api/Ling/Light_Kit_Admin_UserData/Service/LightKitAdminUserDataService/isInstalled.md) &ndash; Returns whether the core install phase of the plugin is fully completed.
     - [LightKitAdminUserDataService::getDependencies](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/doc/api/Ling/Light_Kit_Admin_UserData/Service/LightKitAdminUserDataService/getDependencies.md) &ndash; Returns the array of dependencies.
     - [LightKitAdminUserDataService::inject](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/doc/api/Ling/Light_Kit_Admin_UserData/Service/LightKitAdminUserDataService/inject.md) &ndash; Injects menu fragments in the given menu, knowing the "menuStructureId" context.
+    - [LightKitAdminUserDataService::registerRealistByRequestId](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/doc/api/Ling/Light_Kit_Admin_UserData/Service/LightKitAdminUserDataService/registerRealistByRequestId.md) &ndash; Registers the plugin to the realist service.
+    - [LightKitAdminUserDataService::registerRealformByIdentifier](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/doc/api/Ling/Light_Kit_Admin_UserData/Service/LightKitAdminUserDataService/registerRealformByIdentifier.md) &ndash; Registers the plugin to the realform service.
 
 
 Dependencies
@@ -90,7 +92,9 @@ Dependencies
 - [BabyYaml](https://github.com/lingtalfi/BabyYaml)
 - [Light_BMenu](https://github.com/lingtalfi/Light_BMenu)
 - [Light_PluginInstaller](https://github.com/lingtalfi/Light_PluginInstaller)
+- [Light_Realist](https://github.com/lingtalfi/Light_Realist)
 - [Light_UserDatabase](https://github.com/lingtalfi/Light_UserDatabase)
 - [SimplePdoWrapper](https://github.com/lingtalfi/SimplePdoWrapper)
+- [UniverseTools](https://github.com/lingtalfi/UniverseTools)
 
 

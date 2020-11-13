@@ -4,19 +4,18 @@
 namespace Ling\Light_Kit_Admin_UserDatabase\Controller\User;
 
 
-use Ling\Bat\ConvertTool;
 use Ling\Chloroform\Field\AjaxFileBoxField;
 use Ling\Chloroform\Field\PasswordField;
 use Ling\Chloroform\Field\StringField;
+use Ling\Chloroform\FormNotification\ErrorFormNotification;
 use Ling\Chloroform\Validator\RequiredValidator;
-use Ling\GormanJsonDecoder\GormanJsonDecoder;
 use Ling\Light\Http\HttpResponseInterface;
-use Ling\Light_CsrfSession\Service\LightCsrfSessionService;
+use Ling\Light_Database\Service\LightDatabaseService;
 use Ling\Light_Kit_Admin\Chloroform\LightKitAdminChloroform;
 use Ling\Light_Kit_Admin\Controller\AdminPageController;
 use Ling\Light_Kit_Admin\Rights\RightsHelper;
+use Ling\Light_Nugget\Service\LightNuggetService;
 use Ling\Light_User\LightWebsiteUser;
-use Ling\Light_UserData\Service\LightUserDataService;
 use Ling\Light_UserDatabase\LightWebsiteUserDatabaseInterface;
 use Ling\WiseTool\WiseTool;
 
@@ -35,24 +34,27 @@ class UserProfileController extends AdminPageController
     public function render()
     {
 
-
-
-
-
-
-        $renderMode = $_GET['render'] ?? 'default';
+        //--------------------------------------------
+        // FORM for pseudo, password and avatar_url
+        //--------------------------------------------
         $container = $this->getContainer();
         $flasher = $this->getFlasher();
 
 
-        //--------------------------------------------
-        // FORM FOR pseudo, password and avatar_url
-        //--------------------------------------------
-
+        /**
+         * In this case, we can fetch the user information from the session.
+         * I.e. we don't need to fetch the database for that.
+         */
         /**
          * @var LightWebsiteUser
          */
-        $user = $this->getUser();
+        $user = $this->getValidWebsiteUser();
+
+
+        /**
+         * @var $ng LightNuggetService
+         */
+        $ng = $this->getContainer()->get("nugget");
         $pseudo = $user->getPseudo();
         $password = ""; // never show the password
         $avatar_url = $user->getAvatarUrl();
@@ -64,176 +66,123 @@ class UserProfileController extends AdminPageController
         $form = new LightKitAdminChloroform();
         $form->prepare($container);
         $form->setFormId("user_profile");
+
+        // pseudo
         $form->addField(StringField::create("Pseudo", [
             "value" => $pseudo,
         ]), [RequiredValidator::create()]);
 
-        /**
-         * @var $csrfService LightCsrfSessionService
-         */
-        $csrfService = $this->getContainer()->get("csrf_session");
 
-        /**
-         * @var $userDataService LightUserDataService
-         */
-        $userDataService = $this->getContainer()->get("user_data");
-
-        $defaultUrls = [$avatar_url];
-        $actionId = "lka_userdatabase-user_profile";
+        // avatar_url
+        $appDir = $container->getApplicationDir();
+        $f = $appDir . "/config/data/Light_Kit_Admin_UserDatabase/nuggets/ajax_file_box/user-profile.byml";
+        $conf = $ng->getNuggetByPath($f);
+        $avatarConf = array_merge($conf, [
+            'urls' => [$avatar_url],
+        ]);
+        $form->addField(AjaxFileBoxField::create("Avatar url", $avatarConf));
 
 
-        $form->addField(AjaxFileBoxField::create("Avatar url", GormanJsonDecoder::encode([
-            "urls" => $defaultUrls,
-            "useBootstrap" => true,
-            "lang" => "eng",
-            "maxFile" => 1,
-            "mimeType" => [
-                "image/png",
-                "image/jpg",
-                "image/gif",
-            ],
-            "name" => "avatar_url",
-            "maxFileSize" => ConvertTool::convertHumanSizeToBytes('2M'),
-            'serverUrl' => '/ajax-handler',
-            "payload" => [
-                "handler" => "Light_UserData",
-                "configId" => "Light_Kit_Admin_UserDatabase.user_profile",
-                "csrf_token" => $csrfService->getToken()
-            ],
-            "immediateUpload" => true,
-            "useVirtualServer" => true,
-            "useDelete" => false,
-            "useKeepOriginalImage" => true,
-            'isExternalUrl' => <<<EEE
-                function (url) {
-                    if (0 === url.indexOf('/user-data')) {
-                        return false;
-                    }
-                    return true;
-                }
-EEE
-            ,
-            "useFileEditor" => $this->hasService('kit_admin_user_data'),
-            "fileEditor" => [
-                "fileExtensionCanBeUpdated" => true,
-                "directory" > "images",
-                "useImageEditor" => true,
-                "useOriginalImage" => true,
-            ],
-        ], ["isExternalUrl"]))
-//            ->setDataTransformer(LightUserData2SvpDataTransformer::create()->setContainer($container)), [
-//                ValidUserDataUrlValidator::create()->setContainer($container),
-//            ]
-        );
-
+        // password
         $form->addField(PasswordField::create("Password", [
             "value" => $password,
             "hint" => "Don't fill this field unless you want to change your password",
         ]));
+
+
+
         //--------------------------------------------
         // Posting the form and validating data
         //--------------------------------------------
         if (true === $form->isPosted()) {
             if (true === $form->validates()) {
 
-
-                /**
-                 * commit the vfs
-                 */
-                $userDataService->getFileManagerProtocolHandler()->commit();
-
-
-
-
-
-                // do something with $postedData;
                 $vid = $form->getVeryImportantData();
 
 
-                $form->executeDataTransformers($vid);
 
 
 
                 //--------------------------------------------
-                // update the database
+                // PROCESS VALID DATA
                 //--------------------------------------------
-                // empty password means we don't update the password
-                $password = $vid['password'];
-                if (empty($password)) {
-                    unset($vid['password']);
+
+                /**
+                 * @var $_db LightWebsiteUserDatabaseInterface
+                 */
+                $_db = $container->get("user_database");
+
+
+                /**
+                 * @var $db LightDatabaseService
+                 */
+                $db = $this->getContainer()->get("database");
+                /**
+                 * @var $exception \Exception
+                 */
+                $exception = null;
+                $res = $db->transaction(function () use ($db, $vid, $container, $user, $_db) {
+
+                    // empty password means we don't update the password
+                    $password = $vid['password'];
+                    if (empty($password)) {
+                        unset($vid['password']);
+                    }
+
+
+                    $_db->updateUserById($user->getId(), $vid);
+
+                }, $exception);
+
+
+                if (true === $res) {
+
+                    //--------------------------------------------
+                    // update the session
+                    //--------------------------------------------
+                    $userInfo = $_db->getUserInfoByIdentifier($user->getIdentifier());
+                    $user->updateInfo($userInfo);
+
+                    //--------------------------------------------
+                    // redirect
+                    //--------------------------------------------
+                    /**
+                     * We redirect because the user data is used in the gui (for instance in the icon menu in the header.
+                     * And so if the user changed her avatar for instance, we want her to notice the changes right away.
+                     * Hence we redirect to the same page
+                     */
+                    $flasher->addFlash("user_profile", "Congrats, the user form was successfully updated.");
+                    return $this->getRedirectResponseByRoute("lka_userdatabase_route-user_profile");
+
+                } else {
+                    $form->addNotification(ErrorFormNotification::create($exception->getMessage()));
                 }
 
 
-                /**
-                 * @var $userDb LightWebsiteUserDatabaseInterface
-                 */
-                $userDb = $container->get("user_database");
-                $userDb->updateUserById($user->getId(), $vid);
-
-
-                //--------------------------------------------
-                // update the session
-                //--------------------------------------------
-                $userInfo = $userDb->getUserInfoByIdentifier($user->getIdentifier());
-                $user->updateInfo($userInfo);
-
-                //--------------------------------------------
-                // redirect
-                //--------------------------------------------
-                /**
-                 * We redirect because the user data is used in the gui (for instance in the icon menu in the header.
-                 * And so if the user changed her avatar for instance, we want her to notice the changes right away.
-                 * Hence we redirect to the same page
-                 */
-                $flasher->addFlash("user_profile", "Congrats, the user form was successfully updated.");
-                return $this->getRedirectResponseByRoute("lka_userdatabase_route-user_profile");
-
-
             } else {
-
-                throw new \Exception("Todo: here with erroneous form.");
-                $form->getField("avatar_url")->setProperty("urls", $vm->getUrlsFromCurrentState($actionId));
-
-
-//                $form->addNotification(ErrorFormNotification::create("There was a problem."));
+                $form->addNotification(ErrorFormNotification::create("There was a problem with the form validation. Please review the form errors, fix them, and resubmit."));
             }
-        } else {
-            $valuesFromDb = []; // get the values from the database if necessary...
-            $form->injectValues($valuesFromDb);
-
-
-            if ($flasher->hasFlash("user_profile")) {
-                list($message, $type) = $flasher->getFlash("user_profile");
-//                $this->getKitAdmin()->addNotification(WiseTool::wiseToLightKitAdmin($type, $message));
-                $form->addNotification(WiseTool::wiseToChloroform($type, $message));
-            }
-
         }
+
+
+        //--------------------------------------------
+        // DISPLAYING ANY FLASH
+        //--------------------------------------------
+        if ($flasher->hasFlash("user_profile")) {
+            list($message, $type) = $flasher->getFlash("user_profile");
+//                $this->getKitAdmin()->addNotification(WiseTool::wiseToLightKitAdmin($type, $message));
+            $form->addNotification(WiseTool::wiseToChloroform($type, $message));
+        }
+
 
         //--------------------------------------------
         // RENDERING
         //--------------------------------------------
         $page = 'Light_Kit_Admin/kit/zeroadmin/user/user_profile';
-        if ('solo' === $renderMode) {
-            $page = 'Light_Kit_Admin/kit/zeroadmin/user/user_profile.iframe';
-        }
         return $this->renderAdminPage($page, [
             "form" => $form,
             "is_root" => RightsHelper::isRoot($container),
             "rights" => RightsHelper::getGroupedRights($user->getRights()),
         ]);
-    }
-
-
-    /**
-     * Work in progress...
-     */
-    public function processForm()
-    {
-        /**
-         * Todo: test serailize with this..
-         * call me with hub
-         */
-        az(__FILE__, $_GET, $_POST, $_FILES);
     }
 }

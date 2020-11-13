@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [WebsiteUserManager::destroyUser](https://github.com/lingtalfi/Light_UserManager/blob/master/UserManager/WebsiteUserManager.php#L71-L75)
+See the source code for method [WebsiteUserManager::destroyUser](https://github.com/lingtalfi/Light_UserManager/blob/master/UserManager/WebsiteUserManager.php#L79-L83)
 
 
 See Also
@@ -54,5 +54,5 @@ See Also
 
 The [WebsiteUserManager](https://github.com/lingtalfi/Light_UserManager/blob/master/doc/api/Ling/Light_UserManager/UserManager/WebsiteUserManager.md) class.
 
-Previous method: [getUser](https://github.com/lingtalfi/Light_UserManager/blob/master/doc/api/Ling/Light_UserManager/UserManager/WebsiteUserManager/getUser.md)<br>Next method: [setUser](https://github.com/lingtalfi/Light_UserManager/blob/master/doc/api/Ling/Light_UserManager/UserManager/WebsiteUserManager/setUser.md)<br>
+Previous method: [getUser](https://github.com/lingtalfi/Light_UserManager/blob/master/doc/api/Ling/Light_UserManager/UserManager/WebsiteUserManager/getUser.md)<br>Next method: [getValidWebsiteUser](https://github.com/lingtalfi/Light_UserManager/blob/master/doc/api/Ling/Light_UserManager/UserManager/WebsiteUserManager/getValidWebsiteUser.md)<br>
 

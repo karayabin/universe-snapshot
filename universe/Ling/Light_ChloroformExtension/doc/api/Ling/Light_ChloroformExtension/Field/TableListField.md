@@ -4,7 +4,7 @@
 
 The TableListField class
 ================
-2019-11-18 --> 2020-06-04
+2019-11-18 --> 2020-09-25
 
 
 
@@ -50,6 +50,7 @@ class <span class="pl-k">TableListField</span> extends [SelectField](https://git
     - public [setContainer](https://github.com/lingtalfi/Light_ChloroformExtension/blob/master/doc/api/Ling/Light_ChloroformExtension/Field/TableListField/setContainer.md)([Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) $container) : [TableListField](https://github.com/lingtalfi/Light_ChloroformExtension/blob/master/doc/api/Ling/Light_ChloroformExtension/Field/TableListField.md)
     - public [toArray](https://github.com/lingtalfi/Light_ChloroformExtension/blob/master/doc/api/Ling/Light_ChloroformExtension/Field/TableListField/toArray.md)() : array
     - private [prepareItems](https://github.com/lingtalfi/Light_ChloroformExtension/blob/master/doc/api/Ling/Light_ChloroformExtension/Field/TableListField/prepareItems.md)() : void
+    - private [getTableListService](https://github.com/lingtalfi/Light_ChloroformExtension/blob/master/doc/api/Ling/Light_ChloroformExtension/Field/TableListField/getTableListService.md)() : [TableListService](https://github.com/lingtalfi/Light_ChloroformExtension/blob/master/doc/api/Ling/Light_ChloroformExtension/Field/TableList/TableListService.md)
 
 - Inherited methods
     - public static SelectField::create(string $label, ?array $properties = []) : [SelectField](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/SelectField.md)
@@ -60,6 +61,7 @@ class <span class="pl-k">TableListField</span> extends [SelectField](https://git
     - public AbstractField::getErrors() : array
     - public AbstractField::setValue($value) : Ling\Chloroform\Field\AbstractField
     - public AbstractField::getValue() : mixed
+    - public AbstractField::getFormattedValue() : mixed
     - public AbstractField::getFallbackValue() : mixed
     - public AbstractField::hasVeryImportantData() : bool
     - public AbstractField::getDataTransformer() : [DataTransformerInterface](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/DataTransformer/DataTransformerInterface.md) | null
@@ -196,6 +198,7 @@ Methods
 - [TableListField::setContainer](https://github.com/lingtalfi/Light_ChloroformExtension/blob/master/doc/api/Ling/Light_ChloroformExtension/Field/TableListField/setContainer.md) &ndash; Sets the container.
 - [TableListField::toArray](https://github.com/lingtalfi/Light_ChloroformExtension/blob/master/doc/api/Ling/Light_ChloroformExtension/Field/TableListField/toArray.md) &ndash; Returns the array representation of the field.
 - [TableListField::prepareItems](https://github.com/lingtalfi/Light_ChloroformExtension/blob/master/doc/api/Ling/Light_ChloroformExtension/Field/TableListField/prepareItems.md) &ndash; Prepares this class to be exported with the toArray method.
+- [TableListField::getTableListService](https://github.com/lingtalfi/Light_ChloroformExtension/blob/master/doc/api/Ling/Light_ChloroformExtension/Field/TableListField/getTableListService.md) &ndash; Returns a configured TableListService instance.
 - SelectField::create &ndash; Builds and returns the instance.
 - SelectField::setItems &ndash; Sets the items.
 - AbstractField::getId &ndash; Returns the field id.
@@ -204,6 +207,7 @@ Methods
 - AbstractField::getErrors &ndash; Returns an array of error messages.
 - AbstractField::setValue &ndash; Sets the value for this instance.
 - AbstractField::getValue &ndash; Returns the value of the field.
+- AbstractField::getFormattedValue &ndash; Returns the formatted value of this field.
 - AbstractField::getFallbackValue &ndash; Returns the fallback value, which defaults to null.
 - AbstractField::hasVeryImportantData &ndash; Returns whether this field contains [very important data](https://github.com/lingtalfi/Chloroform/blob/master/doc/pages/chloroform-discussion.md#the-concept-of-very-important-data).
 - AbstractField::getDataTransformer &ndash; Returns the data transformer of this field if any, or null otherwise.

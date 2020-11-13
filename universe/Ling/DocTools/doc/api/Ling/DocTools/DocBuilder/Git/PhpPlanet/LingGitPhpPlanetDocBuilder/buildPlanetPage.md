@@ -51,7 +51,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LingGitPhpPlanetDocBuilder::buildPlanetPage](https://github.com/lingtalfi/DocTools/blob/master/DocBuilder/Git/PhpPlanet/LingGitPhpPlanetDocBuilder.php#L352-L391)
+See the source code for method [LingGitPhpPlanetDocBuilder::buildPlanetPage](https://github.com/lingtalfi/DocTools/blob/master/DocBuilder/Git/PhpPlanet/LingGitPhpPlanetDocBuilder.php#L354-L393)
 
 
 See Also

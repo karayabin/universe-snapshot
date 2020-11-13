@@ -55,7 +55,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [ClassSynopsisWidget::getSectionTitle](https://github.com/lingtalfi/DocTools/blob/master/Widget/ClassSynopsis/ClassSynopsisWidget.php#L493-L501)
+See the source code for method [ClassSynopsisWidget::getSectionTitle](https://github.com/lingtalfi/DocTools/blob/master/Widget/ClassSynopsis/ClassSynopsisWidget.php#L492-L500)
 
 
 See Also

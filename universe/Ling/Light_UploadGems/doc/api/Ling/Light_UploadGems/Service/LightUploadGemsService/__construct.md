@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightUploadGemsService::__construct](https://github.com/lingtalfi/Light_UploadGems/blob/master/Service/LightUploadGemsService.php#L41-L45)
+See the source code for method [LightUploadGemsService::__construct](https://github.com/lingtalfi/Light_UploadGems/blob/master/Service/LightUploadGemsService.php#L39-L43)
 
 
 See Also

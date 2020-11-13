@@ -46,7 +46,7 @@ Returns bool.
 
 Source Code
 ===========
-See the source code for method [ServiceManagerUtil::hasBasicServiceConfigFile](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/Util/ServiceManagerUtil.php#L406-L410)
+See the source code for method [ServiceManagerUtil::hasBasicServiceConfigFile](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/Util/ServiceManagerUtil.php#L425-L429)
 
 
 See Also

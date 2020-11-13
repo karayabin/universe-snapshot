@@ -4,7 +4,7 @@
 
 The DuelistHelper class
 ================
-2019-08-12 --> 2020-07-21
+2019-08-12 --> 2020-11-13
 
 
 
@@ -25,7 +25,7 @@ Class synopsis
 class <span class="pl-k">DuelistHelper</span>  {
 
 - Methods
-    - public static [getRawTableName](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Helper/DuelistHelper/getRawTableName.md)(string $table) : string
+    - public static [getRawTableNameByRequestDeclaration](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Helper/DuelistHelper/getRawTableNameByRequestDeclaration.md)(array $conf) : string
 
 }
 
@@ -37,7 +37,7 @@ class <span class="pl-k">DuelistHelper</span>  {
 Methods
 ==============
 
-- [DuelistHelper::getRawTableName](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Helper/DuelistHelper/getRawTableName.md) &ndash; Returns the raw table name from the [duelist](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/duelist.md) table property.
+- [DuelistHelper::getRawTableNameByRequestDeclaration](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Helper/DuelistHelper/getRawTableNameByRequestDeclaration.md) &ndash; Returns the raw table name from the given request declaration.
 
 
 
@@ -52,4 +52,4 @@ See the source code of [Ling\Light_Realist\Helper\DuelistHelper](https://github.
 
 SeeAlso
 ==============
-Previous class: [GenericActionItemHandlerTrait](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/GenericItemActionHandler/GenericActionItemHandlerTrait.md)<br>Next class: [RealistHelper](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Helper/RealistHelper.md)<br>
+Previous class: [GenericActionItemHandlerTrait](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/GenericItemActionHandler/GenericActionItemHandlerTrait.md)<br>Next class: [RequestDeclarationHelper](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Helper/RequestDeclarationHelper.md)<br>

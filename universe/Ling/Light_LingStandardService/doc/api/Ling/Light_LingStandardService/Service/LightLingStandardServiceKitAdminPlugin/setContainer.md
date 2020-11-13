@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightLingStandardServiceKitAdminPlugin::setContainer](https://github.com/lingtalfi/Light_LingStandardService/blob/master/Service/LightLingStandardServiceKitAdminPlugin.php#L76-L79)
+See the source code for method [LightLingStandardServiceKitAdminPlugin::setContainer](https://github.com/lingtalfi/Light_LingStandardService/blob/master/Service/LightLingStandardServiceKitAdminPlugin.php#L84-L87)
 
 
 See Also

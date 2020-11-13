@@ -46,7 +46,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::getRootDir](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L1309-L1312)
+See the source code for method [LightUserDataService::getRootDir](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L753-L756)
 
 
 See Also
@@ -54,5 +54,5 @@ See Also
 
 The [LightUserDataService](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService.md) class.
 
-Previous method: [setRootDir](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/setRootDir.md)<br>Next method: [setTemporaryUser](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/setTemporaryUser.md)<br>
+Previous method: [setRootDir](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/setRootDir.md)<br>Next method: [getUserDir](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/getUserDir.md)<br>
 

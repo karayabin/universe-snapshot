@@ -16,7 +16,7 @@ Description
 ================
 
 
-private [DirScanner::doScanDir](https://github.com/lingtalfi/DirScanner/blob/master/doc/api/Ling/DirScanner/DirScanner/doScanDir.md)(?$dir, ?$relDir, ?$callable, ?$level, array &$ret) : void
+private [DirScanner::doScanDir](https://github.com/lingtalfi/DirScanner/blob/master/doc/api/Ling/DirScanner/DirScanner/doScanDir.md)($dir, $relDir, $callable, $level, array &$ret) : void
 
 
 

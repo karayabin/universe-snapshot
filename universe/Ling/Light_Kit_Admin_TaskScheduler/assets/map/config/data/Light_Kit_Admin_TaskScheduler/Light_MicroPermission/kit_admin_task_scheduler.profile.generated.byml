@@ -1,0 +1,4 @@
+Light_TaskScheduler.admin:
+    - store.lts_task_schedule
+
+

@@ -125,7 +125,7 @@ Returns int.
 
 Source Code
 ===========
-See the source code for method [LightMailerService::send](https://github.com/lingtalfi/Light_Mailer/blob/master/Service/LightMailerService.php#L209-L257)
+See the source code for method [LightMailerService::send](https://github.com/lingtalfi/Light_Mailer/blob/master/Service/LightMailerService.php#L235-L283)
 
 
 See Also

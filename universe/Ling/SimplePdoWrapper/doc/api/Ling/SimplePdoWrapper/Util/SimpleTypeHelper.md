@@ -4,7 +4,7 @@
 
 The SimpleTypeHelper class
 ================
-2019-07-22 --> 2020-07-27
+2019-07-22 --> 2020-11-12
 
 
 
@@ -52,4 +52,4 @@ See the source code of [Ling\SimplePdoWrapper\Util\SimpleTypeHelper](https://git
 
 SeeAlso
 ==============
-Previous class: [RicHelper](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/RicHelper.md)<br>Next class: [Where](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/Where.md)<br>
+Previous class: [SimplePdoSpecialExpressionHelper](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/SimplePdoSpecialExpressionHelper.md)<br>Next class: [Where](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/Where.md)<br>

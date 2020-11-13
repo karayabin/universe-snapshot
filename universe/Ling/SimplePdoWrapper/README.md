@@ -1,6 +1,6 @@
 SimplePdoWrapper
 ================
-2019-02-04 -> 2020-07-27
+2019-02-04 -> 2020-11-12
 
 
 
@@ -1055,6 +1055,46 @@ Related
 History Log
 ------------------
 
+- 1.30.12 -- 2020-11-12
+
+    - update Where, add merge method, add FetchAllComponentsHelper class 
+    
+- 1.30.11 -- 2020-11-10
+
+    - update MysqlInfoUtil, add getPotentialTablePrefixes method 
+    
+- 1.30.10 -- 2020-11-09
+
+    - update SimplePdoWrapperInterface->transaction signature, now returns bool 
+    
+- 1.30.9 -- 2020-11-06
+
+    - update SimplePdoWrapper->queryLog signature 
+
+- 1.30.8 -- 2020-11-06
+
+    - update SimplePdoWrapper, add queryLog method 
+    
+- 1.30.7 -- 2020-10-30
+
+    - fix SimplePdoWrapper->handleException, code not being an int triggers fatal error 
+    
+- 1.30.6 -- 2020-10-19
+
+    - add SimplePdoGenericHelper class 
+    
+- 1.30.5 -- 2020-10-16
+
+    - add SimplePdoSpecialExpressionHelper::unserializeGroupConcatSeparator method 
+    
+- 1.30.4 -- 2020-09-17
+
+    - update SimplePdoWrapperInterface->insert, add ignore option 
+    
+- 1.30.3 -- 2020-08-31
+
+    - fix SimplePdoWrapperQueryException not having the code set 
+    
 - 1.30.2 -- 2020-07-27
 
     - fix functional bug, Columns->getMode returning null instead of "default" 

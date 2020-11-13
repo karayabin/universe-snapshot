@@ -1,6 +1,6 @@
 Light_Kit_Admin_Generator
 ===========
-2019-11-06 -> 2020-07-06
+2019-11-06 -> 2020-09-24
 
 
 
@@ -96,6 +96,46 @@ az($container->get("kit_admin_generator")->generate($configFile));
 History Log
 =============
 
+-- 1.19.4 -- 2020-09-24
+
+    - update config example
+    
+- 1.19.3 -- 2020-09-18
+
+    - update config example
+    
+- 1.19.2 -- 2020-09-18
+
+    - update config example
+    
+- 1.19.1 -- 2020-09-18
+
+    - update config example
+    
+- 1.19.0 -- 2020-09-17
+
+    - update api to adapt new Realist and Realform apis
+    
+- 1.18.0 -- 2020-09-04
+
+    - update ControllerGenerator, now the default form_identifier_format uses nugget compliant format
+    
+- 1.17.2 -- 2020-09-03
+
+    - update lka-configuration-example.md to have the same base as "realgen"'s conf
+
+- 1.17.1 -- 2020-08-18
+
+    - update lka-configuration-example.md to take into account the new target_basename directive
+    
+- 1.17.0 -- 2020-08-07
+
+    - update generator, now the generated form controller tries late registration first
+    
+- 1.16.0 -- 2020-08-03
+
+    - update config, add use_menu and use_controller properties
+    
 - 1.15.1 -- 2020-07-06
 
     - update config example

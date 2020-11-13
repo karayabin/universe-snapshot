@@ -80,7 +80,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightMailerService::prepareMessageBody](https://github.com/lingtalfi/Light_Mailer/blob/master/Service/LightMailerService.php#L524-L686)
+See the source code for method [LightMailerService::prepareMessageBody](https://github.com/lingtalfi/Light_Mailer/blob/master/Service/LightMailerService.php#L550-L712)
 
 
 See Also

@@ -4,7 +4,7 @@
 
 The Bootstrap4AdminTableRenderer class
 ================
-2019-08-15 --> 2020-07-06
+2019-08-15 --> 2020-09-03
 
 
 
@@ -26,7 +26,7 @@ Class synopsis
 ==============
 
 
-class <span class="pl-k">Bootstrap4AdminTableRenderer</span> extends [OpenAdminTableBaseRealistListRenderer](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Rendering/OpenAdminTableBaseRealistListRenderer.md) implements [RealistListRendererInterface](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Rendering/RealistListRendererInterface.md) {
+class <span class="pl-k">Bootstrap4AdminTableRenderer</span> extends [OpenAdminTableBaseRealistListRenderer](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Rendering/OpenAdminTableBaseRealistListRenderer.md) implements [LightServiceContainerAwareInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerAwareInterface.md), [RealistListRendererInterface](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Rendering/RealistListRendererInterface.md) {
 
 - Properties
     - protected [Ling\Bootstrap4AdminTable\RendererWidget\RendererWidgetInterface[]](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/RendererWidgetInterface.md) [$widgets](#property-widgets) ;
@@ -37,13 +37,13 @@ class <span class="pl-k">Bootstrap4AdminTableRenderer</span> extends [OpenAdminT
 - Inherited properties
     - protected array [OpenAdminTableBaseRealistListRenderer::$dataTypes](#property-dataTypes) ;
     - protected array [OpenAdminTableBaseRealistListRenderer::$labels](#property-labels) ;
-    - protected array [OpenAdminTableBaseRealistListRenderer::$hiddenColumns](#property-hiddenColumns) ;
+    - protected array [OpenAdminTableBaseRealistListRenderer::$propertiesToDisplay](#property-propertiesToDisplay) ;
     - protected bool[] [OpenAdminTableBaseRealistListRenderer::$useWidgets](#property-useWidgets) ;
     - protected string [OpenAdminTableBaseRealistListRenderer::$requestId](#property-requestId) ;
     - protected string [OpenAdminTableBaseRealistListRenderer::$csrfToken](#property-csrfToken) ;
     - protected [Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) [OpenAdminTableBaseRealistListRenderer::$container](#property-container) ;
     - protected array|string [OpenAdminTableBaseRealistListRenderer::$collapsibleColumnIndexes](#property-collapsibleColumnIndexes) ;
-    - protected array [OpenAdminTableBaseRealistListRenderer::$listActionGroups](#property-listActionGroups) ;
+    - protected array [OpenAdminTableBaseRealistListRenderer::$listItemGroupActions](#property-listItemGroupActions) ;
     - protected array [OpenAdminTableBaseRealistListRenderer::$listGeneralActions](#property-listGeneralActions) ;
     - protected string [OpenAdminTableBaseRealistListRenderer::$containerCssId](#property-containerCssId) ;
     - protected array [OpenAdminTableBaseRealistListRenderer::$sqlColumns](#property-sqlColumns) ;
@@ -63,17 +63,17 @@ class <span class="pl-k">Bootstrap4AdminTableRenderer</span> extends [OpenAdminT
     - protected [printJavascript](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/Renderer/Bootstrap4AdminTableRenderer/printJavascript.md)() : void
 
 - Inherited methods
-    - public OpenAdminTableBaseRealistListRenderer::prepareByRequestDeclaration(string $requestId, array $requestDeclaration, [Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) $container) : void
+    - public OpenAdminTableBaseRealistListRenderer::setContainer([Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) $container) : void
+    - public OpenAdminTableBaseRealistListRenderer::prepareByRequestDeclaration(string $requestId, array $requestDeclaration) : void
     - public OpenAdminTableBaseRealistListRenderer::setContainerCssId(string $cssId) : mixed
     - public OpenAdminTableBaseRealistListRenderer::renderTitle() : void
     - public OpenAdminTableBaseRealistListRenderer::setDataTypes(array $array) : void
     - public OpenAdminTableBaseRealistListRenderer::setLabels(array $labels) : void
-    - public OpenAdminTableBaseRealistListRenderer::setHiddenColumns(array $hiddenColumns) : void
+    - public OpenAdminTableBaseRealistListRenderer::setPropertiesToDisplay(array $propertiesToDisplay) : void
     - public OpenAdminTableBaseRealistListRenderer::setWidgetStatuses(array $widgetStatuses) : void
     - public OpenAdminTableBaseRealistListRenderer::setRequestId(string $requestId) : void
-    - public OpenAdminTableBaseRealistListRenderer::setContainer([Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) $container) : void
     - public OpenAdminTableBaseRealistListRenderer::setCollapsibleColumnIndexes($collapsibleColumnIndexes) : void
-    - public OpenAdminTableBaseRealistListRenderer::setListActionGroups(array $listActionGroups) : void
+    - public OpenAdminTableBaseRealistListRenderer::setListItemGroupActions(array $actions) : void
     - public OpenAdminTableBaseRealistListRenderer::setListGeneralActions(array $listGeneralActions) : void
     - public OpenAdminTableBaseRealistListRenderer::setCsrfToken(string $csrfToken) : void
     - public OpenAdminTableBaseRealistListRenderer::setSqlColumns(array $sqlColumns) : void
@@ -133,10 +133,9 @@ Properties
     
     
 
-- <span id="property-hiddenColumns"><b>hiddenColumns</b></span>
+- <span id="property-propertiesToDisplay"><b>propertiesToDisplay</b></span>
 
-    This property holds the hiddenColumns for this instance.
-    The hidden columns are not displayed (but their data is still accessible).
+    This property holds the propertiesToDisplay for this instance.
     
     
 
@@ -179,9 +178,9 @@ Properties
     
     
 
-- <span id="property-listActionGroups"><b>listActionGroups</b></span>
+- <span id="property-listItemGroupActions"><b>listItemGroupActions</b></span>
 
-    This property holds the listActionGroups for this instance.
+    This property holds the listItemGroupActions for this instance.
     More details in the [list action handler conception notes](https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/list-action-handler-conception-notes.md).
     
     
@@ -235,17 +234,17 @@ Methods
 - [Bootstrap4AdminTableRenderer::printSearchWidgets](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/Renderer/Bootstrap4AdminTableRenderer/printSearchWidgets.md) &ndash; Prints the search widgets.
 - [Bootstrap4AdminTableRenderer::callAssets](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/Renderer/Bootstrap4AdminTableRenderer/callAssets.md) &ndash; Calls the necessary assets to display the list correctly.
 - [Bootstrap4AdminTableRenderer::printJavascript](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/Renderer/Bootstrap4AdminTableRenderer/printJavascript.md) &ndash; Prints the necessary javascript.
+- OpenAdminTableBaseRealistListRenderer::setContainer &ndash; Sets the light service container interface.
 - OpenAdminTableBaseRealistListRenderer::prepareByRequestDeclaration &ndash; Prepares the list renderer with the given request declaration.
 - OpenAdminTableBaseRealistListRenderer::setContainerCssId &ndash; Sets the container css id.
 - OpenAdminTableBaseRealistListRenderer::renderTitle &ndash; Prints the list title.
 - OpenAdminTableBaseRealistListRenderer::setDataTypes &ndash; Sets the data types.
 - OpenAdminTableBaseRealistListRenderer::setLabels &ndash; Sets the labels.
-- OpenAdminTableBaseRealistListRenderer::setHiddenColumns &ndash; Sets the hiddenColumns.
+- OpenAdminTableBaseRealistListRenderer::setPropertiesToDisplay &ndash; Sets the propertiesToDisplay.
 - OpenAdminTableBaseRealistListRenderer::setWidgetStatuses &ndash; Sets the widget statuses.
 - OpenAdminTableBaseRealistListRenderer::setRequestId &ndash; Sets the requestId.
-- OpenAdminTableBaseRealistListRenderer::setContainer &ndash; Sets the container.
 - OpenAdminTableBaseRealistListRenderer::setCollapsibleColumnIndexes &ndash; Sets the collapsibleColumnIndexes.
-- OpenAdminTableBaseRealistListRenderer::setListActionGroups &ndash; Sets the listActionGroups.
+- OpenAdminTableBaseRealistListRenderer::setListItemGroupActions &ndash; Sets the "actions items" representing the "list item group actions" for this list.
 - OpenAdminTableBaseRealistListRenderer::setListGeneralActions &ndash; Sets the listGeneralActions.
 - OpenAdminTableBaseRealistListRenderer::setCsrfToken &ndash; Sets the csrfToken value.
 - OpenAdminTableBaseRealistListRenderer::setSqlColumns &ndash; Sets the sqlColumns.

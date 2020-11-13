@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [YorgDirScannerTool::getDirs](https://github.com/lingtalfi/DirScanner/blob/master/doc/api/Ling/DirScanner/YorgDirScannerTool/getDirs.md)(string $dir, bool $recursive = false, bool $relativePath = false, bool $followSymlinks = false, int $ignoreHidden = 1) : array
+public static [YorgDirScannerTool::getDirs](https://github.com/lingtalfi/DirScanner/blob/master/doc/api/Ling/DirScanner/YorgDirScannerTool/getDirs.md)(string $dir, ?bool $recursive = false, ?bool $relativePath = false, ?bool $followSymlinks = false, ?int $ignoreHidden = 1) : array
 
 
 

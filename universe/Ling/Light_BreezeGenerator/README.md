@@ -1,6 +1,6 @@
 Light_BreezeGenerator
 ===========
-2019-09-11 -> 2020-07-27
+2019-09-11 -> 2020-11-09
 
 
 
@@ -65,6 +65,46 @@ breeze_generator:
 History Log
 =============
 
+- 1.29.8 -- 2020-11-09
+
+    - fix LingBreezeGenerator2 generating erroneous deleteBy, updateBy docBlock parameters  
+    
+- 1.29.7 -- 2020-11-05
+
+    - update LingBreezeGenerator2, add the usePrefixInMethodNames option
+    
+- 1.29.6 -- 2020-11-03
+
+    - fix LingBreezeGenerator2, method name conflicts with deleteByFk and "has table" deleteBy methods 
+    
+- 1.29.5 -- 2020-11-03
+
+    - update LingBreezeGenerator2, now generates deleteByFk methods 
+    
+- 1.29.4 -- 2020-10-30
+
+    - update LingBreezeGenerator2, add precision in comment for generated insert methods 
+    
+- 1.29.3 -- 2020-10-16
+
+    - update LingBreezeGenerator2, add singleColumn handling for generated fetch methods
+    
+- 1.29.2 -- 2020-09-01
+
+    - fix LingBreezeGenerator2 typo when generating fetchAll method
+    
+- 1.29.1 -- 2020-08-31
+
+    - fix LingBreezeGenerator2 generating update method twice
+    
+- 1.29.0 -- 2020-08-13
+
+    - update LingBreezeGenerator2, add simple update method, add extraWhere and markers args to generated updateBy methods
+    
+- 1.28.1 -- 2020-08-10
+
+    - fix LingBreezeGenerator2, generated factory didn't set the container on api objects 
+    
 - 1.28.0 -- 2020-07-27
 
     - update LingBreezeGenerator2, add fetch and fetchAll methods 

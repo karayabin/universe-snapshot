@@ -1,6 +1,6 @@
 TheBar
 ======
-2015-11-03 -> 2020-07-10
+2015-11-03 -> 2020-11-13
 
 
 
@@ -10,6 +10,8 @@ Listen to some of our customer's stories.
 
 
 - [Ajax file upload discussion](https://github.com/lingtalfi/TheBar/blob/master/discussions/ajax-file-upload.md): a discussion about ajax file upload
+- [Basic security nugget](https://github.com/lingtalfi/TheBar/blob/master/discussions/basic-security-nugget.md): a discussion about the basic security nugget
+- [clever form initiative](https://github.com/lingtalfi/TheBar/blob/master/discussions/clever-form-initiative.md): the clever form initiative document
 - [create-file](https://github.com/lingtalfi/TheBar/blob/master/discussions/create-file.md): the create file
 - [database identity usurpation](https://github.com/lingtalfi/TheBar/blob/master/discussions/database-identity-usurpation.md): a discussion about some database identity usurpation 
 - [DevicesResolutions](https://github.com/lingtalfi/TheBar/blob/master/DevicesResolutions/devices-resolutions.md): devices resolutions cheat sheet
@@ -26,10 +28,12 @@ Listen to some of our customer's stories.
 - [permissive-dev-environment](https://github.com/lingtalfi/TheBar/blob/master/discussions/permissive-dev-environment.md): the permissive dev environment discussion 
 - [php session security](https://github.com/lingtalfi/TheBar/blob/master/discussions/php-session-security.md): a discussion about php session security
 - [Preventing path traversal attacks](https://github.com/lingtalfi/TheBar/blob/master/discussions/preventing-path-traversal-attacks.md): a discussion about directory traversal attacks and how to prevent them in php
+- [Ric](https://github.com/lingtalfi/TheBar/blob/master/discussions/ric.md): the ric definition
 - [Secure file upload discussion](https://github.com/lingtalfi/TheBar/blob/master/discussions/secure-file-upload.md): a discussion about secure file upload
 - [Section comment](https://github.com/lingtalfi/TheBar/blob/master/discussions/section-comment.md): a definition of a section comment
 - [simple chunk-upload protocol](https://github.com/lingtalfi/TheBar/blob/master/discussions/simple-chunk-upload-protocol.md): the simple chunk upload protocol 
 - [webapp security checklist](https://github.com/lingtalfi/TheBar/blob/master/discussions/webapp-security-checklist.md): a minimum security level checklist for web apps
+- [Generated custom config pattern](https://github.com/lingtalfi/TheBar/blob/master/discussions/generated-custom-config-pattern.md): a pattern to select a generated or custom config file on the fly
 
 
 
@@ -49,6 +53,94 @@ uni import Ling/TheBar
 
 History Log
 ===============
+    
+- 1.24.13 -- 2020-11-13
+
+    - update form-multiplier document
+    
+- 1.24.12 -- 2020-11-13
+
+    - update form-multiplier document
+    
+- 1.24.11 -- 2020-11-09
+
+    - update file manager protocol, add precision to the standard set
+    
+- 1.24.10 -- 2020-11-09
+
+    - update file manager protocol, update server's response to add operation
+    
+- 1.24.9 -- 2020-10-29
+
+    - update file manager protocol, remove reuse_original parameter
+    
+- 1.24.8 -- 2020-10-29
+
+    - update file manager protocol, add reuse_original parameter
+    
+- 1.24.7 -- 2020-10-15
+
+    - update file manager protocol
+    
+- 1.24.6 -- 2020-10-01
+
+    - update form multiplier trick
+    
+- 1.24.5 -- 2020-09-28
+
+    - update form multiplier trick
+    
+- 1.24.4 -- 2020-09-22
+
+    - update "clever form initiative" document, add form convention
+    
+- 1.24.3 -- 2020-09-22
+
+    - update "clever form initiative" document, add precision to cfi-control elements holders
+    
+- 1.24.2 -- 2020-09-22
+
+    - update "clever form initiative" document
+    
+- 1.24.1 -- 2020-09-22
+
+    - update "clever form initiative" document
+    
+- 1.24.0 -- 2020-09-22
+
+    - add "clever form initiative" document
+    
+- 1.23.0 -- 2020-09-17
+
+    - update the form multiplier trick, new version
+    
+- 1.23.2 -- 2020-09-11
+
+    - add precision comment to basic security nugget discussion
+    
+- 1.23.1 -- 2020-09-11
+
+    - fix typo
+    
+- 1.23.0 -- 2020-09-11
+
+    - add the basic security nugget discussion
+    
+- 1.22.0 -- 2020-09-07
+
+    - add the ric definition
+    
+- 1.21.2 -- 2020-09-01
+
+    - update the "flat file system" document
+    
+- 1.21.1 -- 2020-09-01
+
+    - update the "flat file system" document
+    
+- 1.21.0 -- 2020-08-10
+
+    - add the "Generated custom config pattern" document
     
 - 1.20.0 -- 2020-07-21
 

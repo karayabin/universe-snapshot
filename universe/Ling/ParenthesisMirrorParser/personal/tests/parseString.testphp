@@ -1,0 +1,43 @@
+<?php
+
+
+$strings = [
+    'hello world rf(MindBlowing experience)fr',
+    'rf(array)fr',
+    'rf(multiline
+test)fr',
+    'hello world rf(MindBlowing experience)fr double rf(666)fr',
+];
+
+
+$pmp = new ParenthesisMirrorParser();
+$pmp->setIdentifier("rf");
+$pmp->setConverter(function (string $s) {
+    if ('array' === $s) {
+        return [1, 2, 3];
+    }
+    return "s: " . $s;
+});
+
+foreach ($strings as $s) {
+    a($pmp->parseString($s));
+}
+
+/**
+ * Output:
+ *
+ * string(37) "hello world s: MindBlowing experience"
+ *
+ * array(3) {
+ * [0] => int(1)
+ * [1] => int(2)
+ * [2] => int(3)
+ * }
+ *
+ * string(22) "s: multiline
+ * test"
+ *
+ * string(51) "hello world s: MindBlowing experience double s: 666"
+ */
+
+az();

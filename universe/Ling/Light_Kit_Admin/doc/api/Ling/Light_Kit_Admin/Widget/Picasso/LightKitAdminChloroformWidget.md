@@ -4,7 +4,7 @@
 
 The LightKitAdminChloroformWidget class
 ================
-2019-05-17 --> 2020-07-07
+2019-05-17 --> 2020-08-21
 
 
 
@@ -175,4 +175,4 @@ See the source code of [Ling\Light_Kit_Admin\Widget\Picasso\LightKitAdminChlorof
 
 SeeAlso
 ==============
-Previous class: [LightKitAdminService](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService.md)<br>
+Previous class: [LightKitAdminStandardServicePlugin](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminStandardServicePlugin.md)<br>

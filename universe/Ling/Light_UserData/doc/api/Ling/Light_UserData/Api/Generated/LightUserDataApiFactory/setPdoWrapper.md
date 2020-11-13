@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightUserDataApiFactory::setPdoWrapper](https://github.com/lingtalfi/Light_UserData/blob/master/Api/Generated/LightUserDataApiFactory.php#L96-L99)
+See the source code for method [LightUserDataApiFactory::setPdoWrapper](https://github.com/lingtalfi/Light_UserData/blob/master/Api/Generated/LightUserDataApiFactory.php#L114-L117)
 
 
 See Also
@@ -57,5 +57,5 @@ See Also
 
 The [LightUserDataApiFactory](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/LightUserDataApiFactory.md) class.
 
-Previous method: [getResourceHasTagApi](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/LightUserDataApiFactory/getResourceHasTagApi.md)<br>Next method: [setContainer](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/LightUserDataApiFactory/setContainer.md)<br>
+Previous method: [getResourceFileApi](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/LightUserDataApiFactory/getResourceFileApi.md)<br>Next method: [setContainer](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/LightUserDataApiFactory/setContainer.md)<br>
 

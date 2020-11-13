@@ -26,17 +26,15 @@ interface LightCrudRequestHandlerInterface
      * - deleteMultiple:
      *      - rics: array of ric items, each of which being an array of key/value pairs representing the ric of a row to delete
      *
-     *
-     * Other params might be added by plugin authors when necessary.
-     *
+     * - ...other params might be added by plugin authors when necessary.
      *
      *
-     * @param string $pluginContextIdentifier
+     *
      * @param string $table
      * @param string $action
      * @param array $params
      * @return mixed
      * @throws \Exception
      */
-    public function execute(string $pluginContextIdentifier, string $table, string $action, array $params = []);
+    public function execute(string $table, string $action, array $params = []);
 }

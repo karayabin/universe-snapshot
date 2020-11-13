@@ -7,7 +7,7 @@ HeliumLightRenderer::printAjaxFileBoxField_FileUploader
 
 
 
-HeliumLightRenderer::printAjaxFileBoxField_FileUploader — Prints an ajax file box field.
+HeliumLightRenderer::printAjaxFileBoxField_FileUploader — Prints an ajax file box field to work with the [JFileUploader](https://github.com/lingtalfi/jFileUploader) client.
 
 
 
@@ -21,7 +21,7 @@ protected [HeliumLightRenderer::printAjaxFileBoxField_FileUploader](https://gith
 
 
 
-Prints an ajax file box field.
+Prints an ajax file box field to work with the [JFileUploader](https://github.com/lingtalfi/jFileUploader) client.
 
 See the [Chloroform toArray](https://github.com/lingtalfi/Chloroform/blob/master/doc/pages/chloroform-array.md) method for more info about the field structure.
 
@@ -56,7 +56,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [HeliumLightRenderer::printAjaxFileBoxField_FileUploader](https://github.com/lingtalfi/Chloroform_HeliumLightRenderer/blob/master/HeliumLightRenderer.php#L109-L175)
+See the source code for method [HeliumLightRenderer::printAjaxFileBoxField_FileUploader](https://github.com/lingtalfi/Chloroform_HeliumLightRenderer/blob/master/HeliumLightRenderer.php#L118-L193)
 
 
 See Also

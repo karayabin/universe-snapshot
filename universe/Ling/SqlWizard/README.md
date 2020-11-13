@@ -1,6 +1,6 @@
 SqlWizard
 =========
-2019-02-04 -> 2020-07-07
+2019-02-04 -> 2020-09-14
 
 
 
@@ -43,6 +43,22 @@ Summary
 History Log
 ------------------
 
+- 1.13.3 -- 2020-09-14
+
+    - add MysqlSelectQueryParser.combineWhere method
+    
+- 1.13.2 -- 2020-09-11
+
+    - add MysqlSelectQueryParser.recompileParts method
+    
+- 1.13.1 -- 2020-09-11
+
+    - add MysqlSelectQueryParser.getFromInfo method
+    
+- 1.12.0 -- 2020-09-11
+
+    - add MysqlSelectQueryParser class
+    
 - 1.11.0 -- 2020-07-07
 
     - update MysqlStructureReader->readFile, throws an exception if the file doesn't exist

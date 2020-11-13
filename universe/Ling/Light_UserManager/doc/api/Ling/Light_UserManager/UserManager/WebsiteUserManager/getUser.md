@@ -51,7 +51,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [WebsiteUserManager::getUser](https://github.com/lingtalfi/Light_UserManager/blob/master/UserManager/WebsiteUserManager.php#L49-L66)
+See the source code for method [WebsiteUserManager::getUser](https://github.com/lingtalfi/Light_UserManager/blob/master/UserManager/WebsiteUserManager.php#L54-L71)
 
 
 See Also

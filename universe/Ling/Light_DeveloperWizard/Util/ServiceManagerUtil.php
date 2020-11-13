@@ -6,11 +6,13 @@ namespace Ling\Light_DeveloperWizard\Util;
 
 use Ling\BabyYaml\BabyYamlUtil;
 use Ling\Bat\BDotTool;
+use Ling\Bat\CaseTool;
 use Ling\Bat\ClassTool;
 use Ling\ClassCooker\ClassCooker;
 use Ling\Light\Helper\LightNamesAndPathHelper;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
 use Ling\Light_DeveloperWizard\Exception\LightDeveloperWizardException;
+use Ling\Light_DeveloperWizard\Helper\ConfigHelper;
 use Ling\TokenFun\TokenFinder\Tool\TokenFinderTool;
 use Ling\UniverseTools\PlanetTool;
 use Ling\WebWizardTools\Process\WebWizardToolsProcess;
@@ -378,6 +380,23 @@ class ServiceManagerUtil
         return PlanetTool::getTightPlanetName($this->planet);
     }
 
+    /**
+     * Returns a human version of the planet name.
+     *
+     * @return string
+     */
+    public function getHumanPlanetName(): string
+    {
+        $planet = $this->getPlanetName();
+        if (0 === strpos($planet, 'Light_Kit_Admin_')) {
+            $planet = substr($planet, 16);
+        } elseif (0 === strpos($planet, 'Light_')) {
+            $planet = substr($planet, 6);
+        }
+        $planet = ucwords(CaseTool::toHumanFlatCase($planet));
+        return $planet;
+    }
+
 
     /**
      * Returns whether there is a @page(basic service) class file for the planet.
@@ -518,26 +537,29 @@ class ServiceManagerUtil
 
 
         $serviceFile = $this->getBasicServiceConfigPath();
-        $conf = BabyYamlUtil::readFile($serviceFile);
-        $hookKey = '$' . $serviceName . ".methods_collection"; // assuming the hooks are using methods_collection technique (i.e. not setMethods)
-        if (array_key_exists($hookKey, $conf)) {
-            if (null === $withMethod) {
-                return true;
-            } else {
+        if (file_exists($serviceFile)) {
 
-                $methods = $conf[$hookKey];
-                foreach ($methods as $method) {
+            $conf = BabyYamlUtil::readFile($serviceFile);
+            $hookKey = '$' . $serviceName . ".methods_collection"; // assuming the hooks are using methods_collection technique (i.e. not setMethods)
+            if (array_key_exists($hookKey, $conf)) {
+                if (null === $withMethod) {
+                    return true;
+                } else {
 
-                    if ($withMethod === $method['method']) {
-                        if (null === $withArgs) {
-                            return true;
-                        } else {
+                    $methods = $conf[$hookKey];
+                    foreach ($methods as $method) {
 
-                            if (array_key_exists("args", $method)) {
-                                $args = $method['args'];
-                                foreach ($withArgs as $withKey => $withValue) {
-                                    if (true === array_key_exists($withKey, $args) && $withValue === $args[$withKey]) {
-                                        return true;
+                        if ($withMethod === $method['method']) {
+                            if (null === $withArgs) {
+                                return true;
+                            } else {
+
+                                if (array_key_exists("args", $method)) {
+                                    $args = $method['args'];
+                                    foreach ($withArgs as $withKey => $withValue) {
+                                        if (true === array_key_exists($withKey, $args) && $withValue === $args[$withKey]) {
+                                            return true;
+                                        }
                                     }
                                 }
                             }
@@ -562,10 +584,7 @@ class ServiceManagerUtil
     public function configHasBannerComment($bannerName): bool
     {
         $serviceFile = $this->getBasicServiceConfigPath();
-        $s = file_get_contents($serviceFile);
-        $x = $this->getBannerContent($bannerName);
-        // assuming there is no text property containing the banner comment...
-        return (false !== strpos($s, $x));
+        return ConfigHelper::hasSectionComment($serviceFile, $bannerName);
     }
 
 
@@ -767,11 +786,7 @@ class ServiceManagerUtil
      */
     private function getBannerContent(string $bannerName): string
     {
-        return <<<EEE
-# --------------------------------------
-# $bannerName
-# --------------------------------------
-EEE;
+        return ConfigHelper::getBannerContent($bannerName);
     }
 
 

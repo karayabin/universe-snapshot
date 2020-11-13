@@ -1,6 +1,6 @@
 Light_LingStandardService, conception notes
 ==============
-2020-07-27 -> 2020-07-30
+2020-07-27 -> 2020-08-07
 
 
 
@@ -47,50 +47,7 @@ It's designed primarily for my personal use, but you can use too, it if it helps
     
 Ling Standard Service Kit Admin Plugin
 --------------
-2020-07-30
+2020-07-30 - 2020-08-07
 
 
-This is an abstract class which provides some extra-functionality to a [light service](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/light-service-container.md).
-
-It's designed for [light kit admin](https://github.com/lingtalfi/Light_Kit_Admin) plugin authors.
-
-
-What it basically does is implement the [plugin installer interface](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/PluginInstaller/PluginInstallerInterface.md),
-and automatically adds some permission bindings, as described below.
-
-
-Before you can extend our class, you need to make sure that your lka class meet the conditions below. 
- 
- 
-First, this class assumes that the **kit admin plugin**'s name derives from the **base light plugin** it originates from (so it assumes there is a **base light plugin** too).
-
-The naming convention of the **kit admin plugin** (aka lka plugin) is this:
-
-- lkaPluginName: Light_Kit_Admin_{BasePluginNameWithoutLightPrefix}
-
-With:
-
-- BasePluginNameWithoutLightPrefix: the name of the light plugin, but without the **Light_** prefix
-
-So for instance if the **base light plugin**'s name is **Light_TaskScheduler**, then the lka plugin name must be: **Light_Kit_Admin_TaskScheduler** 
-
-It also assumes that the **base light plugin** has the [light standard permissions](https://github.com/lingtalfi/TheBar/blob/master/discussions/light-standard-permissions.md).
-
-
-
-
-If your lka class meets those conditions, then you can extend our class, and it will automatically bind the **light standard permissions** to the corresponding
-**Light_Kit_Admin.admin** and **Light_Kit_Admin.user** **permission groups**. This is done in the **install** method (PluginInstallerInterface).
-
-Similarly, those **permissions** to **permission groups** bindings are removed when the uninstall (PluginInstallerInterface) method is called.
-
-
-In addition to that, our class has some common properties:
-
-- container, the service container instance
-- options, array of options for the service
-
-
-Also, we provide the following methods:
-
-- private error (msg), which assumes that there is a [basic exception](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/pages/conventions.md#basic-exception) already in place, and throws it.  
+This has been moved to lka planet: see the [Light Kit Admin StandardService plugin](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/pages/lka-plugins.md#light-kit-admin-standardservice-plugin) document.

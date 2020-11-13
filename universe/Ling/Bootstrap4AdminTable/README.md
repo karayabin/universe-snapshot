@@ -1,6 +1,6 @@
 Bootstrap4AdminTable
 ===========
-2019-08-15 -> 2020-07-06
+2019-08-15 -> 2020-09-03
 
 
 
@@ -57,6 +57,10 @@ Related
 History Log
 =============
 
+- 1.15.0 -- 2020-09-03
+
+    - update to adapt realist2 api   
+    
 - 1.14.1 -- 2020-07-06
 
     - fix functional typo   

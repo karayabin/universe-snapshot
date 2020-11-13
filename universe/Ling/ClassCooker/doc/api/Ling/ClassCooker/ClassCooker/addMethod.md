@@ -34,6 +34,9 @@ Available options are:
 - afterMethod: string, the name of the method after which you wish to add the new method
 - throwEx: bool=true, whether to throw an exception if the given methodName already exists in the class.
      If false and the method already exists, the method will return false.
+- checkDuplicate: bool=true, if true, will not add the method if it already exists.
+     In some rare cases, you might want to set this to false, so that you can add the method as
+     a comment for instance.
 
 
 
@@ -74,7 +77,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [ClassCooker::addMethod](https://github.com/lingtalfi/ClassCooker/blob/master/ClassCooker.php#L200-L211)
+See the source code for method [ClassCooker::addMethod](https://github.com/lingtalfi/ClassCooker/blob/master/ClassCooker.php#L203-L215)
 
 
 See Also

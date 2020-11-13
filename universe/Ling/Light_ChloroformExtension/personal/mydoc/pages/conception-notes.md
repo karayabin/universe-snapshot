@@ -1,20 +1,25 @@
 Light_ChloroformExtension conception notes
 ==============
-2019-11-14
+2019-11-14 -> 2020-09-25
 
 
 
 The idea of this plugin is to bring extra chloroform fields to the dev fingertips.
-The particularity of those fields is that they are use the light framework more or less.
+The particularity of those fields is that they use part of the light framework.
 
 
 Note: if I could go back in time, I would probably have incorporated the [Light_AjaxFileUploadManager](https://github.com/lingtalfi/Light_AjaxFileUploadManager) plugin
-as a light chloroform extension, because it fits the description.
-But hey, that's too late.
+as a light chloroform extension, because it fits the description, but hey that's too late.
 
 
 
 Below is the description of the fields that you can find in this planet.
+
+
+Each Field class can be used as a standalone class (i.e. that you instantiate manually), or you can use a **configuration item**
+to configure it from a [babyYaml](https://github.com/lingtalfi/BabyYaml) file. 
+This is explained in each field's section.
+
 
 
 Note: a renderer you might be interested in is the [Chloroform_HeliumLightRenderer](https://github.com/lingtalfi/Chloroform_HeliumLightRenderer), which is perfectly capable of 
@@ -26,91 +31,143 @@ displaying all the fields found in our plugin.
 
 TableListField
 ---------------
-2019-11-14
+2019-11-14 -> 2020-09-24
 
 
-The idea of this field is to provide a list (like an html select) of items coming from a database table.
-But the actual rendering depends on the number of items:
+The idea of this field is to provide a list (like a html select) of items coming from a database table.
 
-- if the number of items to display is less than 200 (configurable number), then a regular html select is used 
-- if the number of items to display is more than that threshold, then an auto-complete control is used
-
-
-That's because if you have too many items, a regular html select starts very being slow: we don't want that.
-
-
-To make that work, you have to configure the TableListField, so that it can execute both sql queries:
-
-- the count request (aka count sql query),
-- the actual request to fetch the list items
-
-Basically what we need to do is to create a sql query that returns two columns: the value and the label, in that order.
- 
-This is done by creating a configuration item (see the configuration item section below) in your plugin configuration.
-Then choose an identifier to reference that configuration item, and eventually inject that identifier in the TableListField instance.
-
-Security note: the identifier will be transmitted over http in case the auto-complete method is chosen.
-
-Convention: because light is an environment using plugins, the identifier always uses this notation:
-
-- {pluginName}.{pluginSpecificIdentifier}
-
-For instance:
-
-- MyPlugin.blabla
+The table must have a unique identifier (i.e. a [ric](https://github.com/lingtalfi/NotationFan/blob/master/ric.md) with one column only),
+so that we can feed the control with that value.
 
 
 
-From then, either the html select is chosen, in which its displayed by the renderer,
-or there are too many rows, in which case an ajax service (provided by this plugin) is called and returns the items
-to display in the auto-complete control.
+
+For the rendering, we actually have two options:
+
+- either using a html select (recommended when the number of items you want to display is not very big)
+- or using an auto-complete input (recommended when you have too many items to display, since a html select might become slow if you try to put too much data in it)
+
+
+We also provide an automatic mode (by default), which chooses the type of display depending on a threshold number (default=200).
+So for instance, in auto-mode if your list contains 200 items or fewer, a html select will be displayed. If it contains more than 200 items, the auto-complete control will be used.
+
+
+A thing to bear in mind with the auto-complete system is that it involves an ajax request, and because of that we need to be careful with security.
+
+This is all explained in greater details in the configuration section below.
+
+The big picture, as you can probably guess, with ajax is this:
+
+- the auto-complete field sends a **nuggetId** to our **ajax handler**
+    - see the [Light_Nugget conception notes](https://github.com/lingtalfi/Light_Nugget/blob/master/doc/pages/conception-notes.md) for more details about **nuggetId**.
+    - see the [Light_AjaxHandler conception notes](https://github.com/lingtalfi/Light_AjaxHandler/blob/master/doc/pages/conception-notes.md) for more details about **ajax handler**.
+- our **ajax handler** then reads the configuration (see the configuration section below for more details), and returns the rows to display, according to the user's provided **search expression**    
+
+
+
+
+
+In terms of Field instance configuration, we use a **configuration item**, described below.
+
+The location of this configuration item is defined by either of those (Field) properties:
+
+- tableListIdentifier: string, a nuggetId identifying the **configuration file**. See more details about nuggetId in the [Light_Nugget conception notes](https://github.com/lingtalfi/Light_Nugget/blob/master/doc/pages/conception-notes.md).
+    With this technique, your configuration item is written in a dedicated configuration file in **app/config/data/YourPlugin/Light_ChloroformExtension/tablelist/some_id.byml**
+    
+- tableListDirectiveId: string, the [Light_Realform](https://github.com/lingtalfi/Light_Realform) nuggetDirectiveId identifying the **configuration item**. See more details in the [Light_Nugget conception notes](https://github.com/lingtalfi/Light_Nugget/blob/master/doc/pages/conception-notes.md).
+    With this technique, your configuration item is written directly in the realform configuration, in **app/config/data/YourPlugin/Light_Realform/form/some_id.byml**.
+    See the [configuration file section of the Light_Realform conception notes](https://github.com/lingtalfi/Light_Realform/blob/master/doc/pages/2020/conception-notes.md#the-configuration-file) for more details.
+    
+
+                
+
+
+
 
 
 ### Configuration item
+2020-09-10 -> 2020-09-25
 
-Your plugin is responsible for providing the configuration item (referenced by the identifier).
-In order to do that, your plugin needs to provide an object implementing the **TableListFieldConfigurationHandlerInterface**
-interface.
-This object basically returns a **configuration item** which structure is the following:
 
-- fields: string representing the fields to fetch, as they are written in the sql query.
-            It should yields two columns: value and label. You might use aliases to achieve that.
+The behaviour of the **table list field** is defined in the configuration.
 
-            For instance:
-           
-                - id as value, first_name as label
-                - id as value, concat(id, ".", first_name) as label 
-                
-- table: the complete name (i.e. with alias if necessary) of the table used in this request
-            For instance:   
-            
-                - lud_user
-                - `lud_user`
-                - lud_user u
-                
-            Notice: if you need backquotes, write them manually (like in the second example above).
+We use the [nugget](https://github.com/lingtalfi/Light_Nugget) system, as mentioned before.
 
-- column: the target column, used to select the row. In particular, this is used to get the
-            formatted default value when in ajax mode (when there are too many items for a regular select).
+The configuration looks like this:
+
+
+
+- renderAs: string (adapt|select|autocomplete) = adapt.
+    Defines how the control should be displayed.
+    - if **select** is chosen, a html select should be used.         
+    - if **autocomplete** is chosen, an autocomplete input should be used.       
+    - if **adapt** is chosen, this depends on the number of items in the list.
+    If the number of items is greater than the threshold (see the **threshold** directive),
+    then the **autocomplete** system is used, otherwise, the **select** system is used.       
+
+
+- threshold: int=200, used only when the **renderAs** directive is set to adapt. 
+    See the **renderAs** directive for more details.
+    
+
+
+- sql: the sql query to fetch the items that you want.
+    Your query must return two columns named **value** and **label**, in that order. For instance: 
+   
+    - select id as value, first_name as label from user_table
+    - select id as value, concat(id, ".", first_name) as label from `user_table`
+    
+    The following tags are available:
+        - {userId}: will be replaced with the current user id, assuming a valid [website user](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser.md)
+        
+        
+
+- security: a [basic security nugget](https://github.com/lingtalfi/TheBar/blob/master/discussions/basic-security-nugget.md)
+
+
+- column: the name of the column that this control represents.
+        It's used to access the default value to display when the form is in update mode.
             
 - search_column; the "column" to search in when the user types a request.
             For instance:
                 - concat(id, '. ', name)                                          
                 
-- ?joins: string representing the joins part of the query.
-            For instance:
-            
-                - inner join lud_user u on u.id=h.user_id
-                                
-- ?where: string representing the where part of your sql query (if necessary). The where keyword is excluded.
-            For instance:
-            
-                - id>50 and id<5000
+
+
+
+Example of configuration item:
+
+```yaml
+
+
+sql: select id as value, concat(id, '. ', pseudo) as label from lud_user
+column: id
+search_column: concat(id, '. ', pseudo)
+
+renderAs: adapt
+threshold: 200
+
+
+security:
+    any:
+        permission: Light_Kit_Admin.admin
+        micro_permission: store.lud_user.read
+    all:
+
+
+
+```
+
 
 
 
 ### The multiplier mode
-2019-12-04
+2019-12-04 -> 2020-09-11
+
+
+
+Temporarily removed when I was redesigning the api for the sake of simplicity. I should re-add this later, when
+the concrete need for it re-appears. 
 
 
 The **table list** field can also work in what we call the **multiplier** mode.

@@ -58,5 +58,5 @@ See Also
 
 The [NeckFiltersRendererWidgetInterface](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/NeckFiltersRendererWidgetInterface.md) class.
 
-Next method: [setUseCheckbox](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/NeckFiltersRendererWidgetInterface/setUseCheckbox.md)<br>
+
 

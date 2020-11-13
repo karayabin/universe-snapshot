@@ -59,7 +59,7 @@ class MenuConfigGenerator extends LkaGenBaseConfigGenerator
         //--------------------------------------------
         $groups = [];
         foreach ($tables as $table) {
-            list($prefix, $childItem) = $this->getTableInfo($table, $bundle);
+            list($prefix, $childItem) = $this->getTableInfoByConfigBundle($table, $bundle);
             if (false === $groupByPrefix || null === $prefix) {
                 $prefix = '_'; // means no prefix
             }
@@ -77,7 +77,6 @@ class MenuConfigGenerator extends LkaGenBaseConfigGenerator
 
         $rootChildren = $groups["_"] ?? [];
         unset($groups['_']);
-
 
         // adding prefixed tables
         foreach ($groups as $prefix => $tableInfoItems) {
@@ -140,7 +139,7 @@ class MenuConfigGenerator extends LkaGenBaseConfigGenerator
      * @return array
      * @throws \Exception
      */
-    protected function getTableInfo(string $table, array $configBundle): array
+    protected function getTableInfoByConfigBundle(string $table, array $configBundle): array
     {
 
         $prefixes = $configBundle['prefixes'];

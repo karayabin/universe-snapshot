@@ -1,6 +1,6 @@
 Bootstrap Widget Library
 =============
-2019-05-01 -> 2020-06-04
+2019-05-01 -> 2020-08-10
 
 
 
@@ -29,6 +29,7 @@ Summary
 - [FooterWithButtonWidget](#footerwithbuttonwidget)
 - [GlozzomPricingTableWidget](#glozzompricingtablewidget)
 - [GlozzomTwoColumnsTeaserWidget](#glozzomtwocolumnsteaserwidget)
+- [HelloWorldWidget](#helloworldwidget)
 - [IconTeaserWidget](#iconteaserwidget)
 - [LightRealistWidget](#lightrealistwidget)
 - [LoopLabFooterWithContactUseButtonWidget](#looplabfooterwithcontactusebuttonwidget)
@@ -2547,6 +2548,71 @@ GlozzomTwoColumnsTeaserWidget variables description
     - **default_value**: 
     - **description**: The value of the alt attribute of the image.
     - **example**: My laptop
+
+
+
+
+
+
+
+HelloWorldWidget
+==============
+
+[Back to top](#summary)
+
+- [Screenshots](#helloworldwidget-screenshots)
+- [Templates and skins](#helloworldwidget-templates-and-skins)
+- [Example](#helloworldwidget-configuration-example)
+- [Variables descriptions](#helloworldwidget-variables-description)
+
+
+
+HelloWorldWidget is a bootstrap 4 widget that just displays the text: "Hello world".
+We can change that text using the variable: text.
+
+
+
+
+
+HelloWorldWidget screenshots
+----------
+
+Image 1: HelloWorldWidget.png<br>![Screenshot HelloWorldWidget.png](https://lingtalfi.com/img/universe/Light_Kit_BootstrapWidgetLibrary/screenshots/HelloWorldWidget/HelloWorldWidget.png)
+
+
+
+
+
+HelloWorldWidget templates, skins, presets
+-----------
+- **Templates**: default.php
+- **Skins**: 
+- **Presets**: 
+
+
+HelloWorldWidget configuration example
+----------------
+
+```yaml
+name: hello_world
+type: picasso
+className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\HelloWorldWidget
+widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/HelloWorldWidget
+template: default.php
+vars:
+    text: hello world
+```
+
+
+
+HelloWorldWidget variables description
+-----------
+
+- **text**
+    - **type**: string
+    - **default_value**: hello world
+    - **description**: The text to display
+    - **example**: hello world
 
 
 
@@ -6806,12 +6872,15 @@ className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\ZeroAdminForgott
 widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ZeroAdminForgottenPasswordWidget
 template: default.php
 vars:
-    form_method: post
-    form_action: ""
+    formMethod: post
+    formAction: ""
+    inputFormKeyName: forgotten_password_key
     title: Login
     description: Enter your email address and your password will be reset and emailed to you.
     btnText: Send new password
-    inputPlaceholder: Email
+    inputEmailPlaceholder: Email
+    inputEmailValue: ""
+    inputEmailError: ""
 ```
 
 
@@ -6819,16 +6888,21 @@ vars:
 ZeroAdminForgottenPasswordWidget variables description
 -----------
 
-- **form_method**
+- **formMethod**
     - **type**: string
     - **default_value**: POST
     - **description**: The method attribute for the form (POST|GET).
     - **example**: POST
-- **form_action**
+- **formAction**
     - **type**: string
     - **default_value**: (empty string)
     - **description**: The action attribute for the form.
     - **example**: /reset-password.php
+- **inputFormKeyName**
+    - **type**: string
+    - **default_value**: forgotten_password_key
+    - **description**: The attribute name for the hidden input element that is used to know whether the form is posted.
+    - **example**: forgotten_password_key
 - **title**
     - **type**: string
     - **default_value**: Login
@@ -6844,11 +6918,22 @@ ZeroAdminForgottenPasswordWidget variables description
     - **default_value**: Send new password
     - **description**: The text of the submit button of the form.
     - **example**: Send new password
-- **inputPlaceholder**
+- **inputEmailPlaceholder**
     - **type**: string
     - **default_value**: Email
     - **description**: The placeholder of the input element that holds the email address.
     - **example**: Email
+- **inputEmailValue**
+    - **type**: string
+    - **default_value**: 
+    - **description**: The value attribute for the input element that holds the email address.
+    - **example**: 
+- **inputEmailError**
+    - **type**: string
+    - **default_value**: (empty string)
+    - **description**: The error message pertaining to the email form control.
+If empty, it means the control doesn't have an error.
+    - **example**: The email is required.
 
 
 

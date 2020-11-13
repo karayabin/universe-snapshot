@@ -24,7 +24,7 @@ class AddServiceLingBreeze2GetFactoryMethodProcess extends LightDeveloperWizardC
         parent::__construct();
         $this->setName("create-service-get-factory-method");
         $this->setLabel("Adds a (LingBreeze 2) getFactory method to the service if it doesn't exist.");
-        $this->setLearnMore('See the <a href="https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/pages/conventions.md#getfactory-method">getFactory method convention</a> for more details.');
+        $this->setLearnMoreByHash('add-getfactory-method');
     }
 
 
@@ -45,7 +45,7 @@ class AddServiceLingBreeze2GetFactoryMethodProcess extends LightDeveloperWizardC
         $factoryName = 'Custom' . CaseTool::toFlexiblePascal($planet) . 'ApiFactory';
         $factoryClass = $galaxy . "\\" . $planet . '\\Api\\Custom\\' . $factoryName;
         if (false === ClassTool::isLoaded($factoryClass)) {
-            return "Factory class not found ($factoryClass). You can add it using the <a href='https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/pages/task-details.md#generate-breeze-api'>Generate Breeze api</a> task";
+            return "Factory class not found ($factoryClass). You can add it using the <a target='_blank' href='https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/pages/task-details.md#generate-breeze-api'>Generate Breeze api</a> task";
         }
 
     }
@@ -66,7 +66,7 @@ class AddServiceLingBreeze2GetFactoryMethodProcess extends LightDeveloperWizardC
         //--------------------------------------------
         // UPDATE SERVICE CLASS
         //--------------------------------------------
-        $pan = $this->getFryingPanForService($util->getBasicServiceClassPath());
+        $pan = $this->getFryingPanByFile($util->getBasicServiceClassPath());
         $this->addServiceContainer($pan);
         $this->addServiceFactory($pan, $galaxyName, $planetName);
         $pan->cook();

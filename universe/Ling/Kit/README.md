@@ -1,6 +1,6 @@
 Kit
 ===========
-2019-04-24
+2019-04-24 -> 2020-08-10
 
 
 
@@ -174,6 +174,10 @@ Related
 History Log
 =============
 
+- 1.12.1 -- 2020-08-10
+
+    - fix KitPageRenderer->printPage not throwing exception if the layout is not a file 
+    
 - 1.12.0 -- 2019-11-25
 
     - update BabyYamlConfStorage->getPageConf, now accepts variables for _parent path 

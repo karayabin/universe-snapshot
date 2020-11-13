@@ -7,15 +7,18 @@ dependencies:
         - Chloroform
         - Light_User
         - Bat
+        - Light_HttpError
         - Panda_Headers
-        - Light_UploadGems
+        - Light_UserManager
         - Light_ZouUploader
+        - Light_UploadGems
         - Light_Realform
-        - DirScanner
+        - ExceptionCodes
         - Light_PluginInstaller
         - Light_ReverseRouter
         - Light_UserDatabase
         - TemporaryVirtualFileSystem
+        - BabyYaml
     
 
 post_install: 

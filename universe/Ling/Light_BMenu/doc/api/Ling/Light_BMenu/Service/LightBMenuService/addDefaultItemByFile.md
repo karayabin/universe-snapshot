@@ -55,7 +55,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightBMenuService::addDefaultItemByFile](https://github.com/lingtalfi/Light_BMenu/blob/master/Service/LightBMenuService.php#L201-L205)
+See the source code for method [LightBMenuService::addDefaultItemByFile](https://github.com/lingtalfi/Light_BMenu/blob/master/Service/LightBMenuService.php#L270-L274)
 
 
 See Also

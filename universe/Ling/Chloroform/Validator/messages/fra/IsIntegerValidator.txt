@@ -1,0 +1,5 @@
+main: Le champ {fieldName} n'est pas un nombre entier
+onlyPositive: Le champ {fieldName} doit être un nombre entier supérieur à 0
+onlyNegative: Le champ {fieldName} doit être un nombre entier inférieur à 0
+positiveAndZero: Le champ {fieldName} doit être un nombre entier supérieur ou égal à 0
+negativeAndZero: Le champ {fieldName} doit être un nombre entier inférieur ou égal à 0

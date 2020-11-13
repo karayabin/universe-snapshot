@@ -47,7 +47,7 @@ Returns mixed.
 
 Source Code
 ===========
-See the source code for method [DecorativeField::getFallbackValue](https://github.com/lingtalfi/Chloroform/blob/master/Field/DecorativeField.php#L139-L142)
+See the source code for method [DecorativeField::getFallbackValue](https://github.com/lingtalfi/Chloroform/blob/master/Field/DecorativeField.php#L148-L151)
 
 
 See Also
@@ -55,5 +55,5 @@ See Also
 
 The [DecorativeField](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/DecorativeField.md) class.
 
-Previous method: [getValue](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/DecorativeField/getValue.md)<br>Next method: [toArray](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/DecorativeField/toArray.md)<br>
+Previous method: [getFormattedValue](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/DecorativeField/getFormattedValue.md)<br>Next method: [toArray](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/DecorativeField/toArray.md)<br>
 

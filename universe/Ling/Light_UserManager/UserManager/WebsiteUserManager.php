@@ -5,8 +5,9 @@ namespace Ling\Light_UserManager\UserManager;
 
 
 use Ling\Light_User\LightUserInterface;
-use Ling\Light_User\RefreshableLightUserInterface;
 use Ling\Light_User\LightWebsiteUser;
+use Ling\Light_User\RefreshableLightUserInterface;
+use Ling\Light_UserManager\Exception\LightUserManagerException;
 
 /**
  * The WebsiteUserManager class.
@@ -43,6 +44,10 @@ class WebsiteUserManager implements LightUserManagerInterface
     }
 
 
+
+    //--------------------------------------------
+    // LightUserManagerInterface
+    //--------------------------------------------
     /**
      * @implementation
      */
@@ -65,6 +70,9 @@ class WebsiteUserManager implements LightUserManagerInterface
         return $sessionUser;
     }
 
+
+
+
     /**
      * @implementation
      */
@@ -75,6 +83,42 @@ class WebsiteUserManager implements LightUserManagerInterface
     }
 
 
+
+    //--------------------------------------------
+    //
+    //--------------------------------------------
+
+    /**
+     * Returns a valid website user, or throws an exception if either:
+     * - the user is not valid
+     * - the user is not a LightWebsiteUser
+     *
+     *
+     * @return LightWebsiteUser
+     * @throws \Exception
+     */
+    public function getValidWebsiteUser(): LightWebsiteUser
+    {
+        $user = $this->getUser();
+
+        if (false === $user->isValid()) {
+            throw new LightUserManagerException("The user is not valid.");
+        }
+        if (false === $user instanceof LightWebsiteUser) {
+            throw new LightUserManagerException("The user is not an instance of LightWebsiteUser.");
+        }
+        return $user;
+    }
+
+
+
+
+
+
+
+    //--------------------------------------------
+    //
+    //--------------------------------------------
     /**
      * Sets the user.
      * This method can be useful for testing purpose,
@@ -88,6 +132,8 @@ class WebsiteUserManager implements LightUserManagerInterface
         $this->startPhpSession();
         $_SESSION[$this->sessionKey] = $user;
     }
+
+
 
     /**
      * Sets the user only if there is no user in the session.
@@ -105,6 +151,8 @@ class WebsiteUserManager implements LightUserManagerInterface
             $_SESSION[$this->sessionKey] = $user;
         }
     }
+
+
 
     //--------------------------------------------
     //

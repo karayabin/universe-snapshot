@@ -1,6 +1,6 @@
 Light_DeveloperWizard
 ===========
-2020-06-30 -> 2020-07-31
+2020-06-30 -> 2020-11-12
 
 
 
@@ -62,6 +62,100 @@ developer_wizard:
 History Log
 =============
 
+-- 1.28.1 -- 2020-11-12
+
+    - update service to work with new realform, realist and realgen apis  
+    - update SynchronizeDbProcess, now use table prefix by default to fetch the scope   
+    - add GenerateBreezeConfigProcess   
+    
+- 1.28.0 -- 2020-09-18
+
+    - update service to work with new realform and realist apis  
+    
+- 1.27.0 -- 2020-09-04
+
+    - update service to work with realist2 api  
+    
+- 1.26.0 -- 2020-08-28
+
+    - acknowledge new Light_Crud api  
+    
+- 1.25.0 -- 2020-08-21
+
+    - update GenerateLkaPluginProcess, now takes into account micro-permission3 recommendation 
+    
+- 1.24.0 -- 2020-08-18
+
+    - add "create-lka-user-mainpage-with-list" task 
+    
+- 1.23.1 -- 2020-08-18
+
+    - add LightDeveloperWizardService->setOption method 
+    
+- 1.23.0 -- 2020-08-14
+
+    - update RemovePlanetProcess, now also remove templates from templates/Light_Mailer if any
+    
+- 1.22.1 -- 2020-08-11
+
+    - fix SynchronizeDbProcess not using db_synchronizer service properly
+    
+- 1.22.0 -- 2020-08-10
+
+    - add CreateLkaUserMainPage task
+    
+- 1.21.0 -- 2020-08-10
+
+    - update api, now the executeGeneratorConfigFile method uses the addDirectItemsByFileAndParentPath method for bmenu
+
+- 1.20.2 -- 2020-08-10
+
+    - fix ServiceManagerUtil using references to the older version of ConfigHelper
+    
+- 1.20.1 -- 2020-08-10
+
+    - fix generated lka planet using old light ling standard service reference instead of new lka standard service plugin
+    
+- 1.20.0 -- 2020-08-07
+
+    - update GenerateLkaPluginProcess task, can now execute a limited version, without the "create file"
+    
+- 1.19.0 -- 2020-08-06
+
+    - add SortHooksAlphabeticallyProcess task
+    
+- 1.18.1 -- 2020-08-04
+
+    - fix various bugs in "create lka planet" and "execute lka generator config file" tasks
+    
+- 1.18.0 -- 2020-08-04
+
+    - add "Create lka planet" and "Execute the lka generator config file" tasks
+    
+- 1.17.1 -- 2020-08-03
+
+    - fix ServiceManagerUtil->configHasHook throwing exception when service file doesn't exist
+    
+- 1.17.0 -- 2020-07-31
+
+    - update AddPluginInstallerHookProcess, now disable the task if the hook is already added 
+    
+- 1.16.1 -- 2020-07-31
+
+    - add target=_blank to links
+
+- 1.16.0 -- 2020-07-31
+
+    - add whitelist system to filter planets
+
+- 1.15.1 -- 2020-07-31
+
+    - fix RemoveServiceProcess not removing standard asset path
+
+- 1.15.0 -- 2020-07-31
+
+    - update RemoveServiceProcess, now also uninstalls the plugin if available
+    
 - 1.14.0 -- 2020-07-31
 
     - add DisableServiceProcess, EnableServiceProcess and RemoveServiceProcess tasks

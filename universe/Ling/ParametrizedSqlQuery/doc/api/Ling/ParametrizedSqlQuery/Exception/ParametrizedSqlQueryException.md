@@ -4,7 +4,7 @@
 
 The ParametrizedSqlQueryException class
 ================
-2019-08-12 --> 2020-02-26
+2019-08-12 --> 2020-08-20
 
 
 

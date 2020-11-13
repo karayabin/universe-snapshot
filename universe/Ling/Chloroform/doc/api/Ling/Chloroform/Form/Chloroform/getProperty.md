@@ -53,7 +53,7 @@ Returns mixed.
 
 Source Code
 ===========
-See the source code for method [Chloroform::getProperty](https://github.com/lingtalfi/Chloroform/blob/master/Form/Chloroform.php#L398-L404)
+See the source code for method [Chloroform::getProperty](https://github.com/lingtalfi/Chloroform/blob/master/Form/Chloroform.php#L440-L446)
 
 
 See Also

@@ -24,6 +24,13 @@ form_handler:
                 required: []
             
         
+        email: 
+            label: Email
+            type: string
+            validators: 
+                required: []
+            
+        
         password: 
             label: Password
             type: string

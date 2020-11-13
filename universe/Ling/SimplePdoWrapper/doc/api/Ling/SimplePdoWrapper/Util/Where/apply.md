@@ -66,7 +66,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [Where::apply](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/Util/Where.php#L592-L746)
+See the source code for method [Where::apply](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/Util/Where.php#L601-L755)
 
 
 See Also

@@ -27,9 +27,27 @@ class AdminPageController extends LightKitAdminController
 {
 
 
+
+    /**
+     * @overrides
+     */
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
+
     /**
      * Renders the given page using the @page(kit service), or redirects the user to the login page
      * if she is not connected yet.
+     *
+     *
+     *
+     * Example of page values:
+     *
+     * - Light_Kit_Admin_UserPreferences/kit/zeroadmin/generated/lup_user_preference_list
+     *
+     *
      *
      *
      *

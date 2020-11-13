@@ -4,7 +4,7 @@
 
 The LightKitAdminUserDatabaseService class
 ================
-2020-06-25 --> 2020-06-25
+2020-06-25 --> 2020-08-28
 
 
 
@@ -22,7 +22,7 @@ Class synopsis
 ==============
 
 
-class <span class="pl-k">LightKitAdminUserDatabaseService</span> implements [PluginInstallerInterface](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/PluginInstaller/PluginInstallerInterface.md), [BMenuDirectInjectorInterface](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/DirectInjection/BMenuDirectInjectorInterface.md) {
+class <span class="pl-k">LightKitAdminUserDatabaseService</span> implements [PluginInstallerInterface](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/PluginInstaller/PluginInstallerInterface.md), [BMenuDirectInjectorInterface](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/DirectInjection/BMenuDirectInjectorInterface.md), [LightRealistCustomServiceInterface](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Service/LightRealistCustomServiceInterface.md), [LightRealformLateServiceRegistrationInterface](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Service/LightRealformLateServiceRegistrationInterface.md) {
 
 - Properties
     - protected [Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) [$container](#property-container) ;
@@ -35,6 +35,8 @@ class <span class="pl-k">LightKitAdminUserDatabaseService</span> implements [Plu
     - public [isInstalled](https://github.com/lingtalfi/Light_Kit_Admin_UserDatabase/blob/master/doc/api/Ling/Light_Kit_Admin_UserDatabase/Service/LightKitAdminUserDatabaseService/isInstalled.md)() : bool
     - public [getDependencies](https://github.com/lingtalfi/Light_Kit_Admin_UserDatabase/blob/master/doc/api/Ling/Light_Kit_Admin_UserDatabase/Service/LightKitAdminUserDatabaseService/getDependencies.md)() : array
     - public [inject](https://github.com/lingtalfi/Light_Kit_Admin_UserDatabase/blob/master/doc/api/Ling/Light_Kit_Admin_UserDatabase/Service/LightKitAdminUserDatabaseService/inject.md)(string $menuStructureId, Ling\Light_BMenu\Menu\LightBMenu $menu) : void
+    - public [registerRealistByRequestId](https://github.com/lingtalfi/Light_Kit_Admin_UserDatabase/blob/master/doc/api/Ling/Light_Kit_Admin_UserDatabase/Service/LightKitAdminUserDatabaseService/registerRealistByRequestId.md)(string $requestId) : mixed
+    - public [registerRealformByIdentifier](https://github.com/lingtalfi/Light_Kit_Admin_UserDatabase/blob/master/doc/api/Ling/Light_Kit_Admin_UserDatabase/Service/LightKitAdminUserDatabaseService/registerRealformByIdentifier.md)(string $identifier) : mixed
 
 }
 
@@ -62,6 +64,8 @@ Methods
 - [LightKitAdminUserDatabaseService::isInstalled](https://github.com/lingtalfi/Light_Kit_Admin_UserDatabase/blob/master/doc/api/Ling/Light_Kit_Admin_UserDatabase/Service/LightKitAdminUserDatabaseService/isInstalled.md) &ndash; Returns whether the core install phase of the plugin is fully completed.
 - [LightKitAdminUserDatabaseService::getDependencies](https://github.com/lingtalfi/Light_Kit_Admin_UserDatabase/blob/master/doc/api/Ling/Light_Kit_Admin_UserDatabase/Service/LightKitAdminUserDatabaseService/getDependencies.md) &ndash; Returns the array of dependencies.
 - [LightKitAdminUserDatabaseService::inject](https://github.com/lingtalfi/Light_Kit_Admin_UserDatabase/blob/master/doc/api/Ling/Light_Kit_Admin_UserDatabase/Service/LightKitAdminUserDatabaseService/inject.md) &ndash; Injects menu fragments in the given menu, knowing the "menuStructureId" context.
+- [LightKitAdminUserDatabaseService::registerRealistByRequestId](https://github.com/lingtalfi/Light_Kit_Admin_UserDatabase/blob/master/doc/api/Ling/Light_Kit_Admin_UserDatabase/Service/LightKitAdminUserDatabaseService/registerRealistByRequestId.md) &ndash; Registers the plugin to the realist service.
+- [LightKitAdminUserDatabaseService::registerRealformByIdentifier](https://github.com/lingtalfi/Light_Kit_Admin_UserDatabase/blob/master/doc/api/Ling/Light_Kit_Admin_UserDatabase/Service/LightKitAdminUserDatabaseService/registerRealformByIdentifier.md) &ndash; Registers the plugin to the realform service.
 
 
 

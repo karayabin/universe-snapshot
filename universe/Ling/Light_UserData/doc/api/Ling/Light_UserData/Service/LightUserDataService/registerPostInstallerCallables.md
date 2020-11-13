@@ -53,7 +53,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::registerPostInstallerCallables](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L291-L299)
+See the source code for method [LightUserDataService::registerPostInstallerCallables](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L270-L278)
 
 
 See Also
@@ -61,5 +61,5 @@ See Also
 
 The [LightUserDataService](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService.md) class.
 
-Previous method: [getDependencies](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/getDependencies.md)<br>Next method: [onUserGroupCreate](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/onUserGroupCreate.md)<br>
+Previous method: [getDependencies](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/getDependencies.md)<br>Next method: [getFileManagerHandler](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/getFileManagerHandler.md)<br>
 

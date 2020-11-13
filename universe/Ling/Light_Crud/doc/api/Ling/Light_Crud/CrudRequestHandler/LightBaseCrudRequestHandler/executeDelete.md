@@ -16,7 +16,7 @@ Description
 ================
 
 
-protected [LightBaseCrudRequestHandler::executeDelete](https://github.com/lingtalfi/Light_Crud/blob/master/doc/api/Ling/Light_Crud/CrudRequestHandler/LightBaseCrudRequestHandler/executeDelete.md)(string $pluginContextIdentifier, string $table, ?array $params = [], ?bool $isMultiple = false) : void
+protected [LightBaseCrudRequestHandler::executeDelete](https://github.com/lingtalfi/Light_Crud/blob/master/doc/api/Ling/Light_Crud/CrudRequestHandler/LightBaseCrudRequestHandler/executeDelete.md)(string $table, ?array $params = [], ?bool $isMultiple = false) : void
 
 
 
@@ -29,10 +29,6 @@ Executes the crud.delete request.
 Parameters
 ================
 
-
-- pluginContextIdentifier
-
-    
 
 - table
 
@@ -66,7 +62,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightBaseCrudRequestHandler::executeDelete](https://github.com/lingtalfi/Light_Crud/blob/master/CrudRequestHandler/LightBaseCrudRequestHandler.php#L237-L276)
+See the source code for method [LightBaseCrudRequestHandler::executeDelete](https://github.com/lingtalfi/Light_Crud/blob/master/CrudRequestHandler/LightBaseCrudRequestHandler.php#L271-L304)
 
 
 See Also

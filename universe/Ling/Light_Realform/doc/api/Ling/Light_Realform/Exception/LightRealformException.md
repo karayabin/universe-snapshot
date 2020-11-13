@@ -4,7 +4,7 @@
 
 The LightRealformException class
 ================
-2019-10-21 --> 2020-07-07
+2019-10-21 --> 2020-09-21
 
 
 
@@ -54,4 +54,4 @@ See the source code of [Ling\Light_Realform\Exception\LightRealformException](ht
 
 SeeAlso
 ==============
-Previous class: [RealformDynamicInjectionHandlerInterface](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/DynamicInjection/RealformDynamicInjectionHandlerInterface.md)<br>Next class: [BaseRealformHandlerAliasHelper](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Handler/AliasHelper/BaseRealformHandlerAliasHelper.md)<br>
+Previous class: [RealformDynamicInjectionHandlerInterface](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/DynamicInjection/RealformDynamicInjectionHandlerInterface.md)<br>Next class: [RealformDatabaseFeeder](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Feeder/RealformDatabaseFeeder.md)<br>

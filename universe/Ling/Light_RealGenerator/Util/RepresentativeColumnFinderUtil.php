@@ -53,8 +53,9 @@ class RepresentativeColumnFinderUtil
         $database = null;
         $dbInfo = $this->container->get('database_info');
         $tableInfo = $dbInfo->getTableInfo($table, $database);
-        $types = $tableInfo['simpleTypes'];
-        $firstStringTypeCol = null;
+        $types = $tableInfo['types'];
+
+        $firstVarcharCol = null;
 
 
         // return common matches first
@@ -62,14 +63,14 @@ class RepresentativeColumnFinderUtil
             if (in_array($col, $this->commonMatches, true)) {
                 return $col;
             }
-            if (null === $firstStringTypeCol && 'str' === $type) {
-                $firstStringTypeCol = $col;
+            if (null === $firstVarcharCol && 0 === strpos($type, 'varchar')) {
+                $firstVarcharCol = $col;
             }
         }
 
         // otherwise return the first column of type string
-        if (null !== $firstStringTypeCol) {
-            return $firstStringTypeCol;
+        if (null !== $firstVarcharCol) {
+            return $firstVarcharCol;
         }
 
         // eventually return any column name

@@ -40,6 +40,8 @@ class LightRealistAjaxHandler extends ContainerAwareLightAjaxHandler
                 if (array_key_exists("request_id", $params)) {
 
                     $requestId = $params['request_id'];
+
+
                     $tags = $params['tags'] ?? [];
                     $csrfTokenValue = $params['csrf_token'] ?? null;
 

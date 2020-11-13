@@ -1,10 +1,10 @@
 Light
 ===========
-2019-04-05 -> 2020-07-27
+2019-04-05 -> 2020-11-10
 
 
 
-WORK IN PROGRESS, COME BACK IN A FEW MONTHS...
+WORK IN PROGRESS, COME BACK IN A FEW MONTHS..., OR USE IT NOW AT YOUR OWN RISKS
 
 
 A light framework for creating web apps.
@@ -32,17 +32,23 @@ Summary
 ===========
 - [Light api](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light.md) (generated with [DocTools](https://github.com/lingtalfi/DocTools))
 - Pages
+    - [Application recommended structure](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/light-application-recommended-structure.md)
     - [Diary](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/diary.md)
+    - [Efficiency tips](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/efficiency-tips.md)
     - [Events](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md)
+    - [General philosophy](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/light-general-philosophy.md)
+    - [how to debug](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/how-to-debug.md)
+    - [Nomenclature](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/nomenclature.md)
     - [Plugin](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/plugin.md)
     - [Rights](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/rights.md)
     - [Route](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/route.md)
     - [Service container](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/light-service-container.md)
-    - [General philosophy](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/light-general-philosophy.md)
-    - [Application recommended structure](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/light-application-recommended-structure.md)
     - [Security](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/security.md)
-    - [Efficiency tips](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/efficiency-tips.md)
-    - [how to debug](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/how-to-debug.md)
+    - Design
+        - [ajax permission philosophy](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/design/ajax-permission-philosophy.md)
+        - [late service registration](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/design/late-service-registration.md)
+    - Notation
+        - [light execute notation](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/notation/light-execute-notation.md)
 - [License](https://lingtalfi.com/no-license)
 
 
@@ -51,6 +57,87 @@ Summary
 
 History Log
 =============
+
+--- 0.69.12 -- 2020-11-10
+
+    - update app recommended structure documentation, add one sentence 
+    
+- 0.69.11 -- 2020-11-10
+
+    - update app recommended structure documentation 
+    
+- 0.69.10 -- 2020-10-13
+
+    - fix LightHelper::executeParenthesisWrappersByArray trying to parse null values 
+    
+- 0.69.9 -- 2020-10-05
+
+    - update light execute notation, now we can access the container directly 
+    
+- 0.69.8 -- 2020-10-05
+
+    - add LightHelper::executeParenthesisWrappersByArray method 
+    
+- 0.69.7 -- 2020-09-11
+
+    - add LightBlueServiceContainer.__debugInfo method 
+    
+- 0.69.6 -- 2020-09-08
+
+    - update HttpRedirectResponse and HttpResponse, internal adjustments
+    
+- 0.69.5 -- 2020-08-21
+
+    - update nomenclature.md document, update nugget definition, add ajax-nugget definition
+    - add ajax-permission-philosophy.md 
+    
+- 0.69.4 -- 2020-08-21
+
+    - update nomenclature.md document, add nugget definition
+    
+- 0.69.3 -- 2020-08-21
+
+    - update plugin.md document
+    
+- 0.69.2 -- 2020-08-21
+
+    - add nomenclature.md document
+    
+- 0.69.1 -- 2020-08-17
+
+    - update light-service-container.md document
+    
+- 0.69.0 -- 2020-08-17
+
+    - update LightHelper::executeMethod, add argReplace option
+        
+- 0.69.0 -- 2020-08-14
+
+    - update LightHelper::executeMethod, removed options
+    
+- 0.68.0 -- 2020-08-14
+
+    - update LightHelper::executeMethod, add prependArgs option
+    
+- 0.67.0 -- 2020-08-14
+
+    - add "light execute notation" page
+    
+- 0.66.4 -- 2020-08-06
+
+    - update "Light application recommended structure" document, com -> dynamic
+    
+- 0.66.3 -- 2020-08-06
+
+    - update "Light application recommended structure" document
+    
+- 0.66.2 -- 2020-08-03
+
+    - update late service registration document
+    
+- 0.66.1 -- 2020-08-03
+
+    - add late service registration document
     
 - 0.66.0 -- 2020-07-27
 

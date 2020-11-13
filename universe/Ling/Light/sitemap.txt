@@ -64,8 +64,10 @@ https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/LightCl
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/LightClassHelper.md
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/LightHelper/createDummyRoutes.md
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/LightHelper/executeMethod.md
+https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/LightHelper/executeParenthesisWrappersByArray.md
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/LightHelper.md
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/LightNamesAndPathHelper/getServiceName.md
+https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/LightNamesAndPathHelper/getSymbolicPath.md
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/LightNamesAndPathHelper.md
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ServiceContainerHelper/buildDarkBlueContainer.md
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ServiceContainerHelper/createHashMap.md
@@ -83,7 +85,10 @@ https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpJsonR
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpJsonResponse/displayBody.md
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpJsonResponse/sendHeaders.md
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpJsonResponse.md
+https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRedirectResponse/__construct.md
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRedirectResponse/create.md
+https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRedirectResponse/getRedirectBody.md
+https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRedirectResponse/setUrl.md
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRedirectResponse.md
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/__construct.md
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRequest/createFromEnv.md
@@ -179,6 +184,7 @@ https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Router/LightRo
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Router/LightRouterInterface/match.md
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Router/LightRouterInterface.md
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightBlueServiceContainer/__construct.md
+https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightBlueServiceContainer/__debugInfo.md
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightBlueServiceContainer/getApplicationDir.md
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightBlueServiceContainer/getLight.md
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightBlueServiceContainer/setApplicationDir.md
@@ -248,6 +254,9 @@ https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Tool/LightTool
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Tool/LightTool/isAjax.md
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Tool/LightTool.md
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light.md
+https://github.com/lingtalfi/Light/blob/master/doc/pages/design/ajax-permission-philosophy.md
+https://github.com/lingtalfi/Light/blob/master/doc/pages/design/late-service-registration.md
+https://github.com/lingtalfi/Light/blob/master/doc/pages/developer-memo.md
 https://github.com/lingtalfi/Light/blob/master/doc/pages/diary.md
 https://github.com/lingtalfi/Light/blob/master/doc/pages/efficiency-tips.md
 https://github.com/lingtalfi/Light/blob/master/doc/pages/events.md
@@ -256,6 +265,8 @@ https://github.com/lingtalfi/Light/blob/master/doc/pages/light-application-recom
 https://github.com/lingtalfi/Light/blob/master/doc/pages/light-general-philosophy.md
 https://github.com/lingtalfi/Light/blob/master/doc/pages/light-service-container.md
 https://github.com/lingtalfi/Light/blob/master/doc/pages/my-snippets.md
+https://github.com/lingtalfi/Light/blob/master/doc/pages/nomenclature.md
+https://github.com/lingtalfi/Light/blob/master/doc/pages/notation/light-execute-notation.md
 https://github.com/lingtalfi/Light/blob/master/doc/pages/plugin.md
 https://github.com/lingtalfi/Light/blob/master/doc/pages/rights.md
 https://github.com/lingtalfi/Light/blob/master/doc/pages/route.md

@@ -7,7 +7,7 @@ LightRealistListActionHandlerInterface::execute
 
 
 
-LightRealistListActionHandlerInterface::execute — Executes the list action (called via ajax) identified by the given action name and returns the ajax response.
+LightRealistListActionHandlerInterface::execute — Executes the list action (called via ajax) identified by the given action id and returns the ajax response in alcp format.
 
 
 
@@ -16,12 +16,13 @@ Description
 ================
 
 
-abstract public [LightRealistListActionHandlerInterface::execute](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/ListActionHandler/LightRealistListActionHandlerInterface/execute.md)(string $actionName, array $params) : array
+abstract public [LightRealistListActionHandlerInterface::execute](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/ListActionHandler/LightRealistListActionHandlerInterface/execute.md)(string $actionId, ?array $params = []) : array
 
 
 
 
-Executes the list action (called via ajax) identified by the given action name and returns the ajax response.
+Executes the list action (called via ajax) identified by the given action id and returns the ajax response in alcp format.
+See more about [alcp protocol](https://github.com/lingtalfi/Light_AjaxHandler/blob/master/doc/pages/ajax-light-communication-protocol.md).
 
 
 
@@ -30,7 +31,7 @@ Parameters
 ================
 
 
-- actionName
+- actionId
 
     
 
@@ -58,7 +59,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightRealistListActionHandlerInterface::execute](https://github.com/lingtalfi/Light_Realist/blob/master/ListActionHandler/LightRealistListActionHandlerInterface.php#L39-L39)
+See the source code for method [LightRealistListActionHandlerInterface::execute](https://github.com/lingtalfi/Light_Realist/blob/master/ListActionHandler/LightRealistListActionHandlerInterface.php#L49-L49)
 
 
 See Also
@@ -66,5 +67,5 @@ See Also
 
 The [LightRealistListActionHandlerInterface](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/ListActionHandler/LightRealistListActionHandlerInterface.md) class.
 
-Previous method: [prepare](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/ListActionHandler/LightRealistListActionHandlerInterface/prepare.md)<br>
+Previous method: [prepareListAction](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/ListActionHandler/LightRealistListActionHandlerInterface/prepareListAction.md)<br>
 

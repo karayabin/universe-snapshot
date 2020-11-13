@@ -24,10 +24,29 @@ class CheapLogger
 
 
     /**
-     * Logs the thing to the log file.
-     * @param $thing
+     * Logs the given argument(s) to the log file.
+     * If only one argument is given, it will be logged directly.
+     * If more than one argument is given, the array of arguments will be logged.
      */
-    public static function log($thing)
+    public static function log()
+    {
+        $args = func_get_args();
+        if (1 === count($args)) {
+            $msg = self::getLogMessage($args[0]);
+        } else {
+            $msg = self::getLogMessage($args);
+        }
+        FileTool::append($msg, self::$path);
+    }
+
+
+    /**
+     * Converts the given thing into a log string, and returns it.
+     *
+     * @param $thing
+     * @return string
+     */
+    private static function getLogMessage($thing): string
     {
         if (is_array($thing)) {
             $thing = ArrayToStringTool::toPhpArray($thing);
@@ -36,7 +55,6 @@ class CheapLogger
         } else {
             $thing = DebugTool::toString($thing);
         }
-        $msg = date("Y-m-d H:i:s") . " -- " . $thing . PHP_EOL;
-        FileTool::append($msg, self::$path);
+        return date("Y-m-d H:i:s") . " -- " . $thing . PHP_EOL;
     }
 }

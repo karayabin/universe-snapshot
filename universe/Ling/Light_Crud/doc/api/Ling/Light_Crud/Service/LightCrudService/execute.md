@@ -7,7 +7,7 @@ LightCrudService::execute
 
 
 
-LightCrudService::execute — Executes the sql request and dispatches an event.
+LightCrudService::execute — Executes the given crud action for the given table.
 
 
 
@@ -16,12 +16,12 @@ Description
 ================
 
 
-public [LightCrudService::execute](https://github.com/lingtalfi/Light_Crud/blob/master/doc/api/Ling/Light_Crud/Service/LightCrudService/execute.md)(string $contextIdentifier, string $table, string $action, ?array $params = []) : void
+public [LightCrudService::execute](https://github.com/lingtalfi/Light_Crud/blob/master/doc/api/Ling/Light_Crud/Service/LightCrudService/execute.md)(string $table, string $action, ?array $params = []) : void
 
 
 
 
-Executes the sql request and dispatches an event.
+Executes the given crud action for the given table.
 
 See the [LightCrudRequestHandlerInterface](https://github.com/lingtalfi/Light_Crud/blob/master/doc/api/Ling/Light_Crud/CrudRequestHandler/LightCrudRequestHandlerInterface.md) comments for a more details about the parameters.
 
@@ -31,10 +31,6 @@ See the [LightCrudRequestHandlerInterface](https://github.com/lingtalfi/Light_Cr
 Parameters
 ================
 
-
-- contextIdentifier
-
-    
 
 - table
 
@@ -68,7 +64,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightCrudService::execute](https://github.com/lingtalfi/Light_Crud/blob/master/Service/LightCrudService.php#L71-L83)
+See the source code for method [LightCrudService::execute](https://github.com/lingtalfi/Light_Crud/blob/master/Service/LightCrudService.php#L44-L49)
 
 
 See Also
@@ -76,5 +72,5 @@ See Also
 
 The [LightCrudService](https://github.com/lingtalfi/Light_Crud/blob/master/doc/api/Ling/Light_Crud/Service/LightCrudService.md) class.
 
-Previous method: [registerHandler](https://github.com/lingtalfi/Light_Crud/blob/master/doc/api/Ling/Light_Crud/Service/LightCrudService/registerHandler.md)<br>Next method: [setContainer](https://github.com/lingtalfi/Light_Crud/blob/master/doc/api/Ling/Light_Crud/Service/LightCrudService/setContainer.md)<br>
+Previous method: [__construct](https://github.com/lingtalfi/Light_Crud/blob/master/doc/api/Ling/Light_Crud/Service/LightCrudService/__construct.md)<br>Next method: [setContainer](https://github.com/lingtalfi/Light_Crud/blob/master/doc/api/Ling/Light_Crud/Service/LightCrudService/setContainer.md)<br>
 

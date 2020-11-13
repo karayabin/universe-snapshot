@@ -4,7 +4,7 @@
 
 The Light_EasyRouteDocBuilder class
 ================
-2019-03-13 --> 2020-06-29
+2019-03-13 --> 2020-11-09
 
 
 
@@ -52,4 +52,4 @@ See the source code of [Ling\LingTalfi\DocBuilder\Light_EasyRoute\Light_EasyRout
 
 SeeAlso
 ==============
-Previous class: [Light_DebugTraceDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_DebugTrace/Light_DebugTraceDocBuilder.md)<br>Next class: [Light_EndRoutineDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_EndRoutine/Light_EndRoutineDocBuilder.md)<br>
+Previous class: [Light_DeveloperWizardDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_DeveloperWizard/Light_DeveloperWizardDocBuilder.md)<br>Next class: [Light_EndRoutineDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_EndRoutine/Light_EndRoutineDocBuilder.md)<br>

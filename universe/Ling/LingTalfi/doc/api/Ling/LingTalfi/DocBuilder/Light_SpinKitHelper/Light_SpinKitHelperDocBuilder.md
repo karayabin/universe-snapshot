@@ -4,7 +4,7 @@
 
 The Light_SpinKitHelperDocBuilder class
 ================
-2019-03-13 --> 2020-06-29
+2019-03-13 --> 2020-11-09
 
 
 
@@ -52,4 +52,4 @@ See the source code of [Ling\LingTalfi\DocBuilder\Light_SpinKitHelper\Light_Spin
 
 SeeAlso
 ==============
-Previous class: [Light_RouterDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Router/Light_RouterDocBuilder.md)<br>Next class: [Light_UploadGemsDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_UploadGems/Light_UploadGemsDocBuilder.md)<br>
+Previous class: [Light_RouterDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Router/Light_RouterDocBuilder.md)<br>Next class: [Light_TaskSchedulerDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_TaskScheduler/Light_TaskSchedulerDocBuilder.md)<br>

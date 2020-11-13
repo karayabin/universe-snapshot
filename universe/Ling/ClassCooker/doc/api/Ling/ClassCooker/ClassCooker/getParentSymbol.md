@@ -48,7 +48,7 @@ Returns false | string.
 
 Source Code
 ===========
-See the source code for method [ClassCooker::getParentSymbol](https://github.com/lingtalfi/ClassCooker/blob/master/ClassCooker.php#L515-L519)
+See the source code for method [ClassCooker::getParentSymbol](https://github.com/lingtalfi/ClassCooker/blob/master/ClassCooker.php#L519-L523)
 
 
 See Also

@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [DirScanner::scanDir](https://github.com/lingtalfi/DirScanner/blob/master/doc/api/Ling/DirScanner/DirScanner/scanDir.md)(?$dir, ?$callable) : array
+public [DirScanner::scanDir](https://github.com/lingtalfi/DirScanner/blob/master/doc/api/Ling/DirScanner/DirScanner/scanDir.md)($dir, $callable) : array
 
 
 

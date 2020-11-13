@@ -53,7 +53,7 @@ class CliToolsDocBuilder
         $git = $gitRepoUrl . "/blob/master";
         $doc = "$git/doc";
         $api = $doc . "/api";
-
+        $conception = $doc . "/pages/conception-notes.md";
 
         $options = [
             "gitRepoUrl" => $gitRepoUrl,
@@ -141,7 +141,7 @@ class CliToolsDocBuilder
              * This map in particular is the one used for the whole DocTools planet documentation (pages and api).
              */
             "keyWord2UrlMap" => [
-                "CliTools conception notes" => $doc . '/pages/conception-notes.md',
+                "CliTools conception notes" => $conception,
             ],
             /**
              * An array of external classes to url.

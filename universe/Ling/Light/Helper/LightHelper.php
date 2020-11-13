@@ -9,6 +9,7 @@ use Ling\Light\Core\Light;
 use Ling\Light\Exception\LightException;
 use Ling\Light\Http\HttpResponse;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
+use Ling\ParenthesisMirrorParser\ParenthesisMirrorParser;
 
 /**
  * The LightHelper class.
@@ -43,38 +44,21 @@ class LightHelper
      * Executes a php method based on the notation described below, and returns the result.
      *
      *
+     *
      * This technique originally comes from the [ClassTool::executePhpMethod](https://github.com/lingtalfi/Bat/blob/master/ClassTool.md#executephpmethod-aka-smart-php-method-call).
      *
      * We've just added the possibility to call services by prefixing the service name with the @ symbol.
      *
      *
-     * The given $method must have one of the following format (or else an exception will be thrown):
-     *
-     * - $class::$method
-     * - $class::$method ( $args )
-     *
-     * - $class->$method
-     * - $class->$method ( $args )
-     *
-     * - @$service->$method
-     * - @$service->$method ( $args )
+     * The given $expr must use the @page(light execute notation).
      *
      *
-     * Note that the first two forms refer to a static method call, the next two forms refer to a method call on
-     * an instance (instantiation is done by this method), and the last ones call a service's method.
+     * See the [examples here](https://github.com/lingtalfi/Bat/blob/master/ClassTool.md#executephpmethod-aka-smart-php-method-call).
      *
-     *
-     * With:
-     *
-     * - $class: the full class name (example: Ling\Bat)
-     * - $method: the name of the method to execute
-     * - $args: a list of arguments written with smartCode notation (see SmartCodeTool class for more details).
-     *              Note: we can use regular php notation as it's a subset of the smartCode notation.
-     * - $service: the name of the service to call
-     *
-     *
-     * See the [examples here](https://github.com/lingtalfi/Bat/blob/master/ClassTool.md#executephpmethod-aka-smart-php-method-call)
-     *
+     * Available options are:
+     * - argReplace: array=null, if set, will replace the arguments found in the given expr by some value. It's an array of argName => value.
+     * - throwEx: bool=true, whether to throw an exception if the given expression is not a valid "light execute notation" string.
+     *      If false, the method returns the given expression as is.
      *
      *
      *
@@ -82,11 +66,16 @@ class LightHelper
      *
      * @param string $expr
      * @param LightServiceContainerInterface $container
+     * @param array $options
      * @return mixed
      * @throws \Exception
      */
-    public static function executeMethod(string $expr, LightServiceContainerInterface $container)
+    public static function executeMethod(string $expr, LightServiceContainerInterface $container, array $options = [])
     {
+
+        $argReplace = $options['argReplace'] ?? null;
+        $throwEx = $options['throwEx'] ?? true;
+
 
         if (preg_match('!
         (?<class>[@a-zA-Z0-9_\\\\]*)
@@ -108,6 +97,14 @@ class LightHelper
                 $args = SmartCodeTool::parse("[" . substr($match['args'], 1, -1) . ']');
             }
 
+            if (null !== $argReplace) {
+                foreach ($args as $k => $v) {
+                    if (array_key_exists($v, $argReplace)) {
+                        $args[$k] = $argReplace[$v];
+                    }
+                }
+            }
+
             $ret = null;
             if ('::' === $sep) {
                 if (null === $service) {
@@ -120,13 +117,70 @@ class LightHelper
 
                 if (null === $service) {
                     $instance = new $class;
+                    $sDebug = "class \"$class\"";
                 } else {
-                    $instance = $container->get($service);
+                    if ('container' === $service) {
+                        $instance = $container;
+                    } else {
+                        $instance = $container->get($service);
+                    }
+                    $sDebug = "service \"$service\"";
                 }
-                $ret = call_user_func_array([$instance, $method], $args);
+                $callable = [$instance, $method];
+                if (false === is_callable($callable)) {
+                    throw new LightException("Invalid callable passed, with $sDebug and method \"$method\".");
+                }
+                $ret = call_user_func_array($callable, $args);
             }
             return $ret;
         }
-        throw new LightException("Unrecognized method syntax: $expr.");
+        if (true === $throwEx) {
+            throw new LightException("Unrecognized method syntax: $expr.");
+        }
+        return $expr;
+    }
+
+
+    /**
+     * Parses the given array, executes the "executeMethod" method on every parenthesis wrapper, and returns the result.
+     * By default, the identifier is pmp.
+     *
+     * See more details in the @page(ParenthesisMirrorWrapper conception notes).
+     *
+     *
+     *
+     * @param array $arr
+     * @param LightServiceContainerInterface $container
+     * @param array|null $identifiers
+     * @return array
+     */
+    public static function executeParenthesisWrappersByArray(array $arr, LightServiceContainerInterface $container, array $identifiers = null): array
+    {
+        if (null === $identifiers) {
+            $identifiers = ['pmp'];
+        }
+        $parsers = [];
+        foreach ($identifiers as $id) {
+            $parser = new ParenthesisMirrorParser();
+            $parser->setIdentifier($id);
+            $parser->setConverter(function (string $s) use ($container) {
+                return self::executeMethod($s, $container, [
+                    "throwEx" => false,
+                ]);
+            });
+            $parsers[] = $parser;
+
+        }
+        array_walk_recursive($arr, function (&$v) use ($parsers) {
+            if (is_string($v)) {
+                foreach ($parsers as $parser) {
+                    /**
+                     * @var $parser ParenthesisMirrorParser
+                     */
+                    $v = $parser->parseString($v);
+                }
+            }
+        });
+        return $arr;
     }
 }

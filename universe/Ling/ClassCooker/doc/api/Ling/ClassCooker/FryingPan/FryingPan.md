@@ -4,7 +4,7 @@
 
 The FryingPan class
 ================
-2020-07-21 --> 2020-07-30
+2020-07-21 --> 2020-08-18
 
 
 
@@ -36,6 +36,7 @@ class <span class="pl-k">FryingPan</span>  {
 - Methods
     - public [__construct](https://github.com/lingtalfi/ClassCooker/blob/master/doc/api/Ling/ClassCooker/FryingPan/FryingPan/__construct.md)() : void
     - public [setFile](https://github.com/lingtalfi/ClassCooker/blob/master/doc/api/Ling/ClassCooker/FryingPan/FryingPan/setFile.md)(string $file) : void
+    - public [getFile](https://github.com/lingtalfi/ClassCooker/blob/master/doc/api/Ling/ClassCooker/FryingPan/FryingPan/getFile.md)() : string
     - public [setOptions](https://github.com/lingtalfi/ClassCooker/blob/master/doc/api/Ling/ClassCooker/FryingPan/FryingPan/setOptions.md)(array $options) : void
     - public [addIngredient](https://github.com/lingtalfi/ClassCooker/blob/master/doc/api/Ling/ClassCooker/FryingPan/FryingPan/addIngredient.md)([Ling\ClassCooker\FryingPan\Ingredient\IngredientInterface](https://github.com/lingtalfi/ClassCooker/blob/master/doc/api/Ling/ClassCooker/FryingPan/Ingredient/IngredientInterface.md) $ingredient) : [FryingPan](https://github.com/lingtalfi/ClassCooker/blob/master/doc/api/Ling/ClassCooker/FryingPan/FryingPan.md)
     - public [cook](https://github.com/lingtalfi/ClassCooker/blob/master/doc/api/Ling/ClassCooker/FryingPan/FryingPan/cook.md)() : void
@@ -110,6 +111,7 @@ Methods
 
 - [FryingPan::__construct](https://github.com/lingtalfi/ClassCooker/blob/master/doc/api/Ling/ClassCooker/FryingPan/FryingPan/__construct.md) &ndash; Builds the FryingPan instance.
 - [FryingPan::setFile](https://github.com/lingtalfi/ClassCooker/blob/master/doc/api/Ling/ClassCooker/FryingPan/FryingPan/setFile.md) &ndash; Sets the file.
+- [FryingPan::getFile](https://github.com/lingtalfi/ClassCooker/blob/master/doc/api/Ling/ClassCooker/FryingPan/FryingPan/getFile.md) &ndash; Returns the file of this instance.
 - [FryingPan::setOptions](https://github.com/lingtalfi/ClassCooker/blob/master/doc/api/Ling/ClassCooker/FryingPan/FryingPan/setOptions.md) &ndash; Sets the options.
 - [FryingPan::addIngredient](https://github.com/lingtalfi/ClassCooker/blob/master/doc/api/Ling/ClassCooker/FryingPan/FryingPan/addIngredient.md) &ndash; Adds an ingredient, and returns itself for chaining.
 - [FryingPan::cook](https://github.com/lingtalfi/ClassCooker/blob/master/doc/api/Ling/ClassCooker/FryingPan/FryingPan/cook.md) &ndash; Cooks all the ingredients into the file we're working on.

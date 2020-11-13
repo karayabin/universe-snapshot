@@ -4,7 +4,7 @@
 
 The ParametrizedSqlQueryUtil class
 ================
-2019-08-12 --> 2020-02-26
+2019-08-12 --> 2020-08-20
 
 
 
@@ -35,9 +35,11 @@ class <span class="pl-k">ParametrizedSqlQueryUtil</span>  {
     - protected array [$_processedMarkers](#property-_processedMarkers) ;
     - protected array [$_colName2colExpression](#property-_colName2colExpression) ;
     - protected [Ling\UniversalLogger\UniversalLoggerInterface](https://github.com/lingtalfi/UniversalLogger/blob/master/UniversalLoggerInterface.php) [$logger](#property-logger) ;
+    - protected array [$developerVariables](#property-developerVariables) ;
 
 - Methods
     - public [__construct](https://github.com/lingtalfi/ParametrizedSqlQuery/blob/master/doc/api/Ling/ParametrizedSqlQuery/ParametrizedSqlQueryUtil/__construct.md)() : void
+    - public [setDeveloperVariables](https://github.com/lingtalfi/ParametrizedSqlQuery/blob/master/doc/api/Ling/ParametrizedSqlQuery/ParametrizedSqlQueryUtil/setDeveloperVariables.md)($developerVariables) : void
     - public [getSqlQuery](https://github.com/lingtalfi/ParametrizedSqlQuery/blob/master/doc/api/Ling/ParametrizedSqlQuery/ParametrizedSqlQueryUtil/getSqlQuery.md)(array $requestDeclaration, ?array $tags = []) : [SqlQuery](https://github.com/lingtalfi/SqlQuery)
     - public [setLogger](https://github.com/lingtalfi/ParametrizedSqlQuery/blob/master/doc/api/Ling/ParametrizedSqlQuery/ParametrizedSqlQueryUtil/setLogger.md)([Ling\UniversalLogger\UniversalLoggerInterface](https://github.com/lingtalfi/UniversalLogger/blob/master/UniversalLoggerInterface.php) $logger) : void
     - protected [log](https://github.com/lingtalfi/ParametrizedSqlQuery/blob/master/doc/api/Ling/ParametrizedSqlQuery/ParametrizedSqlQueryUtil/log.md)($message, ?string $channel = debug) : void
@@ -46,6 +48,7 @@ class <span class="pl-k">ParametrizedSqlQueryUtil</span>  {
     - protected [resolveInternalMarkerPercent](https://github.com/lingtalfi/ParametrizedSqlQuery/blob/master/doc/api/Ling/ParametrizedSqlQuery/ParametrizedSqlQueryUtil/resolveInternalMarkerPercent.md)(string $internalMarkerName, $value, array $tagOptions) : string
     - protected [applyOperatorAndValueRoutine](https://github.com/lingtalfi/ParametrizedSqlQuery/blob/master/doc/api/Ling/ParametrizedSqlQuery/ParametrizedSqlQueryUtil/applyOperatorAndValueRoutine.md)(string &$expression, array $transformLikeOptions, array &$tags, array $tagOptions) : void
     - protected [getNewMarkerName](https://github.com/lingtalfi/ParametrizedSqlQuery/blob/master/doc/api/Ling/ParametrizedSqlQuery/ParametrizedSqlQueryUtil/getNewMarkerName.md)(string $marker, ?bool $isFinal = false) : string
+    - protected [resolveDeveloperVariable](https://github.com/lingtalfi/ParametrizedSqlQuery/blob/master/doc/api/Ling/ParametrizedSqlQuery/ParametrizedSqlQueryUtil/resolveDeveloperVariable.md)(string &$expr) : void
 
 }
 
@@ -121,12 +124,19 @@ Properties
     
     
 
+- <span id="property-developerVariables"><b>developerVariables</b></span>
+
+    This property holds the developerVariables for this instance.
+    
+    
+
 
 
 Methods
 ==============
 
 - [ParametrizedSqlQueryUtil::__construct](https://github.com/lingtalfi/ParametrizedSqlQuery/blob/master/doc/api/Ling/ParametrizedSqlQuery/ParametrizedSqlQueryUtil/__construct.md) &ndash; Builds the ParametrizedSqlQueryUtil instance.
+- [ParametrizedSqlQueryUtil::setDeveloperVariables](https://github.com/lingtalfi/ParametrizedSqlQuery/blob/master/doc/api/Ling/ParametrizedSqlQuery/ParametrizedSqlQueryUtil/setDeveloperVariables.md) &ndash; Sets the developerVariables.
 - [ParametrizedSqlQueryUtil::getSqlQuery](https://github.com/lingtalfi/ParametrizedSqlQuery/blob/master/doc/api/Ling/ParametrizedSqlQuery/ParametrizedSqlQueryUtil/getSqlQuery.md) &ndash; Returns an SqlQuery instance parametrized using the given request declaration and params.
 - [ParametrizedSqlQueryUtil::setLogger](https://github.com/lingtalfi/ParametrizedSqlQuery/blob/master/doc/api/Ling/ParametrizedSqlQuery/ParametrizedSqlQueryUtil/setLogger.md) &ndash; Sets the logger.
 - [ParametrizedSqlQueryUtil::log](https://github.com/lingtalfi/ParametrizedSqlQuery/blob/master/doc/api/Ling/ParametrizedSqlQuery/ParametrizedSqlQueryUtil/log.md) &ndash; Logs a message if a logger has been set.
@@ -135,6 +145,7 @@ Methods
 - [ParametrizedSqlQueryUtil::resolveInternalMarkerPercent](https://github.com/lingtalfi/ParametrizedSqlQuery/blob/master/doc/api/Ling/ParametrizedSqlQuery/ParametrizedSqlQueryUtil/resolveInternalMarkerPercent.md) &ndash; Resolves the percent symbol in internal marker notation, and returns the result.
 - [ParametrizedSqlQueryUtil::applyOperatorAndValueRoutine](https://github.com/lingtalfi/ParametrizedSqlQuery/blob/master/doc/api/Ling/ParametrizedSqlQuery/ParametrizedSqlQueryUtil/applyOperatorAndValueRoutine.md) &ndash; Applies the transformIfLike routine to the given expression.
 - [ParametrizedSqlQueryUtil::getNewMarkerName](https://github.com/lingtalfi/ParametrizedSqlQuery/blob/master/doc/api/Ling/ParametrizedSqlQuery/ParametrizedSqlQueryUtil/getNewMarkerName.md) &ndash; Returns a unique marker name that's not already in the _markers array.
+- [ParametrizedSqlQueryUtil::resolveDeveloperVariable](https://github.com/lingtalfi/ParametrizedSqlQuery/blob/master/doc/api/Ling/ParametrizedSqlQuery/ParametrizedSqlQueryUtil/resolveDeveloperVariable.md) &ndash; Resolves the developer variables in the given expr.
 
 
 

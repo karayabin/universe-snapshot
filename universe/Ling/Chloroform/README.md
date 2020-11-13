@@ -1,6 +1,6 @@
 Chloroform
 ===========
-2019-04-12 -> 2020-06-01
+2019-04-12 -> 2020-11-10
 
 
 
@@ -50,9 +50,11 @@ How to use
 
 
 
+
+
 Latest example
 --------------
-2019-10-22
+2019-10-22 -> 2020-09-22
 
 
 This is how you should use the chloroform.
@@ -85,8 +87,6 @@ if (true === $form->isPosted()) {
         // eventually add a valid notification when you think it's ok
         $form->addNotification(SuccessFormNotification::create("ok"));
 
-        // get the data in its final form
-        $form->executeDataTransformers($data);
 
 
         // now do something with $data (i.e. update database, send email, ...)
@@ -127,19 +127,9 @@ If I post the form above (without filling anything), I obtain the following:
 
 
 ```html 
-// a($data)
-array(1) {
-  ["first_name"] => string(0) ""
-}
-
-// a($formArray)
-array(8) {
-  ["isPosted"] => bool(true)
-  ["notifications"] => array(1) {
-    [0] => array(2) {
-      ["type"] => string(7) "success"
-      ["message"] => string(2) "ok"
-    }
+array(9) {
+  ["isPosted"] => bool(false)
+  ["notifications"] => array(0) {
   }
   ["fields"] => array(2) {
     ["chloroform_hidden_key"] => array(9) {
@@ -176,10 +166,13 @@ array(8) {
   ["mode"] => string(7) "not_set"
   ["jsCode"] => NULL
   ["cssId"] => NULL
+  ["id"] => string(14) "chloroform_one"
 }
 
 
 ```
+
+See more details in the [chloroform-array](https://github.com/lingtalfi/Chloroform/blob/master/doc/pages/chloroform-array.md) document.
 
 
 
@@ -187,6 +180,9 @@ array(8) {
 
 Example #1: the simplest form
 -----------
+2019-04-12 -> 2020-09-22
+
+
 
 ```php
 
@@ -237,46 +233,16 @@ a($formArray);
 ```
 
 
-The toArray method will output something like this (after submitting the form without typing anything):
+The formArray variable will contain the [chloroform-array](https://github.com/lingtalfi/Chloroform/blob/master/doc/pages/chloroform-array.md).
 
-```html
-array(8) {
-  ["isPosted"] => bool(false)
-  ["notifications"] => array(1) {
-    [0] => array(2) {
-      ["type"] => string(7) "success"
-      ["message"] => string(2) "ok"
-    }
-  }
-  ["fields"] => array(1) {
-    ["first_name"] => array(9) {
-      ["label"] => string(10) "First name"
-      ["id"] => string(10) "first_name"
-      ["hint"] => NULL
-      ["errorName"] => string(10) "first name"
-      ["value"] => string(0) ""
-      ["htmlName"] => string(10) "first_name"
-      ["errors"] => array(0) {
-      }
-      ["className"] => string(33) "Ling\Chloroform\Field\StringField"
-      ["validators"] => array(0) {
-      }
-    }
-  }
-  ["errors"] => array(0) {
-  }
-  ["properties"] => array(0) {
-  }
-  ["mode"] => string(7) "not_set"
-  ["jsCode"] => NULL
-  ["cssId"] => NULL
-}
-
-```
 
 
 Example #2: a simple form with custom validation
 ---------
+2019-04-12 -> 2020-09-22
+
+
+
 
 With the following code:
 
@@ -334,56 +300,16 @@ a($formArray);
 
 
 
-
-The toArray method will output something like this (after submitting the form without typing anything):
-
-```html
-array(8) {
-  ["isPosted"] => bool(false)
-  ["notifications"] => array(1) {
-    [0] => array(2) {
-      ["type"] => string(5) "error"
-      ["message"] => string(20) "There was a problem."
-    }
-  }
-  ["fields"] => array(1) {
-    ["first_name"] => array(9) {
-      ["label"] => string(10) "First name"
-      ["id"] => string(10) "first_name"
-      ["hint"] => NULL
-      ["errorName"] => string(10) "first name"
-      ["value"] => string(0) ""
-      ["htmlName"] => string(10) "first_name"
-      ["errors"] => array(1) {
-        [0] => string(14) "Nul, t'es nul!"
-      }
-      ["className"] => string(33) "Ling\Chloroform\Field\StringField"
-      ["validators"] => array(1) {
-        [0] => array(1) {
-          ["name"] => string(41) "Ling\Chloroform\Validator\CustomValidator"
-        }
-      }
-    }
-  }
-  ["errors"] => array(1) {
-    ["first_name"] => array(1) {
-      [0] => string(14) "Nul, t'es nul!"
-    }
-  }
-  ["properties"] => array(0) {
-  }
-  ["mode"] => string(7) "not_set"
-  ["jsCode"] => NULL
-  ["cssId"] => NULL
-}
-
-```
-
+The formArray variable will contain the [chloroform-array](https://github.com/lingtalfi/Chloroform/blob/master/doc/pages/chloroform-array.md).
 
 
 
 Example #3: a simple form with validation
 ---------
+2019-04-12 -> 2020-09-22
+
+
+
 
 With the following code:
 
@@ -432,75 +358,15 @@ a($formArray);
 
 ```
 
-The toArray method will output something like this (after submitting the form without typing anything):
-
-
-```html
-array(8) {
-  ["isPosted"] => bool(false)
-  ["notifications"] => array(1) {
-    [0] => array(2) {
-      ["type"] => string(5) "error"
-      ["message"] => string(20) "There was a problem."
-    }
-  }
-  ["fields"] => array(1) {
-    ["first_name"] => array(9) {
-      ["label"] => string(10) "First name"
-      ["id"] => string(10) "first_name"
-      ["hint"] => NULL
-      ["errorName"] => string(10) "first name"
-      ["value"] => string(0) ""
-      ["htmlName"] => string(10) "first_name"
-      ["errors"] => array(2) {
-        [0] => string(26) "The first name is required"
-        [1] => string(64) "The first name must contain at least 3 chars (you wrote 0 chars)"
-      }
-      ["className"] => string(33) "Ling\Chloroform\Field\StringField"
-      ["validators"] => array(2) {
-        [0] => array(3) {
-          ["name"] => string(43) "Ling\Chloroform\Validator\RequiredValidator"
-          ["custom_messages"] => array(0) {
-          }
-          ["messages"] => array(1) {
-            [0] => string(33) "main: The {fieldName} is required"
-          }
-        }
-        [1] => array(5) {
-          ["name"] => string(45) "Ling\Chloroform\Validator\MinMaxCharValidator"
-          ["custom_messages"] => array(0) {
-          }
-          ["messages"] => array(3) {
-            [0] => string(81) "min: The {fieldName} must contain at least {min} chars (you wrote {number} chars)"
-            [1] => string(80) "max: The {fieldName} must contain at most {max} chars (you wrote {number} chars)"
-            [2] => string(109) "between: The {fieldName} must contain at least {min} chars and at most {max} chars (you wrote {number} chars)"
-          }
-          ["min"] => int(3)
-          ["max"] => NULL
-        }
-      }
-    }
-  }
-  ["errors"] => array(1) {
-    ["first_name"] => array(2) {
-      [0] => string(26) "The first name is required"
-      [1] => string(64) "The first name must contain at least 3 chars (you wrote 0 chars)"
-    }
-  }
-  ["properties"] => array(0) {
-  }
-  ["mode"] => string(7) "not_set"
-  ["jsCode"] => NULL
-  ["cssId"] => NULL
-}
-
-
-
-```
+The formArray variable will contain the [chloroform-array](https://github.com/lingtalfi/Chloroform/blob/master/doc/pages/chloroform-array.md).
 
 
 Example #4: Changing the validation error message
 ---------
+2019-04-12 -> 2020-09-22
+
+
+
 
 With the following code:
 
@@ -551,62 +417,7 @@ a($formArray);
 ```
 
 
-The toArray method will output something like this (after submitting the form without typing anything):
-
-
-```html
-
-array(8) {
-  ["isPosted"] => bool(false)
-  ["notifications"] => array(1) {
-    [0] => array(2) {
-      ["type"] => string(5) "error"
-      ["message"] => string(20) "There was a problem."
-    }
-  }
-  ["fields"] => array(1) {
-    ["first_name"] => array(9) {
-      ["label"] => string(10) "First name"
-      ["id"] => string(10) "first_name"
-      ["hint"] => NULL
-      ["errorName"] => string(10) "first name"
-      ["value"] => string(0) ""
-      ["htmlName"] => string(10) "first_name"
-      ["errors"] => array(1) {
-        [0] => string(48) "Yo, the first name must contain at least 3 chars"
-      }
-      ["className"] => string(33) "Ling\Chloroform\Field\StringField"
-      ["validators"] => array(1) {
-        [0] => array(5) {
-          ["name"] => string(45) "Ling\Chloroform\Validator\MinMaxCharValidator"
-          ["custom_messages"] => array(1) {
-            ["min"] => string(53) "Yo, the {fieldName} must contain at least {min} chars"
-          }
-          ["messages"] => array(3) {
-            [0] => string(81) "min: The {fieldName} must contain at least {min} chars (you wrote {number} chars)"
-            [1] => string(80) "max: The {fieldName} must contain at most {max} chars (you wrote {number} chars)"
-            [2] => string(109) "between: The {fieldName} must contain at least {min} chars and at most {max} chars (you wrote {number} chars)"
-          }
-          ["min"] => int(3)
-          ["max"] => NULL
-        }
-      }
-    }
-  }
-  ["errors"] => array(1) {
-    ["first_name"] => array(1) {
-      [0] => string(48) "Yo, the first name must contain at least 3 chars"
-    }
-  }
-  ["properties"] => array(0) {
-  }
-  ["mode"] => string(7) "not_set"
-  ["jsCode"] => NULL
-  ["cssId"] => NULL
-}
-
-```
-
+The formArray variable will contain the [chloroform-array](https://github.com/lingtalfi/Chloroform/blob/master/doc/pages/chloroform-array.md).
 
 
 
@@ -616,6 +427,10 @@ array(8) {
 
 Example #5: the file field
 --------------
+2019-04-12 -> 2020-09-22
+
+
+
 
 File fields are special in that the value returned is the php file item provided in the $_FILES super array (the one
 with the following entries: name, type, tmp_name, size and error).
@@ -641,47 +456,7 @@ Once the form is submitted (provided that you used the enctype=multipart/form-da
 the resulting chloroform array will look like this:
 
 
-```html 
-array(8) {
-  ["isPosted"] => bool(true)
-  ["notifications"] => array(1) {
-    [0] => array(2) {
-      ["type"] => string(7) "success"
-      ["message"] => string(2) "ok"
-    }
-  }
-  ["fields"] => array(1) {
-    ["avatar_url"] => array(9) {
-      ["value"] => array(5) {
-        ["name"] => string(0) ""
-        ["type"] => string(0) ""
-        ["tmp_name"] => string(0) ""
-        ["error"] => int(4)
-        ["size"] => int(0)
-      }
-      ["label"] => string(10) "Avatar url"
-      ["id"] => string(10) "avatar_url"
-      ["hint"] => NULL
-      ["errorName"] => string(10) "avatar url"
-      ["htmlName"] => string(10) "avatar_url"
-      ["errors"] => array(0) {
-      }
-      ["className"] => string(31) "Ling\Chloroform\Field\FileField"
-      ["validators"] => array(0) {
-      }
-    }
-  ["errors"] => array(0) {
-  }
-  ["properties"] => array(0) {
-  }
-  ["mode"] => string(7) "not_set"
-  ["jsCode"] => NULL
-  ["cssId"] => NULL
-}
-
-```
-
-
+The formArray variable will contain the [chloroform-array](https://github.com/lingtalfi/Chloroform/blob/master/doc/pages/chloroform-array.md).
 
 
 
@@ -690,6 +465,9 @@ array(8) {
 
 The available fields
 ===========
+2019-04-12
+
+
 
 - StringField: is generally represented by an input tag of type text.
 - TextField: is generally represented by a textarea tag.
@@ -713,24 +491,31 @@ The available fields
 
 The available validators
 ============
+2019-04-12 -> 2020-09-14
 
 - CSRFValidator: works in tandem with the CSRFField, provides csrf protection based on the [CSRFTools planet](https://github.com/lingtalfi/CSRFTools).
 - CustomValidator: to create your own validator.
-- MinMaxCharValidator: check that a field has more than, less than, or between x and y number of characters (works with StringField, TextField).
-- MinMaxNumberValidator: check that the field value is has more than, less than, or comprised between x and y (works with NumberField).
-- MinMaxDateValidator: check that the date is comprised inside some defined boundaries (works with DateField, DateTimeField, TimeField).
-- MinMaxItemValidator: check that the user chose a certain number of items (works with SelectField with multiple on, CheckboxField).
-- MinMaxFileSizeValidator: check that the file size of the posted file is within the defined boundaries (works with FileField).
-- FileMimeTypeValidator: check that the file mime type is allowed (works with FileField).
-- RequiredValidator: check that the string version of the value is not the empty string (works with all fields).
-- RequiredDateValidator: check that the date is not empty (0000-00-00 or empty string).
-- PasswordConfirmValidator: check that the password matches the value of a password confirm field (works with PasswordField).
+- IsIntegerValidator: checks that the field value is an integer.
+- IsMysqlDateValidator: checks that the field value has the mysql date format.
+- IsMysqlDatetimeValidator: checks that the field value has the mysql datetime format.
+- IsNumberValidator: checks that the field value has a numeric form.
+- MinMaxCharValidator: checks that a field has more than, less than, or between x and y number of characters (works with StringField, TextField).
+- MinMaxNumberValidator: checks that the field value is has more than, less than, or comprised between x and y (works with NumberField).
+- MinMaxDateValidator: checks that the date is comprised inside some defined boundaries (works with DateField, DateTimeField, TimeField).
+- MinMaxItemValidator: checks that the user chose a certain number of items (works with SelectField with multiple on, CheckboxField).
+- MinMaxFileSizeValidator: checks that the file size of the posted file is within the defined boundaries (works with FileField).
+- FileMimeTypeValidator: checks that the file mime type is allowed (works with FileField).
+- RequiredValidator: checks that the string version of the value is not the empty string (works with all fields).
+- RequiredDateValidator: checks that the date is not empty. The "0000-00-00" string is considered invalid too.
+- RequiredDatetimeValidator: checks that the date is a valid mysql datetime. The "0000-00-00 00:00:00" string is considered invalid.
+- PasswordConfirmValidator: checks that the password matches the value of a password confirm field (works with PasswordField).
 
 
 
 
 Rendering the form
 =============
+2019-04-12 
 
 The Chloroform planet doesn't provide Renderer classes by default.
 
@@ -762,6 +547,66 @@ Here is a list of known chloroform renderers:
 History Log
 =============
 
+- 1.36.3 -- 2020-11-10
+
+    - update api, the concept of data transformer is now deprecated 
+    
+- 1.36.2 -- 2020-09-22
+
+    - chloroform is now redesigned to work with the clever form initiative
+    
+- 1.36.1 -- 2020-09-17
+
+    - update fieldId definition
+    
+- 1.36.0 -- 2020-09-14
+
+    - add formatted value concept
+    
+- 1.35.1 -- 2020-09-14
+
+    - add RequiredDatetimeValidator class
+    
+- 1.35.0 -- 2020-09-08
+
+    - add Chloroform->getFormId method
+    
+- 1.34.3 -- 2020-09-07
+
+    - update documentation to make it clearer that the mode is optional
+    
+- 1.34.2 -- 2020-08-13
+
+    - fix IsIntegerValidator->test method incorrectly handling negative numbers
+
+- 1.34.1 -- 2020-08-13
+
+    - fix IsIntegerValidator->test method incorrectly processing integers passed as strings
+    
+- 1.34.0 -- 2020-08-13
+
+    - add Chloroform->getValidationErrors method   
+    
+- 1.33.1 -- 2020-08-11
+
+    - fix IsMysqlDateValidator and IsMysqlDatetimeValidator not having the setAcceptEmpty method   
+
+- 1.33.0 -- 2020-08-11
+
+    - add IsMysqlDateValidator and IsMysqlDatetimeValidator   
+    
+- 1.32.1 -- 2020-08-11
+
+    - fix IsIntegerValidator not transmitting mode option when converted to array form  
+    
+- 1.32.0 -- 2020-08-11
+
+    - update IsIntegerValidator, add mode option  
+    
+- 1.31.0 -- 2020-08-11
+
+    - add IsIntegerValidator and IsNumberValidator  
+    
 - 1.30.0 -- 2020-06-01
 
     - update Chloroform->getPostedData now doesn't filter out empty files (undo previous step)

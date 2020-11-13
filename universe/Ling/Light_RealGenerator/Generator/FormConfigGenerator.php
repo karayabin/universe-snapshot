@@ -4,11 +4,10 @@
 namespace Ling\Light_RealGenerator\Generator;
 
 
-use Ling\ArrayToString\ArrayToStringTool;
 use Ling\ArrayVariableResolver\ArrayVariableResolverUtil;
 use Ling\BabyYaml\BabyYamlUtil;
+use Ling\Bat\ArrayTool;
 use Ling\Bat\FileSystemTool;
-use Ling\Light_DatabaseInfo\Service\LightDatabaseInfoService;
 use Ling\Light_RealGenerator\Exception\LightRealGeneratorException;
 use Ling\Light_RealGenerator\Util\RepresentativeColumnFinderUtil;
 
@@ -17,6 +16,66 @@ use Ling\Light_RealGenerator\Util\RepresentativeColumnFinderUtil;
  */
 class FormConfigGenerator extends BaseConfigGenerator
 {
+
+    /**
+     * Array of table => item, with item an array containing:
+     * - tableListIdentifier: string, the table identifier
+     * - fkInfo: array containing reversed fk info (see code for more details):
+     *      - 0: rfDb
+     *      - 1: rfTable
+     *      - 2: rfCol
+     *
+     * @var array
+     */
+    private $tableListIdentifiers;
+
+
+    /**
+     * This property holds the tableListMode for this instance.
+     * Defines how we'll generate the tableList type.
+     *
+     *
+     * Possible values are:
+     * - tableListIdentifier
+     * - tableListDirectiveId
+     *
+     * (more info in tableList conception notes)
+     *
+     *
+     * Default and recommended value is tableListDirectiveId, since all the configuration is gathered
+     * in the same place, whereas with tableListIdentifier, you've got configuration split
+     * into different files (not practical from the user's perspective).
+     *
+     * "tableListIdentifier" was the old mode.
+     *
+     *
+     *
+     *
+     *
+     * @var string
+     */
+    private $tableListMode;
+
+
+    /**
+     * This property holds the representativeColumnFinder for this instance.
+     * Just a cache.
+     *
+     * @var RepresentativeColumnFinderUtil
+     */
+    private $representativeColumnFinder;
+
+
+    /**
+     * @overrides
+     */
+    public function __construct()
+    {
+        parent::__construct();
+        $this->tableListIdentifiers = [];
+        $this->tableListMode = "tableListDirectiveId";
+        $this->representativeColumnFinder = null;
+    }
 
 
     /**
@@ -66,13 +125,9 @@ class FormConfigGenerator extends BaseConfigGenerator
 
 
         $pluginName = $this->getKeyValue('plugin_name');
-        $database = $this->getKeyValue('database_name', false, null);
-        $formHandlerClassGeneral = $this->getKeyValue("form.form_handler_class_general", false, null);
-        $formHandlerClassSpecific = $this->getKeyValue("form.form_handler_class_specific.$table", false, null);
         $globalIgnoreColumns = $this->getKeyValue("ignore_columns.$table", false, []);
         $ignoreColumns = $this->getKeyValue("form.ignore_columns.$table", false, []);
         $customFields = $this->getKeyValue("form.fields.$table", false, []);
-        $rowRestriction = $this->getKeyValue("form.row_restriction", false, []);
         $notRequiredCols = $this->getKeyValue("form.not_required.$table", false, []);
         $customVariables = $this->getKeyValue("form.variables", false, []);
         $fieldsMergeSpecific = $this->getKeyValue("form.fields_merge_specific.$table", false, []);
@@ -80,20 +135,26 @@ class FormConfigGenerator extends BaseConfigGenerator
         $formTitle = $this->getKeyValue("form.title", false, "{Label} form");
         $specialFields = $this->getKeyValue("form.special_fields", false, []);
         $onSuccessHandlerType = $onSuccessHandler['type'] ?? "database";
-        $onSuccessHandlerOptions = $onSuccessHandler['options'] ?? [];
-        $useRowRestriction = $onSuccessHandlerOptions['use_row_restriction'] ?? true;
         $useMultiplierOnHas = $this->getKeyValue("form.use_multiplier_on_has", false, true);
-
+        $security = $this->getKeyValue("form.security", false, []);
+        $relatedLinks = $this->getKeyValue("form.related_links", false, []);
 
         // special types
         $chloroformExtensions = $specialFields['chloroform_extensions'] ?? [];
         $useTableList = $chloroformExtensions['use_table_list'] ?? true;
-        $tableListConfigFile = $chloroformExtensions['table_list_config_file'] ?? null;
 
         $isHasTable = $this->isHasTable($table);
         $genericTags = $this->getGenericTagsByTable($table);
         $formTitle = str_replace(array_keys($genericTags), array_values($genericTags), $formTitle);
-        $arr['title'] = $formTitle;
+        ArrayTool::replaceRecursive($genericTags, $relatedLinks);
+        $rendering = [
+            "title" => $formTitle,
+            "related_links" => $relatedLinks,
+        ];
+        $arr['_vars'] = [
+            'nuggetId' => $pluginName . ':generated/' . $table,
+        ];
+        $arr['rendering'] = $rendering;
 
         $theVariables = $customVariables;
         $theVariables['table'] = $table;
@@ -111,7 +172,21 @@ class FormConfigGenerator extends BaseConfigGenerator
             $ignoreColumns[] = $autoIncrementedKey;
         }
 
-        $main['ric'] = $tableInfo['ric'];
+
+//        $humanTable = $this->getHumanTableName($table);
+        $humanTable = "item";
+
+
+        $arr['ric'] = $tableInfo['ric'];
+        $arr['feeder'] = null;
+        $arr['storage_id'] = $table;
+        $arr['success_messages'] = [
+            'create' => 'The ' . $humanTable . ' has been successfully stored in the database',
+            'update' => 'The ' . $humanTable . ' has been successfully updated in the database, with ric {sRic}',
+        ];
+        $arr['security'] = $security;
+
+
         $ricStrict = $tableInfo['ricStrict'];
         $types = $tableInfo['types'];
         $columns = array_merge(array_diff($tableInfo['columns'], $ignoreColumns));
@@ -119,15 +194,10 @@ class FormConfigGenerator extends BaseConfigGenerator
         //--------------------------------------------
         // FORM HANDLER
         //--------------------------------------------
-        $formHandler = [];
-        if (null !== $formHandlerClassSpecific) {
-            $formHandler['class'] = $formHandlerClassSpecific;
-        } elseif (null !== $formHandlerClassGeneral) {
-            $formHandler['class'] = $formHandlerClassGeneral;
-        }
+        $chloroform = [];
 
         $formId = "realgen-$table";
-        $formHandler['id'] = $formId;
+        $chloroform['id'] = $formId;
 
         $fields = [];
         foreach ($columns as $col) {
@@ -154,12 +224,38 @@ class FormConfigGenerator extends BaseConfigGenerator
                 // special item?
                 $specialItem = [];
                 if (true === $useTableList && array_key_exists($col, $foreignKeysInfo)) {
+
                     list($rfDb, $rfTable, $rfCol) = $foreignKeysInfo[$col];
+                    $tableListIdentifier = $pluginName . ":generated/tablelist/$rfTable.$rfCol";
+
+                    $this->tableListIdentifiers[$table] = [
+                        'tableListIdentifier' => $tableListIdentifier,
+                        'fkInfo' => [
+                            $rfDb,
+                            $rfTable,
+                            $rfCol,
+                        ],
+                    ];
+
+
                     $specialItem = [
                         "type" => "table_list",
-                        "tableListIdentifier" => $pluginName . ".$rfTable.$rfCol",
 //                        "threshold" => 200,
                     ];
+
+                    if ('tableListDirectiveId' === $this->tableListMode) {
+                        $specialItem['tableListDirectiveId'] = '%{nuggetId}:chloroform.fields.' . $col . '.tableListConf';
+                        $specialItem['tableListConf'] = $this->getTableListConf([
+                            $rfDb,
+                            $rfTable,
+                            $rfCol,
+                        ]);
+
+                    } else {
+                        $specialItem['tableListIdentifier'] = $tableListIdentifier;
+                    }
+
+
                     if (true === $useMultiplierOnHas && $isHasTable) {
 
                         /**
@@ -176,10 +272,11 @@ class FormConfigGenerator extends BaseConfigGenerator
                         if (false === $isPivot) {
                             $specialItem['mode'] = 'multiplier';
                             $specialItem['multiplier'] = [
-                                "insert_mode" => "insert",
-                                "multiplier_column" => $col,
+                                "enabled" => true,
+                                "pivot" => $ricStrict[0],
                             ];
                         }
+
                     }
                 }
 
@@ -191,14 +288,24 @@ class FormConfigGenerator extends BaseConfigGenerator
 
                 $validators = [];
                 if (false === in_array($col, $notRequiredCols, true)) {
-                    $validators["required"] = [];
+                    if ('datetime' === $type) {
+                        $validators["requiredDatetime"] = [];
+                    } elseif ('date' === $type) {
+                        $validators["requiredDate"] = [];
+                    } else {
+                        $validators["required"] = [];
+                    }
                 }
+
 
                 $fieldItem = [
                     'label' => $label,
                     'type' => $type,
                     'validators' => $validators,
                 ];
+                if (in_array($type, ['datetime', 'date'])) {
+                    $fieldItem['nullable'] = false;
+                }
 
                 // note: merge is less specific than custom item
                 $fieldItem = array_replace_recursive($fieldItem, $specialItem, $merge, $customItem);
@@ -210,14 +317,13 @@ class FormConfigGenerator extends BaseConfigGenerator
 
 
             } else {
-                throw new LightRealGeneratorException("Unknoqn column type for column $col, table $table.");
+                throw new LightRealGeneratorException("Unknown column type for column $col, table $table.");
             }
         }
-        $formHandler['fields'] = $fields;
-        $formHandler['row_restriction'] = $rowRestriction;
+        $chloroform['fields'] = $fields;
 
 
-        $arr['form_handler'] = $formHandler;
+        $arr['chloroform'] = $chloroform;
 
 
         //--------------------------------------------
@@ -228,33 +334,14 @@ class FormConfigGenerator extends BaseConfigGenerator
             case "database":
 
                 $onSuccessHandlerArr = [
-                    "type" => "database",
-                    "params" => [
-                        "table" => $table,
-                        "pluginName" => $pluginName,
-                        "useRowRestriction" => $useRowRestriction,
-                    ],
+                    "class" => "defaultDbHandler",
                 ];
-                if (true === $useMultiplierOnHas && true === $isHasTable) {
-                    if (2 === count($ricStrict)) {
-                        list($leftCol, $rightCol) = $ricStrict;
-                        $onSuccessHandlerArr['params']['multiplier'] = [
-                            'column' => $rightCol,
-                            'update_cleaner_column' => $leftCol,
-                        ];
-                    } else {
-                        $sRic = ArrayToStringTool::toInlinePhpArray($ricStrict);
-                        throw new LightRealGeneratorException("Don't know how to handle this ric strict with nbEntries!=2 for the multiplier: $sRic.");
-                    }
-                }
-
-
                 break;
             default:
                 throw new LightRealGeneratorException("Unknown success handler type: $onSuccessHandlerType.");
                 break;
         }
-        $arr['on_success_handler'] = $onSuccessHandlerArr;
+        $arr['success_handler'] = $onSuccessHandlerArr;
 
         return BabyYamlUtil::getBabyYamlString($arr);
     }
@@ -321,11 +408,56 @@ class FormConfigGenerator extends BaseConfigGenerator
      */
     protected function generateContentByTables(array $tables)
     {
-        $specialFields = $this->getKeyValue("form.special_fields", false, []);
-        $chloroformExtensions = $specialFields['chloroform_extensions'] ?? [];
-        $useTableList = $chloroformExtensions['use_table_list'] ?? true;
-        $tableListConfigFile = $chloroformExtensions['table_list_config_file'] ?? null;
-        $database = $this->getKeyValue('database_name', false, null);
+
+
+        if ('tableListIdentifier' === $this->tableListMode) {
+
+
+            $specialFields = $this->getKeyValue("form.special_fields", false, []);
+            $chloroformExtensions = $specialFields['chloroform_extensions'] ?? [];
+            $useTableList = $chloroformExtensions['use_table_list'] ?? true;
+
+
+            if (true === $useTableList) {
+                $appDir = $this->container->getApplicationDir();
+
+                $arr = [];
+                foreach ($this->tableListIdentifiers as $table => $item) {
+
+
+                    $tableListIdentifier = $item['tableListIdentifier'];
+                    $fkInfo = $item['fkInfo'];
+
+
+                    $arr = $this->getTableListConf($fkInfo);
+
+
+                    list($plugin, $relPath) = explode(":", $tableListIdentifier, 2);
+
+                    $f = $appDir . "/config/data/$plugin/Light_ChloroformExtension/tablelist/$relPath.byml";
+                    FileSystemTool::mkfile($f, BabyYamlUtil::getBabyYamlString($arr));
+
+                }
+            }
+        }
+    }
+
+
+    /**
+     * Returns a configuration array based on the given fkInfo array.
+     *
+     * @param array $fkInfo
+     * @return array
+     * @throws LightRealGeneratorException
+     */
+    private function getTableListConf(array $fkInfo)
+    {
+
+
+        $tableListSecurity = $this->getKeyValue("form.special_fields.chloroform_extensions.table_list_security", false, []);
+
+        list($rfDb, $rfTable, $rfCol) = $fkInfo;
+
         $commonRepresentativeMatches = $this->getKeyValue("list.common_representative_matches", false, [
             'name',
             'label',
@@ -333,48 +465,34 @@ class FormConfigGenerator extends BaseConfigGenerator
         ]);
 
 
-        $reprFinder = new RepresentativeColumnFinderUtil();
-        $reprFinder->setContainer($this->container);
-        $reprFinder->setCommonMatches($commonRepresentativeMatches);
-
-        /**
-         * @var $dbInfo LightDatabaseInfoService
-         */
-        $dbInfo = $this->container->get('database_info');
-
-
-        if (true === $useTableList && null !== $tableListConfigFile) {
-            $appDir = $this->container->getApplicationDir();
-            $tableListConfigFile = str_replace('{app_dir}', $appDir, $tableListConfigFile);
-
-
-            $arr = [];
-            foreach ($tables as $table) {
-                $tableInfo = $this->getTableInfo($table);
-
-
-
-                $columns = $tableInfo['columns'];
-                $foreignKeysInfo = $tableInfo['foreignKeysInfo'];
-                foreach ($columns as $col) {
-                    if (array_key_exists($col, $foreignKeysInfo)) {
-                        list($rfDb, $rfTable, $rfCol) = $foreignKeysInfo[$col];
-                        $commonRepresentative = $reprFinder->findRepresentativeColumn($rfTable);
-                        $key = "$rfTable.$rfCol";
-                        $sConcat = "concat($rfCol, '. ', $commonRepresentative)";
-                        $arr[$key] = [
-                            "fields" => "$rfCol as value, $sConcat as label",
-                            "table" => $rfTable,
-                            "column" => $rfCol,
-                            "search_column" => $sConcat,
-                            "csrf_token" => true,
-                            "micro_permission" => "tables.$rfTable.read",
-                        ];
-                    }
-                }
-
-            }
-            FileSystemTool::mkfile($tableListConfigFile, BabyYamlUtil::getBabyYamlString($arr));
+        if (null === $this->representativeColumnFinder) {
+            $reprFinder = new RepresentativeColumnFinderUtil();
+            $reprFinder->setContainer($this->container);
+            $reprFinder->setCommonMatches($commonRepresentativeMatches);
+            $this->representativeColumnFinder = $reprFinder;
         }
+
+
+        $commonRepresentative = $this->representativeColumnFinder->findRepresentativeColumn($rfTable);
+
+        $sConcat = "concat($rfCol, '. ', $commonRepresentative)";
+
+
+        $security = array_merge_recursive([
+            "any" => [
+                "micro_permission" => "store.$rfTable.read",
+            ],
+            "all" => [],
+        ], $tableListSecurity);
+
+
+        return [
+            'sql' => "select $rfCol as value, $sConcat as label from $rfTable",
+            'column' => $rfCol,
+            'search_column' => $sConcat,
+            'renderAs' => 'adapt',
+            'threshold' => 200,
+            'security' => $security,
+        ];
     }
 }

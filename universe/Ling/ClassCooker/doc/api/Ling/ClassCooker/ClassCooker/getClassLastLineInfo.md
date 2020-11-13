@@ -61,7 +61,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [ClassCooker::getClassLastLineInfo](https://github.com/lingtalfi/ClassCooker/blob/master/ClassCooker.php#L660-L682)
+See the source code for method [ClassCooker::getClassLastLineInfo](https://github.com/lingtalfi/ClassCooker/blob/master/ClassCooker.php#L664-L686)
 
 
 See Also

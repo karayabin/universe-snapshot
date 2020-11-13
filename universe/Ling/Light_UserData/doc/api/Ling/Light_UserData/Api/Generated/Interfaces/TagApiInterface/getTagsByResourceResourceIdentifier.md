@@ -49,7 +49,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [TagApiInterface::getTagsByResourceResourceIdentifier](https://github.com/lingtalfi/Light_UserData/blob/master/Api/Generated/Interfaces/TagApiInterface.php#L175-L175)
+See the source code for method [TagApiInterface::getTagsByResourceResourceIdentifier](https://github.com/lingtalfi/Light_UserData/blob/master/Api/Generated/Interfaces/TagApiInterface.php#L220-L220)
 
 
 See Also

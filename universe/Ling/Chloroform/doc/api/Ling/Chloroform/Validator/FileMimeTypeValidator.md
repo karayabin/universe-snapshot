@@ -4,7 +4,7 @@
 
 The FileMimeTypeValidator class
 ================
-2019-04-10 --> 2020-06-01
+2019-04-10 --> 2020-11-10
 
 
 
@@ -100,4 +100,4 @@ See the source code of [Ling\Chloroform\Validator\FileMimeTypeValidator](https:/
 
 SeeAlso
 ==============
-Previous class: [CustomValidator](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Validator/CustomValidator.md)<br>Next class: [MinMaxCharValidator](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Validator/MinMaxCharValidator.md)<br>
+Previous class: [CustomValidator](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Validator/CustomValidator.md)<br>Next class: [IsIntegerValidator](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Validator/IsIntegerValidator.md)<br>

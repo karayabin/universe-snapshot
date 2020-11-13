@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [YorgDirScannerTool::getFilesWithPrefix](https://github.com/lingtalfi/DirScanner/blob/master/doc/api/Ling/DirScanner/YorgDirScannerTool/getFilesWithPrefix.md)(string $dir, string $prefix, bool $recursive = false, bool $relativePath = false, bool $followSymlinks = false, int $ignoreHidden = 1) : array
+public static [YorgDirScannerTool::getFilesWithPrefix](https://github.com/lingtalfi/DirScanner/blob/master/doc/api/Ling/DirScanner/YorgDirScannerTool/getFilesWithPrefix.md)(string $dir, string $prefix, ?bool $recursive = false, ?bool $relativePath = false, ?bool $followSymlinks = false, ?int $ignoreHidden = 1) : array
 
 
 

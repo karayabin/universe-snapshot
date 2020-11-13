@@ -55,7 +55,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [ClassCooker::addParentClass](https://github.com/lingtalfi/ClassCooker/blob/master/ClassCooker.php#L870-L900)
+See the source code for method [ClassCooker::addParentClass](https://github.com/lingtalfi/ClassCooker/blob/master/ClassCooker.php#L874-L904)
 
 
 See Also

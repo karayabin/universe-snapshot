@@ -376,13 +376,12 @@ class SicFileCombinerUtil
             }
 
 
-
-
             //--------------------------------------------
             // Now inject the lazy overrides variables
             //--------------------------------------------
             foreach ($lazyVars as $info) {
                 list($key, $value, $file) = $info;
+
                 $found = false;
                 $targetValue = BDotTool::getDotValue($key, $ret, $value, $found);
 
@@ -400,8 +399,25 @@ class SicFileCombinerUtil
                         $targetValue = $value;
                     }
                 }
+
+                // replace variable references too, see
+                if (is_string($targetValue)) {
+                    if (false !== strpos($targetValue, $this->variableSymbol . '{')) {
+                        if (preg_match('!\\' . $this->variableSymbol . '\{([^\}]+)\}!', $targetValue, $match)) {
+                            $varName = $match[1];
+                            $targetFound = false;
+                            $_targetValue = BDotTool::getDotValue($varName, $ret, null, $targetFound);
+                            if (true === $targetFound) {
+                                $targetValue = $_targetValue;
+                            }
+                        }
+                    }
+                }
+
+
                 BDotTool::setDotValue($key, $targetValue, $ret);
             }
+
 
 
             //--------------------------------------------
@@ -429,7 +445,7 @@ class SicFileCombinerUtil
                                     throw new SicToolsException("SicFileCombinerUtil: environment variables cannot be arrays."); // for now
                                 }
                             } else {
-                                $dotPathsWithVars[$match[1]] = $dotPath;
+                                $dotPathsWithVars[$match[1]][] = $dotPath;
                             }
                         }
                     }
@@ -437,8 +453,7 @@ class SicFileCombinerUtil
             });
 
 
-
-            foreach ($dotPathsWithVars as $src => $target) {
+            foreach ($dotPathsWithVars as $src => $targets) {
 
                 $srcFound = false;
                 $srcValue = BDotTool::getDotValue($src, $ret, null, $srcFound);
@@ -446,25 +461,29 @@ class SicFileCombinerUtil
 
                 if (true === $srcFound) {
 
-                    $targetFound = false;
-                    $targetValue = BDotTool::getDotValue($target, $ret, null, $targetFound);
+
+                    foreach ($targets as $target) {
+
+                        $targetFound = false;
+                        $targetValue = BDotTool::getDotValue($target, $ret, null, $targetFound);
 
 
-                    if (true === $targetFound) {
-                        if (is_array($targetValue)) {
-                            if (is_array($srcValue)) {
-                                $targetValue = array_merge($targetValue, $srcValue);
+                        if (true === $targetFound) {
+                            if (is_array($targetValue)) {
+                                if (is_array($srcValue)) {
+                                    $targetValue = array_merge($targetValue, $srcValue);
+                                } else {
+                                    $type = gettype($src);
+                                    throw new SicToolsException("SicFileCombinerUtil: the target value of $target is an array, and therefore the source value $src must ALSO be an array; $type given.");
+                                }
                             } else {
-                                $type = gettype($src);
-                                throw new SicToolsException("SicFileCombinerUtil: the target value of $target is an array, and therefore the source value $src must ALSO be an array; $type given.");
+                                $targetValue = $srcValue;
                             }
                         } else {
                             $targetValue = $srcValue;
                         }
-                    } else {
-                        $targetValue = $srcValue;
+                        BDotTool::setDotValue($target, $targetValue, $ret);
                     }
-                    BDotTool::setDotValue($target, $targetValue, $ret);
                 } else {
                     //shouldn't happen, should it?
                     throw new SicToolsException("SicFileCombinerUtil: source was not found: $src, with target $target");

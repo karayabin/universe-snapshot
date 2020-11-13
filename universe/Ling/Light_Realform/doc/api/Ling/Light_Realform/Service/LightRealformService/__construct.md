@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightRealformService::__construct](https://github.com/lingtalfi/Light_Realform/blob/master/Service/LightRealformService.php#L47-L52)
+See the source code for method [LightRealformService::__construct](https://github.com/lingtalfi/Light_Realform/blob/master/Service/LightRealformService.php#L69-L73)
 
 
 See Also
@@ -54,5 +54,5 @@ See Also
 
 The [LightRealformService](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Service/LightRealformService.md) class.
 
-Next method: [getFormHandler](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Service/LightRealformService/getFormHandler.md)<br>
+Next method: [getNugget](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Service/LightRealformService/getNugget.md)<br>
 

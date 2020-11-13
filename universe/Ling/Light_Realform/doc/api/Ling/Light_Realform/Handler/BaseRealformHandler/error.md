@@ -54,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [BaseRealformHandler::error](https://github.com/lingtalfi/Light_Realform/blob/master/Handler/BaseRealformHandler.php#L462-L465)
+See the source code for method [BaseRealformHandler::error](https://github.com/lingtalfi/Light_Realform/blob/master/Handler/BaseRealformHandler.php#L324-L327)
 
 
 See Also

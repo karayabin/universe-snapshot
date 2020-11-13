@@ -1,6 +1,6 @@
 ClassCooker
 ===========
-2017-04-11 -> 2020-07-30
+2017-04-11 -> 2020-08-18
 
 
 A tool to cook your class: add/remove methods, properties, stuff like that.
@@ -54,6 +54,18 @@ As a result, we can add/remove methods, properties, etc... multiple times during
 
 History Log
 ------------------
+    
+- 1.16.0 -- 2020-08-18
+
+    - update MethodIngredient->execute, now accepts the addAsComment option
+    
+- 1.15.0 -- 2020-08-18
+
+    - update FryingPan, add getFile method
+    
+- 1.14.0 -- 2020-08-18
+
+    - update ClassCooker->addMethod, add checkDuplicate option
     
 - 1.13.0 -- 2020-07-30
 

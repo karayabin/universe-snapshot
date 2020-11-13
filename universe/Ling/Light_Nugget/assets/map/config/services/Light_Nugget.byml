@@ -1,0 +1,9 @@
+nugget:
+    instance: Ling\Light_Nugget\Service\LightNuggetService
+    methods:
+        setContainer:
+            container: @container()
+
+
+
+

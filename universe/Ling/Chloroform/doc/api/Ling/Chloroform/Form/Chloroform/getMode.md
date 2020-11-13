@@ -46,7 +46,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [Chloroform::getMode](https://github.com/lingtalfi/Chloroform/blob/master/Form/Chloroform.php#L269-L272)
+See the source code for method [Chloroform::getMode](https://github.com/lingtalfi/Chloroform/blob/master/Form/Chloroform.php#L311-L314)
 
 
 See Also

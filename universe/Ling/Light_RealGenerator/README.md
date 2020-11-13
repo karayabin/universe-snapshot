@@ -1,6 +1,6 @@
 Light_RealGenerator
 ===========
-2019-10-24 -> 2020-07-07
+2019-10-24 -> 2020-11-12
 
 
 
@@ -98,6 +98,81 @@ Related
 History Log
 =============
 
+- 1.31.8 -- 2020-11-12
+
+    - update config, adapt new Light_Nugget variable replacement system
+    - update config, include rendering section
+    - update FormConfigGenerator, now generates inline tableListConf
+    - update RepresentativeColumnFinderUtil->method, now uses the first varchar col instead of the first str col as the representative
+    
+- 1.31.7 -- 2020-09-18
+
+    - update config example
+    
+- 1.31.6 -- 2020-09-18
+
+    - update ListConfigGenerator, now uses _vars system as well
+
+- 1.31.5 -- 2020-09-18
+
+    - update variable system, now uses the exclamation mark instead of dollar, to avoid conflict with Light_Nugget var system
+    
+- 1.31.4 -- 2020-09-18
+
+    - re-enabling form multiplier trick
+    
+- 1.31.3 -- 2020-09-17
+
+    - fix ListConfigGenerator not showing cross columns properly
+    
+- 1.31.2 -- 2020-09-17
+
+    - fix FormConfigGenerator trying to merge arrays with null value
+    
+- 1.31.1 -- 2020-09-17
+
+    - update FormConfigGenerator remove unused code
+    
+- 1.31.0 -- 2020-09-15
+
+    - update api to adapt new Realist and Realform apis
+    
+- 1.30.3 -- 2020-09-03
+
+    - update "The configuration block" document, list.target_dir and form.target_dir have new defaults
+
+- 1.30.2 -- 2020-09-03
+
+    - update "The configuration block" document, reorganized, fix typo
+    
+- 1.30.1 -- 2020-09-03
+
+    - fix "The configuration block" document, forgot to remove the identifier part
+    
+- 1.30.0 -- 2020-09-03
+
+    - adapt for realist2 api
+    
+- 1.29.0 -- 2020-08-18
+
+    - add LightRealGeneratorService->generateByConf method
+    
+- 1.28.0 -- 2020-08-18
+
+    - update config file, add target_basename directive
+    
+- 1.27.0 -- 2020-08-04
+
+    - update LightRealGeneratorService->generate, now returns the configuration array used
+    
+- 1.26.0 -- 2020-08-03
+
+    - update config file, add use_list and use_form properties
+    
+- 1.25.1 -- 2020-07-31
+
+    - fix Light_RealGenerator generating old way of checking csrf_token
+    
 - 1.25.0 -- 2020-07-07
 
     - add create_file and use_create_file directives

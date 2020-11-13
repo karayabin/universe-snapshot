@@ -145,6 +145,7 @@ class Light_DatabaseDocBuilder
                 "LightDatabasePdoWrapper class" => "https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/LightDatabasePdoWrapper.md",
                 "SimplePdoWrapper conception notes" => "https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/pages/conception-notes.md",
                 "the user row restriction checking" => "https://github.com/lingtalfi/Light_UserRowRestriction/blob/master/doc/pages/conception-notes.md",
+                "Light_Database conception notes options" => $doc . "/pages/conception-notes.md#service-options",
             ],
             /**
              * An array of external classes to url.

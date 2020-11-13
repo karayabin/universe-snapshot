@@ -46,7 +46,7 @@ Returns [LightUserDataFileManagerHandler](https://github.com/lingtalfi/Light_Use
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::getFileManagerProtocolHandler](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L1240-L1248)
+See the source code for method [LightUserDataService::getFileManagerProtocolHandler](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L1241-L1249)
 
 
 See Also

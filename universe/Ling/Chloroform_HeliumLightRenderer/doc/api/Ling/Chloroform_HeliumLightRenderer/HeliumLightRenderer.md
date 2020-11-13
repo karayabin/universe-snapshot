@@ -4,7 +4,7 @@
 
 The HeliumLightRenderer class
 ================
-2019-10-21 --> 2020-06-04
+2019-10-21 --> 2020-11-09
 
 
 
@@ -153,7 +153,7 @@ Methods
 - [HeliumLightRenderer::setContainer](https://github.com/lingtalfi/Chloroform_HeliumLightRenderer/blob/master/doc/api/Ling/Chloroform_HeliumLightRenderer/HeliumLightRenderer/setContainer.md) &ndash; Sets the container.
 - [HeliumLightRenderer::render](https://github.com/lingtalfi/Chloroform_HeliumLightRenderer/blob/master/doc/api/Ling/Chloroform_HeliumLightRenderer/HeliumLightRenderer/render.md) &ndash; Returns the html version of the passed chloroform array.
 - [HeliumLightRenderer::printField](https://github.com/lingtalfi/Chloroform_HeliumLightRenderer/blob/master/doc/api/Ling/Chloroform_HeliumLightRenderer/HeliumLightRenderer/printField.md) &ndash; Prints the given field.
-- [HeliumLightRenderer::printAjaxFileBoxField_FileUploader](https://github.com/lingtalfi/Chloroform_HeliumLightRenderer/blob/master/doc/api/Ling/Chloroform_HeliumLightRenderer/HeliumLightRenderer/printAjaxFileBoxField_FileUploader.md) &ndash; Prints an ajax file box field.
+- [HeliumLightRenderer::printAjaxFileBoxField_FileUploader](https://github.com/lingtalfi/Chloroform_HeliumLightRenderer/blob/master/doc/api/Ling/Chloroform_HeliumLightRenderer/HeliumLightRenderer/printAjaxFileBoxField_FileUploader.md) &ndash; Prints an ajax file box field to work with the [JFileUploader](https://github.com/lingtalfi/jFileUploader) client.
 - [HeliumLightRenderer::printTableListField](https://github.com/lingtalfi/Chloroform_HeliumLightRenderer/blob/master/doc/api/Ling/Chloroform_HeliumLightRenderer/HeliumLightRenderer/printTableListField.md) &ndash; Prints a table list file box field.
 - HeliumRenderer::prepare &ndash; Stores the chloroform array in memory.
 - HeliumRenderer::printFormContent &ndash; form tag itself.

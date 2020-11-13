@@ -25,7 +25,7 @@ class CreateServiceProcess extends LightDeveloperWizardCommonProcess
         parent::__construct();
         $this->setName("create-basic-service");
         $this->setLabel("Create a basic service.");
-        $this->setLearnMore('See the <a href="https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/pages/conventions.md#basic-service">basic service definition</a>.');
+        $this->setLearnMoreByHash('create-service-process');
     }
 
 
@@ -51,7 +51,7 @@ class CreateServiceProcess extends LightDeveloperWizardCommonProcess
             $this->infoMessage("The service class for planet $planetIdentifier was already created.");
 
 
-            $pan = $this->getFryingPanForService($util->getBasicServiceClassPath());
+            $pan = $this->getFryingPanByFile($util->getBasicServiceClassPath());
             $planet = $util->getPlanetName();
             $tightName = $util->getTightPlanetName();
             $useStatementClass = "$galaxyName\\$planet\Exception\\${tightName}Exception";
@@ -84,7 +84,7 @@ class CreateServiceProcess extends LightDeveloperWizardCommonProcess
 
         } else {
 
-            $this->infoMessage("Creating <a href=\"https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/pages/conventions.md#basic-service\">basic service class</a> for planet $planetIdentifier.");
+            $this->infoMessage("Creating <a target='_blank' href=\"https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/pages/conventions.md#basic-service\">basic service class</a> for planet $planetIdentifier.");
             $tpl = __DIR__ . "/../../../assets/class-templates/Service/BasicServiceClass.phptpl";
             $planet = $util->getPlanetName();
             $tightName = $util->getTightPlanetName();
@@ -127,7 +127,7 @@ class CreateServiceProcess extends LightDeveloperWizardCommonProcess
             $this->infoMessage("The planet $planetIdentifier already has an exception class.");
 
         } else {
-            $this->infoMessage("Creating <a href=\"https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/pages/conventions.md#basic-service\">basic service exception</a> for planet $planetIdentifier.");
+            $this->infoMessage("Creating <a target='_blank' href=\"https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/pages/conventions.md#basic-service\">basic service exception</a> for planet $planetIdentifier.");
             $tpl = __DIR__ . "/../../../assets/class-templates/Exception/BasicException.phptpl";
 
             $planet = $util->getPlanetName();
@@ -168,7 +168,7 @@ class CreateServiceProcess extends LightDeveloperWizardCommonProcess
         } else {
             $dstPath = $util->getBasicServiceConfigPath();
 
-            $this->infoMessage("Creating <a href=\"https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/pages/conventions.md#basic-service\">basic service config file</a> for planet $planetIdentifier.");
+            $this->infoMessage("Creating <a target='_blank' href=\"https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/pages/conventions.md#basic-service\">basic service config file</a> for planet $planetIdentifier.");
             $tpl = __DIR__ . "/../../../assets/conf-template/services/basic-service.byml";
 
             $planet = $util->getPlanetName();

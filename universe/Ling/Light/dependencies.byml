@@ -3,6 +3,7 @@ dependencies:
         - Light_Events
         - SicTools
         - Bat
+        - ParenthesisMirrorParser
         - DirScanner
         - Octopus
         - PhpUploadFileFix

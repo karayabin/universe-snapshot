@@ -50,7 +50,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::getBaseRelativePathByResourceIdentifier](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L1587-L1597)
+See the source code for method [LightUserDataService::getBaseRelativePathByResourceIdentifier](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L1588-L1598)
 
 
 See Also

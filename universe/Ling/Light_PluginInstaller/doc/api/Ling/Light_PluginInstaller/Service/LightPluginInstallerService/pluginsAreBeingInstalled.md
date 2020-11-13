@@ -47,7 +47,7 @@ Returns bool.
 
 Source Code
 ===========
-See the source code for method [LightPluginInstallerService::pluginsAreBeingInstalled](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/Service/LightPluginInstallerService.php#L266-L269)
+See the source code for method [LightPluginInstallerService::pluginsAreBeingInstalled](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/Service/LightPluginInstallerService.php#L278-L281)
 
 
 See Also

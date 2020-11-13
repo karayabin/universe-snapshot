@@ -201,4 +201,27 @@ class PlanetTool
         return false;
     }
 
+
+    /**
+     * Returns an array containing the galaxy and planet contained in the given class name.
+     * Returns false if the given class name is not valid (i.e. @page(bsr-0) compliant).
+     *
+     * The given class name is the fully qualified class name.
+     *
+     *
+     * @param string $className
+     * @return array|false
+     */
+    public static function getGalaxyPlanetByClassName(string $className)
+    {
+        $p = explode("\\", $className);
+        if (count($p) > 2) {
+            return [
+                array_shift($p),
+                array_shift($p),
+            ];
+        }
+        return false;
+    }
+
 }

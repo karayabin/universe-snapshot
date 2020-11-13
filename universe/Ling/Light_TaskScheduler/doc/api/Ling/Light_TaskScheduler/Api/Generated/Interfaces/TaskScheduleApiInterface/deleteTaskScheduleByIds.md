@@ -54,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [TaskScheduleApiInterface::deleteTaskScheduleByIds](https://github.com/lingtalfi/Light_TaskScheduler/blob/master/Api/Generated/Interfaces/TaskScheduleApiInterface.php#L236-L236)
+See the source code for method [TaskScheduleApiInterface::deleteTaskScheduleByIds](https://github.com/lingtalfi/Light_TaskScheduler/blob/master/Api/Generated/Interfaces/TaskScheduleApiInterface.php#L252-L252)
 
 
 See Also

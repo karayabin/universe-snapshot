@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [PhpExcelTool::getColumnValues](https://github.com/lingtalfi/PhpExcelTool/blob/master/doc/api/Ling/PhpExcelTool/PhpExcelTool/getColumnValues.md)(?$columnName, string $file) : array
+public static [PhpExcelTool::getColumnValues](https://github.com/lingtalfi/PhpExcelTool/blob/master/doc/api/Ling/PhpExcelTool/PhpExcelTool/getColumnValues.md)($columnName, string $file) : array
 
 
 

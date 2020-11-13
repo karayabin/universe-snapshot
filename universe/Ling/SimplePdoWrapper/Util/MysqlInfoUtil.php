@@ -143,6 +143,26 @@ class MysqlInfoUtil
         return $tables;
     }
 
+    /**
+     * Returns an array containing the potential table prefixes.
+     * A prefix is just the string before the first underscore if any.
+     * So for instance if the table name is lud_user, then the prefix is lud.
+     *
+     * @return array
+     */
+    public function getPotentialTablePrefixes(): array
+    {
+        $ret = [];
+        $tables = $this->getTables();
+        foreach ($tables as $table) {
+            if (false !== ($pos = strpos($table, '_'))) {
+                $ret[] = substr($table, 0, $pos);
+            }
+        }
+        $ret = array_unique($ret);
+        return $ret;
+    }
+
 
     /**
      * Returns whether the current database contains the given table.

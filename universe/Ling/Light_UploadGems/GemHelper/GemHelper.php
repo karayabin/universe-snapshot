@@ -21,7 +21,7 @@ use Ling\ThumbnailTools\ThumbnailTool;
 /**
  * The GemHelper class.
  */
-class GemHelper implements GemHelperInterface
+class GemHelper
 {
 
     /**
@@ -86,7 +86,9 @@ class GemHelper implements GemHelperInterface
     //
     //--------------------------------------------
     /**
-     * @implementation
+     * Sets an array of tags that will be used in the applyCopies method.
+     *
+     * @param array $tags
      */
     public function setTags(array $tags)
     {
@@ -95,7 +97,13 @@ class GemHelper implements GemHelperInterface
 
 
     /**
-     * @implementation
+     * Applies the defined name transformations to the given filename and returns the transformed filename.
+     *
+     * If an error occurs, an exception is thrown.
+     *
+     * @param string $filename
+     * @return string
+     * @throws \Exception
      */
     public function applyNameTransform(string $filename): string
     {
@@ -108,7 +116,12 @@ class GemHelper implements GemHelperInterface
 
 
     /**
-     * @implementation
+     * Applies the defined validation constraints to the given filename, and returns
+     * true if they all pass, or returns the error message returned by the first failing constraint otherwise.
+     *
+     * @param string $filename
+     *
+     * @return true|string
      */
     public function applyNameValidation(string $filename)
     {
@@ -133,7 +146,14 @@ class GemHelper implements GemHelperInterface
 
 
     /**
-     * @implementation
+     * Applies the defined validation constraints to the file which path is given, and returns
+     * true if they all pass, or returns the error message returned by the first failing constraint otherwise.
+     *
+     *
+     * @param string $path
+     * The absolute path to the file to validate.
+     *
+     * @return true|string
      */
     public function applyValidation(string $path)
     {
@@ -158,7 +178,14 @@ class GemHelper implements GemHelperInterface
 
 
     /**
-     * @implementation
+     * Applies the defined validation constraints to the chunk which path is given, and returns
+     * true if they all pass, or returns the error message returned by the first failing constraint otherwise.
+     *
+     *
+     * @param string $path
+     * The absolute path to the chunk to validate.
+     *
+     * @return true|string
      */
     public function applyChunkValidation(string $path)
     {
@@ -182,8 +209,37 @@ class GemHelper implements GemHelperInterface
     }
 
 
+
     /**
-     * @implementation
+     * Make the copies of the file which path was given, based on the defined configuration, and returns the path of the desired copy.
+     * See more information in the @page(UploadGems conception notes).
+     *
+     *
+     * @param string $path
+     * The absolute path to the file to copy.
+     *
+     * @param array $options
+     *      - onDstReady: a callable triggered when the destination path is set.
+     *          This is triggered before each copy is actually written to the destination path.
+     *          Use this callable to change the destination path for each copy.
+     *          The callable signature is:
+     *          - onDstReady ( string &$dst, int $copyIndex, array $copyItem )
+     *              With:
+     *              - dst: the destination path were the copy is going to be written (you can change it)
+     *              - copyIndex: the numerical index of this copy
+     *              - copyItem: the copy configuration item (from the gem config)
+     *      - onBeforeCopy: a callable triggered if there is at least one copy, and before the first copy is processed.
+     *      - onCopyAfter: a callable triggered after the copy has been copied.
+     *          The callable signature is:
+     *          - onCopyAfter ( string $dst, int $copyIndex, array $copyItem )
+     *              With:
+     *              - dst: the destination path were the copy was written to
+     *              - copyIndex: the numerical index of this copy
+     *              - copyItem: the copy configuration item (from the gem config)
+     *
+     *
+     * @return string
+     * @throws \Exception
      */
     public function applyCopies(string $path, array $options = []): string
     {
@@ -292,7 +348,7 @@ class GemHelper implements GemHelperInterface
                 $isAlreadyCopied = false;
                 if (array_key_exists("imageTransformer", $copy)) {
                     if (true === FileTool::isImage($src)) {
-                        if (true === $this->transformImage($src, $dst, $copy['imageTransformer'])) {
+                        if (true === GemHelperTool::transformImage($src, $dst, $copy['imageTransformer'])) {
                             $isAlreadyCopied = true;
                         }
                     }
@@ -306,7 +362,7 @@ class GemHelper implements GemHelperInterface
                 $previousPath = $dst;
                 $desiredCopyPath = $dst;
                 $dstPaths[] = $dst;
-                if(is_callable($onCopyAfter)){
+                if (is_callable($onCopyAfter)) {
                     $onCopyAfter($dst, $k, $copy);
                 }
 
@@ -327,16 +383,25 @@ class GemHelper implements GemHelperInterface
 
 
     /**
-     * @implementation
+     * Returns the custom config array attached to this instance.
+     * @return array
      */
     public function getCustomConfig(): array
     {
         return $this->config['config'] ?? [];
     }
 
-
     /**
-     * @implementation
+     * Returns the custom config value corresponding to the given key.
+     *
+     * If the key doesn't exist:
+     * - it throws an exception if the throwEx flag is set to true
+     * - it returns null if the throwEx flag is set to false
+     *
+     *
+     * @param string $key
+     * @param bool $throwEx
+     * @return mixed
      */
     public function getCustomConfigValue(string $key, bool $throwEx = true)
     {
@@ -349,9 +414,6 @@ class GemHelper implements GemHelperInterface
         }
         return null;
     }
-
-
-
 
 
 
@@ -480,8 +542,8 @@ class GemHelper implements GemHelperInterface
 
 
         $extension = FileSystemTool::getFileExtension($name);
-        $fileName = FileSystemTool::getFileName($name);
-        list($transformerId, $transformerParams) = $this->extractFunctionInfo($nameTransformer);
+        $fileName = FileSystemTool::getBasename($name);
+        list($transformerId, $transformerParams) = GemHelperTool::extractFunctionInfo($nameTransformer);
 
         switch ($transformerId) {
             case "randomize":
@@ -539,79 +601,6 @@ class GemHelper implements GemHelperInterface
         return $name;
     }
 
-    /**
-     * Parses the given transformer string, and returns an info array with the following structure:
-     *
-     * - 0: transformer id (the function name)
-     * - 1: array of parameters
-     *
-     *
-     * @param string $transformer
-     * @return array
-     * @throws \Exception
-     *
-     */
-    private function extractFunctionInfo(string $transformer): array
-    {
-        $p = explode('(', $transformer, 2);
-        $transformerId = trim($p[0]);
-        $transformerParams = [];
-        if (2 === count($p)) {
-            $transformerStringParams = trim($p[1], ') ');
-            $transformerParams = SmartCodeTool::parse('[' . $transformerStringParams . ']');
-        }
-        return [
-            $transformerId,
-            $transformerParams,
-        ];
-    }
-
-
-    /**
-     * Transforms the srcPath image according to the given imageTransformer, and stores it in dstPath.
-     * Returns whether the creation of the copy was successful.
-     *
-     * In case of errors throws exceptions.
-     *
-     *
-     * @param string $srcPath
-     * The path to a supposedly valid image.
-     *
-     * @param string $dstPath
-     * @param string $imageTransformer
-     *
-     * @return bool
-     * @throws \Exception
-     */
-    private function transformImage(string $srcPath, string $dstPath, string $imageTransformer): bool
-    {
-        list($transformerId, $transformerParams) = $this->extractFunctionInfo($imageTransformer);
-        switch ($transformerId) {
-            case "resize":
-                $width = $transformerParams[0] ?? null;
-                $height = $transformerParams[0] ?? null;
-
-
-                $type = MimeTypeTool::getMimeType($srcPath);
-                $extension = substr($type, 6); // strip image/ from the mime type
-
-                $options = [
-                    "extension" => $extension,
-                ];
-                if (true === ThumbnailTool::biggest($srcPath, $dstPath, $width, $height, $options)) {
-                    return true;
-                } else {
-                    $filename = basename($srcPath);
-                    throw new LightUploadGemsException("ThumbnailTool error: couldn't resize the image (filename=\"$filename\").");
-                }
-                break;
-            default:
-                $filename = basename($srcPath);
-                throw new LightUploadGemsException("Bad configuration error: the imageTransformer function $transformerId is not recognized yet (file name=\"$filename\").");
-                break;
-        }
-        return false;
-    }
 
 
     /**

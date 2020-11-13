@@ -54,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [Where::in](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/Util/Where.php#L370-L373)
+See the source code for method [Where::in](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/Util/Where.php#L379-L382)
 
 
 See Also

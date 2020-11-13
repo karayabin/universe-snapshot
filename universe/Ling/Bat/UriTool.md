@@ -1,6 +1,6 @@
 UriTool
 =====================
-2015-12-04 -> 2020-04-20
+2015-12-04 -> 2020-09-08
 
 
 
@@ -63,6 +63,23 @@ Will try differents methods:
 - or curl if installed
 
 
+
+
+
+
+getCurrentUrl
+-----------
+2020-09-08
+
+
+```php
+str   getCurrentUrl (  array options = [] )
+```
+
+Returns the current url.
+
+Available options are:
+- useForward: bool=false, whether to deal with the HTTP_X_FORWARDED_HOST property
 
 
 
@@ -204,16 +221,24 @@ consider the page as a new one, and the payload will be dropped.
 
 uri
 -----------
-2017-04-18
+2017-04-18 -> 2020-09-08
 
 
 ```php
 str|false    uri ( string:uri = null, array:params = [], bool:replace = true, bool:absolute = false )
 ```
 
-A swiss army knife for uri.
-It can return a relative or absolute url for a website,
-including/replacing the existing parameters or even your parameters.
+
+Returns an uri from the given parameters.
+
+- uri: string|null=null, the base uri. If null, the current uri will be used.
+     Note: you can also pass a full url it will work too (but be sure to have the absolute flag=false in that case).
+- params: array, the parameters to add to the uri
+- replace: bool=true, whether to replace the current url parameters by the one in the params array.
+     If false, the existing uri parameters will be merged with the ones passed to this method.
+- absolute: bool=false, whether to prefix the result with the host url
+   
+
 
 
 

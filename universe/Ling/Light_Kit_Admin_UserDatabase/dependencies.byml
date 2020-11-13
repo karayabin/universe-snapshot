@@ -2,10 +2,13 @@ dependencies:
     Ling: 
         - Bat
         - Chloroform
-        - GormanJsonDecoder
         - Light
-        - Light_CsrfSession
         - Light_Kit_Admin
+        - Light_Realform
+        - Light_Kit
+        - Light_UserRowRestriction
+        - GormanJsonDecoder
+        - Light_CsrfSession
         - Light_UserData
         - Light_UserDatabase
         - Light_User
@@ -14,6 +17,8 @@ dependencies:
         - BabyYaml
         - Light_BMenu
         - Light_PluginInstaller
+        - Light_Realist
+        - UniverseTools
     
 
 post_install: 

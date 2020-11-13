@@ -136,6 +136,15 @@ class DecorativeField implements FieldInterface
     /**
      * @implementation
      */
+    public function getFormattedValue()
+    {
+        return null;
+    }
+
+
+    /**
+     * @implementation
+     */
     public function getFallbackValue()
     {
         return null;

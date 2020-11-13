@@ -6,6 +6,7 @@ namespace Ling\Chloroform_HeliumRenderer;
 
 use Ling\Bat\CaseTool;
 use Ling\Bat\StringTool;
+use Ling\Chloroform\FormNotification\FormNotificationInterface;
 use Ling\Chloroform\Renderer\ChloroformRendererInterface;
 use Ling\Chloroform_HeliumRenderer\Exception\ChloroformHeliumRendererException;
 
@@ -140,7 +141,6 @@ class HeliumRenderer implements ChloroformRendererInterface
      */
     public function __construct(array $options = [])
     {
-
         $this->options = array_replace_recursive([
             "method" => "POST",
             "action" => "",
@@ -202,6 +202,9 @@ class HeliumRenderer implements ChloroformRendererInterface
 
         // storing cache vars
         $this->_chloroform = $chloroform;
+        if (array_key_exists("cssId", $chloroform) && null !== $chloroform['cssId']) {
+            $this->_formCssId = $chloroform['cssId'];
+        }
     }
 
     /**
@@ -252,7 +255,6 @@ class HeliumRenderer implements ChloroformRendererInterface
     }
 
 
-
     /**
      * Prints the form content (notifications, error summary, and fields), but not the
      * form tag itself.
@@ -273,7 +275,6 @@ class HeliumRenderer implements ChloroformRendererInterface
             echo '<div style="display: none;" id="iframe-signal" data-value="' . htmlspecialchars($value) . '"></div>';
         }
 
-
         $this->printNotifications($this->_chloroform['notifications']);
         $this->printErrorSummary($this->_chloroform['errors']);
         $this->printFields($this->_chloroform['fields']);
@@ -283,31 +284,32 @@ class HeliumRenderer implements ChloroformRendererInterface
     /**
      * Prints the opening form tag.
      */
-    public function printFormTagOpening()
-    {
-        $isPosted = $this->_chloroform["isPosted"];
-        $sPosted = (true === $isPosted) ? "helium-was-validated" : "";
-        ?>
-        <form id="<?php echo $this->_formCssId; ?>" novalidate class="helium <?php echo $sPosted; ?>"
-              method="<?php echo $this->options['method']; ?>"
-              action="<?php echo htmlspecialchars($this->options['action']); ?>"
-            <?php if (true === $this->options['useEnctypeMultiformData']): ?>
-                enctype="multipart/form-data"
-            <?php endif; ?>
-        >
-            <?php
-            }
-
-
-            /**
-             * Prints the closing form tag.
-             */
-            public function printFormTagClosing()
-            {
-            ?>
-        </form>
+public function printFormTagOpening()
+{
+    $isPosted = $this->_chloroform["isPosted"];
+    $sPosted = (true === $isPosted) ? "helium-was-validated" : "";
+    ?>
+    <form id="<?php echo $this->_formCssId; ?>" novalidate class="helium <?php echo $sPosted; ?> cfi-form"
+          data-cfi-id="<?php echo htmlspecialchars($this->_chloroform['id']); ?>"
+          method="<?php echo $this->options['method']; ?>"
+          action="<?php echo htmlspecialchars($this->options['action']); ?>"
+        <?php if (true === $this->options['useEnctypeMultiformData']): ?>
+            enctype="multipart/form-data"
+        <?php endif; ?>
+    >
         <?php
-    }
+        }
+
+
+        /**
+         * Prints the closing form tag.
+         */
+        public function printFormTagClosing()
+        {
+        ?>
+    </form>
+    <?php
+}
 
 
 
@@ -325,6 +327,14 @@ class HeliumRenderer implements ChloroformRendererInterface
     public function printNotifications(array $notifications)
     {
         foreach ($notifications as $notification) {
+
+
+            if ($notification instanceof FormNotificationInterface) {
+                $notification = [
+                    "type" => $notification->getType(),
+                    "message" => $notification->getMessage(),
+                ];
+            }
 
             $type = $notification['type'];
             switch ($type) {
@@ -474,7 +484,7 @@ class HeliumRenderer implements ChloroformRendererInterface
                 break;
             default:
                 if (true === $this->options['strict']) {
-                    throw new ChloroformHeliumRendererException("Don't know how to handle this class name: $className (for fieldId=$id)");
+                    throw new ChloroformHeliumRendererException("Don't know how to handle this class name: $className (for fieldId=" . $field['id'] . ")");
                 }
                 break;
         }
@@ -515,7 +525,7 @@ class HeliumRenderer implements ChloroformRendererInterface
 
 
         ?>
-        <div class="field form-group">
+        <div class="field form-group cfi-control" data-cfi-id="<?php echo htmlspecialchars($field['id']); ?>">
             <?php $this->printFieldLabel($field); ?>
             <textarea
                     data-main="<?php echo $field['id']; ?>"
@@ -568,10 +578,14 @@ class HeliumRenderer implements ChloroformRendererInterface
 
         $attr['id'] = $cssId;
 
+
         ?>
-        <input type="hidden"
-               name="<?php echo $field['htmlName']; ?>"
-               value="<?php echo htmlspecialchars($field['value']); ?>"
+        <input
+                class="cfi-control"
+                data-cfi-id="<?php echo htmlspecialchars($field['id']); ?>"
+                type="hidden"
+                name="<?php echo $field['htmlName']; ?>"
+                value="<?php echo htmlspecialchars($field['value']); ?>"
             <?php echo StringTool::htmlAttributes($attr); ?>
         />
         <?php
@@ -589,7 +603,8 @@ class HeliumRenderer implements ChloroformRendererInterface
     public function printCSRFField(array $field)
     {
         ?>
-        <input type="hidden" name="<?php echo $field['htmlName']; ?>"
+        <input class="cfi-control" data-cfi-id="<?php echo htmlspecialchars($field['id']); ?>" type="hidden"
+               name="<?php echo $field['htmlName']; ?>"
                value="<?php echo htmlspecialchars($field['value']); ?>"/>
         <?php
     }
@@ -669,7 +684,8 @@ class HeliumRenderer implements ChloroformRendererInterface
 
 
         ?>
-        <div class="field form-group" id="<?php echo $cssId; ?>">
+        <div class="field form-group cfi-control" id="<?php echo $cssId; ?>"
+             data-cfi-id="<?php echo htmlspecialchars($field['id']); ?>">
             <?php $this->printFieldLabel($field); ?>
             <div class="form-inline d-sm-flex">
                 <div>
@@ -730,9 +746,8 @@ class HeliumRenderer implements ChloroformRendererInterface
             $sClass = "helium-is-invalid";
         }
 
-
         $value = (string)$field['value'];
-        $useSecond = $field['useSecond']?? true;
+        $useSecond = $field['useSecond'] ?? true;
         $tempName = "_" . $field['htmlName'];
 
 
@@ -756,7 +771,7 @@ class HeliumRenderer implements ChloroformRendererInterface
         $second = (int)$second;
 
         ?>
-        <div class="field form-group">
+        <div class="field form-group cfi-control" data-cfi-id="<?php echo htmlspecialchars($field['id']); ?>">
             <?php $this->printFieldLabel($field); ?>
 
             <div class="mb-3">
@@ -829,6 +844,7 @@ class HeliumRenderer implements ChloroformRendererInterface
 
 
         $multiple = $field['multiple'] ?? false;
+        $size = $field['size'] ?? null;
         $items = $field['items'];
         $useOptGroup = false;
         if (count($items) > 0) {
@@ -845,9 +861,8 @@ class HeliumRenderer implements ChloroformRendererInterface
         $fieldValueIsArray = is_array($field['value']);
 
 
-
         ?>
-        <div class="field form-group">
+        <div class="field form-group cfi-control" data-cfi-id="<?php echo htmlspecialchars($field['id']); ?>">
 
 
             <?php $this->printFieldLabel($field); ?>
@@ -862,18 +877,20 @@ class HeliumRenderer implements ChloroformRendererInterface
                 <?php if (true === $hasHint): ?>
                     aria-describedby="<?php echo $hintId; ?>"
                 <?php endif; ?>
+                <?php if (null !== $size): ?>
+                    size="<?php echo htmlspecialchars($size); ?>"
+                <?php endif; ?>
             >
 
 
                 <?php if (false === $useOptGroup): ?>
                     <?php foreach ($field['items'] as $value => $label):
                         $value = (string)$value;
-                    if(false===$fieldValueIsArray){
-                        $sSel = ($fieldValue === $value) ? ' selected="selected"' : '';
-                    }
-                    else{
-                        $sSel = in_array($value, $fieldValue, true)?' selected="selected"' : '';
-                    }
+                        if (false === $fieldValueIsArray) {
+                            $sSel = ($fieldValue === $value) ? ' selected="selected"' : '';
+                        } else {
+                            $sSel = in_array($value, $fieldValue, true) ? ' selected="selected"' : '';
+                        }
                         ?>
                         <option <?php echo $sSel; ?>
                                 value="<?php echo htmlspecialchars($value); ?>"><?php echo $label; ?></option>
@@ -882,13 +899,12 @@ class HeliumRenderer implements ChloroformRendererInterface
                     <?php foreach ($field['items'] as $groupLabel => $fieldItems): ?>
                         <optgroup label="<?php echo htmlspecialchars($groupLabel); ?>">
                             <?php foreach ($fieldItems as $value => $label):
-                                                 $value = (string)$value;
-                    if(false===$fieldValueIsArray){
-                        $sSel = ($fieldValue === $value) ? ' selected="selected"' : '';
-                    }
-                    else{
-                        $sSel = in_array($value, $fieldValue, true)?' selected="selected"' : '';
-                    }
+                                $value = (string)$value;
+                                if (false === $fieldValueIsArray) {
+                                    $sSel = ($fieldValue === $value) ? ' selected="selected"' : '';
+                                } else {
+                                    $sSel = in_array($value, $fieldValue, true) ? ' selected="selected"' : '';
+                                }
                                 ?>
                                 <option <?php echo $sSel; ?>
                                         value="<?php echo htmlspecialchars($value); ?>"><?php echo $label; ?></option>
@@ -933,11 +949,12 @@ class HeliumRenderer implements ChloroformRendererInterface
         if ($field['errors']) {
             $sClass = "helium-is-invalid";
         }
-        $htmlAttr = $field['htmlAttr']??[];
+        $htmlAttr = $field['htmlAttr'] ?? [];
+        $fieldValue = $field['value'];
 
 
         ?>
-        <div class="field form-group">
+        <div class="field form-group cfi-control" data-cfi-id="<?php echo htmlspecialchars($field['id']); ?>">
             <?php $this->printFieldLabel($field); ?>
 
             <!--            <div class="field-inline-errors"></div>-->
@@ -955,9 +972,16 @@ class HeliumRenderer implements ChloroformRendererInterface
                                 <?php if (true === $hasHint): ?>
                                     aria-describedby="<?php echo $hintId; ?>"
                                 <?php endif; ?>
-                                <?php if($htmlAttr): ?>
-                                <?php echo StringTool::htmlAttributes($htmlAttr); ?>
+                                <?php if ($htmlAttr): ?>
+                                    <?php echo StringTool::htmlAttributes($htmlAttr); ?>
                                 <?php endif; ?>
+
+                                <?php if (is_array($fieldValue)): ?>
+                                    <?php if (in_array($value, $fieldValue, true)): ?>
+                                        checked="checked"
+                                    <?php endif; ?>
+                                <?php endif; ?>
+
                             >
                             <?php echo $label; ?>
                         </label>
@@ -989,7 +1013,7 @@ class HeliumRenderer implements ChloroformRendererInterface
             $sClass = "helium-is-invalid";
         }
         ?>
-        <div class="field form-group">
+        <div class="field form-group cfi-control" data-cfi-id="<?php echo htmlspecialchars($field['id']); ?>">
             <?php $this->printFieldLabel($field); ?>
             <!--            <div class="field-inline-errors"></div>-->
             <div class="field-options">
@@ -1056,16 +1080,17 @@ class HeliumRenderer implements ChloroformRendererInterface
     {
         $decorationType = $field['deco_type'];
         $decorationOptions = $field['deco_options'];
-        switch ($decorationType){
-                    case "hr":
-                        $cssClass =$decorationOptions["cssClass"]?? 'my-5 border border-secondary';
-                        ?>
-                        <hr class="<?php echo htmlspecialchars($cssClass); ?>">
-                        <?php
-                    break;
-                    default:
-                    break;
-                }
+        switch ($decorationType) {
+            case "hr":
+                $cssClass = $decorationOptions["cssClass"] ?? 'my-5 border border-secondary';
+                ?>
+                <hr class="<?php echo htmlspecialchars($cssClass); ?> cfi-control"
+                    data-cfi-id="<?php echo htmlspecialchars($field['id']); ?>">
+                <?php
+                break;
+            default:
+                break;
+        }
     }
 
 
@@ -1099,12 +1124,12 @@ class HeliumRenderer implements ChloroformRendererInterface
         }
         ?>
         <script>
-        document.addEventListener("DOMContentLoaded", function(event) {
-            $(document).ready(function () {
-                var formHandler = new HeliumFormHandler($('#<?php echo $cssId ?>'), <?php echo json_encode($fields); ?>, <?php echo json_encode($options); ?>);
-                formHandler.init();
+            document.addEventListener("DOMContentLoaded", function (event) {
+                $(document).ready(function () {
+                    var formHandler = new HeliumFormHandler($('#<?php echo $cssId ?>'), <?php echo json_encode($fields); ?>, <?php echo json_encode($options); ?>);
+                    formHandler.init();
+                });
             });
-        });
         </script>
         <?php
     }
@@ -1115,7 +1140,8 @@ class HeliumRenderer implements ChloroformRendererInterface
      * Prints some custom scripts if necessary.
      * @overrideMe
      */
-    public function printCustomScripts(){
+    public function printCustomScripts()
+    {
 
     }
 
@@ -1148,10 +1174,10 @@ class HeliumRenderer implements ChloroformRendererInterface
 
         $button = $field['button'] ?? null;
         $buttonPosition = $field['button_position'] ?? 'pre';
-
+        $htmlAttributes = $field["htmlAttributes"] ?? [];
 
         ?>
-        <div class="field form-group">
+        <div class="field form-group cfi-control" data-cfi-id="<?php echo htmlspecialchars($field['id']); ?>">
             <?php $this->printFieldLabel($field); ?>
 
 
@@ -1181,6 +1207,9 @@ class HeliumRenderer implements ChloroformRendererInterface
                     <?php if (true === $hasHint): ?>
                         aria-describedby="<?php echo $hintId; ?>"
                     <?php endif; ?>
+                    <?php foreach ($htmlAttributes as $k => $v): ?>
+                        <?php echo $k . '="' . htmlspecialchars($v) . '"'; ?>
+                    <?php endforeach; ?>
                 />
                 <?php if (null !== $icon || null !== $button): ?>
                 <?php if (null !== $icon && 'post' === $iconPosition): ?>
@@ -1277,14 +1306,14 @@ class HeliumRenderer implements ChloroformRendererInterface
     }
 
 
-
     /**
-    * Prints the js code of the form, if any.
-    *
-    * @param string|null $jsCode
-    */
-    protected function printJsCode(?string $jsCode){
-        if($jsCode){
+     * Prints the js code of the form, if any.
+     *
+     * @param string|null $jsCode
+     */
+    protected function printJsCode(?string $jsCode)
+    {
+        if ($jsCode) {
             ?>
             <script><?php echo $jsCode; ?></script>
             <?php

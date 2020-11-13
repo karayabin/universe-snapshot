@@ -4,7 +4,7 @@
 
 The LightAjaxHandlerController class
 ================
-2019-09-19 --> 2020-07-06
+2019-09-19 --> 2020-08-21
 
 
 

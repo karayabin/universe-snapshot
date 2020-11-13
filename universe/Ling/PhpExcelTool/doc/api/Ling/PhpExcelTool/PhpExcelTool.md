@@ -4,7 +4,7 @@
 
 The PhpExcelTool class
 ================
-2019-10-08 --> 2019-10-08
+2019-10-08 --> 2020-11-06
 
 
 
@@ -26,14 +26,14 @@ class <span class="pl-k">PhpExcelTool</span>  {
 
 - Methods
     - public static [getAllAsRows](https://github.com/lingtalfi/PhpExcelTool/blob/master/doc/api/Ling/PhpExcelTool/PhpExcelTool/getAllAsRows.md)(string $file) : array
-    - public static [getColumnValues](https://github.com/lingtalfi/PhpExcelTool/blob/master/doc/api/Ling/PhpExcelTool/PhpExcelTool/getColumnValues.md)(?$columnName, string $file) : array
-    - public static [getRowValues](https://github.com/lingtalfi/PhpExcelTool/blob/master/doc/api/Ling/PhpExcelTool/PhpExcelTool/getRowValues.md)(?$rowName, string $file, array $options = []) : array
-    - public static [getColumnsAsRows](https://github.com/lingtalfi/PhpExcelTool/blob/master/doc/api/Ling/PhpExcelTool/PhpExcelTool/getColumnsAsRows.md)(array $columnName2Keys, string $file, int $skipNLines = 0) : array
-    - public static [createExcelFileByData](https://github.com/lingtalfi/PhpExcelTool/blob/master/doc/api/Ling/PhpExcelTool/PhpExcelTool/createExcelFileByData.md)(?$file, array $data, array $options = []) : false | mixed
-    - public static [file2Table](https://github.com/lingtalfi/PhpExcelTool/blob/master/doc/api/Ling/PhpExcelTool/PhpExcelTool/file2Table.md)(string $file, array $options = []) : void
+    - public static [getColumnValues](https://github.com/lingtalfi/PhpExcelTool/blob/master/doc/api/Ling/PhpExcelTool/PhpExcelTool/getColumnValues.md)($columnName, string $file) : array
+    - public static [getRowValues](https://github.com/lingtalfi/PhpExcelTool/blob/master/doc/api/Ling/PhpExcelTool/PhpExcelTool/getRowValues.md)($rowName, string $file, ?array $options = []) : array
+    - public static [getColumnsAsRows](https://github.com/lingtalfi/PhpExcelTool/blob/master/doc/api/Ling/PhpExcelTool/PhpExcelTool/getColumnsAsRows.md)(array $columnName2Keys, string $file, ?int $skipNLines = 0) : array
+    - public static [createExcelFileByData](https://github.com/lingtalfi/PhpExcelTool/blob/master/doc/api/Ling/PhpExcelTool/PhpExcelTool/createExcelFileByData.md)($file, array $data, ?array $options = []) : false | mixed
+    - public static [file2Table](https://github.com/lingtalfi/PhpExcelTool/blob/master/doc/api/Ling/PhpExcelTool/PhpExcelTool/file2Table.md)(string $file, ?array $options = []) : void
     - public static [table2File](https://github.com/lingtalfi/PhpExcelTool/blob/master/doc/api/Ling/PhpExcelTool/PhpExcelTool/table2File.md)(string $table, string $file) : false | mixed
     - private static [init](https://github.com/lingtalfi/PhpExcelTool/blob/master/doc/api/Ling/PhpExcelTool/PhpExcelTool/init.md)() : void
-    - private static [getFirstRow](https://github.com/lingtalfi/PhpExcelTool/blob/master/doc/api/Ling/PhpExcelTool/PhpExcelTool/getFirstRow.md)(?$file) : array
+    - private static [getFirstRow](https://github.com/lingtalfi/PhpExcelTool/blob/master/doc/api/Ling/PhpExcelTool/PhpExcelTool/getFirstRow.md)($file) : array
 
 }
 

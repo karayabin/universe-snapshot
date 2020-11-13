@@ -46,7 +46,7 @@ Returns [Where](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/ap
 
 Source Code
 ===========
-See the source code for method [Where::openingParenthesis](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/Util/Where.php#L521-L528)
+See the source code for method [Where::openingParenthesis](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/Util/Where.php#L530-L537)
 
 
 See Also

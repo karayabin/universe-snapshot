@@ -80,7 +80,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [Where::operator](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/Util/Where.php#L467-L481)
+See the source code for method [Where::operator](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/Util/Where.php#L476-L490)
 
 
 See Also

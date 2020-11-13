@@ -46,7 +46,7 @@ Returns mixed.
 
 Source Code
 ===========
-See the source code for method [DateTimeField::getValue](https://github.com/lingtalfi/Chloroform/blob/master/Field/DateTimeField.php#L60-L63)
+See the source code for method [DateTimeField::getValue](https://github.com/lingtalfi/Chloroform/blob/master/Field/DateTimeField.php#L70-L73)
 
 
 See Also
@@ -54,5 +54,5 @@ See Also
 
 The [DateTimeField](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/DateTimeField.md) class.
 
-Previous method: [create](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/DateTimeField/create.md)<br>
+Previous method: [create](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/DateTimeField/create.md)<br>Next method: [getFormattedValue](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/DateTimeField/getFormattedValue.md)<br>
 

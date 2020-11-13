@@ -4,7 +4,7 @@
 
 The CustomTaskScheduleApiInterface class
 ================
-2020-06-30 --> 2020-07-27
+2020-06-30 --> 2020-08-14
 
 
 
@@ -36,7 +36,8 @@ abstract class <span class="pl-k">CustomTaskScheduleApiInterface</span> implemen
     - abstract public [TaskScheduleApiInterface::getTaskSchedulesColumns](https://github.com/lingtalfi/Light_TaskScheduler/blob/master/doc/api/Ling/Light_TaskScheduler/Api/Generated/Interfaces/TaskScheduleApiInterface/getTaskSchedulesColumns.md)($columns, $where, ?array $markers = []) : array
     - abstract public [TaskScheduleApiInterface::getTaskSchedulesKey2Value](https://github.com/lingtalfi/Light_TaskScheduler/blob/master/doc/api/Ling/Light_TaskScheduler/Api/Generated/Interfaces/TaskScheduleApiInterface/getTaskSchedulesKey2Value.md)(string $key, string $value, $where, ?array $markers = []) : array
     - abstract public [TaskScheduleApiInterface::getAllIds](https://github.com/lingtalfi/Light_TaskScheduler/blob/master/doc/api/Ling/Light_TaskScheduler/Api/Generated/Interfaces/TaskScheduleApiInterface/getAllIds.md)() : array
-    - abstract public [TaskScheduleApiInterface::updateTaskScheduleById](https://github.com/lingtalfi/Light_TaskScheduler/blob/master/doc/api/Ling/Light_TaskScheduler/Api/Generated/Interfaces/TaskScheduleApiInterface/updateTaskScheduleById.md)(int $id, array $taskSchedule) : void
+    - abstract public [TaskScheduleApiInterface::updateTaskScheduleById](https://github.com/lingtalfi/Light_TaskScheduler/blob/master/doc/api/Ling/Light_TaskScheduler/Api/Generated/Interfaces/TaskScheduleApiInterface/updateTaskScheduleById.md)(int $id, array $taskSchedule, ?array $extraWhere = [], ?array $markers = []) : void
+    - abstract public [TaskScheduleApiInterface::updateTaskSchedule](https://github.com/lingtalfi/Light_TaskScheduler/blob/master/doc/api/Ling/Light_TaskScheduler/Api/Generated/Interfaces/TaskScheduleApiInterface/updateTaskSchedule.md)(array $taskSchedule, ?$where = null, ?array $markers = []) : void
     - abstract public [TaskScheduleApiInterface::delete](https://github.com/lingtalfi/Light_TaskScheduler/blob/master/doc/api/Ling/Light_TaskScheduler/Api/Generated/Interfaces/TaskScheduleApiInterface/delete.md)(?$where = null, ?array $markers = []) : false | int
     - abstract public [TaskScheduleApiInterface::deleteTaskScheduleById](https://github.com/lingtalfi/Light_TaskScheduler/blob/master/doc/api/Ling/Light_TaskScheduler/Api/Generated/Interfaces/TaskScheduleApiInterface/deleteTaskScheduleById.md)(int $id) : void
     - abstract public [TaskScheduleApiInterface::deleteTaskScheduleByIds](https://github.com/lingtalfi/Light_TaskScheduler/blob/master/doc/api/Ling/Light_TaskScheduler/Api/Generated/Interfaces/TaskScheduleApiInterface/deleteTaskScheduleByIds.md)(array $ids) : void
@@ -63,6 +64,7 @@ Methods
 - [TaskScheduleApiInterface::getTaskSchedulesKey2Value](https://github.com/lingtalfi/Light_TaskScheduler/blob/master/doc/api/Ling/Light_TaskScheduler/Api/Generated/Interfaces/TaskScheduleApiInterface/getTaskSchedulesKey2Value.md) &ndash; Returns an array of $key => $value from the taskSchedule rows identified by the given [where conditions](https://github.com/lingtalfi/SimplePdoWrapper#the-where-conditions).
 - [TaskScheduleApiInterface::getAllIds](https://github.com/lingtalfi/Light_TaskScheduler/blob/master/doc/api/Ling/Light_TaskScheduler/Api/Generated/Interfaces/TaskScheduleApiInterface/getAllIds.md) &ndash; Returns an array of all taskSchedule ids.
 - [TaskScheduleApiInterface::updateTaskScheduleById](https://github.com/lingtalfi/Light_TaskScheduler/blob/master/doc/api/Ling/Light_TaskScheduler/Api/Generated/Interfaces/TaskScheduleApiInterface/updateTaskScheduleById.md) &ndash; Updates the taskSchedule row identified by the given id.
+- [TaskScheduleApiInterface::updateTaskSchedule](https://github.com/lingtalfi/Light_TaskScheduler/blob/master/doc/api/Ling/Light_TaskScheduler/Api/Generated/Interfaces/TaskScheduleApiInterface/updateTaskSchedule.md) &ndash; Updates the taskSchedule row.
 - [TaskScheduleApiInterface::delete](https://github.com/lingtalfi/Light_TaskScheduler/blob/master/doc/api/Ling/Light_TaskScheduler/Api/Generated/Interfaces/TaskScheduleApiInterface/delete.md) &ndash; Deletes the taskSchedule rows matching the given where conditions, and returns the number of deleted rows.
 - [TaskScheduleApiInterface::deleteTaskScheduleById](https://github.com/lingtalfi/Light_TaskScheduler/blob/master/doc/api/Ling/Light_TaskScheduler/Api/Generated/Interfaces/TaskScheduleApiInterface/deleteTaskScheduleById.md) &ndash; Deletes the taskSchedule identified by the given id.
 - [TaskScheduleApiInterface::deleteTaskScheduleByIds](https://github.com/lingtalfi/Light_TaskScheduler/blob/master/doc/api/Ling/Light_TaskScheduler/Api/Generated/Interfaces/TaskScheduleApiInterface/deleteTaskScheduleByIds.md) &ndash; Deletes the taskSchedule rows identified by the given ids.

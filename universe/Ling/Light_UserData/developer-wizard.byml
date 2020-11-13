@@ -1,0 +1,8 @@
+general: 
+    table_prefix: luda
+
+db_synchronizer:
+    scope:
+        - luda_resource
+        - luda_resource_has_tag
+        - luda_tag

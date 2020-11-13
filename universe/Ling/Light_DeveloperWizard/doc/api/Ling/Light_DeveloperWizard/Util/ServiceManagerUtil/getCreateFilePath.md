@@ -47,7 +47,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [ServiceManagerUtil::getCreateFilePath](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/Util/ServiceManagerUtil.php#L366-L369)
+See the source code for method [ServiceManagerUtil::getCreateFilePath](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/Util/ServiceManagerUtil.php#L368-L371)
 
 
 See Also

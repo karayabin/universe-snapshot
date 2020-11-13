@@ -4,7 +4,7 @@
 
 The LightRealistTool class
 ================
-2019-08-12 --> 2020-07-21
+2019-08-12 --> 2020-11-13
 
 
 
@@ -58,4 +58,4 @@ See the source code of [Ling\Light_Realist\Tool\LightRealistTool](https://github
 
 SeeAlso
 ==============
-Previous class: [LightRealistService](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Service/LightRealistService.md)<br>
+Previous class: [LightRealistService](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Service/LightRealistService.md)<br>Next class: [RealistRowsPrinterUtil](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Util/RealistRowsPrinterUtil.md)<br>

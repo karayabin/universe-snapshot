@@ -1,6 +1,6 @@
 Light_Kit_Admin_UserDatabase
 ===========
-2020-06-25
+2020-06-25 -> 2020-11-10
 
 
 This is a work in progress until version 1.
@@ -89,15 +89,6 @@ $controller_hub.methods_collection:
                         container: @container()
 
 
-$crud.methods_collection:
-    -
-        method: registerHandler
-        args:
-            pluginId: Light_Kit_Admin_UserDatabase
-            handler:
-                instance: Ling\Light_Kit_Admin\Crud\CrudRequestHandler\LightKitAdminCrudRequestHandler
-
-
 $easy_route.methods_collection:
     -
         method: registerBundleFile
@@ -131,49 +122,6 @@ $plugin_installer.methods_collection:
             plugin: Light_Kit_Admin_UserDatabase
             installer: @service(kit_admin_user_database)
 
-$realform.methods_collection:
-    -
-        method: registerFormHandler
-        args:
-            plugin: Light_Kit_Admin_UserDatabase
-            handler:
-                instance: Ling\Light_Kit_Admin\Realform\Handler\LightKitAdminRealformHandler
-                methods:
-                    setConfDir:
-                        dir: ${app_dir}/config/data/Light_Kit_Admin_UserDatabase/Light_Realform
-
-
-$realist.methods_collection:
-    -
-        method: registerListRenderer
-        args:
-            identifier: Light_Kit_Admin_UserDatabase
-            renderer:
-                instance: Ling\Light_Kit_Admin\Realist\Rendering\LightKitAdminRealistListRenderer
-    -
-        method: registerRealistRowsRenderer
-        args:
-            identifier: Light_Kit_Admin_UserDatabase
-            renderer:
-                instance: Ling\Light_Kit_Admin\Realist\Rendering\LightKitAdminRealistRowsRenderer
-    -
-        method: registerActionHandler
-        args:
-            renderer:
-                instance: Ling\Light_Kit_Admin\Realist\ActionHandler\LightKitAdminRealistActionHandler
-    -
-        method: registerListActionHandler
-        args:
-            plugin: Light_Kit_Admin_UserDatabase
-            renderer:
-                instance: Ling\Light_Kit_Admin\Realist\ListActionHandler\LightKitAdminListActionHandler
-    -
-        method: registerListGeneralActionHandler
-        args:
-            plugin: Light_Kit_Admin_UserDatabase
-            renderer:
-                instance: Ling\Light_Kit_Admin\Realist\ListGeneralActionHandler\LightKitAdminListGeneralActionHandler
-
 
 $upload_gems.methods_collection:
     -
@@ -189,12 +137,35 @@ $upload_gems.methods_collection:
 
 
 
+
+
+
 ```
 
 
 
 History Log
 =============
+
+-- 0.5.1 -- 2020-11-10
+
+    - update api to acknowledge use of Light_Nugget, and new Light_UserData api
+    
+- 0.5.0 -- 2020-08-28
+
+    - acknowledge new Light_Crud api  
+    
+- 0.4.0 -- 2020-08-21
+
+    - update service to work with micro-permission3
+    
+- 0.3.0 -- 2020-08-07
+
+    - update LightKitAdminUserDatabaseService, now use realform late registration
+    
+- 0.2.0 -- 2020-08-07
+
+    - update LightKitAdminUserDatabaseService, now use realist late registration
 
 - 0.1.0 -- 2020-06-25
 

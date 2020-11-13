@@ -377,7 +377,14 @@ if ("undefined" === typeof window.OpenAdminTableHelper) {
                 this.executeModule("pagination");
 
             },
-            executeModule: function (moduleName) {
+
+            /**
+             * Available options are:
+             * - onSuccess: a callable to execute once the module has been executed.
+             *
+             *
+             */
+            executeModule: function (moduleName, options) {
                 var $this = this;
 
 
@@ -554,8 +561,8 @@ if ("undefined" === typeof window.OpenAdminTableHelper) {
                 var isCombinedSearch = false;
                 if (false !== neckFiltersData) {
                     if (
-                        false !== globalSearchData ||
-                        false !== advancedSearchData
+                        (false !== globalSearchData && null !== globalSearchData) ||
+                        (false !== advancedSearchData && null !== advancedSearchData)
                     ) {
                         isCombinedSearch = true;
                     }
@@ -610,7 +617,7 @@ if ("undefined" === typeof window.OpenAdminTableHelper) {
                     this.pushTags(tags, paginationData);
                 }
 
-                this.postTags(tags);
+                this.postTags(tags, options);
 
 
             },
@@ -621,7 +628,15 @@ if ("undefined" === typeof window.OpenAdminTableHelper) {
                     }
                 }
             },
-            postTags: function (tags) {
+
+            /**
+             * Available options are:
+             *
+             * - onSuccess: a success callable to executed once the tags have been sent.
+             *
+             *
+             */
+            postTags: function (tags, options) {
 
 
                 var $this = this;
@@ -683,11 +698,15 @@ if ("undefined" === typeof window.OpenAdminTableHelper) {
                         // update rows
                         var jRows = $this.jTable.find('tbody > tr');
                         var jNeckFilter = $this.containers.neck_filters;
+
+
                         jRows.each(function () {
                             if (jNeckFilter && false === jNeckFilter.is($(this))) {
                                 $(this).remove();
                             }
                         });
+
+
                         $this.jTable.append($(rows));
 
 
@@ -700,14 +719,20 @@ if ("undefined" === typeof window.OpenAdminTableHelper) {
 
                         if (jDebug) {
                             jDebug.empty();
-                            jDebug.append('<p><b style="color: red">Error: </b>' + data.error + '</p>');
+                            jDebug.append('<p><b style="color: #ff0000">Error: </b>' + data.error + '</p>');
                         }
 
                     } else {
                         $this.error("Unexpected response type: " + type);
                     }
                 }, "json").done(function () {
+
                     $this.options.on_request_after($this.jContainer);
+
+                    if (options && 'undefined' !== typeof options.onSuccess) {
+                        options.onSuccess();
+                    }
+
                 });
 
             },

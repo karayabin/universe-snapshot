@@ -4,7 +4,7 @@
 
 The LightUserDataResourceNotFoundException class
 ================
-2019-09-27 --> 2020-06-23
+2019-09-27 --> 2020-11-12
 
 
 
@@ -54,4 +54,4 @@ See the source code of [Ling\Light_UserData\Exception\LightUserDataResourceNotFo
 
 SeeAlso
 ==============
-Previous class: [LightUserDataFileManagerHandlerException](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Exception/LightUserDataFileManagerHandlerException.md)<br>Next class: [LightUserDataFileManagerHandler](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/FileManager/LightUserDataFileManagerHandler.md)<br>
+Previous class: [LightUserDataFileManagerHandlerException](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Exception/LightUserDataFileManagerHandlerException.md)<br>Next class: [LightUserDataDirectFileManagerHandler](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/FileManager/LightUserDataDirectFileManagerHandler.md)<br>

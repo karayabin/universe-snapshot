@@ -47,7 +47,7 @@ Returns bool.
 
 Source Code
 ===========
-See the source code for method [LightLingStandardServiceKitAdminPlugin::isInstalled](https://github.com/lingtalfi/Light_LingStandardService/blob/master/Service/LightLingStandardServiceKitAdminPlugin.php#L115-L139)
+See the source code for method [LightLingStandardServiceKitAdminPlugin::isInstalled](https://github.com/lingtalfi/Light_LingStandardService/blob/master/Service/LightLingStandardServiceKitAdminPlugin.php#L123-L147)
 
 
 See Also

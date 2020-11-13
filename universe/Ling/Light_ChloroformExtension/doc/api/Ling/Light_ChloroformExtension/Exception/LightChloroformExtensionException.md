@@ -4,7 +4,7 @@
 
 The LightChloroformExtensionException class
 ================
-2019-11-18 --> 2020-06-04
+2019-11-18 --> 2020-09-25
 
 
 
@@ -54,4 +54,4 @@ See the source code of [Ling\Light_ChloroformExtension\Exception\LightChloroform
 
 SeeAlso
 ==============
-Previous class: [LightChloroformExtensionAjaxHandler](https://github.com/lingtalfi/Light_ChloroformExtension/blob/master/doc/api/Ling/Light_ChloroformExtension/AjaxHandler/LightChloroformExtensionAjaxHandler.md)<br>Next class: [BaseTableListFieldConfigurationHandler](https://github.com/lingtalfi/Light_ChloroformExtension/blob/master/doc/api/Ling/Light_ChloroformExtension/Field/TableList/BaseTableListFieldConfigurationHandler.md)<br>
+Previous class: [LightChloroformExtensionAjaxHandler](https://github.com/lingtalfi/Light_ChloroformExtension/blob/master/doc/api/Ling/Light_ChloroformExtension/AjaxHandler/LightChloroformExtensionAjaxHandler.md)<br>Next class: [TableListService](https://github.com/lingtalfi/Light_ChloroformExtension/blob/master/doc/api/Ling/Light_ChloroformExtension/Field/TableList/TableListService.md)<br>

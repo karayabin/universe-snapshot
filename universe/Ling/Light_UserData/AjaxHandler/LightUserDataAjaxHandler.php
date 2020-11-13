@@ -23,7 +23,6 @@ class LightUserDataAjaxHandler extends BaseLightAjaxHandler
 //        a("OK HERE", __FILE__);
 
         $response = [];
-
         //--------------------------------------------
         // IMPLEMENTATION OF FILE MANAGER PROTOCOL
         //--------------------------------------------
@@ -33,7 +32,8 @@ class LightUserDataAjaxHandler extends BaseLightAjaxHandler
             case "delete":
             case "update":
             case "reset":
-                $response = $this->container->get("user_data")->handleFileManagerProtocol($action, $request);
+                $handler = $this->container->get("user_data")->getFileManagerHandler();
+                $response = $handler->handle($action, $request);
                 break;
             default:
                 $this->error("Unknown action \"$action\".");

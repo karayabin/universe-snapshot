@@ -4,7 +4,7 @@
 
 The MethodIngredient class
 ================
-2020-07-21 --> 2020-07-30
+2020-07-21 --> 2020-08-18
 
 
 
@@ -34,6 +34,7 @@ class <span class="pl-k">MethodIngredient</span> extends [BaseIngredient](https:
 
 - Methods
     - public [execute](https://github.com/lingtalfi/ClassCooker/blob/master/doc/api/Ling/ClassCooker/FryingPan/Ingredient/MethodIngredient/execute.md)() : void
+    - private static [compareMethodsContent](https://github.com/lingtalfi/ClassCooker/blob/master/doc/api/Ling/ClassCooker/FryingPan/Ingredient/MethodIngredient/compareMethodsContent.md)($methodA, $methodB) : bool
 
 - Inherited methods
     - public [BaseIngredient::__construct](https://github.com/lingtalfi/ClassCooker/blob/master/doc/api/Ling/ClassCooker/FryingPan/Ingredient/BaseIngredient/__construct.md)() : void
@@ -52,6 +53,7 @@ Methods
 ==============
 
 - [MethodIngredient::execute](https://github.com/lingtalfi/ClassCooker/blob/master/doc/api/Ling/ClassCooker/FryingPan/Ingredient/MethodIngredient/execute.md) &ndash; Executes the goal of the ingredient.
+- [MethodIngredient::compareMethodsContent](https://github.com/lingtalfi/ClassCooker/blob/master/doc/api/Ling/ClassCooker/FryingPan/Ingredient/MethodIngredient/compareMethodsContent.md) &ndash; Returns whether the content of methodA is the same as the content of methodB.
 - [BaseIngredient::__construct](https://github.com/lingtalfi/ClassCooker/blob/master/doc/api/Ling/ClassCooker/FryingPan/Ingredient/BaseIngredient/__construct.md) &ndash; Builds the BaseIngredient instance.
 - [BaseIngredient::create](https://github.com/lingtalfi/ClassCooker/blob/master/doc/api/Ling/ClassCooker/FryingPan/Ingredient/BaseIngredient/create.md) &ndash; Create a new instance and returns it.
 - [BaseIngredient::setFryingPan](https://github.com/lingtalfi/ClassCooker/blob/master/doc/api/Ling/ClassCooker/FryingPan/Ingredient/BaseIngredient/setFryingPan.md) &ndash; Attaches a frying pan instance to the ingredient, and returns itself for chaining.

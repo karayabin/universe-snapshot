@@ -125,6 +125,15 @@ class LightKitAdminGeneralBullsheeter implements LightBullsheeterInterface, Ligh
                             case "char(1)":
                                 $value = (string)rand(0, 1);
                                 break;
+                            case "tinyint(1)":
+                                $value = rand(0, 9);
+                                break;
+                            case "tinyint(2)":
+                                $value = rand(0, 99);
+                                break;
+                            case "tinyint(4)":
+                                $value = rand(0, 9999);
+                                break;
                             default:
                                 $simpleType = $simpleTypes[$col];
                                 switch ($simpleType) {
@@ -141,7 +150,6 @@ class LightKitAdminGeneralBullsheeter implements LightBullsheeterInterface, Ligh
                     $row[$col] = $value;
                 }
             }
-
 
             $db->insert($table, $row);
 

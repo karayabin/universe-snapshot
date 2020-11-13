@@ -158,6 +158,9 @@ class ChloroformDocBuilder
                 "iframe-signal system" => "https://github.com/lingtalfi/TheBar/blob/master/discussions/iframe-signal.md",
                 "chloroform array page" => "https://github.com/lingtalfi/Chloroform/blob/master/doc/pages/chloroform-array.md",
                 "chloroform array" => "https://github.com/lingtalfi/Chloroform/blob/master/doc/pages/chloroform-array.md",
+                "getFormattedValue section in the Chloroform conception notes" => $doc . "/pages/chloroform-discussion.md#the-getformattedvalue-method",
+                "getFormattedValue section of the Chloroform conception notes" => $doc . "/pages/chloroform-discussion.md#the-getformattedvalue-method",
+                "getFormattedValue concept in the chloroform conception notes" => $doc . "/pages/chloroform-discussion.md#the-getformattedvalue-method",
             ],
             /**
              * An array of external classes to url.

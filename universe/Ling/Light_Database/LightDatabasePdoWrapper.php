@@ -3,11 +3,12 @@
 
 namespace Ling\Light_Database;
 
+use Ling\CheapLogger\CheapLogger;
 use Ling\Light\Events\LightEvent;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
 use Ling\Light_Database\Exception\LightDatabaseException;
 use Ling\Light_Events\Service\LightEventsService;
-use Ling\Light_UserRowRestriction\Service\LightUserRowRestrictionService;
+use Ling\Light_Logger\LightLoggerService;
 use Ling\SimplePdoWrapper\SimplePdoWrapper;
 
 /**
@@ -32,9 +33,6 @@ class LightDatabasePdoWrapper extends SimplePdoWrapper
     protected $container;
 
 
-
-
-
     /**
      * Builds the LightDatabasePdoWrapper instance.
      */
@@ -44,9 +42,6 @@ class LightDatabasePdoWrapper extends SimplePdoWrapper
         $this->pdoException = null;
         $this->container = null;
     }
-
-
-
 
 
     /**
@@ -162,133 +157,6 @@ class LightDatabasePdoWrapper extends SimplePdoWrapper
 
 
     //--------------------------------------------
-    // ROW RESTRICTION PROTECTED SET
-    //--------------------------------------------
-    /**
-     * Same as insert method, but triggers @page(the user row restriction checking) before hand (if available).
-     *
-     * @param $table
-     * @param array $fields
-     * @param array $options
-     * @return false|string
-     * @throws \Exception
-     */
-    public function pinsert($table, array $fields = [], array $options = [])
-    {
-        /**
-         * @var $urr LightUserRowRestrictionService
-         */
-        $urr = $this->container->get("user_row_restriction");
-        $urr->checkRestrictions("insert", $table, $fields, $options);
-        return parent::insert($table, $fields, $options);
-    }
-
-
-    /**
-     * Same as replace method, but triggers @page(the user row restriction checking) before hand (if available).
-     *
-     * @param $table
-     * @param array $fields
-     * @param array $options
-     * @return false|string
-     * @throws \Exception
-     */
-    public function preplace($table, array $fields = [], array $options = [])
-    {
-        /**
-         * @var $urr LightUserRowRestrictionService
-         */
-        $urr = $this->container->get("user_row_restriction");
-        $urr->checkRestrictions("replace", $table, $fields, $options);
-        return parent::replace($table, $fields, $options);
-    }
-
-
-    /**
-     * Same as update method, but triggers @page(the user row restriction checking) before hand (if available).
-     *
-     * @param $table
-     * @param array $fields
-     * @param null $whereConds
-     * @param array $markers
-     * @return bool
-     * @throws \Exception
-     */
-    public function pupdate($table, array $fields, $whereConds = null, array $markers = [])
-    {
-        /**
-         * @var $urr LightUserRowRestrictionService
-         */
-        $urr = $this->container->get("user_row_restriction");
-        $urr->checkRestrictions("update", $table, $fields, $whereConds, $markers);
-        return parent::update($table, $fields, $whereConds, $markers);
-    }
-
-
-    /**
-     *
-     * Same as delete method, but triggers @page(the user row restriction checking) before hand (if available).
-     *
-     * @param $table
-     * @param null $whereConds
-     * @param array $markers
-     * @return false|int
-     * @throws \Exception
-     */
-    public function pdelete($table, $whereConds = null, $markers = [])
-    {
-        /**
-         * @var $urr LightUserRowRestrictionService
-         */
-        $urr = $this->container->get("user_row_restriction");
-        $urr->checkRestrictions("delete", $table, $whereConds, $markers);
-        return parent::delete($table, $whereConds, $markers);
-    }
-
-
-    /**
-     * Same as fetch method, but triggers @page(the user row restriction checking) before hand (if available).
-     *
-     * @param $query
-     * @param array $markers
-     * @param null $fetchStyle
-     * @return array|false
-     * @throws \Exception
-     */
-    public function pfetch($query, array $markers = [], $fetchStyle = null)
-    {
-        /**
-         * @var $urr LightUserRowRestrictionService
-         */
-        $urr = $this->container->get("user_row_restriction");
-        $urr->checkRestrictions("fetch", $query, $markers, $fetchStyle);
-        return parent::fetch($query, $markers, $fetchStyle);
-    }
-
-
-    /**
-     *
-     * Same as fetchAll method, but triggers @page(the user row restriction checking) before hand (if available).
-     *
-     * @param $query
-     * @param array $markers
-     * @param null $fetchStyle
-     * @param null $fetchArg
-     * @param array $ctorArgs
-     * @return array|false
-     * @throws \Exception
-     */
-    public function pfetchAll($query, array $markers = [], $fetchStyle = null, $fetchArg = null, array $ctorArgs = [])
-    {
-        /**
-         * @var $urr LightUserRowRestrictionService
-         */
-        $urr = $this->container->get("user_row_restriction");
-        $urr->checkRestrictions("fetchAll", $query, $markers, $fetchStyle, $fetchArg, $ctorArgs);
-        return parent::fetchAll($query, $markers, $fetchStyle, $fetchArg, $ctorArgs);
-    }
-
-    //--------------------------------------------
     //
     //--------------------------------------------
     /**
@@ -337,4 +205,8 @@ class LightDatabasePdoWrapper extends SimplePdoWrapper
             ]);
         $dispatcher->dispatch($eventName, $event);
     }
+
+
+
+
 }

@@ -4,7 +4,7 @@
 
 The LoopLabFooterWithContactUseButtonWidget class
 ================
-2019-04-26 --> 2020-06-04
+2019-04-26 --> 2020-08-10
 
 
 

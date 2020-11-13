@@ -11,6 +11,37 @@ namespace Ling\Light\Http;
 class HttpRedirectResponse extends HttpResponse
 {
 
+    /**
+     * The absolute url to redirect the user to.
+     *
+     * @var string
+     */
+    protected $url;
+
+
+    /**
+     * Builds the HttpRedirectResponse instance.
+     *
+     * @param string $body
+     * @param int $code
+     */
+    public function __construct($body = "", $code = 200)
+    {
+        parent::__construct($body, 301);
+        $this->url = null;
+    }
+
+    /**
+     * Sets the url.
+     *
+     * @param string $url
+     */
+    public function setUrl(string $url)
+    {
+        $this->url = $url;
+        $this->getBody()->append($this->getRedirectBody());
+    }
+
 
     /**
      * Creates and returns the http redirect response instance.
@@ -20,6 +51,27 @@ class HttpRedirectResponse extends HttpResponse
      */
     public static function create(string $url)
     {
+        $o = new static('', 301);
+        $o->setUrl($url);
+        return $o;
+    }
+
+
+
+
+
+
+
+
+    //--------------------------------------------
+    //
+    //--------------------------------------------
+    /**
+     * Returns the body of the redirect page.
+     */
+    private function getRedirectBody(): string
+    {
+        $url = $this->url;
 
         $body = <<<EEE
             
@@ -35,7 +87,7 @@ class HttpRedirectResponse extends HttpResponse
     </body>
 </html>            
 EEE;
-
-        return new static($body, 301);
+        return $body;
     }
+
 }

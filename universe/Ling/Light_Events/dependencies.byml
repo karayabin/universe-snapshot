@@ -1,6 +1,9 @@
 dependencies: 
     Ling: 
+        - BabyYaml
         - Bat
+        - CliTools
+        - DirScanner
         - Light
         - Light_Logger
     

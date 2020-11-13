@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [FryingPan::setOptions](https://github.com/lingtalfi/ClassCooker/blob/master/FryingPan/FryingPan.php#L107-L111)
+See the source code for method [FryingPan::setOptions](https://github.com/lingtalfi/ClassCooker/blob/master/FryingPan/FryingPan.php#L118-L122)
 
 
 See Also
@@ -57,5 +57,5 @@ See Also
 
 The [FryingPan](https://github.com/lingtalfi/ClassCooker/blob/master/doc/api/Ling/ClassCooker/FryingPan/FryingPan.md) class.
 
-Previous method: [setFile](https://github.com/lingtalfi/ClassCooker/blob/master/doc/api/Ling/ClassCooker/FryingPan/FryingPan/setFile.md)<br>Next method: [addIngredient](https://github.com/lingtalfi/ClassCooker/blob/master/doc/api/Ling/ClassCooker/FryingPan/FryingPan/addIngredient.md)<br>
+Previous method: [getFile](https://github.com/lingtalfi/ClassCooker/blob/master/doc/api/Ling/ClassCooker/FryingPan/FryingPan/getFile.md)<br>Next method: [addIngredient](https://github.com/lingtalfi/ClassCooker/blob/master/doc/api/Ling/ClassCooker/FryingPan/FryingPan/addIngredient.md)<br>
 

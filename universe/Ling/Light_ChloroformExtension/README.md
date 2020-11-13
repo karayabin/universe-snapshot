@@ -1,6 +1,6 @@
 Light_ChloroformExtension
 ===========
-2019-11-18 -> 2020-06-04
+2019-11-18 -> 2020-09-28
 
 
 
@@ -81,6 +81,34 @@ Related
 History Log
 =============
 
+-- 1.6.6 -- 2020-09-25
+
+    - checkpoint commit 
+    
+- 1.6.5 -- 2020-09-25
+
+    - update TableListField, now autocomplete also works with multiplier trick 
+    
+- 1.6.4 -- 2020-09-18
+
+    - implementation of form multiplier trick 
+    
+- 1.6.3 -- 2020-09-14
+
+    - adapt TableListService->checkSecurity to latest Light_Nugget changes 
+    
+- 1.6.2 -- 2020-09-14
+
+    - adapt TableListService->checkSecurity to latest Light_Nugget changes 
+    
+- 1.6.1 -- 2020-09-14
+
+    - update internal TableListService->checkSecurity method, now uses the checkSecurity method from Light_Nugget
+    
+- 1.6.0 -- 2020-09-14
+
+    - new TableListField api 
+    
 - 1.5.0 -- 2020-06-04
 
     - adapt for new Light_AjaxHandler api 

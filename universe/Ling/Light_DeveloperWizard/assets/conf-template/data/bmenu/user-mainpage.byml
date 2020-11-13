@@ -1,0 +1,12 @@
+-
+    id: kit_admin_xxx-usermainpage
+    icon: fas fa-asterisk
+    text: pluginHuman
+    route: lch_route-hub
+    route_url_params:
+        plugin: Light_Kit_Admin_XXX
+        controller: Custom/LightKitAdminXXXUserMainPageController
+
+    _right: Light_Kit_Admin.user
+    children: []
+

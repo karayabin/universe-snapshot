@@ -54,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [ResourceApiInterface::deleteResourceByResourceIdentifiers](https://github.com/lingtalfi/Light_UserData/blob/master/Api/Generated/Interfaces/ResourceApiInterface.php#L250-L250)
+See the source code for method [ResourceApiInterface::deleteResourceByResourceIdentifiers](https://github.com/lingtalfi/Light_UserData/blob/master/Api/Generated/Interfaces/ResourceApiInterface.php#L313-L313)
 
 
 See Also

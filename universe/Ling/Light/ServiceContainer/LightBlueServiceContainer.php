@@ -77,4 +77,23 @@ class LightBlueServiceContainer extends BlueOctopusServiceContainer implements L
     }
 
 
+    //--------------------------------------------
+    //
+    //--------------------------------------------
+    /**
+     * Defines which information to display when var_dump is called on this instance.
+     *
+     * @return string[]
+     */
+    public function __debugInfo()
+    {
+        /**
+         * Too many properties, this is ridiculous, I generally don't want to debug the container itself,
+         * but rather another instance which has a container instance. So we crop all the props, for readability purposes.
+         * Feel free to comment this method out if you really need to debug the container...
+         */
+        return [
+            'lots of properties' => '...',
+        ];
+    }
 }

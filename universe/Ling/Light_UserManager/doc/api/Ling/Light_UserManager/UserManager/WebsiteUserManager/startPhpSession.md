@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [WebsiteUserManager::startPhpSession](https://github.com/lingtalfi/Light_UserManager/blob/master/UserManager/WebsiteUserManager.php#L116-L121)
+See the source code for method [WebsiteUserManager::startPhpSession](https://github.com/lingtalfi/Light_UserManager/blob/master/UserManager/WebsiteUserManager.php#L164-L169)
 
 
 See Also

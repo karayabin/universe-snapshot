@@ -156,6 +156,11 @@ class Light_DeveloperWizardDocBuilder
                 "basic service convention" => 'https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/pages/conventions.md#basic-service',
                 "the basic service config file" => 'https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/pages/conventions.md#basic-service',
                 "Light_Train conception notes" => 'https://github.com/lingtalfi/Light', // this is a fake link in the documentation somewhere
+                "planetIds" => 'https://github.com/karayabin/universe-snapshot#the-planet-identifier',
+                "Light_Kit_Admin_Generator" => 'https://github.com/lingtalfi/Light_Kit_Admin_Generator',
+                "section comment" => 'https://github.com/lingtalfi/TheBar/blob/master/discussions/section-comment.md',
+                "section comments" => 'https://github.com/lingtalfi/TheBar/blob/master/discussions/section-comment.md',
+                "the Standard service configuration file" => 'https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/pages/conventions.md#standard-service-configuration-file',
             ],
             /**
              * An array of external classes to url.

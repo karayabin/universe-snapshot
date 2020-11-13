@@ -3,3 +3,5 @@ developer_wizard:
     methods:
         setContainer:
             container: @container()
+        setOptions:
+            options: []

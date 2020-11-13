@@ -142,6 +142,7 @@ class Light_EventsDocBuilder
              */
             "keyWord2UrlMap" => [
                 "Light_Events conception notes" => $doc . '/pages/conception-notes.md',
+                'bashtml' => 'https://github.com/lingtalfi/CliTools/blob/master/doc/pages/bashtml.md',
             ],
             /**
              * An array of external classes to url.
@@ -154,6 +155,8 @@ class Light_EventsDocBuilder
              */
             "externalClass2Url" => [
                 "Ling\Light\ServiceContainer\LightServiceContainerInterface" => "https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md",
+                "Ling\CliTools\Formatter\BashtmlFormatter" => "https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Formatter/BashtmlFormatter.md",
+
 
             ],
             "ignoreFilesStartingWith" => [

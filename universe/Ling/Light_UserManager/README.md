@@ -1,6 +1,6 @@
 Light_UserManager
 ===========
-2019-05-10 -> 2020-06-04
+2019-05-10 -> 2020-09-14
 
 
 
@@ -83,6 +83,14 @@ Related
 History Log
 =============
 
+- 1.5.3 -- 2020-09-14
+
+    - fix WebsiteUserManager.getValidWebsiteUser erroneous signature
+    
+- 1.5.2 -- 2020-09-11
+
+    - add WebsiteUserManager.getValidWebsiteUser method
+    
 - 1.5.1 -- 2020-06-04
 
     - check routine commit

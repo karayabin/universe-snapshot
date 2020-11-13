@@ -4,7 +4,7 @@
 
 The ServiceManagerUtil class
 ================
-2020-06-30 --> 2020-07-31
+2020-06-30 --> 2020-09-18
 
 
 
@@ -47,6 +47,7 @@ class <span class="pl-k">ServiceManagerUtil</span>  {
     - public [getBasicServiceConfigPath](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/Util/ServiceManagerUtil/getBasicServiceConfigPath.md)() : string
     - public [getCreateFilePath](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/Util/ServiceManagerUtil/getCreateFilePath.md)() : string
     - public [getTightPlanetName](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/Util/ServiceManagerUtil/getTightPlanetName.md)() : string
+    - public [getHumanPlanetName](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/Util/ServiceManagerUtil/getHumanPlanetName.md)() : string
     - public [hasBasicServiceClassFile](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/Util/ServiceManagerUtil/hasBasicServiceClassFile.md)() : bool
     - public [hasBasicServiceExceptionFile](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/Util/ServiceManagerUtil/hasBasicServiceExceptionFile.md)() : bool
     - public [hasBasicServiceConfigFile](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/Util/ServiceManagerUtil/hasBasicServiceConfigFile.md)() : bool
@@ -116,6 +117,7 @@ Methods
 - [ServiceManagerUtil::getBasicServiceConfigPath](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/Util/ServiceManagerUtil/getBasicServiceConfigPath.md) &ndash; Returns the absolute path to the [basic service](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/pages/conventions.md#basic-service) config path.
 - [ServiceManagerUtil::getCreateFilePath](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/Util/ServiceManagerUtil/getCreateFilePath.md) &ndash; Returns the path to the create file for this service.
 - [ServiceManagerUtil::getTightPlanetName](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/Util/ServiceManagerUtil/getTightPlanetName.md) &ndash; Returns the [tight planet name](https://github.com/lingtalfi/UniverseTools/blob/master/doc/pages/nomenclature.md#tight-planet-name).
+- [ServiceManagerUtil::getHumanPlanetName](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/Util/ServiceManagerUtil/getHumanPlanetName.md) &ndash; Returns a human version of the planet name.
 - [ServiceManagerUtil::hasBasicServiceClassFile](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/Util/ServiceManagerUtil/hasBasicServiceClassFile.md) &ndash; Returns whether there is a [basic service](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/pages/conventions.md#basic-service) class file for the planet.
 - [ServiceManagerUtil::hasBasicServiceExceptionFile](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/Util/ServiceManagerUtil/hasBasicServiceExceptionFile.md) &ndash; Returns whether there is a [basic service](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/pages/conventions.md#basic-service) exception file for the planet.
 - [ServiceManagerUtil::hasBasicServiceConfigFile](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/Util/ServiceManagerUtil/hasBasicServiceConfigFile.md) &ndash; Returns whether there is a [basic service](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/pages/conventions.md#basic-service) config file for the planet.

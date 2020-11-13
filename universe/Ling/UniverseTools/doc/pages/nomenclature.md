@@ -1,6 +1,6 @@
 Nomenclature
 ===========
-2020-07-09
+2020-07-09 -> 2020-08-10
 
 
 
@@ -20,9 +20,12 @@ Same definition as the [universe snapshot's definition for planetIdentifier](htt
 
 Tight planet name
 ---------
-2020-07-09
+2020-07-09 -> 2020-08-10
 
 
 The planet name, with underscores removed.
 
 So for instance a planet with name **Light_MyPlugin** will have a tight name of: **LightMyPlugin**.
+
+
+You can use our [PlanetTool::getTightPlanetName](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/PlanetTool/getTightPlanetName.md) method to get the tight name.

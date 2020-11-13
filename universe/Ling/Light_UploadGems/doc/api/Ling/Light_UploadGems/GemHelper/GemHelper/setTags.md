@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [GemHelper::setTags](https://github.com/lingtalfi/Light_UploadGems/blob/master/GemHelper/GemHelper.php#L91-L94)
+See the source code for method [GemHelper::setTags](https://github.com/lingtalfi/Light_UploadGems/blob/master/GemHelper/GemHelper.php#L93-L96)
 
 
 See Also

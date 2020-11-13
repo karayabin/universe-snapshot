@@ -1,6 +1,6 @@
 DocTools
 ===========
-2019-02-19 -> 2020-06-29
+2019-02-19 -> 2020-09-11
 
 
 
@@ -679,6 +679,10 @@ This includes:
 History Log
 =============
 
+    
+- 1.14.0 -- 2020-09-11
+
+    - update CommentHelper, add string[] as a possible return type
     
 - 1.13.9 -- 2020-06-29
 

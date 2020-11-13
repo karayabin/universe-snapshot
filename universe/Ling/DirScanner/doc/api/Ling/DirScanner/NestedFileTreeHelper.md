@@ -4,7 +4,7 @@
 
 The NestedFileTreeHelper class
 ================
-2019-03-20 --> 2019-10-04
+2019-03-20 --> 2020-08-18
 
 
 
@@ -25,8 +25,8 @@ Class synopsis
 class <span class="pl-k">NestedFileTreeHelper</span>  {
 
 - Methods
-    - public static [getNestedFileTree](https://github.com/lingtalfi/DirScanner/blob/master/doc/api/Ling/DirScanner/NestedFileTreeHelper/getNestedFileTree.md)(string $dir, array $options = []) : array
-    - private static [doIterate](https://github.com/lingtalfi/DirScanner/blob/master/doc/api/Ling/DirScanner/NestedFileTreeHelper/doIterate.md)(string $dir, array $options = []) : array
+    - public static [getNestedFileTree](https://github.com/lingtalfi/DirScanner/blob/master/doc/api/Ling/DirScanner/NestedFileTreeHelper/getNestedFileTree.md)(string $dir, ?array $options = []) : array
+    - private static [doIterate](https://github.com/lingtalfi/DirScanner/blob/master/doc/api/Ling/DirScanner/NestedFileTreeHelper/doIterate.md)(string $dir, ?array $options = []) : array
 
 }
 

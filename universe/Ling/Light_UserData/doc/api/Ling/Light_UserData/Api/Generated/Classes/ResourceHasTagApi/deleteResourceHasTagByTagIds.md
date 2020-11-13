@@ -7,7 +7,7 @@ ResourceHasTagApi::deleteResourceHasTagByTagIds
 
 
 
-ResourceHasTagApi::deleteResourceHasTagByTagIds — Deletes the resourceHasTag rows identified by the given tag_tag_ids.
+ResourceHasTagApi::deleteResourceHasTagByTagIds — Deletes the resource has tag rows identified by the given tag_ids.
 
 
 
@@ -21,7 +21,7 @@ public [ResourceHasTagApi::deleteResourceHasTagByTagIds](https://github.com/ling
 
 
 
-Deletes the resourceHasTag rows identified by the given tag_tag_ids.
+Deletes the resource has tag rows identified by the given tag_ids.
 
 
 
@@ -54,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [ResourceHasTagApi::deleteResourceHasTagByTagIds](https://github.com/lingtalfi/Light_UserData/blob/master/Api/Generated/Classes/ResourceHasTagApi.php#L252-L255)
+See the source code for method [ResourceHasTagApi::deleteResourceHasTagByTagIds](https://github.com/lingtalfi/Light_UserData/blob/master/Api/Generated/Classes/ResourceHasTagApi.php#L306-L309)
 
 
 See Also
@@ -62,5 +62,5 @@ See Also
 
 The [ResourceHasTagApi](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Classes/ResourceHasTagApi.md) class.
 
-Previous method: [deleteResourceHasTagByResourceIds](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Classes/ResourceHasTagApi/deleteResourceHasTagByResourceIds.md)<br>
+Previous method: [deleteResourceHasTagByResourceIds](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Classes/ResourceHasTagApi/deleteResourceHasTagByResourceIds.md)<br>Next method: [deleteResourceHasTagByResourceId](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Classes/ResourceHasTagApi/deleteResourceHasTagByResourceId.md)<br>
 

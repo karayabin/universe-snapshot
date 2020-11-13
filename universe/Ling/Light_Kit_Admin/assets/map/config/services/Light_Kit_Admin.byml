@@ -123,6 +123,11 @@ $kit.methods_collection:
             -
                 instance: Ling\Light_Kit_Admin\PageConfigurationTransformer\LightKitAdminPageConfigurationTransformer
 
+$micro_permission.methods_collection:
+    -
+        method: registerMicroPermissionsByProfile
+        args:
+            file: ${app_dir}/config/data/Light_Kit_Admin/Light_MicroPermission/kit_admin.profile.byml
 
 
 $plugin_installer.methods_collection:

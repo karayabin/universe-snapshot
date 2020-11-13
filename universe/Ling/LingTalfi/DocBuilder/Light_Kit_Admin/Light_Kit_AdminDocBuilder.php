@@ -210,6 +210,8 @@ class Light_Kit_AdminDocBuilder
                 "Light kit admin plugins document" => $doc . '/pages/lka-plugins.md',
                 "the content of the Bootstrap4AdminTableRenderer->printJavascript method" => "https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/Renderer/Bootstrap4AdminTableRenderer.php#L475-L650",
                 "Light_PluginInstaller conception notes" => "https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/pages/conception-notes.md",
+                "late registration concept" => "https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/design/late-service-registration.md",
+                "the realform service" => "https://github.com/lingtalfi/Light_Realform",
             ],
             /**
              * An array of external classes to url.
@@ -283,6 +285,8 @@ class Light_Kit_AdminDocBuilder
                 "Ling\Light_Bullsheet\Bullsheeter\LightBullsheeterInterface" => "https://github.com/lingtalfi/Light_Bullsheet/blob/master/doc/api/Ling/Light_Bullsheet/Bullsheeter/LightBullsheeterInterface.md",
                 "Ling\Light\Http\HttpRedirectResponse" => "https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRedirectResponse.md",
                 "Ling\Light_PluginInstaller\PluginInstaller\PluginInstallerInterface" => "https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/PluginInstaller/PluginInstallerInterface.md",
+                "Ling\Light_Realist\Service\LightRealistCustomServiceInterface" => "https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Service/LightRealistCustomServiceInterface.md",
+                "Ling\Light_Realform\Service\LightRealformLateServiceRegistrationInterface" => "https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Service/LightRealformLateServiceRegistrationInterface.md",
 
             ],
         ];

@@ -82,7 +82,10 @@ class LightKitAdminController extends LightController implements RouteAwareContr
 
     /**
      * Returns the current user.
-     * Note: in light kit admin, we use the LightWebsiteUser
+     * Note: in light kit admin, we use the LightWebsiteUser.
+     *
+     * Note: the user might not be valid.
+     * If you want a valid user, use our getValidWebsiteUser method.
      *
      * @return LightWebsiteUser
      * @throws \Exception
@@ -90,10 +93,26 @@ class LightKitAdminController extends LightController implements RouteAwareContr
     protected function getUser(): LightWebsiteUser
     {
         /**
-         * @var $userManager LightUserManagerService
+         * @var $um LightUserManagerService
          */
-        $userManager = $this->getContainer()->get("user_manager");
-        return $userManager->getUser();
+        $um = $this->getContainer()->get("user_manager");
+        return $um->getUser();
+    }
+
+
+    /**
+     * Returns a valid website user, or throws an exception.
+     *
+     * @return LightWebsiteUser
+     * @throws \Exception
+     */
+    protected function getValidWebsiteUser(): LightWebsiteUser
+    {
+        /**
+         * @var $um LightUserManagerService
+         */
+        $um = $this->getContainer()->get("user_manager");
+        return $um->getValidWebsiteUser();
     }
 
     /**

@@ -4,7 +4,7 @@
 
 The FontAwesomeDocBuilder class
 ================
-2019-03-13 --> 2020-06-29
+2019-03-13 --> 2020-11-09
 
 
 
@@ -52,4 +52,4 @@ See the source code of [Ling\LingTalfi\DocBuilder\FontAwesome\FontAwesomeDocBuil
 
 SeeAlso
 ==============
-Previous class: [EasyConsoleMenuDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/EasyConsoleMenu/EasyConsoleMenuDocBuilder.md)<br>Next class: [GormanJsonDecoderDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/GormanJsonDecoder/GormanJsonDecoderDocBuilder.md)<br>
+Previous class: [ExceptionCodesDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/ExceptionCodes/ExceptionCodesDocBuilder.md)<br>Next class: [GormanJsonDecoderDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/GormanJsonDecoder/GormanJsonDecoderDocBuilder.md)<br>

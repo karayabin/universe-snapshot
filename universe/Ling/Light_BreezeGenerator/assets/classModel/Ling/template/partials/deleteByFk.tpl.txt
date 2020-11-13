@@ -1,0 +1,9 @@
+    /**
+     * @implementation
+     */
+    public function deleteResourceFileByResourceId(int $resourceId)
+    {
+        $this->pdoWrapper->delete($this->table, [
+            "luda_resource_id" => $resourceId,
+        ]);
+    }

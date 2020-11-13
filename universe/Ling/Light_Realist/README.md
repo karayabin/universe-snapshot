@@ -1,6 +1,6 @@
 Light_Realist
 ===========
-2019-08-09 -> 2020-07-21
+2019-08-09 -> 2020-11-13
 
 
 
@@ -31,15 +31,8 @@ Or just download it and place it where you want otherwise.
 Summary
 ===========
 - [Light_Realist api](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist.md) (generated with [DocTools](https://github.com/lingtalfi/DocTools))
-- [Conception notes](https://github.com/lingtalfi/Light-Realist/tree/master/doc/pages)
+- [Documentation](https://github.com/lingtalfi/Light-Realist/tree/master/doc/pages/documentation.md)
 - [Services](#services)
-
-
-
-What is it?
-============
-
-Read the conceptions notes (link in the summary), starting with the realist conception notes.
 
 
 
@@ -94,6 +87,8 @@ $ajax_handler.methods_collection:
                 instance: Ling\Light_Realist\AjaxHandler\LightRealistAjaxHandler
 
 
+
+
 ```
 
 
@@ -108,6 +103,62 @@ Related
 History Log
 =============
 
+- 2.0.3 -- 2020-11-13
+
+    - fix typo in documentation
+    
+- 2.0.2 -- 2020-11-13
+
+    - fix service->getSqlColumnsByRequestDeclaration not returning expected array
+    
+- 2.0.1 -- 2020-11-13
+
+    - fix typo in documentation
+    
+- 2.0.0 -- 2020-09-03
+
+    - new api
+    
+- 1.41.0 -- 2020-08-21
+
+    - update service to work with micro-permission3
+    
+- 1.40.0 -- 2020-08-20
+
+    - update duelist, add developer_variables setting
+    
+- 1.39.0 -- 2020-08-20
+
+    - update duelist, developer injection concept
+
+- 1.38.0 -- 2020-08-20
+
+    - update duelist, add base_where_sep setting
+    
+- 1.37.2 -- 2020-08-20
+
+    - add faq developer document
+    
+- 1.37.1 -- 2020-08-07
+
+    - rename LightRealistCustomServiceInterface->registerByRequestId to registerRealistByRequestId
+
+- 1.37.0 -- 2020-08-07
+
+    - add LightRealistCustomServiceInterface
+    
+- 1.36.1 -- 2020-08-06
+
+    - fix LightRealistAjaxHandler->handle code oversight
+    
+- 1.36.0 -- 2020-08-06
+
+    - add LightRealistCustomManager class
+    
+- 1.35.0 -- 2020-08-06
+
+    - add LightRealistCustomServiceInterface
+    
 - 1.34.2 -- 2020-07-21
 
     - fix BaseRealistRowsRenderer->render passing potentially null value to renderColumnContent method, where string was expected

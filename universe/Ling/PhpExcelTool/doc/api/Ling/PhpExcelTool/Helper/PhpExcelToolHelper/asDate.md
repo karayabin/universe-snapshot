@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [PhpExcelToolHelper::asDate](https://github.com/lingtalfi/PhpExcelTool/blob/master/doc/api/Ling/PhpExcelTool/Helper/PhpExcelToolHelper/asDate.md)(int $numberOfDays, string $origin = 1900-01-01, $dateFormat = Y-m-d) : false | string
+public static [PhpExcelToolHelper::asDate](https://github.com/lingtalfi/PhpExcelTool/blob/master/doc/api/Ling/PhpExcelTool/Helper/PhpExcelToolHelper/asDate.md)(int $numberOfDays, ?string $origin = 1900-01-01, ?$dateFormat = Y-m-d) : false | string
 
 
 

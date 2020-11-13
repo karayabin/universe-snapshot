@@ -11,8 +11,9 @@ namespace Ling\Light_UserData\Api\Generated\Interfaces;
 interface ResourceHasTagApiInterface
 {
 
+
     /**
-     * Inserts the given resourceHasTag in the database.
+     * Inserts the given resource has tag in the database.
      * By default, it returns the result of the PDO::lastInsertId method.
      * If the returnRic flag is set to true, the method will return the ric array instead of the lastInsertId.
      *
@@ -20,7 +21,7 @@ interface ResourceHasTagApiInterface
      * If the row you're trying to insert triggers a duplicate error, the behaviour of this method depends on
      * the ignoreDuplicate flag:
      * - if true, the error will be caught internally, the return of the method is not affected
-     * - if false, the error will not be caught, and depending on your configuration, it might either
+     * - if false, the error will not be caught, and depending on your pdo configuration, it might either
      *          trigger an exception, or fail silently in which case this method returns false.
      *
      *
@@ -34,7 +35,51 @@ interface ResourceHasTagApiInterface
     public function insertResourceHasTag(array $resourceHasTag, bool $ignoreDuplicate = true, bool $returnRic = false);
 
     /**
-     * Returns the resourceHasTag row identified by the given resource_id and tag_id.
+     * Inserts the given resource has tag rows in the database.
+     * By default, it returns an array of the result of the PDO::lastInsertId method for each insert.
+     * If the returnRic flag is set to true, the method will return an array of the ric array (for each insert) instead of the lastInsertId.
+     *
+     *
+     * If the rows you're trying to insert triggers a duplicate error, the behaviour of this method depends on
+     * the ignoreDuplicate flag:
+     * - if true, the error will be caught internally, the return of the method is not affected
+     * - if false, the error will not be caught, and depending on your configuration, it might either
+     *          trigger an exception, or fail silently in which case this method returns false.
+     *
+     *
+     *
+     * @param array $resourceHasTags
+     * @param bool $ignoreDuplicate
+     * @param bool $returnRic
+     * @return mixed
+     * @throws \Exception
+     */
+    public function insertResourceHasTags(array $resourceHasTags, bool $ignoreDuplicate = true, bool $returnRic = false);
+
+    /**
+     * Returns the rows corresponding to given components.
+     * The components is an array of [fetch all components](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/pages/fetch-all-components.md).
+     *
+     *
+     * @param array $components
+     * @return array
+     */
+    public function fetchAll(array $components = []): array;
+
+
+    /**
+     *
+     * Returns the first row corresponding to given components, or false if there is no match.
+     *
+     * The components is an array of [fetch all components](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/pages/fetch-all-components.md).
+     *
+     * @param array $components
+     * @return array
+     */
+    public function fetch(array $components = []);
+
+    /**
+     * Returns the resource has tag row identified by the given resource_id and tag_id.
      *
      * If the row is not found, this method's return depends on the throwNotFoundEx flag:
      * - if true, the method throws an exception
@@ -139,15 +184,31 @@ interface ResourceHasTagApiInterface
 
 
     /**
-     * Updates the resourceHasTag row identified by the given resource_id and tag_id.
+     * Updates the resource has tag row identified by the given resource_id and tag_id.
      *
      * @param int $resource_id
 	 * @param int $tag_id
      * @param array $resourceHasTag
+     * @param array $extraWhere
+     * @param array $markers
      * @return void
      * @throws \Exception
      */
-    public function updateResourceHasTagByResourceIdAndTagId(int $resource_id, int $tag_id, array $resourceHasTag);
+    public function updateResourceHasTagByResourceIdAndTagId(int $resource_id, int $tag_id, array $resourceHasTag, array $extraWhere = [], array $markers = []);
+
+
+
+
+    /**
+     * Updates the resource has tag row.
+     *
+     * @param array $resourceHasTag
+     * @param mixed $where
+     * @param array $markers
+     * @return void
+     * @throws \Exception
+     */
+    public function updateResourceHasTag(array $resourceHasTag, $where = null, array $markers = []);
 
 
 
@@ -166,7 +227,7 @@ interface ResourceHasTagApiInterface
     public function delete($where = null, array $markers = []);
 
     /**
-     * Deletes the resourceHasTag identified by the given resource_id and tag_id.
+     * Deletes the resource has tag identified by the given resource_id and tag_id.
      *
      * @param int $resource_id
 	 * @param int $tag_id
@@ -175,28 +236,10 @@ interface ResourceHasTagApiInterface
      */
     public function deleteResourceHasTagByResourceIdAndTagId(int $resource_id, int $tag_id);
 
-    /**
-     * Deletes the resourceHasTag identified by the given resource_id.
-     *
-     * @param int $resource_id
-     * @return void
-     * @throws \Exception
-     */
-    public function deleteResourceHasTagByResourceId(int $resource_id);
-
-    /**
-     * Deletes the resourceHasTag identified by the given tag_id.
-     *
-     * @param int $tag_id
-     * @return void
-     * @throws \Exception
-     */
-    public function deleteResourceHasTagByTagId(int $tag_id);
-
 
 
     /**
-     * Deletes the resourceHasTag rows identified by the given resource_resource_ids.
+     * Deletes the resource has tag rows identified by the given resource_ids.
      *
      * @param array $resource_ids
      * @return void
@@ -205,7 +248,7 @@ interface ResourceHasTagApiInterface
     public function deleteResourceHasTagByResourceIds(array $resource_ids);
 
     /**
-     * Deletes the resourceHasTag rows identified by the given tag_tag_ids.
+     * Deletes the resource has tag rows identified by the given tag_ids.
      *
      * @param array $tag_ids
      * @return void
@@ -214,5 +257,19 @@ interface ResourceHasTagApiInterface
     public function deleteResourceHasTagByTagIds(array $tag_ids);
 
 
+
+
+
+    /**
+     * Deletes the resource has tag rows having the given resource id.
+     * @param int $resourceId
+     */
+    public function deleteResourceHasTagByResourceId(int $resourceId);
+
+    /**
+     * Deletes the resource has tag rows having the given tag id.
+     * @param int $tagId
+     */
+    public function deleteResourceHasTagByTagId(int $tagId);
 
 }

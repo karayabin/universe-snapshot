@@ -1,0 +1,12 @@
+_parent: ${parent_layout}
+title: pluginHuman main page
+zones:
+    body:
+        -
+            name: hello_world
+            type: picasso
+            className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\HelloWorldWidget
+            widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/HelloWorldWidget
+            template: default.php
+            vars: []
+                text: hello world

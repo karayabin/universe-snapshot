@@ -46,7 +46,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [FryingPan::getClassName](https://github.com/lingtalfi/ClassCooker/blob/master/FryingPan/FryingPan.php#L183-L189)
+See the source code for method [FryingPan::getClassName](https://github.com/lingtalfi/ClassCooker/blob/master/FryingPan/FryingPan.php#L194-L200)
 
 
 See Also

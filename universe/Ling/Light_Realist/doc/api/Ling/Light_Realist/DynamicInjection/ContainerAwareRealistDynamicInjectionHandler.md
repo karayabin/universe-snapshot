@@ -4,7 +4,7 @@
 
 The ContainerAwareRealistDynamicInjectionHandler class
 ================
-2019-08-12 --> 2020-07-21
+2019-08-12 --> 2020-11-13
 
 
 
@@ -70,4 +70,4 @@ See the source code of [Ling\Light_Realist\DynamicInjection\ContainerAwareRealis
 
 SeeAlso
 ==============
-Previous class: [LightRealistAjaxHandler](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/AjaxHandler/LightRealistAjaxHandler.md)<br>Next class: [LightRealistDynamicInjectionHandler](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/DynamicInjection/LightRealistDynamicInjectionHandler.md)<br>
+Previous class: [DeveloperVariableProviderInterface](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/DeveloperVariableProvider/DeveloperVariableProviderInterface.md)<br>Next class: [LightRealistDynamicInjectionHandler](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/DynamicInjection/LightRealistDynamicInjectionHandler.md)<br>

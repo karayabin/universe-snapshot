@@ -4,7 +4,7 @@ conf:
     source:
 
 #        Use either file or database as the source
-        file: /komin/jin_site_demo/universe/Ling/Light_UserData/assets/fixtures/recreate-structure.sql
+        file: /komin/jin_site_demo/universe/Ling/Light_UserData/assets/fixtures/create-structure.sql
 #        database: true
 #        tables: []
 
@@ -27,3 +27,4 @@ conf:
 
     options:
         dev: false
+        usePrefixInMethodNames: false

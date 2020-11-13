@@ -47,10 +47,7 @@ default:
         
     
     plugin: Light_Kit_Admin_UserDatabase
-    csrf_token: 
-        name: realist-request
-        value: REALIST(Light_Realist, csrf_token, realist-request)
-    
+    csrf_token: true
     use_micro_permission: true
     use_row_restriction: false
     query_error_show_debug_info: true
@@ -165,7 +162,7 @@ default:
                 name: string
                 value: string
                 description: string
-                action: action
+                _action: _action
             
         
         column_labels: 
@@ -174,7 +171,7 @@ default:
             name: Name
             value: Value
             description: Description
-            action: Actions
+            _action: Actions
         
         hidden_columns: []
         rows_renderer: 
@@ -210,10 +207,10 @@ default:
                 checkbox: Light_Realist.checkbox
             
             checkbox_column: 
-                name: checkbox
+                name: _checkbox
             
             action_column: 
-                name: action
+                name: _action
             
         
         related_links: 

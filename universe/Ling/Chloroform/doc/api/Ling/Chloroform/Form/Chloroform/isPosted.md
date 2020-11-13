@@ -46,7 +46,7 @@ Returns bool.
 
 Source Code
 ===========
-See the source code for method [Chloroform::isPosted](https://github.com/lingtalfi/Chloroform/blob/master/Form/Chloroform.php#L128-L134)
+See the source code for method [Chloroform::isPosted](https://github.com/lingtalfi/Chloroform/blob/master/Form/Chloroform.php#L148-L154)
 
 
 See Also
@@ -54,5 +54,5 @@ See Also
 
 The [Chloroform](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform.md) class.
 
-Previous method: [setFormId](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform/setFormId.md)<br>Next method: [getPostedData](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform/getPostedData.md)<br>
+Previous method: [getFormId](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform/getFormId.md)<br>Next method: [getPostedData](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform/getPostedData.md)<br>
 

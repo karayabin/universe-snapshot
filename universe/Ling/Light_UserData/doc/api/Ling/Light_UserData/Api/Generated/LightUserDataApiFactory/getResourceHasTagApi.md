@@ -46,7 +46,7 @@ Returns [CustomResourceHasTagApiInterface](https://github.com/lingtalfi/Light_Us
 
 Source Code
 ===========
-See the source code for method [LightUserDataApiFactory::getResourceHasTagApi](https://github.com/lingtalfi/Light_UserData/blob/master/Api/Generated/LightUserDataApiFactory.php#L77-L82)
+See the source code for method [LightUserDataApiFactory::getResourceHasTagApi](https://github.com/lingtalfi/Light_UserData/blob/master/Api/Generated/LightUserDataApiFactory.php#L81-L87)
 
 
 See Also
@@ -54,5 +54,5 @@ See Also
 
 The [LightUserDataApiFactory](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/LightUserDataApiFactory.md) class.
 
-Previous method: [getResourceApi](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/LightUserDataApiFactory/getResourceApi.md)<br>Next method: [setPdoWrapper](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/LightUserDataApiFactory/setPdoWrapper.md)<br>
+Previous method: [getResourceApi](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/LightUserDataApiFactory/getResourceApi.md)<br>Next method: [getResourceFileApi](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/LightUserDataApiFactory/getResourceFileApi.md)<br>
 

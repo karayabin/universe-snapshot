@@ -16,7 +16,7 @@ Description
 ================
 
 
-private static [PhpExcelTool::getFirstRow](https://github.com/lingtalfi/PhpExcelTool/blob/master/doc/api/Ling/PhpExcelTool/PhpExcelTool/getFirstRow.md)(?$file) : array
+private static [PhpExcelTool::getFirstRow](https://github.com/lingtalfi/PhpExcelTool/blob/master/doc/api/Ling/PhpExcelTool/PhpExcelTool/getFirstRow.md)($file) : array
 
 
 

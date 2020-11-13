@@ -45,9 +45,13 @@ $logger.methods_collection:
                         
                     
                 
-            
 
-                
-            
+
+$plugin_installer.methods_collection: 
+    - 
+        method: registerPlugin
+        args: 
+            plugin: Light_TaskScheduler
+            installer: @service(task_scheduler)
         
     

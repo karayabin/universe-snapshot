@@ -4,7 +4,7 @@
 
 The Light_RealGeneratorDocBuilder class
 ================
-2019-03-13 --> 2020-06-29
+2019-03-13 --> 2020-11-09
 
 
 
@@ -52,4 +52,4 @@ See the source code of [Ling\LingTalfi\DocBuilder\Light_RealGenerator\Light_Real
 
 SeeAlso
 ==============
-Previous class: [Light_PrettyErrorDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_PrettyError/Light_PrettyErrorDocBuilder.md)<br>Next class: [Light_RealformDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Realform/Light_RealformDocBuilder.md)<br>
+Previous class: [Light_QuickMailAlertDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_QuickMailAlert/Light_QuickMailAlertDocBuilder.md)<br>Next class: [Light_RealformDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Realform/Light_RealformDocBuilder.md)<br>

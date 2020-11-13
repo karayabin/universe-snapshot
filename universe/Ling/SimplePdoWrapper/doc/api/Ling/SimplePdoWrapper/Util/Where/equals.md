@@ -54,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [Where::equals](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/Util/Where.php#L99-L102)
+See the source code for method [Where::equals](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/Util/Where.php#L108-L111)
 
 
 See Also
@@ -62,5 +62,5 @@ See Also
 
 The [Where](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/Where.md) class.
 
-Previous method: [key](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/Where/key.md)<br>Next method: [greaterThan](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/Where/greaterThan.md)<br>
+Previous method: [merge](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/Where/merge.md)<br>Next method: [greaterThan](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/Where/greaterThan.md)<br>
 

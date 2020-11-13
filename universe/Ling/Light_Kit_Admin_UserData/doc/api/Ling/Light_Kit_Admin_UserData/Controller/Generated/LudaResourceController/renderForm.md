@@ -51,7 +51,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LudaResourceController::renderForm](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/Controller/Generated/LudaResourceController.php#L41-L69)
+See the source code for method [LudaResourceController::renderForm](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/Controller/Generated/LudaResourceController.php#L41-L76)
 
 
 See Also

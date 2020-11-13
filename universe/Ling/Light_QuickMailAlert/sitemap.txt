@@ -1,0 +1,11 @@
+https://github.com/lingtalfi/Light_QuickMailAlert/blob/master/README.md
+https://github.com/lingtalfi/Light_QuickMailAlert/blob/master/doc/api/Ling/Light_QuickMailAlert/Exception/LightQuickMailAlertException.md
+https://github.com/lingtalfi/Light_QuickMailAlert/blob/master/doc/api/Ling/Light_QuickMailAlert/Service/LightQuickMailAlertService/__construct.md
+https://github.com/lingtalfi/Light_QuickMailAlert/blob/master/doc/api/Ling/Light_QuickMailAlert/Service/LightQuickMailAlertService/error.md
+https://github.com/lingtalfi/Light_QuickMailAlert/blob/master/doc/api/Ling/Light_QuickMailAlert/Service/LightQuickMailAlertService/sendGroup.md
+https://github.com/lingtalfi/Light_QuickMailAlert/blob/master/doc/api/Ling/Light_QuickMailAlert/Service/LightQuickMailAlertService/setContainer.md
+https://github.com/lingtalfi/Light_QuickMailAlert/blob/master/doc/api/Ling/Light_QuickMailAlert/Service/LightQuickMailAlertService/setGroups.md
+https://github.com/lingtalfi/Light_QuickMailAlert/blob/master/doc/api/Ling/Light_QuickMailAlert/Service/LightQuickMailAlertService/setOptions.md
+https://github.com/lingtalfi/Light_QuickMailAlert/blob/master/doc/api/Ling/Light_QuickMailAlert/Service/LightQuickMailAlertService.md
+https://github.com/lingtalfi/Light_QuickMailAlert/blob/master/doc/api/Ling/Light_QuickMailAlert.md
+https://github.com/lingtalfi/Light_QuickMailAlert/blob/master/doc/pages/conception-notes.md

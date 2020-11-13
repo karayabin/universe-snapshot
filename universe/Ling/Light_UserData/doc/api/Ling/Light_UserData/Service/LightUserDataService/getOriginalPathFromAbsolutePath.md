@@ -49,7 +49,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::getOriginalPathFromAbsolutePath](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L1563-L1576)
+See the source code for method [LightUserDataService::getOriginalPathFromAbsolutePath](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L1564-L1577)
 
 
 See Also

@@ -1,6 +1,6 @@
 Light_Kit_Admin_UserData
 ===========
-2020-02-28 -> 2020-06-23
+2020-02-28 -> 2020-10-01
 
 
 
@@ -89,13 +89,13 @@ $controller_hub.methods_collection:
                         container: @container()
 
 
-$crud.methods_collection:
+
+
+$easy_route.methods_collection:
     -
-        method: registerHandler
+        method: registerBundleFile
         args:
-            pluginId: Light_Kit_Admin_UserData
-            handler:
-                instance: Ling\Light_Kit_Admin\Crud\CrudRequestHandler\LightKitAdminCrudRequestHandler
+            file: config/data/Light_Kit_Admin_UserData/Light_EasyRoute/lka_userdata_routes.byml
 
 
 $kit_admin.methods_collection:
@@ -124,48 +124,18 @@ $plugin_installer.methods_collection:
             plugin: Light_Kit_Admin_UserData
             installer: @service(kit_admin_user_data)
 
-$realform.methods_collection:
-    -
-        method: registerFormHandler
-        args:
-            plugin: Light_Kit_Admin_UserData
-            handler:
-                instance: Ling\Light_Kit_Admin\Realform\Handler\LightKitAdminRealformHandler
-                methods:
-                    setConfDir:
-                        dir: ${app_dir}/config/data/Light_Kit_Admin_UserData/Light_Realform
+#$realform.methods_collection:
+#    -
+#        method: registerFormHandler
+#        args:
+#            plugin: Light_Kit_Admin_UserData
+#            handler:
+#                instance: Ling\Light_Kit_Admin\Realform\Handler\LightKitAdminRealformHandler
+#                methods:
+#                    setConfDir:
+#                        dir: ${app_dir}/config/data/Light_Kit_Admin_UserData/Light_Realform
+#
 
-
-$realist.methods_collection:
-    -
-        method: registerListRenderer
-        args:
-            identifier: Light_Kit_Admin_UserData
-            renderer:
-                instance: Ling\Light_Kit_Admin\Realist\Rendering\LightKitAdminRealistListRenderer
-    -
-        method: registerRealistRowsRenderer
-        args:
-            identifier: Light_Kit_Admin_UserData
-            renderer:
-                instance: Ling\Light_Kit_Admin\Realist\Rendering\LightKitAdminRealistRowsRenderer
-    -
-        method: registerActionHandler
-        args:
-            renderer:
-                instance: Ling\Light_Kit_Admin\Realist\ActionHandler\LightKitAdminRealistActionHandler
-    -
-        method: registerListActionHandler
-        args:
-            plugin: Light_Kit_Admin_UserData
-            renderer:
-                instance: Ling\Light_Kit_Admin\Realist\ListActionHandler\LightKitAdminListActionHandler
-    -
-        method: registerListGeneralActionHandler
-        args:
-            plugin: Light_Kit_Admin_UserData
-            renderer:
-                instance: Ling\Light_Kit_Admin\Realist\ListGeneralActionHandler\LightKitAdminListGeneralActionHandler
 
 
 $user_row_restriction.methods_collection:
@@ -179,6 +149,8 @@ $user_row_restriction.methods_collection:
                     setContainer:
                         container: @container()
 
+
+
 ```
 
 
@@ -186,6 +158,30 @@ $user_row_restriction.methods_collection:
 History Log
 =============
 
+-- 1.7.1 -- 2020-10-01
+
+    - acknowledge use of Light_Nugget api  
+    
+- 1.7.0 -- 2020-08-28
+
+    - acknowledge new Light_Crud api  
+    
+- 1.6.0 -- 2020-08-21
+
+    - update api to work with micro-permission3
+    
+- 1.5.1 -- 2020-08-07
+
+    - update service to adapt realform late registration (forgot implementation last commit)
+
+- 1.5.0 -- 2020-08-07
+
+    - update service to adapt realform late registration
+    
+- 1.4.0 -- 2020-08-07
+
+    - update service to adapt realist late registration
+    
 - 1.3.0 -- 2020-06-23
 
     - update service to adapt new plugin installer service

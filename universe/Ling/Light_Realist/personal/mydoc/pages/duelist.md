@@ -1,12 +1,13 @@
 Duelist
 ==============
-2019-08-23 -> 2019-10-10
+2019-08-23 -> 2020-08-20
 
 
 Table of Contents
 =================
 
 * [The base sql query](#the-base-sql-query)
+* [The developer injections](#the-developer-injections)
 * [The user injections](#the-user-injections)
  * [Variables](#variables)
  * [Inner markers](#inner-markers)
@@ -54,7 +55,7 @@ We can conceptually divide the request declaration settings in sections:
 
 The base sql query
 --------------
--> 2019-10-10
+2019-08-23 -> 2020-08-20
 
 This part is the safest part of the request declaration.
 The user has almost no interaction with it.
@@ -77,13 +78,21 @@ The developer writes this section by using the following settings:
         Example: 
             - inner join user u on i.user_id=u.id 
 - ?base_where: array|string. Each item being a "where" expression.
-        The first item is implicitly prefixed with "WHERE 0 ", while the other items are piled after that.
         Example:
-            - and (first_name like '%marie%'
-            - or last_name like '%marie%')
+            - user_id=3
+            - and user_id=3
             
-        In other words, you're responsible for creating the full where clause, and you have full control 
-        on the syntax.            
+        Note that both examples above are possible, depending on what you where clause starts with (does it start with WHERE or WHERE 1 for instance).
+        You're responsible for creating the full where clause; you have full control on the syntax.
+        
+- ?base_where_sep: string=and. A keyword to insert between the last "base_where" expression, and the first dynamic "where" expression injected by the user if any (see the user injection section below for more details).
+    So the idea is that the developer can start a basic "where" clause with the **base_where** setting, but then
+    the user can dynamically add to that "where expression".
+    In order to keep the sql syntax valid though, a keyword such as **AND** or **OR** might be required between the base_where and the dynamic where expressions.
+    Note: the base_where_sep is always padded with one space on each side, to smooth integration in the resulting where expression.
+
+
+                    
 - ?base_group_by: array|string. Each item being a "group_by" expression (without the "GROUP BY" keyword).
         Example:
             - first_name
@@ -97,9 +106,58 @@ The developer writes this section by using the following settings:
             - first_name asc
 
 
+
+
+The developer injections
+------------
+2020-08-20
+
+
+This is a dynamic variable replacement mechanism for the developer.
+
+
+Since the **request declaration** is usually stored in a static file, the developer sometimes need to do some dynamic injections.
+
+For instance, instead of writing this:
+
+- base_where: un.lud_user_id=2
+
+The developer might want to use a more dynamic notation, like this:
+
+- base_where: un.lud_user_id=${userId}
+
+
+The notation is: ${variableName}.
+
+
+Note that developer injections and user injections use different notations, to really separate them, for security reasons (a user
+shall never be able to overwrite what a developer wrote).
+
+
+Developer injections are currently only possible in the following settings:
+
+- base_where
+
+
+
+### Providing developer variables
+2020-08-20
+
+We offer the **developer_variables** setting in the **request declaration**, as a mean to provide those developer variables.
+
+The **developer_variables** setting accept the [Light execute notation](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/notation/light-execute-notation.md),
+and shall return either:
+
+- an array of variables
+- a DeveloperVariableProviderInterface instance
+
+
+
+
+
 The user injections
 --------------
--> 2019-10-10
+2019-08-23 -> 2019-10-10
 
 The developer can also allow users to inject data to build a more dynamic sql request.
 The settings (i.e. sections) where the user has potential interaction are:
@@ -171,7 +229,7 @@ User injection in tag expressions is brought by special notation:
 
 
 ### Variables
--> 2019-10-10
+2019-08-23 -> 2019-10-10
 
 A variable is a string starting with the dollar symbol ($).
 When a variable is written, it is expected that the user also provides a value for it, otherwise the request should be rejected, unless
@@ -222,7 +280,7 @@ This gives us more (notation) power when creating (relatively more involved) whe
 
 
 ### Inner markers
--> 2019-10-10
+2019-08-23 -> 2019-10-10
 
 An **inner marker** is a string starting with the colon symbol (:), and has the following notation:
 
@@ -250,7 +308,7 @@ When an **inner marker** is written, it is expected that the user will bring the
 
 The limit setting
 ------------
--> 2019-10-10
+2019-08-23 -> 2019-10-10
 
 The **limit** setting is special, because it's simpler than the other sql clauses.
 The limit setting is a simple array with two entries:
@@ -284,7 +342,7 @@ As long as **page_length** is not set, the page will be forced to 1.
 
 Options
 --------
--> 2019-10-10
+2019-08-23 -> 2019-10-10
 
 The duelist conception so far is quite straightforward.
 However it might not handle all the problems we will be facing when writing gui lists.
@@ -314,7 +372,7 @@ The base **options** are:
 
 Routines
 ----------
--> 2019-10-10
+2019-08-23 -> 2019-10-10
 
 So as we said, options are here to resolve problems.
 But sometimes, we need more code to solve a problem.
@@ -332,7 +390,7 @@ The available routines are:
 
 Csrf token
 --------------
--> 2019-10-10
+2019-08-23 -> 2019-10-10
 
 As duelist was meant to be invoked from an ajax service, it's naturally vulnerable to csrf attacks.
 The csrf_token option allows us to secure the ajax service.
@@ -370,7 +428,7 @@ Usually, the name "realist-request" is used for a token used to protect a realis
 
 
 ### The operator_and_value routine
--> 2019-10-10
+2019-08-23 -> 2019-10-10
 
 This routine transforms some special inner markers in a **tagExpression**.
 
@@ -422,7 +480,7 @@ because it will be added automatically by the routine if necessary).
  
 Building the where expression
 =======================
--> 2019-10-10
+2019-08-23 -> 2019-10-10
 
 The where expression is sometimes the result of combining multiple tags together.
 While the developer is responsible for creating the tags, the gui is responsible for providing the tags in
@@ -472,6 +530,9 @@ In **Light_Realist**, the action is the second argument of the dynamic injection
 
 The csrf_token action
 ----------
+2019-09-19 
+
+
 The **csrf_token** action basically creates a token with the name given in the third argument, but only if it's not an ajax page (the router defines
 whether the page is an ajax page).
 
@@ -495,6 +556,9 @@ That's why I had to reduce its power by preventing it to create a token on the a
 
 The route action
 ----------
+2019-09-19 
+
+
 The **route** action is straightforward: it returns the url of the given route.
 
 Example:

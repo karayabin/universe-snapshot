@@ -53,7 +53,7 @@ False in case of failure.
 
 Source Code
 ===========
-See the source code for method [ClassSynopsisWidget::getClassUrl](https://github.com/lingtalfi/DocTools/blob/master/Widget/ClassSynopsis/ClassSynopsisWidget.php#L333-L351)
+See the source code for method [ClassSynopsisWidget::getClassUrl](https://github.com/lingtalfi/DocTools/blob/master/Widget/ClassSynopsis/ClassSynopsisWidget.php#L332-L350)
 
 
 See Also

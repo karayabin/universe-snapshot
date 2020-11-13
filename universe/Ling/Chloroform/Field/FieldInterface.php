@@ -85,6 +85,14 @@ interface FieldInterface
      */
     public function getValue();
 
+
+    /**
+     * Returns the formatted value of this field.
+     * See the @page(getFormattedValue section in the Chloroform conception notes).
+     * @return mixed
+     */
+    public function getFormattedValue();
+
     /**
      * Returns the fallback value, which defaults to null.
      * See the @page(chloroform conception notes) for more details about the fallback value.

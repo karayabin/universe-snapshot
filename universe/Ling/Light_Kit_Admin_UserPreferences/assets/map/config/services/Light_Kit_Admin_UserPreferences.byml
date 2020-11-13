@@ -1,0 +1,111 @@
+kit_admin_user_preferences: 
+    instance: Ling\Light_Kit_Admin_UserPreferences\Service\LightKitAdminUserPreferencesService
+    methods: 
+        setContainer: 
+            container: @container()
+        
+    
+
+# --------------------------------------
+# hooks
+# --------------------------------------
+$plugin_installer.methods_collection: 
+    - 
+        method: registerPlugin
+        args: 
+            plugin: Light_Kit_Admin_UserPreferences
+            installer: @service(kit_admin_user_preferences)
+        
+    
+
+$bmenu.methods_collection: 
+    - 
+        method: addDirectItemsByFileAndParentPath
+        args: 
+            menu_type: admin_main_menu
+            file: ${app_dir}/config/data/Light_Kit_Admin_UserPreferences/bmenu/generated/kit_admin_user_preferences.admin_mainmenu_1.byml
+            path: lka-admin
+        
+    
+    - 
+        method: addDirectItemsByFileAndParentPath
+        args: 
+            menu-type: admin_main_menu
+            file: ${app_dir}/config/data/Light_Kit_Admin_UserPreferences/bmenu/generated/kit_admin_user_preferences.admin_mainmenu-usermainpage.byml
+            path: lka-user
+        
+    
+
+$controller_hub.methods_collection: 
+    - 
+        method: registerHandler
+        args: 
+            plugin: Light_Kit_Admin_UserPreferences
+            handler: 
+                instance: Ling\Light_Kit_Admin_UserPreferences\ControllerHub\Generated\LightKitAdminUserPreferencesControllerHubHandler
+                methods: 
+                    setContainer: 
+                        container: @container()
+                    
+                
+            
+        
+    
+
+$chloroform_extension.methods_collection: 
+    - 
+        method: registerTableListConfigurationHandler
+        args: 
+            plugin: Light_Kit_Admin_UserPreferences
+            handler: 
+                instance: Ling\Light_Kit_Admin\ChloroformExtension\LightKitAdminTableListConfigurationHandler
+                methods: 
+                    setConfigurationFile: 
+                        files: 
+                            - ${app_dir}/config/data/Light_Kit_Admin_UserPreferences/Light_ChloroformExtension/generated/kit_admin_user_preferences.table_list.byml
+                        
+                    
+                
+            
+        
+
+
+$kit_admin.methods_collection: 
+    - 
+        method: registerPlugin
+        args: 
+            pluginName: Light_Kit_Admin_UserPreferences
+            plugin: 
+                instance: Ling\Light_Kit_Admin_UserPreferences\LightKitAdminPlugin\Generated\LightKitAdminUserPreferencesLkaPlugin
+                methods: 
+                    setOptionsFile: 
+                        file: ${app_dir}/config/data/Light_Kit_Admin_UserPreferences/Light_Kit_Admin/lka-options.generated.byml
+                    
+                
+            
+        
+
+
+$realform.methods_collection:
+    -
+        method: registerFormHandler
+        args:
+            plugin: Light_Kit_Admin_UserPreferences
+            handler:
+                instance: Ling\Light_Kit_Admin\Realform\Handler\LightKitAdminRealformHandler
+                methods:
+                    setConfDir:
+                        dir: ${app_dir}/config/data/Light_Kit_Admin_UserPreferences/Light_Realform
+
+
+
+        
+    
+
+$micro_permission.methods_collection: 
+    - 
+        method: registerMicroPermissionsByProfile
+        args: 
+            file: ${app_dir}/config/data/Light_Kit_Admin_UserPreferences/Light_MicroPermission/kit_admin_user_preferences.profile.generated.byml
+        
+    

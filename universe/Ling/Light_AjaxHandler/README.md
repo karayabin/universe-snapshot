@@ -1,6 +1,6 @@
 Light_AjaxHandler
 ===========
-2019-09-19 -> 2020-07-06
+2019-09-19 -> 2020-08-21
 
 
 
@@ -79,6 +79,10 @@ $easy_route.methods_collection:
 
 History Log
 =============
+    
+- 2.1.2 -- 2020-08-20
+
+    - fix typo in ajax-light-communication-protocol.md
     
 - 2.1.1 -- 2020-07-06
 

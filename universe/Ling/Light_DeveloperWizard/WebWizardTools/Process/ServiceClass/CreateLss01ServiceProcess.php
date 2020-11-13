@@ -23,7 +23,7 @@ class CreateLss01ServiceProcess extends CreateServiceProcess
         parent::__construct();
         $this->setName("create-lss01-service");
         $this->setLabel("Create a lss01 service.");
-        $this->setLearnMore('See the <a href="https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/pages/conventions.md#ling-standard-service-01">lss01 definition</a>.');
+        $this->setLearnMoreByHash('create-lss01-service-process');
     }
 
 
@@ -49,7 +49,7 @@ class CreateLss01ServiceProcess extends CreateServiceProcess
             $this->infoMessage("The service class for planet $planetIdentifier was already created.");
 
 
-            $pan = $this->getFryingPanForService($util->getBasicServiceClassPath());
+            $pan = $this->getFryingPanByFile($util->getBasicServiceClassPath());
             $planet = $util->getPlanetName();
             $tightName = $util->getTightPlanetName();
             $useStatementClass = "Ling\Light_LingStandardService\Service\LightLingStandardService01";
@@ -64,7 +64,7 @@ class CreateLss01ServiceProcess extends CreateServiceProcess
 
         } else {
 
-            $this->infoMessage("Creating <a href=\"https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/pages/conventions.md#ling-standard-service-01\">lss01 service class</a> for planet $planetIdentifier.");
+            $this->infoMessage("Creating <a  target='_blank' href=\"https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/pages/conventions.md#ling-standard-service-01\">lss01 service class</a> for planet $planetIdentifier.");
             $tpl = __DIR__ . "/../../../assets/class-templates/Service/Lss01ServiceClass.phptpl";
             $planet = $util->getPlanetName();
             $tightName = $util->getTightPlanetName();

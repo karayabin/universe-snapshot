@@ -4,7 +4,7 @@
 
 The DirScanner class
 ================
-2019-03-20 --> 2019-10-04
+2019-03-20 --> 2020-08-18
 
 
 
@@ -31,10 +31,10 @@ class <span class="pl-k">DirScanner</span>  {
 - Methods
     - public [__construct](https://github.com/lingtalfi/DirScanner/blob/master/doc/api/Ling/DirScanner/DirScanner/__construct.md)() : void
     - public static [create](https://github.com/lingtalfi/DirScanner/blob/master/doc/api/Ling/DirScanner/DirScanner/create.md)() : [DirScanner](https://github.com/lingtalfi/DirScanner/blob/master/doc/api/Ling/DirScanner/DirScanner.md)
-    - public [scanDir](https://github.com/lingtalfi/DirScanner/blob/master/doc/api/Ling/DirScanner/DirScanner/scanDir.md)(?$dir, ?$callable) : array
+    - public [scanDir](https://github.com/lingtalfi/DirScanner/blob/master/doc/api/Ling/DirScanner/DirScanner/scanDir.md)($dir, $callable) : array
     - public [setFollowLinks](https://github.com/lingtalfi/DirScanner/blob/master/doc/api/Ling/DirScanner/DirScanner/setFollowLinks.md)(bool $followLinks) : [DirScanner](https://github.com/lingtalfi/DirScanner/blob/master/doc/api/Ling/DirScanner/DirScanner.md)
-    - private [doScanDir](https://github.com/lingtalfi/DirScanner/blob/master/doc/api/Ling/DirScanner/DirScanner/doScanDir.md)(?$dir, ?$relDir, ?$callable, ?$level, array &$ret) : void
-    - protected [error](https://github.com/lingtalfi/DirScanner/blob/master/doc/api/Ling/DirScanner/DirScanner/error.md)(?$msg) : void
+    - private [doScanDir](https://github.com/lingtalfi/DirScanner/blob/master/doc/api/Ling/DirScanner/DirScanner/doScanDir.md)($dir, $relDir, $callable, $level, array &$ret) : void
+    - protected [error](https://github.com/lingtalfi/DirScanner/blob/master/doc/api/Ling/DirScanner/DirScanner/error.md)($msg) : void
 
 }
 

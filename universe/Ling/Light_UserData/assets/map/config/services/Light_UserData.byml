@@ -3,9 +3,9 @@ user_data:
     methods:
         setContainer:
             container: @container()
-        setObfuscationParams:
-            algo: default
-            secret: P0zeg7e,4dD
+#        setObfuscationParams:
+#            algo: default
+#            secret: P0zeg7e,4dD
         setRootDir:
             dir: ${app_dir}/user-data
 

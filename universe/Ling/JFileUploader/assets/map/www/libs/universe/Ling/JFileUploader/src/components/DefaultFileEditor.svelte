@@ -72,6 +72,7 @@
     afterUpdate(() => {
 
 
+
         if (true === isOpen) {
 
 
@@ -492,7 +493,7 @@
                             {#if true === feo.useImageEditor && true === isImage}
                                 <div class="control-group image-editor-container">
                                     <div class="image-editor-header">
-                                        <label>Image Editor</label>
+                                        <div>Image Editor</div>
                                         {#if true === feo.useKeepOriginalImage && null !== uFile.original_url}
                                             <div class="control-original-toggle">
                                                 <label for="id-fileuploader-original-toggle-{cssIdCounter}">Use original

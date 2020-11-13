@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [RepresentativeColumnFinderUtil::setContainer](https://github.com/lingtalfi/Light_RealGenerator/blob/master/Util/RepresentativeColumnFinderUtil.php#L97-L100)
+See the source code for method [RepresentativeColumnFinderUtil::setContainer](https://github.com/lingtalfi/Light_RealGenerator/blob/master/Util/RepresentativeColumnFinderUtil.php#L98-L101)
 
 
 See Also

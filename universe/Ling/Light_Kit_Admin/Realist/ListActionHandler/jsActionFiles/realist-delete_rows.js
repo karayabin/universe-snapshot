@@ -1,6 +1,7 @@
 function f(jBtn, rics, jContainer, jTable, params) {
 
 
+
     if (true === LightKitAdminEnvironment.confirm("Are you sure you want to delete the selected rows?")) {
         /**
          * Warning:
@@ -18,7 +19,13 @@ function f(jBtn, rics, jContainer, jTable, params) {
 
             // refreshing the list gui
             var helper = RealistRegistry.getOpenAdminTableHelper();
-            helper.executeModule("pagination");
+            helper.executeModule("pagination", {
+                onSuccess: function () {
+                    var laHelper = RealistRegistry.getListActionHelper();
+                    laHelper.updateButtonStatuses();
+                },
+            });
+
 
         }, function (err) {
             LightKitAdminEnvironment.toast("Error", err, "error");

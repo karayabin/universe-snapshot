@@ -7,21 +7,7 @@ mailer:
             options:
                 useDebug: true              # default is false
                 useSendFailuresLog: true    # default is true
-        setTransports:
-            transports:
-                default:
-                    type: smtp
-                    host: ssl0.ovh.net
-                    port: 587
-                    username: postmaster@leswebtag.fr
-                    password: ope01GZELke
-        setSenders:
-            senders:
-                default:
-                    from:
-                        -
-                            - postmaster@leswebtag.fr
-                            - Big bone
+
 
 
 # --------------------------------------

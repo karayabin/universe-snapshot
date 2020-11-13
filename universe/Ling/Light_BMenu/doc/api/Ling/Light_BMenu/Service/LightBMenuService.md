@@ -4,7 +4,7 @@
 
 The LightBMenuService class
 ================
-2019-08-08 --> 2020-07-02
+2019-08-08 --> 2020-08-10
 
 
 
@@ -41,6 +41,7 @@ class <span class="pl-k">LightBMenuService</span>  {
 - Properties
     - protected [Ling\Light_BMenu\Host\LightBMenuHostInterface[]](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Host/LightBMenuHostInterface.md) [$hosts](#property-hosts) ;
     - protected array [$directInjectors](#property-directInjectors) ;
+    - protected array [$directItems](#property-directItems) ;
     - protected array [$defaultItems](#property-defaultItems) ;
 
 - Methods
@@ -48,6 +49,8 @@ class <span class="pl-k">LightBMenuService</span>  {
     - public [getItems](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Service/LightBMenuService/getItems.md)(string $menuType) : array
     - public [registerHost](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Service/LightBMenuService/registerHost.md)(string $menuType, [Ling\Light_BMenu\Host\LightBMenuHostInterface](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Host/LightBMenuHostInterface.md) $host) : void
     - public [addDirectInjector](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Service/LightBMenuService/addDirectInjector.md)(string $menuType, $injector) : void
+    - public [addDirectItemsByFile](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Service/LightBMenuService/addDirectItemsByFile.md)(string $menuType, string $file) : void
+    - public [addDirectItemsByFileAndParentPath](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Service/LightBMenuService/addDirectItemsByFileAndParentPath.md)(string $menuType, string $file, string $parentPath) : void
     - public [addDefaultItem](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Service/LightBMenuService/addDefaultItem.md)(string $menuType, array $item) : void
     - public [addDefaultItemByFile](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Service/LightBMenuService/addDefaultItemByFile.md)(string $menuType, string $path) : void
 
@@ -81,6 +84,16 @@ Properties
     
     
 
+- <span id="property-directItems"><b>directItems</b></span>
+
+    This property holds the directItems for this instance.
+    
+    It's an array of menuType => menuPath2Items,
+    
+    with menuPath2Items: array of [bdot](https://github.com/karayabin/universe-snapshot/blob/master/universe/Ling/Bat/doc/bdot-notation.md) menuPath to menu items
+    
+    
+
 - <span id="property-defaultItems"><b>defaultItems</b></span>
 
     This property holds the defaultItems for this instance.
@@ -105,6 +118,8 @@ Methods
 - [LightBMenuService::getItems](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Service/LightBMenuService/getItems.md) &ndash; Returns the computed menu items identified by the given $menuType.
 - [LightBMenuService::registerHost](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Service/LightBMenuService/registerHost.md) &ndash; Registers a host.
 - [LightBMenuService::addDirectInjector](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Service/LightBMenuService/addDirectInjector.md) &ndash; Adds a direct injector to menu identified by $menuType.
+- [LightBMenuService::addDirectItemsByFile](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Service/LightBMenuService/addDirectItemsByFile.md) &ndash; Add direct items to this instance.
+- [LightBMenuService::addDirectItemsByFileAndParentPath](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Service/LightBMenuService/addDirectItemsByFileAndParentPath.md) &ndash; Add direct items to this instance.
 - [LightBMenuService::addDefaultItem](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Service/LightBMenuService/addDefaultItem.md) &ndash; Adds a default item to the menu identified by $menuType.
 - [LightBMenuService::addDefaultItemByFile](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Service/LightBMenuService/addDefaultItemByFile.md) &ndash; Adds a default item stored in $path, to the menu identified by $menuType.
 

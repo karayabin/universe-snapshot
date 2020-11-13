@@ -5,6 +5,27 @@ if (false === ("HeliumFormHandler" in window)) {
     (function () {
 
 
+        /**
+         * https://stackoverflow.com/a/63355463/405042
+         */
+        function isNumber(value, acceptScientificNotation) {
+
+            if (true !== acceptScientificNotation) {
+                return /^-{0,1}\d+(\.\d+)?$/.test(value);
+            }
+
+            if (true === Array.isArray(value)) {
+                return false;
+            }
+            return !isNaN(parseInt(value, 10));
+        }
+
+
+        function isIntegerLike(value) {
+            return /^-{0,1}\d+$/.test(value);
+        }
+
+
         // https://stackoverflow.com/questions/2360655/jquery-event-handlers-always-execute-in-order-they-were-bound-any-way-around-t
         $.fn.heliumBindFirst = function (name, fn) {
             // bind as you normally would
@@ -137,9 +158,13 @@ if (false === ("HeliumFormHandler" in window)) {
 
                 if (jDate.length) {
                     var date = jDate.val();
-                    if ("" === date) {
-                        date = "0000-00-00";
-                    }
+
+                    /**
+                     * Don't uncomment that below
+                     */
+                    // if ("" === date) {
+                    //     date = "0000-00-00";
+                    // }
                     newValue = date + " " + newValue;
                 }
 
@@ -163,7 +188,6 @@ if (false === ("HeliumFormHandler" in window)) {
          * @return bool
          */
         HeliumFormHandler.prototype.validate = function () {
-
 
             var hasError = false;
 
@@ -192,7 +216,11 @@ if (false === ("HeliumFormHandler" in window)) {
 
                     if (false !== jField) {
 
+
+
                         var value = this.getValueByField(jField);
+
+
                         var fieldErrors = [];
 
                         for (var i in validators) {
@@ -202,6 +230,103 @@ if (false === ("HeliumFormHandler" in window)) {
                             var errorMessage = null;
 
                             switch (name) {
+                                case 'Ling\\Chloroform\\Validator\\IsIntegerValidator':
+
+                                    var mode = validator.mode;
+                                    if (
+                                        false === isIntegerLike(value)
+                                    ) {
+                                        errorMessage = this.getErrorMessage("main", validator, {
+                                            "fieldName": errorName,
+                                        });
+                                    } else {
+                                        var intHasError = false;
+                                        var intValue = parseInt(value);
+                                        switch (mode) {
+                                            case 'default':
+                                                break;
+                                            case 'onlyPositive':
+                                                if (intValue <= 0) {
+                                                    intHasError = true;
+                                                }
+                                                break;
+                                            case 'onlyNegative':
+                                                if (intValue >= 0) {
+                                                    intHasError = true;
+                                                }
+                                                break;
+                                            case 'positiveAndZero':
+                                                if (intValue < 0) {
+                                                    intHasError = true;
+                                                }
+                                                break;
+                                            case 'negativeAndZero':
+                                                if (intValue > 0) {
+                                                    intHasError = true;
+                                                }
+                                                break;
+                                            default:
+                                                throw new Error("Unknown mode: " + mode);
+                                                break;
+                                        }
+
+                                        if (true === intHasError) {
+                                            errorMessage = this.getErrorMessage(mode, validator, {
+                                                "fieldName": errorName,
+                                            });
+                                        }
+
+                                    }
+                                    break;
+                                case 'Ling\\Chloroform\\Validator\\IsMysqlDateValidator':
+                                    var acceptEmpty = validator.acceptEmpty;
+                                    if (
+                                        false === acceptEmpty && (
+                                            null === value ||
+                                            ('string' === typeof value && '' === value.trim())
+
+                                        )
+                                    ) {
+                                        errorMessage = this.getErrorMessage("acceptEmpty", validator, {
+                                            "fieldName": errorName,
+                                        });
+                                    } else {
+                                        if ('string' !== typeof value || null === value.match(/\d{4}-\d{2}-\d{2}/)) {
+                                            errorMessage = this.getErrorMessage("main", validator, {
+                                                "fieldName": errorName,
+                                            });
+                                        }
+                                    }
+                                    break;
+                                case 'Ling\\Chloroform\\Validator\\IsMysqlDatetimeValidator':
+                                    var acceptEmpty = validator.acceptEmpty;
+                                    if (
+                                        false === acceptEmpty && (
+                                            null === value ||
+                                            ('string' === typeof value && '' === value.trim())
+
+                                        )
+                                    ) {
+                                        errorMessage = this.getErrorMessage("acceptEmpty", validator, {
+                                            "fieldName": errorName,
+                                        });
+                                    } else {
+                                        if ('string' !== typeof value || null === value.match(/\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}/)) {
+                                            errorMessage = this.getErrorMessage("main", validator, {
+                                                "fieldName": errorName,
+                                            });
+                                        }
+                                    }
+                                    break;
+                                case 'Ling\\Chloroform\\Validator\\IsNumberValidator':
+                                    if (
+                                        false === isNumber(value)
+                                    ) {
+                                        errorMessage = this.getErrorMessage("main", validator, {
+                                            "fieldName": errorName,
+                                        });
+                                    }
+                                    break;
                                 case 'Ling\\Chloroform\\Validator\\FileMimeTypeValidator':
                                     fileInfo = this.getFileInfo(jField);
                                     if (false !== fileInfo) {
@@ -259,16 +384,31 @@ if (false === ("HeliumFormHandler" in window)) {
                                         ('string' === typeof value && '' === value) ||
                                         ('object' === typeof value && $.isEmptyObject(value))
                                     ) {
+
                                         errorMessage = this.getErrorMessage("main", validator, {
                                             "fieldName": errorName,
                                         });
                                     }
                                     break;
                                 case 'Ling\\Chloroform\\Validator\\RequiredDateValidator':
+
                                     if (
                                         ('string' === typeof value && '' === value) ||
                                         ('object' === typeof value && $.isEmptyObject(value)) ||
                                         ('string' === typeof value && -1 !== value.indexOf("0000-00-00"))
+                                    ) {
+                                        errorMessage = this.getErrorMessage("main", validator, {
+                                            "fieldName": errorName,
+                                        });
+                                    }
+                                    break;
+                                case 'Ling\\Chloroform\\Validator\\RequiredDatetimeValidator':
+
+                                    if (
+                                        ('string' === typeof value && '' === value) ||
+                                        ('object' === typeof value && $.isEmptyObject(value)) ||
+                                        ('string' === typeof value && 19 !== value.length) ||
+                                        ('string' === typeof value && -1 !== value.indexOf("0000-00-00 00:00:00"))
                                     ) {
                                         errorMessage = this.getErrorMessage("main", validator, {
                                             "fieldName": errorName,
@@ -297,7 +437,7 @@ if (false === ("HeliumFormHandler" in window)) {
 
 
                         if (fieldErrors.length) {
-                            this.addFieldErrors(id, jField, fieldErrors);
+                            this.addFieldErrors(id, jField, fieldErrors, name);
                         }
 
 
@@ -384,7 +524,7 @@ if (false === ("HeliumFormHandler" in window)) {
          * Adds the given error messages to the given field and the error summary,
          * depending on the configuration (see the constructor of this object for more information).
          */
-        HeliumFormHandler.prototype.addFieldErrors = function (id, jField, errors) {
+        HeliumFormHandler.prototype.addFieldErrors = function (id, jField, errors, validatorName) {
 
 
             // filtering errors
@@ -443,13 +583,29 @@ if (false === ("HeliumFormHandler" in window)) {
                         this.error("I don't know how to add inline error message in this field element yet (element " + id + ").");
                     }
 
+
                     // also adding the helium-is-invalid class to form controls
-                    jParentField.find('.form-control').addClass("helium-is-invalid");
+                    jParentField.find('.form-control').each(function () {
+
+                        if (
+                            'Ling\\Chloroform\\Validator\\RequiredDatetimeValidator' === validatorName &&
+                            (
+                                $(this).hasClass("input-time-hours") ||
+                                $(this).hasClass("input-time-minutes") ||
+                                $(this).hasClass("input-time-seconds")
+                            )
+                        ) {
+                            return;
+                        }
+                        $(this).addClass("helium-is-invalid");
+                    });
+
+
                     jParentField.find('.form-check-label').addClass("helium-is-invalid");
 
 
                 } else {
-                    this.error("I don't know how to add inline error message in this element yet (element " + id + ").");
+                    // this.error("I don't know how to add inline error message in this element yet (element " + id + ").");
                 }
             }
 
@@ -717,7 +873,7 @@ if (false === ("HeliumFormHandler" in window)) {
         };
 
         HeliumFormHandler.prototype.error = function (errMsg) {
-            throw new Error("Hydrogen HeliumFormHandler: " + errMsg);
+            throw new Error("Helium HeliumFormHandler: " + errMsg);
         };
 
 

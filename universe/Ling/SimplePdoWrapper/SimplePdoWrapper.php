@@ -113,7 +113,7 @@ class SimplePdoWrapper implements SimplePdoWrapperInterface
     /**
      * @implementation
      */
-    public function transaction(callable $transactionCallback, \Exception &$e = null)
+    public function transaction(callable $transactionCallback, \Exception &$e = null): bool
     {
         $hasError = false;
 
@@ -125,21 +125,27 @@ class SimplePdoWrapper implements SimplePdoWrapperInterface
             $this->setErrorMode(\PDO::ERRMODE_EXCEPTION);
 
             try {
+                $this->queryLog("transactionBegin");
                 $pdo->beginTransaction();
                 $this->transactionActive = true;
                 call_user_func($transactionCallback);
+                $this->queryLog("transactionCommit");
                 $pdo->commit();
             } catch (\Exception $e) {
+                $this->queryLog("transactionRollback");
+                $this->queryLog("exception", $e);
                 $pdo->rollBack();
                 $exception = $e;
                 $hasError = true;
             }
+            $this->queryLog("transactionEnd");
             $this->setErrorMode($currentErrorMode);
 
         } else {
             try {
                 call_user_func($transactionCallback);
             } catch (\Exception $e) {
+                $this->queryLog("exception", $e);
                 $exception = $e;
                 $hasError = true;
             }
@@ -158,8 +164,14 @@ class SimplePdoWrapper implements SimplePdoWrapperInterface
     {
 
 
+        $ignore = $options['ignore'] ?? false;
+
         // preparing the query
-        $query = 'insert into ' . $table . ' ';
+        $query = 'insert';
+        if (true === $ignore) {
+            $query .= " ignore";
+        }
+        $query .= ' ' . $table . ' ';
         $markers = [];
         self::addAssignmentListSubStmt($query, $markers, $fields, true);
 
@@ -169,6 +181,8 @@ class SimplePdoWrapper implements SimplePdoWrapperInterface
 
 
         // executing the request
+
+        $this->queryLog("insert", $table, $query, $markers, $fields, $options);
         $stmt = $pdo->prepare($query);
         $this->storeQueryObject($stmt);
 
@@ -210,6 +224,7 @@ class SimplePdoWrapper implements SimplePdoWrapperInterface
 
 
         // executing the request
+        $this->queryLog("replace", $table, $query, $markers, $fields, $options);
         $stmt = $pdo->prepare($query);
         $this->storeQueryObject($stmt);
 
@@ -249,6 +264,7 @@ class SimplePdoWrapper implements SimplePdoWrapperInterface
         $this->query = $query;
 
 
+        $this->queryLog("update", $table, $query, $markers, $fields, $whereConds);
         $stmt = $pdo->prepare($query);
         $this->storeQueryObject($stmt);
 
@@ -282,6 +298,7 @@ class SimplePdoWrapper implements SimplePdoWrapperInterface
         $pdo = $this->boot();
         $this->query = $query;
 
+        $this->queryLog("delete", $table, $query, $markers, $whereConds);
         $stmt = $pdo->prepare($query);
         $this->storeQueryObject($stmt);
 
@@ -316,6 +333,7 @@ class SimplePdoWrapper implements SimplePdoWrapperInterface
         $this->query = $query;
 
 
+        $this->queryLog("fetch", $query, $markers, $fetchStyle);
         $stmt = $pdo->prepare($query);
         $this->storeQueryObject($stmt);
 
@@ -349,6 +367,7 @@ class SimplePdoWrapper implements SimplePdoWrapperInterface
         $this->query = $query;
 
 
+        $this->queryLog("fetchAll", $query, $markers, $fetchStyle, $fetchArg, $ctorArgs);
         $stmt = $pdo->prepare($query);
         $this->storeQueryObject($stmt);
 
@@ -385,6 +404,7 @@ class SimplePdoWrapper implements SimplePdoWrapperInterface
         $pdo = $this->boot();
         $this->query = $query;
 
+        $this->queryLog("execute", $query);
         $this->storeQueryObject($pdo);
         if (false !== $r = $pdo->exec($query)) {
             return $r;
@@ -574,6 +594,54 @@ class SimplePdoWrapper implements SimplePdoWrapperInterface
     }
 
 
+    /**
+     * Hook for children classes.
+     *
+     * It logs the calls to our different methods BEFORE they are executed.
+     *
+     *
+     * The type can be one of:
+     * - transactionBegin: indicates a call to the pdo->beginTransaction method
+     * - transactionCommit: indicates a call to the pdo->commit method
+     * - transactionEnd: indicates when a transaction ends (after either a commit or a rollback)
+     * - transactionRollback: indicates when a call to the pdo->rollback method
+     * - insert: indicates when a call to our insert method
+     * - replace: indicates when a call to our replace method
+     * - update: indicates when a call to our update method
+     * - delete: indicates when a call to our delete method
+     * - fetch: indicates when a call to our fetch method
+     * - fetchAll: indicates when a call to our fetchAll method
+     * - execute: indicates when a call to our executeStatement method
+     * - exception: indicates that an exception was caught from either a transaction, or a call to one of those methods:
+     *      insert, replace, update, delete, fetch, fetchAll, execute.
+     *
+     *
+     * The rest of the arguments depends on the type.
+     * Only the following types have arguments (see the source code for more details):
+     *
+     * - insert: $table, $query, $markers, $fields, $options
+     * - replace: $table, $query, $markers, $fields, $options
+     * - update: $table, $query, $markers, $fields, $whereConds
+     * - delete: $table, $query, $markers, $whereConds
+     * - fetch: $query, $markers, $fetchStyle
+     * - fetchAll: $markers, $fetchStyle, $fetchArg, $ctorArgs
+     * - execute: $query
+     * - exception: $exception (the Exception instance)
+     *
+     *
+     *
+     * @param string $type
+     * @param mixed ...$args
+     */
+    protected function queryLog(string $type, ...$args)
+    {
+
+    }
+
+
+
+
+
     //--------------------------------------------
     //
     //--------------------------------------------
@@ -587,15 +655,15 @@ class SimplePdoWrapper implements SimplePdoWrapperInterface
      */
     private function handleException(\Exception $e, array $markers = [])
     {
+
+        $this->queryLog("exception", $e);
+
+        $code = $e->getCode();
         /**
-         * Note: I couldn't pass the exception code, I had an error (I believe it's a bug, but no time to investigate):
-         * Fatal error: Uncaught Error: Wrong parameters for Ling\SimplePdoWrapper\Exception\SimplePdoWrapperQueryException([string $message [, long $code [, Throwable $previous = NULL]]])
-         * It probably expects an int, but the PDO exception's code is a string.
-         * https://www.php.net/manual/en/exception.getcode.php
-         *
+         * php exception code has to be an int, otherwise it's a fatal error.
          */
-//        $ex = new SimplePdoWrapperQueryException($e->getMessage(), $e->getCode(), $e);
-        $ex = new SimplePdoWrapperQueryException($e->getMessage(), null, $e);
+        $code = (int)$code;
+        $ex = new SimplePdoWrapperQueryException($e->getMessage(), $code, $e);
         $ex->setQuery($this->query);
         $ex->setMarkers($markers);
         throw $ex;

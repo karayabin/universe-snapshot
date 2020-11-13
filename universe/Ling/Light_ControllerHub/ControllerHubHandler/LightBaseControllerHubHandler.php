@@ -93,8 +93,6 @@ abstract class LightBaseControllerHubHandler implements LightControllerHubHandle
 
             $class = LightClassHelper::getLightClassNameByFile($controllerFile);
             $controller = $class . '->' . $method;
-
-
             $light = $this->container->getLight();
             $r = ControllerHelper::executeController($controller, $light);
             return $r;

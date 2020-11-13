@@ -1,12 +1,12 @@
 Realist conception notes
 ======================
-2019-08-28 -> 2020-07-06
+2019-08-28 -> 2020-08-21
 
 
 
 Overview
 ===========
-2019-08-28
+2019-08-28 -> 2020-08-27
 
 
 The goal of realist is to be the medium between the developer and the (my)sql database as far as fetching rows 
@@ -18,7 +18,7 @@ so that the developer knows exactly where to look when he wants to change anythi
 
 
 
-There are three sides in realist:
+There are two sides in realist:
 
 - the model
 - the gui
@@ -182,7 +182,6 @@ Note: the default name is used as long as you don't define the checkbox_column.n
 2019-08-28
 
 
-
 We recommend using the [ric admin table helper](https://github.com/lingtalfi/JRicAdminTableHelper) js tool to handle
 your ric related actions, but you can use any tool really. 
  
@@ -330,7 +329,7 @@ We can specify the title using the "title" entry.
 
 Miscellaneous
 ============
-2019-10-30
+2019-10-30 -> 2020-08-21
 
 
 In this section, I present to you the "other" settings, that are not part of the duelist specification and not part of the rendering section.
@@ -338,19 +337,21 @@ In this section, I present to you the "other" settings, that are not part of the
 - csrf_token: bool=true. Whether to protect the list against csrf attacks, using the [Light_CsrfSimple](https://github.com/lingtalfi/Light_CsrfSimple) service.
             
 - plugin: string, the name of the plugin handling this realist request declaration.
-        So far, it's used only as a prefix for micro-permission (see the use_micro_permission setting below).
-        It might also be used by third party plugins as the handler of micro-permissions in general (for instance can the user delete rows in this table?),
-        but that depends on the plugin.
+
+    So far, it's used only as a prefix for micro-permission (see the use_micro_permission setting below).
+    It might also be used by third party plugins as the handler of micro-permissions in general (for instance can the user delete rows in this table?),
+    but that depends on the plugin.
         
 - use_micro_permission: bool=true, whether to use the micro permission checking.
-        We use the [micro permission notation recommendation for database](https://github.com/lingtalfi/Light_MicroPermission/blob/master/doc/pages/recommended-micropermission-notation.md#database-interaction).
-        Since realist just provides access to the data, we check against the following micro-permission:
-        
-        - {pluginName}.tables.{table}.read
-        
+
+    We use the [micro permission notation recommendation for database](https://github.com/lingtalfi/Light_MicroPermission/blob/master/doc/pages/recommended-micropermission-notation.md#database-interaction).
+    Since realist just provides access to the data, we check against the following micro-permission:
+
+    - store.{table}.read
+   
         With:
-            - pluginName: the plugin string defined in the plugin setting (described just above)
-            - table: the name of the table defined in the table setting (part of the duelist spec)
+        - pluginName: the plugin string defined in the plugin setting (described just above)
+        - table: the name of the table defined in the table setting (part of the duelist spec)
         
         
         

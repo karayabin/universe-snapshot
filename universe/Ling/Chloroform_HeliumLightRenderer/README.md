@@ -1,6 +1,6 @@
 Chloroform_HeliumLightRenderer
 ===========
-2019-10-21 -> 2020-06-04
+2019-10-21 -> 2020-11-09
 
 
 
@@ -8,6 +8,10 @@ An adaptation of the [Chloroform_HeliumRenderer](https://github.com/lingtalfi/Ch
 
 
 This is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
+
+
+
+Chloroform_HeliumLightRenderer is compliant with the [clever form initiative](https://github.com/lingtalfi/TheBar/blob/master/discussions/clever-form-initiative.md).
 
 
 Install
@@ -34,6 +38,11 @@ Summary
 
 
 
+
+
+
+
+
 Related
 =========
 
@@ -46,6 +55,20 @@ Related
 History Log
 =============
 
+- 1.6.3 -- 2020-11-09
+
+    - update HeliumLightRenderer not rendering TableList properly
+    - now handle LightCsrfSessionField
+    - update HeliumLightRenderer->printField with AjaxFileBoxField, now handle gormanCallbackKeys property completely
+    
+- 1.6.2 -- 2020-09-25
+
+    - update api, is now compliant with new TableList features
+    
+- 1.6.1 -- 2020-09-22
+
+    - update api, is now compliant with clever form initiative 
+    
 - 1.6.0 -- 2020-06-04
 
     - update HeliumLightRenderer->printAjaxFileBoxField_FileUploader to work with jFileUploader v3 

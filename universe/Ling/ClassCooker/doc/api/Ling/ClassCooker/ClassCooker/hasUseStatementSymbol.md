@@ -53,7 +53,7 @@ Returns bool.
 
 Source Code
 ===========
-See the source code for method [ClassCooker::hasUseStatementSymbol](https://github.com/lingtalfi/ClassCooker/blob/master/ClassCooker.php#L723-L734)
+See the source code for method [ClassCooker::hasUseStatementSymbol](https://github.com/lingtalfi/ClassCooker/blob/master/ClassCooker.php#L727-L738)
 
 
 See Also

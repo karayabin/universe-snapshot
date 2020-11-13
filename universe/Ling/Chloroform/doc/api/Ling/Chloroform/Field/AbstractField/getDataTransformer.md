@@ -46,7 +46,7 @@ Returns [DataTransformerInterface](https://github.com/lingtalfi/Chloroform/blob/
 
 Source Code
 ===========
-See the source code for method [AbstractField::getDataTransformer](https://github.com/lingtalfi/Chloroform/blob/master/Field/AbstractField.php#L277-L280)
+See the source code for method [AbstractField::getDataTransformer](https://github.com/lingtalfi/Chloroform/blob/master/Field/AbstractField.php#L286-L289)
 
 
 See Also

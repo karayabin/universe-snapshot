@@ -23,8 +23,8 @@ public [TableListService::getLabel](https://github.com/lingtalfi/Light_Chlorofor
 
 Returns the formatted label of the column, based on the given raw value.
 
-The formatting is based on the configuration pointed by the defined pluginId (i.e. if your
-fields property use concat, see the [chloroformExtension conception notes](https://github.com/lingtalfi/Light_ChloroformExtension/blob/master/doc/pages/conception-notes.md) for more info).
+This uses the "column" directive of the configuration item.
+See the [chloroformExtension conception notes](https://github.com/lingtalfi/Light_ChloroformExtension/blob/master/doc/pages/conception-notes.md) for more info).
 
 
 
@@ -57,7 +57,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [TableListService::getLabel](https://github.com/lingtalfi/Light_ChloroformExtension/blob/master/Field/TableList/TableListService.php#L122-L141)
+See the source code for method [TableListService::getLabel](https://github.com/lingtalfi/Light_ChloroformExtension/blob/master/Field/TableList/TableListService.php#L168-L194)
 
 
 See Also

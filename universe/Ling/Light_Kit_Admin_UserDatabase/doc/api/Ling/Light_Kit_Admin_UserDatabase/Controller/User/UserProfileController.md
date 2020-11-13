@@ -4,7 +4,7 @@
 
 The UserProfileController class
 ================
-2020-06-25 --> 2020-06-25
+2020-06-25 --> 2020-08-28
 
 
 
@@ -92,4 +92,4 @@ See the source code of [Ling\Light_Kit_Admin_UserDatabase\Controller\User\UserPr
 
 SeeAlso
 ==============
-Next class: [LightKitAdminUserDatabaseControllerHubHandler](https://github.com/lingtalfi/Light_Kit_Admin_UserDatabase/blob/master/doc/api/Ling/Light_Kit_Admin_UserDatabase/ControllerHub/LightKitAdminUserDatabaseControllerHubHandler.md)<br>
+Previous class: [LudUserHasPermissionGroupController](https://github.com/lingtalfi/Light_Kit_Admin_UserDatabase/blob/master/doc/api/Ling/Light_Kit_Admin_UserDatabase/Controller/Generated/LudUserHasPermissionGroupController.md)<br>Next class: [LightKitAdminUserDatabaseControllerHubHandler](https://github.com/lingtalfi/Light_Kit_Admin_UserDatabase/blob/master/doc/api/Ling/Light_Kit_Admin_UserDatabase/ControllerHub/LightKitAdminUserDatabaseControllerHubHandler.md)<br>

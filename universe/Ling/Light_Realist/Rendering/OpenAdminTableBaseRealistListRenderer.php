@@ -5,8 +5,9 @@ namespace Ling\Light_Realist\Rendering;
 
 
 use Ling\Bat\ArrayTool;
+use Ling\Light\ServiceContainer\LightServiceContainerAwareInterface;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
-use Ling\Light_CsrfSimple\Service\LightCsrfSimpleService;
+use Ling\Light_CsrfSession\Service\LightCsrfSessionService;
 use Ling\Light_Realist\Service\LightRealistService;
 
 /**
@@ -15,7 +16,7 @@ use Ling\Light_Realist\Service\LightRealistService;
  * See more details in the @page(open admin table helper implementation notes).
  *
  */
-abstract class OpenAdminTableBaseRealistListRenderer implements RealistListRendererInterface
+abstract class OpenAdminTableBaseRealistListRenderer implements RealistListRendererInterface, LightServiceContainerAwareInterface
 {
 
 
@@ -37,12 +38,13 @@ abstract class OpenAdminTableBaseRealistListRenderer implements RealistListRende
      */
     protected $labels;
 
+
     /**
-     * This property holds the hiddenColumns for this instance.
-     * The hidden columns are not displayed (but their data is still accessible).
+     * This property holds the propertiesToDisplay for this instance.
      * @var array
      */
-    protected $hiddenColumns;
+    protected $propertiesToDisplay;
+
 
     /**
      * This property holds an array of booleans representing whether or not to use the renderer widgets.
@@ -93,11 +95,11 @@ abstract class OpenAdminTableBaseRealistListRenderer implements RealistListRende
 
 
     /**
-     * This property holds the listActionGroups for this instance.
+     * This property holds the listItemGroupActions for this instance.
      * More details in the @page(list action handler conception notes).
      * @var array
      */
-    protected $listActionGroups;
+    protected $listItemGroupActions;
 
     /**
      * This property holds the listGeneralActions for this instance.
@@ -140,8 +142,8 @@ abstract class OpenAdminTableBaseRealistListRenderer implements RealistListRende
     public function __construct()
     {
         $this->dataTypes = [];
+        $this->propertiesToDisplay = [];
         $this->labels = [];
-        $this->hiddenColumns = [];
         $this->useWidgets = [
             "checkbox" => true,
             "table" => true,
@@ -151,7 +153,7 @@ abstract class OpenAdminTableBaseRealistListRenderer implements RealistListRende
         $this->requestId = null;
         $this->container = null;
         $this->collapsibleColumnIndexes = [];
-        $this->listActionGroups = [];
+        $this->listItemGroupActions = [];
         $this->listGeneralActions = [];
         $this->containerCssId = null;
         $this->sqlColumns = [];
@@ -160,14 +162,30 @@ abstract class OpenAdminTableBaseRealistListRenderer implements RealistListRende
 
     }
 
+
+    //--------------------------------------------
+    // LightServiceContainerAwareInterface
+    //--------------------------------------------
     /**
      * @implementation
      */
-    public function prepareByRequestDeclaration(string $requestId, array $requestDeclaration, LightServiceContainerInterface $container)
+    public function setContainer(LightServiceContainerInterface $container)
+    {
+        $this->container = $container;
+    }
+
+
+
+    //--------------------------------------------
+    // RealistListRendererInterface
+    //--------------------------------------------
+    /**
+     * @implementation
+     */
+    public function prepareByRequestDeclaration(string $requestId, array $requestDeclaration)
     {
 
         $this->setRequestId($requestId);
-        $this->setContainer($container);
 
         /**
          * @var $realist LightRealistService
@@ -175,30 +193,25 @@ abstract class OpenAdminTableBaseRealistListRenderer implements RealistListRende
         $realist = $this->container->get('realist');
 
         $rendering = $requestDeclaration['rendering'] ?? [];
-        $labels = $rendering['column_labels'] ?? [];
-        $hiddenColumns = $rendering['hidden_columns'] ?? [];
-
+        $labels = $rendering['property_labels'] ?? [];
+        $propDisplay = $rendering['properties_to_display'] ?? [];
 
 
         $this->setLabels($labels);
-        $this->setHiddenColumns($hiddenColumns);
+        $this->setPropertiesToDisplay($propDisplay);
 
 
 
         $this->setSqlColumns($realist->getSqlColumnsByRequestDeclaration($requestDeclaration));
 
-        $listActionGroups = $rendering['list_action_groups'] ?? [];
+
+        $liga = $realist->prepareListItemGroupActionsByRequestId($requestId);
+        $this->setListItemGroupActions($liga);
 
 
-        $realist->prepareListActionGroups($listActionGroups, $requestId);
-        $this->setListActionGroups($listActionGroups);
+        $ga = $realist->prepareListGeneralActionsByRequestId($requestId);
+        $this->setListGeneralActions($ga);
 
-
-
-
-        $listGeneralActions = $rendering['list_general_actions'] ?? [];
-        $realist->prepareListGeneralActions($listGeneralActions, $requestId);
-        $this->setListGeneralActions($listGeneralActions);
 
 
         $openAdminTable = $rendering['open_admin_table'] ?? [];
@@ -215,14 +228,12 @@ abstract class OpenAdminTableBaseRealistListRenderer implements RealistListRende
         $this->setCollapsibleColumnIndexes($collapsibleColumnIndexes);
 
 
-        $csrfToken = $requestDeclaration['csrf_token'] ?? null;
-        if (true === $csrfToken) {
-            /**
-             * @var $csrfService LightCsrfSimpleService
-             */
-            $csrfService = $container->get('csrf_session');
-            $this->setCsrfToken($csrfService->getToken());
-        }
+        /**
+         * @var $csrfService LightCsrfSessionService
+         */
+        $csrfService = $this->container->get('csrf_session');
+        $this->setCsrfToken($csrfService->getToken());
+
 
         $relatedLinks = $rendering['related_links'] ?? [];
         if ($relatedLinks) {
@@ -280,15 +291,14 @@ abstract class OpenAdminTableBaseRealistListRenderer implements RealistListRende
     }
 
     /**
-     * Sets the hiddenColumns.
+     * Sets the propertiesToDisplay.
      *
-     * @param array $hiddenColumns
+     * @param array $propertiesToDisplay
      */
-    public function setHiddenColumns(array $hiddenColumns)
+    public function setPropertiesToDisplay(array $propertiesToDisplay)
     {
-        $this->hiddenColumns = $hiddenColumns;
+        $this->propertiesToDisplay = $propertiesToDisplay;
     }
-
 
 
     /**
@@ -312,15 +322,6 @@ abstract class OpenAdminTableBaseRealistListRenderer implements RealistListRende
         $this->requestId = $requestId;
     }
 
-    /**
-     * Sets the container.
-     *
-     * @param LightServiceContainerInterface $container
-     */
-    public function setContainer(LightServiceContainerInterface $container)
-    {
-        $this->container = $container;
-    }
 
     /**
      * Sets the collapsibleColumnIndexes.
@@ -333,13 +334,17 @@ abstract class OpenAdminTableBaseRealistListRenderer implements RealistListRende
     }
 
     /**
-     * Sets the listActionGroups.
+     * Sets the "actions items" representing the "list item group actions" for this list.
      *
-     * @param array $listActionGroups
+     * See more details in the @page(realist action-items document),
+     * and the @page(realist list-actions document).
+     *
+     *
+     * @param array $actions
      */
-    public function setListActionGroups(array $listActionGroups)
+    public function setListItemGroupActions(array $actions)
     {
-        $this->listActionGroups = $listActionGroups;
+        $this->listItemGroupActions = $actions;
     }
 
     /**
@@ -441,7 +446,7 @@ abstract class OpenAdminTableBaseRealistListRenderer implements RealistListRende
     protected function getListActionGroupLeafItems(): array
     {
         $ret = [];
-        ArrayTool::walkRowsRecursive($this->listActionGroups, function ($v) use (&$ret) {
+        ArrayTool::walkRowsRecursive($this->listItemGroupActions, function ($v) use (&$ret) {
             $ret[] = $v;
         }, 'items', false);
         return $ret;

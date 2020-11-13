@@ -1,0 +1,23 @@
+name: HelloWorldWidget
+description: <
+    HelloWorldWidget is a bootstrap 4 widget that just displays the text: "Hello world".
+    We can change that text using the variable: text.
+>
+
+vars:
+    text:
+        type: string
+        default_value: hello world
+        description: The text to display
+        example: hello world
+
+
+example: <
+    name: hello_world
+    type: picasso
+    className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\HelloWorldWidget
+    widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/HelloWorldWidget
+    template: default.php
+    vars: 
+        text: hello world
+>

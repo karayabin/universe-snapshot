@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [GenericActionItemHandlerTrait::__construct](https://github.com/lingtalfi/Light_Realist/blob/master/GenericItemActionHandler/GenericActionItemHandlerTrait.php#L43-L48)
+See the source code for method [GenericActionItemHandlerTrait::__construct](https://github.com/lingtalfi/Light_Realist/blob/master/GenericItemActionHandler/GenericActionItemHandlerTrait.php#L44-L49)
 
 
 See Also

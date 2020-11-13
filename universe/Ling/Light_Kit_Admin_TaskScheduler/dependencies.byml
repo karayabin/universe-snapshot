@@ -1,0 +1,14 @@
+dependencies: 
+    Ling: 
+        - Bat
+        - Chloroform
+        - Light
+        - Light_Kit_Admin
+        - Light_Realform
+        - Light_Kit
+        - Light_UserRowRestriction
+        - Light_ControllerHub
+    
+
+post_install: 
+    map: true

@@ -30,3 +30,4 @@ https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/Util/Sic
 https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/Util/SicFileCombinerUtil/setVariableSymbol.md
 https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/Util/SicFileCombinerUtil.md
 https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools.md
+https://github.com/lingtalfi/SicTools/blob/master/doc/pages/conception-notes.md

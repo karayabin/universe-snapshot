@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightMailerService::debugLog](https://github.com/lingtalfi/Light_Mailer/blob/master/Service/LightMailerService.php#L268-L278)
+See the source code for method [LightMailerService::debugLog](https://github.com/lingtalfi/Light_Mailer/blob/master/Service/LightMailerService.php#L294-L304)
 
 
 See Also

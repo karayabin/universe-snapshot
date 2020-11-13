@@ -1,11 +1,14 @@
 General philosophy of the Light framework
 ================
-2019-04-09
+2019-04-09 
+
 
 
 
 Layers addition
 -----------
+2019-04-09
+
 A light web application is built by adding simple layers on top of each others. 
 Each layer adds a simple functionality, and the application gets more complex as more layers get added.
 
@@ -13,6 +16,7 @@ Each layer adds a simple functionality, and the application gets more complex as
 
 Error handling: a strict error policy
 --------------
+2019-04-09
 
 Generally, when something which depends on the developer fails, we throw an exception.
 
@@ -23,6 +27,7 @@ by providing fallback behaviours.
 
 Arguments checking: I'm not a babysitter
 -------------
+2019-04-09
 
 As you know, in development, we can make tons of checking to ensure the data passed to a method is correct.
 

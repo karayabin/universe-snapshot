@@ -54,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [GemHelper::error](https://github.com/lingtalfi/Light_UploadGems/blob/master/GemHelper/GemHelper.php#L623-L626)
+See the source code for method [GemHelper::error](https://github.com/lingtalfi/Light_UploadGems/blob/master/GemHelper/GemHelper.php#L612-L615)
 
 
 See Also
@@ -62,5 +62,5 @@ See Also
 
 The [GemHelper](https://github.com/lingtalfi/Light_UploadGems/blob/master/doc/api/Ling/Light_UploadGems/GemHelper/GemHelper.md) class.
 
-Previous method: [transformImage](https://github.com/lingtalfi/Light_UploadGems/blob/master/doc/api/Ling/Light_UploadGems/GemHelper/GemHelper/transformImage.md)<br>
+Previous method: [getTransformedName](https://github.com/lingtalfi/Light_UploadGems/blob/master/doc/api/Ling/Light_UploadGems/GemHelper/GemHelper/getTransformedName.md)<br>
 

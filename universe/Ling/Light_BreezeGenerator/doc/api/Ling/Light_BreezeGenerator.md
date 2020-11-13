@@ -1,6 +1,6 @@
 Ling/Light_BreezeGenerator
 ================
-2019-09-11 --> 2020-07-27
+2019-09-11 --> 2020-11-09
 
 
 
@@ -48,6 +48,7 @@ Dependencies
 - [Light_DatabaseInfo](https://github.com/lingtalfi/Light_DatabaseInfo)
 - [Light_Database](https://github.com/lingtalfi/Light_Database)
 - [SqlWizard](https://github.com/lingtalfi/SqlWizard)
+- [CheapLogger](https://github.com/lingtalfi/CheapLogger)
 - [BabyYaml](https://github.com/lingtalfi/BabyYaml)
 
 

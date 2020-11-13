@@ -353,7 +353,7 @@ class LightAjaxFileUploadManagerService
 
 
         $extension = FileSystemTool::getFileExtension($name);
-        $fileName = FileSystemTool::getFileName($name);
+        $fileName = FileSystemTool::getBasename($name);
         list($transformerId, $transformerParams) = $this->extractFunctionInfo($nameTransformer);
 
         switch ($transformerId) {

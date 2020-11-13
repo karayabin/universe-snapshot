@@ -59,5 +59,10 @@ abstract class LightDeveloperWizardCommonProcess extends LightDeveloperWizardBas
         $util->setPlanet($planetName, $galaxyName);
         $util->setContainer($this->container);
         $this->util = $util;
+
+
+        if (false === $this->isLightPlanet($planetName)) {
+            $this->setDisabledReason("The planet name doesn't start with the \"Light_\" prefix.");
+        }
     }
 }

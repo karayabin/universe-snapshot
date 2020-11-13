@@ -32,7 +32,7 @@ Parameters
 
 - pageConf
 
-    See more details in the @page(page configuration array) document.
+    See more details in the [page configuration array](https://github.com/lingtalfi/Kit/blob/master/README.md#the-kit-configuration-array) document.
 
 
 Return values

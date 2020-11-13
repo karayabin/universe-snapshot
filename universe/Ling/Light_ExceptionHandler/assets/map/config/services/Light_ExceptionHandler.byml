@@ -14,6 +14,8 @@ $events.methods_collection:
                 - Light_AjaxHandler.on_handle_exception_caught
                 - Light_AjaxFileUploadManager.on_controller_exception_caught
                 - Light_RealGenerator.on_realform_exception_caught
+                - Light_Server.on_controller_exception_caught
+                - Light_HttpError.on_controller_exception_caught
             listener:
                 instance: @service(exception_handler)
                 callable_method: onExceptionCaught

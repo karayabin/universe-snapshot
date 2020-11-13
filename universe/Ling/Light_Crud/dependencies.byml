@@ -7,7 +7,6 @@ dependencies:
         - Light_Database
         - Light_MicroPermission
         - SimplePdoWrapper
-        - Light_Events
     
 
 post_install: 

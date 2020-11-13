@@ -1,6 +1,6 @@
 Gorman json decoder
 ========
-2020-05-28
+2020-05-28 -> 2020-10-02
 
 
 
@@ -72,7 +72,7 @@ $arr = GormanJsonDecoder::encode([
     let arr = <?php echo GormanJsonDecoder::decode($arr); ?>;
     console.log(arr.e("hello"));
     // will output:
-    // I was called with arg
+    // I was called with arg: hello
     // 456
 
 

@@ -4,7 +4,7 @@
 
 The LightExceptionHandlerService class
 ================
-2019-11-11 --> 2020-06-04
+2019-11-11 --> 2020-11-05
 
 
 

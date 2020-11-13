@@ -1,0 +1,251 @@
+default: 
+    table: lup_user_preference up
+    ric: 
+        - id
+    
+    base_fields: 
+        - up.id
+        - up.lud_user_id
+        - up.plugin
+        - up.name
+        - up.value
+        - up.text_value
+        - up.value_type
+        - concat(up.lud_user_id, '. ', lu.pseudo) as lud_user_id_plus
+    
+    base_joins: 
+        - inner join lud_user lu on up.lud_user_id=lu.id
+    
+    order: 
+        col_order: $column $direction
+    
+    where: 
+        general_search: <
+            up.id like :%expression% or
+            concat(up.lud_user_id, '. ', lu.pseudo) like :%expression% or
+            up.plugin like :%expression% or
+            up.name like :%expression% or
+            up.value like :%expression% or
+            up.text_value like :%expression% or
+            up.value_type like :%expression%
+        >
+        generic_filter: $column $operator :operator_value
+        generic_sub_filter: $column like :%operator_value%
+        open_parenthesis: (
+        close_parenthesis: )
+        and: and
+        or: or
+        in_rics: (up.id like :id)
+    
+    limit: 
+        page: $page
+        page_length: $page_length
+    
+    options: 
+        wiring: []
+        default_limit_page: 1
+        default_limit_page_length: 20
+        tag_options: 
+            generic_filter: 
+                operator_and_value: 
+                    source: operator
+                    target: operator_value
+                
+            
+        
+    
+    plugin: Light_Kit_Admin_UserPreferences
+    csrf_token: true
+    use_micro_permission: true
+    use_row_restriction: false
+    query_error_show_debug_info: true
+    rendering: 
+        title: User preference list
+        list_general_actions: 
+            - 
+                action_id: Light_Kit_Admin.realist-generate_random_rows
+                text: Generate
+                icon: fas fa-spray-can
+                csrf_token: true
+            
+            - 
+                action_id: Light_Kit_Admin.realist-save_table
+                text: Save table content
+                icon: fas fa-download
+                csrf_token: true
+            
+            - 
+                action_id: Light_Kit_Admin.realist-load_table
+                text: Load table content
+                icon: fas fa-upload
+                csrf_token: true
+            
+        
+        list_action_groups: 
+            - 
+                action_id: Light_Kit_Admin.realist-print
+                text: Print
+                icon: fas fa-print
+                csrf_token: true
+            
+            - 
+                action_id: Light_Kit_Admin.realist-delete_rows
+                text: Delete
+                icon: far fa-trash-alt
+                csrf_token: true
+            
+            - 
+                action_id: Light_Kit_Admin.realist-edit_rows
+                text: Edit
+                icon: fas fa-edit
+                csrf_token: true
+            
+            - 
+                text: Share
+                icon: fas fa-share-square
+                items: 
+                    - 
+                        action_id: Light_Kit_Admin.realist-rows_to_ods
+                        text: OpenOffice ods
+                        icon: far fa-file-alt
+                        csrf_token: true
+                    
+                    - 
+                        action_id: Light_Kit_Admin.realist-rows_to_xlsx
+                        text: Excel xlsx
+                        icon: far fa-file-excel
+                        csrf_token: true
+                    
+                    - 
+                        action_id: Light_Kit_Admin.realist-rows_to_xls
+                        text: Excel xls
+                        icon: far fa-file-excel
+                        csrf_token: true
+                    
+                    - 
+                        action_id: Light_Kit_Admin.realist-rows_to_html
+                        text: Html
+                        icon: far fa-file-code
+                        csrf_token: true
+                    
+                    - 
+                        action_id: Light_Kit_Admin.realist-rows_to_csv
+                        text: Csv
+                        icon: fas fa-file-csv
+                        csrf_token: true
+                    
+                    - 
+                        action_id: Light_Kit_Admin.realist-rows_to_pdf
+                        text: Pdf
+                        icon: far fa-file-pdf
+                        csrf_token: true
+                    
+                
+            
+        
+        list_renderer: 
+            identifier: Light_Kit_Admin_UserPreferences
+        
+        responsive_table_helper: 
+            collapsible_column_indexes: admin
+        
+        open_admin_table: 
+            widget_statuses: 
+                debug_window: true
+                global_search: true
+                advanced_search: true
+                toolbar: true
+                table: true
+                head: true
+                head_sort: true
+                checkbox: true
+                neck_filters: true
+                pagination: true
+                number_of_items_per_page: true
+                number_of_rows_info: true
+            
+            data_types: 
+                id: number
+                lud_user_id: number
+                plugin: string
+                name: string
+                value: string
+                text_value: string
+                value_type: string
+                lud_user_id_plus: string
+                _action: _action
+            
+        
+        column_labels: 
+            id: "#"
+            lud_user_id: Lud user id
+            plugin: Plugin
+            name: Name
+            value: Value
+            text_value: Text value
+            value_type: Value type
+            lud_user_id_plus: Lud user
+            _action: Actions
+        
+        hidden_columns: 
+            - lud_user_id
+        
+        rows_renderer: 
+            identifier: Light_Kit_Admin_UserPreferences
+            types: 
+                avatar_url: 
+                    type: Light_Realist.image
+                    width: 100
+                
+                _action: 
+                    type: Light_Realist.mixer
+                    separator: " - "
+                    items: 
+                        - 
+                            type: Light_Realist.hub_link
+                            text: Edit
+                            url_params_add_ric: true
+                            url_params: 
+                                plugin: Light_Kit_Admin_UserPreferences
+                                controller: Generated/LupUserPreferenceController
+                                m: f
+                            
+                        
+                        - 
+                            type: Light_Kit_Admin.list_action
+                            text: Delete
+                            action_id: realist-delete_rows
+                            csrf_token: true
+                            include_ric: true
+                        
+                    
+                
+                _checkbox: Light_Realist.checkbox
+                lud_user_id_plus: 
+                    type: Light_Realist.hub_link
+                    text: null
+                    url_params_add_keys: 
+                        id: lud_user_id
+                    
+                    url_params: 
+                        plugin: Light_Kit_Admin_UserPreferences
+                        controller: Generated/LudUserController
+                        m: f
+                    
+                
+            
+            checkbox_column: 
+                name: _checkbox
+            
+            action_column: 
+                name: _action
+            
+        
+        related_links: 
+            - 
+                text: "Add new \"user preference\" item"
+                url: REALIST(Light_Realist, route, lch_route-hub, {plugin: Light_Kit_Admin_UserPreferences, controller: Generated/LupUserPreferenceController, m:f})
+                icon: fas fa-plus-circle
+            
+        
+    

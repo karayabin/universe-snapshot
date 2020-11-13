@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightCrudService::__construct](https://github.com/lingtalfi/Light_Crud/blob/master/Service/LightCrudService.php#L38-L42)
+See the source code for method [LightCrudService::__construct](https://github.com/lingtalfi/Light_Crud/blob/master/Service/LightCrudService.php#L27-L30)
 
 
 See Also
@@ -54,5 +54,5 @@ See Also
 
 The [LightCrudService](https://github.com/lingtalfi/Light_Crud/blob/master/doc/api/Ling/Light_Crud/Service/LightCrudService.md) class.
 
-Next method: [registerHandler](https://github.com/lingtalfi/Light_Crud/blob/master/doc/api/Ling/Light_Crud/Service/LightCrudService/registerHandler.md)<br>
+Next method: [execute](https://github.com/lingtalfi/Light_Crud/blob/master/doc/api/Ling/Light_Crud/Service/LightCrudService/execute.md)<br>
 

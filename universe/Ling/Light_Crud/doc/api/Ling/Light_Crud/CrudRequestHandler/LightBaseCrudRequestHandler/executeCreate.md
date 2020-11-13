@@ -16,7 +16,7 @@ Description
 ================
 
 
-protected [LightBaseCrudRequestHandler::executeCreate](https://github.com/lingtalfi/Light_Crud/blob/master/doc/api/Ling/Light_Crud/CrudRequestHandler/LightBaseCrudRequestHandler/executeCreate.md)(string $pluginContextIdentifier, string $table, ?array $params = []) : void
+protected [LightBaseCrudRequestHandler::executeCreate](https://github.com/lingtalfi/Light_Crud/blob/master/doc/api/Ling/Light_Crud/CrudRequestHandler/LightBaseCrudRequestHandler/executeCreate.md)(string $table, ?array $params = []) : void
 
 
 
@@ -34,10 +34,6 @@ The params array has the following structure:
 Parameters
 ================
 
-
-- pluginContextIdentifier
-
-    
 
 - table
 
@@ -67,7 +63,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightBaseCrudRequestHandler::executeCreate](https://github.com/lingtalfi/Light_Crud/blob/master/CrudRequestHandler/LightBaseCrudRequestHandler.php#L101-L165)
+See the source code for method [LightBaseCrudRequestHandler::executeCreate](https://github.com/lingtalfi/Light_Crud/blob/master/CrudRequestHandler/LightBaseCrudRequestHandler.php#L99-L154)
 
 
 See Also

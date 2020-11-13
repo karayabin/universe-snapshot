@@ -46,7 +46,7 @@ Returns [Where](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/ap
 
 Source Code
 ===========
-See the source code for method [Where::or](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/Util/Where.php#L493-L500)
+See the source code for method [Where::or](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/Util/Where.php#L502-L509)
 
 
 See Also

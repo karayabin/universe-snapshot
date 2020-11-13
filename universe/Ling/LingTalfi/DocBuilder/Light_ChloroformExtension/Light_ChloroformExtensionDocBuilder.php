@@ -78,7 +78,7 @@ class Light_ChloroformExtensionDocBuilder
                 "Ling\Light_AjaxHandler\Handler\ContainerAwareLightAjaxHandler",
                 "Ling\Chloroform\Field\SelectField",
                 "Ling\Chloroform\Field\AbstractField",
-
+                "Ling\Light_AjaxHandler\Handler\BaseLightAjaxHandler",
             ],
             /**
              * Your project start date.
@@ -146,6 +146,7 @@ class Light_ChloroformExtensionDocBuilder
             "keyWord2UrlMap" => [
                 "ajax communication protocol" => 'https://github.com/lingtalfi/AjaxCommunicationProtocol',
                 "table list configuration item" => $doc . '/pages/conception-notes.md#configuration-item',
+                "Light_ChloroformExtension conception notes" => $doc . '/pages/conception-notes.md',
                 "TableListField conception notes" => $doc . '/pages/conception-notes.md#tablelistfield',
                 "field id section" => 'https://github.com/lingtalfi/Chloroform/blob/master/doc/pages/chloroform-discussion.md#the-field-id',
                 "chloroform conception notes" => 'https://github.com/lingtalfi/Chloroform/blob/master/doc/pages/chloroform-discussion.md',
@@ -153,6 +154,8 @@ class Light_ChloroformExtensionDocBuilder
                 "chloroformExtension conception notes" => $doc . '/pages/conception-notes.md',
                 "form multiplier trick" =>  'https://github.com/lingtalfi/TheBar/blob/master/discussions/form-multiplier.md',
                 "alcp response" =>  'https://github.com/lingtalfi/Light_AjaxHandler/blob/master/doc/pages/ajax-light-communication-protocol.md',
+                "getFormattedValue section in the Chloroform conception notes" =>  'https://github.com/lingtalfi/Chloroform/blob/master/doc/pages/chloroform-discussion.md#the-getformattedvalue-method',
+                "Light_Nugget conception notes" =>  'https://github.com/lingtalfi/Light_Nugget/blob/master/doc/pages/conception-notes.md',
             ],
             /**
              * An array of external classes to url.
@@ -174,7 +177,7 @@ class Light_ChloroformExtensionDocBuilder
                 "Ling\Chloroform\DataTransformer\DataTransformerInterface" => "https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/DataTransformer/DataTransformerInterface.md",
                 "Ling\Chloroform\Field\FormAwareFieldInterface" => "https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/FormAwareFieldInterface.md",
                 "Ling\Chloroform\Form\Chloroform" => "https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform.md",
-
+                "Ling\Light_AjaxHandler\Handler\BaseLightAjaxHandler" => "https://github.com/lingtalfi/Light_AjaxHandler/blob/master/doc/api/Ling/Light_AjaxHandler/Handler/BaseLightAjaxHandler.md",
 
             ],
             "ignoreFilesStartingWith" => [

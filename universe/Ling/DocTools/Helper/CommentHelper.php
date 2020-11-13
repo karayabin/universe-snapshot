@@ -61,6 +61,7 @@ class CommentHelper
         'self',
         'static',
         'string',
+        'string[]',
         'true',
         'void',
     ];

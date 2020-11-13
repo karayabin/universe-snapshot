@@ -29,7 +29,7 @@ If the returnRic flag is set to true, the method will return the ric array inste
 If the row you're trying to insert triggers a duplicate error, the behaviour of this method depends on
 the ignoreDuplicate flag:
 - if true, the error will be caught internally, the return of the method is not affected
-- if false, the error will not be caught, and depending on your configuration, it might either
+- if false, the error will not be caught, and depending on your pdo configuration, it might either
          trigger an exception, or fail silently in which case this method returns false.
 
 
@@ -71,7 +71,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [ResourceApi::insertResource](https://github.com/lingtalfi/Light_UserData/blob/master/Api/Generated/Classes/ResourceApi.php#L35-L73)
+See the source code for method [ResourceApi::insertResource](https://github.com/lingtalfi/Light_UserData/blob/master/Api/Generated/Classes/ResourceApi.php#L42-L93)
 
 
 See Also
@@ -79,5 +79,5 @@ See Also
 
 The [ResourceApi](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Classes/ResourceApi.md) class.
 
-Previous method: [__construct](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Classes/ResourceApi/__construct.md)<br>Next method: [getResourceById](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Classes/ResourceApi/getResourceById.md)<br>
+Previous method: [__construct](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Classes/ResourceApi/__construct.md)<br>Next method: [insertResources](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Classes/ResourceApi/insertResources.md)<br>
 

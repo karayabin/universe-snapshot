@@ -1,11 +1,11 @@
     /**
      * @implementation
      */
-    public function updateUserById(int $id, array $user)
-    { //microperm
-        $this->pdoWrapper->update("user", $user, [
+    public function updateUserById(int $id, array $user, array $extraWhere = [], array $markers = [])
+    {
+        $this->pdoWrapper->update($this->table, $user, array_merge([
             "id" => $id,
-        ]);
+        ], $extraWhere), $markers);
     }
 
 // updateXXX

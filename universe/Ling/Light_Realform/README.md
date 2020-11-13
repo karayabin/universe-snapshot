@@ -1,6 +1,6 @@
 Light_Realform
 ===========
-2019-10-21 -> 2020-07-07
+2019-10-21 -> 2020-11-13
 
 
 
@@ -29,9 +29,7 @@ Summary
 ===========
 - [Light_Realform api](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform.md) (generated with [DocTools](https://github.com/lingtalfi/DocTools))
 - Pages
-    - [Conception notes linear](https://github.com/lingtalfi/Light_Realform/blob/master/doc/pages/conception-notes-linear.md)
-    - [Conception notes](https://github.com/lingtalfi/Light_Realform/blob/master/doc/pages/conception-notes.md)
-    - [Realform configuration example](https://github.com/lingtalfi/Light_Realform/blob/master/doc/pages/realform-config-example.md)
+    - [Conception notes](https://github.com/lingtalfi/Light_Realform/blob/master/doc/pages/2020/conception-notes.md)
 
 - [Services](#services)
 - [Related](#related)
@@ -70,6 +68,39 @@ Related
 History Log
 =============
 
+-- 2.0.4 -- 2020-11-13
+
+    - update service's injectDefaultValues method, now is private
+    - fix multiplier not working properly
+    
+- 2.0.3 -- 2020-09-21
+
+    - add service's executeSuccessHandler and injectDefaultValues methods
+
+- 2.0.2 -- 2020-09-18
+
+    - implementation of the form multiplier trick
+    
+- 2.0.1 -- 2020-09-15
+
+    - update links in README.md
+    
+- 2.0.0 -- 2020-09-15
+
+    - new api
+    
+- 1.18.0 -- 2020-08-10
+
+    - update BaseRealformHandler, is now generated-custom config pattern compliant
+    
+- 1.17.1 -- 2020-08-07
+
+    - rename LightRealformLateServiceRegistrationInterface->registerByIdentifier to registerRealformByIdentifier
+    
+- 1.17.0 -- 2020-08-07
+
+    - add LightRealformLateServiceRegistrationInterface
+    
 - 1.16.0 -- 2020-07-07
 
     - update LightRealformRoutineTwo->processForm, add onSuccess option, and update signature

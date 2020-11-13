@@ -4,7 +4,7 @@
 
 The LightEventsService class
 ================
-2019-10-31 --> 2020-06-26
+2019-10-31 --> 2020-11-06
 
 
 
@@ -24,11 +24,15 @@ Class synopsis
 
 class <span class="pl-k">LightEventsService</span>  {
 
+- Constants
+    - public const [STOP_PROPAGATION](#constant-STOP_PROPAGATION) = _stop_propagation_ ;
+
 - Properties
     - protected array [$listeners](#property-listeners) ;
     - protected [Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) [$container](#property-container) ;
     - protected array [$dispatchedEvents](#property-dispatchedEvents) ;
     - protected array [$options](#property-options) ;
+    - private [Ling\CliTools\Formatter\BashtmlFormatter](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Formatter/BashtmlFormatter.md)|null [$_bashtmlFormatter](#property-_bashtmlFormatter) ;
 
 - Methods
     - public [__construct](https://github.com/lingtalfi/Light_Events/blob/master/doc/api/Ling/Light_Events/Service/LightEventsService/__construct.md)() : void
@@ -38,6 +42,7 @@ class <span class="pl-k">LightEventsService</span>  {
     - public [setContainer](https://github.com/lingtalfi/Light_Events/blob/master/doc/api/Ling/Light_Events/Service/LightEventsService/setContainer.md)([Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) $container) : void
     - public [setOptions](https://github.com/lingtalfi/Light_Events/blob/master/doc/api/Ling/Light_Events/Service/LightEventsService/setOptions.md)(array $options) : void
     - protected [onListenerProcessBefore](https://github.com/lingtalfi/Light_Events/blob/master/doc/api/Ling/Light_Events/Service/LightEventsService/onListenerProcessBefore.md)($listener, string $event, $data) : void
+    - private [getFormattedMessage](https://github.com/lingtalfi/Light_Events/blob/master/doc/api/Ling/Light_Events/Service/LightEventsService/getFormattedMessage.md)(string $msg, string $format) : string
 
 }
 
@@ -78,9 +83,19 @@ Properties
     
     Available options are:
     
-    - useDebug: bool = false.
-         If true, we log the dispatching details in a a log.
-         See more details in the [Light_Events conception notes](https://github.com/lingtalfi/Light_Events/blob/master/doc/pages/conception-notes.md).
+    - debugDispatch: bool = false. Whether to log when we dispatch an event.
+    - debugCall: bool = false. Whether to log when a listener's method is called.
+    - formattingDispatch: string=null, the [bashtml](https://github.com/lingtalfi/CliTools/blob/master/doc/pages/bashtml.md) formatting to wrap the "debugDispatch" messages with (example: white, or white:bgRed, etc...).
+    - formattingSent: string=null, the [bashtml](https://github.com/lingtalfi/CliTools/blob/master/doc/pages/bashtml.md) formatting to wrap the "debugCall" messages with.
+    
+    
+    See more details in the [Light_Events conception notes](https://github.com/lingtalfi/Light_Events/blob/master/doc/pages/conception-notes.md).
+    
+    
+
+- <span id="property-_bashtmlFormatter"><b>_bashtmlFormatter</b></span>
+
+    This property holds the _bashtmlFormatter for this instance.
     
     
 
@@ -96,6 +111,7 @@ Methods
 - [LightEventsService::setContainer](https://github.com/lingtalfi/Light_Events/blob/master/doc/api/Ling/Light_Events/Service/LightEventsService/setContainer.md) &ndash; Sets the container.
 - [LightEventsService::setOptions](https://github.com/lingtalfi/Light_Events/blob/master/doc/api/Ling/Light_Events/Service/LightEventsService/setOptions.md) &ndash; Sets the options.
 - [LightEventsService::onListenerProcessBefore](https://github.com/lingtalfi/Light_Events/blob/master/doc/api/Ling/Light_Events/Service/LightEventsService/onListenerProcessBefore.md) &ndash; A hook called just before a listener is triggered.
+- [LightEventsService::getFormattedMessage](https://github.com/lingtalfi/Light_Events/blob/master/doc/api/Ling/Light_Events/Service/LightEventsService/getFormattedMessage.md) &ndash; Applies the given [bashtml](https://github.com/lingtalfi/CliTools/blob/master/doc/pages/bashtml.md) format to the given msg and returns the result.
 
 
 

@@ -58,7 +58,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [Where::startsWith](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/Util/Where.php#L261-L264)
+See the source code for method [Where::startsWith](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/Util/Where.php#L270-L273)
 
 
 See Also

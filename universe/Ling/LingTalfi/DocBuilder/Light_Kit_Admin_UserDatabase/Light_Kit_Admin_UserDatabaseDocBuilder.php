@@ -153,7 +153,9 @@ class Light_Kit_Admin_UserDatabaseDocBuilder
                 "babyYaml" => "https://github.com/lingtalfi/BabyYaml",
                 "Light_PluginInstaller conception notes" => "https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/pages/conception-notes.md",
                 "bmenu conception notes" => "https://github.com/lingtalfi/Light_BMenu/blob/master/doc/pages/conception-notes.md",
-
+                "the realist plugin" => "https://github.com/lingtalfi/Light_Realist/",
+                "the late service registration design" => "https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/design/late-service-registration.md",
+                "late registration concept" => "https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/design/late-service-registration.md",
             ],
             /**
              * An array of external classes to url.
@@ -180,6 +182,9 @@ class Light_Kit_Admin_UserDatabaseDocBuilder
                 "Ling\Light_Kit_Admin\LightKitAdminPlugin\LightKitAdminPluginInterface" => "https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/LightKitAdminPlugin/LightKitAdminPluginInterface.md",
                 "Ling\Light_PluginInstaller\PluginInstaller\PluginInstallerInterface" => "https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/PluginInstaller/PluginInstallerInterface.md",
                 "Ling\Light_BMenu\DirectInjection\BMenuDirectInjectorInterface" => "https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/DirectInjection/BMenuDirectInjectorInterface.md",
+                "Ling\Light_Realist\Service\LightRealistCustomServiceInterface" => "https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Service/LightRealistCustomServiceInterface.md",
+                "Ling\Light_Realform\Service\LightRealformLateServiceRegistrationInterface" => "https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Service/LightRealformLateServiceRegistrationInterface.md",
+
 
             ],
             "ignoreFilesStartingWith" => [

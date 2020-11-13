@@ -4,7 +4,7 @@
 
 The LightLingStandardService01 class
 ================
-2020-07-28 --> 2020-07-31
+2020-07-28 --> 2020-08-07
 
 
 
@@ -124,4 +124,4 @@ See the source code of [Ling\Light_LingStandardService\Service\LightLingStandard
 
 SeeAlso
 ==============
-Previous class: [LightLingStandardServiceHelper](https://github.com/lingtalfi/Light_LingStandardService/blob/master/doc/api/Ling/Light_LingStandardService/Helper/LightLingStandardServiceHelper.md)<br>Next class: [LightLingStandardServiceKitAdminPlugin](https://github.com/lingtalfi/Light_LingStandardService/blob/master/doc/api/Ling/Light_LingStandardService/Service/LightLingStandardServiceKitAdminPlugin.md)<br>
+Previous class: [LightLingStandardServiceHelper](https://github.com/lingtalfi/Light_LingStandardService/blob/master/doc/api/Ling/Light_LingStandardService/Helper/LightLingStandardServiceHelper.md)<br>

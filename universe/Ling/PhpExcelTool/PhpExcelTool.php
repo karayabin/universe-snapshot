@@ -338,7 +338,7 @@ class PhpExcelTool
 
 
         if (null === $tableName) {
-            $tableName = CaseTool::toSnake(FileSystemTool::getFileName($file));
+            $tableName = CaseTool::toSnake(FileSystemTool::getBasename($file));
         }
 
 

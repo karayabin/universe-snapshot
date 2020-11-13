@@ -1,6 +1,6 @@
 Light_UserDatabase, conception notes
 ===================
-2019-09-16 -> 2020-01-31
+2019-09-16 -> 2020-11-09
 
 
 
@@ -94,9 +94,9 @@ but with the extra "rights" property, which contains all the permissions of the 
 
 
 
-User Groups and plugin options: binding data to an user
+Plugin options and user groups
 -----------------
-2019-12-17
+2019-12-17 -> 2020-11-09
 
 Each user belongs to a unique (user) group.
 
@@ -106,12 +106,24 @@ We use groups because it allows us give the same set of options to multiple user
 
 The **plugin options** table is populated by plugins.
 
-Different plugins might will provide different options, for instance plugin A will provide the following options:
+
+An option is defined by a category, a name, and a value.
+
+We recommend that the category has the following format:
+
+- category: $pluginName.$pluginCategoryName
+
+With:
+- $pluginName: the plugin name
+- $pluginCategoryName: the name of the option category, as defined by the plugin
+
+
+For instance plugin A will provide the following categories:
 
 - PluginA.is_premium 
 - PluginA.has_monday_coupon
 
-and plugin B will have this option:
+while plugin B could provide this category:
 
 - PluginB.maximum_storage_capacity
 

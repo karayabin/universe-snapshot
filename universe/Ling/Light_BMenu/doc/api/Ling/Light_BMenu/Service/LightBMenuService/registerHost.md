@@ -53,7 +53,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightBMenuService::registerHost](https://github.com/lingtalfi/Light_BMenu/blob/master/Service/LightBMenuService.php#L149-L153)
+See the source code for method [LightBMenuService::registerHost](https://github.com/lingtalfi/Light_BMenu/blob/master/Service/LightBMenuService.php#L170-L174)
 
 
 See Also

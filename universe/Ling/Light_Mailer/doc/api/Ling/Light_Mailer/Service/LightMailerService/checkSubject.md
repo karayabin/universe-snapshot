@@ -53,7 +53,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightMailerService::checkSubject](https://github.com/lingtalfi/Light_Mailer/blob/master/Service/LightMailerService.php#L486-L494)
+See the source code for method [LightMailerService::checkSubject](https://github.com/lingtalfi/Light_Mailer/blob/master/Service/LightMailerService.php#L512-L520)
 
 
 See Also

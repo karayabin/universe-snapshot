@@ -9,7 +9,7 @@ use Ling\DirScanner\YorgDirScannerTool;
 
 /**
  * The FileSystemTool class.
- * LingTalfi 2015-10-07 -> 2020-06-02
+ * LingTalfi 2015-10-07 -> 2020-10-27
  */
 class FileSystemTool
 {
@@ -24,6 +24,11 @@ class FileSystemTool
     public static function cleanDir(string $dir)
     {
         $dirs = YorgDirScannerTool::getDirs($dir, true);
+
+        /**
+         * It's better to have the leaves first, because it will also get rid of any parent that contains only empty folders.
+         */
+        $dirs = array_reverse($dirs);
         foreach ($dirs as $dir) {
             if (true === self::isEmptyDir($dir)) {
                 self::remove($dir);
@@ -238,7 +243,22 @@ class FileSystemTool
     }
 
     /**
-     * Returns the file name as defined here: https://github.com/lingtalfi/ConventionGuy/blob/master/nomenclature.fileName.eng.md
+     * Returns the [file name](https://github.com/lingtalfi/NotationFan/blob/master/filename-basename.md) of the given file path.
+     *
+     * @param string $file
+     *
+     * @return string
+     * The file name without the last extension.
+     *
+     */
+    public static function getFilename(string $file): string
+    {
+        return basename($file);
+    }
+
+
+    /**
+     * Returns the [base name](https://github.com/lingtalfi/NotationFan/blob/master/filename-basename.md)) of the given path.
      *
      * If the file path has multiple extensions, only the last one will be cut off.
      *
@@ -250,27 +270,25 @@ class FileSystemTool
      *
      *
      *
-     * @param string $file
      *
+     * @param string $path
      * @return string
-     * The file name without the last extension.
-     *
      */
-    public static function getFileName(string $file): string
+    public static function getBasename(string $path): string
     {
-        if (is_string($file)) {
-            $file = basename($file);
-            if ('.' === $file[0]) {
-                $p = explode('.', $file);
+        if (is_string($path)) {
+            $path = basename($path);
+            if ('.' === $path[0]) {
+                $p = explode('.', $path);
                 if (count($p) > 2) {
                     array_pop($p);
                 }
                 return implode('.', $p);
             }
         } else {
-            throw new \InvalidArgumentException(sprintf("file argument must be of type string, %s given", gettype($file)));
+            throw new \InvalidArgumentException(sprintf("file argument must be of type string, %s given", gettype($path)));
         }
-        return pathinfo($file, PATHINFO_FILENAME);
+        return pathinfo($path, PATHINFO_FILENAME);
     }
 
 
@@ -583,6 +601,7 @@ class FileSystemTool
         }
     }
 
+
     /**
      * Removes the (last) file extension from the given $file and returns the result.
      *
@@ -611,6 +630,18 @@ class FileSystemTool
         return $file;
 
     }
+
+
+    /**
+     * Replaces the double dot (..) traversal string from the given path with an empty string, and returns the result.
+     * @param string $path
+     * @return string
+     */
+    public static function removeTraversalDots(string $path): string
+    {
+        return str_replace("..", "", $path);
+    }
+
 
     /**
      * Will rename src to dst, creating dst subdirs if necessary

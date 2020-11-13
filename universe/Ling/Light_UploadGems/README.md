@@ -1,6 +1,6 @@
 Light_UploadGems
 ===========
-2020-04-13 -> 2020-05-26
+2020-04-13 -> 2020-11-06
 
 
 
@@ -59,6 +59,30 @@ upload_gems:
 History Log
 =============
 
+- 1.8.6 -- 2020-11-06
+
+    - update api to work with Bat 1.279
+    
+- 1.8.5 -- 2020-10-23
+
+    - update api using Light_Nugget system to fetch config
+    
+- 1.8.4 -- 2020-10-20
+
+    - add GemHelperTool class
+    
+- 1.8.3 -- 2020-10-20
+
+    - remove GemHelperInterface
+
+- 1.8.2 -- 2020-10-19
+
+    - update GemHelper->transformImage, is now public instead of private
+    
+- 1.8.1 -- 2020-10-01
+
+    - update conception notes, grammar fixes
+    
 - 1.8.0 -- 2020-05-26
 
     - add GemHelperInterface->applyCopies onCopyAfter option

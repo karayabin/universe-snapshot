@@ -48,10 +48,7 @@ default:
         
     
     plugin: Light_Kit_Admin_UserData
-    csrf_token: 
-        name: realist-request
-        value: REALIST(Light_Realist, csrf_token, realist-request)
-    
+    csrf_token: true
     use_micro_permission: true
     use_row_restriction: false
     query_error_show_debug_info: true
@@ -165,7 +162,7 @@ default:
                 tag_id: number
                 resource_id_plus: string
                 tag_id_plus: string
-                action: action
+                _action: _action
             
         
         column_labels: 
@@ -173,7 +170,7 @@ default:
             tag_id: Tag id
             resource_id_plus: Resource
             tag_id_plus: Tag
-            action: Actions
+            _action: Actions
         
         hidden_columns: 
             - resource_id
@@ -236,10 +233,10 @@ default:
                 
             
             checkbox_column: 
-                name: checkbox
+                name: _checkbox
             
             action_column: 
-                name: action
+                name: _action
             
         
         related_links: 

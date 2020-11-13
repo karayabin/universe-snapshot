@@ -72,7 +72,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [LightKitAdminListActionHandler::getWhereByRics](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Realist/ListActionHandler/LightKitAdminListActionHandler.php#L414-L445)
+See the source code for method [LightKitAdminListActionHandler::getWhereByRics](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Realist/ListActionHandler/LightKitAdminListActionHandler.php#L442-L473)
 
 
 See Also

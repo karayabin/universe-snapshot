@@ -1,0 +1,2 @@
+main: The {fieldName} is not a valid mysql date (yyyy-mm-dd)
+acceptEmpty: The {fieldName} is not a valid mysql date (yyyy-mm-dd) or an empty string

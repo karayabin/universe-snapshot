@@ -100,6 +100,17 @@ class FryingPan
     }
 
     /**
+     * Returns the file of this instance.
+     *
+     * @return string
+     */
+    public function getFile(): string
+    {
+        return $this->file;
+    }
+
+
+    /**
      * Sets the options.
      *
      * @param array $options

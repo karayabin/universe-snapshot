@@ -12,8 +12,10 @@ dependencies:
         - BabyYaml
         - Light_BMenu
         - Light_PluginInstaller
+        - Light_Realist
         - Light_UserDatabase
         - SimplePdoWrapper
+        - UniverseTools
     
 
 post_install: 

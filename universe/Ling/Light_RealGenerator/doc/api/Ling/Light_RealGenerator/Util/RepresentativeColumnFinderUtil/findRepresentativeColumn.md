@@ -54,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [RepresentativeColumnFinderUtil::findRepresentativeColumn](https://github.com/lingtalfi/Light_RealGenerator/blob/master/Util/RepresentativeColumnFinderUtil.php#L48-L77)
+See the source code for method [RepresentativeColumnFinderUtil::findRepresentativeColumn](https://github.com/lingtalfi/Light_RealGenerator/blob/master/Util/RepresentativeColumnFinderUtil.php#L48-L78)
 
 
 See Also

@@ -53,7 +53,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightRealformService::registerFormHandler](https://github.com/lingtalfi/Light_Realform/blob/master/Service/LightRealformService.php#L101-L104)
+See the source code for method [LightRealformService::registerFormHandler](https://github.com/lingtalfi/Light_Realform/blob/master/Service/LightRealformService.php#L204-L207)
 
 
 See Also
@@ -61,5 +61,5 @@ See Also
 
 The [LightRealformService](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Service/LightRealformService.md) class.
 
-Previous method: [getFormHandler](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Service/LightRealformService/getFormHandler.md)<br>Next method: [registerDynamicInjectionHandler](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Service/LightRealformService/registerDynamicInjectionHandler.md)<br>
+Previous method: [executeRealform](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Service/LightRealformService/executeRealform.md)<br>Next method: [registerDynamicInjectionHandler](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Service/LightRealformService/registerDynamicInjectionHandler.md)<br>
 

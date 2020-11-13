@@ -58,7 +58,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [Where::notLikePre](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/Util/Where.php#L317-L320)
+See the source code for method [Where::notLikePre](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/Util/Where.php#L326-L329)
 
 
 See Also

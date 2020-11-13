@@ -54,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightRealistService::getListRendererByRequestId](https://github.com/lingtalfi/Light_Realist/blob/master/Service/LightRealistService.php#L594-L616)
+See the source code for method [LightRealistService::getListRendererByRequestId](https://github.com/lingtalfi/Light_Realist/blob/master/Service/LightRealistService.php#L598-L626)
 
 
 See Also
@@ -62,5 +62,5 @@ See Also
 
 The [LightRealistService](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Service/LightRealistService.md) class.
 
-Previous method: [executeListGeneralAction](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Service/LightRealistService/executeListGeneralAction.md)<br>Next method: [prepareListActionGroups](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Service/LightRealistService/prepareListActionGroups.md)<br>
+Previous method: [getActionHandlerByRequestId](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Service/LightRealistService/getActionHandlerByRequestId.md)<br>Next method: [prepareListItemGroupActionsByRequestId](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Service/LightRealistService/prepareListItemGroupActionsByRequestId.md)<br>
 

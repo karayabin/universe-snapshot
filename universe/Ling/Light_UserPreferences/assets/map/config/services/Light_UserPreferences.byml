@@ -1,0 +1,19 @@
+user_preferences: 
+    instance: Ling\Light_UserPreferences\Service\LightUserPreferencesService
+    methods: 
+        setContainer: 
+            container: @container()
+        
+        setOptions: 
+            options: []
+        
+    
+
+$plugin_installer.methods_collection: 
+    - 
+        method: registerPlugin
+        args: 
+            plugin: Light_UserPreferences
+            installer: @service(user_preferences)
+        
+    

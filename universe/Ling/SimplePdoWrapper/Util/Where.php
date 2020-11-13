@@ -90,6 +90,15 @@ class Where
 
 
     /**
+     * Merges the given Where component into the current one.
+     * @param Where $where
+     */
+    public function merge(Where $where)
+    {
+        $this->conditionsList = array_merge($this->conditionsList, $where->getConditions());
+    }
+
+    /**
      * Proxy to the operator method, with a predefined operator of "=".
      *
      * @param $value

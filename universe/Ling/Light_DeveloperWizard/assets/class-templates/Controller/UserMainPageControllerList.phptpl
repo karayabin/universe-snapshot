@@ -1,0 +1,37 @@
+<?php
+
+
+namespace Ling\Light_Kit_Admin_XXX\Controller\Custom;
+
+
+use Ling\Light\Http\HttpResponseInterface;
+use Ling\Light_Kit\PageConfigurationUpdator\PageConfUpdator;
+use Ling\Light_Kit_Admin\Controller\AdminPageController;
+
+/**
+ * The LightKitAdminXXXUserMainPageController class.
+ */
+class LightKitAdminXXXUserMainPageController extends AdminPageController
+{
+    /**
+     * Renders the user main page, with a list.
+     *
+     * @return HttpResponseInterface|string
+     * @throws \Exception
+     */
+    public function render()
+    {
+        $parentLayout = "Light_Kit_Admin/kit/zeroadmin/dev/mainlayout_base";
+        $title = "pluginHuman main page";
+        $page = "Light_Kit_Admin_XXX/kit/zeroadmin/generated/kit_admin_xxx_mainpage";
+
+        return $this->renderAdminPage($page, [
+            "parent_layout" => $parentLayout,
+            "title" => $title,
+        ], PageConfUpdator::create()->updateWidget("body.light_realist", [
+            "vars" => [
+                "request_declaration_id" => "Light_Kit_Admin_UserNotifications:custom/kit_admin_xxx_mainpage",
+            ],
+        ]));
+    }
+}

@@ -6,12 +6,14 @@ namespace Ling\Light_Realform\Routine;
 
 use Ling\Bat\ArrayTool;
 use Ling\Bat\StringTool;
+use Ling\Chloroform\Field\HiddenField;
 use Ling\Chloroform\Form\Chloroform;
 use Ling\Chloroform\FormNotification\ErrorFormNotification;
 use Ling\Light\Events\LightEvent;
 use Ling\Light\Exception\LightRedirectException;
 use Ling\Light\Http\HttpResponseInterface;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
+use Ling\Light_CsrfSession\Service\LightCsrfSessionService;
 use Ling\Light_Database\Service\LightDatabaseService;
 use Ling\Light_DatabaseInfo\Service\LightDatabaseInfoService;
 use Ling\Light_Events\Service\LightEventsService;
@@ -130,7 +132,7 @@ class LightRealformRoutineTwo
             /**
              * Using recommended notation for micro-permission interaction with database.
              */
-            $microPermission = "tables.$table.read";
+            $microPermission = "store.$table.read";
             /**
              * @var $microService LightMicroPermissionService
              */
@@ -151,15 +153,12 @@ class LightRealformRoutineTwo
              */
             $rf = $this->container->get("realform");
             // we will use this rf handler as a tool to access the raw configuration...
-            $rfHandler = $rf->getFormHandler($realformIdentifier);
+
 
             // ...but now we will tweak that configuration for each item, to add
             // our "_$number" suffixes for each field
-            $conf = $rfHandler->getConfiguration();
+            $conf = $rf->getNugget($realformIdentifier);
             $confFormHandler = $conf['form_handler'];
-            $rowRestriction = $confFormHandler['row_restriction'] ?? [];
-            $useRowRestrictionRead = (in_array('read', $rowRestriction, true));
-            $useRowRestrictionUpdate = (in_array('update', $rowRestriction, true));
 
 
             //--------------------------------------------
@@ -173,11 +172,7 @@ class LightRealformRoutineTwo
             $sWhere = RicHelper::getWhereByRics($ric, $rics, $markers);
 
             $q = "select * from `$table` where $sWhere";
-            if (false === $useRowRestrictionRead) {
-                $rows = $db->fetchAll($q, $markers);
-            } else {
-                $rows = $db->pfetchAll($q, $markers);
-            }
+            $rows = $db->fetchAll($q, $markers);
             $nbRows = count($rows);
 
 
@@ -241,10 +236,29 @@ class LightRealformRoutineTwo
 
             $formCssId = StringTool::getUniqueCssId("lrfr2-form-");
             $ourConf = $conf;
-            $ourConf["form_handler"]['fields'] = $ourFields;
-            $form = $rfHandler->getFormHandler($ourConf);
+
+
+            /**
+             * @var $csrf LightCsrfSessionService
+             */
+            $csrf = $this->container->get("csrf_session");
+
+
+            $ourConf["chloroform"]['fields'] = $ourFields;
+            $extraInfo = [];
+            $form = $rf->getChloroformByConfiguration($ourConf, $extraInfo);
+
+
+            /**
+             * Note implemented yet, todo...
+             */
+            $multipliers = $extraInfo['multipliers'];
+
+
             $form->setCssId($formCssId);
             $form->setMode("update");
+            $form->addField(HiddenField::create("csrf_token", ['value' => $csrf->getToken()]));
+
 
             // adding multiple edit checkbox share behaviour
             $jsCode = file_get_contents(__DIR__ . "/js/multiple-edit-helper.js");
@@ -266,6 +280,8 @@ class LightRealformRoutineTwo
             // Posting the form and validating data
             //--------------------------------------------
             if (true === $form->isPosted()) {
+
+
                 if (true === $form->validates()) {
                     // do something with $postedData;
                     $vid = $form->getVeryImportantData();
@@ -283,7 +299,7 @@ class LightRealformRoutineTwo
                     /**
                      * Using recommended notation for micro-permission interaction with database.
                      */
-                    $microPermission = "tables.$table.update";
+                    $microPermission = "store.$table.update";
                     /**
                      * @var $microService LightMicroPermissionService
                      */
@@ -344,18 +360,14 @@ class LightRealformRoutineTwo
                          * @var $exception \Exception
                          */
                         $exception = null;
-                        $res = $db->transaction(function () use ($db, $ric, $rics, $updateRows, $table, $useRowRestrictionUpdate) {
+                        $res = $db->transaction(function () use ($db, $ric, $rics, $updateRows, $table) {
                             foreach ($rics as $k => $userRic) {
                                 // re-check userRic
                                 if (true === ArrayTool::arrayKeyExistAll($ric, $userRic, true)) {
                                     $userRic = ArrayTool::intersect($userRic, $ric);
                                 }
                                 $row = $updateRows[$k];
-                                if (false === $useRowRestrictionUpdate) {
-                                    $db->update($table, $row, $userRic);
-                                } else {
-                                    $db->pupdate($table, $row, $userRic);
-                                }
+                                $db->update($table, $row, $userRic);
                             }
                         }, $exception);
                         if (false === $res) {

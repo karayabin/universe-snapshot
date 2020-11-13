@@ -7,7 +7,7 @@ ResourceHasTagApi::deleteResourceHasTagByResourceIds
 
 
 
-ResourceHasTagApi::deleteResourceHasTagByResourceIds — Deletes the resourceHasTag rows identified by the given resource_resource_ids.
+ResourceHasTagApi::deleteResourceHasTagByResourceIds — Deletes the resource has tag rows identified by the given resource_ids.
 
 
 
@@ -21,7 +21,7 @@ public [ResourceHasTagApi::deleteResourceHasTagByResourceIds](https://github.com
 
 
 
-Deletes the resourceHasTag rows identified by the given resource_resource_ids.
+Deletes the resource has tag rows identified by the given resource_ids.
 
 
 
@@ -54,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [ResourceHasTagApi::deleteResourceHasTagByResourceIds](https://github.com/lingtalfi/Light_UserData/blob/master/Api/Generated/Classes/ResourceHasTagApi.php#L244-L247)
+See the source code for method [ResourceHasTagApi::deleteResourceHasTagByResourceIds](https://github.com/lingtalfi/Light_UserData/blob/master/Api/Generated/Classes/ResourceHasTagApi.php#L298-L301)
 
 
 See Also
@@ -62,5 +62,5 @@ See Also
 
 The [ResourceHasTagApi](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Classes/ResourceHasTagApi.md) class.
 
-Previous method: [deleteResourceHasTagByTagId](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Classes/ResourceHasTagApi/deleteResourceHasTagByTagId.md)<br>Next method: [deleteResourceHasTagByTagIds](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Classes/ResourceHasTagApi/deleteResourceHasTagByTagIds.md)<br>
+Previous method: [deleteResourceHasTagByResourceIdAndTagId](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Classes/ResourceHasTagApi/deleteResourceHasTagByResourceIdAndTagId.md)<br>Next method: [deleteResourceHasTagByTagIds](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Classes/ResourceHasTagApi/deleteResourceHasTagByTagIds.md)<br>
 

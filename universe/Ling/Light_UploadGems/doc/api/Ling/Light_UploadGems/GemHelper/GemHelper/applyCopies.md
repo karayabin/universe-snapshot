@@ -75,7 +75,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [GemHelper::applyCopies](https://github.com/lingtalfi/Light_UploadGems/blob/master/GemHelper/GemHelper.php#L188-L326)
+See the source code for method [GemHelper::applyCopies](https://github.com/lingtalfi/Light_UploadGems/blob/master/GemHelper/GemHelper.php#L244-L382)
 
 
 See Also

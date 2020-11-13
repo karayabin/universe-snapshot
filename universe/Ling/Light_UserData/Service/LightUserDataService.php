@@ -5,25 +5,30 @@ namespace Ling\Light_UserData\Service;
 
 
 use Ling\Bat\ConvertTool;
+use Ling\Bat\DateTool;
 use Ling\Bat\FileSystemTool;
 use Ling\Bat\UriTool;
-use Ling\DirScanner\YorgDirScannerTool;
+use Ling\ExceptionCodes\ExceptionCode;
 use Ling\Light\Events\LightEvent;
-use Ling\Light\Http\HttpRequestInterface;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
 use Ling\Light_Database\Service\LightDatabaseService;
 use Ling\Light_PluginInstaller\PluginInstaller\PluginInstallerInterface;
 use Ling\Light_PluginInstaller\PluginInstaller\PluginPostInstallerInterface;
 use Ling\Light_PluginInstaller\Service\LightPluginInstallerService;
 use Ling\Light_ReverseRouter\Service\LightReverseRouterService;
+use Ling\Light_UploadGems\GemHelper\GemHelperTool;
 use Ling\Light_User\LightUserInterface;
 use Ling\Light_User\LightWebsiteUser;
 use Ling\Light_UserData\Api\Custom\CustomLightUserDataApiFactory;
 use Ling\Light_UserData\Exception\LightUserDataException;
-use Ling\Light_UserData\Exception\LightUserDataResourceNotFoundException;
-use Ling\Light_UserData\FileManager\LightUserDataFileManagerHandler;
+use Ling\Light_UserData\FileManager\LightUserDataDirectFileManagerHandler;
+use Ling\Light_UserData\FileManager\LightUserDataFileManagerHandlerInterface;
+use Ling\Light_UserData\Helper\LightUserDataHelper;
 use Ling\Light_UserDatabase\Service\LightUserDatabaseService;
+use Ling\Light_UserManager\Service\LightUserManagerService;
 use Ling\SimplePdoWrapper\SimplePdoWrapperInterface;
+use Ling\SimplePdoWrapper\Util\SimplePdoGenericHelper;
+use Ling\SimplePdoWrapper\Util\Where;
 
 /**
  * The LightUserDataService class.
@@ -53,20 +58,6 @@ class LightUserDataService implements PluginInstallerInterface, PluginPostInstal
     protected $currentUser;
 
     /**
-     * This property holds the obfuscationAlgorithm for this instance.
-     *
-     *
-     * @var string=default
-     */
-    protected $obfuscationAlgorithm;
-
-    /**
-     * This property holds the obfuscationSecret for this instance.
-     * @var string=abc
-     */
-    protected $obfuscationSecret;
-
-    /**
      * This property holds the factory for this instance.
      * @var CustomLightUserDataApiFactory
      */
@@ -74,21 +65,8 @@ class LightUserDataService implements PluginInstallerInterface, PluginPostInstal
 
 
     /**
-     * This property holds the directoryKey for this instance.
-     * @var string
-     */
-    private $directoryKey;
-
-
-    /**
-     * This property holds the originalDirectoryName for this instance.
-     * @var string
-     */
-    private $originalDirectoryName;
-
-    /**
      * This property holds the fileManagerProtocolHandler for this instance.
-     * @var LightUserDataFileManagerHandler
+     * @var LightUserDataFileManagerHandlerInterface
      */
     private $fileManagerProtocolHandler;
 
@@ -102,8 +80,6 @@ class LightUserDataService implements PluginInstallerInterface, PluginPostInstal
         $this->rootDir = null;
         $this->currentUser = null;
         $this->factory = new CustomLightUserDataApiFactory();
-        $this->directoryKey = "directory";
-        $this->originalDirectoryName = "__original__";
         $this->fileManagerProtocolHandler = null;
     }
 
@@ -171,7 +147,8 @@ class LightUserDataService implements PluginInstallerInterface, PluginPostInstal
              * @var $userDb LightUserDatabaseService
              */
             $userDb = $this->container->get('user_database');
-            $optionId = $userDb->getPluginOptionApi()->insertPluginOption([
+            $factory = $userDb->getFactory();
+            $optionId = $factory->getPluginOptionApi()->insertPluginOption([
                 "category" => 'Light_UserData.MSC',
                 "name" => 'default',
                 "value" => '20M',
@@ -179,17 +156,17 @@ class LightUserDataService implements PluginInstallerInterface, PluginPostInstal
             ]);
 
 
-            $userDb->getUserGroupHasPluginOptionApi()->insertUserGroupHasPluginOption([
-                'user_group_id' => $userDb->getUserGroupApi()->getUserGroupIdByName('default'),
+            $factory->getUserGroupHasPluginOptionApi()->insertUserGroupHasPluginOption([
+                'user_group_id' => $factory->getUserGroupApi()->getUserGroupIdByName('default'),
                 'plugin_option_id' => $optionId,
             ]);
 
 
-            $userDb->getPermissionApi()->insertPermission([
+            $factory->getPermissionApi()->insertPermission([
                 "name" => "Light_UserData.user",
             ]);
 
-            $userDb->getPermissionApi()->insertPermission([
+            $factory->getPermissionApi()->insertPermission([
                 "name" => "Light_UserData.admin",
             ]);
 
@@ -220,6 +197,7 @@ class LightUserDataService implements PluginInstallerInterface, PluginPostInstal
              */
             $db = $this->container->get('database');
 
+
             $db->executeStatement("DROP table if exists luda_resource_has_tag");
             $db->executeStatement("DROP table if exists luda_resource");
             $db->executeStatement("DROP table if exists luda_tag");
@@ -235,17 +213,18 @@ class LightUserDataService implements PluginInstallerInterface, PluginPostInstal
                  * @var $userDb LightUserDatabaseService
                  */
                 $userDb = $this->container->get("user_database");
+                $factory = $userDb->getFactory();
                 //--------------------------------------------
                 // REMOVING THE OPTIONS
                 //--------------------------------------------
-                $userDb->getPluginOptionApi()->deletePluginOptionsByPluginName('Light_UserData');
+                $factory->getPluginOptionApi()->deletePluginOptionsByPluginName('Light_UserData');
 
 
                 //--------------------------------------------
                 // REMOVING THE PERMISSIONS
                 //--------------------------------------------
-                $userDb->getPermissionApi()->deletePermissionByName("Light_UserData.user");
-                $userDb->getPermissionApi()->deletePermissionByName("Light_UserData.admin");
+                $factory->getPermissionApi()->deletePermissionByName("Light_UserData.user");
+                $factory->getPermissionApi()->deletePermissionByName("Light_UserData.admin");
 
 
             }, $exception);
@@ -299,9 +278,20 @@ class LightUserDataService implements PluginInstallerInterface, PluginPostInstal
     }
 
 
-
-
-
+    /**
+     * Returns the file manager handler instance used by this service.
+     *
+     * @return LightUserDataFileManagerHandlerInterface
+     */
+    public function getFileManagerHandler(): LightUserDataFileManagerHandlerInterface
+    {
+        if (null === $this->fileManagerProtocolHandler) {
+            $handler = new LightUserDataDirectFileManagerHandler();
+            $handler->setService($this);
+            $this->fileManagerProtocolHandler = $handler;
+        }
+        return $this->fileManagerProtocolHandler;
+    }
 
 
 
@@ -330,13 +320,13 @@ class LightUserDataService implements PluginInstallerInterface, PluginPostInstal
             $userDb = $this->container->get("user_database");
 
 
-            $pluginOptionId = $userDb->getPluginOptionApi()->getPluginOptionsColumn('id', [
+            $pluginOptionId = $userDb->getFactory()->getPluginOptionApi()->getPluginOptionsColumn('id', [
                 "category" => "Light_UserData.MSC",
                 "name" => "default",
             ], []);
 
 
-            $userDb->getUserGroupHasPluginOptionApi()->insertUserGroupHasPluginOption([
+            $userDb->getFactory()->getUserGroupHasPluginOptionApi()->insertUserGroupHasPluginOption([
                 'user_group_id' => $groupId,
                 'plugin_option_id' => $pluginOptionId,
             ]);
@@ -362,819 +352,41 @@ class LightUserDataService implements PluginInstallerInterface, PluginPostInstal
 
 
     /**
-     * Returns the array of the files owned by the current user.
-     * If the directory is specified, only the list of the files found in that directory will be returned.
+     * Returns an array of information about the resource files contained in the given directory.
+     * Each item is an array with the following structure:
      *
-     * Relative paths (from the user's root directory) are returned.
+     * - resource_file_id: string, the id of the resource file entry
+     * - path: string, the relative path of the resource file (relative to the user directory)
      *
      *
-     * @param string|null $directory
+     * @param string $directory
      * @return array
-     * @throws \Exception
      */
-    public function list(string $directory = null): array
+    public function listByDirectory(string $directory): array
     {
-        $this->checkPermission();
-
-        $dir = $this->getUserDir();
-        if (null !== $directory) {
-            $dir .= "/" . $directory;
-        }
-        if (is_dir($dir)) {
-            return YorgDirScannerTool::getFilesWithoutExtension($dir, "private", false, true, true);
-        }
-        return [];
-    }
-
-
-    /**
-     *
-     *
-     * Saves the given meta array, and returns an array of information related to the saved file.
-     *
-     *
-     * If the maximum user storage capacity is reached, the resource is not uploaded and an exception is thrown.
-     *
-     *
-     *
-     * The save method has two modes:
-     *
-     * - insert mode
-     * - update mode
-     *
-     * The insert mode is triggered when no "resourceId" is provided, or when the provided "resourceId" doesn't match
-     * any entry in the database.
-     *
-     * If the resourceId is provided and match an existing entry in the database, then the update mode is executed.
-     *
-     *
-     * The meta array contains the following properties, all optional, with their default values:
-     *
-     * - resourceId: string=null, the resource identifier
-     * - dir: undefined
-     * - directory: undefined (it's an alias of dir, use one or the other, dir has precedence)
-     * - filename: undefined
-     * - is_private: 0|1
-     * - date_creation: (the current datetime)
-     * - date_last_update: (the current datetime)
-     * - tags: []
-     *
-     * - file: string=null, the binary data of the file, or alternately you can specify the "file_path" property instead.
-     * - file_path: string=null, the path to the file, or alternately you can specify the "file" property instead.
-     *      Note: this method will potentially move the **file_path** to another location, which means that after
-     *      calling this method, file_exists (file_path) will return false.
-     *
-     * - original_file_path: string=null, the path to the original file if any. If passed, this method will store the original file in the
-     *      original directory.
-     *
-     *
-     * The file property (or file_path) is mandatory in insert mode.
-     *
-     *
-     * Note: we've added the file_path and original_file_path properties to be able to move files rather than copying them (much faster if
-     * the files are on the same drive), for when committing the virtual file server.
-     * While the file property is still useful to deal with js gui interaction.
-     *
-     *
-     * Both modes, when successful, will result in an alteration of the database, and possibly the filesystem (if a file was provided).
-     *
-     *
-     *
-     *
-     * The available options are:
-     *
-     * - keep_original: bool=false. Whether to keep a copy of the given file.
-     *      See the @page(the original file section in the conception notes).
-     * - check_msc: bool=true. Whether to check the maximum storage capacity.
-     * - treat_file: bool=true. Whether to treat the file on the filesystem.
-     *      If false, the file won't be copied to its expected destination, and the original
-     *      file won't be created. This option can be used by virtual file server which take
-     *      care of that part.
-     *
-     *
-     *
-     * The returned array
-     * ----------
-     *
-     * - resource_identifier: string, the resource identifier
-     * - lud_user_id: string, the id of the user owning the file
-     * - dir: string, the directory associated with the file
-     * - filename: string, the filename associated with the file
-     * - is_private: 0|1, whether the file is private or public
-     * - date_creation: datetime, the datetime when the file was saved for the first time
-     * - date_last_update: datetime, the datetime when the file was last saved
-     * - tags: array, the tag associated with the file
-     *
-     *
-     *
-     * @param array $meta
-     * @param array $options
-     * @return array
-     * @throws \Exception
-     */
-    public function save(array $meta = [], array $options = []): array
-    {
+        /**
+         * Note: this method doesn't return the rows directly because
+         * I thought maybe later I would return more properties...
+         */
         $ret = [];
-//        az($path, $options);
-
-        $this->checkPermission();
-        $user = $this->getValidWebsiteUser();
-        $userDir = $this->getUserDir(); // assuming the user calling the save method owns the file (for now...)
-        $userId = $user->getId();
-        $date = date("Y-m-d H:i:s");
 
 
-        //
-        $onFileNotExistThrowEx = true;
-        $keepOriginal = $options['keep_original'] ?? false;
-        $checkMsc = $options['check_msc'] ?? true;
-        $treatFile = $options['treat_file'] ?? true;
-        if (false === $treatFile) {
-            $onFileNotExistThrowEx = false;
-        }
-
-
-        //
-        $is_private = (int)(bool)($meta['is_private'] ?? false);
-        $tags = $meta['tags'] ?? [];
-
-
-        $resourceId = $meta['resourceId'] ?? null;
-        $resourceFound = true;
-        if (null !== $resourceId) {
-            try {
-                $resource = $this->getResourceInfoByResourceIdentifier($resourceId, [
-                    "onFileNotExistThrowEx" => $onFileNotExistThrowEx,
-                ]);
-            } catch (LightUserDataResourceNotFoundException $e) {
-                $resourceFound = false;
-            }
-        }
-
-
-        $isAddOperation = (
-            null === $resourceId ||
-            (null !== $resourceId && false === $resourceFound)
-        );
-
-
-        //--------------------------------------------
-        // ADD
-        //--------------------------------------------
-        if (true === $isAddOperation) {
-
-
-            if (
-                false === array_key_exists("file", $meta) &&
-                false === array_key_exists("file_path", $meta)
-            ) {
-                $this->error("The \"add\" operation requires a \"file\" or \"file_path\" property which was not given.");
-            }
-
-
-            if (true === $checkMsc) {
-
-                $fileSize = 0;
-                if (array_key_exists("file", $meta)) {
-                    $fileSize = strlen($meta['file']);
-                } else {
-                    $fileSize = filesize($meta['file_path']);
-                    if (false === $fileSize) {
-                        $this->error("Couldn't get the file size from the file_path: \"" . $meta['file_path'] . "\"");
-                    }
-                }
-                $this->checkUserMaximumStorageLimit($fileSize, $user);
-            }
-
-
-            $resourceIdentifier = $resourceId ?? $this->getNewResourceIdentifier();
-
-            $row = [
-                "lud_user_id" => $userId,
-                "resource_identifier" => $resourceIdentifier,
-                //
-                "dir" => $meta["dir"] ?? $meta["directory"] ?? 'undefined',
-                "filename" => $meta["filename"] ?? 'undefined',
-                "is_private" => $is_private,
-                "date_creation" => $meta["date_creation"] ?? $date,
-                "date_last_update" => $meta["date_last_update"] ?? $date,
+        $userId = $this->getValidWebsiteUser()->getId();
+        $components = [
+            Where::inst()->key("path")->startsWith($directory . "/"),
+        ];
+        $rows = $this->getFactory()->getResourceFileApi()->fetchAllByUserId($userId, $components);
+        foreach ($rows as $row) {
+            $ret[] = [
+                'resource_file_id' => $row['id'],
+                'path' => $row['path'],
             ];
         }
-        //--------------------------------------------
-        // UPDATE
-        //--------------------------------------------
-        else {
-
-            if (false === $resourceFound) {
-                $this->error("Resource not found in the database with resourceId=\"$resourceId\". Update cancelled.");
-            }
-
-            $oldFile = $resource['abs_path'];
-
-
-            // check maximum storage capacity
-            if (true === $checkMsc) {
-
-                if (
-                    array_key_exists("file", $meta) ||
-                    array_key_exists("file_path", $meta)
-                ) {
-
-
-                    $fileSize = 0;
-                    if (array_key_exists("file", $meta)) {
-                        $fileSize = strlen($meta['file']);
-                    } else {
-                        if (null !== $meta['file_path']) {
-                            $fileSize = filesize($meta['file_path']);
-                            if (false === $fileSize) {
-                                $this->error("Couldn't get the file size from the file_path: \"" . $meta['file_path'] . "\"");
-                            }
-                        } else {
-                            /**
-                             * The file hasn't changed, we do nothing.
-                             */
-                        }
-                    }
-                    if (0 !== $fileSize) {
-                        $oldFileSize = 0;
-                        if (file_exists($oldFile)) {
-                            $oldFileSize = filesize($oldFile);
-                        }
-                        if ($fileSize > $oldFileSize) {
-                            $nbBytesToAdd = $fileSize - $oldFileSize;
-                            $this->checkUserMaximumStorageLimit($nbBytesToAdd, $user);
-                        }
-                    }
-                }
-            }
-
-
-            $resourceIdentifier = $resource['resource_identifier'];
-
-            // prepare resource to be updated in db
-            $row = $resource;
-            unset($row["abs_path"]);
-            unset($row["rel_path"]);
-            unset($row["user_identifier"]);
-            unset($row["original_url"]);
-            $row['is_private'] = $is_private;
-            $row['date_last_update'] = $date;
-            $row['filename'] = $meta['filename'];
-            $row['dir'] = $meta['dir'] ?? $meta['directory'] ?? $resource['dir'];
-        }
-
-
-        if (array_key_exists('dir', $row)) {
-            $this->checkDirname($row['dir']);
-        }
-
-        $relPath = $this->getBaseRelativePathByResourceIdentifier($resourceIdentifier);
-        $filePath = $userDir . "/files/$relPath";
-
-
-        /**
-         * @var $db SimplePdoWrapperInterface
-         */
-        $db = $this->container->get("database");
-        /**
-         * @var $exception \Exception
-         */
-        $exception = null;
-        $res = $db->transaction(function () use ($row, $date, $tags, $isAddOperation) {
-
-
-            if (true === $isAddOperation) {
-                $resourceId = $this->factory->getResourceApi()->insertResource($row);
-            } else {
-                $this->factory->getResourceApi()->updateResourceById($row['id'], $row);
-                $resourceId = $row['id'];
-            }
-
-
-            //--------------------------------------------
-            // TAGS
-            //--------------------------------------------
-            if ($tags) {
-                if (false === $isAddOperation) {
-                    $this->factory->getResourceHasTagApi()->deleteResourceHasTagByResourceId($resourceId);
-//                    $this->factory->getTagApi()->removeUnusedTags(); // shall we?
-                }
-
-                foreach ($tags as $tag) {
-                    $tagId = $this->factory->getTagApi()->insertTag([
-                        "name" => $tag,
-                    ]);
-
-                    $this->factory->getResourceHasTagApi()->insertResourceHasTag([
-                        "resource_id" => $resourceId,
-                        "tag_id" => $tagId,
-                    ]);
-                }
-            }
-
-        }, $exception);
-
-
-        if (false === $res) {
-            throw $exception;
-        }
-
-
-        if (true === $treatFile) {
-
-
-            if (
-                array_key_exists("file", $meta) ||
-                array_key_exists("file_path", $meta)
-            ) {
-
-
-                $fileHasChanged = true;
-                if (
-                    (true === array_key_exists("file_path", $meta) && null === $meta['file_path']) ||
-                    (true === array_key_exists("file", $meta) && null === $meta['file'])
-                ) {
-                    $fileHasChanged = false;
-                }
-
-
-                if (true === $fileHasChanged) {
-
-                    if (false === $isAddOperation) {
-                        FileSystemTool::remove($oldFile);
-                    }
-                    if (array_key_exists("file_path", $meta)) {
-                        if (file_exists($meta['file_path'])) {
-                            FileSystemTool::move($meta['file_path'], $filePath);
-                        } else {
-                            $this->error("File does not exist: " . $meta['file_path']);
-                        }
-                    } else {
-                        FileSystemTool::mkfile($filePath, $meta['file']);
-                    }
-                }
-            }
-
-
-            if (true === $keepOriginal) {
-                if (false !== strpos($resourceIdentifier, "-")) {
-                    $this->error("An original file cannot originate from a related file.");
-                }
-                $originalPath = $this->getOriginalPathFromAbsolutePath($filePath);
-                if (array_key_exists("file", $meta)) {
-                    FileSystemTool::mkfile($originalPath, $meta['file']);
-                } elseif (array_key_exists("file_path", $meta)) {
-                    FileSystemTool::mkfile($originalPath, file_get_contents($filePath));
-                } else {
-                    $this->error("Parameter file or file_path not defined: will not keep original.");
-                }
-            }
-
-
-            if (array_key_exists("original_file_path", $meta)) {
-                if (false !== strpos($resourceIdentifier, "-")) {
-                    $this->error("An original file cannot originate from a related file.");
-                }
-                $originalPath = $userDir . "/original/$resourceIdentifier";;
-                FileSystemTool::move($meta['original_file_path'], $originalPath);
-            }
-        }
-
-        //--------------------------------------------
-        // RETURNING THE ARRAY
-        //--------------------------------------------
-        $ret = $row;
-        $ret['resource_identifier'] = $resourceIdentifier;
-        $ret['tags'] = $tags;
-        return $ret;
-    }
-
-
-    /**
-     * Removes the resource which url is given from the database and the filesystem.
-     * Throws an exception in case of a problem.
-     *
-     * It also removes the following files if found:
-     * - original file (see the @page(original file) section for more details)
-     * - related files (see the @page(related-files.md) document for more info)
-     *
-     *
-     *
-     * @param string $url
-     * @throws \Exception
-     */
-    public function removeResourceByUrl(string $url)
-    {
-        $this->checkPermission();
-        $info = $this->getResourceInfoByResourceUrl($url);
-        $id = $info['id'];
-
-        $path = $info['abs_path'];
-        $resourceId = $info['resource_identifier'];
-        $userDir = $this->getUserDir();
-        $relatedDir = $userDir . "/files/$resourceId-";
-
-        $resourceApi = $this->getFactory()->getResourceApi();
-        $relatedIds = $resourceApi->getRelatedIdsByResourceIdentifier($resourceId);
-        $resourceApi->deleteResourceByIds(array_merge([$id], $relatedIds));
-
-
-        unlink($path);
-        if (false !== ($originalPath = $this->getOriginalPathFromAbsolutePath($path))) {
-            if (file_exists($originalPath)) {
-                unlink($originalPath);
-            }
-        }
-        FileSystemTool::remove($relatedDir);
-    }
-
-
-    /**
-     * Removes all the files related to the given resource id.
-     *
-     * This includes:
-     *
-     * - the regular file
-     * - the original file (see the original file section of the @page(Light_UserData conception notes) for more info.
-     * - the related files (see the @page(related-files.md) document for more info)
-     *
-     *
-     * @param string $resourceId
-     * @param LightWebsiteUser|null $user
-     */
-    public function removeAllFilesByResourceIdentifier(string $resourceId, LightWebsiteUser $user = null)
-    {
-
-        if (null === $user) {
-            $user = $this->getValidWebsiteUser();
-        }
-        $userDir = $this->rootDir . "/users/" . $user->getIdentifier();
-
-        // remove regular file
-        $f = $userDir . "/files/$resourceId";
-        FileSystemTool::remove($f);
-
-
-        // related files
-        $d = $userDir . "/files/$resourceId-";
-        FileSystemTool::remove($d);
-
-
-        // original file
-        $f = $userDir . "/original/$resourceId";
-        FileSystemTool::remove($f);
-    }
-
-
-    /**
-     * Removes the resources on the filesystem that aren't referenced in the database,
-     * for the user which identifier is given.
-     *
-     *
-     * @param LightWebsiteUser $user
-     * @return void
-     */
-    public function removeUnlinkedResourcesByUser(LightWebsiteUser $user): void
-    {
-        $userDir = $this->rootDir . "/users/" . $user->getIdentifier();
-        $userResourceIdentifiers = $this->factory->getResourceApi()->getResourcesColumn("resource_identifier", [
-            "lud_user_id" => $user->getId(),
-        ]);
-        $userFiles = YorgDirScannerTool::getFiles($userDir, true, true);
-        $hasDelete = false;
-
-
-        foreach ($userFiles as $f) {
-            $basename = basename($f);
-            $dir = basename(dirname($f));
-            $identifier = $basename;
-            if (
-                'f' === substr($dir, 0, 1) &&
-                '-' === substr($dir, -1) &&
-                preg_match('!^[0-9]+$!', $basename)
-            ) {
-                $identifier = $dir . $basename;
-
-            }
-
-            if (false === in_array($identifier, $userResourceIdentifiers)) {
-                unlink($userDir . "/" . $f);
-                $hasDelete = true;
-            }
-        }
-
-        if (true === $hasDelete) {
-            FileSystemTool::cleanDir($userDir);
-        }
-    }
-
-
-    /**
-     * Returns the url to access the resource identified by the given $resourceIdentifier.
-     *
-     *
-     * The options are:
-     *
-     * - original: bool=false, whether to query the original file instead
-     *
-     *
-     * @param string $resourceIdentifier
-     * @param array $options = []
-     * @return string
-     * @throws \Exception
-     */
-    public function getResourceUrlByResourceIdentifier(string $resourceIdentifier, array $options = []): string
-    {
-
-        $getOriginalUrl = $options['original'] ?? false;
-
-
-        /**
-         * @var $rr LightReverseRouterService
-         */
-        $rr = $this->container->get('reverse_router');
-        $params = [
-            "id" => $resourceIdentifier,
-        ];
-        if (true === $getOriginalUrl) {
-            $params['o'] = "1";
-        }
-
-
-        /**
-         * Useful to avoid browser cache related problems
-         */
-        $params['t'] = time();
-
-
-        return $rr->getUrl("luda_route-virtual_server", $params);
-
-    }
-
-
-    /**
-     * Returns an info array matching the file which resourceIdentifier is given.
-     *
-     * Throws an exception if the file is private and the user calling the file is not the owner.
-     *
-     * The info array contains the following:
-     *
-     * - abs_path: string, absolute path to the file
-     * - rel_path: string, relative path to the file (from the user directory)
-     * - is_private: bool, whether the file is private
-     * - original_url: string|null. The url to the original file (which might be saved, or not, depending on the configuration).
-     *      If no original url was saved, then false is returned
-     * - date_creation: string, the mysql datetime when the file was first registered in the system. Not available in the virtual machine (at least for now).
-     * - date_last_update: string, the mysql datetime when the file was last updated in the system. Not available in the virtual machine (at least for now).
-     *
-     *
-     * Also, if the addExtraInfo option (see below) is set to true, the following extra information is returned:
-     * - tags: array, the tag names bound to the resource
-     *
-     *
-     *
-     * Personal note: I didnt' include the date_creation and date_last_update info from the virtual machine because I was lazy and I didn't think that was essential:
-     * my vision is to provide those information in the file manager gui, which does not use the vm. We will see how this evolves in the future, and if the vm
-     * does need this info.
-     *
-     *
-     * The available options are:
-     * - addExtraInfo: bool=false. If true, adds meta information to the returned array (see notes above).
-     * - original: bool=false. If true, the file paths (absolute and relative) reference the original image rather than the processed one.
-     *      Note: the original image is kept only depending on the plugin configuration.
-     * - vm: bool=false. Whether to get the information from the virtual machine.
-     * - onFileNotExistThrowEx: bool=true. If the file does not exist in the file system, by default an exception is thrown.
-     *      To prevent the throwing of the exception, we can set this flag to false. The abs_path property will then be set to false.
-     *
-     *
-     *
-     *
-     *
-     * @param string $resourceIdentifier
-     * The generic resource identifier. See the @page(related-files.md) document for more info.
-     * @param array $options
-     * @return array
-     * @throws LightUserDataResourceNotFoundException
-     * - When the resource is not found
-     * @throws LightUserDataException
-     * - When the user is not allowed to access the data
-     * - When the file is missing but the entry exists in the database
-     */
-    public function getResourceInfoByResourceIdentifier(string $resourceIdentifier, array $options = []): array
-    {
-
-        $ret = null;
-
-        $addExtraInfo = $options['addExtraInfo'] ?? false;
-        $useOriginal = $options['original'] ?? false;
-        $useVirtualMachine = $options['vm'] ?? null;
-        $onFileNotExistThrowEx = $options['onFileNotExistThrowEx'] ?? true;
-
-        if (true === $useVirtualMachine) {
-            $handler = new LightUserDataFileManagerHandler();
-            $handler->setService($this);
-            $ret = $handler->getResourceInfoFromVirtualMachine($resourceIdentifier, $options);
-
-        } else {
-
-
-            $row = $this->factory->getResourceApi()->getResourceInfoByResourceIdentifier($resourceIdentifier);
-
-
-            if (null !== $row) {
-
-
-                if (true === $addExtraInfo) {
-                    $row['tags'] = $this->factory->getTagApi()->getTagNamesByResourceResourceIdentifier($resourceIdentifier);
-                }
-
-
-                $user = null;
-                if (1 === (int)$row['is_private']) {
-                    $user = $this->getValidWebsiteUser();
-                    if ($user->getId() !== (int)$row['lud_user_id']) {
-                        throw new LightUserDataException("Access denied: this resource is private and you're not the owner.");
-                    }
-                }
-
-
-                // using the flat file system and the related files convention (see the related files document for more info).
-                $baseResourceId = $resourceIdentifier;
-                $relPath = $this->getBaseRelativePathByResourceIdentifier($resourceIdentifier);
-
-                $prefix = (true === $useOriginal) ? 'original' : 'files';
-                $relPath = $prefix . "/" . $relPath;
-                $absPath = $this->rootDir . "/users/" . $row['user_identifier'] . "/" . $relPath;
-
-
-                $originalUrl = null;
-                $originalFile = $this->rootDir . "/users/" . $row['user_identifier'] . "/original/$baseResourceId";
-                if (file_exists($originalFile)) {
-                    $originalUrl = $this->getResourceUrlByResourceIdentifier($row['resource_identifier'], [
-                        'original' => true,
-                    ]);
-                }
-
-
-                if (false === file_exists($absPath)) {
-                    if (true === $onFileNotExistThrowEx) {
-                        throw new LightUserDataException("File missing: resource found (resourceId=\"$resourceIdentifier\"), but the file was missing on the hard drive (path=\"$absPath\").");
-                    }
-                    $absPath = false;
-                }
-
-
-                $row['abs_path'] = $absPath;
-                $row['rel_path'] = $relPath;
-                $row['original_url'] = $originalUrl;
-
-
-                $ret = $row;
-
-
-            } else {
-                throw new LightUserDataResourceNotFoundException("Row not found with resource identifier \"$resourceIdentifier\".");
-            }
-        }
-
 
         return $ret;
+
+
     }
-
-
-    /**
-     * Returns the resource info array its given url.
-     * The resource info array structure is defined in the comments of the **getResourceInfoByResourceIdentifier** method
-     * of this class.
-     *
-     *
-     * @param string $url
-     * @return array
-     * @throws \Exception
-     */
-    public function getResourceInfoByResourceUrl(string $url): array
-    {
-        $identifier = $this->getIdentifierByUrl($url);
-        return $this->getResourceInfoByResourceIdentifier($identifier);
-    }
-
-
-    /**
-     * Returns the content of the file of the current user which relative path is given.
-     * If the file doesn't exist, the method:
-     *
-     * - returns false if the throwEx flag is set to false
-     * - throws an exception if the throwEx flag is set to true
-     *
-     *
-     *
-     * @param string $path
-     * @param bool=true $throwEx
-     * @return string|false
-     * @throws \Exception
-     */
-    public function getContent(string $path, bool $throwEx = true)
-    {
-        $file = $this->getUserDir() . "/$path";
-        if (file_exists($file)) {
-            return file_get_contents($file);
-        }
-        if (true === $throwEx) {
-            throw new LightUserDataException("File not found with path $path.");
-        }
-        return false;
-    }
-
-
-    /**
-     * Removes the 2svp extension from the given resource, and returns the new resource name.
-     *
-     *
-     * The resource is a relative path from the user directory to the desired file.
-     *
-     * Note: the user is identified by the given userOrIdentifier.
-     *
-     *
-     *
-     * In more details, this method:
-     * - updates the resource in the luda_resource table
-     * - renames the file on the file system
-     *
-     *
-     * @param string $resource
-     * @param LightUserInterface|string|null $userOrIdentifier
-     * @return string
-     * @throws \Exception
-     */
-    public function update2SvpResource(string $resource, $userOrIdentifier = null): string
-    {
-        $this->checkPermission();
-        if (false !== strpos($resource, '.2svp')) {
-
-            $userIdentifier = $this->getUserIdentifierByUserOrIdentifier($userOrIdentifier);
-            $newResource = str_replace('.2svp', '', $resource);
-            $this->rename($resource, $newResource, $userIdentifier);
-            return $newResource;
-
-        } else {
-            throw new LightUserDataException("The given resource doesn't contain the \".2svp\" extension.");
-        }
-    }
-
-
-    /**
-     * Renames the file identified by oldRealPath to a new file identified by newRealPath.
-     * If the file already exists, it will be replaced.
-     *
-     * This method will:
-     *
-     * - update the luda_resource.real_path column in the database.
-     *          Or, if another entry already exists with this real_path, we remove the old entry (note: real_path is a unique index,
-     *          so we can't have the same value more than once).
-     *
-     * - rename the file on the file system
-     *
-     * If the user is not passed, the @page(current user) will be assumed.
-     *
-     *
-     * @param string $oldRealPath
-     * @param string $newRealPath
-     * @param LightUserInterface|string|null $userOrIdentifier
-     * @throws \Exception
-     */
-//    public function rename(string $oldRealPath, string $newRealPath, $userOrIdentifier = null)
-//    {
-//
-//        $userIdentifier = $this->getUserIdentifierByUserOrIdentifier($userOrIdentifier);
-//
-//        $realResource = $userIdentifier . "/" . $oldRealPath;
-//
-//        // updating the database
-//        $row = $this->factory->getResourceApi()->getResourceByRealPath($realResource, null, true);
-//        $resourceId = $row['id'];
-//
-//        $newResource = $userIdentifier . "/" . $newRealPath;
-//        $row['real_path'] = $newResource;
-//
-//        // is there already an entry with the new fileName? if so update that entry, otherwise update the old entry.
-//        $alreadyExistingRow = $this->factory->getResourceApi()->getResourceByRealPath($newResource);
-//        if (null !== $alreadyExistingRow) {
-//            // should be the case when you updating a row, using the symbolic file name system with 2svp
-//            $this->factory->getResourceApi()->deleteResourceById($resourceId);
-//        } else {
-//            // should be the case when you insert a row for the first time, using the symbolic file name system with 2svp
-//            $this->factory->getResourceApi()->updateResourceById($resourceId, $row);
-//        }
-//
-//
-//        // updating the filesystem
-//        $oldFile = $this->rootDir . "/" . $realResource;
-//        $newFile = $this->rootDir . "/" . $newResource;
-//        FileSystemTool::move($oldFile, $newFile);
-//
-//    }
-
 
     /**
      * Returns the maximum number of bytes that the given user is allowed to use.
@@ -1197,7 +409,8 @@ class LightUserDataService implements PluginInstallerInterface, PluginPostInstal
          * @var $udb LightUserDatabaseService
          */
         $udb = $this->container->get("user_database");
-        $option = $udb->getPluginOptionApi()->getOptionByCategoryAndUserId("Light_UserData.MSC", $userId);
+
+        $option = $udb->getFactory()->getPluginOptionApi()->getOptionByCategoryAndUserId("Light_UserData.MSC", $userId);
         return ConvertTool::convertHumanSizeToBytes($option['value']);
     }
 
@@ -1218,33 +431,276 @@ class LightUserDataService implements PluginInstallerInterface, PluginPostInstal
         return 0;
     }
 
-
     /**
-     * Handles the given @page(file manager protocol) action and returns the expected response.
+     * Checks that the current user's directory doesn't exceed his/her maximum capacity storage.
+     * If it does exceed that limit, we throw an exception.
      *
+     * @throws \Exception
      *
-     * @param string $action
-     * @param HttpRequestInterface $request
      */
-    public function handleFileManagerProtocol(string $action, HttpRequestInterface $request)
+    public function checkUserMaxStorageCapacity()
     {
-        $handler = $this->getFileManagerProtocolHandler();
-        return $handler->handle($action, $request);
+        $user = $this->getValidWebsiteUser();
+        $current = $this->getCurrentCapacityByUser($user);
+        $max = $this->getMaximumCapacityByUser($user);
+        if ($current > $max) {
+            $maxHuman = ConvertTool::convertBytes($max, 'h');
+            $currentHuman = ConvertTool::convertBytes($current, 'h');
+            $this->error("Maximum capacity exceeded. You cannot add file anymore. Your maximum capacity storage is $maxHuman, and you've already used $currentHuman.");
+        }
     }
 
 
     /**
-     * Returns a prepared instance of the file manager handler.
-     * @return LightUserDataFileManagerHandler
+     * Returns whether the given user owns the resource which identifier was given.
+     *
+     * @param string $resourceIdentifier
+     * @param LightWebsiteUser|null $user
+     * @return bool
+     * @throws \Exception
      */
-    public function getFileManagerProtocolHandler(): LightUserDataFileManagerHandler
+    public function userHasResource(string $resourceIdentifier, LightWebsiteUser $user = null): bool
     {
-        if (null === $this->fileManagerProtocolHandler) {
-            $handler = new LightUserDataFileManagerHandler();
-            $handler->setService($this);
-            $this->fileManagerProtocolHandler = $handler;
+        if (null === $user) {
+            $user = $this->getValidWebsiteUser();
         }
-        return $this->fileManagerProtocolHandler;
+        $api = $this->getFactory()->getResourceApi();
+        $resourceExists = $api->hasResourceByResourceIdentifier($resourceIdentifier);
+
+        list($userId, $canonical) = LightUserDataHelper::extractResourceIdentifier($resourceIdentifier);
+        return $resourceExists && ((int)$user->getId() === (int)$userId);
+    }
+
+
+    /**
+     * Checks that the given user owns the current resource, and throws an exception if that's not the case.
+     *
+     * If the given user is null, the current valid user will be used by default.
+     *
+     * @param string $resourceIdentifier
+     * @param LightWebsiteUser|null $user
+     * @throws \Exception
+     */
+    public function checkUserHasResource(string $resourceIdentifier, LightWebsiteUser $user = null)
+    {
+        if (false === $this->userHasResource($resourceIdentifier)) {
+            $this->error("Forbidden: you cannot remove resource with identifier $resourceIdentifier, because you don't own it.", ExceptionCode::FORBIDDEN);
+        }
+    }
+
+
+    /**
+     * Removes the resource which url was given, if the user owns it.
+     *
+     * Doesn't complain if the resource wasn't found.
+     *
+     *
+     * @param string $url
+     * @throws \Exception
+     */
+    public function removeResourceByUrl(string $url)
+    {
+        $userDir = $this->getUserDir();
+        $resourceIdentifier = $this->getResourceIdentifierByUrl($url);
+        $this->checkUserHasResource($resourceIdentifier);
+
+        list($userId, $canonical) = LightUserDataHelper::extractResourceIdentifier($resourceIdentifier);
+
+
+        $info = $this->getResourceInfoByResourceIdentifier($resourceIdentifier);
+
+
+        //--------------------------------------------
+        // REMOVING PHYSICAL FILES FROM THE FILESYSTEM
+        //--------------------------------------------
+        if (false !== $info) {
+            $files = $info['files'];
+            foreach ($files as $item) {
+                $isSource = $item['is_source'];
+                $path = $item['path'];
+                $absPath = $userDir . "/" . $path;
+
+                if (true === $isSource) {
+                    $oriPath = LightUserDataHelper::getOriginalPath($absPath);
+                    if (true === file_exists($oriPath)) {
+                        unlink($oriPath);
+                    }
+                }
+                if (true === file_exists($absPath)) {
+                    unlink($absPath);
+                }
+            }
+        }
+
+
+        //--------------------------------------------
+        // REMOVING RESOURCE FROM THE DATABASE
+        //--------------------------------------------
+        $this->getFactory()->getResourceApi()->deleteResourceByLudUserIdAndCanonical($userId, $canonical);
+    }
+
+
+    /**
+     * Returns the absolute path to the source file of the resource which identifier is given.
+     * Throws an exception if the file doesn't exist in the database.
+     *
+     * Available options are:
+     * - original: bool=false. Whether to try the original image first.
+     *      If this is true:
+     *          - if the original image exists, its path will be returned
+     *          - otherwise the normal image's path will be returned
+     *
+     *
+     *
+     * @param string $resourceIdentifier
+     * @param array $options
+     * @return string
+     */
+    public function getResourcePathByResourceIdentifier(string $resourceIdentifier, array $options = []): string
+    {
+        $original = $options['original'] ?? false;
+
+        $api = $this->getFactory()->getResourceApi();
+        $row = $api->getSourceFilePathInfoByResourceIdentifier($resourceIdentifier);
+        if (false === $row) {
+            $this->error("The source file was not found with resourceIdentifier=$resourceIdentifier.");
+        }
+
+        $userIdentifier = $row['user_identifier'];
+        $relPath = $row['path'];
+        $userDir = $this->getUserDir($userIdentifier);
+
+        $absPath = $userDir . "/" . $relPath;
+        if (true === $original) {
+            $absPath2 = LightUserDataHelper::getOriginalPath($absPath);
+            if (file_exists($absPath2)) {
+                $absPath = $absPath2;
+            }
+        }
+        return $absPath;
+    }
+
+
+    /**
+     * Returns a @page(resource info array) for the given resource id, or false if the resource info wasn't found.
+     *
+     * Available options are:
+     * - tags: bool=false, whether to append the array of tags to the resulting array
+     * - nickname: string=null, if set, the nickname of the file which info to return.
+     *      If not set, the source file's info will be returned.
+     * - original: bool=false, If true, the abs_path property will be pointing to the original file, if found, or otherwise
+     *      the regular file.
+     *
+     *
+     *
+     * @param string $resourceId
+     * @param array $options
+     * @return array|false
+     */
+    public function getResourceInfoByResourceIdentifier(string $resourceId, array $options = [])
+    {
+        $nickname = $options['nickname'] ?? null;
+        $original = $options['original'] ?? false;
+
+        $row = $this->factory->getResourceApi()->getBaseResourceInfoByResourceIdentifier($resourceId, $options);
+        if (false === $row) {
+            return false;
+        }
+
+        $path = null;
+        $files = $row['files'];
+        foreach ($files as $item) {
+            if (null === $nickname) {
+                if (true === $item['is_source']) {
+                    $path = $item['path'];
+                    break;
+                }
+            } elseif ($item['nickname'] === $nickname) {
+                $path = $item['path'];
+                break;
+            }
+        }
+
+        if (null == $path) {
+            $s = "No source file found for resource \"$resourceId\"";
+            if (null !== $nickname) {
+                $s .= " and nickname=$nickname";
+            }
+            $s .= ".";
+            $this->error($s);
+        }
+
+        $row['directory'] = dirname($path);
+        $row['filename'] = basename($path);
+        $userIdentifier = $row['user_identifier'];
+        $userDir = $this->getUserDir($userIdentifier);
+
+
+        $absPath = $userDir . "/" . $path;
+        if (true === $original) {
+            $absPath2 = LightUserDataHelper::getOriginalPath($absPath);
+            if (true === file_exists($absPath2)) {
+                $absPath = $absPath2;
+            }
+        }
+
+        $row['abs_path'] = $absPath;
+        $row['original_url'] = $this->getUrlByResourceIdentifier($resourceId, ['urlParams' => [
+            "o" => 1,
+        ]]);
+        return $row;
+    }
+
+
+    /**
+     * Returns the url to access the resource identified by the given $resourceIdentifier.
+     *
+     *
+     * The options are:
+     *
+     * - urlParams: array of key/value, the url parameters to add.
+     *
+     *
+     * @param string $resourceIdentifier
+     * @param array $options = []
+     * @return string
+     * @throws \Exception
+     */
+    public function getUrlByResourceIdentifier(string $resourceIdentifier, array $options = []): string
+    {
+
+        $urlParams = $options['urlParams'] ?? [];
+
+        /**
+         * @var $rr LightReverseRouterService
+         */
+        $rr = $this->container->get('reverse_router');
+        $params = [
+            "id" => $resourceIdentifier,
+        ];
+        /**
+         * Useful to avoid browser cache related problems
+         */
+        $params['t'] = time();
+        $params = array_merge($params, $urlParams);
+        return $rr->getUrl("luda_route-web_access", $params);
+
+    }
+
+
+    /**
+     * Returns the url of the web access service.
+     *
+     * @return string
+     * @throws \Exception
+     */
+    public function getWebAccessServiceUrl(): string
+    {
+        /**
+         * @var $rr LightReverseRouterService
+         */
+        $rr = $this->container->get('reverse_router');
+        return $rr->getUrl("luda_route-web_access");
     }
 
 
@@ -1280,18 +736,6 @@ class LightUserDataService implements PluginInstallerInterface, PluginPostInstal
     }
 
     /**
-     * Sets the obfuscation parameters to use.
-     *
-     * @param string $algoName
-     * @param string $secret
-     */
-    public function setObfuscationParams(string $algoName, string $secret)
-    {
-        $this->obfuscationAlgorithm = $algoName;
-        $this->obfuscationSecret = $secret;
-    }
-
-    /**
      * Sets the rootDir.
      *
      * @param string $rootDir
@@ -1313,66 +757,408 @@ class LightUserDataService implements PluginInstallerInterface, PluginPostInstal
 
 
     /**
-     * Sets a temporary user.
+     * Returns the absolute path to the directory of the given user.
      *
-     * @param LightUserInterface $user
-     */
-    public function setTemporaryUser(LightUserInterface $user)
-    {
-        $this->currentUser = $user;
-    }
-
-    /**
-     * Unsets the temporary user if any.
-     */
-    public function unsetTemporaryUser()
-    {
-        $this->currentUser = null;
-    }
-
-
-    /**
-     * Returns the directory path of the current user.
+     * The given user can be one of the following:
+     * - a LightWebsiteUser instance
+     * - an user identifier (lud_user.identifier)
+     * - null, in which case the current user will be used
      *
-     * @param LightWebsiteUser|null $user
+     *
+     * @param LightWebsiteUser|string|null $userOrUserIdentifier
      * @return string
      * @throws \Exception
      */
-    public function getUserDir(LightWebsiteUser $user = null): string
+    public function getUserDir($userOrUserIdentifier = null): string
     {
-        if (null === $user) {
-            $user = $this->getValidWebsiteUser();
+
+        if (is_string($userOrUserIdentifier)) {
+            $identifier = $userOrUserIdentifier;
+        } else {
+            $user = null;
+            if (null === $userOrUserIdentifier) {
+                $user = $this->getValidWebsiteUser();
+            } elseif ($userOrUserIdentifier instanceof LightWebsiteUser) {
+                $user = $userOrUserIdentifier;
+            }
+            $identifier = $user->getIdentifier();
         }
-        $identifier = $user->getIdentifier();
         return $this->rootDir . "/users/" . $identifier;
     }
 
 
+//    /**
+//     * Sets a temporary user.
+//     *
+//     * @param LightUserInterface $user
+//     */
+//    public function setTemporaryUser(LightUserInterface $user)
+//    {
+//        $this->currentUser = $user;
+//    }
+//
+//    /**
+//     * Unsets the temporary user if any.
+//     */
+//    public function unsetTemporaryUser()
+//    {
+//        $this->currentUser = null;
+//    }
+
+
+    //--------------------------------------------
+    // LOGICAL API
+    //--------------------------------------------
     /**
-     * Returns the @page(current user), which is a LightWebsiteUser.
+     * Creates the resource described by the given fileItems in the database, and returns an info array.
+     * The info array contains the following:
      *
-     * @return LightWebsiteUser
-     * @throws \Exception
+     * - resource_identifier: string, the resource identifier of the created resource.
+     *
+     *
+     * Note: the file items path must be already resolved.
+     *
+     * Available options are:
+     * - tags: array of tags to attach to the resource.
+     * - is_private: bool=false. Whether the resource is private or public.
+     * - source_path: string, path to the binary file to add.
+     * - keep_original: bool=false, whether to create an original copy for this file.
+     * - canonical_name: string|null, the canonical name of this resource.
+     *
+     *
+     *
+     * See the @page(files property of the upload file section) for more details about the fileItems.
+     *
+     *
+     * @param array $fileItems
+     * @param array $options
      */
-    public function getValidWebsiteUser(): LightWebsiteUser
+    public function createResourceByFileItems(array $fileItems, array $options = []): array
     {
-        $user = $this->currentUser;
-        if (null === $user) {
-            /**
-             * @var $user LightWebsiteUser
-             */
-            $user = $this->container->get("user_manager")->getUser();
-            if (false === $user->isValid()) {
-                throw new LightUserDataException("User not connected/valid.");
+        $isPrivate = $options['is_private'] ?? false;
+        $source_path = $options['source_path'];
+        $keep_original = $options['keep_original'] ?? false;
+        $tags = $options['tags'] ?? [];
+        $canonicalName = $options['canonical_name'] ?? null;
+
+
+        /**
+         * @var $um LightUserManagerService
+         */
+        $um = $this->container->get('user_manager');
+        $userId = $um->getValidWebsiteUser()->getId();
+
+        /**
+         * @var $db LightDatabaseService
+         */
+        $db = $this->container->get("database");
+        /**
+         * @var $exception \Exception
+         */
+        $exception = null;
+        $resourceId = null;
+        $resourceIdentifier = null;
+        $res = $db->transaction(function () use (&$resourceId, &$resourceIdentifier, $db, $isPrivate, $tags, $fileItems, $userId, $canonicalName) {
+
+
+            //--------------------------------------------
+            // CREATE THE RESOURCE FIRST
+            //--------------------------------------------
+
+            if (null === $canonicalName) {
+                $canonicalName = $this->getNewResourceIdentifier();
             }
-            if (false === $user instanceof LightWebsiteUser) {
-                $class = get_class($user);
-                throw new LightUserDataException("User must be an instance of LightWebsiteUser, $class given.");
+
+
+            $resourceIdentifier = LightUserDataHelper::implodeResourceIdentifier($userId, $canonicalName);
+
+
+            $datetime = DateTool::getMysqlDatetime();
+            $resourceApi = $this->getFactory()->getResourceApi();
+            $resourceId = $resourceApi->insertResource([
+                'lud_user_id' => $userId,
+                'canonical' => $canonicalName,
+                'is_private' => (int)$isPrivate,
+                'date_creation' => $datetime,
+                'date_last_update' => $datetime,
+            ], false);
+
+
+            //--------------------------------------------
+            // CREATE THE TAGS
+            //--------------------------------------------
+            $this->storeTagsByResourceId($resourceId, $tags);
+
+
+            //--------------------------------------------
+            // CREATE THE FILE VARIATIONS
+            //--------------------------------------------
+            $fileApi = $this->getFactory()->getResourceFileApi();
+            foreach ($fileItems as $fileItem) {
+                $fileApi->insertResourceFile([
+                    "luda_resource_id" => $resourceId,
+                    "path" => $fileItem['path'],
+                    "nickname" => $fileItem['nickname'],
+                    "is_source" => (int)$fileItem['is_source'],
+                ]);
             }
-            $this->currentUser = $user;
+
+
+        }, $exception);
+
+
+        if (false === $res) {
+            throw $exception;
         }
-        return $user;
+
+
+        /**
+         * ...then create the files on the filesystem (after the db insert is ok)
+         */
+        $this->createFileItems($source_path, $fileItems, [
+            'original' => $keep_original,
+        ]);
+
+
+        return [
+            'resource_identifier' => $resourceIdentifier,
+        ];
+
     }
+
+
+    /**
+     * Updates the resource (in the database) which identifier is given, and which is described by the given fileItems.
+     *
+     *
+     * Note: the file items path must be already resolved.
+     *
+     * Available options are:
+     * - tags: array of tags to attach to the resource.
+     * - is_private: bool=false. Whether the resource is private or public.
+     * - ?source_path: string. The path to the new file.
+     *      If defined, this file will replace the old ones on the filesystem, and the db info is updated.
+     *      If not defined, we just update the db info and (potentially) rename the old files on the filesystem.
+     * - keep_original: bool=false, whether to create an original copy for this file.
+     *
+     *
+     * See the @page(files property of the upload file section of the user data file manager document) for more details about the fileItems.
+     *
+     *
+     * @param string $resourceIdentifier
+     * @param array $fileItems
+     * @param array $options
+     */
+    public function updateResourceByFileItems(string $resourceIdentifier, array $fileItems, array $options = [])
+    {
+        $isPrivate = $options['is_private'] ?? false;
+        $source_path = $options['source_path'] ?? null;
+        $keep_original = $options['keep_original'] ?? false;
+        $tags = $options['tags'] ?? [];
+
+
+        /**
+         * @var $um LightUserManagerService
+         */
+        $um = $this->container->get('user_manager');
+        $userId = $um->getValidWebsiteUser()->getId();
+
+
+        //--------------------------------------------
+        // GET THE OLD RESOURCE FIRST
+        //--------------------------------------------
+        $oldResourceInfo = $this->getResourceInfoByResourceIdentifier($resourceIdentifier);
+        if (false === $oldResourceInfo) {
+            $this->error("Row not found, with resourceIdentifier=$resourceIdentifier.");
+        }
+
+
+        if ((int)$userId !== (int)$oldResourceInfo['lud_user_id']) {
+            $this->error("Forbidden operation: you don't own the resource you're trying to update (identifier=$resourceIdentifier).", ExceptionCode::FORBIDDEN);
+        }
+
+
+        /**
+         * @var $db LightDatabaseService
+         */
+        $db = $this->container->get("database");
+
+
+        /**
+         * @var $exception \Exception
+         */
+        $exception = null;
+        $res = $db->transaction(function () use ($source_path, $oldResourceInfo, $resourceIdentifier, $db, $isPrivate, $tags, $keep_original, $fileItems, $userId) {
+
+            $resourceId = $oldResourceInfo['id'];
+
+
+            $userDir = $this->getUserDir();
+
+            $fileWasProvided = (null !== $source_path);
+
+
+            //--------------------------------------------
+            // NO FILE PROVIDED
+            //--------------------------------------------
+            if (false === $fileWasProvided) {
+                /**
+                 * If the file is not provided, we rely on the fact that the configFiles and the old files from the db are in the same order (i.e. that the user
+                 * didn't change the configFiles). Not optimal, but for now that's what we are using.
+                 */
+                $nbFiles = count($fileItems);
+                $oldFiles = $oldResourceInfo['files'];
+                $nbOldFiles = count($oldFiles);
+                if ($nbFiles !== $nbOldFiles) {
+                    /**
+                     * This shouldn't happen, because in this conception the dev should update the files/database whenever he changes
+                     * the files configuration.
+                     */
+                    $this->error("The config files defines " . $nbFiles . " files, but the current file to update has " . $nbOldFiles . " variations. Don't know how to handle this. Please contact the webmaster.");
+                }
+            }
+
+
+            //--------------------------------------------
+            // UPDATE THE RESOURCE
+            //--------------------------------------------
+            $datetime = DateTool::getMysqlDatetime();
+            $resourceApi = $this->getFactory()->getResourceApi();
+            $resourceApi->updateResourceById($resourceId, [
+                'is_private' => (int)$isPrivate,
+                'date_last_update' => $datetime,
+            ]);
+
+
+            //--------------------------------------------
+            // UPDATE THE FILE VARIATIONS
+            //--------------------------------------------
+            $fileApi = $this->getFactory()->getResourceFileApi();
+            if (false === $fileWasProvided) {
+                foreach ($fileItems as $k => $fileItem) {
+                    $fileId = $oldFiles[$k]['id'];
+                    $fileApi->updateResourceFileById($fileId, [
+                        "path" => $fileItem['path'],
+                        "nickname" => $fileItem['nickname'],
+                        "is_source" => (int)$fileItem['is_source'],
+                    ]);
+                }
+            } else {
+                /**
+                 * If the file is provided, we can simply delete/insert, so we avoid the old conf sync problem mentioned earlier in this method.
+                 */
+                $fileApi->deleteResourceFileByLudaResourceId($resourceId);
+
+                foreach ($fileItems as $fileItem) {
+                    $fileApi->insertResourceFile([
+                        "luda_resource_id" => $resourceId,
+                        "path" => $fileItem['path'],
+                        "nickname" => $fileItem['nickname'],
+                        "is_source" => (int)$fileItem['is_source'],
+                    ]);
+                }
+            }
+
+
+            //--------------------------------------------
+            // UPDATE THE TAGS
+            //--------------------------------------------
+            $this->storeTagsByResourceId($resourceId, $tags);
+
+            $oldFiles = $oldResourceInfo['files'];
+
+            if (false === $fileWasProvided) {
+                //--------------------------------------------
+                // RENAME THE FILES
+                //--------------------------------------------
+                foreach ($fileItems as $k => $fileItem) {
+                    $oldItem = $oldFiles[$k];
+                    $isSource = $oldItem['is_source'];
+                    $oldPath = $oldItem['path'];
+                    $oldPathAbs = $userDir . "/" . $oldPath;
+                    if (file_exists($oldPathAbs)) {
+                        $newPathAbs = $userDir . "/" . $fileItem['path'];
+                        FileSystemTool::move($oldPathAbs, $newPathAbs);
+                        if (true === $isSource) {
+                            $oldOriginal = LightUserDataHelper::getOriginalPath($oldPathAbs);
+                            if (file_exists($oldOriginal)) {
+                                $newOriginal = LightUserDataHelper::getOriginalPath($newPathAbs);
+                                FileSystemTool::move($oldOriginal, $newOriginal);
+                            }
+                        }
+                    }
+                }
+            } else {
+                //--------------------------------------------
+                // REMOVE THE OLD FILES
+                //--------------------------------------------
+                foreach ($fileItems as $k => $fileItem) {
+                    $oldItem = $oldFiles[$k];
+                    $isSource = $oldItem['is_source'];
+                    $oldPath = $oldItem['path'];
+                    $oldPathAbs = $userDir . "/" . $oldPath;
+                    if (file_exists($oldPathAbs)) {
+                        FileSystemTool::remove($oldPathAbs);
+
+                        if (true === $isSource) {
+                            $oldOriginal = LightUserDataHelper::getOriginalPath($oldPathAbs);
+                            if (file_exists($oldOriginal)) {
+                                /**
+                                 * Here we are updating a file, and the user provided a file, and a keepOriginal flag.
+                                 * The file provided by the user might be either a crop of the old file (in which case keepOriginal=false), or a new uploaded file (keepOriginal=true).
+                                 * If we just crop the old file, we need to preserve the old original (so we rename it).
+                                 * However if the user adds a new file, we need to replace the old original with the new one.
+                                 */
+                                if (true === $keep_original) {
+                                    FileSystemTool::remove($oldOriginal);
+                                } else {
+                                    $newPathAbs = $userDir . "/" . $fileItem['path'];
+                                    $newOriginal = LightUserDataHelper::getOriginalPath($newPathAbs);
+                                    FileSystemTool::move($oldOriginal, $newOriginal);
+                                }
+                            }
+                        }
+
+                    }
+                }
+
+
+                //--------------------------------------------
+                // THEN CREATE THE NEW FILES
+                //--------------------------------------------
+                $this->createFileItems($source_path, $fileItems, [
+                    'original' => $keep_original,
+                ]);
+            }
+
+
+        }, $exception);
+
+
+        if (false === $res) {
+            throw $exception;
+        }
+
+        return [
+            'resource_identifier' => $resourceIdentifier,
+        ];
+
+    }
+
+
+    /**
+     * Returns a unique resource identifier that can be inserted in the database, as
+     * the luda_resource.resouce_identifier value.
+     *
+     *
+     *
+     * @return string
+     */
+    public function getNewResourceIdentifier(): string
+    {
+        return SimplePdoGenericHelper::getUniqueIdentifier("f");
+    }
+
 
     /**
      * Returns the identifier from a given url.
@@ -1386,30 +1172,17 @@ class LightUserDataService implements PluginInstallerInterface, PluginPostInstal
      * @return string|false.
      * @throws \Exception
      */
-    public function getIdentifierByUrl(string $url, bool $throwEx = true)
+    public function getResourceIdentifierByUrl(string $url, bool $throwEx = true)
     {
         $params = UriTool::getParams($url);
         if (array_key_exists("id", $params)) {
             return $params['id'];
         }
         if (true === $throwEx) {
-            $this->error("No resource id found in this url: \"$url\".");
+            $this->error("No resource identifier found in this url: \"$url\".");
         }
         return false;
     }
-
-
-    /**
-     * Returns the resource identifier using the given resource id.
-     *
-     * @return string
-     */
-    public function getNewResourceIdentifier(): string
-    {
-        return "f" . microtime(true) . "." . rand(0, 1000);
-    }
-
-
 
     //--------------------------------------------
     //
@@ -1427,30 +1200,22 @@ class LightUserDataService implements PluginInstallerInterface, PluginPostInstal
 
 
     /**
-     * Returns the resource item from the database, identified by the given path (relative from the user directory)
-     * and the given user (if null the connected user will be used by default),
-     * or returns false if the resource was not found.
+     * Returns the @page(current user), which is a LightWebsiteUser.
      *
-     *
-     *
-     * Important: no validation is done on the path (i.e. we trust the input).
-     *
-     * @param string $path
-     * @param LightWebsiteUser|null $user
-     * @return array|false
+     * @return LightWebsiteUser
      * @throws \Exception
-     *
      */
-    protected function getResourceByPath(string $path, LightWebsiteUser $user = null)
+    protected function getValidWebsiteUser(): LightWebsiteUser
     {
+        $user = $this->currentUser;
         if (null === $user) {
-            $user = $this->getValidWebsiteUser();
+            /**
+             * @var $user LightWebsiteUser
+             */
+            $user = $this->container->get("user_manager")->getValidWebsiteUser();
+            $this->currentUser = $user;
         }
-        return $this->factory->getResourceApi()->getResource([
-            "lud_user_id" => $user->getId(),
-            "dir" => dirname($path),
-            "filename" => basename($path),
-        ], [], false);
+        return $user;
     }
 
 
@@ -1477,27 +1242,6 @@ class LightUserDataService implements PluginInstallerInterface, PluginPostInstal
             $sMaxLimit = ConvertTool::convertBytes($maxLimit, "h");
             $sCurrentSpaceUsed = ConvertTool::convertBytes($currentSpaceUsed, "h");
             throw new LightUserDataException("Maximum storage capacity violation. The current user maximum allowed space is $sMaxLimit, and the current space used is $sCurrentSpaceUsed.");
-        }
-    }
-
-
-    /**
-     * Checks that the current user has the given permission.
-     * If the given permission is null (by default), it defaults to: "Light_UserData.user".
-     * See the @page(Light_UserData permissions document) for more details.
-     *
-     *
-     * @param string|null $permission
-     * @throws \Exception
-     */
-    protected function checkPermission(string $permission = null)
-    {
-        if (null === $permission) {
-            $permission = "Light_UserData.user";
-        }
-        $user = $this->getValidWebsiteUser();
-        if (false === $user->hasRight($permission)) {
-            throw new LightUserDataException("Permission denied: missing the Light_UserData.user permission.");
         }
     }
 
@@ -1530,117 +1274,86 @@ class LightUserDataService implements PluginInstallerInterface, PluginPostInstal
     //--------------------------------------------
     //
     //--------------------------------------------
+
     /**
-     * Returns the user identifier from the given userOrIdentifier.
+     * Creates the tags in the database, and binds them to the resource which id is given.
      *
-     *
-     * @param LightUserInterface|string|null $userOrIdentifier
-     * @return string
+     * @param $resourceId
+     * @param array $tags
      * @throws \Exception
      */
-    private function getUserIdentifierByUserOrIdentifier($userOrIdentifier): string
+    private function storeTagsByResourceId($resourceId, array $tags)
     {
-        if (null === $userOrIdentifier) {
-            $userIdentifier = $this->getUserIdentifier();
-        } elseif (is_string($userOrIdentifier)) {
-            $userIdentifier = $userOrIdentifier;
-        } elseif ($userOrIdentifier instanceof LightUserInterface) {
-            $userIdentifier = $userOrIdentifier->getIdentifier();
-        } else {
-            $type = gettype($userOrIdentifier);
-            throw new LightUserDataException("Unable to guess userIdentifier from the given userOrIdentifier (type=$type).");
+        $tagApi = $this->getFactory()->getTagApi();
+        $resourceHasTagApi = $this->getFactory()->getResourceHasTagApi();
+
+
+        // delete old tags first
+        $resourceHasTagApi->deleteResourceHasTagByResourceId($resourceId);
+
+        if ($tags) {
+            foreach ($tags as $tag) {
+                $idTag = $tagApi->insertTag([
+                    "name" => $tag,
+                ]);
+                $resourceHasTagApi->insertResourceHasTag([
+                    'resource_id' => $resourceId,
+                    'tag_id' => $idTag,
+                ]);
+            }
         }
-        return $userIdentifier;
     }
 
 
     /**
-     * Returns the path of the original copy of a given file
+     * Creates the given file items on the real server, using the given sourcePath as the source.
+     * See the files property of @page(the upload file configuration of the user data file manager document) for more details.
      *
-     * @param string $path
-     * @return string
+     * Available options are:
+     * - original: bool=false. Whether to create an original copy of the source file.
+     *      See the @page(source file section of our Light_UserData conception notes) for more details about the source file.
+     *      See the @page(original image section of our Light_UserData conception notes) for more details about the "original" concept.
+     *
+     *
+     *
+     * @param string $sourcePath
+     * @param array $fileItems
+     * @param array $options
      */
-    private function getOriginalPathFromAbsolutePath(string $path): string
+    private function createFileItems(string $sourcePath, array $fileItems, array $options = [])
     {
-        if (0 !== strpos($path, $this->rootDir)) {
-            $this->error("Invalid path provided: it doesn't seem to be a child of the root dir: \"$path\".");
-        }
-        $p = explode($this->rootDir, $path, 2);
-        $rel = array_pop($p);
-        /**
-         * Note: because of the line below,
-         * the user shouldn't be able to create a relative path containing the /files/ or /original/ sub-paths.
-         */
-        $rel = str_replace("/files/", "/original/", $rel);
-        return $this->rootDir . "/" . $rel;
-    }
+        $keepOriginal = $options['original'] ?? false;
 
 
-    /**
-     * Returns the base relative path from the given resourceId.
-     * This is like the relative bath, but without the files/original parent directory included.
-     *
-     *
-     * @param string $resourceId
-     * @return string
-     */
-    private function getBaseRelativePathByResourceIdentifier(string $resourceId): string
-    {
-        $isRelated = (false !== strpos($resourceId, '-'));
-        if (false === $isRelated) {
-            $relPath = $resourceId;
-        } else {
-            list($baseResourceId, $relatedFileIndex) = explode('-', $resourceId, 2);
-            $relPath = $baseResourceId . "-/$relatedFileIndex";
-        }
-        return $relPath;
-    }
-
-
-    /**
-     * Returns whether the given dirname is valid.
-     * It's valid if it doesnt' contain the following subdirs:
-     * - original
-     * - files
-     *
-     *
-     * @param string $dirName
-     */
-    private function checkDirname(string $dirName)
-    {
-        $forbidden = [
-            "original",
-            "files",
-        ];
-        $isValid = true;
-        foreach ($forbidden as $test) {
-            if ($test === $dirName) {
-                $isValid = false;
+        $userDir = $this->getUserDir();
+        foreach ($fileItems as $fileItem) {
+            $imageTransformer = $fileItem['imageTransformer'] ?? null;
+            $file = $userDir . "/" . $fileItem['path'];
+            if (null !== $imageTransformer) {
+                GemHelperTool::transformImage($sourcePath, $file, $imageTransformer);
+            } else {
+                FileSystemTool::copyFile($sourcePath, $file);
             }
 
-            if (preg_match('!^' . $test . '/!', $dirName)) {
-                $isValid = false;
+            if (true === $keepOriginal && true === $fileItem['is_source']) {
+                //--------------------------------------------
+                // ORIGINAL IMAGE COPY
+                //--------------------------------------------
+                $oriPath = LightUserDataHelper::getOriginalPath($file);
+                FileSystemTool::copyFile($sourcePath, $oriPath);
             }
-
-            if (preg_match('!/' . $test . '(/|$)!', $dirName)) {
-                $isValid = false;
-            }
-        }
-
-        if (false === $isValid) {
-            $this->error("The dirname must not contain the following subdirectories: original, files.");
         }
     }
-
 
     /**
      * Throws an exception.
      *
      * @param string $msg
+     * @param int|null $code
      * @throws \Exception
      */
-    private function error(string $msg)
+    private function error(string $msg, int $code = null)
     {
-        throw new LightUserDataException($msg);
+        throw new LightUserDataException($msg, $code);
     }
 }

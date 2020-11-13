@@ -56,7 +56,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightMailerService::getSenderItem](https://github.com/lingtalfi/Light_Mailer/blob/master/Service/LightMailerService.php#L698-L707)
+See the source code for method [LightMailerService::getSenderItem](https://github.com/lingtalfi/Light_Mailer/blob/master/Service/LightMailerService.php#L724-L733)
 
 
 See Also

@@ -1,6 +1,6 @@
 Light_ExceptionHandler
 ===========
-2019-11-11 -> 2020-06-04
+2019-11-11 -> 2020-11-05
 
 
 
@@ -63,6 +63,8 @@ $events.methods_collection:
                 - Light_AjaxHandler.on_handle_exception_caught
                 - Light_AjaxFileUploadManager.on_controller_exception_caught
                 - Light_RealGenerator.on_realform_exception_caught
+                - Light_Server.on_controller_exception_caught
+                - Light_HttpError.on_controller_exception_caught
             listener:
                 instance: @service(exception_handler)
                 callable_method: onExceptionCaught
@@ -78,7 +80,6 @@ $logger.methods_collection:
                     configure:
                         options:
                             file: ${app_dir}/log/exceptions/{date}.txt
-
 ```
 
 
@@ -96,6 +97,10 @@ Related
 History Log
 =============
 
+- 1.2.1 -- 2020-11-05
+
+    - add handling of "Light_Server.on_controller_exception_caught" event
+    
 - 1.2.0 -- 2020-06-04
 
     - adapt api for updated Light_AjaxHandler events

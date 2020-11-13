@@ -4,7 +4,7 @@
 
 The KitPageRendererAwareInterface class
 ================
-2019-04-24 --> 2019-11-25
+2019-04-24 --> 2020-08-10
 
 
 

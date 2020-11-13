@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [PhpExcelTool::getColumnsAsRows](https://github.com/lingtalfi/PhpExcelTool/blob/master/doc/api/Ling/PhpExcelTool/PhpExcelTool/getColumnsAsRows.md)(array $columnName2Keys, string $file, int $skipNLines = 0) : array
+public static [PhpExcelTool::getColumnsAsRows](https://github.com/lingtalfi/PhpExcelTool/blob/master/doc/api/Ling/PhpExcelTool/PhpExcelTool/getColumnsAsRows.md)(array $columnName2Keys, string $file, ?int $skipNLines = 0) : array
 
 
 

@@ -57,7 +57,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [ServiceManagerUtil::updatePropertyComment](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/Util/ServiceManagerUtil.php#L278-L281)
+See the source code for method [ServiceManagerUtil::updatePropertyComment](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/Util/ServiceManagerUtil.php#L280-L283)
 
 
 See Also

@@ -4,12 +4,10 @@
 namespace Ling\Light_UploadGems\Service;
 
 
-use Ling\BabyYaml\BabyYamlUtil;
-use Ling\Bat\FileSystemTool;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
+use Ling\Light_Nugget\Service\LightNuggetService;
 use Ling\Light_UploadGems\Exception\LightUploadGemsException;
 use Ling\Light_UploadGems\GemHelper\GemHelper;
-use Ling\Light_UploadGems\GemHelper\GemHelperInterface;
 use Ling\PhpFileValidator\PhpFileValidator;
 
 /**
@@ -55,57 +53,21 @@ class LightUploadGemsService
     }
 
 
-    /**
-     * Registers the pluginName.
-     *
-     * If gemDirPath is provided, it's an absolute path.
-     *
-     * @param string $pluginName
-     * @param string|null $gemDirPath = null
-     * @throws \Exception
-     */
-    public function register(string $pluginName, string $gemDirPath = null)
-    {
-        if (null === $gemDirPath) {
-            $gemDirPath = $this->container->getApplicationDir() . "/config/data/$pluginName/Light_UploadGems";
-        }
-
-        $realPath = realpath($gemDirPath);
-        if (false === $realPath) {
-            throw new LightUploadGemsException("Directory not found: \"$gemDirPath\".");
-        }
-        $this->pluginToDir[$pluginName] = $realPath;
-    }
-
 
     /**
      * Returns a GemHelperInterface associated with the given gemId, or throws an exception otherwise.
      *
      * @param string $gemId
-     * @return GemHelperInterface
+     * @return GemHelper
      * @throws \Exception
      */
-    public function getHelper(string $gemId): GemHelperInterface
+    public function getHelper(string $gemId): GemHelper
     {
-        if (false !== strpos($gemId, ".")) {
-            list($pluginName, $gemName) = explode(".", $gemId, 2);
-
-            if (array_key_exists($pluginName, $this->pluginToDir)) {
-                $dir = $this->pluginToDir[$pluginName];
-                $file = $dir . "/" . $gemName . ".byml";
-                if (true === FileSystemTool::isDirectoryTraversalSafe($file, $dir, true)) {
-                    $helper = new GemHelper();
-                    $helper->setContainer($this->container);
-                    $helper->setConfig(BabyYamlUtil::readFile($file));
-                    return $helper;
-                }
-                throw new LightUploadGemsException("File not found or invalid: \"$file\", with gemId \"$gemId\".");
-
-            }
-            throw new LightUploadGemsException("Gem helper not found with id \"$gemId\".");
-
-        }
-        throw new LightUploadGemsException("Wrong gemId notation, it doesn't contain a dot: \"$gemId\".");
+        $conf = $this->getNugget($gemId);
+        $helper = new GemHelper();
+        $helper->setContainer($this->container);
+        $helper->setConfig($conf);
+        return $helper;
     }
 
 
@@ -137,4 +99,25 @@ class LightUploadGemsService
             throw new LightUploadGemsException("Invalid filename \"$filename\", the string ./ or ../ was found in it.");
         }
     }
+
+
+
+    //--------------------------------------------
+    //
+    //--------------------------------------------
+    /**
+     * Returns the configuration nugget based on the given nuggetId.
+     *
+     * @param string $nuggetId
+     * @return array
+     */
+    private function getNugget(string $nuggetId): array
+    {
+        /**
+         * @var $nug LightNuggetService
+         */
+        $ng = $this->container->get("nugget");
+        return $ng->getNugget($nuggetId, "Light_UploadGems/gems");
+    }
+
 }

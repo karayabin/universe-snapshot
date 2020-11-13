@@ -151,7 +151,7 @@ The exact channel is: ${serviceName}.debug
 
 Standard service configuration file
 --------------
-2020-07-13
+2020-07-13 -> 2020-08-06
 
 
 A standard service configuration file is divided in sections:
@@ -159,7 +159,7 @@ A standard service configuration file is divided in sections:
 
 - the **main** section, at the top
 - the **hooks** section, optional, in the middle
-- the **others** section, optional, at the bottom
+- the **others** section, optional, at the bottom (this is experimental as for now)
 
 
 The **main** section is where the service instance is defined.
@@ -181,6 +181,8 @@ The **main** section doesn't have a **banner comment**.
 
 In the **hooks** section, hooks must be defined using the **methods_collection** method rather than the **setMethods** method.
 This is because **methods_collection** plays more nicely with other plugins (while **setMethods** overrides whatever was previously set).
+
+
 
 
 

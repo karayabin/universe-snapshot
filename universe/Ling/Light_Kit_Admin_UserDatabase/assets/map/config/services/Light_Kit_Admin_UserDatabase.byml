@@ -40,15 +40,6 @@ $controller_hub.methods_collection:
                         container: @container()
 
 
-$crud.methods_collection:
-    -
-        method: registerHandler
-        args:
-            pluginId: Light_Kit_Admin_UserDatabase
-            handler:
-                instance: Ling\Light_Kit_Admin\Crud\CrudRequestHandler\LightKitAdminCrudRequestHandler
-
-
 $easy_route.methods_collection:
     -
         method: registerBundleFile
@@ -81,49 +72,6 @@ $plugin_installer.methods_collection:
         args:
             plugin: Light_Kit_Admin_UserDatabase
             installer: @service(kit_admin_user_database)
-
-$realform.methods_collection:
-    -
-        method: registerFormHandler
-        args:
-            plugin: Light_Kit_Admin_UserDatabase
-            handler:
-                instance: Ling\Light_Kit_Admin\Realform\Handler\LightKitAdminRealformHandler
-                methods:
-                    setConfDir:
-                        dir: ${app_dir}/config/data/Light_Kit_Admin_UserDatabase/Light_Realform
-
-
-$realist.methods_collection:
-    -
-        method: registerListRenderer
-        args:
-            identifier: Light_Kit_Admin_UserDatabase
-            renderer:
-                instance: Ling\Light_Kit_Admin\Realist\Rendering\LightKitAdminRealistListRenderer
-    -
-        method: registerRealistRowsRenderer
-        args:
-            identifier: Light_Kit_Admin_UserDatabase
-            renderer:
-                instance: Ling\Light_Kit_Admin\Realist\Rendering\LightKitAdminRealistRowsRenderer
-    -
-        method: registerActionHandler
-        args:
-            renderer:
-                instance: Ling\Light_Kit_Admin\Realist\ActionHandler\LightKitAdminRealistActionHandler
-    -
-        method: registerListActionHandler
-        args:
-            plugin: Light_Kit_Admin_UserDatabase
-            renderer:
-                instance: Ling\Light_Kit_Admin\Realist\ListActionHandler\LightKitAdminListActionHandler
-    -
-        method: registerListGeneralActionHandler
-        args:
-            plugin: Light_Kit_Admin_UserDatabase
-            renderer:
-                instance: Ling\Light_Kit_Admin\Realist\ListGeneralActionHandler\LightKitAdminListGeneralActionHandler
 
 
 $upload_gems.methods_collection:

@@ -2,7 +2,6 @@ dependencies:
     Ling: 
         - Light
         - Light_AjaxHandler
-        - Light_Realist
         - BabyYaml
         - Bat
         - Light_BMenu
@@ -26,12 +25,15 @@ dependencies:
         - SqlWizard
         - Light_ControllerHub
         - Light_Crud
+        - Light_Realist
         - PhpSpreadSheetTool
         - Light_DatabaseUtils
         - Light_UserData
         - SimplePdoWrapper
         - Bootstrap4AdminTable
         - Light_PluginInstaller
+        - Light_LingStandardService
+        - UniverseTools
         - Kit_PicassoWidget
         - Chloroform_HeliumRenderer
         - FontAwesome

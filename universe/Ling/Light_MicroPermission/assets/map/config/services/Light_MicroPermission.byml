@@ -1,5 +1,6 @@
 micro_permission:
     instance: Ling\Light_MicroPermission\Service\LightMicroPermissionService
+#    instance: Ling\Light_MicroPermission\Service\TestLightMicroPermissionService
     methods:
         setContainer:
             container: @container()

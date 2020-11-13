@@ -1,6 +1,6 @@
 Light_TaskScheduler, conception notes
 =============
-2020-06-30 -> 2020-07-27
+2020-06-30 -> 2020-08-13
 
 
 
@@ -12,14 +12,12 @@ This is a task scheduler service for the [light framework](https://github.com/li
 
 Overview
 ----------
-2020-06-30
+2020-06-30 -> 2020-08-13
 
 
 We have a table in the database which holds the tasks to execute, see the **task schedule table** section for more info.
 
 You can register your task to our service, and when you do so, we create a corresponding entry in the **task schedule** table.
-
-The entry has an execution date.
 
 In parallel, there is what we call a spinner, that basically ensures that the tasks are executed at their planned execution date.
 
@@ -57,10 +55,16 @@ To allow developers to use services directly, we consider that a task by default
 
 The task schedule table
 --------
-2020-06-30 -> 2020-07-27
+2020-06-30 -> 2020-08-13
 
 
-We have a database table named **lts_task_schedule**, which looks like this:
+We have a database table named **lts_task_schedule**.
+
+It now handles recursion.
+
+The maximum precision we have is the minute (i.e. we don't think the precision to the "second" is that important for a cron task schedule).
+
+
 
 
 - id: pk ai
@@ -71,8 +75,12 @@ We have a database table named **lts_task_schedule**, which looks like this:
     action, the first entry of the array being parameter 2, the second entry being parameter 3 and so on...
     The arguments are parsed with the [SmartCodeTool::parseArguments](https://github.com/lingtalfi/Bat/blob/master/SmartCodeTool.md#parsearguments) method (i.e. separate them with a comma, as if you
     were writing inside a [BabyYaml](https://github.com/lingtalfi/BabyYaml) sequence)
-- scheduled_date: datetime, the scheduled date time
-- execution_end_date: datetime nullable, the date time when the task's execution stopped (which could be a success or a failure), or null if the task is not executed yet
+- year: int, the scheduled year, -1 means every year
+- month: tinyint the scheduled month (1-12), -1 means every month
+- day: tinyint the scheduled day (1-31), -1 means every day
+- hour: tinyint the scheduled hour (0-23), -1 means every hour
+- minute: tinyint the scheduled minute (0-56), -1 means every minute
+- last_execution_end_date: datetime nullable, the date time when the task's execution stopped for the last time (which could be a success or a failure), or null if the task has never been executed yet
 - error: 0|1, whether the task execution failed. In case of failure, you can check the logs if any, see the **logs** section later in this document
     
 
@@ -153,7 +161,7 @@ In parallel, we also provide our own debug log via the **task_scheduler.debug** 
 
 The spinner
 ------------
-2020-06-30
+2020-06-30 -> 2020-08-13
 
 
 The **spinner** mechanism ensures that the tasks are executed at their planned execution date.
@@ -170,7 +178,9 @@ The **task manager** is the one that will look into the table and execute the ta
 The **trigger** is the mechanism that calls the **task manager**.
 
 
-It's recommended to use a cron table with a call per minute to our **task manager script**.
+It's recommended to use a cron table with a call per hour (or per minute for a more aggressive app) to our **task manager script**.
+
+
 
 However, in some environments, a cron table is not available, and a common strategy is to call the script from a web (for instance if the client of your app reaches page ABC, then
 it triggers the script).  

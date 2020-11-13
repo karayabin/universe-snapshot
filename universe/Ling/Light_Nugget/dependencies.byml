@@ -1,0 +1,12 @@
+dependencies: 
+    Ling: 
+        - ArrayVariableResolver
+        - BabyYaml
+        - Bat
+        - Light
+        - Light_MicroPermission
+        - Light_UserManager
+    
+
+post_install: 
+    map: true

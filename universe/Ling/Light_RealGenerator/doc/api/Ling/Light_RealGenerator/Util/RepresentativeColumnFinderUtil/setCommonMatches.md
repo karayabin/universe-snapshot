@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [RepresentativeColumnFinderUtil::setCommonMatches](https://github.com/lingtalfi/Light_RealGenerator/blob/master/Util/RepresentativeColumnFinderUtil.php#L87-L90)
+See the source code for method [RepresentativeColumnFinderUtil::setCommonMatches](https://github.com/lingtalfi/Light_RealGenerator/blob/master/Util/RepresentativeColumnFinderUtil.php#L88-L91)
 
 
 See Also

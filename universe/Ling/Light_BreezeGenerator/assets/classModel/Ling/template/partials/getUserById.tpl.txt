@@ -2,8 +2,8 @@
      * @implementation
      */
     public function getUserById(int $id, $default = null, bool $throwNotFoundEx = false)
-    { //microperm
-        $ret = $this->pdoWrapper->fetch("select * from `user` where id=:id", [
+    {
+        $ret = $this->pdoWrapper->fetch("select * from `$this->table` where id=:id", [
             "id" => $id,
         ]);
         if (false === $ret) {

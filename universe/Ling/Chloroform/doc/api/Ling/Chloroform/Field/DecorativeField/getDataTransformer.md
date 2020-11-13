@@ -46,7 +46,7 @@ Returns [DataTransformerInterface](https://github.com/lingtalfi/Chloroform/blob/
 
 Source Code
 ===========
-See the source code for method [DecorativeField::getDataTransformer](https://github.com/lingtalfi/Chloroform/blob/master/Field/DecorativeField.php#L174-L177)
+See the source code for method [DecorativeField::getDataTransformer](https://github.com/lingtalfi/Chloroform/blob/master/Field/DecorativeField.php#L183-L186)
 
 
 See Also

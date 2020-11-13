@@ -51,7 +51,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [ClassCooker::getLines](https://github.com/lingtalfi/ClassCooker/blob/master/ClassCooker.php#L984-L990)
+See the source code for method [ClassCooker::getLines](https://github.com/lingtalfi/ClassCooker/blob/master/ClassCooker.php#L988-L994)
 
 
 See Also

@@ -1,5 +1,5 @@
     /**
-     * Deletes the user identified by the given id.
+     * Deletes the !user identified by the given id.
      *
      * @param int $id
      * @return void

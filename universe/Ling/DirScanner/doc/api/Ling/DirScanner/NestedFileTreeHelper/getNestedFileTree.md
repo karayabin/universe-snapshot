@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [NestedFileTreeHelper::getNestedFileTree](https://github.com/lingtalfi/DirScanner/blob/master/doc/api/Ling/DirScanner/NestedFileTreeHelper/getNestedFileTree.md)(string $dir, array $options = []) : array
+public static [NestedFileTreeHelper::getNestedFileTree](https://github.com/lingtalfi/DirScanner/blob/master/doc/api/Ling/DirScanner/NestedFileTreeHelper/getNestedFileTree.md)(string $dir, ?array $options = []) : array
 
 
 

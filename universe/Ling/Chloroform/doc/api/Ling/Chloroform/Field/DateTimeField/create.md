@@ -28,6 +28,7 @@ The properties are the same as the parent class properties,
 with the addition of the following:
 
 - useSecond: bool=true. Whether to use the seconds. (see the class description for more details).
+- nullable: bool=false. Whether to accept null values. See the class comments for more details.
 
 
 
@@ -59,7 +60,7 @@ Returns [DateTimeField](https://github.com/lingtalfi/Chloroform/blob/master/doc/
 
 Source Code
 ===========
-See the source code for method [DateTimeField::create](https://github.com/lingtalfi/Chloroform/blob/master/Field/DateTimeField.php#L47-L54)
+See the source code for method [DateTimeField::create](https://github.com/lingtalfi/Chloroform/blob/master/Field/DateTimeField.php#L54-L64)
 
 
 See Also

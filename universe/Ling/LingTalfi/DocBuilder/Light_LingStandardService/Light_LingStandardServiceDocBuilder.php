@@ -143,6 +143,8 @@ class Light_LingStandardServiceDocBuilder
             "keyWord2UrlMap" => [
                 "Light_LingStandardService conception notes" => $doc . '/pages/conception-notes.md',
                 "Light_PluginInstaller conception notes" => 'https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/pages/conception-notes.md',
+                "the realist plugin" => 'https://github.com/lingtalfi/Light_Realist/',
+                "the late service registration design" => 'https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/design/late-service-registration.md',
             ],
             /**
              * An array of external classes to url.
@@ -158,6 +160,8 @@ class Light_LingStandardServiceDocBuilder
                 "Ling\Light_PluginInstaller\PluginInstaller\PluginInstallerInterface" => "https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/PluginInstaller/PluginInstallerInterface.md",
                 "Ling\Light\ServiceContainer\LightServiceContainerInterface" => "https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md",
                 "Ling\Light_LingStandardService\Service" => "https://github.com/lingtalfi/Light_LingStandardService/blob/master/doc/api/Ling/Light_LingStandardService/Service.md",
+                "Ling\Light_Realist\Service\LightRealistCustomServiceInterface" => "https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Service/LightRealistCustomServiceInterface.md",
+
 
             ],
             "ignoreFilesStartingWith" => [

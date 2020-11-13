@@ -20,11 +20,4 @@ interface NeckFiltersRendererWidgetInterface extends RendererWidgetInterface
      */
     public function setColumns2DataTypes(array $column2DataTypes);
 
-    /**
-     * Sets whether to use the checkbox.
-     *
-     * @param bool $useCheckbox
-     * @return void
-     */
-    public function setUseCheckbox(bool $useCheckbox);
 }

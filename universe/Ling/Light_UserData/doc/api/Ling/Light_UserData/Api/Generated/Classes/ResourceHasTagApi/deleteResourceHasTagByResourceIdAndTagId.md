@@ -7,7 +7,7 @@ ResourceHasTagApi::deleteResourceHasTagByResourceIdAndTagId
 
 
 
-ResourceHasTagApi::deleteResourceHasTagByResourceIdAndTagId — Deletes the resourceHasTag identified by the given resource_id and tag_id.
+ResourceHasTagApi::deleteResourceHasTagByResourceIdAndTagId — Deletes the resource has tag identified by the given resource_id and tag_id.
 
 
 
@@ -21,7 +21,7 @@ public [ResourceHasTagApi::deleteResourceHasTagByResourceIdAndTagId](https://git
 
 
 
-Deletes the resourceHasTag identified by the given resource_id and tag_id.
+Deletes the resource has tag identified by the given resource_id and tag_id.
 
 
 
@@ -58,7 +58,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [ResourceHasTagApi::deleteResourceHasTagByResourceIdAndTagId](https://github.com/lingtalfi/Light_UserData/blob/master/Api/Generated/Classes/ResourceHasTagApi.php#L208-L215)
+See the source code for method [ResourceHasTagApi::deleteResourceHasTagByResourceIdAndTagId](https://github.com/lingtalfi/Light_UserData/blob/master/Api/Generated/Classes/ResourceHasTagApi.php#L284-L291)
 
 
 See Also
@@ -66,5 +66,5 @@ See Also
 
 The [ResourceHasTagApi](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Classes/ResourceHasTagApi.md) class.
 
-Previous method: [delete](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Classes/ResourceHasTagApi/delete.md)<br>Next method: [deleteResourceHasTagByResourceId](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Classes/ResourceHasTagApi/deleteResourceHasTagByResourceId.md)<br>
+Previous method: [delete](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Classes/ResourceHasTagApi/delete.md)<br>Next method: [deleteResourceHasTagByResourceIds](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Classes/ResourceHasTagApi/deleteResourceHasTagByResourceIds.md)<br>
 

@@ -53,7 +53,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [ClassCooker::addUseStatements](https://github.com/lingtalfi/ClassCooker/blob/master/ClassCooker.php#L317-L353)
+See the source code for method [ClassCooker::addUseStatements](https://github.com/lingtalfi/ClassCooker/blob/master/ClassCooker.php#L321-L357)
 
 
 See Also

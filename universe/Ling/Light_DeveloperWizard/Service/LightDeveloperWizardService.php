@@ -4,9 +4,7 @@
 namespace Ling\Light_DeveloperWizard\Service;
 
 
-use Ling\Bat\CaseTool;
-use Ling\Bat\ClassTool;
-use Ling\Light\Helper\LightNamesAndPathHelper;
+use Ling\Bat\SessionTool;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
 use Ling\Light_DeveloperWizard\Helper\DeveloperWizardGenericHelper;
 use Ling\Light_DeveloperWizard\Tool\DeveloperWizardFileTool;
@@ -14,15 +12,21 @@ use Ling\Light_DeveloperWizard\Util\serviceManagerUtil;
 use Ling\Light_DeveloperWizard\WebWizardTools\Process\Database\AddStandardPermissionsProcess;
 use Ling\Light_DeveloperWizard\WebWizardTools\Process\Database\SynchronizeDbProcess;
 use Ling\Light_DeveloperWizard\WebWizardTools\Process\Generators\GenerateBreezeApiProcess;
-use Ling\Light_DeveloperWizard\WebWizardTools\Process\Generators\GenerateLkaPlanetProcess;
+use Ling\Light_DeveloperWizard\WebWizardTools\Process\Generators\GenerateBreezeConfigProcess;
+use Ling\Light_DeveloperWizard\WebWizardTools\Process\Light_Kit_Admin\CreateLkaGeneratorConfigProcess;
+use Ling\Light_DeveloperWizard\WebWizardTools\Process\Light_Kit_Admin\CreateLkaPlanetProcess;
+use Ling\Light_DeveloperWizard\WebWizardTools\Process\Light_Kit_Admin\CreateLkaUserMainPage;
+use Ling\Light_DeveloperWizard\WebWizardTools\Process\Light_Kit_Admin\CreateLkaUserMainPageList;
+use Ling\Light_DeveloperWizard\WebWizardTools\Process\Light_Kit_Admin\ExecuteLkaGeneratorProcess;
+use Ling\Light_DeveloperWizard\WebWizardTools\Process\Planet\RemovePlanetProcess;
 use Ling\Light_DeveloperWizard\WebWizardTools\Process\Service\DisableServiceProcess;
 use Ling\Light_DeveloperWizard\WebWizardTools\Process\Service\EnableServiceProcess;
-use Ling\Light_DeveloperWizard\WebWizardTools\Process\Service\RemoveServiceProcess;
-use Ling\Light_DeveloperWizard\WebWizardTools\Process\ServiceConfig\AddPluginInstallerHookProcess;
 use Ling\Light_DeveloperWizard\WebWizardTools\Process\ServiceClass\AddServiceLingBreeze2GetFactoryMethodProcess;
 use Ling\Light_DeveloperWizard\WebWizardTools\Process\ServiceClass\AddServiceLogDebugMethodProcess;
 use Ling\Light_DeveloperWizard\WebWizardTools\Process\ServiceClass\CreateLss01ServiceProcess;
 use Ling\Light_DeveloperWizard\WebWizardTools\Process\ServiceClass\CreateServiceProcess;
+use Ling\Light_DeveloperWizard\WebWizardTools\Process\ServiceConfig\AddPluginInstallerHookProcess;
+use Ling\Light_DeveloperWizard\WebWizardTools\Process\ServiceConfig\SortHooksAlphabeticallyProcess;
 use Ling\Light_DeveloperWizard\WebWizardTools\WebWizard\LightDeveloperWizardWebWizard;
 use Ling\Light_PluginInstaller\Service\LightPluginInstallerService;
 use Ling\UniverseTools\PlanetTool;
@@ -48,12 +52,29 @@ class LightDeveloperWizardService
 
 
     /**
+     * This property holds the options for this instance.
+     *
+     * Available options:
+     * - whitelist: array of @page(planetIds) to display
+     *
+     * Note that the gui should let you toggle between displaying only elements on the whitelist, and all elements, at least
+     * that's the intent.
+     *
+     *
+     *
+     * @var array
+     */
+    protected $options;
+
+
+    /**
      * Builds the LightDeveloperWizardService instance.
      */
     public function __construct()
     {
         $this->container = null;
         $this->serviceManagerUtil = null;
+        $this->options = [];
     }
 
     /**
@@ -66,6 +87,27 @@ class LightDeveloperWizardService
         $this->container = $container;
     }
 
+    /**
+     * Sets the options.
+     *
+     * @param array $options
+     */
+    public function setOptions(array $options)
+    {
+        $this->options = $options;
+    }
+
+
+    /**
+     * Sets an individual option.
+     *
+     * @param string $key
+     * @param $value
+     */
+    public function setOption(string $key, $value)
+    {
+        $this->options[$key] = $value;
+    }
 
     /**
      * Returns a ServiceManagerUtil instance.
@@ -125,7 +167,30 @@ class LightDeveloperWizardService
             1 === $guiDisplay
         ) {
             if (null === $selectedPlanetDir) {
+
+                $sessionKey = 'Light_Developer_Wizard.useWhitelist';
+                if (array_key_exists("whitelist", $_GET)) {
+                    $useWhiteList = (bool)$_GET['whitelist'];
+                    SessionTool::set($sessionKey, (string)$useWhiteList);
+                } else {
+                    $useWhiteList = (bool)SessionTool::get($sessionKey, "0");
+                }
+
+
                 $planetDirs = PlanetTool::getPlanetDirs($universeDir);
+                $whiteList = $this->options['whitelist'] ?? [];
+
+
+                if (true === $useWhiteList && (count($whiteList) > 0)) {
+                    $planetDirs = array_filter($planetDirs, function ($planetDir) use ($whiteList) {
+                        $p = explode('/', $planetDir);
+                        $planet = array_pop($p);
+                        $galaxy = array_pop($p);
+                        $planetId = $galaxy . "/" . $planet;
+                        return in_array($planetId, $whiteList, true);
+                    });
+                }
+
             } else {
 
 
@@ -138,6 +203,21 @@ class LightDeveloperWizardService
                 $tightName = PlanetTool::getTightPlanetName($planet);
 
 
+                // show lka sibling link?
+                $lkaSiblingPlanet = null; // if not null, show it
+
+                $isLkaPlugin = (0 === strpos($planet, 'Light_Kit_Admin_'));
+                if (true === $isLkaPlugin) {
+                    $lkaSiblingPlanet = 'Light_' . substr($planet, 16);
+                } else {
+                    $lkaSiblingPlanet = 'Light_Kit_Admin_' . substr($planet, 6);
+                }
+                $lkaSiblingPlanetDir = $container->getApplicationDir() . "/universe/$galaxy/$lkaSiblingPlanet";
+                if (false === is_dir($lkaSiblingPlanetDir)) {
+                    $lkaSiblingPlanet = null;
+                }
+
+
                 $createFile = $planetDir . "/assets/fixtures/create-structure.sql";
                 $createFileExists = file_exists($createFile);
                 $serviceFile = $planetDir . "/Service/${tightName}Service.php";
@@ -148,22 +228,27 @@ class LightDeveloperWizardService
                 $serviceConfigFileExists = file_exists($serviceConfigFile);
 
 
-
                 $ww = new LightDeveloperWizardWebWizard();
                 $ww->setContainer($container);
 
                 $ww->setProcess((new SynchronizeDbProcess()));
                 $ww->setProcess((new GenerateBreezeApiProcess()));
                 $ww->setProcess((new AddStandardPermissionsProcess()));
-                $ww->setProcess((new GenerateLkaPlanetProcess()));
+                $ww->setProcess((new CreateLkaPlanetProcess()));
                 $ww->setProcess((new CreateServiceProcess()));
                 $ww->setProcess((new AddServiceLogDebugMethodProcess()));
                 $ww->setProcess((new AddServiceLingBreeze2GetFactoryMethodProcess()));
                 $ww->setProcess((new CreateLss01ServiceProcess()));
                 $ww->setProcess((new AddPluginInstallerHookProcess()));
-                $ww->setProcess((new RemoveServiceProcess()));
+                $ww->setProcess((new RemovePlanetProcess()));
                 $ww->setProcess((new DisableServiceProcess()));
                 $ww->setProcess((new EnableServiceProcess()));
+                $ww->setProcess((new ExecuteLkaGeneratorProcess()));
+                $ww->setProcess((new SortHooksAlphabeticallyProcess()));
+                $ww->setProcess((new CreateLkaUserMainPage()));
+                $ww->setProcess((new CreateLkaUserMainPageList()));
+                $ww->setProcess((new GenerateBreezeConfigProcess()));
+                $ww->setProcess((new CreateLkaGeneratorConfigProcess()));
 
 
                 $ww->setContext([
@@ -181,7 +266,6 @@ class LightDeveloperWizardService
                 ]);
                 $ww->setOnProcessSuccessMessage('
             <a href="?planetdir=' . htmlspecialchars($planetDir) . '">Click here to continue</a>');
-
 
 
                 $ww->run();
@@ -237,7 +321,6 @@ class LightDeveloperWizardService
             }
 
 
-
         }
 
         ?>
@@ -249,6 +332,7 @@ class LightDeveloperWizardService
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1">
             <script src="/libs/universe/Ling/Jquery/3.5.1/jquery.min.js"></script>
+            <script src="/libs/universe/Ling/JBee/bee.js"></script>
             <title>Light Developer Wizard</title>
             <style>
                 .topmenu {
@@ -275,6 +359,10 @@ class LightDeveloperWizardService
                     color: #ccc;
                 }
 
+                .form-elements input {
+
+                }
+
             </style>
         </head>
 
@@ -284,14 +372,27 @@ class LightDeveloperWizardService
         <div class="topmenu">
             <div class="item"><a href="?display=0">Wizard</a></div>
             <div class="item"><a href="?display=2">Plugin installer</a></div>
+            <?php if (1 === $guiDisplay && null !== $lkaSiblingPlanet): ?>
+                <div class="item"><a
+                            href="?planetdir=<?php echo htmlspecialchars($lkaSiblingPlanetDir); ?>"><?php echo $galaxy . "/" . $lkaSiblingPlanet; ?></a>
+                </div>
+            <?php endif; ?>
         </div>
 
 
         <?php if (0 === $guiDisplay): ?>
             <h1>Welcome to the Light_DeveloperWizard script</h1>
-            <p>
+            <div class="form-elements">
                 Please select a planet <input id="search-input" type="text" value=""/>
-            </p>
+                <label>
+                    <input id="input-whitelist-toggle" type="checkbox"
+                        <?php if (true === $useWhiteList): ?>
+                            checked
+                        <?php endif; ?>
+                    /> Use whitelist
+                </label>
+
+            </div>
 
             <ul id="planet-list">
                 <?php foreach ($planetDirs as $planetDir):
@@ -381,9 +482,25 @@ class LightDeveloperWizardService
                         }, 250);
                         $(this).data('timer', wait);
                     });
-
-
                     jSearch.focus();
+
+
+                    //----------------------------------------
+                    // WHITELIST TOGGLE
+                    //----------------------------------------
+                    $('#input-whitelist-toggle').on('change', function () {
+                        var isChecked = $(this).prop("checked");
+                        var whitelist = "0";
+                        if (true === isChecked) {
+                            whitelist = "1";
+                        }
+                        var url = window.location.href;
+                        var newUrl = bee.url_merge_params(url, {
+                            whitelist: whitelist,
+                        });
+                        window.location.href = newUrl;
+                    });
+
                 });
             });
         </script>

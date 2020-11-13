@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [PhpExcelTool::file2Table](https://github.com/lingtalfi/PhpExcelTool/blob/master/doc/api/Ling/PhpExcelTool/PhpExcelTool/file2Table.md)(string $file, array $options = []) : void
+public static [PhpExcelTool::file2Table](https://github.com/lingtalfi/PhpExcelTool/blob/master/doc/api/Ling/PhpExcelTool/PhpExcelTool/file2Table.md)(string $file, ?array $options = []) : void
 
 
 

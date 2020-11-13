@@ -22,7 +22,7 @@ class DisableServiceProcess extends LightDeveloperWizardCommonProcess
         parent::__construct();
         $this->setName("disable-service");
         $this->setLabel("Disables a service.");
-        $this->setLearnMore('See the <a href="https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/pages/task-details.md#disable-service">Disable service task detail</a>.');
+        $this->setLearnMoreByHash('disable-service');
     }
 
 

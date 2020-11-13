@@ -22,7 +22,7 @@ class EnableServiceProcess extends LightDeveloperWizardCommonProcess
         parent::__construct();
         $this->setName("enable-service");
         $this->setLabel("Enables a service.");
-        $this->setLearnMore('See the <a href="https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/pages/task-details.md#enable-service">Enable service task detail</a>.');
+        $this->setLearnMoreByHash('enable-service');
     }
 
     /**

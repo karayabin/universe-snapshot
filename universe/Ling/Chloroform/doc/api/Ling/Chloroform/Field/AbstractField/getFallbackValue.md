@@ -47,7 +47,7 @@ Returns mixed.
 
 Source Code
 ===========
-See the source code for method [AbstractField::getFallbackValue](https://github.com/lingtalfi/Chloroform/blob/master/Field/AbstractField.php#L236-L239)
+See the source code for method [AbstractField::getFallbackValue](https://github.com/lingtalfi/Chloroform/blob/master/Field/AbstractField.php#L245-L248)
 
 
 See Also
@@ -55,5 +55,5 @@ See Also
 
 The [AbstractField](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/AbstractField.md) class.
 
-Previous method: [getValue](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/AbstractField/getValue.md)<br>Next method: [toArray](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/AbstractField/toArray.md)<br>
+Previous method: [getFormattedValue](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/AbstractField/getFormattedValue.md)<br>Next method: [toArray](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/AbstractField/toArray.md)<br>
 

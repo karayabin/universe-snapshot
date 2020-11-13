@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [NeckFiltersRendererWidget::__construct](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/RendererWidget/NeckFiltersRendererWidget.php#L30-L35)
+See the source code for method [NeckFiltersRendererWidget::__construct](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/RendererWidget/NeckFiltersRendererWidget.php#L24-L28)
 
 
 See Also

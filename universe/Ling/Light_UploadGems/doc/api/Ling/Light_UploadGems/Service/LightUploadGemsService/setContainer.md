@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightUploadGemsService::setContainer](https://github.com/lingtalfi/Light_UploadGems/blob/master/Service/LightUploadGemsService.php#L52-L55)
+See the source code for method [LightUploadGemsService::setContainer](https://github.com/lingtalfi/Light_UploadGems/blob/master/Service/LightUploadGemsService.php#L50-L53)
 
 
 See Also
@@ -57,5 +57,5 @@ See Also
 
 The [LightUploadGemsService](https://github.com/lingtalfi/Light_UploadGems/blob/master/doc/api/Ling/Light_UploadGems/Service/LightUploadGemsService.md) class.
 
-Previous method: [__construct](https://github.com/lingtalfi/Light_UploadGems/blob/master/doc/api/Ling/Light_UploadGems/Service/LightUploadGemsService/__construct.md)<br>Next method: [register](https://github.com/lingtalfi/Light_UploadGems/blob/master/doc/api/Ling/Light_UploadGems/Service/LightUploadGemsService/register.md)<br>
+Previous method: [__construct](https://github.com/lingtalfi/Light_UploadGems/blob/master/doc/api/Ling/Light_UploadGems/Service/LightUploadGemsService/__construct.md)<br>Next method: [getHelper](https://github.com/lingtalfi/Light_UploadGems/blob/master/doc/api/Ling/Light_UploadGems/Service/LightUploadGemsService/getHelper.md)<br>
 

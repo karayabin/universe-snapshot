@@ -7,7 +7,7 @@ LightRealistService::executeRequestById
 
 
 
-LightRealistService::executeRequestById — - nb_rows: int, the number of returned rows (i.e.
+LightRealistService::executeRequestById —      the .byml extension.
 
 
 
@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [LightRealistService::executeRequestById](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Service/LightRealistService/executeRequestById.md)(string $requestId, ?array $params = []) : array
+public [LightRealistService::executeRequestById](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Service/LightRealistService/executeRequestById.md)(string $requestId, ?array $params = [], ?array $options = []) : array
 
 
 
@@ -26,12 +26,15 @@ properties (see [the realist conception notes](https://github.com/lingtalfi/Ligh
 
 
 - nb_total_rows: int, the total number of rows without "where" filtering
-- nb_rows: int, the number of returned rows (i.e. WITH the "where" filtering)
+- current_page_first: int, the index of the first item of the current page
+- current_page_last: int, the index of the last item of the current page
+- nb_pages: int, the number of pages
+- nb_items_per_page: int, the number of items per page
+- page: int, the current page number
 - rows: array, the raw rows returned by the sql query
 - rows_html: string, the html of the rows, as shaped by the realist configuration
 - sql_query: string, the executed sql query (intend: debug)
 - markers: array, the markers used along with the executed sql query (intend: debug)
-
 
 
 
@@ -71,6 +74,10 @@ Parameters
 
     
 
+- options
+
+    
+
 
 Return values
 ================
@@ -91,7 +98,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightRealistService::executeRequestById](https://github.com/lingtalfi/Light_Realist/blob/master/Service/LightRealistService.php#L219-L417)
+See the source code for method [LightRealistService::executeRequestById](https://github.com/lingtalfi/Light_Realist/blob/master/Service/LightRealistService.php#L229-L444)
 
 
 See Also
@@ -99,5 +106,5 @@ See Also
 
 The [LightRealistService](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Service/LightRealistService.md) class.
 
-Previous method: [__construct](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Service/LightRealistService/__construct.md)<br>Next method: [setContainer](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Service/LightRealistService/setContainer.md)<br>
+Previous method: [__construct](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Service/LightRealistService/__construct.md)<br>Next method: [getStandardDeveloperVariables](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Service/LightRealistService/getStandardDeveloperVariables.md)<br>
 

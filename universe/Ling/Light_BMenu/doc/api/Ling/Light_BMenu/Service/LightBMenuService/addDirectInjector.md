@@ -58,7 +58,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightBMenuService::addDirectInjector](https://github.com/lingtalfi/Light_BMenu/blob/master/Service/LightBMenuService.php#L164-L175)
+See the source code for method [LightBMenuService::addDirectInjector](https://github.com/lingtalfi/Light_BMenu/blob/master/Service/LightBMenuService.php#L185-L196)
 
 
 See Also
@@ -66,5 +66,5 @@ See Also
 
 The [LightBMenuService](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Service/LightBMenuService.md) class.
 
-Previous method: [registerHost](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Service/LightBMenuService/registerHost.md)<br>Next method: [addDefaultItem](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Service/LightBMenuService/addDefaultItem.md)<br>
+Previous method: [registerHost](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Service/LightBMenuService/registerHost.md)<br>Next method: [addDirectItemsByFile](https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/Service/LightBMenuService/addDirectItemsByFile.md)<br>
 

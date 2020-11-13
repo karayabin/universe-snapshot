@@ -30,6 +30,7 @@ class LightMailerService
 
     /**
      * This property holds the transports for this instance.
+     * It's an array of id => transport.
      * See the multi-transports section in the @page(Light_Mailer conception notes) for more details.
      *
      * @var array
@@ -39,6 +40,7 @@ class LightMailerService
 
     /**
      * This property holds the senders for this instance.
+     * It's an array of id => sender.
      * See the multi-senders section in the @page(Light_Mailer conception notes) for more details.
      *
      * @var array
@@ -96,6 +98,18 @@ class LightMailerService
         $this->container = $container;
     }
 
+
+    /**
+     * Sets a transport.
+     *
+     * @param string $id
+     * @param array $transport
+     */
+    public function setTransport(string $id, array $transport)
+    {
+        $this->transports[$id] = $transport;
+    }
+
     /**
      * Sets the transports.
      *
@@ -104,6 +118,18 @@ class LightMailerService
     public function setTransports(array $transports)
     {
         $this->transports = $transports;
+    }
+
+
+    /**
+     * Sets a sender.
+     *
+     * @param string $id
+     * @param array $sender
+     */
+    public function setSender(string $id, array $sender)
+    {
+        $this->senders[$id] = $sender;
     }
 
     /**

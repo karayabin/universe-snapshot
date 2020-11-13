@@ -50,7 +50,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [HeliumRenderer::render](https://github.com/lingtalfi/Chloroform_HeliumRenderer/blob/master/HeliumRenderer.php#L210-L252)
+See the source code for method [HeliumRenderer::render](https://github.com/lingtalfi/Chloroform_HeliumRenderer/blob/master/HeliumRenderer.php#L213-L255)
 
 
 See Also

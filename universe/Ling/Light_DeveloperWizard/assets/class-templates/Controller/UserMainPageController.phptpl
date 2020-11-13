@@ -1,0 +1,31 @@
+<?php
+
+
+namespace Ling\Light_Kit_Admin_XXX\Controller\Custom;
+
+
+use Ling\Light_Kit_Admin\Controller\AdminPageController;
+
+/**
+ * The LightKitAdminXXXUserMainPageController class.
+ */
+class LightKitAdminXXXUserMainPageController extends AdminPageController
+{
+
+    /**
+     * Renders the user main page.
+     *
+     * @return \Ling\Light\Http\HttpResponseInterface
+     * @throws \Exception
+     */
+    public function render()
+    {
+        $parentLayout = "Light_Kit_Admin/kit/zeroadmin/dev/mainlayout_base";
+        $page = "Light_Kit_Admin_XXX/kit/zeroadmin/generated/kit_admin_xxx_mainpage";
+
+        return $this->renderAdminPage($page, [
+            "text" => "pluginHuman hello world",
+            "parent_layout" => $parentLayout,
+        ]);
+    }
+}

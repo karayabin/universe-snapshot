@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [PhpExcelTool::createExcelFileByData](https://github.com/lingtalfi/PhpExcelTool/blob/master/doc/api/Ling/PhpExcelTool/PhpExcelTool/createExcelFileByData.md)(?$file, array $data, array $options = []) : false | mixed
+public static [PhpExcelTool::createExcelFileByData](https://github.com/lingtalfi/PhpExcelTool/blob/master/doc/api/Ling/PhpExcelTool/PhpExcelTool/createExcelFileByData.md)($file, array $data, ?array $options = []) : false | mixed
 
 
 

@@ -72,7 +72,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [ClassCooker::updatePropertyComment](https://github.com/lingtalfi/ClassCooker/blob/master/ClassCooker.php#L929-L957)
+See the source code for method [ClassCooker::updatePropertyComment](https://github.com/lingtalfi/ClassCooker/blob/master/ClassCooker.php#L933-L961)
 
 
 See Also

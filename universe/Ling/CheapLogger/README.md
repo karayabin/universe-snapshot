@@ -1,6 +1,6 @@
 CheapLogger
 ===========
-2019-12-19
+2019-12-19 -> 2020-11-06
 
 
 
@@ -38,6 +38,10 @@ Summary
 History Log
 =============
 
+- 1.0.1 -- 2020-11-06
+
+    - update CheapLogger::log, now accept any number of arguments
+    
 - 1.0.0 -- 2019-12-19
 
     - initial commit

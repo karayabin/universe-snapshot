@@ -3,6 +3,7 @@ dependencies:
         - ArrayToString
         - Bat
         - UniversalLogger
+        - CliTools
     
 
 post_install: 

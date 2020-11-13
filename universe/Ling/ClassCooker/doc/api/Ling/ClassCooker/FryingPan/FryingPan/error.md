@@ -54,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [FryingPan::error](https://github.com/lingtalfi/ClassCooker/blob/master/FryingPan/FryingPan.php#L221-L224)
+See the source code for method [FryingPan::error](https://github.com/lingtalfi/ClassCooker/blob/master/FryingPan/FryingPan.php#L232-L235)
 
 
 See Also

@@ -4,7 +4,7 @@
 
 The LightMailerService class
 ================
-2020-06-29 --> 2020-07-27
+2020-06-29 --> 2020-08-17
 
 
 
@@ -35,7 +35,9 @@ class <span class="pl-k">LightMailerService</span>  {
 - Methods
     - public [__construct](https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Service/LightMailerService/__construct.md)() : void
     - public [setContainer](https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Service/LightMailerService/setContainer.md)([Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) $container) : void
+    - public [setTransport](https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Service/LightMailerService/setTransport.md)(string $id, array $transport) : void
     - public [setTransports](https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Service/LightMailerService/setTransports.md)(array $transports) : void
+    - public [setSender](https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Service/LightMailerService/setSender.md)(string $id, array $sender) : void
     - public [setSenders](https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Service/LightMailerService/setSenders.md)(array $senders) : void
     - public [setOptions](https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Service/LightMailerService/setOptions.md)(array $options) : void
     - public [send](https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Service/LightMailerService/send.md)(string $templateId, $recipientList, ?array $options = []) : int
@@ -66,6 +68,7 @@ Properties
 - <span id="property-transports"><b>transports</b></span>
 
     This property holds the transports for this instance.
+    It's an array of id => transport.
     See the multi-transports section in the [Light_Mailer conception notes](https://github.com/lingtalfi/Light_Mailer/blob/master/doc/pages/conception-notes.md) for more details.
     
     
@@ -73,6 +76,7 @@ Properties
 - <span id="property-senders"><b>senders</b></span>
 
     This property holds the senders for this instance.
+    It's an array of id => sender.
     See the multi-senders section in the [Light_Mailer conception notes](https://github.com/lingtalfi/Light_Mailer/blob/master/doc/pages/conception-notes.md) for more details.
     
     
@@ -109,7 +113,9 @@ Methods
 
 - [LightMailerService::__construct](https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Service/LightMailerService/__construct.md) &ndash; Builds the LightMailerService instance.
 - [LightMailerService::setContainer](https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Service/LightMailerService/setContainer.md) &ndash; Sets the container.
+- [LightMailerService::setTransport](https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Service/LightMailerService/setTransport.md) &ndash; Sets a transport.
 - [LightMailerService::setTransports](https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Service/LightMailerService/setTransports.md) &ndash; Sets the transports.
+- [LightMailerService::setSender](https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Service/LightMailerService/setSender.md) &ndash; Sets a sender.
 - [LightMailerService::setSenders](https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Service/LightMailerService/setSenders.md) &ndash; Sets the senders.
 - [LightMailerService::setOptions](https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Service/LightMailerService/setOptions.md) &ndash; Sets the options.
 - [LightMailerService::send](https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Service/LightMailerService/send.md) &ndash; Sends the email which template id was given to the recipientList, and returns the number of successful emails sent, (including bcc and cc recipients if defined).

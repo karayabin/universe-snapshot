@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [Chloroform::validates](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform/validates.md)() : bool
+public [Chloroform::validates](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform/validates.md)(?bool $injectValue = true) : bool
 
 
 
@@ -27,7 +27,8 @@ A field validates if all its validators validate.
 By default, if no validator exists, a field validates.
 
 
-Note: the form will also inject the postedData values to the corresponding fields.
+Note: by default the form will also inject the postedData values to the corresponding fields,
+unless the injectValue flag is set to false.
 
 
 
@@ -35,7 +36,10 @@ Note: the form will also inject the postedData values to the corresponding field
 Parameters
 ================
 
-This method has no parameters.
+
+- injectValue
+
+    
 
 
 Return values
@@ -57,7 +61,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [Chloroform::validates](https://github.com/lingtalfi/Chloroform/blob/master/Form/Chloroform.php#L174-L196)
+See the source code for method [Chloroform::validates](https://github.com/lingtalfi/Chloroform/blob/master/Form/Chloroform.php#L196-L221)
 
 
 See Also
@@ -65,5 +69,5 @@ See Also
 
 The [Chloroform](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform.md) class.
 
-Previous method: [getPostedData](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform/getPostedData.md)<br>Next method: [getVeryImportantData](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform/getVeryImportantData.md)<br>
+Previous method: [getPostedData](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform/getPostedData.md)<br>Next method: [getValidationErrors](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform/getValidationErrors.md)<br>
 

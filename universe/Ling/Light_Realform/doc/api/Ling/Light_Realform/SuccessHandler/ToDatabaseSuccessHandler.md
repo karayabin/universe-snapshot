@@ -4,7 +4,7 @@
 
 The ToDatabaseSuccessHandler class
 ================
-2019-10-21 --> 2020-07-07
+2019-10-21 --> 2020-09-21
 
 
 
@@ -41,23 +41,16 @@ Class synopsis
 ==============
 
 
-class <span class="pl-k">ToDatabaseSuccessHandler</span> implements [RealformSuccessHandlerInterface](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/SuccessHandler/RealformSuccessHandlerInterface.md) {
+class <span class="pl-k">ToDatabaseSuccessHandler</span> implements [RealformSuccessHandlerInterface](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/SuccessHandler/RealformSuccessHandlerInterface.md), [LightServiceContainerAwareInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerAwareInterface.md) {
 
 - Properties
-    - protected string [$table](#property-table) ;
     - protected [Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) [$container](#property-container) ;
-    - protected string [$pluginName](#property-pluginName) ;
-    - protected array [$multiplier](#property-multiplier) ;
-    - protected bool [$useRowRestriction](#property-useRowRestriction) ;
 
 - Methods
     - public [__construct](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/SuccessHandler/ToDatabaseSuccessHandler/__construct.md)() : void
-    - public [processData](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/SuccessHandler/ToDatabaseSuccessHandler/processData.md)(array $data, ?array $options = []) : mixed
     - public [setContainer](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/SuccessHandler/ToDatabaseSuccessHandler/setContainer.md)([Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) $container) : void
-    - public [setTable](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/SuccessHandler/ToDatabaseSuccessHandler/setTable.md)(string $table) : void
-    - public [setPluginName](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/SuccessHandler/ToDatabaseSuccessHandler/setPluginName.md)(string $pluginName) : void
-    - public [setMultiplier](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/SuccessHandler/ToDatabaseSuccessHandler/setMultiplier.md)(array $multiplier) : void
-    - public [setUseRowRestriction](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/SuccessHandler/ToDatabaseSuccessHandler/setUseRowRestriction.md)(bool $useRowRestriction) : void
+    - public [execute](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/SuccessHandler/ToDatabaseSuccessHandler/execute.md)(array $data, ?array $options = []) : void
+    - private [error](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/SuccessHandler/ToDatabaseSuccessHandler/error.md)(string $msg) : void
 
 }
 
@@ -67,35 +60,9 @@ class <span class="pl-k">ToDatabaseSuccessHandler</span> implements [RealformSuc
 Properties
 =============
 
-- <span id="property-table"><b>table</b></span>
-
-    This property holds the table in which the data will be saved.
-    
-    
-
 - <span id="property-container"><b>container</b></span>
 
     This property holds the container for this instance.
-    
-    
-
-- <span id="property-pluginName"><b>pluginName</b></span>
-
-    This property holds the pluginName for this instance.
-    It's the name of the plugin used as a handler for the crud service.
-    
-    
-
-- <span id="property-multiplier"><b>multiplier</b></span>
-
-    This property holds the multiplier array for this instance.
-    See more details in [the form multiplier trick document](https://github.com/lingtalfi/TheBar/blob/master/discussions/form-multiplier.md).
-    
-    
-
-- <span id="property-useRowRestriction"><b>useRowRestriction</b></span>
-
-    Whether to use [the user row restriction system](https://github.com/lingtalfi/Light_UserRowRestriction/blob/master/doc/pages/conception-notes.md).
     
     
 
@@ -105,12 +72,9 @@ Methods
 ==============
 
 - [ToDatabaseSuccessHandler::__construct](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/SuccessHandler/ToDatabaseSuccessHandler/__construct.md) &ndash; Builds the ToDatabaseSuccessHandler instance.
-- [ToDatabaseSuccessHandler::processData](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/SuccessHandler/ToDatabaseSuccessHandler/processData.md) &ndash; - ?updateRic: the array of key => value pairs representing the row to update (i.e.
-- [ToDatabaseSuccessHandler::setContainer](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/SuccessHandler/ToDatabaseSuccessHandler/setContainer.md) &ndash; Sets the container.
-- [ToDatabaseSuccessHandler::setTable](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/SuccessHandler/ToDatabaseSuccessHandler/setTable.md) &ndash; Sets the table.
-- [ToDatabaseSuccessHandler::setPluginName](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/SuccessHandler/ToDatabaseSuccessHandler/setPluginName.md) &ndash; Sets the pluginName.
-- [ToDatabaseSuccessHandler::setMultiplier](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/SuccessHandler/ToDatabaseSuccessHandler/setMultiplier.md) &ndash; Sets the multiplier.
-- [ToDatabaseSuccessHandler::setUseRowRestriction](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/SuccessHandler/ToDatabaseSuccessHandler/setUseRowRestriction.md) &ndash; Sets the useRowRestriction.
+- [ToDatabaseSuccessHandler::setContainer](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/SuccessHandler/ToDatabaseSuccessHandler/setContainer.md) &ndash; Sets the light service container interface.
+- [ToDatabaseSuccessHandler::execute](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/SuccessHandler/ToDatabaseSuccessHandler/execute.md) &ndash; Process the given data, and throws an exception if something unexpected happens.
+- [ToDatabaseSuccessHandler::error](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/SuccessHandler/ToDatabaseSuccessHandler/error.md) &ndash; Throws an exception.
 
 
 
@@ -125,4 +89,4 @@ See the source code of [Ling\Light_Realform\SuccessHandler\ToDatabaseSuccessHand
 
 SeeAlso
 ==============
-Previous class: [RealformSuccessHandlerInterface](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/SuccessHandler/RealformSuccessHandlerInterface.md)<br>
+Previous class: [RealformSuccessHandlerInterface](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/SuccessHandler/RealformSuccessHandlerInterface.md)<br>Next class: [DatabaseUpdateEntryChecker](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/UpdateEntryChecker/DatabaseUpdateEntryChecker.md)<br>

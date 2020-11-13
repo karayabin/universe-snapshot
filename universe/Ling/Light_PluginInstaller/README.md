@@ -100,6 +100,10 @@ $logger.methods_collection:
 History Log
 =============
 
+- 1.8.0 -- 2020-07-31
+
+    - add LightPluginInstallerService->isRegistered method  
+    
 - 1.7.0 -- 2020-07-31
 
     - update LightPluginInstallerService.uninstallStrictMode property now defaults to true  

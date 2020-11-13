@@ -1,6 +1,6 @@
 Ling/Bootstrap4AdminTable
 ================
-2019-08-15 --> 2020-07-06
+2019-08-15 --> 2020-09-03
 
 
 
@@ -16,17 +16,17 @@ Table of contents
     - [Bootstrap4AdminTableRenderer::renderListGeneralActions](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/Renderer/Bootstrap4AdminTableRenderer/renderListGeneralActions.md) &ndash; Prints the list general actions.
     - [Bootstrap4AdminTableRenderer::render](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/Renderer/Bootstrap4AdminTableRenderer/render.md) &ndash; Prints the html list.
     - [Bootstrap4AdminTableRenderer::getWidget](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/Renderer/Bootstrap4AdminTableRenderer/getWidget.md) &ndash; Returns the RendererWidget instance identified by $identifier, or null if it doesn't exist.
+    - OpenAdminTableBaseRealistListRenderer::setContainer &ndash; Sets the light service container interface.
     - OpenAdminTableBaseRealistListRenderer::prepareByRequestDeclaration &ndash; Prepares the list renderer with the given request declaration.
     - OpenAdminTableBaseRealistListRenderer::setContainerCssId &ndash; Sets the container css id.
     - OpenAdminTableBaseRealistListRenderer::renderTitle &ndash; Prints the list title.
     - OpenAdminTableBaseRealistListRenderer::setDataTypes &ndash; Sets the data types.
     - OpenAdminTableBaseRealistListRenderer::setLabels &ndash; Sets the labels.
-    - OpenAdminTableBaseRealistListRenderer::setHiddenColumns &ndash; Sets the hiddenColumns.
+    - OpenAdminTableBaseRealistListRenderer::setPropertiesToDisplay &ndash; Sets the propertiesToDisplay.
     - OpenAdminTableBaseRealistListRenderer::setWidgetStatuses &ndash; Sets the widget statuses.
     - OpenAdminTableBaseRealistListRenderer::setRequestId &ndash; Sets the requestId.
-    - OpenAdminTableBaseRealistListRenderer::setContainer &ndash; Sets the container.
     - OpenAdminTableBaseRealistListRenderer::setCollapsibleColumnIndexes &ndash; Sets the collapsibleColumnIndexes.
-    - OpenAdminTableBaseRealistListRenderer::setListActionGroups &ndash; Sets the listActionGroups.
+    - OpenAdminTableBaseRealistListRenderer::setListItemGroupActions &ndash; Sets the "actions items" representing the "list item group actions" for this list.
     - OpenAdminTableBaseRealistListRenderer::setListGeneralActions &ndash; Sets the listGeneralActions.
     - OpenAdminTableBaseRealistListRenderer::setCsrfToken &ndash; Sets the csrfToken value.
     - OpenAdminTableBaseRealistListRenderer::setSqlColumns &ndash; Sets the sqlColumns.
@@ -39,17 +39,17 @@ Table of contents
     - [Bootstrap4AdminTableRenderer::renderListGeneralActions](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/Renderer/Bootstrap4AdminTableRenderer/renderListGeneralActions.md) &ndash; Prints the list general actions.
     - [Bootstrap4AdminTableRenderer::render](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/Renderer/Bootstrap4AdminTableRenderer/render.md) &ndash; Prints the html list.
     - [Bootstrap4AdminTableRenderer::getWidget](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/Renderer/Bootstrap4AdminTableRenderer/getWidget.md) &ndash; Returns the RendererWidget instance identified by $identifier, or null if it doesn't exist.
+    - OpenAdminTableBaseRealistListRenderer::setContainer &ndash; Sets the light service container interface.
     - OpenAdminTableBaseRealistListRenderer::prepareByRequestDeclaration &ndash; Prepares the list renderer with the given request declaration.
     - OpenAdminTableBaseRealistListRenderer::setContainerCssId &ndash; Sets the container css id.
     - OpenAdminTableBaseRealistListRenderer::renderTitle &ndash; Prints the list title.
     - OpenAdminTableBaseRealistListRenderer::setDataTypes &ndash; Sets the data types.
     - OpenAdminTableBaseRealistListRenderer::setLabels &ndash; Sets the labels.
-    - OpenAdminTableBaseRealistListRenderer::setHiddenColumns &ndash; Sets the hiddenColumns.
+    - OpenAdminTableBaseRealistListRenderer::setPropertiesToDisplay &ndash; Sets the propertiesToDisplay.
     - OpenAdminTableBaseRealistListRenderer::setWidgetStatuses &ndash; Sets the widget statuses.
     - OpenAdminTableBaseRealistListRenderer::setRequestId &ndash; Sets the requestId.
-    - OpenAdminTableBaseRealistListRenderer::setContainer &ndash; Sets the container.
     - OpenAdminTableBaseRealistListRenderer::setCollapsibleColumnIndexes &ndash; Sets the collapsibleColumnIndexes.
-    - OpenAdminTableBaseRealistListRenderer::setListActionGroups &ndash; Sets the listActionGroups.
+    - OpenAdminTableBaseRealistListRenderer::setListItemGroupActions &ndash; Sets the "actions items" representing the "list item group actions" for this list.
     - OpenAdminTableBaseRealistListRenderer::setListGeneralActions &ndash; Sets the listGeneralActions.
     - OpenAdminTableBaseRealistListRenderer::setCsrfToken &ndash; Sets the csrfToken value.
     - OpenAdminTableBaseRealistListRenderer::setSqlColumns &ndash; Sets the sqlColumns.
@@ -82,11 +82,9 @@ Table of contents
 - [NeckFiltersRendererWidget](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/NeckFiltersRendererWidget.md) &ndash; The NeckFiltersRendererWidget class.
     - [NeckFiltersRendererWidget::__construct](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/NeckFiltersRendererWidget/__construct.md) &ndash; Builds the AbstractRendererWidget instance.
     - [NeckFiltersRendererWidget::setColumns2DataTypes](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/NeckFiltersRendererWidget/setColumns2DataTypes.md) &ndash; Sets the columns and data types.
-    - [NeckFiltersRendererWidget::setUseCheckbox](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/NeckFiltersRendererWidget/setUseCheckbox.md) &ndash; Sets whether to use the checkbox.
     - [NeckFiltersRendererWidget::render](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/NeckFiltersRendererWidget/render.md) &ndash; Prints the widget html.
 - [NeckFiltersRendererWidgetInterface](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/NeckFiltersRendererWidgetInterface.md) &ndash; The NeckFiltersRendererWidgetInterface interface.
     - [NeckFiltersRendererWidgetInterface::setColumns2DataTypes](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/NeckFiltersRendererWidgetInterface/setColumns2DataTypes.md) &ndash; Sets the columns and data types.
-    - [NeckFiltersRendererWidgetInterface::setUseCheckbox](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/NeckFiltersRendererWidgetInterface/setUseCheckbox.md) &ndash; Sets whether to use the checkbox.
     - [RendererWidgetInterface::render](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/RendererWidgetInterface/render.md) &ndash; Prints the widget html.
 - [NumberOfItemsPerPageRendererWidget](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/NumberOfItemsPerPageRendererWidget.md) &ndash; The NumberOfItemsPerPageRendererWidget class.
     - [NumberOfItemsPerPageRendererWidget::__construct](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/NumberOfItemsPerPageRendererWidget/__construct.md) &ndash; Builds the NumberOfItemsPerPageRendererWidget instance.

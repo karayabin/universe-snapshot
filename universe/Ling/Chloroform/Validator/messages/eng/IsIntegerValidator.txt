@@ -1,0 +1,5 @@
+main: The {fieldName} is not an integer
+onlyPositive: The {fieldName} must be a positive integer, greater than 0
+onlyNegative: The {fieldName} must be a negative integer, lower than 0
+positiveAndZero: The {fieldName} must be a positive number or 0
+negativeAndZero: The {fieldName} must be a negative number or 0

@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [GenerateBreezeApiProcess::prepare](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/WebWizardTools/Process/Generators/GenerateBreezeApiProcess.php#L37-L45)
+See the source code for method [GenerateBreezeApiProcess::prepare](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/WebWizardTools/Process/Generators/GenerateBreezeApiProcess.php#L39-L47)
 
 
 See Also

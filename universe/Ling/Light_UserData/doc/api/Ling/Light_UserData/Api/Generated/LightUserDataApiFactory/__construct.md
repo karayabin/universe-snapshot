@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightUserDataApiFactory::__construct](https://github.com/lingtalfi/Light_UserData/blob/master/Api/Generated/LightUserDataApiFactory.php#L41-L46)
+See the source code for method [LightUserDataApiFactory::__construct](https://github.com/lingtalfi/Light_UserData/blob/master/Api/Generated/LightUserDataApiFactory.php#L43-L48)
 
 
 See Also

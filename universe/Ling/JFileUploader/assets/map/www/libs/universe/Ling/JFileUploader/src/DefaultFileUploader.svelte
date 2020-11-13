@@ -1,8 +1,16 @@
 <script>
 
 
-    import {onMount, setContext, tick} from 'svelte';
+    import {onMount, setContext} from 'svelte';
     import jsx from 'js-extension-ling';
+    /**
+     * I don't know why the commented line below is removed when I compile,
+     * maybe it's rollup or a plugin that removes it?
+     * Anyway, make sure you have this line un-commented in order for this plugin to work.
+     */
+    // import { fade } from 'svelte/transition';
+
+    import { fade } from 'svelte/transition';
     import panda from "panda-headers";
     import Validator from "./modules/Validator";
     import GlobalProgressTracker from './modules/GlobalProgressTracker';
@@ -10,7 +18,6 @@
     import DropZoneHandler from "js-dropzone-handler";
     import ChunkUploader from "chunk-uploader";
     import dragula from "dragula";
-    import {fade} from 'svelte/transition';
     import FileEditor from "./components/DefaultFileEditor.svelte";
 
 
@@ -76,6 +83,9 @@
         /**
          * int=-1.
          * The maximum file size allowed for uploaded files.
+         * You can specify human like values, such as 1.6k, 1.3M, etc...
+         * The [converthumansizetobytes function](https://github.com/lingtalfi/js-extension-ling#converthumansizetobytes) is used under the hood.
+         *
          * If -1, then any size is allowed.
          */
         maxFileSize: -1,
@@ -563,6 +573,7 @@
 
     function updateUFileBinaryData(uFile, oFile) {
 
+
         let res = validator.test(oFile);
         if (true === res) {
             uFile.file = oFile;
@@ -583,11 +594,27 @@
 
             if (true === options.immediateUpload) {
                 setTimeout(async function () {
-                    await uploadQueuedFiles({
-                        action: "update",
-                        url: uFile.url,
-                        original_url: uFile.original_url,
-                    });
+
+
+                    try {
+
+                        await uploadQueuedFiles({
+                            action: "update",
+                            url: uFile.url,
+                            original_url: uFile.original_url,
+                        });
+
+                    } catch (e) {
+                        /**
+                         * It was annoying me, while debugging, when there was an upload error to be stuck on the loading gif image (because
+                         * then the gui underneath disappear).
+                         * So setting is_loading to false makes the loading gif image disappear, and allows me to continue uploading files,
+                         * even if an error occurred.
+                         **/
+                        uFile.is_loading = false;
+                        updateUFile(uFile);
+                    }
+
 
                     let updatedEditedFile = _getUFileById(editedUFile.id);
                     editedUFile = updatedEditedFile;
@@ -609,7 +636,7 @@
         uFile.is_loading = true;
         editedUFile = uFile;
 
-        let fileHasChanged = (true === cropped || true === dropped);
+        let fileHasChanged = (true === cropped || true === dropped || true === original);
         uFile.keep_original = jsx.toInt((true === dropped && false === original && false === cropped));
 
         let isExternalUrl = options.isExternalUrl(uFile.url);
@@ -640,6 +667,7 @@
             });
 
             let jsonResponse = await callService(data);
+
             newUFile = await handleAddUpdateResponse(uFile, jsonResponse);
 
             /**
@@ -666,8 +694,8 @@
             if (id === uFile.id) {
 
                 if (
-                        true === serverCheck &&
-                        false === options.isExternalUrl(uFile.url)
+                    true === serverCheck &&
+                    false === options.isExternalUrl(uFile.url)
                 ) {
 
                     uFile.is_loading = true;
@@ -743,7 +771,7 @@
                 });
 
             } else {
-                addServerError(`An error occurred with the request for url ${url}`);
+                addServerError(`An error occurred with the request for url ${url}. ` + response.status + ': ' + response.statusText);
             }
         });
 
@@ -1312,7 +1340,7 @@
                             <li class="dropzone-text-item-container fileuploader-item" data-id="{uFile.id}">
                                 <div class="cell-name">
                                     {uFile.name}
-                                    {#if true=== uFile.is_loading}
+                                    {#if true === uFile.is_loading}
                                         <i class="fas fa-circle-notch fa-spin"></i>
                                     {/if}
                                 </div>
@@ -1392,7 +1420,7 @@
                                     </button>
                                 {/if}
                             </div>
-                            {#if true=== uFile.is_loading}
+                            {#if true === uFile.is_loading}
                                 <div class="image-overlay">
                                     <i class="fas fa-circle-notch fa-spin fa-2x"></i>
                                 </div>
@@ -1411,9 +1439,9 @@
             ><i
                     class="btn-add-file fas fa-plus-circle"></i> <span
                     class="btn-add-file">{
-            0 === nbQueuedFiles?
-            translator._("Add files"):
-            translator._n("x files queued", nbQueuedFiles)
+                0 === nbQueuedFiles ?
+                    translator._("Add files") :
+                    translator._n("x files queued", nbQueuedFiles)
             }
 
                 </span>
@@ -1451,8 +1479,8 @@
                class="input-file"
                disabled
                type="file" name={inputName}
-                multiple={isMultipleInput}
-                />
+               multiple={isMultipleInput}
+        />
     </div>
 
 
@@ -1464,446 +1492,446 @@
 
 <style type="text/sass" lang="scss">
 
-    $padding: 10px;
-    $bgColor: #eee;
-    $dropzoneTextHeaderHeight: 20px;
-    $errorColor: #cd0a0a;
-    $imgWidthHeight: 80px;
+  $padding: 10px;
+  $bgColor: #eee;
+  $dropzoneTextHeaderHeight: 20px;
+  $errorColor: #cd0a0a;
+  $imgWidthHeight: 80px;
 
 
-    .fileuploader-container {
+  .fileuploader-container {
 
 
-        .hidden-inputs {
+    .hidden-inputs {
 
-            input { // ease debugging
-                display: block;
-                width: 100%;
-            }
-        }
+      input { // ease debugging
+        display: block;
+        width: 100%;
+      }
+    }
+
+    position: relative;
+    border: 1px solid #999;
+
+    button {
+
+      cursor: pointer;
+
+      &.btn-start-upload:disabled {
+        cursor: not-allowed;
+      }
+
+    }
+
+
+    .error-container {
+      color: #cd0a0a;
+
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1;
+
+      .error-container-item {
 
         position: relative;
-        border: 1px solid #999;
+        height: 100%;
 
-        button {
+
+        .error-item {
+
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          border: 1px solid $errorColor;
+          background: rgb(255, 232, 232);
+          padding: 10px;
+          background: linear-gradient(0deg, rgba(255, 232, 232, 1) 46%, rgba(255, 239, 239, 1) 56%, rgba(255, 239, 239, 1) 63%);
+
+
+          button.btn-remove-error {
+
+            position: absolute;
+            top: 4px;
+            right: 0px;
+
+            background: transparent;
+
+            border: none;
+            color: $errorColor;
 
             cursor: pointer;
 
-            &.btn-start-upload:disabled {
-                cursor: not-allowed;
-            }
+          }
+
+        }
+
+      }
+
+    }
+
+    .header {
+      background: $bgColor;
+
+      display: flex;
+      padding: $padding;
+
+      .right {
+
+        margin-left: auto;
+
+      }
+
+    }
+
+    @keyframes placeholderShimmer {
+      0% {
+        background-position: -1200px 0
+      }
+      100% {
+        background-position: 1200px 0
+      }
+    }
+
+
+    .ui-placeholder {
+      position: static;
+      overflow: hidden;
+      animation: placeholderShimmer 2s linear;
+      animation-iteration-count: infinite;
+      background-color: #fff;
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0.03) 0, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.03) 60%) !important;
+
+      background-size: 1200px 100% !important;;
+
+    }
+
+
+    .dropzone {
+
+      background: white;
+      min-height: 150px;
+
+      position: relative;
+
+      &.dropzone-hover {
+        background: #fafafa;
+
+      }
+
+
+      .dropzone-text, .dropzone-image {
+
+        display: none;
+
+        &.visible {
+
+          display: block;
+
+        }
+
+      }
+
+      .dropzone-text {
+
+        .dropzone-text-header {
+
+          display: flex;
+          padding: 10px;
+
+
+          background: rgb(209, 209, 209);
+          background: linear-gradient(0deg, rgba(209, 209, 209, 1) 0%, rgba(227, 227, 227, 1) 100%);
+
+        }
+
+        .dropzone-text-item-container {
+
+          display: flex;
+          padding: 6px;
+          margin: 0;
+
+          position: relative;
+          z-index: 1;
+
+          background: rgb(228, 228, 228);
+          background: linear-gradient(0deg, rgba(228, 228, 228, 1) 46%, rgba(238, 238, 238, 1) 56%);
 
         }
 
 
-        .error-container {
-            color: #cd0a0a;
+        .cell-status {
 
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1;
-
-            .error-container-item {
-
-                position: relative;
-                height: 100%;
-
-
-                .error-item {
-
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    right: 0;
-                    border: 1px solid $errorColor;
-                    background: rgb(255, 232, 232);
-                    padding: 10px;
-                    background: linear-gradient(0deg, rgba(255, 232, 232, 1) 46%, rgba(255, 239, 239, 1) 56%, rgba(255, 239, 239, 1) 63%);
-
-
-                    button.btn-remove-error {
-
-                        position: absolute;
-                        top: 4px;
-                        right: 0px;
-
-                        background: transparent;
-
-                        border: none;
-                        color: $errorColor;
-
-                        cursor: pointer;
-
-                    }
-
-                }
-
-            }
+          margin-left: auto;
+          width: 80px;
 
         }
 
-        .header {
-            background: $bgColor;
+        .cell-size {
+          width: 70px;
 
-            display: flex;
-            padding: $padding;
+          white-space: nowrap;
 
-            .right {
+          overflow: hidden;
 
-                margin-left: auto;
-
-            }
+          text-overflow: ellipsis;
 
         }
 
-        @keyframes placeholderShimmer {
-            0% {
-                background-position: -1200px 0
-            }
-            100% {
-                background-position: 1200px 0
-            }
+        .cell-action {
+          width: 30px;
         }
 
 
-        .ui-placeholder {
-            position: static;
-            overflow: hidden;
-            animation: placeholderShimmer 2s linear;
-            animation-iteration-count: infinite;
-            background-color: #fff;
-            background-image: linear-gradient(to right, rgba(0, 0, 0, 0.03) 0, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.03) 60%) !important;
+        .dropzone-text-container {
 
-            background-size: 1200px 100% !important;;
+          position: absolute;
+          top: 39px;
+          left: 0;
+          right: 0;
+          bottom: 0;
+
+          overflow-y: auto;
+
+          font: normal 11px Verdana, sans-serif;
+
+          ul {
+            margin: 0;
+            padding: 0;
+
+
+            .cell-name {
+              padding-left: 10px;
+
+            }
+
+            button.btn-remove-file, button.btn-edit-file {
+
+              border: none;
+              margin: 0;
+              padding: 0;
+
+              cursor: pointer;
+              color: #919191;
+
+            }
+
+          }
 
         }
 
+      }
 
-        .dropzone {
+      .dropzone-image {
 
-            background: white;
-            min-height: 150px;
+        .filelist {
+
+          display: flex;
+
+          flex-wrap: wrap;
+
+          position: absolute;
+          top: 0px;
+          left: 0;
+          right: 0;
+          bottom: 0;
+
+          overflow-y: auto;
+
+
+          .dropzone-image-item-container {
 
             position: relative;
+            padding: 5px;
+            background: #f0f0f0;
+            margin: 5px;
+            max-width: 80px;
+            max-height: 120px;
 
-            &.dropzone-hover {
-                background: #fafafa;
+            overflow: hidden;
 
+
+            .cell-content {
+
+              .cell-image {
+
+                height: 80px;
+                text-align: center;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                img {
+                  max-height: 80px;
+                  max-width: 80px;
+
+                }
+
+                i {
+                  color: #c2c2c2;
+                  font-size: 80px;
+
+                  &.loading-image {
+                    font-size: 50px;
+                  }
+                }
+
+              }
+
+
+              .cell-name {
+
+                font: bold 11px Verdana, sans-serif;
+
+              }
+
+              .cell-size {
+
+                font: normal 9px Verdana, sans-serif;
+
+              }
+
+
+              .cell-status {
+                margin-top: 5px;
+                font-size: 0.8em;
+                text-align: center;
+
+              }
             }
 
 
-            .dropzone-text, .dropzone-image {
+            .cell-action {
 
-                display: none;
+              position: absolute;
+              top: 1px;
+              right: 1px;
 
-                &.visible {
+              button.btn-remove-file, button.btn-edit-file {
 
-                    display: block;
+                border: none;
+                margin: 0;
+                padding: 0;
 
-                }
-
-            }
-
-            .dropzone-text {
-
-                .dropzone-text-header {
-
-                    display: flex;
-                    padding: 10px;
-
-
-                    background: rgb(209, 209, 209);
-                    background: linear-gradient(0deg, rgba(209, 209, 209, 1) 0%, rgba(227, 227, 227, 1) 100%);
-
-                }
-
-                .dropzone-text-item-container {
-
-                    display: flex;
-                    padding: 6px;
-                    margin: 0;
-
-                    position: relative;
-                    z-index: 1;
-
-                    background: rgb(228, 228, 228);
-                    background: linear-gradient(0deg, rgba(228, 228, 228, 1) 46%, rgba(238, 238, 238, 1) 56%);
-
-                }
-
-
-                .cell-status {
-
-                    margin-left: auto;
-                    width: 80px;
-
-                }
-
-                .cell-size {
-                    width: 70px;
-
-                    white-space: nowrap;
-
-                    overflow: hidden;
-
-                    text-overflow: ellipsis;
-
-                }
-
-                .cell-action {
-                    width: 30px;
-                }
-
-
-                .dropzone-text-container {
-
-                    position: absolute;
-                    top: 39px;
-                    left: 0;
-                    right: 0;
-                    bottom: 0;
-
-                    overflow-y: auto;
-
-                    font: normal 11px Verdana, sans-serif;
-
-                    ul {
-                        margin: 0;
-                        padding: 0;
-
-
-                        .cell-name {
-                            padding-left: 10px;
-
-                        }
-
-                        button.btn-remove-file, button.btn-edit-file {
-
-                            border: none;
-                            margin: 0;
-                            padding: 0;
-
-                            cursor: pointer;
-                            color: #919191;
-
-                        }
-
-                    }
-
-                }
-
-            }
-
-            .dropzone-image {
-
-                .filelist {
-
-                    display: flex;
-
-                    flex-wrap: wrap;
-
-                    position: absolute;
-                    top: 0px;
-                    left: 0;
-                    right: 0;
-                    bottom: 0;
-
-                    overflow-y: auto;
-
-
-                    .dropzone-image-item-container {
-
-                        position: relative;
-                        padding: 5px;
-                        background: #f0f0f0;
-                        margin: 5px;
-                        max-width: 80px;
-                        max-height: 120px;
-
-                        overflow: hidden;
-
-
-                        .cell-content {
-
-                            .cell-image {
-
-                                height: 80px;
-                                text-align: center;
-                                display: flex;
-                                justify-content: center;
-                                align-items: center;
-
-                                img {
-                                    max-height: 80px;
-                                    max-width: 80px;
-
-                                }
-
-                                i {
-                                    color: #c2c2c2;
-                                    font-size: 80px;
-
-                                    &.loading-image {
-                                        font-size: 50px;
-                                    }
-                                }
-
-                            }
-
-
-                            .cell-name {
-
-                                font: bold 11px Verdana, sans-serif;
-
-                            }
-
-                            .cell-size {
-
-                                font: normal 9px Verdana, sans-serif;
-
-                            }
-
-
-                            .cell-status {
-                                margin-top: 5px;
-                                font-size: 0.8em;
-                                text-align: center;
-
-                            }
-                        }
-
-
-                        .cell-action {
-
-                            position: absolute;
-                            top: 1px;
-                            right: 1px;
-
-                            button.btn-remove-file, button.btn-edit-file {
-
-                                border: none;
-                                margin: 0;
-                                padding: 0;
-
-                                cursor: pointer;
-                                color: #919191;
-
-                                background: transparent;
-
-                            }
-                        }
-
-
-                        .image-overlay {
-                            position: absolute;
-                            top: 0;
-                            left: 0;
-                            right: 0;
-                            bottom: 0;
-                            background: rgba(0, 0, 0, 0.2);
-                            display: flex;
-                            justify-content: center;
-                            align-items: center;
-
-                            i {
-                                color: white;
-                            }
-                        }
-
-                    }
-
-                }
-
-            }
-
-            .dropzone-droptext {
-
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
+                cursor: pointer;
+                color: #919191;
 
                 background: transparent;
 
-                text-align: center;
-
-                display: flex;
-
-                justify-content: center;
-
-                align-items: center;
-
-                font: normal 11px Verdana, sans-serif;
-
+              }
             }
 
-        }
 
+            .image-overlay {
+              position: absolute;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              background: rgba(0, 0, 0, 0.2);
+              display: flex;
+              justify-content: center;
+              align-items: center;
 
-        .footer {
-            background: $bgColor;
-
-            display: flex;
-            padding: $padding;
-
-            .right {
-
-                margin-left: auto;
-
-                font: bold 11px Verdana, sans-serif;
-                color: #222;
-
-                .footer-info:not(:last-child) {
-                    border-right: 1px solid #aaa;
-                    padding-right: 7px;
-                    margin-right: 7px;
-
-                }
-
+              i {
+                color: white;
+              }
             }
 
+          }
+
         }
 
+      }
+
+      .dropzone-droptext {
+
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        background: transparent;
+
+        text-align: center;
+
+        display: flex;
+
+        justify-content: center;
+
+        align-items: center;
+
+        font: normal 11px Verdana, sans-serif;
+
+      }
+
     }
 
 
-    /*------------------------------------
-    - DRAGULA
-    ------------------------------------*/
-    :global(.gu-mirror) {
-        position: fixed !important;
-        margin: 0 !important;
-        z-index: 9999 !important;
-        opacity: 0.8;
-        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
-        filter: alpha(opacity=80);
+    .footer {
+      background: $bgColor;
 
-        img {
-            width: $imgWidthHeight;
-            height: $imgWidthHeight;
+      display: flex;
+      padding: $padding;
+
+      .right {
+
+        margin-left: auto;
+
+        font: bold 11px Verdana, sans-serif;
+        color: #222;
+
+        .footer-info:not(:last-child) {
+          border-right: 1px solid #aaa;
+          padding-right: 7px;
+          margin-right: 7px;
+
         }
+
+      }
+
     }
 
+  }
 
-    :global(.gu-unselectable) {
-        -webkit-user-select: none !important;
-        -moz-user-select: none !important;
-        -ms-user-select: none !important;
-        user-select: none !important;
 
-        .gu-hide {
-            display: none !important;
-        }
+  /*------------------------------------
+  - DRAGULA
+  ------------------------------------*/
+  :global(.gu-mirror) {
+    position: fixed !important;
+    margin: 0 !important;
+    z-index: 9999 !important;
+    opacity: 0.8;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+    filter: alpha(opacity=80);
+
+    img {
+      width: $imgWidthHeight;
+      height: $imgWidthHeight;
     }
+  }
 
 
-    :global(.gu-transit) {
-        opacity: 0.2;
-        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
-        filter: alpha(opacity=20);
+  :global(.gu-unselectable) {
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
+
+    .gu-hide {
+      display: none !important;
     }
+  }
+
+
+  :global(.gu-transit) {
+    opacity: 0.2;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
+    filter: alpha(opacity=20);
+  }
 
 </style>

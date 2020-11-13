@@ -218,6 +218,18 @@ class LightPluginInstallerService
         return array_keys($this->plugins);
     }
 
+
+    /**
+     * Returns whether the given plugin is registered.
+     *
+     * @param string $name
+     * @return bool
+     */
+    public function isRegistered(string $name): bool
+    {
+        return array_key_exists($name, $this->plugins);
+    }
+
     /**
      * Registers a plugin extension.
      * @param PluginInstallerExtensionInterface $extension

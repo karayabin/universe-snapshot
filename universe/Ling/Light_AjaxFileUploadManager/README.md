@@ -1,6 +1,6 @@
 Light_AjaxFileUploadManager
 ===========
-2019-08-01 -> 2020-06-04
+2019-08-01 -> 2020-11-04
 
 
 
@@ -112,6 +112,10 @@ Basically what you want to do is create a [configuration item](https://github.co
 History Log
 =============
 
+    
+- 1.8.1 -- 2020-11-06
+
+    - update api to adapt Bat 1.279
     
 - 1.8.0 -- 2020-06-04
 

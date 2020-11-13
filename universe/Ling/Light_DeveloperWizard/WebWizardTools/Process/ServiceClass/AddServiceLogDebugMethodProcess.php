@@ -24,7 +24,7 @@ class AddServiceLogDebugMethodProcess extends LightDeveloperWizardCommonProcess
         parent::__construct();
         $this->setName("create-service-log-debug-method");
         $this->setLabel("Adds a logDebug method to the service.");
-        $this->setLearnMore('See the <a href="https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/pages/conventions.md#logdebug-method">logDebug method convention</a> for more details.');
+        $this->setLearnMoreByHash('add-logdebug-method');
     }
 
 
@@ -59,7 +59,7 @@ class AddServiceLogDebugMethodProcess extends LightDeveloperWizardCommonProcess
         //--------------------------------------------
 
 
-        $pan = $this->getFryingPanForService($util->getBasicServiceClassPath());
+        $pan = $this->getFryingPanByFile($util->getBasicServiceClassPath());
         $pan->addIngredient(MethodIngredient::create()->setValue("logDebug", [
             'template' => '
     /**

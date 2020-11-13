@@ -8,6 +8,7 @@ use Ling\Bat\FileSystemTool;
 use Ling\CliTools\Helper\VirginiaMessageHelper as H;
 use Ling\CliTools\Input\InputInterface;
 use Ling\CliTools\Output\OutputInterface;
+use Ling\DirScanner\YorgDirScannerTool;
 
 /**
  * The PackLightPluginCommand class.
@@ -65,7 +66,9 @@ class PackLightPluginCommand extends KaosGenericCommand
         $pluginDir = $this->application->getCurrentDirectory();
         $mapDir = $pluginDir . "/assets/map";
         $indentLevel = $this->application->getBaseIndentLevel();
-        $pluginName = basename($pluginDir);
+        $p = explode("/", $pluginDir);
+        $pluginName = array_pop($p);
+        $galaxyName = array_pop($p);
 
 
         if (null !== $applicationDir) {
@@ -80,8 +83,19 @@ class PackLightPluginCommand extends KaosGenericCommand
                 "config/services/$pluginName.byml",
                 "config/data/$pluginName",
                 "templates/$pluginName",
+                "templates/Light_Mailer/$pluginName",
                 "www/plugins/$pluginName",
+                "www/libs/universe/$galaxyName/$pluginName",
             ];
+
+
+            $dynamicConfigDir = $applicationDir . "/config/dynamic";
+
+            $files = YorgDirScannerTool::getFilesWithName($dynamicConfigDir, $pluginName . ".byml", false, true);
+            foreach($files as $file){
+                $items[] = FileSystemTool::getRelativePath($file, $applicationDir);
+            }
+
 
 
             foreach ($items as $relPath) {

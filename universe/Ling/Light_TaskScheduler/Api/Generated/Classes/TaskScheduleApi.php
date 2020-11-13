@@ -247,12 +247,22 @@ class TaskScheduleApi extends CustomLightTaskSchedulerBaseApi implements TaskSch
     /**
      * @implementation
      */
-    public function updateTaskScheduleById(int $id, array $taskSchedule)
+    public function updateTaskScheduleById(int $id, array $taskSchedule, array $extraWhere = [], array $markers = [])
     { 
-        $this->pdoWrapper->update($this->table, $taskSchedule, [
+        $this->pdoWrapper->update($this->table, $taskSchedule, array_merge([
             "id" => $id,
 
-        ]);
+        ], $extraWhere), $markers);
+    }
+
+
+
+    /**
+     * @implementation
+     */
+    public function updateTaskSchedule(array $taskSchedule, $where = null, array $markers = [])
+    {
+        $this->pdoWrapper->update($this->table, $taskSchedule, $where, $markers);
     }
 
 

@@ -63,7 +63,8 @@ interface SimplePdoWrapperInterface
      * Executes the insert statement and returns the lastInsertId.
      * See more info in the class description.
      *
-     * Options: not used at the moment.
+     * Available options are:
+     * - ignore: bool=false, whether to use the ignore keyword
      *
      *
      *
@@ -198,7 +199,7 @@ interface SimplePdoWrapperInterface
      * @throws NoPdoConnectionException
      * When the connexion is not set
      */
-    public function transaction(callable $transactionCallback, \Exception &$e = null);
+    public function transaction(callable $transactionCallback, \Exception &$e = null): bool;
 
 
     /**

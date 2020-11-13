@@ -1,6 +1,6 @@
 Ling/Light_Events
 ================
-2019-10-31 --> 2020-06-26
+2019-10-31 --> 2020-11-06
 
 
 
@@ -22,7 +22,10 @@ Table of contents
 
 Dependencies
 ============
+- [BabyYaml](https://github.com/lingtalfi/BabyYaml)
 - [Bat](https://github.com/lingtalfi/Bat)
+- [CliTools](https://github.com/lingtalfi/CliTools)
+- [DirScanner](https://github.com/lingtalfi/DirScanner)
 - [Light](https://github.com/lingtalfi/Light)
 - [Light_Logger](https://github.com/lingtalfi/Light_Logger)
 

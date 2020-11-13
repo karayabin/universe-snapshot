@@ -46,7 +46,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [GemHelper::getCustomConfig](https://github.com/lingtalfi/Light_UploadGems/blob/master/GemHelper/GemHelper.php#L332-L335)
+See the source code for method [GemHelper::getCustomConfig](https://github.com/lingtalfi/Light_UploadGems/blob/master/GemHelper/GemHelper.php#L389-L392)
 
 
 See Also

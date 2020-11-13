@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightMailerService::setTransports](https://github.com/lingtalfi/Light_Mailer/blob/master/Service/LightMailerService.php#L104-L107)
+See the source code for method [LightMailerService::setTransports](https://github.com/lingtalfi/Light_Mailer/blob/master/Service/LightMailerService.php#L118-L121)
 
 
 See Also
@@ -57,5 +57,5 @@ See Also
 
 The [LightMailerService](https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Service/LightMailerService.md) class.
 
-Previous method: [setContainer](https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Service/LightMailerService/setContainer.md)<br>Next method: [setSenders](https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Service/LightMailerService/setSenders.md)<br>
+Previous method: [setTransport](https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Service/LightMailerService/setTransport.md)<br>Next method: [setSender](https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Service/LightMailerService/setSender.md)<br>
 

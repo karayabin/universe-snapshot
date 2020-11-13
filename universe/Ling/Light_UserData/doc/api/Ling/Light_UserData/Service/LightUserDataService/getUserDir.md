@@ -7,7 +7,7 @@ LightUserDataService::getUserDir
 
 
 
-LightUserDataService::getUserDir — Returns the directory path of the current user.
+LightUserDataService::getUserDir — Returns the absolute path to the directory of the given user.
 
 
 
@@ -16,12 +16,17 @@ Description
 ================
 
 
-public [LightUserDataService::getUserDir](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/getUserDir.md)(?[Ling\Light_User\LightWebsiteUser](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser.md) $user = null) : string
+public [LightUserDataService::getUserDir](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/getUserDir.md)(?$userOrUserIdentifier = null) : string
 
 
 
 
-Returns the directory path of the current user.
+Returns the absolute path to the directory of the given user.
+
+The given user can be one of the following:
+- a LightWebsiteUser instance
+- an user identifier (lud_user.identifier)
+- null, in which case the current user will be used
 
 
 
@@ -30,7 +35,7 @@ Parameters
 ================
 
 
-- user
+- userOrUserIdentifier
 
     
 
@@ -54,7 +59,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::getUserDir](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L1341-L1348)
+See the source code for method [LightUserDataService::getUserDir](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L772-L787)
 
 
 See Also
@@ -62,5 +67,5 @@ See Also
 
 The [LightUserDataService](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService.md) class.
 
-Previous method: [unsetTemporaryUser](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/unsetTemporaryUser.md)<br>Next method: [getValidWebsiteUser](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/getValidWebsiteUser.md)<br>
+Previous method: [getRootDir](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/getRootDir.md)<br>Next method: [createResourceByFileItems](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/createResourceByFileItems.md)<br>
 

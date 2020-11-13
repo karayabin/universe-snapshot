@@ -1,6 +1,6 @@
 /**
  * Realist Registry
- * 2019-09-25
+ * 2019-09-25 -> 2020-09-03
  *
  * https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/realist-registry-js.md
  *
@@ -12,6 +12,7 @@ if ("undefined" === typeof window.RealistRegistry) {
 
 
         var openAdminTableHelper = null;
+        var listActionHelper = null;
 
 
         window.RealistRegistry = {
@@ -20,6 +21,12 @@ if ("undefined" === typeof window.RealistRegistry) {
             },
             getOpenAdminTableHelper: function () {
                 return openAdminTableHelper;
+            },
+            setListActionHelper: function (object) {
+                listActionHelper = object;
+            },
+            getListActionHelper: function () {
+                return listActionHelper;
             },
         };
     })();

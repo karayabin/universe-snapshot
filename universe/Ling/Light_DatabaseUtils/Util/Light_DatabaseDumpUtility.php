@@ -114,11 +114,18 @@ class Light_DatabaseDumpUtility
                 if (0 !== $d++) {
                     $s .= ', ';
                 }
+
                 $replaced = false;
-                if (true === $useNullForAutoIncrementedKey) {
-                    if ($aik === $col) {
-                        $val = 'NULL';
-                        $replaced = true;
+
+                if (null === $val) {
+                    $val = 'NULL';
+                    $replaced = true;
+                } else {
+                    if (true === $useNullForAutoIncrementedKey) {
+                        if ($aik === $col) {
+                            $val = 'NULL';
+                            $replaced = true;
+                        }
                     }
                 }
 

@@ -76,7 +76,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [ClassCooker::addProperty](https://github.com/lingtalfi/ClassCooker/blob/master/ClassCooker.php#L240-L304)
+See the source code for method [ClassCooker::addProperty](https://github.com/lingtalfi/ClassCooker/blob/master/ClassCooker.php#L244-L308)
 
 
 See Also

@@ -1,6 +1,6 @@
 Ling/CheapLogger
 ================
-2019-12-19 --> 2019-12-19
+2019-12-19 --> 2020-11-06
 
 
 
@@ -9,7 +9,7 @@ Table of contents
 ===========
 
 - [CheapLogger](https://github.com/lingtalfi/CheapLogger/blob/master/doc/api/Ling/CheapLogger/CheapLogger.md) &ndash; The CheapLogger class.
-    - [CheapLogger::log](https://github.com/lingtalfi/CheapLogger/blob/master/doc/api/Ling/CheapLogger/CheapLogger/log.md) &ndash; Logs the thing to the log file.
+    - [CheapLogger::log](https://github.com/lingtalfi/CheapLogger/blob/master/doc/api/Ling/CheapLogger/CheapLogger/log.md) &ndash; Logs the given argument(s) to the log file.
 
 
 Dependencies

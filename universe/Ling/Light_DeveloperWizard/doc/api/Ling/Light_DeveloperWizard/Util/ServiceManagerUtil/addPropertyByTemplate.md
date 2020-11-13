@@ -94,7 +94,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [ServiceManagerUtil::addPropertyByTemplate](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/Util/ServiceManagerUtil.php#L156-L251)
+See the source code for method [ServiceManagerUtil::addPropertyByTemplate](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/Util/ServiceManagerUtil.php#L158-L253)
 
 
 See Also

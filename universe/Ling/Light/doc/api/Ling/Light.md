@@ -1,6 +1,6 @@
 Ling/Light
 ================
-2019-04-09 --> 2020-07-28
+2019-04-09 --> 2020-11-10
 
 
 
@@ -62,8 +62,10 @@ Table of contents
 - [LightHelper](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/LightHelper.md) &ndash; The LightHelper class.
     - [LightHelper::createDummyRoutes](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/LightHelper/createDummyRoutes.md) &ndash; Register all the routes which patterns are given.
     - [LightHelper::executeMethod](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/LightHelper/executeMethod.md) &ndash; Executes a php method based on the notation described below, and returns the result.
+    - [LightHelper::executeParenthesisWrappersByArray](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/LightHelper/executeParenthesisWrappersByArray.md) &ndash; Parses the given array, executes the "executeMethod" method on every parenthesis wrapper, and returns the result.
 - [LightNamesAndPathHelper](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/LightNamesAndPathHelper.md) &ndash; The LightNamesAndPathHelper class.
     - [LightNamesAndPathHelper::getServiceName](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/LightNamesAndPathHelper/getServiceName.md) &ndash; Returns the service name, based on the given planet name.
+    - [LightNamesAndPathHelper::getSymbolicPath](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/LightNamesAndPathHelper/getSymbolicPath.md) &ndash; Returns a symbolic path, where the given absolute path to the application directory is replaced by the symbol [app].
 - [ServiceContainerHelper](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ServiceContainerHelper.md) &ndash; The ServiceContainerHelper class.
     - [ServiceContainerHelper::getInstance](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ServiceContainerHelper/getInstance.md) &ndash; Returns an instance of a service container according to the given options.
 - [HttpAttachmentResponse](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpAttachmentResponse.md) &ndash; The HttpAttachmentResponse class.
@@ -100,8 +102,9 @@ Table of contents
     - [HttpResponse::setContentType](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponse/setContentType.md) &ndash; Shortcut to set the value of the Content-type header.
     - [HttpResponse::__toString](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponse/__toString.md) &ndash; Returns the response as a string.
 - [HttpRedirectResponse](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRedirectResponse.md) &ndash; The HttpRedirectResponse class.
+    - [HttpRedirectResponse::__construct](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRedirectResponse/__construct.md) &ndash; Builds the HttpRedirectResponse instance.
+    - [HttpRedirectResponse::setUrl](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRedirectResponse/setUrl.md) &ndash; Sets the url.
     - [HttpRedirectResponse::create](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRedirectResponse/create.md) &ndash; Creates and returns the http redirect response instance.
-    - [HttpResponse::__construct](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponse/__construct.md) &ndash; Builds the HttpResponse instance.
     - [HttpResponse::send](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponse/send.md) &ndash; Sends the headers and prints the response body to the output.
     - [HttpResponse::getBody](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponse/getBody.md) &ndash; Returns the body as a stream.
     - [HttpResponse::setHeader](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponse/setHeader.md) &ndash; Sets a header to this instance.
@@ -200,6 +203,7 @@ Table of contents
     - [LightBlueServiceContainer::getLight](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightBlueServiceContainer/getLight.md) &ndash; Returns the light instance of the application using this container.
     - [LightBlueServiceContainer::setLight](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightBlueServiceContainer/setLight.md) &ndash; Sets the light instance.
     - [LightBlueServiceContainer::setApplicationDir](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightBlueServiceContainer/setApplicationDir.md) &ndash; Sets the application directory.
+    - [LightBlueServiceContainer::__debugInfo](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightBlueServiceContainer/__debugInfo.md) &ndash; Defines which information to display when var_dump is called on this instance.
     - BlueOctopusServiceContainer::get &ndash; Returns the service which name is given.
     - BlueOctopusServiceContainer::has &ndash; The has method
     - BlueOctopusServiceContainer::all &ndash; Returns the list of all service names for this instance.
@@ -293,6 +297,7 @@ Dependencies
 - [Light_Events](https://github.com/lingtalfi/Light_Events)
 - [SicTools](https://github.com/lingtalfi/SicTools)
 - [Bat](https://github.com/lingtalfi/Bat)
+- [ParenthesisMirrorParser](https://github.com/lingtalfi/ParenthesisMirrorParser)
 - [DirScanner](https://github.com/lingtalfi/DirScanner)
 - [Octopus](https://github.com/lingtalfi/Octopus)
 - [PhpUploadFileFix](https://github.com/lingtalfi/PhpUploadFileFix)

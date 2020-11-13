@@ -233,6 +233,15 @@ abstract class AbstractField implements FieldInterface
     /**
      * @implementation
      */
+    public function getFormattedValue()
+    {
+        return $this->value;
+    }
+
+
+    /**
+     * @implementation
+     */
     public function getFallbackValue()
     {
         return $this->fallbackValue;

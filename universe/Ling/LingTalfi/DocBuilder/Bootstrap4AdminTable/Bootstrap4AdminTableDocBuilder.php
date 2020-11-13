@@ -7,6 +7,7 @@ namespace Ling\LingTalfi\DocBuilder\Bootstrap4AdminTable;
 use Ling\DocTools\DocBuilder\Git\PhpPlanet\LingGitPhpPlanetDocBuilder;
 use Ling\DocTools\Exception\DocBuilderException;
 use Ling\DocTools\Translator\ParseDownTranslator;
+use Ling\LingTalfi\DocTools\LingTalfiDocToolsHelper;
 
 
 /**
@@ -151,6 +152,9 @@ class Bootstrap4AdminTableDocBuilder
                 "list general actions" =>  'https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/realist-conception-notes.md#list-general-actions',
                 "toolbar items" =>  'https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/list-action-handler-conception-notes.md#the-toolbar-item',
                 "the content of the Bootstrap4AdminTableRenderer->printJavascript method" =>  'https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/Renderer/Bootstrap4AdminTableRenderer/printJavascript.md',
+                "realist action-items document" => 'https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/2020/action-items.md',
+                "realist action items document" => 'https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/2020/action-items.md',
+                "realist list-actions document" => 'https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/2020/list-actions.md',
             ],
             /**
              * An array of external classes to url.
@@ -165,6 +169,8 @@ class Bootstrap4AdminTableDocBuilder
                 "Ling\Light_Realist\Rendering\OpenAdminTableBaseRealistListRenderer" => "https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Rendering/OpenAdminTableBaseRealistListRenderer.md",
                 "Ling\Light_Realist\Rendering\RealistListRendererInterface" => "https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Rendering/RealistListRendererInterface.md",
                 "Ling\Light\ServiceContainer\LightServiceContainerInterface" => "https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md",
+                "Ling\Light\ServiceContainer\LightServiceContainerAwareInterface" => "https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerAwareInterface.md",
+
             ],
         ];
 
@@ -200,6 +206,8 @@ class Bootstrap4AdminTableDocBuilder
          * and since we've defined a @kw(copy module), it will also copy the whole doc to another location.
          */
         $builder->buildDoc();
+        LingTalfiDocToolsHelper::generateCrumbs($builder);
+
 
         if ('cli' !== php_sapi_name()) {
 

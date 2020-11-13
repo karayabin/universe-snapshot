@@ -4,7 +4,7 @@
 
 The CheapLogger class
 ================
-2019-12-19 --> 2019-12-19
+2019-12-19 --> 2020-11-06
 
 
 
@@ -28,7 +28,8 @@ class <span class="pl-k">CheapLogger</span>  {
     - private static string [$path](#property-path) = /tmp/CheapLogger.txt ;
 
 - Methods
-    - public static [log](https://github.com/lingtalfi/CheapLogger/blob/master/doc/api/Ling/CheapLogger/CheapLogger/log.md)($thing) : void
+    - public static [log](https://github.com/lingtalfi/CheapLogger/blob/master/doc/api/Ling/CheapLogger/CheapLogger/log.md)() : void
+    - private static [getLogMessage](https://github.com/lingtalfi/CheapLogger/blob/master/doc/api/Ling/CheapLogger/CheapLogger/getLogMessage.md)($thing) : string
 
 }
 
@@ -49,7 +50,8 @@ Properties
 Methods
 ==============
 
-- [CheapLogger::log](https://github.com/lingtalfi/CheapLogger/blob/master/doc/api/Ling/CheapLogger/CheapLogger/log.md) &ndash; Logs the thing to the log file.
+- [CheapLogger::log](https://github.com/lingtalfi/CheapLogger/blob/master/doc/api/Ling/CheapLogger/CheapLogger/log.md) &ndash; Logs the given argument(s) to the log file.
+- [CheapLogger::getLogMessage](https://github.com/lingtalfi/CheapLogger/blob/master/doc/api/Ling/CheapLogger/CheapLogger/getLogMessage.md) &ndash; Converts the given thing into a log string, and returns it.
 
 
 

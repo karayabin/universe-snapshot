@@ -54,7 +54,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [DecorativeField::setProperty](https://github.com/lingtalfi/Chloroform/blob/master/Field/DecorativeField.php#L191-L194)
+See the source code for method [DecorativeField::setProperty](https://github.com/lingtalfi/Chloroform/blob/master/Field/DecorativeField.php#L200-L203)
 
 
 See Also

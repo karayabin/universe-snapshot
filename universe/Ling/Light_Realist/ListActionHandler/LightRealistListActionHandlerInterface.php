@@ -12,31 +12,41 @@ interface LightRealistListActionHandlerInterface
 
 
     /**
-     * Decorates the given @page(generic action item) identified by the given action name (which will be used
-     * by a renderer to display that item in the gui).
+     * Returns whether we should display the trigger of the action identified by actionId to the current user.
      *
-     * If the handler discards the item (typically because the user doesn't have the right
-     * to execute it), then this method returns false.
-     *
-     *
-     * @param string $actionName
-     * @param array $genericActionItem
+     * @param string $actionId
      * @param string $requestId
-     * @return null|false
+     * @return bool
      */
-    public function prepare(string $actionName, array &$genericActionItem, string $requestId);
-
+    public function doWeShowTrigger(string $actionId, string $requestId): bool;
 
 
     /**
-     * Executes the list action (called via ajax) identified by the given action name and returns the ajax response.
+     * Prepares the given listAction for the given actionId.
      *
-     * @param string $actionName
+     * The goal is to transform the list action in a form that the list renderer will understand.
+     *
+     * See more in @page(details about the list actions).
+     *
+     *
+     * @param string $actionId
+     * @param string $requestId
+     * @param array $listAction
+     * @return void
+     */
+    public function prepareListAction(string $actionId, string $requestId, array &$listAction): void;
+
+
+    /**
+     * Executes the list action (called via ajax) identified by the given action id and returns the ajax response in alcp format.
+     * See more about [alcp protocol](https://github.com/lingtalfi/Light_AjaxHandler/blob/master/doc/pages/ajax-light-communication-protocol.md).
+     *
+     * @param string $actionId
      * @param array $params
      * @return array
      * @throws \Exception
      */
-    public function execute(string $actionName, array $params): array;
+    public function execute(string $actionId, array $params = []): array;
 
 
 }

@@ -1,6 +1,6 @@
 Light Real Generator
 ================
-2019-10-23 -> 2020-07-02
+2019-10-23 -> 2020-09-24
 
 
 
@@ -91,26 +91,29 @@ column, but, I digress.
 
 The variables system
 ------------
-2020-02-26 -> 2020-07-02
+2020-02-26 -> 2020-09-24
 
-The variables system lets you declare some custom variables, and inject them wherever you want in the configuration file.
+The **variables** system lets you declare some custom variables, and inject them wherever you want in the configuration file.
 
-To use the variables system, declare your variables as a key/value array at the root level, then to use a variable anywhere in the configuration file,
-just use the special variable notation described below.
+Note that this is similar to the [Light_Nugget _vars system](https://github.com/lingtalfi/Light_Nugget/blob/master/doc/pages/conception-notes.md#variables-replacement), except that we also allow replacing keys (so it's a bit more
+powerful).
+
+
+To use the **variables** system, declare your variables as a key/value array at the root level, then to use a variable anywhere in the configuration file,
+just use the special variable notation as shown below.
 
 
 ### Declaring variables example
 
 ```yaml
-main:
-    variables:
-        plugin: Light_Kit_Admin_UserData
-        abc: 123
-        myKey: sport
-        # you can inject non-scalar values if you want
-        fruits:  
-            - apple
-            - banana
+variables:
+    plugin: Light_Kit_Admin_UserData
+    abc: 123
+    myKey: sport
+    # you can inject non-scalar values if you want
+    fruits:  
+        - apple
+        - banana
 # ...
 ```
 
@@ -119,10 +122,9 @@ main:
 
 ```yaml
 
-main:
 # ...
-    list:
-        target_dir: {app_dir}/config/data/{$plugin}/Light_Realist/generated
+list:
+    target_dir: {app_dir}/config/data/!{plugin}/Light_Realist/generated
 # ...
 
 ```
@@ -134,10 +136,9 @@ You can also replace a key of an array by a variable, like this:
 
 ```yaml
 
-main:
 # ...
-    list:
-        {myKey}: judo 
+list:
+    !{myKey}: judo 
 # ...
 
 ```

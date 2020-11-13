@@ -1,2 +1,17 @@
-dependencies: []
+dependencies: 
+    Ling: 
+        - ArrayToString
+        - Bat
+        - ArrayRefResolver
+        - BumbleBee
+        - Registry
+        - BabyYaml
+        - DirScanner
+        - PhpErrorName
+        - Octopus
+        - PhpUploadFileFix
+        - ZeusTemplateEngine
+        - UniversalTemplateEngine
+    
+
 post_install: []

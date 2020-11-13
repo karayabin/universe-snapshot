@@ -7,7 +7,7 @@
         $q = '';
         $options = $this->fetchRoutine($q, $markers, $components);
         $fetchStyle = null;
-        if (true === $options['singleColumns']) {
+        if (true === $options['singleColumn']) {
             $fetchStyle = \PDO::FETCH_COLUMN;
         }
         return $this->pdoWrapper->fetchAll($q, $markers, $fetchStyle);
@@ -20,6 +20,10 @@
     {
         $markers = [];
         $q = '';
-        $this->fetchRoutine($q, $markers, $components);
-        return $this->pdoWrapper->fetch($q, $markers);
+        $options = $this->fetchRoutine($q, $markers, $components);
+        $fetchStyle = null;
+        if (true === $options['singleColumn']) {
+            $fetchStyle = \PDO::FETCH_COLUMN;
+        }
+        return $this->pdoWrapper->fetch($q, $markers, $fetchStyle);
     }

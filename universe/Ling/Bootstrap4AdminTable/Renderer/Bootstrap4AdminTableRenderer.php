@@ -163,9 +163,13 @@ class Bootstrap4AdminTableRenderer extends OpenAdminTableBaseRealistListRenderer
                 true === array_key_exists("neck_filters", $this->widgets)) {
                 $neckFiltersWidget = $this->widgets["neck_filters"];
                 if ($neckFiltersWidget instanceof NeckFiltersRendererWidgetInterface) {
-                    $dataTypes = array_diff_key($this->dataTypes, array_flip($this->hiddenColumns));
+                    $dataTypes = []; // this one is ordered
+                    foreach ($this->propertiesToDisplay as $property) {
+                        if (array_key_exists($property, $this->dataTypes)) {
+                            $dataTypes[$property] = $this->dataTypes[$property];
+                        }
+                    }
                     $neckFiltersWidget->setColumns2DataTypes($dataTypes);
-                    $neckFiltersWidget->setUseCheckbox($this->isWidgetEnabled("checkbox"));
                 }
             }
 
@@ -216,7 +220,7 @@ class Bootstrap4AdminTableRenderer extends OpenAdminTableBaseRealistListRenderer
                         <?php
                         $toolbarWidget = $this->getWidget("toolbar");
                         if ($toolbarWidget instanceof ToolbarRendererWidgetInterface) {
-                            $toolbarWidget->setGroups($this->listActionGroups);
+                            $toolbarWidget->setGroups($this->listItemGroupActions);
                         }
                         $toolbarWidget->render();
                         ?>
@@ -232,29 +236,43 @@ class Bootstrap4AdminTableRenderer extends OpenAdminTableBaseRealistListRenderer
 
                             <thead class="thead-dark oath-head-columns-sort">
                             <tr>
-                                <?php if (true === $this->isWidgetEnabled("checkbox")): ?>
-                                    <th scope="col">
-                                        <div>
-                                            <input type="checkbox" class="bsatr-master-checkbox" value="" id=""/>
-                                        </div>
-                                    </th>
-                                <?php endif; ?>
+
                                 <?php
-                                $labels = array_diff_key($this->labels, array_flip($this->hiddenColumns));
+                                $labels = [];
+                                foreach ($this->propertiesToDisplay as $property) {
+                                    if (array_key_exists($property, $this->labels)) {
+                                        $label = $this->labels[$property];
+                                    } else {
+                                        $label = "undefined";
+                                    }
+                                    $labels[$property] = $label;
+                                }
+
+
                                 foreach ($labels as $colName => $label):
                                     $type = $this->getDataType($colName);
                                     ?>
                                     <th scope="col">
-                                        <?php if ('action' !== $type): ?>
+                                        <?php switch ($type):
+                                            case 'action': ?>
+                                                <div><?php echo $label; ?></div>
+                                                <?php break; ?>
 
-                                            <?php if (true === $this->isWidgetEnabled("head_sort")): ?>
+                                            <?php case 'checkbox': ?>
+                                                <div>
+                                                    <input type="checkbox" class="bsatr-master-checkbox" value=""
+                                                           id=""/>
+                                                </div>
+                                                <?php break; ?>
+                                            <?php default: ?>
+                                                <?php if (true === $this->isWidgetEnabled("head_sort")): ?>
 
-                                                <div class="rtt-emitter" data-rtt-tag="col_order"
-                                                     data-rtt-extra-tag_group="head_columns_sort">
-                                                    <a href="#" class="text-white-50 oath-sort-trigger d-flex">
-                                                        <span class="text-white"><?php echo $label; ?></span>
+                                                    <div class="rtt-emitter" data-rtt-tag="col_order"
+                                                         data-rtt-extra-tag_group="head_columns_sort">
+                                                        <a href="#" class="text-white-50 oath-sort-trigger d-flex">
+                                                            <span class="text-white"><?php echo $label; ?></span>
 
-                                                        <span class="ml-auto">
+                                                            <span class="ml-auto">
                                                             <i class="fas fa-sort-amount-down oath-icon d-none"
                                                                data-state="desc"></i>
                                                             <i class="fas fa-sort-amount-up oath-icon d-none"
@@ -267,15 +285,13 @@ class Bootstrap4AdminTableRenderer extends OpenAdminTableBaseRealistListRenderer
                                                                   data-rtt-value="neutral"></span>
 
                                                         </span>
-                                                    </a>
-                                                </div>
-                                            <?php else: ?>
-                                                <div><?php echo $label; ?></div>
-                                            <?php endif; ?>
-
-                                        <?php else: ?>
-                                            <div><?php echo $label; ?></div>
-                                        <?php endif; ?>
+                                                        </a>
+                                                    </div>
+                                                <?php else: ?>
+                                                    <div><?php echo $label; ?></div>
+                                                <?php endif; ?>
+                                                <?php break; ?>
+                                            <?php endswitch; ?>
                                     </th>
                                 <?php endforeach; ?>
                             </tr>
@@ -284,33 +300,7 @@ class Bootstrap4AdminTableRenderer extends OpenAdminTableBaseRealistListRenderer
 
                         <tbody>
 
-
                         <?php $this->printWidgetIfExists("neck_filters");; ?>
-
-
-                        <?php if (false): ?>
-                            <?php for ($i = 1; $i <= 3; $i++): ?>
-
-                                <tr>
-                                    <?php if (true === $this->isWidgetEnabled("checkbox")): ?>
-                                        <td>
-                                            <input type="checkbox" value="" id=""/>
-                                        </td>
-                                    <?php endif; ?>
-                                    <td>1</td>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>/my/url</td>
-                                    <td>(rights)</td>
-                                    <td>(extra)</td>
-                                    <td>
-                                        <button type="button" class="btn btn-outline-primary btn-sm mb-2 text-nowrap"><i
-                                                    class="far fa-edit"></i> Edit
-                                        </button>
-                                    </td>
-                                </tr>
-                            <?php endfor; ?>
-                        <?php endif; ?>
                         </tbody>
                     </table>
                 <?php endif; ?>
@@ -486,8 +476,6 @@ class Bootstrap4AdminTableRenderer extends OpenAdminTableBaseRealistListRenderer
         $listGeneralActionLeaves = $this->listGeneralActions;
 
 
-
-
         if (null !== $this->container) {
             /**
              * @var $ajaxHandler LightAjaxHandlerService
@@ -529,6 +517,9 @@ class Bootstrap4AdminTableRenderer extends OpenAdminTableBaseRealistListRenderer
                     var listActionLeaves = <?php echo json_encode($listActionLeaves); ?>;
                     var listGeneralActionItems = <?php echo json_encode($listGeneralActionLeaves); ?>;
                     var useResponsiveTableHelper = true;
+
+
+                    // var useResponsiveTableHelper = false;
                     var rth = null; // the responsive table helper instance
                     var ajaxHandlerUrl = "<?php echo $ajaxHandlerUrl; ?>";
 
@@ -643,6 +634,7 @@ class Bootstrap4AdminTableRenderer extends OpenAdminTableBaseRealistListRenderer
                      * Share the objects with other js tools
                      */
                     window.RealistRegistry.setOpenAdminTableHelper(helper);
+                    window.RealistRegistry.setListActionHelper(listActionHelper);
 
                 });
             });

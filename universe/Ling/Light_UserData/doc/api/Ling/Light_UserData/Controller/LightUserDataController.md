@@ -4,7 +4,7 @@
 
 The LightUserDataController class
 ================
-2019-09-27 --> 2020-06-23
+2019-09-27 --> 2020-11-12
 
 
 
@@ -22,15 +22,16 @@ Class synopsis
 ==============
 
 
-class <span class="pl-k">LightUserDataController</span> extends [LightController](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Controller/LightController.md) implements [LightAwareInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/LightAwareInterface.md), [LightControllerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Controller/LightControllerInterface.md) {
+class <span class="pl-k">LightUserDataController</span> extends [LightHttpErrorController](https://github.com/lingtalfi/Light_HttpError/blob/master/doc/api/Ling/Light_HttpError/Controller/LightHttpErrorController.md) implements [LightControllerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Controller/LightControllerInterface.md), [LightAwareInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/LightAwareInterface.md) {
 
 - Inherited properties
     - protected [Ling\Light\Core\Light](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light.md) [LightController::$light](#property-light) ;
 
 - Methods
-    - public [render](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Controller/LightUserDataController/render.md)(string $id, Ling\Light\Http\HttpRequestInterface $request) : void
+    - protected [doRender](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Controller/LightUserDataController/doRender.md)(Ling\Light\Http\HttpRequestInterface $request) : [HttpResponseInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponseInterface.md)
 
 - Inherited methods
+    - public LightHttpErrorController::render(Ling\Light\Http\HttpRequestInterface $request) : [HttpResponseInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponseInterface.md)
     - public LightController::__construct() : void
     - public LightController::setLight([Ling\Light\Core\Light](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light.md) $light) : void
     - protected LightController::getLight() : [Light](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light.md)
@@ -48,7 +49,8 @@ class <span class="pl-k">LightUserDataController</span> extends [LightController
 Methods
 ==============
 
-- [LightUserDataController::render](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Controller/LightUserDataController/render.md) &ndash; or throws an exception.
+- [LightUserDataController::doRender](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Controller/LightUserDataController/doRender.md) &ndash; Renders the page requested by the given request, and returns the appropriate response.
+- LightHttpErrorController::render &ndash; Renders the page requested by the given request, and returns the appropriate response.
 - LightController::__construct &ndash; Builds the LightController instance.
 - LightController::setLight &ndash; Sets the light instance.
 - LightController::getLight &ndash; Returns the light application.

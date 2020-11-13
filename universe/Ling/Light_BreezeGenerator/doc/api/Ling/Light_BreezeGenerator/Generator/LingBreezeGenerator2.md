@@ -4,7 +4,7 @@
 
 The LingBreezeGenerator2 class
 ================
-2019-09-11 --> 2020-07-27
+2019-09-11 --> 2020-11-09
 
 
 
@@ -63,6 +63,10 @@ class <span class="pl-k">LingBreezeGenerator2</span> implements [BreezeGenerator
 
 - Properties
     - protected [Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) [$container](#property-container) ;
+    - private array [$alreadyUsedMethodNames](#property-alreadyUsedMethodNames) ;
+    - private array [$alreadyUsedMethodNamesInterface](#property-alreadyUsedMethodNamesInterface) ;
+    - private bool [$_usePrefixInMethodNames](#property-_usePrefixInMethodNames) ;
+    - private array [$_allPrefixes](#property-_allPrefixes) ;
 
 - Methods
     - public [__construct](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/__construct.md)() : void
@@ -79,7 +83,12 @@ class <span class="pl-k">LingBreezeGenerator2</span> implements [BreezeGenerator
     - protected [getClassNameFromTable](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getClassNameFromTable.md)(string $table) : string
     - protected [getRicVariables](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getRicVariables.md)(array $ric, array $types) : array
     - protected [getUniqueIndexesVariables](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getUniqueIndexesVariables.md)(array $uniqueIndexes, array $types) : array
-    - protected [getRicMethod](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getRicMethod.md)(string $method, array $variables, ?array $options = []) : string
+    - protected [getFetchFetchAllYYYMethod](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getFetchFetchAllYYYMethod.md)(array $variables) : string
+    - protected [getGetUserByIdMethod](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getGetUserByIdMethod.md)(array $variables) : string
+    - protected [getUpdateUserByIdMethod](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getUpdateUserByIdMethod.md)(array $variables) : string
+    - protected [getUpdateUserMethod](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getUpdateUserMethod.md)(array $variables) : string
+    - protected [getDeleteUserByIdMethod](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getDeleteUserByIdMethod.md)(array $variables) : string
+    - protected [getDeleteUserByIdsMethod](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getDeleteUserByIdsMethod.md)(array $variables) : string
     - protected [getIdByUniqueIndexMethods](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getIdByUniqueIndexMethods.md)(array $variables) : string
     - protected [getItemsMethod](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getItemsMethod.md)(array $variables, ?string $template = null) : string
     - protected [getItemMethod](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getItemMethod.md)(array $variables) : string
@@ -90,18 +99,30 @@ class <span class="pl-k">LingBreezeGenerator2</span> implements [BreezeGenerator
     - protected [getItemsXXXByHasMethod](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getItemsXXXByHasMethod.md)(array $variables) : string
     - protected [getItemsXXXByHasInterfaceMethod](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getItemsXXXByHasInterfaceMethod.md)(array $variables) : string
     - protected [getIdByUniqueIndexInterfaceMethods](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getIdByUniqueIndexInterfaceMethods.md)(array $variables) : string
-    - protected [getInterfaceMethod](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getInterfaceMethod.md)(string $methodName, array $variables) : string
+    - protected [getMultipleInsertXXXInterfaceMethod](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getMultipleInsertXXXInterfaceMethod.md)(array $variables) : string
+    - protected [getFetchFetchAllXXXInterfaceMethod](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getFetchFetchAllXXXInterfaceMethod.md)(array $variables) : string
+    - protected [getInsertXXXInterfaceMethod](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getInsertXXXInterfaceMethod.md)(array $variables) : string
+    - protected [getGetXXXByIdInterfaceMethod](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getGetXXXByIdInterfaceMethod.md)(array $variables) : string
+    - protected [getGetAllXXXInterfaceMethod](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getGetAllXXXInterfaceMethod.md)(array $variables) : string
+    - protected [getUpdateXXXByIdInterfaceMethod](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getUpdateXXXByIdInterfaceMethod.md)(array $variables) : string
+    - protected [getUpdateXXXInterfaceMethod](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getUpdateXXXInterfaceMethod.md)(array $variables) : string
+    - protected [getDeleteXXXByIdInterfaceMethod](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getDeleteXXXByIdInterfaceMethod.md)(array $variables) : string
+    - protected [getDeleteXXXByIdsInterfaceMethod](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getDeleteXXXByIdsInterfaceMethod.md)(array $variables) : string
     - protected [getFactoryMethod](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getFactoryMethod.md)(array $variables) : string
     - protected [getInsertMethod](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getInsertMethod.md)(array $variables) : string
     - protected [getInsertMultipleMethod](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getInsertMultipleMethod.md)(array $variables) : string
     - protected [getAllMethod](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getAllMethod.md)(array $variables) : string
     - protected [getDeleteMethod](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getDeleteMethod.md)() : string
+    - protected [getDeleteByFkMethod](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getDeleteByFkMethod.md)(array $variables) : string
     - protected [getDeleteMethodInterface](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getDeleteMethodInterface.md)(array $variables) : string
+    - protected [getDeleteByFkMethodInterface](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getDeleteByFkMethodInterface.md)(array $variables) : string
+    - protected [log](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/log.md)($msg) : void
     - private [getGetAllXXXMethodName](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getGetAllXXXMethodName.md)(array $ric) : string
     - private [getClassPath](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getClassPath.md)(string $baseDir, string $className, ?string $relativeDir = null) : string
     - private [getClassNamespace](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getClassNamespace.md)(string $baseNamespace, ?string $relativeNamespace = null) : string
     - private [getEpuratedTableName](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getEpuratedTableName.md)(string $table, array $allPrefixes) : string
     - private [replaceCommonTags](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/replaceCommonTags.md)(string $expression) : string
+    - private [getLineStack](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getLineStack.md)(array $ricVariables, ?int $indent = 3) : string
     - private [error](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/error.md)(string $msg) : void
 
 }
@@ -115,6 +136,32 @@ Properties
 - <span id="property-container"><b>container</b></span>
 
     This property holds the container for this instance.
+    
+    
+
+- <span id="property-alreadyUsedMethodNames"><b>alreadyUsedMethodNames</b></span>
+
+    This property holds the alreadyUsedMethodNames for this instance.
+    Not all already used method names are stored here, just those that might create conflicts.
+    
+    
+
+- <span id="property-alreadyUsedMethodNamesInterface"><b>alreadyUsedMethodNamesInterface</b></span>
+
+    This property holds the alreadyUsedMethodNamesInterface for this instance.
+    Same as $alreadyUsedMethodNames, but for interfaces.
+    
+    
+
+- <span id="property-_usePrefixInMethodNames"><b>_usePrefixInMethodNames</b></span>
+
+    This property holds the _usePrefixInMethodNames for this instance.
+    
+    
+
+- <span id="property-_allPrefixes"><b>_allPrefixes</b></span>
+
+    This property holds the _allPrefixes for this instance.
     
     
 
@@ -137,7 +184,12 @@ Methods
 - [LingBreezeGenerator2::getClassNameFromTable](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getClassNameFromTable.md) &ndash; Returns the class name from the given table name.
 - [LingBreezeGenerator2::getRicVariables](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getRicVariables.md) &ndash; Returns some useful variables based on the ric array.
 - [LingBreezeGenerator2::getUniqueIndexesVariables](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getUniqueIndexesVariables.md) &ndash; Returns an array of useful variables sets based on the unique indexes array (one set per unique indexes entry is returned).
-- [LingBreezeGenerator2::getRicMethod](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getRicMethod.md) &ndash; that the method requires the ric array in order to produce the concrete php method).
+- [LingBreezeGenerator2::getFetchFetchAllYYYMethod](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getFetchFetchAllYYYMethod.md) &ndash; Returns the content of the fetchFetchAllYYY method.
+- [LingBreezeGenerator2::getGetUserByIdMethod](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getGetUserByIdMethod.md) &ndash; Returns the content of the getUserById method.
+- [LingBreezeGenerator2::getUpdateUserByIdMethod](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getUpdateUserByIdMethod.md) &ndash; Returns the content of the updateUserById method.
+- [LingBreezeGenerator2::getUpdateUserMethod](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getUpdateUserMethod.md) &ndash; Returns the content of the updateUser method.
+- [LingBreezeGenerator2::getDeleteUserByIdMethod](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getDeleteUserByIdMethod.md) &ndash; Returns the content of the deleteUserById method.
+- [LingBreezeGenerator2::getDeleteUserByIdsMethod](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getDeleteUserByIdsMethod.md) &ndash; Returns the content of the deleteUserByIds method.
 - [LingBreezeGenerator2::getIdByUniqueIndexMethods](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getIdByUniqueIndexMethods.md) &ndash; Parses the given variables, and returns an output.
 - [LingBreezeGenerator2::getItemsMethod](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getItemsMethod.md) &ndash; Parses the given variables and return a string corresponding to the getItems method.
 - [LingBreezeGenerator2::getItemMethod](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getItemMethod.md) &ndash; Parses the given variables and return a string corresponding to the getItem method.
@@ -148,18 +200,30 @@ Methods
 - [LingBreezeGenerator2::getItemsXXXByHasMethod](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getItemsXXXByHasMethod.md) &ndash; Parses the given variables and returns a string corresponding to the "getTagNamesByResourceId" methods.
 - [LingBreezeGenerator2::getItemsXXXByHasInterfaceMethod](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getItemsXXXByHasInterfaceMethod.md) &ndash; Parses the given variables and returns a string corresponding to the "getTagNamesByResourceId" interface methods.
 - [LingBreezeGenerator2::getIdByUniqueIndexInterfaceMethods](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getIdByUniqueIndexInterfaceMethods.md) &ndash; Parses the given variables, and returns an output.
-- [LingBreezeGenerator2::getInterfaceMethod](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getInterfaceMethod.md) &ndash; Returns the content of the interface method identified by the given methodName.
+- [LingBreezeGenerator2::getMultipleInsertXXXInterfaceMethod](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getMultipleInsertXXXInterfaceMethod.md) &ndash; Returns the content of the multipleInsertXXX method for the interfaces.
+- [LingBreezeGenerator2::getFetchFetchAllXXXInterfaceMethod](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getFetchFetchAllXXXInterfaceMethod.md) &ndash; Returns the content of the fetchFetchAllXXX method for the interfaces.
+- [LingBreezeGenerator2::getInsertXXXInterfaceMethod](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getInsertXXXInterfaceMethod.md) &ndash; Returns the content of the insertXXX method for the interfaces.
+- [LingBreezeGenerator2::getGetXXXByIdInterfaceMethod](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getGetXXXByIdInterfaceMethod.md) &ndash; Returns the content of the getXXXById method for the interfaces.
+- [LingBreezeGenerator2::getGetAllXXXInterfaceMethod](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getGetAllXXXInterfaceMethod.md) &ndash; Returns the content of the getAllXXX method for the interfaces.
+- [LingBreezeGenerator2::getUpdateXXXByIdInterfaceMethod](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getUpdateXXXByIdInterfaceMethod.md) &ndash; Returns the content of the updateXXXById method for the interfaces.
+- [LingBreezeGenerator2::getUpdateXXXInterfaceMethod](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getUpdateXXXInterfaceMethod.md) &ndash; Returns the content of the updateXXX method for the interfaces.
+- [LingBreezeGenerator2::getDeleteXXXByIdInterfaceMethod](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getDeleteXXXByIdInterfaceMethod.md) &ndash; Returns the content of the deleteXXXById method for the interfaces.
+- [LingBreezeGenerator2::getDeleteXXXByIdsInterfaceMethod](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getDeleteXXXByIdsInterfaceMethod.md) &ndash; Returns the content of the deleteXXXByIds method for the interfaces.
 - [LingBreezeGenerator2::getFactoryMethod](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getFactoryMethod.md) &ndash; inside the generated factory object).
 - [LingBreezeGenerator2::getInsertMethod](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getInsertMethod.md) &ndash; Returns the content of a php method of type insert (internal naming convention).
 - [LingBreezeGenerator2::getInsertMultipleMethod](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getInsertMultipleMethod.md) &ndash; Returns the content of a php method of type insert multiple (internal naming convention).
 - [LingBreezeGenerator2::getAllMethod](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getAllMethod.md) &ndash; or an empty string otherwise.
 - [LingBreezeGenerator2::getDeleteMethod](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getDeleteMethod.md) &ndash; Returns the content of the delete template.
+- [LingBreezeGenerator2::getDeleteByFkMethod](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getDeleteByFkMethod.md) &ndash; Returns the content of the "delete by fk" method template.
 - [LingBreezeGenerator2::getDeleteMethodInterface](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getDeleteMethodInterface.md) &ndash; Returns the content of the delete template for the interface.
+- [LingBreezeGenerator2::getDeleteByFkMethodInterface](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getDeleteByFkMethodInterface.md) &ndash; Returns the content of the delete by fk template for the interface if there is a foreign key.
+- [LingBreezeGenerator2::log](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/log.md) &ndash; Sends a message to the log.
 - [LingBreezeGenerator2::getGetAllXXXMethodName](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getGetAllXXXMethodName.md) &ndash; Returns the getAllXXX method name for the first column of the given ric.
 - [LingBreezeGenerator2::getClassPath](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getClassPath.md) &ndash; Returns the class path (absolute path to the php file containing the class).
 - [LingBreezeGenerator2::getClassNamespace](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getClassNamespace.md) &ndash; Returns the namespace of an object based on the given arguments.
 - [LingBreezeGenerator2::getEpuratedTableName](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getEpuratedTableName.md) &ndash; Returns the lowercase table name without prefix, based on the given table and prefixes.
 - [LingBreezeGenerator2::replaceCommonTags](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/replaceCommonTags.md) &ndash; Injects the common tags in the given expression and returns the result.
+- [LingBreezeGenerator2::getLineStack](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/getLineStack.md) &ndash; Returns $indent lines of marker lines as a string.
 - [LingBreezeGenerator2::error](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/api/Ling/Light_BreezeGenerator/Generator/LingBreezeGenerator2/error.md) &ndash; Throws an error message.
 
 

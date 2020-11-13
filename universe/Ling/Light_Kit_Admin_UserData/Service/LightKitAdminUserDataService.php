@@ -186,10 +186,11 @@ class LightKitAdminUserDataService implements PluginInstallerInterface, BMenuDir
             ], true);
 
 
-            $userDb->getPermissionGroupHasPermissionApi()->deletePermissionGroupHasPermissionByPermissionGroupIdAndPermissionId($groupId, $permId);
+            $api = $userDb->getFactory()->getPermissionGroupHasPermissionApi();
+            $api->deletePermissionGroupHasPermissionByPermissionGroupIdAndPermissionId($groupId, $permId);
 
-            $userDb->getPermissionGroupHasPermissionApi()->deletePermissionGroupHasPermissionByPermissionGroupIdAndPermissionId($groupAdminId, $permId);
-            $userDb->getPermissionGroupHasPermissionApi()->deletePermissionGroupHasPermissionByPermissionGroupIdAndPermissionId($groupAdminId, $permAdminId);
+            $api->deletePermissionGroupHasPermissionByPermissionGroupIdAndPermissionId($groupAdminId, $permId);
+            $api->deletePermissionGroupHasPermissionByPermissionGroupIdAndPermissionId($groupAdminId, $permAdminId);
 
 
         }, $exception);
@@ -280,10 +281,5 @@ class LightKitAdminUserDataService implements PluginInstallerInterface, BMenuDir
 
     }
 
-
-
-    //--------------------------------------------
-    //
-    //--------------------------------------------
 
 }

@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [PhpExcelTool::getRowValues](https://github.com/lingtalfi/PhpExcelTool/blob/master/doc/api/Ling/PhpExcelTool/PhpExcelTool/getRowValues.md)(?$rowName, string $file, array $options = []) : array
+public static [PhpExcelTool::getRowValues](https://github.com/lingtalfi/PhpExcelTool/blob/master/doc/api/Ling/PhpExcelTool/PhpExcelTool/getRowValues.md)($rowName, string $file, ?array $options = []) : array
 
 
 

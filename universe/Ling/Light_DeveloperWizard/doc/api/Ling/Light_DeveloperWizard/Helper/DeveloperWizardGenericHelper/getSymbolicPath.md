@@ -53,7 +53,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [DeveloperWizardGenericHelper::getSymbolicPath](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/Helper/DeveloperWizardGenericHelper.php#L21-L28)
+See the source code for method [DeveloperWizardGenericHelper::getSymbolicPath](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/Helper/DeveloperWizardGenericHelper.php#L26-L33)
 
 
 See Also
@@ -61,5 +61,5 @@ See Also
 
 The [DeveloperWizardGenericHelper](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/Helper/DeveloperWizardGenericHelper.md) class.
 
-
+Next method: [getTablesByCreateFile](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/Helper/DeveloperWizardGenericHelper/getTablesByCreateFile.md)<br>
 

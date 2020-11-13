@@ -7,7 +7,7 @@ LightChloroformExtensionService::getTableListService
 
 
 
-LightChloroformExtensionService::getTableListService — Returns the table list service based on the given table list identifier.
+LightChloroformExtensionService::getTableListService — Returns the table list service based on the given table list identifier or directive id.
 
 
 
@@ -16,12 +16,12 @@ Description
 ================
 
 
-public [LightChloroformExtensionService::getTableListService](https://github.com/lingtalfi/Light_ChloroformExtension/blob/master/doc/api/Ling/Light_ChloroformExtension/Service/LightChloroformExtensionService/getTableListService.md)(string $tableListIdentifier) : [TableListService](https://github.com/lingtalfi/Light_ChloroformExtension/blob/master/doc/api/Ling/Light_ChloroformExtension/Field/TableList/TableListService.md)
+public [LightChloroformExtensionService::getTableListService](https://github.com/lingtalfi/Light_ChloroformExtension/blob/master/doc/api/Ling/Light_ChloroformExtension/Service/LightChloroformExtensionService/getTableListService.md)(string $tableListIdentifierOrDirectiveId) : [TableListService](https://github.com/lingtalfi/Light_ChloroformExtension/blob/master/doc/api/Ling/Light_ChloroformExtension/Field/TableList/TableListService.md)
 
 
 
 
-Returns the table list service based on the given table list identifier.
+Returns the table list service based on the given table list identifier or directive id.
 
 
 
@@ -30,7 +30,7 @@ Parameters
 ================
 
 
-- tableListIdentifier
+- tableListIdentifierOrDirectiveId
 
     
 
@@ -54,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightChloroformExtensionService::getTableListService](https://github.com/lingtalfi/Light_ChloroformExtension/blob/master/Service/LightChloroformExtensionService.php#L66-L78)
+See the source code for method [LightChloroformExtensionService::getTableListService](https://github.com/lingtalfi/Light_ChloroformExtension/blob/master/Service/LightChloroformExtensionService.php#L73-L80)
 
 
 See Also
@@ -62,5 +62,5 @@ See Also
 
 The [LightChloroformExtensionService](https://github.com/lingtalfi/Light_ChloroformExtension/blob/master/doc/api/Ling/Light_ChloroformExtension/Service/LightChloroformExtensionService.md) class.
 
-Previous method: [registerTableListConfigurationHandler](https://github.com/lingtalfi/Light_ChloroformExtension/blob/master/doc/api/Ling/Light_ChloroformExtension/Service/LightChloroformExtensionService/registerTableListConfigurationHandler.md)<br>Next method: [setContainer](https://github.com/lingtalfi/Light_ChloroformExtension/blob/master/doc/api/Ling/Light_ChloroformExtension/Service/LightChloroformExtensionService/setContainer.md)<br>
+Previous method: [getConfigurationItem](https://github.com/lingtalfi/Light_ChloroformExtension/blob/master/doc/api/Ling/Light_ChloroformExtension/Service/LightChloroformExtensionService/getConfigurationItem.md)<br>Next method: [setContainer](https://github.com/lingtalfi/Light_ChloroformExtension/blob/master/doc/api/Ling/Light_ChloroformExtension/Service/LightChloroformExtensionService/setContainer.md)<br>
 

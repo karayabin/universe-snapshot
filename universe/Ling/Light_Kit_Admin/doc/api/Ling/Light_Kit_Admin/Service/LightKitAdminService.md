@@ -4,7 +4,7 @@
 
 The LightKitAdminService class
 ================
-2019-05-17 --> 2020-07-07
+2019-05-17 --> 2020-08-21
 
 
 
@@ -36,6 +36,7 @@ class <span class="pl-k">LightKitAdminService</span> implements [PluginInstaller
     - protected array [$options](#property-options) ;
     - protected [Ling\Light_Kit_Admin\LightKitAdminPlugin\LightKitAdminPluginInterface[]](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/LightKitAdminPlugin/LightKitAdminPluginInterface.md) [$lkaPlugins](#property-lkaPlugins) ;
     - protected array [$lkaPluginOptions](#property-lkaPluginOptions) ;
+    - private array [$lateRegister](#property-lateRegister) ;
 
 - Methods
     - public [__construct](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/__construct.md)() : void
@@ -49,6 +50,7 @@ class <span class="pl-k">LightKitAdminService</span> implements [PluginInstaller
     - public [getUrlByController](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/getUrlByController.md)(string $controller) : string
     - public [getRedirectResponseByRoute](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/getRedirectResponseByRoute.md)(string $route, ?array $urlParams = []) : [HttpRedirectResponse](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpRedirectResponse.md)
     - public [onLightExceptionCaught](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/onLightExceptionCaught.md)(Ling\Light\Events\LightEvent $event) : void
+    - public [lateRegistration](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/lateRegistration.md)(string $type, string $identifier) : void
     - public [install](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/install.md)() : void
     - public [uninstall](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/uninstall.md)() : void
     - public [isInstalled](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/isInstalled.md)() : bool
@@ -94,6 +96,12 @@ Properties
     
     
 
+- <span id="property-lateRegister"><b>lateRegister</b></span>
+
+    This property holds the array of plugin names dynamically registering to some other services.
+    
+    
+
 
 
 Methods
@@ -110,6 +118,7 @@ Methods
 - [LightKitAdminService::getUrlByController](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/getUrlByController.md) &ndash; Returns the url corresponding to the given controller.
 - [LightKitAdminService::getRedirectResponseByRoute](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/getRedirectResponseByRoute.md) &ndash; Creates and returns an HttpRedirectResponse, based on the given arguments.
 - [LightKitAdminService::onLightExceptionCaught](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/onLightExceptionCaught.md) &ndash; 
+- [LightKitAdminService::lateRegistration](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/lateRegistration.md) &ndash; Allows lka plugins to register their services to some plugins in a dynamic way.
 - [LightKitAdminService::install](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/install.md) &ndash; Installs the plugin in the light application.
 - [LightKitAdminService::uninstall](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/uninstall.md) &ndash; Uninstalls the plugin.
 - [LightKitAdminService::isInstalled](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/isInstalled.md) &ndash; Returns whether the core install phase of the plugin is fully completed.
@@ -128,4 +137,4 @@ See the source code of [Ling\Light_Kit_Admin\Service\LightKitAdminService](https
 
 SeeAlso
 ==============
-Previous class: [RightsHelper](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Rights/RightsHelper.md)<br>Next class: [LightKitAdminChloroformWidget](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Widget/Picasso/LightKitAdminChloroformWidget.md)<br>
+Previous class: [RightsHelper](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Rights/RightsHelper.md)<br>Next class: [LightKitAdminStandardServicePlugin](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminStandardServicePlugin.md)<br>

@@ -1,6 +1,6 @@
 Light_DatabaseUtils
 ===========
-2019-10-01
+2019-10-01 -> 2020-09-03
 
 
 
@@ -91,6 +91,10 @@ INSERT INTO `lud_user` (`id`, `identifier`, `pseudo`, `password`, `avatar_url`, 
 History Log
 =============
 
+- 1.1.1 -- 2020-09-03
+
+    - fix Light_DatabaseDumpUtility->dumpTable not keeping NULL values in some cases
+    
 - 1.1.0 -- 2019-10-01
 
     - add Light_DatabaseDumpUtility->dumpTable returnAsString option

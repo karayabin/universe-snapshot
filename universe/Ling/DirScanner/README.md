@@ -1,6 +1,6 @@
 DirScanner
 ==============
-2015-11-03 --> 2017-04-18
+2015-11-03 -> 2020-08-18
 
 
 
@@ -148,6 +148,10 @@ $dirs = YorgDirScannerTool::getDirs("/path/to/dir");
 History Log
 ------------------
 
+- 1.13.0 -- 2020-08-18
+
+    - add YorgDirScannerTool::getFilesWithName method
+    
 - 1.12.0 -- 2019-10-04
 
     - add YorgDirScannerTool::getFilesWithoutExtension method

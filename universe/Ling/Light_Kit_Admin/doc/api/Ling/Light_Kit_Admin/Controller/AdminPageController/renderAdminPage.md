@@ -26,6 +26,12 @@ if she is not connected yet.
 
 
 
+Example of page values:
+
+- Light_Kit_Admin_UserPreferences/kit/zeroadmin/generated/lup_user_preference_list
+
+
+
 
 Parameters
 ================
@@ -63,7 +69,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [AdminPageController::renderAdminPage](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Controller/AdminPageController.php#L45-L57)
+See the source code for method [AdminPageController::renderAdminPage](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Controller/AdminPageController.php#L53-L65)
 
 
 See Also

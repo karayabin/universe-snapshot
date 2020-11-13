@@ -54,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [Where::lessThanOrEqualsTo](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/Util/Where.php#L151-L154)
+See the source code for method [Where::lessThanOrEqualsTo](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/Util/Where.php#L160-L163)
 
 
 See Also

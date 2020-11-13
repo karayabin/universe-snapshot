@@ -56,7 +56,6 @@ if ('undefined' === typeof ListActionHandlerHelper) {
                             var rics = $this.options.ricHelper.getSelectedRic();
 
                             callable($(this), rics, $this.jContainer, $this.jTable, hepParams);
-
                             break;
                         }
 
@@ -75,8 +74,11 @@ if ('undefined' === typeof ListActionHandlerHelper) {
                 this.updateButtonStatuses();
 
             },
-            updateButtonStatuses: function () {
+            removeRicSelection: function () {
 
+            },
+
+            updateButtonStatuses: function () {
                 var rics = this.options.ricHelper.getSelectedRic();
 
 

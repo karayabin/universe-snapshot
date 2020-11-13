@@ -1,0 +1,7 @@
+db_synchronizer: 
+    scope: 
+        - lup_user_preference
+    
+
+general: 
+    table_prefix: lup

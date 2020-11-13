@@ -54,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightUploadGemsService::checkPhpFile](https://github.com/lingtalfi/Light_UploadGems/blob/master/Service/LightUploadGemsService.php#L118-L121)
+See the source code for method [LightUploadGemsService::checkPhpFile](https://github.com/lingtalfi/Light_UploadGems/blob/master/Service/LightUploadGemsService.php#L80-L83)
 
 
 See Also

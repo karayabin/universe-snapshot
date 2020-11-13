@@ -4,7 +4,7 @@
 
 The LightTaskSchedulerException class
 ================
-2020-06-30 --> 2020-07-27
+2020-06-30 --> 2020-08-14
 
 
 

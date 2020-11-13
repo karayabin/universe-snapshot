@@ -4,7 +4,7 @@
 
 The Light_UserManagerDocBuilder class
 ================
-2019-03-13 --> 2020-06-29
+2019-03-13 --> 2020-11-09
 
 
 
@@ -52,4 +52,4 @@ See the source code of [Ling\LingTalfi\DocBuilder\Light_UserManager\Light_UserMa
 
 SeeAlso
 ==============
-Previous class: [Light_UserDatabaseDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_UserDatabase/Light_UserDatabaseDocBuilder.md)<br>Next class: [Light_UserRowRestrictionDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_UserRowRestriction/Light_UserRowRestrictionDocBuilder.md)<br>
+Previous class: [Light_UserDatabaseDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_UserDatabase/Light_UserDatabaseDocBuilder.md)<br>Next class: [Light_UserNotificationsDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_UserNotifications/Light_UserNotificationsDocBuilder.md)<br>

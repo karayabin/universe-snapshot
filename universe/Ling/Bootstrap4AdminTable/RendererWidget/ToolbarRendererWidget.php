@@ -56,9 +56,11 @@ class ToolbarRendererWidget extends AbstractRendererWidget implements ToolbarRen
 
                 $groupCpt = 1;
                 $max = count($this->groups);
+
                 foreach ($this->groups as $item):
 
                     $actionId = $item['action_id'] ?? null;
+
 
 
                     $text = $item['text'];

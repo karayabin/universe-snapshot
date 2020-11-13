@@ -16,7 +16,7 @@ Description
 ================
 
 
-protected [DirScanner::error](https://github.com/lingtalfi/DirScanner/blob/master/doc/api/Ling/DirScanner/DirScanner/error.md)(?$msg) : void
+protected [DirScanner::error](https://github.com/lingtalfi/DirScanner/blob/master/doc/api/Ling/DirScanner/DirScanner/error.md)($msg) : void
 
 
 

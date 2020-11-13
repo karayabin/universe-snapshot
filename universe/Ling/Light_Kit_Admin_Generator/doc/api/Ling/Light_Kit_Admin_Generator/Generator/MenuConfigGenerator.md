@@ -4,7 +4,7 @@
 
 The MenuConfigGenerator class
 ================
-2019-11-06 --> 2020-07-06
+2019-11-06 --> 2020-09-18
 
 
 
@@ -31,7 +31,7 @@ class <span class="pl-k">MenuConfigGenerator</span> extends [LkaGenBaseConfigGen
 
 - Methods
     - public [generate](https://github.com/lingtalfi/Light_Kit_Admin_Generator/blob/master/doc/api/Ling/Light_Kit_Admin_Generator/Generator/MenuConfigGenerator/generate.md)(array $config) : void
-    - protected [getTableInfo](https://github.com/lingtalfi/Light_Kit_Admin_Generator/blob/master/doc/api/Ling/Light_Kit_Admin_Generator/Generator/MenuConfigGenerator/getTableInfo.md)(string $table, array $configBundle) : array
+    - protected [getTableInfoByConfigBundle](https://github.com/lingtalfi/Light_Kit_Admin_Generator/blob/master/doc/api/Ling/Light_Kit_Admin_Generator/Generator/MenuConfigGenerator/getTableInfoByConfigBundle.md)(string $table, array $configBundle) : array
     - protected [getDefaultLabelFromObject](https://github.com/lingtalfi/Light_Kit_Admin_Generator/blob/master/doc/api/Ling/Light_Kit_Admin_Generator/Generator/MenuConfigGenerator/getDefaultLabelFromObject.md)(string $object) : string
     - protected [getDefaultLabel](https://github.com/lingtalfi/Light_Kit_Admin_Generator/blob/master/doc/api/Ling/Light_Kit_Admin_Generator/Generator/MenuConfigGenerator/getDefaultLabel.md)(string $tableWithoutPrefix, array $hasKeywords) : string
 
@@ -48,6 +48,8 @@ class <span class="pl-k">MenuConfigGenerator</span> extends [LkaGenBaseConfigGen
     - protected BaseConfigGenerator::getGenericTagsByTable(string $table) : array
     - protected BaseConfigGenerator::getTableWithoutPrefix(string $table) : string
     - protected BaseConfigGenerator::isHasTable(string $table) : bool
+    - protected BaseConfigGenerator::getTableInfo(string $table) : array
+    - protected BaseConfigGenerator::getHumanTableName(string $table) : string
 
 }
 
@@ -60,7 +62,7 @@ Methods
 ==============
 
 - [MenuConfigGenerator::generate](https://github.com/lingtalfi/Light_Kit_Admin_Generator/blob/master/doc/api/Ling/Light_Kit_Admin_Generator/Generator/MenuConfigGenerator/generate.md) &ndash; Generates the menu configuration files according to the given [configuration block](https://github.com/lingtalfi/Light_Kit_Admin_Generator/blob/master/doc/pages/lkagen-configuration-example.md).
-- [MenuConfigGenerator::getTableInfo](https://github.com/lingtalfi/Light_Kit_Admin_Generator/blob/master/doc/api/Ling/Light_Kit_Admin_Generator/Generator/MenuConfigGenerator/getTableInfo.md) &ndash; 
+- [MenuConfigGenerator::getTableInfoByConfigBundle](https://github.com/lingtalfi/Light_Kit_Admin_Generator/blob/master/doc/api/Ling/Light_Kit_Admin_Generator/Generator/MenuConfigGenerator/getTableInfoByConfigBundle.md) &ndash; 
 - [MenuConfigGenerator::getDefaultLabelFromObject](https://github.com/lingtalfi/Light_Kit_Admin_Generator/blob/master/doc/api/Ling/Light_Kit_Admin_Generator/Generator/MenuConfigGenerator/getDefaultLabelFromObject.md) &ndash; Returns the default label from an object.
 - [MenuConfigGenerator::getDefaultLabel](https://github.com/lingtalfi/Light_Kit_Admin_Generator/blob/master/doc/api/Ling/Light_Kit_Admin_Generator/Generator/MenuConfigGenerator/getDefaultLabel.md) &ndash; Returns the default item label for the given table.
 - [LkaGenBaseConfigGenerator::getRouteNameByTable](https://github.com/lingtalfi/Light_Kit_Admin_Generator/blob/master/doc/api/Ling/Light_Kit_Admin_Generator/Generator/LkaGenBaseConfigGenerator/getRouteNameByTable.md) &ndash; Returns the route name based on the given table.
@@ -75,6 +77,8 @@ Methods
 - BaseConfigGenerator::getGenericTagsByTable &ndash; Returns the array of generic tags (used in the list and form configuration files), based on the given table.
 - BaseConfigGenerator::getTableWithoutPrefix &ndash; Returns the table name without prefix.
 - BaseConfigGenerator::isHasTable &ndash; Returns whether the given table is a **has** table (aka a many to many table, such as user_has_permission for instance).
+- BaseConfigGenerator::getTableInfo &ndash; Returns the tableInfo array, either from the createFile, or from the database, depending on the configuration.
+- BaseConfigGenerator::getHumanTableName &ndash; Returns the human version of the given table name.
 
 
 

@@ -82,48 +82,18 @@ $plugin_installer.methods_collection:
             plugin: Light_Kit_Admin_UserData
             installer: @service(kit_admin_user_data)
 
-$realform.methods_collection:
-    -
-        method: registerFormHandler
-        args:
-            plugin: Light_Kit_Admin_UserData
-            handler:
-                instance: Ling\Light_Kit_Admin\Realform\Handler\LightKitAdminRealformHandler
-                methods:
-                    setConfDir:
-                        dir: ${app_dir}/config/data/Light_Kit_Admin_UserData/Light_Realform
+#$realform.methods_collection:
+#    -
+#        method: registerFormHandler
+#        args:
+#            plugin: Light_Kit_Admin_UserData
+#            handler:
+#                instance: Ling\Light_Kit_Admin\Realform\Handler\LightKitAdminRealformHandler
+#                methods:
+#                    setConfDir:
+#                        dir: ${app_dir}/config/data/Light_Kit_Admin_UserData/Light_Realform
+#
 
-
-$realist.methods_collection:
-    -
-        method: registerListRenderer
-        args:
-            identifier: Light_Kit_Admin_UserData
-            renderer:
-                instance: Ling\Light_Kit_Admin\Realist\Rendering\LightKitAdminRealistListRenderer
-    -
-        method: registerRealistRowsRenderer
-        args:
-            identifier: Light_Kit_Admin_UserData
-            renderer:
-                instance: Ling\Light_Kit_Admin\Realist\Rendering\LightKitAdminRealistRowsRenderer
-    -
-        method: registerActionHandler
-        args:
-            renderer:
-                instance: Ling\Light_Kit_Admin\Realist\ActionHandler\LightKitAdminRealistActionHandler
-    -
-        method: registerListActionHandler
-        args:
-            plugin: Light_Kit_Admin_UserData
-            renderer:
-                instance: Ling\Light_Kit_Admin\Realist\ListActionHandler\LightKitAdminListActionHandler
-    -
-        method: registerListGeneralActionHandler
-        args:
-            plugin: Light_Kit_Admin_UserData
-            renderer:
-                instance: Ling\Light_Kit_Admin\Realist\ListGeneralActionHandler\LightKitAdminListGeneralActionHandler
 
 
 $user_row_restriction.methods_collection:

@@ -60,7 +60,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [FryingPan::sendToLog](https://github.com/lingtalfi/ClassCooker/blob/master/FryingPan/FryingPan.php#L151-L157)
+See the source code for method [FryingPan::sendToLog](https://github.com/lingtalfi/ClassCooker/blob/master/FryingPan/FryingPan.php#L162-L168)
 
 
 See Also

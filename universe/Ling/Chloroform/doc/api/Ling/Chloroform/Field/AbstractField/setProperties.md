@@ -50,7 +50,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [AbstractField::setProperties](https://github.com/lingtalfi/Chloroform/blob/master/Field/AbstractField.php#L295-L298)
+See the source code for method [AbstractField::setProperties](https://github.com/lingtalfi/Chloroform/blob/master/Field/AbstractField.php#L304-L307)
 
 
 See Also

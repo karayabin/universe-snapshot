@@ -46,7 +46,7 @@ Returns bool.
 
 Source Code
 ===========
-See the source code for method [DecorativeField::hasVeryImportantData](https://github.com/lingtalfi/Chloroform/blob/master/Field/DecorativeField.php#L166-L169)
+See the source code for method [DecorativeField::hasVeryImportantData](https://github.com/lingtalfi/Chloroform/blob/master/Field/DecorativeField.php#L175-L178)
 
 
 See Also

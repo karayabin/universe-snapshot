@@ -5,7 +5,9 @@ namespace Ling\Light_UserData\Api\Custom\Classes;
 
 use Ling\Light_UserData\Api\Custom\Interfaces\CustomResourceApiInterface;
 use Ling\Light_UserData\Api\Generated\Classes\ResourceApi;
-use Ling\SimplePdoWrapper\SimplePdoWrapper;
+use Ling\Light_UserData\Helper\LightUserDataHelper;
+use Ling\SimplePdoWrapper\Util\Columns;
+use Ling\SimplePdoWrapper\Util\SimplePdoSpecialExpressionHelper;
 use Ling\SimplePdoWrapper\Util\Where;
 
 
@@ -28,24 +30,112 @@ class CustomResourceApi extends ResourceApi implements CustomResourceApiInterfac
     /**
      * @implementation
      */
-    public function getResourceInfoByResourceIdentifier(string $resource_identifier, $default = null, bool $throwNotFoundEx = false)
+    public function hasResourceByResourceIdentifier(string $resourceIdentifier): bool
     {
+        list($userId, $canonical) = LightUserDataHelper::extractResourceIdentifier($resourceIdentifier);
+        return (0 !== (int)$this->fetch([
+                Columns::inst()->set(['count(*)'])->singleColumn(),
+                Where::inst()
+                    ->key("lud_user_id")->equals($userId)
+                    ->and()->key("canonical")->equals($canonical)
+            ]));
+    }
 
-        $ret = $this->pdoWrapper->fetch("
-        select r.*, u.identifier as user_identifier  from `$this->table` r
-        inner join lud_user u on u.id=r.lud_user_id 
-         
-         where resource_identifier=:resource_identifier", [
-            "resource_identifier" => $resource_identifier,
 
+    /**
+     * @implementation
+     */
+    public function getBaseResourceInfoByResourceIdentifier(string $resourceIdentifier, array $options = [])
+    {
+        $useTags = $options['tags'] ?? false;
+        list($userId, $canonical) = LightUserDataHelper::extractResourceIdentifier($resourceIdentifier);
+
+
+        if (true === $useTags) {
+            $groupConcatSep = SimplePdoSpecialExpressionHelper::GROUP_CONCAT_SEPARATOR;
+
+            $q = "
+select 
+r.*,
+f.id as file_id,
+f.path,
+f.nickname,
+f.is_source,
+u.identifier as user_identifier,
+group_concat(t.name separator '$groupConcatSep') as tags
+   
+from `$this->table` r
+inner join luda_resource_file f on f.luda_resource_id=r.id
+inner join lud_user u on u.id=r.lud_user_id 
+left outer join luda_resource_has_tag h on h.resource_id=r.id 
+left outer join luda_tag t on t.id=h.tag_id
+where 
+    r.lud_user_id=:lud_user_id and
+    r.canonical=:canonical
+    
+     
+group by r.lud_user_id, r.id, f.id, f.path, f.nickname, f.is_source
+
+";
+        } else {
+
+            $q = "
+               select 
+r.*, 
+f.id as file_id,
+f.path,
+f.nickname,
+f.is_source,
+u.identifier as user_identifier
+ 
+        from `$this->table` r
+        inner join luda_resource_file f on f.luda_resource_id=r.id        
+        inner join lud_user u on u.id=r.lud_user_id
+
+         where 
+            r.lud_user_id=:lud_user_id and
+            r.canonical=:canonical         
+        ";
+        }
+
+
+        $res = $this->pdoWrapper->fetchAll($q, [
+            "lud_user_id" => $userId,
+            "canonical" => $canonical,
         ]);
 
-        if (false === $ret) {
-            if (true === $throwNotFoundEx) {
-                throw new \RuntimeException("Row not found with resource_identifier=$resource_identifier.");
+
+        if (empty($res)) {
+            return false;
+        }
+
+
+        $ret = $res[0];
+        unset($ret['path']);
+        unset($ret['nickname']);
+        unset($ret['is_source']);
+        $files = [];
+
+        foreach ($res as $item) {
+            $files[] = [
+                "id" => $item['file_id'],
+                "path" => $item['path'],
+                "nickname" => $item['nickname'],
+                "is_source" => (bool)$item['is_source'],
+            ];
+        }
+        $ret['files'] = $files;
+        $ret['canonical'] = $canonical;
+
+
+        if (true === $useTags) {
+            $tags = $ret['tags'];
+            if (null === $tags) {
+                $tags = [];
             } else {
-                $ret = $default;
+                $tags = SimplePdoSpecialExpressionHelper::unserializeGroupConcatSeparator($tags);
             }
+            $ret['tags'] = $tags;
         }
         return $ret;
     }
@@ -54,50 +144,31 @@ class CustomResourceApi extends ResourceApi implements CustomResourceApiInterfac
     /**
      * @implementation
      */
-    public function getRelatedByResourceIdentifier(string $resource_identifier): array
+    public function getSourceFilePathInfoByResourceIdentifier(string $resourceIdentifier)
     {
-        $where = Where::inst()->key("resource_identifier")->likePost($resource_identifier . "-");
-        $q = "select * from `$this->table`";
-        $markers = [];
-        SimplePdoWrapper::addWhereSubStmt($q, $markers, $where);
-        $q .= ' order by id asc'; // related files index matters
-        return $this->pdoWrapper->fetchAll($q, $markers);
+        list($userId, $canonical) = LightUserDataHelper::extractResourceIdentifier($resourceIdentifier);
+
+        $q = "
+select 
+    f.path,
+    u.identifier as user_identifier
+from
+    luda_resource_file f 
+    inner join luda_resource r on r.id=f.luda_resource_id
+    inner join lud_user u on u.id=r.lud_user_id
+where 
+    r.lud_user_id=:user_id and
+    r.canonical=:canonical and
+    f.is_source=1
+              
+        ";
+
+        return $this->pdoWrapper->fetch($q, [
+            "user_id" => $userId,
+            "canonical" => $canonical,
+        ]);
+
     }
-
-
-    /**
-     * @implementation
-     */
-    public function getRelatedIdsByResourceIdentifier(string $resource_identifier): array
-    {
-        $where = Where::inst()->key("resource_identifier")->likePost($resource_identifier . "-");
-        $q = "select id from `$this->table`";
-        $markers = [];
-        SimplePdoWrapper::addWhereSubStmt($q, $markers, $where);
-        $q .= ' order by id asc'; // related files index matters
-        return $this->pdoWrapper->fetchAll($q, $markers,  \PDO::FETCH_COLUMN);
-    }
-
-
-    /**
-     * @implementation
-     */
-    public function getSourceAndRelatedByResourceIdentifier(string $resource_identifier): array
-    {
-        $where = Where::inst()
-            ->key("resource_identifier")
-            ->openingParenthesis()
-            ->equals($resource_identifier)->or()->likePost($resource_identifier . "-")
-            ->closingParenthesis();
-
-
-        $q = "select * from `$this->table`";
-        $markers = [];
-        SimplePdoWrapper::addWhereSubStmt($q, $markers, $where);
-        return $this->pdoWrapper->fetchAll($q, $markers);
-    }
-
-
 
 
 }

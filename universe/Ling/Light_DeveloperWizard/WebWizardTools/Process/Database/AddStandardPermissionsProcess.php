@@ -23,13 +23,7 @@ class AddStandardPermissionsProcess extends LightDeveloperWizardBaseProcess
         parent::__construct();
         $this->setName("add-standard-permissions");
         $this->setLabel("Add standard permissions");
-        $this->setLearnMore("
-       More about <a 
-       target=\"_blank\"
-       href=\"https://github.com/lingtalfi/TheBar/blob/master/discussions/light-standard-permissions.md\">
-       light standard permissions
-       </a>        
-        ");
+        $this->setLearnMoreByHash('add-standard-permissions');
     }
 
 

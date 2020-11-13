@@ -24,7 +24,8 @@ public [SimplePdoWrapper::insert](https://github.com/lingtalfi/SimplePdoWrapper/
 Executes the insert statement and returns the lastInsertId.
 See more info in the class description.
 
-Options: not used at the moment.
+Available options are:
+- ignore: bool=false, whether to use the ignore keyword
 
 
 
@@ -67,7 +68,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [SimplePdoWrapper::insert](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/SimplePdoWrapper.php#L157-L189)
+See the source code for method [SimplePdoWrapper::insert](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/SimplePdoWrapper.php#L163-L203)
 
 
 See Also

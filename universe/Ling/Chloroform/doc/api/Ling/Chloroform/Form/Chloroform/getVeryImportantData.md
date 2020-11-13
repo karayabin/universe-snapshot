@@ -51,7 +51,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [Chloroform::getVeryImportantData](https://github.com/lingtalfi/Chloroform/blob/master/Form/Chloroform.php#L205-L217)
+See the source code for method [Chloroform::getVeryImportantData](https://github.com/lingtalfi/Chloroform/blob/master/Form/Chloroform.php#L243-L259)
 
 
 See Also
@@ -59,5 +59,5 @@ See Also
 
 The [Chloroform](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform.md) class.
 
-Previous method: [validates](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform/validates.md)<br>Next method: [executeDataTransformers](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform/executeDataTransformers.md)<br>
+Previous method: [getValidationErrors](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform/getValidationErrors.md)<br>Next method: [getFields](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform/getFields.md)<br>
 

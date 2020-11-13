@@ -57,10 +57,7 @@ default:
         
     
     plugin: Light_Kit_Admin_UserData
-    csrf_token: 
-        name: realist-request
-        value: REALIST(Light_Realist, csrf_token, realist-request)
-    
+    csrf_token: true
     use_micro_permission: true
     use_row_restriction: false
     query_error_show_debug_info: true
@@ -179,7 +176,7 @@ default:
                 date_creation: datetime
                 date_last_update: datetime
                 lud_user_id_plus: string
-                action: action
+                _action: _action
             
         
         column_labels: 
@@ -192,7 +189,7 @@ default:
             date_creation: Date creation
             date_last_update: Date last update
             lud_user_id_plus: Lud user
-            action: Actions
+            _action: Actions
         
         hidden_columns: 
             - lud_user_id
@@ -242,10 +239,10 @@ default:
                 
             
             checkbox_column: 
-                name: checkbox
+                name: _checkbox
             
             action_column: 
-                name: action
+                name: _action
             
         
         related_links: 

@@ -1,0 +1,6 @@
+
+    /**
+     * Deletes the resourceFile rows having the given resource id.
+     * @param int $resourceId
+     */
+    public function deleteResourceFileByResourceId(int $resourceId);

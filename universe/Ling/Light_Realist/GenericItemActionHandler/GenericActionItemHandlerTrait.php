@@ -6,6 +6,7 @@ namespace Ling\Light_Realist\GenericItemActionHandler;
 
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
 use Ling\Light\Tool\LightTool;
+use Ling\Light_CsrfSession\Service\LightCsrfSessionService;
 use Ling\Light_MicroPermission\Service\LightMicroPermissionService;
 use Ling\Light_Realist\Exception\LightRealistException;
 use Ling\Light_Realist\Helper\DuelistHelper;
@@ -75,43 +76,52 @@ trait GenericActionItemHandlerTrait
      * - jsActionName: the name of the action name to use to detect js files.
      *                  I used this when I had different action names pointing to the same js handler (export_to_csv, export_to_html, export_to_pdf, ...,
      *                  all pointing to a single export_to_file handler).
+     * - params: array, some extra parameters to pass to add to the item params
      *
      *
      * @param string $actionName
      * @param array $item
-     * @param string $requestId
      * @param string $dir
      * @param array $options
      * @throws \Exception
      */
-    protected function decorateGenericActionItemByAssets(string $actionName, array &$item, string $requestId, string $dir, array $options = [])
+    protected function decorateGenericActionItemByAssets(string $actionName, array &$item, string $dir, array $options = [])
     {
 
 
         $pluginName = $this->getPluginName();
+        // options
         $generateAjaxParams = $options['generate_ajax_params'] ?? true;
         $modalVariables = $options['modalVariables'] ?? [];
         $jsActionName = $options['jsActionName'] ?? $actionName;
+        $actionParams = $options['params'] ?? [];
+
 
         //--------------------------------------------
         // AJAX PARAMS
         //--------------------------------------------
+        $params = $item['params'] ?? [];
+
         if (true === $generateAjaxParams) {
-            $params = $item['params'] ?? [];
+
+            /**
+             * @var $csrf LightCsrfSessionService
+             */
+            $csrf = $this->container->get("csrf_session");
+            $csrfToken = $csrf->getToken(); // by default, we automatically provide a csrf token
             $params = array_merge($params, [
                 "url" => $this->container->get("reverse_router")->getUrl('lah_route-ajax_handler'),
                 "handler" => $pluginName,
                 "action" => $actionName,
-                "request_id" => $requestId,
+                "csrf_token" => $csrfToken,
             ]);
-            $item['params'] = $params;
         }
 
+        $item['params'] = array_merge($params, $actionParams);
 
         //--------------------------------------------
         // JS
         //--------------------------------------------
-
         $jsFile = $dir . "/jsActionFiles/$jsActionName.js";
         if (file_exists($jsFile)) {
             $item['js_code'] = file_get_contents($jsFile);
@@ -145,7 +155,7 @@ trait GenericActionItemHandlerTrait
          */
         $realist = $this->container->get("realist");
         $conf = $realist->getConfigurationArrayByRequestId($requestId);
-        return DuelistHelper::getRawTableName($conf['table']);
+        return DuelistHelper::getRawTableNameByRequestDeclaration($conf);
     }
 
     /**

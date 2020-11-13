@@ -1,0 +1,7 @@
+db_synchronizer: 
+    scope: 
+        - lun_user_notification
+    
+
+general: 
+    table_prefix: lun

@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [Light_DatabaseDumpUtility::dumpTable](https://github.com/lingtalfi/Light_DatabaseUtils/blob/master/doc/api/Ling/Light_DatabaseUtils/Util/Light_DatabaseDumpUtility/dumpTable.md)(string $table, string $targetDir, array $options = []) : mixed
+public [Light_DatabaseDumpUtility::dumpTable](https://github.com/lingtalfi/Light_DatabaseUtils/blob/master/doc/api/Ling/Light_DatabaseUtils/Util/Light_DatabaseDumpUtility/dumpTable.md)(string $table, string $targetDir, ?array $options = []) : mixed
 
 
 
@@ -77,7 +77,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [Light_DatabaseDumpUtility::dumpTable](https://github.com/lingtalfi/Light_DatabaseUtils/blob/master/Util/Light_DatabaseDumpUtility.php#L70-L147)
+See the source code for method [Light_DatabaseDumpUtility::dumpTable](https://github.com/lingtalfi/Light_DatabaseUtils/blob/master/Util/Light_DatabaseDumpUtility.php#L70-L154)
 
 
 See Also

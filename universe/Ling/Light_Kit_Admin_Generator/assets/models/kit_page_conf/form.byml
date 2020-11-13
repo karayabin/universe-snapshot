@@ -9,6 +9,6 @@ zones:
             widgetDir: templates/Light_Kit_Admin/widgets/picasso/LightKitAdminChloroformWidget
             template: default.php
             vars: []
-                title: {TableLabel}
+                title: ${rendering.title}
                 form: ${form}
-                related_links: {relatedLinks}
+                related_links: ${rendering.related_links}

@@ -141,7 +141,6 @@ class Light_RealformDocBuilder
              * This map in particular is the one used for the whole DocTools planet documentation (pages and api).
              */
             "keyWord2UrlMap" => [
-                "conception notes" => $doc . '/pages/conception-notes.md',
                 "dynamic injection handler" => $doc . '/pages/conception-notes-linear.md#dynamic-injection',
                 "recommended micro-permission notation for database" =>  'https://github.com/lingtalfi/Light_MicroPermission/blob/master/doc/pages/recommended-micropermission-notation.md',
                 "Light_ChloroformExtension plugin" =>  'https://github.com/lingtalfi/Light_ChloroformExtension',
@@ -154,6 +153,11 @@ class Light_RealformDocBuilder
                 "the form multiplier trick document" =>  'https://github.com/lingtalfi/TheBar/blob/master/discussions/form-multiplier.md',
                 "standard micro-permission notation for database interaction" =>  'https://github.com/lingtalfi/Light_MicroPermission/blob/master/doc/pages/recommended-micropermission-notation.md#database-interaction',
                 "the user row restriction system" =>  'https://github.com/lingtalfi/Light_UserRowRestriction/blob/master/doc/pages/conception-notes.md',
+                "late registration concept" =>  'https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/design/late-service-registration.md',
+                "form handling system a algorithm" =>  $doc . '/pages/2020/conception-notes.md#form-handling-system-a',
+                "Light_Realform conception notes" =>  $doc . '/pages/2020/conception-notes.md',
+                "the updateRic definition in the Light_Realform conception notes" =>  $doc . '/pages/2020/conception-notes.md#the-updateric-concept',
+                "the configuration file section of the Light_Realform conception notes" =>  $doc . '/pages/2020/conception-notes.md#the-configuration-file',
             ],
             /**
              * An array of external classes to url.
@@ -172,6 +176,9 @@ class Light_RealformDocBuilder
                 "Ling\Light\ServiceContainer\LightServiceContainerInterface" => "https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md",
                 "Ling\Chloroform\DataTransformer\DataTransformerInterface" => "https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/DataTransformer/DataTransformerInterface.md",
                 "Ling\Light\Http\HttpResponseInterface" => "https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponseInterface.md",
+                "Ling\Light_User\LightWebsiteUser" => "https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser.md",
+                "Ling\Light_Nugget\SecurityHandler\LightNuggetSecurityHandlerInterface" => "https://github.com/lingtalfi/Light_Nugget/blob/master/doc/api/Ling/Light_Nugget/SecurityHandler/LightNuggetSecurityHandlerInterface.md",
+
 
             ],
             "ignoreFilesStartingWith" => [

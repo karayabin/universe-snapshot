@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [LightBaseCrudRequestHandler::execute](https://github.com/lingtalfi/Light_Crud/blob/master/doc/api/Ling/Light_Crud/CrudRequestHandler/LightBaseCrudRequestHandler/execute.md)(string $pluginContextIdentifier, string $table, string $action, ?array $params = []) : mixed
+public [LightBaseCrudRequestHandler::execute](https://github.com/lingtalfi/Light_Crud/blob/master/doc/api/Ling/Light_Crud/CrudRequestHandler/LightBaseCrudRequestHandler/execute.md)(string $table, string $action, ?array $params = []) : mixed
 
 
 
@@ -37,8 +37,7 @@ The params depend on the action, we suggest the following:
 - deleteMultiple:
      - rics: array of ric items, each of which being an array of key/value pairs representing the ric of a row to delete
 
-
-Other params might be added by plugin authors when necessary.
+- ...other params might be added by plugin authors when necessary.
 
 
 
@@ -46,10 +45,6 @@ Other params might be added by plugin authors when necessary.
 Parameters
 ================
 
-
-- pluginContextIdentifier
-
-    
 
 - table
 
@@ -83,7 +78,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightBaseCrudRequestHandler::execute](https://github.com/lingtalfi/Light_Crud/blob/master/CrudRequestHandler/LightBaseCrudRequestHandler.php#L50-L78)
+See the source code for method [LightBaseCrudRequestHandler::execute](https://github.com/lingtalfi/Light_Crud/blob/master/CrudRequestHandler/LightBaseCrudRequestHandler.php#L51-L77)
 
 
 See Also

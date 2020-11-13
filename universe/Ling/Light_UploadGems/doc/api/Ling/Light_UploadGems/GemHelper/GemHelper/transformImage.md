@@ -16,7 +16,7 @@ Description
 ================
 
 
-private [GemHelper::transformImage](https://github.com/lingtalfi/Light_UploadGems/blob/master/doc/api/Ling/Light_UploadGems/GemHelper/GemHelper/transformImage.md)(string $srcPath, string $dstPath, string $imageTransformer) : bool
+public [GemHelper::transformImage](https://github.com/lingtalfi/Light_UploadGems/blob/master/doc/api/Ling/Light_UploadGems/GemHelper/GemHelper/transformImage.md)(string $srcPath, string $dstPath, string $imageTransformer) : bool
 
 
 
@@ -65,7 +65,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [GemHelper::transformImage](https://github.com/lingtalfi/Light_UploadGems/blob/master/GemHelper/GemHelper.php#L586-L614)
+See the source code for method [GemHelper::transformImage](https://github.com/lingtalfi/Light_UploadGems/blob/master/GemHelper/GemHelper.php#L435-L463)
 
 
 See Also
@@ -73,5 +73,5 @@ See Also
 
 The [GemHelper](https://github.com/lingtalfi/Light_UploadGems/blob/master/doc/api/Ling/Light_UploadGems/GemHelper/GemHelper.md) class.
 
-Previous method: [extractFunctionInfo](https://github.com/lingtalfi/Light_UploadGems/blob/master/doc/api/Ling/Light_UploadGems/GemHelper/GemHelper/extractFunctionInfo.md)<br>Next method: [error](https://github.com/lingtalfi/Light_UploadGems/blob/master/doc/api/Ling/Light_UploadGems/GemHelper/GemHelper/error.md)<br>
+Previous method: [getCustomConfigValue](https://github.com/lingtalfi/Light_UploadGems/blob/master/doc/api/Ling/Light_UploadGems/GemHelper/GemHelper/getCustomConfigValue.md)<br>Next method: [executeNameValidationRule](https://github.com/lingtalfi/Light_UploadGems/blob/master/doc/api/Ling/Light_UploadGems/GemHelper/GemHelper/executeNameValidationRule.md)<br>
 

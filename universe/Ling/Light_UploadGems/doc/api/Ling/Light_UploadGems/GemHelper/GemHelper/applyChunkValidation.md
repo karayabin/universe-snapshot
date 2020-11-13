@@ -50,7 +50,7 @@ Returns true | string.
 
 Source Code
 ===========
-See the source code for method [GemHelper::applyChunkValidation](https://github.com/lingtalfi/Light_UploadGems/blob/master/GemHelper/GemHelper.php#L163-L182)
+See the source code for method [GemHelper::applyChunkValidation](https://github.com/lingtalfi/Light_UploadGems/blob/master/GemHelper/GemHelper.php#L190-L209)
 
 
 See Also

@@ -14,7 +14,6 @@ use Ling\Light_DatabaseInfo\Service\LightDatabaseInfoService;
 use Ling\Light_Events\Service\LightEventsService;
 use Ling\Light_Flasher\Service\LightFlasherService;
 use Ling\Light_Realform\Service\LightRealformService;
-use Ling\Light_UserRowRestriction\Exception\RowRestrictionViolationException;
 use Ling\SimplePdoWrapper\SimplePdoWrapper;
 use Ling\SimplePdoWrapper\SimplePdoWrapperInterface;
 use Ling\WiseTool\WiseTool;
@@ -141,7 +140,9 @@ class LightRealformRoutineOne
          * @var $rf LightRealformService
          */
         $rf = $container->get("realform");
-        $rfHandler = $rf->getFormHandler($realformIdentifier);
+        $rfHandler = $rf->getForm($realformIdentifier);
+
+        az("real", $realformIdentifier, get_class($rfHandler), __FILE__);
 
         $form = $rfHandler->getFormHandler();
         if (true === $isUpdate) {
@@ -149,10 +150,6 @@ class LightRealformRoutineOne
         } else {
             $form->setMode("insert");
         }
-        $conf = $rfHandler->getConfiguration();
-        $confFh = $conf['form_handler'];
-        $confRr = $confFh['row_restriction'] ?? [];
-        $useRowRestrictionRead = (in_array("read", $confRr, true));
 
 
         //--------------------------------------------
@@ -255,7 +252,7 @@ class LightRealformRoutineOne
 
                         if (is_callable($onSuccess)) {
                             $res = $onSuccess();
-                            if($res instanceof HttpResponseInterface){
+                            if ($res instanceof HttpResponseInterface) {
                                 return $res;
                             }
                         }
@@ -276,19 +273,13 @@ class LightRealformRoutineOne
                 $query = "select * from `$table`";
                 $markers = [];
                 SimplePdoWrapper::addWhereSubStmt($query, $markers, $updateRic);
-                try {
 
-                    if (false === $useRowRestrictionRead) {
-                        $row = $db->fetch($query, $markers);
-                    } else {
-                        $row = $db->pfetch($query, $markers);
-                    }
-                    if (false !== $row) {
-                        $valuesFromDb = $row;
-                    }
-                } catch (RowRestrictionViolationException $e) {
-                    $form->addNotification(ErrorFormNotification::create($e->getMessage()));
+                $row = $db->fetch($query, $markers);
+
+                if (false !== $row) {
+                    $valuesFromDb = $row;
                 }
+
             }
             $form->injectValues($valuesFromDb);
 

@@ -1,6 +1,6 @@
 Light_UserDatabase
 ===========
-2019-07-19 -> 2020-07-21
+2019-07-19 -> 2020-09-11
 
 
 
@@ -155,6 +155,22 @@ Related
 
 History Log
 =============  
+    
+- 1.31.4 -- 2020-09-11
+
+    - update schema and conception notes, update nomenclature  
+    
+- 1.31.3 -- 2020-09-11
+
+    - update schema conception notes, changed categoryName to optionName  
+    
+- 1.31.2 -- 2020-09-11
+
+    - update conception notes about plugin options, changed section title  
+    
+- 1.31.1 -- 2020-09-11
+
+    - update conception notes about plugin options  
     
 - 1.31.0 -- 2020-07-21
 

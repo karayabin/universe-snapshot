@@ -268,6 +268,8 @@ class BaseConfigGenerator
         if (true === $useCreateFile) {
             $reader = new MysqlStructureReader();
             $readerArray = $reader->readFile($createFile);
+
+
             if (array_key_exists($table, $readerArray)) {
                 $tableInfo = MysqlStructureReader::readerArrayToTableInfo($readerArray[$table], $this->container->get("database"));
             } else {
@@ -282,4 +284,30 @@ class BaseConfigGenerator
         }
         return $tableInfo;
     }
+
+
+    /**
+     * Returns the human version of the given table name.
+     *
+     * This will remove the table prefix, if it's defined in the **table_prefixes** directive of the generator configuration file.
+     *
+     *
+     * @param string $table
+     * @return string
+     */
+    protected function getHumanTableName(string $table): string
+    {
+        $tablePrefixes = $this->getKeyValue('table_prefixes', false, []);
+        if ($tablePrefixes) {
+            foreach ($tablePrefixes as $prefix) {
+                if (0 === strpos($table, $prefix . "_")) {
+                    $len = strlen($prefix) + 1;
+                    $table = substr($table, $len);
+                    break;
+                }
+            }
+        }
+        return CaseTool::toHumanFlatCase($table);
+    }
+
 }

@@ -7,11 +7,12 @@ dependencies:
         - Light_MicroPermission
         - Bat
         - Light_ControllerHub
-        - Light_CsrfSimple
         - Light_Kit_Admin
         - ArrayToString
-        - BabyYaml
         - Light_Database
+        - Light_Nugget
+        - Light_UserManager
+        - Light_User
         - ParametrizedSqlQuery
         - JAcpHep
         - JResponsiveTableHelper

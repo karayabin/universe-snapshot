@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [AddPluginInstallerHookProcess::prepare](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/WebWizardTools/Process/ServiceConfig/AddPluginInstallerHookProcess.php#L32-L41)
+See the source code for method [AddPluginInstallerHookProcess::prepare](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/WebWizardTools/Process/ServiceConfig/AddPluginInstallerHookProcess.php#L32-L60)
 
 
 See Also

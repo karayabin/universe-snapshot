@@ -75,7 +75,8 @@ class Light_TaskSchedulerDocBuilder
              *
              */
             "reportIgnore" => [
-//                "Ling\DocTools\Translator\ParseDownTranslator",
+                "Ling\Light_LingStandardService\Service\LightLingStandardService01",
+
             ],
             /**
              * Your project start date.
@@ -143,6 +144,7 @@ class Light_TaskSchedulerDocBuilder
             "keyWord2UrlMap" => [
                 "Light_TaskScheduler conception notes" => $doc . '/pages/conception-notes.md',
                 "ling standard object methods" =>  'https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/pages/ling-standard-object-methods.md',
+                "Light_PluginInstaller conception notes" =>  'https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/pages/conception-notes.md',
             ],
             /**
              * An array of external classes to url.
@@ -158,7 +160,8 @@ class Light_TaskSchedulerDocBuilder
                 "Ling\Light_Database\Service\LightDatabaseService" => "https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/Service/LightDatabaseService.md",
                 "Ling\Light\ServiceContainer\LightServiceContainerInterface" => "https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md",
                 "Ling\SimplePdoWrapper\SimplePdoWrapperInterface" => "https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/SimplePdoWrapperInterface.md",
-
+                "Ling\Light_LingStandardService\Service\LightLingStandardService01" => "https://github.com/lingtalfi/Light_LingStandardService/blob/master/doc/api/Ling/Light_LingStandardService/Service/LightLingStandardService01.md",
+                "Ling\Light_PluginInstaller\PluginInstaller\PluginInstallerInterface" => "https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/PluginInstaller/PluginInstallerInterface.md",
             ],
             "ignoreFilesStartingWith" => [
 //                "PHPExcel/",

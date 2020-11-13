@@ -34,9 +34,9 @@
             </td>
             <td class="columns-visibility">
 
-                <?php foreach ($columns as $column): ?>
+                <?php foreach ($labels as $label): ?>
                     <label class="mr-3">
-                        <?php echo $column; ?>
+                        <?php echo $label; ?>
                         <input type="checkbox" checked>
                     </label>
                 <?php endforeach; ?>
@@ -70,8 +70,8 @@
     <table class="table table-bordered table-sm sortable" id="target-table">
         <tbody>
         <tr>
-            <?php foreach ($columns as $column): ?>
-                <th><?php echo $column; ?></th>
+            <?php foreach ($labels as $label): ?>
+                <th><?php echo $label; ?></th>
             <?php endforeach; ?>
         </tr>
         <?php echo $rowsHtml; ?>

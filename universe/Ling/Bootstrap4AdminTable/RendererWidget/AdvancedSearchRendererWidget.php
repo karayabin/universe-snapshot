@@ -59,7 +59,6 @@ class AdvancedSearchRendererWidget extends AbstractOpenAdminTableRendererWidget
     public function render()
     {
 
-
         ?>
         <div class="table-responsive mb-5 collapse oath-advanced-search" id="admin-advanced-search">
             <form action="" method="post">

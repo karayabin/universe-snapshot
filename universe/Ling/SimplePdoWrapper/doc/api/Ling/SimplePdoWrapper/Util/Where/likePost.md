@@ -58,7 +58,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [Where::likePost](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/Util/Where.php#L247-L250)
+See the source code for method [Where::likePost](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/Util/Where.php#L256-L259)
 
 
 See Also

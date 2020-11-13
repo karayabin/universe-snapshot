@@ -1,6 +1,6 @@
 Ling/ParametrizedSqlQuery
 ================
-2019-08-12 --> 2020-02-26
+2019-08-12 --> 2020-08-20
 
 
 
@@ -13,6 +13,7 @@ Table of contents
     - [ParametrizedSqlQueryHelper::getColumnName2ColumnExpression](https://github.com/lingtalfi/ParametrizedSqlQuery/blob/master/doc/api/Ling/ParametrizedSqlQuery/Helper/ParametrizedSqlQueryHelper/getColumnName2ColumnExpression.md) &ndash; Returns an array of alias => columnExpression based on the given columns array.
 - [ParametrizedSqlQueryUtil](https://github.com/lingtalfi/ParametrizedSqlQuery/blob/master/doc/api/Ling/ParametrizedSqlQuery/ParametrizedSqlQueryUtil.md) &ndash; The ParametrizedSqlQueryUtil class.
     - [ParametrizedSqlQueryUtil::__construct](https://github.com/lingtalfi/ParametrizedSqlQuery/blob/master/doc/api/Ling/ParametrizedSqlQuery/ParametrizedSqlQueryUtil/__construct.md) &ndash; Builds the ParametrizedSqlQueryUtil instance.
+    - [ParametrizedSqlQueryUtil::setDeveloperVariables](https://github.com/lingtalfi/ParametrizedSqlQuery/blob/master/doc/api/Ling/ParametrizedSqlQuery/ParametrizedSqlQueryUtil/setDeveloperVariables.md) &ndash; Sets the developerVariables.
     - [ParametrizedSqlQueryUtil::getSqlQuery](https://github.com/lingtalfi/ParametrizedSqlQuery/blob/master/doc/api/Ling/ParametrizedSqlQuery/ParametrizedSqlQueryUtil/getSqlQuery.md) &ndash; Returns an SqlQuery instance parametrized using the given request declaration and params.
     - [ParametrizedSqlQueryUtil::setLogger](https://github.com/lingtalfi/ParametrizedSqlQuery/blob/master/doc/api/Ling/ParametrizedSqlQuery/ParametrizedSqlQueryUtil/setLogger.md) &ndash; Sets the logger.
 

@@ -1,6 +1,6 @@
 Bat
 ==========
-2015-10-07 --> 2020-07-31
+2015-10-07 --> 2020-11-06
 
 
 
@@ -44,6 +44,7 @@ Tools       |       Description
 [BDotTool]( https://github.com/lingtalfi/Bat/blob/master/BDotTool.md )          |       Tools for using bdot notation
 [CaseTool]( https://github.com/lingtalfi/Bat/blob/master/CaseTool.md )          |       Tools for converting a case to another
 [ClassTool]( https://github.com/lingtalfi/Bat/blob/master/ClassTool.md )          |       Tools for working with classes
+[CommentTool]( https://github.com/lingtalfi/Bat/blob/master/CommentTool.md )          |       Tools related to php comments
 [ColorTool]( https://github.com/lingtalfi/Bat/blob/master/ColorTool.md )          |       Tools related to colors
 [ConsoleTool]( https://github.com/lingtalfi/Bat/blob/master/ConsoleTool.md )          |       Tools for working with console related tasks
 [ConvertTool]( https://github.com/lingtalfi/Bat/blob/master/ConvertTool.md )          |       Tools for working with conversion related tasks
@@ -86,6 +87,58 @@ Dependencies
 
 History Log
 ------------------
+    
+- 1.279 -- 2020-11-06
+
+    - rename FileSystemTool::getFileName to FileSystemTool::getFilename, and fix that it was returning the basename instead of the filename
+    
+- 1.278 -- 2020-10-30
+
+    - update DateTool::getMysqlDatetime, now accepts null value
+    
+- 1.277 -- 2020-10-27
+
+    - fix FileSystemTool::FileSystemTool not starting with leaves
+    
+- 1.276 -- 2020-10-23
+
+    - add StringTool::startsWith and endsWith methods
+    
+- 1.275 -- 2020-10-23
+
+    - update FileSystemTool::getBasename doc
+    
+- 1.274 -- 2020-10-20
+
+    - add TagTool::injectTags
+    
+- 1.273 -- 2020-10-19
+
+    - add FileSystemTool::getBasename alias method
+    
+- 1.272 -- 2020-09-08
+
+    - add StringTool::toCsv method
+    
+- 1.271 -- 2020-09-08
+
+    - update UriTool::getCurrentUrl internal behaviour
+    
+- 1.270 -- 2020-09-08
+
+    - add UriTool::getCurrentUrl
+    
+- 1.269 -- 2020-08-24
+
+    - add FileSystemTool::removeTraversalDots method
+    
+- 1.268 -- 2020-08-18
+
+    - add CommentTool
+    
+- 1.267 -- 2020-08-04
+
+    - add ArrayTool::splice method
     
 - 1.266 -- 2020-07-31
 

@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [Chloroform::setJsCode](https://github.com/lingtalfi/Chloroform/blob/master/Form/Chloroform.php#L364-L367)
+See the source code for method [Chloroform::setJsCode](https://github.com/lingtalfi/Chloroform/blob/master/Form/Chloroform.php#L406-L409)
 
 
 See Also

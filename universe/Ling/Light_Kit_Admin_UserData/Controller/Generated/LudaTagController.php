@@ -6,14 +6,13 @@ namespace Ling\Light_Kit_Admin_UserData\Controller\Generated;
 
 use Ling\Light\Http\HttpResponseInterface;
 use Ling\Light_Kit\PageConfigurationUpdator\PageConfUpdator;
-use Ling\Light_UserRowRestriction\Service\LightUserRowRestrictionService;
-use Ling\Light_Kit_Admin_UserData\Controller\Generated\Base\RealGenController;
+use Ling\Light_Kit_Admin\Controller\RealAdminPageController;
 
 
 /**
  * The LudaTagController class.
  */
-class LudaTagController extends RealGenController
+class LudaTagController extends RealAdminPageController
 {
 
     /**
@@ -40,31 +39,24 @@ class LudaTagController extends RealGenController
      */
     public function renderForm()
     {
+        $realformId = "Light_Kit_Admin_UserData:generated/luda_tag";
+        $nugget = [];
+        $res = $this->processForm($realformId, $nugget);
 
-        $table = "luda_tag";
-        $identifier = "Light_Kit_Admin_UserData.generated/luda_tag";
-        $parentLayout = "Light_Kit_Admin/kit/zeroadmin/dev/mainlayout_base";
-        $vars = [
-            "title" => "Tag form",
-        ];
-        if (array_key_exists("solo", $_GET)) {
-            $parentLayout = "Light_Kit_Admin/kit/zeroadmin/dev/mainlayout_solo";
-            $vars['related_links'] = []; // cancel any existing related links
-            $this->setOnSuccessIframeSignal("done");
+        if ($res instanceof HttpResponseInterface) {
+            return $res;
+        } else {
+            $form = $res;
         }
-
-        $form = $this->processForm($identifier, $table);
-
-
 
         //--------------------------------------------
         // RENDERING
         //--------------------------------------------
         return $this->renderAdminPage('Light_Kit_Admin_UserData/kit/zeroadmin/generated/luda_tag_form', [
-            "parent_layout" => $parentLayout,
+            "parent_layout" => "Light_Kit_Admin/kit/zeroadmin/dev/mainlayout_base",
             "form" => $form,
         ], PageConfUpdator::create()->updateWidget("body.lka_chloroform", [
-            'vars' => $vars,
+            'vars' => $nugget["rendering"],
         ]));
     }
 }

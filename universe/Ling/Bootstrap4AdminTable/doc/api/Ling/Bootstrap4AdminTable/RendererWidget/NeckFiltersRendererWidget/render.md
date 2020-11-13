@@ -47,7 +47,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [NeckFiltersRendererWidget::render](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/RendererWidget/NeckFiltersRendererWidget.php#L58-L108)
+See the source code for method [NeckFiltersRendererWidget::render](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/RendererWidget/NeckFiltersRendererWidget.php#L43-L95)
 
 
 See Also
@@ -55,5 +55,5 @@ See Also
 
 The [NeckFiltersRendererWidget](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/NeckFiltersRendererWidget.md) class.
 
-Previous method: [setUseCheckbox](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/NeckFiltersRendererWidget/setUseCheckbox.md)<br>
+Previous method: [setColumns2DataTypes](https://github.com/lingtalfi/Bootstrap4AdminTable/blob/master/doc/api/Ling/Bootstrap4AdminTable/RendererWidget/NeckFiltersRendererWidget/setColumns2DataTypes.md)<br>
 

@@ -46,7 +46,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [ClassCooker::getClassName](https://github.com/lingtalfi/ClassCooker/blob/master/ClassCooker.php#L408-L411)
+See the source code for method [ClassCooker::getClassName](https://github.com/lingtalfi/ClassCooker/blob/master/ClassCooker.php#L412-L415)
 
 
 See Also
