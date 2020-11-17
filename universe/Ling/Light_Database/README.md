@@ -1,6 +1,6 @@
 Light_Database
 ===========
-2019-07-22 -> 2020-11-06
+2019-07-22 -> 2020-11-16
 
 
 
@@ -124,6 +124,10 @@ $logger.methods_collection:
 History Log
 =============
 
+- 1.14.3 -- 2020-11-16
+
+    - update service, add getMysqlInfoUtil method
+    
 - 1.14.2 -- 2020-11-06
 
     - update query log system, add formatting for error message

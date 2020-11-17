@@ -141,6 +141,7 @@ class Light_DatabaseUtilsDocBuilder
              */
             "keyWord2UrlMap" => [
 //                "the command line page" => $doc . '/pages/command-line.md',
+                'the deep duplication section of the duplicate rows conception notes' => 'https://github.com/lingtalfi/Light_DatabaseUtils/blob/master/doc/pages/duplicate-row.conception.md',
             ],
             /**
              * An array of external classes to url.

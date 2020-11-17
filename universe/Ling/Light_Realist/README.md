@@ -1,6 +1,6 @@
 Light_Realist
 ===========
-2019-08-09 -> 2020-11-13
+2019-08-09 -> 2020-11-16
 
 
 
@@ -103,6 +103,10 @@ Related
 History Log
 =============
 
+- 2.0.4 -- 2020-11-16
+
+    - update GenericActionItemHandlerTrait, add getPlanetIdByRequestId method
+    
 - 2.0.3 -- 2020-11-13
 
     - fix typo in documentation

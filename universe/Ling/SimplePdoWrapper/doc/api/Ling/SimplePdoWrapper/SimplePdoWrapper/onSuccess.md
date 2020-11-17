@@ -77,7 +77,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [SimplePdoWrapper::onSuccess](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/SimplePdoWrapper.php#L531-L534)
+See the source code for method [SimplePdoWrapper::onSuccess](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/SimplePdoWrapper.php#L530-L533)
 
 
 See Also

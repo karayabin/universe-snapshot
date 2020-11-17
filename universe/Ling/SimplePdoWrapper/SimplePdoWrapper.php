@@ -181,7 +181,6 @@ class SimplePdoWrapper implements SimplePdoWrapperInterface
 
 
         // executing the request
-
         $this->queryLog("insert", $table, $query, $markers, $fields, $options);
         $stmt = $pdo->prepare($query);
         $this->storeQueryObject($stmt);

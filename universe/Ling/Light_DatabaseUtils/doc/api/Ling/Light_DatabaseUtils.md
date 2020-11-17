@@ -1,6 +1,6 @@
 Ling/Light_DatabaseUtils
 ================
-2019-10-01 --> 2020-09-03
+2019-10-01 --> 2020-11-17
 
 
 
@@ -17,6 +17,10 @@ Table of contents
     - [Light_DatabaseDumpUtility::__construct](https://github.com/lingtalfi/Light_DatabaseUtils/blob/master/doc/api/Ling/Light_DatabaseUtils/Util/Light_DatabaseDumpUtility/__construct.md) &ndash; Builds the Light_DatabaseDumpUtility instance.
     - [Light_DatabaseDumpUtility::setContainer](https://github.com/lingtalfi/Light_DatabaseUtils/blob/master/doc/api/Ling/Light_DatabaseUtils/Util/Light_DatabaseDumpUtility/setContainer.md) &ndash; Sets the container.
     - [Light_DatabaseDumpUtility::dumpTable](https://github.com/lingtalfi/Light_DatabaseUtils/blob/master/doc/api/Ling/Light_DatabaseUtils/Util/Light_DatabaseDumpUtility/dumpTable.md) &ndash; in the targetDir.
+- [RowDuplicator](https://github.com/lingtalfi/Light_DatabaseUtils/blob/master/doc/api/Ling/Light_DatabaseUtils/Util/RowDuplicator.md) &ndash; The RowDuplicator class.
+    - [RowDuplicator::__construct](https://github.com/lingtalfi/Light_DatabaseUtils/blob/master/doc/api/Ling/Light_DatabaseUtils/Util/RowDuplicator/__construct.md) &ndash; Builds the LkaBaseRowDuplicator instance.
+    - [RowDuplicator::setContainer](https://github.com/lingtalfi/Light_DatabaseUtils/blob/master/doc/api/Ling/Light_DatabaseUtils/Util/RowDuplicator/setContainer.md) &ndash; Sets the container.
+    - [RowDuplicator::duplicate](https://github.com/lingtalfi/Light_DatabaseUtils/blob/master/doc/api/Ling/Light_DatabaseUtils/Util/RowDuplicator/duplicate.md) &ndash; Duplicates the rows identified by the given rics, of the given table.
 
 
 Dependencies
@@ -25,5 +29,7 @@ Dependencies
 - [Bat](https://github.com/lingtalfi/Bat)
 - [Light_DatabaseInfo](https://github.com/lingtalfi/Light_DatabaseInfo)
 - [Light_Database](https://github.com/lingtalfi/Light_Database)
+- [ArrayToString](https://github.com/lingtalfi/ArrayToString)
+- [SimplePdoWrapper](https://github.com/lingtalfi/SimplePdoWrapper)
 
 

@@ -4,7 +4,7 @@
 
 The Light_DatabaseDumpUtility class
 ================
-2019-10-01 --> 2020-09-03
+2019-10-01 --> 2020-11-17
 
 
 
@@ -68,4 +68,4 @@ See the source code of [Ling\Light_DatabaseUtils\Util\Light_DatabaseDumpUtility]
 
 SeeAlso
 ==============
-Previous class: [LightDatabaseUtilsService](https://github.com/lingtalfi/Light_DatabaseUtils/blob/master/doc/api/Ling/Light_DatabaseUtils/Service/LightDatabaseUtilsService.md)<br>
+Previous class: [LightDatabaseUtilsService](https://github.com/lingtalfi/Light_DatabaseUtils/blob/master/doc/api/Ling/Light_DatabaseUtils/Service/LightDatabaseUtilsService.md)<br>Next class: [RowDuplicator](https://github.com/lingtalfi/Light_DatabaseUtils/blob/master/doc/api/Ling/Light_DatabaseUtils/Util/RowDuplicator.md)<br>

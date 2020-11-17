@@ -7,7 +7,7 @@ MysqlInfoUtil::getForeignKeysInfo
 
 
 
-MysqlInfoUtil::getForeignKeysInfo — 
+MysqlInfoUtil::getForeignKeysInfo — Returns an array of  foreignKey => [ referencedDb, referencedTable, referencedColumn ] for the given table.
 
 
 
@@ -21,9 +21,9 @@ public [MysqlInfoUtil::getForeignKeysInfo](https://github.com/lingtalfi/SimplePd
 
 
 
-Returns an array of
+Returns an array of  foreignKey => [ referencedDb, referencedTable, referencedColumn ] for the given table.
 
- foreignKey => [ referencedDb, referencedTable, referencedColumn ]
+It's assumed that the given table exists.
 
 
 
@@ -56,7 +56,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [MysqlInfoUtil::getForeignKeysInfo](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/Util/MysqlInfoUtil.php#L515-L538)
+See the source code for method [MysqlInfoUtil::getForeignKeysInfo](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/Util/MysqlInfoUtil.php#L556-L579)
 
 
 See Also

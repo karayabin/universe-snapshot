@@ -54,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [GenericActionItemHandlerTrait::hasMicroPermission](https://github.com/lingtalfi/Light_Realist/blob/master/GenericItemActionHandler/GenericActionItemHandlerTrait.php#L168-L175)
+See the source code for method [GenericActionItemHandlerTrait::hasMicroPermission](https://github.com/lingtalfi/Light_Realist/blob/master/GenericItemActionHandler/GenericActionItemHandlerTrait.php#L190-L197)
 
 
 See Also
@@ -62,5 +62,5 @@ See Also
 
 The [GenericActionItemHandlerTrait](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/GenericItemActionHandler/GenericActionItemHandlerTrait.md) class.
 
-Previous method: [getTableNameByRequestId](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/GenericItemActionHandler/GenericActionItemHandlerTrait/getTableNameByRequestId.md)<br>Next method: [checkMicroPermission](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/GenericItemActionHandler/GenericActionItemHandlerTrait/checkMicroPermission.md)<br>
+Previous method: [getPlanetIdByRequestId](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/GenericItemActionHandler/GenericActionItemHandlerTrait/getPlanetIdByRequestId.md)<br>Next method: [checkMicroPermission](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/GenericItemActionHandler/GenericActionItemHandlerTrait/checkMicroPermission.md)<br>
 

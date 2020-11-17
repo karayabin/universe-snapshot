@@ -34,6 +34,7 @@ https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Datab
 https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/Listener/LightDatabaseListenerInterface/execute.md
 https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/Listener/LightDatabaseListenerInterface.md
 https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/Service/LightDatabaseService/__construct.md
+https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/Service/LightDatabaseService/getMysqlInfoUtil.md
 https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/Service/LightDatabaseService/onExceptionCaught.md
 https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/Service/LightDatabaseService/queryLog.md
 https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/Service/LightDatabaseService/setOptions.md

@@ -6,11 +6,11 @@ namespace Ling\Light_Kit_Admin\Realist\ListActionHandler;
 
 use Ling\Bat\CaseTool;
 use Ling\Bat\DebugTool;
-use Ling\CheapLogger\CheapLogger;
 use Ling\Light_Bullsheet\Service\LightBullsheetService;
 use Ling\Light_Crud\Service\LightCrudService;
 use Ling\Light_CsrfSession\Service\LightCsrfSessionService;
 use Ling\Light_DatabaseUtils\Service\LightDatabaseUtilsService;
+use Ling\Light_Kit_Admin\Duplicator\LkaMasterRowDuplicator;
 use Ling\Light_Kit_Admin\Exception\LightKitAdminException;
 use Ling\Light_Realist\Helper\DuelistHelper;
 use Ling\Light_Realist\Helper\RequestDeclarationHelper;
@@ -203,17 +203,7 @@ class LightKitAdminListActionHandler extends LightRealistBaseListActionHandler
                 return $this->executeDeleteRowsListAction($actionName, $params);
                 break;
             case "realist-duplicate_row":
-
-
-                $requestId = $this->getParam('request_id', $params);
-                $rics = $this->getParam('rics', $params);
-                $table = $this->getTableNameByRequestId($requestId);
-                $this->checkMicroPermission("store.$table.create");
-                $this->checkMicroPermission("store.$table.read");
-
-
-
-                return $this->error("ok");
+                return $this->executeDuplicateRowsListAction($params);
                 break;
             case "realist-rows_to_ods":
             case "realist-rows_to_xlsx":
@@ -290,6 +280,39 @@ class LightKitAdminListActionHandler extends LightRealistBaseListActionHandler
         }
 
         return $response;
+    }
+
+
+    /**
+     * Duplicates the row(s) identified via the given rics (via params), and returns an [alcp](https://github.com/lingtalfi/Light_AjaxHandler/blob/master/doc/pages/ajax-light-communication-protocol.md) response.
+     *
+     * @param array $params
+     * @return array
+     * @throws \Exception
+     */
+    protected function executeDuplicateRowsListAction(array $params): array
+    {
+        $requestId = $this->getParam('request_id', $params);
+        $rics = $this->getParam('rics', $params);
+        $table = $this->getTableNameByRequestId($requestId);
+        $planetId = $this->getPlanetIdByRequestId($requestId);
+
+        $this->checkMicroPermission("store.$table.create");
+        $this->checkMicroPermission("store.$table.read");
+
+
+        $useDeep = false;
+
+
+        $o = new LkaMasterRowDuplicator();
+        $o->setContainer($this->container);
+        $o->duplicate($planetId, $table, $rics, [
+            'deep' => $useDeep,
+        ]);
+
+        return [
+            "type" => "success",
+        ];
     }
 
 

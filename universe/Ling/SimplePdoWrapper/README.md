@@ -1,6 +1,6 @@
 SimplePdoWrapper
 ================
-2019-02-04 -> 2020-11-12
+2019-02-04 -> 2020-11-16
 
 
 
@@ -1055,6 +1055,14 @@ Related
 History Log
 ------------------
 
+- 1.30.14 -- 2020-11-16
+
+    - update MysqlInfoUtil, add getUniqueIndexColumnsOnly method 
+    
+- 1.30.13 -- 2020-11-16
+
+    - update MysqlInfoUtil, add isManyToManyTable method 
+    
 - 1.30.12 -- 2020-11-12
 
     - update Where, add merge method, add FetchAllComponentsHelper class 

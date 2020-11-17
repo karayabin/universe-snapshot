@@ -203,6 +203,29 @@ class PlanetTool
 
 
     /**
+     * Returns an array containing the galaxy and the planet, based on the given planetId.
+     *
+     * The array contains the following:
+     * - 0: galaxy name
+     * - 1: planet name
+     *
+     *
+     *
+     * @param string $planetId
+     * @return array
+     * @throws \Exception
+     */
+    public static function extractPlanetId(string $planetId): array
+    {
+        $p = explode("/", $planetId, 2);
+        if (2 === count($p)) {
+            return $p;
+        }
+        throw new UniverseToolsException("The given planetId is not valid: $planetId.");
+    }
+
+
+    /**
      * Returns an array containing the galaxy and planet contained in the given class name.
      * Returns false if the given class name is not valid (i.e. @page(bsr-0) compliant).
      *

@@ -58,7 +58,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [SimplePdoWrapper::handleException](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/SimplePdoWrapper.php#L656-L670)
+See the source code for method [SimplePdoWrapper::handleException](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/SimplePdoWrapper.php#L655-L669)
 
 
 See Also

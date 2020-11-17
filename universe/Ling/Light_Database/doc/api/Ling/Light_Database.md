@@ -1,6 +1,6 @@
 Ling/Light_Database
 ================
-2019-07-22 --> 2020-11-06
+2019-07-22 --> 2020-11-16
 
 
 
@@ -32,6 +32,7 @@ Table of contents
 - [LightDatabaseService](https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/Service/LightDatabaseService.md) &ndash; The LightDatabaseService class.
     - [LightDatabaseService::__construct](https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/Service/LightDatabaseService/__construct.md) &ndash; Builds the LightDatabaseService instance.
     - [LightDatabaseService::setOptions](https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/Service/LightDatabaseService/setOptions.md) &ndash; Sets the options.
+    - [LightDatabaseService::getMysqlInfoUtil](https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/Service/LightDatabaseService/getMysqlInfoUtil.md) &ndash; Returns a configured MysqlInfoUtil instance.
     - [LightDatabaseService::onExceptionCaught](https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/Service/LightDatabaseService/onExceptionCaught.md) &ndash; Embellishes the error message in SimplePdoWrapperQueryException exceptions.
     - [LightDatabasePdoWrapper::init](https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/LightDatabasePdoWrapper/init.md) &ndash; Creates the pdo instance and attaches it to this instance.
     - [LightDatabasePdoWrapper::getConnectionException](https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/LightDatabasePdoWrapper/getConnectionException.md) &ndash; init method.

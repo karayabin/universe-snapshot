@@ -10,6 +10,7 @@ use Ling\Light\Events\LightEvent;
 use Ling\Light_Database\LightDatabasePdoWrapper;
 use Ling\Light_Logger\LightLoggerService;
 use Ling\SimplePdoWrapper\Exception\SimplePdoWrapperQueryException;
+use Ling\SimplePdoWrapper\Util\MysqlInfoUtil;
 
 /**
  * The LightDatabaseService class.
@@ -28,6 +29,12 @@ class LightDatabaseService extends LightDatabasePdoWrapper
      */
     protected $options;
 
+    /**
+     * This property holds the _mysqlInfoUtil for this instance.
+     * @var MysqlInfoUtil
+     */
+    private $_mysqlInfoUtil;
+
 
     /**
      * Builds the LightDatabaseService instance.
@@ -36,6 +43,7 @@ class LightDatabaseService extends LightDatabasePdoWrapper
     {
         parent::__construct();
         $this->options = [];
+        $this->_mysqlInfoUtil = null;
     }
 
 
@@ -49,6 +57,21 @@ class LightDatabaseService extends LightDatabasePdoWrapper
     public function setOptions(array $options)
     {
         $this->options = $options;
+    }
+
+
+    /**
+     * Returns a configured MysqlInfoUtil instance.
+     *
+     * @return MysqlInfoUtil
+     */
+    public function getMysqlInfoUtil(): MysqlInfoUtil
+    {
+        if (null === $this->_mysqlInfoUtil) {
+            $this->_mysqlInfoUtil = new MysqlInfoUtil();
+            $this->_mysqlInfoUtil->setWrapper($this);
+        }
+        return $this->_mysqlInfoUtil;
     }
 
     /**

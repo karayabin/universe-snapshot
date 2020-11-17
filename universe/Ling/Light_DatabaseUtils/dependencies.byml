@@ -4,6 +4,8 @@ dependencies:
         - Bat
         - Light_DatabaseInfo
         - Light_Database
+        - ArrayToString
+        - SimplePdoWrapper
     
 
 post_install: 

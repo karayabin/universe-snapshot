@@ -161,6 +161,8 @@ class Light_DatabaseDocBuilder
                 "Ling\SimplePdoWrapper\SimplePdoWrapper" => "https://github.com/lingtalfi/SimplePdoWrapper/blob/master/SimplePdoWrapper.php",
                 "Ling\SimplePdoWrapper\SimplePdoWrapperInterface" => "https://github.com/lingtalfi/SimplePdoWrapper/blob/master/SimplePdoWrapperInterface.php",
                 "Ling\Light\ServiceContainer\LightServiceContainerInterface" => "https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md",
+                "Ling\SimplePdoWrapper\Util\MysqlInfoUtil" => "https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/MysqlInfoUtil.md",
+
             ],
         ];
 

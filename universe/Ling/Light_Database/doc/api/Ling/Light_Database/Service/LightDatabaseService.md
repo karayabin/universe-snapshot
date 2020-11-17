@@ -4,7 +4,7 @@
 
 The LightDatabaseService class
 ================
-2019-07-22 --> 2020-11-06
+2019-07-22 --> 2020-11-16
 
 
 
@@ -26,6 +26,7 @@ class <span class="pl-k">LightDatabaseService</span> extends [LightDatabasePdoWr
 
 - Properties
     - protected array [$options](#property-options) ;
+    - private [Ling\SimplePdoWrapper\Util\MysqlInfoUtil](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/MysqlInfoUtil.md) [$_mysqlInfoUtil](#property-_mysqlInfoUtil) ;
 
 - Inherited properties
     - protected [\PDOException](https://www.php.net/manual/en/class.pdoexception.php)|null [LightDatabasePdoWrapper::$pdoException](#property-pdoException) ;
@@ -37,6 +38,7 @@ class <span class="pl-k">LightDatabaseService</span> extends [LightDatabasePdoWr
 - Methods
     - public [__construct](https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/Service/LightDatabaseService/__construct.md)() : void
     - public [setOptions](https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/Service/LightDatabaseService/setOptions.md)(array $options) : void
+    - public [getMysqlInfoUtil](https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/Service/LightDatabaseService/getMysqlInfoUtil.md)() : [MysqlInfoUtil](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/MysqlInfoUtil.md)
     - public [onExceptionCaught](https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/Service/LightDatabaseService/onExceptionCaught.md)(Ling\Light\Events\LightEvent $event) : void
     - protected [queryLog](https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/Service/LightDatabaseService/queryLog.md)(string $type, ?...$args) : void
 
@@ -80,6 +82,12 @@ Properties
     
     
 
+- <span id="property-_mysqlInfoUtil"><b>_mysqlInfoUtil</b></span>
+
+    This property holds the _mysqlInfoUtil for this instance.
+    
+    
+
 - <span id="property-pdoException"><b>pdoException</b></span>
 
     This property holds the pdoException thrown during the connection,
@@ -119,6 +127,7 @@ Methods
 
 - [LightDatabaseService::__construct](https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/Service/LightDatabaseService/__construct.md) &ndash; Builds the LightDatabaseService instance.
 - [LightDatabaseService::setOptions](https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/Service/LightDatabaseService/setOptions.md) &ndash; Sets the options.
+- [LightDatabaseService::getMysqlInfoUtil](https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/Service/LightDatabaseService/getMysqlInfoUtil.md) &ndash; Returns a configured MysqlInfoUtil instance.
 - [LightDatabaseService::onExceptionCaught](https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/Service/LightDatabaseService/onExceptionCaught.md) &ndash; Embellishes the error message in SimplePdoWrapperQueryException exceptions.
 - [LightDatabaseService::queryLog](https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/Service/LightDatabaseService/queryLog.md) &ndash; Hook for children classes.
 - [LightDatabasePdoWrapper::init](https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/LightDatabasePdoWrapper/init.md) &ndash; Creates the pdo instance and attaches it to this instance.

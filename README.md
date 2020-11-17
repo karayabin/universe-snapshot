@@ -1,6 +1,6 @@
 Universe
 ==============
-2015-10-14 --> 2020-11-13
+2015-10-14 --> 2020-11-17
 
 
 
@@ -282,7 +282,7 @@ The **planet identifier** is the string identifying your planet in the universe,
 
 The compressed planet name
 --------------------------------------
-2020-11-13
+2020-11-13 -> 2020-11-17
 
 
 In order to help developers, we provide the **compressed planet name**, which can be useful to create class prefixes for instance, amongst other things.
@@ -300,7 +300,7 @@ Then the compressed planet name is:
 
 
 
-
+Note: the **compressed planet name** is sometimes also referred as the [tight planet name](https://github.com/lingtalfi/UniverseTools/blob/master/doc/pages/nomenclature.md#tight-planet-name).
 
 
 

@@ -1,6 +1,6 @@
 Light_DatabaseUtils
 ===========
-2019-10-01 -> 2020-09-03
+2019-10-01 -> 2020-11-17
 
 
 
@@ -30,6 +30,7 @@ Summary
 ===========
 - [Light_DatabaseUtils api](https://github.com/lingtalfi/Light_DatabaseUtils/blob/master/doc/api/Ling/Light_DatabaseUtils.md) (generated with [DocTools](https://github.com/lingtalfi/DocTools))
 - [Services](#services)
+- [duplicate row conception](https://github.com/lingtalfi/Light_DatabaseUtils/blob/master/doc/pages/duplicate-row.conception.md)
 - [Usage examples](#usage-examples)
 
 
@@ -91,6 +92,14 @@ INSERT INTO `lud_user` (`id`, `identifier`, `pseudo`, `password`, `avatar_url`, 
 History Log
 =============
 
+- 1.1.3 -- 2020-11-17
+
+    - fix doc link
+    
+- 1.1.2 -- 2020-11-17
+
+    - add RowDuplicator class
+    
 - 1.1.1 -- 2020-09-03
 
     - fix Light_DatabaseDumpUtility->dumpTable not keeping NULL values in some cases

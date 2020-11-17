@@ -4,7 +4,7 @@
 
 The LightRealistBaseListActionHandler class
 ================
-2019-08-12 --> 2020-11-13
+2019-08-12 --> 2020-11-17
 
 
 
@@ -34,6 +34,7 @@ abstract class <span class="pl-k">LightRealistBaseListActionHandler</span> imple
     - public [setContainer](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/ListActionHandler/LightRealistBaseListActionHandler/setContainer.md)([Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) $container) : void
     - protected [decorateGenericActionItemByAssets](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/ListActionHandler/LightRealistBaseListActionHandler/decorateGenericActionItemByAssets.md)(string $actionName, array &$item, string $dir, ?array $options = []) : void
     - protected [getTableNameByRequestId](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/ListActionHandler/LightRealistBaseListActionHandler/getTableNameByRequestId.md)(string $requestId) : string
+    - protected [getPlanetIdByRequestId](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/ListActionHandler/LightRealistBaseListActionHandler/getPlanetIdByRequestId.md)(string $requestId) : string
     - protected [hasMicroPermission](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/ListActionHandler/LightRealistBaseListActionHandler/hasMicroPermission.md)(string $microPermission) : bool
     - protected [checkMicroPermission](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/ListActionHandler/LightRealistBaseListActionHandler/checkMicroPermission.md)(string $microPermission) : void
     - protected [getPluginName](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/ListActionHandler/LightRealistBaseListActionHandler/getPluginName.md)() : string
@@ -79,6 +80,7 @@ Methods
 - [LightRealistBaseListActionHandler::setContainer](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/ListActionHandler/LightRealistBaseListActionHandler/setContainer.md) &ndash; Sets the container.
 - [LightRealistBaseListActionHandler::decorateGenericActionItemByAssets](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/ListActionHandler/LightRealistBaseListActionHandler/decorateGenericActionItemByAssets.md) &ndash; the calling class source file.
 - [LightRealistBaseListActionHandler::getTableNameByRequestId](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/ListActionHandler/LightRealistBaseListActionHandler/getTableNameByRequestId.md) &ndash; Returns the table name associated with the given requestId.
+- [LightRealistBaseListActionHandler::getPlanetIdByRequestId](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/ListActionHandler/LightRealistBaseListActionHandler/getPlanetIdByRequestId.md) &ndash; Returns the planetId name associated with the given requestId.
 - [LightRealistBaseListActionHandler::hasMicroPermission](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/ListActionHandler/LightRealistBaseListActionHandler/hasMicroPermission.md) &ndash; Returns whether the current user is granted the given micro-permission.
 - [LightRealistBaseListActionHandler::checkMicroPermission](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/ListActionHandler/LightRealistBaseListActionHandler/checkMicroPermission.md) &ndash; Checks whether the current user has the given micro-permission, and if not throws an exception.
 - [LightRealistBaseListActionHandler::getPluginName](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/ListActionHandler/LightRealistBaseListActionHandler/getPluginName.md) &ndash; Returns the plugin name for this instance.

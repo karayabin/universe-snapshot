@@ -57,7 +57,7 @@ Returns false | array.
 
 Source Code
 ===========
-See the source code for method [SimplePdoWrapper::fetch](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/SimplePdoWrapper.php#L326-L353)
+See the source code for method [SimplePdoWrapper::fetch](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/SimplePdoWrapper.php#L325-L352)
 
 
 See Also

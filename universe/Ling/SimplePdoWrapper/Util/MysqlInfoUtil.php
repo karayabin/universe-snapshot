@@ -301,6 +301,24 @@ EEE;
         return $ric;
     }
 
+
+    /**
+     * Returns an array containing the name of all columns that are part of an unique index.
+     * @param string $table
+     * @return array
+     */
+    public function getUniqueIndexColumnsOnly(string $table): array
+    {
+        $ret = [];
+        $ukeys = $this->getUniqueIndexes($table);
+        foreach ($ukeys as $keys) {
+            $ret = array_merge($ret, $keys);
+        }
+        $ret = array_unique($ret);
+        return $ret;
+    }
+
+
     /**
      * Returns the array of unique indexes for the given table.
      * It's an array of indexName => indexes
@@ -503,10 +521,33 @@ EEE;
     }
 
 
+//    /**
+//     * Returns the name of the auto-incremented field, if it's also a primary key, or false otherwise.
+//     *
+//     * @param string $table
+//     * @return false|string
+//     * @throws \Exception
+//     */
+//    public function getAutoIncrementedPrimaryKey(string $table)
+//    {
+//        $ai = $this->getAutoIncrementedKey($table);
+//        if (false !== $ai) {
+//            $pkey = $this->getPrimaryKey($table);
+//            if (false === empty($pkey) && in_array($ai, $pkey, true)) {
+//                return $ai;
+//            }
+//        }
+//        return false;
+//    }
+
+
     /**
-     * Returns an array of
+     * Returns an array of  foreignKey => [ referencedDb, referencedTable, referencedColumn ] for the given table.
      *
-     *  foreignKey => [ referencedDb, referencedTable, referencedColumn ]
+     * It's assumed that the given table exists.
+     *
+     *
+     *
      *
      * @param string $table
      * @return array
@@ -818,6 +859,31 @@ and CONSTRAINT_TYPE = 'FOREIGN KEY'
         return false;
     }
 
+
+    /**
+     * Returns whether the given table is considered a manyToMany table.
+     *
+     * We consider that a table is a manyToMany only if all the columns of its primary key are foreign keys.
+     * If there is no primary key at all, it's not a manyToMany table.
+     *
+     *
+     * @param string $table
+     * @return bool
+     */
+    public function isManyToManyTable(string $table): bool
+    {
+        $pk = $this->getPrimaryKey($table);
+        if ($pk) {
+            $fk = $this->getForeignKeysInfo($table);
+            foreach ($pk as $primary) {
+                if (false === array_key_exists($primary, $fk)) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return false;
+    }
 
 
 

@@ -1,6 +1,6 @@
 Nomenclature
 ===========
-2020-07-09 -> 2020-08-10
+2020-07-09 -> 2020-08-17
 
 
 
@@ -20,10 +20,12 @@ Same definition as the [universe snapshot's definition for planetIdentifier](htt
 
 Tight planet name
 ---------
-2020-07-09 -> 2020-08-10
+2020-07-09 -> 2020-11-17
 
 
 The planet name, with underscores removed.
+
+It's an alias for the [compressed planet name](https://github.com/karayabin/universe-snapshot#the-compressed-planet-name).
 
 So for instance a planet with name **Light_MyPlugin** will have a tight name of: **LightMyPlugin**.
 

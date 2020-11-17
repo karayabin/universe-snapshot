@@ -158,6 +158,28 @@ trait GenericActionItemHandlerTrait
         return DuelistHelper::getRawTableNameByRequestDeclaration($conf);
     }
 
+
+    /**
+     * Returns the planetId name associated with the given requestId.
+     *
+     * @param string $requestId
+     * @return string
+     * @throws \Exception
+     */
+    protected function getPlanetIdByRequestId(string $requestId): string
+    {
+        /**
+         * @var $realist LightRealistService
+         */
+        $realist = $this->container->get("realist");
+        $conf = $realist->getConfigurationArrayByRequestId($requestId);
+        if (array_key_exists('planetId', $conf)) {
+            return $conf['planetId'];
+        }
+        throw new LightRealistException("The planetId property is not defined in the request declaration (requestId=$requestId).");
+    }
+
+
     /**
      * Returns whether the current user is granted the given micro-permission.
      *

@@ -4,7 +4,7 @@
 
 The GenericActionItemHandlerTrait trait
 ================
-2019-08-12 --> 2020-11-13
+2019-08-12 --> 2020-11-17
 
 
 
@@ -34,6 +34,7 @@ trait <span class="pl-k">GenericActionItemHandlerTrait</span>  {
     - public [setContainer](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/GenericItemActionHandler/GenericActionItemHandlerTrait/setContainer.md)([Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) $container) : void
     - protected [decorateGenericActionItemByAssets](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/GenericItemActionHandler/GenericActionItemHandlerTrait/decorateGenericActionItemByAssets.md)(string $actionName, array &$item, string $dir, ?array $options = []) : void
     - protected [getTableNameByRequestId](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/GenericItemActionHandler/GenericActionItemHandlerTrait/getTableNameByRequestId.md)(string $requestId) : string
+    - protected [getPlanetIdByRequestId](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/GenericItemActionHandler/GenericActionItemHandlerTrait/getPlanetIdByRequestId.md)(string $requestId) : string
     - protected [hasMicroPermission](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/GenericItemActionHandler/GenericActionItemHandlerTrait/hasMicroPermission.md)(string $microPermission) : bool
     - protected [checkMicroPermission](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/GenericItemActionHandler/GenericActionItemHandlerTrait/checkMicroPermission.md)(string $microPermission) : void
     - protected [getPluginName](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/GenericItemActionHandler/GenericActionItemHandlerTrait/getPluginName.md)() : string
@@ -74,6 +75,7 @@ Methods
 - [GenericActionItemHandlerTrait::setContainer](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/GenericItemActionHandler/GenericActionItemHandlerTrait/setContainer.md) &ndash; Sets the container.
 - [GenericActionItemHandlerTrait::decorateGenericActionItemByAssets](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/GenericItemActionHandler/GenericActionItemHandlerTrait/decorateGenericActionItemByAssets.md) &ndash; the calling class source file.
 - [GenericActionItemHandlerTrait::getTableNameByRequestId](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/GenericItemActionHandler/GenericActionItemHandlerTrait/getTableNameByRequestId.md) &ndash; Returns the table name associated with the given requestId.
+- [GenericActionItemHandlerTrait::getPlanetIdByRequestId](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/GenericItemActionHandler/GenericActionItemHandlerTrait/getPlanetIdByRequestId.md) &ndash; Returns the planetId name associated with the given requestId.
 - [GenericActionItemHandlerTrait::hasMicroPermission](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/GenericItemActionHandler/GenericActionItemHandlerTrait/hasMicroPermission.md) &ndash; Returns whether the current user is granted the given micro-permission.
 - [GenericActionItemHandlerTrait::checkMicroPermission](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/GenericItemActionHandler/GenericActionItemHandlerTrait/checkMicroPermission.md) &ndash; Checks whether the current user has the given micro-permission, and if not throws an exception.
 - [GenericActionItemHandlerTrait::getPluginName](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/GenericItemActionHandler/GenericActionItemHandlerTrait/getPluginName.md) &ndash; Returns the plugin name for this instance.

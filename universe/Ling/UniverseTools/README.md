@@ -1,6 +1,6 @@
 UniverseTools
 ===========
-2019-02-08 -> 2020-08-10
+2019-02-08 -> 2020-11-17
 
 
 
@@ -37,6 +37,14 @@ Summary
 History Log
 ==============
 
+- 1.21.3 -- 2020-11-17
+
+    - update PlanetTool, add extractPlanetId method
+    
+- 1.21.2 -- 2020-11-17
+
+    - update nomenclature documentation
+    
 - 1.21.1 -- 2020-08-10
 
     - add link to nomenclature documentation
