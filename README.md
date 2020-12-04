@@ -286,7 +286,7 @@ The planet dot name
 2020-12-04
 
 
-To help developers, we provide the following term: **planet dot name**, which
+To help developers, we provide the following term: **planet dot name**, which has the following format:
 
 - $GalaxyName.$PlanetName
 
