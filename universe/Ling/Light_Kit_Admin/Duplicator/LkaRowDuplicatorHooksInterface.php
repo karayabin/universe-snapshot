@@ -15,9 +15,11 @@ interface LkaRowDuplicatorHooksInterface
      * It's a hook for devs.
      *
      *
+     * @param string $mainTable
      * @param string $table
+     * @param array $oldRow
      * @param array $newRow
      * @param null $lastInsertId
      */
-    public function onInsertAfter(string $table, array $newRow, $lastInsertId = null);
+    public function onInsertAfter(string $mainTable, string $table, array $oldRow, array $newRow, $lastInsertId = null);
 }

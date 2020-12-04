@@ -4,7 +4,7 @@
 
 The RealformResult class
 ================
-2019-10-21 --> 2020-09-21
+2019-10-21 --> 2020-12-01
 
 
 
@@ -29,6 +29,7 @@ class <span class="pl-k">RealformResult</span>  {
     - protected array [$validPostedData](#property-validPostedData) ;
     - protected bool [$isSuccessful](#property-isSuccessful) ;
     - protected string|false [$redirectionUrl](#property-redirectionUrl) ;
+    - protected array [$nugget](#property-nugget) ;
 
 - Methods
     - public [__construct](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Result/RealformResult/__construct.md)() : void
@@ -40,6 +41,8 @@ class <span class="pl-k">RealformResult</span>  {
     - public [setIsSuccessful](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Result/RealformResult/setIsSuccessful.md)(bool $isSuccessful) : void
     - public [getRedirectionUrl](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Result/RealformResult/getRedirectionUrl.md)() : false | string
     - public [setRedirectionUrl](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Result/RealformResult/setRedirectionUrl.md)($redirectionUrl) : void
+    - public [getNugget](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Result/RealformResult/getNugget.md)() : array
+    - public [setNugget](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Result/RealformResult/setNugget.md)(array $nugget) : void
 
 }
 
@@ -73,6 +76,12 @@ Properties
     
     
 
+- <span id="property-nugget"><b>nugget</b></span>
+
+    This property holds the nugget for this instance.
+    
+    
+
 
 
 Methods
@@ -87,6 +96,8 @@ Methods
 - [RealformResult::setIsSuccessful](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Result/RealformResult/setIsSuccessful.md) &ndash; Sets the isSuccessful.
 - [RealformResult::getRedirectionUrl](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Result/RealformResult/getRedirectionUrl.md) &ndash; Returns the redirectionUrl of this instance.
 - [RealformResult::setRedirectionUrl](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Result/RealformResult/setRedirectionUrl.md) &ndash; Sets the redirectionUrl.
+- [RealformResult::getNugget](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Result/RealformResult/getNugget.md) &ndash; Returns the nugget of this instance.
+- [RealformResult::setNugget](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Result/RealformResult/setNugget.md) &ndash; Sets the nugget.
 
 
 

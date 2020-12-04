@@ -57,6 +57,8 @@ class Light_DatabaseDumpUtility
      * - returnAsString: bool=false.
      *      If true, the method will not write the file to the filesystem, but instead return it
      *      as a string.
+     * - ignore: bool=false, whether to use the insert ignore statements
+     * - disableFkCheck: bool=false, whether to disable fk checks
      *
      *
      *
@@ -72,8 +74,10 @@ class Light_DatabaseDumpUtility
 
 
         $fileName = $options['fileName'] ?? null;
+        $ignore = $options['ignore'] ?? false;
         $useNullForAutoIncrementedKey = $options['useNullForAutoIncrementedKey'] ?? false;
         $returnAsString = $options['returnAsString'] ?? false;
+        $disableFkCheck = $options['disableFkCheck'] ?? false;
 
         if (null === $fileName) {
             $fileName = $table . ".sql";
@@ -89,7 +93,19 @@ class Light_DatabaseDumpUtility
         $columns = $tableInfo['columns'];
 
         $s = '';
-        $s .= 'INSERT INTO `' . $table . '` (';
+
+
+        if (true === $disableFkCheck) {
+            $s .= 'SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;' . PHP_EOL;
+            $s .= PHP_EOL;
+        }
+
+
+        $s .= 'INSERT ';
+        if (true === $ignore) {
+            $s .= "IGNORE ";
+        }
+        $s .= 'INTO `' . $table . '` (';
         $c = 0;
         foreach ($columns as $col) {
             if (0 !== $c++) {
@@ -144,6 +160,14 @@ class Light_DatabaseDumpUtility
 
         $s .= PHP_EOL;
         $s .= ';' . PHP_EOL;
+
+
+        if (true === $disableFkCheck) {
+            $s .= PHP_EOL;
+            $s .= PHP_EOL;
+            $s .= 'SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;' . PHP_EOL;
+            $s .= PHP_EOL;
+        }
 
 
         if (true === $returnAsString) {

@@ -1,6 +1,6 @@
 Bat
 ==========
-2015-10-07 --> 2020-11-06
+2015-10-07 --> 2020-12-03
 
 
 
@@ -44,10 +44,11 @@ Tools       |       Description
 [BDotTool]( https://github.com/lingtalfi/Bat/blob/master/BDotTool.md )          |       Tools for using bdot notation
 [CaseTool]( https://github.com/lingtalfi/Bat/blob/master/CaseTool.md )          |       Tools for converting a case to another
 [ClassTool]( https://github.com/lingtalfi/Bat/blob/master/ClassTool.md )          |       Tools for working with classes
-[CommentTool]( https://github.com/lingtalfi/Bat/blob/master/CommentTool.md )          |       Tools related to php comments
 [ColorTool]( https://github.com/lingtalfi/Bat/blob/master/ColorTool.md )          |       Tools related to colors
+[CommentTool]( https://github.com/lingtalfi/Bat/blob/master/CommentTool.md )          |       Tools related to php comments
 [ConsoleTool]( https://github.com/lingtalfi/Bat/blob/master/ConsoleTool.md )          |       Tools for working with console related tasks
 [ConvertTool]( https://github.com/lingtalfi/Bat/blob/master/ConvertTool.md )          |       Tools for working with conversion related tasks
+[CookieTool]( https://github.com/lingtalfi/Bat/blob/master/CookieTool.md )          |       Tools for working with cookies
 [DateTool]( https://github.com/lingtalfi/Bat/blob/master/DateTool.md )          |       Tools for working with dates
 [DebugTool]( https://github.com/lingtalfi/Bat/blob/master/DebugTool.md )          |       Tools for debugging
 [ExceptionTool]( https://github.com/lingtalfi/Bat/blob/master/ExceptionTool.md )          |       Tools for manipulating exception
@@ -87,6 +88,42 @@ Dependencies
 
 History Log
 ------------------
+    
+- 1.288 -- 2020-12-03
+
+    - add ConsoleTool::reset
+    
+- 1.287 -- 2020-12-01
+
+    - add RandomTool::randomPassword
+    
+- 1.286 -- 2020-11-27
+
+    - add CookieTool
+    
+- 1.285 -- 2020-11-24
+
+    - add StringTool::truncate method
+    
+- 1.284 -- 2020-11-24
+
+    - update FileSystemTool::mkTmpFile comment
+    
+- 1.283 -- 2020-11-24
+
+    - update HepTool::hepAttributes, now can treat arrays recursively
+    
+- 1.282 -- 2020-11-20
+
+    - update DebugTool::toString method, now has strMaxLen and strCompact options, add DebugTool::getTraceAsString method, and StringTool::getCompactString method
+    
+- 1.281 -- 2020-11-20
+
+    - update DebugTool::toString method, now has an expandArray option
+    
+- 1.280 -- 2020-11-17
+
+    - update ClassTool, add instantiate method
     
 - 1.279 -- 2020-11-06
 

@@ -4,7 +4,7 @@
 
 The TableUtil class
 ================
-2019-02-26 --> 2019-07-18
+2019-02-26 --> 2020-12-04
 
 
 
@@ -297,4 +297,4 @@ See the source code of [Ling\CliTools\Util\TableUtil](https://github.com/lingtal
 
 SeeAlso
 ==============
-Previous class: [ProgramInterface](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Program/ProgramInterface.md)<br>
+Previous class: [LoaderUtil](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Util/LoaderUtil.md)<br>

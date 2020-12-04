@@ -73,7 +73,7 @@ Returns int.
 
 Source Code
 ===========
-See the source code for method [LightMailerService::sendMessage](https://github.com/lingtalfi/Light_Mailer/blob/master/Service/LightMailerService.php#L328-L381)
+See the source code for method [LightMailerService::sendMessage](https://github.com/lingtalfi/Light_Mailer/blob/master/Service/LightMailerService.php#L374-L427)
 
 
 See Also

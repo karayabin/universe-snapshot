@@ -52,6 +52,7 @@ class Light_Kit_AdminDocBuilder
         $gitRepoUrl = "https://github.com/lingtalfi/Light_Kit_Admin";
         $git = $gitRepoUrl . "/blob/master";
         $doc = "$git/doc";
+        $conception = $doc . '/pages/conception-notes.md';
         $api = $doc . "/api";
 
 
@@ -97,6 +98,8 @@ class Light_Kit_AdminDocBuilder
                 "Ling\Light_Realist\Rendering\OpenAdminTableBaseRealistListRenderer",
                 "Ling\Light_RowLookup\ConfigurationStorage\BaseRowLookupConfigurationStorage",
                 "Ling\Light_AjaxHandler\Handler\BaseLightAjaxHandler",
+                "Ling\Light_DatabaseUtils\Util\RowDuplicator",
+                "Ling\Light_Realist\Rendering\BaseRealistListItemRenderer",
 
             ],
             /**
@@ -163,12 +166,12 @@ class Light_Kit_AdminDocBuilder
              * This map in particular is the one used for the whole DocTools planet documentation (pages and api).
              */
             "keyWord2UrlMap" => [
-                "ajax communication protocol" =>  'https://github.com/lingtalfi/AjaxCommunicationProtocol',
+                "ajax communication protocol" => 'https://github.com/lingtalfi/AjaxCommunicationProtocol',
                 "conception notes" => $doc . '/pages/conception-notes.md',
-                "the postedData section" =>  'https://github.com/lingtalfi/Chloroform/blob/master/doc/pages/chloroform-discussion.md#the-posted-data',
-                "very important data" =>  'https://github.com/lingtalfi/Chloroform/blob/master/doc/pages/chloroform-discussion.md#the-concept-of-very-important-data',
-                "DataTransformerInterface" =>  'https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/DataTransformer/DataTransformerInterface.md',
-                "the field ids" =>  'https://github.com/lingtalfi/Chloroform/blob/master/doc/pages/chloroform-discussion.md#the-field-id',
+                "the postedData section" => 'https://github.com/lingtalfi/Chloroform/blob/master/doc/pages/chloroform-discussion.md#the-posted-data',
+                "very important data" => 'https://github.com/lingtalfi/Chloroform/blob/master/doc/pages/chloroform-discussion.md#the-concept-of-very-important-data',
+                "DataTransformerInterface" => 'https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/DataTransformer/DataTransformerInterface.md',
+                "the field ids" => 'https://github.com/lingtalfi/Chloroform/blob/master/doc/pages/chloroform-discussion.md#the-field-id',
                 "FieldInterface->toArray method" => "https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/FieldInterface/toArray.md",
                 "Chloroform toArray" => "https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform/toArray.md",
                 "the route page" => "https://github.com/lingtalfi/Light/blob/master/doc/pages/route.md",
@@ -212,6 +215,14 @@ class Light_Kit_AdminDocBuilder
                 "Light_PluginInstaller conception notes" => "https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/pages/conception-notes.md",
                 "late registration concept" => "https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/design/late-service-registration.md",
                 "the realform service" => "https://github.com/lingtalfi/Light_Realform",
+                "Light_Kit_Admin duplicate row conception notes" => $doc . "/pages/realist-duplicate-row.conception",
+                "the deep duplication section of the duplicate rows conception notes" => $doc . "/pages/realist-duplicate-row.conception",
+                "extended rics" => 'https://github.com/lingtalfi/NotationFan/blob/master/ric.md#the-extended-ric',
+                "details about the list actions" => 'https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/2020/list-actions.md',
+                "list item renderer documentation" => 'https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/2020/list-item-renderer.md',
+                "dynamic properties of the list item renderer page" => 'https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/2020/list-item-renderer.md#dynamic-properties',
+                "realist action-items document" => 'https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/2020/action-items.md',
+                "realist list-actions document" => 'https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/2020/list-actions.md',
             ],
             /**
              * An array of external classes to url.
@@ -287,6 +298,9 @@ class Light_Kit_AdminDocBuilder
                 "Ling\Light_PluginInstaller\PluginInstaller\PluginInstallerInterface" => "https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/PluginInstaller/PluginInstallerInterface.md",
                 "Ling\Light_Realist\Service\LightRealistCustomServiceInterface" => "https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Service/LightRealistCustomServiceInterface.md",
                 "Ling\Light_Realform\Service\LightRealformLateServiceRegistrationInterface" => "https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Service/LightRealformLateServiceRegistrationInterface.md",
+                "Ling\Light_DatabaseUtils\Util\RowDuplicator" => "https://github.com/lingtalfi/Light_DatabaseUtils/blob/master/doc/api/Ling/Light_DatabaseUtils/Util/RowDuplicator.md",
+                "Ling\Light_Realist\Rendering\BaseRealistListItemRenderer" => "https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Rendering/BaseRealistListItemRenderer.md",
+                "Ling\Light_Realist\Rendering\RealistListItemRendererInterface" => "https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Rendering/RealistListItemRendererInterface.md",
 
             ],
         ];

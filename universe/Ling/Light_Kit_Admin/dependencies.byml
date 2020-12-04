@@ -13,30 +13,31 @@ dependencies:
         - Light_Database
         - Chloroform
         - Light_CsrfSession
-        - Light_ChloroformExtension
         - Light_Kit
         - WiseTool
+        - Light_Mailer
+        - Light_UserDatabase
         - HtmlPageTools
         - Light_Events
         - Light_Flasher
         - Light_MicroPermission
-        - Light_UserDatabase
         - Light_Realform
-        - SqlWizard
+        - Light_Nugget
+        - SimplePdoWrapper
+        - Light_DatabaseUtils
+        - UniverseTools
         - Light_ControllerHub
         - Light_Crud
         - Light_Realist
-        - PhpSpreadSheetTool
-        - Light_DatabaseUtils
         - Light_UserData
-        - SimplePdoWrapper
+        - PhpSpreadSheetTool
         - Bootstrap4AdminTable
         - Light_PluginInstaller
         - Light_LingStandardService
-        - UniverseTools
         - Kit_PicassoWidget
         - Chloroform_HeliumRenderer
         - FontAwesome
+        - JBee
         - JPostForm
         - Jquery
     

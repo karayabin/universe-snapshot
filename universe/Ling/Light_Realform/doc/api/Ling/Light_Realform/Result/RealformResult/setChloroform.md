@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [RealformResult::setChloroform](https://github.com/lingtalfi/Light_Realform/blob/master/Result/RealformResult.php#L65-L68)
+See the source code for method [RealformResult::setChloroform](https://github.com/lingtalfi/Light_Realform/blob/master/Result/RealformResult.php#L72-L75)
 
 
 See Also

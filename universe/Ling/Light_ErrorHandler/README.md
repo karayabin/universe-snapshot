@@ -1,6 +1,6 @@
 Light_ErrorHandler
 ===========
-2020-06-01
+2020-06-01 -> 2020-11-30
 
 
 
@@ -53,7 +53,7 @@ error_handler:
             options:
                 handleFatalErrors: true
                 handleErrors: true
-
+                handleLogErrors: true
 
 # --------------------------------------
 # hooks
@@ -72,20 +72,15 @@ $logger.methods_collection:
     -
         method: addListener
         args:
-            channels: error_handler
+            channels:
+                - error_handler
+                - fatal_error_handler
+                - error
             listener:
-                instance: Ling\Light_Logger\Listener\LightFileLoggerListener
+                instance: Ling\Light_ErrorHandler\Light_Logger\LightLoggerErrorHandlerListener
                 methods:
-                    configure:
-                        options:
-                            file: ${app_dir}/log/errors/{date}.txt
-    -
-        method: addListener
-        args:
-            channels: fatal_error_handler
-            listener:
-                instance: Ling\Light_Logger\Listener\LightFileLoggerListener
-                methods:
+                    setContainer:
+                        container: @container()
                     configure:
                         options:
                             file: ${app_dir}/log/errors/{date}.txt
@@ -112,6 +107,10 @@ Related
 History Log
 =============
 
+- 1.0.3 -- 2020-11-30
+
+    - update service, add handleLogErrors option
+    
 - 1.0.2 -- 2020-06-01
 
     - Added related section in README.md

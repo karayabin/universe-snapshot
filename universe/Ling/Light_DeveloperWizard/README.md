@@ -1,6 +1,6 @@
 Light_DeveloperWizard
 ===========
-2020-06-30 -> 2020-11-12
+2020-06-30 -> 2020-12-03
 
 
 
@@ -33,6 +33,7 @@ Summary
 - Pages
     - [Conception notes](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/pages/conception-notes.md)
     - [Conventions](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/pages/conventions.md)
+    - [Tutorial: Create a service](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/pages/create-a-service-tutorial.md)
     - [Task details](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/pages/task-details.md)
 
 
@@ -62,7 +63,39 @@ developer_wizard:
 History Log
 =============
 
--- 1.28.1 -- 2020-11-12
+- 1.28.9 -- 2020-12-03
+
+    - update documentation to acknowledge new light init script location
+    
+- 1.28.8 -- 2020-12-01
+
+    - update DeveloperWizardLkaHelper::getLkaPlanetNameByPlanet, now proxies to original lka method
+    
+- 1.28.7 -- 2020-12-01
+
+    - add "create conception notes" task
+    
+- 1.28.6 -- 2020-12-01
+
+    - update "execute lka generator", now controller hub generates the class in Light_ControllerHub instead of ControllerHub, also we now rely on dynamic registration (i.e. no hook generated in the config)
+    
+- 1.28.5 -- 2020-11-27
+
+    - fix ServiceManagerUtil->addConfigHook not adding hook comment section correctly in some cases
+    
+- 1.28.4 -- 2020-11-27
+
+    - add create a service tutorial  
+    
+- 1.28.3 -- 2020-11-27
+
+    - update to accommodate latest Light_Kit api  
+    
+- 1.28.2 -- 2020-11-26
+
+    - update LightKitAdminBaseProcess, now doesn't add bmenu hook if addDirectInjector method already used  
+    
+- 1.28.1 -- 2020-11-23
 
     - update service to work with new realform, realist and realgen apis  
     - update SynchronizeDbProcess, now use table prefix by default to fetch the scope   

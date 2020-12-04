@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightMailerService::setContainer](https://github.com/lingtalfi/Light_Mailer/blob/master/Service/LightMailerService.php#L96-L99)
+See the source code for method [LightMailerService::setContainer](https://github.com/lingtalfi/Light_Mailer/blob/master/Service/LightMailerService.php#L104-L107)
 
 
 See Also

@@ -1,6 +1,6 @@
 Light_Realform
 ===========
-2019-10-21 -> 2020-11-13
+2019-10-21 -> 2020-12-01
 
 
 
@@ -68,7 +68,11 @@ Related
 History Log
 =============
 
--- 2.0.4 -- 2020-11-13
+- 2.0.5 -- 2020-12-01
+
+    - update service, now recognizes fields of type bool
+    
+- 2.0.4 -- 2020-11-26
 
     - update service's injectDefaultValues method, now is private
     - fix multiplier not working properly

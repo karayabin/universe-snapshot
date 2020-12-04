@@ -1,0 +1,25 @@
+login_notifier: 
+    instance: Ling\Light_LoginNotifier\Service\LightLoginNotifierService
+    methods: 
+        setContainer: 
+            container: @container()
+        
+        setOptions: 
+            options:
+                send_notification_to_user: true
+                record_to_db: true
+                send_notification_to_admin:
+                    - lingtalfi@gmail.com
+
+    
+# --------------------------------------
+# hooks
+# --------------------------------------
+$plugin_installer.methods_collection: 
+    - 
+        method: registerPlugin
+        args: 
+            plugin: Light_LoginNotifier
+            installer: @service(login_notifier)
+        
+

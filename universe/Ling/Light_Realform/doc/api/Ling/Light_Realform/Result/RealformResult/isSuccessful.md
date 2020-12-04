@@ -46,7 +46,7 @@ Returns bool.
 
 Source Code
 ===========
-See the source code for method [RealformResult::isSuccessful](https://github.com/lingtalfi/Light_Realform/blob/master/Result/RealformResult.php#L95-L98)
+See the source code for method [RealformResult::isSuccessful](https://github.com/lingtalfi/Light_Realform/blob/master/Result/RealformResult.php#L102-L105)
 
 
 See Also

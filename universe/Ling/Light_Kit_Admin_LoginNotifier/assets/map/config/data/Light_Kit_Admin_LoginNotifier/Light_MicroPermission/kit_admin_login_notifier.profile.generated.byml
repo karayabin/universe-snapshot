@@ -1,0 +1,4 @@
+Light_LoginNotifier.admin:
+    - store.lln_connexion
+
+

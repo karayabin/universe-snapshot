@@ -80,6 +80,7 @@ class Light_Kit_Admin_UserDatabaseDocBuilder
                 "Ling\Light\Controller\LightController",
                 "Ling\Light_ControllerHub\ControllerHubHandler\LightBaseControllerHubHandler",
                 "Ling\Light_Kit_Admin\LightKitAdminPlugin\BaseLightKitAdminPlugin",
+                "Ling\Light_Kit_Admin\Controller\RealAdminPageController",
 
             ],
             /**
@@ -184,6 +185,8 @@ class Light_Kit_Admin_UserDatabaseDocBuilder
                 "Ling\Light_BMenu\DirectInjection\BMenuDirectInjectorInterface" => "https://github.com/lingtalfi/Light_BMenu/blob/master/doc/api/Ling/Light_BMenu/DirectInjection/BMenuDirectInjectorInterface.md",
                 "Ling\Light_Realist\Service\LightRealistCustomServiceInterface" => "https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Service/LightRealistCustomServiceInterface.md",
                 "Ling\Light_Realform\Service\LightRealformLateServiceRegistrationInterface" => "https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Service/LightRealformLateServiceRegistrationInterface.md",
+                "Ling\Light_Kit_Admin\Controller\RealAdminPageController" => "https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/RealAdminPageController.md",
+                "Ling\Light\ServiceContainer\LightServiceContainerAwareInterface" => "https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerAwareInterface.md",
 
 
             ],

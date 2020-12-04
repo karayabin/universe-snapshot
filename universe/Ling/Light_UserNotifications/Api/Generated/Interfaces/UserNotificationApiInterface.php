@@ -13,7 +13,7 @@ interface UserNotificationApiInterface
 
 
     /**
-     * Inserts the given userNotification in the database.
+     * Inserts the given user notification in the database.
      * By default, it returns the result of the PDO::lastInsertId method.
      * If the returnRic flag is set to true, the method will return the ric array instead of the lastInsertId.
      *
@@ -21,7 +21,7 @@ interface UserNotificationApiInterface
      * If the row you're trying to insert triggers a duplicate error, the behaviour of this method depends on
      * the ignoreDuplicate flag:
      * - if true, the error will be caught internally, the return of the method is not affected
-     * - if false, the error will not be caught, and depending on your configuration, it might either
+     * - if false, the error will not be caught, and depending on your pdo configuration, it might either
      *          trigger an exception, or fail silently in which case this method returns false.
      *
      *
@@ -35,7 +35,7 @@ interface UserNotificationApiInterface
     public function insertUserNotification(array $userNotification, bool $ignoreDuplicate = true, bool $returnRic = false);
 
     /**
-     * Inserts the given userNotification rows in the database.
+     * Inserts the given user notification rows in the database.
      * By default, it returns an array of the result of the PDO::lastInsertId method for each insert.
      * If the returnRic flag is set to true, the method will return an array of the ric array (for each insert) instead of the lastInsertId.
      *
@@ -79,7 +79,7 @@ interface UserNotificationApiInterface
     public function fetch(array $components = []);
 
     /**
-     * Returns the userNotification row identified by the given id.
+     * Returns the user notification row identified by the given id.
      *
      * If the row is not found, this method's return depends on the throwNotFoundEx flag:
      * - if true, the method throws an exception
@@ -190,7 +190,7 @@ interface UserNotificationApiInterface
 
 
     /**
-     * Updates the userNotification row identified by the given id.
+     * Updates the user notification row identified by the given id.
      *
      * @param int $id
      * @param array $userNotification
@@ -205,7 +205,7 @@ interface UserNotificationApiInterface
 
 
     /**
-     * Updates the userNotification row.
+     * Updates the user notification row.
      *
      * @param array $userNotification
      * @param mixed $where
@@ -232,7 +232,7 @@ interface UserNotificationApiInterface
     public function delete($where = null, array $markers = []);
 
     /**
-     * Deletes the userNotification identified by the given id.
+     * Deletes the user notification identified by the given id.
      *
      * @param int $id
      * @return void
@@ -243,7 +243,7 @@ interface UserNotificationApiInterface
 
 
     /**
-     * Deletes the userNotification rows identified by the given ids.
+     * Deletes the user notification rows identified by the given ids.
      *
      * @param array $ids
      * @return void
@@ -252,5 +252,13 @@ interface UserNotificationApiInterface
     public function deleteUserNotificationByIds(array $ids);
 
 
+
+
+
+    /**
+     * Deletes the user notification rows having the given user id.
+     * @param int $userId
+     */
+    public function deleteUserNotificationByLudUserId(int $userId);
 
 }

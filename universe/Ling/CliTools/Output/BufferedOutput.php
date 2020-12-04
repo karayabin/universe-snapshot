@@ -4,6 +4,9 @@
 namespace Ling\CliTools\Output;
 
 
+use Ling\CliTools\Formatter\BashtmlFormatter;
+use Ling\CliTools\Formatter\FormatterInterface;
+
 /**
  * The BufferedOutput class.
  * This output stores the messages in a buffer rather than spitting out every message right away.
@@ -14,8 +17,35 @@ namespace Ling\CliTools\Output;
  * - resets the messages list
  *
  */
-class BufferedOutput extends Output
+class BufferedOutput implements OutputInterface
 {
+
+    /**
+     * This property holds the list of all the non-formatted messages written to this instance.
+     * It's an array of strings (each string being a message).
+     *
+     *
+     * @var array
+     */
+    protected $messages;
+
+    /**
+     * This property holds the formatter to use for this instance.
+     * The default value is the @class(Ling\CliTools\Formatter\BashtmlFormatter).
+     *
+     *
+     * @var FormatterInterface
+     */
+    protected $formatter;
+
+    /**
+     * Builds the Output instance.
+     */
+    public function __construct()
+    {
+        $this->messages = [];
+        $this->formatter = new BashtmlFormatter();
+    }
 
     /**
      * @implementation

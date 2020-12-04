@@ -58,7 +58,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [RowDuplicator::error](https://github.com/lingtalfi/Light_DatabaseUtils/blob/master/Util/RowDuplicator.php#L399-L402)
+See the source code for method [RowDuplicator::error](https://github.com/lingtalfi/Light_DatabaseUtils/blob/master/Util/RowDuplicator.php#L409-L412)
 
 
 See Also

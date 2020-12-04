@@ -4,7 +4,7 @@
 
 The Output class
 ================
-2019-02-26 --> 2019-07-18
+2019-02-26 --> 2020-12-04
 
 
 
@@ -31,7 +31,6 @@ Class synopsis
 class <span class="pl-k">Output</span> implements [OutputInterface](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Output/OutputInterface.md) {
 
 - Properties
-    - protected array [$messages](#property-messages) ;
     - protected [Ling\CliTools\Formatter\FormatterInterface](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Formatter/FormatterInterface.md) [$formatter](#property-formatter) ;
 
 - Methods
@@ -46,13 +45,6 @@ class <span class="pl-k">Output</span> implements [OutputInterface](https://gith
 
 Properties
 =============
-
-- <span id="property-messages"><b>messages</b></span>
-
-    This property holds the list of all the non-formatted messages written to this instance.
-    It's an array of strings (each string being a message).
-    
-    
 
 - <span id="property-formatter"><b>formatter</b></span>
 

@@ -7,6 +7,9 @@ mailer:
             options:
                 useDebug: true              # default is false
                 useSendFailuresLog: true    # default is true
+        registerTemplatePartsDirectory:
+            alias: template
+            path: ${app_dir}/templates/app/mailer_template_parts
 
 
 

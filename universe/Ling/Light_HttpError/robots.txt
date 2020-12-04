@@ -1,2 +1,0 @@
-User-agent: *
-Sitemap: https://raw.githubusercontent.com/lingtalfi/Light_HttpError/master/sitemap.txt

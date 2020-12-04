@@ -1,6 +1,6 @@
 Light_Kit_Admin_TaskScheduler
 ===========
-2020-07-31 -> 2020-08-28
+2020-07-31 -> 2020-12-01
 
 
 
@@ -65,80 +65,69 @@ Services
 Here is an example of the service configuration:
 
 ```yaml
-kit_admin_task_scheduler:
+kit_admin_task_scheduler: 
     instance: Ling\Light_Kit_Admin_TaskScheduler\Service\LightKitAdminTaskSchedulerService
-    methods:
-        setContainer:
+    methods: 
+        setContainer: 
             container: @container()
-
-
-
+        
+    
 
 # --------------------------------------
 # hooks
 # --------------------------------------
-$bmenu.methods_collection:
-    -
+$bmenu.methods_collection: 
+    - 
         method: addDefaultItemByFile
-        args:
+        args: 
             menu_type: admin_main_menu
             file: ${app_dir}/config/data/Light_Kit_Admin_TaskScheduler/bmenu/generated/kit_admin_task_scheduler.admin_mainmenu_1.byml
+        
+    
+    - 
+        method: addDirectItemsByFileAndParentPath
+        args: 
+            menu_type: admin_main_menu
+            file: ${app_dir}/config/data/Light_Kit_Admin_TaskScheduler/bmenu/generated/kit_admin_task_scheduler.admin_mainmenu_1.byml
+            path: lka-admin
+        
 
-$chloroform_extension.methods_collection:
-    -
-        method: registerTableListConfigurationHandler
-        args:
-            plugin: Light_Kit_Admin_TaskScheduler
-            handler:
-                instance: Ling\Light_Kit_Admin\ChloroformExtension\LightKitAdminTableListConfigurationHandler
-                methods:
-                    setConfigurationFile:
-                        files:
-                            - ${app_dir}/config/data/Light_Kit_Admin_TaskScheduler/Light_ChloroformExtension/generated/kit_admin_task_scheduler.table_list.byml
+            
+        
+    
 
-
-
-$controller_hub.methods_collection:
-    -
-        method: registerHandler
-        args:
-            plugin: Light_Kit_Admin_TaskScheduler
-            handler:
-                instance: Ling\Light_Kit_Admin_TaskScheduler\ControllerHub\Generated\LightKitAdminTaskSchedulerControllerHubHandler
-                methods:
-                    setContainer:
-                        container: @container()
-
-
-$kit_admin.methods_collection:
-    -
+$kit_admin.methods_collection: 
+    - 
         method: registerPlugin
-        args:
+        args: 
             pluginName: Light_Kit_Admin_TaskScheduler
-            plugin:
+            plugin: 
                 instance: Ling\Light_Kit_Admin_TaskScheduler\LightKitAdminPlugin\Generated\LightKitAdminTaskSchedulerLkaPlugin
-                methods:
-                    setOptionsFile:
+                methods: 
+                    setOptionsFile: 
                         file: ${app_dir}/config/data/Light_Kit_Admin_TaskScheduler/Light_Kit_Admin/lka-options.generated.byml
+                    
+                
+            
+        
+    
 
-$micro_permission.methods_collection:
-    -
+$micro_permission.methods_collection: 
+    - 
         method: registerMicroPermissionsByProfile
-        args:
+        args: 
             file: ${app_dir}/config/data/Light_Kit_Admin_TaskScheduler/Light_MicroPermission/kit_admin_task_scheduler.profile.generated.byml
+        
+    
 
-
-$plugin_installer.methods_collection:
-    -
+$plugin_installer.methods_collection: 
+    - 
         method: registerPlugin
-        args:
+        args: 
             plugin: Light_Kit_Admin_TaskScheduler
             installer: @service(kit_admin_task_scheduler)
-
-
-
-
-
+        
+    
 ```
 
 
@@ -146,6 +135,19 @@ $plugin_installer.methods_collection:
 History Log
 =============
 
+
+- 1.5.3 -- 2020-12-01
+
+    - update to accommodate latest Light_ControllerHub api  
+    
+- 1.5.2 -- 2020-11-27
+
+    - update api with new generated breeze  
+    
+- 1.5.1 -- 2020-11-27
+
+    - update to accommodate latest Light_Kit api  
+    
 - 1.5.0 -- 2020-08-28
 
     - acknowledge new Light_Crud api  

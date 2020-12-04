@@ -54,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightRealformService::error](https://github.com/lingtalfi/Light_Realform/blob/master/Service/LightRealformService.php#L922-L925)
+See the source code for method [LightRealformService::error](https://github.com/lingtalfi/Light_Realform/blob/master/Service/LightRealformService.php#L873-L876)
 
 
 See Also
@@ -62,5 +62,5 @@ See Also
 
 The [LightRealformService](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Service/LightRealformService.md) class.
 
-Previous method: [injectDefaultValues](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Service/LightRealformService/injectDefaultValues.md)<br>
+Previous method: [getFeederDefaultValues](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Service/LightRealformService/getFeederDefaultValues.md)<br>Next method: [getMultiplierByNugget](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Service/LightRealformService/getMultiplierByNugget.md)<br>
 

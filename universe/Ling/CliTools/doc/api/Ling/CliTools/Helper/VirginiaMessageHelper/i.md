@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [VirginiaMessageHelper::i](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Helper/VirginiaMessageHelper/i.md)($level = 0) : string
+public static [VirginiaMessageHelper::i](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Helper/VirginiaMessageHelper/i.md)(?$level = 0) : string
 
 
 

@@ -3,6 +3,7 @@ dependencies:
         - Light
         - Bat
         - Light_Kit_Admin
+        - UniverseTools
     
 
 post_install: 

@@ -2,20 +2,22 @@ dependencies:
     Ling: 
         - BabyYaml
         - Bat
-        - SqlWizard
         - Light
+        - Light_Database
+        - SimplePdoWrapper
+        - SqlWizard
+        - Light_Kit_Admin
         - Light_PluginInstaller
         - UniverseTools
         - ClassCooker
         - TokenFun
         - WebWizardTools
         - Light_DbSynchronizer
-        - Light_DatabaseInfo
         - Light_Kit_Admin_Generator
+        - Light_DatabaseInfo
         - Light_LingStandardService
         - Light_UserDatabase
         - Light_ControllerHub
-        - Light_Kit_Admin
         - Jquery
     
 

@@ -49,7 +49,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [LightDeveloperWizardService::getSymbolicPath](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/Service/LightDeveloperWizardService.php#L519-L522)
+See the source code for method [LightDeveloperWizardService::getSymbolicPath](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/Service/LightDeveloperWizardService.php#L547-L550)
 
 
 See Also

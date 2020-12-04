@@ -53,7 +53,7 @@ Returns [CheckboxField](https://github.com/lingtalfi/Chloroform/blob/master/doc/
 
 Source Code
 ===========
-See the source code for method [CheckboxField::create](https://github.com/lingtalfi/Chloroform/blob/master/Field/CheckboxField.php#L57-L61)
+See the source code for method [CheckboxField::create](https://github.com/lingtalfi/Chloroform/blob/master/Field/CheckboxField.php#L65-L69)
 
 
 See Also

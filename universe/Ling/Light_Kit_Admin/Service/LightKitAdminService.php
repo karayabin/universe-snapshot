@@ -17,10 +17,10 @@ use Ling\Light_PluginInstaller\PluginInstaller\PluginInstallerInterface;
 use Ling\Light_PluginInstaller\Service\LightPluginInstallerService;
 use Ling\Light_Realform\Service\LightRealformLateServiceRegistrationInterface;
 use Ling\Light_ReverseRouter\Service\LightReverseRouterService;
+use Ling\Light_User\LightWebsiteUser;
 use Ling\Light_UserDatabase\Service\LightUserDatabaseService;
 use Ling\SimplePdoWrapper\SimplePdoWrapperInterface;
 
-//use Ling\Light_Kit_Admin\UserRowOwnership\LightKitAdminUserRowOwnershipManager;
 
 /**
  * The LightKitAdminService class.
@@ -280,6 +280,35 @@ class LightKitAdminService implements PluginInstallerInterface
             $this->container->get("flasher")->addFlash("AdminPageControllerForbidden", $e->getMessage(), "w");
             $response = $this->getRedirectResponseByRoute($redirectRoute, $urlParams);
             $event->setVar("httpResponse", $response);
+        }
+    }
+
+
+    /**
+     *
+     * This method is called by default when a website user logs in.
+     * What we do is the following:
+     *
+     * - if the Light_LoginNotifier plugin is installed, we call its onWebsiteUserLogin method.
+     *
+     *
+     *
+     * @param LightEvent $event
+     *
+     */
+    public function onWebsiteUserLogin(LightEvent $event): void
+    {
+        $user = $event->getVar("user");
+        if ($user instanceof LightWebsiteUser) {
+
+
+            if (true === $this->container->has("login_notifier")) {
+                /**
+                 * @var $ln \Ling\Light_LoginNotifier\Service\LightLoginNotifierService
+                 */
+                $ln = $this->container->get("login_notifier");
+                $ln->onWebsiteUserLogin($user);
+            }
         }
     }
 

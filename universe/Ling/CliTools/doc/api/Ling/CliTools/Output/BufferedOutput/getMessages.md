@@ -46,7 +46,7 @@ An array of the buffered messages.
 
 Source Code
 ===========
-See the source code for method [BufferedOutput::getMessages](https://github.com/lingtalfi/CliTools/blob/master/Output/BufferedOutput.php#L58-L61)
+See the source code for method [BufferedOutput::getMessages](https://github.com/lingtalfi/CliTools/blob/master/Output/BufferedOutput.php#L88-L91)
 
 
 See Also

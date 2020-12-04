@@ -4,7 +4,7 @@
 
 The Light_HtmlPageCopilotDocBuilder class
 ================
-2019-03-13 --> 2020-11-09
+2019-03-13 --> 2020-12-03
 
 
 
@@ -52,4 +52,4 @@ See the source code of [Ling\LingTalfi\DocBuilder\Light_HtmlPageCopilot\Light_Ht
 
 SeeAlso
 ==============
-Previous class: [Light_FlasherDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Flasher/Light_FlasherDocBuilder.md)<br>Next class: [Light_HttpErrorDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_HttpError/Light_HttpErrorDocBuilder.md)<br>
+Previous class: [Light_FlasherDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Flasher/Light_FlasherDocBuilder.md)<br>Next class: [Light_InitializerDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Initializer/Light_InitializerDocBuilder.md)<br>

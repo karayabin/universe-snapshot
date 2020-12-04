@@ -415,7 +415,7 @@ form:
     related_links:
         -
             text: See the list of "{Label}" items
-            url: (::ROUTE::)lch_route-hub::{plugin: !{plugin}, controller: Generated/{TableClass}Controller}
+            url: ::(@reverse_router->getUrl(lch_route-hub, {plugin: !{plugin}, controller: Generated/{TableClass}Controller}))::
             icon: fas fa-plus-circle
 
 

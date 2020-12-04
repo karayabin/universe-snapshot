@@ -1,6 +1,6 @@
 Ling/Light_UserData
 ================
-2019-09-27 --> 2020-11-12
+2019-09-27 --> 2020-11-20
 
 
 
@@ -436,7 +436,7 @@ Table of contents
     - AbstractValidator::toArray &ndash; Returns the array version of a validator.
     - AbstractValidator::setErrorMessage &ndash; Overrides a default error message, and returns this instance (for chaining).
 - [LightUserDataController](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Controller/LightUserDataController.md) &ndash; The LightUserDataController class.
-    - LightHttpErrorController::render &ndash; Renders the page requested by the given request, and returns the appropriate response.
+    - LightSimpleHttpServerController::render &ndash; Renders the page requested by the given request, and returns the appropriate response.
     - LightController::__construct &ndash; Builds the LightController instance.
     - LightController::setLight &ndash; Sets the light instance.
 - [LightUserDataException](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Exception/LightUserDataException.md) &ndash; The LightUserDataException class.
@@ -532,7 +532,7 @@ Dependencies
 - [Chloroform](https://github.com/lingtalfi/Chloroform)
 - [Light_User](https://github.com/lingtalfi/Light_User)
 - [Bat](https://github.com/lingtalfi/Bat)
-- [Light_HttpError](https://github.com/lingtalfi/Light_HttpError)
+- [Light_SimpleHttpServer](https://github.com/lingtalfi/Light_SimpleHttpServer)
 - [Panda_Headers](https://github.com/lingtalfi/Panda_Headers)
 - [Light_UserManager](https://github.com/lingtalfi/Light_UserManager)
 - [Light_ZouUploader](https://github.com/lingtalfi/Light_ZouUploader)

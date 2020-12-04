@@ -145,9 +145,11 @@ class Light_CrudDocBuilder
             "keyWord2UrlMap" => [
                 'ajax communication protocol' => 'https://github.com/lingtalfi/AjaxCommunicationProtocol',
                 "the form multiplier trick" =>  'https://github.com/lingtalfi/TheBar/blob/master/discussions/form-multiplier.md',
+                "the multiplier form trick for more details" =>  'https://github.com/lingtalfi/TheBar/blob/master/discussions/form-multiplier.md',
                 "ric strict" =>  'https://github.com/lingtalfi/NotationFan/blob/master/ric.md#the-strict-ric',
                 "LightCrudRequestHandlerInterface" => $api . '/Ling/Light_Crud/CrudRequestHandler/LightCrudRequestHandlerInterface.md',
                 "alcp response" => 'https://github.com/lingtalfi/Light_AjaxHandler/blob/master/doc/pages/ajax-light-communication-protocol.md',
+
             ],
             /**
              * An array of external classes to url.

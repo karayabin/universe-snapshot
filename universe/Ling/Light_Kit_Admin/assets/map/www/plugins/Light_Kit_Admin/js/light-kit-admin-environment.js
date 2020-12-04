@@ -14,6 +14,108 @@ if ('undefined' === typeof LightKitAdminEnvironment) {
         //----------------------------------------
         window.LightKitAdminEnvironment = {
 
+
+            /**
+             * Asks the user if he/she's sure to execute the action before executing it.
+             *
+             * Available options are:
+             *
+             * - title: the title of the modal. Defaults to null (no title)
+             * - cancelText: the text to display for the cancel action. Defaults to "Cancel"
+             * - okText: the text to display for the ok action. Defaults to "Ok"
+             * - loader: bool = true. Whether to display a loader while the action is executing.
+             *      If false, the modal will close directly as the user clicks the "Ok" button.
+             *      If true, the modal will show a loader inside the modal when the user clicks the "Ok" button,
+             *      and the developer needs to close the modal once the action is done.
+             *
+             *
+             *
+             *
+             * @param text
+             * @param callback
+             * @param options
+             * @returns {boolean}
+             */
+            confirmExecute: function (text, callback, options) {
+                options = options || {};
+
+                //----------------------------------------
+                // vars
+                //----------------------------------------
+                var title = options.title || null;
+                var cancelText = options.cancelText || 'Cancel';
+                var okText = options.okText || 'Ok';
+                var loadingText = options.loadingText || 'Loading...';
+                var loader = options.loader || true;
+                var modalId = 'lka-confirm-modal';
+                var okId = 'lka-confirm-modal-ok-btn';
+                var loaderId = 'lka-confirm-modal-loader-btn';
+
+
+                //----------------------------------------
+                //
+                //----------------------------------------
+                var header = '';
+                if (null !== title) {
+                    header = '' +
+                        '      <div class="modal-header">\n' +
+                        '        <h5 class="modal-title" id="exampleModalLabel">' + title + '</h5>\n' +
+                        '        <button type="button" class="close" data-dismiss="modal" aria-label="Close">\n' +
+                        '          <span aria-hidden="true">&times;</span>\n' +
+                        '        </button>\n' +
+                        '      </div>' +
+                        '';
+                }
+
+
+                var s = '' +
+                    '<div class="modal fade" id="' + modalId + '" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">\n' +
+                    '  <div class="modal-dialog">\n' +
+                    '    <div class="modal-content">\n' +
+                    header +
+                    '      <div class="modal-body">\n' +
+                    text +
+                    '        \n' +
+                    '      </div>\n' +
+                    '      <div class="modal-footer">\n' +
+                    '        <button type="button" class="btn btn-secondary" data-dismiss="modal">' + cancelText + '</button>\n' +
+                    '        <button id="' + okId + '" type="button" class="btn btn-primary">' + okText + '</button>\n' +
+                    '        <button id="' + loaderId + '" class="d-none btn btn-primary" type="button" disabled>\n' +
+                    '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>' +
+                    ' ' + loadingText +
+                    '        </button>' +
+                    '      </div>\n' +
+                    '    </div>\n' +
+                    '  </div>\n' +
+                    '</div>' +
+                    '';
+                $('body').append(s);
+
+
+                var jModal = $('#' + modalId);
+                jModal.modal();
+                jModal.on('hidden.bs.modal', function (e) {
+                    jModal.remove();
+                });
+                var jOk = jModal.find('#' + okId);
+                var jLoader = jModal.find('#' + loaderId);
+                jOk.on('click', function () {
+                    if (true === loader || "1" === loader) {
+                        jOk.hide();
+                        jLoader.removeClass("d-none");
+                        callback({
+                            onSuccessAfter: function () {
+                                jModal.modal('hide');
+                            },
+                        });
+                    } else {
+                        callback();
+                    }
+                    return false;
+                });
+
+                return false;
+            },
             /**
              * Asks the user the question which text is given, and returns
              * whether the user clicked on ok or cancel.

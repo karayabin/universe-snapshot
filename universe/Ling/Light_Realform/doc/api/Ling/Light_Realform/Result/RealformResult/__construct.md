@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [RealformResult::__construct](https://github.com/lingtalfi/Light_Realform/blob/master/Result/RealformResult.php#L42-L48)
+See the source code for method [RealformResult::__construct](https://github.com/lingtalfi/Light_Realform/blob/master/Result/RealformResult.php#L48-L55)
 
 
 See Also

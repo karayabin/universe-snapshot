@@ -46,7 +46,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [RealformResult::getValidPostedData](https://github.com/lingtalfi/Light_Realform/blob/master/Result/RealformResult.php#L75-L78)
+See the source code for method [RealformResult::getValidPostedData](https://github.com/lingtalfi/Light_Realform/blob/master/Result/RealformResult.php#L82-L85)
 
 
 See Also

@@ -4,7 +4,7 @@
 
 The RealformSuccessHandlerInterface class
 ================
-2019-10-21 --> 2020-09-21
+2019-10-21 --> 2020-12-01
 
 
 
@@ -25,7 +25,7 @@ Class synopsis
 abstract class <span class="pl-k">RealformSuccessHandlerInterface</span>  {
 
 - Methods
-    - abstract public [execute](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/SuccessHandler/RealformSuccessHandlerInterface/execute.md)(array $data, ?array $options = []) : void
+    - abstract public [execute](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/SuccessHandler/RealformSuccessHandlerInterface/execute.md)(array $data, ?array $options = []) : mixed
 
 }
 

@@ -7,6 +7,7 @@ zones:
             type: picasso
             className: Ling\Light_Kit_Admin\Widget\Picasso\LightKitAdminChloroformWidget
             widgetDir: templates/Light_Kit_Admin/widgets/picasso/LightKitAdminChloroformWidget
+            template: default.php
             template: user/user_profile.php
             vars: []
                 title: User Profile

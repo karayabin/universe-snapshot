@@ -4,8 +4,12 @@
 namespace Ling\Light_UserDatabase\Api\Generated\Classes;
 
 use Ling\SimplePdoWrapper\SimplePdoWrapper;
-use Ling\SimplePdoWrapper\Util\Where;
 use Ling\SimplePdoWrapper\Exception\SimplePdoWrapperQueryException;
+use Ling\SimplePdoWrapper\Util\Columns;
+use Ling\SimplePdoWrapper\Util\Limit;
+use Ling\SimplePdoWrapper\Util\OrderBy;
+use Ling\SimplePdoWrapper\Util\Where;
+
 use Ling\Light_UserDatabase\Api\Custom\Classes\CustomLightUserDatabaseBaseApi;
 use Ling\Light_UserDatabase\Api\Generated\Interfaces\PermissionGroupHasPermissionApiInterface;
 
@@ -26,6 +30,8 @@ class PermissionGroupHasPermissionApi extends CustomLightUserDatabaseBaseApi imp
         parent::__construct();
         $this->table = "lud_permission_group_has_permission";
     }
+
+
 
 
 
@@ -107,8 +113,38 @@ class PermissionGroupHasPermissionApi extends CustomLightUserDatabaseBaseApi imp
     /**
      * @implementation
      */
+    public function fetchAll(array $components = []): array
+    {
+        $markers = [];
+        $q = '';
+        $options = $this->fetchRoutine($q, $markers, $components);
+        $fetchStyle = null;
+        if (true === $options['singleColumn']) {
+            $fetchStyle = \PDO::FETCH_COLUMN;
+        }
+        return $this->pdoWrapper->fetchAll($q, $markers, $fetchStyle);
+    }
+
+    /**
+     * @implementation
+     */
+    public function fetch(array $components = [])
+    {
+        $markers = [];
+        $q = '';
+        $options = $this->fetchRoutine($q, $markers, $components);
+        $fetchStyle = null;
+        if (true === $options['singleColumn']) {
+            $fetchStyle = \PDO::FETCH_COLUMN;
+        }
+        return $this->pdoWrapper->fetch($q, $markers, $fetchStyle);
+    }
+
+    /**
+     * @implementation
+     */
     public function getPermissionGroupHasPermissionByPermissionGroupIdAndPermissionId(int $permission_group_id, int $permission_id, $default = null, bool $throwNotFoundEx = false)
-    { 
+    {
         $ret = $this->pdoWrapper->fetch("select * from `$this->table` where permission_group_id=:permission_group_id and permission_id=:permission_id", [
             "permission_group_id" => $permission_group_id,
 				"permission_id" => $permission_id,
@@ -212,13 +248,23 @@ class PermissionGroupHasPermissionApi extends CustomLightUserDatabaseBaseApi imp
     /**
      * @implementation
      */
-    public function updatePermissionGroupHasPermissionByPermissionGroupIdAndPermissionId(int $permission_group_id, int $permission_id, array $permissionGroupHasPermission)
-    { 
-        $this->pdoWrapper->update($this->table, $permissionGroupHasPermission, [
+    public function updatePermissionGroupHasPermissionByPermissionGroupIdAndPermissionId(int $permission_group_id, int $permission_id, array $permissionGroupHasPermission, array $extraWhere = [], array $markers = [])
+    {
+        $this->pdoWrapper->update($this->table, $permissionGroupHasPermission, array_merge([
             "permission_group_id" => $permission_group_id,
 			"permission_id" => $permission_id,
 
-        ]);
+        ], $extraWhere), $markers);
+    }
+
+
+
+    /**
+     * @implementation
+     */
+    public function updatePermissionGroupHasPermission(array $permissionGroupHasPermission, $where = null, array $markers = [])
+    {
+        $this->pdoWrapper->update($this->table, $permissionGroupHasPermission, $where, $markers);
     }
 
 
@@ -236,32 +282,10 @@ class PermissionGroupHasPermissionApi extends CustomLightUserDatabaseBaseApi imp
      * @implementation
      */
     public function deletePermissionGroupHasPermissionByPermissionGroupIdAndPermissionId(int $permission_group_id, int $permission_id)
-    { 
+    {
         $this->pdoWrapper->delete($this->table, [
             "permission_group_id" => $permission_group_id,
 			"permission_id" => $permission_id,
-
-        ]);
-    }
-
-    /**
-     * @implementation
-     */
-    public function deletePermissionGroupHasPermissionByPermissionGroupId(int $permission_group_id)
-    { 
-        $this->pdoWrapper->delete($this->table, [
-            "permission_group_id" => $permission_group_id,
-
-        ]);
-    }
-
-    /**
-     * @implementation
-     */
-    public function deletePermissionGroupHasPermissionByPermissionId(int $permission_id)
-    { 
-        $this->pdoWrapper->delete($this->table, [
-            "permission_id" => $permission_id,
 
         ]);
     }
@@ -287,6 +311,91 @@ class PermissionGroupHasPermissionApi extends CustomLightUserDatabaseBaseApi imp
 
 
 
+    /**
+     * @implementation
+     */
+    public function deletePermissionGroupHasPermissionByPermissionGroupId(int $permissionGroupId)
+    {
+        $this->pdoWrapper->delete($this->table, [
+            "permission_group_id" => $permissionGroupId,
+        ]);
+    }
+    /**
+     * @implementation
+     */
+    public function deletePermissionGroupHasPermissionByPermissionId(int $permissionId)
+    {
+        $this->pdoWrapper->delete($this->table, [
+            "permission_id" => $permissionId,
+        ]);
+    }
+
+
+    //--------------------------------------------
+    //
+    //--------------------------------------------
+    /**
+     * Appends the given components to the given query, and returns an array of options.
+     *
+     * The options are:
+     *
+     * - singleColumn: bool, whether the singleColumn mode was triggered with the Columns component
+     *
+     *
+     * @param string $q
+     * @param array $markers
+     * @param array $components
+     * @return array
+     * @throws \Exception
+     */
+    private function fetchRoutine(string &$q, array &$markers, array $components): array
+    {
+        $sWhere = '';
+        $sCols = '';
+        $sOrderBy = '';
+        $sLimit = '';
+        $singleColumn = false;
+
+        foreach ($components as $component) {
+            if ($component instanceof Columns) {
+                $component->apply($sCols);
+                $mode = $component->getMode();
+                if ('singleColumn' === $mode) {
+                    $singleColumn = true;
+                }
+            } elseif ($component instanceof Where) {
+                SimplePdoWrapper::addWhereSubStmt($sWhere, $markers, $component);
+            } elseif ($component instanceof OrderBy) {
+                $sOrderBy .= PHP_EOL . ' ORDER BY ';
+                $component->apply($sOrderBy);
+            } elseif ($component instanceof Limit) {
+                $sOrderBy .= PHP_EOL . ' LIMIT ';
+                $component->apply($sOrderBy);
+            }
+        }
+
+
+        if ('' === $sCols) {
+            $sCols = '*';
+        }
+
+
+        $q = "select $sCols from `$this->table`";
+        if ($sWhere) {
+            $q .= $sWhere;
+        }
+        if ($sOrderBy) {
+            $q .= $sOrderBy;
+        }
+        if ($sLimit) {
+            $q .= $sLimit;
+        }
+
+
+        return [
+            'singleColumn' => $singleColumn,
+        ];
+    }
 
 
 }

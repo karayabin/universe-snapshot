@@ -67,7 +67,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [TableListField::__construct](https://github.com/lingtalfi/Light_ChloroformExtension/blob/master/Field/TableListField.php#L43-L71)
+See the source code for method [TableListField::__construct](https://github.com/lingtalfi/Light_ChloroformExtension/blob/master/Field/TableListField.php#L43-L73)
 
 
 See Also

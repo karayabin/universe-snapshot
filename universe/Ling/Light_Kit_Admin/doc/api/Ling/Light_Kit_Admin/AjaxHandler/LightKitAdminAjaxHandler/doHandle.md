@@ -53,7 +53,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [LightKitAdminAjaxHandler::doHandle](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/AjaxHandler/LightKitAdminAjaxHandler.php#L22-L57)
+See the source code for method [LightKitAdminAjaxHandler::doHandle](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/AjaxHandler/LightKitAdminAjaxHandler.php#L22-L51)
 
 
 See Also

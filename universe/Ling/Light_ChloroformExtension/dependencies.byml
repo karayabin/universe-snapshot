@@ -4,6 +4,7 @@ dependencies:
         - Light_AjaxHandler
         - Light_CsrfSession
         - Light_MicroPermission
+        - ArrayToString
         - Light_Database
         - Light_Nugget
         - SimplePdoWrapper

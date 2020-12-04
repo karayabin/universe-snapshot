@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightMailerService::setOptions](https://github.com/lingtalfi/Light_Mailer/blob/master/Service/LightMailerService.php#L150-L153)
+See the source code for method [LightMailerService::setOptions](https://github.com/lingtalfi/Light_Mailer/blob/master/Service/LightMailerService.php#L158-L161)
 
 
 See Also
@@ -57,5 +57,5 @@ See Also
 
 The [LightMailerService](https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Service/LightMailerService.md) class.
 
-Previous method: [setSenders](https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Service/LightMailerService/setSenders.md)<br>Next method: [send](https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Service/LightMailerService/send.md)<br>
+Previous method: [setSenders](https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Service/LightMailerService/setSenders.md)<br>Next method: [registerTemplatePartsDirectory](https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Service/LightMailerService/registerTemplatePartsDirectory.md)<br>
 

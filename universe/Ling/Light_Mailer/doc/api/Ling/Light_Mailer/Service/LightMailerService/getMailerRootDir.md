@@ -46,7 +46,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [LightMailerService::getMailerRootDir](https://github.com/lingtalfi/Light_Mailer/blob/master/Service/LightMailerService.php#L501-L504)
+See the source code for method [LightMailerService::getMailerRootDir](https://github.com/lingtalfi/Light_Mailer/blob/master/Service/LightMailerService.php#L597-L600)
 
 
 See Also

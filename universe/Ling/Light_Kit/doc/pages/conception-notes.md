@@ -1,12 +1,12 @@
 Conception notes 
 ========
-2019-05-15
+2019-05-15 -> 2020-11-27
 
 
 
 
 * [Dynamic variables](#dynamic-variables)
-* [Lazy reference resolver](#lazy-reference-resolver)
+* [Light execute notation](#light-execute-notation)
 * [Page conf updator](#page-conf-updator)
 
 
@@ -47,37 +47,23 @@ Which solves the problem.
 
 
 
-Lazy reference resolver
+
+
+
+Light execute notation
 ----------------
-2019-07-15
+2019-07-15 -> 2020-11-27
 
 
-Like dynamic variables, the lazy reference resolver is a system which allows you to inject dynamic variables
-into your templates. However, there is a difference.
-
-With the dynamic variable system, you create the dynamic variable from the controller, and then pass it to the template
-via the renderPage method.
+Like dynamic variables, the light execute notation system allows you to inject variables dynamically
+into your templates. However, this time you can call a php method or a light service.
 
 
-With the lazy reference resolver mechanism, the idea is that you can call a variable generator directly from your page configuration.
-This alleviates the burden on the controller a bit, and can lead to a cleaner code base.
-
-The notation used by the lazy reference resolver is the following:
-
-- (::XXX::), where XXX can be replaced by any string
-
-Concrete examples include:
-
-- (::METHOD_CALL::) 
-- (::ROUTE::)
+The notation is explained in great details in the [light execute notation reference, configuration files section](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/notation/light-execute-notation.md#using-the-notation-in-configuration-files).
+It looks like this:
 
 
-Each "string" is provided by an LazyReferenceResolver object which must be created separately.
-See the MethodCallResolver and RouteResolver objects for some implementation examples.
-
-As per now, the lazy reference resolver string must be the entire string and cannot be only a part of a string.
-
-We can use the lazy reference resolver system to inject any kind of data into a key: so an string, an array, an object, ...
+- ::(@reverse_router->getUrl(myRoute))::
 
 
 

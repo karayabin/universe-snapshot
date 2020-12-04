@@ -1,6 +1,6 @@
 Ling/LingTalfi
 ================
-2019-03-13 --> 2020-11-09
+2019-03-13 --> 2020-12-03
 
 
 
@@ -144,8 +144,6 @@ Table of contents
     - [Light_FlasherDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Flasher/Light_FlasherDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the Light_Flasher planet.
 - [Light_HtmlPageCopilotDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_HtmlPageCopilot/Light_HtmlPageCopilotDocBuilder.md) &ndash; The Light_HtmlPageCopilotDocBuilder class.
     - [Light_HtmlPageCopilotDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_HtmlPageCopilot/Light_HtmlPageCopilotDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the Light_HtmlPageCopilot planet.
-- [Light_HttpErrorDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_HttpError/Light_HttpErrorDocBuilder.md) &ndash; The Light_HttpErrorDocBuilder class.
-    - [Light_HttpErrorDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_HttpError/Light_HttpErrorDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the Light_HttpError planet.
 - [Light_InitializerDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Initializer/Light_InitializerDocBuilder.md) &ndash; The Light_InitializerDocBuilder class.
     - [Light_InitializerDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Initializer/Light_InitializerDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the Light_Initializer planet.
 - [Light_KitDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Kit/Light_KitDocBuilder.md) &ndash; The Light_KitDocBuilder class.
@@ -156,6 +154,8 @@ Table of contents
     - [Light_Kit_Admin_DebugTraceDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Kit_Admin_DebugTrace/Light_Kit_Admin_DebugTraceDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the Light_Kit_Admin_DebugTrace planet.
 - [Light_Kit_Admin_GeneratorDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Kit_Admin_Generator/Light_Kit_Admin_GeneratorDocBuilder.md) &ndash; The Light_Kit_Admin_GeneratorDocBuilder class.
     - [Light_Kit_Admin_GeneratorDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Kit_Admin_Generator/Light_Kit_Admin_GeneratorDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the Light_Kit_Admin_Generator planet.
+- [Light_Kit_Admin_LoginNotifierDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Kit_Admin_LoginNotifier/Light_Kit_Admin_LoginNotifierDocBuilder.md) &ndash; The Light_Kit_Admin_LoginNotifierDocBuilder class.
+    - [Light_Kit_Admin_LoginNotifierDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Kit_Admin_LoginNotifier/Light_Kit_Admin_LoginNotifierDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the Light_Kit_Admin_LoginNotifier planet.
 - [Light_Kit_Admin_TaskSchedulerDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Kit_Admin_TaskScheduler/Light_Kit_Admin_TaskSchedulerDocBuilder.md) &ndash; The Light_Kit_Admin_TaskSchedulerDocBuilder class.
     - [Light_Kit_Admin_TaskSchedulerDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Kit_Admin_TaskScheduler/Light_Kit_Admin_TaskSchedulerDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the Light_Kit_Admin_TaskScheduler planet.
 - [Light_Kit_Admin_UserDataDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Kit_Admin_UserData/Light_Kit_Admin_UserDataDocBuilder.md) &ndash; The Light_Kit_Admin_UserDataDocBuilder class.
@@ -178,6 +178,8 @@ Table of contents
     - [Light_LingStandardServiceDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_LingStandardService/Light_LingStandardServiceDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the Light_LingStandardService planet.
 - [Light_LoggerDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Logger/Light_LoggerDocBuilder.md) &ndash; The Light_LoggerDocBuilder class.
     - [Light_LoggerDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Logger/Light_LoggerDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the Light_Logger planet.
+- [Light_LoginNotifierDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_LoginNotifier/Light_LoginNotifierDocBuilder.md) &ndash; The Light_LoginNotifierDocBuilder class.
+    - [Light_LoginNotifierDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_LoginNotifier/Light_LoginNotifierDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the Light_LoginNotifier planet.
 - [Light_MailerDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Mailer/Light_MailerDocBuilder.md) &ndash; The Light_MailerDocBuilder class.
     - [Light_MailerDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Mailer/Light_MailerDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the Light_Mailer planet.
 - [Light_MicroPermissionDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_MicroPermission/Light_MicroPermissionDocBuilder.md) &ndash; The Light_MicroPermissionDocBuilder class.
@@ -206,8 +208,12 @@ Table of contents
     - [Light_ReverseRouterDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_ReverseRouter/Light_ReverseRouterDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the Light_ReverseRouter planet.
 - [Light_RouterDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Router/Light_RouterDocBuilder.md) &ndash; The Light_RouterDocBuilder class.
     - [Light_RouterDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Router/Light_RouterDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the Light_Router planet.
+- [Light_SimpleHttpServerDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_SimpleHttpServer/Light_SimpleHttpServerDocBuilder.md) &ndash; The Light_SimpleHttpServerDocBuilder class.
+    - [Light_SimpleHttpServerDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_SimpleHttpServer/Light_SimpleHttpServerDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the Light_SimpleHttpServer planet.
 - [Light_SpinKitHelperDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_SpinKitHelper/Light_SpinKitHelperDocBuilder.md) &ndash; The Light_SpinKitHelperDocBuilder class.
     - [Light_SpinKitHelperDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_SpinKitHelper/Light_SpinKitHelperDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the Light_SpinKitHelper planet.
+- [Light_TablePrefixInfoDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_TablePrefixInfo/Light_TablePrefixInfoDocBuilder.md) &ndash; The Light_TablePrefixInfoDocBuilder class.
+    - [Light_TablePrefixInfoDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_TablePrefixInfo/Light_TablePrefixInfoDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the Light_TablePrefixInfo planet.
 - [Light_TaskSchedulerDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_TaskScheduler/Light_TaskSchedulerDocBuilder.md) &ndash; The Light_TaskSchedulerDocBuilder class.
     - [Light_TaskSchedulerDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_TaskScheduler/Light_TaskSchedulerDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the Light_TaskScheduler planet.
 - [Light_UploadGemsDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_UploadGems/Light_UploadGemsDocBuilder.md) &ndash; The Light_UploadGemsDocBuilder class.

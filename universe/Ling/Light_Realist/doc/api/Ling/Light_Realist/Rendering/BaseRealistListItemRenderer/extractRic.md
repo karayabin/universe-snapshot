@@ -49,7 +49,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [BaseRealistListItemRenderer::extractRic](https://github.com/lingtalfi/Light_Realist/blob/master/Rendering/BaseRealistListItemRenderer.php#L350-L360)
+See the source code for method [BaseRealistListItemRenderer::extractRic](https://github.com/lingtalfi/Light_Realist/blob/master/Rendering/BaseRealistListItemRenderer.php#L357-L367)
 
 
 See Also

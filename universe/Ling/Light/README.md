@@ -1,6 +1,6 @@
 Light
 ===========
-2019-04-05 -> 2020-11-10
+2019-04-05 -> 2020-12-03
 
 
 
@@ -38,6 +38,7 @@ Summary
     - [Events](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md)
     - [General philosophy](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/light-general-philosophy.md)
     - [how to debug](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/how-to-debug.md)
+    - [light init script](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/light-init-script.md)
     - [Nomenclature](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/nomenclature.md)
     - [Plugin](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/plugin.md)
     - [Rights](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/rights.md)
@@ -58,7 +59,23 @@ Summary
 History Log
 =============
 
---- 0.69.12 -- 2020-11-10
+- 0.69.16 -- 2020-12-03
+
+    - add "light init script" concept 
+    
+- 0.69.15 -- 2020-12-03
+
+    - update service container document 
+    
+- 0.69.14 -- 2020-12-01
+
+    - add VoidHttpRequest, update light execute notation document 
+    
+- 0.69.13 -- 2020-11-27
+
+    - update light execute notation document 
+    
+- 0.69.12 -- 2020-11-26
 
     - update app recommended structure documentation, add one sentence 
     

@@ -17,6 +17,11 @@ $formAction = $z['formAction'] ?? "";
 $inputEmailPlaceholder = $z['inputEmailPlaceholder'] ?? "Email";
 $inputEmailValue = $z['inputEmailValue'] ?? "";
 $inputEmailError = $z['inputEmailError'] ?? "";
+$hasMultipleAccounts = $z['hasMultipleAccounts'] ?? false;
+$userIdentifiers2Labels = $z['userIdentifiers2Labels'] ?? [];
+$successMessage = $z['successMessage'] ?? null;
+$backToLoginUrl = $z['backToLoginUrl'] ?? null;
+
 
 
 ?>
@@ -36,6 +41,16 @@ $inputEmailError = $z['inputEmailError'] ?? "";
                         <p>
                             <?php echo $description; ?>
                         </p>
+
+                        <?php if (null !== $successMessage): ?>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="alert alert-success" role="alert">
+                                        <?php echo $successMessage; ?>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endif; ?>
 
                         <div class="row">
 
@@ -63,11 +78,38 @@ $inputEmailError = $z['inputEmailError'] ?? "";
                                     </div>
 
 
+                                    <?php if (true === $hasMultipleAccounts): ?>
+                                        <div class="form-group">
+                                            <label for="exampleFormControlSelect1">Multiple accounts were found with
+                                                this address, please select one:</label>
+                                            <select name="user_identifier" class="form-control"
+                                                    id="exampleFormControlSelect1">
+                                                <?php foreach ($userIdentifiers2Labels as $identifier => $label): ?>
+                                                    <option value="<?php echo htmlspecialchars($identifier); ?>"><?php echo $label; ?></option>
+                                                <?php endforeach; ?>
+                                            </select>
+                                        </div>
+
+                                    <?php endif; ?>
+
                                     <input type="hidden" name="<?php echo htmlspecialchars($inputFormKeyName); ?>"
                                            value="1">
 
-                                    <button type="submit"
-                                            class="btn btn-primary block full-width m-b"><?php echo $btnText; ?></button>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <button type="submit"
+                                                    class="btn btn-primary block full-width m-b"><?php echo $btnText; ?></button>
+                                        </div>
+                                        <?php if (null !== $backToLoginUrl): ?>
+                                            <div class="col-6 text-right">
+                                                <a href="<?php echo htmlspecialchars($backToLoginUrl); ?>"
+                                                   class="btn btn-link px-0">
+                                                    Back to the login page
+                                                </a>
+                                            </div>
+                                        <?php endif; ?>
+                                    </div>
+
 
                                 </form>
                             </div>

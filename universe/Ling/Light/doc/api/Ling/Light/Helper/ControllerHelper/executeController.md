@@ -69,7 +69,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [ControllerHelper::executeController](https://github.com/lingtalfi/Light/blob/master/Helper/ControllerHelper.php#L41-L69)
+See the source code for method [ControllerHelper::executeController](https://github.com/lingtalfi/Light/blob/master/Helper/ControllerHelper.php#L42-L70)
 
 
 See Also

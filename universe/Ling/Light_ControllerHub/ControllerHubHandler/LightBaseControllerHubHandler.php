@@ -9,13 +9,14 @@ use Ling\Light\Helper\ControllerHelper;
 use Ling\Light\Helper\LightClassHelper;
 use Ling\Light\Http\HttpRequestInterface;
 use Ling\Light\Http\HttpResponseInterface;
+use Ling\Light\ServiceContainer\LightServiceContainerAwareInterface;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
 use Ling\Light_Kit_Admin\Exception\LightKitAdminException;
 
 /**
  * The LightBaseControllerHubHandler class.
  */
-abstract class LightBaseControllerHubHandler implements LightControllerHubHandlerInterface
+abstract class LightBaseControllerHubHandler implements LightControllerHubHandlerInterface, LightServiceContainerAwareInterface
 {
 
     /**
@@ -34,12 +35,10 @@ abstract class LightBaseControllerHubHandler implements LightControllerHubHandle
 
 
     //--------------------------------------------
-    //
+    // LightServiceContainerAwareInterface
     //--------------------------------------------
     /**
-     * Sets the container.
-     *
-     * @param LightServiceContainerInterface $container
+     * @implementation
      */
     public function setContainer(LightServiceContainerInterface $container)
     {

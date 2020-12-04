@@ -1,6 +1,6 @@
 Light_Realist
 ===========
-2019-08-09 -> 2020-11-16
+2019-08-09 -> 2020-11-17
 
 
 
@@ -103,6 +103,10 @@ Related
 History Log
 =============
 
+- 2.0.5 -- 2020-11-17
+
+    - update BaseRealistListItemRenderer's Light_Realist.hub_link action now accepts icon option
+    
 - 2.0.4 -- 2020-11-16
 
     - update GenericActionItemHandlerTrait, add getPlanetIdByRequestId method

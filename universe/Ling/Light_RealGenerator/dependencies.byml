@@ -6,7 +6,6 @@ dependencies:
         - SqlWizard
         - ArrayVariableResolver
         - BabyYaml
-        - CheapLogger
         - Light_Logger
     
 

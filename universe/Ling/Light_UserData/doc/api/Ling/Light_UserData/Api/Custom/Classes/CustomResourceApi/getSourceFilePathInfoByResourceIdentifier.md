@@ -53,7 +53,7 @@ Returns array | false.
 
 Source Code
 ===========
-See the source code for method [CustomResourceApi::getSourceFilePathInfoByResourceIdentifier](https://github.com/lingtalfi/Light_UserData/blob/master/Api/Custom/Classes/CustomResourceApi.php#L147-L171)
+See the source code for method [CustomResourceApi::getSourceFilePathInfoByResourceIdentifier](https://github.com/lingtalfi/Light_UserData/blob/master/Api/Custom/Classes/CustomResourceApi.php#L149-L173)
 
 
 See Also

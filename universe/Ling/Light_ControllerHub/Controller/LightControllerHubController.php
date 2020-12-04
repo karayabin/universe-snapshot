@@ -32,11 +32,12 @@ class LightControllerHubController extends LightController
             $plugin = $get['plugin'];
             $controller = $get['controller'];
 
-
             /**
              * @var $service LightControllerHubService
              */
             $service = $this->getContainer()->get("controller_hub");
+
+
             $handler = $service->getControllerHubHandler($plugin);
 
 

@@ -4,7 +4,7 @@
 
 The BufferedOutput class
 ================
-2019-02-26 --> 2019-07-18
+2019-02-26 --> 2020-12-04
 
 
 
@@ -28,38 +28,51 @@ Class synopsis
 ==============
 
 
-class <span class="pl-k">BufferedOutput</span> extends [Output](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Output/Output.md) implements [OutputInterface](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Output/OutputInterface.md) {
+class <span class="pl-k">BufferedOutput</span> implements [OutputInterface](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Output/OutputInterface.md) {
 
-- Inherited properties
-    - protected array [Output::$messages](#property-messages) ;
-    - protected [Ling\CliTools\Formatter\FormatterInterface](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Formatter/FormatterInterface.md) [Output::$formatter](#property-formatter) ;
+- Properties
+    - protected array [$messages](#property-messages) ;
+    - protected [Ling\CliTools\Formatter\FormatterInterface](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Formatter/FormatterInterface.md) [$formatter](#property-formatter) ;
 
 - Methods
+    - public [__construct](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Output/BufferedOutput/__construct.md)() : void
     - public [write](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Output/BufferedOutput/write.md)(string $message) : void
     - public [reset](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Output/BufferedOutput/reset.md)() : void
     - public [writeMessages](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Output/BufferedOutput/writeMessages.md)() : void
     - public [getMessages](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Output/BufferedOutput/getMessages.md)() : array
-
-- Inherited methods
-    - public [Output::__construct](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Output/Output/__construct.md)() : void
-    - public [Output::setFormatter](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Output/Output/setFormatter.md)([Ling\CliTools\Formatter\FormatterInterface](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Formatter/FormatterInterface.md) $formatter) : void
 
 }
 
 
 
 
+Properties
+=============
+
+- <span id="property-messages"><b>messages</b></span>
+
+    This property holds the list of all the non-formatted messages written to this instance.
+    It's an array of strings (each string being a message).
+    
+    
+
+- <span id="property-formatter"><b>formatter</b></span>
+
+    This property holds the formatter to use for this instance.
+    The default value is the [Ling\CliTools\Formatter\BashtmlFormatter](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Formatter/BashtmlFormatter.md).
+    
+    
+
 
 
 Methods
 ==============
 
+- [BufferedOutput::__construct](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Output/BufferedOutput/__construct.md) &ndash; Builds the Output instance.
 - [BufferedOutput::write](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Output/BufferedOutput/write.md) &ndash; Writes a message to the output.
 - [BufferedOutput::reset](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Output/BufferedOutput/reset.md) &ndash; Resets the messages buffer.
 - [BufferedOutput::writeMessages](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Output/BufferedOutput/writeMessages.md) &ndash; Prints the buffered messages.
 - [BufferedOutput::getMessages](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Output/BufferedOutput/getMessages.md) &ndash; Returns the buffered messages.
-- [Output::__construct](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Output/Output/__construct.md) &ndash; Builds the Output instance.
-- [Output::setFormatter](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Output/Output/setFormatter.md) &ndash; Sets the formatter.
 
 
 

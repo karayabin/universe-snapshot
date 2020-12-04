@@ -9,10 +9,6 @@ zones:
             widgetDir: templates/Light_Kit_Admin/widgets/picasso/LightKitAdminChloroformWidget
             template: default.php
             vars: []
-                title: User has permission group
+                title: ${rendering.title}
                 form: ${form}
-                related_links:                     
-                    - 
-                        text: "See the list of \"User has permission group\" items"
-                        url: (::ROUTE::)lch_route-hub::{plugin: Light_Kit_Admin_UserDatabase, controller: Generated/LudUserHasPermissionGroupController}
-                        icon: fas fa-plus-circle
+                related_links: ${rendering.related_links}

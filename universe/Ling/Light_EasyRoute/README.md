@@ -1,6 +1,6 @@
 Light_EasyRoute
 ===========
-2019-08-21
+2019-08-21 -> 2020-12-01
 
 
 
@@ -77,6 +77,10 @@ See the conception notes for more details.
 History Log
 =============
 
+- 1.2.3 -- 2020-12-01
+
+    - update LightEasyRouteService->initialize, now accesses app dir via container instead of light instance
+    
 - 1.2.2 -- 2019-12-17
 
     - fix functional typo in service configuration

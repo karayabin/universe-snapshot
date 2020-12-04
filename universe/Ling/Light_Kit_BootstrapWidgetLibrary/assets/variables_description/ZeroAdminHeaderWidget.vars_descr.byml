@@ -80,17 +80,17 @@ example: <
         sidebar_toggler_id: header-navbar-toggler
         plain_links: 
             - 
-                url: (::ROUTE::)/dashboard
+                url: ::(@reverse_router->getUrl(/dashboard))::
                 text: Dashboard
                 icon: fas fa-user
             
             - 
-                url: (::ROUTE::)/pages/u-contacts
+                url: ::(@reverse_router->getUrl(/pages/u-contacts))::
                 text: Users
                 icon: ""
             
             - 
-                url: (::ROUTE::)/pages/b-settings
+                url: ::(@reverse_router->getUrl(/pages/b-settings))::
                 text: Settings
                 icon: ""
             

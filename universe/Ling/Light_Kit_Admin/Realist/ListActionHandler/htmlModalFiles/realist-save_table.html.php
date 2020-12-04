@@ -39,11 +39,36 @@
                     </div>
 
 
+<!--                    <div class="form-group row">-->
+<!--                        <label for="mlkast-backup-visibility" class="col-sm-4 col-form-label">Generate options</label>-->
+<!--                        <div class="col-sm-6">-->
+<!---->
+<!--                            <div class="form-check">-->
+<!--                                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" checked>-->
+<!--                                <label class="form-check-label" for="defaultCheck1">-->
+<!--                                    Disable foreign key check-->
+<!--                                </label>-->
+<!--                            </div>-->
+<!--                            <div class="form-check">-->
+<!--                                <input class="form-check-input" type="checkbox" value="" id="defaultCheck2" checked>-->
+<!--                                <label class="form-check-label" for="defaultCheck2">-->
+<!--                                    Use insert ignore-->
+<!--                                </label>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+
+
+
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 <button type="button" class="btn btn-primary btn-lka-save">Save</button>
+                <button class="d-none lka-btn-spinner btn btn-primary" type="button" disabled>
+                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                    Loading...
+                </button>
             </div>
         </div>
     </div>

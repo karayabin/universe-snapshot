@@ -1,6 +1,6 @@
 Task details
 =============
-2020-07-09 -> 2020-11-12
+2020-07-09 -> 2020-12-01
 
 
 
@@ -22,6 +22,7 @@ Task details
     - [Create the lka user main page with basicList](#create-the-lka-user-main-page-with-basiclist)
 - Planet
     - [Remove planet](#remove-planet)
+    - [Create conception notes](#create-conception-notes)
 - ServiceClass
     - [Add getFactory method](#add-getfactory-method)
     - [Add logDebug method](#add-logdebug-method)
@@ -34,8 +35,6 @@ Task details
 - Service
     - [Disable service](#disable-service)
     - [Enable service](#enable-service)
-
-
 
 
 
@@ -507,6 +506,24 @@ This task removes every file listed below (except for the $appDir):
 
 If the removed service class was registered to the [plugin_installer](https://github.com/lingtalfi/Light_PluginInstaller) service,
 then the uninstall method will be called before the class file is removed. 
+
+
+
+Create conception notes
+-------------
+2020-12-01
+
+
+Creates the conception notes, using my own conventions, which is basically putting the file here:
+
+- $app/universe/$planetIdentifier/personal/mydoc/pages/conception-notes.md
+
+
+With:
+
+- $planetIdentifier: the [planet identifier](https://github.com/karayabin/universe-snapshot#the-planet-identifier)
+
+
 
 
 

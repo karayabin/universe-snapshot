@@ -9,6 +9,7 @@ use Ling\Bat\FileSystemTool;
 use Ling\Light\Helper\LightNamesAndPathHelper;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
 use Ling\Light_DeveloperWizard\Exception\LightDeveloperWizardException;
+use Ling\Light_Kit_Admin\Helper\LightKitAdminHelper;
 
 /**
  * The DeveloperWizardLkaHelper class.
@@ -36,8 +37,7 @@ class DeveloperWizardLkaHelper
      */
     public static function getLkaPlanetNameByPlanet(string $planet): string
     {
-        $planetId = self::getPlanetId($planet);
-        return "Light_Kit_Admin_" . $planetId;
+        return LightKitAdminHelper::getLkaPlanetNameByPlanet($planet);
     }
 
 
@@ -182,18 +182,4 @@ class DeveloperWizardLkaHelper
     }
 
 
-    //--------------------------------------------
-    //
-    //--------------------------------------------
-
-    /**
-     * Returns the planetId corresponding to the given planet name.
-     *
-     * @param $planet
-     * @return string
-     */
-    private static function getPlanetId($planet): string
-    {
-        return substr($planet, 6);
-    }
 }

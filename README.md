@@ -1,6 +1,6 @@
 Universe
 ==============
-2015-10-14 --> 2020-11-17
+2015-10-14 --> 2020-12-04
 
 
 
@@ -24,7 +24,7 @@ See the [list of all the planets here](https://github.com/karayabin/universe-sna
 
 Summary
 -------
-2015-10-14 -> 2020-11-13
+2015-10-14 -> 2020-12-04
 
 
 - [How to install?](#how-to-install)
@@ -33,6 +33,7 @@ Summary
     - [The class directory](#the-class-directory)
     - [The a and az functions](#the-a-and-az-functions)
 - [The planet identifier](#the-planet-identifier)
+- [The planet dot name](#the-planet-dot-name)
 - [The compressed planet name](#the-compressed-planet-name)
 - [Uni tool: a manager to install planets](#uni-tool-a-manager-to-install-planets)
 - [Related](#related)
@@ -277,6 +278,27 @@ If you do name your planets using this system, then you can use the **planet ide
 The **planet identifier** is the string identifying your planet in the universe, it looks like this:
 
 - $GalaxyName/$PlanetName
+
+
+
+The planet dot name
+--------------------------------------
+2020-12-04
+
+
+To help developers, we provide the following term: **planet dot name**, which
+
+- $GalaxyName.$PlanetName
+
+
+So for instance this is a planet dot name:
+
+```txt
+MyGalaxy.MyPlanet
+```
+
+
+
 
 
 

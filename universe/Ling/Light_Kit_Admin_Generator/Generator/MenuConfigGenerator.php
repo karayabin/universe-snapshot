@@ -22,6 +22,8 @@ class MenuConfigGenerator extends LkaGenBaseConfigGenerator
     public function generate(array $config)
     {
         $this->setConfig($config);
+
+
         $tables = $this->getTables();
 
         $appDir = $this->container->getApplicationDir();
@@ -34,6 +36,8 @@ class MenuConfigGenerator extends LkaGenBaseConfigGenerator
             "has" => '/',
         ]);
         $customItems = $this->getKeyValue("menu.items", false, []);
+        $galaxy = $this->getKeyValue("variables.galaxyName", false, 'Ling');
+
         $groupByPrefix = $this->getKeyValue("menu.group_by_prefix", false, true);
         $prefix2Rights = $this->getKeyValue("menu.prefix_to_rights", false, []);
 
@@ -52,6 +56,7 @@ class MenuConfigGenerator extends LkaGenBaseConfigGenerator
             "itemPrefix" => $menuItemPrefixChild,
             "plugin" => $menuItemPlugin,
             "defaultRight" => $menuItemDefaultRight,
+            "galaxy" => $galaxy,
         ];
 
         //--------------------------------------------
@@ -149,6 +154,8 @@ class MenuConfigGenerator extends LkaGenBaseConfigGenerator
         $controller = $configBundle['controllerFormat'];
         $itemPrefix = $configBundle['itemPrefix'];
         $menuPlugin = $configBundle['plugin'];
+        $galaxy = $configBundle['galaxy'];
+
         $itemDefaultRight = $configBundle['defaultRight'];
 
 
@@ -187,7 +194,7 @@ class MenuConfigGenerator extends LkaGenBaseConfigGenerator
             'text' => $defaultLabel,
             'route' => $hubs->getRouteName(),
             'route_url_params' => [
-                "plugin" => $menuPlugin,
+                "plugin" => $galaxy . "/" . $menuPlugin, // using the planetId
                 "controller" => $controller,
             ],
             '_right' => $defaultRight,

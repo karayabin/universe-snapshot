@@ -4,7 +4,7 @@
 
 The Light_AjaxFileUploadManagerDocBuilder class
 ================
-2019-03-13 --> 2020-11-09
+2019-03-13 --> 2020-12-03
 
 
 

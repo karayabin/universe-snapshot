@@ -4,8 +4,12 @@
 namespace Ling\Light_UserDatabase\Api\Generated\Classes;
 
 use Ling\SimplePdoWrapper\SimplePdoWrapper;
-use Ling\SimplePdoWrapper\Util\Where;
 use Ling\SimplePdoWrapper\Exception\SimplePdoWrapperQueryException;
+use Ling\SimplePdoWrapper\Util\Columns;
+use Ling\SimplePdoWrapper\Util\Limit;
+use Ling\SimplePdoWrapper\Util\OrderBy;
+use Ling\SimplePdoWrapper\Util\Where;
+
 use Ling\Light_UserDatabase\Api\Custom\Classes\CustomLightUserDatabaseBaseApi;
 use Ling\Light_UserDatabase\Api\Generated\Interfaces\UserGroupHasPluginOptionApiInterface;
 
@@ -26,6 +30,8 @@ class UserGroupHasPluginOptionApi extends CustomLightUserDatabaseBaseApi impleme
         parent::__construct();
         $this->table = "lud_user_group_has_plugin_option";
     }
+
+
 
 
 
@@ -107,8 +113,38 @@ class UserGroupHasPluginOptionApi extends CustomLightUserDatabaseBaseApi impleme
     /**
      * @implementation
      */
+    public function fetchAll(array $components = []): array
+    {
+        $markers = [];
+        $q = '';
+        $options = $this->fetchRoutine($q, $markers, $components);
+        $fetchStyle = null;
+        if (true === $options['singleColumn']) {
+            $fetchStyle = \PDO::FETCH_COLUMN;
+        }
+        return $this->pdoWrapper->fetchAll($q, $markers, $fetchStyle);
+    }
+
+    /**
+     * @implementation
+     */
+    public function fetch(array $components = [])
+    {
+        $markers = [];
+        $q = '';
+        $options = $this->fetchRoutine($q, $markers, $components);
+        $fetchStyle = null;
+        if (true === $options['singleColumn']) {
+            $fetchStyle = \PDO::FETCH_COLUMN;
+        }
+        return $this->pdoWrapper->fetch($q, $markers, $fetchStyle);
+    }
+
+    /**
+     * @implementation
+     */
     public function getUserGroupHasPluginOptionByUserGroupIdAndPluginOptionId(int $user_group_id, int $plugin_option_id, $default = null, bool $throwNotFoundEx = false)
-    { 
+    {
         $ret = $this->pdoWrapper->fetch("select * from `$this->table` where user_group_id=:user_group_id and plugin_option_id=:plugin_option_id", [
             "user_group_id" => $user_group_id,
 				"plugin_option_id" => $plugin_option_id,
@@ -212,13 +248,23 @@ class UserGroupHasPluginOptionApi extends CustomLightUserDatabaseBaseApi impleme
     /**
      * @implementation
      */
-    public function updateUserGroupHasPluginOptionByUserGroupIdAndPluginOptionId(int $user_group_id, int $plugin_option_id, array $userGroupHasPluginOption)
-    { 
-        $this->pdoWrapper->update($this->table, $userGroupHasPluginOption, [
+    public function updateUserGroupHasPluginOptionByUserGroupIdAndPluginOptionId(int $user_group_id, int $plugin_option_id, array $userGroupHasPluginOption, array $extraWhere = [], array $markers = [])
+    {
+        $this->pdoWrapper->update($this->table, $userGroupHasPluginOption, array_merge([
             "user_group_id" => $user_group_id,
 			"plugin_option_id" => $plugin_option_id,
 
-        ]);
+        ], $extraWhere), $markers);
+    }
+
+
+
+    /**
+     * @implementation
+     */
+    public function updateUserGroupHasPluginOption(array $userGroupHasPluginOption, $where = null, array $markers = [])
+    {
+        $this->pdoWrapper->update($this->table, $userGroupHasPluginOption, $where, $markers);
     }
 
 
@@ -236,32 +282,10 @@ class UserGroupHasPluginOptionApi extends CustomLightUserDatabaseBaseApi impleme
      * @implementation
      */
     public function deleteUserGroupHasPluginOptionByUserGroupIdAndPluginOptionId(int $user_group_id, int $plugin_option_id)
-    { 
+    {
         $this->pdoWrapper->delete($this->table, [
             "user_group_id" => $user_group_id,
 			"plugin_option_id" => $plugin_option_id,
-
-        ]);
-    }
-
-    /**
-     * @implementation
-     */
-    public function deleteUserGroupHasPluginOptionByUserGroupId(int $user_group_id)
-    { 
-        $this->pdoWrapper->delete($this->table, [
-            "user_group_id" => $user_group_id,
-
-        ]);
-    }
-
-    /**
-     * @implementation
-     */
-    public function deleteUserGroupHasPluginOptionByPluginOptionId(int $plugin_option_id)
-    { 
-        $this->pdoWrapper->delete($this->table, [
-            "plugin_option_id" => $plugin_option_id,
 
         ]);
     }
@@ -287,6 +311,91 @@ class UserGroupHasPluginOptionApi extends CustomLightUserDatabaseBaseApi impleme
 
 
 
+    /**
+     * @implementation
+     */
+    public function deleteUserGroupHasPluginOptionByUserGroupId(int $userGroupId)
+    {
+        $this->pdoWrapper->delete($this->table, [
+            "user_group_id" => $userGroupId,
+        ]);
+    }
+    /**
+     * @implementation
+     */
+    public function deleteUserGroupHasPluginOptionByPluginOptionId(int $pluginOptionId)
+    {
+        $this->pdoWrapper->delete($this->table, [
+            "plugin_option_id" => $pluginOptionId,
+        ]);
+    }
+
+
+    //--------------------------------------------
+    //
+    //--------------------------------------------
+    /**
+     * Appends the given components to the given query, and returns an array of options.
+     *
+     * The options are:
+     *
+     * - singleColumn: bool, whether the singleColumn mode was triggered with the Columns component
+     *
+     *
+     * @param string $q
+     * @param array $markers
+     * @param array $components
+     * @return array
+     * @throws \Exception
+     */
+    private function fetchRoutine(string &$q, array &$markers, array $components): array
+    {
+        $sWhere = '';
+        $sCols = '';
+        $sOrderBy = '';
+        $sLimit = '';
+        $singleColumn = false;
+
+        foreach ($components as $component) {
+            if ($component instanceof Columns) {
+                $component->apply($sCols);
+                $mode = $component->getMode();
+                if ('singleColumn' === $mode) {
+                    $singleColumn = true;
+                }
+            } elseif ($component instanceof Where) {
+                SimplePdoWrapper::addWhereSubStmt($sWhere, $markers, $component);
+            } elseif ($component instanceof OrderBy) {
+                $sOrderBy .= PHP_EOL . ' ORDER BY ';
+                $component->apply($sOrderBy);
+            } elseif ($component instanceof Limit) {
+                $sOrderBy .= PHP_EOL . ' LIMIT ';
+                $component->apply($sOrderBy);
+            }
+        }
+
+
+        if ('' === $sCols) {
+            $sCols = '*';
+        }
+
+
+        $q = "select $sCols from `$this->table`";
+        if ($sWhere) {
+            $q .= $sWhere;
+        }
+        if ($sOrderBy) {
+            $q .= $sOrderBy;
+        }
+        if ($sLimit) {
+            $q .= $sLimit;
+        }
+
+
+        return [
+            'singleColumn' => $singleColumn,
+        ];
+    }
 
 
 }

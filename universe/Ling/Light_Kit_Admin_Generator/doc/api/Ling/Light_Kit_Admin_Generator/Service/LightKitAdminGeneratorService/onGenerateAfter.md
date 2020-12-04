@@ -50,7 +50,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightKitAdminGeneratorService::onGenerateAfter](https://github.com/lingtalfi/Light_Kit_Admin_Generator/blob/master/Service/LightKitAdminGeneratorService.php#L19-L62)
+See the source code for method [LightKitAdminGeneratorService::onGenerateAfter](https://github.com/lingtalfi/Light_Kit_Admin_Generator/blob/master/Service/LightKitAdminGeneratorService.php#L21-L64)
 
 
 See Also
@@ -58,5 +58,5 @@ See Also
 
 The [LightKitAdminGeneratorService](https://github.com/lingtalfi/Light_Kit_Admin_Generator/blob/master/doc/api/Ling/Light_Kit_Admin_Generator/Service/LightKitAdminGeneratorService.md) class.
 
-
+Next method: [getNewListConfigGeneratorInstance](https://github.com/lingtalfi/Light_Kit_Admin_Generator/blob/master/doc/api/Ling/Light_Kit_Admin_Generator/Service/LightKitAdminGeneratorService/getNewListConfigGeneratorInstance.md)<br>
 

@@ -1,6 +1,6 @@
 UniverseTools
 ===========
-2019-02-08 -> 2020-11-17
+2019-02-08 -> 2020-12-03
 
 
 
@@ -37,6 +37,10 @@ Summary
 History Log
 ==============
 
+- 1.21.4 -- 2020-12-03
+
+    - update MetaInfoTool, add getVersion method
+    
 - 1.21.3 -- 2020-11-17
 
     - update PlanetTool, add extractPlanetId method

@@ -53,7 +53,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightMailerService::setTransport](https://github.com/lingtalfi/Light_Mailer/blob/master/Service/LightMailerService.php#L108-L111)
+See the source code for method [LightMailerService::setTransport](https://github.com/lingtalfi/Light_Mailer/blob/master/Service/LightMailerService.php#L116-L119)
 
 
 See Also

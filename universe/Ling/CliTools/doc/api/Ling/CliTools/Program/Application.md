@@ -4,7 +4,7 @@
 
 The Application class
 ================
-2019-02-26 --> 2019-07-18
+2019-02-26 --> 2020-12-04
 
 
 
@@ -38,6 +38,7 @@ class <span class="pl-k">Application</span> extends [AbstractProgram](https://gi
 
 - Properties
     - protected array [$commands](#property-commands) ;
+    - protected string [$defaultCommandAlias](#property-defaultCommandAlias) ;
 
 - Inherited properties
     - protected [Ling\UniversalLogger\UniversalLoggerInterface](https://github.com/lingtalfi/UniversalLogger) [AbstractProgram::$logger](#property-logger) ;
@@ -47,7 +48,7 @@ class <span class="pl-k">Application</span> extends [AbstractProgram](https://gi
 
 - Methods
     - public [__construct](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Program/Application/__construct.md)() : void
-    - public [registerCommand](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Program/Application/registerCommand.md)(string $commandClassName, ?$aliases) : void
+    - public [registerCommand](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Program/Application/registerCommand.md)(string $commandClassName, $aliases) : void
     - protected [runProgram](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Program/Application/runProgram.md)([Ling\CliTools\Input\InputInterface](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Input/InputInterface.md) $input, [Ling\CliTools\Output\OutputInterface](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Output/OutputInterface.md) $output) : int | null
     - protected [onCommandInstantiated](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Program/Application/onCommandInstantiated.md)([Ling\CliTools\Command\CommandInterface](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Command/CommandInterface.md) $command) : void
 
@@ -73,6 +74,12 @@ Properties
     It's an array of command alias => command class name.
     
     Note: multiple aliases can reference the same command class name.
+    
+    
+
+- <span id="property-defaultCommandAlias"><b>defaultCommandAlias</b></span>
+
+    This property holds the defaultCommandAlias for this instance.
     
     
 

@@ -21,7 +21,7 @@ class CreateLkaPlanetProcess extends LightKitAdminBaseProcess
     {
         parent::__construct();
         $this->setName("create-lka-planet");
-        $this->setLabel("Creates the lka planet.");
+        $this->setLabel("Creates the lka planet (from the source planet).");
         $this->setLearnMoreByHash('create-lka-planet');
     }
 

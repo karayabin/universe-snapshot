@@ -51,7 +51,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [BufferedOutput::write](https://github.com/lingtalfi/CliTools/blob/master/Output/BufferedOutput.php#L23-L26)
+See the source code for method [BufferedOutput::write](https://github.com/lingtalfi/CliTools/blob/master/Output/BufferedOutput.php#L53-L56)
 
 
 See Also
@@ -59,5 +59,5 @@ See Also
 
 The [BufferedOutput](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Output/BufferedOutput.md) class.
 
-Next method: [reset](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Output/BufferedOutput/reset.md)<br>
+Previous method: [__construct](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Output/BufferedOutput/__construct.md)<br>Next method: [reset](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Output/BufferedOutput/reset.md)<br>
 

@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightControllerHubService::__construct](https://github.com/lingtalfi/Light_ControllerHub/blob/master/Service/LightControllerHubService.php#L26-L29)
+See the source code for method [LightControllerHubService::__construct](https://github.com/lingtalfi/Light_ControllerHub/blob/master/Service/LightControllerHubService.php#L37-L41)
 
 
 See Also
@@ -54,5 +54,5 @@ See Also
 
 The [LightControllerHubService](https://github.com/lingtalfi/Light_ControllerHub/blob/master/doc/api/Ling/Light_ControllerHub/Service/LightControllerHubService.md) class.
 
-Next method: [getControllerHubHandler](https://github.com/lingtalfi/Light_ControllerHub/blob/master/doc/api/Ling/Light_ControllerHub/Service/LightControllerHubService/getControllerHubHandler.md)<br>
+Next method: [setContainer](https://github.com/lingtalfi/Light_ControllerHub/blob/master/doc/api/Ling/Light_ControllerHub/Service/LightControllerHubService/setContainer.md)<br>
 

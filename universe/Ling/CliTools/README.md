@@ -1,6 +1,6 @@
 CliTools
 ===========
-2019-02-22
+2019-02-22 -> 2020-12-04
 
 
 
@@ -73,6 +73,18 @@ and the [Symfony/Console](https://github.com/symfony/symfony/tree/master/src/Sym
 History Log
 =================
 
+- 1.10.4 -- 2020-12-04
+
+    - fix LoaderUtil->incrementBy eating characters
+
+- 1.10.3 -- 2020-12-04
+
+    - add LoaderUtil class, update Output class removed messages internal buffer
+  
+- 1.10.2 -- 2020-12-03
+
+    - update Application, add defaultCommandAlias property with default=help
+    
 - 1.10.1 -- 2019-07-18
 
     - update docTools documentation, add links to source code for classes and methods

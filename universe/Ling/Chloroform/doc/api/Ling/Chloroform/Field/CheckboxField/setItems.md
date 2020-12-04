@@ -50,7 +50,7 @@ Returns [CheckboxField](https://github.com/lingtalfi/Chloroform/blob/master/doc/
 
 Source Code
 ===========
-See the source code for method [CheckboxField::setItems](https://github.com/lingtalfi/Chloroform/blob/master/Field/CheckboxField.php#L71-L75)
+See the source code for method [CheckboxField::setItems](https://github.com/lingtalfi/Chloroform/blob/master/Field/CheckboxField.php#L79-L83)
 
 
 See Also

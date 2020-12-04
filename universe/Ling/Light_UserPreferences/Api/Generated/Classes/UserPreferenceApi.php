@@ -117,7 +117,7 @@ class UserPreferenceApi extends CustomLightUserPreferencesBaseApi implements Use
         $q = '';
         $options = $this->fetchRoutine($q, $markers, $components);
         $fetchStyle = null;
-        if (true === $options['singleColumns']) {
+        if (true === $options['singleColumn']) {
             $fetchStyle = \PDO::FETCH_COLUMN;
         }
         return $this->pdoWrapper->fetchAll($q, $markers, $fetchStyle);
@@ -130,15 +130,19 @@ class UserPreferenceApi extends CustomLightUserPreferencesBaseApi implements Use
     {
         $markers = [];
         $q = '';
-        $this->fetchRoutine($q, $markers, $components);
-        return $this->pdoWrapper->fetch($q, $markers);
+        $options = $this->fetchRoutine($q, $markers, $components);
+        $fetchStyle = null;
+        if (true === $options['singleColumn']) {
+            $fetchStyle = \PDO::FETCH_COLUMN;
+        }
+        return $this->pdoWrapper->fetch($q, $markers, $fetchStyle);
     }
 
     /**
      * @implementation
      */
     public function getUserPreferenceById(int $id, $default = null, bool $throwNotFoundEx = false)
-    { 
+    {
         $ret = $this->pdoWrapper->fetch("select * from `$this->table` where id=:id", [
             "id" => $id,
 
@@ -248,7 +252,7 @@ class UserPreferenceApi extends CustomLightUserPreferencesBaseApi implements Use
      * @implementation
      */
     public function updateUserPreferenceById(int $id, array $userPreference, array $extraWhere = [], array $markers = [])
-    { 
+    {
         $this->pdoWrapper->update($this->table, $userPreference, array_merge([
             "id" => $id,
 
@@ -280,7 +284,7 @@ class UserPreferenceApi extends CustomLightUserPreferencesBaseApi implements Use
      * @implementation
      */
     public function deleteUserPreferenceById(int $id)
-    { 
+    {
         $this->pdoWrapper->delete($this->table, [
             "id" => $id,
 
@@ -298,6 +302,17 @@ class UserPreferenceApi extends CustomLightUserPreferencesBaseApi implements Use
     }
 
 
+
+
+    /**
+     * @implementation
+     */
+    public function deleteUserPreferenceByLudUserId(int $userId)
+    {
+        $this->pdoWrapper->delete($this->table, [
+            "lud_user_id" => $userId,
+        ]);
+    }
 
 
     //--------------------------------------------

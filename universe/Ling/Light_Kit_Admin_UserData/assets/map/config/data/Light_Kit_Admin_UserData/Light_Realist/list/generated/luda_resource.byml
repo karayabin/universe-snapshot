@@ -1,0 +1,280 @@
+_vars: 
+    table: luda_resource
+    plugin: Light_Kit_Admin_UserData
+
+planetId: %{galaxyName}/%{plugin}
+duelist: 
+    table: %{table} r
+    ric: 
+        - id
+    
+    base_fields: 
+        - r.id
+        - r.lud_user_id
+        - r.canonical
+        - r.is_private
+        - r.date_creation
+        - r.date_last_update
+        - concat(r.lud_user_id, '. ', lu.pseudo) as lud_user_id_plus
+    
+    base_joins: 
+        - inner join lud_user lu on r.lud_user_id=lu.id
+    
+    order: 
+        col_order: $column $direction
+    
+    where: 
+        general_search: <
+            r.id like :%expression% or
+            concat(r.lud_user_id, '. ', lu.pseudo) like :%expression% or
+            r.canonical like :%expression% or
+            r.is_private like :%expression% or
+            r.date_creation like :%expression% or
+            r.date_last_update like :%expression%
+        >
+        generic_filter: $column $operator :operator_value
+        generic_sub_filter: $column like :%operator_value%
+        open_parenthesis: (
+        close_parenthesis: )
+        and: and
+        or: or
+        in_rics: (r.id like :id)
+    
+    limit: 
+        page: $page
+        page_length: $page_length
+    
+    options: 
+        wiring: []
+        default_limit_page: 1
+        default_limit_page_length: 20
+        tag_options: 
+            generic_filter: 
+                operator_and_value: 
+                    source: operator
+                    target: operator_value
+                
+            
+        
+    
+
+query_error_show_debug_info: true
+action_handler: 
+    class: Ling\Light_Kit_Admin\Realist\ListActionHandler\LightKitAdminListActionHandler
+    allowed_actions: 
+        - my_action
+    
+
+rendering: 
+    title: Resource list
+    list_general_actions: 
+        - 
+            action_id: realist-generate_random_rows
+            text: Generate
+            icon: fas fa-spray-can
+        
+        - 
+            action_id: realist-save_table
+            text: Save table content
+            icon: fas fa-download
+        
+        - 
+            action_id: realist-load_table
+            text: Load table content
+            icon: fas fa-upload
+        
+    
+    list_item_group_actions: 
+        - 
+            action_id: realist-print_rows
+            text: Print
+            icon: fas fa-print
+        
+        - 
+            action_id: realist-delete_rows
+            text: Delete
+            icon: far fa-trash-alt
+        
+        - 
+            action_id: realist-edit_rows
+            text: Edit
+            icon: fas fa-edit
+            realform_id: %{plugin}:generated/%{table}
+        
+        - 
+            text: Share
+            icon: fas fa-share-square
+            items: 
+                - 
+                    action_id: realist-rows_to_ods
+                    text: OpenOffice ods
+                    icon: far fa-file-alt
+                
+                - 
+                    action_id: realist-rows_to_xlsx
+                    text: Excel xlsx
+                    icon: far fa-file-excel
+                
+                - 
+                    action_id: realist-rows_to_xls
+                    text: Excel xls
+                    icon: far fa-file-excel
+                
+                - 
+                    action_id: realist-rows_to_html
+                    text: Html
+                    icon: far fa-file-code
+                
+                - 
+                    action_id: realist-rows_to_csv
+                    text: Csv
+                    icon: fas fa-file-csv
+                
+                - 
+                    action_id: realist-rows_to_pdf
+                    text: Pdf
+                    icon: far fa-file-pdf
+                
+            
+        
+    
+    list_renderer: 
+        class: Ling\Light_Kit_Admin\Realist\Rendering\LightKitAdminRealistListRenderer
+    
+    responsive_table_helper: 
+        collapsible_column_indexes: admin
+    
+    open_admin_table: 
+        widget_statuses: 
+            debug_window: true
+            global_search: true
+            advanced_search: true
+            toolbar: true
+            table: true
+            head: true
+            head_sort: true
+            checkbox: true
+            neck_filters: true
+            pagination: true
+            number_of_items_per_page: true
+            number_of_rows_info: true
+        
+        data_types: 
+            id: number
+            lud_user_id: number
+            canonical: string
+            is_private: string
+            date_creation: datetime
+            date_last_update: datetime
+            lud_user_id_plus: string
+            _action: action
+            _checkbox: checkbox
+        
+    
+    properties_to_display: 
+        - _checkbox
+        - id
+        - lud_user_id_plus
+        - canonical
+        - is_private
+        - date_creation
+        - date_last_update
+        - _action
+    
+    property_labels: 
+        id: "#"
+        lud_user_id: Lud user id
+        canonical: Canonical
+        is_private: Is private
+        date_creation: Date creation
+        date_last_update: Date last update
+        lud_user_id_plus: Lud user
+        _action: Actions
+        _checkbox: Checkbox
+    
+    list_item_renderer: 
+        class: Ling\Light_Kit_Admin\Realist\Rendering\LightKitAdminRealistListItemRenderer
+        types: 
+            avatar_url: 
+                type: Light_Realist.image
+                width: 100
+            
+            _action: 
+                type: Light_Realist.mixer
+                separator: &nbsp;
+                items: 
+                    - 
+                        type: Light_Realist.hub_link
+                        text: Edit
+                        url_params_add_ric: true
+                        url_params: 
+                            plugin: Ling/Light_Kit_Admin_UserData
+                            controller: Generated/LudaResourceController
+                            m: f
+                        
+                        icon: fas fa-edit
+                    
+                    - 
+                        type: Light_Kit_Admin.list_action
+                        text: Delete
+                        action_id: realist-delete_rows
+                        include_ric: true
+                        confirmExecute: 
+                            text: Are you sure you want to delete this row?
+                            loader: true
+                        
+                        params: 
+                            table: luda_resource
+                        
+                        icon: fas fa-trash-alt
+                    
+                    - 
+                        type: Light_Kit_Admin.list_action
+                        text: Duplicate row
+                        action_id: realist-duplicate_row
+                        confirmExecute: 
+                            text: Are you sure you want to duplicate this row?
+                            loader: true
+                        
+                        include_ric: true
+                        icon: far fa-copy
+                    
+                    - 
+                        type: Light_Kit_Admin.list_action
+                        confirmExecute: 
+                            text: Are you sure you want to duplicate this entity?
+                            loader: true
+                        
+                        text: Duplicate entity
+                        action_id: realist-duplicate_row_deep
+                        include_ric: true
+                        icon: far fa-clone
+                    
+                
+            
+            _checkbox: Light_Realist.checkbox
+            lud_user_id_plus: 
+                type: Light_Realist.hub_link
+                text: null
+                url_params_add_keys: 
+                    id: lud_user_id
+                
+                url_params: 
+                    plugin: Ling/Light_Kit_Admin_UserDatabase
+                    controller: Generated/LudUserController
+                    m: f
+                
+            
+        
+        dynamic: 
+            - _checkbox
+            - _action
+        
+    
+    related_links: 
+        - 
+            text: "Add new \"resource\" item"
+            url: REALIST(Light_Realist, route, lch_route-hub, {plugin: Ling/Light_Kit_Admin_UserData, controller: Generated/LudaResourceController, m:f})
+            icon: fas fa-plus-circle
+        
+    

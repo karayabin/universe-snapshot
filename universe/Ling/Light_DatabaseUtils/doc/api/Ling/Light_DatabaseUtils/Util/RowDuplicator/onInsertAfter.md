@@ -16,7 +16,7 @@ Description
 ================
 
 
-protected [RowDuplicator::onInsertAfter](https://github.com/lingtalfi/Light_DatabaseUtils/blob/master/doc/api/Ling/Light_DatabaseUtils/Util/RowDuplicator/onInsertAfter.md)(string $table, array $newRow, ?$lastInsertId = null) : void
+protected [RowDuplicator::onInsertAfter](https://github.com/lingtalfi/Light_DatabaseUtils/blob/master/doc/api/Ling/Light_DatabaseUtils/Util/RowDuplicator/onInsertAfter.md)(string $mainTable, string $table, array $oldRow, array $newRow, ?$lastInsertId = null) : void
 
 
 
@@ -30,7 +30,15 @@ Parameters
 ================
 
 
+- mainTable
+
+    
+
 - table
+
+    
+
+- oldRow
 
     
 
@@ -57,7 +65,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [RowDuplicator::onInsertAfter](https://github.com/lingtalfi/Light_DatabaseUtils/blob/master/Util/RowDuplicator.php#L361-L364)
+See the source code for method [RowDuplicator::onInsertAfter](https://github.com/lingtalfi/Light_DatabaseUtils/blob/master/Util/RowDuplicator.php#L371-L374)
 
 
 See Also

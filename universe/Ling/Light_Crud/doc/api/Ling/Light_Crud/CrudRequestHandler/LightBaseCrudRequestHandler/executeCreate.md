@@ -26,7 +26,7 @@ Executes the crud.create request.
 The params array has the following structure:
 
 - data: array, the row to insert
-- ?multiplier: array, the multiplier array (see [the form multiplier trick](https://github.com/lingtalfi/TheBar/blob/master/discussions/form-multiplier.md) for more details)
+- ?multiplier: string, the name of the multiplied column. See [the multiplier form trick for more details](https://github.com/lingtalfi/TheBar/blob/master/discussions/form-multiplier.md).
 
 
 
@@ -63,7 +63,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightBaseCrudRequestHandler::executeCreate](https://github.com/lingtalfi/Light_Crud/blob/master/CrudRequestHandler/LightBaseCrudRequestHandler.php#L99-L154)
+See the source code for method [LightBaseCrudRequestHandler::executeCreate](https://github.com/lingtalfi/Light_Crud/blob/master/CrudRequestHandler/LightBaseCrudRequestHandler.php#L98-L146)
 
 
 See Also

@@ -4,7 +4,10 @@
 namespace Ling\Light_Kit_Admin\Controller;
 
 
+use Ling\Bat\CookieTool;
+use Ling\Light\Events\LightEvent;
 use Ling\Light\Http\HttpResponseInterface;
+use Ling\Light_Events\Helper\LightEventsHelper;
 use Ling\Light_Kit\PageConfigurationUpdator\PageConfUpdator;
 use Ling\Light_UserDatabase\LightUserDatabaseInterface;
 
@@ -30,6 +33,7 @@ class LoginFormController extends LightKitAdminController
 
 
         $updator = null;
+        $rememberMe = (bool)($_POST['remember_me'] ?? false);
 
         if (
             array_key_exists("zeroadmin_login_form", $_POST) &&
@@ -38,6 +42,7 @@ class LoginFormController extends LightKitAdminController
         ) {
             $userName = $_POST['username'];
             $password = $_POST['password'];
+
 
             /**
              * @var $userDb LightUserDatabaseInterface
@@ -55,9 +60,10 @@ class LoginFormController extends LightKitAdminController
                 // CONNECTING THE USER
                 //--------------------------------------------
                 $user = $this->getUser();
+
                 $user->setId($userInfo['id']);
                 $user->setIdentifier($userInfo['identifier']);
-                $user->setEmail($userInfo['identifier']);
+                $user->setEmail($userInfo['email']);
                 $user->setPseudo($userInfo['pseudo']);
                 $user->setAvatarUrl($userInfo['avatar_url']);
                 $user->setRights($userInfo['rights']);
@@ -71,6 +77,25 @@ class LoginFormController extends LightKitAdminController
                 }
 
 
+                if (true === $rememberMe) {
+                    $cookieNbDays = 365;
+                    CookieTool::add('lka-login-remember_me-username', $userName, $cookieNbDays);
+                    CookieTool::add('lka-login-remember_me-password', $password, $cookieNbDays);
+                } else {
+                    CookieTool::delete([
+                        'lka-login-remember_me-username',
+                        'lka-login-remember_me-password',
+                    ]);
+                }
+
+
+                //--------------------------------------------
+                // HOOKS
+                //--------------------------------------------
+                LightEventsHelper::dispatchEvent($this->getContainer(), "Light_Kit_Admin.on_user_successful_connexion", [
+                    'user' => $user,
+                ]);
+
 
                 //--------------------------------------------
                 // REDIRECTING THE CONNECTED USER
@@ -79,6 +104,7 @@ class LoginFormController extends LightKitAdminController
                 return $this->getRedirectResponseByRoute($redirectRoute);
 
             } else {
+
                 //--------------------------------------------
                 // ON FORM NOT VALID
                 //--------------------------------------------
@@ -103,7 +129,40 @@ class LoginFormController extends LightKitAdminController
                 ];
                 $updator->setMergeArray($updates);
             }
+        } else {
+            //--------------------------------------------
+            // FORM NOT POSTED YET, DO WE INFER VALUES FROM COOKIES?
+            //--------------------------------------------
+            if (true === CookieTool::has("lka-login-remember_me-username")) {
+                $userName = CookieTool::get("lka-login-remember_me-username");
+                $password = CookieTool::get("lka-login-remember_me-password");
+                $updator = PageConfUpdator::create();
+                $updates = [
+                    "zones" => [
+                        "body" => [
+                            0 => [
+                                "vars" => [
+                                    "field_username" => [
+                                        "value" => $userName,
+                                    ],
+                                    "field_password" => [
+                                        "value" => $password,
+                                    ],
+                                    "field_remember_me" => [
+                                        "value" => 1,
+                                    ],
+                                ],
+                            ],
+                        ],
+                    ],
+                ];
+                $updator->setMergeArray($updates);
+            }
+
+
         }
+
+
         return $this->renderPage('Light_Kit_Admin/kit/zeroadmin/zeroadmin_login', [], $updator);
     }
 }

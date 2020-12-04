@@ -7,7 +7,6 @@ namespace Ling\Light_RealGenerator\Service;
 use Ling\BabyYaml\BabyYamlUtil;
 use Ling\Bat\ArrayTool;
 use Ling\Bat\BDotTool;
-use Ling\CheapLogger\CheapLogger;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
 use Ling\Light_Logger\LightLoggerService;
 use Ling\Light_RealGenerator\Exception\LightRealGeneratorException;
@@ -172,7 +171,7 @@ class LightRealGeneratorService
         } else {
             if (array_key_exists("list", $genConf)) {
                 $this->debugLog("List configuration found.");
-                $listGenerator = new ListConfigGenerator();
+                $listGenerator = $this->getNewListConfigGeneratorInstance();
                 $listGenerator->setDebugCallable($debugCallable);
                 $listGenerator->setContainer($this->container);
                 $listGenerator->generate($genConf);
@@ -255,6 +254,15 @@ class LightRealGeneratorService
     //--------------------------------------------
     //
     //--------------------------------------------
+    /**
+     * Creates and returns the list config generator instance.
+     *
+     * @return ListConfigGenerator
+     */
+    protected function getNewListConfigGeneratorInstance(): ListConfigGenerator
+    {
+        return new ListConfigGenerator();
+    }
 
     /**
      * Returns the given absolute path, with the application directory replaced by a symbol if found.

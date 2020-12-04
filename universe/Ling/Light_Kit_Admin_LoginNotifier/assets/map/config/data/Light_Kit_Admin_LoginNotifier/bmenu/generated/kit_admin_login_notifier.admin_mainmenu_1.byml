@@ -1,0 +1,19 @@
+- 
+    id: kit_admin_login_notifier-lln
+    icon: fas fa-puzzle-piece
+    text: Login Notifier
+    route: null
+    children: 
+        - 
+            id: kit_admin_login_notifier-lln_connexion
+            icon: fas fa-asterisk
+            text: Connexion
+            route: lch_route-hub
+            route_url_params: 
+                plugin: Ling/Light_Kit_Admin_LoginNotifier
+                controller: Generated/LlnConnexionController
+            
+            _right: Light_Kit_Admin.user
+            children: []
+        
+    

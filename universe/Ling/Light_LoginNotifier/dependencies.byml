@@ -1,0 +1,12 @@
+dependencies: 
+    Ling: 
+        - SimplePdoWrapper
+        - Light
+        - Light_Database
+        - Light_LingStandardService
+        - Light_Mailer
+        - Light_User
+    
+
+post_install: 
+    map: true

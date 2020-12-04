@@ -1,6 +1,10 @@
 Light_Realform
 ===============
-2019-10-14 -> 2020-09-04
+2019-10-14 -> 2020-10-01
+
+
+
+THIS DOCUMENT IS DEPRECATED, SEE THE [NEW CONCEPTION NOTES](https://github.com/lingtalfi/Light_Realform/blob/master/doc/pages/2020/conception-notes.md) INSTEAD.
 
 
 

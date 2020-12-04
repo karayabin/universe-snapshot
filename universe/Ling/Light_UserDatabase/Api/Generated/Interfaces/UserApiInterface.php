@@ -11,6 +11,7 @@ namespace Ling\Light_UserDatabase\Api\Generated\Interfaces;
 interface UserApiInterface
 {
 
+
     /**
      * Inserts the given user in the database.
      * By default, it returns the result of the PDO::lastInsertId method.
@@ -20,7 +21,7 @@ interface UserApiInterface
      * If the row you're trying to insert triggers a duplicate error, the behaviour of this method depends on
      * the ignoreDuplicate flag:
      * - if true, the error will be caught internally, the return of the method is not affected
-     * - if false, the error will not be caught, and depending on your configuration, it might either
+     * - if false, the error will not be caught, and depending on your pdo configuration, it might either
      *          trigger an exception, or fail silently in which case this method returns false.
      *
      *
@@ -54,6 +55,28 @@ interface UserApiInterface
      * @throws \Exception
      */
     public function insertUsers(array $users, bool $ignoreDuplicate = true, bool $returnRic = false);
+
+    /**
+     * Returns the rows corresponding to given components.
+     * The components is an array of [fetch all components](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/pages/fetch-all-components.md).
+     *
+     *
+     * @param array $components
+     * @return array
+     */
+    public function fetchAll(array $components = []): array;
+
+
+    /**
+     *
+     * Returns the first row corresponding to given components, or false if there is no match.
+     *
+     * The components is an array of [fetch all components](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/pages/fetch-all-components.md).
+     *
+     * @param array $components
+     * @return array
+     */
+    public function fetch(array $components = []);
 
     /**
      * Returns the user row identified by the given id.
@@ -182,6 +205,52 @@ interface UserApiInterface
 
 
 
+    /**
+     * Returns the rows of the lud_user table bound to the given permission_group id.
+     * @param string $permissionGroupId
+     * @return array
+     */
+    public function getUsersByPermissionGroupId(string $permissionGroupId): array;
+
+    /**
+     * Returns the rows of the lud_user table bound to the given permission_group name.
+     * @param string $permissionGroupName
+     * @return array
+     */
+    public function getUsersByPermissionGroupName(string $permissionGroupName): array;
+
+
+
+    /**
+     * Returns an array of lud_user.id bound to the given permission_group id.
+     * @param string $permissionGroupId
+     * @return array
+     */
+    public function getUserIdsByPermissionGroupId(string $permissionGroupId): array;
+
+
+    /**
+     * Returns an array of lud_user.id bound to the given permission_group name.
+     * @param string $permissionGroupName
+     * @return array
+     */
+    public function getUserIdsByPermissionGroupName(string $permissionGroupName): array;
+
+
+    /**
+     * Returns an array of lud_user.identifier bound to the given permission_group id.
+     * @param string $permissionGroupId
+     * @return array
+     */
+    public function getUserIdentifiersByPermissionGroupId(string $permissionGroupId): array;
+
+
+    /**
+     * Returns an array of lud_user.identifier bound to the given permission_group name.
+     * @param string $permissionGroupName
+     * @return array
+     */
+    public function getUserIdentifiersByPermissionGroupName(string $permissionGroupName): array;
 
 
 
@@ -201,10 +270,12 @@ interface UserApiInterface
      *
      * @param int $id
      * @param array $user
+     * @param array $extraWhere
+     * @param array $markers
      * @return void
      * @throws \Exception
      */
-    public function updateUserById(int $id, array $user);
+    public function updateUserById(int $id, array $user, array $extraWhere = [], array $markers = []);
 
 
     /**
@@ -212,10 +283,26 @@ interface UserApiInterface
      *
      * @param string $identifier
      * @param array $user
+     * @param array $extraWhere
+     * @param array $markers
      * @return void
      * @throws \Exception
      */
-    public function updateUserByIdentifier(string $identifier, array $user);
+    public function updateUserByIdentifier(string $identifier, array $user, array $extraWhere = [], array $markers = []);
+
+
+
+
+    /**
+     * Updates the user row.
+     *
+     * @param array $user
+     * @param mixed $where
+     * @param array $markers
+     * @return void
+     * @throws \Exception
+     */
+    public function updateUser(array $user, $where = null, array $markers = []);
 
 
 
@@ -272,5 +359,13 @@ interface UserApiInterface
     public function deleteUserByIdentifiers(array $identifiers);
 
 
+
+
+
+    /**
+     * Deletes the user rows having the given user group id.
+     * @param int $userGroupId
+     */
+    public function deleteUserByUserGroupId(int $userGroupId);
 
 }

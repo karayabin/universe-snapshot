@@ -4,7 +4,7 @@
 
 The LightBlueServiceContainer class
 ================
-2019-04-09 --> 2020-11-10
+2019-04-09 --> 2020-12-03
 
 
 
@@ -35,6 +35,7 @@ class <span class="pl-k">LightBlueServiceContainer</span> extends [BlueOctopusSe
     - public [setLight](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightBlueServiceContainer/setLight.md)([Ling\Light\Core\Light](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light.md) $light) : mixed
     - public [setApplicationDir](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightBlueServiceContainer/setApplicationDir.md)(string $appDir) : void
     - public [__debugInfo](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightBlueServiceContainer/__debugInfo.md)() : string[]
+    - protected [getOwnMethods](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightBlueServiceContainer/getOwnMethods.md)() : array
 
 - Inherited methods
     - public BlueOctopusServiceContainer::get(string $service) : object
@@ -74,6 +75,7 @@ Methods
 - [LightBlueServiceContainer::setLight](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightBlueServiceContainer/setLight.md) &ndash; Sets the light instance.
 - [LightBlueServiceContainer::setApplicationDir](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightBlueServiceContainer/setApplicationDir.md) &ndash; Sets the application directory.
 - [LightBlueServiceContainer::__debugInfo](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightBlueServiceContainer/__debugInfo.md) &ndash; Defines which information to display when var_dump is called on this instance.
+- [LightBlueServiceContainer::getOwnMethods](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightBlueServiceContainer/getOwnMethods.md) &ndash; Returns an array of the methods defined in this class, which are not services.
 - BlueOctopusServiceContainer::get &ndash; Returns the service which name is given.
 - BlueOctopusServiceContainer::has &ndash; 
 - BlueOctopusServiceContainer::all &ndash; Returns the list of all service names for this instance.

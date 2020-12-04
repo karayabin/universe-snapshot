@@ -11,8 +11,9 @@ namespace Ling\Light_UserDatabase\Api\Generated\Interfaces;
 interface UserHasPermissionGroupApiInterface
 {
 
+
     /**
-     * Inserts the given userHasPermissionGroup in the database.
+     * Inserts the given user has permission group in the database.
      * By default, it returns the result of the PDO::lastInsertId method.
      * If the returnRic flag is set to true, the method will return the ric array instead of the lastInsertId.
      *
@@ -20,7 +21,7 @@ interface UserHasPermissionGroupApiInterface
      * If the row you're trying to insert triggers a duplicate error, the behaviour of this method depends on
      * the ignoreDuplicate flag:
      * - if true, the error will be caught internally, the return of the method is not affected
-     * - if false, the error will not be caught, and depending on your configuration, it might either
+     * - if false, the error will not be caught, and depending on your pdo configuration, it might either
      *          trigger an exception, or fail silently in which case this method returns false.
      *
      *
@@ -34,7 +35,7 @@ interface UserHasPermissionGroupApiInterface
     public function insertUserHasPermissionGroup(array $userHasPermissionGroup, bool $ignoreDuplicate = true, bool $returnRic = false);
 
     /**
-     * Inserts the given userHasPermissionGroup rows in the database.
+     * Inserts the given user has permission group rows in the database.
      * By default, it returns an array of the result of the PDO::lastInsertId method for each insert.
      * If the returnRic flag is set to true, the method will return an array of the ric array (for each insert) instead of the lastInsertId.
      *
@@ -56,7 +57,29 @@ interface UserHasPermissionGroupApiInterface
     public function insertUserHasPermissionGroups(array $userHasPermissionGroups, bool $ignoreDuplicate = true, bool $returnRic = false);
 
     /**
-     * Returns the userHasPermissionGroup row identified by the given user_id and permission_group_id.
+     * Returns the rows corresponding to given components.
+     * The components is an array of [fetch all components](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/pages/fetch-all-components.md).
+     *
+     *
+     * @param array $components
+     * @return array
+     */
+    public function fetchAll(array $components = []): array;
+
+
+    /**
+     *
+     * Returns the first row corresponding to given components, or false if there is no match.
+     *
+     * The components is an array of [fetch all components](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/pages/fetch-all-components.md).
+     *
+     * @param array $components
+     * @return array
+     */
+    public function fetch(array $components = []);
+
+    /**
+     * Returns the user has permission group row identified by the given user_id and permission_group_id.
      *
      * If the row is not found, this method's return depends on the throwNotFoundEx flag:
      * - if true, the method throws an exception
@@ -161,15 +184,31 @@ interface UserHasPermissionGroupApiInterface
 
 
     /**
-     * Updates the userHasPermissionGroup row identified by the given user_id and permission_group_id.
+     * Updates the user has permission group row identified by the given user_id and permission_group_id.
      *
      * @param int $user_id
 	 * @param int $permission_group_id
      * @param array $userHasPermissionGroup
+     * @param array $extraWhere
+     * @param array $markers
      * @return void
      * @throws \Exception
      */
-    public function updateUserHasPermissionGroupByUserIdAndPermissionGroupId(int $user_id, int $permission_group_id, array $userHasPermissionGroup);
+    public function updateUserHasPermissionGroupByUserIdAndPermissionGroupId(int $user_id, int $permission_group_id, array $userHasPermissionGroup, array $extraWhere = [], array $markers = []);
+
+
+
+
+    /**
+     * Updates the user has permission group row.
+     *
+     * @param array $userHasPermissionGroup
+     * @param mixed $where
+     * @param array $markers
+     * @return void
+     * @throws \Exception
+     */
+    public function updateUserHasPermissionGroup(array $userHasPermissionGroup, $where = null, array $markers = []);
 
 
 
@@ -188,7 +227,7 @@ interface UserHasPermissionGroupApiInterface
     public function delete($where = null, array $markers = []);
 
     /**
-     * Deletes the userHasPermissionGroup identified by the given user_id and permission_group_id.
+     * Deletes the user has permission group identified by the given user_id and permission_group_id.
      *
      * @param int $user_id
 	 * @param int $permission_group_id
@@ -197,28 +236,10 @@ interface UserHasPermissionGroupApiInterface
      */
     public function deleteUserHasPermissionGroupByUserIdAndPermissionGroupId(int $user_id, int $permission_group_id);
 
-    /**
-     * Deletes the userHasPermissionGroup identified by the given user_id.
-     *
-     * @param int $user_id
-     * @return void
-     * @throws \Exception
-     */
-    public function deleteUserHasPermissionGroupByUserId(int $user_id);
-
-    /**
-     * Deletes the userHasPermissionGroup identified by the given permission_group_id.
-     *
-     * @param int $permission_group_id
-     * @return void
-     * @throws \Exception
-     */
-    public function deleteUserHasPermissionGroupByPermissionGroupId(int $permission_group_id);
-
 
 
     /**
-     * Deletes the userHasPermissionGroup rows identified by the given user_user_ids.
+     * Deletes the user has permission group rows identified by the given user_ids.
      *
      * @param array $user_ids
      * @return void
@@ -227,7 +248,7 @@ interface UserHasPermissionGroupApiInterface
     public function deleteUserHasPermissionGroupByUserIds(array $user_ids);
 
     /**
-     * Deletes the userHasPermissionGroup rows identified by the given permission_group_permission_group_ids.
+     * Deletes the user has permission group rows identified by the given permission_group_ids.
      *
      * @param array $permission_group_ids
      * @return void
@@ -236,5 +257,19 @@ interface UserHasPermissionGroupApiInterface
     public function deleteUserHasPermissionGroupByPermissionGroupIds(array $permission_group_ids);
 
 
+
+
+
+    /**
+     * Deletes the user has permission group rows having the given user id.
+     * @param int $userId
+     */
+    public function deleteUserHasPermissionGroupByUserId(int $userId);
+
+    /**
+     * Deletes the user has permission group rows having the given permission group id.
+     * @param int $permissionGroupId
+     */
+    public function deleteUserHasPermissionGroupByPermissionGroupId(int $permissionGroupId);
 
 }

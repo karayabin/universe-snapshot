@@ -86,6 +86,7 @@ class PackLightPluginCommand extends KaosGenericCommand
                 "templates/Light_Mailer/$pluginName",
                 "www/plugins/$pluginName",
                 "www/libs/universe/$galaxyName/$pluginName",
+                "scripts/$galaxyName/$pluginName",
             ];
 
 

@@ -51,7 +51,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LudUserGroupHasPluginOptionController::renderForm](https://github.com/lingtalfi/Light_Kit_Admin_UserDatabase/blob/master/Controller/Generated/LudUserGroupHasPluginOptionController.php#L41-L76)
+See the source code for method [LudUserGroupHasPluginOptionController::renderForm](https://github.com/lingtalfi/Light_Kit_Admin_UserDatabase/blob/master/Controller/Generated/LudUserGroupHasPluginOptionController.php#L40-L61)
 
 
 See Also

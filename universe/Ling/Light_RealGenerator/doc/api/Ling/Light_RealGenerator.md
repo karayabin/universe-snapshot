@@ -1,6 +1,6 @@
 Ling/Light_RealGenerator
 ================
-2019-10-24 --> 2020-11-12
+2019-10-24 --> 2020-12-01
 
 
 
@@ -45,7 +45,6 @@ Dependencies
 - [SqlWizard](https://github.com/lingtalfi/SqlWizard)
 - [ArrayVariableResolver](https://github.com/lingtalfi/ArrayVariableResolver)
 - [BabyYaml](https://github.com/lingtalfi/BabyYaml)
-- [CheapLogger](https://github.com/lingtalfi/CheapLogger)
 - [Light_Logger](https://github.com/lingtalfi/Light_Logger)
 
 

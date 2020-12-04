@@ -19,12 +19,12 @@ $title = $z['title'] ?? "Form";
 $relatedLinks = $z['related_links'] ?? [];
 $container = $this->getContainer();
 
+
 ?>
 
 <div class="kit-bwl-chloroform container-fluid <?php echo htmlspecialchars($this->getCssClass()); ?>"
     <?php echo $this->getAttributesHtml(); ?>
 >
-
     <div class="row">
         <div class="col m-auto">
             <div class="card">
@@ -57,6 +57,8 @@ $container = $this->getContainer();
 
 
                     <?php
+
+
                     $renderer = new HeliumLightRenderer([
                         "useEnctypeMultiformData" => true,
                         "printJsHandler" => true,

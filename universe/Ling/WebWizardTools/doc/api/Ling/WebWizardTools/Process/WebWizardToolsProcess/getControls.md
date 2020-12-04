@@ -46,7 +46,7 @@ Returns [WebWizardToolsControl](https://github.com/lingtalfi/WebWizardTools/blob
 
 Source Code
 ===========
-See the source code for method [WebWizardToolsProcess::getControls](https://github.com/lingtalfi/WebWizardTools/blob/master/Process/WebWizardToolsProcess.php#L131-L134)
+See the source code for method [WebWizardToolsProcess::getControls](https://github.com/lingtalfi/WebWizardTools/blob/master/Process/WebWizardToolsProcess.php#L138-L141)
 
 
 See Also

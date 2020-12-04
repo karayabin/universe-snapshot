@@ -1,6 +1,6 @@
 LingTalfi
 ===========
-2019-03-13 -> 2020-11-09
+2019-03-13 -> 2020-12-03
 
 
 
@@ -33,6 +33,10 @@ Or just download it and place it where you want otherwise.
 History Log
 =============
 
+- 1.23.1 -- 2020-12-03
+
+    - update PackLightPluginCommand, now also packs from scripts/$galaxy/$planet
+    
 - 1.23.0 -- 2020-09-11
 
     - update docbuilder template, now has the conception variable

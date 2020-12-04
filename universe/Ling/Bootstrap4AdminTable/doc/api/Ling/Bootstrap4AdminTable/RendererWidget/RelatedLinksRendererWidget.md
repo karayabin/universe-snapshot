@@ -4,7 +4,7 @@
 
 The RelatedLinksRendererWidget class
 ================
-2019-08-15 --> 2020-09-03
+2019-08-15 --> 2020-11-24
 
 
 

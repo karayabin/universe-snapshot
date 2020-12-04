@@ -16,6 +16,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
              */
             var onSuccessAfter = jTarget.attr("data-success-after");
             var confirmText = jTarget.attr("data-confirm");
+            var confirmExecuteText = jTarget.attr("data-confirm-execute");
+
             //----------------------------------------
             // confirm?
             //----------------------------------------
@@ -27,12 +29,35 @@ document.addEventListener("DOMContentLoaded", function (event) {
                     if (true === LightKitAdminEnvironment.confirm(confirmText)) {
                         f();
                     }
-                }
+                };
+            } else if ('undefined' !== typeof confirmExecuteText) {
+
+                var confirmExecuteLoader = jTarget.attr("data-confirm-execute-loader");
+                var confirmExecuteTitle = jTarget.attr("data-confirm-execute-title") || null;
+                var confirmExecuteOkText = jTarget.attr("data-confirm-execute-oktext");
+                var confirmExecuteCancelText = jTarget.attr("data-confirm-execute-canceltext");
+                var confirmExecuteLoadingText = jTarget.attr("data-confirm-execute-loadingtext");
+
+
+                wrapper = function (f) {
+                    var options = {
+                        title: confirmExecuteTitle,
+                        okText: confirmExecuteOkText,
+                        cancelText: confirmExecuteCancelText,
+                        loadingText: confirmExecuteLoadingText,
+                        loader: !!confirmExecuteLoader,
+                    };
+                    LightKitAdminEnvironment.confirmExecute(confirmExecuteText, f, options);
+                };
             }
 
 
-            wrapper(function () {
+            wrapper(function (wOptions) {
+                wOptions = wOptions || {};
+
+
                 AcpHepHelper.post(data.url, data, function () {
+
                     //----------------------------------------
                     // refresh?
                     //----------------------------------------
@@ -42,6 +67,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
                         // refreshing the list gui
                         var helper = RealistRegistry.getOpenAdminTableHelper();
                         helper.executeModule("pagination");
+                    }
+
+
+                    var optionsOnSuccessAfter = wOptions.onSuccessAfter || null;
+                    if (true === bee.isFunction(optionsOnSuccessAfter)) {
+                        optionsOnSuccessAfter();
                     }
 
 

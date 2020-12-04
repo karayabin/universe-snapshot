@@ -7,7 +7,7 @@ LightBaseControllerHubHandler::setContainer
 
 
 
-LightBaseControllerHubHandler::setContainer — Sets the container.
+LightBaseControllerHubHandler::setContainer — Sets the light service container interface.
 
 
 
@@ -21,7 +21,7 @@ public [LightBaseControllerHubHandler::setContainer](https://github.com/lingtalf
 
 
 
-Sets the container.
+Sets the light service container interface.
 
 
 
@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightBaseControllerHubHandler::setContainer](https://github.com/lingtalfi/Light_ControllerHub/blob/master/ControllerHubHandler/LightBaseControllerHubHandler.php#L44-L47)
+See the source code for method [LightBaseControllerHubHandler::setContainer](https://github.com/lingtalfi/Light_ControllerHub/blob/master/ControllerHubHandler/LightBaseControllerHubHandler.php#L43-L46)
 
 
 See Also

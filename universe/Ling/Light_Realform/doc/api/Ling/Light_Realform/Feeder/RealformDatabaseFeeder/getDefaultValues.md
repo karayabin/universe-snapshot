@@ -23,6 +23,8 @@ public [RealformDatabaseFeeder::getDefaultValues](https://github.com/lingtalfi/L
 
 Returns the default values of the form.
 
+For more details about the params, see the [Light_Realform conception notes](https://github.com/lingtalfi/Light_Realform/blob/master/doc/pages/2020/conception-notes.md).
+
 
 
 
@@ -49,7 +51,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [RealformDatabaseFeeder::getDefaultValues](https://github.com/lingtalfi/Light_Realform/blob/master/Feeder/RealformDatabaseFeeder.php#L53-L111)
+See the source code for method [RealformDatabaseFeeder::getDefaultValues](https://github.com/lingtalfi/Light_Realform/blob/master/Feeder/RealformDatabaseFeeder.php#L54-L79)
 
 
 See Also

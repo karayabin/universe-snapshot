@@ -51,7 +51,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightControllerHubController::render](https://github.com/lingtalfi/Light_ControllerHub/blob/master/Controller/LightControllerHubController.php#L24-L48)
+See the source code for method [LightControllerHubController::render](https://github.com/lingtalfi/Light_ControllerHub/blob/master/Controller/LightControllerHubController.php#L24-L49)
 
 
 See Also

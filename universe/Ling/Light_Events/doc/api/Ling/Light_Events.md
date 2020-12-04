@@ -1,6 +1,6 @@
 Ling/Light_Events
 ================
-2019-10-31 --> 2020-11-06
+2019-10-31 --> 2020-11-30
 
 
 
@@ -9,6 +9,8 @@ Table of contents
 ===========
 
 - [LightEventsException](https://github.com/lingtalfi/Light_Events/blob/master/doc/api/Ling/Light_Events/Exception/LightEventsException.md) &ndash; The LightEventsException class.
+- [LightEventsHelper](https://github.com/lingtalfi/Light_Events/blob/master/doc/api/Ling/Light_Events/Helper/LightEventsHelper.md) &ndash; The LightEventsHelper class.
+    - [LightEventsHelper::dispatchEvent](https://github.com/lingtalfi/Light_Events/blob/master/doc/api/Ling/Light_Events/Helper/LightEventsHelper/dispatchEvent.md) &ndash; Dispatches the $eventName event using a LightEvent object filled with the given $variables.
 - [LightEventsListenerInterface](https://github.com/lingtalfi/Light_Events/blob/master/doc/api/Ling/Light_Events/Listener/LightEventsListenerInterface.md) &ndash; The LightEventsListenerInterface interface.
     - [LightEventsListenerInterface::process](https://github.com/lingtalfi/Light_Events/blob/master/doc/api/Ling/Light_Events/Listener/LightEventsListenerInterface/process.md) &ndash; Process the given data.
 - [LightEventsService](https://github.com/lingtalfi/Light_Events/blob/master/doc/api/Ling/Light_Events/Service/LightEventsService.md) &ndash; The LightEventsService class.
@@ -22,11 +24,11 @@ Table of contents
 
 Dependencies
 ============
+- [Light](https://github.com/lingtalfi/Light)
 - [BabyYaml](https://github.com/lingtalfi/BabyYaml)
 - [Bat](https://github.com/lingtalfi/Bat)
 - [CliTools](https://github.com/lingtalfi/CliTools)
 - [DirScanner](https://github.com/lingtalfi/DirScanner)
-- [Light](https://github.com/lingtalfi/Light)
 - [Light_Logger](https://github.com/lingtalfi/Light_Logger)
 
 

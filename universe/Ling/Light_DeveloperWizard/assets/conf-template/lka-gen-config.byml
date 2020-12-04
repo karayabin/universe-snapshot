@@ -22,6 +22,8 @@ variables:
 # - as the plugin name in plugin (described in the miscellaneous "section" of the realist conception notes)
 plugin_name: !{plugin}
 
+
+
 # The path to a create file, see the use_create_file directive for more info
 # The {app_dir} tag will be replaced with the absolute path to the application directory.
 create_file: !{createFile}
@@ -256,23 +258,50 @@ list:
         _action:
             type: my_action
             type: Light_Realist.mixer
-            separator: " - "
+            separator: &nbsp;
             items:
                 -
                     type: Light_Realist.hub_link
                     text: Edit
                     url_params_add_ric: true
                     url_params:
-                        plugin: !{plugin}
+                        plugin: !{galaxyName}/!{plugin}
                         controller: Generated/{TableClass}Controller
                         m: f
+                    icon: fas fa-edit
+
                 -
                     type: Light_Kit_Admin.list_action
                     text: Delete
                     action_id: realist-delete_rows
                     include_ric: true
+                    confirmExecute:
+                        text: Are you sure you want to delete this row?
+                        loader: true
                     params:
                         table: {table}
+                    icon: fas fa-trash-alt
+
+
+                -
+                    type: Light_Kit_Admin.list_action
+                    text: Duplicate row
+                    action_id: realist-duplicate_row
+                    confirmExecute:
+                        text: Are you sure you want to duplicate this row?
+                        loader: true
+
+                    include_ric: true
+                    icon: far fa-copy
+                -
+                    type: Light_Kit_Admin.list_action
+                    confirmExecute:
+                        text: Are you sure you want to duplicate this entity?
+                        loader: true
+                    text: Duplicate entity
+                    action_id: realist-duplicate_row_deep
+                    include_ric: true
+                    icon: far fa-clone
 
         _checkbox: Light_Realist.checkbox
 
@@ -297,7 +326,7 @@ list:
     related_links:
         -
             text: Add new "{label}" item
-            url: REALIST(Light_Realist, route, lch_route-hub, {plugin: !{plugin}, controller: Generated/{TableClass}Controller, m:f})
+            url: REALIST(Light_Realist, route, lch_route-hub, {plugin: !{galaxyName}/!{plugin}, controller: Generated/{TableClass}Controller, m:f})
             icon: fas fa-plus-circle
 
 # This section defines the behaviour of the form configuration file generator
@@ -464,7 +493,7 @@ form:
     related_links:
         -
             text: See the list of "{Label}" items
-            url: (::ROUTE::)lch_route-hub::{plugin: !{plugin}, controller: Generated/{TableClass}Controller}
+            url: ::(@reverse_router->getUrl(lch_route-hub, {plugin: !{galaxyName}/!{plugin}, controller: Generated/{TableClass}Controller}))::
             icon: fas fa-plus-circle
 
 # This section defines the behaviour of the menu configuration file generator
@@ -666,7 +695,7 @@ controller: []
         form_page_related_links:
             -
                 text: See the list of "{TableLabel}" items
-                url: (::ROUTE::)lch_route-hub::{plugin: !{plugin}, controller: Generated/{Table}Controller}
+                url: ::(@reverse_router->getUrl(lch_route-hub, {plugin: !{galaxyName}/!{plugin}, controller: Generated/{Table}Controller}))::
                 icon: fas fa-plus-circle
 
 

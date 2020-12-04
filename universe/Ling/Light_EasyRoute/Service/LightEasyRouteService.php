@@ -45,7 +45,11 @@ class LightEasyRouteService
     public function initialize(LightEvent $event)
     {
         $light = $event->getLight();
-        $appDir = $light->getApplicationDir();
+        $appDir = $light->getContainer()->getApplicationDir();
+
+
+
+
         foreach ($this->bundleFiles as $path) {
             $absolutePath = $appDir . "/" . $path;
             if (file_exists($absolutePath)) {

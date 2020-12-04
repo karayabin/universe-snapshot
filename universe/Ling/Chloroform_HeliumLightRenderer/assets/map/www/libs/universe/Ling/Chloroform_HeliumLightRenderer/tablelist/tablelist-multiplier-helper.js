@@ -79,10 +79,13 @@ if ('undefined' === typeof window.TableListMultiplierHelper) {
 
         window.TableListMultiplierHelper.prototype = {
             listen: function () {
+
+
                 var $this = this;
                 this.jAddBindingBtn.on('click', function (e) {
                     var jTarget = $(e.target);
                     var value = $this.jBindingInput.val();
+
                     if ('' !== value) {
                         var label = $this.jBindingLabelInput.text();
                         var items = {};

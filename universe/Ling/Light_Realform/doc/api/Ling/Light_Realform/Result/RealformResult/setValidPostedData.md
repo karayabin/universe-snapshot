@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [RealformResult::setValidPostedData](https://github.com/lingtalfi/Light_Realform/blob/master/Result/RealformResult.php#L85-L88)
+See the source code for method [RealformResult::setValidPostedData](https://github.com/lingtalfi/Light_Realform/blob/master/Result/RealformResult.php#L92-L95)
 
 
 See Also

@@ -12,7 +12,6 @@ use Ling\Light_Database\Service\LightDatabaseService;
 use Ling\Light_DatabaseInfo\Service\LightDatabaseInfoService;
 use Ling\Light_MicroPermission\Service\LightMicroPermissionService;
 use Ling\SimplePdoWrapper\Util\RicHelper;
-use Ling\SimplePdoWrapper\Util\Where;
 
 
 /**
@@ -89,7 +88,7 @@ class LightBaseCrudRequestHandler implements LightCrudRequestHandlerInterface, L
      * The params array has the following structure:
      *
      * - data: array, the row to insert
-     * - ?multiplier: array, the multiplier array (see @page(the form multiplier trick) for more details)
+     * - ?multiplier: string, the name of the multiplied column. See @page(the multiplier form trick for more details).
      *
      *
      * @param string $table
@@ -108,7 +107,6 @@ class LightBaseCrudRequestHandler implements LightCrudRequestHandlerInterface, L
         $userData = $params['data'];
         $multiplier = $params['multiplier'] ?? null;
 
-
         /**
          * Make sure the user doesn't use the key to do some sql injection.
          */
@@ -119,30 +117,23 @@ class LightBaseCrudRequestHandler implements LightCrudRequestHandlerInterface, L
          */
         $db = $this->container->get("database");
 
-
         if ($multiplier) {
-            ArrayTool::arrayKeyExistAll([
-                "item_id",
-            ], $multiplier, true);
-
-            $fieldId = $multiplier['item_id'];
-
             /**
              * assuming the field id always represents a top level entry of the data (otherwise we need to use bdot)
              */
-            if (false === array_key_exists($fieldId, $data)) {
-                $this->error("Multiplier column \"$fieldId\" defined but not found in the given data.");
+            if (false === array_key_exists($multiplier, $data)) {
+                $this->error("Multiplied column \"$multiplier\" not found in the given data.");
             }
 
-            if (false === is_array($data[$fieldId])) {
-                $type = gettype($data[$fieldId]);
-                $this->error("The \"$fieldId\" multiplier column's value must be an array, $type given.");
+            if (false === is_array($data[$multiplier])) {
+                $type = gettype($data[$multiplier]);
+                $this->error("The \"$multiplier\" multiplied column's value must be an array, $type given.");
             }
 
 
-            foreach ($data[$fieldId] as $val) {
+            foreach ($data[$multiplier] as $val) {
                 $row = $data;
-                $row[$fieldId] = $val;
+                $row[$multiplier] = $val;
                 $db->insert($table, $row, [
                     'ignore' => true,
                 ]);
@@ -162,7 +153,6 @@ class LightBaseCrudRequestHandler implements LightCrudRequestHandlerInterface, L
      *
      * - data: array, the row to update
      * - updateRic: array, the key/value pairs array representing the @page(ric strict) columns and values of the row to update. It basically defines the where part of the sql query.
-     * - ?multiplier: array, the multiplier array (see @page(the form multiplier trick) for more details)
      *
      * @param string $table
      * @param array $params
@@ -182,7 +172,6 @@ class LightBaseCrudRequestHandler implements LightCrudRequestHandlerInterface, L
 
         $userData = $params['data'];
         $userRic = $params['updateRic']; // array of key/value pairs
-        $multiplier = $params['multiplier'] ?? null;
         /**
          * Make sure the user doesn't use the key to do some sql injection.
          */
@@ -201,62 +190,7 @@ class LightBaseCrudRequestHandler implements LightCrudRequestHandlerInterface, L
          * @var $db LightDatabaseService
          */
         $db = $this->container->get("database");
-
-
-        if (null === $multiplier) {
-            $db->update($table, $data, $ric);
-        } else {
-            ArrayTool::arrayKeyExistAll([
-                "pivot",
-                "item_id",
-            ], $multiplier, true);
-
-            $pivot = $multiplier['pivot'];
-            $fieldId = $multiplier['item_id'];
-
-            /**
-             * abc.1
-             */
-            if (false === array_key_exists($fieldId, $ric)) {
-                $this->error("The \"$fieldId\" property was not found in the given ric.");
-            }
-            if (false === array_key_exists($pivot, $ric)) {
-                $this->error("The \"$pivot\" property was not found in the given ric.");
-            }
-
-            /**
-             * abc.1
-             */
-            if (false === array_key_exists($fieldId, $userData)) {
-                $this->error("The \"$fieldId\" property was not found in the posted data.");
-            }
-
-            $values = $userData[$fieldId];
-
-            if (false === is_array($values)) {
-                $type = gettype($values);
-                $this->error("The \"$fieldId\" must be an array, $type given.");
-            }
-
-
-            /**
-             * delete all, then reinsert, see the [form multiplier trick](https://github.com/lingtalfi/TheBar/blob/master/discussions/form-multiplier.md) for more details.
-             */
-            $db->delete($table, Where::inst()->key($pivot)->equals($ric[$pivot]));
-
-
-            $row = $userData;
-            /**
-             * abc.1
-             */
-            unset($row[$fieldId]);
-            foreach ($values as $value) {
-                $row[$fieldId] = $value;
-                $db->insert($table, $row, [
-                    'ignore' => true,
-                ]);
-            }
-        }
+        $db->update($table, $data, $ric);
     }
 
 

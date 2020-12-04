@@ -14,11 +14,10 @@ Light_Kit_Admin:
             controller: Ling\Light_Kit_Admin\Controller\ForbiddenController->render
         lka_route-tool_multiple_form_edit:
             pattern: /tool/multiple-form-edit
-            controller: Ling\Light_Kit_Admin\Controller\Tools\MultipleFormEditController->render
+            controller: Ling\Light_Kit_Admin\Controller\Tools\RealformMultipleEditController->render
         lka_route-forgotten_password:
             pattern: /forgotten-password
             controller: Ling\Light_Kit_Admin\Controller\ForgottenPasswordController->render
-
 #        lka_route-test:
 #            pattern: /test
 #            controller: Ling\Light_Kit_Admin\Controller\TestPageController->render

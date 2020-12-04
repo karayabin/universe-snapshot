@@ -19,6 +19,7 @@ class LightKitAdminRealistListItemRenderer extends BaseRealistListItemRenderer
      */
     protected function renderPropertyContent(string $value, string $type, array $options, array $row): string
     {
+
         switch ($type) {
             case "my_action":
                 return '<button class="btn btn-primary btn-small rath-emitter"
@@ -43,10 +44,9 @@ class LightKitAdminRealistListItemRenderer extends BaseRealistListItemRenderer
                 $params = $options['params'] ?? [];
                 $sRic = '';
 
-                $confirm = null;
-                if ('realist-delete_rows' === $actionId) {
-                    $confirm = "Are you sure you want to delete this row?";
-                }
+                $confirm = $options['confirmText'] ?? null;
+                $confirmExecute = $options['confirmExecute'] ?? [];
+                $confirmExecuteText = $confirmExecute['text'] ?? null;
 
 
                 //
@@ -62,6 +62,29 @@ class LightKitAdminRealistListItemRenderer extends BaseRealistListItemRenderer
                 if (null !== $confirm) {
                     $attr['data-confirm'] = $confirm;
                 }
+
+                if (null !== $confirmExecuteText) {
+                    $attr['data-confirm-execute'] = $confirmExecuteText;
+
+                    $confirmExecuteLoader = $confirmExecute['loader'] ?? false;
+                    if (false !== $confirmExecuteLoader) {
+                        $attr['data-confirm-execute-loader'] = '1';
+                    }
+
+                    if (array_key_exists("title", $confirmExecute)) {
+                        $attr['data-confirm-execute-title'] = $confirmExecute['title'];
+                    }
+                    if (array_key_exists("okText", $confirmExecute)) {
+                        $attr['data-confirm-execute-oktext'] = $confirmExecute['okText'];
+                    }
+                    if (array_key_exists("cancelText", $confirmExecute)) {
+                        $attr['data-confirm-execute-canceltext'] = $confirmExecute['cancelText'];
+                    }
+                    if (array_key_exists("loadingText", $confirmExecute)) {
+                        $attr['data-confirm-execute-loadingtext'] = $confirmExecute['loadingText'];
+                    }
+
+                }
                 foreach ($params as $k => $v) {
                     $attr['data-param-' . $k] = $v;
                 }
@@ -75,12 +98,31 @@ class LightKitAdminRealistListItemRenderer extends BaseRealistListItemRenderer
                 }
 
 
-                return '<a 
+                $icon = $options['icon'] ?? null;
+                $text = $options['text'];
+
+                if (null === $icon) {
+
+                    return '<a 
                     class="acplink"
                     ' .
-                    StringTool::htmlAttributes($attr)
-                    . ' ' . $sRic . ' ' . '
-                href="' . htmlspecialchars($url) . '">' . $options['text'] . '</a>';
+                        StringTool::htmlAttributes($attr)
+                        . ' ' . $sRic . ' ' . '
+                href="' . htmlspecialchars($url) . '">' . $text . '</a>';
+                } else {
+                    return '<a 
+                    class="acplink"
+                    title="' . htmlspecialchars($text) . '"
+                    ' .
+                        StringTool::htmlAttributes($attr)
+                        . ' ' . $sRic . ' ' . '
+                href="' . htmlspecialchars($url) . '"><i class="acplink ' . htmlspecialchars($icon) . '"'
+                        .
+                        StringTool::htmlAttributes($attr)
+                        . ' ' . $sRic . ' ' . '></i></a>';
+                }
+
+
                 break;
 //            case "lka-generic_ric_form_link":
 //                $ric = $this->extractRic($row);

@@ -38,6 +38,7 @@ class ListConfigGenerator extends BaseConfigGenerator
      */
     public function generate(array $config)
     {
+
         $this->setConfig($config);
         $tables = $this->getTables();
 
@@ -122,6 +123,13 @@ class ListConfigGenerator extends BaseConfigGenerator
             "plugin" => $pluginName,
         ];
 
+
+        $varArray = $this->getKeyValue("variables", false, []);
+        if (array_key_exists("galaxyName", $varArray)) {
+            $main['planetId'] = '%{galaxyName}/%{plugin}';
+        }
+
+
         $duelist = [];
         $duelist['table'] = '%{table}';
 
@@ -181,7 +189,6 @@ class ListConfigGenerator extends BaseConfigGenerator
                     $representativeCol = $reprFinder->findRepresentativeColumn($rfTable);
 
 
-
                     $fkToRepresentative[$fk] = $representativeCol;
                     $rfTableAlias = $this->findAlias($rfTable);
                     $tableToAlias[$rfDb . '.' . $rfTable] = $rfTableAlias;
@@ -229,12 +236,10 @@ class ListConfigGenerator extends BaseConfigGenerator
                     //--------------------------------------------
                     // render types
                     //--------------------------------------------
+                    $crossColumnPluginName = $this->getCrossColumnPluginName($pluginName, $rfTable, $crossColumnHubLinkTablePrefix2Plugin);
 
-                    $crossColumnPluginName = $pluginName;
-                    $fkTablePrefix = SqlWizardGeneralTool::getTablePrefix($rfTable);
-                    if (null !== $fkTablePrefix && array_key_exists($fkTablePrefix, $crossColumnHubLinkTablePrefix2Plugin)) {
-                        $crossColumnPluginName = $crossColumnHubLinkTablePrefix2Plugin[$fkTablePrefix];
-                    }
+
+//                    az($table, $pluginName, $fkTablePrefix, $crossColumnPluginName);
 
 
                     $fkCrossColumnRenderTypes[$crossColumnAlias] = [
@@ -249,7 +254,7 @@ class ListConfigGenerator extends BaseConfigGenerator
                             $rfCol => $fk,
                         ],
                         "url_params" => [
-                            'plugin' => '%{plugin}',
+                            'plugin' => $crossColumnPluginName,
                             'controller' => str_replace([
                                 '{Table}',
                             ], [
@@ -562,6 +567,28 @@ class ListConfigGenerator extends BaseConfigGenerator
 
 
         return BabyYamlUtil::getBabyYamlString($main);
+    }
+
+
+    /**
+     * Returns the plugin to call for this cross column.
+     *
+     * @param string $pluginName
+     * @param $rfTable
+     * @param $crossColumnHubLinkTablePrefix2Plugin
+     * @return string
+     */
+    protected function getCrossColumnPluginName(string $pluginName, $rfTable, $crossColumnHubLinkTablePrefix2Plugin): string
+    {
+        $galaxy = $this->getKeyValue("variables.galaxyName", false, 'Ling');
+
+        $crossColumnPluginName = $galaxy . "/" . $pluginName;
+
+        $fkTablePrefix = SqlWizardGeneralTool::getTablePrefix($rfTable);
+        if (null !== $fkTablePrefix && array_key_exists($fkTablePrefix, $crossColumnHubLinkTablePrefix2Plugin)) {
+            $crossColumnPluginName = $crossColumnHubLinkTablePrefix2Plugin[$fkTablePrefix];
+        }
+        return $crossColumnPluginName;
     }
 
 

@@ -6,6 +6,7 @@ namespace Ling\Light_Kit_Admin\Realist\ListActionHandler;
 
 use Ling\Bat\CaseTool;
 use Ling\Bat\DebugTool;
+use Ling\Bat\StringTool;
 use Ling\Light_Bullsheet\Service\LightBullsheetService;
 use Ling\Light_Crud\Service\LightCrudService;
 use Ling\Light_CsrfSession\Service\LightCsrfSessionService;
@@ -45,6 +46,14 @@ class LightKitAdminListActionHandler extends LightRealistBaseListActionHandler
                 $table = $this->getTableNameByRequestId($requestId);
                 return $this->hasMicroPermission("store.$table.delete");
                 break;
+            case "realist-duplicate_rows":
+            case "realist-duplicate_entities":
+                $table = $this->getTableNameByRequestId($requestId);
+                return (
+                    true === $this->hasMicroPermission("store.$table.read") &&
+                    true === $this->hasMicroPermission("store.$table.create")
+                );
+                break;
             case "realist-edit_rows":
                 $table = $this->getTableNameByRequestId($requestId);
                 return $this->hasMicroPermission("store.$table.update");
@@ -77,15 +86,22 @@ class LightKitAdminListActionHandler extends LightRealistBaseListActionHandler
 
             case "realist-generate_random_rows":
             case "realist-delete_rows":
+            case "realist-duplicate_rows":
+            case "realist-duplicate_entities":
                 $table = $this->getTableNameByRequestId($requestId);
-                $this->decorateGenericActionItemByAssets($actionId, $listAction, __DIR__, [
-                    "params" => [
-                        "table" => $table,
-                    ],
+                $params = $this->selectiveMerge([
+                    "table" => $table,
+                    "request_id" => $requestId,
+                ], $listAction, [
+                    'confirm',
+                    'confirmExecute',
                 ]);
 
-
+                $this->decorateGenericActionItemByAssets($actionId, $listAction, __DIR__, [
+                    "params" => $params,
+                ]);
                 break;
+
             case "realist-save_table":
                 $table = $this->getTableNameByRequestId($requestId);
                 $defaultName = $table . "-" . date('Y-m-d--H-i-s');
@@ -101,24 +117,7 @@ class LightKitAdminListActionHandler extends LightRealistBaseListActionHandler
                 break;
             case "realist-load_table":
                 $table = $this->getTableNameByRequestId($requestId);
-                /**
-                 * @var $userData LightUserDataService
-                 */
-                $userData = $this->container->get("user_data");
-
-                $backupDir = $this->getTableBackupDir($table);
-                $items = $userData->listByDirectory($backupDir);
-                $files = [];
-                foreach ($items as $item) {
-                    $files[$item['resource_file_id']] = $item['path'];
-                }
-
-
                 $this->decorateGenericActionItemByAssets($actionId, $listAction, __DIR__, [
-                    "modalVariables" => [
-                        "backup_list" => $files,
-                        "table" => $table,
-                    ],
                     "params" => [
                         "table" => $table,
                     ],
@@ -171,9 +170,9 @@ class LightKitAdminListActionHandler extends LightRealistBaseListActionHandler
     /**
      * @implementation
      */
-    public function execute(string $actionName, array $params = []): array
+    public function execute(string $actionId, array $params = []): array
     {
-
+        $actionName = $actionId;
 
         //--------------------------------------------
         // MANDATORY AND AUTOMATIC CSRF CHECK
@@ -203,6 +202,15 @@ class LightKitAdminListActionHandler extends LightRealistBaseListActionHandler
                 return $this->executeDeleteRowsListAction($actionName, $params);
                 break;
             case "realist-duplicate_row":
+            case "realist-duplicate_row_deep":
+            case "realist-duplicate_rows":
+            case "realist-duplicate_entities":
+                if (in_array($actionName, [
+                    'realist-duplicate_row_deep',
+                    'realist-duplicate_entities',
+                ], true)) {
+                    $params['deep'] = true;
+                }
                 return $this->executeDuplicateRowsListAction($params);
                 break;
             case "realist-rows_to_ods":
@@ -301,12 +309,12 @@ class LightKitAdminListActionHandler extends LightRealistBaseListActionHandler
         $this->checkMicroPermission("store.$table.read");
 
 
-        $useDeep = false;
+        $useDeep = $params['deep'] ?? false;
 
 
         $o = new LkaMasterRowDuplicator();
         $o->setContainer($this->container);
-        $o->duplicate($planetId, $table, $rics, [
+        $o->duplicateRows($planetId, $table, $rics, [
             'deep' => $useDeep,
         ]);
 
@@ -583,6 +591,8 @@ class LightKitAdminListActionHandler extends LightRealistBaseListActionHandler
                     $dumpUtil = $this->container->get("database_utils");
                     $s = $dumpUtil->getDumpUtil()->dumpTable($table, "/tmp", [
                         "returnAsString" => true,
+                        "ignore" => true,
+                        "disableFkCheck" => true,
                     ]);
                     $isPrivate = (int)('private' === $visibility);
                     /**
@@ -591,17 +601,17 @@ class LightKitAdminListActionHandler extends LightRealistBaseListActionHandler
                     $userData = $this->container->get("user_data");
                     $fileName = $name . ".sql";
                     $backupDir = $this->getTableBackupDir($table);
+                    $path = $backupDir . "/" . $fileName;
 
-
-                    $userData->save([
-                        'directory' => $backupDir,
-                        'filename' => $fileName,
-                        'file' => $s,
+                    $userData->createResourceByFileContent([
+                        'canonical' => StringTool::truncate($fileName, 64),
+                        "is_private" => $isPrivate,
+                    ], $s, $path, [
+                        "keep_original" => false,
                         "tags" => [
                             "Light_Kit_Admin",
                             "table backups",
                         ],
-                        "is_private" => $isPrivate,
                     ]);
 
                     $fileManagerUrl = $this->container->get('reverse_router')->getUrl("lka_userdata_route-user_file_manager");
@@ -658,13 +668,7 @@ class LightKitAdminListActionHandler extends LightRealistBaseListActionHandler
                 $userData = $this->container->get("user_data");
 
 
-                /**
-                 * todo: here...
-                 * todo: here...
-                 * todo: here... method might be deprecated...
-                 */
-                az(__FILE__, $resourceFileId);
-                $sqlQuery = $userData->getContentByResourceId($resourceFileId);
+                $sqlQuery = $userData->getFileContentByResourceFileId($resourceFileId);
 
 
                 /**
@@ -882,6 +886,29 @@ class LightKitAdminListActionHandler extends LightRealistBaseListActionHandler
      */
     private function getTableBackupDir(string $table): string
     {
-        return "backups/database/$table";
+        /**
+         * @var $ud LightUserDataService
+         */
+        $ud = $this->container->get("user_data");
+        $backupDir = $ud->getOption("backup_dir");
+        return str_replace('$table', $table, $backupDir);
+    }
+
+    /**
+     * Merges the values of arr2 in arr1, but only if the key (of arr2) is in keys; then return the result.
+     *
+     * @param array $arr1
+     * @param array $arr2
+     * @param array $keys
+     * @return array
+     */
+    private function selectiveMerge(array $arr1, array $arr2, array $keys): array
+    {
+        foreach ($arr2 as $k => $v) {
+            if (true == in_array($k, $keys, true)) {
+                $arr1[$k] = $v;
+            }
+        }
+        return $arr1;
     }
 }

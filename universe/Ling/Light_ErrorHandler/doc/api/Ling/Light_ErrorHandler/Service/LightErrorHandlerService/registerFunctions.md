@@ -47,7 +47,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightErrorHandlerService::registerFunctions](https://github.com/lingtalfi/Light_ErrorHandler/blob/master/Service/LightErrorHandlerService.php#L83-L101)
+See the source code for method [LightErrorHandlerService::registerFunctions](https://github.com/lingtalfi/Light_ErrorHandler/blob/master/Service/LightErrorHandlerService.php#L95-L113)
 
 
 See Also
@@ -55,5 +55,5 @@ See Also
 
 The [LightErrorHandlerService](https://github.com/lingtalfi/Light_ErrorHandler/blob/master/doc/api/Ling/Light_ErrorHandler/Service/LightErrorHandlerService.md) class.
 
-Previous method: [setOptions](https://github.com/lingtalfi/Light_ErrorHandler/blob/master/doc/api/Ling/Light_ErrorHandler/Service/LightErrorHandlerService/setOptions.md)<br>Next method: [fatalErrorHandler](https://github.com/lingtalfi/Light_ErrorHandler/blob/master/doc/api/Ling/Light_ErrorHandler/Service/LightErrorHandlerService/fatalErrorHandler.md)<br>
+Previous method: [getOptions](https://github.com/lingtalfi/Light_ErrorHandler/blob/master/doc/api/Ling/Light_ErrorHandler/Service/LightErrorHandlerService/getOptions.md)<br>Next method: [fatalErrorHandler](https://github.com/lingtalfi/Light_ErrorHandler/blob/master/doc/api/Ling/Light_ErrorHandler/Service/LightErrorHandlerService/fatalErrorHandler.md)<br>
 

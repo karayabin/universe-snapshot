@@ -6,14 +6,13 @@ namespace Ling\Light_Kit_Admin_UserPreferences\Controller\Generated;
 
 use Ling\Light\Http\HttpResponseInterface;
 use Ling\Light_Kit\PageConfigurationUpdator\PageConfUpdator;
-use Ling\Light_UserRowRestriction\Service\LightUserRowRestrictionService;
-use Ling\Light_Kit_Admin_UserPreferences\Controller\Generated\Base\RealGenController;
+use Ling\Light_Kit_Admin\Controller\RealAdminPageController;
 
 
 /**
  * The LupUserPreferenceController class.
  */
-class LupUserPreferenceController extends RealGenController
+class LupUserPreferenceController extends RealAdminPageController
 {
 
     /**
@@ -40,23 +39,9 @@ class LupUserPreferenceController extends RealGenController
      */
     public function renderForm()
     {
-
-        $table = "lup_user_preference";
-        $identifier = "Light_Kit_Admin_UserPreferences.generated/lup_user_preference";
-
-        $this->lateRealFormRegistration($identifier);
-
-        $parentLayout = "Light_Kit_Admin/kit/zeroadmin/dev/mainlayout_base";
-        $vars = [
-            "title" => "User preference form",
-        ];
-        if (array_key_exists("solo", $_GET)) {
-            $parentLayout = "Light_Kit_Admin/kit/zeroadmin/dev/mainlayout_solo";
-            $vars['related_links'] = []; // cancel any existing related links
-            $this->setOnSuccessIframeSignal("done");
-        }
-
-        $res = $this->processForm($identifier, $table);
+        $realformId = "Light_Kit_Admin_UserPreferences:generated/lup_user_preference";
+        $nugget = [];
+        $res = $this->processForm($realformId, $nugget);
 
         if ($res instanceof HttpResponseInterface) {
             return $res;
@@ -68,10 +53,10 @@ class LupUserPreferenceController extends RealGenController
         // RENDERING
         //--------------------------------------------
         return $this->renderAdminPage('Light_Kit_Admin_UserPreferences/kit/zeroadmin/generated/lup_user_preference_form', [
-            "parent_layout" => $parentLayout,
+            "parent_layout" => "Light_Kit_Admin/kit/zeroadmin/dev/mainlayout_base",
             "form" => $form,
         ], PageConfUpdator::create()->updateWidget("body.lka_chloroform", [
-            'vars' => $vars,
+            'vars' => $nugget["rendering"],
         ]));
     }
 }

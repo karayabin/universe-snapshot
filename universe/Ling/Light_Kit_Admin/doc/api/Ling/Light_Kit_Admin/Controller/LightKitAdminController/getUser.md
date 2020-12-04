@@ -22,7 +22,10 @@ protected [LightKitAdminController::getUser](https://github.com/lingtalfi/Light_
 
 
 Returns the current user.
-Note: in light kit admin, we use the LightWebsiteUser
+Note: in light kit admin, we use the LightWebsiteUser.
+
+Note: the user might not be valid.
+If you want a valid user, use our getValidWebsiteUser method.
 
 
 
@@ -52,7 +55,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightKitAdminController::getUser](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Controller/LightKitAdminController.php#L90-L97)
+See the source code for method [LightKitAdminController::getUser](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Controller/LightKitAdminController.php#L93-L100)
 
 
 See Also
@@ -60,5 +63,5 @@ See Also
 
 The [LightKitAdminController](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController.md) class.
 
-Previous method: [getFlasher](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController/getFlasher.md)<br>Next method: [renderPage](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController/renderPage.md)<br>
+Previous method: [getFlasher](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController/getFlasher.md)<br>Next method: [getValidWebsiteUser](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController/getValidWebsiteUser.md)<br>
 

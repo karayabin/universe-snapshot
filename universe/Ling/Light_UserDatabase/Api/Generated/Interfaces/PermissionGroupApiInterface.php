@@ -11,8 +11,9 @@ namespace Ling\Light_UserDatabase\Api\Generated\Interfaces;
 interface PermissionGroupApiInterface
 {
 
+
     /**
-     * Inserts the given permissionGroup in the database.
+     * Inserts the given permission group in the database.
      * By default, it returns the result of the PDO::lastInsertId method.
      * If the returnRic flag is set to true, the method will return the ric array instead of the lastInsertId.
      *
@@ -20,7 +21,7 @@ interface PermissionGroupApiInterface
      * If the row you're trying to insert triggers a duplicate error, the behaviour of this method depends on
      * the ignoreDuplicate flag:
      * - if true, the error will be caught internally, the return of the method is not affected
-     * - if false, the error will not be caught, and depending on your configuration, it might either
+     * - if false, the error will not be caught, and depending on your pdo configuration, it might either
      *          trigger an exception, or fail silently in which case this method returns false.
      *
      *
@@ -34,7 +35,7 @@ interface PermissionGroupApiInterface
     public function insertPermissionGroup(array $permissionGroup, bool $ignoreDuplicate = true, bool $returnRic = false);
 
     /**
-     * Inserts the given permissionGroup rows in the database.
+     * Inserts the given permission group rows in the database.
      * By default, it returns an array of the result of the PDO::lastInsertId method for each insert.
      * If the returnRic flag is set to true, the method will return an array of the ric array (for each insert) instead of the lastInsertId.
      *
@@ -56,7 +57,29 @@ interface PermissionGroupApiInterface
     public function insertPermissionGroups(array $permissionGroups, bool $ignoreDuplicate = true, bool $returnRic = false);
 
     /**
-     * Returns the permissionGroup row identified by the given id.
+     * Returns the rows corresponding to given components.
+     * The components is an array of [fetch all components](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/pages/fetch-all-components.md).
+     *
+     *
+     * @param array $components
+     * @return array
+     */
+    public function fetchAll(array $components = []): array;
+
+
+    /**
+     *
+     * Returns the first row corresponding to given components, or false if there is no match.
+     *
+     * The components is an array of [fetch all components](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/pages/fetch-all-components.md).
+     *
+     * @param array $components
+     * @return array
+     */
+    public function fetch(array $components = []);
+
+    /**
+     * Returns the permission group row identified by the given id.
      *
      * If the row is not found, this method's return depends on the throwNotFoundEx flag:
      * - if true, the method throws an exception
@@ -72,7 +95,7 @@ interface PermissionGroupApiInterface
     public function getPermissionGroupById(int $id, $default = null, bool $throwNotFoundEx = false);
 
     /**
-     * Returns the permissionGroup row identified by the given name.
+     * Returns the permission group row identified by the given name.
      *
      * If the row is not found, this method's return depends on the throwNotFoundEx flag:
      * - if true, the method throws an exception
@@ -183,51 +206,51 @@ interface PermissionGroupApiInterface
 
 
     /**
-     * Returns the rows of the lud_permission_group table bound to the given user id.
-     * @param string $userId
+     * Returns the rows of the lud_permission_group table bound to the given permission id.
+     * @param string $permissionId
      * @return array
      */
-    public function getPermissionGroupsByUserId(string $userId): array;
+    public function getPermissionGroupsByPermissionId(string $permissionId): array;
 
     /**
-     * Returns the rows of the lud_permission_group table bound to the given user identifier.
-     * @param string $userIdentifier
+     * Returns the rows of the lud_permission_group table bound to the given permission name.
+     * @param string $permissionName
      * @return array
      */
-    public function getPermissionGroupsByUserIdentifier(string $userIdentifier): array;
+    public function getPermissionGroupsByPermissionName(string $permissionName): array;
 
-
-
-    /**
-     * Returns an array of lud_permission_group.id bound to the given user id.
-     * @param string $userId
-     * @return array
-     */
-    public function getPermissionGroupIdsByUserId(string $userId): array;
 
 
     /**
-     * Returns an array of lud_permission_group.id bound to the given user identifier.
-     * @param string $userIdentifier
+     * Returns an array of lud_permission_group.id bound to the given permission id.
+     * @param string $permissionId
      * @return array
      */
-    public function getPermissionGroupIdsByUserIdentifier(string $userIdentifier): array;
+    public function getPermissionGroupIdsByPermissionId(string $permissionId): array;
 
 
     /**
-     * Returns an array of lud_permission_group.name bound to the given user id.
-     * @param string $userId
+     * Returns an array of lud_permission_group.id bound to the given permission name.
+     * @param string $permissionName
      * @return array
      */
-    public function getPermissionGroupNamesByUserId(string $userId): array;
+    public function getPermissionGroupIdsByPermissionName(string $permissionName): array;
 
 
     /**
-     * Returns an array of lud_permission_group.name bound to the given user identifier.
-     * @param string $userIdentifier
+     * Returns an array of lud_permission_group.name bound to the given permission id.
+     * @param string $permissionId
      * @return array
      */
-    public function getPermissionGroupNamesByUserIdentifier(string $userIdentifier): array;
+    public function getPermissionGroupNamesByPermissionId(string $permissionId): array;
+
+
+    /**
+     * Returns an array of lud_permission_group.name bound to the given permission name.
+     * @param string $permissionName
+     * @return array
+     */
+    public function getPermissionGroupNamesByPermissionName(string $permissionName): array;
 
 
 
@@ -243,25 +266,43 @@ interface PermissionGroupApiInterface
 
 
     /**
-     * Updates the permissionGroup row identified by the given id.
+     * Updates the permission group row identified by the given id.
      *
      * @param int $id
      * @param array $permissionGroup
+     * @param array $extraWhere
+     * @param array $markers
      * @return void
      * @throws \Exception
      */
-    public function updatePermissionGroupById(int $id, array $permissionGroup);
+    public function updatePermissionGroupById(int $id, array $permissionGroup, array $extraWhere = [], array $markers = []);
 
 
     /**
-     * Updates the permissionGroup row identified by the given name.
+     * Updates the permission group row identified by the given name.
      *
      * @param string $name
      * @param array $permissionGroup
+     * @param array $extraWhere
+     * @param array $markers
      * @return void
      * @throws \Exception
      */
-    public function updatePermissionGroupByName(string $name, array $permissionGroup);
+    public function updatePermissionGroupByName(string $name, array $permissionGroup, array $extraWhere = [], array $markers = []);
+
+
+
+
+    /**
+     * Updates the permission group row.
+     *
+     * @param array $permissionGroup
+     * @param mixed $where
+     * @param array $markers
+     * @return void
+     * @throws \Exception
+     */
+    public function updatePermissionGroup(array $permissionGroup, $where = null, array $markers = []);
 
 
 
@@ -280,7 +321,7 @@ interface PermissionGroupApiInterface
     public function delete($where = null, array $markers = []);
 
     /**
-     * Deletes the permissionGroup identified by the given id.
+     * Deletes the permission group identified by the given id.
      *
      * @param int $id
      * @return void
@@ -289,7 +330,7 @@ interface PermissionGroupApiInterface
     public function deletePermissionGroupById(int $id);
 
     /**
-     * Deletes the permissionGroup identified by the given name.
+     * Deletes the permission group identified by the given name.
      *
      * @param string $name
      * @return void
@@ -300,7 +341,7 @@ interface PermissionGroupApiInterface
 
 
     /**
-     * Deletes the permissionGroup rows identified by the given ids.
+     * Deletes the permission group rows identified by the given ids.
      *
      * @param array $ids
      * @return void
@@ -309,13 +350,15 @@ interface PermissionGroupApiInterface
     public function deletePermissionGroupByIds(array $ids);
 
     /**
-     * Deletes the permissionGroup rows identified by the given names.
+     * Deletes the permission group rows identified by the given names.
      *
      * @param array $names
      * @return void
      * @throws \Exception
      */
     public function deletePermissionGroupByNames(array $names);
+
+
 
 
 

@@ -1,6 +1,6 @@
 Light application recommended structure
 =============
-2019-04-09 -> 2020-11-10
+2019-04-09 -> 2020-12-03
 
 
 
@@ -38,8 +38,20 @@ Here are the potential directories of an ideal light web app:
 
             # this directory will contain all messages destined to the Light_MyPlugin plugin 
             /Light_MyPlugin:                
-                - ...            
-    
+                - ...
+
+    # A directory containing scripts organized by galaxy/planet            
+    /scripts:
+        # the directory for scripts from the "Ling" galaxy 
+        /Ling:
+            # the directory for scripts from the "Light" planet 
+            /Light:
+                # this is actually a script provided by the light framework. It basically initializes the app. 
+                # See more details in the [light init script](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/light-init-script.md)
+                - app.init.inc.php 
+                
+
+        
     # a directory containing templates of the light plugins, and/or templates in general
     /templates:                             
         # the directory containing templates for the Light_MyPlugin plugin 

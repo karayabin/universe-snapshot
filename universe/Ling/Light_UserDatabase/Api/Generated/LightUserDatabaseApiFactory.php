@@ -64,6 +64,7 @@ class LightUserDatabaseApiFactory
     {
         $o = new CustomUserGroupApi();
         $o->setPdoWrapper($this->pdoWrapper);
+        $o->setContainer($this->container);
         return $o;
     }
 
@@ -76,6 +77,7 @@ class LightUserDatabaseApiFactory
     {
         $o = new CustomUserApi();
         $o->setPdoWrapper($this->pdoWrapper);
+        $o->setContainer($this->container);
         return $o;
     }
 
@@ -88,6 +90,7 @@ class LightUserDatabaseApiFactory
     {
         $o = new CustomPermissionGroupApi();
         $o->setPdoWrapper($this->pdoWrapper);
+        $o->setContainer($this->container);
         return $o;
     }
 
@@ -100,6 +103,7 @@ class LightUserDatabaseApiFactory
     {
         $o = new CustomPermissionApi();
         $o->setPdoWrapper($this->pdoWrapper);
+        $o->setContainer($this->container);
         return $o;
     }
 
@@ -112,6 +116,7 @@ class LightUserDatabaseApiFactory
     {
         $o = new CustomUserHasPermissionGroupApi();
         $o->setPdoWrapper($this->pdoWrapper);
+        $o->setContainer($this->container);
         return $o;
     }
 
@@ -124,6 +129,7 @@ class LightUserDatabaseApiFactory
     {
         $o = new CustomPermissionGroupHasPermissionApi();
         $o->setPdoWrapper($this->pdoWrapper);
+        $o->setContainer($this->container);
         return $o;
     }
 
@@ -136,6 +142,7 @@ class LightUserDatabaseApiFactory
     {
         $o = new CustomPluginOptionApi();
         $o->setPdoWrapper($this->pdoWrapper);
+        $o->setContainer($this->container);
         return $o;
     }
 
@@ -148,6 +155,7 @@ class LightUserDatabaseApiFactory
     {
         $o = new CustomUserGroupHasPluginOptionApi();
         $o->setPdoWrapper($this->pdoWrapper);
+        $o->setContainer($this->container);
         return $o;
     }
 

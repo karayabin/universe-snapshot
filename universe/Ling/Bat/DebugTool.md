@@ -1,6 +1,6 @@
 DebugTool
 =====================
-2018-02-26
+2018-02-26 -> 2020-11-20
 
 
 
@@ -142,18 +142,43 @@ az(DebugTool::getArrayPartial($_SESSION, [
 ```
 
 
-
-    
-toString
--------------
-2018-02-26
+getTraceAsString
+-----------
+2020-11-20
 
 
 ```php
-string toString ( mixed:thing)
+string getTraceAsString ( array:options=[] )
+```
+
+
+Returns a debug_backtrace like string.
+
+Available options are:
+
+- skip: int=0, how many lines to drop from the beginning.
+- strMaxLen: int=null, if an argument is of type string how many chars max to display.
+     If null, all the chars are displayed.
+     
+     
+    
+toString
+-------------
+2018-02-26 -> 2020-11-20
+
+
+```php
+string toString ( mixed:thing, array:options=[] )
 ```
 
 Return a string representation of the given thing.
+
+Available options are:
+
+- expandArray: bool=true. Whether to display the content of the arrays. If false, the word "array" will be used instead.
+- strMaxLen: int=null, if the thing is of type string how many chars max to display.
+     If null, all the chars are displayed.
+- strCompact: bool = false. If true and type is string, reduce all long white spaces to one space, and returns the trimmed result.
 
 
 ### Example:

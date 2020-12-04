@@ -52,7 +52,7 @@ Returns mixed.
 
 Source Code
 ===========
-See the source code for method [LightKitAdminStandardServicePlugin::registerRealistByRequestId](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Service/LightKitAdminStandardServicePlugin.php#L212-L242)
+See the source code for method [LightKitAdminStandardServicePlugin::registerRealistByRequestId](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Service/LightKitAdminStandardServicePlugin.php#L213-L240)
 
 
 See Also

@@ -1,6 +1,6 @@
 Light_Crud
 ===========
-2019-11-28 -> 2020-10-01
+2019-11-28 -> 2020-11-20
 
 
 
@@ -59,6 +59,10 @@ crud:
 History Log
 =============
 
+- 2.0.3-- 2020-11-20
+
+    - update api to adapt simple multiplier trick's 
+    
 - 2.0.2-- 2020-10-01
 
     - update api, now use multiplier trick's item_id nomenclature instead of field_id

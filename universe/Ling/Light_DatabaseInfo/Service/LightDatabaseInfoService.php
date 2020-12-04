@@ -49,6 +49,7 @@ class LightDatabaseInfoService
      * - types: an array of columnName => type
      *          Type is a string representing the mysql type ( ex: int(11), or varchar(128), ... ).
      *          List of mysql types here: https://dev.mysql.com/doc/refman/8.0/en/data-types.html
+     * - nullables: array of column names which are nullable
      * - simpleTypes: an array of columnName => simpleType.
      *          A simple type is a string amongst:
      *              - str
@@ -140,6 +141,7 @@ class LightDatabaseInfoService
         $ret['uniqueIndexes'] = $util->getUniqueIndexes($table);
 
         $ret['foreignKeysInfo'] = $util->getForeignKeysInfo($table);
+        $ret['nullables'] = array_keys(array_filter($util->getColumnNullabilities($table)));
 
 
         $databases = null;

@@ -19,6 +19,7 @@ class LightRouter implements LightRouterInterface
      */
     protected $matchingRoute;
 
+
     /**
      * Builds the LightRouter instance.
      */
@@ -27,6 +28,11 @@ class LightRouter implements LightRouterInterface
         $this->matchingRoute = false;
     }
 
+
+
+    //--------------------------------------------
+    // LightRouterInterface
+    //--------------------------------------------
     /**
      * @implementation
      */
@@ -49,6 +55,5 @@ class LightRouter implements LightRouterInterface
     {
         return $this->matchingRoute;
     }
-
 
 }

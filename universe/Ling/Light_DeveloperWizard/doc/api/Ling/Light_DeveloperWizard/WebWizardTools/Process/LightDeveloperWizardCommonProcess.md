@@ -4,7 +4,7 @@
 
 The LightDeveloperWizardCommonProcess class
 ================
-2020-06-30 --> 2020-09-18
+2020-06-30 --> 2020-12-03
 
 
 
@@ -226,4 +226,4 @@ See the source code of [Ling\Light_DeveloperWizard\WebWizardTools\Process\LightD
 
 SeeAlso
 ==============
-Previous class: [LightDeveloperWizardBaseProcess](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/WebWizardTools/Process/LightDeveloperWizardBaseProcess.md)<br>Next class: [CreateLkaPlanetProcess](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/WebWizardTools/Process/Light_Kit_Admin/CreateLkaPlanetProcess.md)<br>
+Previous class: [LightDeveloperWizardBaseProcess](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/WebWizardTools/Process/LightDeveloperWizardBaseProcess.md)<br>Next class: [CreateLkaGeneratorConfigProcess](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/WebWizardTools/Process/Light_Kit_Admin/CreateLkaGeneratorConfigProcess.md)<br>

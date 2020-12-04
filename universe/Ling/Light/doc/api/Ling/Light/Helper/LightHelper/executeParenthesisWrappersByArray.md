@@ -7,7 +7,7 @@ LightHelper::executeParenthesisWrappersByArray
 
 
 
-LightHelper::executeParenthesisWrappersByArray — Parses the given array, executes the "executeMethod" method on every parenthesis wrapper, and returns the result.
+LightHelper::executeParenthesisWrappersByArray — Parses the given array recursively, executes the "executeMethod" method on every parenthesis wrapper, and returns the result.
 
 
 
@@ -21,7 +21,7 @@ public static [LightHelper::executeParenthesisWrappersByArray](https://github.co
 
 
 
-Parses the given array, executes the "executeMethod" method on every parenthesis wrapper, and returns the result.
+Parses the given array recursively, executes the "executeMethod" method on every parenthesis wrapper, and returns the result.
 By default, the identifier is pmp.
 
 See more details in the [ParenthesisMirrorWrapper conception notes](https://github.com/lingtalfi/ParenthesisMirrorParser/blob/master/doc/pages/conception-notes.md).

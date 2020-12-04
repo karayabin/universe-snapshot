@@ -94,7 +94,7 @@ class DynamicVariableTransformer implements PageConfigurationTransformerInterfac
 
 
     //--------------------------------------------
-    //
+    // DynamicVariableAwareInterface
     //--------------------------------------------
     /**
      * @implementation
@@ -108,7 +108,7 @@ class DynamicVariableTransformer implements PageConfigurationTransformerInterfac
 
 
     //--------------------------------------------
-    //
+    // PageConfigurationTransformerInterface
     //--------------------------------------------
     /**
      * @implementation

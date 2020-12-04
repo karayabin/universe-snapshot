@@ -1,6 +1,6 @@
 Chloroform_HeliumRenderer
 ===========
-2019-07-26 -> 2020-10-01
+2019-07-26 -> 2020-12-01
 
 
 
@@ -403,6 +403,14 @@ Related
 History Log
 =============
 
+- 1.19.10 -- 2020-12-01
+
+    - fix HeliumRenderer, not handling checkbox default value with checkboxes of type bool
+    
+- 1.19.9 -- 2020-12-01
+
+    - update HeliumRenderer, now uses custom checkboxes instead of regular checkboxes
+    
 - 1.19.8 -- 2020-10-01
 
     - fix typo in HeliumRenderer's error message

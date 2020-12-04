@@ -1,6 +1,6 @@
 Light_UserData
 ===========
-2019-09-27 -> 2020-11-12
+2019-09-27 -> 2020-11-20
 
 
 
@@ -137,6 +137,10 @@ $realform_handler_alias_helper.methods_collection:
 History Log
 =============
 
+- 1.19.4 -- 2020-11-20
+
+    - update service to acknowledge new Light_SimpleHttpServer repository (old name was Light_HttpError)
+    
 - 1.19.3 -- 2020-11-12
 
     - add service->listByDirectory method

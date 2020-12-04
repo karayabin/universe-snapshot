@@ -96,4 +96,22 @@ class LightBlueServiceContainer extends BlueOctopusServiceContainer implements L
             'lots of properties' => '...',
         ];
     }
+
+
+    //--------------------------------------------
+    //
+    //--------------------------------------------
+    /**
+     * @overrides
+     */
+    protected function getOwnMethods(): array
+    {
+        return array_merge(parent::getOwnMethods(), [
+            "__debugInfo",
+            "getApplicationDir",
+            "getLight",
+            "setApplicationDir",
+            "setLight",
+        ]);
+    }
 }

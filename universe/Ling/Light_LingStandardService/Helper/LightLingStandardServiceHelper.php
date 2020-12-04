@@ -28,11 +28,12 @@ class LightLingStandardServiceHelper
     public static function bindStandardLightPermissionsToLkaPermissionGroups(LightUserDatabaseService $userDb, string $basePluginName)
     {
 
-
         $permGroupApi = $userDb->getFactory()->getPermissionGroupApi();
         $permApi = $userDb->getFactory()->getPermissionApi();
         $groupAdminId = $permGroupApi->getPermissionGroupIdByName("Light_Kit_Admin.admin", null, true);
         $groupUserId = $permGroupApi->getPermissionGroupIdByName("Light_Kit_Admin.user", null, true);
+
+
         $adminId = $permApi->getPermissionIdByName("$basePluginName.admin", null, true);
         $userId = $permApi->getPermissionIdByName("$basePluginName.user", null, true);
 

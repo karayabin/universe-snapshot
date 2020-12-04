@@ -53,7 +53,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LoginFormController::render](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Controller/LoginFormController.php#L28-L108)
+See the source code for method [LoginFormController::render](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Controller/LoginFormController.php#L31-L167)
 
 
 See Also

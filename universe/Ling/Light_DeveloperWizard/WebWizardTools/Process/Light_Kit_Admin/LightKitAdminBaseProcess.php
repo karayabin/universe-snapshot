@@ -353,7 +353,7 @@ abstract class LightKitAdminBaseProcess extends LightDeveloperWizardCommonProces
         // GENERATING CONTROLLER HUB CLASS
         //--------------------------------------------
         if (true === $useController) {
-            $controllerHubClassPath = $planetDir . "/ControllerHub/Generated/$tightName" . "ControllerHubHandler.php";
+            $controllerHubClassPath = $planetDir . "/Light_ControllerHub/Generated/$tightName" . "ControllerHubHandler.php";
 
             if (false === $recreateEverything && true === file_exists($controllerHubClassPath)) {
                 $this->infoMessage("ControllerHub class already found in " . $this->getSymbolicPath($controllerHubClassPath));
@@ -366,7 +366,7 @@ abstract class LightKitAdminBaseProcess extends LightDeveloperWizardCommonProces
                     'namespace Ling\Light_Kit_Admin_TaskScheduler\ControllerHub;',
                     'LightKitAdminTaskSchedulerControllerHubHandler',
                 ], [
-                    "namespace $galaxy\\$planet\ControllerHub\Generated;",
+                    "namespace $galaxy\\$planet\Light_ControllerHub\Generated;",
                     $tightName . 'ControllerHubHandler',
                 ], $tplContent);
                 FileSystemTool::mkfile($controllerHubClassPath, $tplContent);
@@ -496,36 +496,47 @@ abstract class LightKitAdminBaseProcess extends LightDeveloperWizardCommonProces
         // ADDING SERVICE CONFIG FILE HOOKS
         //--------------------------------------------
         if (true === $useMenu) {
-            $this->addServiceConfigHook('bmenu', [
-                'method' => 'addDirectItemsByFileAndParentPath',
-                'args' => [
+            if (false === $this->util->configHasHook("bmenu", [
+                    'with' => [
+                        'method' => 'addDirectInjector',
+                    ]
+                ])) {
+                $this->addServiceConfigHook('bmenu', [
+                    'method' => 'addDirectItemsByFileAndParentPath',
+                    'args' => [
+                        'menu_type' => 'admin_main_menu',
+                        'file' => "\${app_dir}/config/data/$planet/bmenu/generated/$serviceName.admin_mainmenu_1.byml",
+                        'path' => "lka-admin",
+                    ],
+                ], [
                     'menu_type' => 'admin_main_menu',
-                    'file' => "\${app_dir}/config/data/$planet/bmenu/generated/$serviceName.admin_mainmenu_1.byml",
-                    'path' => "lka-admin",
-                ],
-            ], [
-                'menu_type' => 'admin_main_menu',
-            ]);
+                ]);
+            } else {
+                $this->infoMessage("The service config file already has a hook to the \"$serviceName\" service (for planet \"$planet\").");
+            }
         }
 
 
         if (true === $useController) {
-            $this->addServiceConfigHook('controller_hub', [
-                'method' => 'registerHandler',
-                'args' => [
-                    'plugin' => $planet,
-                    'handler' => [
-                        'instance' => "Ling\\$planet\ControllerHub\Generated\\${tightName}ControllerHubHandler",
-                        'methods' => [
-                            'setContainer' => [
-                                'container' => '@container()',
-                            ],
-                        ],
-                    ],
-                ],
-            ], [
-                'plugin' => $planet,
-            ]);
+            /**
+             * We now rely on dynamic registration rather, so the commented code below should be removed in the future
+             */
+//            $this->addServiceConfigHook('controller_hub', [
+//                'method' => 'registerHandler',
+//                'args' => [
+//                    'plugin' => $planet,
+//                    'handler' => [
+//                        'instance' => "Ling\\$planet\ControllerHub\Generated\\${tightName}ControllerHubHandler",
+//                        'methods' => [
+//                            'setContainer' => [
+//                                'container' => '@container()',
+//                            ],
+//                        ],
+//                    ],
+//                ],
+//            ], [
+//                'plugin' => $planet,
+//            ]);
         }
 
 

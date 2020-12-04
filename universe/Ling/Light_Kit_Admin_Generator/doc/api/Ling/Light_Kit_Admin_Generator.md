@@ -1,6 +1,6 @@
 Ling/Light_Kit_Admin_Generator
 ================
-2019-11-06 --> 2020-09-18
+2019-11-06 --> 2020-12-01
 
 
 
@@ -10,6 +10,11 @@ Table of contents
 
 - [ControllerGenerator](https://github.com/lingtalfi/Light_Kit_Admin_Generator/blob/master/doc/api/Ling/Light_Kit_Admin_Generator/Generator/ControllerGenerator.md) &ndash; The ControllerGenerator class.
     - [ControllerGenerator::generate](https://github.com/lingtalfi/Light_Kit_Admin_Generator/blob/master/doc/api/Ling/Light_Kit_Admin_Generator/Generator/ControllerGenerator/generate.md) &ndash; Generates the controller classes according to the given [configuration block](https://github.com/lingtalfi/Light_Kit_Admin_Generator/blob/master/doc/pages/lkagen-configuration-example.md).
+    - BaseConfigGenerator::__construct &ndash; Builds the ListConfigGenerator instance.
+    - BaseConfigGenerator::setContainer &ndash; Sets the container.
+    - BaseConfigGenerator::setDebugCallable &ndash; Sets the debugCallable.
+- [LightKitAdminListConfigGenerator](https://github.com/lingtalfi/Light_Kit_Admin_Generator/blob/master/doc/api/Ling/Light_Kit_Admin_Generator/Generator/LightKitAdminListConfigGenerator.md) &ndash; The LightKitAdminListConfigGenerator class.
+    - ListConfigGenerator::generate &ndash; Generates the list configuration files according to the given [configuration block](https://github.com/lingtalfi/Light_Kit_Admin_Generator/blob/master/doc/pages/lkagen-configuration-example.md).
     - BaseConfigGenerator::__construct &ndash; Builds the ListConfigGenerator instance.
     - BaseConfigGenerator::setContainer &ndash; Sets the container.
     - BaseConfigGenerator::setDebugCallable &ndash; Sets the debugCallable.
@@ -37,6 +42,9 @@ Dependencies
 - [Bat](https://github.com/lingtalfi/Bat)
 - [Light_Kit_Admin](https://github.com/lingtalfi/Light_Kit_Admin)
 - [Light_RealGenerator](https://github.com/lingtalfi/Light_RealGenerator)
+- [Light_TablePrefixInfo](https://github.com/lingtalfi/Light_TablePrefixInfo)
+- [SqlWizard](https://github.com/lingtalfi/SqlWizard)
+- [UniverseTools](https://github.com/lingtalfi/UniverseTools)
 - [Light_ControllerHub](https://github.com/lingtalfi/Light_ControllerHub)
 
 

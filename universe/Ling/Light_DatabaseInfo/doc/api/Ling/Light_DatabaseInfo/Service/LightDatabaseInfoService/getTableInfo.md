@@ -30,6 +30,7 @@ The info array contains the following entries:
 - types: an array of columnName => type
          Type is a string representing the mysql type ( ex: int(11), or varchar(128), ... ).
          List of mysql types here: https://dev.mysql.com/doc/refman/8.0/en/data-types.html
+- nullables: array of column names which are nullable
 - simpleTypes: an array of columnName => simpleType.
          A simple type is a string amongst:
              - str
@@ -117,7 +118,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightDatabaseInfoService::getTableInfo](https://github.com/lingtalfi/Light_DatabaseInfo/blob/master/Service/LightDatabaseInfoService.php#L107-L159)
+See the source code for method [LightDatabaseInfoService::getTableInfo](https://github.com/lingtalfi/Light_DatabaseInfo/blob/master/Service/LightDatabaseInfoService.php#L108-L161)
 
 
 See Also

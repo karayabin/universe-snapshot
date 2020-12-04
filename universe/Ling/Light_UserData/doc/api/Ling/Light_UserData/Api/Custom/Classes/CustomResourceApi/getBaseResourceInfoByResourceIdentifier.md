@@ -68,7 +68,7 @@ Returns array | false.
 
 Source Code
 ===========
-See the source code for method [CustomResourceApi::getBaseResourceInfoByResourceIdentifier](https://github.com/lingtalfi/Light_UserData/blob/master/Api/Custom/Classes/CustomResourceApi.php#L48-L141)
+See the source code for method [CustomResourceApi::getBaseResourceInfoByResourceIdentifier](https://github.com/lingtalfi/Light_UserData/blob/master/Api/Custom/Classes/CustomResourceApi.php#L48-L143)
 
 
 See Also

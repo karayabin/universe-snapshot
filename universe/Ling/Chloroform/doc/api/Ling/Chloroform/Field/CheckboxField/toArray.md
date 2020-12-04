@@ -59,7 +59,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [CheckboxField::toArray](https://github.com/lingtalfi/Chloroform/blob/master/Field/CheckboxField.php#L81-L86)
+See the source code for method [CheckboxField::toArray](https://github.com/lingtalfi/Chloroform/blob/master/Field/CheckboxField.php#L89-L94)
 
 
 See Also
@@ -67,5 +67,5 @@ See Also
 
 The [CheckboxField](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/CheckboxField.md) class.
 
-Previous method: [setItems](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/CheckboxField/setItems.md)<br>
+Previous method: [setItems](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/CheckboxField/setItems.md)<br>Next method: [getFormattedValue](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/CheckboxField/getFormattedValue.md)<br>
 

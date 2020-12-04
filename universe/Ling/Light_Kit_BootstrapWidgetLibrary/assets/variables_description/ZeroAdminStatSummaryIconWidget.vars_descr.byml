@@ -58,7 +58,7 @@ vars:
                 type: string
                 default_value: ""
                 description: The url of the bottom link of the card.
-                example: (::ROUTE::)/pages/u-project-detail
+                example: ::(@reverse_router->getUrl(/pages/u-project-detail))::
             icon_padding:
                 type: bool
                 default_value: true
@@ -80,7 +80,7 @@ example: <
                 value_class: text-blue
                 text: Orders
                 link_text: View More
-                link_url: (::ROUTE::)/pages/u-project-detail
+                link_url: ::(@reverse_router->getUrl(/pages/u-project-detail))::
                 icon_padding: false
             
             - 

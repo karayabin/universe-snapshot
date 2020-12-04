@@ -11,8 +11,9 @@ namespace Ling\Light_UserDatabase\Api\Generated\Interfaces;
 interface UserGroupApiInterface
 {
 
+
     /**
-     * Inserts the given userGroup in the database.
+     * Inserts the given user group in the database.
      * By default, it returns the result of the PDO::lastInsertId method.
      * If the returnRic flag is set to true, the method will return the ric array instead of the lastInsertId.
      *
@@ -20,7 +21,7 @@ interface UserGroupApiInterface
      * If the row you're trying to insert triggers a duplicate error, the behaviour of this method depends on
      * the ignoreDuplicate flag:
      * - if true, the error will be caught internally, the return of the method is not affected
-     * - if false, the error will not be caught, and depending on your configuration, it might either
+     * - if false, the error will not be caught, and depending on your pdo configuration, it might either
      *          trigger an exception, or fail silently in which case this method returns false.
      *
      *
@@ -34,7 +35,7 @@ interface UserGroupApiInterface
     public function insertUserGroup(array $userGroup, bool $ignoreDuplicate = true, bool $returnRic = false);
 
     /**
-     * Inserts the given userGroup rows in the database.
+     * Inserts the given user group rows in the database.
      * By default, it returns an array of the result of the PDO::lastInsertId method for each insert.
      * If the returnRic flag is set to true, the method will return an array of the ric array (for each insert) instead of the lastInsertId.
      *
@@ -56,7 +57,29 @@ interface UserGroupApiInterface
     public function insertUserGroups(array $userGroups, bool $ignoreDuplicate = true, bool $returnRic = false);
 
     /**
-     * Returns the userGroup row identified by the given id.
+     * Returns the rows corresponding to given components.
+     * The components is an array of [fetch all components](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/pages/fetch-all-components.md).
+     *
+     *
+     * @param array $components
+     * @return array
+     */
+    public function fetchAll(array $components = []): array;
+
+
+    /**
+     *
+     * Returns the first row corresponding to given components, or false if there is no match.
+     *
+     * The components is an array of [fetch all components](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/pages/fetch-all-components.md).
+     *
+     * @param array $components
+     * @return array
+     */
+    public function fetch(array $components = []);
+
+    /**
+     * Returns the user group row identified by the given id.
      *
      * If the row is not found, this method's return depends on the throwNotFoundEx flag:
      * - if true, the method throws an exception
@@ -72,7 +95,7 @@ interface UserGroupApiInterface
     public function getUserGroupById(int $id, $default = null, bool $throwNotFoundEx = false);
 
     /**
-     * Returns the userGroup row identified by the given name.
+     * Returns the user group row identified by the given name.
      *
      * If the row is not found, this method's return depends on the throwNotFoundEx flag:
      * - if true, the method throws an exception
@@ -182,6 +205,29 @@ interface UserGroupApiInterface
 
 
 
+    /**
+     * Returns the rows of the lud_user_group table bound to the given plugin_option id.
+     * @param string $pluginOptionId
+     * @return array
+     */
+    public function getUserGroupsByPluginOptionId(string $pluginOptionId): array;
+
+
+
+    /**
+     * Returns an array of lud_user_group.id bound to the given plugin_option id.
+     * @param string $pluginOptionId
+     * @return array
+     */
+    public function getUserGroupIdsByPluginOptionId(string $pluginOptionId): array;
+
+
+    /**
+     * Returns an array of lud_user_group.name bound to the given plugin_option id.
+     * @param string $pluginOptionId
+     * @return array
+     */
+    public function getUserGroupNamesByPluginOptionId(string $pluginOptionId): array;
 
 
 
@@ -197,25 +243,43 @@ interface UserGroupApiInterface
 
 
     /**
-     * Updates the userGroup row identified by the given id.
+     * Updates the user group row identified by the given id.
      *
      * @param int $id
      * @param array $userGroup
+     * @param array $extraWhere
+     * @param array $markers
      * @return void
      * @throws \Exception
      */
-    public function updateUserGroupById(int $id, array $userGroup);
+    public function updateUserGroupById(int $id, array $userGroup, array $extraWhere = [], array $markers = []);
 
 
     /**
-     * Updates the userGroup row identified by the given name.
+     * Updates the user group row identified by the given name.
      *
      * @param string $name
      * @param array $userGroup
+     * @param array $extraWhere
+     * @param array $markers
      * @return void
      * @throws \Exception
      */
-    public function updateUserGroupByName(string $name, array $userGroup);
+    public function updateUserGroupByName(string $name, array $userGroup, array $extraWhere = [], array $markers = []);
+
+
+
+
+    /**
+     * Updates the user group row.
+     *
+     * @param array $userGroup
+     * @param mixed $where
+     * @param array $markers
+     * @return void
+     * @throws \Exception
+     */
+    public function updateUserGroup(array $userGroup, $where = null, array $markers = []);
 
 
 
@@ -234,7 +298,7 @@ interface UserGroupApiInterface
     public function delete($where = null, array $markers = []);
 
     /**
-     * Deletes the userGroup identified by the given id.
+     * Deletes the user group identified by the given id.
      *
      * @param int $id
      * @return void
@@ -243,7 +307,7 @@ interface UserGroupApiInterface
     public function deleteUserGroupById(int $id);
 
     /**
-     * Deletes the userGroup identified by the given name.
+     * Deletes the user group identified by the given name.
      *
      * @param string $name
      * @return void
@@ -254,7 +318,7 @@ interface UserGroupApiInterface
 
 
     /**
-     * Deletes the userGroup rows identified by the given ids.
+     * Deletes the user group rows identified by the given ids.
      *
      * @param array $ids
      * @return void
@@ -263,13 +327,15 @@ interface UserGroupApiInterface
     public function deleteUserGroupByIds(array $ids);
 
     /**
-     * Deletes the userGroup rows identified by the given names.
+     * Deletes the user group rows identified by the given names.
      *
      * @param array $names
      * @return void
      * @throws \Exception
      */
     public function deleteUserGroupByNames(array $names);
+
+
 
 
 

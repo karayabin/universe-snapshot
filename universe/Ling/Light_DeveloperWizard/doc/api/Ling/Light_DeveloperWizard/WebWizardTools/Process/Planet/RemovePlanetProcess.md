@@ -4,7 +4,7 @@
 
 The RemovePlanetProcess class
 ================
-2020-06-30 --> 2020-09-18
+2020-06-30 --> 2020-12-03
 
 
 
@@ -146,4 +146,4 @@ See the source code of [Ling\Light_DeveloperWizard\WebWizardTools\Process\Planet
 
 SeeAlso
 ==============
-Previous class: [ExecuteLkaGeneratorProcess](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/WebWizardTools/Process/Light_Kit_Admin/ExecuteLkaGeneratorProcess.md)<br>Next class: [DisableServiceProcess](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/WebWizardTools/Process/Service/DisableServiceProcess.md)<br>
+Previous class: [CreateConceptionNotesProcess](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/WebWizardTools/Process/Planet/CreateConceptionNotesProcess.md)<br>Next class: [DisableServiceProcess](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/WebWizardTools/Process/Service/DisableServiceProcess.md)<br>

@@ -1,6 +1,6 @@
 Light_Mailer, conception notes
 =============
-2020-06-26 -> 2020-08-14
+2020-06-26 -> 2020-11-30
 
 
    
@@ -10,6 +10,7 @@ Light_Mailer, conception notes
 * [Multi-sender](#multi-sender)
 * [Logs](#logs)
 * [Types of variables](#types-of-variables)
+* [Template parts reference](#template-parts-reference)
 * [Files](#files)
 
 
@@ -241,7 +242,7 @@ Using the [Light_Logger](https://github.com/lingtalfi/Light_Logger) plugin under
 
 Types of variables
 ----------
-2020-06-29
+2020-06-29 -> 2020-11-30
 
 
 We can use variables to make the content of our template more dynamic.
@@ -263,9 +264,10 @@ This is a {variable}.
 
 The common variables are resolved first, then the recipient variables.
 
+The colon (:) character cannot be used in variables, as it's reserved for [template parts reference](#template-parts-reference).
 
 
-You can replace a variable by a string or a callable.
+You can replace a variable by a string or a **php callable**.
 
 If it's a callable, it must return a string.
 
@@ -275,6 +277,81 @@ The parameters of the callable are:
 
 
 Variables apply in every part of the email: subject, plain and html.
+
+
+
+
+Template parts reference
+---------
+2020-11-30
+
+In addition to using variables, you can also replace some parts of your email with some template parts references.
+
+Template parts reference allow us to write text in a file, and reference them in the email later.
+
+
+
+The notation looks like this:
+
+```html
+{template:header.txt}
+
+Hello, just a test email
+
+
+{template:footer.txt}
+```
+
+
+In the above example, we've used two **template parts references**, one for the header and one for the footer.
+
+In order to use **template parts references**, you must first register the directory that contains your template parts.
+
+
+This is done via our service's **registerTemplatePartsDirectory** method.
+
+So for instance, in my app I create the following structure:
+
+```txt
+- $app/
+----- templates/
+--------- app/
+------------- mailer_template_parts/
+------------------ footer.txt
+------------------ header.txt
+```
+
+Then I register the directory using the **template** alias:
+
+```
+$light_mailer_service->registerTemplatePartsDirectory( 'template', "$app/templates/app/mailer_template_parts" );
+```
+
+Now I can use the **template parts** notation as explained above.
+
+
+The template parts references are replaced before the variables are resolved.
+
+Therefore, you can use variables in your **template parts**.
+
+However, you cannot call template parts from your template parts.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

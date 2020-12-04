@@ -1,6 +1,6 @@
 Light_Kit_BootstrapWidgetLibrary
 ===========
-2019-04-26 -> 2020-08-10
+2019-04-26 -> 2020-12-01
 
 
 
@@ -45,6 +45,22 @@ Related
 History Log
 =============
 
+- 1.18.4 -- 2020-12-01
+
+    - update ZeroAdminForgottenPasswordWidget, add new variables, now handle multiple accounts choice and added back to login link
+    
+- 1.18.3 -- 2020-11-27
+
+    - update ZeroAdminLoginFormWidget image with new api
+    
+- 1.18.2 -- 2020-11-27
+
+    - update ZeroAdminLoginFormWidget, add remember me field
+    
+- 1.18.1 -- 2020-11-27
+
+    - update to accommodate latest Light_Kit api
+    
 - 1.18.0 -- 2020-08-10
 
     - add HelloWorldWidget

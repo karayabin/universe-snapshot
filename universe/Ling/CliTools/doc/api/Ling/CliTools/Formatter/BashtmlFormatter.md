@@ -4,7 +4,7 @@
 
 The BashtmlFormatter class
 ================
-2019-02-26 --> 2019-07-18
+2019-02-26 --> 2020-12-04
 
 
 
@@ -160,8 +160,8 @@ class <span class="pl-k">BashtmlFormatter</span> implements [FormatterInterface]
     - public [format](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Formatter/BashtmlFormatter/format.md)(string $expression) : string
     - private [addParent](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Formatter/BashtmlFormatter/addParent.md)(string $name) : void
     - private [removeParent](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Formatter/BashtmlFormatter/removeParent.md)(string $name) : void
-    - private [getStartTag](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Formatter/BashtmlFormatter/getStartTag.md)(string $name, array $parents = []) : false | string
-    - private [getStopTag](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Formatter/BashtmlFormatter/getStopTag.md)(string $name, array $parents = []) : bool | string
+    - private [getStartTag](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Formatter/BashtmlFormatter/getStartTag.md)(string $name, ?array $parents = []) : false | string
+    - private [getStopTag](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Formatter/BashtmlFormatter/getStopTag.md)(string $name, ?array $parents = []) : bool | string
     - private [getFormatExpression](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Formatter/BashtmlFormatter/getFormatExpression.md)(array $codes) : string
     - private [checkCode](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Formatter/BashtmlFormatter/checkCode.md)(string $code) : bool
 

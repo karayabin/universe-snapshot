@@ -1,6 +1,6 @@
 Light_ErrorPop
 ===========
-2020-06-01
+2020-06-01 -> 2020-11-30
 
 
 
@@ -57,24 +57,16 @@ $logger.methods_collection:
     -
         method: addListener
         args:
-            channels: error_handler
+            channels:
+                - error_handler
+                - fatal_error_handler
+                - error
             listener:
                 instance: Ling\Light_Logger\Listener\LightLastMessageFileLoggerListener
                 methods:
                     setFile:
                         file: /tmp/error_pop.txt
-    -
-        method: addListener
-        args:
-            channels: fatal_error_handler
-            listener:
-                instance: Ling\Light_Logger\Listener\LightLastMessageFileLoggerListener
-                methods:
-                    setFile:
-                        file: /tmp/error_pop.txt
-
-
-
+                        
 
 
 ```
@@ -92,6 +84,10 @@ Related
 History Log
 =============
 
+- 1.0.2 -- 2020-11-30
+
+    - update service to also work with the error channel of the logger
+    
 - 1.0.1 -- 2020-06-01
 
     - update README.md

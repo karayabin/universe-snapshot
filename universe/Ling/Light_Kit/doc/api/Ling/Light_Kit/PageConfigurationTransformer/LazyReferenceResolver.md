@@ -4,7 +4,7 @@
 
 The LazyReferenceResolver class
 ================
-2019-04-25 --> 2019-12-16
+2019-04-25 --> 2020-11-27
 
 
 
@@ -15,6 +15,11 @@ Introduction
 ============
 
 The LazyReferenceResolver class.
+
+Note: this class is old and note used anymore.
+It has been replaced entirely with the LightExecuteNotationResolver, which can do more and is more unified with the light framework.
+
+I keep the code below just for a reference for myself, and as an example of what transformers can do, but it should probably be removed.
 
 
 
@@ -75,7 +80,7 @@ Methods
 - [LazyReferenceResolver::setStrictMode](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageConfigurationTransformer/LazyReferenceResolver/setStrictMode.md) &ndash; Sets the strictMde.
 - [LazyReferenceResolver::setResolvers](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageConfigurationTransformer/LazyReferenceResolver/setResolvers.md) &ndash; Sets the resolvers.
 - [LazyReferenceResolver::registerResolver](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageConfigurationTransformer/LazyReferenceResolver/registerResolver.md) &ndash; Registers the resolver and assigns it to the given token.
-- [LazyReferenceResolver::transform](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageConfigurationTransformer/LazyReferenceResolver/transform.md) &ndash; Transforms the given pageConfiguration using the registered resolvers.
+- [LazyReferenceResolver::transform](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageConfigurationTransformer/LazyReferenceResolver/transform.md) &ndash; Transforms the given page configuration array in place.
 
 
 
@@ -90,4 +95,4 @@ See the source code of [Ling\Light_Kit\PageConfigurationTransformer\LazyReferenc
 
 SeeAlso
 ==============
-Previous class: [RouteResolver](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageConfigurationTransformer/LazyReferenceResolver/RouteResolver.md)<br>Next class: [PageConfigurationTransformerInterface](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageConfigurationTransformer/PageConfigurationTransformerInterface.md)<br>
+Previous class: [RouteResolver](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageConfigurationTransformer/LazyReferenceResolver/RouteResolver.md)<br>Next class: [LightExecuteNotationResolver](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageConfigurationTransformer/LightExecuteNotationResolver.md)<br>

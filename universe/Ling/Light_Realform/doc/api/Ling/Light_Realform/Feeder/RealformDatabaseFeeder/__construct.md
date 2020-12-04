@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [RealformDatabaseFeeder::__construct](https://github.com/lingtalfi/Light_Realform/blob/master/Feeder/RealformDatabaseFeeder.php#L30-L33)
+See the source code for method [RealformDatabaseFeeder::__construct](https://github.com/lingtalfi/Light_Realform/blob/master/Feeder/RealformDatabaseFeeder.php#L31-L34)
 
 
 See Also

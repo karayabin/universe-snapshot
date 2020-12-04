@@ -4,7 +4,7 @@
 
 The RealGenController class
 ================
-2020-06-25 --> 2020-08-28
+2020-06-25 --> 2020-12-01
 
 
 
@@ -44,6 +44,7 @@ abstract class <span class="pl-k">RealGenController</span> extends [AdminPageCon
     - protected LightKitAdminController::getKitAdmin() : Ling\Light_Kit_Admin\Service\LightKitAdminService
     - protected LightKitAdminController::getFlasher() : Ling\Light_Flasher\Service\LightFlasherService
     - protected LightKitAdminController::getUser() : Ling\Light_User\LightWebsiteUser
+    - protected LightKitAdminController::getValidWebsiteUser() : Ling\Light_User\LightWebsiteUser
     - public LightKitAdminController::renderPage(string $page, ?array $dynamicVariables = [], ?Ling\Light_Kit\PageConfigurationUpdator\PageConfUpdator $updator = null) : [HttpResponseInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponseInterface.md)
     - protected LightKitAdminController::getRedirectResponseByRoute(string $route, ?array $urlParams = []) : Ling\Light\Http\HttpRedirectResponse
     - protected LightKitAdminController::checkRight(string $right) : [HttpResponseInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponseInterface.md) | null
@@ -97,6 +98,7 @@ Methods
 - LightKitAdminController::getKitAdmin &ndash; Returns the kit admin service instance.
 - LightKitAdminController::getFlasher &ndash; Returns a flasher instance.
 - LightKitAdminController::getUser &ndash; Returns the current user.
+- LightKitAdminController::getValidWebsiteUser &ndash; Returns a valid website user, or throws an exception.
 - LightKitAdminController::renderPage &ndash; Renders the given page using the [kit service](https://github.com/lingtalfi/Light_Kit).
 - LightKitAdminController::getRedirectResponseByRoute &ndash; Creates and returns an HttpRedirectResponse, based on the given arguments.
 - LightKitAdminController::checkRight &ndash; Ensures that the current user is connected and has the right provided in the arguments.

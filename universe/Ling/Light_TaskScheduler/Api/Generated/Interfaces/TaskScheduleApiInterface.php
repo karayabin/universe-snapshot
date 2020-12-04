@@ -13,7 +13,7 @@ interface TaskScheduleApiInterface
 
 
     /**
-     * Inserts the given taskSchedule in the database.
+     * Inserts the given task schedule in the database.
      * By default, it returns the result of the PDO::lastInsertId method.
      * If the returnRic flag is set to true, the method will return the ric array instead of the lastInsertId.
      *
@@ -21,7 +21,7 @@ interface TaskScheduleApiInterface
      * If the row you're trying to insert triggers a duplicate error, the behaviour of this method depends on
      * the ignoreDuplicate flag:
      * - if true, the error will be caught internally, the return of the method is not affected
-     * - if false, the error will not be caught, and depending on your configuration, it might either
+     * - if false, the error will not be caught, and depending on your pdo configuration, it might either
      *          trigger an exception, or fail silently in which case this method returns false.
      *
      *
@@ -35,7 +35,7 @@ interface TaskScheduleApiInterface
     public function insertTaskSchedule(array $taskSchedule, bool $ignoreDuplicate = true, bool $returnRic = false);
 
     /**
-     * Inserts the given taskSchedule rows in the database.
+     * Inserts the given task schedule rows in the database.
      * By default, it returns an array of the result of the PDO::lastInsertId method for each insert.
      * If the returnRic flag is set to true, the method will return an array of the ric array (for each insert) instead of the lastInsertId.
      *
@@ -79,7 +79,7 @@ interface TaskScheduleApiInterface
     public function fetch(array $components = []);
 
     /**
-     * Returns the taskSchedule row identified by the given id.
+     * Returns the task schedule row identified by the given id.
      *
      * If the row is not found, this method's return depends on the throwNotFoundEx flag:
      * - if true, the method throws an exception
@@ -190,7 +190,7 @@ interface TaskScheduleApiInterface
 
 
     /**
-     * Updates the taskSchedule row identified by the given id.
+     * Updates the task schedule row identified by the given id.
      *
      * @param int $id
      * @param array $taskSchedule
@@ -205,7 +205,7 @@ interface TaskScheduleApiInterface
 
 
     /**
-     * Updates the taskSchedule row.
+     * Updates the task schedule row.
      *
      * @param array $taskSchedule
      * @param mixed $where
@@ -232,7 +232,7 @@ interface TaskScheduleApiInterface
     public function delete($where = null, array $markers = []);
 
     /**
-     * Deletes the taskSchedule identified by the given id.
+     * Deletes the task schedule identified by the given id.
      *
      * @param int $id
      * @return void
@@ -243,13 +243,15 @@ interface TaskScheduleApiInterface
 
 
     /**
-     * Deletes the taskSchedule rows identified by the given ids.
+     * Deletes the task schedule rows identified by the given ids.
      *
      * @param array $ids
      * @return void
      * @throws \Exception
      */
     public function deleteTaskScheduleByIds(array $ids);
+
+
 
 
 

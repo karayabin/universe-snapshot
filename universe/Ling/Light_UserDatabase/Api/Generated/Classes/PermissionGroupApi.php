@@ -4,8 +4,12 @@
 namespace Ling\Light_UserDatabase\Api\Generated\Classes;
 
 use Ling\SimplePdoWrapper\SimplePdoWrapper;
-use Ling\SimplePdoWrapper\Util\Where;
 use Ling\SimplePdoWrapper\Exception\SimplePdoWrapperQueryException;
+use Ling\SimplePdoWrapper\Util\Columns;
+use Ling\SimplePdoWrapper\Util\Limit;
+use Ling\SimplePdoWrapper\Util\OrderBy;
+use Ling\SimplePdoWrapper\Util\Where;
+
 use Ling\Light_UserDatabase\Api\Custom\Classes\CustomLightUserDatabaseBaseApi;
 use Ling\Light_UserDatabase\Api\Generated\Interfaces\PermissionGroupApiInterface;
 
@@ -26,6 +30,8 @@ class PermissionGroupApi extends CustomLightUserDatabaseBaseApi implements Permi
         parent::__construct();
         $this->table = "lud_permission_group";
     }
+
+
 
 
 
@@ -105,8 +111,38 @@ class PermissionGroupApi extends CustomLightUserDatabaseBaseApi implements Permi
     /**
      * @implementation
      */
+    public function fetchAll(array $components = []): array
+    {
+        $markers = [];
+        $q = '';
+        $options = $this->fetchRoutine($q, $markers, $components);
+        $fetchStyle = null;
+        if (true === $options['singleColumn']) {
+            $fetchStyle = \PDO::FETCH_COLUMN;
+        }
+        return $this->pdoWrapper->fetchAll($q, $markers, $fetchStyle);
+    }
+
+    /**
+     * @implementation
+     */
+    public function fetch(array $components = [])
+    {
+        $markers = [];
+        $q = '';
+        $options = $this->fetchRoutine($q, $markers, $components);
+        $fetchStyle = null;
+        if (true === $options['singleColumn']) {
+            $fetchStyle = \PDO::FETCH_COLUMN;
+        }
+        return $this->pdoWrapper->fetch($q, $markers, $fetchStyle);
+    }
+
+    /**
+     * @implementation
+     */
     public function getPermissionGroupById(int $id, $default = null, bool $throwNotFoundEx = false)
-    { 
+    {
         $ret = $this->pdoWrapper->fetch("select * from `$this->table` where id=:id", [
             "id" => $id,
 
@@ -126,7 +162,7 @@ class PermissionGroupApi extends CustomLightUserDatabaseBaseApi implements Permi
      * @implementation
      */
     public function getPermissionGroupByName(string $name, $default = null, bool $throwNotFoundEx = false)
-    { 
+    {
         $ret = $this->pdoWrapper->fetch("select * from `$this->table` where name=:name", [
             "name" => $name,
 
@@ -245,32 +281,32 @@ class PermissionGroupApi extends CustomLightUserDatabaseBaseApi implements Permi
     /**
      * @implementation
      */
-    public function getPermissionGroupsByUserId(string $userId): array
+    public function getPermissionGroupsByPermissionId(string $permissionId): array
     {
         return $this->pdoWrapper->fetchAll("
         select a.* from `$this->table` a
-        inner join lud_user_has_permission_group h on h.permission_group_id=a.id
-        where h.user_id=:user_id
+        inner join lud_permission_group_has_permission h on h.permission_group_id=a.id
+        where h.permission_id=:permission_id
 
 
         ", [
-            ":user_id" => $userId,
+            ":permission_id" => $permissionId,
         ]);
     }
 
     /**
      * @implementation
      */
-    public function getPermissionGroupsByUserIdentifier(string $userIdentifier): array
+    public function getPermissionGroupsByPermissionName(string $permissionName): array
     {
         return $this->pdoWrapper->fetchAll("
         select a.* from `$this->table` a
-        inner join lud_user_has_permission_group h on h.permission_group_id=a.id
-        where h.user_id=:user_id
+        inner join lud_permission_group_has_permission h on h.permission_group_id=a.id
+        where h.permission_id=:permission_id
 
 
         ", [
-            ":user_identifier" => $userIdentifier,
+            ":permission_name" => $permissionName,
         ]);
     }
 
@@ -279,60 +315,60 @@ class PermissionGroupApi extends CustomLightUserDatabaseBaseApi implements Permi
     /**
      * @implementation
      */
-    public function getPermissionGroupIdsByUserId(string $userId): array
+    public function getPermissionGroupIdsByPermissionId(string $permissionId): array
     {
         return $this->pdoWrapper->fetchAll("
         select a.id from `$this->table` a
-        inner join lud_user_has_permission_group h on h.permission_group_id=a.id
-        inner join lud_user b on b.id=h.user_id
-        where b.id=:user_id
+        inner join lud_permission_group_has_permission h on h.permission_group_id=a.id
+        inner join lud_permission b on b.id=h.permission_id
+        where b.id=:permission_id
         ", [
-            ":user_id" => $userId,
+            ":permission_id" => $permissionId,
         ], \PDO::FETCH_COLUMN);
     }
 
     /**
      * @implementation
      */
-    public function getPermissionGroupIdsByUserIdentifier(string $userIdentifier): array
+    public function getPermissionGroupIdsByPermissionName(string $permissionName): array
     {
         return $this->pdoWrapper->fetchAll("
         select a.id from `$this->table` a
-        inner join lud_user_has_permission_group h on h.permission_group_id=a.id
-        inner join lud_user b on b.id=h.user_id
-        where b.identifier=:user_identifier
+        inner join lud_permission_group_has_permission h on h.permission_group_id=a.id
+        inner join lud_permission b on b.id=h.permission_id
+        where b.name=:permission_name
         ", [
-            ":user_identifier" => $userIdentifier,
+            ":permission_name" => $permissionName,
         ], \PDO::FETCH_COLUMN);
     }
 
     /**
      * @implementation
      */
-    public function getPermissionGroupNamesByUserId(string $userId): array
+    public function getPermissionGroupNamesByPermissionId(string $permissionId): array
     {
         return $this->pdoWrapper->fetchAll("
         select a.name from `$this->table` a
-        inner join lud_user_has_permission_group h on h.permission_group_id=a.id
-        inner join lud_user b on b.id=h.user_id
-        where b.id=:user_id
+        inner join lud_permission_group_has_permission h on h.permission_group_id=a.id
+        inner join lud_permission b on b.id=h.permission_id
+        where b.id=:permission_id
         ", [
-            ":user_id" => $userId,
+            ":permission_id" => $permissionId,
         ], \PDO::FETCH_COLUMN);
     }
 
     /**
      * @implementation
      */
-    public function getPermissionGroupNamesByUserIdentifier(string $userIdentifier): array
+    public function getPermissionGroupNamesByPermissionName(string $permissionName): array
     {
         return $this->pdoWrapper->fetchAll("
         select a.name from `$this->table` a
-        inner join lud_user_has_permission_group h on h.permission_group_id=a.id
-        inner join lud_user b on b.id=h.user_id
-        where b.identifier=:user_identifier
+        inner join lud_permission_group_has_permission h on h.permission_group_id=a.id
+        inner join lud_permission b on b.id=h.permission_id
+        where b.name=:permission_name
         ", [
-            ":user_identifier" => $userIdentifier,
+            ":permission_name" => $permissionName,
         ], \PDO::FETCH_COLUMN);
     }
 
@@ -349,23 +385,33 @@ class PermissionGroupApi extends CustomLightUserDatabaseBaseApi implements Permi
     /**
      * @implementation
      */
-    public function updatePermissionGroupById(int $id, array $permissionGroup)
-    { 
-        $this->pdoWrapper->update($this->table, $permissionGroup, [
+    public function updatePermissionGroupById(int $id, array $permissionGroup, array $extraWhere = [], array $markers = [])
+    {
+        $this->pdoWrapper->update($this->table, $permissionGroup, array_merge([
             "id" => $id,
 
-        ]);
+        ], $extraWhere), $markers);
     }
 
     /**
      * @implementation
      */
-    public function updatePermissionGroupByName(string $name, array $permissionGroup)
-    { 
-        $this->pdoWrapper->update($this->table, $permissionGroup, [
+    public function updatePermissionGroupByName(string $name, array $permissionGroup, array $extraWhere = [], array $markers = [])
+    {
+        $this->pdoWrapper->update($this->table, $permissionGroup, array_merge([
             "name" => $name,
 
-        ]);
+        ], $extraWhere), $markers);
+    }
+
+
+
+    /**
+     * @implementation
+     */
+    public function updatePermissionGroup(array $permissionGroup, $where = null, array $markers = [])
+    {
+        $this->pdoWrapper->update($this->table, $permissionGroup, $where, $markers);
     }
 
 
@@ -383,7 +429,7 @@ class PermissionGroupApi extends CustomLightUserDatabaseBaseApi implements Permi
      * @implementation
      */
     public function deletePermissionGroupById(int $id)
-    { 
+    {
         $this->pdoWrapper->delete($this->table, [
             "id" => $id,
 
@@ -394,7 +440,7 @@ class PermissionGroupApi extends CustomLightUserDatabaseBaseApi implements Permi
      * @implementation
      */
     public function deletePermissionGroupByName(string $name)
-    { 
+    {
         $this->pdoWrapper->delete($this->table, [
             "name" => $name,
 
@@ -422,6 +468,73 @@ class PermissionGroupApi extends CustomLightUserDatabaseBaseApi implements Permi
 
 
 
+
+
+    //--------------------------------------------
+    //
+    //--------------------------------------------
+    /**
+     * Appends the given components to the given query, and returns an array of options.
+     *
+     * The options are:
+     *
+     * - singleColumn: bool, whether the singleColumn mode was triggered with the Columns component
+     *
+     *
+     * @param string $q
+     * @param array $markers
+     * @param array $components
+     * @return array
+     * @throws \Exception
+     */
+    private function fetchRoutine(string &$q, array &$markers, array $components): array
+    {
+        $sWhere = '';
+        $sCols = '';
+        $sOrderBy = '';
+        $sLimit = '';
+        $singleColumn = false;
+
+        foreach ($components as $component) {
+            if ($component instanceof Columns) {
+                $component->apply($sCols);
+                $mode = $component->getMode();
+                if ('singleColumn' === $mode) {
+                    $singleColumn = true;
+                }
+            } elseif ($component instanceof Where) {
+                SimplePdoWrapper::addWhereSubStmt($sWhere, $markers, $component);
+            } elseif ($component instanceof OrderBy) {
+                $sOrderBy .= PHP_EOL . ' ORDER BY ';
+                $component->apply($sOrderBy);
+            } elseif ($component instanceof Limit) {
+                $sOrderBy .= PHP_EOL . ' LIMIT ';
+                $component->apply($sOrderBy);
+            }
+        }
+
+
+        if ('' === $sCols) {
+            $sCols = '*';
+        }
+
+
+        $q = "select $sCols from `$this->table`";
+        if ($sWhere) {
+            $q .= $sWhere;
+        }
+        if ($sOrderBy) {
+            $q .= $sOrderBy;
+        }
+        if ($sLimit) {
+            $q .= $sLimit;
+        }
+
+
+        return [
+            'singleColumn' => $singleColumn,
+        ];
+    }
 
 
 }

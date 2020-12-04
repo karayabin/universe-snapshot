@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [CommandLineInput::__construct](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Input/CommandLineInput/__construct.md)(array $argv = null) : void
+public [CommandLineInput::__construct](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Input/CommandLineInput/__construct.md)(?array $argv = null) : void
 
 
 

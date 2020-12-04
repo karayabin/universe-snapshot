@@ -4,7 +4,7 @@
 
 The LightKitAdminUserDatabaseControllerHubHandler class
 ================
-2020-06-25 --> 2020-08-28
+2020-06-25 --> 2020-11-27
 
 
 
@@ -63,4 +63,4 @@ See the source code of [Ling\Light_Kit_Admin_UserDatabase\ControllerHub\LightKit
 
 SeeAlso
 ==============
-Previous class: [UserProfileController](https://github.com/lingtalfi/Light_Kit_Admin_UserDatabase/blob/master/doc/api/Ling/Light_Kit_Admin_UserDatabase/Controller/User/UserProfileController.md)<br>Next class: [LightKitAdminUserDatabaseLkaPlugin](https://github.com/lingtalfi/Light_Kit_Admin_UserDatabase/blob/master/doc/api/Ling/Light_Kit_Admin_UserDatabase/LightKitAdminPlugin/LightKitAdminUserDatabaseLkaPlugin.md)<br>
+Previous class: [LightKitAdminUserDatabaseControllerHubHandler](https://github.com/lingtalfi/Light_Kit_Admin_UserDatabase/blob/master/doc/api/Ling/Light_Kit_Admin_UserDatabase/ControllerHub/Generated/LightKitAdminUserDatabaseControllerHubHandler.md)<br>Next class: [LightKitAdminUserDatabaseLkaPlugin](https://github.com/lingtalfi/Light_Kit_Admin_UserDatabase/blob/master/doc/api/Ling/Light_Kit_Admin_UserDatabase/LightKitAdminPlugin/Generated/LightKitAdminUserDatabaseLkaPlugin.md)<br>

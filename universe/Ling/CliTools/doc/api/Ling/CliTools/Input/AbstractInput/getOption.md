@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [AbstractInput::getOption](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Input/AbstractInput/getOption.md)(string $optionName, $default = null) : mixed | null
+public [AbstractInput::getOption](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Input/AbstractInput/getOption.md)(string $optionName, ?$default = null) : mixed | null
 
 
 

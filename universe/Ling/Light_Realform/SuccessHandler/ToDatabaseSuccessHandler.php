@@ -78,7 +78,8 @@ class ToDatabaseSuccessHandler implements RealformSuccessHandlerInterface, Light
     {
         $updateRic = $options['updateRic'] ?? false;
         $storageId = $options['storageId'] ?? null;
-        $multiplier = $options['multiplier']??null;
+        $multiplier = $options['multiplier'] ?? null;
+
 
         if (null === $storageId) {
             $this->error("Undefined storage id.");
@@ -96,7 +97,6 @@ class ToDatabaseSuccessHandler implements RealformSuccessHandlerInterface, Light
             $crud->execute($storageId, 'update', [
                 'data' => $data,
                 'updateRic' => $updateRic,
-                'multiplier' => $multiplier,
             ]);
         }
         //--------------------------------------------

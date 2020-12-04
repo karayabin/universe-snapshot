@@ -156,7 +156,7 @@ zones:
                     text: Login
                 use_link_forgot_password: true
                 link_forgot_password:
-                    link: (::ROUTE::)/pages/b-forgot-password
+                    link: ::(@reverse_router->getUrl(/pages/b-forgot-password))::
                     text: Forgot password?
 
 ```

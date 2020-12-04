@@ -1,6 +1,6 @@
 Ling/Light_Realform
 ================
-2019-10-21 --> 2020-09-21
+2019-10-21 --> 2020-12-01
 
 
 
@@ -42,6 +42,8 @@ Table of contents
     - [RealformResult::setIsSuccessful](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Result/RealformResult/setIsSuccessful.md) &ndash; Sets the isSuccessful.
     - [RealformResult::getRedirectionUrl](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Result/RealformResult/getRedirectionUrl.md) &ndash; Returns the redirectionUrl of this instance.
     - [RealformResult::setRedirectionUrl](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Result/RealformResult/setRedirectionUrl.md) &ndash; Sets the redirectionUrl.
+    - [RealformResult::getNugget](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Result/RealformResult/getNugget.md) &ndash; Returns the nugget of this instance.
+    - [RealformResult::setNugget](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Result/RealformResult/setNugget.md) &ndash; Sets the nugget.
 - [LightRealformRoutineOne](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Routine/LightRealformRoutineOne.md) &ndash; The LightRealformRoutineOne class.
     - [LightRealformRoutineOne::__construct](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Routine/LightRealformRoutineOne/__construct.md) &ndash; Builds the LightRealformRoutineOne instance.
     - [LightRealformRoutineOne::processForm](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Routine/LightRealformRoutineOne/processForm.md) &ndash; and returns a chloroform instance.
@@ -61,6 +63,7 @@ Table of contents
 - [LightRealformService](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Service/LightRealformService.md) &ndash; The LightRealformService class.
     - [LightRealformService::__construct](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Service/LightRealformService/__construct.md) &ndash; Builds the LightRealformService instance.
     - [LightRealformService::getNugget](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Service/LightRealformService/getNugget.md) &ndash; Returns the configuration nugget based on the given nuggetId.
+    - [LightRealformService::getNuggetDirective](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Service/LightRealformService/getNuggetDirective.md) &ndash; Returns the configuration nugget value based on the given nuggetDirectiveId.
     - [LightRealformService::getChloroformByConfiguration](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Service/LightRealformService/getChloroformByConfiguration.md) &ndash; Returns the chloroform instance based on the given configuration.
     - [LightRealformService::executeRealform](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Service/LightRealformService/executeRealform.md) &ndash; instance.
     - [LightRealformService::registerDynamicInjectionHandler](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Service/LightRealformService/registerDynamicInjectionHandler.md) &ndash; Registers a [dynamic injection handler](https://github.com/lingtalfi/Light_Realform/blob/master/doc/pages/conception-notes-linear.md#dynamic-injection).
@@ -68,7 +71,7 @@ Table of contents
     - [LightRealformService::setContainer](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Service/LightRealformService/setContainer.md) &ndash; Sets the container.
     - [LightRealformService::getCurrentWebsiteUser](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Service/LightRealformService/getCurrentWebsiteUser.md) &ndash; Returns the current valid website user, or throws an exception.
     - [LightRealformService::executeSuccessHandler](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Service/LightRealformService/executeSuccessHandler.md) &ndash; Executes the success handler defined in the given nugget.
-    - [LightRealformService::injectDefaultValues](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Service/LightRealformService/injectDefaultValues.md) &ndash; Injects the default values into the given form, based on the given nugget.
+    - [LightRealformService::getFeederDefaultValues](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Service/LightRealformService/getFeederDefaultValues.md) &ndash; Returns the default values from the feeder, based on the given nugget.
 - [RealformSuccessHandlerInterface](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/SuccessHandler/RealformSuccessHandlerInterface.md) &ndash; The RealformSuccessHandlerInterface interface.
     - [RealformSuccessHandlerInterface::execute](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/SuccessHandler/RealformSuccessHandlerInterface/execute.md) &ndash; Process the given data, and throws an exception if something unexpected happens.
 - [ToDatabaseSuccessHandler](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/SuccessHandler/ToDatabaseSuccessHandler.md) &ndash; The ToDatabaseSuccessHandler class.
@@ -85,6 +88,7 @@ Dependencies
 ============
 - [Light](https://github.com/lingtalfi/Light)
 - [Light_Csrf](https://github.com/lingtalfi/Light_Csrf)
+- [ArrayToString](https://github.com/lingtalfi/ArrayToString)
 - [SimplePdoWrapper](https://github.com/lingtalfi/SimplePdoWrapper)
 - [Chloroform](https://github.com/lingtalfi/Chloroform)
 - [Bat](https://github.com/lingtalfi/Bat)

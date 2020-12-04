@@ -1,6 +1,6 @@
 Bootstrap4AdminTable
 ===========
-2019-08-15 -> 2020-09-03
+2019-08-15 -> 2020-11-24
 
 
 
@@ -57,6 +57,14 @@ Related
 History Log
 =============
 
+- 1.15.2 -- 2020-11-24
+
+    - update Bootstrap4AdminTableRenderer->render, now cleans the master checkbox after any realist request  
+    
+- 1.15.1 -- 2020-11-24
+
+    - update ToolbarRendererWidget, now renders more compact buttons    
+    
 - 1.15.0 -- 2020-09-03
 
     - update to adapt realist2 api   

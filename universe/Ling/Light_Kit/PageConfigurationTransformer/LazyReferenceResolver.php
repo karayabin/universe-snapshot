@@ -10,6 +10,12 @@ use Ling\Light\ServiceContainer\LightServiceContainerInterface;
 
 /**
  * The LazyReferenceResolver class.
+ *
+ * Note: this class is old and note used anymore.
+ * It has been replaced entirely with the LightExecuteNotationResolver, which can do more and is more unified with the light framework.
+ *
+ * I keep the code below just for a reference for myself, and as an example of what transformers can do, but it should probably be removed.
+ *
  */
 class LazyReferenceResolver implements PageConfigurationTransformerInterface, LightServiceContainerAwareInterface
 {
@@ -48,6 +54,9 @@ class LazyReferenceResolver implements PageConfigurationTransformerInterface, Li
     }
 
 
+    //--------------------------------------------
+    // LightServiceContainerAwareInterface
+    //--------------------------------------------
     /**
      * @implementation
      */
@@ -94,12 +103,10 @@ class LazyReferenceResolver implements PageConfigurationTransformerInterface, Li
 
 
     //--------------------------------------------
-    //
+    // PageConfigurationTransformerInterface
     //--------------------------------------------
     /**
-     * Transforms the given pageConfiguration using the registered resolvers.
-     *
-     * @param array $pageConfiguration
+     * @implementation
      */
     public function transform(array &$pageConfiguration)
     {
@@ -108,7 +115,7 @@ class LazyReferenceResolver implements PageConfigurationTransformerInterface, Li
         if ($this->resolvers) {
 
 
-            // example: (::METHOD_CALL::)whatever
+            // example: ::(whatever)::
             $regex = '!\(::([^:]*)::\)(.*)!';
 
             BDotTool::walk($pageConfiguration, function (&$v, $key, $dotPath) use (&$pageConfiguration, $regex) {

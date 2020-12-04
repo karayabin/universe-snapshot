@@ -1,6 +1,6 @@
 TheBar
 ======
-2015-11-03 -> 2020-11-13
+2015-11-03 -> 2020-11-30
 
 
 
@@ -13,9 +13,11 @@ Listen to some of our customer's stories.
 - [Basic security nugget](https://github.com/lingtalfi/TheBar/blob/master/discussions/basic-security-nugget.md): a discussion about the basic security nugget
 - [clever form initiative](https://github.com/lingtalfi/TheBar/blob/master/discussions/clever-form-initiative.md): the clever form initiative document
 - [create-file](https://github.com/lingtalfi/TheBar/blob/master/discussions/create-file.md): the create file
+- [curious notations in light](https://github.com/lingtalfi/TheBar/blob/master/discussions/curious-notations-in-light.md): the curious notations in light memo
 - [database identity usurpation](https://github.com/lingtalfi/TheBar/blob/master/discussions/database-identity-usurpation.md): a discussion about some database identity usurpation 
 - [DevicesResolutions](https://github.com/lingtalfi/TheBar/blob/master/DevicesResolutions/devices-resolutions.md): devices resolutions cheat sheet
 - [docblock comment](https://github.com/lingtalfi/TheBar/blob/master/discussions/docblock-comment.md): a doc block comment definition
+- [error logging convention](https://github.com/lingtalfi/TheBar/blob/master/discussions/error-logging-convention.md): the error logging convention document
 - [file-manager-protocol](https://github.com/lingtalfi/TheBar/blob/master/discussions/file-manager-protocol.md): the file manager protocol 
 - [flat-filesystem](https://github.com/lingtalfi/TheBar/blob/master/discussions/flat-filesystem.md): A flat filesystem 
 - [form multiplier trick](https://github.com/lingtalfi/TheBar/blob/master/discussions/form-multiplier.md): a discussion about php session security
@@ -53,6 +55,30 @@ uni import Ling/TheBar
 
 History Log
 ===============
+    
+- 1.24.19 -- 2020-11-30
+
+    - add "error logging convention" document
+    
+- 1.24.18 -- 2020-11-26
+
+    - add "curious notations in light" document
+    
+- 1.24.17 -- 2020-11-20
+
+    - update form-multiplier document, removed the update case
+    
+- 1.24.16 -- 2020-11-19
+
+    - update form-multiplier document, add "The multiplier array" reference
+    
+- 1.24.15 -- 2020-11-19
+
+    - update form-multiplier document, changed pivot to owner (makes more sense)
+    
+- 1.24.14 -- 2020-11-19
+
+    - update form-multiplier document, new conception
     
 - 1.24.13 -- 2020-11-13
 

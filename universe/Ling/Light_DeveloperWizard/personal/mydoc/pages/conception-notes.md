@@ -1,6 +1,6 @@
 Light_DeveloperWizard, conception notes
 ===========
-2020-06-30 -> 2020-07-07
+2020-06-30 -> 2020-12-03
 
 
 
@@ -72,7 +72,7 @@ In order to facilitate your work, the wizard uses some conventions.
 
 How to get started
 --------
-2020-06-30
+2020-06-30 -> 2020-12-03
 
 
 
@@ -85,7 +85,11 @@ Then to use the wizard, create a file at your web root, and paste the following 
 ```php
 <?php
 
-require_once "app.init.inc.php";
+
+require_once __DIR__ . "/../scripts/Ling/Light/app.init.inc.php";
+
+
+
 
 $container->get("developer_wizard")->runWizard();
 

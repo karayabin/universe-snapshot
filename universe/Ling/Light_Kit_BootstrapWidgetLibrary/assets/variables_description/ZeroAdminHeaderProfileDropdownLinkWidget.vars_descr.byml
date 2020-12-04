@@ -50,7 +50,7 @@ vars:
                     The url of the link.
                     The following example uses the lazy reference resolver system provided by Light_Kit.
                 >
-                example: (::ROUTE::)/pages/u-profile
+                example: ::(@reverse_router->getUrl(/pages/u-profile))::
             icon:
                 type: string
                 default_value: ""
@@ -87,29 +87,29 @@ example: <
         pseudo: ${pseudo}
         links: 
             - 
-                url: (::ROUTE::)/pages/u-profile
+                url: ::(@reverse_router->getUrl(/pages/u-profile))::
                 icon: fas fa-user
                 text: Profile
             
             - 
-                url: (::ROUTE::)/pages/b-settings
+                url: ::(@reverse_router->getUrl(/pages/b-settings))::
                 icon: fas fa-cog
                 text: Settings
             
             - 
-                url: (::ROUTE::)/pages/m-inbox
+                url: ::(@reverse_router->getUrl(/pages/m-inbox))::
                 icon: far fa-envelope
                 text: Messages
                 badge_text: 7
                 badge_class: badge-success
             
             - 
-                url: (::ROUTE::)/pages/b-faq
+                url: ::(@reverse_router->getUrl(/pages/b-faq))::
                 icon: far fa-question-circle
                 text: Help
             
             - 
-                url: (::ROUTE::)/pages/b-login
+                url: ::(@reverse_router->getUrl(/pages/b-login))::
                 icon: fas fa-sign-out-alt
                 text: Logout
             

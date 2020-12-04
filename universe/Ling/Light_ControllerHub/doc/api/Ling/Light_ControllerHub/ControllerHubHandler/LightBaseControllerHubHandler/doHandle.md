@@ -76,7 +76,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightBaseControllerHubHandler::doHandle](https://github.com/lingtalfi/Light_ControllerHub/blob/master/ControllerHubHandler/LightBaseControllerHubHandler.php#L79-L104)
+See the source code for method [LightBaseControllerHubHandler::doHandle](https://github.com/lingtalfi/Light_ControllerHub/blob/master/ControllerHubHandler/LightBaseControllerHubHandler.php#L78-L101)
 
 
 See Also

@@ -172,7 +172,78 @@ class DebugTool
     }
 
 
-    public static function toString($thing)
+    /**
+     * Returns a debug_backtrace like string.
+     *
+     * Available options are:
+     *
+     * - skip: int=0, how many lines to drop from the beginning.
+     * - strMaxLen: int=null, if an argument is of type string how many chars max to display.
+     *      If null, all the chars are displayed.
+     *
+     *
+     * @param array $options
+     * @return array
+     */
+    public static function getTraceAsString(array $options = []): string
+    {
+
+        $skip = (int)($options['skip'] ?? 0);
+        $strMaxLen = $options['strMaxLen'] ?? null;
+
+
+        $s = '';
+        $trace = debug_backtrace(0);
+
+
+        $j = 0;
+        foreach ($trace as $k => $info) {
+            while ($skip > 0) {
+                $skip--;
+                continue 2;
+            }
+            $file = $info['file'] ?? '';
+            $line = $info['line'] ?? '';
+            $class = $info['class'] ?? '';
+            $type = $info['type'] ?? '';
+            $function = $info['function'] ?? '';
+            $args = $info['args'];
+            $sArgs = '';
+            $n = 0;
+            foreach ($args as $arg) {
+                if (0 !== $n++) {
+                    $sArgs .= ', ';
+                }
+                $sArgs .= DebugTool::toString($arg, [
+                    'expandArray' => false,
+                    'strMaxLen' => $strMaxLen,
+                    'strCompact' => true,
+                ]);
+            }
+            $s .= '#' . $j++ . " $file($line): $class${type}${function}($sArgs)" . PHP_EOL;
+        }
+        return $s;
+    }
+
+    /**
+     * Returns a string representing the given thing.
+     *
+     *
+     * Available options are:
+     *
+     * - expandArray: bool=true. Whether to display the content of the arrays.
+     *          If false, the word "array" will be used instead.
+     * - strMaxLen: int=null, if the thing is of type string how many chars max to display.
+     *      If null, all the chars are displayed.
+     * - strCompact: bool = false. If true and type is string, reduce all long white spaces to one space, and returns the trimmed result.
+     *
+     *
+     * @param $thing
+     * @param array $options
+     *
+     * @return string
+     */
+    public static function toString($thing, array $options = [])
     {
         /**
          * inspired by
@@ -190,7 +261,32 @@ class DebugTool
         } elseif (is_callable($thing)) {
             return self::callableToString($thing);
         } elseif (is_array($thing)) {
-            return ArrayToStringTool::toInlinePhpArray($thing);
+            $expand = $options['expandArray'] ?? true;
+            if (true === $expand) {
+                return ArrayToStringTool::toInlinePhpArray($thing);
+            }
+            return 'array';
+        } elseif (is_string($thing)) {
+
+
+
+            $strCompact = $options['strCompact'] ?? false;
+            if (true === $strCompact) {
+                $thing = StringTool::getCompactString($thing);
+            }
+
+
+            $strMaxLen = $options['strMaxLen'] ?? null;
+            if (null !== $strMaxLen) {
+                $strMaxLen = (int)$strMaxLen;
+                $len = strlen($thing);
+                if ($len > $strMaxLen) {
+                    $thing = substr($thing, 0, $strMaxLen) . "...";
+                }
+            }
+
+
+            return $thing;
         } elseif (is_scalar($thing)) {
             return $thing;
         } elseif (is_object($thing)) {

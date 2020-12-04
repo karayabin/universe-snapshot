@@ -1,8 +1,8 @@
 function f(jBtn, rics, jContainer, jTable, params) {
 
 
-
-    if (true === LightKitAdminEnvironment.confirm("Are you sure you want to delete the selected rows?")) {
+    var useConfirmExecute = ('confirmexecute-text' in params);
+    var func = function (options) {
         /**
          * Warning:
          *
@@ -13,6 +13,7 @@ function f(jBtn, rics, jContainer, jTable, params) {
          *
          */
         params.rics = rics;
+        options = options || {};
 
         AcpHepHelper.post(params.url, params, function () {
 
@@ -23,6 +24,9 @@ function f(jBtn, rics, jContainer, jTable, params) {
                 onSuccess: function () {
                     var laHelper = RealistRegistry.getListActionHelper();
                     laHelper.updateButtonStatuses();
+                    if ('onSuccessAfter' in options) {
+                        options["onSuccessAfter"]();
+                    }
                 },
             });
 
@@ -30,7 +34,22 @@ function f(jBtn, rics, jContainer, jTable, params) {
         }, function (err) {
             LightKitAdminEnvironment.toast("Error", err, "error");
         });
+    };
 
 
+    if (true === useConfirmExecute) {
+        var ceOptions = {};
+        for (var k in params) {
+            if ('confirmexecute-' === k.substr(0, 15)) {
+                var optionName = k.substr(15);
+                ceOptions[optionName] = params[k];
+            }
+        }
+        LightKitAdminEnvironment.confirmExecute(params['confirmexecute-text'], func, ceOptions);
+    } else {
+        if (true === LightKitAdminEnvironment.confirm("Are you sure you want to delete the selected rows?")) {
+            func();
+        }
     }
+
 }

@@ -28,6 +28,14 @@ $field_password = $z['field_password'] ?? [
         "label" => "Password",
         "value" => "",
     ];
+
+
+$field_remember_me = $z['field_remember_me'] ?? [
+        'name' => 'remember_me',
+        'label' => 'Remember me',
+        'value' => false,
+    ];
+
 $btn_submit = $z['btn_submit'] ?? [
         "class" => "btn btn-primary px-4",
         "text" => "Login",
@@ -37,6 +45,7 @@ $link_forgot_password = $z['link_forgot_password'] ?? [
         "text" => "Forgot password?",
     ];
 $use_link_forgot_password = $z['use_link_forgot_password'] ?? true;
+$use_remember_me = $z['use_remember_me'] ?? true;
 
 
 ?>
@@ -87,7 +96,7 @@ $use_link_forgot_password = $z['use_link_forgot_password'] ?? true;
                                         value="<?php echo htmlspecialchars($field_username['value']); ?>"
                                 >
                             </div>
-                            <div class="input-group mb-4">
+                            <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                 <span class="input-group-text">
                                 <i class="<?php echo htmlspecialchars($field_password['icon']); ?>"></i>
@@ -99,6 +108,24 @@ $use_link_forgot_password = $z['use_link_forgot_password'] ?? true;
                                        value="<?php echo htmlspecialchars($field_password['value']); ?>"
                                 >
                             </div>
+
+
+                            <?php if (true === $use_remember_me): ?>
+                                <div class="input-group mb-4 d-flex justify-content-start">
+                                    <div class="form-group form-check">
+                                        <input type="checkbox" class="form-check-input" id="exampleCheck1"
+                                               name="<?php echo htmlspecialchars($field_remember_me['name']); ?>"
+                                            <?php if (true === (bool)$field_remember_me['value']): ?>
+                                                checked
+                                            <?php endif; ?>
+                                        >
+                                        <label class="form-check-label"
+                                               for="exampleCheck1"><?php echo $field_remember_me['label']; ?></label>
+                                    </div>
+                                </div>
+                            <?php endif; ?>
+
+
                             <div class="row">
                                 <div class="col-6">
                                     <button type="submit" class="<?php echo htmlspecialchars($btn_submit['class']); ?>">

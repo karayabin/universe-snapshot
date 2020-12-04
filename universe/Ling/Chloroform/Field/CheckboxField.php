@@ -36,11 +36,19 @@ class CheckboxField extends AbstractField
 
 
     /**
+     * This property holds the isBoolean for this instance.
+     * @var bool
+     */
+    protected $isBoolean;
+
+
+    /**
      * @overrides
      */
     public function __construct(array $properties = [])
     {
         parent::__construct($properties);
+        $this->isBoolean = $properties['bool'] ?? false;
         $this->items = [];
     }
 
@@ -84,4 +92,21 @@ class CheckboxField extends AbstractField
             "items" => $this->items,
         ]);
     }
+
+    /**
+     * @overrides
+     */
+    public function getFormattedValue()
+    {
+        if (true === $this->isBoolean) {
+            if (null === $this->value) {
+                return "0";
+            }
+            return "1";
+        }
+        return parent::getFormattedValue();
+
+    }
+
+
 }

@@ -1,6 +1,6 @@
 Light_Kit_Admin
 ===========
-2019-10-24 -> 2020-08-21
+2019-10-24 -> 2020-12-03
 
 
 
@@ -10,6 +10,8 @@ An admin system with gui for the [Light](https://github.com/lingtalfi/Light) fra
 
 
 This is a [Light framework plugin](https://github.com/lingtalfi/Light/blob/master/doc/pages/plugin.md).
+
+It's based on the [Light_Kit](https://github.com/lingtalfi/Light_Kit) planet.
 
 This is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
 
@@ -73,6 +75,7 @@ kit_admin:
             container: @container()
         setOptions:
             options:
+                lang: eng
                 login:
                     # Used by LoginFormController to redirect the user after a successful connection on the login form.
                     on_success_route: lka_route-home
@@ -131,40 +134,18 @@ $bullsheet.methods_collection:
 
 
 
-$chloroform_extension.methods_collection:
-    -
-        method: registerTableListConfigurationHandler
-        args:
-            plugin: Light_Kit_Admin
-            handler:
-                instance: Ling\Light_Kit_Admin\ChloroformExtension\LightKitAdminTableListConfigurationHandler
-                methods:
-                    setConfigurationFile:
-                        files:
-                            - ${app_dir}/config/data/Light_Kit_Admin/Light_ChloroformExtension/generated/lkagen-table_list.byml
-                            - ${app_dir}/config/data/Light_Kit_Admin/Light_ChloroformExtension/table_list.byml
 
 
-$controller_hub.methods_collection:
-    -
-        method: registerHandler
-        args:
-            plugin: Light_Kit_Admin
-            handler:
-                instance: Ling\Light_Kit_Admin\ControllerHub\LightKitAdminControllerHubHandler
-                methods:
-                    setContainer:
-                        container: @container()
-
-$crud.methods_collection:
-    -
-        method: registerHandler
-        args:
-            pluginId: Light_Kit_Admin
-            handler:
-                instance: Ling\Light_Kit_Admin\Crud\CrudRequestHandler\LightKitAdminCrudRequestHandler
-
-
+#$controller_hub.methods_collection:
+#    -
+#        method: registerHandler
+#        args:
+#            plugin: Light_Kit_Admin
+#            handler:
+#                instance: Ling\Light_Kit_Admin\ControllerHub\LightKitAdminControllerHubHandler
+#                methods:
+#                    setContainer:
+#                        container: @container()
 
 $easy_route.methods_collection:
     -
@@ -173,7 +154,18 @@ $easy_route.methods_collection:
             file: config/data/Light_Kit_Admin/Light_EasyRoute/lka_routes.byml
 
 
+
+
+
 $events.methods_collection:
+    -
+        method: registerListener
+        args:
+            events:
+                - Light_Kit_Admin.on_user_successful_connexion
+            listener:
+                instance: @service(kit_admin)
+                callable_method: onWebsiteUserLogin
     -
         method: registerListener
         args:
@@ -206,16 +198,6 @@ $plugin_installer.methods_collection:
             installer: @service(kit_admin)
 
 
-$realform.methods_collection:
-    -
-        method: registerFormHandler
-        args:
-            plugin: Light_Kit_Admin
-            handler:
-                instance: Ling\Light_Kit_Admin\Realform\Handler\LightKitAdminRealformHandler
-                methods:
-                    setConfDir:
-                        dir: ${app_dir}/config/data/Light_Kit_Admin/Light_Realform
 
 
 $realist.methods_collection:
@@ -226,29 +208,11 @@ $realist.methods_collection:
             renderer:
                 instance: Ling\Light_Kit_Admin\Realist\Rendering\LightKitAdminRealistListRenderer
     -
-        method: registerRealistRowsRenderer
+        method: registerListItemRenderer
         args:
             identifier: Light_Kit_Admin
             renderer:
-                instance: Ling\Light_Kit_Admin\Realist\Rendering\LightKitAdminRealistRowsRenderer
-    -
-        method: registerActionHandler
-        args:
-            renderer:
-                instance: Ling\Light_Kit_Admin\Realist\ActionHandler\LightKitAdminRealistActionHandler
-    -
-        method: registerListActionHandler
-        args:
-            plugin: Light_Kit_Admin
-            renderer:
-                instance: Ling\Light_Kit_Admin\Realist\ListActionHandler\LightKitAdminListActionHandler
-    -
-        method: registerListGeneralActionHandler
-        args:
-            plugin: Light_Kit_Admin
-            renderer:
-                instance: Ling\Light_Kit_Admin\Realist\ListGeneralActionHandler\LightKitAdminListGeneralActionHandler
-
+                instance: Ling\Light_Kit_Admin\Realist\Rendering\LightKitAdminRealistListItemRenderer
 
 
 
@@ -287,9 +251,22 @@ $user_database_vars.bullsheeter_avatar_img_dir: ${app_dir}/www/plugins/Light_Kit
 History Log
 =============
         
---- 0.12.1 -- 2020-08-21
+-- 0.12.4 -- 2020-12-03
 
-    - doc update
+    - add concept of lka_parent_layout variable
+    
+- 0.12.3 -- 2020-12-01
+
+    - update login form, now accepts remember me
+    - update api to accommodate latest ControllerHub api
+    
+- 0.12.2 -- 2020-11-27
+
+    - update to accommodate latest Light_Kit api
+    
+- 0.12.1 -- 2020-11-23
+
+    - checkpoint commit
     
 - 0.12.0 -- 2020-08-21
 

@@ -1,6 +1,6 @@
 Ling/Light_Mailer
 ================
-2020-06-29 --> 2020-08-17
+2020-06-29 --> 2020-11-30
 
 
 
@@ -17,6 +17,7 @@ Table of contents
     - [LightMailerService::setSender](https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Service/LightMailerService/setSender.md) &ndash; Sets a sender.
     - [LightMailerService::setSenders](https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Service/LightMailerService/setSenders.md) &ndash; Sets the senders.
     - [LightMailerService::setOptions](https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Service/LightMailerService/setOptions.md) &ndash; Sets the options.
+    - [LightMailerService::registerTemplatePartsDirectory](https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Service/LightMailerService/registerTemplatePartsDirectory.md) &ndash; Registers a template parts directory with the given $alias.
     - [LightMailerService::send](https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Service/LightMailerService/send.md) &ndash; Sends the email which template id was given to the recipientList, and returns the number of successful emails sent, (including bcc and cc recipients if defined).
 
 

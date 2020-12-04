@@ -1,6 +1,6 @@
 Chloroform
 ===========
-2019-04-12 -> 2020-11-10
+2019-04-12 -> 2020-12-01
 
 
 
@@ -547,6 +547,10 @@ Here is a list of known chloroform renderers:
 History Log
 =============
 
+- 1.36.4 -- 2020-12-01
+
+    - update CheckboxField, now accepts bool property 
+    
 - 1.36.3 -- 2020-11-10
 
     - update api, the concept of data transformer is now deprecated 

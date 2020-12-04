@@ -49,7 +49,7 @@ Returns array | false.
 
 Source Code
 ===========
-See the source code for method [LightRouter::getMatchingRoute](https://github.com/lingtalfi/Light/blob/master/Router/LightRouter.php#L48-L51)
+See the source code for method [LightRouter::getMatchingRoute](https://github.com/lingtalfi/Light/blob/master/Router/LightRouter.php#L54-L57)
 
 
 See Also

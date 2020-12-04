@@ -47,6 +47,8 @@ class CustomResourceApi extends ResourceApi implements CustomResourceApiInterfac
      */
     public function getBaseResourceInfoByResourceIdentifier(string $resourceIdentifier, array $options = [])
     {
+
+
         $useTags = $options['tags'] ?? false;
         list($userId, $canonical) = LightUserDataHelper::extractResourceIdentifier($resourceIdentifier);
 

@@ -9,7 +9,7 @@ use Ling\Bat\MimeTypeTool;
 use Ling\Light\Http\HttpRequestInterface;
 use Ling\Light\Http\HttpResponse;
 use Ling\Light\Http\HttpResponseInterface;
-use Ling\Light_HttpError\Controller\LightHttpErrorController;
+use Ling\Light_SimpleHttpServer\Controller\LightSimpleHttpServerController;
 use Ling\Light_UserData\Exception\LightUserDataException;
 use Ling\Light_UserData\FileManager\LightUserDataVirtualFileManagerHandler;
 use Ling\Light_UserData\Service\LightUserDataService;
@@ -19,7 +19,7 @@ use Ling\Panda_Headers\Panda_Headers_Tool;
 /**
  * The LightUserDataController class.
  */
-class LightUserDataController extends LightHttpErrorController
+class LightUserDataController extends LightSimpleHttpServerController
 {
 
     /**
@@ -45,7 +45,6 @@ class LightUserDataController extends LightHttpErrorController
         $original = (bool)($get['o'] ?? false);
         $useVirtual = (bool)($get['v'] ?? false);
         $httpErrorCode = null;
-
 
         if (true === $useVirtual) {
             //--------------------------------------------
@@ -152,6 +151,7 @@ class LightUserDataController extends LightHttpErrorController
         } else {
             $response = new HttpResponse("", $httpErrorCode);
         }
+
 
         return $response;
 

@@ -4,7 +4,7 @@
 
 The ConfigHelper class
 ================
-2020-06-30 --> 2020-09-18
+2020-06-30 --> 2020-12-03
 
 
 
@@ -60,4 +60,4 @@ See the source code of [Ling\Light_DeveloperWizard\Helper\ConfigHelper](https://
 
 SeeAlso
 ==============
-Previous class: [LightDeveloperWizardException](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/Exception/LightDeveloperWizardException.md)<br>Next class: [DeveloperWizardBreezeGeneratorHelper](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/Helper/DeveloperWizardBreezeGeneratorHelper.md)<br>
+Previous class: [LightDeveloperWizardException](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/Exception/LightDeveloperWizardException.md)<br>Next class: [CreateFileHelper](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/Helper/CreateFileHelper.md)<br>

@@ -7,7 +7,7 @@ LightKitAdminListActionHandler::execute
 
 
 
-LightKitAdminListActionHandler::execute — Executes the list action (called via ajax) identified by the given action name and returns the ajax response.
+LightKitAdminListActionHandler::execute — Executes the list action (called via ajax) identified by the given action id and returns the ajax response in alcp format.
 
 
 
@@ -16,12 +16,13 @@ Description
 ================
 
 
-public [LightKitAdminListActionHandler::execute](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Realist/ListActionHandler/LightKitAdminListActionHandler/execute.md)(string $actionName, array $params) : array
+public [LightKitAdminListActionHandler::execute](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Realist/ListActionHandler/LightKitAdminListActionHandler/execute.md)(string $actionId, ?array $params = []) : array
 
 
 
 
-Executes the list action (called via ajax) identified by the given action name and returns the ajax response.
+Executes the list action (called via ajax) identified by the given action id and returns the ajax response in alcp format.
+See more about [alcp protocol](https://github.com/lingtalfi/Light_AjaxHandler/blob/master/doc/pages/ajax-light-communication-protocol.md).
 
 
 
@@ -30,7 +31,7 @@ Parameters
 ================
 
 
-- actionName
+- actionId
 
     
 
@@ -58,7 +59,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightKitAdminListActionHandler::execute](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Realist/ListActionHandler/LightKitAdminListActionHandler.php#L80-L105)
+See the source code for method [LightKitAdminListActionHandler::execute](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Realist/ListActionHandler/LightKitAdminListActionHandler.php#L173-L242)
 
 
 See Also
@@ -66,5 +67,5 @@ See Also
 
 The [LightKitAdminListActionHandler](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Realist/ListActionHandler/LightKitAdminListActionHandler.md) class.
 
-Previous method: [prepare](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Realist/ListActionHandler/LightKitAdminListActionHandler/prepare.md)<br>Next method: [executeDeleteRowsListAction](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Realist/ListActionHandler/LightKitAdminListActionHandler/executeDeleteRowsListAction.md)<br>
+Previous method: [prepareListAction](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Realist/ListActionHandler/LightKitAdminListActionHandler/prepareListAction.md)<br>Next method: [executeDeleteRowsListAction](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Realist/ListActionHandler/LightKitAdminListActionHandler/executeDeleteRowsListAction.md)<br>
 

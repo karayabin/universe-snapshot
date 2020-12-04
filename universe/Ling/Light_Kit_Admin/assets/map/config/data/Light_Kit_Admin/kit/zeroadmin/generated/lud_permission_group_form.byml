@@ -14,5 +14,5 @@ zones:
                 related_links: 
                     -
                         text: See the list of "Permission group" items
-                        url: (::ROUTE::)lch_route-hub::{plugin: Light_Kit_Admin, controller: Generated/LudPermissionGroupController}
+                        url: ::(@reverse_router->getUrl( lch_route-hub, {plugin: Light_Kit_Admin, controller: Generated/LudPermissionGroupController} ))::
                         icon: fas fa-plus-circle

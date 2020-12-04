@@ -1,6 +1,6 @@
 Octopus
 =======
-2019-02-07
+2019-02-07 -> 2020-12-01
 
 
 
@@ -89,6 +89,10 @@ Octopus comes with two versions:
 History Log
 ------------------
 
+- 1.4.1 -- 2020-12-01
+
+    - update blue octopus, add getOwnMethods method
+    
 - 1.4.0 -- 2019-05-02
 
     - add @container() notation for red and blue octopuses

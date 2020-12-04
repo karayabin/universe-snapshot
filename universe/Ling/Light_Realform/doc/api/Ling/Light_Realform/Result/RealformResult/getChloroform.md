@@ -46,7 +46,7 @@ Returns [Chloroform](https://github.com/lingtalfi/Chloroform).
 
 Source Code
 ===========
-See the source code for method [RealformResult::getChloroform](https://github.com/lingtalfi/Light_Realform/blob/master/Result/RealformResult.php#L55-L58)
+See the source code for method [RealformResult::getChloroform](https://github.com/lingtalfi/Light_Realform/blob/master/Result/RealformResult.php#L62-L65)
 
 
 See Also

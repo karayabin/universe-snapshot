@@ -44,6 +44,24 @@ class MetaInfoTool
 
 
     /**
+     * Returns the version number associated with the given planetDir, if found in the meta-info file.
+     * If not, null is returned.
+     * @param string $planetDir
+     */
+    public static function getVersion(string $planetDir)
+    {
+        $ret = null;
+        if (is_dir($planetDir)) {
+            $metaFile = $planetDir . "/meta-info.byml";
+            if (is_file($metaFile)) {
+                $info = BabyYamlUtil::readFile($metaFile);
+                $ret = $info['version'] ?? null;
+            }
+        }
+        return $ret;
+    }
+
+    /**
      * Writes the given meta $info to the meta-info.byml file of the given $planetDir.
      *
      * @param string $planetDir

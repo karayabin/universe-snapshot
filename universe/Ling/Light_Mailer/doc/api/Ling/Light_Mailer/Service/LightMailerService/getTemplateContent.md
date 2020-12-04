@@ -22,6 +22,9 @@ protected [LightMailerService::getTemplateContent](https://github.com/lingtalfi/
 
 
 Returns the raw template content(s) corresponding to the given template id.
+
+Template parts references, if any.
+
 The return is an array containing:
 
 0: html, string|null: the html content (or null if not defined)
@@ -29,11 +32,12 @@ The return is an array containing:
 2: subject string|null, the subject of the email (or null if not defined)
 
 
+
 Security warning: for now we trust the templateId provider, which means you can use path escalation
 to call unexpected files out of the mailer root dir.
 
 
-Note: raw means no variable is interpreted yet.
+Note: raw means no variable is interpreted yet (but template references are).
 
 
 
@@ -66,7 +70,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightMailerService::getTemplateContent](https://github.com/lingtalfi/Light_Mailer/blob/master/Service/LightMailerService.php#L404-L441)
+See the source code for method [LightMailerService::getTemplateContent](https://github.com/lingtalfi/Light_Mailer/blob/master/Service/LightMailerService.php#L454-L504)
 
 
 See Also
@@ -74,5 +78,5 @@ See Also
 
 The [LightMailerService](https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Service/LightMailerService.md) class.
 
-Previous method: [sendMessage](https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Service/LightMailerService/sendMessage.md)<br>Next method: [getTransport](https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Service/LightMailerService/getTransport.md)<br>
+Previous method: [sendMessage](https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Service/LightMailerService/sendMessage.md)<br>Next method: [resolveTemplatePartsReferences](https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Service/LightMailerService/resolveTemplatePartsReferences.md)<br>
 

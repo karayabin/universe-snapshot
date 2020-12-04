@@ -70,7 +70,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [Light_CrudDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Light_Crud/Light_CrudDocBuilder.php#L45-L215)
+See the source code for method [Light_CrudDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Light_Crud/Light_CrudDocBuilder.php#L45-L217)
 
 
 See Also

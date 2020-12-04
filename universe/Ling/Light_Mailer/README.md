@@ -1,6 +1,6 @@
 Light_Mailer
 ===========
-2020-06-29 -> 2020-08-17
+2020-06-29 -> 2020-11-30
 
 
 
@@ -55,18 +55,10 @@ mailer:
             options:
                 useDebug: true              # default is false
                 useSendFailuresLog: true    # default is true
-        setTransports:
-            transports:
-                default:
-                    type: smtp
-                    host: sslmail.fai.com
-                    port: 995
-                    username: contact@mywebsite.com
-                    password: abcdefg123
-        setSenders:
-            senders:
-                default:
-                    from: contact@mywebsite.com
+        registerTemplatePartsDirectory:
+            alias: template
+            path: ${app_dir}/templates/app/mailer_template_parts
+
 
 
 # --------------------------------------
@@ -98,7 +90,6 @@ $logger.methods_collection:
 
 
 
-
 ```
 
 
@@ -106,6 +97,18 @@ $logger.methods_collection:
 History Log
 =============
 
+- 1.3.3 -- 2020-11-30
+
+    - update LightMailerService->send, now template parts references are also possible in the mail subject
+    
+- 1.3.2 -- 2020-11-30
+
+    - update LightMailerService->send, add errMode option
+    
+- 1.3.1 -- 2020-11-30
+
+    - add template parts reference concept
+    
 - 1.3.0 -- 2020-08-17
 
     - update LightMailerService, add setSender and setTransport methods

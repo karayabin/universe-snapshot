@@ -7,6 +7,7 @@ namespace Ling\BabyYaml\Writer;
 use Ling\BabyYaml\Exception\BabyYamlException;
 use Ling\BabyYaml\Helper\BdotTool;
 use Ling\Bat\FileSystemTool;
+use Ling\CheapLogger\CheapLogger;
 
 /**
  * BabyYamlWriter.
@@ -133,8 +134,10 @@ class BabyYamlWriter
             $valueToProcess = $v;
 
 
+
             $breadcrumbs[] = str_replace('.', '\\.', $k);
             $currentPath = implode('.', $breadcrumbs);
+
 
 
             $nodeInfo = [];
@@ -162,6 +165,10 @@ class BabyYamlWriter
             // user comment override
             //--------------------------------------------
             if (array_key_exists($currentPath, $userComments)) {
+
+
+                CheapLogger::log("found comment");
+
                 $userCommentInfo = $userComments[$currentPath];
                 if (array_key_exists('inline', $userCommentInfo)) {
                     foreach ($commentItems as $k8 => $commentItem) {
@@ -190,6 +197,8 @@ class BabyYamlWriter
                     ];
                 }
                 if (array_key_exists('block', $userCommentInfo)) {
+
+                    CheapLogger::log("found block");
                     foreach ($commentItems as $k8 => $commentItem) {
                         if ('block' === $commentItem[0]) {
                             unset($commentItems[$k8]);

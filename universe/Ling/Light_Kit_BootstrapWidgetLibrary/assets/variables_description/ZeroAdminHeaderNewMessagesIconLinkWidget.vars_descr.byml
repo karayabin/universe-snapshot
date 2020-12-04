@@ -40,7 +40,7 @@ vars:
         type: array
         default_value: none
         description: The array of messages. The example below uses the lazy reference resolver system from Light_Kit.
-        example: (::METHOD_CALL::)Ling\Light_Kit_Admin\DataExtractor\MessagesDataExtractor->extractNewest(5)
+        example: ::(Ling\Light_Kit_Admin\DataExtractor\MessagesDataExtractor->extractNewest(5))::
     view_all_link:
         type: string
         default_value: ""
@@ -48,7 +48,7 @@ vars:
             The url leading to all the messages. If empty, the "view all" link will not be displayed.
             The example below uses the lazy reference resolver system from Light_Kit.
         >
-        example: (::ROUTE::)/pages/m-inbox
+        example: ::(@reverse_router->getUrl(/pages/m-inbox))::
     view_all_text:
         type: string
         default_value: Read All
@@ -71,8 +71,8 @@ example: <
         icon: fas fa-envelope
         badge: badge badge-pill badge-warning
         header_text_format: You have %s messages
-        model: (::METHOD_CALL::)Ling\Light_Kit_Admin\DataExtractor\MessagesDataExtractor->extractNewest(5)
-        view_all_link: (::ROUTE::)/pages/m-inbox
+        model: ::(Ling\Light_Kit_Admin\DataExtractor\MessagesDataExtractor->extractNewest(5))::
+        view_all_link: ::(@reverse_router->getUrl(/pages/m-inbox))::
         view_all_text: Read All Messages
         view_all_icon: fas fa-envelope
 >

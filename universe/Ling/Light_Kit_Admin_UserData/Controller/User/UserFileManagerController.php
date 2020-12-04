@@ -22,14 +22,8 @@ class UserFileManagerController extends AdminPageController
     public function render()
     {
 
-
-        az(__FILE__);
-
-//        return $this->renderAdminPage($page, [
-//            "form" => $form,
-//            "is_root" => RightsHelper::isRoot($container),
-//            "rights" => RightsHelper::getGroupedRights($user->getRights()),
-//        ]);
+        $page = 'Light_Kit_Admin_UserData/kit/zeroadmin/file_manager';
+        return $this->renderAdminPage($page, []);
     }
 
 }

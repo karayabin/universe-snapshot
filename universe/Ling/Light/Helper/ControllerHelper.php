@@ -4,6 +4,7 @@
 namespace Ling\Light\Helper;
 
 
+use Ling\CheapLogger\CheapLogger;
 use Ling\Light\Controller\RouteAwareControllerInterface;
 use Ling\Light\Core\Light;
 use Ling\Light\Core\LightAwareInterface;
@@ -208,7 +209,7 @@ class ControllerHelper
                         $controllerArgs[] = $httpRequest;
                     } elseif ("Ling\Light\ServiceContainer\LightServiceContainerInterface" === $hintType) {
                         $controllerArgs[] = $light->getContainer();
-                    }elseif ("Ling\Light\Http\HttpResponse" === $hintType) {
+                    } elseif ("Ling\Light\Http\HttpResponse" === $hintType) {
                         $controllerArgs[] = new HttpResponse();
                     }
                 } else {

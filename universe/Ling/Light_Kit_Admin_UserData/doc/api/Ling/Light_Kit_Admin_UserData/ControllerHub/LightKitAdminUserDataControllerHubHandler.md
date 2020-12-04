@@ -4,7 +4,7 @@
 
 The LightKitAdminUserDataControllerHubHandler class
 ================
-2020-02-28 --> 2020-08-21
+2020-02-28 --> 2020-11-27
 
 
 
@@ -63,4 +63,4 @@ See the source code of [Ling\Light_Kit_Admin_UserData\ControllerHub\LightKitAdmi
 
 SeeAlso
 ==============
-Previous class: [UserFileManagerController](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/doc/api/Ling/Light_Kit_Admin_UserData/Controller/User/UserFileManagerController.md)<br>Next class: [LightKitAdminUserDataException](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/doc/api/Ling/Light_Kit_Admin_UserData/Exception/LightKitAdminUserDataException.md)<br>
+Previous class: [LightKitAdminUserDataControllerHubHandler](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/doc/api/Ling/Light_Kit_Admin_UserData/ControllerHub/Generated/LightKitAdminUserDataControllerHubHandler.md)<br>Next class: [LightKitAdminUserDataException](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/doc/api/Ling/Light_Kit_Admin_UserData/Exception/LightKitAdminUserDataException.md)<br>

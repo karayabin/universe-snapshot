@@ -4,7 +4,7 @@
 
 The HttpResponseInterface class
 ================
-2019-04-09 --> 2020-11-10
+2019-04-09 --> 2020-12-03
 
 
 
@@ -72,4 +72,4 @@ See the source code of [Ling\Light\Http\HttpResponseInterface](https://github.co
 
 SeeAlso
 ==============
-Previous class: [HttpResponse](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponse.md)<br>Next class: [LightRouter](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Router/LightRouter.md)<br>
+Previous class: [HttpResponse](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponse.md)<br>Next class: [VoidHttpRequest](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/VoidHttpRequest.md)<br>

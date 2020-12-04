@@ -54,17 +54,19 @@ class TableListField extends SelectField implements FormAwareFieldInterface
 
 
         $threshold = $properties['threshold'] ?? 200;
-        $mode = $properties['mode'] ?? 'default'; // default | multiplier
+        $multiplier = $properties['multiplier'] ?? false;
+
+
         //
         $properties['tableListIdentifier'] = $tableListIdentifier;
         $properties['tableListDirectiveId'] = $tableListDirectiveId;
+        $properties['multiplier'] = $multiplier;
 
         $properties['threshold'] = $threshold;
         $properties['size'] = $properties['size'] ?? null;
 
         $properties['renderAs'] = $properties['renderAs'] ?? "adapt"; // adapt|select|autocomplete
         $properties['useAutoComplete'] = false; // dynamically set (i.e. not configurable), this is for the renderer...
-        $properties['mode'] = $mode;
         parent::__construct($properties);
         $this->container = null;
         $this->isPrepared = false;
@@ -107,9 +109,13 @@ class TableListField extends SelectField implements FormAwareFieldInterface
         $this->prepareItems();
         $arr = parent::toArray();
 
-        if ('multiplier' === $this->properties['mode']) {
-            $arr['multiple'] = true;
+        if ('update' === $this->form->getMode()) {
+            $arr['multiple'] = false;
+        } else {
+            $arr['multiple'] = $this->properties['multiplier'] ?? false;
         }
+
+        $formMode = $this->form->getMode();
 
 
         //--------------------------------------------
@@ -122,7 +128,7 @@ class TableListField extends SelectField implements FormAwareFieldInterface
 //            $tableList = $this->container->get('chloroform_extension')->getTableListService($arr['tableListIdentifier']);
             $tableList = $this->getTableListService();
             $value = $arr['value'];
-            if ('insert' === $this->form->getMode()) { // insert mode
+            if ('insert' === $formMode) { // insert mode
                 $arr['autoCompleteValueToLabels'] = '';
             } else { // update mode
 

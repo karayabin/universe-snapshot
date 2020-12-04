@@ -54,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [ForgottenPasswordController::render](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Controller/ForgottenPasswordController.php#L25-L63)
+See the source code for method [ForgottenPasswordController::render](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Controller/ForgottenPasswordController.php#L28-L128)
 
 
 See Also

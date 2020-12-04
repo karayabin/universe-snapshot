@@ -1,6 +1,6 @@
 Ling/Light_Database
 ================
-2019-07-22 --> 2020-11-16
+2019-07-22 --> 2020-11-20
 
 
 
@@ -61,6 +61,7 @@ Dependencies
 - [Light_Logger](https://github.com/lingtalfi/Light_Logger)
 - [SimplePdoWrapper](https://github.com/lingtalfi/SimplePdoWrapper)
 - [ArrayToString](https://github.com/lingtalfi/ArrayToString)
+- [Bat](https://github.com/lingtalfi/Bat)
 - [CliTools](https://github.com/lingtalfi/CliTools)
 
 

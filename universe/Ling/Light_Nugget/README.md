@@ -1,6 +1,6 @@
 Light_Nugget
 ===========
-2020-08-21 -> 2020-10-15
+2020-08-21 -> 2020-12-03
 
 
 
@@ -64,6 +64,10 @@ nugget:
 History Log
 =============
 
+- 1.3.4 -- 2020-12-03
+
+    - update documentation, add "light execute notation" section
+    
 - 1.3.3 -- 2020-10-15
 
     - update LightNuggetService->getNuggetByPath method, now resolve light execute notation by default

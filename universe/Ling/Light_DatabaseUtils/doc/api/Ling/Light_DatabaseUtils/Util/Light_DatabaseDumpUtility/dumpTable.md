@@ -37,6 +37,8 @@ The available options are:
 - returnAsString: bool=false.
      If true, the method will not write the file to the filesystem, but instead return it
      as a string.
+- ignore: bool=false, whether to use the insert ignore statements
+- disableFkCheck: bool=false, whether to disable fk checks
 
 
 
@@ -77,7 +79,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [Light_DatabaseDumpUtility::dumpTable](https://github.com/lingtalfi/Light_DatabaseUtils/blob/master/Util/Light_DatabaseDumpUtility.php#L70-L154)
+See the source code for method [Light_DatabaseDumpUtility::dumpTable](https://github.com/lingtalfi/Light_DatabaseUtils/blob/master/Util/Light_DatabaseDumpUtility.php#L72-L178)
 
 
 See Also

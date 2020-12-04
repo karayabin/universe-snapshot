@@ -11,8 +11,9 @@ namespace Ling\Light_UserDatabase\Api\Generated\Interfaces;
 interface UserGroupHasPluginOptionApiInterface
 {
 
+
     /**
-     * Inserts the given userGroupHasPluginOption in the database.
+     * Inserts the given user group has plugin option in the database.
      * By default, it returns the result of the PDO::lastInsertId method.
      * If the returnRic flag is set to true, the method will return the ric array instead of the lastInsertId.
      *
@@ -20,7 +21,7 @@ interface UserGroupHasPluginOptionApiInterface
      * If the row you're trying to insert triggers a duplicate error, the behaviour of this method depends on
      * the ignoreDuplicate flag:
      * - if true, the error will be caught internally, the return of the method is not affected
-     * - if false, the error will not be caught, and depending on your configuration, it might either
+     * - if false, the error will not be caught, and depending on your pdo configuration, it might either
      *          trigger an exception, or fail silently in which case this method returns false.
      *
      *
@@ -34,7 +35,7 @@ interface UserGroupHasPluginOptionApiInterface
     public function insertUserGroupHasPluginOption(array $userGroupHasPluginOption, bool $ignoreDuplicate = true, bool $returnRic = false);
 
     /**
-     * Inserts the given userGroupHasPluginOption rows in the database.
+     * Inserts the given user group has plugin option rows in the database.
      * By default, it returns an array of the result of the PDO::lastInsertId method for each insert.
      * If the returnRic flag is set to true, the method will return an array of the ric array (for each insert) instead of the lastInsertId.
      *
@@ -56,7 +57,29 @@ interface UserGroupHasPluginOptionApiInterface
     public function insertUserGroupHasPluginOptions(array $userGroupHasPluginOptions, bool $ignoreDuplicate = true, bool $returnRic = false);
 
     /**
-     * Returns the userGroupHasPluginOption row identified by the given user_group_id and plugin_option_id.
+     * Returns the rows corresponding to given components.
+     * The components is an array of [fetch all components](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/pages/fetch-all-components.md).
+     *
+     *
+     * @param array $components
+     * @return array
+     */
+    public function fetchAll(array $components = []): array;
+
+
+    /**
+     *
+     * Returns the first row corresponding to given components, or false if there is no match.
+     *
+     * The components is an array of [fetch all components](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/pages/fetch-all-components.md).
+     *
+     * @param array $components
+     * @return array
+     */
+    public function fetch(array $components = []);
+
+    /**
+     * Returns the user group has plugin option row identified by the given user_group_id and plugin_option_id.
      *
      * If the row is not found, this method's return depends on the throwNotFoundEx flag:
      * - if true, the method throws an exception
@@ -161,15 +184,31 @@ interface UserGroupHasPluginOptionApiInterface
 
 
     /**
-     * Updates the userGroupHasPluginOption row identified by the given user_group_id and plugin_option_id.
+     * Updates the user group has plugin option row identified by the given user_group_id and plugin_option_id.
      *
      * @param int $user_group_id
 	 * @param int $plugin_option_id
      * @param array $userGroupHasPluginOption
+     * @param array $extraWhere
+     * @param array $markers
      * @return void
      * @throws \Exception
      */
-    public function updateUserGroupHasPluginOptionByUserGroupIdAndPluginOptionId(int $user_group_id, int $plugin_option_id, array $userGroupHasPluginOption);
+    public function updateUserGroupHasPluginOptionByUserGroupIdAndPluginOptionId(int $user_group_id, int $plugin_option_id, array $userGroupHasPluginOption, array $extraWhere = [], array $markers = []);
+
+
+
+
+    /**
+     * Updates the user group has plugin option row.
+     *
+     * @param array $userGroupHasPluginOption
+     * @param mixed $where
+     * @param array $markers
+     * @return void
+     * @throws \Exception
+     */
+    public function updateUserGroupHasPluginOption(array $userGroupHasPluginOption, $where = null, array $markers = []);
 
 
 
@@ -188,7 +227,7 @@ interface UserGroupHasPluginOptionApiInterface
     public function delete($where = null, array $markers = []);
 
     /**
-     * Deletes the userGroupHasPluginOption identified by the given user_group_id and plugin_option_id.
+     * Deletes the user group has plugin option identified by the given user_group_id and plugin_option_id.
      *
      * @param int $user_group_id
 	 * @param int $plugin_option_id
@@ -197,28 +236,10 @@ interface UserGroupHasPluginOptionApiInterface
      */
     public function deleteUserGroupHasPluginOptionByUserGroupIdAndPluginOptionId(int $user_group_id, int $plugin_option_id);
 
-    /**
-     * Deletes the userGroupHasPluginOption identified by the given user_group_id.
-     *
-     * @param int $user_group_id
-     * @return void
-     * @throws \Exception
-     */
-    public function deleteUserGroupHasPluginOptionByUserGroupId(int $user_group_id);
-
-    /**
-     * Deletes the userGroupHasPluginOption identified by the given plugin_option_id.
-     *
-     * @param int $plugin_option_id
-     * @return void
-     * @throws \Exception
-     */
-    public function deleteUserGroupHasPluginOptionByPluginOptionId(int $plugin_option_id);
-
 
 
     /**
-     * Deletes the userGroupHasPluginOption rows identified by the given user_group_user_group_ids.
+     * Deletes the user group has plugin option rows identified by the given user_group_ids.
      *
      * @param array $user_group_ids
      * @return void
@@ -227,7 +248,7 @@ interface UserGroupHasPluginOptionApiInterface
     public function deleteUserGroupHasPluginOptionByUserGroupIds(array $user_group_ids);
 
     /**
-     * Deletes the userGroupHasPluginOption rows identified by the given plugin_option_plugin_option_ids.
+     * Deletes the user group has plugin option rows identified by the given plugin_option_ids.
      *
      * @param array $plugin_option_ids
      * @return void
@@ -236,5 +257,19 @@ interface UserGroupHasPluginOptionApiInterface
     public function deleteUserGroupHasPluginOptionByPluginOptionIds(array $plugin_option_ids);
 
 
+
+
+
+    /**
+     * Deletes the user group has plugin option rows having the given user group id.
+     * @param int $userGroupId
+     */
+    public function deleteUserGroupHasPluginOptionByUserGroupId(int $userGroupId);
+
+    /**
+     * Deletes the user group has plugin option rows having the given plugin option id.
+     * @param int $pluginOptionId
+     */
+    public function deleteUserGroupHasPluginOptionByPluginOptionId(int $pluginOptionId);
 
 }

@@ -16,7 +16,7 @@ Description
 ================
 
 
-private [BashtmlFormatter::getStartTag](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Formatter/BashtmlFormatter/getStartTag.md)(string $name, array $parents = []) : false | string
+private [BashtmlFormatter::getStartTag](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Formatter/BashtmlFormatter/getStartTag.md)(string $name, ?array $parents = []) : false | string
 
 
 

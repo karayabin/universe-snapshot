@@ -7,7 +7,7 @@ LazyReferenceResolver::transform
 
 
 
-LazyReferenceResolver::transform — Transforms the given pageConfiguration using the registered resolvers.
+LazyReferenceResolver::transform — Transforms the given page configuration array in place.
 
 
 
@@ -21,7 +21,7 @@ public [LazyReferenceResolver::transform](https://github.com/lingtalfi/Light_Kit
 
 
 
-Transforms the given pageConfiguration using the registered resolvers.
+Transforms the given page configuration array in place.
 
 
 
@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LazyReferenceResolver::transform](https://github.com/lingtalfi/Light_Kit/blob/master/PageConfigurationTransformer/LazyReferenceResolver.php#L104-L133)
+See the source code for method [LazyReferenceResolver::transform](https://github.com/lingtalfi/Light_Kit/blob/master/PageConfigurationTransformer/LazyReferenceResolver.php#L111-L140)
 
 
 See Also

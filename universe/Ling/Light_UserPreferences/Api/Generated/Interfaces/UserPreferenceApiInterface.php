@@ -13,7 +13,7 @@ interface UserPreferenceApiInterface
 
 
     /**
-     * Inserts the given userPreference in the database.
+     * Inserts the given user preference in the database.
      * By default, it returns the result of the PDO::lastInsertId method.
      * If the returnRic flag is set to true, the method will return the ric array instead of the lastInsertId.
      *
@@ -21,7 +21,7 @@ interface UserPreferenceApiInterface
      * If the row you're trying to insert triggers a duplicate error, the behaviour of this method depends on
      * the ignoreDuplicate flag:
      * - if true, the error will be caught internally, the return of the method is not affected
-     * - if false, the error will not be caught, and depending on your configuration, it might either
+     * - if false, the error will not be caught, and depending on your pdo configuration, it might either
      *          trigger an exception, or fail silently in which case this method returns false.
      *
      *
@@ -35,7 +35,7 @@ interface UserPreferenceApiInterface
     public function insertUserPreference(array $userPreference, bool $ignoreDuplicate = true, bool $returnRic = false);
 
     /**
-     * Inserts the given userPreference rows in the database.
+     * Inserts the given user preference rows in the database.
      * By default, it returns an array of the result of the PDO::lastInsertId method for each insert.
      * If the returnRic flag is set to true, the method will return an array of the ric array (for each insert) instead of the lastInsertId.
      *
@@ -79,7 +79,7 @@ interface UserPreferenceApiInterface
     public function fetch(array $components = []);
 
     /**
-     * Returns the userPreference row identified by the given id.
+     * Returns the user preference row identified by the given id.
      *
      * If the row is not found, this method's return depends on the throwNotFoundEx flag:
      * - if true, the method throws an exception
@@ -190,7 +190,7 @@ interface UserPreferenceApiInterface
 
 
     /**
-     * Updates the userPreference row identified by the given id.
+     * Updates the user preference row identified by the given id.
      *
      * @param int $id
      * @param array $userPreference
@@ -205,7 +205,7 @@ interface UserPreferenceApiInterface
 
 
     /**
-     * Updates the userPreference row.
+     * Updates the user preference row.
      *
      * @param array $userPreference
      * @param mixed $where
@@ -232,7 +232,7 @@ interface UserPreferenceApiInterface
     public function delete($where = null, array $markers = []);
 
     /**
-     * Deletes the userPreference identified by the given id.
+     * Deletes the user preference identified by the given id.
      *
      * @param int $id
      * @return void
@@ -243,7 +243,7 @@ interface UserPreferenceApiInterface
 
 
     /**
-     * Deletes the userPreference rows identified by the given ids.
+     * Deletes the user preference rows identified by the given ids.
      *
      * @param array $ids
      * @return void
@@ -252,5 +252,13 @@ interface UserPreferenceApiInterface
     public function deleteUserPreferenceByIds(array $ids);
 
 
+
+
+
+    /**
+     * Deletes the user preference rows having the given user id.
+     * @param int $userId
+     */
+    public function deleteUserPreferenceByLudUserId(int $userId);
 
 }

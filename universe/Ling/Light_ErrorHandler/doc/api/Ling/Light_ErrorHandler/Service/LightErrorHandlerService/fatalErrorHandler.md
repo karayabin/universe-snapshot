@@ -47,7 +47,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightErrorHandlerService::fatalErrorHandler](https://github.com/lingtalfi/Light_ErrorHandler/blob/master/Service/LightErrorHandlerService.php#L108-L123)
+See the source code for method [LightErrorHandlerService::fatalErrorHandler](https://github.com/lingtalfi/Light_ErrorHandler/blob/master/Service/LightErrorHandlerService.php#L120-L135)
 
 
 See Also

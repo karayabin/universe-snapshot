@@ -4,7 +4,7 @@
 
 The LightKitAdminMicroPermissionDeniedException class
 ================
-2019-05-17 --> 2020-08-21
+2019-05-17 --> 2020-12-01
 
 
 
@@ -54,4 +54,4 @@ See the source code of [Ling\Light_Kit_Admin\Exception\LightKitAdminMicroPermiss
 
 SeeAlso
 ==============
-Previous class: [LightKitAdminException](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Exception/LightKitAdminException.md)<br>Next class: [BaseLightKitAdminPlugin](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/LightKitAdminPlugin/BaseLightKitAdminPlugin.md)<br>
+Previous class: [LightKitAdminException](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Exception/LightKitAdminException.md)<br>Next class: [LightKitAdminHelper](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Helper/LightKitAdminHelper.md)<br>

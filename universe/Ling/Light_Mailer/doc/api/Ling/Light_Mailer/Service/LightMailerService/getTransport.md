@@ -49,7 +49,7 @@ Returns [Swift_Transport](https://github.com/swiftmailer/swiftmailer/blob/master
 
 Source Code
 ===========
-See the source code for method [LightMailerService::getTransport](https://github.com/lingtalfi/Light_Mailer/blob/master/Service/LightMailerService.php#L451-L490)
+See the source code for method [LightMailerService::getTransport](https://github.com/lingtalfi/Light_Mailer/blob/master/Service/LightMailerService.php#L547-L586)
 
 
 See Also
@@ -57,5 +57,5 @@ See Also
 
 The [LightMailerService](https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Service/LightMailerService.md) class.
 
-Previous method: [getTemplateContent](https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Service/LightMailerService/getTemplateContent.md)<br>Next method: [getMailerRootDir](https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Service/LightMailerService/getMailerRootDir.md)<br>
+Previous method: [resolveTemplatePartsReferences](https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Service/LightMailerService/resolveTemplatePartsReferences.md)<br>Next method: [getMailerRootDir](https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Service/LightMailerService/getMailerRootDir.md)<br>
 

@@ -16,7 +16,7 @@ Description
 ================
 
 
-private [BashtmlFormatter::getStopTag](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Formatter/BashtmlFormatter/getStopTag.md)(string $name, array $parents = []) : bool | string
+private [BashtmlFormatter::getStopTag](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Formatter/BashtmlFormatter/getStopTag.md)(string $name, ?array $parents = []) : bool | string
 
 
 

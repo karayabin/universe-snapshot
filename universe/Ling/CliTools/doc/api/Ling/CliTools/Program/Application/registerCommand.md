@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [Application::registerCommand](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Program/Application/registerCommand.md)(string $commandClassName, ?$aliases) : void
+public [Application::registerCommand](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Program/Application/registerCommand.md)(string $commandClassName, $aliases) : void
 
 
 
@@ -53,7 +53,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [Application::registerCommand](https://github.com/lingtalfi/CliTools/blob/master/Program/Application.php#L65-L73)
+See the source code for method [Application::registerCommand](https://github.com/lingtalfi/CliTools/blob/master/Program/Application.php#L73-L81)
 
 
 See Also

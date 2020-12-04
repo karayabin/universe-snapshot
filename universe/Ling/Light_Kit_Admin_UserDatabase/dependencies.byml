@@ -6,10 +6,8 @@ dependencies:
         - Light_Kit_Admin
         - Light_Realform
         - Light_Kit
-        - Light_UserRowRestriction
-        - GormanJsonDecoder
-        - Light_CsrfSession
-        - Light_UserData
+        - Light_Database
+        - Light_Nugget
         - Light_UserDatabase
         - Light_User
         - WiseTool
@@ -17,8 +15,7 @@ dependencies:
         - BabyYaml
         - Light_BMenu
         - Light_PluginInstaller
-        - Light_Realist
-        - UniverseTools
+        - Light_UserData
     
 
 post_install: 

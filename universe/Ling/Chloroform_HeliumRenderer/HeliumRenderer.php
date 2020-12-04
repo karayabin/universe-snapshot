@@ -844,6 +844,8 @@ public function printFormTagOpening()
 
 
         $multiple = $field['multiple'] ?? false;
+
+
         $size = $field['size'] ?? null;
         $items = $field['items'];
         $useOptGroup = false;
@@ -961,30 +963,36 @@ public function printFormTagOpening()
             <div class="field-options">
                 <?php foreach ($field['items'] as $value => $label):
                     $boxCssId = $cssId . "_" . CaseTool::toSnake($value);
+                    $showCbLabel = ('' !== $label);
                     ?>
-                    <div class="field-checkbox form-check">
-                        <label for="<?php echo $boxCssId; ?>" class="form-check-label <?php echo $sClass; ?>">
-                            <input type="checkbox"
-                                   name="<?php echo $field['htmlName']; ?>[<?php echo htmlspecialchars($value); ?>]"
-                                   value="<?php echo htmlspecialchars($value); ?>"
-                                   id="<?php echo htmlspecialchars($boxCssId); ?>"
-                                   class="form-check-input"
-                                <?php if (true === $hasHint): ?>
-                                    aria-describedby="<?php echo $hintId; ?>"
-                                <?php endif; ?>
-                                <?php if ($htmlAttr): ?>
-                                    <?php echo StringTool::htmlAttributes($htmlAttr); ?>
-                                <?php endif; ?>
 
-                                <?php if (is_array($fieldValue)): ?>
-                                    <?php if (in_array($value, $fieldValue, true)): ?>
-                                        checked="checked"
-                                    <?php endif; ?>
-                                <?php endif; ?>
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox"
+                               name="<?php echo $field['htmlName']; ?>[<?php echo htmlspecialchars($value); ?>]"
+                               value="<?php echo htmlspecialchars($value); ?>"
+                               id="<?php echo htmlspecialchars($boxCssId); ?>"
+                               class="custom-control-input"
+                            <?php if (true === $hasHint): ?>
+                                aria-describedby="<?php echo $hintId; ?>"
+                            <?php endif; ?>
+                            <?php if ($htmlAttr): ?>
+                                <?php echo StringTool::htmlAttributes($htmlAttr); ?>
+                            <?php endif; ?>
 
-                            >
-                            <?php echo $label; ?>
-                        </label>
+                            <?php if (is_array($fieldValue)): ?>
+                                <?php if (in_array($value, $fieldValue, true)): ?>
+                                    checked="checked"
+                                <?php endif; ?>
+                            <?php elseif ((string)$value === (string)$fieldValue): ?>
+                                checked="checked"
+                            <?php endif; ?>
+
+                        >
+                        <?php if (true === $showCbLabel): ?>
+                            <label for="<?php echo $boxCssId; ?>" class="custom-control-label <?php echo $sClass; ?>">
+                                <?php echo $label; ?>
+                            </label>
+                        <?php endif; ?>
                     </div>
                 <?php endforeach; ?>
             </div>

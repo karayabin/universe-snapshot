@@ -5,6 +5,7 @@ namespace Ling\Light_Database\Service;
 
 
 use Ling\ArrayToString\ArrayToStringTool;
+use Ling\Bat\DebugTool;
 use Ling\CliTools\Formatter\BashtmlFormatter;
 use Ling\Light\Events\LightEvent;
 use Ling\Light_Database\LightDatabasePdoWrapper;
@@ -99,6 +100,7 @@ class LightDatabaseService extends LightDatabasePdoWrapper
         $queryLog = $this->options['queryLog'] ?? false;
         if (true === $queryLog) {
 
+            $queryLogTrackSource = $this->options['queryLogTrackSource'] ?? false;
 
             $fmt = $this->options["queryLogFormatting"] ?? [];
             $fmtQuery = $fmt['query'] ?? null;
@@ -150,7 +152,15 @@ class LightDatabaseService extends LightDatabasePdoWrapper
                 $sType = $bashFmt->format("<$fmtQuery>$sType</$fmtQuery>");
             }
 
-            $lg->log($sType . ':' . $msg, "database");
+            $end = '';
+            if (true === $queryLogTrackSource) {
+                $end .= PHP_EOL . 'Source: ' . PHP_EOL;
+                $end .= DebugTool::getTraceAsString(['skip' => 2, 'strMaxLen' => 64]);
+
+            }
+
+
+            $lg->log($sType . ':' . $msg . $end, "database");
         }
     }
 

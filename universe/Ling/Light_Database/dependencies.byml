@@ -6,6 +6,7 @@ dependencies:
         - Light_Logger
         - SimplePdoWrapper
         - ArrayToString
+        - Bat
         - CliTools
     
 

@@ -7,7 +7,6 @@ dependencies:
         - Light
         - Light_Realform
         - Light_Kit
-        - Light_UserRowRestriction
         - Light_ControllerHub
     
 

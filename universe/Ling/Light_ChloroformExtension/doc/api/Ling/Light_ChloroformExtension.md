@@ -1,6 +1,6 @@
 Ling/Light_ChloroformExtension
 ================
-2019-11-18 --> 2020-09-25
+2019-11-18 --> 2020-11-20
 
 
 
@@ -61,6 +61,7 @@ Dependencies
 - [Light_AjaxHandler](https://github.com/lingtalfi/Light_AjaxHandler)
 - [Light_CsrfSession](https://github.com/lingtalfi/Light_CsrfSession)
 - [Light_MicroPermission](https://github.com/lingtalfi/Light_MicroPermission)
+- [ArrayToString](https://github.com/lingtalfi/ArrayToString)
 - [Light_Database](https://github.com/lingtalfi/Light_Database)
 - [Light_Nugget](https://github.com/lingtalfi/Light_Nugget)
 - [SimplePdoWrapper](https://github.com/lingtalfi/SimplePdoWrapper)

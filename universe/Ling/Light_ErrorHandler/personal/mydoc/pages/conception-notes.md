@@ -1,16 +1,18 @@
 Light_ErrorHandler
 ===========
-2020-06-01
+2020-06-01 -> 2020-11-30
 
 
 This plugin is the little brother of the [Light_ExceptionHandler](https://github.com/lingtalfi/Light_ExceptionHandler/) plugin.
 
 
-While the **Light_ExceptionHandler** plugin catches exceptions, we will focus on catching regular php errors, 
-and optionally fatal errors.
+While the **Light_ExceptionHandler** plugin catches exceptions, we will focus on catching regular php errors, fatal errors.
+In addition to that we listen to the **error** channel of the logger, and intercept those messages too.
+
+For more about the **error** channel, see the [error logging convention](https://github.com/lingtalfi/TheBar/blob/master/discussions/error-logging-convention.md) document.
 
 
-And so with those two plugins (**Light_ExceptionHandler**, **Light_ErrorHandler**), you can potentially handle any error 
+So with those two plugins (**Light_ExceptionHandler**, **Light_ErrorHandler**), you can potentially handle any error 
 that your application may trigger.
 
 
@@ -18,6 +20,35 @@ that your application may trigger.
 In terms of implementation, we use the same system as the **Light_ExceptionHandler**: we basically send all errors
 via a [Light_Logger](https://github.com/lingtalfi/Light_Logger)'s **error_handler** channel (and **fatal_error_handler** for
 fatal errors) that we create and listen to at the same time.
+
+In addition to that, we also listen to the **error** channel of the logger by default, and write the error messages to our log file. 
+
+
+
+
+The configuration
+==========
+2020-11-30
+
+
+By default, our plugin will log all three types of errors.
+
+You can set the options of our service to choose which type of error you want to log:
+
+- handleFatalErrors: bool=true, whether to log fatal errors, and write them to our log file
+- handleErrors: bool=true, whether to log regular php errors, and write them to our log file
+- handleLogErrors: bool=true, whether to listen to the "error" channel of the log, and write them the messages our log file
+
+
+
+
+
+
+
+
+More details
+=========
+2020-06-01
 
 
 The default configuration of this service will write all errors to a dated file, which is the way I like to personally have my application
@@ -55,6 +86,7 @@ Our php error look like this (it's an array):
 
 About fatal errors
 ===========
+2020-06-01
 
 My personal opinion about fatal errors is this:
 in the web php literature, I've always seen people saying that catching fatal errors was a "bad thing",

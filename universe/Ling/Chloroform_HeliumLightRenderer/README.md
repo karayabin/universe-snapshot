@@ -1,6 +1,6 @@
 Chloroform_HeliumLightRenderer
 ===========
-2019-10-21 -> 2020-11-09
+2019-10-21 -> 2020-11-20
 
 
 
@@ -55,6 +55,14 @@ Related
 History Log
 =============
 
+- 1.6.5 -- 2020-11-20
+
+    - fix HeliumLightRenderer rendering multiplier widget in update mode
+    
+- 1.6.4 -- 2020-11-20
+
+    - update HeliumLightRenderer to render newest TableListField api, fix js TableHelper inconsistencies with multiplier
+    
 - 1.6.3 -- 2020-11-09
 
     - update HeliumLightRenderer not rendering TableList properly

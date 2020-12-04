@@ -4,7 +4,7 @@
 
 The CustomResourceHasTagApiInterface class
 ================
-2019-09-27 --> 2020-11-12
+2019-09-27 --> 2020-11-20
 
 
 

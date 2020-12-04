@@ -1,6 +1,6 @@
 Light_DatabaseInfo
 ===========
-2019-09-12 -> 2020-07-07
+2019-09-12 -> 2020-11-27
 
 
 
@@ -66,6 +66,10 @@ database_info:
 History Log
 =============
 
+    
+- 1.12.1 -- 2020-11-27
+
+    - update LightDatabaseInfoService->getTableInfo, now returns nullables property
     
 - 1.12.0 -- 2020-07-07
 

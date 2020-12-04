@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [RealformResult::setIsSuccessful](https://github.com/lingtalfi/Light_Realform/blob/master/Result/RealformResult.php#L105-L108)
+See the source code for method [RealformResult::setIsSuccessful](https://github.com/lingtalfi/Light_Realform/blob/master/Result/RealformResult.php#L112-L115)
 
 
 See Also

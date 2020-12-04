@@ -66,7 +66,7 @@ Returns bool.
 
 Source Code
 ===========
-See the source code for method [LightErrorHandlerService::errorHandler](https://github.com/lingtalfi/Light_ErrorHandler/blob/master/Service/LightErrorHandlerService.php#L145-L155)
+See the source code for method [LightErrorHandlerService::errorHandler](https://github.com/lingtalfi/Light_ErrorHandler/blob/master/Service/LightErrorHandlerService.php#L157-L167)
 
 
 See Also

@@ -1,6 +1,6 @@
 Configuration example
 ------------------
-2019-11-06 -> 2020-09-18
+2019-11-06 -> 2020-09-24
 
 
 Below is the file I've used to generate parts of the [Light_Kit_Admin](https://github.com/lingtalfi/Light_Kit_Admin) plugin itself.
@@ -14,7 +14,7 @@ The comments in it are part of this plugin documentation.
 
 ```yaml
 # Use this to define your custom variables that you can re-use later in this same configuration.
-# To use a variable you've defined here, use the {!variableName} notation
+# To use a variable you've defined here, use the !{variableName} notation
 variables: 
     plugin: Light_Kit_Admin
 
@@ -30,7 +30,7 @@ variables:
 # - as the plugin name in rendering.list_renderer.identifier (list)
 # - as the plugin name in plugin (described in the miscellaneous "section" of the realist conception notes)
 # - as the micro permission plugin name for the on_success_handler (form) of type database
-plugin_name: {!plugin}
+plugin_name: !{plugin}
 
 
 # The path to a create file, see the use_create_file directive for more info
@@ -108,7 +108,7 @@ list:
     # The target_dir is the path of the dir where to generate the files
     # It's an absolute path.
     # The tag {app_dir} can be used, and will be replaced with the actual "application root directory".
-    target_dir: {app_dir}/config/data/{!plugin}/Light_Realist/list/generated
+    target_dir: {app_dir}/config/data/!{plugin}/Light_Realist/list/generated
 
 
     # the base name of the files to generate
@@ -286,7 +286,7 @@ list:
     related_links:
         -
             text: Add new {label}
-            url: REALIST(Light_Realist, route, lch_route-hub, {plugin: {$plugin}, controller: Generated/{TableClass}Controller, m:f})
+            url: REALIST(Light_Realist, route, lch_route-hub, {plugin: !{plugin}, controller: Generated/{TableClass}Controller, m:f})
             icon: fas fa-plus-circle
 
 # This section defines the behaviour of the form configuration file generator
@@ -301,13 +301,7 @@ form:
     # The target_dir is the path of the dir where to generate the files
     # It's an absolute path.
     # The tag {app_dir} can be used, and will be replaced with the actual "application root directory".
-    target_dir: {app_dir}/config/data/{!plugin}/Light_Realform/form/generated
-
-    # Whether to create a link to the corresponding list.
-    # The default value is true.
-    # This property is provided by Light_Kit_Admin_Generator (i.e. not in Light_RealGenerator).
-    use_link_to_list: true
-
+    target_dir: {app_dir}/config/data/!{plugin}/Light_Realform/form/generated
 
 
     # This array let you ignore/skip columns that you want to exclude from the generated form config file.
@@ -415,6 +409,15 @@ form:
     #
     use_multiplier_on_has: true
 
+    # An array of related links to add as the rendering.related_links property in all the generated form conf.
+    # The default value is an empty array, but a practical value to use is the array below.
+    # In the property values, you can use the generic tags (described in the list section comment).
+    related_links:
+        -
+            text: See the list of "{Label}" items
+            url: ::(@reverse_router->getUrl(lch_route-hub, {plugin: !{plugin}, controller: Generated/{TableClass}Controller}))::
+            icon: fas fa-plus-circle
+
 
 # This section defines the behaviour of the menu configuration file generator
 # Note: the generator for this section also uses the route_prefix information found in the route section of this file.
@@ -422,7 +425,7 @@ menu:
     # The target_file is the path of the file to generate.
     # It's an absolute path.
     # The tag {app_dir} can be used, and will be replaced with the actual "application root directory".
-    target_file: {app_dir}/config/data/{!plugin}/bmenu/main_menu/generated/lka_mainmenu_generated_1.byml
+    target_file: {app_dir}/config/data/!{plugin}/bmenu/main_menu/generated/lka_mainmenu_generated_1.byml
 
     # The menu generator can operate in two different modes, which affects how the menu configuration is generated.
     # By default (i.e. mode=default), the menu generator assumes that you want to generate menu configs for plugin
@@ -459,11 +462,11 @@ menu:
     ?item_prefix_child: lkagen_id
 
     # The name of the plugin used to handle the link to the menu item
-    item_plugin: {!plugin}
+    item_plugin: !{plugin}
 
     # The default right assigned to that menu item.
     # This is overridden by the "prefix_to_rights" option if set (see below for more details).
-    ?item_default_right: {!plugin}.user        
+    ?item_default_right: !{plugin}.user        
     
 
 
@@ -480,7 +483,7 @@ menu:
     # Note: the value defined here can be overridden with the "items" option (see below).
     # Note2: the default right value used by the generator on any menu item is "Light_Kit_Admin.user".
     ?prefix_to_rights:
-        lud: {!plugin}.user
+        lud: !{plugin}.user
 
 
     # An array of has keyword => has label.
@@ -576,22 +579,22 @@ controller: []
         # This setting should synced with the list.target_dir setting in this file.
         # The default value is:
         #   Light_Kit_Admin:generated/{table}
-        realist_request_declaration_id_format: '{!plugin}:generated/{table}'
+        realist_request_declaration_id_format: '!{plugin}:generated/{table}'
 
         # The kit page to call when rendering the list
         # The default value is:
         #   Light_Kit_Admin/kit/zeroadmin/generated/{table}_list
-        list_page_format: '{!plugin}/kit/zeroadmin/generated/{table}_list'
+        list_page_format: '!{plugin}/kit/zeroadmin/generated/{table}_list'
 
         # The form identifier to call to process the form when the form page is rendered
         # The default value is:
         #   Light_Kit_Admin.generated/{table}
-        form_identifier_format: '{!plugin}:generated/{table}'
+        form_identifier_format: '!{plugin}:generated/{table}'
 
         # The kit page to call when rendering the form
         # The default value is:
         #   Light_Kit_Admin/kit/zeroadmin/generated/{table}_form
-        form_page_format: '{!plugin}/kit/zeroadmin/generated/{table}_form'
+        form_page_format: '!{plugin}/kit/zeroadmin/generated/{table}_form'
 
         # The relative path from the app dir to the form configuration file
         # Defaults to: config/data/Light_Kit_Admin/kit/zeroadmin/generated/{table}_form.byml
@@ -599,7 +602,7 @@ controller: []
         #   - tableLabel
         #   - TableLabel
         #   - Table
-        form_config_path_format: config/data/{!plugin}/kit/zeroadmin/generated/{table}_form.byml
+        form_config_path_format: config/data/!{plugin}/kit/zeroadmin/generated/{table}_form.byml
 
         # The relative path from the app dir to the list configuration file
         # Defaults to: config/data/Light_Kit_Admin/kit/zeroadmin/generated/{table}_list.byml
@@ -607,19 +610,8 @@ controller: []
         #   - tableLabel
         #   - TableLabel
         #   - Table
-        list_config_path_format: config/data/{!plugin}/kit/zeroadmin/generated/{table}_list.byml
+        list_config_path_format: config/data/!{plugin}/kit/zeroadmin/generated/{table}_list.byml
 
-        # An array of related links to add to all the generated form kit page conf.
-        # The default value is basically the array below, except that the plugin is replaced with Light_Kit_Admin.
-        # The following extra tags are available:
-        #   - tableLabel
-        #   - TableLabel
-        #   - Table
-        form_page_related_links:
-            -
-                text: See the list of "{TableLabel}" items
-                url: (::ROUTE::)lch_route-hub::{plugin: {!plugin}, controller: Generated/{Table}Controller}
-                icon: fas fa-plus-circle
 
 
     # Bool, whether to generate the custom controllers.
@@ -627,17 +619,17 @@ controller: []
     ?use_custom_controller: true
 
     # The class name of the controller to generate.
-    controller_classname: Ling\{!plugin}\Controller\Generated\{Table}Controller
+    controller_classname: Ling\!{plugin}\Controller\Generated\{Table}Controller
 
     # The class name of the custom controller to generate.
     # This is mandatory only if the use_custom_controller setting is set to true.
-    ?custom_controller_classname: Ling\{!plugin}\Controller\Generated\Custom\Custom{Table}Controller
+    ?custom_controller_classname: Ling\!{plugin}\Controller\Generated\Custom\Custom{Table}Controller
 
     # The class name of the base controller to generate.
     base_controller_classname: Ling\Light_Kit_Admin\Controller\RealAdminPageController
 
     # The class name of the parent controller, which all other classes derive from.
-    parent_controller: Ling\{!plugin}\Controller\AdminPageController
+    parent_controller: Ling\!{plugin}\Controller\AdminPageController
 
     # Whether to create a link to the corresponding list
     # The default value is true
@@ -659,7 +651,7 @@ controller: []
 #        ?route_prefix: lkagen_route
 #
 #        # The target file is where to create the routes
-#        target_file: {app_dir}/config/data/{!plugin}/Light_EasyRoute/lkagen_routes.byml
+#        target_file: {app_dir}/config/data/!{plugin}/Light_EasyRoute/lkagen_routes.byml
 #
 #
 #        # The pattern for the list route

@@ -668,7 +668,7 @@ class ServiceManagerUtil
         ];
         if (true === $addHooksBanner) {
             $writeOptions['comments'] = [
-                '$' . $serviceName => [
+                '$' . $serviceName . '\.methods_collection' => [
                     "block" => [
                         '# --------------------------------------',
                         '# hooks',

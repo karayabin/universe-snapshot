@@ -32,7 +32,7 @@ vars:
                 type: string
                 default_value: (mandatory)
                 description: The url of the link.
-                example: (::ROUTE::)/dashboard
+                example: ::(@reverse_router->getUrl(/dashboard))::
             text:
                 type: string
                 default_value: (mandatory)
@@ -52,7 +52,7 @@ vars:
                 type: string
                 default_value: (mandatory)
                 description: The url of the link.
-                example: (::ROUTE::)/pages/e-product-edit
+                example: ::(@reverse_router->getUrl(/pages/e-product-edit))::
             text:
                 type: string
                 default_value: (mandatory)
@@ -75,24 +75,24 @@ example: <
         first_element_text: Home
         breadcrumb_links: 
             - 
-                url: (::ROUTE::)/dashboard
+                url: ::(@reverse_router->getUrl(/dashboard))::
                 text: Admin
             
         
         last_element_text: Dashboard
         extra_links: 
             - 
-                url: (::ROUTE::)/pages/e-product-edit
+                url: ::(@reverse_router->getUrl(/pages/e-product-edit))::
                 text: Edit Page
                 icon: fas fa-edit
             
             - 
-                url: (::ROUTE::)/pages/u-profile
+                url: ::(@reverse_router->getUrl(/pages/u-profile))::
                 text: Profile
                 icon: far fa-address-card
             
             - 
-                url: (::ROUTE::)/plugins/plotly
+                url: ::(@reverse_router->getUrl(/plugins/plotly))::
                 text: Stats
                 icon: fas fa-chart-line
             

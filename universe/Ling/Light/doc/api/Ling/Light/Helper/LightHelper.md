@@ -4,7 +4,7 @@
 
 The LightHelper class
 ================
-2019-04-09 --> 2020-11-10
+2019-04-09 --> 2020-12-03
 
 
 
@@ -41,7 +41,7 @@ Methods
 
 - [LightHelper::createDummyRoutes](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/LightHelper/createDummyRoutes.md) &ndash; Register all the routes which patterns are given.
 - [LightHelper::executeMethod](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/LightHelper/executeMethod.md) &ndash; Executes a php method based on the notation described below, and returns the result.
-- [LightHelper::executeParenthesisWrappersByArray](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/LightHelper/executeParenthesisWrappersByArray.md) &ndash; Parses the given array, executes the "executeMethod" method on every parenthesis wrapper, and returns the result.
+- [LightHelper::executeParenthesisWrappersByArray](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/LightHelper/executeParenthesisWrappersByArray.md) &ndash; Parses the given array recursively, executes the "executeMethod" method on every parenthesis wrapper, and returns the result.
 
 
 

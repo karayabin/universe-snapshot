@@ -11,6 +11,7 @@ namespace Ling\Light_UserDatabase\Api\Generated\Interfaces;
 interface PermissionApiInterface
 {
 
+
     /**
      * Inserts the given permission in the database.
      * By default, it returns the result of the PDO::lastInsertId method.
@@ -20,7 +21,7 @@ interface PermissionApiInterface
      * If the row you're trying to insert triggers a duplicate error, the behaviour of this method depends on
      * the ignoreDuplicate flag:
      * - if true, the error will be caught internally, the return of the method is not affected
-     * - if false, the error will not be caught, and depending on your configuration, it might either
+     * - if false, the error will not be caught, and depending on your pdo configuration, it might either
      *          trigger an exception, or fail silently in which case this method returns false.
      *
      *
@@ -54,6 +55,28 @@ interface PermissionApiInterface
      * @throws \Exception
      */
     public function insertPermissions(array $permissions, bool $ignoreDuplicate = true, bool $returnRic = false);
+
+    /**
+     * Returns the rows corresponding to given components.
+     * The components is an array of [fetch all components](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/pages/fetch-all-components.md).
+     *
+     *
+     * @param array $components
+     * @return array
+     */
+    public function fetchAll(array $components = []): array;
+
+
+    /**
+     *
+     * Returns the first row corresponding to given components, or false if there is no match.
+     *
+     * The components is an array of [fetch all components](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/pages/fetch-all-components.md).
+     *
+     * @param array $components
+     * @return array
+     */
+    public function fetch(array $components = []);
 
     /**
      * Returns the permission row identified by the given id.
@@ -182,52 +205,6 @@ interface PermissionApiInterface
 
 
 
-    /**
-     * Returns the rows of the lud_permission table bound to the given permission_group id.
-     * @param string $permissionGroupId
-     * @return array
-     */
-    public function getPermissionsByPermissionGroupId(string $permissionGroupId): array;
-
-    /**
-     * Returns the rows of the lud_permission table bound to the given permission_group name.
-     * @param string $permissionGroupName
-     * @return array
-     */
-    public function getPermissionsByPermissionGroupName(string $permissionGroupName): array;
-
-
-
-    /**
-     * Returns an array of lud_permission.id bound to the given permission_group id.
-     * @param string $permissionGroupId
-     * @return array
-     */
-    public function getPermissionIdsByPermissionGroupId(string $permissionGroupId): array;
-
-
-    /**
-     * Returns an array of lud_permission.id bound to the given permission_group name.
-     * @param string $permissionGroupName
-     * @return array
-     */
-    public function getPermissionIdsByPermissionGroupName(string $permissionGroupName): array;
-
-
-    /**
-     * Returns an array of lud_permission.name bound to the given permission_group id.
-     * @param string $permissionGroupId
-     * @return array
-     */
-    public function getPermissionNamesByPermissionGroupId(string $permissionGroupId): array;
-
-
-    /**
-     * Returns an array of lud_permission.name bound to the given permission_group name.
-     * @param string $permissionGroupName
-     * @return array
-     */
-    public function getPermissionNamesByPermissionGroupName(string $permissionGroupName): array;
 
 
 
@@ -247,10 +224,12 @@ interface PermissionApiInterface
      *
      * @param int $id
      * @param array $permission
+     * @param array $extraWhere
+     * @param array $markers
      * @return void
      * @throws \Exception
      */
-    public function updatePermissionById(int $id, array $permission);
+    public function updatePermissionById(int $id, array $permission, array $extraWhere = [], array $markers = []);
 
 
     /**
@@ -258,10 +237,26 @@ interface PermissionApiInterface
      *
      * @param string $name
      * @param array $permission
+     * @param array $extraWhere
+     * @param array $markers
      * @return void
      * @throws \Exception
      */
-    public function updatePermissionByName(string $name, array $permission);
+    public function updatePermissionByName(string $name, array $permission, array $extraWhere = [], array $markers = []);
+
+
+
+
+    /**
+     * Updates the permission row.
+     *
+     * @param array $permission
+     * @param mixed $where
+     * @param array $markers
+     * @return void
+     * @throws \Exception
+     */
+    public function updatePermission(array $permission, $where = null, array $markers = []);
 
 
 
@@ -316,6 +311,8 @@ interface PermissionApiInterface
      * @throws \Exception
      */
     public function deletePermissionByNames(array $names);
+
+
 
 
 

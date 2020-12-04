@@ -4,7 +4,7 @@
 
 The InputInterface class
 ================
-2019-02-26 --> 2019-07-18
+2019-02-26 --> 2020-12-04
 
 
 
@@ -31,8 +31,8 @@ Class synopsis
 abstract class <span class="pl-k">InputInterface</span>  {
 
 - Methods
-    - abstract public [getParameter](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Input/InputInterface/getParameter.md)(int $index, $default = null) : mixed | null
-    - abstract public [getOption](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Input/InputInterface/getOption.md)(string $optionName, $default = null) : mixed | null
+    - abstract public [getParameter](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Input/InputInterface/getParameter.md)(int $index, ?$default = null) : mixed | null
+    - abstract public [getOption](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Input/InputInterface/getOption.md)(string $optionName, ?$default = null) : mixed | null
     - abstract public [hasFlag](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Input/InputInterface/hasFlag.md)(string $flagName) : bool
     - abstract public [getParameters](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Input/InputInterface/getParameters.md)() : array
     - abstract public [getOptions](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Input/InputInterface/getOptions.md)() : array

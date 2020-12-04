@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightMailerService::__construct](https://github.com/lingtalfi/Light_Mailer/blob/master/Service/LightMailerService.php#L81-L89)
+See the source code for method [LightMailerService::__construct](https://github.com/lingtalfi/Light_Mailer/blob/master/Service/LightMailerService.php#L88-L97)
 
 
 See Also

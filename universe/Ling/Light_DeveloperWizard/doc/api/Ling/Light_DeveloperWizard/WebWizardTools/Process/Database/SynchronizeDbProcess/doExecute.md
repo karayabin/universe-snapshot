@@ -51,7 +51,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [SynchronizeDbProcess::doExecute](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/WebWizardTools/Process/Database/SynchronizeDbProcess.php#L49-L107)
+See the source code for method [SynchronizeDbProcess::doExecute](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/WebWizardTools/Process/Database/SynchronizeDbProcess.php#L51-L138)
 
 
 See Also

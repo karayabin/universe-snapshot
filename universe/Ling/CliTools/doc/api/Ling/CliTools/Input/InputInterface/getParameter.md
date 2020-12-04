@@ -16,7 +16,7 @@ Description
 ================
 
 
-abstract public [InputInterface::getParameter](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Input/InputInterface/getParameter.md)(int $index, $default = null) : mixed | null
+abstract public [InputInterface::getParameter](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Input/InputInterface/getParameter.md)(int $index, ?$default = null) : mixed | null
 
 
 

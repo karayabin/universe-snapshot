@@ -4,7 +4,9 @@
 namespace Ling\Light_Kit_Admin_Generator\Service;
 
 use Ling\Light_Kit_Admin_Generator\Generator\ControllerGenerator;
+use Ling\Light_Kit_Admin_Generator\Generator\LightKitAdminListConfigGenerator;
 use Ling\Light_Kit_Admin_Generator\Generator\MenuConfigGenerator;
+use Ling\Light_RealGenerator\Generator\ListConfigGenerator;
 use Ling\Light_RealGenerator\Service\LightRealGeneratorService;
 
 /**
@@ -61,5 +63,12 @@ class LightKitAdminGeneratorService extends LightRealGeneratorService
 
     }
 
+    /**
+     * @overrides
+     */
+    protected function getNewListConfigGeneratorInstance(): ListConfigGenerator
+    {
+        return new LightKitAdminListConfigGenerator();
+    }
 
 }

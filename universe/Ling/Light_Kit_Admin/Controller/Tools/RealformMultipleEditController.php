@@ -181,7 +181,6 @@ class RealformMultipleEditController extends AdminPageController
     {
         $container = $this->getContainer();
 
-
         //--------------------------------------------
         // SECURITY CHECK (1/2)
         //--------------------------------------------
@@ -255,6 +254,7 @@ class RealformMultipleEditController extends AdminPageController
              */
             $db = $container->get('database');
             $markers = [];
+
             $sWhere = RicHelper::getWhereByRics($ric, $rics, $markers);
 
             $q = "select * from `$storageId` where $sWhere";
@@ -332,9 +332,6 @@ class RealformMultipleEditController extends AdminPageController
 
             $ourConf['fields'] = $ourFields;
             $form = $rf->getChloroformByConfiguration($ourConf);
-
-
-            $multiplier = $conf['multiplier'] ?? null;
 
 
             $form->setCssId($formCssId);
@@ -419,6 +416,12 @@ class RealformMultipleEditController extends AdminPageController
                     // SUCCESS HANDLER
                     //--------------------------------------------
                     /**
+                     * Because we are update mode, the ric might have been updated too.
+                     * If that happens, the record will disappear from the gui.
+                     * To avoid that, we use the updated ric when refreshing the page.
+                     */
+                    $newUpdateRics = [];
+                    /**
                      * We apply the same success handler for each row.
                      * We do this in a transaction to ensure atomic consistency, in case the success handler uses a database.
                      *
@@ -432,18 +435,37 @@ class RealformMultipleEditController extends AdminPageController
                          * @var $exception \Exception
                          */
                         $exception = null;
-                        $res = $db->transaction(function () use ($updateRows, $rf, $conf, $multiplier, $rics) {
+                        $res = $db->transaction(function () use ($updateRows, $rf, $conf, $rics, &$newUpdateRics) {
                             foreach ($rics as $updateRic) {
 
                                 $updateRow = array_shift($updateRows);
+                                /**
+                                 * Here we want to work around the problem that when you change the ric value in a HAS table,
+                                 * the form can't display properly anymore, because the old ric it was referring to doesn't point
+                                 * to a record anymore.
+                                 *
+                                 * But we also have to keep in mind that this particular multiple edit form works in a peculiar way:
+                                 *
+                                 * - it doesn't provide the ai for non HAS tables.
+                                 *
+                                 * So basically this affects the content of $updateRows:
+                                 * - if it's a HAS table, it will contain the ric by definition
+                                 * - if it's a regular table which ric is an aik, then it will not contain the ric
+                                 *
+                                 * In both cases, we want $newUpdateRics to contain the ric to refresh the page with.
+                                 *
+                                 */
+                                $newUpdateRow = $updateRic; // for regular tables
+                                foreach ($updateRic as $k => $v) { // for HAS tables
+                                    if (array_key_exists($k, $updateRow)) {
+                                        $newUpdateRow[$k] = $updateRow[$k];
+                                    }
+                                }
+                                $newUpdateRics[] = $newUpdateRow;
 
                                 $successOptions = [
                                     "updateRic" => $updateRic,
                                 ];
-                                if ($multiplier) {
-                                    $successOptions['multiplier'] = $multiplier;
-                                }
-
                                 $rf->executeSuccessHandler($conf, $updateRow, $successOptions);
                             }
 
@@ -463,6 +485,15 @@ class RealformMultipleEditController extends AdminPageController
 
                     $formIsHandledSuccessfully = true;
                     if (true === $formIsHandledSuccessfully) {
+
+                        /**
+                         * update the rics which might have changed...
+                         */
+                        SessionTool::set("MultipleFormEditController", [
+                            "realformId" => $realformIdentifier,
+                            "rics" => $newUpdateRics,
+                        ]);
+
                         if (null !== $onSuccess) {
                             $res = call_user_func($onSuccess);
                             if ($res instanceof HttpResponseInterface) {
@@ -478,19 +509,6 @@ class RealformMultipleEditController extends AdminPageController
 
 
                 $feederOptions = [];
-                if ($multiplier) {
-                    $feederOptions['multiplier'] = $multiplier;
-
-
-                    // sharing multiplier value with all rows
-                    if (count($rows) > 1) {
-                        $multiplierField = $multiplier['item_id'];
-                        $field = $form->getField("lrfr2-share-_1");
-                        $field->setValue([$multiplierField]);
-                    }
-
-                }
-
 
                 /**
                  * @var $rf LightRealformService

@@ -24,15 +24,6 @@ class Output implements OutputInterface
 
 
     /**
-     * This property holds the list of all the non-formatted messages written to this instance.
-     * It's an array of strings (each string being a message).
-     *
-     *
-     * @var array
-     */
-    protected $messages;
-
-    /**
      * This property holds the formatter to use for this instance.
      * The default value is the @class(Ling\CliTools\Formatter\BashtmlFormatter).
      *
@@ -47,7 +38,6 @@ class Output implements OutputInterface
      */
     public function __construct()
     {
-        $this->messages = [];
         $this->formatter = new BashtmlFormatter();
     }
 
@@ -67,7 +57,9 @@ class Output implements OutputInterface
      */
     public function write(string $message)
     {
-        $this->messages[] = $message;
+        // note: we don't store messages so that the LoaderUtil can be used without potential
+        // memory problems with big numbers
+
         echo $this->formatter->format($message);
     }
 }

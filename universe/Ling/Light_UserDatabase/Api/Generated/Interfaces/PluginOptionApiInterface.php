@@ -11,8 +11,9 @@ namespace Ling\Light_UserDatabase\Api\Generated\Interfaces;
 interface PluginOptionApiInterface
 {
 
+
     /**
-     * Inserts the given pluginOption in the database.
+     * Inserts the given plugin option in the database.
      * By default, it returns the result of the PDO::lastInsertId method.
      * If the returnRic flag is set to true, the method will return the ric array instead of the lastInsertId.
      *
@@ -20,7 +21,7 @@ interface PluginOptionApiInterface
      * If the row you're trying to insert triggers a duplicate error, the behaviour of this method depends on
      * the ignoreDuplicate flag:
      * - if true, the error will be caught internally, the return of the method is not affected
-     * - if false, the error will not be caught, and depending on your configuration, it might either
+     * - if false, the error will not be caught, and depending on your pdo configuration, it might either
      *          trigger an exception, or fail silently in which case this method returns false.
      *
      *
@@ -34,7 +35,7 @@ interface PluginOptionApiInterface
     public function insertPluginOption(array $pluginOption, bool $ignoreDuplicate = true, bool $returnRic = false);
 
     /**
-     * Inserts the given pluginOption rows in the database.
+     * Inserts the given plugin option rows in the database.
      * By default, it returns an array of the result of the PDO::lastInsertId method for each insert.
      * If the returnRic flag is set to true, the method will return an array of the ric array (for each insert) instead of the lastInsertId.
      *
@@ -56,7 +57,29 @@ interface PluginOptionApiInterface
     public function insertPluginOptions(array $pluginOptions, bool $ignoreDuplicate = true, bool $returnRic = false);
 
     /**
-     * Returns the pluginOption row identified by the given id.
+     * Returns the rows corresponding to given components.
+     * The components is an array of [fetch all components](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/pages/fetch-all-components.md).
+     *
+     *
+     * @param array $components
+     * @return array
+     */
+    public function fetchAll(array $components = []): array;
+
+
+    /**
+     *
+     * Returns the first row corresponding to given components, or false if there is no match.
+     *
+     * The components is an array of [fetch all components](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/pages/fetch-all-components.md).
+     *
+     * @param array $components
+     * @return array
+     */
+    public function fetch(array $components = []);
+
+    /**
+     * Returns the plugin option row identified by the given id.
      *
      * If the row is not found, this method's return depends on the throwNotFoundEx flag:
      * - if true, the method throws an exception
@@ -152,52 +175,6 @@ interface PluginOptionApiInterface
 
 
 
-    /**
-     * Returns the rows of the lud_plugin_option table bound to the given user_group id.
-     * @param string $userGroupId
-     * @return array
-     */
-    public function getPluginOptionsByUserGroupId(string $userGroupId): array;
-
-    /**
-     * Returns the rows of the lud_plugin_option table bound to the given user_group name.
-     * @param string $userGroupName
-     * @return array
-     */
-    public function getPluginOptionsByUserGroupName(string $userGroupName): array;
-
-
-
-    /**
-     * Returns an array of lud_plugin_option.id bound to the given user_group id.
-     * @param string $userGroupId
-     * @return array
-     */
-    public function getPluginOptionIdsByUserGroupId(string $userGroupId): array;
-
-
-    /**
-     * Returns an array of lud_plugin_option.id bound to the given user_group name.
-     * @param string $userGroupName
-     * @return array
-     */
-    public function getPluginOptionIdsByUserGroupName(string $userGroupName): array;
-
-
-    /**
-     * Returns an array of lud_plugin_option.name bound to the given user_group id.
-     * @param string $userGroupId
-     * @return array
-     */
-    public function getPluginOptionNamesByUserGroupId(string $userGroupId): array;
-
-
-    /**
-     * Returns an array of lud_plugin_option.name bound to the given user_group name.
-     * @param string $userGroupName
-     * @return array
-     */
-    public function getPluginOptionNamesByUserGroupName(string $userGroupName): array;
 
 
 
@@ -213,14 +190,30 @@ interface PluginOptionApiInterface
 
 
     /**
-     * Updates the pluginOption row identified by the given id.
+     * Updates the plugin option row identified by the given id.
      *
      * @param int $id
      * @param array $pluginOption
+     * @param array $extraWhere
+     * @param array $markers
      * @return void
      * @throws \Exception
      */
-    public function updatePluginOptionById(int $id, array $pluginOption);
+    public function updatePluginOptionById(int $id, array $pluginOption, array $extraWhere = [], array $markers = []);
+
+
+
+
+    /**
+     * Updates the plugin option row.
+     *
+     * @param array $pluginOption
+     * @param mixed $where
+     * @param array $markers
+     * @return void
+     * @throws \Exception
+     */
+    public function updatePluginOption(array $pluginOption, $where = null, array $markers = []);
 
 
 
@@ -239,7 +232,7 @@ interface PluginOptionApiInterface
     public function delete($where = null, array $markers = []);
 
     /**
-     * Deletes the pluginOption identified by the given id.
+     * Deletes the plugin option identified by the given id.
      *
      * @param int $id
      * @return void
@@ -250,13 +243,15 @@ interface PluginOptionApiInterface
 
 
     /**
-     * Deletes the pluginOption rows identified by the given ids.
+     * Deletes the plugin option rows identified by the given ids.
      *
      * @param array $ids
      * @return void
      * @throws \Exception
      */
     public function deletePluginOptionByIds(array $ids);
+
+
 
 
 

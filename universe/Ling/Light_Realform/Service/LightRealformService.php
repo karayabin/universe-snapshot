@@ -7,6 +7,7 @@ use Ling\Bat\ArrayTool;
 use Ling\Bat\SmartCodeTool;
 use Ling\Bat\StringTool;
 use Ling\Bat\UriTool;
+use Ling\Chloroform\Field\CheckboxField;
 use Ling\Chloroform\Field\CSRFField;
 use Ling\Chloroform\Field\DecorativeField;
 use Ling\Chloroform\Field\FieldInterface;
@@ -207,7 +208,6 @@ class LightRealformService
         $formConf = $nugget['chloroform'] ?? [];
         $formId = $formConf['id'] ?? 'formid-' . $nuggetId;
 
-
         $instance = $this->getChloroformByConfiguration($formConf);
         $instance->setFormId($formId);
         //--------------------------------------------
@@ -333,6 +333,13 @@ class LightRealformService
                 if (array_key_exists("items", $fieldConf)) {
                     $field->setItems($fieldConf['items']);
                 }
+                break;
+
+            case "bool":
+                $fieldConf['bool'] = true;
+                $field = new CheckboxField($fieldConf);
+                $items = $fieldConf["items"] ?? ["1" => '&nbsp;'];
+                $field->setItems($items);
                 break;
             case "csrf":
                 $field = new CSRFField($fieldConf);
@@ -499,42 +506,9 @@ class LightRealformService
 
 
     /**
-     * Applies a standard routine to the form identified by the given realformIdentifier,
-     * and returns a chloroform instance.
+     * Performs the "Form handling system A" routine.
      *
-     *
-     * The update mode is triggered if the ric strict columns are passed in the url (i.e. $_GET).
-     *
-     *
-     * What does this method do?
-     * ----------------
-     *
-     * It creates the form, using realform,
-     * it handles both the form insert and update actions.
-     *
-     * If the form is posted correctly, either:
-     *
-     * - an @page(iframe signal) is triggered (if defined in the options)
-     * - the posted data are handled using the on_success_handler (defined by the realform configuration),
-     *              and a success callback can also be triggered (if defined in the options).
-     *              That success callback (from the options) can return a http response to use directly.
-     *
-     *
-     *
-     *
-     * Errors and success messages are handled using the @page(flash service).
-     *
-     *
-     * There are no Available options now.
-     *
-     *
-     *
-     *
-     * Deprecated options...
-     * - iframeSignal; an @page(iframe signal) to use instead of the default success handler
-     * - onSuccess: a success callback to trigger when the form was successfully posted (in addition to the
-     *      success handler defined in the configuration). This applies only if the iframeSignal is not set
-     *
+     * https://github.com/lingtalfi/Light_Realform/blob/master/doc/pages/2020/conception-notes.md#form-handling-system-a
      *
      *
      *
@@ -560,6 +534,7 @@ class LightRealformService
         $storageId = $nugget['storage_id'];
         $multiplier = $this->getMultiplierByNugget($nugget);
         $formId = $form->getFormId();
+
 
         //--------------------------------------------
         // INSERT/UPDATE SWITCH
@@ -622,6 +597,7 @@ class LightRealformService
         /**
          * @var $flasher LightFlasherService
          */
+        $data = null;
         $flasher = $this->container->get('flasher');
         if (true === $executeFormAlgo) {
 
@@ -702,53 +678,27 @@ class LightRealformService
                          *
                          */
 
-                        /**
-                         * Also, if it's an update, the ric params are in the $_GET (and in the url), and so if we were just
-                         * refreshing the page (which is what the redirect basically will do) we would have the old ric
-                         * parameters displayed in the form, which is not what we want: we want the refreshed form to
-                         * reflect the newest changes, including changes in the ric.
-                         * So, we just override the ric in $_GET, so that the new page refreshes with the new rics.
-                         */
                         $urlParams = $_GET;
                         $urlParams['t'] = time(); // make sure the browser will think it's a new page (t is reserved, this is indicated in our docs)
 
 
-                        if (true === $isUpdate) {
-                            foreach ($data as $k => $v) {
-                                if (in_array($k, $ric, true) && array_key_exists($k, $urlParams)) {
+                        /**
+                         * In update mode, if the ric changes, we update the url accordingly
+                         */
+                        if (true === $isUpdate && null !== $data) {
+                            foreach ($updateRic as $k => $v) {
+                                if (array_key_exists($k, $urlParams)) {
 
-                                    if (
-                                        true === is_array($v) &&
-                                        null !== $multiplier &&
-                                        $k === $multiplier['item_id']
-                                    ) {
-                                        /**
-                                         * If we use the multiplier trick, the value will be an array of strings.
-                                         * We don't want to pass the array of string as the updateRic, as the updateRic should
-                                         * identify a unique record, so it should look like this:
-                                         *
-                                         * permission_group_id=4
-                                         * permission_id=3
-                                         *
-                                         * And not like this:
-                                         *
-                                         * permission_group_id=4
-                                         * permission_id=3, 5, 6
-                                         *
-                                         *
-                                         * So if it's a multiplier, we just keep the existing updateRic which is already in the url
-                                         * by definition (since this block is included in an if true === isUpdate block).
-                                         *
-                                         *
-                                         *
-                                         */
-                                    } else {
-                                        $urlParams[$k] = $v;
+                                    // do we override it?
+                                    if (array_key_exists($k, $data)) {
+                                        $newVal = $data[$k];
+                                        if ((string)$newVal !== (string)$v) {
+                                            $urlParams[$k] = $newVal;
+                                        }
                                     }
-
-
                                 }
                             }
+
                         }
 
 
@@ -779,13 +729,11 @@ class LightRealformService
 //                $form->addNotification(ErrorFormNotification::create("There was a problem."));
                 }
             } else {
+
                 //--------------------------------------------
                 // DEFAULT VALUES
                 //--------------------------------------------
                 $feederOptions = [];
-                if ($multiplier) {
-                    $feederOptions['multiplier'] = $multiplier;
-                }
                 if (true === $isUpdate) {
                     $feederOptions['updateRic'] = $updateRic;
                 }
@@ -804,7 +752,6 @@ class LightRealformService
 
             }
         }
-
 
         return $form;
     }
@@ -866,7 +813,7 @@ class LightRealformService
                 $successOptions["multiplier"] = $options['multiplier'];
             }
 
-            
+
             $successHandler->execute($data, $successOptions);
         }
     }
@@ -877,7 +824,6 @@ class LightRealformService
      *
      * Available options are:
      * - ?updateRic: array, the update ric (only if the form is in update mode)
-     * - multiplier: array, the multiplier. See more in @page(the configuration file section of the Light_Realform conception notes)
      *
      *
      * @param array $nugget
@@ -910,9 +856,6 @@ class LightRealformService
             if (array_key_exists('updateRic', $options)) {
                 $feederParams['updateRic'] = $options['updateRic'];
             }
-            if (array_key_exists('multiplier', $options)) {
-                $feederParams['multiplier'] = $options['multiplier'];
-            }
 
             return $feeder->getDefaultValues($feederParams);
         }
@@ -934,10 +877,10 @@ class LightRealformService
 
 
     /**
-     * Returns the multiplier configuration found in the given nugget, or null if no multiplier was found.
+     * Returns the multiplied column found in the given nugget, or null if no multiplier was found.
      *
      * @param array $nugget
-     * @return array|null
+     * @return string|null
      */
     private function getMultiplierByNugget(array $nugget)
     {
@@ -945,11 +888,9 @@ class LightRealformService
         $fields = $nugget['chloroform']['fields'] ?? [];
         if ($fields) {
             foreach ($fields as $id => $field) {
-                if (array_key_exists('multiplier', $field)) {
-                    $ret = [
-                        "item_id" => $id,
-                        "pivot" => $field['multiplier']['pivot'],
-                    ];
+                if (array_key_exists('multiplier', $field) && true === $field['multiplier']) {
+
+                    $ret = $id;
                     break;
                 }
             }

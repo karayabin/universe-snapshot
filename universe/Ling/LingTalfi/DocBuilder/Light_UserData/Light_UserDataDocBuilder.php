@@ -82,7 +82,8 @@ class Light_UserDataDocBuilder
                 "Ling\Light_AjaxHandler\Handler\BaseLightAjaxHandler",
                 "Ling\Light_AjaxHandler\Handler\ContainerAwareLightAjaxHandler",
                 "Ling\TemporaryVirtualFileSystem\TemporaryVirtualFileSystem",
-                "Ling\Light_HttpError\Controller\LightHttpErrorController",
+                "Ling\Light_SimpleHttpServer\Controller\LightSimpleHttpServerController",
+
 
             ],
             /**
@@ -221,8 +222,9 @@ class Light_UserDataDocBuilder
                 "Ling\TemporaryVirtualFileSystem\TemporaryVirtualFileSystem" => "https://github.com/lingtalfi/TemporaryVirtualFileSystem/blob/master/doc/api/Ling/TemporaryVirtualFileSystem/TemporaryVirtualFileSystem.md",
                 "Ling\TemporaryVirtualFileSystem\TemporaryVirtualFileSystemInterface" => "https://github.com/lingtalfi/TemporaryVirtualFileSystem/blob/master/doc/api/Ling/TemporaryVirtualFileSystem/TemporaryVirtualFileSystemInterface.md",
                 "Ling\Light_PluginInstaller\PluginInstaller\PluginPostInstallerInterface" => "https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/PluginInstaller/PluginPostInstallerInterface.md",
-                "Ling\Light_HttpError\Controller\LightHttpErrorController" => "https://github.com/lingtalfi/Light_HttpError/blob/master/doc/api/Ling/Light_HttpError/Controller/LightHttpErrorController.md",
                 "Ling\Light_UserData\FileManager\LightUserDataFileManagerHandler" => "https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/FileManager/LightUserDataFileManagerHandler.md",
+                "Ling\Light_SimpleHttpServer\Controller\LightSimpleHttpServerController" => "https://github.com/lingtalfi/Light_SimpleHttpServer/blob/master/doc/api/Ling/Light_SimpleHttpServer/Controller/LightSimpleHttpServerController.md",
+
 
 
             ],

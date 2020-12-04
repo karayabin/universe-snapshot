@@ -45,12 +45,20 @@ class Application extends AbstractProgram
 
 
     /**
+     * This property holds the defaultCommandAlias for this instance.
+     * @var string
+     */
+    protected $defaultCommandAlias;
+
+
+    /**
      * Builds the Application instance.
      */
     public function __construct()
     {
         parent::__construct();
         $this->commands = [];
+        $this->defaultCommandAlias = "help";
     }
 
 
@@ -78,6 +86,11 @@ class Application extends AbstractProgram
     protected function runProgram(InputInterface $input, OutputInterface $output)
     {
         $commandAlias = $input->getParameter(1);
+        if (null === $commandAlias) {
+            $commandAlias = $this->defaultCommandAlias;
+        }
+
+
         if (null !== $commandAlias) {
             if (array_key_exists($commandAlias, $this->commands)) {
                 $commandClassName = $this->commands[$commandAlias];

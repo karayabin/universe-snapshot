@@ -46,7 +46,7 @@ Returns false | string.
 
 Source Code
 ===========
-See the source code for method [RealformResult::getRedirectionUrl](https://github.com/lingtalfi/Light_Realform/blob/master/Result/RealformResult.php#L115-L118)
+See the source code for method [RealformResult::getRedirectionUrl](https://github.com/lingtalfi/Light_Realform/blob/master/Result/RealformResult.php#L122-L125)
 
 
 See Also

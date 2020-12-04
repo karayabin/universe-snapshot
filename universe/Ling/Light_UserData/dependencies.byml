@@ -7,7 +7,7 @@ dependencies:
         - Chloroform
         - Light_User
         - Bat
-        - Light_HttpError
+        - Light_SimpleHttpServer
         - Panda_Headers
         - Light_UserManager
         - Light_ZouUploader

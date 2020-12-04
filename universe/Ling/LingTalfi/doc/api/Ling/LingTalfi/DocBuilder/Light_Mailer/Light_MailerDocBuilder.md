@@ -4,7 +4,7 @@
 
 The Light_MailerDocBuilder class
 ================
-2019-03-13 --> 2020-11-09
+2019-03-13 --> 2020-12-03
 
 
 
@@ -52,4 +52,4 @@ See the source code of [Ling\LingTalfi\DocBuilder\Light_Mailer\Light_MailerDocBu
 
 SeeAlso
 ==============
-Previous class: [Light_LoggerDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Logger/Light_LoggerDocBuilder.md)<br>Next class: [Light_MicroPermissionDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_MicroPermission/Light_MicroPermissionDocBuilder.md)<br>
+Previous class: [Light_LoginNotifierDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_LoginNotifier/Light_LoginNotifierDocBuilder.md)<br>Next class: [Light_MicroPermissionDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_MicroPermission/Light_MicroPermissionDocBuilder.md)<br>

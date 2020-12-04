@@ -51,7 +51,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LupUserPreferenceController::renderForm](https://github.com/lingtalfi/Light_Kit_Admin_UserPreferences/blob/master/Controller/Generated/LupUserPreferenceController.php#L41-L76)
+See the source code for method [LupUserPreferenceController::renderForm](https://github.com/lingtalfi/Light_Kit_Admin_UserPreferences/blob/master/Controller/Generated/LupUserPreferenceController.php#L40-L61)
 
 
 See Also

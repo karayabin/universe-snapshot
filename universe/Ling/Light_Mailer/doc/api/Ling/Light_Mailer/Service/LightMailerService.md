@@ -4,7 +4,7 @@
 
 The LightMailerService class
 ================
-2020-06-29 --> 2020-08-17
+2020-06-29 --> 2020-11-30
 
 
 
@@ -31,6 +31,7 @@ class <span class="pl-k">LightMailerService</span>  {
     - protected array [$options](#property-options) ;
     - protected string [$tagOpening](#property-tagOpening) ;
     - protected string [$tagClosing](#property-tagClosing) ;
+    - protected array [$templatePartsAlias2Directories](#property-templatePartsAlias2Directories) ;
 
 - Methods
     - public [__construct](https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Service/LightMailerService/__construct.md)() : void
@@ -40,10 +41,12 @@ class <span class="pl-k">LightMailerService</span>  {
     - public [setSender](https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Service/LightMailerService/setSender.md)(string $id, array $sender) : void
     - public [setSenders](https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Service/LightMailerService/setSenders.md)(array $senders) : void
     - public [setOptions](https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Service/LightMailerService/setOptions.md)(array $options) : void
+    - public [registerTemplatePartsDirectory](https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Service/LightMailerService/registerTemplatePartsDirectory.md)(string $alias, string $path) : void
     - public [send](https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Service/LightMailerService/send.md)(string $templateId, $recipientList, ?array $options = []) : int
     - protected [debugLog](https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Service/LightMailerService/debugLog.md)(string $msg) : void
     - protected [sendMessage](https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Service/LightMailerService/sendMessage.md)(Swift_Mailer $mailer, Swift_Message $message, $recipientList, string $templateId, ?array $options = []) : int
     - protected [getTemplateContent](https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Service/LightMailerService/getTemplateContent.md)(string $templateId) : array
+    - protected [resolveTemplatePartsReferences](https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Service/LightMailerService/resolveTemplatePartsReferences.md)(string &$content, string $templateId) : void
     - protected [getTransport](https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Service/LightMailerService/getTransport.md)(string $transportId) : [Swift_Transport](https://github.com/swiftmailer/swiftmailer/blob/master/lib/classes/Swift/Transport.php)
     - private [getMailerRootDir](https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Service/LightMailerService/getMailerRootDir.md)() : string
     - private [checkSubject](https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Service/LightMailerService/checkSubject.md)($subject, string $templateId) : void
@@ -106,6 +109,12 @@ Properties
     
     
 
+- <span id="property-templatePartsAlias2Directories"><b>templatePartsAlias2Directories</b></span>
+
+    This property holds the templatePartsAlias2Directories for this instance.
+    
+    
+
 
 
 Methods
@@ -118,10 +127,12 @@ Methods
 - [LightMailerService::setSender](https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Service/LightMailerService/setSender.md) &ndash; Sets a sender.
 - [LightMailerService::setSenders](https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Service/LightMailerService/setSenders.md) &ndash; Sets the senders.
 - [LightMailerService::setOptions](https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Service/LightMailerService/setOptions.md) &ndash; Sets the options.
+- [LightMailerService::registerTemplatePartsDirectory](https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Service/LightMailerService/registerTemplatePartsDirectory.md) &ndash; Registers a template parts directory with the given $alias.
 - [LightMailerService::send](https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Service/LightMailerService/send.md) &ndash; Sends the email which template id was given to the recipientList, and returns the number of successful emails sent, (including bcc and cc recipients if defined).
 - [LightMailerService::debugLog](https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Service/LightMailerService/debugLog.md) &ndash; Sends a message to the log (if the useDebug option is true).
 - [LightMailerService::sendMessage](https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Service/LightMailerService/sendMessage.md) &ndash; Sends the given message, using the given mailer, and returns the number of emails sent.
 - [LightMailerService::getTemplateContent](https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Service/LightMailerService/getTemplateContent.md) &ndash; Returns the raw template content(s) corresponding to the given template id.
+- [LightMailerService::resolveTemplatePartsReferences](https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Service/LightMailerService/resolveTemplatePartsReferences.md) &ndash; Resolves in place the template parts references from the given $content.
 - [LightMailerService::getTransport](https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Service/LightMailerService/getTransport.md) &ndash; Returns the transport for the given id.
 - [LightMailerService::getMailerRootDir](https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Service/LightMailerService/getMailerRootDir.md) &ndash; Returns the absolute path to the mailer root dir, which contains all the templates.
 - [LightMailerService::checkSubject](https://github.com/lingtalfi/Light_Mailer/blob/master/doc/api/Ling/Light_Mailer/Service/LightMailerService/checkSubject.md) &ndash; Check that the subject is set, and if not throws an exception.

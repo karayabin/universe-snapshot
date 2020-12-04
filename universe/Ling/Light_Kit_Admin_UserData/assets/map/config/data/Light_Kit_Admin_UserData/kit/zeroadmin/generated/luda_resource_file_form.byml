@@ -1,0 +1,14 @@
+_parent: ${parent_layout}
+title: Resource file Form
+zones:
+    body:
+        -
+            name: lka_chloroform
+            type: picasso
+            className: Ling\Light_Kit_Admin\Widget\Picasso\LightKitAdminChloroformWidget
+            widgetDir: templates/Light_Kit_Admin/widgets/picasso/LightKitAdminChloroformWidget
+            template: default.php
+            vars: []
+                title: ${rendering.title}
+                form: ${form}
+                related_links: ${rendering.related_links}

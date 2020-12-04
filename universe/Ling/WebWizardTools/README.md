@@ -1,6 +1,6 @@
 WebWizardTools
 ===========
-2020-07-06 -> 2020-07-24
+2020-07-06 -> 2020-11-23
 
 
 
@@ -37,6 +37,10 @@ Summary
 
 History Log
 =============
+
+- 1.3.1 -- 2020-11-23
+
+    - update WebWizardToolsDefaultWebWizardRenderer, default theme now displays the name of each process in title attribute 
 
 - 1.3.0 -- 2020-07-24
 

@@ -4,7 +4,7 @@
 
 The LightKitAdminGeneratorService class
 ================
-2019-11-06 --> 2020-09-18
+2019-11-06 --> 2020-12-01
 
 
 
@@ -30,6 +30,7 @@ class <span class="pl-k">LightKitAdminGeneratorService</span> extends [LightReal
 
 - Methods
     - protected [onGenerateAfter](https://github.com/lingtalfi/Light_Kit_Admin_Generator/blob/master/doc/api/Ling/Light_Kit_Admin_Generator/Service/LightKitAdminGeneratorService/onGenerateAfter.md)(array $configBlock) : void
+    - protected [getNewListConfigGeneratorInstance](https://github.com/lingtalfi/Light_Kit_Admin_Generator/blob/master/doc/api/Ling/Light_Kit_Admin_Generator/Service/LightKitAdminGeneratorService/getNewListConfigGeneratorInstance.md)() : [ListConfigGenerator](https://github.com/lingtalfi/Light_RealGenerator/blob/master/doc/api/Ling/Light_RealGenerator/Generator/ListConfigGenerator.md)
 
 - Inherited methods
     - public LightRealGeneratorService::__construct() : void
@@ -52,6 +53,7 @@ Methods
 ==============
 
 - [LightKitAdminGeneratorService::onGenerateAfter](https://github.com/lingtalfi/Light_Kit_Admin_Generator/blob/master/doc/api/Ling/Light_Kit_Admin_Generator/Service/LightKitAdminGeneratorService/onGenerateAfter.md) &ndash; Hook called at the end of the [generate method](https://github.com/lingtalfi/Light_Kit_Admin_Generator/blob/master/doc/api/Ling/Light_RealGenerator/Service/LightRealGeneratorService/generate.md).
+- [LightKitAdminGeneratorService::getNewListConfigGeneratorInstance](https://github.com/lingtalfi/Light_Kit_Admin_Generator/blob/master/doc/api/Ling/Light_Kit_Admin_Generator/Service/LightKitAdminGeneratorService/getNewListConfigGeneratorInstance.md) &ndash; Creates and returns the list config generator instance.
 - LightRealGeneratorService::__construct &ndash; Builds the LightRealGeneratorService instance.
 - LightRealGeneratorService::generate &ndash; Same as generateByConf method, but takes the file path instead of the array.
 - LightRealGeneratorService::generateByConf &ndash; according to the [configuration block](https://github.com/lingtalfi/Light_Kit_Admin_Generator/blob/master/doc/pages/lkagen-configuration-example.md) identified by the given file and identifier.

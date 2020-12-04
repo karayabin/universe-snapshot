@@ -74,6 +74,18 @@ class LightErrorHandlerService
         $this->options = $options;
     }
 
+    /**
+     * Returns the options of this instance.
+     *
+     * @return array
+     */
+    public function getOptions(): array
+    {
+        return $this->options;
+    }
+
+
+
 
     /**
      * Registers the error handling functions based on the service configuration.

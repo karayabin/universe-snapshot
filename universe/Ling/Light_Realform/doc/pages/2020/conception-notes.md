@@ -1,6 +1,6 @@
 Light_Realform, conception notes
 ==============
-2020-09-04 -> 2020-09-18
+2020-09-04 -> 2020-11-13
 
 
 The goal of the **Light_Realform** service is to help us create any **html form**.
@@ -92,7 +92,7 @@ At the core of our system, we use the [Chloroform planet](https://github.com/lin
 
 The configuration file
 -------------
-2020-09-07 -> 2020-09-18
+2020-09-07 -> 2020-10-01
 
 
 To access the configuration file, we use the [Light_Nugget planet](https://github.com/lingtalfi/Light_Nugget), with a relative path of "Light_Realform/form".
@@ -145,10 +145,19 @@ Our directives are the following:
     If you use our default feeder, it's assumed that you are using a database as your storage, 
     and the **storage_id** is the table name, optionally prefixed with the database name (mainly in case your application uses multiple databases).    
  
+
+
+
     
-- form_handler: array, this basically creates and configures the chloroform instance.
+- chloroform: array, this basically creates and configures the chloroform instance.
     - id: string, the id of the chloroform.
-    - fields: array of fieldId => "field items", each item being an array. See more about [field id in the chloroform documentation](https://github.com/lingtalfi/Chloroform/blob/master/doc/pages/chloroform-discussion.md#the-field-id).
+    - fields: array of **fieldId** => "field items", each item being an array. 
+        
+        The **fieldId** is described in the [field id section of the chloroform documentation](https://github.com/lingtalfi/Chloroform/blob/master/doc/pages/chloroform-discussion.md#the-field-id).
+        However, depending on your success handler, it might be required that your fieldId corresponds exactly to the name of the column
+        to update in the database (i.e. if your success handler assumes so). Check out your success handler implementation for more details.
+        
+        Note that our default **ToDatabaseSuccessHandler** has such an expectation.
     
         Each field item is an array which is basically passed to the control instance defined by the type property, except for the **validators**
         property, which is not passed to the control instance, but used by our service instead.
@@ -224,18 +233,19 @@ Our directives are the following:
             - required
             
         - multiplier: array, defines a multiplier for this field. For more info about the multiplier, see the [form multiplier trick](https://github.com/lingtalfi/TheBar/blob/master/discussions/form-multiplier.md).
-        This will only work if you use our default objects (feeder: RealformDatabaseFeeder, successHandler: ToDatabaseSuccessHandler). 
-        If not (i.e. if you use your own objects), you'll need to re-implement the multiplier trick yourself if you need it.
+        If you set this, don't forget to also set the multiplier property at the configuration level (i.e. both are required for the multiplier trick to work properly).
+        
+        Note: our default objects (i.e. feeder: RealformDatabaseFeeder, successHandler: ToDatabaseSuccessHandler) handle the multiplier trick already.
          
-         The properties are:
-            - ?enabled: bool=true, set this to **false** to quickly disable the multiplier. It's enabled by default as soon as you define the multiplier property.
-            - pivot: string, the name of the pivot column (see the form multiplier trick document for more details)
-            - ?on_update_fetch_sql: string, the sql query to use, when in update mode, to fetch the default values based on the given [ric](https://github.com/lingtalfi/NotationFan/blob/master/ric.md).
-                By default, our service provides this request automatically for you, based on the value of the **pivot** and **table** properties (the table property comes from the **storage_id** directive of the configuration file), however with the **on_update_fetch_sql** property
-                you can override that default query, should you have more specific business rules.  
-                You can use {tags} corresponding to the ric columns to access the ric values.
-                For instance:
-                - select permission_id from lud_permission_group_has_permission where permission_group_id={permission_group_id}
+        The properties are:
+        - ?enabled: bool=true, set this to **false** to quickly disable the multiplier. It's enabled by default as soon as you define the multiplier property.
+        - pivot: string, the name of the pivot column (see the form multiplier trick document for more details)
+        - ?on_update_fetch_sql: string, the sql query to use, when in update mode, to fetch the default values based on the given [ric](https://github.com/lingtalfi/NotationFan/blob/master/ric.md).
+            By default, our service provides this request automatically for you, based on the value of the **pivot** and **table** properties (the table property comes from the **storage_id** directive of the configuration file), however with the **on_update_fetch_sql** property
+            you can override that default query, should you have more specific business rules.  
+            You can use {tags} corresponding to the ric columns to access the ric values.
+            For instance:
+            - select permission_id from lud_permission_group_has_permission where permission_group_id={permission_group_id}
          As for now, the **field identifier** is used as the column name in your table (if you are using a database). This might change as concrete cases show up.
          
          @dev: Search for the abc.1 string in the code to remove that.       
@@ -350,7 +360,7 @@ success_handler:
 
 The success handler interface
 ------------
-2020-09-07 -> 2020-09-18
+2020-09-07 -> 2020-10-01
 
 Our **RealformSuccessHandlerInterface** interface has two methods:
 
@@ -366,8 +376,8 @@ The **params** variable passed as an argument of the **execute** method is the a
 We also add the following properties:
 - updateRic: array|false, the update ric. If the form is not in **update mode**, the value is false.
 - storageId: string|null, the value that you defined in the configuration file (**storage_id**), or null if not defined in your configuration.
-- ?multiplier: array, only passed if the multiplier property is defined and enabled in the configuration file, it contains the following:
-    - field_id: the field identifier on which the multiplier was defined
+- ?multiplier: array. Use it only if you want to apply the [multiplier trick](https://github.com/lingtalfi/TheBar/blob/master/discussions/form-multiplier.md) on this form. It contains the following:
+    - item_id: the field identifier on which the multiplier was defined
     - pivot: same as the multiplier.pivot property from the configuration file
     - ?on_update_fetch_sql: same as the multiplier.on_update_fetch_sql property from the configuration file
     
@@ -479,12 +489,21 @@ If the **updateRic** is defined, it will be passed to the **success handler** vi
 
 
 
+The multiplier array
+----------
+2020-11-13
+
+Unless otherwise specified, the multiplier property is the array defined in the [form multiplier trick](https://github.com/lingtalfi/TheBar/blob/master/discussions/form-multiplier.md#the-form-multiplier-array),
+it consists of the following entries:
+
+- pivot
+- item_id
 
 
 
 The feeder
 ----------
-2020-09-07 -> 2020-09-18
+2020-09-07 -> 2020-11-13
 
 
 The role of the **feeder** is to provide the default values of the form, that is the values when the form is not yet posted by the user.
@@ -498,13 +517,11 @@ The **feeder** must implement our **RealformFeederInterface**, which exposes the
 - getDefaultValues ( array params = [] )
 
 
-If you use the **updateRic** system, the updateRic is passed as a parameter of the **getDefaultValue** method.
+The params are:
 
-The **storage_id** property is also passed as a parameter (of the **getDefaultValue** method).
-
-If one of your field has the multiplier option (see the [configuration file](#the-configuration-file) section for more details),
-then the **multiplier** property is also passed as a parameter.
- 
+- storage_id: string, the storage identifier
+- ?updateRic: array=null, the ric of the entry to update (this is only useful when the form is in update mode).
+- ?multiplier: array, [the multiplier array](#the-multiplier-array)
 
 
 

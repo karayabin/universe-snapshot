@@ -77,6 +77,7 @@ class Light_Kit_Admin_GeneratorDocBuilder
             "reportIgnore" => [
                 "Ling\Light_RealGenerator\Generator\BaseConfigGenerator",
                 "Ling\Light_RealGenerator\Service\LightRealGeneratorService",
+                "Ling\Light_RealGenerator\Generator\ListConfigGenerator",
 
             ],
             /**
@@ -148,6 +149,8 @@ class Light_Kit_Admin_GeneratorDocBuilder
                 "generate method" => $api . '/Ling/Light_RealGenerator/Service/LightRealGeneratorService/generate.md',
                 "realist" => 'https://github.com/lingtalfi/Light_Realist',
                 "realform" => 'https://github.com/lingtalfi/Light_Realform',
+                "open admin data type" => 'https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/open-admin-table-protocol.md#the-data-types',
+                "getGenericTagsByTable method" => 'https://github.com/lingtalfi/Light_RealGenerator/blob/master/doc/api/Ling/Light_RealGenerator/Generator/BaseConfigGenerator/getGenericTagsByTable.md',
             ],
             /**
              * An array of external classes to url.
@@ -163,6 +166,7 @@ class Light_Kit_Admin_GeneratorDocBuilder
                 "Ling\Light\ServiceContainer\LightServiceContainerInterface" => "https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md",
                 "Ling\Light_RealGenerator\Generator\BaseConfigGenerator" => "https://github.com/lingtalfi/Light_RealGenerator/blob/master/doc/api/Ling/Light_RealGenerator/Generator/BaseConfigGenerator.md",
                 "Ling\Light_RealGenerator\Service\LightRealGeneratorService" => "https://github.com/lingtalfi/Light_RealGenerator/blob/master/doc/api/Ling/Light_RealGenerator/Service/LightRealGeneratorService.md",
+                "Ling\Light_RealGenerator\Generator\ListConfigGenerator" => "https://github.com/lingtalfi/Light_RealGenerator/blob/master/doc/api/Ling/Light_RealGenerator/Generator/ListConfigGenerator.md",
 
             ],
             "ignoreFilesStartingWith" => [

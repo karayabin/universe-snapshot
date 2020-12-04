@@ -23,19 +23,7 @@ kit:
             method: addPageConfigurationTransformer
             args:
                 -
-                    instance: Ling\Light_Kit\PageConfigurationTransformer\LazyReferenceResolver
-                    methods:
-                        setResolvers:
-                            resolvers:
-                                METHOD_CALL:
-                                    instance: Ling\Light_Kit\PageConfigurationTransformer\LazyReferenceResolver\MethodCallResolver
-                                    methods:
-                                        setContainer:
-                                            container: @container()
-                                    callable_method: resolve
-                                ROUTE:
-                                    instance: Ling\Light_Kit\PageConfigurationTransformer\LazyReferenceResolver\RouteResolver
-                                    callable_method: resolve
+                    instance: Ling\Light_Kit\PageConfigurationTransformer\LightExecuteNotationResolver
 
 
         -

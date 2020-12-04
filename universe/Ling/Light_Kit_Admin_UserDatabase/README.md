@@ -1,6 +1,6 @@
 Light_Kit_Admin_UserDatabase
 ===========
-2020-06-25 -> 2020-11-10
+2020-06-25 -> 2020-12-01
 
 
 This is a work in progress until version 1.
@@ -47,99 +47,73 @@ Services
 Here is an example of the service configuration:
 
 ```yaml
-kit_admin_user_database:
+kit_admin_user_database: 
     instance: Ling\Light_Kit_Admin_UserDatabase\Service\LightKitAdminUserDatabaseService
-    methods:
-        setContainer:
+    methods: 
+        setContainer: 
             container: @container()
-            
+        
+    
+
 # --------------------------------------
 # hooks
 # --------------------------------------
-$bmenu.methods_collection:
-    -
+$bmenu.methods_collection: 
+    - 
         method: addDirectInjector
-        args:
+        args: 
             menuType: admin_main_menu
             injector: @service(kit_admin_user_database)
+        
 
-$chloroform_extension.methods_collection:
-    -
-        method: registerTableListConfigurationHandler
-        args:
-            plugin: Light_Kit_Admin_UserDatabase
-            handler:
-                instance: Ling\Light_Kit_Admin\ChloroformExtension\LightKitAdminTableListConfigurationHandler
-                methods:
-                    setConfigurationFile:
-                        files:
-                            - ${app_dir}/config/data/Light_Kit_Admin_UserDatabase/Light_ChloroformExtension/generated/lka_userdata.table_list.byml
-#                            - ${app_dir}/config/data/Light_Kit_Admin_UserDatabase/Light_ChloroformExtension/table_list.byml
+    
 
-
-$controller_hub.methods_collection:
-    -
-        method: registerHandler
-        args:
-            plugin: Light_Kit_Admin_UserDatabase
-            handler:
-                instance: Ling\Light_Kit_Admin_UserDatabase\ControllerHub\LightKitAdminUserDatabaseControllerHubHandler
-                methods:
-                    setContainer:
-                        container: @container()
-
-
-$easy_route.methods_collection:
-    -
+$easy_route.methods_collection: 
+    - 
         method: registerBundleFile
-        args:
+        args: 
             file: config/data/Light_Kit_Admin_UserDatabase/Light_EasyRoute/lka_userdatabase_routes.byml
+        
+    
 
-
-$kit_admin.methods_collection:
-    -
+$kit_admin.methods_collection: 
+    - 
         method: registerPlugin
-        args:
+        args: 
             pluginName: Light_Kit_Admin_UserDatabase
-            plugin:
+            plugin: 
                 instance: Ling\Light_Kit_Admin_UserDatabase\LightKitAdminPlugin\LightKitAdminUserDatabaseLkaPlugin
-                methods:
-                    setOptionsFile:
+                methods: 
+                    setOptionsFile: 
                         file: ${app_dir}/config/data/Light_Kit_Admin_UserDatabase/Light_Kit_Admin/lka-options.byml
+                    
+                
+            
+        
+    
 
-
-
-$micro_permission.methods_collection:
-    -
+$micro_permission.methods_collection: 
+    - 
         method: registerMicroPermissionsByFile
-        args:
+        args: 
             file: ${app_dir}/config/data/Light_Kit_Admin_UserDatabase/Light_MicroPermission/lka_userdatabase-micro-permissions.byml
+        
+    
+    - 
+        method: registerMicroPermissionsByProfile
+        args: 
+            file: ${app_dir}/config/data/Light_Kit_Admin_UserDatabase/Light_MicroPermission/kit_admin_user_database.profile.generated.byml
+        
+    
 
-$plugin_installer.methods_collection:
-    -
+$plugin_installer.methods_collection: 
+    - 
         method: registerPlugin
-        args:
+        args: 
             plugin: Light_Kit_Admin_UserDatabase
             installer: @service(kit_admin_user_database)
-
-
-$upload_gems.methods_collection:
-    -
-        method: register
-        args:
-            plugin: Light_Kit_Admin_UserDatabase
-
-
-
-
-
-
-
-
-
-
-
-
+        
+    
 ```
 
 
@@ -147,7 +121,15 @@ $upload_gems.methods_collection:
 History Log
 =============
 
--- 0.5.1 -- 2020-11-10
+- 0.5.3 -- 2020-12-01
+
+    - update to accommodate latest Light_ControllerHub api
+    
+- 0.5.2 -- 2020-11-27
+
+    - update to accommodate latest Light_Kit api
+    
+- 0.5.1 -- 2020-11-26
 
     - update api to acknowledge use of Light_Nugget, and new Light_UserData api
     

@@ -4,7 +4,7 @@
 
 The RowDuplicator class
 ================
-2019-10-01 --> 2020-11-17
+2019-10-01 --> 2020-11-24
 
 
 
@@ -26,13 +26,14 @@ class <span class="pl-k">RowDuplicator</span>  {
 
 - Properties
     - protected [Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) [$container](#property-container) ;
+    - private string [$mainTable](#property-mainTable) ;
 
 - Methods
     - public [__construct](https://github.com/lingtalfi/Light_DatabaseUtils/blob/master/doc/api/Ling/Light_DatabaseUtils/Util/RowDuplicator/__construct.md)() : void
     - public [setContainer](https://github.com/lingtalfi/Light_DatabaseUtils/blob/master/doc/api/Ling/Light_DatabaseUtils/Util/RowDuplicator/setContainer.md)([Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) $container) : void
     - public [duplicate](https://github.com/lingtalfi/Light_DatabaseUtils/blob/master/doc/api/Ling/Light_DatabaseUtils/Util/RowDuplicator/duplicate.md)(string $table, array $rics, ?array $options = []) : void
     - protected [doDuplicate](https://github.com/lingtalfi/Light_DatabaseUtils/blob/master/doc/api/Ling/Light_DatabaseUtils/Util/RowDuplicator/doDuplicate.md)(string $table, array $rics, ?array $options = []) : void
-    - protected [onInsertAfter](https://github.com/lingtalfi/Light_DatabaseUtils/blob/master/doc/api/Ling/Light_DatabaseUtils/Util/RowDuplicator/onInsertAfter.md)(string $table, array $newRow, ?$lastInsertId = null) : void
+    - protected [onInsertAfter](https://github.com/lingtalfi/Light_DatabaseUtils/blob/master/doc/api/Ling/Light_DatabaseUtils/Util/RowDuplicator/onInsertAfter.md)(string $mainTable, string $table, array $oldRow, array $newRow, ?$lastInsertId = null) : void
     - private [getDependentTables](https://github.com/lingtalfi/Light_DatabaseUtils/blob/master/doc/api/Ling/Light_DatabaseUtils/Util/RowDuplicator/getDependentTables.md)(string $table, Ling\SimplePdoWrapper\Util\MysqlInfoUtil $util) : array
     - private [error](https://github.com/lingtalfi/Light_DatabaseUtils/blob/master/doc/api/Ling/Light_DatabaseUtils/Util/RowDuplicator/error.md)(string $msg, ?int $code = null) : void
 
@@ -47,6 +48,12 @@ Properties
 - <span id="property-container"><b>container</b></span>
 
     This property holds the container for this instance.
+    
+    
+
+- <span id="property-mainTable"><b>mainTable</b></span>
+
+    This property holds the mainTable for this instance.
     
     
 

@@ -1,6 +1,6 @@
 Light_Logger
 ===========
-2019-08-01 -> 2020-11-06
+2019-08-01 -> 2020-11-30
 
 
 
@@ -97,6 +97,10 @@ logger:
 History Log
 =============
 
+- 1.11.3 -- 2020-11-30
+
+    - update conception notes
+    
 - 1.11.2 -- 2020-11-06
 
     - update LightFileLoggerListener, add formatting option

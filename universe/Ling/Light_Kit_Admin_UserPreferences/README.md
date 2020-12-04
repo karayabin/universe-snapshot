@@ -1,6 +1,6 @@
 Light_Kit_Admin_UserPreferences
 ===========
-2020-08-13 -> 2020-08-28
+2020-08-13 -> 2020-11-27
 
 
 
@@ -111,40 +111,6 @@ $bmenu.methods_collection:
         
     
 
-$controller_hub.methods_collection: 
-    - 
-        method: registerHandler
-        args: 
-            plugin: Light_Kit_Admin_UserPreferences
-            handler: 
-                instance: Ling\Light_Kit_Admin_UserPreferences\ControllerHub\Generated\LightKitAdminUserPreferencesControllerHubHandler
-                methods: 
-                    setContainer: 
-                        container: @container()
-                    
-                
-            
-        
-    
-
-$chloroform_extension.methods_collection: 
-    - 
-        method: registerTableListConfigurationHandler
-        args: 
-            plugin: Light_Kit_Admin_UserPreferences
-            handler: 
-                instance: Ling\Light_Kit_Admin\ChloroformExtension\LightKitAdminTableListConfigurationHandler
-                methods: 
-                    setConfigurationFile: 
-                        files: 
-                            - ${app_dir}/config/data/Light_Kit_Admin_UserPreferences/Light_ChloroformExtension/generated/kit_admin_user_preferences.table_list.byml
-                        
-                    
-                
-            
-        
-    
-
 $kit_admin.methods_collection: 
     - 
         method: registerPlugin
@@ -155,26 +121,7 @@ $kit_admin.methods_collection:
                 methods: 
                     setOptionsFile: 
                         file: ${app_dir}/config/data/Light_Kit_Admin_UserPreferences/Light_Kit_Admin/lka-options.generated.byml
-                    
-                
-            
-        
 
-
-$realform.methods_collection:
-    -
-        method: registerFormHandler
-        args:
-            plugin: Light_Kit_Admin_UserPreferences
-            handler:
-                instance: Ling\Light_Kit_Admin\Realform\Handler\LightKitAdminRealformHandler
-                methods:
-                    setConfDir:
-                        dir: ${app_dir}/config/data/Light_Kit_Admin_UserPreferences/Light_Realform
-
-
-
-        
     
 
 $micro_permission.methods_collection: 
@@ -191,6 +138,14 @@ $micro_permission.methods_collection:
 History Log
 =============
 
+- 1.2.2 -- 2020-12-01
+
+    - update to accommodate latest Light_ControllerHub api
+    
+- 1.2.1 -- 2020-11-27
+
+    - update to accommodate latest Light_Kit api
+    
 - 1.2.0 -- 2020-08-28
 
     - acknowledge new Light_Crud api  

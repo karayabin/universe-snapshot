@@ -119,8 +119,6 @@ class HeliumLightRenderer extends HeliumRenderer
     {
 
 
-
-
         /**
          * @var $copilot HtmlPageCopilot
          */
@@ -159,10 +157,7 @@ class HeliumLightRenderer extends HeliumRenderer
         $cssContainerId = StringTool::getUniqueCssId('fileuploader-');
 
 
-
-        $gormanArray =  GormanJsonDecoder::encode($field, ['isExternalUrl']);
-
-
+        $gormanArray = GormanJsonDecoder::encode($field, ['isExternalUrl']);
 
 
         ?>
@@ -204,6 +199,7 @@ class HeliumLightRenderer extends HeliumRenderer
      */
     protected function printTableListField(array $field)
     {
+
         /**
          * @var $service LightAjaxHandlerService
          */
@@ -211,18 +207,23 @@ class HeliumLightRenderer extends HeliumRenderer
         $baseUrl = $service->getServiceUrl();
         $useAutoComplete = $field['useAutoComplete'] ?? false;
 
+        $fieldCssId = $this->_formCssId . "-" . $field['id'];
         if (false === $useAutoComplete) {
             $this->printSelectField($field);
         } else {
 
             ?>
-            <div class="cfi-control field" data-cfi-id="<?php echo htmlspecialchars($field['id']); ?>">
+            <div class="cfi-control field" id="<?php echo htmlspecialchars($fieldCssId); ?>"
+                 data-cfi-id="<?php echo htmlspecialchars($field['id']); ?>">
                 <?php
 
-                $formMode = $this->_chloroform['mode'];
 
-                $mode = $field['mode'] ?? 'default';
-                $isMultiplier = ('multiplier' === $mode);
+                $multiplier = $field['multiplier'] ?? false;
+                if ('update' === $this->_chloroform['mode']) {
+                    $multiplier = false;
+                }
+
+
                 $tableListId = $field['tableListDirectiveId'] ?? $field['tableListIdentifier'];
 
                 /**
@@ -274,11 +275,12 @@ class HeliumLightRenderer extends HeliumRenderer
 
 
                 $addBindingButtonId = '';
-                if (true === $isMultiplier) {
+                if (true === $multiplier) {
                     $addBindingButtonId = StringTool::getUniqueCssId("tm-add-binding-btn-");
                     $fieldAutoComplete['button'] = '<button id="' . htmlspecialchars($addBindingButtonId) . '" class="add-binding-btn btn btn-outline-primary btn-sm"><i class="fas fa-plus"></i></button>';
                     $fieldAutoComplete['button_position'] = 'post';
                 }
+
 
                 $field['className'] = 'Ling\Chloroform\Field\HiddenField';
                 //            $field['className'] = 'Ling\Chloroform\Field\StringField';
@@ -295,7 +297,8 @@ class HeliumLightRenderer extends HeliumRenderer
                 ], [
                     '/libs/universe/Ling/JBootstrapAutocomplete/style.css',
                 ]);
-                if (true === $isMultiplier) {
+
+                if (true === $multiplier) {
                     $copilot->registerLibrary("tableList", [
                         '/libs/universe/Ling/Chloroform_HeliumLightRenderer/tablelist/tablelist-multiplier-helper.js',
                     ], [
@@ -317,16 +320,15 @@ class HeliumLightRenderer extends HeliumRenderer
 
 
                 $fieldAutoComplete['errors'] = $field['errors'];
-                $fieldId = $field['id'];
                 $fieldAutoCompleteId = $fieldAutoComplete['id'];
 
-                if (false === $isMultiplier) {
+                if (false === $multiplier) {
                     $fieldAutoComplete['value'] = array_shift($fieldAutoComplete['value']);
                 }
 
                 $this->printStringField($fieldAutoComplete);
 
-                if (false === $isMultiplier) {
+                if (false === $multiplier) {
                     $this->printHiddenField($field);
                 }
                 $tableMultiplierItemsId = StringTool::getUniqueCssId("table-multiplier-items-")
@@ -380,7 +382,7 @@ class HeliumLightRenderer extends HeliumRenderer
                         $(document).ready(function () {
 
 
-                            var useMultiplier = <?php echo (true === $isMultiplier) ? 'true' : 'false'; ?>;
+                            var useMultiplier = <?php echo (true === $multiplier) ? 'true' : 'false'; ?>;
 
 
                             var errorFunc = function (errData) {
@@ -388,15 +390,31 @@ class HeliumLightRenderer extends HeliumRenderer
                             };
 
 
+                            var jField = null;
+                            if (true === useMultiplier) {
+                                /**
+                                 * This is not accurate, but will work. The jField here is just any html element really,
+                                 * we attach a value to it and retrieve that value.
+                                 **/
+                                jField = $('#<?php echo $fieldCssId; ?>');
+                            } else {
+                                /**
+                                 * This field exists only when multiplier is false
+                                 **/
+                                jField = $('#<?php echo $field['id']; ?>');
+                            }
+
                             //----------------------------------------
                             // MULTIPLIER
                             //----------------------------------------
                             if (true === useMultiplier) {
+
+
                                 var tableListMultiplierHelper = new TableListMultiplierHelper({
                                     itemInputName: '<?php echo $itemInputName; ?>',
                                     jAddBindingBtn: $('#<?php echo $addBindingButtonId; ?>'),
                                     jBindingLabelInput: $('#<?php echo $fieldAutoCompleteId; ?>'),
-                                    jBindingInput: $('#<?php echo $fieldId; ?>'),
+                                    jBindingInput: jField,
                                     jItemsContainer: $('#<?php echo $tableMultiplierItemsId; ?>'),
                                     <?php if(is_array($fieldAutoComplete['value'])): ?>
                                     itemsContainerValues: <?php echo json_encode($fieldAutoComplete['value']); ?>,
@@ -409,7 +427,8 @@ class HeliumLightRenderer extends HeliumRenderer
                             //----------------------------------------
                             // AUTOCOMPLETE
                             //----------------------------------------
-                            var jField = $('#<?php echo $fieldId; ?>');
+
+
                             var cache = {};
                             var jAutocompleteControl = $("#<?php echo $fieldAutoCompleteId; ?>");
 
@@ -476,6 +495,7 @@ class HeliumLightRenderer extends HeliumRenderer
                                 afterSelect: function (item) {
                                     if ($.isPlainObject(item)) {
                                         jField.val(item.value);
+
                                         if (true === useMultiplier) {
                                             var items = {};
                                             items[item.value] = item.label;

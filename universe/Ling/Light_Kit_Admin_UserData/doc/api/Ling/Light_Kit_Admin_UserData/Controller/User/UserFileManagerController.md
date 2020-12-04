@@ -4,7 +4,7 @@
 
 The UserFileManagerController class
 ================
-2020-02-28 --> 2020-08-21
+2020-02-28 --> 2020-12-01
 
 
 
@@ -32,12 +32,13 @@ class <span class="pl-k">UserFileManagerController</span> extends [AdminPageCont
     - public [render](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/doc/api/Ling/Light_Kit_Admin_UserData/Controller/User/UserFileManagerController/render.md)() : string | [HttpResponseInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponseInterface.md)
 
 - Inherited methods
+    - public AdminPageController::__construct() : void
     - public AdminPageController::renderAdminPage(string $page, ?$params = [], ?Ling\Light_Kit\PageConfigurationUpdator\PageConfUpdator $updator = null) : [HttpResponseInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponseInterface.md)
-    - public LightKitAdminController::__construct() : void
     - public LightKitAdminController::setRoute(array $route) : void
     - protected LightKitAdminController::getKitAdmin() : Ling\Light_Kit_Admin\Service\LightKitAdminService
     - protected LightKitAdminController::getFlasher() : Ling\Light_Flasher\Service\LightFlasherService
     - protected LightKitAdminController::getUser() : Ling\Light_User\LightWebsiteUser
+    - protected LightKitAdminController::getValidWebsiteUser() : Ling\Light_User\LightWebsiteUser
     - public LightKitAdminController::renderPage(string $page, ?array $dynamicVariables = [], ?Ling\Light_Kit\PageConfigurationUpdator\PageConfUpdator $updator = null) : [HttpResponseInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponseInterface.md)
     - protected LightKitAdminController::getRedirectResponseByRoute(string $route, ?array $urlParams = []) : Ling\Light\Http\HttpRedirectResponse
     - protected LightKitAdminController::checkRight(string $right) : [HttpResponseInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponseInterface.md) | null
@@ -60,12 +61,13 @@ Methods
 ==============
 
 - [UserFileManagerController::render](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/doc/api/Ling/Light_Kit_Admin_UserData/Controller/User/UserFileManagerController/render.md) &ndash; Renders the user profile page, where the user can change her profile.
+- AdminPageController::__construct &ndash; Builds the LightController instance.
 - AdminPageController::renderAdminPage &ndash; if she is not connected yet.
-- LightKitAdminController::__construct &ndash; Builds the LightController instance.
 - LightKitAdminController::setRoute &ndash; Sets the matching route to this controller instance.
 - LightKitAdminController::getKitAdmin &ndash; Returns the kit admin service instance.
 - LightKitAdminController::getFlasher &ndash; Returns a flasher instance.
 - LightKitAdminController::getUser &ndash; Returns the current user.
+- LightKitAdminController::getValidWebsiteUser &ndash; Returns a valid website user, or throws an exception.
 - LightKitAdminController::renderPage &ndash; Renders the given page using the [kit service](https://github.com/lingtalfi/Light_Kit).
 - LightKitAdminController::getRedirectResponseByRoute &ndash; Creates and returns an HttpRedirectResponse, based on the given arguments.
 - LightKitAdminController::checkRight &ndash; Ensures that the current user is connected and has the right provided in the arguments.
@@ -90,4 +92,4 @@ See the source code of [Ling\Light_Kit_Admin_UserData\Controller\User\UserFileMa
 
 SeeAlso
 ==============
-Previous class: [LudaTagController](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/doc/api/Ling/Light_Kit_Admin_UserData/Controller/Generated/LudaTagController.md)<br>Next class: [LightKitAdminUserDataControllerHubHandler](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/doc/api/Ling/Light_Kit_Admin_UserData/ControllerHub/LightKitAdminUserDataControllerHubHandler.md)<br>
+Previous class: [LudaTagController](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/doc/api/Ling/Light_Kit_Admin_UserData/Controller/Generated/LudaTagController.md)<br>Next class: [LightKitAdminUserDataException](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/doc/api/Ling/Light_Kit_Admin_UserData/Exception/LightKitAdminUserDataException.md)<br>

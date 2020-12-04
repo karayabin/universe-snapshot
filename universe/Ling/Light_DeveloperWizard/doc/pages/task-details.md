@@ -1,6 +1,6 @@
 Task details
 =============
-2020-07-09 -> 2020-09-04
+2020-07-09 -> 2020-12-01
 
 
 
@@ -12,14 +12,17 @@ Task details
     - [Add standard permissions](#add-standard-permissions)
 - Generators
     - [Generate breeze api](#generate-breeze-api)
+    - [Generate breeze config](#generate-breeze-config)
     - [Execute the lka generator config file](#execute-the-lka-generator-config-file)
 - Light_Kit_Admin
+    - [Create lka generator config](#create-lka-generator-config)
     - [Create lka planet](#create-lka-planet)
     - [Generate Light_Kit_Admin plugin](#generate-light_kit_admin-plugin)
     - [Create the lka user main page with helloWorld](#create-the-lka-user-main-page)
     - [Create the lka user main page with basicList](#create-the-lka-user-main-page-with-basiclist)
 - Planet
     - [Remove planet](#remove-planet)
+    - [Create conception notes](#create-conception-notes)
 - ServiceClass
     - [Add getFactory method](#add-getfactory-method)
     - [Add logDebug method](#add-logdebug-method)
@@ -32,8 +35,6 @@ Task details
 - Service
     - [Disable service](#disable-service)
     - [Enable service](#enable-service)
-
-
 
 
 
@@ -89,6 +90,17 @@ Add standard permissions
 2020-07-09
 
 Adds [light standard permissions](https://github.com/lingtalfi/TheBar/blob/master/discussions/light-standard-permissions.md) for the given planet.
+
+
+
+Create lka generator config
+----------
+2020-11-12
+
+
+Creates a [Light_Kit_Admin_Generator](https://github.com/lingtalfi/Light_Kit_Admin_Generator) config file for the current planet, which name must start with the **Light_Kit_Admin_** prefix.
+
+See an [example of lka generator config file](https://github.com/lingtalfi/Light_Kit_Admin_Generator/blob/master/doc/pages/lkagen-configuration-example.md).
 
 
 
@@ -423,6 +435,15 @@ All the classes will be generated in the **Api** directory at the root of your p
 
 
 
+Generate breeze config
+-----------
+2020-11-12
+
+
+Generates the [breeze config file](https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/pages/ling-breeze-generator-2.md#configuration) for the current planet.
+
+
+
 Generate Light_Kit_Admin plugin
 ----------
 2020-07-09 -> 2020-08-04
@@ -485,6 +506,24 @@ This task removes every file listed below (except for the $appDir):
 
 If the removed service class was registered to the [plugin_installer](https://github.com/lingtalfi/Light_PluginInstaller) service,
 then the uninstall method will be called before the class file is removed. 
+
+
+
+Create conception notes
+-------------
+2020-12-01
+
+
+Creates the conception notes, using my own conventions, which is basically putting the file here:
+
+- $app/universe/$planetIdentifier/personal/mydoc/pages/conception-notes.md
+
+
+With:
+
+- $planetIdentifier: the [planet identifier](https://github.com/karayabin/universe-snapshot#the-planet-identifier)
+
+
 
 
 

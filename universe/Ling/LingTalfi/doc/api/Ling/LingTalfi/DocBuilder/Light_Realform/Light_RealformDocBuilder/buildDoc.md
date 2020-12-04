@@ -70,7 +70,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [Light_RealformDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Light_Realform/Light_RealformDocBuilder.php#L45-L232)
+See the source code for method [Light_RealformDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Light_Realform/Light_RealformDocBuilder.php#L45-L231)
 
 
 See Also

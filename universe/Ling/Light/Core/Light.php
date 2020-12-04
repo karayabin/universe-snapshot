@@ -11,6 +11,7 @@ use Ling\Light\Http\HttpRequest;
 use Ling\Light\Http\HttpRequestInterface;
 use Ling\Light\Http\HttpResponse;
 use Ling\Light\Http\HttpResponseInterface;
+use Ling\Light\Http\VoidHttpRequest;
 use Ling\Light\Router\LightRouter;
 use Ling\Light\ServiceContainer\LightDummyServiceContainer;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
@@ -198,25 +199,6 @@ class Light
         return $this->container;
     }
 
-    /**
-     * Returns the applicationDir of this instance.
-     *
-     * @return string
-     */
-    public function getApplicationDir(): string
-    {
-        return $this->applicationDir;
-    }
-
-    /**
-     * Sets the applicationDir.
-     *
-     * @param string $applicationDir
-     */
-    public function setApplicationDir(string $applicationDir)
-    {
-        $this->applicationDir = $applicationDir;
-    }
 
     /**
      * Returns the routes of this instance.
@@ -353,7 +335,11 @@ class Light
     public function initialize(HttpRequestInterface $httpRequest = null)
     {
         if (null === $httpRequest) {
-            $httpRequest = HttpRequest::createFromEnv();
+            if ('cli' === php_sapi_name()) {
+                $httpRequest = new VoidHttpRequest();
+            } else {
+                $httpRequest = HttpRequest::createFromEnv();
+            }
         }
         $this->httpRequest = $httpRequest;
 

@@ -277,6 +277,26 @@ if ('undefined' === typeof window.bee) {
             return Math.floor(Math.random() * max) + min;
         },
 
+
+        /**
+         * Returns the value of the $map which has a value of $key.
+         * If the key is not found, it throws an exception if $throwEx=true, or returns $defaultValue otherwise.
+         *
+         *
+         * @param key
+         * @param map
+         * @param throwEx
+         * @param defaultValue
+         */
+        getValue: function (key, map, throwEx, defaultValue) {
+            if (key in map) {
+                return map[key];
+            }
+            if (true === throwEx) {
+                throw new Error("Undefined key: " + key);
+            }
+            return defaultValue;
+        },
         // https://stackoverflow.com/questions/15900485/correct-way-to-convert-size-in-bytes-to-kb-mb-gb-in-javascript
         humanSize: function (bytes, decimals) {
             if (0 === bytes) {

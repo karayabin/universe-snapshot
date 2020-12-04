@@ -49,7 +49,7 @@ Returns self.
 
 Source Code
 ===========
-See the source code for method [WebWizardToolsProcess::setCategory](https://github.com/lingtalfi/WebWizardTools/blob/master/Process/WebWizardToolsProcess.php#L300-L304)
+See the source code for method [WebWizardToolsProcess::setCategory](https://github.com/lingtalfi/WebWizardTools/blob/master/Process/WebWizardToolsProcess.php#L307-L311)
 
 
 See Also

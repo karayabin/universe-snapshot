@@ -1,6 +1,6 @@
 Light_Kit
 ===========
-2019-04-25
+2019-04-25 -> 2020-11-27
 
 
 
@@ -94,19 +94,7 @@ kit:
             method: addPageConfigurationTransformer
             args:
                 -
-                    instance: Ling\Light_Kit\PageConfigurationTransformer\LazyReferenceResolver
-                    methods:
-                        setResolvers:
-                            resolvers:
-                                METHOD_CALL:
-                                    instance: Ling\Light_Kit\PageConfigurationTransformer\LazyReferenceResolver\MethodCallResolver
-                                    methods:
-                                        setContainer:
-                                            container: @container()
-                                    callable_method: resolve
-                                ROUTE:
-                                    instance: Ling\Light_Kit\PageConfigurationTransformer\LazyReferenceResolver\RouteResolver
-                                    callable_method: resolve
+                    instance: Ling\Light_Kit\PageConfigurationTransformer\LightExecuteNotationResolver
 
 
         -
@@ -295,6 +283,10 @@ to access the htmlPageCopilot instance (and inject their assets on the main page
 History Log
 =============
 
+- 1.17.0 -- 2020-11-27
+
+    - removed LazyReferenceResolver in favor of LightExecuteNotationResolver
+    
 - 1.16.0 -- 2019-12-16
 
     - update plugin to accommodate new Light service container

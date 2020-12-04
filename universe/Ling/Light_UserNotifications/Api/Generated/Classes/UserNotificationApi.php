@@ -117,7 +117,7 @@ class UserNotificationApi extends CustomLightUserNotificationsBaseApi implements
         $q = '';
         $options = $this->fetchRoutine($q, $markers, $components);
         $fetchStyle = null;
-        if (true === $options['singleColumns']) {
+        if (true === $options['singleColumn']) {
             $fetchStyle = \PDO::FETCH_COLUMN;
         }
         return $this->pdoWrapper->fetchAll($q, $markers, $fetchStyle);
@@ -130,15 +130,19 @@ class UserNotificationApi extends CustomLightUserNotificationsBaseApi implements
     {
         $markers = [];
         $q = '';
-        $this->fetchRoutine($q, $markers, $components);
-        return $this->pdoWrapper->fetch($q, $markers);
+        $options = $this->fetchRoutine($q, $markers, $components);
+        $fetchStyle = null;
+        if (true === $options['singleColumn']) {
+            $fetchStyle = \PDO::FETCH_COLUMN;
+        }
+        return $this->pdoWrapper->fetch($q, $markers, $fetchStyle);
     }
 
     /**
      * @implementation
      */
     public function getUserNotificationById(int $id, $default = null, bool $throwNotFoundEx = false)
-    { 
+    {
         $ret = $this->pdoWrapper->fetch("select * from `$this->table` where id=:id", [
             "id" => $id,
 
@@ -248,7 +252,7 @@ class UserNotificationApi extends CustomLightUserNotificationsBaseApi implements
      * @implementation
      */
     public function updateUserNotificationById(int $id, array $userNotification, array $extraWhere = [], array $markers = [])
-    { 
+    {
         $this->pdoWrapper->update($this->table, $userNotification, array_merge([
             "id" => $id,
 
@@ -280,7 +284,7 @@ class UserNotificationApi extends CustomLightUserNotificationsBaseApi implements
      * @implementation
      */
     public function deleteUserNotificationById(int $id)
-    { 
+    {
         $this->pdoWrapper->delete($this->table, [
             "id" => $id,
 
@@ -298,6 +302,17 @@ class UserNotificationApi extends CustomLightUserNotificationsBaseApi implements
     }
 
 
+
+
+    /**
+     * @implementation
+     */
+    public function deleteUserNotificationByLudUserId(int $userId)
+    {
+        $this->pdoWrapper->delete($this->table, [
+            "lud_user_id" => $userId,
+        ]);
+    }
 
 
     //--------------------------------------------

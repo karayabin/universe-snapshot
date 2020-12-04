@@ -112,14 +112,7 @@ class BlueOctopusServiceContainer implements OctopusServiceContainerInterface
     public function all(): array
     {
         $methods = get_class_methods($this);
-        $ownMethods = [
-            "__construct",
-            "get",
-            "has",
-            "all",
-            "getMethodName",
-            "getServiceName",
-        ];
+        $ownMethods = $this->getOwnMethods();
 
         $methods = array_filter($methods, function ($method) use ($ownMethods) {
             return (false === in_array($method, $ownMethods, true));
@@ -157,5 +150,27 @@ class BlueOctopusServiceContainer implements OctopusServiceContainerInterface
     public static function getServiceName(string $methodName)
     {
         return str_replace('__', '.', $methodName);
+    }
+
+
+
+    //--------------------------------------------
+    //
+    //--------------------------------------------
+    /**
+     * Returns an array of the methods defined in this class, which are not services.
+     * @return array
+     */
+    protected function getOwnMethods(): array
+    {
+        return [
+            "__construct",
+            "get",
+            "has",
+            "all",
+            "getOwnMethods",
+            "getMethodName",
+            "getServiceName",
+        ];
     }
 }

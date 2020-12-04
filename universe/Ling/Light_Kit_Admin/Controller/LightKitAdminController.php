@@ -128,11 +128,23 @@ class LightKitAdminController extends LightController implements RouteAwareContr
      */
     public function renderPage(string $page, array $dynamicVariables = [], PageConfUpdator $updator = null): HttpResponseInterface
     {
+
+
+        /**
+         * lka_parent_layout concept in the page.md document:
+         * we basically allow 3rd party plugin authors to call our parent layout with the lka_parent_layout reference (i.e we can change the layout without
+         * changing the reference call).
+         *
+         */
+        $dynamicVariables['lka_parent_layout'] = 'Light_Kit_Admin/kit/zeroadmin/dev/mainlayout_base'; // for now we set it from here, doesn't matter, it's internal
+
+
         /**
          * @var $copilot HtmlPageCopilot
          */
         $copilot = $this->getContainer()->get("html_page_copilot");
         $copilot->registerLibrary("lka_environment", [
+            "/libs/universe/Ling/JBee/bee.js",
             "/plugins/Light_Kit_Admin/js/light-kit-admin-environment.js",
             "/plugins/Light_Kit_Admin/js/light-kit-admin-init.js",
         ]);

@@ -117,7 +117,7 @@ class TaskScheduleApi extends CustomLightTaskSchedulerBaseApi implements TaskSch
         $q = '';
         $options = $this->fetchRoutine($q, $markers, $components);
         $fetchStyle = null;
-        if (true === $options['singleColumns']) {
+        if (true === $options['singleColumn']) {
             $fetchStyle = \PDO::FETCH_COLUMN;
         }
         return $this->pdoWrapper->fetchAll($q, $markers, $fetchStyle);
@@ -130,15 +130,19 @@ class TaskScheduleApi extends CustomLightTaskSchedulerBaseApi implements TaskSch
     {
         $markers = [];
         $q = '';
-        $this->fetchRoutine($q, $markers, $components);
-        return $this->pdoWrapper->fetch($q, $markers);
+        $options = $this->fetchRoutine($q, $markers, $components);
+        $fetchStyle = null;
+        if (true === $options['singleColumn']) {
+            $fetchStyle = \PDO::FETCH_COLUMN;
+        }
+        return $this->pdoWrapper->fetch($q, $markers, $fetchStyle);
     }
 
     /**
      * @implementation
      */
     public function getTaskScheduleById(int $id, $default = null, bool $throwNotFoundEx = false)
-    { 
+    {
         $ret = $this->pdoWrapper->fetch("select * from `$this->table` where id=:id", [
             "id" => $id,
 
@@ -248,7 +252,7 @@ class TaskScheduleApi extends CustomLightTaskSchedulerBaseApi implements TaskSch
      * @implementation
      */
     public function updateTaskScheduleById(int $id, array $taskSchedule, array $extraWhere = [], array $markers = [])
-    { 
+    {
         $this->pdoWrapper->update($this->table, $taskSchedule, array_merge([
             "id" => $id,
 
@@ -280,7 +284,7 @@ class TaskScheduleApi extends CustomLightTaskSchedulerBaseApi implements TaskSch
      * @implementation
      */
     public function deleteTaskScheduleById(int $id)
-    { 
+    {
         $this->pdoWrapper->delete($this->table, [
             "id" => $id,
 
@@ -296,6 +300,8 @@ class TaskScheduleApi extends CustomLightTaskSchedulerBaseApi implements TaskSch
     {
         $this->pdoWrapper->delete($this->table, Where::inst()->key("id")->in($ids));
     }
+
+
 
 
 

@@ -1,6 +1,6 @@
 Light_Database
 ===========
-2019-07-22 -> 2020-11-16
+2019-07-22 -> 2020-11-20
 
 
 
@@ -66,6 +66,7 @@ database:
             options:
                 devMode: true
                 queryLog: true
+                queryLogTrackSource: true
                 queryLogFormatting:
                     query: white:bgBlack
                     error: white:bgRed
@@ -124,6 +125,30 @@ $logger.methods_collection:
 History Log
 =============
 
+- 1.14.9 -- 2020-11-20
+
+    - update service, the queryLogTrackSource option has now better rendering
+    
+- 1.14.8 -- 2020-11-20
+
+    - update service, the queryLogTrackSource option now renders more info about arguments
+    
+- 1.14.7 -- 2020-11-20
+
+    - update service, the queryLogTrackSource option now also renders compact arguments
+    
+- 1.14.6 -- 2020-11-20
+
+    - update service, the queryLogTrackSource option renders in a more php style way
+    
+- 1.14.5 -- 2020-11-20
+
+    - update service, the queryLogTrackSource option is now recursive
+    
+- 1.14.4 -- 2020-11-20
+
+    - update service, add queryLogTrackSource option
+    
 - 1.14.3 -- 2020-11-16
 
     - update service, add getMysqlInfoUtil method

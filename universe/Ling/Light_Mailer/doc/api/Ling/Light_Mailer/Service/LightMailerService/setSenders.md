@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightMailerService::setSenders](https://github.com/lingtalfi/Light_Mailer/blob/master/Service/LightMailerService.php#L140-L143)
+See the source code for method [LightMailerService::setSenders](https://github.com/lingtalfi/Light_Mailer/blob/master/Service/LightMailerService.php#L148-L151)
 
 
 See Also

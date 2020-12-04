@@ -124,6 +124,7 @@ class WebWizardToolsDefaultWebWizardRenderer implements WebWizardToolsWebWizardR
 
 
         <?php
+
         $processes = $wizard->getProcesses();
         $processKeyName = $wizard->getProcessKeyName();
         $triggerExtraParams = $wizard->getTriggerExtraParams();
@@ -229,12 +230,12 @@ class WebWizardToolsDefaultWebWizardRenderer implements WebWizardToolsWebWizardR
     <?php else:
 
         $cat2Processes = [];
-        foreach ($processes as $process) {
+        foreach ($processes as $processName => $process) {
             $cat = $process->getCategory();
             if (false === array_key_exists($cat, $cat2Processes)) {
                 $cat2Processes[$cat] = [];
             }
-            $cat2Processes[$cat][] = $process;
+            $cat2Processes[$cat][$processName] = $process;
         }
         ?>
 
@@ -257,7 +258,7 @@ class WebWizardToolsDefaultWebWizardRenderer implements WebWizardToolsWebWizardR
                         <td colspan="3">&nbsp;</td>
                     </tr>
 
-                    <?php foreach ($_processes as $process):
+                    <?php foreach ($_processes as $processName => $process):
                         $isEnabled = $process->isEnabled();
                         $sClass = (true === $isEnabled) ? "process-enabled" : "process-disabled";
 
@@ -267,7 +268,7 @@ class WebWizardToolsDefaultWebWizardRenderer implements WebWizardToolsWebWizardR
                             <td>
                                 <?php if (true === $isEnabled): ?>
                                     <form method="post" action="#">
-                                        <a class="wwt-trigger" href="#">
+                                        <a title="<?php echo htmlspecialchars($processName); ?>" class="wwt-trigger" href="#">
                                             <?php echo $process->getLabel(); ?>
                                         </a>
                                         <input type="hidden" name="<?php echo htmlspecialchars($processKeyName); ?>"

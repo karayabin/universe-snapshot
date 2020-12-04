@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightMailerService::setTransports](https://github.com/lingtalfi/Light_Mailer/blob/master/Service/LightMailerService.php#L118-L121)
+See the source code for method [LightMailerService::setTransports](https://github.com/lingtalfi/Light_Mailer/blob/master/Service/LightMailerService.php#L126-L129)
 
 
 See Also

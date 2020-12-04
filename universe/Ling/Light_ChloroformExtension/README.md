@@ -1,6 +1,6 @@
 Light_ChloroformExtension
 ===========
-2019-11-18 -> 2020-09-28
+2019-11-18 -> 2020-11-20
 
 
 
@@ -81,9 +81,21 @@ Related
 History Log
 =============
 
--- 1.6.6 -- 2020-09-25
+- 1.6.9 -- 2020-11-20
 
-    - checkpoint commit 
+    - fix TableListField, multiplier was erroneously initialized in update mode 
+    
+- 1.6.8 -- 2020-11-20
+
+    - fix TableListField, multiplier initialized to array instead of false 
+    
+- 1.6.7 -- 2020-11-20
+
+    - update TableListField conception notes to adapt simpler form multiplier trick 
+    
+- 1.6.6 -- 2020-11-19
+
+    - update TableListField conception notes to adapt new form multiplier trick 
     
 - 1.6.5 -- 2020-09-25
 

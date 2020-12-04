@@ -18,6 +18,7 @@ use Ling\Light_DeveloperWizard\WebWizardTools\Process\Light_Kit_Admin\CreateLkaP
 use Ling\Light_DeveloperWizard\WebWizardTools\Process\Light_Kit_Admin\CreateLkaUserMainPage;
 use Ling\Light_DeveloperWizard\WebWizardTools\Process\Light_Kit_Admin\CreateLkaUserMainPageList;
 use Ling\Light_DeveloperWizard\WebWizardTools\Process\Light_Kit_Admin\ExecuteLkaGeneratorProcess;
+use Ling\Light_DeveloperWizard\WebWizardTools\Process\Planet\CreateConceptionNotesProcess;
 use Ling\Light_DeveloperWizard\WebWizardTools\Process\Planet\RemovePlanetProcess;
 use Ling\Light_DeveloperWizard\WebWizardTools\Process\Service\DisableServiceProcess;
 use Ling\Light_DeveloperWizard\WebWizardTools\Process\Service\EnableServiceProcess;
@@ -231,24 +232,47 @@ class LightDeveloperWizardService
                 $ww = new LightDeveloperWizardWebWizard();
                 $ww->setContainer($container);
 
+
+                // database
                 $ww->setProcess((new SynchronizeDbProcess()));
-                $ww->setProcess((new GenerateBreezeApiProcess()));
                 $ww->setProcess((new AddStandardPermissionsProcess()));
+
+
+                // generators
+                $ww->setProcess((new GenerateBreezeConfigProcess()));
+                $ww->setProcess((new GenerateBreezeApiProcess()));
+
+
+                // lka
                 $ww->setProcess((new CreateLkaPlanetProcess()));
+                $ww->setProcess((new CreateLkaGeneratorConfigProcess()));
+                $ww->setProcess((new ExecuteLkaGeneratorProcess()));
+                $ww->setProcess((new CreateLkaUserMainPage()));
+                $ww->setProcess((new CreateLkaUserMainPageList()));
+
+
+                // service
+                $ww->setProcess((new EnableServiceProcess()));
+                $ww->setProcess((new DisableServiceProcess()));
+
+
+                // service class
                 $ww->setProcess((new CreateServiceProcess()));
                 $ww->setProcess((new AddServiceLogDebugMethodProcess()));
                 $ww->setProcess((new AddServiceLingBreeze2GetFactoryMethodProcess()));
                 $ww->setProcess((new CreateLss01ServiceProcess()));
+
+
+                // service config
                 $ww->setProcess((new AddPluginInstallerHookProcess()));
-                $ww->setProcess((new RemovePlanetProcess()));
-                $ww->setProcess((new DisableServiceProcess()));
-                $ww->setProcess((new EnableServiceProcess()));
-                $ww->setProcess((new ExecuteLkaGeneratorProcess()));
                 $ww->setProcess((new SortHooksAlphabeticallyProcess()));
-                $ww->setProcess((new CreateLkaUserMainPage()));
-                $ww->setProcess((new CreateLkaUserMainPageList()));
-                $ww->setProcess((new GenerateBreezeConfigProcess()));
-                $ww->setProcess((new CreateLkaGeneratorConfigProcess()));
+
+
+                // planet
+                $ww->setProcess((new RemovePlanetProcess()));
+                $ww->setProcess((new CreateConceptionNotesProcess()));
+
+
 
 
                 $ww->setContext([

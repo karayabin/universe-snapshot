@@ -1,6 +1,6 @@
 Light Service Container
 ================
-2019-07-17 -> 2020-08-17
+2019-07-17 -> 2020-12-03
 
 
 
@@ -26,7 +26,7 @@ Configuration
 
 
 ### The configuration structure
-2019-07-17
+2019-07-17 
 
 
 
@@ -66,6 +66,28 @@ The service container configuration is basically the result of some array manipu
 
 The order in which configuration files are parsed is important, because the file **z.byml** will potentially override 
 the file **a.byml** (in case of conflicts).
+
+
+
+What about planets from other universes?
+------------
+2020-12-03
+
+
+If you look closely at the configuration structure of light, you'll notice that the galaxy name of the planets don't appear anywhere.
+
+The reason for that is that light comes from the **Ling** galaxy, which was the only galaxy at the time the light framework was created.
+
+As for now, we don't intend to rewrite the inner mechanisms of the light framework, because we like the way the framework works right now (i.e. implementing galaxies would mean
+longer names for every body).
+
+
+Planets from other galaxies can be used in the light framework, as long as all planet names don't conflict with each other.
+
+We believe that planet authors can make this work.
+
+
+
 
 
 

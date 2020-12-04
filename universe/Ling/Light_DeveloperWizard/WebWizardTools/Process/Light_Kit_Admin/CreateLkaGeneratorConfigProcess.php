@@ -19,7 +19,7 @@ class CreateLkaGeneratorConfigProcess extends LightKitAdminBaseProcess
     {
         parent::__construct();
         $this->setName("create-lka-generator-config");
-        $this->setLabel("Creates the Light_Kit_Admin_Generator config file for the lka planet.");
+        $this->setLabel("Creates the lka generator config file.");
         $this->setLearnMoreByHash('create-lka-generator-config');
     }
 

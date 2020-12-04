@@ -14,6 +14,9 @@ interface RealformSuccessHandlerInterface
 
     /**
      * Process the given data, and throws an exception if something unexpected happens.
+     * This method can return information if necessary.
+     *
+     *
      *
      * It is assumed that the given data is valid (it's generally posted by the user
      * and validated by some validation rules first before it arrives here).
@@ -35,7 +38,7 @@ interface RealformSuccessHandlerInterface
      *
      * @param array $data
      * @param array $options
-     * @return void
+     * @return mixed
      */
     public function execute(array $data, array $options = []);
 

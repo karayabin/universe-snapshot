@@ -52,7 +52,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [MysqlStructureReader::getCreateStatementsFromContent](https://github.com/lingtalfi/SqlWizard/blob/master/Util/MysqlStructureReader.php#L407-L422)
+See the source code for method [MysqlStructureReader::getCreateStatementsFromContent](https://github.com/lingtalfi/SqlWizard/blob/master/Util/MysqlStructureReader.php#L409-L424)
 
 
 See Also

@@ -142,7 +142,7 @@ class LightHelper
 
 
     /**
-     * Parses the given array, executes the "executeMethod" method on every parenthesis wrapper, and returns the result.
+     * Parses the given array recursively, executes the "executeMethod" method on every parenthesis wrapper, and returns the result.
      * By default, the identifier is pmp.
      *
      * See more details in the @page(ParenthesisMirrorWrapper conception notes).

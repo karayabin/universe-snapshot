@@ -1,0 +1,17 @@
+{template:header.txt}
+
+
+
+
+Here is your new password for your account [{user_identifier}]:
+
+
+{newPassword}
+
+
+You can change this password at any time using your manager.
+
+
+
+{template:footer.txt}
+

@@ -294,7 +294,14 @@ class BaseRealistListItemRenderer implements RealistListItemRendererInterface, L
                 if (empty($text)) {
                     $text = $value;
                 }
-                return '<a href="' . htmlspecialchars($url) . '">' . $text . '</a>';
+
+                $icon = $options['icon'] ?? null;
+                if (null !== $icon) {
+                    return '<a title="' . htmlspecialchars($text) . '" href="' . htmlspecialchars($url) . '"><i class="' . htmlspecialchars($icon) . '"></i></a>';
+                } else {
+                    return '<a href="' . htmlspecialchars($url) . '">' . $text . '</a>';
+                }
+
                 break;
             case "Light_Realist.mixer":
                 $separator = $options['separator'] ?? ' ';

@@ -28,7 +28,6 @@ The params array has the following structure:
 
 - data: array, the row to update
 - updateRic: array, the key/value pairs array representing the [ric strict](https://github.com/lingtalfi/NotationFan/blob/master/ric.md#the-strict-ric) columns and values of the row to update. It basically defines the where part of the sql query.
-- ?multiplier: array, the multiplier array (see [the form multiplier trick](https://github.com/lingtalfi/TheBar/blob/master/discussions/form-multiplier.md) for more details)
 
 
 
@@ -65,7 +64,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightBaseCrudRequestHandler::executeUpdate](https://github.com/lingtalfi/Light_Crud/blob/master/CrudRequestHandler/LightBaseCrudRequestHandler.php#L171-L260)
+See the source code for method [LightBaseCrudRequestHandler::executeUpdate](https://github.com/lingtalfi/Light_Crud/blob/master/CrudRequestHandler/LightBaseCrudRequestHandler.php#L162-L195)
 
 
 See Also

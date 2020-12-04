@@ -13,6 +13,21 @@ use Ling\UniverseTools\PlanetTool;
 class LkaMasterRowDuplicator extends RowDuplicator
 {
 
+    /**
+     * This property holds the customDuplicator for this instance.
+     * @var LkaRowDuplicatorHooksInterface
+     */
+    private $customDuplicator;
+
+
+    /**
+     * @overrides
+     */
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
 
     /**
      * Duplicates the rows identified by the given rics, for the given plugin and table.
@@ -36,14 +51,40 @@ class LkaMasterRowDuplicator extends RowDuplicator
      */
     public function duplicateRows(string $planetId, string $table, array $rics, array $options = [])
     {
-        az('here', $planetId);
-        PlanetTool::getTightPlanetName()
-        $classPath = str_replace('/', '\\', $planetId) . "\\Light_Kit_Admin\\Duplicator\\";
-        $customDuplicator = ClassTool::instantiate($classPath);
-        if(false === $customDuplicator){
 
+        // reset internal variables
+        $this->customDuplicator = null;
+
+        list($galaxy, $planet) = PlanetTool::extractPlanetId($planetId);
+        $compressedName = PlanetTool::getTightPlanetName($planet);
+        $classPath = "$galaxy\\$planet\\Light_Kit_Admin\\Duplicator\\${compressedName}Duplicator";
+
+        $customDuplicator = ClassTool::instantiate($classPath);
+        if (false !== $customDuplicator) {
+
+            if ($customDuplicator instanceof LkaRowDuplicatorInterface) {
+                $customDuplicator->duplicate($table, $rics, $options);
+                return;
+            } elseif ($customDuplicator instanceof LkaRowDuplicatorHooksInterface) {
+                $this->customDuplicator = $customDuplicator;
+            }
         }
+
         $this->duplicate($table, $rics, $options);
+    }
+
+
+    //--------------------------------------------
+    //
+    //--------------------------------------------
+    /**
+     * @overrides
+     */
+    protected function onInsertAfter(string $mainTable, string $table, array $oldRow, array $newRow, $lastInsertId = null)
+    {
+        if (null !== $this->customDuplicator) {
+            $this->customDuplicator->onInsertAfter($mainTable, $table, $oldRow, $newRow, $lastInsertId);
+        }
     }
 
 

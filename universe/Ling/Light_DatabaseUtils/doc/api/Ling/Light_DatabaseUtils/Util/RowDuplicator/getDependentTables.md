@@ -56,7 +56,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [RowDuplicator::getDependentTables](https://github.com/lingtalfi/Light_DatabaseUtils/blob/master/Util/RowDuplicator.php#L379-L389)
+See the source code for method [RowDuplicator::getDependentTables](https://github.com/lingtalfi/Light_DatabaseUtils/blob/master/Util/RowDuplicator.php#L389-L399)
 
 
 See Also

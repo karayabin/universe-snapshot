@@ -16,20 +16,15 @@ Description
 ================
 
 
-public [LightRealformService::getChloroformByConfiguration](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Service/LightRealformService/getChloroformByConfiguration.md)(array $formConf, ?array &$extraInfo = []) : [Chloroform](https://github.com/lingtalfi/Chloroform)
+public [LightRealformService::getChloroformByConfiguration](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Service/LightRealformService/getChloroformByConfiguration.md)(array $formConf) : [Chloroform](https://github.com/lingtalfi/Chloroform)
 
 
 
 
 Returns the chloroform instance based on the given configuration.
-The chloroform.fields defined in the configuration will ba added to the form instance.
+The fields defined in the configuration will ba added to the form instance.
 
 More info in the [Light_Realform conception notes](https://github.com/lingtalfi/Light_Realform/blob/master/doc/pages/2020/conception-notes.md).
-
-The extraInfo array will contain the following after this method execution:
-- multipliers: array of field_identifier => multiplier conf
-     (remember that there should be only one multiplier per form, but here we are just returning
-     every multiplier defined).
 
 
 
@@ -39,10 +34,6 @@ Parameters
 
 
 - formConf
-
-    
-
-- extraInfo
 
     
 
@@ -61,7 +52,7 @@ Returns [Chloroform](https://github.com/lingtalfi/Chloroform).
 
 Source Code
 ===========
-See the source code for method [LightRealformService::getChloroformByConfiguration](https://github.com/lingtalfi/Light_Realform/blob/master/Service/LightRealformService.php#L109-L184)
+See the source code for method [LightRealformService::getChloroformByConfiguration](https://github.com/lingtalfi/Light_Realform/blob/master/Service/LightRealformService.php#L120-L177)
 
 
 See Also
@@ -69,5 +60,5 @@ See Also
 
 The [LightRealformService](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Service/LightRealformService.md) class.
 
-Previous method: [getNugget](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Service/LightRealformService/getNugget.md)<br>Next method: [executeRealform](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Service/LightRealformService/executeRealform.md)<br>
+Previous method: [getNuggetDirective](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Service/LightRealformService/getNuggetDirective.md)<br>Next method: [executeRealform](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Service/LightRealformService/executeRealform.md)<br>
 

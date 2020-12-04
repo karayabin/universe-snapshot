@@ -78,6 +78,7 @@ abstract class RealAdminPageController extends AdminPageController
      *
      *
      * @param string $realformIdentifier
+     * @param array $nugget
      * @param array $options
      * @return Chloroform|HttpResponseInterface
      * @throws \Exception

@@ -1,6 +1,6 @@
 Light_ControllerHub
 ===========
-2019-10-28 -> 2020-07-02
+2019-10-28 -> 2020-12-01
 
 
 
@@ -50,6 +50,9 @@ Here is an example of the service configuration:
 ```yaml
 controller_hub:
     instance: Ling\Light_ControllerHub\Service\LightControllerHubService
+    methods:
+        setContainer:
+            container: @container()
 
 
 # --------------------------------------
@@ -69,6 +72,10 @@ $easy_route.methods_collection:
 History Log
 =============
 
+- 1.2.2 -- 2020-12-01
+
+    - update service, now accepts dynamic registration
+    
 - 1.2.1 -- 2020-07-02
 
     - add precisions in the LightBaseControllerHubHandler-> doHandle comments

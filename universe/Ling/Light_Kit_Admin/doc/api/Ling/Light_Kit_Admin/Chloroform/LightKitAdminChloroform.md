@@ -4,7 +4,7 @@
 
 The LightKitAdminChloroform class
 ================
-2019-05-17 --> 2020-08-21
+2019-05-17 --> 2020-12-01
 
 
 
@@ -40,12 +40,12 @@ class <span class="pl-k">LightKitAdminChloroform</span> extends [Chloroform](htt
 - Inherited methods
     - public Chloroform::__construct() : void
     - public Chloroform::setFormId(string $formId) : void
+    - public Chloroform::getFormId() : string
     - public Chloroform::isPosted() : bool
     - public Chloroform::getPostedData() : array
     - public Chloroform::validates(?bool $injectValue = true) : bool
     - public Chloroform::getValidationErrors() : array
     - public Chloroform::getVeryImportantData() : array
-    - public Chloroform::executeDataTransformers(array &$postedData) : void
     - public Chloroform::getFields() : [FieldInterface](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/FieldInterface.md)
     - public Chloroform::getField(string $fieldId) : [FieldInterface](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/FieldInterface.md)
     - public Chloroform::getMode() : string
@@ -77,12 +77,12 @@ Methods
 - [LightKitAdminChloroform::prepare](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Chloroform/LightKitAdminChloroform/prepare.md) &ndash; Prepares this instance.
 - Chloroform::__construct &ndash; Builds the Chloroform instance.
 - Chloroform::setFormId &ndash; Sets the formId.
+- Chloroform::getFormId &ndash; Returns the formId of this instance.
 - Chloroform::isPosted &ndash; Returns whether this form instance was posted.
 - Chloroform::getPostedData &ndash; Returns an array of posted data (for this instance).
 - Chloroform::validates &ndash; Returns whether all fields attached to this form validate.
 - Chloroform::getValidationErrors &ndash; Returns the validationErrors of this instance.
 - Chloroform::getVeryImportantData &ndash; Returns the [very important data](https://github.com/lingtalfi/Chloroform/blob/master/doc/pages/chloroform-discussion.md#the-concept-of-very-important-data) of a form.
-- Chloroform::executeDataTransformers &ndash; Execute the data transformers (see the [DataTransformerInterface](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/DataTransformer/DataTransformerInterface.md) for more details) on the given postedData.
 - Chloroform::getFields &ndash; Returns the fields of this instance.
 - Chloroform::getField &ndash; Returns the field which id is given.
 - Chloroform::getMode &ndash; Returns the mode of this instance.

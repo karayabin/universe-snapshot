@@ -1,0 +1,77 @@
+_vars: 
+    nuggetId: Light_Kit_Admin_UserData:generated/luda_resource_file
+
+rendering: 
+    title: Resource file form
+    related_links: 
+        - 
+            text: "See the list of \"Resource file\" items"
+            url: ::(@reverse_router->getUrl(lch_route-hub, {plugin: Ling/Light_Kit_Admin_UserData, controller: Generated/LudaResourceFileController}))::
+            icon: fas fa-plus-circle
+        
+    
+
+ric: 
+    - id
+
+feeder: null
+storage_id: luda_resource_file
+success_messages: 
+    create: The item has been successfully stored in the database
+    update: The item has been successfully updated in the database, with ric {sRic}
+
+security: []
+chloroform: 
+    id: realgen-luda_resource_file
+    fields: 
+        luda_resource_id: 
+            label: Luda resource id
+            type: table_list
+            validators: 
+                required: []
+            
+            nullable: false
+            tableListDirectiveId: %{nuggetId}:chloroform.fields.luda_resource_id.tableListConf
+            tableListConf: 
+                sql: select id as value, concat(id, '. ', canonical) as label from luda_resource
+                column: id
+                search_column: concat(id, '. ', canonical)
+                renderAs: adapt
+                threshold: 200
+                security: 
+                    any: 
+                        micro_permission: store.luda_resource.read
+                        permission: Light_Kit_Admin.admin
+                    
+                    all: []
+                
+            
+        
+        path: 
+            label: Path
+            type: string
+            validators: 
+                required: []
+            
+            nullable: false
+        
+        nickname: 
+            label: Nickname
+            type: string
+            validators: 
+                required: []
+            
+            nullable: false
+        
+        is_source: 
+            label: Is source
+            type: string
+            validators: 
+                required: []
+            
+            nullable: false
+        
+    
+
+success_handler: 
+    class: defaultDbHandler

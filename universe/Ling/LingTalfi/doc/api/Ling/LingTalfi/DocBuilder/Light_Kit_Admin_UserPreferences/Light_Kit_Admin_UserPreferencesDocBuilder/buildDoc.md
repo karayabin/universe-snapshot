@@ -70,7 +70,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [Light_Kit_Admin_UserPreferencesDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Light_Kit_Admin_UserPreferences/Light_Kit_Admin_UserPreferencesDocBuilder.php#L45-L235)
+See the source code for method [Light_Kit_Admin_UserPreferencesDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Light_Kit_Admin_UserPreferences/Light_Kit_Admin_UserPreferencesDocBuilder.php#L45-L240)
 
 
 See Also

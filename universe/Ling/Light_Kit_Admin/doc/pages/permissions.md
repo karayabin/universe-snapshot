@@ -65,6 +65,9 @@ Create two permissions:
 Assign **Light_Kit_Admin_YourPlugin.admin** to our **Light_Kit_Admin.admin** permission group,
 and assign **Light_Kit_Admin_YourPlugin.user** to both our **Light_Kit_Admin.admin** and **Light_Kit_Admin.user** permission groups.
 
+For **Light_Kit_Admin_YourPlugin.admin**, add the **store.$table** micro-permission for every table your plugin handles. 
+For **Light_Kit_Admin_YourPlugin.user**, don't add any micro-permission. 
+
 
 Then, let the admin create for himself the relationships he needs.
 

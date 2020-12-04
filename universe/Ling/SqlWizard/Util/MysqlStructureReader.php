@@ -103,6 +103,7 @@ class MysqlStructureReader
         return [
             "database" => $db,
             "columns" => $readerArray['columnNames'],
+            "nullables" => array_keys(array_filter($readerArray['columnNullables'])),
             "primary" => $readerArray['pk'],
             "types" => $readerArray['columnTypes'],
             "simpleTypes" => SimpleTypeHelper::getSimpleTypes($readerArray['columnTypes']),

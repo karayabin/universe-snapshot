@@ -51,7 +51,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LudaResourceHasTagController::renderForm](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/Controller/Generated/LudaResourceHasTagController.php#L41-L76)
+See the source code for method [LudaResourceHasTagController::renderForm](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/Controller/Generated/LudaResourceHasTagController.php#L40-L61)
 
 
 See Also

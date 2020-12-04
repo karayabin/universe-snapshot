@@ -37,7 +37,7 @@ vars:
         type: array
         default_value: none
         description: The array of notifications. The example below uses the lazy reference resolver system from Light_Kit.
-        example: (::METHOD_CALL::)Ling\Light_Kit_Admin\DataExtractor\NotificationsDataExtractor->extractNewest(5)
+        example: ::(Ling\Light_Kit_Admin\DataExtractor\NotificationsDataExtractor->extractNewest(5))::
     view_all_link:
         type: string
         default_value: ""
@@ -45,7 +45,7 @@ vars:
             The url leading to all the notifications. If empty, the "view all" link will not be displayed.
             The example below uses the lazy reference resolver system from Light_Kit.
         >
-        example: (::ROUTE::)/pages/u-issue-tracker
+        example: ::(@reverse_router->getUrl(/pages/u-issue-tracker))::
     view_all_text:
         type: string
         default_value: View All notifications
@@ -63,7 +63,7 @@ example: <
         icon: fas fa-bell
         badge: badge badge-pill badge-danger
         header_text_format: You have %s notifications
-        model: (::METHOD_CALL::)Ling\Light_Kit_Admin\DataExtractor\NotificationsDataExtractor->extractNewest(5)
-        view_all_link: (::ROUTE::)/pages/u-issue-tracker
+        model: ::(Ling\Light_Kit_Admin\DataExtractor\NotificationsDataExtractor->extractNewest(5))::
+        view_all_link: ::(@reverse_router->getUrl(/pages/u-issue-tracker))::
         view_all_text: View All notifications
 >

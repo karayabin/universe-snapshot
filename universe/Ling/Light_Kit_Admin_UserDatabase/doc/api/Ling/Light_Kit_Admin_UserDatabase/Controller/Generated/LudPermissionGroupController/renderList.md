@@ -51,7 +51,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LudPermissionGroupController::renderList](https://github.com/lingtalfi/Light_Kit_Admin_UserDatabase/blob/master/Controller/Generated/LudPermissionGroupController.php#L25-L32)
+See the source code for method [LudPermissionGroupController::renderList](https://github.com/lingtalfi/Light_Kit_Admin_UserDatabase/blob/master/Controller/Generated/LudPermissionGroupController.php#L24-L31)
 
 
 See Also

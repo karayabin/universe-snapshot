@@ -600,6 +600,11 @@ class Bootstrap4AdminTableRenderer extends OpenAdminTableBaseRealistListRenderer
                             <?php endif; ?>
 
 
+                            // make sure the master checkbox is clean
+                            var jMasterCheckbox = jContainer.find('.bsatr-master-checkbox');
+                            jMasterCheckbox.prop('checked', false);
+
+
                             if (true === useResponsiveTableHelper) {
                                 rthStarted = true;
                                 rth.listen();

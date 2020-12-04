@@ -100,16 +100,15 @@ $renderer->prepare($chloroform);
                             <button class="btn btn-sm btn-primary" type="submit">
                                 <?php echo $text_submit; ?>
                             </button>
-                            <button class="btn btn-sm btn-danger" type="reset">
-                                <?php echo $text_reset; ?>
-                            </button>
+<!--                            <button class="btn btn-sm btn-danger" type="reset">-->
+<!--                                --><?php //echo $text_reset; ?>
+<!--                            </button>-->
                         </div>
                     </div>
                 </form>
                 <?php echo $renderer->printCustomScripts(); ?>
             </div>
         </div>
-
 
         <?php if (true === $show_rights): ?>
             <div class="row">

@@ -23,6 +23,12 @@ class RowDuplicator
      */
     protected $container;
 
+    /**
+     * This property holds the mainTable for this instance.
+     * @var string
+     */
+    private $mainTable;
+
 
     /**
      * Builds the LkaBaseRowDuplicator instance.
@@ -30,6 +36,7 @@ class RowDuplicator
     public function __construct()
     {
         $this->container = null;
+        $this->mainTable = null;
     }
 
     /**
@@ -60,6 +67,7 @@ class RowDuplicator
      */
     public function duplicate(string $table, array $rics, array $options = [])
     {
+        $this->mainTable = $table;
         $deep = $options['deep'] ?? false;
         $this->doDuplicate($table, $rics, [
             'deep' => $deep,
@@ -220,7 +228,7 @@ class RowDuplicator
                 if (false === ($lastInsertId = $db->insert($table, $newRow))) {
                     $this->error("Unable to insert the duplicate row in the database, with ric=" . ArrayToStringTool::toInlinePhpArray($ric));
                 }
-                $this->onInsertAfter($table, $newRow, $lastInsertId);
+                $this->onInsertAfter($this->mainTable, $table, $row, $newRow, $lastInsertId);
 
 
                 //--------------------------------------------
@@ -354,11 +362,13 @@ class RowDuplicator
      * Hook method called whenever a new row is inserted in the database via the duplicate method.
      *
      *
+     * @param string $mainTable
      * @param string $table
+     * @param array $oldRow
      * @param array $newRow
      * @param null $lastInsertId
      */
-    protected function onInsertAfter(string $table, array $newRow, $lastInsertId = null)
+    protected function onInsertAfter(string $mainTable, string $table, array $oldRow, array $newRow, $lastInsertId = null)
     {
 
     }

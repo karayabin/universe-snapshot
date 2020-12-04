@@ -253,7 +253,7 @@ class LightKitAdminUserDataService implements PluginInstallerInterface, BMenuDir
     }
 
     //--------------------------------------------
-    // BMENU
+    // BMenuDirectInjectorInterface
     //--------------------------------------------
     /**
      * @implementation

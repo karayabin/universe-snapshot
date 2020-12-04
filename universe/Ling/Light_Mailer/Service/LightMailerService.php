@@ -7,6 +7,7 @@ namespace Ling\Light_Mailer\Service;
 use Ling\ArrayToString\ArrayToStringTool;
 use Ling\ArrayVariableResolver\ArrayVariableResolverUtil;
 use Ling\Bat\ArrayTool;
+use Ling\Bat\FileSystemTool;
 use Ling\Light\Events\LightEvent;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
 use Ling\Light_Events\Service\LightEventsService;
@@ -74,6 +75,12 @@ class LightMailerService
      */
     protected $tagClosing;
 
+    /**
+     * This property holds the templatePartsAlias2Directories for this instance.
+     * @var array
+     */
+    protected $templatePartsAlias2Directories;
+
 
     /**
      * Builds the LightMailerService instance.
@@ -84,6 +91,7 @@ class LightMailerService
         $this->transports = [];
         $this->senders = [];
         $this->options = [];
+        $this->templatePartsAlias2Directories = [];
         $this->tagOpening = '{';
         $this->tagClosing = '}';
     }
@@ -154,6 +162,17 @@ class LightMailerService
 
 
     /**
+     * Registers a template parts directory with the given $alias.
+     *
+     * @param string $alias
+     * @param string $path
+     */
+    public function registerTemplatePartsDirectory(string $alias, string $path)
+    {
+        $this->templatePartsAlias2Directories[$alias] = $path;
+    }
+
+    /**
      * Sends the email which template id was given to the recipientList, and returns the number of successful emails sent, (including bcc and cc recipients if defined).
      *
      * Note: if the dryTrace option is set to true, the message won't be sent.
@@ -215,6 +234,12 @@ class LightMailerService
      * - dryTrace: bool = false.
      *      If true, this method will print the trace of the first message on the screen and not send the message.
      *      This is useful for debug purposes.
+     * - errMode: string=exc.
+     *      Available error modes are:
+     *      - exc: throws an exception if something goes wrong
+     *      - log: catches the exception if something goes wrong, and send it to the log.
+     *          This uses the Light_Logger service under the hood, with a channel of "error".
+     *          See the [error logging convention](https://github.com/lingtalfi/TheBar/blob/master/discussions/error-logging-convention.md) document for more info.
      *
      *
      *
@@ -236,46 +261,67 @@ class LightMailerService
     {
 
         $numSent = 0;
-        $transportId = $options['transportId'] ?? "default";
-        $transport = $this->getTransport($transportId);
-        $mailer = new \Swift_Mailer($transport);
+        $errMode = $options['errMode'] ?? "exc";
 
 
-        $batch = $options['batch'] ?? true;
+        try {
 
 
-        $message = new \Swift_Message();
+            $transportId = $options['transportId'] ?? "default";
+            $transport = $this->getTransport($transportId);
+            $mailer = new \Swift_Mailer($transport);
 
 
-        if (true === $batch) {
-            if (is_string($recipientList)) {
-                $recipientList = [$recipientList];
-            }
-            foreach ($recipientList as $k => $v) {
+            $batch = $options['batch'] ?? true;
 
 
-                // address & name
-                //--------------------------------------------
-                $address = null;
-                if (is_int($k)) {
-                    $address = $v;
-                } else {
-                    $address = $k;
+            $message = new \Swift_Message();
+
+
+            if (true === $batch) {
+                if (is_string($recipientList)) {
+                    $recipientList = [$recipientList];
                 }
-                $message->setTo([$k => $v]);
-                $this->prepareMessageBody($message, $templateId, $options, $address);
+                foreach ($recipientList as $k => $v) {
 
-                $numSent += $this->sendMessage($mailer, $message, $address, $templateId, $options);
 
+                    // address & name
+                    //--------------------------------------------
+                    $address = null;
+                    if (is_int($k)) {
+                        $address = $v;
+                    } else {
+                        $address = $k;
+                    }
+                    $message->setTo([$k => $v]);
+                    $this->prepareMessageBody($message, $templateId, $options, $address);
+
+                    $numSent += $this->sendMessage($mailer, $message, $address, $templateId, $options);
+
+                }
+
+
+            } else {
+
+
+                $message->setTo($recipientList);
+                $this->prepareMessageBody($message, $templateId, $options);
+                $numSent += $this->sendMessage($mailer, $message, $recipientList, $templateId, $options);
             }
+        } catch (\Exception $e) {
+            switch ($errMode) {
+                case "log":
+                    /**
+                     * @var $logger LightLoggerService
+                     */
+                    $logger = $this->container->get('logger');
+                    $logger->log($e, 'error');
 
 
-        } else {
-
-
-            $message->setTo($recipientList);
-            $this->prepareMessageBody($message, $templateId, $options);
-            $numSent += $this->sendMessage($mailer, $message, $recipientList, $templateId, $options);
+                    break;
+                default:
+                    throw $e;
+            }
         }
 
 
@@ -383,6 +429,9 @@ class LightMailerService
 
     /**
      * Returns the raw template content(s) corresponding to the given template id.
+     *
+     * Template parts references, if any.
+     *
      * The return is an array containing:
      *
      * 0: html, string|null: the html content (or null if not defined)
@@ -390,11 +439,12 @@ class LightMailerService
      * 2: subject string|null, the subject of the email (or null if not defined)
      *
      *
+     *
      * Security warning: for now we trust the templateId provider, which means you can use path escalation
      * to call unexpected files out of the mailer root dir.
      *
      *
-     * Note: raw means no variable is interpreted yet.
+     * Note: raw means no variable is interpreted yet (but template references are).
      *
      *
      * @param string $templateId
@@ -409,6 +459,7 @@ class LightMailerService
 
         $tplDir = $this->getMailerRootDir() . "/" . $templateId;
         if (is_dir($tplDir)) {
+
             $plainFile = $tplDir . "/plain.txt";
             $htmlFile = $tplDir . "/html.html";
             $subjectFile = $tplDir . "/subject.txt";
@@ -425,10 +476,22 @@ class LightMailerService
             } else {
                 $this->error("No template file found in $tplDir. ");
             }
-
-
             $subjectContent = file_get_contents($subjectFile);
 
+
+            //--------------------------------------------
+            // RESOLVING TEMPLATE PARTS REFERENCES
+            //--------------------------------------------
+            $this->resolveTemplatePartsReferences($plainContent, $templateId);
+
+
+            if (null !== $htmlContent) {
+                $this->resolveTemplatePartsReferences($htmlContent, $templateId);
+            }
+
+            if (null !== $subjectContent) {
+                $this->resolveTemplatePartsReferences($subjectContent, $templateId);
+            }
 
         } else {
             $this->error("Template directory not found: $tplDir.");
@@ -438,6 +501,39 @@ class LightMailerService
             $plainContent,
             $subjectContent,
         ];
+    }
+
+
+    /**
+     * Resolves in place the template parts references from the given $content.
+     *
+     * @param string $content
+     * @param string $templateId
+     */
+    protected function resolveTemplatePartsReferences(string &$content, string $templateId)
+    {
+        $content = preg_replace_callback('!\{([^}]*)\}!', function ($match) use ($templateId) {
+            $inner = $match[1];
+            $p = explode(':', $inner, 2);
+            if (2 === count($p)) {
+                $alias = $p[0];
+                $relPath = $p[1];
+                if (false === array_key_exists($alias, $this->templatePartsAlias2Directories)) {
+                    $this->error("Alias not registered: $alias (templateId=$templateId).");
+                }
+                $dir = $this->templatePartsAlias2Directories[$alias];
+                $tplPath = FileSystemTool::removeTraversalDots($dir . "/" . $relPath);
+
+                if (false === is_file($tplPath)) {
+                    $this->error("Template part not found: $tplPath (templateId=$templateId, alias=$alias).");
+                }
+
+                return file_get_contents($tplPath);
+
+
+            }
+            return $match[0];
+        }, $content);
     }
 
 

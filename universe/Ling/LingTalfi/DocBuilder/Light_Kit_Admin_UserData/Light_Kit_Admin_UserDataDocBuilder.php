@@ -80,6 +80,7 @@ class Light_Kit_Admin_UserDataDocBuilder
                 "Ling\Light\Controller\LightController",
                 "Ling\Light_ControllerHub\ControllerHubHandler\LightBaseControllerHubHandler",
                 "Ling\Light_Kit_Admin\LightKitAdminPlugin\BaseLightKitAdminPlugin",
+                "Ling\Light_Kit_Admin\Controller\RealAdminPageController",
 
             ],
             /**
@@ -186,8 +187,9 @@ class Light_Kit_Admin_UserDataDocBuilder
                 "Ling\Light_UserRowRestriction\RowRestrictionHandler\RowRestrictionHandlerInterface" => "https://github.com/lingtalfi/Light_UserRowRestriction/blob/master/doc/api/Ling/Light_UserRowRestriction/RowRestrictionHandler/RowRestrictionHandlerInterface.md",
                 "Ling\Light_Realist\Service\LightRealistCustomServiceInterface" => "https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Service/LightRealistCustomServiceInterface.md",
                 "Ling\Light_Realform\Service\LightRealformLateServiceRegistrationInterface" => "https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Service/LightRealformLateServiceRegistrationInterface.md",
-
-
+                "Ling\Light_Kit_Admin\Controller\RealAdminPageController" => "https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/RealAdminPageController.md",
+                "Ling\Light_Kit_Admin\Duplicator\LkaRowDuplicatorHooksInterface" => "https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Duplicator/LkaRowDuplicatorHooksInterface.md",
+                "Ling\Light\ServiceContainer\LightServiceContainerAwareInterface" => "https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerAwareInterface.md",
 
             ],
             "ignoreFilesStartingWith" => [

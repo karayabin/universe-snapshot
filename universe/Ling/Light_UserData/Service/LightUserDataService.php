@@ -65,6 +65,13 @@ class LightUserDataService implements PluginInstallerInterface, PluginPostInstal
 
 
     /**
+     * This property holds the options for this instance.
+     * @var array
+     */
+    protected $options;
+
+
+    /**
      * This property holds the fileManagerProtocolHandler for this instance.
      * @var LightUserDataFileManagerHandlerInterface
      */
@@ -81,13 +88,42 @@ class LightUserDataService implements PluginInstallerInterface, PluginPostInstal
         $this->currentUser = null;
         $this->factory = new CustomLightUserDataApiFactory();
         $this->fileManagerProtocolHandler = null;
+        $this->options = [];
+    }
+
+    /**
+     * Sets the options.
+     *
+     * @param array $options
+     */
+    public function setOptions(array $options)
+    {
+        $this->options = $options;
+    }
+
+    /**
+     * Returns the option which name is given.
+     * If the option is not defined, it throws an exception if throwEx is true, or returns the given default value otherwise.
+     *
+     *
+     * @param string $key
+     * @param bool $throwEx
+     * @param null $default
+     */
+    public function getOption(string $key, bool $throwEx = true, $default = null)
+    {
+        if (array_key_exists($key, $this->options)) {
+            return $this->options[$key];
+        }
+        if (true === $throwEx) {
+            $this->error("Undefined option: $key.");
+        }
+        return $default;
     }
 
 
-
-
     //--------------------------------------------
-    //
+    // PluginInstallerInterface
     //--------------------------------------------
     /**
      * @implementation
@@ -264,6 +300,10 @@ class LightUserDataService implements PluginInstallerInterface, PluginPostInstal
         ];
     }
 
+
+    //--------------------------------------------
+    // PluginPostInstallerInterface
+    //--------------------------------------------
     /**
      * @implementation
      */
@@ -278,6 +318,10 @@ class LightUserDataService implements PluginInstallerInterface, PluginPostInstal
     }
 
 
+
+    //--------------------------------------------
+    //
+    //--------------------------------------------
     /**
      * Returns the file manager handler instance used by this service.
      *
@@ -294,10 +338,6 @@ class LightUserDataService implements PluginInstallerInterface, PluginPostInstal
     }
 
 
-
-    //--------------------------------------------
-    //
-    //--------------------------------------------
     /**
      * Listener for the @page(Light_Database.on_lud_user_group_create event).
      *
@@ -582,6 +622,28 @@ class LightUserDataService implements PluginInstallerInterface, PluginPostInstal
 
 
     /**
+     * Returns the binary content of the file identified by the given resource file id.
+     * Throws an exception if something goes wrong.
+     *
+     * @param int $resourceFileId
+     * @return string
+     * @throws \Exception
+     */
+    public function getFileContentByResourceFileId(int $resourceFileId): string
+    {
+        $rfApi = $this->getFactory()->getResourceFileApi();
+        $row = $rfApi->getResourceFileById($resourceFileId, null, true);
+        $path = $row['path'];
+        $userDir = $this->getUserDir();
+        $absPath = $userDir . "/" . $path;
+        if (false === file_exists($absPath)) {
+            $userId = $this->getValidWebsiteUser()->getId();
+            $this->error("The file doesn't exist: $absPath (resourceFileId=$resourceFileId, userId=$userId");
+        }
+        return file_get_contents($absPath);
+    }
+
+    /**
      * Returns a @page(resource info array) for the given resource id, or false if the resource info wasn't found.
      *
      * Available options are:
@@ -593,16 +655,16 @@ class LightUserDataService implements PluginInstallerInterface, PluginPostInstal
      *
      *
      *
-     * @param string $resourceId
+     * @param string $resourceIdentifier
      * @param array $options
      * @return array|false
      */
-    public function getResourceInfoByResourceIdentifier(string $resourceId, array $options = [])
+    public function getResourceInfoByResourceIdentifier(string $resourceIdentifier, array $options = [])
     {
         $nickname = $options['nickname'] ?? null;
         $original = $options['original'] ?? false;
 
-        $row = $this->factory->getResourceApi()->getBaseResourceInfoByResourceIdentifier($resourceId, $options);
+        $row = $this->factory->getResourceApi()->getBaseResourceInfoByResourceIdentifier($resourceIdentifier, $options);
         if (false === $row) {
             return false;
         }
@@ -622,7 +684,7 @@ class LightUserDataService implements PluginInstallerInterface, PluginPostInstal
         }
 
         if (null == $path) {
-            $s = "No source file found for resource \"$resourceId\"";
+            $s = "No source file found for resource \"$resourceIdentifier\"";
             if (null !== $nickname) {
                 $s .= " and nickname=$nickname";
             }
@@ -645,7 +707,7 @@ class LightUserDataService implements PluginInstallerInterface, PluginPostInstal
         }
 
         $row['abs_path'] = $absPath;
-        $row['original_url'] = $this->getUrlByResourceIdentifier($resourceId, ['urlParams' => [
+        $row['original_url'] = $this->getUrlByResourceIdentifier($resourceIdentifier, ['urlParams' => [
             "o" => 1,
         ]]);
         return $row;
@@ -810,6 +872,69 @@ class LightUserDataService implements PluginInstallerInterface, PluginPostInstal
     // LOGICAL API
     //--------------------------------------------
     /**
+     * Creates the resource, which info is given, and returns the resource identifier of the created item.
+     *
+     * The path argument is the relative path where the fileContent should be written in.
+     *
+     *
+     * Available options are:
+     *
+     * - keep_original: bool = false, whether to create an original copy for this file.
+     * - tags: array of tags to attach to the created resource
+     *
+     *
+     * @param array $resource
+     * @param string $fileContent
+     * @param string $path
+     * @param array $options
+     * @return string
+     */
+    public function createResourceByFileContent(array $resource, string $fileContent, string $path, array $options = []): string
+    {
+        $tags = $options['tags'] ?? [];
+        $keepOriginal = $options['keep_original'] ?? false;
+
+
+        //--------------------------------------------
+        // PREPARING THE RESOURCE
+        //--------------------------------------------
+        $userId = $resource['lud_user_id'] ?? null;
+        $isPrivate = $resource['is_private'] ?? false;
+        $canonical = $resource['canonical'] ?? null;
+        if (null === $canonical) {
+            $canonical = $this->getNewResourceIdentifier();
+        }
+
+        $srcPath = FileSystemTool::mkTmpFile($fileContent);
+        if (false === $srcPath) {
+            $this->error("Couldn't create the file on the filesystem.");
+        }
+
+
+        //--------------------------------------------
+        // CREATING THE RESOURCE
+        //--------------------------------------------
+        $opt = [
+            'tags' => $tags,
+            'is_private' => $isPrivate,
+            'source_path' => $srcPath,
+            'keep_original' => $keepOriginal,
+            'canonical_name' => $canonical,
+            'user_id' => $userId,
+        ];
+        $fileItems = [
+            [
+                "nickname" => 'default',
+                "path" => $path,
+                "is_source" => true,
+            ],
+        ];
+        $arr = $this->createResourceByFileItems($fileItems, $opt);
+        return $arr['resource_identifier'];
+
+    }
+
+    /**
      * Creates the resource described by the given fileItems in the database, and returns an info array.
      * The info array contains the following:
      *
@@ -824,6 +949,7 @@ class LightUserDataService implements PluginInstallerInterface, PluginPostInstal
      * - source_path: string, path to the binary file to add.
      * - keep_original: bool=false, whether to create an original copy for this file.
      * - canonical_name: string|null, the canonical name of this resource.
+     * - user_id: int|null, the id of the user owning the resource. If null, the current user id will be used.
      *
      *
      *
@@ -840,13 +966,16 @@ class LightUserDataService implements PluginInstallerInterface, PluginPostInstal
         $keep_original = $options['keep_original'] ?? false;
         $tags = $options['tags'] ?? [];
         $canonicalName = $options['canonical_name'] ?? null;
+        $userId = $options['user_id'] ?? null;
 
 
-        /**
-         * @var $um LightUserManagerService
-         */
-        $um = $this->container->get('user_manager');
-        $userId = $um->getValidWebsiteUser()->getId();
+        if (null === $userId) {
+            /**
+             * @var $um LightUserManagerService
+             */
+            $um = $this->container->get('user_manager');
+            $userId = $um->getValidWebsiteUser()->getId();
+        }
 
         /**
          * @var $db LightDatabaseService
@@ -923,7 +1052,6 @@ class LightUserDataService implements PluginInstallerInterface, PluginPostInstal
         return [
             'resource_identifier' => $resourceIdentifier,
         ];
-
     }
 
 

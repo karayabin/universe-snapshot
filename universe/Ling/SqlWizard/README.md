@@ -1,6 +1,6 @@
 SqlWizard
 =========
-2019-02-04 -> 2020-09-14
+2019-02-04 -> 2020-11-27
 
 
 
@@ -43,6 +43,10 @@ Summary
 History Log
 ------------------
 
+- 1.13.4 -- 2020-11-27
+
+    - update MysqlStructureReader::readerArrayToTableInfo, now returns nullables property
+    
 - 1.13.3 -- 2020-09-14
 
     - add MysqlSelectQueryParser.combineWhere method

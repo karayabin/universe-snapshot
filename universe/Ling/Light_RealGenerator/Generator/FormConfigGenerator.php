@@ -166,6 +166,9 @@ class FormConfigGenerator extends BaseConfigGenerator
 
         $ignoreColumns = array_unique(array_merge($globalIgnoreColumns, $ignoreColumns));
         $tableInfo = $this->getTableInfo($table);
+        $nullables = $tableInfo['nullables'];
+
+
         $foreignKeysInfo = $tableInfo['foreignKeysInfo'];
         $autoIncrementedKey = $tableInfo['autoIncrementedKey'];
         if (false !== $autoIncrementedKey) {
@@ -303,9 +306,9 @@ class FormConfigGenerator extends BaseConfigGenerator
                     'type' => $type,
                     'validators' => $validators,
                 ];
-                if (in_array($type, ['datetime', 'date'])) {
-                    $fieldItem['nullable'] = false;
-                }
+
+                $fieldItem['nullable'] = in_array($col, $nullables, true);
+
 
                 // note: merge is less specific than custom item
                 $fieldItem = array_replace_recursive($fieldItem, $specialItem, $merge, $customItem);

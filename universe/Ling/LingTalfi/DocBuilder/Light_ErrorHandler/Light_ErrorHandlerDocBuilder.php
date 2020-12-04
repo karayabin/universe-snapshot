@@ -75,7 +75,9 @@ class Light_ErrorHandlerDocBuilder
              *
              */
             "reportIgnore" => [
-//                "Ling\DocTools\Translator\ParseDownTranslator",
+                "Ling\Light_Logger\Listener\LightFileLoggerListener",
+                "Ling\Light_Logger\Listener\BaseLoggerListener",
+
             ],
             /**
              * Your project start date.
@@ -142,6 +144,7 @@ class Light_ErrorHandlerDocBuilder
              */
             "keyWord2UrlMap" => [
                 "Light_ErrorHandler conception notes" => $doc . '/pages/conception-notes.md',
+                "Bat\ConvertTool::convertHumanSizeToBytes" => 'https://github.com/lingtalfi/Bat/blob/master/ConvertTool.md#converthumansizetobytes',
             ],
             /**
              * An array of external classes to url.
@@ -155,6 +158,9 @@ class Light_ErrorHandlerDocBuilder
             "externalClass2Url" => [
 //                "Ling\UniversalLogger\UniversalLoggerInterface" => "https://github.com/lingtalfi/UniversalLogger",
                 "Ling\Light\ServiceContainer\LightServiceContainerInterface" => "https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md",
+                "Ling\Light_Logger\Listener\LightFileLoggerListener" => "https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Listener/LightFileLoggerListener.md",
+                "Ling\Light_Logger\Listener\LightLoggerListenerInterface" => "https://github.com/lingtalfi/Light_Logger/blob/master/doc/api/Ling/Light_Logger/Listener/LightLoggerListenerInterface.md",
+
 
             ],
             "ignoreFilesStartingWith" => [

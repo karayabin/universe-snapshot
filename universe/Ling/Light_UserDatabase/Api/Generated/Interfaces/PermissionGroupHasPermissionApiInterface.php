@@ -11,8 +11,9 @@ namespace Ling\Light_UserDatabase\Api\Generated\Interfaces;
 interface PermissionGroupHasPermissionApiInterface
 {
 
+
     /**
-     * Inserts the given permissionGroupHasPermission in the database.
+     * Inserts the given permission group has permission in the database.
      * By default, it returns the result of the PDO::lastInsertId method.
      * If the returnRic flag is set to true, the method will return the ric array instead of the lastInsertId.
      *
@@ -20,7 +21,7 @@ interface PermissionGroupHasPermissionApiInterface
      * If the row you're trying to insert triggers a duplicate error, the behaviour of this method depends on
      * the ignoreDuplicate flag:
      * - if true, the error will be caught internally, the return of the method is not affected
-     * - if false, the error will not be caught, and depending on your configuration, it might either
+     * - if false, the error will not be caught, and depending on your pdo configuration, it might either
      *          trigger an exception, or fail silently in which case this method returns false.
      *
      *
@@ -34,7 +35,7 @@ interface PermissionGroupHasPermissionApiInterface
     public function insertPermissionGroupHasPermission(array $permissionGroupHasPermission, bool $ignoreDuplicate = true, bool $returnRic = false);
 
     /**
-     * Inserts the given permissionGroupHasPermission rows in the database.
+     * Inserts the given permission group has permission rows in the database.
      * By default, it returns an array of the result of the PDO::lastInsertId method for each insert.
      * If the returnRic flag is set to true, the method will return an array of the ric array (for each insert) instead of the lastInsertId.
      *
@@ -56,7 +57,29 @@ interface PermissionGroupHasPermissionApiInterface
     public function insertPermissionGroupHasPermissions(array $permissionGroupHasPermissions, bool $ignoreDuplicate = true, bool $returnRic = false);
 
     /**
-     * Returns the permissionGroupHasPermission row identified by the given permission_group_id and permission_id.
+     * Returns the rows corresponding to given components.
+     * The components is an array of [fetch all components](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/pages/fetch-all-components.md).
+     *
+     *
+     * @param array $components
+     * @return array
+     */
+    public function fetchAll(array $components = []): array;
+
+
+    /**
+     *
+     * Returns the first row corresponding to given components, or false if there is no match.
+     *
+     * The components is an array of [fetch all components](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/pages/fetch-all-components.md).
+     *
+     * @param array $components
+     * @return array
+     */
+    public function fetch(array $components = []);
+
+    /**
+     * Returns the permission group has permission row identified by the given permission_group_id and permission_id.
      *
      * If the row is not found, this method's return depends on the throwNotFoundEx flag:
      * - if true, the method throws an exception
@@ -161,15 +184,31 @@ interface PermissionGroupHasPermissionApiInterface
 
 
     /**
-     * Updates the permissionGroupHasPermission row identified by the given permission_group_id and permission_id.
+     * Updates the permission group has permission row identified by the given permission_group_id and permission_id.
      *
      * @param int $permission_group_id
 	 * @param int $permission_id
      * @param array $permissionGroupHasPermission
+     * @param array $extraWhere
+     * @param array $markers
      * @return void
      * @throws \Exception
      */
-    public function updatePermissionGroupHasPermissionByPermissionGroupIdAndPermissionId(int $permission_group_id, int $permission_id, array $permissionGroupHasPermission);
+    public function updatePermissionGroupHasPermissionByPermissionGroupIdAndPermissionId(int $permission_group_id, int $permission_id, array $permissionGroupHasPermission, array $extraWhere = [], array $markers = []);
+
+
+
+
+    /**
+     * Updates the permission group has permission row.
+     *
+     * @param array $permissionGroupHasPermission
+     * @param mixed $where
+     * @param array $markers
+     * @return void
+     * @throws \Exception
+     */
+    public function updatePermissionGroupHasPermission(array $permissionGroupHasPermission, $where = null, array $markers = []);
 
 
 
@@ -188,7 +227,7 @@ interface PermissionGroupHasPermissionApiInterface
     public function delete($where = null, array $markers = []);
 
     /**
-     * Deletes the permissionGroupHasPermission identified by the given permission_group_id and permission_id.
+     * Deletes the permission group has permission identified by the given permission_group_id and permission_id.
      *
      * @param int $permission_group_id
 	 * @param int $permission_id
@@ -197,28 +236,10 @@ interface PermissionGroupHasPermissionApiInterface
      */
     public function deletePermissionGroupHasPermissionByPermissionGroupIdAndPermissionId(int $permission_group_id, int $permission_id);
 
-    /**
-     * Deletes the permissionGroupHasPermission identified by the given permission_group_id.
-     *
-     * @param int $permission_group_id
-     * @return void
-     * @throws \Exception
-     */
-    public function deletePermissionGroupHasPermissionByPermissionGroupId(int $permission_group_id);
-
-    /**
-     * Deletes the permissionGroupHasPermission identified by the given permission_id.
-     *
-     * @param int $permission_id
-     * @return void
-     * @throws \Exception
-     */
-    public function deletePermissionGroupHasPermissionByPermissionId(int $permission_id);
-
 
 
     /**
-     * Deletes the permissionGroupHasPermission rows identified by the given permission_group_permission_group_ids.
+     * Deletes the permission group has permission rows identified by the given permission_group_ids.
      *
      * @param array $permission_group_ids
      * @return void
@@ -227,7 +248,7 @@ interface PermissionGroupHasPermissionApiInterface
     public function deletePermissionGroupHasPermissionByPermissionGroupIds(array $permission_group_ids);
 
     /**
-     * Deletes the permissionGroupHasPermission rows identified by the given permission_permission_ids.
+     * Deletes the permission group has permission rows identified by the given permission_ids.
      *
      * @param array $permission_ids
      * @return void
@@ -236,5 +257,19 @@ interface PermissionGroupHasPermissionApiInterface
     public function deletePermissionGroupHasPermissionByPermissionIds(array $permission_ids);
 
 
+
+
+
+    /**
+     * Deletes the permission group has permission rows having the given permission group id.
+     * @param int $permissionGroupId
+     */
+    public function deletePermissionGroupHasPermissionByPermissionGroupId(int $permissionGroupId);
+
+    /**
+     * Deletes the permission group has permission rows having the given permission id.
+     * @param int $permissionId
+     */
+    public function deletePermissionGroupHasPermissionByPermissionId(int $permissionId);
 
 }

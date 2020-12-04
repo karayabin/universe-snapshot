@@ -9,10 +9,6 @@ zones:
             widgetDir: templates/Light_Kit_Admin/widgets/picasso/LightKitAdminChloroformWidget
             template: default.php
             vars: []
-                title: Resource has tag
+                title: ${rendering.title}
                 form: ${form}
-                related_links:                     
-                    - 
-                        text: "See the list of \"Resource has tag\" items"
-                        url: (::ROUTE::)lch_route-hub::{plugin: Light_Kit_Admin_UserData, controller: Generated/LudaResourceHasTagController}
-                        icon: fas fa-plus-circle
+                related_links: ${rendering.related_links}

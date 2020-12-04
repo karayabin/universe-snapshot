@@ -1,6 +1,6 @@
 Light_Nugget, conception notes
 ============
-2020-08-21 -> 2020-09-24
+2020-08-21 -> 2020-12-03
 
 
 
@@ -12,6 +12,7 @@ Summary
 - [Security recommendation](#security-recommendation)
 - [A baked in security system for nugget users](#a-baked-in-security-system-for-nugget-users)
 - [Variables replacement](#variables-replacement)
+- [Using the light execute notation](#the-light-execute-notation)
 - [The getNuggetDirective method](#the-getnuggetdirective-method)
 
 
@@ -188,6 +189,15 @@ duelist:
         
 ```
 
+
+
+The light execute notation
+------------
+2020-12-03
+
+
+By default, when you write a nugget, you can use the [light execute notation with light pmp wrapper](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/notation/light-execute-notation.md#light-execute-notation-with-light-pmp-wrapper):
+our service will interpret it for free.
 
 
 
