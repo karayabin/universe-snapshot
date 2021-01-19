@@ -1,6 +1,6 @@
 Universe
 ==============
-2015-10-14 --> 2020-12-04
+2015-10-14 --> 2021-01-19
 
 
 
@@ -24,7 +24,7 @@ See the [list of all the planets here](https://github.com/karayabin/universe-sna
 
 Summary
 -------
-2015-10-14 -> 2020-12-04
+2015-10-14 -> 2021-01-19
 
 
 - [How to install?](#how-to-install)
@@ -34,6 +34,7 @@ Summary
     - [The a and az functions](#the-a-and-az-functions)
 - [The planet identifier](#the-planet-identifier)
 - [The planet dot name](#the-planet-dot-name)
+- [The planet slash name](#the-planet-slash-name)
 - [The compressed planet name](#the-compressed-planet-name)
 - [Uni tool: a manager to install planets](#uni-tool-a-manager-to-install-planets)
 - [Related](#related)
@@ -295,6 +296,23 @@ So for instance this is a planet dot name:
 
 ```txt
 MyGalaxy.MyPlanet
+```
+
+
+The planet slash name
+--------------------------------------
+2021-01-19
+
+
+To help developers, we provide the following term: **planet slash name**, which has the following format:
+
+- $GalaxyName/$PlanetName
+
+
+So for instance this is a planet slash name:
+
+```txt
+MyGalaxy/MyPlanet
 ```
 
 
