@@ -55,5 +55,15 @@ if (!function_exists('a')) {
         call_user_func_array('a', func_get_args());
         exit;
     }
+
+
+    function azf()
+    {
+        $args = func_get_args();
+        $trace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 1);
+        $args[] = $trace[0]['file'];
+        call_user_func_array('a', $args);
+        exit;
+    }
 }
 

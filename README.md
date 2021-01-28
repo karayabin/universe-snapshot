@@ -1,6 +1,6 @@
 Universe
 ==============
-2015-10-14 --> 2021-01-19
+2015-10-14 --> 2021-01-28
 
 
 
@@ -220,11 +220,11 @@ It should print hello.
 
 
 ### The a and az functions
-2015-10-14
+2015-10-14 -> 2021-01-28
 
 
 
-The **bigbang.php** script also provides two immensely useful debug functions: a and az.
+The **bigbang.php** script also provides some immensely useful debug functions: a, az, and azf
 
 
 - The a function dumps any argument passed to it (string, numbers, arrays, objects,...).
@@ -251,6 +251,25 @@ array(2) {
 
 ```
 
+- The azf function is same as az, but it also prints the filename where the azf function was called
+
+
+```php
+// the file we are in now is /Users/me/some/file.php (for instance)
+azf(["one", "two"]); 
+```
+
+The output will look like this:
+
+```txt
+array(2) {
+  [0] => string(3) "one"
+  [1] => string(3) "two"
+}
+
+string(23) "/Users/me/some/file.php"
+
+```
 
 
 
