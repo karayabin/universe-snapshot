@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::__construct](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L77-L84)
+See the source code for method [LightUserDataService::__construct](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L80-L88)
 
 
 See Also
@@ -54,5 +54,5 @@ See Also
 
 The [LightUserDataService](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService.md) class.
 
-Next method: [install](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/install.md)<br>
+Next method: [setOptions](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/setOptions.md)<br>
 

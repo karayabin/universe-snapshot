@@ -35,9 +35,11 @@ interface CommandInterface
      *
      * @param InputInterface $input
      * @param OutputInterface $output
-     * @return int
-     * The exit status.
-     * If null, 0 should be assumed.
+     * @return mixed
+     * If an int is returned, it should be assumed to be the exit status.
+     * If no value is returned, 0 should be assumed (meaning exit status=0, meaning the program executed correctly).
+     * Other return value types might be added in the future
+     *
      */
     public function run(InputInterface $input, OutputInterface $output);
 }

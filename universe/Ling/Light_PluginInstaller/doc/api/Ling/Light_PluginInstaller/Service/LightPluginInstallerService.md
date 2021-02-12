@@ -4,7 +4,7 @@
 
 The LightPluginInstallerService class
 ================
-2020-02-07 --> 2020-07-31
+2020-02-07 --> 2021-02-11
 
 
 
@@ -25,45 +25,43 @@ Class synopsis
 class <span class="pl-k">LightPluginInstallerService</span>  {
 
 - Properties
-    - protected [Ling\Light_PluginInstaller\PluginInstaller\PluginInstallerInterface[]](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/PluginInstaller/PluginInstallerInterface.md) [$plugins](#property-plugins) ;
-    - protected string [$rootDir](#property-rootDir) ;
     - protected [Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) [$container](#property-container) ;
-    - protected bool [$uninstallStrictMode](#property-uninstallStrictMode) ;
-    - protected [Ling\Light_PluginInstaller\Extension\PluginInstallerExtensionInterface[]](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Extension/PluginInstallerExtensionInterface.md) [$pluginExtensions](#property-pluginExtensions) ;
-    - protected [Ling\Light_PluginInstaller\PluginInstaller\PluginPostInstallerInterface[]](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/PluginInstaller/PluginPostInstallerInterface.md) [$postInstallers](#property-postInstallers) ;
+    - protected string [$outputMode](#property-outputMode) ;
+    - protected array [$outputLevels](#property-outputLevels) ;
+    - protected [Ling\CliTools\Formatter\BashtmlFormatter](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Formatter/BashtmlFormatter.md) [$outputFormatter](#property-outputFormatter) ;
     - protected array [$options](#property-options) ;
     - private [Ling\SimplePdoWrapper\Util\MysqlInfoUtil](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/MysqlInfoUtil.md) [$mysqlInfoUtil](#property-mysqlInfoUtil) ;
-    - private bool [$_isInstalling](#property-_isInstalling) ;
     - private int [$_indent](#property-_indent) ;
+    - private [Ling\CyclicChainDetector\CyclicChainDetectorUtil](https://github.com/lingtalfi/CyclicChainDetector/blob/master/doc/api/Ling/CyclicChainDetector/CyclicChainDetectorUtil.md) [$cyclicUtil](#property-cyclicUtil) ;
+    - private array|null [$dependencies](#property-dependencies) ;
+    - private array [$installers](#property-installers) ;
+    - private array|null [$allPlanetDotNames](#property-allPlanetDotNames) ;
+    - private [Ling\CliTools\Output\OutputInterface](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Output/OutputInterface.md) [$output](#property-output) ;
 
 - Methods
     - public [__construct](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/__construct.md)() : void
     - public [setOptions](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/setOptions.md)(array $options) : void
-    - public [getOption](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/getOption.md)(string $key, ?$defaultValue = null) : mixed
-    - public [setRootDir](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/setRootDir.md)(string $rootDir) : void
     - public [setContainer](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/setContainer.md)([Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) $container) : void
-    - public [setUninstallStrictMode](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/setUninstallStrictMode.md)(bool $uninstallStrictMode) : void
-    - public [registerPlugin](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/registerPlugin.md)(string $name, [Ling\Light_PluginInstaller\PluginInstaller\PluginInstallerInterface](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/PluginInstaller/PluginInstallerInterface.md) $pluginInstaller) : void
-    - public [registerPostInstaller](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/registerPostInstaller.md)(int $level, callable $postInstaller) : void
-    - public [getRegisteredPluginNames](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/getRegisteredPluginNames.md)() : array
-    - public [isRegistered](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/isRegistered.md)(string $name) : bool
-    - public [registerPluginExtension](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/registerPluginExtension.md)([Ling\Light_PluginInstaller\Extension\PluginInstallerExtensionInterface](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Extension/PluginInstallerExtensionInterface.md) $extension) : void
-    - public [pluginHasCacheEntry](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/pluginHasCacheEntry.md)(string $pluginName) : bool
-    - public [removeCacheEntry](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/removeCacheEntry.md)(string $pluginName) : void
-    - public [pluginsAreBeingInstalled](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/pluginsAreBeingInstalled.md)() : bool
-    - public [install](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/install.md)(string $name, ?array $options = []) : void
-    - public [uninstall](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/uninstall.md)(string $name, ?array $options = []) : void
-    - public [isInstalled](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/isInstalled.md)(string $name) : bool
-    - public [installAll](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/installAll.md)() : void
+    - public [setOutputLevels](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/setOutputLevels.md)(array $outputLevels) : void
+    - public [addOutputLevel](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/addOutputLevel.md)(string $outputLevel) : void
+    - public [setOutput](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/setOutput.md)([Ling\CliTools\Output\OutputInterface](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Output/OutputInterface.md) $output) : void
+    - public [install](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/install.md)(string $planetDotName, ?array $options = []) : void
+    - public [uninstall](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/uninstall.md)(string $planetDotName) : void
+    - public [isInstallable](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/isInstallable.md)(string $planetDotName) : bool
+    - public [isInstalled](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/isInstalled.md)(string $planetDotName) : bool
+    - public [installAll](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/installAll.md)(?array $options = []) : void
     - public [uninstallAll](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/uninstallAll.md)() : void
-    - public [onInitialize](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/onInitialize.md)() : void
-    - public [debugLog](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/debugLog.md)(string $msg) : void
-    - public [hasTable](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/hasTable.md)(string $table) : bool
-    - public [tableHasColumnValue](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/tableHasColumnValue.md)(string $table, string $column, $value) : bool
-    - public [fetchRowColumn](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/fetchRowColumn.md)(string $table, string $column, $where, ?bool $throwEx = false) : string | false
-    - public [synchronizeByCreateFile](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/synchronizeByCreateFile.md)(string $pluginName, string $createFile, ?array $syncOptions = [], ?array $options = []) : void
-    - private [getPluginInstallFile](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/getPluginInstallFile.md)(string $name) : string
-    - private [dispatch](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/dispatch.md)(string $eventName, $parameter) : void
+    - public [messageFromPlugin](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/messageFromPlugin.md)(string $planetDotName, string $msg, ?string $type = null) : void
+    - public [getInstallerInstance](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/getInstallerInstance.md)(string $planetDotName) : [PluginInstallerInterface](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/PluginInstaller/PluginInstallerInterface.md) | null
+    - private [getUninstallMap](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/getUninstallMap.md)(string $planetDotName) : array
+    - private [collectChildrenDependencies](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/collectChildrenDependencies.md)(string $planetDotName, array &$uninstallMap) : void
+    - private [getInstallMap](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/getInstallMap.md)(string $planetDotName) : array
+    - private [collectInstallMap](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/collectInstallMap.md)(string $planetDotName, array &$installMap) : void
+    - private [getLogicDependencies](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/getLogicDependencies.md)(string $planetDotName) : array
+    - private [initAllDependencies](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/initAllDependencies.md)() : void
+    - private [getAllPlanetDotNames](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/getAllPlanetDotNames.md)() : array
+    - private [message](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/message.md)(string $msg, ?string $type = null) : void
+    - private [getFormatter](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/getFormatter.md)() : [BashtmlFormatter](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Formatter/BashtmlFormatter.md)
     - private [error](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/error.md)(string $msg) : void
 
 }
@@ -74,41 +72,46 @@ class <span class="pl-k">LightPluginInstallerService</span>  {
 Properties
 =============
 
-- <span id="property-plugins"><b>plugins</b></span>
-
-    This property holds the plugins for this instance.
-    It's an array of pluginName => PluginInstallerInterface
-    
-    
-
-- <span id="property-rootDir"><b>rootDir</b></span>
-
-    This property holds the rootDir for this instance.
-    The rootDir contains all the files to keep track of whether plugins are installed or not.
-    
-    
-
 - <span id="property-container"><b>container</b></span>
 
     This property holds the container for this instance.
     
     
 
-- <span id="property-uninstallStrictMode"><b>uninstallStrictMode</b></span>
+- <span id="property-outputMode"><b>outputMode</b></span>
 
-    Whether the uninstall method throws exceptions (true) or silently ignore them (false).
+    The mode for the output.
+    Can be one of:
+    
+    - browser
+    
+    
+    Note: we use the bashtml language for convenience, since it can print messages in both the cli and browser environment.
     
     
 
-- <span id="property-pluginExtensions"><b>pluginExtensions</b></span>
+- <span id="property-outputLevels"><b>outputLevels</b></span>
 
-    An array of plugin extensions.
+    The array of output levels to display.
+    We support [classic log levels](https://github.com/lingtalfi/TheBar/blob/master/discussions/classic-log-levels.md).
+    
+    The available output levels are:
+    
+    - debug
+    - info
+    - warning
+    
+    
+    By default, this is the following array:
+    
+    - info
+    - warning
     
     
 
-- <span id="property-postInstallers"><b>postInstallers</b></span>
+- <span id="property-outputFormatter"><b>outputFormatter</b></span>
 
-    This property holds the postInstallers for this instance.
+    This property holds the outputFormatter for this instance.
     
     
 
@@ -138,15 +141,45 @@ Properties
     
     
 
-- <span id="property-_isInstalling"><b>_isInstalling</b></span>
-
-    This property holds the _isInstalling for this instance.
-    
-    
-
 - <span id="property-_indent"><b>_indent</b></span>
 
     This internal property holds the number of indent chars to prefix a log message with.
+    
+    
+
+- <span id="property-cyclicUtil"><b>cyclicUtil</b></span>
+
+    This property holds the cyclicUtil for this instance.
+    
+    
+
+- <span id="property-dependencies"><b>dependencies</b></span>
+
+    A logic dependency cache.
+    It's an array of planetDotName => logic dependencies.
+    With logic dependencies being an array of planetDotNames.
+    
+    Note: this cache is used differently, depending on the calling method.
+    
+    
+
+- <span id="property-installers"><b>installers</b></span>
+
+    Cache for installer instances.
+    It's an array of planetDotName => PluginInstallerInterface.
+    
+    
+
+- <span id="property-allPlanetDotNames"><b>allPlanetDotNames</b></span>
+
+    Cache of all the planetDotNames in the current application.
+    
+    
+
+- <span id="property-output"><b>output</b></span>
+
+    The output to use.
+    If null, "echo" statements will be used instead.
     
     
 
@@ -157,31 +190,27 @@ Methods
 
 - [LightPluginInstallerService::__construct](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/__construct.md) &ndash; Builds the LightPluginInstallerService instance.
 - [LightPluginInstallerService::setOptions](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/setOptions.md) &ndash; Sets the options.
-- [LightPluginInstallerService::getOption](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/getOption.md) &ndash; Returns the value of the option which name was given, or the given defaultValue otherwise (if the option was not found).
-- [LightPluginInstallerService::setRootDir](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/setRootDir.md) &ndash; Sets the rootDir.
 - [LightPluginInstallerService::setContainer](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/setContainer.md) &ndash; Sets the container.
-- [LightPluginInstallerService::setUninstallStrictMode](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/setUninstallStrictMode.md) &ndash; Sets the uninstallStrictMode.
-- [LightPluginInstallerService::registerPlugin](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/registerPlugin.md) &ndash; Registers the given plugin.
-- [LightPluginInstallerService::registerPostInstaller](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/registerPostInstaller.md) &ndash; Registers a post installer.
-- [LightPluginInstallerService::getRegisteredPluginNames](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/getRegisteredPluginNames.md) &ndash; Returns the array of registered plugin names.
-- [LightPluginInstallerService::isRegistered](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/isRegistered.md) &ndash; Returns whether the given plugin is registered.
-- [LightPluginInstallerService::registerPluginExtension](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/registerPluginExtension.md) &ndash; Registers a plugin extension.
-- [LightPluginInstallerService::pluginHasCacheEntry](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/pluginHasCacheEntry.md) &ndash; Returns whether the given plugin has a cache entry.
-- [LightPluginInstallerService::removeCacheEntry](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/removeCacheEntry.md) &ndash; Removes the cache entry, if any, for the given plugin.
-- [LightPluginInstallerService::pluginsAreBeingInstalled](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/pluginsAreBeingInstalled.md) &ndash; Returns whether the service is currently in the middle of core installing plugins.
-- [LightPluginInstallerService::install](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/install.md) &ndash; Installs a registered plugin by its name.
-- [LightPluginInstallerService::uninstall](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/uninstall.md) &ndash; Uninstalls a registered plugin by its name.
+- [LightPluginInstallerService::setOutputLevels](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/setOutputLevels.md) &ndash; Sets the outputLevels.
+- [LightPluginInstallerService::addOutputLevel](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/addOutputLevel.md) &ndash; Adds an output level.
+- [LightPluginInstallerService::setOutput](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/setOutput.md) &ndash; Sets the output.
+- [LightPluginInstallerService::install](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/install.md) &ndash; Installs the planet which [dot name](https://github.com/karayabin/universe-snapshot#the-planet-dot-name) is given.
+- [LightPluginInstallerService::uninstall](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/uninstall.md) &ndash; Uninstalls the plugin which planetDotName is given.
+- [LightPluginInstallerService::isInstallable](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/isInstallable.md) &ndash; Returns whether the given planet is [installable](https://github.com/lingtalfi/TheBar/blob/master/discussions/import-install.md#summary).
 - [LightPluginInstallerService::isInstalled](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/isInstalled.md) &ndash; Returns whether the given plugin is installed.
-- [LightPluginInstallerService::installAll](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/installAll.md) &ndash; This method will install all registered plugins.
-- [LightPluginInstallerService::uninstallAll](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/uninstallAll.md) &ndash; This method uninstalls all registered plugins.
-- [LightPluginInstallerService::onInitialize](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/onInitialize.md) &ndash; Method called in response to [the Light.initialize_1 event](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md).
-- [LightPluginInstallerService::debugLog](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/debugLog.md) &ndash; Sends a message to our "official" debug log.
-- [LightPluginInstallerService::hasTable](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/hasTable.md) &ndash; Returns whether the given table exists in the current database.
-- [LightPluginInstallerService::tableHasColumnValue](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/tableHasColumnValue.md) &ndash; Returns whether the given table has an entry where the column is the given column with the value being the given value.
-- [LightPluginInstallerService::fetchRowColumn](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/fetchRowColumn.md) &ndash; Returns the value of the given column in the given table, matching the given [where conditions](https://github.com/lingtalfi/SimplePdoWrapper#the-where-conditions).
-- [LightPluginInstallerService::synchronizeByCreateFile](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/synchronizeByCreateFile.md) &ndash; Tries to synchronize the database with the given [create file](https://github.com/lingtalfi/Light_DbSynchronizer/blob/master/doc/pages/conception-notes.md#create-file).
-- [LightPluginInstallerService::getPluginInstallFile](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/getPluginInstallFile.md) &ndash; Returns the path to the plugin install file.
-- [LightPluginInstallerService::dispatch](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/dispatch.md) &ndash; Dispatches the given event to the registered plugin extensions.
+- [LightPluginInstallerService::installAll](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/installAll.md) &ndash; This method will logic install all plugins found in the current application.
+- [LightPluginInstallerService::uninstallAll](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/uninstallAll.md) &ndash; This method will logic uninstall all plugins found in the current application.
+- [LightPluginInstallerService::messageFromPlugin](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/messageFromPlugin.md) &ndash; Writes a message to the appropriate output.
+- [LightPluginInstallerService::getInstallerInstance](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/getInstallerInstance.md) &ndash; Returns the plugin installer interface instance for the given planetDotName if defined, or null otherwise.
+- [LightPluginInstallerService::getUninstallMap](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/getUninstallMap.md) &ndash; Returns the uninstall map array for the given [planet dot name](https://github.com/karayabin/universe-snapshot#the-planet-dot-name).
+- [LightPluginInstallerService::collectChildrenDependencies](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/collectChildrenDependencies.md) &ndash; Collects the children dependencies, recursively.
+- [LightPluginInstallerService::getInstallMap](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/getInstallMap.md) &ndash; Returns the install map array for the given [planet dot name](https://github.com/karayabin/universe-snapshot#the-planet-dot-name).
+- [LightPluginInstallerService::collectInstallMap](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/collectInstallMap.md) &ndash; Collects the install map recursively.
+- [LightPluginInstallerService::getLogicDependencies](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/getLogicDependencies.md) &ndash; 
+- [LightPluginInstallerService::initAllDependencies](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/initAllDependencies.md) &ndash; Parses all the planets in the current application, and fills the dependency cache (i.e.
+- [LightPluginInstallerService::getAllPlanetDotNames](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/getAllPlanetDotNames.md) &ndash; Returns an array of all planetDotNames found in the current application.
+- [LightPluginInstallerService::message](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/message.md) &ndash; Writes a message to the appropriate output.
+- [LightPluginInstallerService::getFormatter](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/getFormatter.md) &ndash; Returns the bashtml formatter instance.
 - [LightPluginInstallerService::error](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/error.md) &ndash; Throws an exception.
 
 
@@ -197,4 +226,4 @@ See the source code of [Ling\Light_PluginInstaller\Service\LightPluginInstallerS
 
 SeeAlso
 ==============
-Previous class: [PluginPostInstallerInterface](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/PluginInstaller/PluginPostInstallerInterface.md)<br>
+Previous class: [PluginInstallerInterface](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/PluginInstaller/PluginInstallerInterface.md)<br>Next class: [TableScopeAwareInterface](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/TableScope/TableScopeAwareInterface.md)<br>

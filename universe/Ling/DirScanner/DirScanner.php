@@ -52,10 +52,10 @@ class DirScanner
      * Scans a directory, and collect items (using to the given callable) along the way.
      *
      * @param $dir
-     * @param $callable :   mixed  function ( str:path, str:relativePath, int:level, bool:&skipDir )
+     * @param $callable :   mixed  function ( string $path, string $relativePath, int $level, bool &$skipDir )
      *
      *                              level starts at 0.
-     *                              Any value except that the callback returns (except the null value) will
+     *                              Any value that the callback returns (except the null value) will
      *                              be appended to the returned array.
      *                              The null value is not collected.
      *                              If the skipDir variable is set to true and the item is a directory,

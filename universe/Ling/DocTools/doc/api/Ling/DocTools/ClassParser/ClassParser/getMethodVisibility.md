@@ -16,7 +16,7 @@ Description
 ================
 
 
-protected [ClassParser::getMethodVisibility](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/ClassParser/ClassParser/getMethodVisibility.md)([\ReflectionMethod](http://php.net/manual/en/class.reflectionmethod.php) $method) : string
+protected [ClassParser::getMethodVisibility](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/ClassParser/ClassParser/getMethodVisibility.md)(ReflectionMethod $method) : string
 
 
 
@@ -51,7 +51,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [ClassParser::getMethodVisibility](https://github.com/lingtalfi/DocTools/blob/master/ClassParser/ClassParser.php#L938-L947)
+See the source code for method [ClassParser::getMethodVisibility](https://github.com/lingtalfi/DocTools/blob/master/ClassParser/ClassParser.php#L945-L954)
 
 
 See Also

@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [LightUserDataService::getResourceInfoByResourceIdentifier](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/getResourceInfoByResourceIdentifier.md)(string $resourceId, ?array $options = []) : array | false
+public [LightUserDataService::getResourceInfoByResourceIdentifier](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/getResourceInfoByResourceIdentifier.md)(string $resourceIdentifier, ?array $options = []) : array | false
 
 
 
@@ -37,7 +37,7 @@ Parameters
 ================
 
 
-- resourceId
+- resourceIdentifier
 
     
 
@@ -60,7 +60,7 @@ Returns array | false.
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::getResourceInfoByResourceIdentifier](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L600-L652)
+See the source code for method [LightUserDataService::getResourceInfoByResourceIdentifier](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L466-L518)
 
 
 See Also
@@ -68,5 +68,5 @@ See Also
 
 The [LightUserDataService](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService.md) class.
 
-Previous method: [getResourcePathByResourceIdentifier](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/getResourcePathByResourceIdentifier.md)<br>Next method: [getUrlByResourceIdentifier](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/getUrlByResourceIdentifier.md)<br>
+Previous method: [getFileContentByResourceFileId](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/getFileContentByResourceFileId.md)<br>Next method: [getUrlByResourceIdentifier](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/getUrlByResourceIdentifier.md)<br>
 

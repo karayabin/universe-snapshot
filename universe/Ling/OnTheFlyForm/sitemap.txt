@@ -1,0 +1,6 @@
+https://github.com/lingtalfi/OnTheFlyForm/blob/master/README-1.md
+https://github.com/lingtalfi/OnTheFlyForm/blob/master/README.md
+https://github.com/lingtalfi/OnTheFlyForm/blob/master/doc/adaptors.md
+https://github.com/lingtalfi/OnTheFlyForm/blob/master/doc/off-protocol.md
+https://github.com/lingtalfi/OnTheFlyForm/blob/master/doc/tutorial/ajax-form.md
+https://github.com/lingtalfi/OnTheFlyForm/blob/master/doc/tutorial/static-form.md

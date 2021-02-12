@@ -46,7 +46,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [LightDbSynchronizerService::getLogDebugMessages](https://github.com/lingtalfi/Light_DbSynchronizer/blob/master/Service/LightDbSynchronizerService.php#L356-L359)
+See the source code for method [LightDbSynchronizerService::getLogDebugMessages](https://github.com/lingtalfi/Light_DbSynchronizer/blob/master/Service/LightDbSynchronizerService.php#L371-L374)
 
 
 See Also

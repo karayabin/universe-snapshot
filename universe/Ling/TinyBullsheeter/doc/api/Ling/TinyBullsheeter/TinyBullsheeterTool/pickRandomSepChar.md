@@ -46,7 +46,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [TinyBullsheeterTool::pickRandomSepChar](https://github.com/lingtalfi/TinyBullsheeter/blob/master/TinyBullsheeterTool.php#L73-L81)
+See the source code for method [TinyBullsheeterTool::pickRandomSepChar](https://github.com/lingtalfi/TinyBullsheeter/blob/master/TinyBullsheeterTool.php#L72-L80)
 
 
 See Also

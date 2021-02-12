@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [LightUserData2SvpDataTransformer::transform](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Chloroform/DataTransformer/LightUserData2SvpDataTransformer/transform.md)(&$value, array $postedData, Ling\Chloroform\Field\FieldInterface $field) : void
+public [LightUserData2SvpDataTransformer::transform](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Chloroform/DataTransformer/LightUserData2SvpDataTransformer/transform.md)($value, array $postedData, Ling\Chloroform\Field\FieldInterface $field) : void
 
 
 

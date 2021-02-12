@@ -7,7 +7,7 @@ UserNotificationApi::updateUserNotificationById
 
 
 
-UserNotificationApi::updateUserNotificationById — Updates the userNotification row identified by the given id.
+UserNotificationApi::updateUserNotificationById — Updates the user notification row identified by the given id.
 
 
 
@@ -21,7 +21,7 @@ public [UserNotificationApi::updateUserNotificationById](https://github.com/ling
 
 
 
-Updates the userNotification row identified by the given id.
+Updates the user notification row identified by the given id.
 
 
 
@@ -66,7 +66,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [UserNotificationApi::updateUserNotificationById](https://github.com/lingtalfi/Light_UserNotifications/blob/master/Api/Generated/Classes/UserNotificationApi.php#L250-L256)
+See the source code for method [UserNotificationApi::updateUserNotificationById](https://github.com/lingtalfi/Light_UserNotifications/blob/master/Api/Generated/Classes/UserNotificationApi.php#L254-L260)
 
 
 See Also

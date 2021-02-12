@@ -4,7 +4,7 @@
 
 The LightKitAdminChloroform class
 ================
-2019-05-17 --> 2020-12-01
+2019-05-17 --> 2021-02-11
 
 
 
@@ -62,7 +62,6 @@ class <span class="pl-k">LightKitAdminChloroform</span> extends [Chloroform](htt
     - public Chloroform::getJsCode() : string
     - public Chloroform::getCssId() : string | null
     - public Chloroform::toArray() : array
-    - private Chloroform::getFieldPostedValue([Ling\Chloroform\Field\FieldInterface](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/FieldInterface.md) $field, array $postedData) : mixed | null
 
 }
 
@@ -99,7 +98,6 @@ Methods
 - Chloroform::getJsCode &ndash; Returns the jsCode of this instance.
 - Chloroform::getCssId &ndash; Returns the cssId of this instance.
 - Chloroform::toArray &ndash; Returns the array version (template friendly) of the form.
-- Chloroform::getFieldPostedValue &ndash; Returns the field posted value for the given field and posted data.
 
 
 

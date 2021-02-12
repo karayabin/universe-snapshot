@@ -4,7 +4,7 @@
 
 The LightRedServiceContainer class
 ================
-2019-04-09 --> 2020-12-03
+2019-04-09 --> 2021-02-11
 
 
 
@@ -40,11 +40,10 @@ class <span class="pl-k">LightRedServiceContainer</span> extends [RedOctopusServ
     - public RedOctopusServiceContainer::get(string $service) : object
     - public RedOctopusServiceContainer::has(string $service) : bool
     - public RedOctopusServiceContainer::all() : array
-    - protected RedOctopusServiceContainer::resolveCustomNotation($value, ?&$isCustomNotation = false) : mixed
+    - protected RedOctopusServiceContainer::resolveCustomNotation($value, ?$isCustomNotation = false) : mixed
     - protected RedOctopusServiceContainer::registerServices(array $conf, array &$breadcrumb) : void
     - protected RedOctopusServiceContainer::getServiceName($key, array $breadcrumb) : string
     - public HotServiceResolver::getService(array $sicBlock) : false | object | array
-    - private HotServiceResolver::resolveArgs(array $args) : array
 
 }
 
@@ -84,7 +83,6 @@ Methods
 - RedOctopusServiceContainer::registerServices &ndash; Parses the given $conf array and registers the services.
 - RedOctopusServiceContainer::getServiceName &ndash; Returns the service name based on its position in the configuration array.
 - HotServiceResolver::getService &ndash; Returns the service (an instance of a class) defined in the given sic block.
-- HotServiceResolver::resolveArgs &ndash; Returns the given $args array, but with services resolved (based on the sic notation).
 
 
 

@@ -282,6 +282,14 @@ History Log
 ------------------
 
 
+- 1.4.2 -- 2020-12-08
+
+    - Fix lpi-deps not using natsort.
+
+- 1.4.1 -- 2020-12-04
+
+    - Add lpi-deps.byml file
+
 - 1.4.0 -- 2015-11-15
 
     - implement testNumber as the second argument of the callable of the TestAggregator::addTest method

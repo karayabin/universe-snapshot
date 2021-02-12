@@ -66,7 +66,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [UserNotificationApi::getUserNotificationsKey2Value](https://github.com/lingtalfi/Light_UserNotifications/blob/master/Api/Generated/Classes/UserNotificationApi.php#L225-L230)
+See the source code for method [UserNotificationApi::getUserNotificationsKey2Value](https://github.com/lingtalfi/Light_UserNotifications/blob/master/Api/Generated/Classes/UserNotificationApi.php#L229-L234)
 
 
 See Also

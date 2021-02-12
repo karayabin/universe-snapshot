@@ -4,7 +4,7 @@
 
 The PhpSpreadSheetTool class
 ================
-2019-10-08 --> 2019-10-09
+2019-10-08 --> 2020-12-08
 
 
 
@@ -29,7 +29,7 @@ Class synopsis
 class <span class="pl-k">PhpSpreadSheetTool</span>  {
 
 - Methods
-    - public static [createFileByRows](https://github.com/lingtalfi/PhpSpreadSheetTool/blob/master/doc/api/Ling/PhpSpreadSheetTool/PhpSpreadSheetTool/createFileByRows.md)(string $file, array $rows, array $options = []) : void
+    - public static [createFileByRows](https://github.com/lingtalfi/PhpSpreadSheetTool/blob/master/doc/api/Ling/PhpSpreadSheetTool/PhpSpreadSheetTool/createFileByRows.md)(string $file, array $rows, ?array $options = []) : void
 
 }
 

@@ -1,0 +1,2 @@
+https://github.com/lingtalfi/XiaoApi/blob/master/README.md
+https://github.com/lingtalfi/XiaoApi/blob/master/doc/conception.md

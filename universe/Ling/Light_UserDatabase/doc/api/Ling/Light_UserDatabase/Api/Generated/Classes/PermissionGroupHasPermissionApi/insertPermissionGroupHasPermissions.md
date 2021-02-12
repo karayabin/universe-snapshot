@@ -7,7 +7,7 @@ PermissionGroupHasPermissionApi::insertPermissionGroupHasPermissions
 
 
 
-PermissionGroupHasPermissionApi::insertPermissionGroupHasPermissions — Inserts the given permissionGroupHasPermission rows in the database.
+PermissionGroupHasPermissionApi::insertPermissionGroupHasPermissions — Inserts the given permission group has permission rows in the database.
 
 
 
@@ -21,7 +21,7 @@ public [PermissionGroupHasPermissionApi::insertPermissionGroupHasPermissions](ht
 
 
 
-Inserts the given permissionGroupHasPermission rows in the database.
+Inserts the given permission group has permission rows in the database.
 By default, it returns an array of the result of the PDO::lastInsertId method for each insert.
 If the returnRic flag is set to true, the method will return an array of the ric array (for each insert) instead of the lastInsertId.
 
@@ -71,7 +71,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [PermissionGroupHasPermissionApi::insertPermissionGroupHasPermissions](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Classes/PermissionGroupHasPermissionApi.php#L94-L105)
+See the source code for method [PermissionGroupHasPermissionApi::insertPermissionGroupHasPermissions](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Classes/PermissionGroupHasPermissionApi.php#L100-L111)
 
 
 See Also
@@ -79,5 +79,5 @@ See Also
 
 The [PermissionGroupHasPermissionApi](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/PermissionGroupHasPermissionApi.md) class.
 
-Previous method: [insertPermissionGroupHasPermission](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/PermissionGroupHasPermissionApi/insertPermissionGroupHasPermission.md)<br>Next method: [getPermissionGroupHasPermissionByPermissionGroupIdAndPermissionId](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/PermissionGroupHasPermissionApi/getPermissionGroupHasPermissionByPermissionGroupIdAndPermissionId.md)<br>
+Previous method: [insertPermissionGroupHasPermission](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/PermissionGroupHasPermissionApi/insertPermissionGroupHasPermission.md)<br>Next method: [fetchAll](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/PermissionGroupHasPermissionApi/fetchAll.md)<br>
 

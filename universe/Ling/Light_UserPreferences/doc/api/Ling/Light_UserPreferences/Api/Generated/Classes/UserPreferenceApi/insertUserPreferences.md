@@ -7,7 +7,7 @@ UserPreferenceApi::insertUserPreferences
 
 
 
-UserPreferenceApi::insertUserPreferences — Inserts the given userPreference rows in the database.
+UserPreferenceApi::insertUserPreferences — Inserts the given user preference rows in the database.
 
 
 
@@ -21,7 +21,7 @@ public [UserPreferenceApi::insertUserPreferences](https://github.com/lingtalfi/L
 
 
 
-Inserts the given userPreference rows in the database.
+Inserts the given user preference rows in the database.
 By default, it returns an array of the result of the PDO::lastInsertId method for each insert.
 If the returnRic flag is set to true, the method will return an array of the ric array (for each insert) instead of the lastInsertId.
 

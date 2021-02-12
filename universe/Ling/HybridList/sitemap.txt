@@ -1,0 +1,3 @@
+https://github.com/lingtalfi/HybridList/blob/master/README.md
+https://github.com/lingtalfi/HybridList/blob/master/doc/hybrid-list-controls.md
+https://github.com/lingtalfi/HybridList/blob/master/doc/hybrid-list-prototype.md

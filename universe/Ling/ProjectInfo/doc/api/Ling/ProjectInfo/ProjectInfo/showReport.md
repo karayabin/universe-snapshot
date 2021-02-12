@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [ProjectInfo::showReport](https://github.com/lingtalfi/ProjectInfo/blob/master/doc/api/Ling/ProjectInfo/ProjectInfo/showReport.md)(array $options = []) : void
+public [ProjectInfo::showReport](https://github.com/lingtalfi/ProjectInfo/blob/master/doc/api/Ling/ProjectInfo/ProjectInfo/showReport.md)(?array $options = []) : void
 
 
 

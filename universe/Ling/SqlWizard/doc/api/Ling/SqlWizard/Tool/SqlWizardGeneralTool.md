@@ -4,7 +4,7 @@
 
 The SqlWizardGeneralTool class
 ================
-2019-07-23 --> 2020-11-27
+2019-07-23 --> 2021-01-22
 
 
 
@@ -60,4 +60,4 @@ See the source code of [Ling\SqlWizard\Tool\SqlWizardGeneralTool](https://github
 
 SeeAlso
 ==============
-Previous class: [MysqlSerializeTool](https://github.com/lingtalfi/SqlWizard/blob/master/doc/api/Ling/SqlWizard/Tool/MysqlSerializeTool.md)<br>Next class: [MysqlSelectQueryParser](https://github.com/lingtalfi/SqlWizard/blob/master/doc/api/Ling/SqlWizard/Util/MysqlSelectQueryParser.md)<br>
+Previous class: [MysqlStructureReaderTool](https://github.com/lingtalfi/SqlWizard/blob/master/doc/api/Ling/SqlWizard/Tool/MysqlStructureReaderTool.md)<br>Next class: [MysqlSelectQueryParser](https://github.com/lingtalfi/SqlWizard/blob/master/doc/api/Ling/SqlWizard/Util/MysqlSelectQueryParser.md)<br>

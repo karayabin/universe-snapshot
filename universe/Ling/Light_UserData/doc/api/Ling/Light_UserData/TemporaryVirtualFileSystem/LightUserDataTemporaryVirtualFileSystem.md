@@ -4,7 +4,7 @@
 
 The LightUserDataTemporaryVirtualFileSystem class
 ================
-2019-09-27 --> 2020-11-20
+2019-09-27 --> 2021-02-11
 
 
 
@@ -70,8 +70,6 @@ class <span class="pl-k">LightUserDataTemporaryVirtualFileSystem</span> extends 
     - protected TemporaryVirtualFileSystem::getContextDir(string $contextId) : string
     - protected TemporaryVirtualFileSystem::getOperationsFile(string $contextId) : string
     - protected TemporaryVirtualFileSystem::getRawOperations(string $contextId) : array
-    - private TemporaryVirtualFileSystem::getRealPath(string $path) : string
-    - private TemporaryVirtualFileSystem::getEntryRealPathByOperation(string $contextId, array $operation, ?array $options = []) : string
 
 }
 
@@ -124,8 +122,6 @@ Methods
 - TemporaryVirtualFileSystem::getContextDir &ndash; Returns the context dir for the given context id.
 - TemporaryVirtualFileSystem::getOperationsFile &ndash; Creates the operations.byml file if necessary (for the given context id) and returns its path.
 - TemporaryVirtualFileSystem::getRawOperations &ndash; Returns the array of operations, as stored in the operations file.
-- TemporaryVirtualFileSystem::getRealPath &ndash; Returns the realpath of the given path.
-- TemporaryVirtualFileSystem::getEntryRealPathByOperation &ndash; Returns the realpath of the file associated with the given operation entry.
 
 
 

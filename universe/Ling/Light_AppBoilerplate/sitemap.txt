@@ -1,0 +1,2 @@
+https://github.com/lingtalfi/Light_AppBoilerplate/blob/master/README.md
+https://github.com/lingtalfi/Light_AppBoilerplate/blob/master/doc/api/Ling/Light_AppBoilerplate.md

@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [MethodInfo::setReflectionMethod](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/MethodInfo/setReflectionMethod.md)([\ReflectionMethod](http://php.net/manual/en/class.reflectionmethod.php) $reflectionMethod) : void
+public [MethodInfo::setReflectionMethod](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/MethodInfo/setReflectionMethod.md)(ReflectionMethod $reflectionMethod) : void
 
 
 

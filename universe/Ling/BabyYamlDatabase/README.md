@@ -113,6 +113,14 @@ config:
 History Log
 =============
 
+- 1.0.4 -- 2020-12-08
+
+    - Fix lpi-deps not using natsort.
+
+- 1.0.3 -- 2020-12-04
+
+    - Add lpi-deps.byml file
+
 - 1.0.2 -- 2019-09-16
 
     - fix BabyYamlDatabase->deleteItemByKey holes in the remaining array

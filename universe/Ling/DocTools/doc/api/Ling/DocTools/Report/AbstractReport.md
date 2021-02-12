@@ -4,7 +4,7 @@
 
 The AbstractReport class
 ================
-2019-02-21 --> 2020-09-11
+2019-02-21 --> 2021-02-04
 
 
 
@@ -22,7 +22,7 @@ Class synopsis
 ==============
 
 
-abstract class <span class="pl-k">AbstractReport</span> implements [ReportInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface.md) {
+abstract class <span class="pl-k">AbstractReport</span> implements [ReportInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface.md), [\Stringable](https://wiki.php.net/rfc/stringable) {
 
 - Properties
     - protected array [$parsedInlineFunctions](#property-parsedInlineFunctions) ;

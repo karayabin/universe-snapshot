@@ -7,7 +7,7 @@ TaskScheduleApi::insertTaskSchedules
 
 
 
-TaskScheduleApi::insertTaskSchedules — Inserts the given taskSchedule rows in the database.
+TaskScheduleApi::insertTaskSchedules — Inserts the given task schedule rows in the database.
 
 
 
@@ -21,7 +21,7 @@ public [TaskScheduleApi::insertTaskSchedules](https://github.com/lingtalfi/Light
 
 
 
-Inserts the given taskSchedule rows in the database.
+Inserts the given task schedule rows in the database.
 By default, it returns an array of the result of the PDO::lastInsertId method for each insert.
 If the returnRic flag is set to true, the method will return an array of the ric array (for each insert) instead of the lastInsertId.
 

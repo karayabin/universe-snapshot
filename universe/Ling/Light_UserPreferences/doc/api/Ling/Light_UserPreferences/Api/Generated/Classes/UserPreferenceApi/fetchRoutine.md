@@ -66,7 +66,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [UserPreferenceApi::fetchRoutine](https://github.com/lingtalfi/Light_UserPreferences/blob/master/Api/Generated/Classes/UserPreferenceApi.php#L320-L367)
+See the source code for method [UserPreferenceApi::fetchRoutine](https://github.com/lingtalfi/Light_UserPreferences/blob/master/Api/Generated/Classes/UserPreferenceApi.php#L335-L382)
 
 
 See Also
@@ -74,5 +74,5 @@ See Also
 
 The [UserPreferenceApi](https://github.com/lingtalfi/Light_UserPreferences/blob/master/doc/api/Ling/Light_UserPreferences/Api/Generated/Classes/UserPreferenceApi.md) class.
 
-Previous method: [deleteUserPreferenceByIds](https://github.com/lingtalfi/Light_UserPreferences/blob/master/doc/api/Ling/Light_UserPreferences/Api/Generated/Classes/UserPreferenceApi/deleteUserPreferenceByIds.md)<br>
+Previous method: [deleteUserPreferenceByLudUserId](https://github.com/lingtalfi/Light_UserPreferences/blob/master/doc/api/Ling/Light_UserPreferences/Api/Generated/Classes/UserPreferenceApi/deleteUserPreferenceByLudUserId.md)<br>
 

@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightUserDatabaseService::__construct](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Service/LightUserDatabaseService.php#L32-L36)
+See the source code for method [LightUserDatabaseService::__construct](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Service/LightUserDatabaseService.php#L30-L34)
 
 
 See Also
@@ -54,5 +54,5 @@ See Also
 
 The [LightUserDatabaseService](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Service/LightUserDatabaseService.md) class.
 
-Next method: [setContainer](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Service/LightUserDatabaseService/setContainer.md)<br>
+Next method: [isInstalling](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Service/LightUserDatabaseService/isInstalling.md)<br>
 

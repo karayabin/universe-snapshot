@@ -63,7 +63,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [PermissionGroupApiInterface::getPermissionGroupsColumn](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Interfaces/PermissionGroupApiInterface.php#L133-L133)
+See the source code for method [PermissionGroupApiInterface::getPermissionGroupsColumn](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Interfaces/PermissionGroupApiInterface.php#L156-L156)
 
 
 See Also

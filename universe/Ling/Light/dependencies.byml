@@ -5,9 +5,11 @@ dependencies:
         - CheapLogger
         - Bat
         - ParenthesisMirrorParser
+        - BabyYaml
         - DirScanner
         - Octopus
         - PhpUploadFileFix
     
 
-post_install: []
+post_install: 
+    map: true

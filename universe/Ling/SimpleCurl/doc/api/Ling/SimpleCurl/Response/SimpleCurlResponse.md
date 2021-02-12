@@ -4,7 +4,7 @@
 
 The SimpleCurlResponse class
 ================
-2019-03-14 --> 2019-07-18
+2019-03-14 --> 2020-12-08
 
 
 
@@ -42,7 +42,7 @@ class <span class="pl-k">SimpleCurlResponse</span> implements [SimpleCurlRespons
     - public [getBody](https://github.com/lingtalfi/SimpleCurl/blob/master/doc/api/Ling/SimpleCurl/Response/SimpleCurlResponse/getBody.md)() : string | null
     - public [getRawInfo](https://github.com/lingtalfi/SimpleCurl/blob/master/doc/api/Ling/SimpleCurl/Response/SimpleCurlResponse/getRawInfo.md)() : array
     - public [setHeaders](https://github.com/lingtalfi/SimpleCurl/blob/master/doc/api/Ling/SimpleCurl/Response/SimpleCurlResponse/setHeaders.md)(array $headers) : void
-    - public [setBody](https://github.com/lingtalfi/SimpleCurl/blob/master/doc/api/Ling/SimpleCurl/Response/SimpleCurlResponse/setBody.md)(?$body) : void
+    - public [setBody](https://github.com/lingtalfi/SimpleCurl/blob/master/doc/api/Ling/SimpleCurl/Response/SimpleCurlResponse/setBody.md)($body) : void
     - public [setRawInfo](https://github.com/lingtalfi/SimpleCurl/blob/master/doc/api/Ling/SimpleCurl/Response/SimpleCurlResponse/setRawInfo.md)(array $rawInfo) : void
 
 }

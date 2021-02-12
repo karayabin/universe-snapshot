@@ -30,7 +30,15 @@ Models are found here: https://github.com/lingtalfi/Models
 
 History Log
 ------------------
-    
+
+- 1.7.5 -- 2020-12-08
+
+    - Fix lpi-deps not using natsort.
+
+- 1.7.4 -- 2020-12-04
+
+    - Add lpi-deps.byml file
+
 - 1.7.3 -- 2018-01-29
 
     - fix AdminSidebarMenuRenderer nested items display problem

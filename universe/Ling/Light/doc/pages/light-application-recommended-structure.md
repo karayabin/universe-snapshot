@@ -1,19 +1,14 @@
 Light application recommended structure
 =============
-2019-04-09 -> 2020-12-03
+2019-04-09 -> 2021-02-04
 
 
 
 
 Light is quite an agnostic framework and let you create any web application you want.
 
-However, here is some file organization that I consider good practice.
 
-The main idea is to group files by plugins, since a light application is mainly defined by the plugins it used.
-
-
-Here are the potential directories of an ideal light web app:
-
+The filesystem structure looks like this:
 
 
 ```yaml
@@ -48,7 +43,10 @@ Here are the potential directories of an ideal light web app:
             /Light:
                 # this is actually a script provided by the light framework. It basically initializes the app. 
                 # See more details in the [light init script](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/light-init-script.md)
-                - app.init.inc.php 
+                - init.light.inc.php 
+                # this script initializes only the service container, but not the light instance. In some cases, you might want to do just that. 
+                # For instance, the www/index.php script uses that. 
+                - init.container.inc.php 
                 
 
         
@@ -59,7 +57,10 @@ Here are the potential directories of an ideal light web app:
             - ...
 
     # the web root directory (www stands for generic "world wide web" expression, not for the specific www domain name)
-    /www:                                   
+    /www:       
+        # The index.php script is the entry point for the web app. 
+        - index.php
+        
         # the directory for light plugins web assets
         /plugins:                           
             # the web assets dir for the Light_MyPlugin planet

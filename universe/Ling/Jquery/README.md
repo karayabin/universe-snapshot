@@ -52,6 +52,14 @@ Note: we're using the [recommended assets structure for the universe](https://gi
 History Log
 ===============
 
+- 1.1.3 -- 2020-12-08
+
+    - Fix lpi-deps not using natsort.
+
+- 1.1.2 -- 2020-12-04
+
+    - Add lpi-deps.byml file
+
 - 1.1.1 -- 2020-05-28
 
     - fix case from JQuery to Jquery

@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightUserPreferencesService::__construct](https://github.com/lingtalfi/Light_UserPreferences/blob/master/Service/LightUserPreferencesService.php#L27-L31)
+See the source code for method [LightUserPreferencesService::__construct](https://github.com/lingtalfi/Light_UserPreferences/blob/master/Service/LightUserPreferencesService.php#L28-L32)
 
 
 See Also

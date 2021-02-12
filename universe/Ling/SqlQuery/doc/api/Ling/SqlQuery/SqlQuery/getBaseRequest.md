@@ -16,7 +16,7 @@ Description
 ================
 
 
-private [SqlQuery::getBaseRequest](https://github.com/lingtalfi/SqlQuery/blob/master/doc/api/Ling/SqlQuery/SqlQuery/getBaseRequest.md)($isCount = true) : string
+private [SqlQuery::getBaseRequest](https://github.com/lingtalfi/SqlQuery/blob/master/doc/api/Ling/SqlQuery/SqlQuery/getBaseRequest.md)(?$isCount = true) : string
 
 
 

@@ -93,7 +93,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [YorgDirScannerTool::getFilesWithName](https://github.com/lingtalfi/DirScanner/blob/master/YorgDirScannerTool.php#L577-L628)
+See the source code for method [YorgDirScannerTool::getFilesWithName](https://github.com/lingtalfi/DirScanner/blob/master/YorgDirScannerTool.php#L583-L634)
 
 
 See Also

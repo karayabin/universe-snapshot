@@ -1,0 +1,2 @@
+https://github.com/lingtalfi/PhpBeast/blob/master/README.md
+https://github.com/lingtalfi/PhpBeast/blob/master/brainstorm/brainstorm.phpBeast.eng.md

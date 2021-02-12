@@ -16,7 +16,7 @@ Description
 ================
 
 
-protected [ClassParser::getMethodSignature](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/ClassParser/ClassParser/getMethodSignature.md)([\ReflectionMethod](http://php.net/manual/en/class.reflectionmethod.php) $method) : string
+protected [ClassParser::getMethodSignature](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/ClassParser/ClassParser/getMethodSignature.md)(ReflectionMethod $method) : string
 
 
 
@@ -49,7 +49,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [ClassParser::getMethodSignature](https://github.com/lingtalfi/DocTools/blob/master/ClassParser/ClassParser.php#L911-L915)
+See the source code for method [ClassParser::getMethodSignature](https://github.com/lingtalfi/DocTools/blob/master/ClassParser/ClassParser.php#L918-L922)
 
 
 See Also

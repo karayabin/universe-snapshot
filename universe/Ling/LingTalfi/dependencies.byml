@@ -3,10 +3,11 @@ dependencies:
         - DocTools
         - Kit_PicassoWidget
         - Bat
+        - BabyYaml
+        - Light_PlanetInstaller
+        - UniverseTools
         - CliTools
         - DirScanner
-        - UniverseTools
-        - BabyYaml
         - Uni2
         - PlanetSitemap
         - SimpleCurl

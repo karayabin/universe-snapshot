@@ -4,7 +4,7 @@
 
 The ClassInfo class
 ================
-2019-02-21 --> 2020-09-11
+2019-02-21 --> 2021-02-04
 
 
 
@@ -52,7 +52,7 @@ class <span class="pl-k">ClassInfo</span> implements [InfoInterface](https://git
     - public [getInterfaces](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/ClassInfo/getInterfaces.md)() : array
     - public [setInterfaces](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/ClassInfo/setInterfaces.md)(array $interfaces) : [ClassInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/ClassInfo.md)
     - public [getReflectionClass](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/ClassInfo/getReflectionClass.md)() : [ReflectionClass](http://php.net/manual/en/class.reflectionclass.php)
-    - public [setReflectionClass](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/ClassInfo/setReflectionClass.md)([\ReflectionClass](http://php.net/manual/en/class.reflectionclass.php) $reflectionClass) : void
+    - public [setReflectionClass](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/ClassInfo/setReflectionClass.md)(ReflectionClass $reflectionClass) : void
     - public [hasProperties](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/ClassInfo/hasProperties.md)() : bool
 
 }

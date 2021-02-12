@@ -7,7 +7,7 @@ LightPluginInstallerService::uninstallAll
 
 
 
-LightPluginInstallerService::uninstallAll — This method uninstalls all registered plugins.
+LightPluginInstallerService::uninstallAll — This method will logic uninstall all plugins found in the current application.
 
 
 
@@ -21,7 +21,7 @@ public [LightPluginInstallerService::uninstallAll](https://github.com/lingtalfi/
 
 
 
-This method uninstalls all registered plugins.
+This method will logic uninstall all plugins found in the current application.
 
 
 
@@ -51,7 +51,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightPluginInstallerService::uninstallAll](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/Service/LightPluginInstallerService.php#L523-L539)
+See the source code for method [LightPluginInstallerService::uninstallAll](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/Service/LightPluginInstallerService.php#L382-L391)
 
 
 See Also
@@ -59,5 +59,5 @@ See Also
 
 The [LightPluginInstallerService](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService.md) class.
 
-Previous method: [installAll](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/installAll.md)<br>Next method: [onInitialize](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/onInitialize.md)<br>
+Previous method: [installAll](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/installAll.md)<br>Next method: [messageFromPlugin](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/messageFromPlugin.md)<br>
 

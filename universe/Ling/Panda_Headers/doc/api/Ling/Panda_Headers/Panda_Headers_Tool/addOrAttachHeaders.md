@@ -53,7 +53,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [Panda_Headers_Tool::addOrAttachHeaders](https://github.com/lingtalfi/Panda_Headers/blob/master/Panda_Headers_Tool.php#L48-L80)
+See the source code for method [Panda_Headers_Tool::addOrAttachHeaders](https://github.com/lingtalfi/Panda_Headers/blob/master/Panda_Headers_Tool.php#L48-L84)
 
 
 See Also

@@ -7,7 +7,7 @@ PluginOptionApi::insertPluginOptions
 
 
 
-PluginOptionApi::insertPluginOptions — Inserts the given pluginOption rows in the database.
+PluginOptionApi::insertPluginOptions — Inserts the given plugin option rows in the database.
 
 
 
@@ -21,7 +21,7 @@ public [PluginOptionApi::insertPluginOptions](https://github.com/lingtalfi/Light
 
 
 
-Inserts the given pluginOption rows in the database.
+Inserts the given plugin option rows in the database.
 By default, it returns an array of the result of the PDO::lastInsertId method for each insert.
 If the returnRic flag is set to true, the method will return an array of the ric array (for each insert) instead of the lastInsertId.
 
@@ -71,7 +71,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [PluginOptionApi::insertPluginOptions](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Classes/PluginOptionApi.php#L92-L103)
+See the source code for method [PluginOptionApi::insertPluginOptions](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Classes/PluginOptionApi.php#L98-L109)
 
 
 See Also
@@ -79,5 +79,5 @@ See Also
 
 The [PluginOptionApi](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/PluginOptionApi.md) class.
 
-Previous method: [insertPluginOption](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/PluginOptionApi/insertPluginOption.md)<br>Next method: [getPluginOptionById](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/PluginOptionApi/getPluginOptionById.md)<br>
+Previous method: [insertPluginOption](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/PluginOptionApi/insertPluginOption.md)<br>Next method: [fetchAll](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/PluginOptionApi/fetchAll.md)<br>
 

@@ -79,7 +79,15 @@ if (array_key_exists($model['nameKey'], $_POST) && $key === $_POST[$model['nameK
 
 History Log
 ------------------
-    
+
+- 1.7.2 -- 2020-12-08
+
+    - Fix lpi-deps not using natsort.
+
+- 1.7.1 -- 2020-12-04
+
+    - Add lpi-deps.byml file
+
 - 1.7.0 -- 2017-07-22
 
     - add Rendering and Modeling tools

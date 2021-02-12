@@ -91,6 +91,14 @@ Learn how to configure the firewall in the [conception notes](https://github.com
 History Log
 =============
 
+- 1.1.2 -- 2020-12-08
+
+    - Fix lpi-deps not using natsort.
+
+- 1.1.1 -- 2020-12-04
+
+    - Add lpi-deps.byml file
+
 - 1.1.0 -- 2019-11-19
 
     - update plugin to accommodate renamed Light_ReverseRouter service 

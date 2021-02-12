@@ -7,7 +7,7 @@ PermissionGroupHasPermissionApi::getPermissionGroupHasPermissionByPermissionGrou
 
 
 
-PermissionGroupHasPermissionApi::getPermissionGroupHasPermissionByPermissionGroupIdAndPermissionId — Returns the permissionGroupHasPermission row identified by the given permission_group_id and permission_id.
+PermissionGroupHasPermissionApi::getPermissionGroupHasPermissionByPermissionGroupIdAndPermissionId — Returns the permission group has permission row identified by the given permission_group_id and permission_id.
 
 
 
@@ -21,7 +21,7 @@ public [PermissionGroupHasPermissionApi::getPermissionGroupHasPermissionByPermis
 
 
 
-Returns the permissionGroupHasPermission row identified by the given permission_group_id and permission_id.
+Returns the permission group has permission row identified by the given permission_group_id and permission_id.
 
 If the row is not found, this method's return depends on the throwNotFoundEx flag:
 - if true, the method throws an exception
@@ -70,7 +70,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [PermissionGroupHasPermissionApi::getPermissionGroupHasPermissionByPermissionGroupIdAndPermissionId](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Classes/PermissionGroupHasPermissionApi.php#L110-L125)
+See the source code for method [PermissionGroupHasPermissionApi::getPermissionGroupHasPermissionByPermissionGroupIdAndPermissionId](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Classes/PermissionGroupHasPermissionApi.php#L146-L161)
 
 
 See Also
@@ -78,5 +78,5 @@ See Also
 
 The [PermissionGroupHasPermissionApi](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/PermissionGroupHasPermissionApi.md) class.
 
-Previous method: [insertPermissionGroupHasPermissions](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/PermissionGroupHasPermissionApi/insertPermissionGroupHasPermissions.md)<br>Next method: [getPermissionGroupHasPermission](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/PermissionGroupHasPermissionApi/getPermissionGroupHasPermission.md)<br>
+Previous method: [fetch](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/PermissionGroupHasPermissionApi/fetch.md)<br>Next method: [getPermissionGroupHasPermission](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/PermissionGroupHasPermissionApi/getPermissionGroupHasPermission.md)<br>
 

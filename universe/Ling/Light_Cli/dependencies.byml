@@ -1,0 +1,10 @@
+dependencies: 
+    Ling: 
+        - Bat
+        - CliTools
+        - UniverseTools
+        - Light
+    
+
+post_install: 
+    map: true

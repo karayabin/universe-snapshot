@@ -4,7 +4,7 @@
 
 The DiffUtil class
 ================
-2019-04-03 --> 2019-07-18
+2019-04-03 --> 2020-12-08
 
 
 
@@ -25,7 +25,7 @@ Class synopsis
 class <span class="pl-k">DiffUtil</span>  {
 
 - Methods
-    - public [getDiffMap](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Util/DiffUtil/getDiffMap.md)(string $mapPathSource, string $mapPathDest, array $options = []) : array
+    - public [getDiffMap](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Util/DiffUtil/getDiffMap.md)(string $mapPathSource, string $mapPathDest, ?array $options = []) : array
 
 }
 

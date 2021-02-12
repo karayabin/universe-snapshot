@@ -49,7 +49,7 @@ Returns [BlueOctopusServiceContainer](https://github.com/lingtalfi/Octopus/blob/
 
 Source Code
 ===========
-See the source code for method [ServiceContainerHelper::getDarkBlueInstance](https://github.com/lingtalfi/Light/blob/master/Helper/ServiceContainerHelper.php#L164-L171)
+See the source code for method [ServiceContainerHelper::getDarkBlueInstance](https://github.com/lingtalfi/Light/blob/master/Helper/ServiceContainerHelper.php#L205-L212)
 
 
 See Also

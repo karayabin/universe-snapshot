@@ -76,8 +76,8 @@ class Light_UserDatabaseDocBuilder
              */
             "reportIgnore" => [
                 "Ling\Light_Bullsheet\Bullsheeter\LightAbstractBullsheeter",
-//                "Ling\Light_UserDatabase\Api\Generated\Classes\LightUserdatabaseBaseApi",
-//                "Ling\Light_UserDatabase\Api\Generated\LightUserdatabaseApiFactory",
+                "Ling\Light_PluginInstaller\PluginInstaller\LightBasePluginInstaller",
+
 
             ],
             /**
@@ -162,6 +162,7 @@ class Light_UserDatabaseDocBuilder
                 "Light_FileWatcher conception notes" => "https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/pages/conception-notes.md",
                 "Light_FileWatcher plugin" => "https://github.com/lingtalfi/Light_FileWatcher",
                 "Ling breeze generator 2" => "https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/pages/ling-breeze-generator-2.md",
+                "light standard permissions" => "https://github.com/lingtalfi/TheBar/blob/master/discussions/light-standard-permissions.md",
             ],
             /**
              * An array of external classes to url.
@@ -185,8 +186,8 @@ class Light_UserDatabaseDocBuilder
                 "Ling\Light_Database\Service\LightDatabaseService" => "https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/Service/LightDatabaseService.md",
                 "Ling\Light_PluginInstaller\PluginInstaller\PluginInstallerInterface" => "https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/PluginInstaller/PluginInstallerInterface.md",
                 "Ling\Light_FileWatcher\Refreshable\LightPluginInstallerRefreshableInterface" => "https://github.com/lingtalfi/Light_FileWatcher/blob/master/doc/api/Ling/Light_FileWatcher/Refreshable/LightPluginInstallerRefreshableInterface.md",
-//                "Ling\Light_UserDatabase\Api\Generated\Classes\LightUserdatabaseBaseApi" => "https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/LightUserdatabaseBaseApi.md",
-//                "Ling\Light_UserDatabase\Api\Generated\LightUserdatabaseApiFactory" => "https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/LightUserdatabaseApiFactory.md",
+                "Ling\Light_PluginInstaller\PluginInstaller\LightBasePluginInstaller" => "https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/PluginInstaller/LightBasePluginInstaller.md",
+                "Ling\Light_PluginInstaller\TableScope\TableScopeAwareInterface" => "https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/TableScope/TableScopeAwareInterface.md",
 
             ],
         ];

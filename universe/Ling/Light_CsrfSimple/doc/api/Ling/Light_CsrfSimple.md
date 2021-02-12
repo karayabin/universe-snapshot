@@ -1,6 +1,6 @@
 Ling/Light_CsrfSimple
 ================
-2019-11-07 --> 2019-12-09
+2019-11-07 --> 2020-12-08
 
 
 
@@ -18,11 +18,14 @@ Table of contents
     - AbstractField::validates &ndash; Tests and returns whether every validator attached to this instanced passed.
     - AbstractField::getErrors &ndash; Returns an array of error messages.
     - AbstractField::setValue &ndash; Sets the value for this instance.
+    - AbstractField::getFormattedValue &ndash; Returns the formatted value of this field.
     - AbstractField::getFallbackValue &ndash; Returns the fallback value, which defaults to null.
     - AbstractField::toArray &ndash; Returns the array representation of the field.
     - AbstractField::hasVeryImportantData &ndash; Returns whether this field contains [very important data](https://github.com/lingtalfi/Chloroform/blob/master/doc/pages/chloroform-discussion.md#the-concept-of-very-important-data).
     - AbstractField::getDataTransformer &ndash; Returns the data transformer of this field if any, or null otherwise.
     - AbstractField::setDataTransformer &ndash; Sets the dataTransformer for this field.
+    - AbstractField::setProperties &ndash; Sets the properties of this field.
+    - AbstractField::setProperty &ndash; Sets a property to this field.
     - AbstractField::setId &ndash; Sets the id.
     - AbstractField::setFallbackValue &ndash; Sets the fallbackValue.
     - AbstractField::setLabel &ndash; Sets the label.

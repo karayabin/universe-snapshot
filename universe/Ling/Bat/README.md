@@ -1,6 +1,6 @@
 Bat
 ==========
-2015-10-07 --> 2020-12-03
+2015-10-07 --> 2021-02-11
 
 
 
@@ -49,9 +49,11 @@ Tools       |       Description
 [ConsoleTool]( https://github.com/lingtalfi/Bat/blob/master/ConsoleTool.md )          |       Tools for working with console related tasks
 [ConvertTool]( https://github.com/lingtalfi/Bat/blob/master/ConvertTool.md )          |       Tools for working with conversion related tasks
 [CookieTool]( https://github.com/lingtalfi/Bat/blob/master/CookieTool.md )          |       Tools for working with cookies
+[CurrentProcessTool]( https://github.com/lingtalfi/Bat/blob/master/CurrentProcessTool.md )          |       Tools for working with the current process
 [DateTool]( https://github.com/lingtalfi/Bat/blob/master/DateTool.md )          |       Tools for working with dates
 [DebugTool]( https://github.com/lingtalfi/Bat/blob/master/DebugTool.md )          |       Tools for debugging
 [ExceptionTool]( https://github.com/lingtalfi/Bat/blob/master/ExceptionTool.md )          |       Tools for manipulating exception
+[FileListTool]( https://github.com/lingtalfi/Bat/blob/master/FileListTool.md )          |         Tools for manipulating file lists.
 [FileSystemTool]( https://github.com/lingtalfi/Bat/blob/master/FileSystemTool.md )          |       Tools for the filesystem
 [FileTool]( https://github.com/lingtalfi/Bat/blob/master/FileTool.md )          |                   Tools for the files
 [HashTool]( https://github.com/lingtalfi/Bat/blob/master/HashTool.md )          |                   Tools for the using hashes
@@ -78,17 +80,76 @@ Tools       |       Description
 
 
 
-Dependencies
-------------------
-
-- [CopyDir 1.0.0](https://github.com/lingtalfi/CopyDir)
-- [Tiphaine 1.0.0](https://github.com/lingtalfi/Tiphaine)
 
 
 
 History Log
 ------------------
-    
+
+- 1.304 -- 2021-02-11
+
+    - update FileSystemTool::getDirectorySize, now doesn't stop in case of problem
+  
+- 1.303 -- 2021-02-09
+
+    - fix FileSystemTool::mkTmpDir returning path with two consecutive slashes in it
+  
+- 1.302 -- 2021-01-26
+
+    - add HttpTool::isValidUrl method
+  
+- 1.301 -- 2021-01-11
+
+    - update FileListTool::copyFileListToDir, now removes destination before copying a link
+  
+- 1.300 -- 2021-01-07
+
+    - update FileListTool, now filelist contains symlinks
+  
+- 1.299 -- 2021-01-07
+
+    - add FileListTool
+  
+- 1.298 -- 2021-01-07
+
+    - add CaseTool::toUnderscoreLow method
+  
+- 1.297 -- 2020-12-31
+
+    - renamed CurrentProcess class to CurrentProcessTool
+  
+- 1.296 -- 2020-12-16
+
+    - update ConsoleTool::exec, now transmits the return code as well
+  
+- 1.295 -- 2020-12-14
+
+    - add CurrentProcess class
+  
+- 1.294 -- 2020-12-11
+
+    - add FileSystemTool::mkTmpDir method
+  
+- 1.293 -- 2020-12-08
+
+    - Fix lpi-deps not using natsort.
+
+- 1.292 -- 2020-12-08
+
+    - test Bat update lpi-deps
+  
+- 1.291 -- 2020-12-08
+
+    - Update FileSystemTool::copyDir comment
+  
+- 1.290 -- 2020-12-07
+
+    - Update HttpTool, add getHttpResponseCode method
+  
+- 1.289 -- 2020-12-04
+
+    - Add lpi-deps.byml file
+
 - 1.288 -- 2020-12-03
 
     - add ConsoleTool::reset

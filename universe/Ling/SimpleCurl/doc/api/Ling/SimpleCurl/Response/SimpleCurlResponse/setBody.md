@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [SimpleCurlResponse::setBody](https://github.com/lingtalfi/SimpleCurl/blob/master/doc/api/Ling/SimpleCurl/Response/SimpleCurlResponse/setBody.md)(?$body) : void
+public [SimpleCurlResponse::setBody](https://github.com/lingtalfi/SimpleCurl/blob/master/doc/api/Ling/SimpleCurl/Response/SimpleCurlResponse/setBody.md)($body) : void
 
 
 

@@ -100,6 +100,8 @@ class Light_Kit_AdminDocBuilder
                 "Ling\Light_AjaxHandler\Handler\BaseLightAjaxHandler",
                 "Ling\Light_DatabaseUtils\Util\RowDuplicator",
                 "Ling\Light_Realist\Rendering\BaseRealistListItemRenderer",
+                "Ling\Light_PluginInstaller\PluginInstaller\LightBasePluginInstaller",
+                "Ling\Light_UserDatabase\Light_PluginInstaller\LightUserDatabaseBasePluginInstaller",
 
             ],
             /**
@@ -223,6 +225,8 @@ class Light_Kit_AdminDocBuilder
                 "dynamic properties of the list item renderer page" => 'https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/2020/list-item-renderer.md#dynamic-properties',
                 "realist action-items document" => 'https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/2020/action-items.md',
                 "realist list-actions document" => 'https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/2020/list-actions.md',
+                "light standard permissions" => 'https://github.com/lingtalfi/TheBar/blob/master/discussions/light-standard-permissions.md',
+                "light kit admin' source plugin" => 'https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/pages/lka-plugins.md#light-kit-admin-source-and-port-plugin',
             ],
             /**
              * An array of external classes to url.
@@ -301,6 +305,9 @@ class Light_Kit_AdminDocBuilder
                 "Ling\Light_DatabaseUtils\Util\RowDuplicator" => "https://github.com/lingtalfi/Light_DatabaseUtils/blob/master/doc/api/Ling/Light_DatabaseUtils/Util/RowDuplicator.md",
                 "Ling\Light_Realist\Rendering\BaseRealistListItemRenderer" => "https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Rendering/BaseRealistListItemRenderer.md",
                 "Ling\Light_Realist\Rendering\RealistListItemRendererInterface" => "https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/Rendering/RealistListItemRendererInterface.md",
+                "Ling\Light_PluginInstaller\PluginInstaller\LightBasePluginInstaller" => "https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/PluginInstaller/LightBasePluginInstaller.md",
+                "Ling\Light_PluginInstaller\TableScope\TableScopeAwareInterface" => "https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/TableScope/TableScopeAwareInterface.md",
+                "Ling\Light_UserDatabase\Light_PluginInstaller\LightUserDatabaseBasePluginInstaller" => "https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Light_PluginInstaller/LightUserDatabaseBasePluginInstaller.md",
 
             ],
         ];

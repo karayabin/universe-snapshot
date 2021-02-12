@@ -1,6 +1,2 @@
-dependencies: 
-    Ling: 
-        - Kamille
-    
-
+dependencies: []
 post_install: []

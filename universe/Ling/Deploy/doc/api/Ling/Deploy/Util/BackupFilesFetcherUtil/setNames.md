@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [BackupFilesFetcherUtil::setNames](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Util/BackupFilesFetcherUtil/setNames.md)(?$names) : void
+public [BackupFilesFetcherUtil::setNames](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Util/BackupFilesFetcherUtil/setNames.md)($names) : void
 
 
 

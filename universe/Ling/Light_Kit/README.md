@@ -283,6 +283,14 @@ to access the htmlPageCopilot instance (and inject their assets on the main page
 History Log
 =============
 
+- 1.17.2 -- 2020-12-08
+
+    - Fix lpi-deps not using natsort.
+
+- 1.17.1 -- 2020-12-04
+
+    - Add lpi-deps.byml file
+
 - 1.17.0 -- 2020-11-27
 
     - removed LazyReferenceResolver in favor of LightExecuteNotationResolver

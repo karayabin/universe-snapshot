@@ -63,7 +63,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [UserPreferenceApi::getUserPreferencesColumn](https://github.com/lingtalfi/Light_UserPreferences/blob/master/Api/Generated/Classes/UserPreferenceApi.php#L199-L204)
+See the source code for method [UserPreferenceApi::getUserPreferencesColumn](https://github.com/lingtalfi/Light_UserPreferences/blob/master/Api/Generated/Classes/UserPreferenceApi.php#L203-L208)
 
 
 See Also

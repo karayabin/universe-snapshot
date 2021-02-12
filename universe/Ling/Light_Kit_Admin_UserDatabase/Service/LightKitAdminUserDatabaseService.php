@@ -8,12 +8,11 @@ use Ling\BabyYaml\BabyYamlUtil;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
 use Ling\Light_BMenu\DirectInjection\BMenuDirectInjectorInterface;
 use Ling\Light_BMenu\Menu\LightBMenu;
-use Ling\Light_PluginInstaller\PluginInstaller\PluginInstallerInterface;
 
 /**
  * The LightKitAdminUserDatabaseService class.
  */
-class LightKitAdminUserDatabaseService implements PluginInstallerInterface, BMenuDirectInjectorInterface
+class LightKitAdminUserDatabaseService implements BMenuDirectInjectorInterface
 {
 
 
@@ -44,50 +43,6 @@ class LightKitAdminUserDatabaseService implements PluginInstallerInterface, BMen
 
 
 
-
-    //--------------------------------------------
-    // PLUGIN INSTALLER
-    //--------------------------------------------
-    /**
-     * @implementation
-     */
-    public function install()
-    {
-        /**
-         * Nothing to install, the Light_UserDatabase plugin already installs the tables...
-         */
-    }
-
-
-    /**
-     * @implementation
-     */
-    public function uninstall()
-    {
-        /**
-         * Nothing to uninstall
-         */
-    }
-
-    /**
-     * @implementation
-     */
-    public function isInstalled(): bool
-    {
-        return true;
-    }
-
-
-    /**
-     * @implementation
-     */
-    public function getDependencies(): array
-    {
-        return [
-            "Light_Kit_Admin",
-            "Light_UserDatabase",
-        ];
-    }
 
     //--------------------------------------------
     // BMENU

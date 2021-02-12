@@ -75,15 +75,7 @@ $micro_permission.methods_collection:
         args: 
             file: ${app_dir}/config/data/Light_Kit_Admin_UserData/Light_MicroPermission/kit_admin_user_data.profile.generated.byml
         
-    
 
-$plugin_installer.methods_collection: 
-    - 
-        method: registerPlugin
-        args: 
-            plugin: Light_Kit_Admin_UserData
-            installer: @service(kit_admin_user_data)
-        
     
 
 #$realform.methods_collection:

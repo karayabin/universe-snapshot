@@ -1,10 +1,11 @@
 Light_LingStandardService, conception notes
 ==============
-2020-07-27 -> 2020-08-07
+2020-07-27 -> 2021-01-29
 
 
 
 - [Ling Standard Service 01](#ling-standard-service-01)
+- [Ling Standard Service 01](#ling-standard-service-02)
 - [Ling Standard Service Kit Admin Plugin](#ling-standard-service-kit-admin-plugin)
 
 
@@ -43,6 +44,20 @@ It's designed primarily for my personal use, but you can use too, it if it helps
     
 - it implements the [logDebug method convention](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/pages/conventions.md#logdebug-method)    
     
+    
+
+
+Ling Standard Service 02
+--------------
+2021-01-29
+
+
+Same as [lss01](#ling-standard-service-01), except that it doesn't implement the [PluginInstallerInterface](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/PluginInstaller/PluginInstallerInterface.md).
+
+
+
+
+
     
     
 Ling Standard Service Kit Admin Plugin

@@ -1,0 +1,6 @@
+https://github.com/lingtalfi/TheScientist/blob/master/README.md
+https://github.com/lingtalfi/TheScientist/blob/master/bsr-1.md
+https://github.com/lingtalfi/TheScientist/blob/master/conception/template-engine.md
+https://github.com/lingtalfi/TheScientist/blob/master/convention.beeBashAutoloader.eng.md
+https://github.com/lingtalfi/TheScientist/blob/master/convention.portableAutoloader.eng.md
+https://github.com/lingtalfi/TheScientist/blob/master/universe-dependencies-2019.md

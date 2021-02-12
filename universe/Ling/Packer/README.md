@@ -50,7 +50,15 @@ $c = $packer->pack($d);
 
 History Log
 ------------------
-        
+
+- 1.2.2 -- 2020-12-08
+
+    - Fix lpi-deps not using natsort.
+
+- 1.2.1 -- 2020-12-04
+
+    - Add lpi-deps.byml file
+
 - 1.2.0 -- 2017-03-24
 
     - fix use duplicate statements problem 

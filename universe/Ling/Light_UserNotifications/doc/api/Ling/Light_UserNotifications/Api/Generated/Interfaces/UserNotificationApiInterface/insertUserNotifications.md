@@ -7,7 +7,7 @@ UserNotificationApiInterface::insertUserNotifications
 
 
 
-UserNotificationApiInterface::insertUserNotifications — Inserts the given userNotification rows in the database.
+UserNotificationApiInterface::insertUserNotifications — Inserts the given user notification rows in the database.
 
 
 
@@ -21,7 +21,7 @@ abstract public [UserNotificationApiInterface::insertUserNotifications](https://
 
 
 
-Inserts the given userNotification rows in the database.
+Inserts the given user notification rows in the database.
 By default, it returns an array of the result of the PDO::lastInsertId method for each insert.
 If the returnRic flag is set to true, the method will return an array of the ric array (for each insert) instead of the lastInsertId.
 

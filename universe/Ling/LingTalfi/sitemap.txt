@@ -181,6 +181,8 @@ https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBui
 https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Nugget/Light_NuggetDocBuilder.md
 https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_PasswordProtector/Light_PasswordProtectorDocBuilder/buildDoc.md
 https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_PasswordProtector/Light_PasswordProtectorDocBuilder.md
+https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_PlanetInstaller/Light_PlanetInstallerDocBuilder/buildDoc.md
+https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_PlanetInstaller/Light_PlanetInstallerDocBuilder.md
 https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_PluginDatabaseInstaller/Light_PluginDatabaseInstallerDocBuilder/buildDoc.md
 https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_PluginDatabaseInstaller/Light_PluginDatabaseInstallerDocBuilder.md
 https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_PluginInstaller/Light_PluginInstallerDocBuilder/buildDoc.md
@@ -287,6 +289,11 @@ https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBui
 https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/ZephyrTemplateEngine/ZephyrTemplateEngineDocBuilder.md
 https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocTools/LingTalfiDocToolsHelper/generateCrumbs.md
 https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocTools/LingTalfiDocToolsHelper.md
+https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Exception/LingTalfiException.md
+https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/GranularDependency/GranularDependencyUtil/createLpiDepsFileByPlanetDir.md
+https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/GranularDependency/GranularDependencyUtil/getMasterDependencyFileContentByUniverseDir.md
+https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/GranularDependency/GranularDependencyUtil/getReadmeVersionsByPlanetDir.md
+https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/GranularDependency/GranularDependencyUtil.md
 https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Application/KaosApplication/__construct.md
 https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Application/KaosApplication/getBaseIndentLevel.md
 https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Application/KaosApplication/getCurrentDirectory.md
@@ -315,8 +322,11 @@ https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/E
 https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Tool/PreferencesTool/getPreferences.md
 https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Tool/PreferencesTool.md
 https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/ReadmeUtil/__construct.md
+https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/ReadmeUtil/addCommitMessageByUniverseDir.md
 https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/ReadmeUtil/addError.md
+https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/ReadmeUtil/addHistoryLogEntry.md
 https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/ReadmeUtil/createBasicReadmeFile.md
+https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/ReadmeUtil/getAllVersionNumbers.md
 https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/ReadmeUtil/getErrors.md
 https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/ReadmeUtil/getLatestVersionInfo.md
 https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/ReadmeUtil/setIsLight.md
@@ -329,5 +339,8 @@ https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Tools/
 https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Tools/UpdateAllPlanetsTool/recloneAll.md
 https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Tools/UpdateAllPlanetsTool/updateAllPlanets.md
 https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Tools/UpdateAllPlanetsTool.md
+https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Util/CommitUtil/commitAllPlanets.md
+https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Util/CommitUtil.md
+https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Util/ReadmeUtil.md
 https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi.md
 https://github.com/lingtalfi/LingTalfi/blob/master/doc/pages/conception-notes.md

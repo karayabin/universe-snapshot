@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [YorgDirScannerTool::getFilesIgnore](https://github.com/lingtalfi/DirScanner/blob/master/doc/api/Ling/DirScanner/YorgDirScannerTool/getFilesIgnore.md)(string $dir, ?array $ignore = [], ?bool $recursive = false, ?bool $relativePath = false, ?bool $followSymlinks = false, ?int $ignoreHidden = 1) : array
+public static [YorgDirScannerTool::getFilesIgnore](https://github.com/lingtalfi/DirScanner/blob/master/doc/api/Ling/DirScanner/YorgDirScannerTool/getFilesIgnore.md)(string $dir, ?array $ignore = [], ?bool $recursive = false, ?bool $relativePath = false, ?bool $followSymlinks = false, ?int $ignoreHidden = 1, ?bool $collectSymlinks = false) : array
 
 
 
@@ -56,6 +56,10 @@ If the entry is a file, the file will be ignored.
 
     
 
+- collectSymlinks
+
+    
+
 
 Return values
 ================
@@ -71,7 +75,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [YorgDirScannerTool::getFilesIgnore](https://github.com/lingtalfi/DirScanner/blob/master/YorgDirScannerTool.php#L197-L227)
+See the source code for method [YorgDirScannerTool::getFilesIgnore](https://github.com/lingtalfi/DirScanner/blob/master/YorgDirScannerTool.php#L201-L233)
 
 
 See Also

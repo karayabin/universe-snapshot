@@ -1,0 +1,3 @@
+https://github.com/lingtalfi/Lys/blob/master/README.md
+https://github.com/lingtalfi/Lys/blob/master/doc/about-deaf-sensor.md
+https://github.com/lingtalfi/Lys/blob/master/doc/conception-2.0.0-eng.md

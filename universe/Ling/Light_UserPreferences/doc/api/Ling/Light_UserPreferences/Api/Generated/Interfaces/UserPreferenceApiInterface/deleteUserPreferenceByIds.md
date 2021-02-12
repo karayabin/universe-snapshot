@@ -7,7 +7,7 @@ UserPreferenceApiInterface::deleteUserPreferenceByIds
 
 
 
-UserPreferenceApiInterface::deleteUserPreferenceByIds — Deletes the userPreference rows identified by the given ids.
+UserPreferenceApiInterface::deleteUserPreferenceByIds — Deletes the user preference rows identified by the given ids.
 
 
 
@@ -21,7 +21,7 @@ abstract public [UserPreferenceApiInterface::deleteUserPreferenceByIds](https://
 
 
 
-Deletes the userPreference rows identified by the given ids.
+Deletes the user preference rows identified by the given ids.
 
 
 
@@ -62,5 +62,5 @@ See Also
 
 The [UserPreferenceApiInterface](https://github.com/lingtalfi/Light_UserPreferences/blob/master/doc/api/Ling/Light_UserPreferences/Api/Generated/Interfaces/UserPreferenceApiInterface.md) class.
 
-Previous method: [deleteUserPreferenceById](https://github.com/lingtalfi/Light_UserPreferences/blob/master/doc/api/Ling/Light_UserPreferences/Api/Generated/Interfaces/UserPreferenceApiInterface/deleteUserPreferenceById.md)<br>
+Previous method: [deleteUserPreferenceById](https://github.com/lingtalfi/Light_UserPreferences/blob/master/doc/api/Ling/Light_UserPreferences/Api/Generated/Interfaces/UserPreferenceApiInterface/deleteUserPreferenceById.md)<br>Next method: [deleteUserPreferenceByLudUserId](https://github.com/lingtalfi/Light_UserPreferences/blob/master/doc/api/Ling/Light_UserPreferences/Api/Generated/Interfaces/UserPreferenceApiInterface/deleteUserPreferenceByLudUserId.md)<br>
 

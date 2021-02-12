@@ -4,7 +4,7 @@
 
 The LightKitAdminNotification class
 ================
-2019-05-17 --> 2020-12-01
+2019-05-17 --> 2021-02-11
 
 
 
@@ -129,4 +129,4 @@ See the source code of [Ling\Light_Kit_Admin\Notification\LightKitAdminNotificat
 
 SeeAlso
 ==============
-Previous class: [LightKitAdminControllerHubHandler](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_ControllerHub/LightKitAdminControllerHubHandler.md)<br>Next class: [LightKitAdminPageConfigurationTransformer](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/PageConfigurationTransformer/LightKitAdminPageConfigurationTransformer.md)<br>
+Previous class: [LightKitAdminPluginInstaller](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_PluginInstaller/LightKitAdminPluginInstaller.md)<br>Next class: [LightKitAdminPageConfigurationTransformer](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/PageConfigurationTransformer/LightKitAdminPageConfigurationTransformer.md)<br>

@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [ZephyrTemplateEngine::renderFile](https://github.com/lingtalfi/ZephyrTemplateEngine/blob/master/doc/api/Ling/ZephyrTemplateEngine/ZephyrTemplateEngine/renderFile.md)(string $filePath, array $variables = []) : false | string
+public [ZephyrTemplateEngine::renderFile](https://github.com/lingtalfi/ZephyrTemplateEngine/blob/master/doc/api/Ling/ZephyrTemplateEngine/ZephyrTemplateEngine/renderFile.md)(string $filePath, ?array $variables = []) : false | string
 
 
 

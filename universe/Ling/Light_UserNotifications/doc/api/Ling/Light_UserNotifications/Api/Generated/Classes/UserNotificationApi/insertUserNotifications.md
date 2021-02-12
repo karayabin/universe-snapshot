@@ -7,7 +7,7 @@ UserNotificationApi::insertUserNotifications
 
 
 
-UserNotificationApi::insertUserNotifications — Inserts the given userNotification rows in the database.
+UserNotificationApi::insertUserNotifications — Inserts the given user notification rows in the database.
 
 
 
@@ -21,7 +21,7 @@ public [UserNotificationApi::insertUserNotifications](https://github.com/lingtal
 
 
 
-Inserts the given userNotification rows in the database.
+Inserts the given user notification rows in the database.
 By default, it returns an array of the result of the PDO::lastInsertId method for each insert.
 If the returnRic flag is set to true, the method will return an array of the ric array (for each insert) instead of the lastInsertId.
 

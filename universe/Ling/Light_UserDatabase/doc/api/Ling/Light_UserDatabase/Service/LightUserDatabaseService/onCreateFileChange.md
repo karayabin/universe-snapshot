@@ -54,7 +54,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightUserDatabaseService::onCreateFileChange](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Service/LightUserDatabaseService.php#L36-L60)
+See the source code for method [LightUserDatabaseService::onCreateFileChange](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Service/LightUserDatabaseService.php#L99-L126)
 
 
 See Also
@@ -62,5 +62,5 @@ See Also
 
 The [LightUserDatabaseService](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Service/LightUserDatabaseService.md) class.
 
-
+Previous method: [pluginOptionTablesAreReady](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Service/LightUserDatabaseService/pluginOptionTablesAreReady.md)<br>
 

@@ -4,7 +4,7 @@
 
 The LightKitAdminTaskSchedulerControllerHubHandler class
 ================
-2020-07-31 --> 2020-12-01
+2020-07-31 --> 2021-01-29
 
 
 
@@ -63,4 +63,4 @@ See the source code of [Ling\Light_Kit_Admin_TaskScheduler\Light_ControllerHub\G
 
 SeeAlso
 ==============
-Previous class: [LightKitAdminTaskSchedulerLkaPlugin](https://github.com/lingtalfi/Light_Kit_Admin_TaskScheduler/blob/master/doc/api/Ling/Light_Kit_Admin_TaskScheduler/LightKitAdminPlugin/Generated/LightKitAdminTaskSchedulerLkaPlugin.md)<br>Next class: [LightKitAdminTaskSchedulerService](https://github.com/lingtalfi/Light_Kit_Admin_TaskScheduler/blob/master/doc/api/Ling/Light_Kit_Admin_TaskScheduler/Service/LightKitAdminTaskSchedulerService.md)<br>
+Previous class: [LightKitAdminTaskSchedulerLkaPlugin](https://github.com/lingtalfi/Light_Kit_Admin_TaskScheduler/blob/master/doc/api/Ling/Light_Kit_Admin_TaskScheduler/LightKitAdminPlugin/Generated/LightKitAdminTaskSchedulerLkaPlugin.md)<br>Next class: [LightKitAdminTaskSchedulerPluginInstaller](https://github.com/lingtalfi/Light_Kit_Admin_TaskScheduler/blob/master/doc/api/Ling/Light_Kit_Admin_TaskScheduler/Light_PluginInstaller/LightKitAdminTaskSchedulerPluginInstaller.md)<br>

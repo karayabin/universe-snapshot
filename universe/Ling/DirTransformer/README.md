@@ -243,7 +243,15 @@ Dependencies
 
 History Log
 ------------------
-    
+
+- 1.4.2 -- 2020-12-08
+
+    - Fix lpi-deps not using natsort.
+
+- 1.4.1 -- 2020-12-04
+
+    - Add lpi-deps.byml file
+
 - 1.4.0 -- 2016-12-20
 
     - allowedExtension now only applies to the transform process, not the copy process

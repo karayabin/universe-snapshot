@@ -7,7 +7,7 @@ TaskScheduleApiInterface::updateTaskSchedule
 
 
 
-TaskScheduleApiInterface::updateTaskSchedule — Updates the taskSchedule row.
+TaskScheduleApiInterface::updateTaskSchedule — Updates the task schedule row.
 
 
 
@@ -21,7 +21,7 @@ abstract public [TaskScheduleApiInterface::updateTaskSchedule](https://github.co
 
 
 
-Updates the taskSchedule row.
+Updates the task schedule row.
 
 
 

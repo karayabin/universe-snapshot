@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [ParentChildItem::getChildren](https://github.com/lingtalfi/ParentChild/blob/master/doc/api/Ling/ParentChild/ParentChildItem/getChildren.md)() : [ParentChildItem[]](https://github.com/lingtalfi/ParentChild/blob/master/doc/api/Ling/ParentChild/ParentChildItem.md)
+public [ParentChildItem::getChildren](https://github.com/lingtalfi/ParentChild/blob/master/doc/api/Ling/ParentChild/ParentChildItem/getChildren.md)() : [ParentChildItem](https://github.com/lingtalfi/ParentChild/blob/master/doc/api/Ling/ParentChild/ParentChildItem.md)
 
 
 
@@ -35,7 +35,7 @@ This method has no parameters.
 Return values
 ================
 
-Returns [ParentChildItem[]](https://github.com/lingtalfi/ParentChild/blob/master/doc/api/Ling/ParentChild/ParentChildItem.md).
+Returns [ParentChildItem](https://github.com/lingtalfi/ParentChild/blob/master/doc/api/Ling/ParentChild/ParentChildItem.md).
 
 
 

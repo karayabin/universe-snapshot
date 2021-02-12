@@ -46,7 +46,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [ReadmeUtil::getErrors](https://github.com/lingtalfi/LingTalfi/blob/master/Kaos/Util/ReadmeUtil.php#L194-L197)
+See the source code for method [ReadmeUtil::getErrors](https://github.com/lingtalfi/LingTalfi/blob/master/Kaos/Util/ReadmeUtil.php#L245-L248)
 
 
 See Also
@@ -54,5 +54,5 @@ See Also
 
 The [ReadmeUtil](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/ReadmeUtil.md) class.
 
-Previous method: [getLatestVersionInfo](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/ReadmeUtil/getLatestVersionInfo.md)<br>Next method: [addError](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/ReadmeUtil/addError.md)<br>
+Previous method: [getAllVersionNumbers](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/ReadmeUtil/getAllVersionNumbers.md)<br>Next method: [addHistoryLogEntry](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/ReadmeUtil/addHistoryLogEntry.md)<br>
 

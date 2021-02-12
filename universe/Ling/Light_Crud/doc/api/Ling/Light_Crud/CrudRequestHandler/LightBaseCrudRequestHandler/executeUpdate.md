@@ -64,7 +64,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightBaseCrudRequestHandler::executeUpdate](https://github.com/lingtalfi/Light_Crud/blob/master/CrudRequestHandler/LightBaseCrudRequestHandler.php#L162-L195)
+See the source code for method [LightBaseCrudRequestHandler::executeUpdate](https://github.com/lingtalfi/Light_Crud/blob/master/CrudRequestHandler/LightBaseCrudRequestHandler.php#L161-L194)
 
 
 See Also

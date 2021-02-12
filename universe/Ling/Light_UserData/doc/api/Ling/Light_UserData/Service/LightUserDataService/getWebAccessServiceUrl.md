@@ -51,7 +51,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::getWebAccessServiceUrl](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L697-L704)
+See the source code for method [LightUserDataService::getWebAccessServiceUrl](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L563-L570)
 
 
 See Also

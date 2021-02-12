@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [PngTextUtil::displayPngText](https://github.com/lingtalfi/WebBox/blob/master/doc/api/Ling/WebBox/Image/PngTextUtil/displayPngText.md)(string $text, array $options = []) : void
+public static [PngTextUtil::displayPngText](https://github.com/lingtalfi/WebBox/blob/master/doc/api/Ling/WebBox/Image/PngTextUtil/displayPngText.md)(string $text, ?array $options = []) : void
 
 
 

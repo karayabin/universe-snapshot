@@ -66,7 +66,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [PermissionGroupApi::getPermissionGroupsKey2Value](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Classes/PermissionGroupApi.php#L213-L218)
+See the source code for method [PermissionGroupApi::getPermissionGroupsKey2Value](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Classes/PermissionGroupApi.php#L249-L254)
 
 
 See Also

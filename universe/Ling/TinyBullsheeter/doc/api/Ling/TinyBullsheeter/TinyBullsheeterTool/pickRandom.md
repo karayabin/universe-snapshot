@@ -49,7 +49,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [TinyBullsheeterTool::pickRandom](https://github.com/lingtalfi/TinyBullsheeter/blob/master/TinyBullsheeterTool.php#L61-L66)
+See the source code for method [TinyBullsheeterTool::pickRandom](https://github.com/lingtalfi/TinyBullsheeter/blob/master/TinyBullsheeterTool.php#L60-L65)
 
 
 See Also

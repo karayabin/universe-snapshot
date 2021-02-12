@@ -49,7 +49,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [UserGroupApiInterface::getUserGroupNamesByPluginOptionId](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Interfaces/UserGroupApiInterface.php#L185-L185)
+See the source code for method [UserGroupApiInterface::getUserGroupNamesByPluginOptionId](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Interfaces/UserGroupApiInterface.php#L230-L230)
 
 
 See Also

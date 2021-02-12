@@ -49,7 +49,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [ServiceContainerHelper::getDarkBlueContainerPath](https://github.com/lingtalfi/Light/blob/master/Helper/ServiceContainerHelper.php#L152-L155)
+See the source code for method [ServiceContainerHelper::getDarkBlueContainerPath](https://github.com/lingtalfi/Light/blob/master/Helper/ServiceContainerHelper.php#L193-L196)
 
 
 See Also

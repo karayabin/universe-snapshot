@@ -7,7 +7,7 @@ PluginOptionApiInterface::deletePluginOptionByIds
 
 
 
-PluginOptionApiInterface::deletePluginOptionByIds — Deletes the pluginOption rows identified by the given ids.
+PluginOptionApiInterface::deletePluginOptionByIds — Deletes the plugin option rows identified by the given ids.
 
 
 
@@ -21,7 +21,7 @@ abstract public [PluginOptionApiInterface::deletePluginOptionByIds](https://gith
 
 
 
-Deletes the pluginOption rows identified by the given ids.
+Deletes the plugin option rows identified by the given ids.
 
 
 
@@ -54,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [PluginOptionApiInterface::deletePluginOptionByIds](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Interfaces/PluginOptionApiInterface.php#L259-L259)
+See the source code for method [PluginOptionApiInterface::deletePluginOptionByIds](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Interfaces/PluginOptionApiInterface.php#L252-L252)
 
 
 See Also

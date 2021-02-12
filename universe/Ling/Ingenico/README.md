@@ -80,7 +80,15 @@ Basically, the examples cover those topics:
 
 History Log
 ------------------
-    
+
+- 1.5.2 -- 2020-12-08
+
+    - Fix lpi-deps not using natsort.
+
+- 1.5.1 -- 2020-12-04
+
+    - Add lpi-deps.byml file
+
 - 1.5.0 -- 2017-07-31
 
     - add IngenicoUtil.checkSignature method (placeholder)

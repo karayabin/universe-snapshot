@@ -4,7 +4,7 @@
 
 The KaosApplication class
 ================
-2019-03-13 --> 2020-12-03
+2019-03-13 --> 2020-12-08
 
 
 
@@ -32,6 +32,7 @@ class <span class="pl-k">KaosApplication</span> extends [Application](https://gi
 
 - Inherited properties
     - protected array [Application::$commands](#property-commands) ;
+    - protected string [Application::$defaultCommandAlias](#property-defaultCommandAlias) ;
     - protected [Ling\UniversalLogger\UniversalLoggerInterface](https://github.com/lingtalfi/UniversalLogger/blob/master/UniversalLoggerInterface.php) [AbstractProgram::$logger](#property-logger) ;
     - protected string [AbstractProgram::$loggerChannel](#property-loggerChannel) ;
     - protected bool [AbstractProgram::$errorIsVerbose](#property-errorIsVerbose) ;
@@ -79,6 +80,12 @@ Properties
     It's an array of command alias => command class name.
     
     Note: multiple aliases can reference the same command class name.
+    
+    
+
+- <span id="property-defaultCommandAlias"><b>defaultCommandAlias</b></span>
+
+    This property holds the defaultCommandAlias for this instance.
     
     
 
@@ -155,4 +162,4 @@ See the source code of [Ling\LingTalfi\Kaos\Application\KaosApplication](https:/
 
 SeeAlso
 ==============
-Previous class: [LingTalfiDocToolsHelper](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocTools/LingTalfiDocToolsHelper.md)<br>Next class: [HelpCommand](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Command/HelpCommand.md)<br>
+Previous class: [GranularDependencyUtil](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/GranularDependency/GranularDependencyUtil.md)<br>Next class: [HelpCommand](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Command/HelpCommand.md)<br>

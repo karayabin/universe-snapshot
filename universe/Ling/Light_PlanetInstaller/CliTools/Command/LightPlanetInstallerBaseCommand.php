@@ -1,0 +1,159 @@
+<?php
+
+
+namespace Ling\Light_PlanetInstaller\CliTools\Command;
+
+use Exception;
+use Ling\Bat\CaseTool;
+use Ling\Bat\ClassTool;
+use Ling\CliTools\Command\CommandInterface;
+use Ling\CliTools\Input\InputInterface;
+use Ling\CliTools\Output\OutputInterface;
+use Ling\Light\ServiceContainer\LightServiceContainerAwareInterface;
+use Ling\Light\ServiceContainer\LightServiceContainerInterface;
+use Ling\Light_Cli\CliTools\Program\LightCliCommandInterface;
+use Ling\Light_PlanetInstaller\CliTools\Program\LightPlanetInstallerApplication;
+
+/**
+ * The LightPlanetInstallerBaseCommand class.
+ */
+abstract class LightPlanetInstallerBaseCommand implements CommandInterface, LightCliCommandInterface, LightServiceContainerAwareInterface
+{
+
+    /**
+     * This property holds the LightPlanetInstallerApplication instance.
+     * @var LightPlanetInstallerApplication
+     */
+    protected LightPlanetInstallerApplication $application;
+
+    /**
+     * This property holds the container for this instance.
+     * @var LightServiceContainerInterface
+     */
+    protected LightServiceContainerInterface $container;
+
+
+    /**
+     * Builds the LightPlanetInstallerBaseCommand instance.
+     */
+    public function __construct()
+    {
+    }
+
+
+    /**
+     * Runs the command.
+     *
+     * @param InputInterface $input
+     * @param OutputInterface $output
+     */
+    abstract protected function doRun(InputInterface $input, OutputInterface $output);
+
+
+    //--------------------------------------------
+    // LightServiceContainerAwareInterface
+    //--------------------------------------------
+    /**
+     * @implementation
+     */
+    public function setContainer(LightServiceContainerInterface $container)
+    {
+        $this->container = $container;
+    }
+
+
+
+
+    //--------------------------------------------
+    // CommandInterface
+    //--------------------------------------------
+    /**
+     * @implementation
+     */
+    public function run(InputInterface $input, OutputInterface $output)
+    {
+        $this->application->setCurrentOutput($output);
+        try {
+            return $this->doRun($input, $output);
+        } catch (\Exception $e) {
+            $this->application->logError($e);
+        }
+    }
+
+
+    //--------------------------------------------
+    // LightCliCommandInterface
+    //--------------------------------------------
+    /**
+     * @implementation
+     */
+    public function getName(): string
+    {
+        $className = substr(ClassTool::getShortName($this), 0, -7); // remove the Command suffix
+        return CaseTool::toUnderscoreLow($className);
+    }
+
+    /**
+     * @implementation
+     */
+    public function getDescription(): string
+    {
+        return "some description";
+    }
+
+    /**
+     * @implementation
+     */
+    public function getAliases(): array
+    {
+        return [];
+    }
+
+    /**
+     * @implementation
+     */
+    public function getFlags(): array
+    {
+        return [];
+    }
+
+    /**
+     * @implementation
+     */
+    public function getOptions(): array
+    {
+        return [];
+    }
+
+    /**
+     * @implementation
+     */
+    public function getParameters(): array
+    {
+        return [];
+    }
+
+
+    /**
+     * Sets the application.
+     *
+     * @param LightPlanetInstallerApplication $application
+     */
+    public function setApplication(LightPlanetInstallerApplication $application)
+    {
+        $this->application = $application;
+    }
+
+
+    /**
+     * Proxy to the application's logError method.
+     * @param string|Exception $error
+     *
+     */
+    public function logError(string|\Exception $error)
+    {
+        $this->application->logError($error);
+    }
+
+
+}

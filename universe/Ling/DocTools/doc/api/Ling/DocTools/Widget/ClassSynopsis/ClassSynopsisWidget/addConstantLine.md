@@ -16,7 +16,7 @@ Description
 ================
 
 
-protected [ClassSynopsisWidget::addConstantLine](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Widget/ClassSynopsis/ClassSynopsisWidget/addConstantLine.md)(string &$s, \ReflectionClassConstant $constant, ?bool $showDeclaringClass = false) : void
+protected [ClassSynopsisWidget::addConstantLine](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Widget/ClassSynopsis/ClassSynopsisWidget/addConstantLine.md)(string &$s, ReflectionClassConstant $constant, ?bool $showDeclaringClass = false) : void
 
 
 

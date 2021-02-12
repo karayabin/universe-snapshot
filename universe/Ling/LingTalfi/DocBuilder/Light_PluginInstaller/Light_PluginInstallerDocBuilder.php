@@ -145,6 +145,9 @@ class Light_PluginInstallerDocBuilder
                 "the Light.initialize_1 event" => "https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md",
                 "where conditions" => "https://github.com/lingtalfi/SimplePdoWrapper#the-where-conditions",
                 "create file" => "https://github.com/lingtalfi/Light_DbSynchronizer/blob/master/doc/pages/conception-notes.md#create-file",
+                "planet dot name" => "https://github.com/karayabin/universe-snapshot#the-planet-dot-name",
+                "classic log levels" => "https://github.com/lingtalfi/TheBar/blob/master/discussions/classic-log-levels.md",
+                "light standard permissions" => "https://github.com/lingtalfi/TheBar/blob/master/discussions/light-standard-permissions.md",
             ],
             /**
              * An array of external classes to url.
@@ -158,6 +161,12 @@ class Light_PluginInstallerDocBuilder
             "externalClass2Url" => [
                 "Ling\Light\ServiceContainer\LightServiceContainerInterface" => "https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md",
                 "Ling\SimplePdoWrapper\Util\MysqlInfoUtil" => "https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/MysqlInfoUtil.md",
+                "Ling\Light\ServiceContainer\LightServiceContainerAwareInterface" => "https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerAwareInterface.md",
+                "Ling\CliTools\Formatter\BashtmlFormatter" => "https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Formatter/BashtmlFormatter.md",
+                "Ling\CyclicChainDetector\CyclicChainDetectorUtil" => "https://github.com/lingtalfi/CyclicChainDetector/blob/master/doc/api/Ling/CyclicChainDetector/CyclicChainDetectorUtil.md",
+                "Ling\CliTools\Output\OutputInterface" => "https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Output/OutputInterface.md",
+
+
 
             ],
             "ignoreFilesStartingWith" => [

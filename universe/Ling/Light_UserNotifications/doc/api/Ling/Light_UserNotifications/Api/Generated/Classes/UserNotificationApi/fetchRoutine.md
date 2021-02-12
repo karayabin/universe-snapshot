@@ -66,7 +66,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [UserNotificationApi::fetchRoutine](https://github.com/lingtalfi/Light_UserNotifications/blob/master/Api/Generated/Classes/UserNotificationApi.php#L320-L367)
+See the source code for method [UserNotificationApi::fetchRoutine](https://github.com/lingtalfi/Light_UserNotifications/blob/master/Api/Generated/Classes/UserNotificationApi.php#L335-L382)
 
 
 See Also
@@ -74,5 +74,5 @@ See Also
 
 The [UserNotificationApi](https://github.com/lingtalfi/Light_UserNotifications/blob/master/doc/api/Ling/Light_UserNotifications/Api/Generated/Classes/UserNotificationApi.md) class.
 
-Previous method: [deleteUserNotificationByIds](https://github.com/lingtalfi/Light_UserNotifications/blob/master/doc/api/Ling/Light_UserNotifications/Api/Generated/Classes/UserNotificationApi/deleteUserNotificationByIds.md)<br>
+Previous method: [deleteUserNotificationByLudUserId](https://github.com/lingtalfi/Light_UserNotifications/blob/master/doc/api/Ling/Light_UserNotifications/Api/Generated/Classes/UserNotificationApi/deleteUserNotificationByLudUserId.md)<br>
 

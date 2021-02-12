@@ -7,7 +7,7 @@ UserNotificationApiInterface::updateUserNotification
 
 
 
-UserNotificationApiInterface::updateUserNotification — Updates the userNotification row.
+UserNotificationApiInterface::updateUserNotification — Updates the user notification row.
 
 
 
@@ -21,7 +21,7 @@ abstract public [UserNotificationApiInterface::updateUserNotification](https://g
 
 
 
-Updates the userNotification row.
+Updates the user notification row.
 
 
 

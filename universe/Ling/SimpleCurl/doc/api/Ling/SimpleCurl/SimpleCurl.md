@@ -4,7 +4,7 @@
 
 The SimpleCurl class
 ================
-2019-03-14 --> 2019-07-18
+2019-03-14 --> 2020-12-08
 
 
 
@@ -31,7 +31,7 @@ class <span class="pl-k">SimpleCurl</span>  {
     - public [__construct](https://github.com/lingtalfi/SimpleCurl/blob/master/doc/api/Ling/SimpleCurl/SimpleCurl/__construct.md)() : void
     - public [call](https://github.com/lingtalfi/SimpleCurl/blob/master/doc/api/Ling/SimpleCurl/SimpleCurl/call.md)(string $url) : [SimpleCurlResponseInterface](https://github.com/lingtalfi/SimpleCurl/blob/master/doc/api/Ling/SimpleCurl/Response/SimpleCurlResponseInterface.md) | false
     - public [getErrors](https://github.com/lingtalfi/SimpleCurl/blob/master/doc/api/Ling/SimpleCurl/SimpleCurl/getErrors.md)() : array
-    - protected [curlRequest](https://github.com/lingtalfi/SimpleCurl/blob/master/doc/api/Ling/SimpleCurl/SimpleCurl/curlRequest.md)(string $url, array $curlOptions = []) : [SimpleCurlResponseInterface](https://github.com/lingtalfi/SimpleCurl/blob/master/doc/api/Ling/SimpleCurl/Response/SimpleCurlResponseInterface.md) | false
+    - protected [curlRequest](https://github.com/lingtalfi/SimpleCurl/blob/master/doc/api/Ling/SimpleCurl/SimpleCurl/curlRequest.md)(string $url, ?array $curlOptions = []) : [SimpleCurlResponseInterface](https://github.com/lingtalfi/SimpleCurl/blob/master/doc/api/Ling/SimpleCurl/Response/SimpleCurlResponseInterface.md) | false
     - protected [addError](https://github.com/lingtalfi/SimpleCurl/blob/master/doc/api/Ling/SimpleCurl/SimpleCurl/addError.md)(string $msg) : void
 
 }

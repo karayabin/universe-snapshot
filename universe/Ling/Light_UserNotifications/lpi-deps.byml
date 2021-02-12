@@ -1,0 +1,42 @@
+1.0.0: 
+    - Ling:Light:0.69.18+
+    - Ling:Light_Database:1.14.11+
+    - Ling:SimplePdoWrapper:1.30.16+
+    - Ling:Light_LingStandardService:1.6.3+
+
+1.0.1: 
+    - Ling:Light:0.69.18+
+    - Ling:Light_Database:1.14.11+
+    - Ling:SimplePdoWrapper:1.30.16+
+    - Ling:Light_LingStandardService:1.6.3+
+
+1.0.2: 
+    - Ling:Light:0.69.18+
+    - Ling:Light_Database:1.14.11+
+    - Ling:SimplePdoWrapper:1.30.16+
+    - Ling:Light_LingStandardService:1.6.3+
+
+1.0.3: 
+    - Ling:Light:0.69.18+
+    - Ling:Light_Database:1.14.11+
+    - Ling:SimplePdoWrapper:1.30.16+
+    - Ling:Light_LingStandardService:1.6.3+
+
+1.0.4: 
+    - Ling:Light:0.69.18+
+    - Ling:Light_Database:1.14.11+
+    - Ling:SimplePdoWrapper:1.30.16+
+    - Ling:Light_LingStandardService:1.6.3+
+
+1.0.5: 
+    - Ling:Light:0.69.18+
+    - Ling:Light_Database:1.14.11+
+    - Ling:SimplePdoWrapper:1.30.16+
+    - Ling:Light_LingStandardService:1.6.4+
+
+1.0.6: 
+    - Ling:Light:0.69.21+
+    - Ling:Light_Database:1.14.11+
+    - Ling:SimplePdoWrapper:1.30.16+
+    - Ling:Light_PluginInstaller:2.0.11+
+    - Ling:Light_LingStandardService:1.6.5+

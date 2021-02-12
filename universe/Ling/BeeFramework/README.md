@@ -1,6 +1,6 @@
 BeeFramework
 ========
-2017-05-22
+2017-05-22 -> 2021-02-02
 
 
 A php framework.
@@ -30,7 +30,19 @@ but there is no official doc for now.
  
 History Log
 ------------------
-    
+
+- 1.0.6 -- 2021-02-02
+
+    - fix ReflectionParameterUtil->getParameterAsString triggering deprecation notice in php8
+  
+- 1.0.5 -- 2020-12-08
+
+    - Fix lpi-deps not using natsort.
+
+- 1.0.4 -- 2020-12-04
+
+    - Add lpi-deps.byml file
+
 - 1.0.3 -- 2019-07-04
 
     - fix ArrayExportUtil::getSymbolsManager not working with new universe organization

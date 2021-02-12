@@ -7,7 +7,7 @@ UserNotificationApi::updateUserNotification
 
 
 
-UserNotificationApi::updateUserNotification — Updates the userNotification row.
+UserNotificationApi::updateUserNotification — Updates the user notification row.
 
 
 
@@ -21,7 +21,7 @@ public [UserNotificationApi::updateUserNotification](https://github.com/lingtalf
 
 
 
-Updates the userNotification row.
+Updates the user notification row.
 
 
 
@@ -62,7 +62,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [UserNotificationApi::updateUserNotification](https://github.com/lingtalfi/Light_UserNotifications/blob/master/Api/Generated/Classes/UserNotificationApi.php#L263-L266)
+See the source code for method [UserNotificationApi::updateUserNotification](https://github.com/lingtalfi/Light_UserNotifications/blob/master/Api/Generated/Classes/UserNotificationApi.php#L267-L270)
 
 
 See Also

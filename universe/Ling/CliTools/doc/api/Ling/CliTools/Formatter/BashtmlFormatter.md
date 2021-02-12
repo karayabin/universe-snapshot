@@ -4,7 +4,7 @@
 
 The BashtmlFormatter class
 ================
-2019-02-26 --> 2020-12-04
+2019-02-26 --> 2021-02-04
 
 
 
@@ -17,7 +17,8 @@ Introduction
 The BashtmlFormatter class.
 
 It interprets bashtml language described below, which basically allows you to write html like tags to get
-colors and basic formatting (bold, underline, ...) in your console output.
+colors and basic formatting (bold, underline, ...) in your console output, or your html output (it detects automatically
+whether your are in the console environment or the browser environment).
 
 ![example screenshot](http://lingtalfi.com/img/universe/CliTools/bashtml-formatter-example.png)
 
@@ -153,16 +154,18 @@ class <span class="pl-k">BashtmlFormatter</span> implements [FormatterInterface]
 - Properties
     - protected array [$formatCodes](#property-formatCodes) ;
     - protected string [$escapeSequence](#property-escapeSequence) ;
-    - private array [$parents](#property-parents) = [] ;
+    - private array [$parents](#property-parents) ;
+    - private bool [$isCli](#property-isCli) ;
 
 - Methods
     - public [__construct](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Formatter/BashtmlFormatter/__construct.md)() : void
+    - public [setFormatMode](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Formatter/BashtmlFormatter/setFormatMode.md)(string $mode) : void
     - public [format](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Formatter/BashtmlFormatter/format.md)(string $expression) : string
     - private [addParent](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Formatter/BashtmlFormatter/addParent.md)(string $name) : void
     - private [removeParent](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Formatter/BashtmlFormatter/removeParent.md)(string $name) : void
     - private [getStartTag](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Formatter/BashtmlFormatter/getStartTag.md)(string $name, ?array $parents = []) : false | string
     - private [getStopTag](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Formatter/BashtmlFormatter/getStopTag.md)(string $name, ?array $parents = []) : bool | string
-    - private [getFormatExpression](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Formatter/BashtmlFormatter/getFormatExpression.md)(array $codes) : string
+    - private [getFormatExpression](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Formatter/BashtmlFormatter/getFormatExpression.md)(array $codes, bool $isStart) : string
     - private [checkCode](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Formatter/BashtmlFormatter/checkCode.md)(string $code) : bool
 
 }
@@ -196,12 +199,19 @@ Properties
     
     
 
+- <span id="property-isCli"><b>isCli</b></span>
+
+    This property holds the isCli for this instance.
+    
+    
+
 
 
 Methods
 ==============
 
 - [BashtmlFormatter::__construct](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Formatter/BashtmlFormatter/__construct.md) &ndash; Builds the BashtmlFormatter instance.
+- [BashtmlFormatter::setFormatMode](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Formatter/BashtmlFormatter/setFormatMode.md) &ndash; Sets the format mode.
 - [BashtmlFormatter::format](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Formatter/BashtmlFormatter/format.md) &ndash; Parses the given $expression and returns its formatted/interpreted version.
 - [BashtmlFormatter::addParent](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Formatter/BashtmlFormatter/addParent.md) &ndash; Adds a parent to the stack.
 - [BashtmlFormatter::removeParent](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Formatter/BashtmlFormatter/removeParent.md) &ndash; Removes a parent from the stack.

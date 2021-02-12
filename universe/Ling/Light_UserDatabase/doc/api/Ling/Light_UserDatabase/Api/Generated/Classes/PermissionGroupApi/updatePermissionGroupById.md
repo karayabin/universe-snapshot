@@ -7,7 +7,7 @@ PermissionGroupApi::updatePermissionGroupById
 
 
 
-PermissionGroupApi::updatePermissionGroupById — Updates the permissionGroup row identified by the given id.
+PermissionGroupApi::updatePermissionGroupById — Updates the permission group row identified by the given id.
 
 
 
@@ -16,12 +16,12 @@ Description
 ================
 
 
-public [PermissionGroupApi::updatePermissionGroupById](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/PermissionGroupApi/updatePermissionGroupById.md)(int $id, array $permissionGroup) : void
+public [PermissionGroupApi::updatePermissionGroupById](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/PermissionGroupApi/updatePermissionGroupById.md)(int $id, array $permissionGroup, ?array $extraWhere = [], ?array $markers = []) : void
 
 
 
 
-Updates the permissionGroup row identified by the given id.
+Updates the permission group row identified by the given id.
 
 
 
@@ -35,6 +35,14 @@ Parameters
     
 
 - permissionGroup
+
+    
+
+- extraWhere
+
+    
+
+- markers
 
     
 
@@ -58,7 +66,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [PermissionGroupApi::updatePermissionGroupById](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Classes/PermissionGroupApi.php#L352-L358)
+See the source code for method [PermissionGroupApi::updatePermissionGroupById](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Classes/PermissionGroupApi.php#L388-L394)
 
 
 See Also

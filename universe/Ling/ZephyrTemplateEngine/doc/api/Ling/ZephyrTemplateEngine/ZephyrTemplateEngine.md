@@ -4,7 +4,7 @@
 
 The ZephyrTemplateEngine class
 ================
-2019-04-09 --> 2019-07-18
+2019-04-09 --> 2020-12-08
 
 
 
@@ -30,8 +30,8 @@ class <span class="pl-k">ZephyrTemplateEngine</span> implements [UniversalTempla
 
 - Methods
     - public [__construct](https://github.com/lingtalfi/ZephyrTemplateEngine/blob/master/doc/api/Ling/ZephyrTemplateEngine/ZephyrTemplateEngine/__construct.md)() : void
-    - public [render](https://github.com/lingtalfi/ZephyrTemplateEngine/blob/master/doc/api/Ling/ZephyrTemplateEngine/ZephyrTemplateEngine/render.md)(string $resourceId, array $variables = []) : false | string
-    - public [renderFile](https://github.com/lingtalfi/ZephyrTemplateEngine/blob/master/doc/api/Ling/ZephyrTemplateEngine/ZephyrTemplateEngine/renderFile.md)(string $filePath, array $variables = []) : false | string
+    - public [render](https://github.com/lingtalfi/ZephyrTemplateEngine/blob/master/doc/api/Ling/ZephyrTemplateEngine/ZephyrTemplateEngine/render.md)(string $resourceId, ?array $variables = []) : false | string
+    - public [renderFile](https://github.com/lingtalfi/ZephyrTemplateEngine/blob/master/doc/api/Ling/ZephyrTemplateEngine/ZephyrTemplateEngine/renderFile.md)(string $filePath, ?array $variables = []) : false | string
     - public [getErrors](https://github.com/lingtalfi/ZephyrTemplateEngine/blob/master/doc/api/Ling/ZephyrTemplateEngine/ZephyrTemplateEngine/getErrors.md)() : array
     - public [setDirectory](https://github.com/lingtalfi/ZephyrTemplateEngine/blob/master/doc/api/Ling/ZephyrTemplateEngine/ZephyrTemplateEngine/setDirectory.md)(string $directory) : void
     - protected [interpret](https://github.com/lingtalfi/ZephyrTemplateEngine/blob/master/doc/api/Ling/ZephyrTemplateEngine/ZephyrTemplateEngine/interpret.md)(string $___path, array $z) : false | string

@@ -148,7 +148,15 @@ Then with help of css, you build on that fact to achieve the desired effect.
  
 History Log
 ------------------
-    
+
+- 1.1.3 -- 2020-12-08
+
+    - Fix lpi-deps not using natsort.
+
+- 1.1.2 -- 2020-12-04
+
+    - Add lpi-deps.byml file
+
 - 1.1.1 -- 2016-02-20
 
     - fix unfreeze not working

@@ -855,7 +855,15 @@ Dependencies
 
 History Log
 ------------------
-    
+
+- 1.6.2 -- 2020-12-08
+
+    - Fix lpi-deps not using natsort.
+
+- 1.6.1 -- 2020-12-04
+
+    - Add lpi-deps.byml file
+
 - 1.6.0 -- 2020-06-26
 
     - update the library so that it works with SwiftMailer 6.0 

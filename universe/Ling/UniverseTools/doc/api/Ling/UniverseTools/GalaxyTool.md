@@ -4,7 +4,7 @@
 
 The GalaxyTool class
 ================
-2019-02-26 --> 2020-12-03
+2019-02-26 --> 2021-02-12
 
 
 
@@ -52,4 +52,4 @@ See the source code of [Ling\UniverseTools\GalaxyTool](https://github.com/lingta
 
 SeeAlso
 ==============
-Previous class: [UniverseToolsException](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/Exception/UniverseToolsException.md)<br>Next class: [MetaInfoTool](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/MetaInfoTool.md)<br>
+Previous class: [UniverseToolsException](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/Exception/UniverseToolsException.md)<br>Next class: [MachineUniverseTool](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/MachineUniverseTool.md)<br>

@@ -1,6 +1,6 @@
 Ling/Light_Kit_Admin_TaskScheduler
 ================
-2020-07-31 --> 2020-12-01
+2020-07-31 --> 2021-01-29
 
 
 
@@ -34,14 +34,18 @@ Table of contents
     - [LightKitAdminTaskSchedulerControllerHubHandler::handle](https://github.com/lingtalfi/Light_Kit_Admin_TaskScheduler/blob/master/doc/api/Ling/Light_Kit_Admin_TaskScheduler/Light_ControllerHub/Generated/LightKitAdminTaskSchedulerControllerHubHandler/handle.md) &ndash; Process the given controllerIdentifier and returns an appropriate http response.
     - LightBaseControllerHubHandler::__construct &ndash; Builds the LightKitAdminControllerHubHandler instance.
     - LightBaseControllerHubHandler::setContainer &ndash; Sets the light service container interface.
+- [LightKitAdminTaskSchedulerPluginInstaller](https://github.com/lingtalfi/Light_Kit_Admin_TaskScheduler/blob/master/doc/api/Ling/Light_Kit_Admin_TaskScheduler/Light_PluginInstaller/LightKitAdminTaskSchedulerPluginInstaller.md) &ndash; The LightKitAdminTaskSchedulerPluginInstaller class.
+    - LightKitAdminBasePortPluginInstallerWithDatabase::__construct &ndash; Builds the LightKitAdminBasePluginInstallerWithDatabase instance.
+    - LightKitAdminBasePortPluginInstallerWithDatabase::install &ndash; Installs the plugin in the light application.
+    - LightKitAdminBasePortPluginInstallerWithDatabase::isInstalled &ndash; Returns whether the core install phase of the plugin is fully completed.
+    - LightKitAdminBasePortPluginInstallerWithDatabase::uninstall &ndash; Uninstalls the plugin.
+    - LightKitAdminBasePortPluginInstallerWithDatabase::getDependencies &ndash; Returns the array of dependencies.
+    - LightBasePluginInstaller::setContainer &ndash; Sets the container.
+    - LightBasePluginInstaller::getTableScope &ndash; Returns the [table scope](https://github.com/lingtalfi/TheBar/blob/master/discussions/table-scope.md) for this planet.
 - [LightKitAdminTaskSchedulerService](https://github.com/lingtalfi/Light_Kit_Admin_TaskScheduler/blob/master/doc/api/Ling/Light_Kit_Admin_TaskScheduler/Service/LightKitAdminTaskSchedulerService.md) &ndash; The LightKitAdminTaskSchedulerService class.
     - LightKitAdminStandardServicePlugin::__construct &ndash; Builds the LightLingStandardService01 instance.
     - LightKitAdminStandardServicePlugin::setContainer &ndash; Sets the container.
     - LightKitAdminStandardServicePlugin::setOptions &ndash; Sets the options.
-    - LightKitAdminStandardServicePlugin::install &ndash; Installs the plugin in the light application.
-    - LightKitAdminStandardServicePlugin::isInstalled &ndash; Returns whether the core install phase of the plugin is fully completed.
-    - LightKitAdminStandardServicePlugin::uninstall &ndash; Uninstalls the plugin.
-    - LightKitAdminStandardServicePlugin::getDependencies &ndash; Returns the array of dependencies.
 
 
 Dependencies

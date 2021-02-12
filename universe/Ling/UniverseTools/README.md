@@ -1,6 +1,6 @@
 UniverseTools
 ===========
-2019-02-08 -> 2020-12-03
+2019-02-08 -> 2021-02-12
 
 
 
@@ -27,6 +27,7 @@ Summary
 =======
 - [UniverseTools api](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools.md) (generated with [DocTools](https://github.com/lingtalfi/DocTools))
 - [Nomenclature](https://github.com/lingtalfi/UniverseTools/blob/master/doc/pages/nomenclature.md) 
+- [Conception notes](https://github.com/lingtalfi/UniverseTools/blob/master/doc/pages/conception-notes.md) 
 
 
 
@@ -37,6 +38,115 @@ Summary
 History Log
 ==============
 
+- 1.22.15 -- 2021-02-12
+
+    - add MachineUniverseTool class and machine universe concept
+  
+- 1.22.14 -- 2021-02-09
+
+    - fix DependencyTool::getDependencyListRecursiveByUniverseDirPlanets returning doublons
+  
+- 1.22.13 -- 2021-02-09
+
+    - remove dependency to Ling.LingTalfi planet
+  
+- 1.22.12 -- 2021-02-09
+
+    - add StandardReadmeUtil class
+  
+- 1.22.11 -- 2021-02-09
+
+    - add DependencyTool::parsePlanetDependencies method
+  
+- 1.22.10 -- 2021-02-09
+
+    - update DependencyTool::getDependencyListRecursiveByUniverseDirPlanets, add options argument
+  
+- 1.22.9 -- 2021-01-26
+
+    - fix MetaInfoTool::getVersionByUrl using incorrect function to get url
+  
+- 1.22.8 -- 2021-01-26
+
+    - fix MetaInfoTool::getVersionByUrl not treating case when the planet does not exist
+  
+- 1.22.7 -- 2021-01-26
+
+    - add PlanetTool::exists method
+  
+- 1.22.6 -- 2021-01-25
+
+    - add PlanetTool::importPlanetByExternalDir and removePlanet method, with optional assets/map
+  
+- 1.22.5 -- 2021-01-22
+
+    - add PlanetTool::getCompressedPlanetName method
+  
+- 1.22.4 -- 2021-01-22
+
+    - update DependencyTool::getDependencyList and getDependencyListByFile methods, add dotNames option
+  
+- 1.22.3 -- 2021-01-21
+
+    - update conception notes
+  
+- 1.22.2 -- 2021-01-19
+
+    - add PlanetTool::getPlanetDirByPlanetDotName method
+  
+- 1.22.1 -- 2021-01-19
+
+    - add PlanetTool::getPlanetSlashNameByDotName method
+
+- 1.22.0 -- 2021-01-18
+
+    - remove concept of import procedure/remove procedure
+    - updated PlanetTool, removed importPlanetByExternalDir and removePlanet, add installAssetsByPlanetDotName and removeAssetsByPlanetDotName
+  
+- 1.21.15 -- 2021-01-11
+
+    - update conception notes, add remove procedure
+  
+- 1.21.14 -- 2021-01-11
+
+    - update conception notes
+  
+- 1.21.13 -- 2021-01-05
+
+    - update DependencyTool::getDependencyListRecursiveByUniverseDirPlanets, now returns a sorted list
+
+- 1.21.12 -- 2021-01-05
+
+    - add DependencyTool::getDependencyListRecursiveByUniverseDirPlanets method
+  
+- 1.21.11 -- 2020-12-28
+
+    - add DependencyTool::getDependencyListByFile
+  
+- 1.21.10 -- 2020-12-17
+
+    - add PlanetTool::getVersionByPlanetDir
+  
+- 1.21.9 -- 2020-12-14
+
+    - fix MetaInfoTool::getVersion not considering the case where the meta info file doesn't exist
+  
+- 1.21.8 -- 2020-12-08
+
+    - add PlanetTool::importPlanetByExternalDir and removePlanet methods
+  
+- 1.21.7 -- 2020-12-08
+
+    - Fix lpi-deps not using natsort.
+
+- 1.21.6 -- 2020-12-04
+
+    - Add lpi-deps.byml file
+
+- 1.21.5 -- 2020-12-04
+
+    - update PlanetTool, add extractPlanetDotName method
+  
 - 1.21.4 -- 2020-12-03
 
     - update MetaInfoTool, add getVersion method

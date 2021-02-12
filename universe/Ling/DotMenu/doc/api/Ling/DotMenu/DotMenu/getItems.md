@@ -46,7 +46,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [DotMenu::getItems](https://github.com/lingtalfi/DotMenu/blob/master/DotMenu.php#L121-L124)
+See the source code for method [DotMenu::getItems](https://github.com/lingtalfi/DotMenu/blob/master/DotMenu.php#L125-L128)
 
 
 See Also

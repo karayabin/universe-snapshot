@@ -46,7 +46,7 @@ Returns [CustomLightUserDatabaseApiFactory](https://github.com/lingtalfi/Light_U
 
 Source Code
 ===========
-See the source code for method [MysqlLightWebsiteUserDatabase::getFactory](https://github.com/lingtalfi/Light_UserDatabase/blob/master/MysqlLightWebsiteUserDatabase.php#L575-L583)
+See the source code for method [MysqlLightWebsiteUserDatabase::getFactory](https://github.com/lingtalfi/Light_UserDatabase/blob/master/MysqlLightWebsiteUserDatabase.php#L370-L378)
 
 
 See Also

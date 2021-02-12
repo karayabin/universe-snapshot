@@ -5,6 +5,7 @@ dependencies:
         - SimplePdoWrapper
         - Light
         - Light_Database
+        - Light_UserDatabase
         - Light_LingStandardService
     
 

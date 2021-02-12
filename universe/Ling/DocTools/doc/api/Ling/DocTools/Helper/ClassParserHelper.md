@@ -4,7 +4,7 @@
 
 The ClassParserHelper class
 ================
-2019-02-21 --> 2020-09-11
+2019-02-21 --> 2021-02-04
 
 
 
@@ -25,7 +25,7 @@ Class synopsis
 class <span class="pl-k">ClassParserHelper</span>  {
 
 - Methods
-    - public static [getAncestorClassesWithMethod](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Helper/ClassParserHelper/getAncestorClassesWithMethod.md)([\ReflectionClass](http://php.net/manual/en/class.reflectionclass.php) $class, string $method) : array
+    - public static [getAncestorClassesWithMethod](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Helper/ClassParserHelper/getAncestorClassesWithMethod.md)(ReflectionClass $class, string $method) : array
 
 }
 

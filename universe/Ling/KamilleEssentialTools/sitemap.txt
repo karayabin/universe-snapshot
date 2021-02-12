@@ -1,0 +1,2 @@
+https://github.com/lingtalfi/KamilleEssentialTools/blob/master/README.md
+https://github.com/lingtalfi/KamilleEssentialTools/blob/master/doc/module-generator.md

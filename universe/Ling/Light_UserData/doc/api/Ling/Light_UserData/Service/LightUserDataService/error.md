@@ -58,7 +58,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::error](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L1355-L1358)
+See the source code for method [LightUserDataService::error](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L1264-L1267)
 
 
 See Also

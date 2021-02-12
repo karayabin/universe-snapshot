@@ -7,7 +7,7 @@ UserPreferenceApi::getUserPreferenceById
 
 
 
-UserPreferenceApi::getUserPreferenceById — Returns the userPreference row identified by the given id.
+UserPreferenceApi::getUserPreferenceById — Returns the user preference row identified by the given id.
 
 
 
@@ -21,7 +21,7 @@ public [UserPreferenceApi::getUserPreferenceById](https://github.com/lingtalfi/L
 
 
 
-Returns the userPreference row identified by the given id.
+Returns the user preference row identified by the given id.
 
 If the row is not found, this method's return depends on the throwNotFoundEx flag:
 - if true, the method throws an exception
@@ -66,7 +66,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [UserPreferenceApi::getUserPreferenceById](https://github.com/lingtalfi/Light_UserPreferences/blob/master/Api/Generated/Classes/UserPreferenceApi.php#L140-L154)
+See the source code for method [UserPreferenceApi::getUserPreferenceById](https://github.com/lingtalfi/Light_UserPreferences/blob/master/Api/Generated/Classes/UserPreferenceApi.php#L144-L158)
 
 
 See Also

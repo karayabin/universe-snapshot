@@ -4,7 +4,7 @@
 
 The DeployApplication class
 ================
-2019-04-03 --> 2019-07-18
+2019-04-03 --> 2020-12-08
 
 
 
@@ -42,6 +42,7 @@ class <span class="pl-k">DeployApplication</span> extends [Application](https://
 
 - Inherited properties
     - protected array [Application::$commands](#property-commands) ;
+    - protected string [Application::$defaultCommandAlias](#property-defaultCommandAlias) ;
     - protected [Ling\UniversalLogger\UniversalLoggerInterface](https://github.com/lingtalfi/UniversalLogger/blob/master/UniversalLoggerInterface.php) [AbstractProgram::$logger](#property-logger) ;
     - protected string [AbstractProgram::$loggerChannel](#property-loggerChannel) ;
     - protected bool [AbstractProgram::$errorIsVerbose](#property-errorIsVerbose) ;
@@ -60,7 +61,7 @@ class <span class="pl-k">DeployApplication</span> extends [Application](https://
     - protected [onCommandInstantiated](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Application/DeployApplication/onCommandInstantiated.md)([Ling\CliTools\Command\CommandInterface](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Command/CommandInterface.md) $command) : void
 
 - Inherited methods
-    - public Application::registerCommand(string $commandClassName, ?$aliases) : void
+    - public Application::registerCommand(string $commandClassName, $aliases) : void
     - public AbstractProgram::setLogger([Ling\UniversalLogger\UniversalLoggerInterface](https://github.com/lingtalfi/UniversalLogger/blob/master/UniversalLoggerInterface.php) $logger) : void
     - public AbstractProgram::setLoggerChannel(string $loggerChannel) : void
     - public AbstractProgram::setErrorIsVerbose(bool $errorIsVerbose) : void
@@ -100,6 +101,12 @@ Properties
     It's an array of command alias => command class name.
     
     Note: multiple aliases can reference the same command class name.
+    
+    
+
+- <span id="property-defaultCommandAlias"><b>defaultCommandAlias</b></span>
+
+    This property holds the defaultCommandAlias for this instance.
     
     
 

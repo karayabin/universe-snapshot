@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [ClassInfo::setReflectionClass](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/ClassInfo/setReflectionClass.md)([\ReflectionClass](http://php.net/manual/en/class.reflectionclass.php) $reflectionClass) : void
+public [ClassInfo::setReflectionClass](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/ClassInfo/setReflectionClass.md)(ReflectionClass $reflectionClass) : void
 
 
 

@@ -47,6 +47,7 @@ class NodeToArrayNodeInfoConvertor implements NodeToArrayConvertorInterface
      */
     public function __construct()
     {
+        $this->types = [];
         $this->comments = [];
         $this->_previousCurrentPath = '';
     }

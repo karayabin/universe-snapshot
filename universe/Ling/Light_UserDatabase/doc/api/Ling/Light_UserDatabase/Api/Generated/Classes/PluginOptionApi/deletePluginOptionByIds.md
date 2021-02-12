@@ -7,7 +7,7 @@ PluginOptionApi::deletePluginOptionByIds
 
 
 
-PluginOptionApi::deletePluginOptionByIds — Deletes the pluginOption rows identified by the given ids.
+PluginOptionApi::deletePluginOptionByIds — Deletes the plugin option rows identified by the given ids.
 
 
 
@@ -21,7 +21,7 @@ public [PluginOptionApi::deletePluginOptionByIds](https://github.com/lingtalfi/L
 
 
 
-Deletes the pluginOption rows identified by the given ids.
+Deletes the plugin option rows identified by the given ids.
 
 
 
@@ -54,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [PluginOptionApi::deletePluginOptionByIds](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Classes/PluginOptionApi.php#L345-L348)
+See the source code for method [PluginOptionApi::deletePluginOptionByIds](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Classes/PluginOptionApi.php#L299-L302)
 
 
 See Also
@@ -62,5 +62,5 @@ See Also
 
 The [PluginOptionApi](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/PluginOptionApi.md) class.
 
-Previous method: [deletePluginOptionById](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/PluginOptionApi/deletePluginOptionById.md)<br>
+Previous method: [deletePluginOptionById](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/PluginOptionApi/deletePluginOptionById.md)<br>Next method: [fetchRoutine](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/PluginOptionApi/fetchRoutine.md)<br>
 

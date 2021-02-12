@@ -4,7 +4,7 @@
 
 The LightKitAdminUserDataLkaPlugin class
 ================
-2020-02-28 --> 2020-12-01
+2020-02-28 --> 2021-01-29
 
 
 

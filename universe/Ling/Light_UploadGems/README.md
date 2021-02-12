@@ -59,6 +59,14 @@ upload_gems:
 History Log
 =============
 
+- 1.8.8 -- 2020-12-08
+
+    - Fix lpi-deps not using natsort.
+
+- 1.8.7 -- 2020-12-04
+
+    - Add lpi-deps.byml file
+
 - 1.8.6 -- 2020-11-06
 
     - update api to work with Bat 1.279

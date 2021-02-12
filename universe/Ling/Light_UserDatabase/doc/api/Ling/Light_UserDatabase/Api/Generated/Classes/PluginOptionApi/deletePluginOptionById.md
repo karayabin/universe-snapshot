@@ -7,7 +7,7 @@ PluginOptionApi::deletePluginOptionById
 
 
 
-PluginOptionApi::deletePluginOptionById — Deletes the pluginOption identified by the given id.
+PluginOptionApi::deletePluginOptionById — Deletes the plugin option identified by the given id.
 
 
 
@@ -21,7 +21,7 @@ public [PluginOptionApi::deletePluginOptionById](https://github.com/lingtalfi/Li
 
 
 
-Deletes the pluginOption identified by the given id.
+Deletes the plugin option identified by the given id.
 
 
 
@@ -54,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [PluginOptionApi::deletePluginOptionById](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Classes/PluginOptionApi.php#L332-L338)
+See the source code for method [PluginOptionApi::deletePluginOptionById](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Classes/PluginOptionApi.php#L286-L292)
 
 
 See Also

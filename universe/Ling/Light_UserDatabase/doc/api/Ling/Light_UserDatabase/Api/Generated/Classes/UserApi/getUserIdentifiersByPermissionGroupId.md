@@ -49,7 +49,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [UserApi::getUserIdentifiersByPermissionGroupId](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Classes/UserApi.php#L282-L292)
+See the source code for method [UserApi::getUserIdentifiersByPermissionGroupId](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Classes/UserApi.php#L348-L358)
 
 
 See Also

@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [UserApi::updateUserByIdentifier](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/UserApi/updateUserByIdentifier.md)(string $identifier, array $user) : void
+public [UserApi::updateUserByIdentifier](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/UserApi/updateUserByIdentifier.md)(string $identifier, array $user, ?array $extraWhere = [], ?array $markers = []) : void
 
 
 
@@ -35,6 +35,14 @@ Parameters
     
 
 - user
+
+    
+
+- extraWhere
+
+    
+
+- markers
 
     
 
@@ -58,7 +66,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [UserApi::updateUserByIdentifier](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Classes/UserApi.php#L271-L277)
+See the source code for method [UserApi::updateUserByIdentifier](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Classes/UserApi.php#L399-L405)
 
 
 See Also
@@ -66,5 +74,5 @@ See Also
 
 The [UserApi](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/UserApi.md) class.
 
-Previous method: [updateUserById](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/UserApi/updateUserById.md)<br>Next method: [delete](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/UserApi/delete.md)<br>
+Previous method: [updateUserById](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/UserApi/updateUserById.md)<br>Next method: [updateUser](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/UserApi/updateUser.md)<br>
 

@@ -66,7 +66,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [UserPreferenceApi::getUserPreferencesKey2Value](https://github.com/lingtalfi/Light_UserPreferences/blob/master/Api/Generated/Classes/UserPreferenceApi.php#L225-L230)
+See the source code for method [UserPreferenceApi::getUserPreferencesKey2Value](https://github.com/lingtalfi/Light_UserPreferences/blob/master/Api/Generated/Classes/UserPreferenceApi.php#L229-L234)
 
 
 See Also

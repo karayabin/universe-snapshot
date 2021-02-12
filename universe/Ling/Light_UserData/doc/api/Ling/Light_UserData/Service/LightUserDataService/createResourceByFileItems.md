@@ -35,6 +35,7 @@ Available options are:
 - source_path: string, path to the binary file to add.
 - keep_original: bool=false, whether to create an original copy for this file.
 - canonical_name: string|null, the canonical name of this resource.
+- user_id: int|null, the id of the user owning the resource. If null, the current user id will be used.
 
 
 
@@ -70,7 +71,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::createResourceByFileItems](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L836-L927)
+See the source code for method [LightUserDataService::createResourceByFileItems](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L766-L859)
 
 
 See Also
@@ -78,5 +79,5 @@ See Also
 
 The [LightUserDataService](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService.md) class.
 
-Previous method: [getUserDir](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/getUserDir.md)<br>Next method: [updateResourceByFileItems](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/updateResourceByFileItems.md)<br>
+Previous method: [createResourceByFileContent](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/createResourceByFileContent.md)<br>Next method: [updateResourceByFileItems](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/updateResourceByFileItems.md)<br>
 

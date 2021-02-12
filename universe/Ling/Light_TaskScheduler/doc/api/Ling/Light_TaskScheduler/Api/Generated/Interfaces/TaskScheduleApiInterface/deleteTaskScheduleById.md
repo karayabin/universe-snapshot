@@ -7,7 +7,7 @@ TaskScheduleApiInterface::deleteTaskScheduleById
 
 
 
-TaskScheduleApiInterface::deleteTaskScheduleById — Deletes the taskSchedule identified by the given id.
+TaskScheduleApiInterface::deleteTaskScheduleById — Deletes the task schedule identified by the given id.
 
 
 
@@ -21,7 +21,7 @@ abstract public [TaskScheduleApiInterface::deleteTaskScheduleById](https://githu
 
 
 
-Deletes the taskSchedule identified by the given id.
+Deletes the task schedule identified by the given id.
 
 
 

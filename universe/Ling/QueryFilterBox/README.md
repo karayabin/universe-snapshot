@@ -44,7 +44,15 @@ Related
 
 History Log
 ------------------
-    
+
+- 1.6.2 -- 2020-12-08
+
+    - Fix lpi-deps not using natsort.
+
+- 1.6.1 -- 2020-12-04
+
+    - Add lpi-deps.byml file
+
 - 1.6.0 -- 2017-10-24
 
     - add ItemsGenerator.getFilterBoxes method

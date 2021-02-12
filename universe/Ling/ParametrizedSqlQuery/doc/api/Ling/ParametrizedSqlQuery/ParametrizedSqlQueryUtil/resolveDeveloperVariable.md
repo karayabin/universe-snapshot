@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [ParametrizedSqlQueryUtil::resolveDeveloperVariable](https://github.com/lingtalfi/ParametrizedSqlQuery/blob/master/ParametrizedSqlQueryUtil.php#L820-L824)
+See the source code for method [ParametrizedSqlQueryUtil::resolveDeveloperVariable](https://github.com/lingtalfi/ParametrizedSqlQuery/blob/master/ParametrizedSqlQueryUtil.php#L821-L825)
 
 
 See Also

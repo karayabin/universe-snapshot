@@ -51,7 +51,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [TaskScheduleApi::fetch](https://github.com/lingtalfi/Light_TaskScheduler/blob/master/Api/Generated/Classes/TaskScheduleApi.php#L129-L135)
+See the source code for method [TaskScheduleApi::fetch](https://github.com/lingtalfi/Light_TaskScheduler/blob/master/Api/Generated/Classes/TaskScheduleApi.php#L129-L139)
 
 
 See Also

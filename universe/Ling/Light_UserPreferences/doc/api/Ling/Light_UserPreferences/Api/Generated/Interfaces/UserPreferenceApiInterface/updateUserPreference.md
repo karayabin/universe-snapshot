@@ -7,7 +7,7 @@ UserPreferenceApiInterface::updateUserPreference
 
 
 
-UserPreferenceApiInterface::updateUserPreference — Updates the userPreference row.
+UserPreferenceApiInterface::updateUserPreference — Updates the user preference row.
 
 
 
@@ -21,7 +21,7 @@ abstract public [UserPreferenceApiInterface::updateUserPreference](https://githu
 
 
 
-Updates the userPreference row.
+Updates the user preference row.
 
 
 

@@ -55,6 +55,14 @@ Related
 History Log
 =============
 
+- 1.6.7 -- 2020-12-08
+
+    - Fix lpi-deps not using natsort.
+
+- 1.6.6 -- 2020-12-04
+
+    - Add lpi-deps.byml file
+
 - 1.6.5 -- 2020-11-20
 
     - fix HeliumLightRenderer rendering multiplier widget in update mode

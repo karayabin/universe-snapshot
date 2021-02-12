@@ -14,7 +14,6 @@ dependencies:
         - Light_ControllerHub
         - BabyYaml
         - Light_BMenu
-        - Light_PluginInstaller
         - Light_UserData
     
 

@@ -4,7 +4,7 @@
 
 The FilesHelper class
 ================
-2019-04-03 --> 2019-07-18
+2019-04-03 --> 2020-12-08
 
 
 
@@ -25,8 +25,8 @@ Class synopsis
 class <span class="pl-k">FilesHelper</span>  {
 
 - Methods
-    - public static [removeFilesByName](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Helper/FilesHelper/removeFilesByName.md)(string $rootDir, ?$names) : void
-    - public static [getApplicationFiles](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Helper/FilesHelper/getApplicationFiles.md)(string $applicationDir, bool $relativePaths = false) : array
+    - public static [removeFilesByName](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Helper/FilesHelper/removeFilesByName.md)(string $rootDir, $names) : void
+    - public static [getApplicationFiles](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Helper/FilesHelper/getApplicationFiles.md)(string $applicationDir, ?bool $relativePaths = false) : array
 
 }
 

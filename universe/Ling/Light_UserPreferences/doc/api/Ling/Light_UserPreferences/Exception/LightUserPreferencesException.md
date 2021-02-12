@@ -4,7 +4,7 @@
 
 The LightUserPreferencesException class
 ================
-2020-07-31 --> 2020-08-13
+2020-07-31 --> 2021-02-11
 
 
 
@@ -22,7 +22,7 @@ Class synopsis
 ==============
 
 
-class <span class="pl-k">LightUserPreferencesException</span> extends [\Exception](http://php.net/manual/en/class.exception.php) implements [\Throwable](http://php.net/manual/en/class.throwable.php) {
+class <span class="pl-k">LightUserPreferencesException</span> extends [\Exception](http://php.net/manual/en/class.exception.php) implements [\Stringable](https://wiki.php.net/rfc/stringable), [\Throwable](http://php.net/manual/en/class.throwable.php) {
 
 - Inherited properties
     - protected  [Exception::$message](#property-message) =  ;
@@ -54,4 +54,4 @@ See the source code of [Ling\Light_UserPreferences\Exception\LightUserPreference
 
 SeeAlso
 ==============
-Previous class: [LightUserPreferencesApiFactory](https://github.com/lingtalfi/Light_UserPreferences/blob/master/doc/api/Ling/Light_UserPreferences/Api/Generated/LightUserPreferencesApiFactory.md)<br>Next class: [LightUserPreferencesService](https://github.com/lingtalfi/Light_UserPreferences/blob/master/doc/api/Ling/Light_UserPreferences/Service/LightUserPreferencesService.md)<br>
+Previous class: [LightUserPreferencesApiFactory](https://github.com/lingtalfi/Light_UserPreferences/blob/master/doc/api/Ling/Light_UserPreferences/Api/Generated/LightUserPreferencesApiFactory.md)<br>Next class: [LightUserPreferencesPluginInstaller](https://github.com/lingtalfi/Light_UserPreferences/blob/master/doc/api/Ling/Light_UserPreferences/Light_PluginInstaller/LightUserPreferencesPluginInstaller.md)<br>

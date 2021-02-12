@@ -79,7 +79,15 @@ $easy_route.methods_collection:
 
 History Log
 =============
-    
+
+- 2.1.4 -- 2020-12-08
+
+    - Fix lpi-deps not using natsort.
+
+- 2.1.3 -- 2020-12-04
+
+    - Add lpi-deps.byml file
+
 - 2.1.2 -- 2020-08-20
 
     - fix typo in ajax-light-communication-protocol.md

@@ -63,6 +63,18 @@ developer_wizard:
 History Log
 =============
 
+-- 1.28.12 -- 2021-01-22
+
+    - update SynchronizeDbProcess::doExecute, now uses LightDbSynchronizerHelper
+  
+- 1.28.11 -- 2020-12-08
+
+    - Fix lpi-deps not using natsort.
+
+- 1.28.10 -- 2020-12-04
+
+    - Add lpi-deps.byml file
+
 - 1.28.9 -- 2020-12-03
 
     - update documentation to acknowledge new light init script location

@@ -68,7 +68,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [TaskScheduleApi::getTaskSchedulesColumns](https://github.com/lingtalfi/Light_TaskScheduler/blob/master/Api/Generated/Classes/TaskScheduleApi.php#L210-L219)
+See the source code for method [TaskScheduleApi::getTaskSchedulesColumns](https://github.com/lingtalfi/Light_TaskScheduler/blob/master/Api/Generated/Classes/TaskScheduleApi.php#L214-L223)
 
 
 See Also

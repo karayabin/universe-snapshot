@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [PermissionGroupApi::__construct](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Classes/PermissionGroupApi.php#L24-L28)
+See the source code for method [PermissionGroupApi::__construct](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Classes/PermissionGroupApi.php#L28-L32)
 
 
 See Also

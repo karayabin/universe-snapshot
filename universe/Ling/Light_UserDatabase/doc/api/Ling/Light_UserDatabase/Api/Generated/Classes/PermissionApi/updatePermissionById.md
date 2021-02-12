@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [PermissionApi::updatePermissionById](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/PermissionApi/updatePermissionById.md)(int $id, array $permission) : void
+public [PermissionApi::updatePermissionById](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/PermissionApi/updatePermissionById.md)(int $id, array $permission, ?array $extraWhere = [], ?array $markers = []) : void
 
 
 
@@ -35,6 +35,14 @@ Parameters
     
 
 - permission
+
+    
+
+- extraWhere
+
+    
+
+- markers
 
     
 
@@ -58,7 +66,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [PermissionApi::updatePermissionById](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Classes/PermissionApi.php#L352-L358)
+See the source code for method [PermissionApi::updatePermissionById](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Classes/PermissionApi.php#L296-L302)
 
 
 See Also

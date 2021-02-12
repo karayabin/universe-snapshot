@@ -1,0 +1,10 @@
+train: 
+    instance: Ling\Light_Train\Service\LightTrainService
+    methods: 
+        setContainer: 
+            container: @container()
+        
+        setOptions: 
+            options: []
+        
+    

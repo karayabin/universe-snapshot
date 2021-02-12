@@ -46,7 +46,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [CSRFProtector::dump](https://github.com/lingtalfi/CSRFTools/blob/master/CSRFProtector.php#L282-L286)
+See the source code for method [CSRFProtector::dump](https://github.com/lingtalfi/CSRFTools/blob/master/CSRFProtector.php#L281-L285)
 
 
 See Also

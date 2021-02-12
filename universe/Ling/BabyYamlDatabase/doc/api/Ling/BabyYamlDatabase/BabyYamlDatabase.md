@@ -4,7 +4,7 @@
 
 The BabyYamlDatabase class
 ================
-2019-09-16 --> 2019-09-16
+2019-09-16 --> 2020-12-08
 
 
 
@@ -39,13 +39,13 @@ class <span class="pl-k">BabyYamlDatabase</span> implements [BabyYamlDatabaseInt
     - public [updateItemByKey](https://github.com/lingtalfi/BabyYamlDatabase/blob/master/doc/api/Ling/BabyYamlDatabase/BabyYamlDatabase/updateItemByKey.md)(string $table, array $key, array $values) : bool
     - public [deleteItemByKey](https://github.com/lingtalfi/BabyYamlDatabase/blob/master/doc/api/Ling/BabyYamlDatabase/BabyYamlDatabase/deleteItemByKey.md)(string $table, array $key) : bool
     - public [setFile](https://github.com/lingtalfi/BabyYamlDatabase/blob/master/doc/api/Ling/BabyYamlDatabase/BabyYamlDatabase/setFile.md)(string $file) : void
-    - public [setRootKey](https://github.com/lingtalfi/BabyYamlDatabase/blob/master/doc/api/Ling/BabyYamlDatabase/BabyYamlDatabase/setRootKey.md)(?string $rootKey) : void
+    - public [setRootKey](https://github.com/lingtalfi/BabyYamlDatabase/blob/master/doc/api/Ling/BabyYamlDatabase/BabyYamlDatabase/setRootKey.md)(string $rootKey) : void
     - protected [getTableArray](https://github.com/lingtalfi/BabyYamlDatabase/blob/master/doc/api/Ling/BabyYamlDatabase/BabyYamlDatabase/getTableArray.md)(string $table) : array
     - protected [setTableArray](https://github.com/lingtalfi/BabyYamlDatabase/blob/master/doc/api/Ling/BabyYamlDatabase/BabyYamlDatabase/setTableArray.md)(string $table, array $arr) : void
     - protected [getTableConstraints](https://github.com/lingtalfi/BabyYamlDatabase/blob/master/doc/api/Ling/BabyYamlDatabase/BabyYamlDatabase/getTableConstraints.md)(string $table) : array
     - protected [getIndexByKey](https://github.com/lingtalfi/BabyYamlDatabase/blob/master/doc/api/Ling/BabyYamlDatabase/BabyYamlDatabase/getIndexByKey.md)(array $array, array $key) : mixed
     - protected [keyMatches](https://github.com/lingtalfi/BabyYamlDatabase/blob/master/doc/api/Ling/BabyYamlDatabase/BabyYamlDatabase/keyMatches.md)(array $key, array $item) : bool
-    - protected [checkConstraints](https://github.com/lingtalfi/BabyYamlDatabase/blob/master/doc/api/Ling/BabyYamlDatabase/BabyYamlDatabase/checkConstraints.md)(string $table, array &$row, array $tableArr, array $options = []) : void
+    - protected [checkConstraints](https://github.com/lingtalfi/BabyYamlDatabase/blob/master/doc/api/Ling/BabyYamlDatabase/BabyYamlDatabase/checkConstraints.md)(string $table, array &$row, array $tableArr, ?array $options = []) : void
     - protected [sortTable](https://github.com/lingtalfi/BabyYamlDatabase/blob/master/doc/api/Ling/BabyYamlDatabase/BabyYamlDatabase/sortTable.md)(array &$tableItems) : void
     - protected [haveSameRic](https://github.com/lingtalfi/BabyYamlDatabase/blob/master/doc/api/Ling/BabyYamlDatabase/BabyYamlDatabase/haveSameRic.md)(array $item1, array $item2, array $ric) : bool
     - protected [getConfiguration](https://github.com/lingtalfi/BabyYamlDatabase/blob/master/doc/api/Ling/BabyYamlDatabase/BabyYamlDatabase/getConfiguration.md)() : array

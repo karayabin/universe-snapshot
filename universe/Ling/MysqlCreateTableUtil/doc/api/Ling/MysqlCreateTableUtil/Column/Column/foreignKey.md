@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [Column::foreignKey](https://github.com/lingtalfi/MysqlCreateTableUtil/blob/master/doc/api/Ling/MysqlCreateTableUtil/Column/Column/foreignKey.md)(string $referencedTable, string $referencedColumn, string $referencedSchema = null) : [Column](https://github.com/lingtalfi/MysqlCreateTableUtil/blob/master/doc/api/Ling/MysqlCreateTableUtil/Column/Column.md)
+public [Column::foreignKey](https://github.com/lingtalfi/MysqlCreateTableUtil/blob/master/doc/api/Ling/MysqlCreateTableUtil/Column/Column/foreignKey.md)(string $referencedTable, string $referencedColumn, ?string $referencedSchema = null) : [Column](https://github.com/lingtalfi/MysqlCreateTableUtil/blob/master/doc/api/Ling/MysqlCreateTableUtil/Column/Column.md)
 
 
 

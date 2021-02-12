@@ -4,7 +4,7 @@
 
 The VariableDescriptionFileGeneratorUtil class
 ================
-2019-04-24 --> 2019-08-30
+2019-04-24 --> 2020-12-08
 
 
 
@@ -27,7 +27,7 @@ class <span class="pl-k">VariableDescriptionFileGeneratorUtil</span>  {
 - Methods
     - public [generate](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/api/Ling/Kit_PicassoWidget/Util/VariableDescriptionFileGeneratorUtil/generate.md)(string $pageConfFile, string $outputDir) : void
     - protected [renderVars](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/api/Ling/Kit_PicassoWidget/Util/VariableDescriptionFileGeneratorUtil/renderVars.md)(array $vars) : string
-    - protected [renderVar](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/api/Ling/Kit_PicassoWidget/Util/VariableDescriptionFileGeneratorUtil/renderVar.md)(string $varName, ?$value, int $indentBase = 1) : string
+    - protected [renderVar](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/api/Ling/Kit_PicassoWidget/Util/VariableDescriptionFileGeneratorUtil/renderVar.md)(string $varName, $value, ?int $indentBase = 1) : string
     - protected [renderExample](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/api/Ling/Kit_PicassoWidget/Util/VariableDescriptionFileGeneratorUtil/renderExample.md)(array $vars) : string
 
 }

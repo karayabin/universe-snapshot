@@ -1,6 +1,6 @@
 TheBar
 ======
-2015-11-03 -> 2020-11-30
+2015-11-03 -> 2021-02-02
 
 
 
@@ -11,6 +11,7 @@ Listen to some of our customer's stories.
 
 - [Ajax file upload discussion](https://github.com/lingtalfi/TheBar/blob/master/discussions/ajax-file-upload.md): a discussion about ajax file upload
 - [Basic security nugget](https://github.com/lingtalfi/TheBar/blob/master/discussions/basic-security-nugget.md): a discussion about the basic security nugget
+- [classic log levels](https://github.com/lingtalfi/TheBar/blob/master/discussions/classic-log-levels.md): the classic log levels definition
 - [clever form initiative](https://github.com/lingtalfi/TheBar/blob/master/discussions/clever-form-initiative.md): the clever form initiative document
 - [create-file](https://github.com/lingtalfi/TheBar/blob/master/discussions/create-file.md): the create file
 - [curious notations in light](https://github.com/lingtalfi/TheBar/blob/master/discussions/curious-notations-in-light.md): the curious notations in light memo
@@ -23,6 +24,7 @@ Listen to some of our customer's stories.
 - [form multiplier trick](https://github.com/lingtalfi/TheBar/blob/master/discussions/form-multiplier.md): a discussion about php session security
 - [full ajax form](https://github.com/lingtalfi/TheBar/blob/master/discussions/full-ajax-form.md): the full ajax form technique 
 - [Iframe signal](https://github.com/lingtalfi/TheBar/blob/master/discussions/iframe-signal.md): a discussion about the iframe signal technique
+- [import install](https://github.com/lingtalfi/TheBar/blob/master/discussions/import-install.md): a disambiguation about the import install concepts 
 - [inject svelte in an existing app](https://github.com/lingtalfi/TheBar/blob/master/discussions/inject-svelte-in-existing-app.md): Inject a svelte component in an existing app 
 - [Joe's Corner](https://github.com/lingtalfi/TheBar/blob/master/joe/README.md): tells you about how the universe should be organized 
 - [light-standard-permissions](https://github.com/lingtalfi/TheBar/blob/master/discussions/light-standard-permissions.md): the light standard permissions 
@@ -34,6 +36,7 @@ Listen to some of our customer's stories.
 - [Secure file upload discussion](https://github.com/lingtalfi/TheBar/blob/master/discussions/secure-file-upload.md): a discussion about secure file upload
 - [Section comment](https://github.com/lingtalfi/TheBar/blob/master/discussions/section-comment.md): a definition of a section comment
 - [simple chunk-upload protocol](https://github.com/lingtalfi/TheBar/blob/master/discussions/simple-chunk-upload-protocol.md): the simple chunk upload protocol 
+- [table scope](https://github.com/lingtalfi/TheBar/blob/master/discussions/table-scope.md): the table scope definition 
 - [webapp security checklist](https://github.com/lingtalfi/TheBar/blob/master/discussions/webapp-security-checklist.md): a minimum security level checklist for web apps
 - [Generated custom config pattern](https://github.com/lingtalfi/TheBar/blob/master/discussions/generated-custom-config-pattern.md): a pattern to select a generated or custom config file on the fly
 
@@ -55,7 +58,31 @@ uni import Ling/TheBar
 
 History Log
 ===============
-    
+
+- 1.24.25 -- 2021-02-02
+
+    - update import/install definition 
+  
+- 1.24.24 -- 2021-01-26
+
+    - add "classic log levels" definition 
+  
+- 1.24.23 -- 2021-01-25
+
+    - add "table scope" discussion—definition 
+  
+- 1.24.22 -- 2021-01-22
+
+    - add "import install" discussion 
+  
+- 1.24.21 -- 2020-12-08
+
+    - Fix lpi-deps not using natsort.
+
+- 1.24.20 -- 2020-12-04
+
+    - Add lpi-deps.byml file
+
 - 1.24.19 -- 2020-11-30
 
     - add "error logging convention" document

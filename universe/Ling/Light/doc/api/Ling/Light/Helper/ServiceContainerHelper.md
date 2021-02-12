@@ -4,7 +4,7 @@
 
 The ServiceContainerHelper class
 ================
-2019-04-09 --> 2020-12-03
+2019-04-09 --> 2021-02-11
 
 
 
@@ -26,7 +26,7 @@ class <span class="pl-k">ServiceContainerHelper</span>  {
 
 - Methods
     - public static [getInstance](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ServiceContainerHelper/getInstance.md)(string $appDir, ?array $options = []) : [LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md)
-    - private static [getServicesConf](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ServiceContainerHelper/getServicesConf.md)(string $appDir) : array
+    - private static [getServicesConf](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ServiceContainerHelper/getServicesConf.md)(string $appDir, ?array $options = []) : array
     - private static [buildDarkBlueContainer](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ServiceContainerHelper/buildDarkBlueContainer.md)(string $appDir, array $conf) : void
     - private static [getDarkBlueContainerPath](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ServiceContainerHelper/getDarkBlueContainerPath.md)(string $appDir) : string
     - private static [getDarkBlueInstance](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ServiceContainerHelper/getDarkBlueInstance.md)(string $appDir) : [BlueOctopusServiceContainer](https://github.com/lingtalfi/Octopus/blob/master/ServiceContainer/BlueOctopusServiceContainer.php)
@@ -62,4 +62,4 @@ See the source code of [Ling\Light\Helper\ServiceContainerHelper](https://github
 
 SeeAlso
 ==============
-Previous class: [LightNamesAndPathHelper](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/LightNamesAndPathHelper.md)<br>Next class: [HttpAttachmentResponse](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpAttachmentResponse.md)<br>
+Previous class: [LightNamesAndPathHelper](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/LightNamesAndPathHelper.md)<br>Next class: [ZFileHelper](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ZFileHelper.md)<br>

@@ -1,6 +1,6 @@
 ConventionGuy
 =============
-2015-10-14 -> 2020-07-03
+2015-10-14 -> 2021-01-07
 
 
 
@@ -59,6 +59,18 @@ Paradigms
 
 History Log
 ===============
+
+- 1.1.3 -- 2021-01-07
+
+    - update string cases document, add underscore_low case 
+  
+- 1.1.2 -- 2020-12-08
+
+    - Fix lpi-deps not using natsort.
+
+- 1.1.1 -- 2020-12-04
+
+    - Add lpi-deps.byml file
 
 - 1.1.0 -- 2020-07-03
 

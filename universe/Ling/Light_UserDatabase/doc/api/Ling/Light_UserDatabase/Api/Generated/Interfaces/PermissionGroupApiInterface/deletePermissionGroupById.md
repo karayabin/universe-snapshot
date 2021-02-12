@@ -7,7 +7,7 @@ PermissionGroupApiInterface::deletePermissionGroupById
 
 
 
-PermissionGroupApiInterface::deletePermissionGroupById — Deletes the permissionGroup identified by the given id.
+PermissionGroupApiInterface::deletePermissionGroupById — Deletes the permission group identified by the given id.
 
 
 
@@ -21,7 +21,7 @@ abstract public [PermissionGroupApiInterface::deletePermissionGroupById](https:/
 
 
 
-Deletes the permissionGroup identified by the given id.
+Deletes the permission group identified by the given id.
 
 
 
@@ -54,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [PermissionGroupApiInterface::deletePermissionGroupById](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Interfaces/PermissionGroupApiInterface.php#L289-L289)
+See the source code for method [PermissionGroupApiInterface::deletePermissionGroupById](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Interfaces/PermissionGroupApiInterface.php#L330-L330)
 
 
 See Also

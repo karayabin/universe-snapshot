@@ -4,7 +4,7 @@
 
 The Light_PasswordProtectorDocBuilder class
 ================
-2019-03-13 --> 2020-12-03
+2019-03-13 --> 2020-12-08
 
 
 
@@ -52,4 +52,4 @@ See the source code of [Ling\LingTalfi\DocBuilder\Light_PasswordProtector\Light_
 
 SeeAlso
 ==============
-Previous class: [Light_NuggetDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Nugget/Light_NuggetDocBuilder.md)<br>Next class: [Light_PluginDatabaseInstallerDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_PluginDatabaseInstaller/Light_PluginDatabaseInstallerDocBuilder.md)<br>
+Previous class: [Light_NuggetDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Nugget/Light_NuggetDocBuilder.md)<br>Next class: [Light_PlanetInstallerDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_PlanetInstaller/Light_PlanetInstallerDocBuilder.md)<br>

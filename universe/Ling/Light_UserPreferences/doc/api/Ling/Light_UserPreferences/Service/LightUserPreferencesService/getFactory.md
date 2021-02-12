@@ -46,7 +46,7 @@ Returns [CustomLightUserPreferencesApiFactory](https://github.com/lingtalfi/Ligh
 
 Source Code
 ===========
-See the source code for method [LightUserPreferencesService::getFactory](https://github.com/lingtalfi/Light_UserPreferences/blob/master/Service/LightUserPreferencesService.php#L41-L49)
+See the source code for method [LightUserPreferencesService::getFactory](https://github.com/lingtalfi/Light_UserPreferences/blob/master/Service/LightUserPreferencesService.php#L42-L50)
 
 
 See Also

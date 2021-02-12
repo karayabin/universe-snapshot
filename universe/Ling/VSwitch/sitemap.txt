@@ -1,0 +1,8 @@
+https://github.com/lingtalfi/VSwitch/blob/master/README.md
+https://github.com/lingtalfi/VSwitch/blob/master/doc/brainstorm.md
+https://github.com/lingtalfi/VSwitch/blob/master/doc/observations/v1.1.0.intents_get_clearer.md
+https://github.com/lingtalfi/VSwitch/blob/master/doc/problems/v0.0.0.tired_to_do_css_manually.md
+https://github.com/lingtalfi/VSwitch/blob/master/doc/problems/v0.0.1.flexibility_in_switch.md
+https://github.com/lingtalfi/VSwitch/blob/master/doc/problems/v0.0.2.in_out_callbacks.md
+https://github.com/lingtalfi/VSwitch/blob/master/doc/problems/v1.1.0.change_mode_on_the_fly.md
+https://github.com/lingtalfi/VSwitch/blob/master/doc/problems/v1.1.0.init_callback_revisited.md

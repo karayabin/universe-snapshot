@@ -7,7 +7,7 @@ UserPreferenceApi::updateUserPreferenceById
 
 
 
-UserPreferenceApi::updateUserPreferenceById — Updates the userPreference row identified by the given id.
+UserPreferenceApi::updateUserPreferenceById — Updates the user preference row identified by the given id.
 
 
 
@@ -21,7 +21,7 @@ public [UserPreferenceApi::updateUserPreferenceById](https://github.com/lingtalf
 
 
 
-Updates the userPreference row identified by the given id.
+Updates the user preference row identified by the given id.
 
 
 
@@ -66,7 +66,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [UserPreferenceApi::updateUserPreferenceById](https://github.com/lingtalfi/Light_UserPreferences/blob/master/Api/Generated/Classes/UserPreferenceApi.php#L250-L256)
+See the source code for method [UserPreferenceApi::updateUserPreferenceById](https://github.com/lingtalfi/Light_UserPreferences/blob/master/Api/Generated/Classes/UserPreferenceApi.php#L254-L260)
 
 
 See Also

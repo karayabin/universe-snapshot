@@ -1,6 +1,2 @@
-dependencies: 
-    Ling: 
-        - Tim
-    
-
+dependencies: []
 post_install: []

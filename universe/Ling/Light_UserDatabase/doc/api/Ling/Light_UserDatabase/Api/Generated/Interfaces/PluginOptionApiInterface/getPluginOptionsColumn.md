@@ -63,7 +63,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [PluginOptionApiInterface::getPluginOptionsColumn](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Interfaces/PluginOptionApiInterface.php#L117-L117)
+See the source code for method [PluginOptionApiInterface::getPluginOptionsColumn](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Interfaces/PluginOptionApiInterface.php#L140-L140)
 
 
 See Also

@@ -4,7 +4,7 @@
 
 The LightKitAdminUserPreferencesControllerHubHandler class
 ================
-2020-08-13 --> 2020-12-01
+2020-08-13 --> 2021-01-29
 
 
 
@@ -63,4 +63,4 @@ See the source code of [Ling\Light_Kit_Admin_UserPreferences\Light_ControllerHub
 
 SeeAlso
 ==============
-Previous class: [LightKitAdminUserPreferencesLkaPlugin](https://github.com/lingtalfi/Light_Kit_Admin_UserPreferences/blob/master/doc/api/Ling/Light_Kit_Admin_UserPreferences/LightKitAdminPlugin/Generated/LightKitAdminUserPreferencesLkaPlugin.md)<br>Next class: [LightKitAdminUserPreferencesService](https://github.com/lingtalfi/Light_Kit_Admin_UserPreferences/blob/master/doc/api/Ling/Light_Kit_Admin_UserPreferences/Service/LightKitAdminUserPreferencesService.md)<br>
+Previous class: [LightKitAdminUserPreferencesLkaPlugin](https://github.com/lingtalfi/Light_Kit_Admin_UserPreferences/blob/master/doc/api/Ling/Light_Kit_Admin_UserPreferences/LightKitAdminPlugin/Generated/LightKitAdminUserPreferencesLkaPlugin.md)<br>Next class: [LightKitAdminUserPreferencesPluginInstaller](https://github.com/lingtalfi/Light_Kit_Admin_UserPreferences/blob/master/doc/api/Ling/Light_Kit_Admin_UserPreferences/Light_PluginInstaller/LightKitAdminUserPreferencesPluginInstaller.md)<br>

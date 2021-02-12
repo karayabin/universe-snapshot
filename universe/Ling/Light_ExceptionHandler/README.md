@@ -97,6 +97,14 @@ Related
 History Log
 =============
 
+- 1.2.3 -- 2020-12-08
+
+    - Fix lpi-deps not using natsort.
+
+- 1.2.2 -- 2020-12-04
+
+    - Add lpi-deps.byml file
+
 - 1.2.1 -- 2020-11-05
 
     - add handling of "Light_Server.on_controller_exception_caught" event

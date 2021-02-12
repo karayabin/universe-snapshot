@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [CsvUtil::readFile](https://github.com/lingtalfi/Csv/blob/master/doc/api/Ling/Csv/CsvUtil/readFile.md)(?$f, $sep = ,, $lineLength = null, array $options = []) : array
+public static [CsvUtil::readFile](https://github.com/lingtalfi/Csv/blob/master/doc/api/Ling/Csv/CsvUtil/readFile.md)($f, ?$sep = ,, ?$lineLength = null, ?array $options = []) : array
 
 
 

@@ -1,6 +1,6 @@
 Light_Kit_Admin
 ===========
-2019-10-24 -> 2020-12-03
+2019-10-24 -> 2021-02-11
 
 
 
@@ -190,13 +190,6 @@ $micro_permission.methods_collection:
             file: ${app_dir}/config/data/Light_Kit_Admin/Light_MicroPermission/kit_admin.profile.byml
 
 
-$plugin_installer.methods_collection:
-    -
-        method: registerPlugin
-        args:
-            plugin: Light_Kit_Admin
-            installer: @service(kit_admin)
-
 
 
 
@@ -250,10 +243,30 @@ $user_database_vars.bullsheeter_avatar_img_dir: ${app_dir}/www/plugins/Light_Kit
 
 History Log
 =============
-        
--- 0.12.4 -- 2020-12-03
 
-    - add concept of lka_parent_layout variable
+- 0.12.9 -- 2021-02-11
+
+    - update api, plugin installer now extends LightUserDatabaseBasePluginInstaller 
+  
+- 0.12.8 -- 2021-01-29
+
+    - fix LightKitAdminBasePortPluginInstallerWithDatabase->isInstalled expecting permission tables to exist
+  
+- 0.12.7 -- 2021-01-29
+
+    - add LightKitAdminBasePortPluginInstallerWithDatabase class
+  
+- 0.12.6 -- 2021-01-28
+
+    - adapt to work with new PluginInstaller api
+  
+- 0.12.5 -- 2020-12-08
+
+    - Fix lpi-deps not using natsort.
+
+- 0.12.4 -- 2020-12-04
+
+    - Add lpi-deps.byml file
     
 - 0.12.3 -- 2020-12-01
 

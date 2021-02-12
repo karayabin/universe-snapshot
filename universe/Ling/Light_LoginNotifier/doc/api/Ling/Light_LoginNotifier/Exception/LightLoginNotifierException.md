@@ -4,7 +4,7 @@
 
 The LightLoginNotifierException class
 ================
-2020-11-27 --> 2020-11-30
+2020-11-27 --> 2021-02-11
 
 
 
@@ -22,7 +22,7 @@ Class synopsis
 ==============
 
 
-class <span class="pl-k">LightLoginNotifierException</span> extends [\Exception](http://php.net/manual/en/class.exception.php) implements [\Throwable](http://php.net/manual/en/class.throwable.php) {
+class <span class="pl-k">LightLoginNotifierException</span> extends [\Exception](http://php.net/manual/en/class.exception.php) implements [\Stringable](https://wiki.php.net/rfc/stringable), [\Throwable](http://php.net/manual/en/class.throwable.php) {
 
 - Inherited properties
     - protected  [Exception::$message](#property-message) =  ;
@@ -54,4 +54,4 @@ See the source code of [Ling\Light_LoginNotifier\Exception\LightLoginNotifierExc
 
 SeeAlso
 ==============
-Previous class: [LightLoginNotifierApiFactory](https://github.com/lingtalfi/Light_LoginNotifier/blob/master/doc/api/Ling/Light_LoginNotifier/Api/Generated/LightLoginNotifierApiFactory.md)<br>Next class: [LightLoginNotifierService](https://github.com/lingtalfi/Light_LoginNotifier/blob/master/doc/api/Ling/Light_LoginNotifier/Service/LightLoginNotifierService.md)<br>
+Previous class: [LightLoginNotifierApiFactory](https://github.com/lingtalfi/Light_LoginNotifier/blob/master/doc/api/Ling/Light_LoginNotifier/Api/Generated/LightLoginNotifierApiFactory.md)<br>Next class: [LightLoginNotifierPluginInstaller](https://github.com/lingtalfi/Light_LoginNotifier/blob/master/doc/api/Ling/Light_LoginNotifier/Light_PluginInstaller/LightLoginNotifierPluginInstaller.md)<br>

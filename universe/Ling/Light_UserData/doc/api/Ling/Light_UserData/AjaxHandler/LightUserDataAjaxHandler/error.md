@@ -54,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightUserDataAjaxHandler::error](https://github.com/lingtalfi/Light_UserData/blob/master/AjaxHandler/LightUserDataAjaxHandler.php#L57-L60)
+See the source code for method [LightUserDataAjaxHandler::error](https://github.com/lingtalfi/Light_UserData/blob/master/AjaxHandler/LightUserDataAjaxHandler.php#L83-L86)
 
 
 See Also

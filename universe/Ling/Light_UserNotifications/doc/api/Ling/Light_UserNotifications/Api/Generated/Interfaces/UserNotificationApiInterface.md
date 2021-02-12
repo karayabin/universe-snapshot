@@ -4,7 +4,7 @@
 
 The UserNotificationApiInterface class
 ================
-2020-08-13 --> 2020-08-17
+2020-08-13 --> 2021-02-11
 
 
 
@@ -42,6 +42,7 @@ abstract class <span class="pl-k">UserNotificationApiInterface</span>  {
     - abstract public [delete](https://github.com/lingtalfi/Light_UserNotifications/blob/master/doc/api/Ling/Light_UserNotifications/Api/Generated/Interfaces/UserNotificationApiInterface/delete.md)(?$where = null, ?array $markers = []) : false | int
     - abstract public [deleteUserNotificationById](https://github.com/lingtalfi/Light_UserNotifications/blob/master/doc/api/Ling/Light_UserNotifications/Api/Generated/Interfaces/UserNotificationApiInterface/deleteUserNotificationById.md)(int $id) : void
     - abstract public [deleteUserNotificationByIds](https://github.com/lingtalfi/Light_UserNotifications/blob/master/doc/api/Ling/Light_UserNotifications/Api/Generated/Interfaces/UserNotificationApiInterface/deleteUserNotificationByIds.md)(array $ids) : void
+    - abstract public [deleteUserNotificationByLudUserId](https://github.com/lingtalfi/Light_UserNotifications/blob/master/doc/api/Ling/Light_UserNotifications/Api/Generated/Interfaces/UserNotificationApiInterface/deleteUserNotificationByLudUserId.md)(int $userId) : void
 
 }
 
@@ -53,22 +54,23 @@ abstract class <span class="pl-k">UserNotificationApiInterface</span>  {
 Methods
 ==============
 
-- [UserNotificationApiInterface::insertUserNotification](https://github.com/lingtalfi/Light_UserNotifications/blob/master/doc/api/Ling/Light_UserNotifications/Api/Generated/Interfaces/UserNotificationApiInterface/insertUserNotification.md) &ndash; Inserts the given userNotification in the database.
-- [UserNotificationApiInterface::insertUserNotifications](https://github.com/lingtalfi/Light_UserNotifications/blob/master/doc/api/Ling/Light_UserNotifications/Api/Generated/Interfaces/UserNotificationApiInterface/insertUserNotifications.md) &ndash; Inserts the given userNotification rows in the database.
+- [UserNotificationApiInterface::insertUserNotification](https://github.com/lingtalfi/Light_UserNotifications/blob/master/doc/api/Ling/Light_UserNotifications/Api/Generated/Interfaces/UserNotificationApiInterface/insertUserNotification.md) &ndash; Inserts the given user notification in the database.
+- [UserNotificationApiInterface::insertUserNotifications](https://github.com/lingtalfi/Light_UserNotifications/blob/master/doc/api/Ling/Light_UserNotifications/Api/Generated/Interfaces/UserNotificationApiInterface/insertUserNotifications.md) &ndash; Inserts the given user notification rows in the database.
 - [UserNotificationApiInterface::fetchAll](https://github.com/lingtalfi/Light_UserNotifications/blob/master/doc/api/Ling/Light_UserNotifications/Api/Generated/Interfaces/UserNotificationApiInterface/fetchAll.md) &ndash; Returns the rows corresponding to given components.
 - [UserNotificationApiInterface::fetch](https://github.com/lingtalfi/Light_UserNotifications/blob/master/doc/api/Ling/Light_UserNotifications/Api/Generated/Interfaces/UserNotificationApiInterface/fetch.md) &ndash; Returns the first row corresponding to given components, or false if there is no match.
-- [UserNotificationApiInterface::getUserNotificationById](https://github.com/lingtalfi/Light_UserNotifications/blob/master/doc/api/Ling/Light_UserNotifications/Api/Generated/Interfaces/UserNotificationApiInterface/getUserNotificationById.md) &ndash; Returns the userNotification row identified by the given id.
+- [UserNotificationApiInterface::getUserNotificationById](https://github.com/lingtalfi/Light_UserNotifications/blob/master/doc/api/Ling/Light_UserNotifications/Api/Generated/Interfaces/UserNotificationApiInterface/getUserNotificationById.md) &ndash; Returns the user notification row identified by the given id.
 - [UserNotificationApiInterface::getUserNotification](https://github.com/lingtalfi/Light_UserNotifications/blob/master/doc/api/Ling/Light_UserNotifications/Api/Generated/Interfaces/UserNotificationApiInterface/getUserNotification.md) &ndash; Returns the userNotification row identified by the given [where conditions](https://github.com/lingtalfi/SimplePdoWrapper#the-where-conditions).
 - [UserNotificationApiInterface::getUserNotifications](https://github.com/lingtalfi/Light_UserNotifications/blob/master/doc/api/Ling/Light_UserNotifications/Api/Generated/Interfaces/UserNotificationApiInterface/getUserNotifications.md) &ndash; Returns the userNotification rows identified by the given [where conditions](https://github.com/lingtalfi/SimplePdoWrapper#the-where-conditions).
 - [UserNotificationApiInterface::getUserNotificationsColumn](https://github.com/lingtalfi/Light_UserNotifications/blob/master/doc/api/Ling/Light_UserNotifications/Api/Generated/Interfaces/UserNotificationApiInterface/getUserNotificationsColumn.md) &ndash; identified by the given [where conditions](https://github.com/lingtalfi/SimplePdoWrapper#the-where-conditions).
 - [UserNotificationApiInterface::getUserNotificationsColumns](https://github.com/lingtalfi/Light_UserNotifications/blob/master/doc/api/Ling/Light_UserNotifications/Api/Generated/Interfaces/UserNotificationApiInterface/getUserNotificationsColumns.md) &ndash; Returns a subset of the userNotification rows identified by the given [where conditions](https://github.com/lingtalfi/SimplePdoWrapper#the-where-conditions).
 - [UserNotificationApiInterface::getUserNotificationsKey2Value](https://github.com/lingtalfi/Light_UserNotifications/blob/master/doc/api/Ling/Light_UserNotifications/Api/Generated/Interfaces/UserNotificationApiInterface/getUserNotificationsKey2Value.md) &ndash; Returns an array of $key => $value from the userNotification rows identified by the given [where conditions](https://github.com/lingtalfi/SimplePdoWrapper#the-where-conditions).
 - [UserNotificationApiInterface::getAllIds](https://github.com/lingtalfi/Light_UserNotifications/blob/master/doc/api/Ling/Light_UserNotifications/Api/Generated/Interfaces/UserNotificationApiInterface/getAllIds.md) &ndash; Returns an array of all userNotification ids.
-- [UserNotificationApiInterface::updateUserNotificationById](https://github.com/lingtalfi/Light_UserNotifications/blob/master/doc/api/Ling/Light_UserNotifications/Api/Generated/Interfaces/UserNotificationApiInterface/updateUserNotificationById.md) &ndash; Updates the userNotification row identified by the given id.
-- [UserNotificationApiInterface::updateUserNotification](https://github.com/lingtalfi/Light_UserNotifications/blob/master/doc/api/Ling/Light_UserNotifications/Api/Generated/Interfaces/UserNotificationApiInterface/updateUserNotification.md) &ndash; Updates the userNotification row.
+- [UserNotificationApiInterface::updateUserNotificationById](https://github.com/lingtalfi/Light_UserNotifications/blob/master/doc/api/Ling/Light_UserNotifications/Api/Generated/Interfaces/UserNotificationApiInterface/updateUserNotificationById.md) &ndash; Updates the user notification row identified by the given id.
+- [UserNotificationApiInterface::updateUserNotification](https://github.com/lingtalfi/Light_UserNotifications/blob/master/doc/api/Ling/Light_UserNotifications/Api/Generated/Interfaces/UserNotificationApiInterface/updateUserNotification.md) &ndash; Updates the user notification row.
 - [UserNotificationApiInterface::delete](https://github.com/lingtalfi/Light_UserNotifications/blob/master/doc/api/Ling/Light_UserNotifications/Api/Generated/Interfaces/UserNotificationApiInterface/delete.md) &ndash; Deletes the userNotification rows matching the given where conditions, and returns the number of deleted rows.
-- [UserNotificationApiInterface::deleteUserNotificationById](https://github.com/lingtalfi/Light_UserNotifications/blob/master/doc/api/Ling/Light_UserNotifications/Api/Generated/Interfaces/UserNotificationApiInterface/deleteUserNotificationById.md) &ndash; Deletes the userNotification identified by the given id.
-- [UserNotificationApiInterface::deleteUserNotificationByIds](https://github.com/lingtalfi/Light_UserNotifications/blob/master/doc/api/Ling/Light_UserNotifications/Api/Generated/Interfaces/UserNotificationApiInterface/deleteUserNotificationByIds.md) &ndash; Deletes the userNotification rows identified by the given ids.
+- [UserNotificationApiInterface::deleteUserNotificationById](https://github.com/lingtalfi/Light_UserNotifications/blob/master/doc/api/Ling/Light_UserNotifications/Api/Generated/Interfaces/UserNotificationApiInterface/deleteUserNotificationById.md) &ndash; Deletes the user notification identified by the given id.
+- [UserNotificationApiInterface::deleteUserNotificationByIds](https://github.com/lingtalfi/Light_UserNotifications/blob/master/doc/api/Ling/Light_UserNotifications/Api/Generated/Interfaces/UserNotificationApiInterface/deleteUserNotificationByIds.md) &ndash; Deletes the user notification rows identified by the given ids.
+- [UserNotificationApiInterface::deleteUserNotificationByLudUserId](https://github.com/lingtalfi/Light_UserNotifications/blob/master/doc/api/Ling/Light_UserNotifications/Api/Generated/Interfaces/UserNotificationApiInterface/deleteUserNotificationByLudUserId.md) &ndash; Deletes the user notification rows having the given user id.
 
 
 

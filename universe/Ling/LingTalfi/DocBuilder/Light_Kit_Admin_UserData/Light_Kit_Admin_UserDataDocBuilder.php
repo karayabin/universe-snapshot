@@ -81,6 +81,12 @@ class Light_Kit_Admin_UserDataDocBuilder
                 "Ling\Light_ControllerHub\ControllerHubHandler\LightBaseControllerHubHandler",
                 "Ling\Light_Kit_Admin\LightKitAdminPlugin\BaseLightKitAdminPlugin",
                 "Ling\Light_Kit_Admin\Controller\RealAdminPageController",
+                "Ling\Light_Kit_Admin\Light_PluginInstaller\LightKitAdminBasePortPluginInstallerWithDatabase",
+                "Ling\Light_PluginInstaller\PluginInstaller\LightBasePluginInstaller",
+                "Ling\Kit_PicassoWidget\Widget\EasyLightPicassoWidget",
+                "Ling\Kit_PicassoWidget\Widget\WidgetConfAwarePicassoWidget",
+                "Ling\Kit_PicassoWidget\Widget\PicassoWidget",
+                "Ling\ZephyrTemplateEngine\ZephyrTemplateEngine",
 
             ],
             /**
@@ -157,6 +163,8 @@ class Light_Kit_Admin_UserDataDocBuilder
                 "bmenu conception notes" => "https://github.com/lingtalfi/Light_BMenu/blob/master/doc/pages/conception-notes.md",
                 "the realist plugin" => "https://github.com/lingtalfi/Light_Realist/",
                 "the late service registration design" => "https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/design/late-service-registration.md",
+                "light standard permissions" => "https://github.com/lingtalfi/TheBar/blob/master/discussions/light-standard-permissions.md",
+                "widget configuration array" => "https://github.com/lingtalfi/Kit_PicassoWidget#the-picasso-widget-array",
             ],
             /**
              * An array of external classes to url.
@@ -190,6 +198,15 @@ class Light_Kit_Admin_UserDataDocBuilder
                 "Ling\Light_Kit_Admin\Controller\RealAdminPageController" => "https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/RealAdminPageController.md",
                 "Ling\Light_Kit_Admin\Duplicator\LkaRowDuplicatorHooksInterface" => "https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Duplicator/LkaRowDuplicatorHooksInterface.md",
                 "Ling\Light\ServiceContainer\LightServiceContainerAwareInterface" => "https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerAwareInterface.md",
+                "Ling\Light_Kit_Admin\Light_PluginInstaller\LightKitAdminBasePortPluginInstallerWithDatabase" => "https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_PluginInstaller/LightKitAdminBasePortPluginInstallerWithDatabase.md",
+                "Ling\Light_PluginInstaller\TableScope\TableScopeAwareInterface" => "https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/TableScope/TableScopeAwareInterface.md",
+                "Ling\Kit_PicassoWidget\Exception\PicassoWidgetException" => "https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/api/Ling/Kit_PicassoWidget/Exception/PicassoWidgetException.md",
+                "Ling\Kit_PicassoWidget\Widget\EasyLightPicassoWidget" => "https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/api/Ling/Kit_PicassoWidget/Widget/EasyLightPicassoWidget.md",
+                "Ling\Kit\PageRenderer\KitPageRendererAwareInterface" => "https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRendererAwareInterface.md",
+                "Ling\UniversalTemplateEngine\UniversalTemplateEngineInterface" => "https://github.com/lingtalfi/UniversalTemplateEngine/blob/master/doc/api/Ling/UniversalTemplateEngine/UniversalTemplateEngineInterface.md",
+                "Ling\Kit_PicassoWidget\Widget\WidgetConfAwarePicassoWidgetInterface" => "https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/api/Ling/Kit_PicassoWidget/Widget/WidgetConfAwarePicassoWidgetInterface.md",
+                "Ling\Kit\PageRenderer\KitPageRendererInterface" => "https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRendererInterface.md",
+                "Ling\HtmlPageTools\Copilot\HtmlPageCopilot" => "https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot.md",
 
             ],
             "ignoreFilesStartingWith" => [

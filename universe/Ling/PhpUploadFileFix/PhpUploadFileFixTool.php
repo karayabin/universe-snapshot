@@ -42,7 +42,7 @@ class PhpUploadFileFixTool
     //--------------------------------------------
     //
     //--------------------------------------------
-    private static function fixPhpFile(array $file, $useDot = false, array &$keys)
+    private static function fixPhpFile(array $file, $useDot = false, array &$keys = [])
     {
         $props = [
             "name",

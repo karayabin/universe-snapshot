@@ -4,7 +4,7 @@
 
 The BackupFilesFetcherUtil class
 ================
-2019-04-03 --> 2019-07-18
+2019-04-03 --> 2020-12-08
 
 
 
@@ -46,7 +46,7 @@ class <span class="pl-k">BackupFilesFetcherUtil</span>  {
 - Methods
     - public [__construct](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Util/BackupFilesFetcherUtil/__construct.md)() : void
     - public [setLast](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Util/BackupFilesFetcherUtil/setLast.md)(int $last) : void
-    - public [setNames](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Util/BackupFilesFetcherUtil/setNames.md)(?$names) : void
+    - public [setNames](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Util/BackupFilesFetcherUtil/setNames.md)($names) : void
     - public [setBackupDir](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Util/BackupFilesFetcherUtil/setBackupDir.md)(string $backupDir) : void
     - public [setExtension](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Util/BackupFilesFetcherUtil/setExtension.md)(string $extension) : void
     - public [fetch](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Util/BackupFilesFetcherUtil/fetch.md)() : array

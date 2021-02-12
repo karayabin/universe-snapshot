@@ -101,6 +101,8 @@ class FileSystemTool
 
     /**
      * Copies a directory to a given location.
+     *
+     * Following php's philosophy of the copy function, if the destination file already exists, it will be overwritten.
      */
     public static function copyDir($src, $target, $preservePerms = false, &$errors = [])
     {
@@ -202,7 +204,18 @@ class FileSystemTool
         $path = realpath($path);
         if ($path !== false && $path != '' && file_exists($path)) {
             foreach (new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator($path, \FilesystemIterator::SKIP_DOTS)) as $object) {
-                $bytestotal += $object->getSize();
+
+
+                try {
+                    /**
+                     * @var $object \SplFileInfo
+                     *
+                     */
+                    $bytestotal += $object->getSize();
+                } catch (\Exception) {
+                    // just ignore problem files...
+                }
+
             }
         }
         return $bytestotal;
@@ -481,6 +494,22 @@ class FileSystemTool
         return false;
     }
 
+
+    /**
+     * Creates a temporary directory in the system temporary files, and returns its path.
+     *
+     * @return string
+     */
+    public static function mkTmpDir(): string
+    {
+        $name = uniqid();
+        $dir = rtrim(sys_get_temp_dir(), '/') . '/' . $name;
+        if (false === file_exists($dir)) {
+            self::mkdir($dir);
+            return $dir;
+        }
+        return self::mkTmpDir();
+    }
 
     /**
      * Creates a temporary file with the given content, and return its path.

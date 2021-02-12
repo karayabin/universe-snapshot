@@ -10,6 +10,7 @@ use Ling\CliTools\Helper\VirginiaMessageHelper as H;
 use Ling\CliTools\Input\ArrayInput;
 use Ling\CliTools\Input\InputInterface;
 use Ling\CliTools\Output\OutputInterface;
+use Ling\Light_PlanetInstaller\Helper\LpiHelper;
 use Ling\LingTalfi\Kaos\Tool\PreferencesTool;
 use Ling\LingTalfi\Kaos\Util\ReadmeUtil;
 use Ling\PlanetSitemap\PlanetSitemapHelper;
@@ -157,6 +158,8 @@ class PushCommand extends KaosGenericCommand
                     }
 
 
+
+
                     //--------------------------------------------
                     // DEPENDENCIES.BYML
                     //--------------------------------------------
@@ -166,7 +169,13 @@ class PushCommand extends KaosGenericCommand
 
 
                         $isLightPlugin = false;
-                        if ('Ling' === $galaxyName && "Light_" === substr($planetName, 0, 6)) {
+                        if (
+                            'Ling' === $galaxyName &&
+                            (
+                                "Light" === $planetName ||
+                                "Light_" === substr($planetName, 0, 6)
+                            )
+                        ) {
                             $isLightPlugin = true;
                         }
 
@@ -186,9 +195,26 @@ class PushCommand extends KaosGenericCommand
                         ];
 
 
+
                         if (true === DependencyTool::writeDependencies($planetDir, $postInstall, $options)) {
 
+
                             $output->write('<success>ok</success>' . PHP_EOL);
+
+
+
+
+
+                            //--------------------------------------------
+                            // LPI DEPENDENCIES
+                            //--------------------------------------------
+                            H::info(H::i($indentLevel + 1) . "Updating <b>lpi-deps.byml</b>...", $output);
+                            LpiHelper::updateLpiDepsByPlanetDir($planetDir);
+                            $output->write('<success>ok</success>' . PHP_EOL);
+
+
+
+
 
 
                             $currentPwd = exec("pwd");

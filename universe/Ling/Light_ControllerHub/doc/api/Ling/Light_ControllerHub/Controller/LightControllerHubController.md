@@ -4,7 +4,7 @@
 
 The LightControllerHubController class
 ================
-2019-10-28 --> 2020-12-01
+2019-10-28 --> 2020-12-08
 
 
 

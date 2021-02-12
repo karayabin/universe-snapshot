@@ -1,79 +1,341 @@
 Light_PluginInstaller conception notes
 ==========================
-2020-02-07 -> 2020-06-22
+2020-02-07 -> 2021-01-22
 
 
 
-This plugin's goal is to install/uninstall light plugins in your light application.
-
-
-There are two terms that I'll be using in this discussion: **parent plugin** and **child plugin**.
-
-Those have to do with the dependency relationship that plugins might have. When a plugin B depends on a plugin A,
-plugin A is called the **parent** and plugin B is called the **child**.
-
-A parent can have multiple children.
+This plugin's goal is to perform a [logic install](https://github.com/lingtalfi/TheBar/blob/master/discussions/import-install.md#summary)/uninstall of light plugins in your light application.
 
 
 
 
+What's a logic install?
+------------
+2021-01-22
 
 
-Our service
+The **logic install** concept's origin is explained in the [import install discussion](https://github.com/lingtalfi/TheBar/blob/master/discussions/import-install.md#summary).
+
+The **logic install** is basically the installation of everything required for a [light](https://github.com/lingtalfi/Light) plugin to work properly, given that the [assets/map](https://github.com/lingtalfi/UniverseTools/blob/master/doc/pages/conception-notes.md#the-planets-and-assetsmap)
+are already installed.
+
+
+Typically, this means installing/updating tables in the database.
+
+In fact, so far the **logic install**, as far as I know, has been used exclusively for that purpose, although its theoretical concept is a bit larger.
+
+
+
+
+
+
+
+
+
+The logic Install procedure
 ----------
-2020-02-07 -> 2020-06-19
+2021-01-18 -> 2021-01-22
 
 
-Plugins can register themselves to our service.
 
-One feature of our service is the **auto-install** feature.
+The **logic install** procedure is always executed on top of an already [imported](https://github.com/lingtalfi/TheBar/blob/master/discussions/import-install.md#summary) plugin.
 
-
-The idea is that when you import a light plugin in your application, our service automatically installs it for you,
-so that you can basically plug'n'play with your plugin.
+Note: executing the **logic install** procedure on a not well **imported** plugin could fail.
 
 
-At this point of time, you cannot disable this feature (although you always choose to not use our service).
+The **logic install** procedure is executed by the **install** method of your plugin's installer class, which must implement **PluginInstallerInterface**.
+For more implementation details, read the [How to make your plugin installable](#how-to-make-your-plugin-installable) section.
 
 
-The **auto-install** feature works like this:
-
-- first it keeps a list of which plugins are installed and which aren't.
-        This list is cached so that it doesn't take much time to process when you use the app normally.
-        Note: you can still get better performances by not using our service (just be sure the plugins you want are installed),
-        but the performance boost is quite small. 
-
-- then it installs every registered plugin that's not installed (and marks those that are installed as installed)
 
 
-The procedure to install a plugin is to first ask for the plugin's dependencies (aka children), and install them first.
+The **logic install** procedure first starts by creating the **install map**, by parsing all the **logic dependencies** recursively.
+
+The **install map** is the list of planets to **logic install**, in the order they should be **logic installed**.
+
+Then, the procedure proceeds with the **install map** and calls the **install** method for every **PluginInstallerInterface** instance listed in the **install map**.
 
 
 
 
 
 
-What about cyclic relationships?
+The logic uninstall procedure
+----------
+2021-01-18 -> 2021-01-22
 
-So for instance plugin A depends on plugin B, which depends on plugin C, which depends on plugin A.
+The **logic uninstall** procedure of a plugin is the reverse operation of the **logic install** operation.
 
-At this point of time, this is just an hypothetical case with no concrete reality, and therefore is not handled.
+For more implementation details, read the [How to make your plugin installable](#how-to-make-your-plugin-installable) section.
 
-I added a defensive mechanism to avoid an infinite loop that's all.
+This procedure starts by creating the **uninstall map**, which is the list of all plugins to **logic uninstall**.
+
+The main idea to understand here is that if you uninstall a plugin which creates the table **client** (for instance),
+then uninstalling this plugin will remove this table, and so every plugin that uses the **client** table is **logic uninstalled** too, so that it doesn't trigger a "table client doesn't exist" error.
+
+So, that's the idea of the **uninstall map**: listing every **logic dependencies**.
+
+
+Once the **uninstall map** is created, the procedure proceeds with the **uninstall map** and calls the **uninstall** method for every **PluginInstallerInterface** instance listed in it.
 
 
 
 
 
-The plugin interface
+
+
+
+
+Our service's methods
+-----------
+2021-01-18 -> 2021-01-22
+
+
+Our service provides the following methods:
+
+- install \<planetDotName>: performs the [logic install procedure](#the-logic-install-procedure) for the given planet
+- uninstall \<planetDotName>: performs the [logic uninstall procedure](#the-logic-uninstall-procedure) for the given planet
+- installAll: performs the **logic install** procedure for all planets found in the current application
+- uninstallAll: performs the **logic uninstall** procedure for all planets found in the current application
+
+
+
+Note that the **logic install** methods do nothing if the plugin is already installed, unless the force flag is set.
+
+
+
+Note: in the previous version of our service we had this concept of calling the **logic install** methods of plugins automatically every time the application was started, 
+so that the user could just plug'n'play the planets.
+We removed this idea, because we now believe that it's best to install plugins in a static manner, using command line tools such as the [Light_PlanetInstaller](https://github.com/lingtalfi/Light_PlanetInstaller).
+By choosing this path, the overall code of our plugin is greatly simplified.
+
+
+
+
+
+
+
+Dependencies
 --------------
-2020-02-07 -> 2020-06-19
+2021-01-18 -> 2021-01-22
 
 
-A plugin which subscribe to our service must provide a **PluginInstallerInterface**, which has the following methods:
+An easy mistake to do is confound **planet dependencies** and **logic install dependencies**.
+
+
+Our plugin only handles **logic install dependencies**, and assumes that **planet dependencies** are already resolved.
+
+**Planet dependencies** are the dependencies of the planet to other planets. 
+It can be handled by hand, but is generally handled via tools such as [Light_PlanetInstaller](https://github.com/lingtalfi/Light_PlanetInstaller) or the [uni tool](https://github.com/lingtalfi/universe-naive-importer).
+
+**Planet dependencies** are based on the php code, so if the code of my plugin requires a method from another plugin, then I create a dependency from my plugin to that other plugin.
+For more details about **planet dependencies**, refer to the [uni tool documentation](https://github.com/lingtalfi/Uni2#dependencies).
+
+
+The **planet dependencies** always contain the **logic install** dependencies. In other words, **logic install** dependencies by definition is a subset of the **planet dependencies**.
+
+Our service assumes that the planet you want to execute the **logic install** for is already **imported**.
+
+
+**Logic install** dependencies are basically the database table dependencies. 
+
+Technically, **logic install** dependencies can install anything the plugins require, once already **imported**.
+
+But generally it's always about tables in the database.
+
+So for instance my plugin needs to add an entry to a table which is created by another plugin. Then my plugin depends on that other plugin to be installed first (otherwise the table my plugin wants 
+to write/update doesn't exist).
+
+
+
+### Resolving logical dependencies
+2021-01-18 -> 2021-01-22
+
+ 
+
+Every plugin must declare its **logic install** dependencies, and so our approach is the following:
+
+
+- create the **install map**
+- execute our [logic install procedure](#the-logic-install-procedure) on every planet defined in the **install map**
+
+
+The **install map** is the list of the planets for which to execute the **logic install**, in the order in which they should be executed.
+
+We create such a list to minimize the risk of putting the application in an inconsistent state where it has the first half of the required plugin installed,
+and then an error occurred and the other half of the required plugins is not installed.
+
+Using the **install map** technique, we can spot potential problems that might occur during the installation before actually installing anything,
+and thus do a better job at keeping your target application in a consistent state.
+
+
+
+
+
+
+### Cyclic relationships
+2021-01-18 -> 2021-01-22
+
+
+A **cyclic relationship** is for instance when **plugin A** depends on **plugin B**, which depends on **plugin C**, which depends on **plugin A**.
+
+We don't handle this case, because we don't know which plugin to install first.
+
+If this case occurs when you install a plugin, we will just throw an error and you'll have to resolve the conflict manually.
+
+That being said, this case doesn't generally occur, and I personally never encountered it.
+
+It might occur if the plugin author doesn't pay attention to other plugins it depends on when publishing his/her plugin, or if a plugin evolves in such a drastic way
+that its dependencies do not work anymore. But the use of a version aware installer, such as the [Light_PlanetInstaller](https://github.com/lingtalfi/Light_PlanetInstaller) should reduce the risk of such problem.
+
+
+If you want to use our services, be aware of this and design your plugins so that they don't infer a **cyclic relationship**.
+
+
+### Warning with hooks
+2020-06-22 -> 2021-01-18
+
+
+By now you're aware that you want to avoid **cyclic relationships** at all costs.
+
+But still, there can be cases where you would think **cyclic relationships** is needed if you're not very careful.
+
+Below, I try to explain a concrete case that I have, and how I resolved it, hoping to inspire you if you encounter the same case.
+
+Now be aware that it's a complicated case, so it will undoubtedly give you a headache. I suggest you're in your best form before continue with the reading.
+
+Meanwhile, I will do my best to be as clear as possible.
+
+
+
+So, we have the following tables:
+
+- user_group
+- plugin_option
+- user_group_has_plugin_option (we will call this table the **has** table for the rest of the discussion)
+
+
+All those tables are provided by **plugin A**.
+The relationships between those tables is self-explanatory.
+
+
+Now I'm the author of **plugin B**, and I'm using the plugin option system.
+
+So, **plugin B** depends on **plugin A**.
+
+Now, basically, I need to create an entry in the **plugin_option** table.
+
+But I also need to make sure every **user group** is bound to my **plugin option**.
+
+So, for each existing **user group**, I need to create a corresponding entry in the **has** table.
+
+Not only that, but if a **user group** is created by a third-party plugin later, I also need to create a corresponding entry in the **has** table.
+
+Now, being an experimented developer, I feel like using a database hook is the best solution for this.
+
+The database hook basically let me trigger an action every time a new entry is created in the **user group** table, so that's exactly what I need.
+
+So, I create my **onUserGroupCreated** hook, which will create my entry in the **has** table, and I think I'm done.
+
+
+But there is a little flaw. Something that's hard to see at first, but you can't fix it if you don't see it.
+
+
+Let's follow the resolution algorithm as I install my **plugin B**:
+
+- **plugin B** depends on **plugin A**, so install **plugin A** first
+- now installing **plugin A**, the **plugin A** installs its tables, so far so good
+- however, **plugin A** also creates an entry in the **user_group** (creating a default user group), and so my hook is called...oops...
+- ...my hook will try to create an entry in the **has** table, but the **has** table doesn't exist yet (or at least I don't have the guarantee that it will exist, it's alphabetical randomness, and in my case it doesn't exist)
+
+
+Did you see the problem?
+
+
+Note that this problem wouldn't occur if, let's say, we depended on another plugin (for instance **plugin C**), and during the **install**, **plugin C** created a new entry in user group.
+In that case, our hook would work just fine, since the **has** table already exists.
+
+So the problem is specifically for when we want to insert an entry in a table from a plugin which we depend on.
+
+Note: in the previous version of our service, I didn't see that problem as clearly, and I thought the problem was general to anytime a plugin makes hook to another plugin during the install.
+This conception error led to a poor design, hence this new version of our service.
+
+
+So, now that the problem is in the clear, it shouldn't be too hard to find a solution.
+
+What I went for is that inside my hook for **plugin B**, I ask whether **plugin A** is installed already. If not, I just skip the hook.
+So what happens during the installation of **plugin B** is this:
+
+- **plugin B** depends on **plugin A**, so install **plugin A** first
+- now installing **plugin A**, the **plugin A** installs its tables, so far so good
+- however, **plugin A** also creates an entry in the **user_group** (creating a default user group), and so my hook is called...
+- ...my hook detects that **plugin A** is not installed yet, so it does nothing
+- installation of **plugin A** ends normally
+- no more dependencies to resolve, so we resume with installation of **plugin B**
+- the installation of **plugin B** continues, and creates an entry in the **has** table for every existing **user group** (which were freshly created by **plugin A**)
+
+
+And voilà, all the **user groups**, have now a corresponding entry in the **has** table, and every **user group** created in the future (thanks to the hook), will also have a corresponding entry.
+So my logic for **plugin A** is now implemented.
+
+
+
+
+
+
+
+
+
+
+How to make your plugin installable
+--------------
+2021-01-18 -> 2021-01-22
+
+
+Once your planet is [imported](https://github.com/lingtalfi/TheBar/blob/master/discussions/import-install.md#summary), with [assets/map](https://github.com/lingtalfi/UniverseTools/blob/master/doc/pages/conception-notes.md#the-planets-and-assetsmap),
+does your plugin require anything else?
+
+
+If so, then you need to create an **installer** class, which will provide whatever your plugin requires.
+If not, then your job is done, you can skip this section.
+
+
+
+Generally, it's about database tables.
+If your plugin needs to create its own tables, then you need to create the **installer** class (if you are using our service).
+
+
+If you need an installer class, then continue reading. If not, you can skip this section.
+
+
+The first version of our service used the traditional container subscribing technique, but here in this new version we try something more modern, perhaps more experimental, a name based convention technique.
+
+I believe this technique is more appropriate for this type of service. In the end, it's just a matter of taste really, and I like to have a consistent organization, forced by name convention, with a separated and well located
+dedicated class to handle the installation/uninstallation, rather than allowing any class to be that handler.
+
+Enough talking, let's explain this.
+
+
+To use our service, you must create the following [bsr-0](https://github.com/lingtalfi/BumbleBee/blob/master/Autoload/convention.bsr0.eng.md) class:
+
+
+- ${YourApp}/universe/${YourGalaxy}/${YourPlanet}/Light_PluginInstaller/${YourCompressedPlanet}PluginInstaller.php
+
+With:
+
+- YourApp: the path to your application directory
+- YourGalaxy: the name of the galaxy containing your planet
+- YourPlanet: the name of your planet
+- YourCompressedPlanet: the [compressed name](https://github.com/karayabin/universe-snapshot#the-compressed-planet-name) of your planet
+
+
+Let's call that class the **installer class**.
+
+The installer class must implement our **PluginInstallerInterface**, which has the following methods:
 
 - install 
 - uninstall 
+- isInstalled 
 - getDependencies
 
 
@@ -83,190 +345,19 @@ The **uninstall** method will make sure that the plugin is uninstalled when the 
 
 
 
-The logs
------------
-2020-06-19 -> 2020-06-22
+If your class needs a [container](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/light-service-container.md)
+just implement the [LightServiceContainerAwareInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerAwareInterface.md) interface,
+and our service will inject the container into your class.
 
 
-To debug, the recommended way is to use the light default log, which logs every message.
+In order to print something to the output, our service provide a public **message** method.
 
-We have our own logging system, but it doesn't log everything as the default light log do.
-
-
-
-
-Our debug system can still be useful if you're not stuck, because it might be more focused and readable,
-but if you're stuck, make sure that you check the default light log.
-
-The reason being that some important messages might be logged there, that you might not have thought of, such
-as hooks that some api use (for instance the Light_UserData plugin will want to install itself if necessary every
-time you create a new Light_UserDatabase group). 
-
-
-
-Now if you want to use our log system:
-
-first, you need to enable them (they are disabled by default) using the **useDebug** option via the service configuration.
+Good luck.
 
 
 
 
-This plugin comes with some log conventions.
-
-We use the [Light_Logger](https://github.com/lingtalfi/Light_Logger) plugin, and communicate via the **plugin_installer.debug** channel for debug messages.
-
-We encourage plugin authors to use this channel to communicate any debug message during the **install*** and **uninstall** method.
-
-Our service provides a public **debugLog** method to encapsulate the channel name detail.
-
-
-
-Typically, our idea is that a plugin A will write something like this on install:
-
-
-- installing pluginA (this log message is actually already written by our service)
-- pluginA: 2 tables to install
-- pluginA: installing table lud_user...
-- pluginA: ok
-- pluginA: installing table lud_group...
-- pluginA: ok
-- pluginA: install successfully completed
-
-
-
-
-
-
-About the install procedure
-============
-2020-06-22
-
-
-I believe the worst problem that comes with installing plugins is recursion: when you call the install method
-of a plugin which is currently being installed.
-
-
-To avoid recursion, our plugin divides the installation process into two phases:
-
-- the core install
-- the post install
-
-
-The core install phase let plugins write their files (if necessary), 
-and create their tables in the database, and insert their rows (if any).
-
-
-Most plugin just require the core install phase to be fully installed.
-
-The **isInstall** method of our provided **PluginInstallerInterface** interface returns whether or not the core install
-phase is fully completed.
-
-
-So, what's the post install phase then?
-
-Well, some plugins need to extra things once all the plugins are core installed.
-
-If they do need that extra phase, they need to register as such (i.e. post install candidate) to our service by implementing our **PluginPostInstallerInterface** interface. 
-
-
-
-### a concrete example of plugin that require post install
-2020-06-22
-
-For instance, imagine this situation where we have the following tables provided by a plugin:
-
-- user_group
-- user_group_options
-- user_group_has_options
-
-
-From the naming of the table, we can guess the relationships between those tables, and guess that the application
-has some user groups, and that each group has some options attached to it.
-
-
-So when the core installation is finished, we can imagine that some plugins might have inserted some user groups.
-
-So far, everything is fine.
-
-Now imagine that a plugin A wants to add some options to all existing groups.
-
-For instance, it wants to add the "maximum_storage_capacity" option for all existing groups.
-
-In order to do that, it will need to do something like this:
  
-- create the **maximum_storage_capacity** option in the **user_group_options** table
-- parse all existing groups, and then foreach of them create a corresponding entry in the **user_group_has_options** table
-
-
-But before it can launch this routine, it needs to make sure that all groups are indeed in the **user_group** table (i.e. that the core install phase
-of all other plugins is done).
-
-That's the reason why we have two different phases.
-
-
-
-#### Side note
-In the previous version of this tool, there was only one phase (the core phase), and I used hooks that basically said: whenever a new entry is inserted in the **user_group** table,
-then execute the routine. The problem with this approach is that it led to recursion (calling the routine called the install method of the plugin
-that is being installed in the first place).
-Maybe I'm bad dealing with recursion, but in the end, I had problems with this approach: I found it too complex (like it requires too much of your brain power
-to do something decent), and so that's why now I switched to phases.
-
-
-#### The multiple post install levels
-2020-06-22
-
-
-I believe having two phases will take care of most of our needs as php app developers.
-
-However, I also believe that someday will come when a plugin will require third phase, and why not a fourth, etc...
-
-So therefore, I divided the post phase into levels, a theoretically infinite number of levels,
-and the plugin authors choose which level they want to register their post installer onto.
-
-The level is just a number, starting at 0 (being the first executed), and going up.
-
-
-To limit chaos, we provide some conventions:
-
-- the postInstall phase of a post installer plugin must not call directly or indirectly another core install or another post install 
-- level 0 is used to add the bindings in the database that couldn't be done during the core install phase
-    It is used so far by the **Light_UserData** plugin.
-    
-    
-I intend to update this list as new problematics occur.
-For now, level 0 seems to resolve all my problems.    
-
-
-
-
-
-
-Warning with hooks
----------------
-2020-06-22
-
-
-Since we have [Light_Database events](https://github.com/lingtalfi/Light_Database/blob/master/personal/mydoc/pages/events.md),
-we have more power.
-
-However, we need to be careful when those hooks are called from within an install procedure, because a hook might assume that a certain table exist, whilst it's not the case,
-leading to install problems.
-
-Therefore, our service provides a way to know whether you are in the middle of an install, so that you can disable your hook if it's the case (for instance), or take
-any action you like based on that information.
-
-
-The **pluginsAreBeingInstalled** method of our service returns the aforementioned boolean information. 
-
-
-
-
-
-
-
-
-
 
 
 

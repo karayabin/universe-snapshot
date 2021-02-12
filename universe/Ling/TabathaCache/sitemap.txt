@@ -1,0 +1,4 @@
+https://github.com/lingtalfi/TabathaCache/blob/master/README-20170727.md
+https://github.com/lingtalfi/TabathaCache/blob/master/README-2018-06-08.md
+https://github.com/lingtalfi/TabathaCache/blob/master/README.md
+https://github.com/lingtalfi/TabathaCache/blob/master/doc/quickpdo-based-cache-strategy.md

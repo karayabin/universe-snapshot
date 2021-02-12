@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [DotMenu::appendItem](https://github.com/lingtalfi/DotMenu/blob/master/doc/api/Ling/DotMenu/DotMenu/appendItem.md)(array $item, string $parentPath = null) : void
+public [DotMenu::appendItem](https://github.com/lingtalfi/DotMenu/blob/master/doc/api/Ling/DotMenu/DotMenu/appendItem.md)(array $item, ?string $parentPath = null) : void
 
 
 
@@ -61,7 +61,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [DotMenu::appendItem](https://github.com/lingtalfi/DotMenu/blob/master/DotMenu.php#L88-L114)
+See the source code for method [DotMenu::appendItem](https://github.com/lingtalfi/DotMenu/blob/master/DotMenu.php#L88-L118)
 
 
 See Also

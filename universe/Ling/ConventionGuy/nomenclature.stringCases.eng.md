@@ -1,6 +1,6 @@
 String Cases
 ==========================
-2015-10-14 --> 2020-07-03
+2015-10-14 --> 2021-01-07
 
 
 
@@ -17,7 +17,7 @@ This document can serve as a reference for tools that need to distinguish betwee
 
 Different cases
 -----------------------
-2015-10-14
+2015-10-14 -> 2021-01-07
 
 
 
@@ -38,6 +38,8 @@ For all cases except **human flat case**, accents are stripped.
 - [human flat case](#humanflatcase)
 - [pascal case](#pascalcase)
 - [snake case](#snakecase)
+- [underscore low case](#underscorelow-case)
+
 
 
 
@@ -64,8 +66,6 @@ Old cases (deprecated)
     This was originally created to create secured file names during an upload (because two consecutive dots are not possible,
     then the path cannot try to access a parent dir, but it's possible to have a file extension like ".jpg" for instance
     because the dot char is accepted).
-
-
 
 
 
@@ -257,10 +257,12 @@ tai(tai)-PEI+MAURICE | tai-tai-PEI-MAURICE
 
 humanFlatCase
 -------------
-2020-07-03
+2020-07-03 -> 2021-01-07
+
 
 
 It's just another name for lower case, and space separated words.
+
 
 - underscores are replaced with spaces
 - uppercase letters inside a word are prefixed with a space
@@ -286,11 +288,46 @@ tai(tai)-PEI+MAURICE | tai(tai)-pei+maurice
 
 
 
+underscoreLow case
+------
+2021-01-07
+
+
+lower case underscore separated components.
+
+
+It's a combination of the [humanFlatCase](#humanflatcase) and the [snake_case](#snakecase).
+
+
+- apply the humanFlatCase
+- apply the snake_case
+
+
+
+
+input            |       output
+-------------  | -------------
+this is not correct | this_is_not_correct
+camelCase | camel_case
+simple XML | simple_xml
+local db 2 remote | local_db_2_remote
+XML element | xml_element
+some_tool_here | some_tool_here
+SOMe_tool_HERe | some tool here
+tai-tai-PEI.MAURICE | tai_tai_pei_maurice
+tai(tai)-PEI+MAURICE | tai_tai_pei_maurice
+
+
+
 
 
 History Log
 ------------------
 
+- 4.1 -- 2021-01-07
+
+    - add underscore_low case
+    
 - 4.0 -- 2020-07-03
 
     - add human flat case

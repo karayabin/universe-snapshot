@@ -7,7 +7,7 @@ UserNotificationApiInterface::updateUserNotificationById
 
 
 
-UserNotificationApiInterface::updateUserNotificationById — Updates the userNotification row identified by the given id.
+UserNotificationApiInterface::updateUserNotificationById — Updates the user notification row identified by the given id.
 
 
 
@@ -21,7 +21,7 @@ abstract public [UserNotificationApiInterface::updateUserNotificationById](https
 
 
 
-Updates the userNotification row identified by the given id.
+Updates the user notification row identified by the given id.
 
 
 

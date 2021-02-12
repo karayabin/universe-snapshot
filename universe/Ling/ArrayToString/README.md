@@ -357,7 +357,15 @@ The nice thing is that even if your array contains nested arrays, the format wil
 History Log
 ------------------
     
-   
+
+- 1.4.2 -- 2020-12-08
+
+    - Fix lpi-deps not using natsort.
+
+- 1.4.1 -- 2020-12-04
+
+    - Add lpi-deps.byml file
+
 - 1.4.0 -- 2019-01-18
 
     - add ArrayToStringTool::toInlinePhpArray method

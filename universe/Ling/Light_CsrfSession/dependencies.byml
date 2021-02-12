@@ -1,3 +1,8 @@
-dependencies: []
+dependencies: 
+    Ling: 
+        - Chloroform
+        - Light
+    
+
 post_install: 
     map: true

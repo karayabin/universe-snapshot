@@ -1,6 +1,6 @@
 BabyYaml
 ============
-2016-12-28 -> 2020-07-17
+2016-12-28 -> 2021-02-05
 
 
 php implementation of a babyYaml reader.
@@ -688,7 +688,23 @@ The implementation is messy and without too much documentation, but it works.
 History Log
 ===============
    
-    
+
+- 1.7.7 -- 2021-02-05
+  
+    - add BabyYamlUtil::updateProperty method
+
+- 1.7.6 -- 2021-02-01
+  
+    - fix deprecation warning in php8
+  
+- 1.7.5 -- 2020-12-08
+
+    - Fix lpi-deps not using natsort.
+
+- 1.7.4 -- 2020-12-04
+
+    - Add lpi-deps.byml file
+
 - 1.7.3 -- 2020-07-17
 
     - add comments option to BabyYamlUtil::writeFile, fix some bugs (test commit)

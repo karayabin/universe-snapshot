@@ -16,7 +16,7 @@ Description
 ================
 
 
-private [BashtmlFormatter::getFormatExpression](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Formatter/BashtmlFormatter/getFormatExpression.md)(array $codes) : string
+private [BashtmlFormatter::getFormatExpression](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Formatter/BashtmlFormatter/getFormatExpression.md)(array $codes, bool $isStart) : string
 
 
 
@@ -34,6 +34,10 @@ Parameters
 
     An array of tag names.
 
+- isStart
+
+    
+
 
 Return values
 ================
@@ -49,7 +53,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [BashtmlFormatter::getFormatExpression](https://github.com/lingtalfi/CliTools/blob/master/Formatter/BashtmlFormatter.php#L341-L362)
+See the source code for method [BashtmlFormatter::getFormatExpression](https://github.com/lingtalfi/CliTools/blob/master/Formatter/BashtmlFormatter.php#L397-L436)
 
 
 See Also

@@ -57,7 +57,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [CSRFProtector::createToken](https://github.com/lingtalfi/CSRFTools/blob/master/CSRFProtector.php#L165-L178)
+See the source code for method [CSRFProtector::createToken](https://github.com/lingtalfi/CSRFTools/blob/master/CSRFProtector.php#L165-L177)
 
 
 See Also

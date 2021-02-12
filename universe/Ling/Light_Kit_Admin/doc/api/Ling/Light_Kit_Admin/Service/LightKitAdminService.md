@@ -4,7 +4,7 @@
 
 The LightKitAdminService class
 ================
-2019-05-17 --> 2020-12-01
+2019-05-17 --> 2021-02-11
 
 
 
@@ -28,7 +28,7 @@ Class synopsis
 ==============
 
 
-class <span class="pl-k">LightKitAdminService</span> implements [PluginInstallerInterface](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/PluginInstaller/PluginInstallerInterface.md) {
+class <span class="pl-k">LightKitAdminService</span>  {
 
 - Properties
     - protected [Ling\Light_Kit_Admin\Notification\LightKitAdminNotification[]](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Notification/LightKitAdminNotification.md) [$notifications](#property-notifications) ;
@@ -52,10 +52,6 @@ class <span class="pl-k">LightKitAdminService</span> implements [PluginInstaller
     - public [onLightExceptionCaught](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/onLightExceptionCaught.md)(Ling\Light\Events\LightEvent $event) : void
     - public [onWebsiteUserLogin](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/onWebsiteUserLogin.md)(Ling\Light\Events\LightEvent $event) : void
     - public [lateRegistration](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/lateRegistration.md)(string $type, string $identifier) : void
-    - public [install](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/install.md)() : void
-    - public [uninstall](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/uninstall.md)() : void
-    - public [isInstalled](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/isInstalled.md)() : bool
-    - public [getDependencies](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/getDependencies.md)() : array
 
 }
 
@@ -121,10 +117,6 @@ Methods
 - [LightKitAdminService::onLightExceptionCaught](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/onLightExceptionCaught.md) &ndash; 
 - [LightKitAdminService::onWebsiteUserLogin](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/onWebsiteUserLogin.md) &ndash; This method is called by default when a website user logs in.
 - [LightKitAdminService::lateRegistration](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/lateRegistration.md) &ndash; Allows lka plugins to register their services to some plugins in a dynamic way.
-- [LightKitAdminService::install](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/install.md) &ndash; Installs the plugin in the light application.
-- [LightKitAdminService::uninstall](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/uninstall.md) &ndash; Uninstalls the plugin.
-- [LightKitAdminService::isInstalled](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/isInstalled.md) &ndash; Returns whether the core install phase of the plugin is fully completed.
-- [LightKitAdminService::getDependencies](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/getDependencies.md) &ndash; Returns the array of dependencies.
 
 
 

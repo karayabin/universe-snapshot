@@ -1,0 +1,4 @@
+https://github.com/lingtalfi/QueryFilterBox/blob/master/README.md
+https://github.com/lingtalfi/QueryFilterBox/blob/master/doc/collectable.md
+https://github.com/lingtalfi/QueryFilterBox/blob/master/doc/signals.md
+https://github.com/lingtalfi/QueryFilterBox/blob/master/doc/theory-and-brainstorm.md

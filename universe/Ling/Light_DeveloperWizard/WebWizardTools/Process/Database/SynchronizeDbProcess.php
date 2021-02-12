@@ -6,11 +6,10 @@ namespace Ling\Light_DeveloperWizard\WebWizardTools\Process\Database;
 
 use Ling\Bat\BDotTool;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
-use Ling\Light_Database\Service\LightDatabaseService;
+use Ling\Light_DbSynchronizer\Helper\LightDbSynchronizerHelper;
 use Ling\Light_DbSynchronizer\Service\LightDbSynchronizerService;
 use Ling\Light_DeveloperWizard\Tool\DeveloperWizardFileTool;
 use Ling\Light_DeveloperWizard\WebWizardTools\Process\LightDeveloperWizardBaseProcess;
-use Ling\SimplePdoWrapper\Util\MysqlInfoUtil;
 use Ling\SqlWizard\Util\MysqlStructureReader;
 
 
@@ -88,27 +87,7 @@ class SynchronizeDbProcess extends LightDeveloperWizardBaseProcess
             if (false === $usePrefixForScope) {
                 $scope = BDotTool::getDotValue("db_synchronizer.scope", $preferences, []);
             } else {
-                if (null === $infos) {
-                    $reader = new MysqlStructureReader();
-                    $infos = $reader->readFile($createFile);
-                }
-                $tables = array_keys($infos);
-                if (count($tables) < 1) {
-                    $this->errorMessage("I cannot guess the table prefix, because there was no table defined in the create file.");
-                }
-                $anyTable = current($tables);
-                $p = explode("_", $anyTable, 2);
-                if (2 !== count($p)) {
-                    $this->errorMessage("I assumed that every tables had a prefix, but this one doesn't: $anyTable. Aborting process...");
-                }
-                $prefix = array_shift($p);
-                /**
-                 * @var $db LightDatabaseService
-                 */
-                $db = $container->get("database");
-                $util = new MysqlInfoUtil();
-                $util->setWrapper($db);
-                $scope = $util->getTables($prefix);
+                $scope = LightDbSynchronizerHelper::guessScopeByCreateFile($createFile, $container);
             }
 
 

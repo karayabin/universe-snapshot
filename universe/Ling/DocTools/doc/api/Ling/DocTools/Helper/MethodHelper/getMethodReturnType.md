@@ -57,7 +57,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [MethodHelper::getMethodReturnType](https://github.com/lingtalfi/DocTools/blob/master/Helper/MethodHelper.php#L29-L77)
+See the source code for method [MethodHelper::getMethodReturnType](https://github.com/lingtalfi/DocTools/blob/master/Helper/MethodHelper.php#L35-L83)
 
 
 See Also

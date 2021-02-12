@@ -7,7 +7,7 @@ PermissionGroupHasPermissionApi::deletePermissionGroupHasPermissionByPermissionI
 
 
 
-PermissionGroupHasPermissionApi::deletePermissionGroupHasPermissionByPermissionId — Deletes the permissionGroupHasPermission identified by the given permission_id.
+PermissionGroupHasPermissionApi::deletePermissionGroupHasPermissionByPermissionId — Deletes the permission group has permission rows having the given permission id.
 
 
 
@@ -16,12 +16,12 @@ Description
 ================
 
 
-public [PermissionGroupHasPermissionApi::deletePermissionGroupHasPermissionByPermissionId](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/PermissionGroupHasPermissionApi/deletePermissionGroupHasPermissionByPermissionId.md)(int $permission_id) : void
+public [PermissionGroupHasPermissionApi::deletePermissionGroupHasPermissionByPermissionId](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/PermissionGroupHasPermissionApi/deletePermissionGroupHasPermissionByPermissionId.md)(int $permissionId) : void
 
 
 
 
-Deletes the permissionGroupHasPermission identified by the given permission_id.
+Deletes the permission group has permission rows having the given permission id.
 
 
 
@@ -30,7 +30,7 @@ Parameters
 ================
 
 
-- permission_id
+- permissionId
 
     
 
@@ -41,11 +41,6 @@ Return values
 Returns void.
 
 
-Exceptions thrown
-================
-
-- [Exception](http://php.net/manual/en/class.exception.php).&nbsp;
-
 
 
 
@@ -54,7 +49,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [PermissionGroupHasPermissionApi::deletePermissionGroupHasPermissionByPermissionId](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Classes/PermissionGroupHasPermissionApi.php#L261-L267)
+See the source code for method [PermissionGroupHasPermissionApi::deletePermissionGroupHasPermissionByPermissionId](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Classes/PermissionGroupHasPermissionApi.php#L326-L331)
 
 
 See Also
@@ -62,5 +57,5 @@ See Also
 
 The [PermissionGroupHasPermissionApi](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/PermissionGroupHasPermissionApi.md) class.
 
-Previous method: [deletePermissionGroupHasPermissionByPermissionGroupId](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/PermissionGroupHasPermissionApi/deletePermissionGroupHasPermissionByPermissionGroupId.md)<br>Next method: [deletePermissionGroupHasPermissionByPermissionGroupIds](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/PermissionGroupHasPermissionApi/deletePermissionGroupHasPermissionByPermissionGroupIds.md)<br>
+Previous method: [deletePermissionGroupHasPermissionByPermissionGroupId](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/PermissionGroupHasPermissionApi/deletePermissionGroupHasPermissionByPermissionGroupId.md)<br>Next method: [fetchRoutine](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/PermissionGroupHasPermissionApi/fetchRoutine.md)<br>
 

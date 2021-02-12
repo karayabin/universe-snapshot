@@ -53,7 +53,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [LightEventsService::getFormattedMessage](https://github.com/lingtalfi/Light_Events/blob/master/Service/LightEventsService.php#L302-L308)
+See the source code for method [LightEventsService::getFormattedMessage](https://github.com/lingtalfi/Light_Events/blob/master/Service/LightEventsService.php#L302-L315)
 
 
 See Also

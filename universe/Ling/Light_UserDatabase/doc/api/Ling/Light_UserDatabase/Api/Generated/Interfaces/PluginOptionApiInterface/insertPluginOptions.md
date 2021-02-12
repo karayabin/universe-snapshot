@@ -7,7 +7,7 @@ PluginOptionApiInterface::insertPluginOptions
 
 
 
-PluginOptionApiInterface::insertPluginOptions — Inserts the given pluginOption rows in the database.
+PluginOptionApiInterface::insertPluginOptions — Inserts the given plugin option rows in the database.
 
 
 
@@ -21,7 +21,7 @@ abstract public [PluginOptionApiInterface::insertPluginOptions](https://github.c
 
 
 
-Inserts the given pluginOption rows in the database.
+Inserts the given plugin option rows in the database.
 By default, it returns an array of the result of the PDO::lastInsertId method for each insert.
 If the returnRic flag is set to true, the method will return an array of the ric array (for each insert) instead of the lastInsertId.
 
@@ -71,7 +71,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [PluginOptionApiInterface::insertPluginOptions](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Interfaces/PluginOptionApiInterface.php#L56-L56)
+See the source code for method [PluginOptionApiInterface::insertPluginOptions](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Interfaces/PluginOptionApiInterface.php#L57-L57)
 
 
 See Also
@@ -79,5 +79,5 @@ See Also
 
 The [PluginOptionApiInterface](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Interfaces/PluginOptionApiInterface.md) class.
 
-Previous method: [insertPluginOption](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Interfaces/PluginOptionApiInterface/insertPluginOption.md)<br>Next method: [getPluginOptionById](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Interfaces/PluginOptionApiInterface/getPluginOptionById.md)<br>
+Previous method: [insertPluginOption](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Interfaces/PluginOptionApiInterface/insertPluginOption.md)<br>Next method: [fetchAll](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Interfaces/PluginOptionApiInterface/fetchAll.md)<br>
 

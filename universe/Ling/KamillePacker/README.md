@@ -87,7 +87,15 @@ ModulePacker::create(Config::create()->set('appDir', $appDir))
 
 History Log
 ------------------
-    
+
+- 1.7.2 -- 2020-12-08
+
+    - Fix lpi-deps not using natsort.
+
+- 1.7.1 -- 2020-12-04
+
+    - Add lpi-deps.byml file
+
 - 1.7.0 -- 2017-05-04
 
     - add dataTable packer for module

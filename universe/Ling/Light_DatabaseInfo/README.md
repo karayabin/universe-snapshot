@@ -66,7 +66,15 @@ database_info:
 History Log
 =============
 
-    
+
+- 1.12.3 -- 2020-12-08
+
+    - Fix lpi-deps not using natsort.
+
+- 1.12.2 -- 2020-12-04
+
+    - Add lpi-deps.byml file
+
 - 1.12.1 -- 2020-11-27
 
     - update LightDatabaseInfoService->getTableInfo, now returns nullables property

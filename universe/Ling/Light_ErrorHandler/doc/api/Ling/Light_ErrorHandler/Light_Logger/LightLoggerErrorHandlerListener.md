@@ -4,7 +4,7 @@
 
 The LightLoggerErrorHandlerListener class
 ================
-2020-06-01 --> 2020-11-30
+2020-06-01 --> 2021-02-12
 
 
 

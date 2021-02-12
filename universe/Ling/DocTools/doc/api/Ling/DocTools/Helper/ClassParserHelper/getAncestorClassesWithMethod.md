@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [ClassParserHelper::getAncestorClassesWithMethod](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Helper/ClassParserHelper/getAncestorClassesWithMethod.md)([\ReflectionClass](http://php.net/manual/en/class.reflectionclass.php) $class, string $method) : array
+public static [ClassParserHelper::getAncestorClassesWithMethod](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Helper/ClassParserHelper/getAncestorClassesWithMethod.md)(ReflectionClass $class, string $method) : array
 
 
 

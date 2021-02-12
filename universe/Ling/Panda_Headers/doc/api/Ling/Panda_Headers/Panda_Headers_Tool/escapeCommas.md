@@ -49,7 +49,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [Panda_Headers_Tool::escapeCommas](https://github.com/lingtalfi/Panda_Headers/blob/master/Panda_Headers_Tool.php#L88-L91)
+See the source code for method [Panda_Headers_Tool::escapeCommas](https://github.com/lingtalfi/Panda_Headers/blob/master/Panda_Headers_Tool.php#L92-L95)
 
 
 See Also

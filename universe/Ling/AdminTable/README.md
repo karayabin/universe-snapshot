@@ -1,6 +1,6 @@
 AdminTable
 ===============
-2016-12-23 --> 2017-02-05
+2016-12-23 --> 2020-12-10
 
 
 An object to display administrable list of rows.
@@ -57,7 +57,7 @@ Only the values change from a row to another (the keys don't change).
 Ric stands for the row unique identifier.
 
 It's the minimal set of keys that allow to identify any row.
- 
+
 If your rows come from a mysql database, then often the ric is a simple array containing the id column:
 
 ```php
@@ -155,7 +155,7 @@ The full example, using array
 The example below shows a list from a regular php array, purposely using all the available options,
 so that the experienced user can get a gist of how it works.
 
-It illustrates the flexibility of AdminTable. 
+It illustrates the flexibility of AdminTable.
 
 Don't be scared, simple examples are following...
 
@@ -273,7 +273,7 @@ For instance, the edit link is create using the following statements:
 
 This can be used as a pattern to create any external link that needs the ric values.
 
-Decoupling the extra columns and the transformer (with the help of the javascript built-in tools) really makes the AdminTable 
+Decoupling the extra columns and the transformer (with the help of the javascript built-in tools) really makes the AdminTable
 object intuitive to use, flexible and powerful.
 
 
@@ -349,67 +349,79 @@ Dependencies
 History Log
 ------------------
 
+- 1.6.9 -- 2020-12-10
+
+    - fix readme title messed up
+
+- 1.6.8 -- 2020-12-08
+
+    - Fix lpi-deps not using natsort.
+
+- 1.6.7 -- 2020-12-04
+
+    - Add lpi-deps.byml file
+
 - 1.6.6 -- 2017-03-01
 
-    - add itemscounter widget
-    
+  - add itemscounter widget
+
 - 1.6.5 -- 2017-02-28
 
-    - QuickPdoListable, nested queries are not searchable by default
-    
+  - QuickPdoListable, nested queries are not searchable by default
+
 - 1.6.4 -- 2017-02-15
 
-    - AdminTableRenderer, printHiddenFields visibility to protected
-    
+  - AdminTableRenderer, printHiddenFields visibility to protected
+
 - 1.6.3 -- 2017-02-14
 
-    - AdminTableRenderer, add onItemRendered callback trClass argument
-    
+  - AdminTableRenderer, add onItemRendered callback trClass argument
+
 - 1.6.2 -- 2017-02-05
 
-    - AdminTableRenderer, fix javascript table ref when table does not exist
+  - AdminTableRenderer, fix javascript table ref when table does not exist
 
 - 1.6.1 -- 2017-02-05
 
-    - AdminTableRenderer, extraHiddenFields fix missing quote bug
+  - AdminTableRenderer, extraHiddenFields fix missing quote bug
 
 - 1.6.0 -- 2017-02-05
 
-    - AdminTableRenderer, extraHiddenFields accepts array 
+  - AdminTableRenderer, extraHiddenFields accepts array
 
 - 1.5.1 -- 2017-02-03
 
-    - AdminTableRenderer, add jslink helper comments
-    
+  - AdminTableRenderer, add jslink helper comments
+
 - 1.5.0 -- 2017-02-03
 
-    - AdminTableRenderer, add jslink helper
-    
+  - AdminTableRenderer, add jslink helper
+
 - 1.4.1 -- 2017-02-03
 
-    - AdminTableRenderer, fix ajaxlink helper 
-    
+  - AdminTableRenderer, fix ajaxlink helper
+
 - 1.4.0 -- 2017-02-03
 
-    - AdminTableRenderer, add ajaxlink helper
-    
+  - AdminTableRenderer, add ajaxlink helper
+
 - 1.3.0 -- 2017-02-03
 
-    - AdminTableRenderer, add extraHiddenFields and onItemIterated methods
-    
+  - AdminTableRenderer, add extraHiddenFields and onItemIterated methods
+
 - 1.2.0 -- 2017-01-01
 
-    - AdminTableRenderer, add getTableId method
-    
+  - AdminTableRenderer, add getTableId method
+
 - 1.1.0 -- 2016-12-24
 
-    - add some hooks
-    
+  - add some hooks
+
 - 1.0.1 -- 2016-12-24
 
-    - fix singleActions not initialized
-    
+  - fix singleActions not initialized
+
 - 1.0.0 -- 2016-12-23
 
-    - initial commit
+  - initial commit
     

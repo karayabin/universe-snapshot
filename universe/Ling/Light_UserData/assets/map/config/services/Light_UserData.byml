@@ -8,6 +8,9 @@ user_data:
 #            secret: P0zeg7e,4dD
         setRootDir:
             dir: ${app_dir}/user-data
+        setOptions:
+            options:
+                backup_dir: backups/database/$table
 
 
 
@@ -46,15 +49,6 @@ $events.methods_collection:
             listener:
                 instance: @service(user_data)
                 callable_method: onUserGroupCreate
-
-
-$plugin_installer.methods_collection:
-    -
-        method: registerPlugin
-        args:
-            plugin: Light_UserData
-            installer: @service(user_data)
-
 
 
 $realform_handler_alias_helper.methods_collection:

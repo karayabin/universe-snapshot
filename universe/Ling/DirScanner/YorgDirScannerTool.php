@@ -192,11 +192,15 @@ class YorgDirScannerTool
      * If a directory is ignored, its content is ignored recursively.
      *
      *
+     * @param bool $collectSymlinks = false
+     * Whether to collect the symlinks.
+     *
+     *
      * @return array
      */
-    public static function getFilesIgnore(string $dir, array $ignore = [], bool $recursive = false, bool $relativePath = false, bool $followSymlinks = false, int $ignoreHidden = 1): array
+    public static function getFilesIgnore(string $dir, array $ignore = [], bool $recursive = false, bool $relativePath = false, bool $followSymlinks = false, int $ignoreHidden = 1, bool $collectSymlinks = false): array
     {
-        return DirScanner::create()->setFollowLinks($followSymlinks)->scanDir($dir, function ($path, $rPath, $level, &$skipDir) use ($relativePath, $recursive, $ignore, $ignoreHidden) {
+        return DirScanner::create()->setFollowLinks($followSymlinks)->scanDir($dir, function ($path, $rPath, $level, &$skipDir) use ($relativePath, $recursive, $ignore, $ignoreHidden, $collectSymlinks) {
             if (0 === $level || true === $recursive) {
                 $baseName = basename($rPath);
 
@@ -216,7 +220,9 @@ class YorgDirScannerTool
                     return null;
                 }
 
-                if (is_file($path)) {
+                $collectLink = (true === $collectSymlinks && is_link($path));
+
+                if (is_file($path) || $collectLink) {
                     if (true === $relativePath) {
                         return $rPath;
                     }

@@ -1,0 +1,2 @@
+https://github.com/lingtalfi/ArrayRefResolver/blob/master/ArrayTagResolver.md
+https://github.com/lingtalfi/ArrayRefResolver/blob/master/README.md

@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [EasyConsoleMenuHelper::getDatabaseIdentifiers](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Helper/EasyConsoleMenuHelper/getDatabaseIdentifiers.md)(string $project, string $deployConfPath = null) : array
+public static [EasyConsoleMenuHelper::getDatabaseIdentifiers](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Helper/EasyConsoleMenuHelper/getDatabaseIdentifiers.md)(string $project, ?string $deployConfPath = null) : array
 
 
 

@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [FilesHelper::getApplicationFiles](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Helper/FilesHelper/getApplicationFiles.md)(string $applicationDir, bool $relativePaths = false) : array
+public static [FilesHelper::getApplicationFiles](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Helper/FilesHelper/getApplicationFiles.md)(string $applicationDir, ?bool $relativePaths = false) : array
 
 
 

@@ -1,6 +1,6 @@
 PhpUploadFileFix
 ==================
-2019-01-20
+2019-01-20 -> 2021-02-11
 
 
 This planet flattens the $_FILES array.
@@ -218,6 +218,18 @@ $fixedFiles = PhpUploadFileFixTool::fixPhpFiles($_FILES);
 
 History Log
 ------------------
+
+- 1.0.3 -- 2021-02-11
+
+    - fix PhpUploadFileFixTool::fixPhpFile to not trigger deprecation notice in php8
+  
+- 1.0.2 -- 2020-12-08
+
+    - Fix lpi-deps not using natsort
+
+- 1.0.1 -- 2020-12-04
+
+    - Add lpi-deps.byml file
 
 - 1.0.0 -- 2019-01-20
 

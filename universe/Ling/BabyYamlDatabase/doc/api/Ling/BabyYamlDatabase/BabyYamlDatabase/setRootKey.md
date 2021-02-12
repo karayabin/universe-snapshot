@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [BabyYamlDatabase::setRootKey](https://github.com/lingtalfi/BabyYamlDatabase/blob/master/doc/api/Ling/BabyYamlDatabase/BabyYamlDatabase/setRootKey.md)(?string $rootKey) : void
+public [BabyYamlDatabase::setRootKey](https://github.com/lingtalfi/BabyYamlDatabase/blob/master/doc/api/Ling/BabyYamlDatabase/BabyYamlDatabase/setRootKey.md)(string $rootKey) : void
 
 
 

@@ -280,32 +280,43 @@ class TokenArrayIteratorTool
     public static function skipNsChain(TokenArrayIteratorInterface $tai): bool
     {
         $ret = false;
-        if (false !== $startKey = $tai->key()) {
+        if (false !== ($startKey = $tai->key())) {
 
-            $lastIsString = false;
+            $nsChainSkipped = false;
             $cur = $tai->current();
 
 
-            // possibly starting with backslash
-            if (true === TokenTool::match(T_NS_SEPARATOR, $cur)) {
+            if (
+                true === TokenTool::match(T_NAME_FULLY_QUALIFIED, $cur) ||
+                true === TokenTool::match(T_NAME_QUALIFIED, $cur) ||
+                true === TokenTool::match(T_NAME_RELATIVE, $cur)
+            ) {
+                $nsChainSkipped = true;
                 $tai->next();
-                $cur = $tai->current();
-            }
+            } else {
 
-            // containing x repetitions of string backslash sequences
-            while (true === TokenTool::match(T_STRING, $cur)) {
-                $lastIsString = true;
-                $tai->next();
-                $cur = $tai->current();
+
+                // possibly starting with backslash
                 if (true === TokenTool::match(T_NS_SEPARATOR, $cur)) {
                     $tai->next();
                     $cur = $tai->current();
-                    $lastIsString = false;
+                }
+
+                // containing x repetitions of string backslash sequences
+                while (true === TokenTool::match(T_STRING, $cur)) {
+                    $nsChainSkipped = true;
+                    $tai->next();
+                    $cur = $tai->current();
+                    if (true === TokenTool::match(T_NS_SEPARATOR, $cur)) {
+                        $tai->next();
+                        $cur = $tai->current();
+                        $nsChainSkipped = false;
+                    }
                 }
             }
 
 
-            if (true === $lastIsString) {
+            if (true === $nsChainSkipped) {
                 $ret = true;
             } else {
                 $tai->seek($startKey);

@@ -7,7 +7,7 @@ UserGroupApi::updateUserGroupById
 
 
 
-UserGroupApi::updateUserGroupById — Updates the userGroup row identified by the given id.
+UserGroupApi::updateUserGroupById — Updates the user group row identified by the given id.
 
 
 
@@ -16,12 +16,12 @@ Description
 ================
 
 
-public [UserGroupApi::updateUserGroupById](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/UserGroupApi/updateUserGroupById.md)(int $id, array $userGroup) : void
+public [UserGroupApi::updateUserGroupById](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/UserGroupApi/updateUserGroupById.md)(int $id, array $userGroup, ?array $extraWhere = [], ?array $markers = []) : void
 
 
 
 
-Updates the userGroup row identified by the given id.
+Updates the user group row identified by the given id.
 
 
 
@@ -35,6 +35,14 @@ Parameters
     
 
 - userGroup
+
+    
+
+- extraWhere
+
+    
+
+- markers
 
     
 
@@ -58,7 +66,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [UserGroupApi::updateUserGroupById](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Classes/UserGroupApi.php#L260-L266)
+See the source code for method [UserGroupApi::updateUserGroupById](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Classes/UserGroupApi.php#L342-L348)
 
 
 See Also

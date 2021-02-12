@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [EasyConsoleMenuHelper::getProjectsList](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Helper/EasyConsoleMenuHelper/getProjectsList.md)(string $deployConfPath = null) : array
+public static [EasyConsoleMenuHelper::getProjectsList](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Helper/EasyConsoleMenuHelper/getProjectsList.md)(?string $deployConfPath = null) : array
 
 
 

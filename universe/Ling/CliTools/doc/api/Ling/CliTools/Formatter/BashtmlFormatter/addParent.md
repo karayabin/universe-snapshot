@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [BashtmlFormatter::addParent](https://github.com/lingtalfi/CliTools/blob/master/Formatter/BashtmlFormatter.php#L277-L280)
+See the source code for method [BashtmlFormatter::addParent](https://github.com/lingtalfi/CliTools/blob/master/Formatter/BashtmlFormatter.php#L329-L332)
 
 
 See Also

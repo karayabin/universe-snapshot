@@ -7,6 +7,7 @@ dependencies:
         - Light_Realform
         - Light_Kit
         - Light_ControllerHub
+        - Kit_PicassoWidget
         - Light_UserRowRestriction
         - Light_User
         - BabyYaml

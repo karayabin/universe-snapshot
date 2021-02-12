@@ -16,7 +16,7 @@ Description
 ================
 
 
-protected [ClassParser::getPropertyVisibility](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/ClassParser/ClassParser/getPropertyVisibility.md)([\ReflectionProperty](http://php.net/manual/en/class.reflectionproperty.php) $property) : string
+protected [ClassParser::getPropertyVisibility](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/ClassParser/ClassParser/getPropertyVisibility.md)(ReflectionProperty $property) : string
 
 
 
@@ -51,7 +51,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [ClassParser::getPropertyVisibility](https://github.com/lingtalfi/DocTools/blob/master/ClassParser/ClassParser.php#L958-L967)
+See the source code for method [ClassParser::getPropertyVisibility](https://github.com/lingtalfi/DocTools/blob/master/ClassParser/ClassParser.php#L965-L974)
 
 
 See Also

@@ -46,7 +46,7 @@ Returns [CustomLightTaskSchedulerApiFactory](https://github.com/lingtalfi/Light_
 
 Source Code
 ===========
-See the source code for method [LightTaskSchedulerService::getFactory](https://github.com/lingtalfi/Light_TaskScheduler/blob/master/Service/LightTaskSchedulerService.php#L179-L187)
+See the source code for method [LightTaskSchedulerService::getFactory](https://github.com/lingtalfi/Light_TaskScheduler/blob/master/Service/LightTaskSchedulerService.php#L162-L170)
 
 
 See Also

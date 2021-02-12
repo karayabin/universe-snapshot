@@ -1,0 +1,2 @@
+https://github.com/lingtalfi/Linker/blob/master/README.md
+https://github.com/lingtalfi/Linker/blob/master/doc/conception/brainstorm.md

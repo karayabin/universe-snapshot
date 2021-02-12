@@ -4,7 +4,7 @@
 
 The LightStringStream class
 ================
-2019-04-09 --> 2020-12-03
+2019-04-09 --> 2021-02-11
 
 
 
@@ -24,7 +24,7 @@ Class synopsis
 ==============
 
 
-class <span class="pl-k">LightStringStream</span> extends [LightStream](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Stream/LightStream.md) implements [LightStreamInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Stream/LightStreamInterface.md) {
+class <span class="pl-k">LightStringStream</span> extends [LightStream](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Stream/LightStream.md) implements [\Stringable](https://wiki.php.net/rfc/stringable), [LightStreamInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Stream/LightStreamInterface.md) {
 
 - Inherited properties
     - protected static array [LightStream::$modes](#property-modes) = ['readable' => ['r','r+','w+','a+','x+','c+'],'writable' => ['r+','w','w+','a','a+','x','x+','c','c+']] ;
@@ -55,9 +55,6 @@ class <span class="pl-k">LightStringStream</span> extends [LightStream](https://
     - public [LightStream::getMetaData](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Stream/LightStream/getMetaData.md)() : array
     - protected [LightStream::setStream](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Stream/LightStream/setStream.md)($stream) : void
     - protected [LightStream::fixPosition](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Stream/LightStream/fixPosition.md)(int $position) : int
-    - private [LightStream::error](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Stream/LightStream/error.md)(string $msg) : void
-    - private [LightStream::checkReadable](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Stream/LightStream/checkReadable.md)() : void
-    - private [LightStream::checkWritable](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Stream/LightStream/checkWritable.md)() : void
 
 }
 
@@ -87,9 +84,6 @@ Methods
 - [LightStream::getMetaData](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Stream/LightStream/getMetaData.md) &ndash; Returns the array of meta data.
 - [LightStream::setStream](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Stream/LightStream/setStream.md) &ndash; Sets the stream resource for this instance.
 - [LightStream::fixPosition](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Stream/LightStream/fixPosition.md) &ndash; Returns a positive number representing the position.
-- [LightStream::error](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Stream/LightStream/error.md) &ndash; Throws an exception.
-- [LightStream::checkReadable](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Stream/LightStream/checkReadable.md) &ndash; Checks that the stream is readable, and if not throws an exception.
-- [LightStream::checkWritable](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Stream/LightStream/checkWritable.md) &ndash; Checks that the stream is writable, and if not throws an exception.
 
 
 Examples

@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [CsvUtil::getString](https://github.com/lingtalfi/Csv/blob/master/doc/api/Ling/Csv/CsvUtil/getString.md)(array $data, string $delimiter = ,) : bool | string
+public static [CsvUtil::getString](https://github.com/lingtalfi/Csv/blob/master/doc/api/Ling/Csv/CsvUtil/getString.md)(array $data, ?string $delimiter = ,) : bool | string
 
 
 

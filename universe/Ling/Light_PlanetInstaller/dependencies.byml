@@ -1,0 +1,16 @@
+dependencies: 
+    Ling: 
+        - CliTools
+        - Bat
+        - Light_Cli
+        - Light
+        - UniverseTools
+        - Light_PluginInstaller
+        - BabyYaml
+        - Light_Logger
+        - DirScanner
+        - CopyDir
+    
+
+post_install: 
+    map: true

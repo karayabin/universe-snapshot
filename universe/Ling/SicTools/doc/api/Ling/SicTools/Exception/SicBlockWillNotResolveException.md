@@ -4,7 +4,7 @@
 
 The SicBlockWillNotResolveException class
 ================
-2019-04-25 --> 2020-08-17
+2019-04-25 --> 2021-02-09
 
 
 
@@ -26,7 +26,7 @@ Class synopsis
 ==============
 
 
-class <span class="pl-k">SicBlockWillNotResolveException</span> extends [SicToolsException](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/Exception/SicToolsException.md) implements [\Throwable](http://php.net/manual/en/class.throwable.php) {
+class <span class="pl-k">SicBlockWillNotResolveException</span> extends [SicToolsException](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/Exception/SicToolsException.md) implements [\Throwable](http://php.net/manual/en/class.throwable.php), [\Stringable](https://wiki.php.net/rfc/stringable) {
 
 - Inherited properties
     - protected  [Exception::$message](#property-message) =  ;

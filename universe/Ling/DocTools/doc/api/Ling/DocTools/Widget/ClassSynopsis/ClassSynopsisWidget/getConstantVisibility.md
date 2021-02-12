@@ -16,7 +16,7 @@ Description
 ================
 
 
-protected [ClassSynopsisWidget::getConstantVisibility](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Widget/ClassSynopsis/ClassSynopsisWidget/getConstantVisibility.md)(\ReflectionClassConstant $constant) : string
+protected [ClassSynopsisWidget::getConstantVisibility](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Widget/ClassSynopsis/ClassSynopsisWidget/getConstantVisibility.md)(ReflectionClassConstant $constant) : string
 
 
 

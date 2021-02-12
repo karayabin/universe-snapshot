@@ -1,3 +1,4 @@
 https://github.com/lingtalfi/Light_Kit_WebsiteBuilder/blob/master/README.md
 https://github.com/lingtalfi/Light_Kit_WebsiteBuilder/blob/master/doc/api/Ling/Light_Kit_WebsiteBuilder.md
 https://github.com/lingtalfi/Light_Kit_WebsiteBuilder/blob/master/doc/pages/conception-notes.md
+https://github.com/lingtalfi/Light_Kit_WebsiteBuilder/blob/master/doc/pages/conception-notes2.md

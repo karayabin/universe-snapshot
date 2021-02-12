@@ -49,7 +49,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [PermissionGroupApi::getPermissionGroupIdsByPermissionName](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Classes/PermissionGroupApi.php#L267-L277)
+See the source code for method [PermissionGroupApi::getPermissionGroupIdsByPermissionName](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Classes/PermissionGroupApi.php#L333-L343)
 
 
 See Also

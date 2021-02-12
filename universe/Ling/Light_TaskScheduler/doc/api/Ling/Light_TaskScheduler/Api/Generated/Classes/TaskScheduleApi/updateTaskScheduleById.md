@@ -7,7 +7,7 @@ TaskScheduleApi::updateTaskScheduleById
 
 
 
-TaskScheduleApi::updateTaskScheduleById — Updates the taskSchedule row identified by the given id.
+TaskScheduleApi::updateTaskScheduleById — Updates the task schedule row identified by the given id.
 
 
 
@@ -21,7 +21,7 @@ public [TaskScheduleApi::updateTaskScheduleById](https://github.com/lingtalfi/Li
 
 
 
-Updates the taskSchedule row identified by the given id.
+Updates the task schedule row identified by the given id.
 
 
 
@@ -66,7 +66,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [TaskScheduleApi::updateTaskScheduleById](https://github.com/lingtalfi/Light_TaskScheduler/blob/master/Api/Generated/Classes/TaskScheduleApi.php#L250-L256)
+See the source code for method [TaskScheduleApi::updateTaskScheduleById](https://github.com/lingtalfi/Light_TaskScheduler/blob/master/Api/Generated/Classes/TaskScheduleApi.php#L254-L260)
 
 
 See Also

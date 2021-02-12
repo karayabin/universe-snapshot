@@ -1,0 +1,2 @@
+https://github.com/lingtalfi/SafeUploader/blob/master/README.md
+https://github.com/lingtalfi/SafeUploader/blob/master/doc/ajax-upload-pattern.md

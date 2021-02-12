@@ -1,0 +1,2 @@
+https://github.com/lingtalfi/PermsHiker/blob/master/README.md
+https://github.com/lingtalfi/PermsHiker/blob/master/doc/conception/smallest-root-only.md

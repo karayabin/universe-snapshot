@@ -7,7 +7,7 @@ UserGroupApi::getUserGroupById
 
 
 
-UserGroupApi::getUserGroupById — Returns the userGroup row identified by the given id.
+UserGroupApi::getUserGroupById — Returns the user group row identified by the given id.
 
 
 
@@ -21,7 +21,7 @@ public [UserGroupApi::getUserGroupById](https://github.com/lingtalfi/Light_UserD
 
 
 
-Returns the userGroup row identified by the given id.
+Returns the user group row identified by the given id.
 
 If the row is not found, this method's return depends on the throwNotFoundEx flag:
 - if true, the method throws an exception
@@ -66,7 +66,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [UserGroupApi::getUserGroupById](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Classes/UserGroupApi.php#L108-L122)
+See the source code for method [UserGroupApi::getUserGroupById](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Classes/UserGroupApi.php#L144-L158)
 
 
 See Also
@@ -74,5 +74,5 @@ See Also
 
 The [UserGroupApi](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/UserGroupApi.md) class.
 
-Previous method: [insertUserGroups](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/UserGroupApi/insertUserGroups.md)<br>Next method: [getUserGroupByName](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/UserGroupApi/getUserGroupByName.md)<br>
+Previous method: [fetch](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/UserGroupApi/fetch.md)<br>Next method: [getUserGroupByName](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/UserGroupApi/getUserGroupByName.md)<br>
 

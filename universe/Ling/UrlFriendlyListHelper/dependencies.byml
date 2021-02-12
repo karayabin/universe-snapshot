@@ -1,8 +1,7 @@
 dependencies: 
     Ling: 
-        - Bat
-        - Jquery
         - QuickPdo
+        - Bat
     
 
 post_install: []

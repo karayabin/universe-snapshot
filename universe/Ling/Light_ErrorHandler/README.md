@@ -1,6 +1,6 @@
 Light_ErrorHandler
 ===========
-2020-06-01 -> 2020-11-30
+2020-06-01 -> 2021-02-12
 
 
 
@@ -106,6 +106,18 @@ Related
 
 History Log
 =============
+
+- 1.0.6 -- 2021-02-12
+
+    - fix functional typo in service->registerFunctions
+
+- 1.0.5 -- 2020-12-08
+
+    - Fix lpi-deps not using natsort
+
+- 1.0.4 -- 2020-12-04
+
+    - Add lpi-deps.byml file
 
 - 1.0.3 -- 2020-11-30
 

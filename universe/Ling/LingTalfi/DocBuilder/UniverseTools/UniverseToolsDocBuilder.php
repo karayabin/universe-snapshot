@@ -155,6 +155,10 @@ class UniverseToolsDocBuilder
                 "BSR-1" => "https://github.com/lingtalfi/TheScientist/blob/master/bsr-1.md",
                 "universe asset dependencies" => "https://github.com/lingtalfi/NotationFan/blob/master/universe-assets.md#the-universeassetdependencies-trick",
                 "tight planet name" => $doc . "/pages/nomenclature.md#tight-planet-name",
+                "UniverseTools conception notes" => $doc . "/pages/conception-notes.md",
+                "UniverseTool conception notes" => $doc . "/pages/conception-notes.md",
+                "planet dot names" => "https://github.com/karayabin/universe-snapshot#the-planet-dot-name",
+                "import install discussion" => "https://github.com/lingtalfi/TheBar/blob/master/discussions/import-install.md#summary",
             ],
             /**
              * An array of external classes to url.

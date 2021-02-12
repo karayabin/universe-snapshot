@@ -4,7 +4,7 @@
 namespace Ling\Light_LoginNotifier\Service;
 
 
-use Ling\Light_LingStandardService\Service\LightLingStandardService01;
+use Ling\Light_LingStandardService\Service\LightLingStandardService02;
 use Ling\Light_LoginNotifier\Api\Custom\CustomLightLoginNotifierApiFactory;
 use Ling\Light_Mailer\Service\LightMailerService;
 use Ling\Light_User\LightWebsiteUser;
@@ -12,7 +12,7 @@ use Ling\Light_User\LightWebsiteUser;
 /**
  * The LightLoginNotifierService class.
  */
-class LightLoginNotifierService extends LightLingStandardService01
+class LightLoginNotifierService extends LightLingStandardService02
 {
 
 

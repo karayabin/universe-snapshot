@@ -1,6 +1,6 @@
 Uni2
 ===========
-2019-03-07 -> 2020-06-25
+2019-03-07 -> 2021-01-21
 
 
 
@@ -30,7 +30,7 @@ Summary
 - [Uni2 api](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2.md) (generated with [DocTools](https://github.com/lingtalfi/DocTools))
 - [What is Uni2?](#what-is-uni2)
     - [Help](#help)
-- [The concepts behind Uni2](#the-concepts-behing-uni2)
+- [The concepts behind Uni2](#the-concepts-behind-uni2)
 - [Universe, galaxies, planets](#universe-galaxies-planets)
     - [The planet long name](#the-planet-long-name)
     - [The planet short name](#the-planet-short-name)
@@ -40,8 +40,8 @@ Summary
     - [Meet the naive system](#meet-the-naive-system)
     - [Dependencies to non-planets](#dependencies-to-non-planets)
 - [The planet structure](#the-planet-structure)
-    - [meta-info.byml](#meta-info-byml)
-    - [dependencies.byml](#dependencies-byml)
+    - [meta-info.byml](#meta-infobyml)
+    - [dependencies.byml](#dependenciesbyml)
 - [The local server](#the-local-server)
     - [Introducing the local server](#introducing-the-local-server)
     - [The local server on your machine](#the-local-server-on-your-machine)
@@ -966,6 +966,22 @@ When triggered, the upgrade process does the following steps:
 
 History Log
 =============
+  
+- 1.9.8 -- 2021-01-21
+
+    - fix documentation link
+  
+- 1.9.7 -- 2021-01-21
+
+    - fix documentation links
+  
+- 1.9.6 -- 2020-12-08
+
+    - Fix lpi-deps not using natsort.
+
+- 1.9.5 -- 2020-12-04
+
+    - Add lpi-deps.byml file
 
 - 1.9.4 -- 2020-06-25
 

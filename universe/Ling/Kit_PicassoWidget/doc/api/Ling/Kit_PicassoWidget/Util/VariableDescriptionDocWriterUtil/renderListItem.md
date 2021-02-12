@@ -16,7 +16,7 @@ Description
 ================
 
 
-protected [VariableDescriptionDocWriterUtil::renderListItem](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/api/Ling/Kit_PicassoWidget/Util/VariableDescriptionDocWriterUtil/renderListItem.md)(string $key, array $item, int $indentBase = 1) : string
+protected [VariableDescriptionDocWriterUtil::renderListItem](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/api/Ling/Kit_PicassoWidget/Util/VariableDescriptionDocWriterUtil/renderListItem.md)(string $key, array $item, ?int $indentBase = 1) : string
 
 
 

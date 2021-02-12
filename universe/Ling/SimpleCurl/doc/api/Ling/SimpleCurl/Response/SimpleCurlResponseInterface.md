@@ -4,7 +4,7 @@
 
 The SimpleCurlResponseInterface class
 ================
-2019-03-14 --> 2019-07-18
+2019-03-14 --> 2020-12-08
 
 
 

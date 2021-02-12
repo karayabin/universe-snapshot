@@ -120,12 +120,6 @@ $micro_permission.methods_collection:
             file: ${app_dir}/config/data/Light_Kit_Admin/Light_MicroPermission/kit_admin.profile.byml
 
 
-$plugin_installer.methods_collection:
-    -
-        method: registerPlugin
-        args:
-            plugin: Light_Kit_Admin
-            installer: @service(kit_admin)
 
 
 
@@ -147,10 +141,10 @@ $realist.methods_collection:
 
 
 $user_database.methods_collection:
-    -
-        method: setRootAvatarUrl
-        args:
-            avatar_url: /plugins/Light_Kit_Admin/img/avatars/root_avatar.png
+#    -
+#        method: setRootAvatarUrl
+#        args:
+#            avatar_url: /plugins/Light_Kit_Admin/img/avatars/root_avatar.png
     -
         method: setPasswordProtector
         args:

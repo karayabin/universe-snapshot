@@ -1,6 +1,6 @@
 Light_UserDatabase
 ===========
-2019-07-19 -> 2020-09-11
+2019-07-19 -> 2021-02-11
 
 
 
@@ -113,23 +113,6 @@ $events.methods_collection:
 
 
 
-
-
-$plugin_database_installer.methods_collection:
-    -
-        method: registerInstaller
-        args:
-            plugin: Light_UserDatabase
-            installer:
-                -
-                    - @service(user_database)
-                    - installDatabase
-                -
-                    - @service(user_database)
-                    - uninstallDatabase
-
-
-
 #$user_row_ownership.methods_collection:
 #    -
 #        method: registerRowInspector
@@ -155,7 +138,31 @@ Related
 
 History Log
 =============  
-    
+
+- 1.31.10 -- 2021-02-11
+
+    - update lpi deps with latest Light_DbSynchronizer planet version
+  
+- 1.31.9 -- 2021-02-11
+
+    - fix incorrect planet dependencies in lpi file
+  
+- 1.31.8 -- 2021-02-11
+
+    - add LightUserDatabaseBasePluginInstaller class
+  
+- 1.31.7 -- 2021-01-28
+
+    - update to adapt new Light_PluginInstaller api
+
+- 1.31.6 -- 2020-12-08
+
+    - Fix lpi-deps not using natsort.
+
+- 1.31.5 -- 2020-12-04
+
+    - Add lpi-deps.byml file
+
 - 1.31.4 -- 2020-09-11
 
     - update schema and conception notes, update nomenclature  

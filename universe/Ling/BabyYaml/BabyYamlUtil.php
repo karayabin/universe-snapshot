@@ -8,6 +8,8 @@ use Ling\BabyYaml\Parser\BabyYamlNodeInfoParser;
 use Ling\BabyYaml\Reader\BabyYamlReader;
 use Ling\BabyYaml\Reader\Exception\ParseErrorException;
 use Ling\BabyYaml\Writer\BabyYamlWriter;
+use Ling\Bat\BDotTool;
+use Ling\Bat\FileSystemTool;
 
 class BabyYamlUtil
 {
@@ -121,6 +123,32 @@ class BabyYamlUtil
         return $o->parseFile($file);
     }
 
+
+    /**
+     * Updates the property which key/value pair is given, in the given file.
+     * This method preserves the comments already assigned to nodes.
+     *
+     * If the file doesn't exist, it will be created.
+     *
+     *
+     * @param string $file
+     * @param string $key
+     * @param $value
+     */
+    public static function updateProperty(string $file, string $key, $value)
+    {
+
+        // make sure the file exists, or create it if not
+        if (false === file_exists($file)) {
+            FileSystemTool::mkfile($file);
+        }
+
+        list($config, $nodeInfoMap) = BabyYamlUtil::parseNodeInfoByFile($file);
+        BDotTool::setDotValue($key, $value, $config);
+        BabyYamlUtil::writeFile($config, $file, [
+            "nodeInfoMap" => $nodeInfoMap,
+        ]);
+    }
 
     /**
      * Writes the given $data array to the $file.

@@ -55,7 +55,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightKitAdminUserDataService::inject](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/Service/LightKitAdminUserDataService.php#L261-L282)
+See the source code for method [LightKitAdminUserDataService::inject](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/Service/LightKitAdminUserDataService.php#L56-L77)
 
 
 See Also
@@ -63,5 +63,5 @@ See Also
 
 The [LightKitAdminUserDataService](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/doc/api/Ling/Light_Kit_Admin_UserData/Service/LightKitAdminUserDataService.md) class.
 
-Previous method: [getDependencies](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/doc/api/Ling/Light_Kit_Admin_UserData/Service/LightKitAdminUserDataService/getDependencies.md)<br>
+Previous method: [setContainer](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/doc/api/Ling/Light_Kit_Admin_UserData/Service/LightKitAdminUserDataService/setContainer.md)<br>
 

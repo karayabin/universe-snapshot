@@ -4,7 +4,7 @@
 
 The KrankenSteinTool class
 ================
-2019-04-02 --> 2019-07-18
+2019-04-02 --> 2020-12-08
 
 
 
@@ -29,7 +29,7 @@ class <span class="pl-k">KrankenSteinTool</span>  {
 
 - Methods
     - public static [isOneShot](https://github.com/lingtalfi/KrankenStein/blob/master/doc/api/Ling/KrankenStein/KrankenSteinTool/isOneShot.md)(string $str) : bool
-    - public static [executeOneShot](https://github.com/lingtalfi/KrankenStein/blob/master/doc/api/Ling/KrankenStein/KrankenSteinTool/executeOneShot.md)(string $str, bool &$isOneShotString = false) : mixed
+    - public static [executeOneShot](https://github.com/lingtalfi/KrankenStein/blob/master/doc/api/Ling/KrankenStein/KrankenSteinTool/executeOneShot.md)(string $str, ?bool &$isOneShotString = false) : mixed
     - public static [getArgsFromArgString](https://github.com/lingtalfi/KrankenStein/blob/master/doc/api/Ling/KrankenStein/KrankenSteinTool/getArgsFromArgString.md)(string $argString) : array
 
 }

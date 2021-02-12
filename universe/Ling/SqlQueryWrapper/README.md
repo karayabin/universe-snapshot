@@ -70,7 +70,15 @@ The list pagination, order and filters are provided by the plugins.
 
 History Log
 ------------------
-    
+
+- 1.6.2 -- 2020-12-08
+
+    - Fix lpi-deps not using natsort.
+
+- 1.6.1 -- 2020-12-04
+
+    - Add lpi-deps.byml file
+
 - 1.6.0 -- 2018-06-11
 
     - add SqlQueryWrapper.doGetNbItems protected method

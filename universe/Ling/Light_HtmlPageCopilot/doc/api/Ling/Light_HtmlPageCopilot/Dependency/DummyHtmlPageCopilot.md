@@ -4,7 +4,7 @@
 
 The DummyHtmlPageCopilot class
 ================
-2019-08-30 --> 2019-11-25
+2019-08-30 --> 2020-12-08
 
 
 
@@ -50,7 +50,7 @@ class <span class="pl-k">DummyHtmlPageCopilot</span> extends [HtmlPageCopilot](h
     - public HtmlPageCopilot::addMeta(array $attributes) : void
     - public HtmlPageCopilot::getMetas() : array
     - public HtmlPageCopilot::hasLibrary(string $name) : bool
-    - public HtmlPageCopilot::registerLibrary(string $name, ?array $js = [], ?array $css = []) : void
+    - public HtmlPageCopilot::registerLibrary(string $name, ?array $js = [], ?array $css = [], ?array $options = []) : void
     - public HtmlPageCopilot::getCssUrls() : array
     - public HtmlPageCopilot::getJsUrls() : array
     - public HtmlPageCopilot::addJsCodeBlock(string $codeBlock) : void

@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [PropertyInfo::setReflectionProperty](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/PropertyInfo/setReflectionProperty.md)([\ReflectionProperty](http://php.net/manual/en/class.reflectionproperty.php) $reflectionProperty) : void
+public [PropertyInfo::setReflectionProperty](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/PropertyInfo/setReflectionProperty.md)(ReflectionProperty $reflectionProperty) : void
 
 
 

@@ -71,7 +71,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [ParametrizedSqlQueryUtil::prepareExpression](https://github.com/lingtalfi/ParametrizedSqlQuery/blob/master/ParametrizedSqlQueryUtil.php#L472-L604)
+See the source code for method [ParametrizedSqlQueryUtil::prepareExpression](https://github.com/lingtalfi/ParametrizedSqlQuery/blob/master/ParametrizedSqlQueryUtil.php#L473-L605)
 
 
 See Also

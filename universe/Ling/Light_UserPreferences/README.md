@@ -1,6 +1,6 @@
 Light_UserPreferences
 ===========
-2020-08-13
+2020-08-13 -> 2021-02-11
 
 
 
@@ -53,16 +53,7 @@ user_preferences:
         
         setOptions: 
             options: []
-        
-    
-
-$plugin_installer.methods_collection: 
-    - 
-        method: registerPlugin
-        args: 
-            plugin: Light_UserPreferences
-            installer: @service(user_preferences)
-        
+                
     
 
 
@@ -72,6 +63,30 @@ $plugin_installer.methods_collection:
 
 History Log
 =============
+
+- 1.0.6 -- 2021-02-11
+
+  - update api, plugin installer now extends LightUserDatabaseBasePluginInstaller
+  
+- 1.0.5 -- 2021-01-28
+
+    - adapt api to work with latest Light_PluginInstaller
+
+- 1.0.4 -- 2021-01-28
+
+    - update readme, the service part
+
+- 1.0.3 -- 2021-01-28
+
+    - adapt api to work with new Light_PluginInstaller
+
+- 1.0.2 -- 2020-12-08
+
+    - Fix lpi-deps not using natsort.
+
+- 1.0.1 -- 2020-12-04
+
+    - Add lpi-deps.byml file
 
 - 1.0.0 -- 2020-08-13
 

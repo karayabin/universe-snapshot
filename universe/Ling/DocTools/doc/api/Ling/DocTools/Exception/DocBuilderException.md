@@ -4,7 +4,7 @@
 
 The DocBuilderException class
 ================
-2019-02-21 --> 2020-09-11
+2019-02-21 --> 2021-02-04
 
 
 
@@ -22,7 +22,7 @@ Class synopsis
 ==============
 
 
-class <span class="pl-k">DocBuilderException</span> extends [DocToolsException](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Exception/DocToolsException.md) implements [\Throwable](http://php.net/manual/en/class.throwable.php) {
+class <span class="pl-k">DocBuilderException</span> extends [DocToolsException](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Exception/DocToolsException.md) implements [\Throwable](http://php.net/manual/en/class.throwable.php), [\Stringable](https://wiki.php.net/rfc/stringable) {
 
 - Inherited properties
     - protected  [Exception::$message](#property-message) =  ;

@@ -4,7 +4,7 @@
 
 The CustomLightUserDatabaseBaseApi class
 ================
-2019-07-19 --> 2020-11-09
+2019-07-19 --> 2021-02-11
 
 
 

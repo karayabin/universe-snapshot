@@ -26,6 +26,7 @@ class PhpClassHelper
         return [
             '\\Exception' => "http://php.net/manual/en/class.exception.php",
             '\\Throwable' => "http://php.net/manual/en/class.throwable.php",
+            '\\Stringable' => "https://wiki.php.net/rfc/stringable",
             //
             '\\ReflectionClass' => "http://php.net/manual/en/class.reflectionclass.php",
             '\\ReflectionMethod' => "http://php.net/manual/en/class.reflectionmethod.php",

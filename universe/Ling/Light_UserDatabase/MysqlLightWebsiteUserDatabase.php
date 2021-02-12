@@ -32,7 +32,7 @@ use Ling\SqlWizard\Tool\MysqlSerializeTool;
  *
  *
  */
-class MysqlLightWebsiteUserDatabase implements LightWebsiteUserDatabaseInterface, PluginInstallerInterface
+class MysqlLightWebsiteUserDatabase implements LightWebsiteUserDatabaseInterface
 {
 
 
@@ -45,43 +45,6 @@ class MysqlLightWebsiteUserDatabase implements LightWebsiteUserDatabaseInterface
     protected $database;
 
 
-    /**
-     * This property holds the identifier for the default root user.
-     *
-     * @var string = root
-     */
-    protected $root_identifier;
-
-    /**
-     * This property holds the password for the default root user.
-     * @var string = root
-     */
-    protected $root_password;
-
-    /**
-     * This property holds the root_email for this instance.
-     * @var string = root@app.com
-     */
-    protected $root_email;
-
-
-    /**
-     * This property holds the pseudo for the default root user.
-     * @var string = root
-     */
-    protected $root_pseudo;
-
-    /**
-     * This property holds the avatar_url for the default root user.
-     * @var string = ""
-     */
-    protected $root_avatar_url;
-
-    /**
-     * This property holds the extra array for the default root user.
-     * @var array
-     */
-    protected $root_extra;
 
 
     /**
@@ -145,12 +108,7 @@ class MysqlLightWebsiteUserDatabase implements LightWebsiteUserDatabaseInterface
         $this->database = null;
         $this->table = "lud_user";
 
-        $this->root_identifier = "root";
-        $this->root_password = "root";
-        $this->root_pseudo = "root";
-        $this->root_email = "root@app.com";
-        $this->root_avatar_url = "";
-        $this->root_extra = [];
+
         $this->passwordProtector = null;
         $this->isInstallMode = false;
 
@@ -381,169 +339,6 @@ class MysqlLightWebsiteUserDatabase implements LightWebsiteUserDatabaseInterface
 
 
 
-    //--------------------------------------------
-    //
-    //--------------------------------------------
-    /**
-     * @implementation
-     */
-    public function install()
-    {
-
-
-        $createFile = __DIR__ . "/assets/fixtures/create-structure.sql";
-
-        /**
-         * @var $installer LightPluginInstallerService
-         */
-        $installer = $this->container->get("plugin_installer");
-        $installer->debugLog("user_database: synchronizing tables.");
-        $installer->synchronizeByCreateFile("Light_UserDatabase", $createFile, [
-            "scope" => $this->getScopeTables(),
-        ]);
-
-
-        $this->isInstallMode = true; // we don't want other plugins to hook the new user creation.
-
-//        /**
-//         * We cannot put this statement inside the transaction, because of the mysql implicit commit rule:
-//         * https://dev.mysql.com/doc/refman/8.0/en/implicit-commit.html
-//         */
-//        $res = $this->pdoWrapper->executeStatement(file_get_contents($createFile));
-
-
-        /**
-         * @var $exception \Exception
-         */
-        $exception = null;
-        $installer->debugLog("user_database: adding tables content.");
-        $res = $this->pdoWrapper->transaction(function () {
-
-
-            $factory = $this->getFactory();
-
-
-            /**
-             * We want to create the following:
-             * - the "default" user group
-             * - the "root" user (with group default)
-             * - the "root" permission group
-             * - the "*" permission
-             * - bind "*" permission to "root" permission group
-             * - bind "root" user to "root" permission group
-             *
-             */
-            // default user group
-            $userGroupId = $factory->getUserGroupApi()->insertUserGroup([
-                "name" => "default",
-            ]);
-
-
-            // root user
-            $userId = $this->addUser([
-                'user_group_id' => $userGroupId,
-                'identifier' => $this->root_identifier,
-                'pseudo' => $this->root_pseudo,
-                'email' => $this->root_email,
-                'password' => $this->root_password,
-                'avatar_url' => $this->root_avatar_url,
-                'extra' => $this->root_extra,
-            ]);
-
-
-            // root permission group
-            $permGroupId = $factory->getPermissionGroupApi()->insertPermissionGroup([
-                'name' => 'root',
-            ]);
-
-
-            // the * permission
-            $permId = $factory->getPermissionApi()->insertPermission([
-                'name' => '*',
-            ]);
-
-            // bind * permission to root permission group
-            $factory->getPermissionGroupHasPermissionApi()->insertPermissionGroupHasPermission([
-                "permission_group_id" => $permGroupId,
-                "permission_id" => $permId,
-            ]);
-
-            // bind root user to root permission group
-            $factory->getUserHasPermissionGroupApi()->insertUserHasPermissionGroup([
-                'user_id' => $userId,
-                'permission_group_id' => $permGroupId,
-            ]);
-
-
-        }, $exception);
-
-        $this->isInstallMode = false;
-
-
-        if (false === $res) {
-            throw $exception;
-        }
-
-
-    }
-
-
-    /**
-     * @implementation
-     */
-    public function uninstall()
-    {
-        $this->pdoWrapper->executeStatement("DROP table if exists lud_permission_group_has_permission");
-        $this->pdoWrapper->executeStatement("DROP table if exists lud_user_has_permission_group");
-        $this->pdoWrapper->executeStatement("DROP table if exists lud_permission_group");
-        $this->pdoWrapper->executeStatement("DROP table if exists lud_permission");
-        $this->pdoWrapper->executeStatement("DROP table if exists lud_user_group_has_plugin_option");
-        $this->pdoWrapper->executeStatement("DROP table if exists lud_plugin_option");
-        $this->pdoWrapper->executeStatement("DROP table if exists " . $this->table);
-        $this->pdoWrapper->executeStatement("DROP table if exists lud_user_group");
-    }
-
-
-    /**
-     * @implementation
-     */
-    public function isInstalled(): bool
-    {
-        /**
-         * @var $installer LightPluginInstallerService
-         */
-        $installer = $this->container->get("plugin_installer");
-        if (
-            true === $installer->hasTable("lud_user_group") &&
-            true === $installer->hasTable("lud_user") &&
-            true === $installer->hasTable("lud_permission_group") &&
-            true === $installer->hasTable("lud_permission") &&
-            true === $installer->hasTable("lud_user_has_permission_group") &&
-            true === $installer->hasTable("lud_permission_group_has_permission") &&
-            true === $installer->hasTable("lud_plugin_option") &&
-            true === $installer->hasTable("lud_user_group_has_plugin_option")
-        ) {
-
-
-            $col = $installer->fetchRowColumn("lud_user_group", "name", Where::inst()->key("name")->equals("default"));
-            if (false === $col) {
-                return false;
-            }
-
-            return true;
-        }
-        return false;
-    }
-
-
-    /**
-     * @implementation
-     */
-    public function getDependencies(): array
-    {
-        return [];
-    }
-
 
 
 
@@ -604,68 +399,6 @@ class MysqlLightWebsiteUserDatabase implements LightWebsiteUserDatabaseInterface
     }
 
     /**
-     * Sets the root_identifier.
-     *
-     * @param string $root_identifier
-     */
-    public function setRootIdentifier(string $root_identifier)
-    {
-        $this->root_identifier = $root_identifier;
-    }
-
-    /**
-     * Sets the root_password.
-     *
-     * @param string $root_password
-     */
-    public function setRootPassword(string $root_password)
-    {
-        $this->root_password = $root_password;
-    }
-
-    /**
-     * Sets the root_pseudo.
-     *
-     * @param string $root_pseudo
-     */
-    public function setRootPseudo(string $root_pseudo)
-    {
-        $this->root_pseudo = $root_pseudo;
-    }
-
-    /**
-     * Sets the root_email.
-     *
-     * @param string $root_email
-     */
-    public function setRootEmail(string $root_email)
-    {
-        $this->root_email = $root_email;
-    }
-
-
-    /**
-     * Sets the root_avatar_url.
-     *
-     * @param string $root_avatar_url
-     */
-    public function setRootAvatarUrl(string $root_avatar_url)
-    {
-        $this->root_avatar_url = $root_avatar_url;
-    }
-
-
-    /**
-     * Sets the root_extra.
-     *
-     * @param array $root_extra
-     */
-    public function setRootExtra(array $root_extra)
-    {
-        $this->root_extra = $root_extra;
-    }
-
-    /**
      * Sets the passwordProtector.
      *
      * @param LightPasswordProtector $passwordProtector
@@ -685,6 +418,7 @@ class MysqlLightWebsiteUserDatabase implements LightWebsiteUserDatabaseInterface
     {
         return $this->table;
     }
+
 
 
     //--------------------------------------------
@@ -726,26 +460,5 @@ class MysqlLightWebsiteUserDatabase implements LightWebsiteUserDatabaseInterface
     protected function serialize(array &$array)
     {
         MysqlSerializeTool::serialize($array, ['extra']);
-    }
-
-
-    /**
-     * Returns the array of tables that this plugin uses.
-     *
-     * @return array
-     */
-    protected function getScopeTables(): array
-    {
-        return [
-            'lud_permission',
-            'lud_permission_group',
-            'lud_permission_group_has_permission',
-            'lud_plugin_option',
-            'lud_user',
-            'lud_user_group',
-            'lud_user_group_has_plugin_option',
-            'lud_user_has_permission_group',
-            'tes_table1',
-        ];
     }
 }

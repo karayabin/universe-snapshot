@@ -7,7 +7,7 @@ PermissionGroupApi::insertPermissionGroups
 
 
 
-PermissionGroupApi::insertPermissionGroups — Inserts the given permissionGroup rows in the database.
+PermissionGroupApi::insertPermissionGroups — Inserts the given permission group rows in the database.
 
 
 
@@ -21,7 +21,7 @@ public [PermissionGroupApi::insertPermissionGroups](https://github.com/lingtalfi
 
 
 
-Inserts the given permissionGroup rows in the database.
+Inserts the given permission group rows in the database.
 By default, it returns an array of the result of the PDO::lastInsertId method for each insert.
 If the returnRic flag is set to true, the method will return an array of the ric array (for each insert) instead of the lastInsertId.
 
@@ -71,7 +71,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [PermissionGroupApi::insertPermissionGroups](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Classes/PermissionGroupApi.php#L92-L103)
+See the source code for method [PermissionGroupApi::insertPermissionGroups](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Classes/PermissionGroupApi.php#L98-L109)
 
 
 See Also
@@ -79,5 +79,5 @@ See Also
 
 The [PermissionGroupApi](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/PermissionGroupApi.md) class.
 
-Previous method: [insertPermissionGroup](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/PermissionGroupApi/insertPermissionGroup.md)<br>Next method: [getPermissionGroupById](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/PermissionGroupApi/getPermissionGroupById.md)<br>
+Previous method: [insertPermissionGroup](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/PermissionGroupApi/insertPermissionGroup.md)<br>Next method: [fetchAll](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/PermissionGroupApi/fetchAll.md)<br>
 

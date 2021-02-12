@@ -17,20 +17,32 @@ use Ling\CliTools\Exception\InvalidContextException;
  * The command line structure
  * ---------------------
  *
- * The command line is composed of white-space separated components:
+ * The command line is composed of white-space separated components (aka arguments):
  *
  *
  * - **option**: an option contains an equal symbol (=). The key is the part on the left of the equal symbol, and the value is the part on the right.
- *      An option can start with two or more dashes, but not one dash (one dash is reserved for one-letter flags, see the "flags" entry for more details).
+ *      The option key can be prefixed with one or more dashes for readability, but they are not part of the option's key.
+ *      So for instance the option my-option=ABCD can also be written -my-option=ABCD or --my-option=ABCD. Those are all the same
+ *
  * - **parameter**: a parameter doesn't contain an equal symbol (=). A parameter doesn't start with a dash.
+ *
  * - **flag**: a parameter doesn't contain an equal symbol (=). A parameter starts with a dash.
  *              If the flag starts with only one dash, then what follows is a one letter dash, or a combination of multiple one letter flags.
+ *              If the flag starts with two (or more) dashes, then what follows is the name of the flag.
+ *              In other words: -a is flag a, -abc is the combination of three flags a, b and c, and --abc is the flag named abc.
  *
  *
  * Notes:
  * - The value of a a flag always resolves to a boolean: true if set, or false if not set.
  * - Dashes at the beginning of an option or a flag are not part of the option name or flag name.
  * - Regular quoting (with single or double quotes) can be used to protect the option's values if necessary.
+ * - Inside double quotes, double quotes are allowed only if they are escaped with a backslash.
+ * - Inside single quotes, single quotes are not allowed, as I encountered some weird behaviour with my bash/terminal:
+ *      testing this string in my console:
+ *          - light import Ling.Chronos efg="some th\"ings" --sugar=no -d elf='no t"han\'ks'
+ *      it doesn't reach the php cli, because of the \' before the k.
+ *      Instead, it opens the terminal multiline mode.
+ *
  * - The equal symbol (=) is reserved for separating an option key from its value, and therefore cannot be part of a parameter name, an option name, and/or a flag name.
  * - An element starting only with one dash is a one-letter flag, or a combination of multiple one-letter flags.
  *
@@ -108,6 +120,7 @@ class CommandLineInput extends AbstractInput
      */
     private function prepare(array $argv)
     {
+
         // drop program name
         array_shift($argv);
 

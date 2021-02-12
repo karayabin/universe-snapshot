@@ -65,6 +65,7 @@ https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Helper/C
 https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Helper/CommentHelper.md
 https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Helper/MethodHelper/getMethodReturnType.md
 https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Helper/MethodHelper/getMethodSignature.md
+https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Helper/MethodHelper/resolveType.md
 https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Helper/MethodHelper.md
 https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Helper/PhpClassHelper/getClasses2Urls.md
 https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Helper/PhpClassHelper.md

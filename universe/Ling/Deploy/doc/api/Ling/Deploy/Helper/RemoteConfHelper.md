@@ -4,7 +4,7 @@
 
 The RemoteConfHelper class
 ================
-2019-04-03 --> 2019-07-18
+2019-04-03 --> 2020-12-08
 
 
 
@@ -26,7 +26,7 @@ class <span class="pl-k">RemoteConfHelper</span>  {
 
 - Methods
     - public static [readConfByFile](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Helper/RemoteConfHelper/readConfByFile.md)(string $confPath) : array
-    - public static [pushConf](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Helper/RemoteConfHelper/pushConf.md)(array $conf, string $sshConfigId, string $appDir, string $dstPath, Ling\CliTools\Output\OutputInterface $output, int $indentLevel = 0) : bool
+    - public static [pushConf](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Helper/RemoteConfHelper/pushConf.md)(array $conf, string $sshConfigId, string $appDir, string $dstPath, Ling\CliTools\Output\OutputInterface $output, ?int $indentLevel = 0) : bool
 
 }
 

@@ -1,2 +1,7 @@
-dependencies: []
+dependencies: 
+    Ling: 
+        - Bat
+        - QuickPdo
+    
+
 post_install: []

@@ -4,11 +4,15 @@
 namespace Ling\CliTools\Formatter;
 
 
+use Ling\Bat\CurrentProcessTool;
+use Ling\CliTools\Exception\CliToolsException;
+
 /**
  * The BashtmlFormatter class.
  *
  * It interprets bashtml language described below, which basically allows you to write html like tags to get
- * colors and basic formatting (bold, underline, ...) in your console output.
+ * colors and basic formatting (bold, underline, ...) in your console output, or your html output (it detects automatically
+ * whether your are in the console environment or the browser environment).
  *
  * ![example screenshot](http://lingtalfi.com/img/universe/CliTools/bashtml-formatter-example.png)
  *
@@ -168,7 +172,14 @@ class BashtmlFormatter implements FormatterInterface
      *
      * @var array
      */
-    private $parents = [];
+    private $parents;
+
+
+    /**
+     * This property holds the isCli for this instance.
+     * @var bool
+     */
+    private $isCli;
 
 
     /**
@@ -180,60 +191,91 @@ class BashtmlFormatter implements FormatterInterface
             //--------------------------------------------
             // LOGGING
             //--------------------------------------------
-            "success" => "32", // green
-            "info" => "34", // blue
-            "warning" => "35", // magenta
-            "error" => "31", // red
+            "success" => ['color: green', "32"], // green
+            "info" => ['color: blue', "34"], // blue
+            "warning" => ['color: orange', "35"], // magenta
+            "error" => ['color: red', "31"], // red
             //--------------------------------------------
             // SPECIALS
             //--------------------------------------------
-            'b' => '1',
-            'bold' => '1',
-            'dim' => '2',
-            'underlined' => '4',
-            'blink' => '5',
-            'reverse' => '7',
-            'hidden' => '8',
-            'default' => '39',
+            'b' => ['font-weight: bold', '1'],
+            'bold' => ['font-weight: ', '1'],
+            'dim' => ['color: #ddd', '2'],
+            'underlined' => ['text-decoration: underline', '4'],
+            'blink' => ['color: black', '5'],
+            'reverse' => ['color: black', '7'],
+            'hidden' => ['color: white', '8'],
+            'default' => ['color: black', '39'],
             //--------------------------------------------
             // COLORS
             //--------------------------------------------
-            'black' => '30',
-            'red' => '31',
-            'green' => '32',
-            'yellow' => '33',
-            'blue' => '34',
-            'magenta' => '35',
-            'cyan' => '36',
-            'lightGray' => '37',
-            'darkGray' => '90',
-            'lightRed' => '91',
-            'lightGreen' => '92',
-            'lightYellow' => '93',
-            'lightBlue' => '94',
-            'lightMagenta' => '95',
-            'lightCyan' => '96',
-            'white' => '97',
-            'bgDefault' => '49',
-            'bgBlack' => '40',
-            'bgRed' => '41',
-            'bgGreen' => '42',
-            'bgYellow' => '43',
-            'bgBlue' => '44',
-            'bgMagenta' => '45',
-            'bgCyan' => '46',
-            'bgLightGray' => '47',
-            'bgDarkGray' => '100',
-            'bgLightRed' => '101',
-            'bgLightGreen' => '102',
-            'bgLightYellow' => '103',
-            'bgLightBlue' => '104',
-            'bgLightMagenta' => '105',
-            'bgLightCyan' => '106',
-            'bgWhite' => '107',
+            'black' => ['color: black', '30'],
+            'red' => ['color: red', '31'],
+            'green' => ['color: green', '32'],
+            'yellow' => ['color: yellow', '33'],
+            'blue' => ['color: blue', '34'],
+            'magenta' => ['color: magenta', '35'],
+            'cyan' => ['color: cyan', '36'],
+            'lightGray' => ['color: lightGray', '37'],
+            'darkGray' => ['color: darkGray', '90'],
+            'lightRed' => ['color: #ffcccb', '91'],
+            'lightGreen' => ['color: #90ee90', '92'],
+            'lightYellow' => ['color: #ffffe0', '93'],
+            'lightBlue' => ['color: #add8e6', '94'],
+            'lightMagenta' => ['color: #e78be7', '95'],
+            'lightCyan' => ['color: #e0ffff', '96'],
+            'white' => ['color: white', '97'],
+            'bgDefault' => ['background-color: black', '49'],
+            'bgBlack' => ['background-color: black', '40'],
+            'bgRed' => ['background-color: red', '41'],
+            'bgGreen' => ['background-color: green', '42'],
+            'bgYellow' => ['background-color: yellow', '43'],
+            'bgBlue' => ['background-color: blue', '44'],
+            'bgMagenta' => ['background-color: magenta', '45'],
+            'bgCyan' => ['background-color: cyan', '46'],
+            'bgLightGray' => ['background-color: lightGray', '47'],
+            'bgDarkGray' => ['background-color: darkGray', '100'],
+            'bgLightRed' => ['background-color: #ffcccb', '101'],
+            'bgLightGreen' => ['background-color: #90ee90', '102'],
+            'bgLightYellow' => ['background-color: #ffffe0', '103'],
+            'bgLightBlue' => ['background-color: #add8e6', '104'],
+            'bgLightMagenta' => ['background-color: #e78be7', '105'],
+            'bgLightCyan' => ['background-color: #e0ffff', '106'],
+            'bgWhite' => ['background-color: white', '107'],
         ];
         $this->escapeSequence = "\033";
+        $this->parents = [];
+        $this->isCli = CurrentProcessTool::isCli();
     }
+
+
+    /**
+     * Sets the format mode.
+     * Can be one of:
+     * - cli
+     * - web
+     *
+     * This affects how the messages are formatted, either for the cli or the web.
+     * By default, our class makes its own guess based on what environment the call to the format was made from.
+     * You can force a format using this method.
+     *
+     *
+     *
+     *
+     *
+     * @param string $mode
+     */
+    public function setFormatMode(string $mode)
+    {
+        if ('cli' === $mode) {
+            $this->isCli = true;
+        } elseif ('web' === $mode) {
+            $this->isCli = false;
+        } else {
+            throw new CliToolsException("Unknown format mode: \"$mode\".");
+        }
+    }
+
 
     /**
      * @implementation
@@ -241,7 +283,7 @@ class BashtmlFormatter implements FormatterInterface
     public function format(string $expression): string
     {
         $pattern = '!</?([a-zA-Z0-9:_]+)>!Usm';
-        return preg_replace_callback($pattern, function ($matches) {
+        $res = preg_replace_callback($pattern, function ($matches) {
             $ret = '';
             $isClosing = ('</' === substr($matches[0], 0, 2));
             $style = $matches[1];
@@ -252,16 +294,26 @@ class BashtmlFormatter implements FormatterInterface
                     // don't touch the string if it's an unknown code
                     return $matches[0];
                 }
-                $this->addParent($style);
+                if (true === $this->isCli) {
+                    $this->addParent($style);
+                }
             } else {
-                $this->removeParent($style);
+                if (true === $this->isCli) {
+                    $this->removeParent($style);
+                }
                 if (false === $ret = $this->getStopTag($style, $this->parents)) {
                     // don't touch the string if it's an unknown code
                     return $matches[0];
                 }
             }
+
             return $ret;
         }, $expression);
+
+        if (false === $this->isCli) {
+            $res = nl2br($res);
+        }
+        return $res;
     }
 
 
@@ -308,7 +360,7 @@ class BashtmlFormatter implements FormatterInterface
             return false;
         }
         $parents[] = $name;
-        return $this->getFormatExpression($parents);
+        return $this->getFormatExpression($parents, true);
     }
 
     /**
@@ -324,8 +376,11 @@ class BashtmlFormatter implements FormatterInterface
         if (false === $this->checkCode($name)) {
             return false;
         }
-        $ret = $this->escapeSequence . "[0m";
-        $ret .= $this->getFormatExpression($parents);
+        $ret = '';
+        if (true === $this->isCli) {
+            $ret .= $this->escapeSequence . "[0m";
+        }
+        $ret .= $this->getFormatExpression($parents, false);
         return $ret;
     }
 
@@ -335,29 +390,48 @@ class BashtmlFormatter implements FormatterInterface
      *
      * @param array $codes
      * An array of tag names.
+     * @param bool $isStart
      *
      * @return string
      */
-    private function getFormatExpression(array $codes): string
+    private function getFormatExpression(array $codes, bool $isStart): string
     {
+        $isCli = (int)$this->isCli;
+
         $formats = [];
         foreach ($codes as $alias) {
             if (false !== strpos($alias, ':')) {
                 $p = explode(':', $alias);
                 foreach ($p as $_alias) {
                     if (array_key_exists($_alias, $this->formatCodes)) {
-                        $formats[] = $this->formatCodes[$_alias];
+                        $formats[] = $this->formatCodes[$_alias][$isCli];
                     }
                 }
             } else {
                 if (array_key_exists($alias, $this->formatCodes)) {
-                    $formats[] = $this->formatCodes[$alias];
+                    $formats[] = $this->formatCodes[$alias][$isCli];
                 }
             }
         }
+
+
         if ($formats) {
-            return $this->escapeSequence . "[" . implode(';', $formats) . "m";
+            if (true === $this->isCli) {
+                // bash
+                return $this->escapeSequence . "[" . implode(';', $formats) . "m";
+            } else {
+                // html
+                if (true === $isStart) {
+                    return '<span style="' . implode(';', $formats) . '">';
+                }
+            }
+        } else {
+            if (false === $this->isCli && false === $isStart) {
+                return '</span>';
+            }
         }
+
+
         return '';
     }
 

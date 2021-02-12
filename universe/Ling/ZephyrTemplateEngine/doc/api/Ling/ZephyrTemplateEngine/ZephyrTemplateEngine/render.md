@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [ZephyrTemplateEngine::render](https://github.com/lingtalfi/ZephyrTemplateEngine/blob/master/doc/api/Ling/ZephyrTemplateEngine/ZephyrTemplateEngine/render.md)(string $resourceId, array $variables = []) : false | string
+public [ZephyrTemplateEngine::render](https://github.com/lingtalfi/ZephyrTemplateEngine/blob/master/doc/api/Ling/ZephyrTemplateEngine/ZephyrTemplateEngine/render.md)(string $resourceId, ?array $variables = []) : false | string
 
 
 

@@ -4,7 +4,7 @@
 
 The VariableDescriptionDocWriterUtil class
 ================
-2019-04-24 --> 2019-08-30
+2019-04-24 --> 2020-12-08
 
 
 
@@ -54,7 +54,7 @@ class <span class="pl-k">VariableDescriptionDocWriterUtil</span>  {
     - protected [renderWidget](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/api/Ling/Kit_PicassoWidget/Util/VariableDescriptionDocWriterUtil/renderWidget.md)(array $arr) : string
     - protected [renderScreenshotList](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/api/Ling/Kit_PicassoWidget/Util/VariableDescriptionDocWriterUtil/renderScreenshotList.md)(string $widgetName) : string
     - protected [renderWidgetVariablesDescriptionList](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/api/Ling/Kit_PicassoWidget/Util/VariableDescriptionDocWriterUtil/renderWidgetVariablesDescriptionList.md)(array $vars) : string
-    - protected [renderListItem](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/api/Ling/Kit_PicassoWidget/Util/VariableDescriptionDocWriterUtil/renderListItem.md)(string $key, array $item, int $indentBase = 1) : string
+    - protected [renderListItem](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/api/Ling/Kit_PicassoWidget/Util/VariableDescriptionDocWriterUtil/renderListItem.md)(string $key, array $item, ?int $indentBase = 1) : string
     - protected [error](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/api/Ling/Kit_PicassoWidget/Util/VariableDescriptionDocWriterUtil/error.md)(string $msg) : void
 
 }

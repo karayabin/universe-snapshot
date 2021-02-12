@@ -103,11 +103,11 @@ class LightErrorHandlerService
             $handleFatalErrors = $this->options['handleFatalErrors'] ?? true;
 
             if (true === $handleErrors) {
-                set_error_handler([$this, "fatalErrorHandler"]);
+                set_error_handler([$this, "errorHandler"]);
             }
 
             if (true === $handleFatalErrors) {
-                register_shutdown_function([$this, "errorHandler"]);
+                register_shutdown_function([$this, "fatalErrorHandler"]);
             }
         }
     }

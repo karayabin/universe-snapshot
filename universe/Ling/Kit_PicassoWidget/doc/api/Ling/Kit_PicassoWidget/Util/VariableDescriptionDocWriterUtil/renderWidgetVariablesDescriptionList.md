@@ -32,7 +32,7 @@ Parameters
 
 - vars
 
-    The vars property of @page(the widget variables description array).
+    The vars property of the widget variables description array.
 
 
 Return values

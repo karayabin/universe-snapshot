@@ -53,7 +53,7 @@ Returns bool.
 
 Source Code
 ===========
-See the source code for method [MetaInfoTool::writeInfo](https://github.com/lingtalfi/UniverseTools/blob/master/MetaInfoTool.php#L71-L75)
+See the source code for method [MetaInfoTool::writeInfo](https://github.com/lingtalfi/UniverseTools/blob/master/MetaInfoTool.php#L101-L105)
 
 
 See Also

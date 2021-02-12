@@ -7,7 +7,7 @@ UserGroupApi::updateUserGroupByName
 
 
 
-UserGroupApi::updateUserGroupByName — Updates the userGroup row identified by the given name.
+UserGroupApi::updateUserGroupByName — Updates the user group row identified by the given name.
 
 
 
@@ -16,12 +16,12 @@ Description
 ================
 
 
-public [UserGroupApi::updateUserGroupByName](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/UserGroupApi/updateUserGroupByName.md)(string $name, array $userGroup) : void
+public [UserGroupApi::updateUserGroupByName](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/UserGroupApi/updateUserGroupByName.md)(string $name, array $userGroup, ?array $extraWhere = [], ?array $markers = []) : void
 
 
 
 
-Updates the userGroup row identified by the given name.
+Updates the user group row identified by the given name.
 
 
 
@@ -35,6 +35,14 @@ Parameters
     
 
 - userGroup
+
+    
+
+- extraWhere
+
+    
+
+- markers
 
     
 
@@ -58,7 +66,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [UserGroupApi::updateUserGroupByName](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Classes/UserGroupApi.php#L271-L277)
+See the source code for method [UserGroupApi::updateUserGroupByName](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Classes/UserGroupApi.php#L353-L359)
 
 
 See Also
@@ -66,5 +74,5 @@ See Also
 
 The [UserGroupApi](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/UserGroupApi.md) class.
 
-Previous method: [updateUserGroupById](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/UserGroupApi/updateUserGroupById.md)<br>Next method: [delete](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/UserGroupApi/delete.md)<br>
+Previous method: [updateUserGroupById](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/UserGroupApi/updateUserGroupById.md)<br>Next method: [updateUserGroup](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/UserGroupApi/updateUserGroup.md)<br>
 

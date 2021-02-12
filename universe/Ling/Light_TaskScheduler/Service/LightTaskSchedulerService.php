@@ -6,6 +6,7 @@ namespace Ling\Light_TaskScheduler\Service;
 use Ling\Bat\SmartCodeTool;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
 use Ling\Light_LingStandardService\Service\LightLingStandardService01;
+use Ling\Light_LingStandardService\Service\LightLingStandardService02;
 use Ling\Light_TaskScheduler\Api\Custom\CustomLightTaskSchedulerApiFactory;
 use Ling\SimplePdoWrapper\Util\Where;
 
@@ -13,15 +14,8 @@ use Ling\SimplePdoWrapper\Util\Where;
 /**
  * The LightTaskSchedulerService class.
  */
-class LightTaskSchedulerService extends LightLingStandardService01
+class LightTaskSchedulerService extends LightLingStandardService02
 {
-
-    /**
-     * This property holds the container for this instance.
-     * @var LightServiceContainerInterface
-     */
-    protected $container;
-
 
     /**
      * This property holds the factory for this instance.
@@ -37,17 +31,6 @@ class LightTaskSchedulerService extends LightLingStandardService01
     {
         parent::__construct();
         $this->factory = null;
-        $this->container = null;
-    }
-
-    /**
-     * Sets the container.
-     *
-     * @param LightServiceContainerInterface $container
-     */
-    public function setContainer(LightServiceContainerInterface $container)
-    {
-        $this->container = $container;
     }
 
 

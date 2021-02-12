@@ -1055,6 +1055,14 @@ Related
 History Log
 ------------------
 
+- 1.30.16 -- 2020-12-08
+
+    - Fix lpi-deps not using natsort.
+
+- 1.30.15 -- 2020-12-04
+
+    - Add lpi-deps.byml file
+
 - 1.30.14 -- 2020-11-16
 
     - update MysqlInfoUtil, add getUniqueIndexColumnsOnly method 

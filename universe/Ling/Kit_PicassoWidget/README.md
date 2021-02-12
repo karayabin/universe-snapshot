@@ -290,6 +290,14 @@ Related
 History Log
 =============
 
+- 1.30.2 -- 2020-12-08
+
+    - Fix lpi-deps not using natsort.
+
+- 1.30.1 -- 2020-12-04
+
+    - Add lpi-deps.byml file
+
 - 1.30.0 -- 2019-08-30
 
     - taking into account the new HtmlPageCopilot interface

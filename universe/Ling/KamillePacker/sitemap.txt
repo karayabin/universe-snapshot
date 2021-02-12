@@ -1,0 +1,3 @@
+https://github.com/lingtalfi/KamillePacker/blob/master/ModulePacker/assets/README.tpl.md
+https://github.com/lingtalfi/KamillePacker/blob/master/README.md
+https://github.com/lingtalfi/KamillePacker/blob/master/WidgetPacker/assets/README.tpl.md

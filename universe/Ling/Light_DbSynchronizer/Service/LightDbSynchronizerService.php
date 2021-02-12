@@ -7,6 +7,7 @@ namespace Ling\Light_DbSynchronizer\Service;
 use Ling\Bat\ArrayTool;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
 use Ling\Light_Database\Service\LightDatabaseService;
+use Ling\Light_DatabaseInfo\Service\LightDatabaseInfoService;
 use Ling\Light_DbSynchronizer\Exception\LightDbSynchronizerException;
 use Ling\Light_Logger\LightLoggerService;
 use Ling\SimplePdoWrapper\Util\MysqlInfoUtil;
@@ -72,6 +73,13 @@ class LightDbSynchronizerService
      */
     private $options;
 
+    /**
+     * An internal cache for column names, in desired order.
+     *
+     * @var array
+     */
+    private $fileColumnNames;
+
 
     /**
      * Builds the LightDbSynchronizerService instance.
@@ -84,6 +92,7 @@ class LightDbSynchronizerService
         $this->options = [];
         $this->logErrorMessages = [];
         $this->logDebugMessages = [];
+        $this->fileColumnNames = [];
 
     }
 
@@ -181,6 +190,8 @@ class LightDbSynchronizerService
         try {
 
 
+
+
             $this->logDebug("--clean--");
             $this->logDebug("Starting synchronization with createFile \"$createFile\".");
 
@@ -188,18 +199,23 @@ class LightDbSynchronizerService
             if (false === file_exists($createFile)) {
                 $this->error("File doesn't exist: $createFile.");
             }
-
             $createFileContent = file_get_contents($createFile);
 
 
             $renamedItems = $this->getRenamedItems($createFileContent);
 
 
+
             $scope = $options['scope'] ?? [];
             $useDelete = $options['useDelete'] ?? true;
             $deleteMode = $options['deleteMode'] ?? 'flags';
-            $dbTables = $this->container->get("database_info")->getTables();
 
+
+            /**
+             * @var $dbInfo LightDatabaseInfoService
+             */
+            $dbInfo = $this->container->get("database_info");
+            $dbTables = $dbInfo->getTables();
 
             /**
              * @var $db LightDatabaseService
@@ -381,7 +397,7 @@ class LightDbSynchronizerService
      *
      *
      * @param string $table
-     * @param string $fileInfo
+     * @param array $fileInfo
      * @param array $options
      * @throws \Exception
      */
@@ -390,9 +406,7 @@ class LightDbSynchronizerService
         $tableStatements = $options['tableStatements'];
         $renamedItems = $options['renamedItems'] ?? [];
 
-
         $forceChangeAlgo = true; // let this to false, unless you know what you are doing
-        $hasChangeInColumns = false;
 
         $this->logDebug("Scanning table $table for changes...");
 
@@ -402,6 +416,15 @@ class LightDbSynchronizerService
 
         $columnNames = $mysqlInfoUtil->getColumnNames($table);
         $fileColumnNames = $fileInfo['columnNames'];
+        $this->fileColumnNames = $fileColumnNames;
+
+
+        $hasColumnOrderChange = false;
+        if ($fileColumnNames !== $columnNames) {
+            $hasColumnOrderChange = true;
+        }
+
+
         $currentEngine = $mysqlInfoUtil->getEngine($table);
 
 
@@ -419,9 +442,9 @@ class LightDbSynchronizerService
         // detect type changes
         $columnTypes = $mysqlInfoUtil->getColumnTypes($table, true);
         $columnTypes = $this->cleanColumnTypes($columnTypes);
+        $cleanFileInfoColumnTypes = $this->cleanColumnTypes($fileInfo['columnTypes']);
 
-
-        foreach ($fileInfo['columnTypes'] as $col => $type) {
+        foreach ($cleanFileInfoColumnTypes as $col => $type) {
             if (array_key_exists($col, $columnTypes)) {
                 if ($columnTypes[$col] !== $type) {
                     $columnsToModify[] = $col;
@@ -466,6 +489,7 @@ class LightDbSynchronizerService
             $renamedColumns = $renamedItems['column'];
             foreach ($renamedColumns as $renamedTable => $items) {
                 if ($table === $renamedTable) {
+
                     foreach ($items as $col => $val) {
 
 
@@ -475,10 +499,11 @@ class LightDbSynchronizerService
                         ) {
 
 
-                            $alterColRename[$col] = $this->getColDefinition($val, $fileInfo, "rename", [
+                            $statement = $this->getColDefinition($val, $fileInfo, "rename", [
                                 "oldName" => $col,
                             ]);
-                            $hasChangeInColumns = true;
+                            $alterColRename[$col] = $statement;
+                            $alterStmts[] = $statement;
 
                             unset($columnsToAdd[$index1]);
                             unset($columnsToRemove[$index2]);
@@ -495,39 +520,39 @@ class LightDbSynchronizerService
         $alterColUpdate = [];
 
 
-        /**
-         * Starting with drop in case you change the auto_incremented key, to make
-         * sure you don't try to add a second auto_incremented key.
-         * (not sure if it works like that, just a random guess).
-         */
         foreach ($columnsToRemove as $col) {
             $colDef = 'DROP COLUMN `' . $col . '`';
             $alterStmts[] = $colDef;
             $alterColRemove[$col] = $colDef;
-            $hasChangeInColumns = true;
         }
         foreach ($columnsToAdd as $col) {
             $colDef = $this->getColDefinition($col, $fileInfo);
             $alterStmts[] = $colDef;
             $alterColAdd[$col] = $colDef;
-            $hasChangeInColumns = true;
 
         }
         foreach ($columnsToModify as $col) {
             $colDef = $this->getColDefinition($col, $fileInfo, "update");
             $alterStmts[] = $colDef;
             $alterColUpdate[$col] = $colDef;
-            $hasChangeInColumns = true;
         }
 
 
         //--------------------------------------------
         // PRIMARY KEY CHANGE
         //--------------------------------------------
+        $pk = $mysqlInfoUtil->getPrimaryKey($table);
+        $tableHasPrimaryKey = false;
+        if (count($pk) > 0) {
+            $tableHasPrimaryKey = true;
+        }
+
+
         $alterPrimary = [];
         $newPrimaryKey = null; // if array, then alter, if null do nothing
         $dropPrimaryKey = false;
-        $pk = $mysqlInfoUtil->getPrimaryKey($table);
+
+
         if ($pk !== $fileInfo['pk']) {
             if (null === $fileInfo['pk']) {
                 $dropPrimaryKey = true;
@@ -536,7 +561,7 @@ class LightDbSynchronizerService
             }
         }
 
-        if (null !== $newPrimaryKey || true === $dropPrimaryKey) {
+        if (true === $tableHasPrimaryKey && (null !== $newPrimaryKey || true === $dropPrimaryKey)) {
             $s = "DROP PRIMARY KEY";
             $alterStmts[] = $s;
             $alterPrimary[] = $s;
@@ -557,7 +582,9 @@ class LightDbSynchronizerService
         list($uidToAdd, $uidToRemove, $uidToModify) = $this->getIndexDiff($uids, $fileInfo['uindDetails']);
 
         $this->addStatementsForIndex($uidToAdd, $uidToRemove, $uidToModify, $alterUniqueIndexes, true);
-        $alterStmts = array_unique(array_merge($alterStmts, $alterUniqueIndexes));
+        foreach ($alterUniqueIndexes as $_stmt) {
+            $alterStmts[] = $_stmt;
+        }
 
 
         //--------------------------------------------
@@ -567,7 +594,9 @@ class LightDbSynchronizerService
         $ids = $mysqlInfoUtil->getIndexesDetails($table);
         list($idToAdd, $idToRemove, $idToModify) = $this->getIndexDiff($ids, $fileInfo['indexes']);
         $this->addStatementsForIndex($idToAdd, $idToRemove, $idToModify, $alterIndexes, false);
-        $alterStmts = array_unique(array_merge($alterStmts, $alterIndexes));
+        foreach ($alterIndexes as $_stmt) {
+            $alterStmts[] = $_stmt;
+        }
 
 
         //--------------------------------------------
@@ -663,7 +692,7 @@ class LightDbSynchronizerService
         //--------------------------------------------
         // SYNCHRONIZATION ALGORITHM
         //--------------------------------------------
-        $atLeastOneChange = (count($alterStmts) > 0);
+        $atLeastOneChange = (count($alterStmts) > 0 || true === $hasColumnOrderChange);
         if (true === $atLeastOneChange) {
 
             $this->logDebug("Changes detected for table $table.");
@@ -699,126 +728,27 @@ class LightDbSynchronizerService
 
                     $this->logDebug("Table $table is not empty, resuming analysis...");
 
+                    $this->executeAlter($table, $alterStmts);
+
+
                     //--------------------------------------------
-                    // DETECT COLUMN CHANGES
+                    // SECOND PASS, SYNC COLUMN ORDER IF NECESSARY
                     //--------------------------------------------
-                    if (true === $hasChangeInColumns) {
-
-                        $this->logDebug("Column changes detected.");
-
-
-                        //--------------------------------------------
-                        // ALTERING COLUMN WHICH NAME DIDN'T CHANGE
-                        //--------------------------------------------
-                        if ($alterColUpdate) {
-                            $this->logDebug("Properties have changed for column(s): " . implode(', ', array_keys($alterColUpdate)) . ".");
-                            $this->executeAlter($table, $alterColUpdate);
+                    $freshColumnNames = $mysqlInfoUtil->getColumnNames($table);
+                    if ($fileColumnNames !== $freshColumnNames) {
+                        $orderAlterStmts = [];
+                        if (count($fileColumnNames) !== count($freshColumnNames)) {
+                            // this shouldn't happen, but if it does, i want to know about it
+                            $this->logError("Not the same number of columns, cannot compare them.");
                         }
-
-
-                        //--------------------------------------------
-                        // REMOVING COLUMNS
-                        //--------------------------------------------
-                        if ($alterColRemove) {
-                            $this->logDebug(count($alterColRemove) . " new column(s) to remove: " . implode(', ', array_keys($alterColRemove)) . ".");
-                            // all the columns from the old structure are still in the new structure
-                            $this->executeAlter($table, $alterColRemove);
+                        foreach ($fileColumnNames as $index => $col) {
+                            if ($freshColumnNames[$index] !== $col) {
+                                $orderAlterStmts[] = $this->getColDefinition($col, $fileInfo, 'update');
+                            }
                         }
-
-
-                        //--------------------------------------------
-                        // ADDING COLUMNS
-                        //--------------------------------------------
-                        if ($alterColAdd) {
-                            $this->logDebug(count($alterColAdd) . " new column(s) to add: " . implode(', ', array_keys($alterColAdd)) . ".");
-                            // all the columns from the old structure are still in the new structure
-                            $this->executeAlter($table, $alterColAdd);
-                        }
-
-
-                        //--------------------------------------------
-                        // RENAMING COLUMNS
-                        //--------------------------------------------
-                        if ($alterColRename) {
-                            $this->logDebug(count($alterColRename) . " column(s) to rename: " . implode(', ', array_keys($alterColRename)) . ".");
-                            // all the columns from the old structure are still in the new structure
-                            $this->executeAlter($table, $alterColRename);
-                        }
-
-
-                    } else {
-                        $this->logDebug("No column changes detected.");
+                        $this->executeAlter($table, $orderAlterStmts);
                     }
 
-
-                    //--------------------------------------------
-                    // PRIMARY KEY
-                    //--------------------------------------------
-                    if ($alterPrimary) {
-                        $this->logDebug("Primary key change detected.");
-
-                        /**
-                         * Note to myself:
-                         * this was not tested thoroughly since most primary key changes will lead to errors,
-                         * such as:
-                         *
-                         * - SQLSTATE[HY000]: General error: 1553 Cannot drop index 'PRIMARY': needed in a foreign key constraint
-                         *
-                         * which require the change in other plugins' tables in order to be fixed.
-                         * Since I'm using the point of view of one plugin author (which doesn't have access to the
-                         * other plugins tables), I didn't take the time to test all the cases
-                         * for the primary key.
-                         *
-                         * Change this when necessary.
-                         *
-                         *
-                         */
-                        $this->executeStatementByArray($table, $alterPrimary);
-                    } else {
-                        $this->logDebug("No primary key changes detected.");
-                    }
-
-
-                    //--------------------------------------------
-                    // UNIQUE INDEXES
-                    //--------------------------------------------
-                    if ($alterUniqueIndexes) {
-                        $this->logDebug("Unique index changes detected.");
-                        $this->executeStatementByArray($table, $alterUniqueIndexes);
-                    } else {
-                        $this->logDebug("No unique index changes detected.");
-                    }
-
-                    //--------------------------------------------
-                    // REGULAR INDEXES
-                    //--------------------------------------------
-                    if ($alterIndexes) {
-                        $this->logDebug("Regular index changes detected.");
-                        $this->executeStatementByArray($table, $alterIndexes);
-                    } else {
-                        $this->logDebug("No regular index changes detected.");
-                    }
-
-
-                    //--------------------------------------------
-                    // FOREIGN KEYS
-                    //--------------------------------------------
-                    if ($alterFks) {
-                        $this->logDebug("Foreign key changes detected.");
-                        $this->executeStatementByArray($table, $alterFks);
-                    } else {
-                        $this->logDebug("No foreign key changes detected.");
-                    }
-
-                    //--------------------------------------------
-                    // ENGINE
-                    //--------------------------------------------
-                    if ($alterEngine) {
-                        $this->logDebug("Engine change detected.");
-                        $this->executeStatementByArray($table, $alterEngine);
-                    } else {
-                        $this->logDebug("No engine change detected.");
-                    }
 
 
                 }
@@ -829,19 +759,9 @@ class LightDbSynchronizerService
             $this->logDebug("No changes detected for table $table.");
         }
 
+
     }
 
-
-    /**
-     * Execute the given statements.
-     *
-     * @param string $table
-     * @param array $stmts
-     */
-    private function executeStatementByArray(string $table, array $stmts)
-    {
-        $this->executeStatement('ALTER TABLE `' . $table . '` ' . PHP_EOL . implode(',' . PHP_EOL, $stmts));
-    }
 
     /**
      * Executes the given statement, and logs it if necessary.
@@ -989,18 +909,20 @@ class LightDbSynchronizerService
         foreach ($columnTypes as $col => $type) {
             if (preg_match('!([^(]+)\(([0-9]+)\)!', $type, $match)) {
                 $baseType = $match[1];
-                $maxDisplayWidth = $match[2];
+//                $maxDisplayWidth = $match[2];
+
+                /**
+                 * display width is deprecated as of MySQL 8.0.17,
+                 * therefore we don't care of it in previous version.
+                 * https://dev.mysql.com/doc/refman/8.0/en/numeric-type-attributes.html
+                 **/
                 switch ($baseType) {
                     case "int":
                     case "smallint":
                     case "mediumint":
                     case "bigint":
-                        $type = $baseType;
-                        break;
                     case "tinyint":
-                        if ('1' !== $maxDisplayWidth) {
-                            $type = $baseType;
-                        }
+                        $type = $baseType;
                         break;
                 }
             }
@@ -1064,6 +986,23 @@ class LightDbSynchronizerService
                 if ($col === $fileInfo['ai']) {
                     $s .= ' AUTO_INCREMENT';
                 }
+
+                if ($this->fileColumnNames) {
+                    $prev = null;
+                    foreach ($this->fileColumnNames as $colName) {
+                        if ($col === $colName) {
+                            if (null === $prev) {
+                                $s .= " FIRST";
+                            } else {
+                                $s .= " AFTER $prev";
+                            }
+                        }
+                        $prev = $colName;
+                    }
+
+                }
+
+
                 return $s;
             }
         }
@@ -1137,7 +1076,7 @@ class LightDbSynchronizerService
 
         $stopAtFirstError = $this->options['stopAtFirstError'] ?? false;
         if (true === $stopAtFirstError) {
-            throw new LightDbSynchronizerException("Interrupting execution of the script, by configuration (stopAtFirstError=true).");
+            throw new LightDbSynchronizerException("Interrupting execution of the script, by configuration (stopAtFirstError=true): $msg.");
         }
     }
 
@@ -1150,6 +1089,7 @@ class LightDbSynchronizerService
      */
     private function logDebug(string $msg)
     {
+
         $useDebug = $this->options['useDebug'] ?? false;
         if (true === $useDebug) {
             if (true === $this->container->has('logger')) {
@@ -1174,6 +1114,8 @@ class LightDbSynchronizerService
     {
         $alterStmt = "ALTER TABLE `$table`" . PHP_EOL;
         $alterStmt .= implode("," . PHP_EOL, $alterStmts);
+
+        $this->logDebug("Executing the following alter statement: $alterStmt.");
         $this->executeStatement($alterStmt);
     }
 

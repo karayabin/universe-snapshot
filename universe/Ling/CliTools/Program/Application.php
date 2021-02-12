@@ -107,10 +107,8 @@ class Application extends AbstractProgram
                 } catch (\Error $e) {
                     throw new ApplicationException($e->getMessage());
                 }
-
-
             } else {
-                throw new ApplicationException("Command $commandAlias not registered.");
+                $this->onCommandNotFound($commandAlias, $input, $output);
             }
         } else {
             throw new ApplicationException("The name of the command to execute was not found in the given command line.");
@@ -127,5 +125,21 @@ class Application extends AbstractProgram
     protected function onCommandInstantiated(CommandInterface $command)
     {
 
+    }
+
+    /**
+     * Hook called if a command was not found.
+     *
+     * By default, it throws an exception.
+     *
+     * @param string $commandAlias
+     * @param InputInterface $input
+     * @param OutputInterface $output
+     * @throws \Exception
+     * @overrideMe
+     */
+    protected function onCommandNotFound(string $commandAlias, InputInterface $input, OutputInterface $output)
+    {
+        throw new ApplicationException("Command $commandAlias not registered.");
     }
 }

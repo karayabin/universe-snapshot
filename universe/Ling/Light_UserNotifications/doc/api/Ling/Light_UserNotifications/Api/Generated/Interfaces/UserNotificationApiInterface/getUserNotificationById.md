@@ -7,7 +7,7 @@ UserNotificationApiInterface::getUserNotificationById
 
 
 
-UserNotificationApiInterface::getUserNotificationById — Returns the userNotification row identified by the given id.
+UserNotificationApiInterface::getUserNotificationById — Returns the user notification row identified by the given id.
 
 
 
@@ -21,7 +21,7 @@ abstract public [UserNotificationApiInterface::getUserNotificationById](https://
 
 
 
-Returns the userNotification row identified by the given id.
+Returns the user notification row identified by the given id.
 
 If the row is not found, this method's return depends on the throwNotFoundEx flag:
 - if true, the method throws an exception

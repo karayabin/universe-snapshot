@@ -46,7 +46,7 @@ Returns [CustomPermissionApiInterface](https://github.com/lingtalfi/Light_UserDa
 
 Source Code
 ===========
-See the source code for method [LightUserDatabaseApiFactory::getPermissionApi](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/LightUserDatabaseApiFactory.php#L99-L104)
+See the source code for method [LightUserDatabaseApiFactory::getPermissionApi](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/LightUserDatabaseApiFactory.php#L102-L108)
 
 
 See Also

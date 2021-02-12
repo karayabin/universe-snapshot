@@ -4,7 +4,7 @@
 
 The DbBackupFilesFetcherUtil class
 ================
-2019-04-03 --> 2019-07-18
+2019-04-03 --> 2020-12-08
 
 
 
@@ -70,13 +70,13 @@ class <span class="pl-k">DbBackupFilesFetcherUtil</span> extends [BackupFilesFet
 
 - Methods
     - public [__construct](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Util/DbBackupFilesFetcherUtil/__construct.md)() : void
-    - public [setDatabaseIdentifiers](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Util/DbBackupFilesFetcherUtil/setDatabaseIdentifiers.md)(?$identifiers) : void
+    - public [setDatabaseIdentifiers](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Util/DbBackupFilesFetcherUtil/setDatabaseIdentifiers.md)($identifiers) : void
     - protected [filterWithLast](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Util/DbBackupFilesFetcherUtil/filterWithLast.md)(array $nonNamed, int $last) : array
     - protected [onAllFilesReady](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Util/DbBackupFilesFetcherUtil/onAllFilesReady.md)(array &$files) : void
 
 - Inherited methods
     - public [BackupFilesFetcherUtil::setLast](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Util/BackupFilesFetcherUtil/setLast.md)(int $last) : void
-    - public [BackupFilesFetcherUtil::setNames](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Util/BackupFilesFetcherUtil/setNames.md)(?$names) : void
+    - public [BackupFilesFetcherUtil::setNames](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Util/BackupFilesFetcherUtil/setNames.md)($names) : void
     - public [BackupFilesFetcherUtil::setBackupDir](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Util/BackupFilesFetcherUtil/setBackupDir.md)(string $backupDir) : void
     - public [BackupFilesFetcherUtil::setExtension](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Util/BackupFilesFetcherUtil/setExtension.md)(string $extension) : void
     - public [BackupFilesFetcherUtil::fetch](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Util/BackupFilesFetcherUtil/fetch.md)() : array

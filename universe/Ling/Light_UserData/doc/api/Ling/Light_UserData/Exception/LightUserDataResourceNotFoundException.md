@@ -4,7 +4,7 @@
 
 The LightUserDataResourceNotFoundException class
 ================
-2019-09-27 --> 2020-11-20
+2019-09-27 --> 2021-02-11
 
 
 
@@ -22,7 +22,7 @@ Class synopsis
 ==============
 
 
-class <span class="pl-k">LightUserDataResourceNotFoundException</span> extends [LightUserDataException](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Exception/LightUserDataException.md) implements [\Throwable](http://php.net/manual/en/class.throwable.php) {
+class <span class="pl-k">LightUserDataResourceNotFoundException</span> extends [LightUserDataException](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Exception/LightUserDataException.md) implements [\Throwable](http://php.net/manual/en/class.throwable.php), [\Stringable](https://wiki.php.net/rfc/stringable) {
 
 - Inherited properties
     - protected  [Exception::$message](#property-message) =  ;

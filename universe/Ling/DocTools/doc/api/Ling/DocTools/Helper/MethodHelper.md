@@ -4,7 +4,7 @@
 
 The MethodHelper class
 ================
-2019-02-21 --> 2020-09-11
+2019-02-21 --> 2021-02-04
 
 
 
@@ -28,6 +28,7 @@ class <span class="pl-k">MethodHelper</span>  {
 - Methods
     - public static [getMethodReturnType](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Helper/MethodHelper/getMethodReturnType.md)([Ling\DocTools\Info\MethodInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/MethodInfo.md) $method, array $generatedItems2Url, ?[Ling\DocTools\Report\ReportInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface.md) $report = null) : string
     - public static [getMethodSignature](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Helper/MethodHelper/getMethodSignature.md)([Ling\DocTools\Info\MethodInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/MethodInfo.md) $method, array $generatedItems2Url, ?array $options = [], ?[Ling\DocTools\Report\ReportInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface.md) $report = null) : string
+    - private static [resolveType](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Helper/MethodHelper/resolveType.md)(ReflectionType $type, array $generatedItems2Url, [Ling\DocTools\Info\MethodInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/MethodInfo.md) $method, ReflectionParameter $parameter, ?[Ling\DocTools\Report\ReportInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface.md) $report = null) : string
 
 }
 
@@ -41,6 +42,7 @@ Methods
 
 - [MethodHelper::getMethodReturnType](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Helper/MethodHelper/getMethodReturnType.md) &ndash; Returns the method's return type, with links to class names when possible.
 - [MethodHelper::getMethodSignature](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Helper/MethodHelper/getMethodSignature.md) &ndash; Returns a method signature with links to class names when possible.
+- [MethodHelper::resolveType](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Helper/MethodHelper/resolveType.md) &ndash; Returns the type documentation part for the given type.
 
 
 

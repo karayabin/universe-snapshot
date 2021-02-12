@@ -90,6 +90,14 @@ Note: the created statement is based on my observations of the MysqlWorkBench ut
 History Log
 =============
 
+- 1.0.4 -- 2020-12-08
+
+    - Fix lpi-deps not using natsort.
+
+- 1.0.3 -- 2020-12-04
+
+    - Add lpi-deps.byml file
+
 - 1.0.2 -- 2019-07-23
 
     - fix typo 

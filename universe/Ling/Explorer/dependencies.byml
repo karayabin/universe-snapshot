@@ -1,2 +1,7 @@
-dependencies: []
+dependencies: 
+    Ling: 
+        - Bat
+        - BabyYaml
+    
+
 post_install: []

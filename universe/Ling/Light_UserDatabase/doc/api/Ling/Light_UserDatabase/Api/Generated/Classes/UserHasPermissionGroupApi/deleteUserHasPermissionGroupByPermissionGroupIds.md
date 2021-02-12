@@ -7,7 +7,7 @@ UserHasPermissionGroupApi::deleteUserHasPermissionGroupByPermissionGroupIds
 
 
 
-UserHasPermissionGroupApi::deleteUserHasPermissionGroupByPermissionGroupIds — Deletes the userHasPermissionGroup rows identified by the given permission_group_permission_group_ids.
+UserHasPermissionGroupApi::deleteUserHasPermissionGroupByPermissionGroupIds — Deletes the user has permission group rows identified by the given permission_group_ids.
 
 
 
@@ -21,7 +21,7 @@ public [UserHasPermissionGroupApi::deleteUserHasPermissionGroupByPermissionGroup
 
 
 
-Deletes the userHasPermissionGroup rows identified by the given permission_group_permission_group_ids.
+Deletes the user has permission group rows identified by the given permission_group_ids.
 
 
 
@@ -54,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [UserHasPermissionGroupApi::deleteUserHasPermissionGroupByPermissionGroupIds](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Classes/UserHasPermissionGroupApi.php#L282-L285)
+See the source code for method [UserHasPermissionGroupApi::deleteUserHasPermissionGroupByPermissionGroupIds](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Classes/UserHasPermissionGroupApi.php#L306-L309)
 
 
 See Also
@@ -62,5 +62,5 @@ See Also
 
 The [UserHasPermissionGroupApi](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/UserHasPermissionGroupApi.md) class.
 
-Previous method: [deleteUserHasPermissionGroupByUserIds](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/UserHasPermissionGroupApi/deleteUserHasPermissionGroupByUserIds.md)<br>
+Previous method: [deleteUserHasPermissionGroupByUserIds](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/UserHasPermissionGroupApi/deleteUserHasPermissionGroupByUserIds.md)<br>Next method: [deleteUserHasPermissionGroupByUserId](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/UserHasPermissionGroupApi/deleteUserHasPermissionGroupByUserId.md)<br>
 

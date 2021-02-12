@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [PhpSpreadSheetTool::createFileByRows](https://github.com/lingtalfi/PhpSpreadSheetTool/blob/master/doc/api/Ling/PhpSpreadSheetTool/PhpSpreadSheetTool/createFileByRows.md)(string $file, array $rows, array $options = []) : void
+public static [PhpSpreadSheetTool::createFileByRows](https://github.com/lingtalfi/PhpSpreadSheetTool/blob/master/doc/api/Ling/PhpSpreadSheetTool/PhpSpreadSheetTool/createFileByRows.md)(string $file, array $rows, ?array $options = []) : void
 
 
 

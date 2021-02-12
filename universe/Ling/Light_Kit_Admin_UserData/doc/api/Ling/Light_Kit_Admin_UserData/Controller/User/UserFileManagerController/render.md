@@ -51,7 +51,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [UserFileManagerController::render](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/Controller/User/UserFileManagerController.php#L22-L33)
+See the source code for method [UserFileManagerController::render](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/Controller/User/UserFileManagerController.php#L22-L27)
 
 
 See Also

@@ -4,7 +4,7 @@
 
 The LightTaskSchedulerException class
 ================
-2020-06-30 --> 2020-08-14
+2020-06-30 --> 2021-02-11
 
 
 
@@ -22,7 +22,7 @@ Class synopsis
 ==============
 
 
-class <span class="pl-k">LightTaskSchedulerException</span> extends [\Exception](http://php.net/manual/en/class.exception.php) implements [\Throwable](http://php.net/manual/en/class.throwable.php) {
+class <span class="pl-k">LightTaskSchedulerException</span> extends [\Exception](http://php.net/manual/en/class.exception.php) implements [\Stringable](https://wiki.php.net/rfc/stringable), [\Throwable](http://php.net/manual/en/class.throwable.php) {
 
 - Inherited properties
     - protected  [Exception::$message](#property-message) =  ;
@@ -54,4 +54,4 @@ See the source code of [Ling\Light_TaskScheduler\Exception\LightTaskSchedulerExc
 
 SeeAlso
 ==============
-Previous class: [LightTaskSchedulerApiFactory](https://github.com/lingtalfi/Light_TaskScheduler/blob/master/doc/api/Ling/Light_TaskScheduler/Api/Generated/LightTaskSchedulerApiFactory.md)<br>Next class: [LightTaskSchedulerService](https://github.com/lingtalfi/Light_TaskScheduler/blob/master/doc/api/Ling/Light_TaskScheduler/Service/LightTaskSchedulerService.md)<br>
+Previous class: [LightTaskSchedulerApiFactory](https://github.com/lingtalfi/Light_TaskScheduler/blob/master/doc/api/Ling/Light_TaskScheduler/Api/Generated/LightTaskSchedulerApiFactory.md)<br>Next class: [LightTaskSchedulerPluginInstaller](https://github.com/lingtalfi/Light_TaskScheduler/blob/master/doc/api/Ling/Light_TaskScheduler/Light_PluginInstaller/LightTaskSchedulerPluginInstaller.md)<br>

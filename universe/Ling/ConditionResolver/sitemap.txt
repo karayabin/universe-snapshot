@@ -1,0 +1,2 @@
+https://github.com/lingtalfi/ConditionResolver/blob/master/README.md
+https://github.com/lingtalfi/ConditionResolver/blob/master/doc/simple-conditions-language.md

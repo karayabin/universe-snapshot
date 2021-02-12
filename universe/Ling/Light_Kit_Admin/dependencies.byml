@@ -33,7 +33,6 @@ dependencies:
         - PhpSpreadSheetTool
         - Bootstrap4AdminTable
         - Light_PluginInstaller
-        - Light_LingStandardService
         - Kit_PicassoWidget
         - Chloroform_HeliumRenderer
         - FontAwesome

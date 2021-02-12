@@ -53,7 +53,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [LightUserDataAjaxHandler::doHandle](https://github.com/lingtalfi/Light_UserData/blob/master/AjaxHandler/LightUserDataAjaxHandler.php#L21-L44)
+See the source code for method [LightUserDataAjaxHandler::doHandle](https://github.com/lingtalfi/Light_UserData/blob/master/AjaxHandler/LightUserDataAjaxHandler.php#L22-L70)
 
 
 See Also

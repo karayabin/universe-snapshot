@@ -461,7 +461,15 @@ Friends
 
 History Log
 ------------------
-    
+
+- 3.2.2 -- 2020-12-08
+
+    - Fix lpi-deps not using natsort.
+
+- 3.2.1 -- 2020-12-04
+
+    - Add lpi-deps.byml file
+
 - 3.2.0 -- 2016-03-27
 
     - add postservice fetcher with tim handler

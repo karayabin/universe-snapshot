@@ -7,7 +7,7 @@ PermissionGroupApi::deletePermissionGroupByIds
 
 
 
-PermissionGroupApi::deletePermissionGroupByIds — Deletes the permissionGroup rows identified by the given ids.
+PermissionGroupApi::deletePermissionGroupByIds — Deletes the permission group rows identified by the given ids.
 
 
 
@@ -21,7 +21,7 @@ public [PermissionGroupApi::deletePermissionGroupByIds](https://github.com/lingt
 
 
 
-Deletes the permissionGroup rows identified by the given ids.
+Deletes the permission group rows identified by the given ids.
 
 
 
@@ -54,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [PermissionGroupApi::deletePermissionGroupByIds](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Classes/PermissionGroupApi.php#L409-L412)
+See the source code for method [PermissionGroupApi::deletePermissionGroupByIds](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Classes/PermissionGroupApi.php#L455-L458)
 
 
 See Also

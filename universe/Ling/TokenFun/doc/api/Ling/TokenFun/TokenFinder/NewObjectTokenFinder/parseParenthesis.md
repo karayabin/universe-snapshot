@@ -16,7 +16,7 @@ Description
 ================
 
 
-protected [NewObjectTokenFinder::parseParenthesis](https://github.com/lingtalfi/TokenFun/blob/master/doc/api/Ling/TokenFun/TokenFinder/NewObjectTokenFinder/parseParenthesis.md)([Ling\TokenFun\TokenArrayIterator\TokenArrayIteratorInterface](https://github.com/lingtalfi/TokenFun/blob/master/doc/api/Ling/TokenFun/TokenArrayIterator/TokenArrayIteratorInterface.md) $tai, &$found, &$start, &$ret) : bool
+protected [NewObjectTokenFinder::parseParenthesis](https://github.com/lingtalfi/TokenFun/blob/master/doc/api/Ling/TokenFun/TokenFinder/NewObjectTokenFinder/parseParenthesis.md)([Ling\TokenFun\TokenArrayIterator\TokenArrayIteratorInterface](https://github.com/lingtalfi/TokenFun/blob/master/doc/api/Ling/TokenFun/TokenArrayIterator/TokenArrayIteratorInterface.md) $tai, $found, $start, $ret) : bool
 
 
 

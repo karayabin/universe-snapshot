@@ -7,7 +7,7 @@ UserGroupApi::insertUserGroups
 
 
 
-UserGroupApi::insertUserGroups — Inserts the given userGroup rows in the database.
+UserGroupApi::insertUserGroups — Inserts the given user group rows in the database.
 
 
 
@@ -21,7 +21,7 @@ public [UserGroupApi::insertUserGroups](https://github.com/lingtalfi/Light_UserD
 
 
 
-Inserts the given userGroup rows in the database.
+Inserts the given user group rows in the database.
 By default, it returns an array of the result of the PDO::lastInsertId method for each insert.
 If the returnRic flag is set to true, the method will return an array of the ric array (for each insert) instead of the lastInsertId.
 
@@ -71,7 +71,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [UserGroupApi::insertUserGroups](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Classes/UserGroupApi.php#L92-L103)
+See the source code for method [UserGroupApi::insertUserGroups](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Classes/UserGroupApi.php#L98-L109)
 
 
 See Also
@@ -79,5 +79,5 @@ See Also
 
 The [UserGroupApi](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/UserGroupApi.md) class.
 
-Previous method: [insertUserGroup](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/UserGroupApi/insertUserGroup.md)<br>Next method: [getUserGroupById](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/UserGroupApi/getUserGroupById.md)<br>
+Previous method: [insertUserGroup](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/UserGroupApi/insertUserGroup.md)<br>Next method: [fetchAll](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/UserGroupApi/fetchAll.md)<br>
 

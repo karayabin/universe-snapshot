@@ -7,7 +7,7 @@ PermissionGroupApi::deletePermissionGroupByNames
 
 
 
-PermissionGroupApi::deletePermissionGroupByNames — Deletes the permissionGroup rows identified by the given names.
+PermissionGroupApi::deletePermissionGroupByNames — Deletes the permission group rows identified by the given names.
 
 
 
@@ -21,7 +21,7 @@ public [PermissionGroupApi::deletePermissionGroupByNames](https://github.com/lin
 
 
 
-Deletes the permissionGroup rows identified by the given names.
+Deletes the permission group rows identified by the given names.
 
 
 
@@ -54,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [PermissionGroupApi::deletePermissionGroupByNames](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Classes/PermissionGroupApi.php#L417-L420)
+See the source code for method [PermissionGroupApi::deletePermissionGroupByNames](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Classes/PermissionGroupApi.php#L463-L466)
 
 
 See Also
@@ -62,5 +62,5 @@ See Also
 
 The [PermissionGroupApi](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/PermissionGroupApi.md) class.
 
-Previous method: [deletePermissionGroupByIds](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/PermissionGroupApi/deletePermissionGroupByIds.md)<br>
+Previous method: [deletePermissionGroupByIds](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/PermissionGroupApi/deletePermissionGroupByIds.md)<br>Next method: [fetchRoutine](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/PermissionGroupApi/fetchRoutine.md)<br>
 

@@ -4,7 +4,7 @@
 
 The LightUserNotificationsException class
 ================
-2020-08-13 --> 2020-08-17
+2020-08-13 --> 2021-02-11
 
 
 
@@ -22,7 +22,7 @@ Class synopsis
 ==============
 
 
-class <span class="pl-k">LightUserNotificationsException</span> extends [\Exception](http://php.net/manual/en/class.exception.php) implements [\Throwable](http://php.net/manual/en/class.throwable.php) {
+class <span class="pl-k">LightUserNotificationsException</span> extends [\Exception](http://php.net/manual/en/class.exception.php) implements [\Stringable](https://wiki.php.net/rfc/stringable), [\Throwable](http://php.net/manual/en/class.throwable.php) {
 
 - Inherited properties
     - protected  [Exception::$message](#property-message) =  ;
@@ -54,4 +54,4 @@ See the source code of [Ling\Light_UserNotifications\Exception\LightUserNotifica
 
 SeeAlso
 ==============
-Previous class: [LightUserNotificationsApiFactory](https://github.com/lingtalfi/Light_UserNotifications/blob/master/doc/api/Ling/Light_UserNotifications/Api/Generated/LightUserNotificationsApiFactory.md)<br>Next class: [LightUserNotificationsService](https://github.com/lingtalfi/Light_UserNotifications/blob/master/doc/api/Ling/Light_UserNotifications/Service/LightUserNotificationsService.md)<br>
+Previous class: [LightUserNotificationsApiFactory](https://github.com/lingtalfi/Light_UserNotifications/blob/master/doc/api/Ling/Light_UserNotifications/Api/Generated/LightUserNotificationsApiFactory.md)<br>Next class: [LightUserNotificationsPluginInstaller](https://github.com/lingtalfi/Light_UserNotifications/blob/master/doc/api/Ling/Light_UserNotifications/Light_PluginInstaller/LightUserNotificationsPluginInstaller.md)<br>

@@ -58,7 +58,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [UserGroupHasPluginOptionApiInterface::getUserGroupHasPluginOptions](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Interfaces/UserGroupHasPluginOptionApiInterface.php#L104-L104)
+See the source code for method [UserGroupHasPluginOptionApiInterface::getUserGroupHasPluginOptions](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Interfaces/UserGroupHasPluginOptionApiInterface.php#L127-L127)
 
 
 See Also

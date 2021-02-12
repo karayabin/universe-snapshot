@@ -1,0 +1,2 @@
+https://github.com/lingtalfi/Ecp/blob/master/README.md
+https://github.com/lingtalfi/Ecp/blob/master/doc/ecp-protocol.md

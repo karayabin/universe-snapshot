@@ -1,9 +1,9 @@
 dependencies: 
     Ling: 
-        - Light_UserDatabase
         - Light
         - Light_Logger
         - Light_PluginInstaller
+        - Light_UserDatabase
         - UniverseTools
     
 

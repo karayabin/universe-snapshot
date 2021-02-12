@@ -4,7 +4,7 @@
 
 The EasyConsoleMenuHelper class
 ================
-2019-04-03 --> 2019-07-18
+2019-04-03 --> 2020-12-08
 
 
 
@@ -25,8 +25,8 @@ Class synopsis
 class <span class="pl-k">EasyConsoleMenuHelper</span>  {
 
 - Methods
-    - public static [getProjectsList](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Helper/EasyConsoleMenuHelper/getProjectsList.md)(string $deployConfPath = null) : array
-    - public static [getDatabaseIdentifiers](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Helper/EasyConsoleMenuHelper/getDatabaseIdentifiers.md)(string $project, string $deployConfPath = null) : array
+    - public static [getProjectsList](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Helper/EasyConsoleMenuHelper/getProjectsList.md)(?string $deployConfPath = null) : array
+    - public static [getDatabaseIdentifiers](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Helper/EasyConsoleMenuHelper/getDatabaseIdentifiers.md)(string $project, ?string $deployConfPath = null) : array
 
 }
 

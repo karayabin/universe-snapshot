@@ -71,7 +71,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::updateResourceByFileItems](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L952-L1146)
+See the source code for method [LightUserDataService::updateResourceByFileItems](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L884-L1078)
 
 
 See Also

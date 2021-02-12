@@ -7,7 +7,7 @@ UserNotificationApi::deleteUserNotificationByIds
 
 
 
-UserNotificationApi::deleteUserNotificationByIds — Deletes the userNotification rows identified by the given ids.
+UserNotificationApi::deleteUserNotificationByIds — Deletes the user notification rows identified by the given ids.
 
 
 
@@ -21,7 +21,7 @@ public [UserNotificationApi::deleteUserNotificationByIds](https://github.com/lin
 
 
 
-Deletes the userNotification rows identified by the given ids.
+Deletes the user notification rows identified by the given ids.
 
 
 
@@ -54,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [UserNotificationApi::deleteUserNotificationByIds](https://github.com/lingtalfi/Light_UserNotifications/blob/master/Api/Generated/Classes/UserNotificationApi.php#L295-L298)
+See the source code for method [UserNotificationApi::deleteUserNotificationByIds](https://github.com/lingtalfi/Light_UserNotifications/blob/master/Api/Generated/Classes/UserNotificationApi.php#L299-L302)
 
 
 See Also
@@ -62,5 +62,5 @@ See Also
 
 The [UserNotificationApi](https://github.com/lingtalfi/Light_UserNotifications/blob/master/doc/api/Ling/Light_UserNotifications/Api/Generated/Classes/UserNotificationApi.md) class.
 
-Previous method: [deleteUserNotificationById](https://github.com/lingtalfi/Light_UserNotifications/blob/master/doc/api/Ling/Light_UserNotifications/Api/Generated/Classes/UserNotificationApi/deleteUserNotificationById.md)<br>Next method: [fetchRoutine](https://github.com/lingtalfi/Light_UserNotifications/blob/master/doc/api/Ling/Light_UserNotifications/Api/Generated/Classes/UserNotificationApi/fetchRoutine.md)<br>
+Previous method: [deleteUserNotificationById](https://github.com/lingtalfi/Light_UserNotifications/blob/master/doc/api/Ling/Light_UserNotifications/Api/Generated/Classes/UserNotificationApi/deleteUserNotificationById.md)<br>Next method: [deleteUserNotificationByLudUserId](https://github.com/lingtalfi/Light_UserNotifications/blob/master/doc/api/Ling/Light_UserNotifications/Api/Generated/Classes/UserNotificationApi/deleteUserNotificationByLudUserId.md)<br>
 

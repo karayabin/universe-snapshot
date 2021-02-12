@@ -7,7 +7,7 @@ TaskScheduleApiInterface::updateTaskScheduleById
 
 
 
-TaskScheduleApiInterface::updateTaskScheduleById — Updates the taskSchedule row identified by the given id.
+TaskScheduleApiInterface::updateTaskScheduleById — Updates the task schedule row identified by the given id.
 
 
 
@@ -21,7 +21,7 @@ abstract public [TaskScheduleApiInterface::updateTaskScheduleById](https://githu
 
 
 
-Updates the taskSchedule row identified by the given id.
+Updates the task schedule row identified by the given id.
 
 
 

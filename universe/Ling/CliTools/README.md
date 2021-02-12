@@ -1,6 +1,6 @@
 CliTools
 ===========
-2019-02-22 -> 2020-12-04
+2019-02-22 -> 2021-02-04
 
 
 
@@ -72,6 +72,90 @@ and the [Symfony/Console](https://github.com/symfony/symfony/tree/master/src/Sym
 
 History Log
 =================
+
+- 1.10.25 -- 2021-02-04
+
+    - update QuestionHelper::askYesNo, now returns bool instead of string
+  
+- 1.10.24 -- 2021-02-02
+
+    - add QuestionHelper::askYesNo method
+  
+- 1.10.23 -- 2021-02-02
+
+    - update AbstractProgram->runProgram, made return type implicit for more flexibility
+  
+- 1.10.22 -- 2021-02-02
+
+    - update CommandInterface->run, made return type implicit again
+  
+- 1.10.21 -- 2021-02-02
+
+    - update CommandInterface->run, add return type
+  
+- 1.10.20 -- 2021-02-02
+
+    - update Application->runProgram, add return type
+  
+- 1.10.19 -- 2021-01-14
+
+    - update CommandLineInput, add precision about arguments in class comment.
+  
+- 1.10.18 -- 2021-01-14
+
+    - add CommandLineInputHelper::getCommandLineByInput method
+  
+- 1.10.17 -- 2021-01-14
+
+    - add CommandLineInputHelper::paramStringToArgv method
+  
+- 1.10.16 -- 2021-01-14
+
+    - add CommandLineInputHelper
+  
+- 1.10.15 -- 2021-01-12
+
+    - add BashtmlStringTool
+
+- 1.10.14 -- 2021-01-11
+
+    - update BashtmlFormatter, add setFormatMode method
+  
+- 1.10.13 -- 2021-01-08
+
+    - add WritableCommandLineInput class
+  
+- 1.10.12 -- 2021-01-07
+
+    - update CommandLineInput description
+  
+- 1.10.11 -- 2021-01-05
+
+    - update Application->onCommandNotFound, add input/output arguments
+  
+- 1.10.10 -- 2021-01-05
+
+    - update Application, add onCommandNotFound hook
+
+- 1.10.9 -- 2020-12-31
+
+    - update BashtmlFormatter to update Bat 1.297
+  
+- 1.10.8 -- 2020-12-14
+
+    - update BashtmlFormatter, now automatically uses nl2br when in a browser context
+  
+- 1.10.7 -- 2020-12-14
+
+    - update BashtmlFormatter, now renders html tags when in html environment
+  
+- 1.10.6 -- 2020-12-08
+
+    - Fix lpi-deps not using natsort.
+
+- 1.10.5 -- 2020-12-04
+
+    - Add lpi-deps.byml file
 
 - 1.10.4 -- 2020-12-04
 

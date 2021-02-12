@@ -7,9 +7,11 @@ https://github.com/lingtalfi/Bat/blob/master/CommentTool.md
 https://github.com/lingtalfi/Bat/blob/master/ConsoleTool.md
 https://github.com/lingtalfi/Bat/blob/master/ConvertTool.md
 https://github.com/lingtalfi/Bat/blob/master/CookieTool.md
+https://github.com/lingtalfi/Bat/blob/master/CurrentProcessTool.md
 https://github.com/lingtalfi/Bat/blob/master/DateTool.md
 https://github.com/lingtalfi/Bat/blob/master/DebugTool.md
 https://github.com/lingtalfi/Bat/blob/master/ExceptionTool.md
+https://github.com/lingtalfi/Bat/blob/master/FileListTool.md
 https://github.com/lingtalfi/Bat/blob/master/FileSystemTool.md
 https://github.com/lingtalfi/Bat/blob/master/FileTool.md
 https://github.com/lingtalfi/Bat/blob/master/HashTool.md

@@ -16,7 +16,7 @@ Description
 ================
 
 
-protected [SimpleCurl::curlRequest](https://github.com/lingtalfi/SimpleCurl/blob/master/doc/api/Ling/SimpleCurl/SimpleCurl/curlRequest.md)(string $url, array $curlOptions = []) : [SimpleCurlResponseInterface](https://github.com/lingtalfi/SimpleCurl/blob/master/doc/api/Ling/SimpleCurl/Response/SimpleCurlResponseInterface.md) | false
+protected [SimpleCurl::curlRequest](https://github.com/lingtalfi/SimpleCurl/blob/master/doc/api/Ling/SimpleCurl/SimpleCurl/curlRequest.md)(string $url, ?array $curlOptions = []) : [SimpleCurlResponseInterface](https://github.com/lingtalfi/SimpleCurl/blob/master/doc/api/Ling/SimpleCurl/Response/SimpleCurlResponseInterface.md) | false
 
 
 

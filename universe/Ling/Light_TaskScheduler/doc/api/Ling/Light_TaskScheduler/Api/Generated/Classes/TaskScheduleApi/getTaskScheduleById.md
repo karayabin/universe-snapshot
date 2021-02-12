@@ -7,7 +7,7 @@ TaskScheduleApi::getTaskScheduleById
 
 
 
-TaskScheduleApi::getTaskScheduleById — Returns the taskSchedule row identified by the given id.
+TaskScheduleApi::getTaskScheduleById — Returns the task schedule row identified by the given id.
 
 
 
@@ -21,7 +21,7 @@ public [TaskScheduleApi::getTaskScheduleById](https://github.com/lingtalfi/Light
 
 
 
-Returns the taskSchedule row identified by the given id.
+Returns the task schedule row identified by the given id.
 
 If the row is not found, this method's return depends on the throwNotFoundEx flag:
 - if true, the method throws an exception
@@ -66,7 +66,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [TaskScheduleApi::getTaskScheduleById](https://github.com/lingtalfi/Light_TaskScheduler/blob/master/Api/Generated/Classes/TaskScheduleApi.php#L140-L154)
+See the source code for method [TaskScheduleApi::getTaskScheduleById](https://github.com/lingtalfi/Light_TaskScheduler/blob/master/Api/Generated/Classes/TaskScheduleApi.php#L144-L158)
 
 
 See Also

@@ -1,6 +1,6 @@
 Light Service Container
 ================
-2019-07-17 -> 2020-12-03
+2019-07-17 -> 2021-02-09
 
 
 
@@ -26,7 +26,7 @@ Configuration
 
 
 ### The configuration structure
-2019-07-17 
+2019-07-17 -> 2021-02-09
 
 
 
@@ -51,6 +51,14 @@ The **config/services** directory contains the so-called **service configuration
 to add to the (service) container. 
 
 All **service configuration files** should have the **.byml** file extension, which is the extension for babyYaml files.
+
+
+All **service configuration files** should be direct children of the **config/services** directory, no recursion allowed.
+
+The directories found inside the **config/services** are reserved for the [environment sensitive files](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/environments.md).
+
+If your service needs extra configuration like data, use the **config/data** directory (see the [light application recommended structure](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/light-application-recommended-structure.md)) document for more details.
+
 
 By convention, if the service configuration file is brought by a third-party plugin, the configuration file
 has the same name as the plugin. So for instance if the plugin is **Light_ReverseRouter**, then the corresponding

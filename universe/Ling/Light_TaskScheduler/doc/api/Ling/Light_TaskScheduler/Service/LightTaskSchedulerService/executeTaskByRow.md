@@ -49,7 +49,7 @@ Returns false | mixed.
 
 Source Code
 ===========
-See the source code for method [LightTaskSchedulerService::executeTaskByRow](https://github.com/lingtalfi/Light_TaskScheduler/blob/master/Service/LightTaskSchedulerService.php#L199-L241)
+See the source code for method [LightTaskSchedulerService::executeTaskByRow](https://github.com/lingtalfi/Light_TaskScheduler/blob/master/Service/LightTaskSchedulerService.php#L182-L224)
 
 
 See Also

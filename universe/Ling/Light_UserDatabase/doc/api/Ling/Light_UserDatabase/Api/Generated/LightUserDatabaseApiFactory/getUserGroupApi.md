@@ -46,7 +46,7 @@ Returns [CustomUserGroupApiInterface](https://github.com/lingtalfi/Light_UserDat
 
 Source Code
 ===========
-See the source code for method [LightUserDatabaseApiFactory::getUserGroupApi](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/LightUserDatabaseApiFactory.php#L63-L68)
+See the source code for method [LightUserDatabaseApiFactory::getUserGroupApi](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/LightUserDatabaseApiFactory.php#L63-L69)
 
 
 See Also

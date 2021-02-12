@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [CSRFProtector::startSession](https://github.com/lingtalfi/CSRFTools/blob/master/CSRFProtector.php#L305-L315)
+See the source code for method [CSRFProtector::startSession](https://github.com/lingtalfi/CSRFTools/blob/master/CSRFProtector.php#L304-L314)
 
 
 See Also

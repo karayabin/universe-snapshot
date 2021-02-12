@@ -1,6 +1,6 @@
 Ling/Light_Kit_Admin_UserDatabase
 ================
-2020-06-25 --> 2020-12-01
+2020-06-25 --> 2021-01-29
 
 
 
@@ -125,13 +125,17 @@ Table of contents
     - [LightKitAdminUserDatabaseControllerHubHandler::handle](https://github.com/lingtalfi/Light_Kit_Admin_UserDatabase/blob/master/doc/api/Ling/Light_Kit_Admin_UserDatabase/Light_ControllerHub/Generated/LightKitAdminUserDatabaseControllerHubHandler/handle.md) &ndash; Process the given controllerIdentifier and returns an appropriate http response.
     - LightBaseControllerHubHandler::__construct &ndash; Builds the LightKitAdminControllerHubHandler instance.
     - LightBaseControllerHubHandler::setContainer &ndash; Sets the light service container interface.
+- [LightKitAdminUserDatabasePluginInstaller](https://github.com/lingtalfi/Light_Kit_Admin_UserDatabase/blob/master/doc/api/Ling/Light_Kit_Admin_UserDatabase/Light_PluginInstaller/LightKitAdminUserDatabasePluginInstaller.md) &ndash; The LightKitAdminUserDatabasePluginInstaller class.
+    - LightKitAdminBasePortPluginInstallerWithDatabase::__construct &ndash; Builds the LightKitAdminBasePluginInstallerWithDatabase instance.
+    - LightKitAdminBasePortPluginInstallerWithDatabase::install &ndash; Installs the plugin in the light application.
+    - LightKitAdminBasePortPluginInstallerWithDatabase::isInstalled &ndash; Returns whether the core install phase of the plugin is fully completed.
+    - LightKitAdminBasePortPluginInstallerWithDatabase::uninstall &ndash; Uninstalls the plugin.
+    - LightKitAdminBasePortPluginInstallerWithDatabase::getDependencies &ndash; Returns the array of dependencies.
+    - LightBasePluginInstaller::setContainer &ndash; Sets the container.
+    - LightBasePluginInstaller::getTableScope &ndash; Returns the [table scope](https://github.com/lingtalfi/TheBar/blob/master/discussions/table-scope.md) for this planet.
 - [LightKitAdminUserDatabaseService](https://github.com/lingtalfi/Light_Kit_Admin_UserDatabase/blob/master/doc/api/Ling/Light_Kit_Admin_UserDatabase/Service/LightKitAdminUserDatabaseService.md) &ndash; The LightKitAdminUserDatabaseService class.
     - [LightKitAdminUserDatabaseService::__construct](https://github.com/lingtalfi/Light_Kit_Admin_UserDatabase/blob/master/doc/api/Ling/Light_Kit_Admin_UserDatabase/Service/LightKitAdminUserDatabaseService/__construct.md) &ndash; Builds the LightKitAdminUserDataService instance.
     - [LightKitAdminUserDatabaseService::setContainer](https://github.com/lingtalfi/Light_Kit_Admin_UserDatabase/blob/master/doc/api/Ling/Light_Kit_Admin_UserDatabase/Service/LightKitAdminUserDatabaseService/setContainer.md) &ndash; Sets the container.
-    - [LightKitAdminUserDatabaseService::install](https://github.com/lingtalfi/Light_Kit_Admin_UserDatabase/blob/master/doc/api/Ling/Light_Kit_Admin_UserDatabase/Service/LightKitAdminUserDatabaseService/install.md) &ndash; Installs the plugin in the light application.
-    - [LightKitAdminUserDatabaseService::uninstall](https://github.com/lingtalfi/Light_Kit_Admin_UserDatabase/blob/master/doc/api/Ling/Light_Kit_Admin_UserDatabase/Service/LightKitAdminUserDatabaseService/uninstall.md) &ndash; Uninstalls the plugin.
-    - [LightKitAdminUserDatabaseService::isInstalled](https://github.com/lingtalfi/Light_Kit_Admin_UserDatabase/blob/master/doc/api/Ling/Light_Kit_Admin_UserDatabase/Service/LightKitAdminUserDatabaseService/isInstalled.md) &ndash; Returns whether the core install phase of the plugin is fully completed.
-    - [LightKitAdminUserDatabaseService::getDependencies](https://github.com/lingtalfi/Light_Kit_Admin_UserDatabase/blob/master/doc/api/Ling/Light_Kit_Admin_UserDatabase/Service/LightKitAdminUserDatabaseService/getDependencies.md) &ndash; Returns the array of dependencies.
     - [LightKitAdminUserDatabaseService::inject](https://github.com/lingtalfi/Light_Kit_Admin_UserDatabase/blob/master/doc/api/Ling/Light_Kit_Admin_UserDatabase/Service/LightKitAdminUserDatabaseService/inject.md) &ndash; Injects menu fragments in the given menu, knowing the "menuStructureId" context.
 
 
@@ -151,7 +155,6 @@ Dependencies
 - [Light_ControllerHub](https://github.com/lingtalfi/Light_ControllerHub)
 - [BabyYaml](https://github.com/lingtalfi/BabyYaml)
 - [Light_BMenu](https://github.com/lingtalfi/Light_BMenu)
-- [Light_PluginInstaller](https://github.com/lingtalfi/Light_PluginInstaller)
 - [Light_UserData](https://github.com/lingtalfi/Light_UserData)
 
 

@@ -7,7 +7,7 @@ UserGroupApiInterface::deleteUserGroupByName
 
 
 
-UserGroupApiInterface::deleteUserGroupByName — Deletes the userGroup identified by the given name.
+UserGroupApiInterface::deleteUserGroupByName — Deletes the user group identified by the given name.
 
 
 
@@ -21,7 +21,7 @@ abstract public [UserGroupApiInterface::deleteUserGroupByName](https://github.co
 
 
 
-Deletes the userGroup identified by the given name.
+Deletes the user group identified by the given name.
 
 
 
@@ -54,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [UserGroupApiInterface::deleteUserGroupByName](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Interfaces/UserGroupApiInterface.php#L252-L252)
+See the source code for method [UserGroupApiInterface::deleteUserGroupByName](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Interfaces/UserGroupApiInterface.php#L316-L316)
 
 
 See Also

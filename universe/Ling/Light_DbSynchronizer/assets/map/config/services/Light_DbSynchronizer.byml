@@ -6,7 +6,7 @@ db_synchronizer:
         setOptions:
             options:
                 useDebug: true          # default is true
-                stopAtFirstError: false # default is false
+                stopAtFirstError: true # default is false
 
 
 # --------------------------------------

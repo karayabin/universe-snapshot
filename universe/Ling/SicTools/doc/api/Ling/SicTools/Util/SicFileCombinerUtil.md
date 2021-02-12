@@ -4,7 +4,7 @@
 
 The SicFileCombinerUtil class
 ================
-2019-04-25 --> 2020-08-17
+2019-04-25 --> 2021-02-09
 
 
 
@@ -282,7 +282,8 @@ class <span class="pl-k">SicFileCombinerUtil</span>  {
     - public [setLazyOverrideSymbol](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/Util/SicFileCombinerUtil/setLazyOverrideSymbol.md)(string $lazyOverrideSymbol) : void
     - public [setVariableSymbol](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/Util/SicFileCombinerUtil/setVariableSymbol.md)(string $variableSymbol) : void
     - public [setEnvironmentVariables](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/Util/SicFileCombinerUtil/setEnvironmentVariables.md)(array $environmentVariables) : [SicFileCombinerUtil](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/Util/SicFileCombinerUtil.md)
-    - public [combine](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/Util/SicFileCombinerUtil/combine.md)(string $directory) : array
+    - public [combine](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/Util/SicFileCombinerUtil/combine.md)(string $directory, ?array $options = []) : array
+    - private [injectLazyVars](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/Util/SicFileCombinerUtil/injectLazyVars.md)(array $lazyVars, array &$ret) : void
 
 }
 
@@ -328,6 +329,7 @@ Methods
 - [SicFileCombinerUtil::setVariableSymbol](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/Util/SicFileCombinerUtil/setVariableSymbol.md) &ndash; Sets the variableSymbol.
 - [SicFileCombinerUtil::setEnvironmentVariables](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/Util/SicFileCombinerUtil/setEnvironmentVariables.md) &ndash; Sets the environmentVariables.
 - [SicFileCombinerUtil::combine](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/Util/SicFileCombinerUtil/combine.md) &ndash; Combines the babyYaml files found in the given directory, and returns the resulting array.
+- [SicFileCombinerUtil::injectLazyVars](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/Util/SicFileCombinerUtil/injectLazyVars.md) &ndash; Injects the lazy vars into the ret array.
 
 
 

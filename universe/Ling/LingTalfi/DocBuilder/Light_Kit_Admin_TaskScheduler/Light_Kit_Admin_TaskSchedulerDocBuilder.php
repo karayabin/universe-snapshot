@@ -83,6 +83,8 @@ class Light_Kit_Admin_TaskSchedulerDocBuilder
                 "Ling\Light_LingStandardService\Service\LightLingStandardServiceKitAdminPlugin",
                 "Ling\Light_Kit_Admin\Service\LightKitAdminStandardServicePlugin",
                 "Ling\Light_Kit_Admin\Controller\RealAdminPageController",
+                "Ling\Light_Kit_Admin\Light_PluginInstaller\LightKitAdminBasePortPluginInstallerWithDatabase",
+                "Ling\Light_PluginInstaller\PluginInstaller\LightBasePluginInstaller",
 
             ],
             /**
@@ -160,6 +162,7 @@ class Light_Kit_Admin_TaskSchedulerDocBuilder
                 "the realist plugin" => "https://github.com/lingtalfi/Light_Realist/",
                 "the late service registration design" => "https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/design/late-service-registration.md",
                 "late registration concept" => "https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/design/late-service-registration.md",
+                "light standard permissions" => "https://github.com/lingtalfi/TheBar/blob/master/discussions/light-standard-permissions.md",
             ],
             /**
              * An array of external classes to url.
@@ -191,6 +194,8 @@ class Light_Kit_Admin_TaskSchedulerDocBuilder
                 "Ling\Light_Realform\Service\LightRealformLateServiceRegistrationInterface" => "https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Service/LightRealformLateServiceRegistrationInterface.md",
                 "Ling\Light_Kit_Admin\Controller\RealAdminPageController" => "https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/RealAdminPageController.md",
                 "Ling\Light\ServiceContainer\LightServiceContainerAwareInterface" => "https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerAwareInterface.md",
+                "Ling\Light_Kit_Admin\Light_PluginInstaller\LightKitAdminBasePortPluginInstallerWithDatabase" => "https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_PluginInstaller/LightKitAdminBasePortPluginInstallerWithDatabase.md",
+                "Ling\Light_PluginInstaller\TableScope\TableScopeAwareInterface" => "https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/TableScope/TableScopeAwareInterface.md",
 
 
             ],

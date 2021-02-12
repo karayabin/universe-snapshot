@@ -83,6 +83,14 @@ Related
 History Log
 =============
 
+- 1.5.5 -- 2020-12-08
+
+    - Fix lpi-deps not using natsort.
+
+- 1.5.4 -- 2020-12-04
+
+    - Add lpi-deps.byml file
+
 - 1.5.3 -- 2020-09-14
 
     - fix WebsiteUserManager.getValidWebsiteUser erroneous signature

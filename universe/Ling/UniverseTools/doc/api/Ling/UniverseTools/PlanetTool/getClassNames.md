@@ -87,7 +87,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [PlanetTool::getClassNames](https://github.com/lingtalfi/UniverseTools/blob/master/PlanetTool.php#L58-L128)
+See the source code for method [PlanetTool::getClassNames](https://github.com/lingtalfi/UniverseTools/blob/master/PlanetTool.php#L125-L195)
 
 
 See Also
@@ -95,5 +95,5 @@ See Also
 
 The [PlanetTool](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/PlanetTool.md) class.
 
-Next method: [getPlanetDirs](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/PlanetTool/getPlanetDirs.md)<br>
+Previous method: [getPlanetDirByPlanetDotName](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/PlanetTool/getPlanetDirByPlanetDotName.md)<br>Next method: [getPlanetDirs](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/PlanetTool/getPlanetDirs.md)<br>
 

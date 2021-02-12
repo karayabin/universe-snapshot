@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [SpinKitHelperService::render](https://github.com/lingtalfi/Light_SpinKitHelper/blob/master/doc/api/Ling/Light_SpinKitHelper/SpinKitHelperService/render.md)(string $style = null, string $color = null) : string
+public [SpinKitHelperService::render](https://github.com/lingtalfi/Light_SpinKitHelper/blob/master/doc/api/Ling/Light_SpinKitHelper/SpinKitHelperService/render.md)(?string $style = null, ?string $color = null) : string
 
 
 

@@ -4,7 +4,7 @@
 
 The SpinKitHelperService class
 ================
-2019-08-29 --> 2019-08-30
+2019-08-29 --> 2020-12-08
 
 
 
@@ -34,7 +34,7 @@ class <span class="pl-k">SpinKitHelperService</span>  {
     - public [setContainer](https://github.com/lingtalfi/Light_SpinKitHelper/blob/master/doc/api/Ling/Light_SpinKitHelper/SpinKitHelperService/setContainer.md)([Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) $container) : void
     - public [setDefaultStyle](https://github.com/lingtalfi/Light_SpinKitHelper/blob/master/doc/api/Ling/Light_SpinKitHelper/SpinKitHelperService/setDefaultStyle.md)(string $defaultStyle) : void
     - public [setDefaultColor](https://github.com/lingtalfi/Light_SpinKitHelper/blob/master/doc/api/Ling/Light_SpinKitHelper/SpinKitHelperService/setDefaultColor.md)(string $defaultColor) : void
-    - public [render](https://github.com/lingtalfi/Light_SpinKitHelper/blob/master/doc/api/Ling/Light_SpinKitHelper/SpinKitHelperService/render.md)(string $style = null, string $color = null) : string
+    - public [render](https://github.com/lingtalfi/Light_SpinKitHelper/blob/master/doc/api/Ling/Light_SpinKitHelper/SpinKitHelperService/render.md)(?string $style = null, ?string $color = null) : string
 
 }
 

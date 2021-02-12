@@ -63,7 +63,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [UserGroupApi::getUserGroupsColumn](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Classes/UserGroupApi.php#L187-L192)
+See the source code for method [UserGroupApi::getUserGroupsColumn](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Classes/UserGroupApi.php#L223-L228)
 
 
 See Also

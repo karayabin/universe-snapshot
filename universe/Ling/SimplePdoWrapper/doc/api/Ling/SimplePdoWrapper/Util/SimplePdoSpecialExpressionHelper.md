@@ -4,7 +4,7 @@
 
 The SimplePdoSpecialExpressionHelper class
 ================
-2019-07-22 --> 2020-11-17
+2019-07-22 --> 2020-12-08
 
 
 

@@ -4,7 +4,7 @@
 
 The FormatterInterface class
 ================
-2019-02-26 --> 2020-12-04
+2019-02-26 --> 2021-02-04
 
 
 
@@ -54,4 +54,4 @@ See the source code of [Ling\CliTools\Formatter\FormatterInterface](https://gith
 
 SeeAlso
 ==============
-Previous class: [DumbFormatter](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Formatter/DumbFormatter.md)<br>Next class: [QuestionHelper](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Helper/QuestionHelper.md)<br>
+Previous class: [DumbFormatter](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Formatter/DumbFormatter.md)<br>Next class: [BashtmlStringTool](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Helper/BashtmlStringTool.md)<br>

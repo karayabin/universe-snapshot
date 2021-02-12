@@ -40,6 +40,14 @@ try {
 History Log
 ===============
 
+- 1.0.2 -- 2020-12-08
+
+    - Fix lpi-deps not using natsort.
+
+- 1.0.1 -- 2020-12-04
+
+    - Add lpi-deps.byml file
+
 - 1.0.0 -- 2016-12-22
 
     - initial commit

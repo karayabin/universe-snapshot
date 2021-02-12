@@ -1,0 +1,2 @@
+https://github.com/lingtalfi/GuiAdminTable/blob/master/README.md
+https://github.com/lingtalfi/GuiAdminTable/blob/master/doc/morphic-layer-brainstorm.md

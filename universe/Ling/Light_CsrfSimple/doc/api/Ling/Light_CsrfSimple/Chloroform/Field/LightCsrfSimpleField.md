@@ -4,7 +4,7 @@
 
 The LightCsrfSimpleField class
 ================
-2019-11-07 --> 2019-12-09
+2019-11-07 --> 2020-12-08
 
 
 
@@ -52,11 +52,14 @@ class <span class="pl-k">LightCsrfSimpleField</span> extends [HiddenField](https
     - public AbstractField::validates($value) : bool
     - public AbstractField::getErrors() : array
     - public AbstractField::setValue($value) : Ling\Chloroform\Field\AbstractField
+    - public AbstractField::getFormattedValue() : mixed
     - public AbstractField::getFallbackValue() : mixed
     - public AbstractField::toArray() : array
     - public AbstractField::hasVeryImportantData() : bool
     - public AbstractField::getDataTransformer() : [DataTransformerInterface](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/DataTransformer/DataTransformerInterface.md) | null
     - public AbstractField::setDataTransformer([Ling\Chloroform\DataTransformer\DataTransformerInterface](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/DataTransformer/DataTransformerInterface.md) $dataTransformer) : [FieldInterface](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/FieldInterface.md)
+    - public AbstractField::setProperties(array $properties) : void
+    - public AbstractField::setProperty(string $name, $value) : void
     - public AbstractField::setId(string $id) : Ling\Chloroform\Field\AbstractField
     - public AbstractField::setFallbackValue($fallbackValue) : void
     - public AbstractField::setLabel(string $label) : Ling\Chloroform\Field\AbstractField
@@ -168,11 +171,14 @@ Methods
 - AbstractField::validates &ndash; Tests and returns whether every validator attached to this instanced passed.
 - AbstractField::getErrors &ndash; Returns an array of error messages.
 - AbstractField::setValue &ndash; Sets the value for this instance.
+- AbstractField::getFormattedValue &ndash; Returns the formatted value of this field.
 - AbstractField::getFallbackValue &ndash; Returns the fallback value, which defaults to null.
 - AbstractField::toArray &ndash; Returns the array representation of the field.
 - AbstractField::hasVeryImportantData &ndash; Returns whether this field contains [very important data](https://github.com/lingtalfi/Chloroform/blob/master/doc/pages/chloroform-discussion.md#the-concept-of-very-important-data).
 - AbstractField::getDataTransformer &ndash; Returns the data transformer of this field if any, or null otherwise.
 - AbstractField::setDataTransformer &ndash; Sets the dataTransformer for this field.
+- AbstractField::setProperties &ndash; Sets the properties of this field.
+- AbstractField::setProperty &ndash; Sets a property to this field.
 - AbstractField::setId &ndash; Sets the id.
 - AbstractField::setFallbackValue &ndash; Sets the fallbackValue.
 - AbstractField::setLabel &ndash; Sets the label.

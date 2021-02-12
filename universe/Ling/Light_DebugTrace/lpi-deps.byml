@@ -1,0 +1,23 @@
+1.0.0: 
+    - Ling:BabyYaml:1.7.5+
+    - Ling:Bat:1.293+
+    - Ling:Light:0.69.18+
+    - Ling:Light_CsrfSession:1.0.3+
+    - Ling:Light_CsrfSimple:1.2.3+
+    - Ling:Light_Events:1.9.5+
+
+1.0.1: 
+    - Ling:BabyYaml:1.7.5+
+    - Ling:Bat:1.293+
+    - Ling:Light:0.69.18+
+    - Ling:Light_CsrfSession:1.0.3+
+    - Ling:Light_CsrfSimple:1.2.3+
+    - Ling:Light_Events:1.9.5+
+
+1.0.2: 
+    - Ling:BabyYaml:1.7.5+
+    - Ling:Bat:1.293+
+    - Ling:Light:0.69.18+
+    - Ling:Light_CsrfSession:1.0.3+
+    - Ling:Light_CsrfSimple:1.2.3+
+    - Ling:Light_Events:1.9.5+

@@ -1,6 +1,6 @@
 Light_Kit_Admin_UserPreferences
 ===========
-2020-08-13 -> 2020-11-27
+2020-08-13 -> 2021-01-29
 
 
 
@@ -84,14 +84,6 @@ kit_admin_user_preferences:
 # --------------------------------------
 # hooks
 # --------------------------------------
-$plugin_installer.methods_collection: 
-    - 
-        method: registerPlugin
-        args: 
-            plugin: Light_Kit_Admin_UserPreferences
-            installer: @service(kit_admin_user_preferences)
-        
-    
 
 $bmenu.methods_collection: 
     - 
@@ -137,6 +129,18 @@ $micro_permission.methods_collection:
 
 History Log
 =============
+
+- 1.2.5 -- 2021-01-29
+
+    - adapt to work with new Light_PluginInstaller api
+
+- 1.2.4 -- 2020-12-08
+
+    - Fix lpi-deps not using natsort
+
+- 1.2.3 -- 2020-12-04
+
+    - Add lpi-deps.byml file
 
 - 1.2.2 -- 2020-12-01
 

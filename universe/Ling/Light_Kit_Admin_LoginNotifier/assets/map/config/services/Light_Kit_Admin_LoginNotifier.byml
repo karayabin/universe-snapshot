@@ -9,13 +9,7 @@ kit_admin_login_notifier:
 # --------------------------------------
 # hooks
 # --------------------------------------
-$plugin_installer.methods_collection: 
-    - 
-        method: registerPlugin
-        args: 
-            plugin: Light_Kit_Admin_LoginNotifier
-            installer: @service(kit_admin_login_notifier)
-        
+
     
 
 $bmenu.methods_collection: 

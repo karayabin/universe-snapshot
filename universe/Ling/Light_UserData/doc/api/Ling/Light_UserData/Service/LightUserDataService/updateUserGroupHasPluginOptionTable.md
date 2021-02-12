@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::updateUserGroupHasPluginOptionTable](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L1252-L1271)
+See the source code for method [LightUserDataService::updateUserGroupHasPluginOptionTable](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L1380-L1399)
 
 
 See Also

@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [FilesHelper::removeFilesByName](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Helper/FilesHelper/removeFilesByName.md)(string $rootDir, ?$names) : void
+public static [FilesHelper::removeFilesByName](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Helper/FilesHelper/removeFilesByName.md)(string $rootDir, $names) : void
 
 
 

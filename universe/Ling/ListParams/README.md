@@ -439,7 +439,15 @@ Related
 
 History Log
 ------------------
-    
+
+- 1.10.6 -- 2020-12-08
+
+    - Fix lpi-deps not using natsort.
+
+- 1.10.5 -- 2020-12-04
+
+    - Add lpi-deps.byml file
+
 - 1.10.4 -- 2017-10-04
 
     - fix PaginationFrame::createByOptions incorrect currentPage  

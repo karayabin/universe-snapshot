@@ -4,7 +4,7 @@
 
 The ParentChildItem class
 ================
-2019-09-10 --> 2019-09-10
+2019-09-10 --> 2020-12-08
 
 
 
@@ -33,7 +33,7 @@ class <span class="pl-k">ParentChildItem</span>  {
     - public [setName](https://github.com/lingtalfi/ParentChild/blob/master/doc/api/Ling/ParentChild/ParentChildItem/setName.md)(string $name) : void
     - public [getName](https://github.com/lingtalfi/ParentChild/blob/master/doc/api/Ling/ParentChild/ParentChildItem/getName.md)() : string
     - public [addChild](https://github.com/lingtalfi/ParentChild/blob/master/doc/api/Ling/ParentChild/ParentChildItem/addChild.md)([Ling\ParentChild\ParentChildItem](https://github.com/lingtalfi/ParentChild/blob/master/doc/api/Ling/ParentChild/ParentChildItem.md) $item) : void
-    - public [getChildren](https://github.com/lingtalfi/ParentChild/blob/master/doc/api/Ling/ParentChild/ParentChildItem/getChildren.md)() : [ParentChildItem[]](https://github.com/lingtalfi/ParentChild/blob/master/doc/api/Ling/ParentChild/ParentChildItem.md)
+    - public [getChildren](https://github.com/lingtalfi/ParentChild/blob/master/doc/api/Ling/ParentChild/ParentChildItem/getChildren.md)() : [ParentChildItem](https://github.com/lingtalfi/ParentChild/blob/master/doc/api/Ling/ParentChild/ParentChildItem.md)
 
 }
 

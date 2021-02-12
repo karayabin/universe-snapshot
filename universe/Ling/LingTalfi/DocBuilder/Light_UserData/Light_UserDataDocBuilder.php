@@ -83,8 +83,8 @@ class Light_UserDataDocBuilder
                 "Ling\Light_AjaxHandler\Handler\ContainerAwareLightAjaxHandler",
                 "Ling\TemporaryVirtualFileSystem\TemporaryVirtualFileSystem",
                 "Ling\Light_SimpleHttpServer\Controller\LightSimpleHttpServerController",
-
-
+                "Ling\Light_PluginInstaller\PluginInstaller\LightBasePluginInstaller",
+                "Ling\Light_UserDatabase\Light_PluginInstaller\LightUserDatabaseBasePluginInstaller",
             ],
             /**
              * Your project start date.
@@ -185,6 +185,7 @@ class Light_UserDataDocBuilder
                 'filename' => 'https://github.com/lingtalfi/NotationFan/blob/master/filename-basename.md',
                 'default file/new file concept' => $conception . '#the-source-file',
                 'user data file manager document' => $doc . '/pages/user-data-file-manager.md',
+                'light standard permissions' => "https://github.com/lingtalfi/TheBar/blob/master/discussions/light-standard-permissions.md",
             ],
             /**
              * An array of external classes to url.
@@ -224,8 +225,9 @@ class Light_UserDataDocBuilder
                 "Ling\Light_PluginInstaller\PluginInstaller\PluginPostInstallerInterface" => "https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/PluginInstaller/PluginPostInstallerInterface.md",
                 "Ling\Light_UserData\FileManager\LightUserDataFileManagerHandler" => "https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/FileManager/LightUserDataFileManagerHandler.md",
                 "Ling\Light_SimpleHttpServer\Controller\LightSimpleHttpServerController" => "https://github.com/lingtalfi/Light_SimpleHttpServer/blob/master/doc/api/Ling/Light_SimpleHttpServer/Controller/LightSimpleHttpServerController.md",
-
-
+                "Ling\Light_PluginInstaller\PluginInstaller\LightBasePluginInstaller" => "https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/PluginInstaller/LightBasePluginInstaller.md",
+                "Ling\Light_PluginInstaller\TableScope\TableScopeAwareInterface" => "https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/TableScope/TableScopeAwareInterface.md",
+                "Ling\Light_UserDatabase\Light_PluginInstaller\LightUserDatabaseBasePluginInstaller" => "https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Light_PluginInstaller/LightUserDatabaseBasePluginInstaller.md",
 
             ],
         ];

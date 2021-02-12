@@ -4,7 +4,7 @@
 
 The PluginInstallerExtensionInterface class
 ================
-2020-02-07 --> 2020-07-31
+2020-02-07 --> 2020-12-08
 
 
 

@@ -44,4 +44,27 @@ class QuestionHelper
         }
         return $line;
     }
+
+
+    /**
+     * Asks the given question to the user, repeats it until the answer is either y or n, and returns whether the answer was y.
+     * If it's something else, ask to try again until the answer is y or n.
+     *
+     * @param OutputInterface $output
+     * @param string $question
+     * @return bool
+     */
+    public static function askYesNo(OutputInterface $output, string $question): bool
+    {
+        $userResponse = false;
+        self::ask($output, $question . ' (y/n)', function ($response) use (&$userResponse, $output) {
+            if (true === in_array($response, ['y', 'n'], true)) {
+                $userResponse = $response;
+                return true;
+            }
+            $output->write("<error>Invalid answer, try again (y/n).</error>" . PHP_EOL);
+            return false;
+        });
+        return ('y' === $userResponse);
+    }
 }

@@ -63,7 +63,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::createFileItems](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L1323-L1346)
+See the source code for method [LightUserDataService::createFileItems](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L1232-L1255)
 
 
 See Also

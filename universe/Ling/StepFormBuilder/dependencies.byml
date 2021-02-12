@@ -1,6 +1,7 @@
 dependencies: 
     Ling: 
         - Bat
+        - OnTheFlyForm
     
 
 post_install: []

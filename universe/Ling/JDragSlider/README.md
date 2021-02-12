@@ -236,7 +236,15 @@ void        dragSlider (jHandle, string:closestParentSelector, bool:isHorizontal
 
 History Log
 ------------------
-    
+
+- 1.1.2 -- 2020-12-08
+
+    - Fix lpi-deps not using natsort.
+
+- 1.1.1 -- 2020-12-04
+
+    - Add lpi-deps.byml file
+
 - 1.1.0 -- 2016-03-07
 
     - add optional callback triggered when the drag ends

@@ -7,7 +7,7 @@ UserNotificationApi::deleteUserNotificationById
 
 
 
-UserNotificationApi::deleteUserNotificationById — Deletes the userNotification identified by the given id.
+UserNotificationApi::deleteUserNotificationById — Deletes the user notification identified by the given id.
 
 
 
@@ -21,7 +21,7 @@ public [UserNotificationApi::deleteUserNotificationById](https://github.com/ling
 
 
 
-Deletes the userNotification identified by the given id.
+Deletes the user notification identified by the given id.
 
 
 
@@ -54,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [UserNotificationApi::deleteUserNotificationById](https://github.com/lingtalfi/Light_UserNotifications/blob/master/Api/Generated/Classes/UserNotificationApi.php#L282-L288)
+See the source code for method [UserNotificationApi::deleteUserNotificationById](https://github.com/lingtalfi/Light_UserNotifications/blob/master/Api/Generated/Classes/UserNotificationApi.php#L286-L292)
 
 
 See Also

@@ -1,6 +1,6 @@
 Ling/CliTools
 ================
-2019-02-26 --> 2020-12-04
+2019-02-26 --> 2021-02-04
 
 
 
@@ -15,13 +15,22 @@ Table of contents
 - [InvalidContextException](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Exception/InvalidContextException.md) &ndash;          probably meaning that it was executed from a web context instead of a cli context.
 - [BashtmlFormatter](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Formatter/BashtmlFormatter.md) &ndash; The BashtmlFormatter class.
     - [BashtmlFormatter::__construct](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Formatter/BashtmlFormatter/__construct.md) &ndash; Builds the BashtmlFormatter instance.
+    - [BashtmlFormatter::setFormatMode](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Formatter/BashtmlFormatter/setFormatMode.md) &ndash; Sets the format mode.
     - [BashtmlFormatter::format](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Formatter/BashtmlFormatter/format.md) &ndash; Parses the given $expression and returns its formatted/interpreted version.
 - [DumbFormatter](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Formatter/DumbFormatter.md) &ndash; The DumbFormatter class.
     - [DumbFormatter::format](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Formatter/DumbFormatter/format.md) &ndash; Parses the given $expression and returns its formatted/interpreted version.
 - [FormatterInterface](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Formatter/FormatterInterface.md) &ndash; The FormatterInterface interface.
     - [FormatterInterface::format](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Formatter/FormatterInterface/format.md) &ndash; Parses the given $expression and returns its formatted/interpreted version.
+- [BashtmlStringTool](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Helper/BashtmlStringTool.md) &ndash; The BashtmlStringTool class.
+    - [BashtmlStringTool::fixTrimmedStringFormatting](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Helper/BashtmlStringTool/fixTrimmedStringFormatting.md) &ndash; then it can happen that the bashtml formatting of the trimmed string is incorrect, leading to bleeding formatting.
+    - [BashtmlStringTool::removeLastIncompleteTag](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Helper/BashtmlStringTool/removeLastIncompleteTag.md) &ndash; Returns the given string, after removing an incomplete bashtml tag if it ends the given string.
+- [CommandLineInputHelper](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Helper/CommandLineInputHelper.md) &ndash; The CommandLineInputHelper class.
+    - [CommandLineInputHelper::getInputWritableCopy](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Helper/CommandLineInputHelper/getInputWritableCopy.md) &ndash; Returns a WritableCommandLineInput instance, copy of the given input.
+    - [CommandLineInputHelper::paramStringToArgv](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Helper/CommandLineInputHelper/paramStringToArgv.md) &ndash; Returns the argv array version of the given param string.
+    - [CommandLineInputHelper::getCommandLineByInput](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Helper/CommandLineInputHelper/getCommandLineByInput.md) &ndash; Returns the [command line input](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Input/CommandLineInput.md) version of the [command line](https://github.com/lingtalfi/CliTools/blob/master/doc/pages/command-line.md) from the given input.
 - [QuestionHelper](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Helper/QuestionHelper.md) &ndash; The QuestionHelper class.
     - [QuestionHelper::ask](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Helper/QuestionHelper/ask.md) &ndash; Asks the given $question to the $user, and returns the answer (string).
+    - [QuestionHelper::askYesNo](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Helper/QuestionHelper/askYesNo.md) &ndash; Asks the given question to the user, repeats it until the answer is either y or n, and returns whether the answer was y.
 - [VirginiaMessageHelper](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Helper/VirginiaMessageHelper.md) &ndash; The VirginiaMessageHelper class.
     - [VirginiaMessageHelper::success](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Helper/VirginiaMessageHelper/success.md) &ndash; Writes a success message to the output.
     - [VirginiaMessageHelper::info](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Helper/VirginiaMessageHelper/info.md) &ndash; Writes an info message to the output.
@@ -64,6 +73,17 @@ Table of contents
     - [InputInterface::getParameters](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Input/InputInterface/getParameters.md) &ndash; Returns the list of all parameters, in the order they were written.
     - [InputInterface::getOptions](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Input/InputInterface/getOptions.md) &ndash; Returns the list of all options (key/value pairs), in the order they were written.
     - [InputInterface::getFlags](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Input/InputInterface/getFlags.md) &ndash; Returns the list of all flags, in the order they were written.
+- [WritableCommandLineInput](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Input/WritableCommandLineInput.md) &ndash; The WritableCommandLineInput class.
+    - [WritableCommandLineInput::setFlags](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Input/WritableCommandLineInput/setFlags.md) &ndash; Sets the flags.
+    - [WritableCommandLineInput::setOptions](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Input/WritableCommandLineInput/setOptions.md) &ndash; Sets the options.
+    - [WritableCommandLineInput::setParameters](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Input/WritableCommandLineInput/setParameters.md) &ndash; Sets the parameters.
+    - [CommandLineInput::__construct](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Input/CommandLineInput/__construct.md) &ndash; Builds the class instance.
+    - [AbstractInput::hasFlag](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Input/AbstractInput/hasFlag.md) &ndash; Returns whether the flag $flagName was set.
+    - [AbstractInput::getOption](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Input/AbstractInput/getOption.md) &ndash; Returns the value of the option $optionName if set, or the $default value if the option was not defined.
+    - [AbstractInput::getParameter](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Input/AbstractInput/getParameter.md) &ndash; Returns the value of the parameter at index $index, or the $default value if no parameter was defined for the given index.
+    - [AbstractInput::getParameters](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Input/AbstractInput/getParameters.md) &ndash; Returns the list of all parameters, in the order they were written.
+    - [AbstractInput::getOptions](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Input/AbstractInput/getOptions.md) &ndash; Returns the list of all options (key/value pairs), in the order they were written.
+    - [AbstractInput::getFlags](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Input/AbstractInput/getFlags.md) &ndash; Returns the list of all flags, in the order they were written.
 - [BufferedOutput](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Output/BufferedOutput.md) &ndash; The BufferedOutput class.
     - [BufferedOutput::__construct](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Output/BufferedOutput/__construct.md) &ndash; Builds the Output instance.
     - [BufferedOutput::write](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Output/BufferedOutput/write.md) &ndash; Writes a message to the output.
@@ -110,6 +130,7 @@ Table of contents
 
 Dependencies
 ============
+- [Bat](https://github.com/lingtalfi/Bat)
 - [UniversalLogger](https://github.com/lingtalfi/UniversalLogger)
 
 

@@ -59,6 +59,7 @@ $modals = $this->copilot->getModals()
 
 
     <link rel="stylesheet" href="/plugins/Light_Kit_Admin/zeroadmin/css/style.css">
+    <link rel="stylesheet" href="/plugins/Light_Kit_Admin/zeroadmin/css/my_colors.css">
 
     <?php if (true === "deprecated, remove me"): ?>
         <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>

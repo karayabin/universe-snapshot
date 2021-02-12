@@ -13,6 +13,8 @@ namespace Ling\BeeFramework\Notation\Reflection\ReflectionParameterUtil;
 
 use Ling\BeeFramework\Notation\Variable\InlineVariableUtil\Adaptor\PhpDocInlineVariableUtilAdaptor;
 use Ling\BeeFramework\Notation\Variable\InlineVariableUtil\InlineVariableUtil;
+use ReflectionNamedType;
+use ReflectionUnionType;
 
 
 /**
@@ -44,11 +46,22 @@ class ReflectionParameterUtil
     public function getParameterAsString(\ReflectionParameter $parameter)
     {
         $words = [];
-        if ($parameter->isArray()) {
-            $words[] = 'array';
-        }
-        elseif (null !== $class = $parameter->getClass()) {
-            $words[] = $class->getName();
+
+        $type = $parameter->getType();
+        if (null !== $type) {
+            if ($type instanceof ReflectionUnionType) {
+                $types = $type->getTypes();
+                $unionTypes = [];
+                foreach ($types as $namedType) {
+                    $unionTypes[] = $namedType->getName();
+                }
+                $words[] = implode("|", $unionTypes);
+
+            } elseif ($type instanceof ReflectionNamedType) {
+                $words[] = $type->getName();
+            } else {
+                throw new \RuntimeException("This code needs more love.");
+            }
         }
 
         $var = '';
@@ -76,7 +89,7 @@ class ReflectionParameterUtil
     {
         return $this->getInlineVarUtil()->toString($arg);
     }
-    
+
     protected function getInlineVarUtil()
     {
         if (null === $this->inlineVarUtil) {

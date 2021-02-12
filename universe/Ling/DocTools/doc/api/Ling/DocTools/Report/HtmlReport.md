@@ -4,7 +4,7 @@
 
 The HtmlReport class
 ================
-2019-02-21 --> 2020-09-11
+2019-02-21 --> 2021-02-04
 
 
 
@@ -25,7 +25,7 @@ Class synopsis
 ==============
 
 
-class <span class="pl-k">HtmlReport</span> extends [AbstractReport](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/AbstractReport.md) implements [ReportInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface.md) {
+class <span class="pl-k">HtmlReport</span> extends [AbstractReport](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/AbstractReport.md) implements [ReportInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface.md), [\Stringable](https://wiki.php.net/rfc/stringable) {
 
 - Properties
     - protected string [$template](#property-template) ;

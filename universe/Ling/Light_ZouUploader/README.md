@@ -44,6 +44,14 @@ Summary
 History Log
 =============
 
+- 1.1.3 -- 2020-12-08
+
+    - Fix lpi-deps not using natsort.
+
+- 1.1.2 -- 2020-12-04
+
+    - Add lpi-deps.byml file
+
 - 1.1.1 -- 2020-04-20
 
     - fix ZouUploader->isUploaded trying to unlink the file with move option 

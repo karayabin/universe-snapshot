@@ -44,14 +44,5 @@ $logger.methods_collection:
                             file: ${app_dir}/log/task_scheduler_debug.txt
                         
                     
-                
 
-
-$plugin_installer.methods_collection: 
-    - 
-        method: registerPlugin
-        args: 
-            plugin: Light_TaskScheduler
-            installer: @service(task_scheduler)
-        
     

@@ -1,6 +1,6 @@
 Light_Kit_Admin_TaskScheduler
 ===========
-2020-07-31 -> 2020-12-01
+2020-07-31 -> 2021-01-29
 
 
 
@@ -118,15 +118,7 @@ $micro_permission.methods_collection:
         args: 
             file: ${app_dir}/config/data/Light_Kit_Admin_TaskScheduler/Light_MicroPermission/kit_admin_task_scheduler.profile.generated.byml
         
-    
 
-$plugin_installer.methods_collection: 
-    - 
-        method: registerPlugin
-        args: 
-            plugin: Light_Kit_Admin_TaskScheduler
-            installer: @service(kit_admin_task_scheduler)
-        
     
 ```
 
@@ -135,6 +127,18 @@ $plugin_installer.methods_collection:
 History Log
 =============
 
+
+- 1.5.6 -- 2021-01-29
+
+    - adapt to work with new Light_PluginInstaller api
+  
+- 1.5.5 -- 2020-12-08
+
+    - Fix lpi-deps not using natsort
+
+- 1.5.4 -- 2020-12-04
+
+    - Add lpi-deps.byml file
 
 - 1.5.3 -- 2020-12-01
 

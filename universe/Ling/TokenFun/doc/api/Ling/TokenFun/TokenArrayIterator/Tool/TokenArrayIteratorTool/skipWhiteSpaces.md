@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [TokenArrayIteratorTool::skipWhiteSpaces](https://github.com/lingtalfi/TokenFun/blob/master/TokenArrayIterator/Tool/TokenArrayIteratorTool.php#L323-L330)
+See the source code for method [TokenArrayIteratorTool::skipWhiteSpaces](https://github.com/lingtalfi/TokenFun/blob/master/TokenArrayIterator/Tool/TokenArrayIteratorTool.php#L334-L341)
 
 
 See Also

@@ -16,7 +16,7 @@ Description
 ================
 
 
-protected [ClassParser::getPropertySignature](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/ClassParser/ClassParser/getPropertySignature.md)([\ReflectionProperty](http://php.net/manual/en/class.reflectionproperty.php) $property) : string
+protected [ClassParser::getPropertySignature](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/ClassParser/ClassParser/getPropertySignature.md)(ReflectionProperty $property) : string
 
 
 
@@ -49,7 +49,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [ClassParser::getPropertySignature](https://github.com/lingtalfi/DocTools/blob/master/ClassParser/ClassParser.php#L888-L903)
+See the source code for method [ClassParser::getPropertySignature](https://github.com/lingtalfi/DocTools/blob/master/ClassParser/ClassParser.php#L895-L910)
 
 
 See Also

@@ -4,7 +4,7 @@
 
 The LightException class
 ================
-2019-04-09 --> 2020-12-03
+2019-04-09 --> 2021-02-11
 
 
 
@@ -22,7 +22,7 @@ Class synopsis
 ==============
 
 
-class <span class="pl-k">LightException</span> extends [\Exception](http://php.net/manual/en/class.exception.php) implements [\Throwable](http://php.net/manual/en/class.throwable.php) {
+class <span class="pl-k">LightException</span> extends [\Exception](http://php.net/manual/en/class.exception.php) implements [\Stringable](https://wiki.php.net/rfc/stringable), [\Throwable](http://php.net/manual/en/class.throwable.php) {
 
 - Properties
     - protected string|null [$lightErrorCode](#property-lightErrorCode) ;
@@ -34,7 +34,7 @@ class <span class="pl-k">LightException</span> extends [\Exception](http://php.n
     - protected  [Exception::$line](#property-line) ;
 
 - Methods
-    - public [__construct](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Exception/LightException/__construct.md)(?$message = , ?$code = 0, ?[\Throwable](http://php.net/manual/en/class.throwable.php) $previous = null) : void
+    - public [__construct](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Exception/LightException/__construct.md)(?$message = , ?$code = 0, ?Throwable $previous = null) : void
     - public static [create](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Exception/LightException/create.md)(?string $message = , ?string $lightErrorCode = null) : [LightException](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Exception/LightException.md)
     - public [setLightErrorCode](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Exception/LightException/setLightErrorCode.md)(string $lightErrorCode) : [LightException](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Exception/LightException.md)
     - public [getLightErrorCode](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Exception/LightException/getLightErrorCode.md)() : string | null

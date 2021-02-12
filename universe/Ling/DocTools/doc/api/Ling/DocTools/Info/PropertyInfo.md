@@ -4,7 +4,7 @@
 
 The PropertyInfo class
 ================
-2019-02-21 --> 2020-09-11
+2019-02-21 --> 2021-02-04
 
 
 
@@ -44,7 +44,7 @@ class <span class="pl-k">PropertyInfo</span> implements [InfoInterface](https://
     - public [setVisibility](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/PropertyInfo/setVisibility.md)(string $visibility) : void
     - public [getDeclaringClass](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/PropertyInfo/getDeclaringClass.md)() : string
     - public [getReflectionProperty](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/PropertyInfo/getReflectionProperty.md)() : [ReflectionProperty](http://php.net/manual/en/class.reflectionproperty.php)
-    - public [setReflectionProperty](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/PropertyInfo/setReflectionProperty.md)([\ReflectionProperty](http://php.net/manual/en/class.reflectionproperty.php) $reflectionProperty) : void
+    - public [setReflectionProperty](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/PropertyInfo/setReflectionProperty.md)(ReflectionProperty $reflectionProperty) : void
     - public [getDefaultValue](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/PropertyInfo/getDefaultValue.md)() : string | null
     - public [getType](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/PropertyInfo/getType.md)() : string | null
     - public [setType](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/PropertyInfo/setType.md)(string $type) : void

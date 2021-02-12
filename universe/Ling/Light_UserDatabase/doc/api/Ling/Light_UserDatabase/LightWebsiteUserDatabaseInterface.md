@@ -4,7 +4,7 @@
 
 The LightWebsiteUserDatabaseInterface class
 ================
-2019-07-19 --> 2020-11-09
+2019-07-19 --> 2021-02-11
 
 
 
@@ -84,4 +84,4 @@ See the source code of [Ling\Light_UserDatabase\LightWebsiteUserDatabaseInterfac
 
 SeeAlso
 ==============
-Previous class: [LightUserDatabaseInterface](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/LightUserDatabaseInterface.md)<br>Next class: [MysqlLightWebsiteUserDatabase](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/MysqlLightWebsiteUserDatabase.md)<br>
+Previous class: [LightUserDatabaseInterface](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/LightUserDatabaseInterface.md)<br>Next class: [LightUserDatabaseBasePluginInstaller](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Light_PluginInstaller/LightUserDatabaseBasePluginInstaller.md)<br>

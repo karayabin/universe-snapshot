@@ -303,7 +303,14 @@ class LightEventsService
     {
         if (null === $this->_bashtmlFormatter) {
             $this->_bashtmlFormatter = new BashtmlFormatter();
+            $this->_bashtmlFormatter->setFormatMode("cli");
         }
-        return $this->_bashtmlFormatter->format("<$format>$msg</$format>");
+
+        if ('' !== $format) {
+            $expr = "<$format>$msg</$format>";
+        } else {
+            $expr = $msg;
+        }
+        return $this->_bashtmlFormatter->format($expr);
     }
 }

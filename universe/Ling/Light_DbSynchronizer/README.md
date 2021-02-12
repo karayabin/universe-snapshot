@@ -1,10 +1,10 @@
 Light_DbSynchronizer
 ===========
-2020-06-19 -> 2020-08-11
+2020-06-19 -> 2021-02-11
 
 
 
-A semi-automated tool to synchronize your database with a create file.
+A semi-automated tool to synchronize your database with a "create" file.
 
 
 This is a [Light plugin](https://github.com/lingtalfi/Light/blob/master/doc/pages/plugin.md).
@@ -90,6 +90,39 @@ $logger.methods_collection:
 
 History Log
 =============
+  
+- 1.2.8 -- 2021-02-11
+
+    - fix non synchronized dependencies between uni style and lpi style
+  
+- 1.2.7 -- 2021-02-11
+
+    - fix service not declaring dependency to Light_DatabaseInfo planet
+  
+- 1.2.6 -- 2021-01-25
+
+    - update LightDbSynchronizerHelper::synchronizePlanetCreateFile, add scope option
+  
+- 1.2.5 -- 2021-01-25
+
+    - update LightDbSynchronizerService, fix primary key remove/create problems, add column order detection feature
+  
+- 1.2.4 -- 2021-01-25
+
+    - update conception notes, add clarifications
+  
+- 1.2.3 -- 2021-01-22
+
+    - add LightDbSynchronizerHelper class
+    - fix LightDbSynchronizerService not handling rename column statements correctly, fix tinyint display width triggering a stale sync
+  
+- 1.2.2 -- 2020-12-08
+
+    - Fix lpi-deps not using natsort.
+
+- 1.2.1 -- 2020-12-04
+
+    - Add lpi-deps.byml file
 
 - 1.2.0 -- 2020-08-11
 

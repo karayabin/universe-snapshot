@@ -1,6 +1,6 @@
 Light_TaskScheduler
 ===========
-2020-07-27 -> 2020-08-14
+2020-07-27 -> 2021-02-11
 
 
 
@@ -102,6 +102,26 @@ $logger.methods_collection:
 
 History Log
 =============
+
+- 1.1.5 -- 2021-02-11
+  
+    - update api, plugin installer now extends LightUserDatabaseBasePluginInstaller
+  
+- 1.1.4 -- 2021-01-28
+
+    - checkpoint commit
+  
+- 1.1.3 -- 2021-01-26
+
+    - update for new Light_PluginInstaller api
+
+- 1.1.2 -- 2020-12-08
+
+    - Fix lpi-deps not using natsort.
+
+- 1.1.1 -- 2020-12-04
+
+    - Add lpi-deps.byml file
 
 - 1.1.0 -- 2020-08-14
 

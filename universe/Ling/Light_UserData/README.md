@@ -1,6 +1,6 @@
 Light_UserData
 ===========
-2019-09-27 -> 2020-11-20
+2019-09-27 -> 2021-02-11
 
 
 
@@ -102,15 +102,6 @@ $events.methods_collection:
                 callable_method: onUserGroupCreate
 
 
-$plugin_installer.methods_collection:
-    -
-        method: registerPlugin
-        args:
-            plugin: Light_UserData
-            installer: @service(user_data)
-
-
-
 $realform_handler_alias_helper.methods_collection:
     -
         method: registerRealformHandlerAliasHelper
@@ -136,6 +127,26 @@ $realform_handler_alias_helper.methods_collection:
 
 History Log
 =============
+
+- 1.19.9 -- 2021-02-11
+
+  - update api, plugin installer now extends LightUserDatabaseBasePluginInstaller
+  
+- 1.19.8 -- 2021-01-29
+
+    - update LightUserDataPluginInstaller, enhance install/uninstall debug messages
+  
+- 1.19.7 -- 2021-01-28
+
+    - adapt api to work with new Light_PluginInstaller api
+  
+- 1.19.6 -- 2020-12-08
+
+    - Fix lpi-deps not using natsort.
+
+- 1.19.5 -- 2020-12-04
+
+    - Add lpi-deps.byml file
 
 - 1.19.4 -- 2020-11-20
 

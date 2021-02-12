@@ -2,6 +2,7 @@ dependencies:
     Ling: 
         - Bat
         - QuickPdo
+        - Icons
     
 
 post_install: []

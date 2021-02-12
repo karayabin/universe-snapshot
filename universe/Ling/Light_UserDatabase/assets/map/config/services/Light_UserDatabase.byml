@@ -57,12 +57,13 @@ $file_watcher.methods_collection:
 
 
 
-$plugin_installer.methods_collection:
+$table_prefix_info.methods_collection:
     -
-        method: registerPlugin
+        method: registerPrefixInfo
         args:
-            plugin: Light_UserDatabase
-            installer: @service(user_database)
+            prefix: lud
+            info:
+                planetId: Ling/Light_UserDatabase
 
 
 

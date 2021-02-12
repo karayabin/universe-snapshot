@@ -4,7 +4,7 @@
 
 The LightTaskSchedulerApiFactory class
 ================
-2020-06-30 --> 2020-08-14
+2020-06-30 --> 2021-02-11
 
 
 

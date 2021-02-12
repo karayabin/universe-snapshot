@@ -1,6 +1,6 @@
 Ling/SqlWizard
 ================
-2019-07-23 --> 2020-11-27
+2019-07-23 --> 2021-01-22
 
 
 
@@ -28,6 +28,8 @@ Table of contents
 - [MysqlSerializeTool](https://github.com/lingtalfi/SqlWizard/blob/master/doc/api/Ling/SqlWizard/Tool/MysqlSerializeTool.md) &ndash; The MysqlSerializeTool class.
     - [MysqlSerializeTool::serialize](https://github.com/lingtalfi/SqlWizard/blob/master/doc/api/Ling/SqlWizard/Tool/MysqlSerializeTool/serialize.md) &ndash; Serializes the $keys found in the given array in place.
     - [MysqlSerializeTool::unserialize](https://github.com/lingtalfi/SqlWizard/blob/master/doc/api/Ling/SqlWizard/Tool/MysqlSerializeTool/unserialize.md) &ndash; Un-serializes the $keys found in the given array in place.
+- [MysqlStructureReaderTool](https://github.com/lingtalfi/SqlWizard/blob/master/doc/api/Ling/SqlWizard/Tool/MysqlStructureReaderTool.md) &ndash; The MysqlStructureReaderTool class.
+    - [MysqlStructureReaderTool::getTablesFromCreateFile](https://github.com/lingtalfi/SqlWizard/blob/master/doc/api/Ling/SqlWizard/Tool/MysqlStructureReaderTool/getTablesFromCreateFile.md) &ndash; Returns the array of tables listed defined (with a create statement) in the given created file.
 - [SqlWizardGeneralTool](https://github.com/lingtalfi/SqlWizard/blob/master/doc/api/Ling/SqlWizard/Tool/SqlWizardGeneralTool.md) &ndash; The SqlWizardGeneralTool class.
     - [SqlWizardGeneralTool::getTablePrefix](https://github.com/lingtalfi/SqlWizard/blob/master/doc/api/Ling/SqlWizard/Tool/SqlWizardGeneralTool/getTablePrefix.md) &ndash; The getTablePrefix method
     - [SqlWizardGeneralTool::removeDoubleDashComments](https://github.com/lingtalfi/SqlWizard/blob/master/doc/api/Ling/SqlWizard/Tool/SqlWizardGeneralTool/removeDoubleDashComments.md) &ndash; Removes the double-dash comments from the given content, and returns the stripped content.

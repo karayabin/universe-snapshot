@@ -62,7 +62,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightLingStandardServiceHelper::bindStandardLightPermissionsToLkaPermissionGroups](https://github.com/lingtalfi/Light_LingStandardService/blob/master/Helper/LightLingStandardServiceHelper.php#L28-L54)
+See the source code for method [LightLingStandardServiceHelper::bindStandardLightPermissionsToLkaPermissionGroups](https://github.com/lingtalfi/Light_LingStandardService/blob/master/Helper/LightLingStandardServiceHelper.php#L28-L55)
 
 
 See Also

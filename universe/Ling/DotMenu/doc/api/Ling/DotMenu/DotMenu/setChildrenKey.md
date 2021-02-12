@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [DotMenu::setChildrenKey](https://github.com/lingtalfi/DotMenu/blob/master/DotMenu.php#L147-L150)
+See the source code for method [DotMenu::setChildrenKey](https://github.com/lingtalfi/DotMenu/blob/master/DotMenu.php#L151-L154)
 
 
 See Also

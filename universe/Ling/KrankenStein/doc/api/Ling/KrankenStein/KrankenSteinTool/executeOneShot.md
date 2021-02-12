@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [KrankenSteinTool::executeOneShot](https://github.com/lingtalfi/KrankenStein/blob/master/doc/api/Ling/KrankenStein/KrankenSteinTool/executeOneShot.md)(string $str, bool &$isOneShotString = false) : mixed
+public static [KrankenSteinTool::executeOneShot](https://github.com/lingtalfi/KrankenStein/blob/master/doc/api/Ling/KrankenStein/KrankenSteinTool/executeOneShot.md)(string $str, ?bool &$isOneShotString = false) : mixed
 
 
 

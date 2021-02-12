@@ -9,15 +9,6 @@ kit_admin_user_preferences:
 # --------------------------------------
 # hooks
 # --------------------------------------
-$plugin_installer.methods_collection: 
-    - 
-        method: registerPlugin
-        args: 
-            plugin: Light_Kit_Admin_UserPreferences
-            installer: @service(kit_admin_user_preferences)
-        
-    
-
 $bmenu.methods_collection: 
     - 
         method: addDirectItemsByFileAndParentPath

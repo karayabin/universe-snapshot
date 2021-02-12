@@ -7,7 +7,7 @@ PermissionGroupHasPermissionApiInterface::deletePermissionGroupHasPermissionByPe
 
 
 
-PermissionGroupHasPermissionApiInterface::deletePermissionGroupHasPermissionByPermissionGroupIds — Deletes the permissionGroupHasPermission rows identified by the given permission_group_permission_group_ids.
+PermissionGroupHasPermissionApiInterface::deletePermissionGroupHasPermissionByPermissionGroupIds — Deletes the permission group has permission rows identified by the given permission_group_ids.
 
 
 
@@ -21,7 +21,7 @@ abstract public [PermissionGroupHasPermissionApiInterface::deletePermissionGroup
 
 
 
-Deletes the permissionGroupHasPermission rows identified by the given permission_group_permission_group_ids.
+Deletes the permission group has permission rows identified by the given permission_group_ids.
 
 
 
@@ -54,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [PermissionGroupHasPermissionApiInterface::deletePermissionGroupHasPermissionByPermissionGroupIds](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Interfaces/PermissionGroupHasPermissionApiInterface.php#L227-L227)
+See the source code for method [PermissionGroupHasPermissionApiInterface::deletePermissionGroupHasPermissionByPermissionGroupIds](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Interfaces/PermissionGroupHasPermissionApiInterface.php#L248-L248)
 
 
 See Also
@@ -62,5 +62,5 @@ See Also
 
 The [PermissionGroupHasPermissionApiInterface](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Interfaces/PermissionGroupHasPermissionApiInterface.md) class.
 
-Previous method: [deletePermissionGroupHasPermissionByPermissionId](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Interfaces/PermissionGroupHasPermissionApiInterface/deletePermissionGroupHasPermissionByPermissionId.md)<br>Next method: [deletePermissionGroupHasPermissionByPermissionIds](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Interfaces/PermissionGroupHasPermissionApiInterface/deletePermissionGroupHasPermissionByPermissionIds.md)<br>
+Previous method: [deletePermissionGroupHasPermissionByPermissionGroupIdAndPermissionId](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Interfaces/PermissionGroupHasPermissionApiInterface/deletePermissionGroupHasPermissionByPermissionGroupIdAndPermissionId.md)<br>Next method: [deletePermissionGroupHasPermissionByPermissionIds](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Interfaces/PermissionGroupHasPermissionApiInterface/deletePermissionGroupHasPermissionByPermissionIds.md)<br>
 

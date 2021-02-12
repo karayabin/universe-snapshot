@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [DiffUtil::getDiffMap](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Util/DiffUtil/getDiffMap.md)(string $mapPathSource, string $mapPathDest, array $options = []) : array
+public [DiffUtil::getDiffMap](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Util/DiffUtil/getDiffMap.md)(string $mapPathSource, string $mapPathDest, ?array $options = []) : array
 
 
 

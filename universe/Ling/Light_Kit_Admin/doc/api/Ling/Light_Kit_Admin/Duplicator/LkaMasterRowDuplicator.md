@@ -4,7 +4,7 @@
 
 The LkaMasterRowDuplicator class
 ================
-2019-05-17 --> 2020-12-01
+2019-05-17 --> 2021-02-11
 
 
 
@@ -39,8 +39,6 @@ class <span class="pl-k">LkaMasterRowDuplicator</span> extends [RowDuplicator](h
     - public RowDuplicator::setContainer([Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) $container) : void
     - public RowDuplicator::duplicate(string $table, array $rics, ?array $options = []) : void
     - protected RowDuplicator::doDuplicate(string $table, array $rics, ?array $options = []) : void
-    - private RowDuplicator::getDependentTables(string $table, Ling\SimplePdoWrapper\Util\MysqlInfoUtil $util) : array
-    - private RowDuplicator::error(string $msg, ?int $code = null) : void
 
 }
 
@@ -73,8 +71,6 @@ Methods
 - RowDuplicator::setContainer &ndash; Sets the container.
 - RowDuplicator::duplicate &ndash; Duplicates the rows identified by the given rics, of the given table.
 - RowDuplicator::doDuplicate &ndash; Duplicates the rows identified by the given rics, of the given table.
-- RowDuplicator::getDependentTables &ndash; Returns an array of dependent tables.
-- RowDuplicator::error &ndash; Throws an exception.
 
 
 

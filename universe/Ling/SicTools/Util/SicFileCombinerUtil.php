@@ -348,15 +348,39 @@ class SicFileCombinerUtil
      * Combines the babyYaml files found in the given directory, and returns the resulting array.
      * The target merge/replace syntax described above in this class comments applies.
      *
+     *
+     * Available options are:
+     *
+     * - recursive: whether to parse the files recursively. If false, only the direct children of the given directory will be parsed.
+     * - preLazyVars: array of lazyVarItems, each of which:
+     *      - 0: bdot key
+     *      - 1: value
+     *      - 2: filename (for debugging)
+     *
+     *      If this option is defined, will inject the given lazy var items with the built service configuration BEFORE
+     *      the lazy var regular resolution.
+     *
+     *
+     *
+     *
+     *
+     *
      * @param string $directory
+     * @param array $options
      * @return array
      * @throws SicToolsException
      */
-    public function combine(string $directory)
+    public function combine(string $directory, array $options = [])
     {
+
+        $preLazyVars = $options['preLazyVars'] ?? [];
+        $recursive = $options['recursive'] ?? true;
+//        $postLazyVars = $options['postLazyVars'] ?? [];
+
+
         $ret = [];
         if (is_dir($directory)) {
-            $files = YorgDirScannerTool::getFilesWithExtension($directory, "byml", false, true, false);
+            $files = YorgDirScannerTool::getFilesWithExtension($directory, "byml", false, $recursive, false);
             $lazyVars = [];
 
             //--------------------------------------------
@@ -376,48 +400,15 @@ class SicFileCombinerUtil
             }
 
 
+            if ($preLazyVars) {
+                $this->injectLazyVars($preLazyVars, $ret);
+            }
+
+
             //--------------------------------------------
             // Now inject the lazy overrides variables
             //--------------------------------------------
-            foreach ($lazyVars as $info) {
-                list($key, $value, $file) = $info;
-
-                $found = false;
-                $targetValue = BDotTool::getDotValue($key, $ret, $value, $found);
-
-                if (false === $found) {
-                    $targetValue = $value;
-                } else {
-                    if (is_array($targetValue)) {
-                        if (is_array($value)) {
-                            $targetValue = array_merge($targetValue, $value);
-                        } else {
-                            $type = gettype($value);
-                            throw new SicToolsException("SicFileCombinerUtil: the injected value must be an array for key $key, $type given, defined in file $file.");
-                        }
-                    } else {
-                        $targetValue = $value;
-                    }
-                }
-
-                // replace variable references too, see
-                if (is_string($targetValue)) {
-                    if (false !== strpos($targetValue, $this->variableSymbol . '{')) {
-                        if (preg_match('!\\' . $this->variableSymbol . '\{([^\}]+)\}!', $targetValue, $match)) {
-                            $varName = $match[1];
-                            $targetFound = false;
-                            $_targetValue = BDotTool::getDotValue($varName, $ret, null, $targetFound);
-                            if (true === $targetFound) {
-                                $targetValue = $_targetValue;
-                            }
-                        }
-                    }
-                }
-
-
-                BDotTool::setDotValue($key, $targetValue, $ret);
-            }
-
+            $this->injectLazyVars($lazyVars, $ret);
 
 
             //--------------------------------------------
@@ -491,5 +482,59 @@ class SicFileCombinerUtil
             }
         }
         return $ret;
+    }
+
+
+    //--------------------------------------------
+    //
+    //--------------------------------------------
+    /**
+     * Injects the lazy vars into the ret array.
+     *
+     *
+     * @param array $lazyVars
+     * @param array $ret
+     * @throws \Exception
+     */
+    private function injectLazyVars(array $lazyVars, array &$ret)
+    {
+        foreach ($lazyVars as $info) {
+            list($key, $value, $file) = $info;
+
+            $found = false;
+            $targetValue = BDotTool::getDotValue($key, $ret, $value, $found);
+
+            if (false === $found) {
+                $targetValue = $value;
+            } else {
+                if (is_array($targetValue)) {
+                    if (is_array($value)) {
+                        $targetValue = array_merge($targetValue, $value);
+                    } else {
+                        $type = gettype($value);
+                        throw new SicToolsException("SicFileCombinerUtil: the injected value must be an array for key $key, $type given, defined in file $file.");
+                    }
+                } else {
+                    $targetValue = $value;
+                }
+            }
+
+            // replace variable references too, see
+            if (is_string($targetValue)) {
+                if (false !== strpos($targetValue, $this->variableSymbol . '{')) {
+                    if (preg_match('!\\' . $this->variableSymbol . '\{([^\}]+)\}!', $targetValue, $match)) {
+                        $varName = $match[1];
+                        $targetFound = false;
+                        $_targetValue = BDotTool::getDotValue($varName, $ret, null, $targetFound);
+                        if (true === $targetFound) {
+                            $targetValue = $_targetValue;
+                        }
+                    }
+                }
+            }
+
+
+            BDotTool::setDotValue($key, $targetValue, $ret);
+        }
     }
 }

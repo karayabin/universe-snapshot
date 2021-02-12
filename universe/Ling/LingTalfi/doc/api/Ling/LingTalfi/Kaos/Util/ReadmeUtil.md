@@ -4,7 +4,7 @@
 
 The ReadmeUtil class
 ================
-2019-03-13 --> 2020-12-03
+2019-03-13 --> 2020-12-08
 
 
 
@@ -28,6 +28,7 @@ class <span class="pl-k">ReadmeUtil</span>  {
     - protected array [$errors](#property-errors) ;
     - protected bool [$isLight](#property-isLight) ;
     - protected string [$serviceContent](#property-serviceContent) ;
+    - private string [$historyLogRegex](#property-historyLogRegex) ;
 
 - Methods
     - public [__construct](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/ReadmeUtil/__construct.md)() : void
@@ -35,7 +36,10 @@ class <span class="pl-k">ReadmeUtil</span>  {
     - public [setServiceContent](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/ReadmeUtil/setServiceContent.md)(string $serviceContent) : void
     - public [createBasicReadmeFile](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/ReadmeUtil/createBasicReadmeFile.md)($readmeFile, array $tags) : bool
     - public [getLatestVersionInfo](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/ReadmeUtil/getLatestVersionInfo.md)(string $readMeFile) : array | false
+    - public [getAllVersionNumbers](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/ReadmeUtil/getAllVersionNumbers.md)(string $readmePath) : array
     - public [getErrors](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/ReadmeUtil/getErrors.md)() : array
+    - public [addHistoryLogEntry](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/ReadmeUtil/addHistoryLogEntry.md)(string $readmePath, string $version, string $date, string $message) : void
+    - public [addCommitMessageByUniverseDir](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/ReadmeUtil/addCommitMessageByUniverseDir.md)(string $universeDir, string $message) : void
     - protected [addError](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/ReadmeUtil/addError.md)(string $msg) : void
 
 }
@@ -64,6 +68,12 @@ Properties
     
     
 
+- <span id="property-historyLogRegex"><b>historyLogRegex</b></span>
+
+    This property holds the historyLogRegex for this instance.
+    
+    
+
 
 
 Methods
@@ -74,7 +84,10 @@ Methods
 - [ReadmeUtil::setServiceContent](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/ReadmeUtil/setServiceContent.md) &ndash; Sets the serviceContent.
 - [ReadmeUtil::createBasicReadmeFile](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/ReadmeUtil/createBasicReadmeFile.md) &ndash; was successful.
 - [ReadmeUtil::getLatestVersionInfo](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/ReadmeUtil/getLatestVersionInfo.md) &ndash; section of the given README file.
+- [ReadmeUtil::getAllVersionNumbers](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/ReadmeUtil/getAllVersionNumbers.md) &ndash; Returns an array of all version numbers found in the in the "History Log" section of the "read me" file.
 - [ReadmeUtil::getErrors](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/ReadmeUtil/getErrors.md) &ndash; Returns the errors of this instance.
+- [ReadmeUtil::addHistoryLogEntry](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/ReadmeUtil/addHistoryLogEntry.md) &ndash; Adds an history entry to the given "read me" file, with the given message, date and version.
+- [ReadmeUtil::addCommitMessageByUniverseDir](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/ReadmeUtil/addCommitMessageByUniverseDir.md) &ndash; Adds a commit message to the history log section of the README files for each planet in the given universeDir.
 - [ReadmeUtil::addError](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/ReadmeUtil/addError.md) &ndash; Adds a message error.
 
 

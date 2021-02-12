@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [CsvUtil::writeToFile](https://github.com/lingtalfi/Csv/blob/master/doc/api/Ling/Csv/CsvUtil/writeToFile.md)(array $data, string $file, string $delimiter = ,) : void
+public static [CsvUtil::writeToFile](https://github.com/lingtalfi/Csv/blob/master/doc/api/Ling/Csv/CsvUtil/writeToFile.md)(array $data, string $file, ?string $delimiter = ,) : void
 
 
 

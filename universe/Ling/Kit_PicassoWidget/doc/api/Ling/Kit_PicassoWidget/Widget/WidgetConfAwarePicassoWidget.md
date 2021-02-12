@@ -4,7 +4,7 @@
 
 The WidgetConfAwarePicassoWidget class
 ================
-2019-04-24 --> 2019-08-30
+2019-04-24 --> 2020-12-08
 
 
 
@@ -47,12 +47,12 @@ class <span class="pl-k">WidgetConfAwarePicassoWidget</span> extends [PicassoWid
 - Inherited methods
     - public [PicassoWidget::getLibraries](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/api/Ling/Kit_PicassoWidget/Widget/PicassoWidget/getLibraries.md)() : array
     - public [PicassoWidget::setCopilot](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/api/Ling/Kit_PicassoWidget/Widget/PicassoWidget/setCopilot.md)([Ling\HtmlPageTools\Copilot\HtmlPageCopilot](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot.md) $copilot) : void
-    - public [PicassoWidget::renderFile](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/api/Ling/Kit_PicassoWidget/Widget/PicassoWidget/renderFile.md)(string $filePath, array $variables = []) : false | string
+    - public [PicassoWidget::renderFile](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/api/Ling/Kit_PicassoWidget/Widget/PicassoWidget/renderFile.md)(string $filePath, ?array $variables = []) : false | string
     - public [PicassoWidget::prepare](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/api/Ling/Kit_PicassoWidget/Widget/PicassoWidget/prepare.md)(array &$widgetConf, [Ling\HtmlPageTools\Copilot\HtmlPageCopilot](https://github.com/lingtalfi/HtmlPageTools/blob/master/doc/api/Ling/HtmlPageTools/Copilot/HtmlPageCopilot.md) $copilot) : void
-    - protected [PicassoWidget::getAttributesHtml](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/api/Ling/Kit_PicassoWidget/Widget/PicassoWidget/getAttributesHtml.md)(bool $excludeClass = true) : string
+    - protected [PicassoWidget::getAttributesHtml](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/api/Ling/Kit_PicassoWidget/Widget/PicassoWidget/getAttributesHtml.md)(?bool $excludeClass = true) : string
     - protected [PicassoWidget::getCssClass](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/api/Ling/Kit_PicassoWidget/Widget/PicassoWidget/getCssClass.md)() : string
     - protected [PicassoWidget::registerLibrary](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/api/Ling/Kit_PicassoWidget/Widget/PicassoWidget/registerLibrary.md)(string $libraryName, array $css, array $js) : void
-    - public ZephyrTemplateEngine::render(string $resourceId, array $variables = []) : false | string
+    - public ZephyrTemplateEngine::render(string $resourceId, ?array $variables = []) : false | string
     - public ZephyrTemplateEngine::getErrors() : array
     - public ZephyrTemplateEngine::setDirectory(string $directory) : void
     - protected ZephyrTemplateEngine::interpret(string $___path, array $z) : false | string

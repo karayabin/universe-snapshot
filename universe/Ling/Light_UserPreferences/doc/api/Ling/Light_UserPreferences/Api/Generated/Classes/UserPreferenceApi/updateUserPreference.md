@@ -7,7 +7,7 @@ UserPreferenceApi::updateUserPreference
 
 
 
-UserPreferenceApi::updateUserPreference — Updates the userPreference row.
+UserPreferenceApi::updateUserPreference — Updates the user preference row.
 
 
 
@@ -21,7 +21,7 @@ public [UserPreferenceApi::updateUserPreference](https://github.com/lingtalfi/Li
 
 
 
-Updates the userPreference row.
+Updates the user preference row.
 
 
 
@@ -62,7 +62,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [UserPreferenceApi::updateUserPreference](https://github.com/lingtalfi/Light_UserPreferences/blob/master/Api/Generated/Classes/UserPreferenceApi.php#L263-L266)
+See the source code for method [UserPreferenceApi::updateUserPreference](https://github.com/lingtalfi/Light_UserPreferences/blob/master/Api/Generated/Classes/UserPreferenceApi.php#L267-L270)
 
 
 See Also

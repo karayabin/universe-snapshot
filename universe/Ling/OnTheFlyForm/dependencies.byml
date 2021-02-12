@@ -1,5 +1,7 @@
 dependencies: 
     Ling: 
+        - Bat
+        - ArrayToString
         - FormTools
     
 

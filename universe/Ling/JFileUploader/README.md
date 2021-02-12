@@ -651,6 +651,14 @@ Note: in case you wonder, the admin theme used in the bootstrap examples is [zer
 History Log
 =============
 
+- 3.0.7 -- 2020-12-08
+
+    - Fix lpi-deps not using natsort.
+
+- 3.0.6 -- 2020-12-04
+
+    - Add lpi-deps.byml file
+
 - 3.0.5 -- 2020-11-09
 
     - checkpoint commit  

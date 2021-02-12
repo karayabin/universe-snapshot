@@ -69,6 +69,14 @@ Now if it's called from a console, it will display something like this:
 History Log
 =============
 
+- 1.0.3 -- 2020-12-08
+
+    - Fix lpi-deps not using natsort.
+
+- 1.0.2 -- 2020-12-04
+
+    - Add lpi-deps.byml file
+
 - 1.0.1 -- 2019-07-18
 
     - update docTools documentation, add links to source code for classes and methods

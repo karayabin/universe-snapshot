@@ -46,7 +46,7 @@ Returns [CustomPluginOptionApiInterface](https://github.com/lingtalfi/Light_User
 
 Source Code
 ===========
-See the source code for method [LightUserDatabaseApiFactory::getPluginOptionApi](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/LightUserDatabaseApiFactory.php#L135-L140)
+See the source code for method [LightUserDatabaseApiFactory::getPluginOptionApi](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/LightUserDatabaseApiFactory.php#L141-L147)
 
 
 See Also

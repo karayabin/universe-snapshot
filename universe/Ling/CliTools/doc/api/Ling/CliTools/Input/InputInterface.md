@@ -4,7 +4,7 @@
 
 The InputInterface class
 ================
-2019-02-26 --> 2020-12-04
+2019-02-26 --> 2021-02-04
 
 
 
@@ -68,4 +68,4 @@ See the source code of [Ling\CliTools\Input\InputInterface](https://github.com/l
 
 SeeAlso
 ==============
-Previous class: [CommandLineInput](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Input/CommandLineInput.md)<br>Next class: [BufferedOutput](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Output/BufferedOutput.md)<br>
+Previous class: [CommandLineInput](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Input/CommandLineInput.md)<br>Next class: [WritableCommandLineInput](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Input/WritableCommandLineInput.md)<br>

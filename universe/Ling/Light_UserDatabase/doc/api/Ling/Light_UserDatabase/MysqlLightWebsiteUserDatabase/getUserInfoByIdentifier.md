@@ -54,7 +54,7 @@ Returns array | false.
 
 Source Code
 ===========
-See the source code for method [MysqlLightWebsiteUserDatabase::getUserInfoByIdentifier](https://github.com/lingtalfi/Light_UserDatabase/blob/master/MysqlLightWebsiteUserDatabase.php#L210-L220)
+See the source code for method [MysqlLightWebsiteUserDatabase::getUserInfoByIdentifier](https://github.com/lingtalfi/Light_UserDatabase/blob/master/MysqlLightWebsiteUserDatabase.php#L168-L178)
 
 
 See Also

@@ -5,8 +5,13 @@ namespace Ling\DocTools\Helper;
 
 
 use Ling\Bat\DebugTool;
+use Ling\DocTools\Exception\DocToolsException;
 use Ling\DocTools\Info\MethodInfo;
 use Ling\DocTools\Report\ReportInterface;
+use ReflectionNamedType;
+use ReflectionParameter;
+use ReflectionType;
+use ReflectionUnionType;
 
 
 /**
@@ -156,95 +161,21 @@ class MethodHelper
             }
 
 
-            if ($parameter->isArray()) {
-                $s .= 'array ';
-            } elseif ($parameter->isCallable()) {
-                $s .= 'callable ';
-            } else {
-                $hint = $parameter->getClass();
+            $type = $parameter->getType();
+            if (null !== $type) {
 
 
-                /**
-                 * The problem, commented below
-                 * was solved by adding the missing autoloader in console environment,
-                 * using kaos preferences...
-                 */
-                $isSpecialExternalHint = false;
+                $s .= self::resolveType($type, $generatedItems2Url, $method, $parameter, $report);
+                $s .= ' ';
 
 
-//                try {
-//                    $hint = $parameter->getClass();
-//                } catch (\ReflectionException $e) {
-//                    if (preg_match("!Class ([a-zA-Z0-9_]*) does not exist!", $e->getMessage(), $match)) {
-//                        $isSpecialExternalHint = true;
-//
-//
-//                        $culpritClass = $match[1];
-//                        /**
-//                         * 2020-06-29
-//                         * Happened with LightMailerService->sendMessage( \Swift_Mailer $mailer, ... )
-//                         * With exception message: "Class Swift_Mailer does not exist".
-//                         *
-//                         *
-//                         * Probably an autoloader problem: not the same autoloader environment when I generate the doc via the web
-//                         * than when I generated the doc via console...
-//                         *
-//                         * In this case we cannot access the hint, so take it from the exception message,
-//                         * assuming this specific error occurred.
-//                         *
-//                         * I know it's ugly, but I didn't find another way yet...
-//                         *
-//                         */
-//                        if (array_key_exists($culpritClass, $generatedItems2Url)) {
-//                            $propertyClassName = '[' . $culpritClass . '](' . $generatedItems2Url[$culpritClass] . ')';
-//                            $s .= $propertyClassName . " ";
-//                        } else {
-//                            if (null !== $report) {
-//                                $report->addUnresolvedClassReference($culpritClass, "method " . $method->getName() . ", param " . $parameter->getName());
-//                            }
-//                            $s .= '\\' . $culpritClass . ' ';
-//                        }
-//
-//                    } else {
-//                        throw $e;
-//                    }
-//                }
-
-
-                if (false === $isSpecialExternalHint) {
-
-                    if (null !== $hint) {
-
-                        $propertyClassName = $hint->name;
-
-                        if (false === $hint->isUserDefined()) {
-                            $propertyClassName = '\\' . $propertyClassName;
-                        }
-
-                        if (array_key_exists($propertyClassName, $generatedItems2Url)) {
-                            $propertyClassName = '[' . $propertyClassName . '](' . $generatedItems2Url[$propertyClassName] . ')';
-                        } else {
-                            if (null !== $report) {
-                                $report->addUnresolvedClassReference($propertyClassName, "method " . $method->getName() . ", param " . $parameter->getName());
-                            }
-                        }
-                        $s .= $propertyClassName . " ";
-                    } else {
-                        $paramType = $parameter->getType();
-                        if (null !== $paramType) {
-                            $s .= $paramType . ' ';
-                        }
-                    }
+                if (true === $parameter->isPassedByReference()) {
+                    $s .= '&';
                 }
-            }
 
-
-            if (true === $parameter->isPassedByReference()) {
-                $s .= '&';
-            }
-
-            if (true === $parameter->isVariadic()) {
-                $s .= '...';
+                if (true === $parameter->isVariadic()) {
+                    $s .= '...';
+                }
             }
 
             $s .= '$' . $parameter->getName();
@@ -276,6 +207,55 @@ class MethodHelper
         $s .= self::getMethodReturnType($method, $generatedItems2Url, $report);
 
         $s .= PHP_EOL;
+        return $s;
+    }
+
+
+    //--------------------------------------------
+    //
+    //--------------------------------------------
+    /**
+     * Returns the type documentation part for the given type.
+     * @param ReflectionType $type
+     * @param array $generatedItems2Url
+     * @param MethodInfo $method
+     * @param ReflectionParameter $parameter
+     * @param ReportInterface|null $report
+     * @return string
+     * @throws \Exception
+     *
+     */
+    private static function resolveType(ReflectionType $type, array $generatedItems2Url, MethodInfo $method, ReflectionParameter $parameter, ReportInterface $report = null): string
+    {
+        $s = '';
+        if ($type instanceof ReflectionUnionType) {
+            $types = $type->getTypes();
+            $c = 0;
+            foreach ($types as $namedType) {
+                if (0 !== $c) {
+                    $s .= '|';
+                }
+                $s .= self::resolveType($namedType, $generatedItems2Url, $method, $parameter, $report);
+                $c++;
+            }
+        } elseif ($type instanceof ReflectionNamedType) {
+            $namedType = $type->getName();
+
+            if (str_contains($namedType, '\\')) {
+                if (array_key_exists($namedType, $generatedItems2Url)) {
+                    $namedType = '[' . $namedType . '](' . $generatedItems2Url[$namedType] . ')';
+                } else {
+                    if (null !== $report) {
+                        $report->addUnresolvedClassReference($namedType, "method " . $method->getName() . ", param " . $parameter->getName());
+                    }
+                }
+            }
+
+            $s .= $namedType;
+        } else {
+            throw new DocToolsException("This code needs more love...");
+        }
+
         return $s;
     }
 

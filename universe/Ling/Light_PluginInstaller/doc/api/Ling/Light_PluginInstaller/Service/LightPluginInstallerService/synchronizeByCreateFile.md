@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [LightPluginInstallerService::synchronizeByCreateFile](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/synchronizeByCreateFile.md)(string $pluginName, string $createFile, ?array $syncOptions = [], ?array $options = []) : void
+public [LightPluginInstallerService::synchronizeByCreateFile](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/synchronizeByCreateFile.md)(string $createFile, ?array $syncOptions = [], ?array $options = []) : void
 
 
 
@@ -32,6 +32,7 @@ $syncOptions are directly passed to the synchronize method.
 Available options are:
 
 - errorLevel: debug|error = debug
+- planetDotName: string, the planet dot name to use in case of an error message
 
 
 
@@ -39,10 +40,6 @@ Available options are:
 Parameters
 ================
 
-
-- pluginName
-
-    
 
 - createFile
 
@@ -76,7 +73,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightPluginInstallerService::synchronizeByCreateFile](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/Service/LightPluginInstallerService.php#L689-L710)
+See the source code for method [LightPluginInstallerService::synchronizeByCreateFile](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/Service/LightPluginInstallerService.php#L504-L526)
 
 
 See Also
@@ -84,5 +81,5 @@ See Also
 
 The [LightPluginInstallerService](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService.md) class.
 
-Previous method: [fetchRowColumn](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/fetchRowColumn.md)<br>Next method: [getPluginInstallFile](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/getPluginInstallFile.md)<br>
+Previous method: [fetchRowColumn](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/fetchRowColumn.md)<br>Next method: [getUninstallMap](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/getUninstallMap.md)<br>
 

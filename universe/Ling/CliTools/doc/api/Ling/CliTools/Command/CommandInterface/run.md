@@ -16,7 +16,7 @@ Description
 ================
 
 
-abstract public [CommandInterface::run](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Command/CommandInterface/run.md)([Ling\CliTools\Input\InputInterface](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Input/InputInterface.md) $input, [Ling\CliTools\Output\OutputInterface](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Output/OutputInterface.md) $output) : int
+abstract public [CommandInterface::run](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Command/CommandInterface/run.md)([Ling\CliTools\Input\InputInterface](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Input/InputInterface.md) $input, [Ling\CliTools\Output\OutputInterface](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Output/OutputInterface.md) $output) : mixed
 
 
 
@@ -48,9 +48,10 @@ Parameters
 Return values
 ================
 
-Returns int.
-The exit status.
-If null, 0 should be assumed.
+Returns mixed.
+If an int is returned, it should be assumed to be the exit status.
+If no value is returned, 0 should be assumed (meaning exit status=0, meaning the program executed correctly).
+Other return value types might be added in the future
 
 
 
@@ -60,7 +61,7 @@ If null, 0 should be assumed.
 
 Source Code
 ===========
-See the source code for method [CommandInterface::run](https://github.com/lingtalfi/CliTools/blob/master/Command/CommandInterface.php#L42-L42)
+See the source code for method [CommandInterface::run](https://github.com/lingtalfi/CliTools/blob/master/Command/CommandInterface.php#L44-L44)
 
 
 See Also

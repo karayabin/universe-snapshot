@@ -46,7 +46,7 @@ Returns [CustomUserGroupHasPluginOptionApiInterface](https://github.com/lingtalf
 
 Source Code
 ===========
-See the source code for method [LightUserDatabaseApiFactory::getUserGroupHasPluginOptionApi](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/LightUserDatabaseApiFactory.php#L147-L152)
+See the source code for method [LightUserDatabaseApiFactory::getUserGroupHasPluginOptionApi](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/LightUserDatabaseApiFactory.php#L154-L160)
 
 
 See Also

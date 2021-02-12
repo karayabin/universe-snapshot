@@ -16,7 +16,7 @@ Description
 ================
 
 
-protected [HotServiceResolver::resolveCustomNotation](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/HotServiceResolver/resolveCustomNotation.md)($value, ?&$isCustomNotation = false) : mixed
+protected [HotServiceResolver::resolveCustomNotation](https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/HotServiceResolver/resolveCustomNotation.md)($value, ?$isCustomNotation = false) : mixed
 
 
 

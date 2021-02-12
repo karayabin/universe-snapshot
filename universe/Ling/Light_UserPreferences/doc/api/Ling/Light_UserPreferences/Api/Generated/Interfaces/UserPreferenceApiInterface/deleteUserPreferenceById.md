@@ -7,7 +7,7 @@ UserPreferenceApiInterface::deleteUserPreferenceById
 
 
 
-UserPreferenceApiInterface::deleteUserPreferenceById — Deletes the userPreference identified by the given id.
+UserPreferenceApiInterface::deleteUserPreferenceById — Deletes the user preference identified by the given id.
 
 
 
@@ -21,7 +21,7 @@ abstract public [UserPreferenceApiInterface::deleteUserPreferenceById](https://g
 
 
 
-Deletes the userPreference identified by the given id.
+Deletes the user preference identified by the given id.
 
 
 

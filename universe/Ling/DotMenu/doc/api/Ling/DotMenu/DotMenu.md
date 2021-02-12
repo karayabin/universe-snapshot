@@ -4,7 +4,7 @@
 
 The DotMenu class
 ================
-2019-08-08 --> 2019-08-08
+2019-08-08 --> 2020-12-08
 
 
 
@@ -43,7 +43,7 @@ class <span class="pl-k">DotMenu</span>  {
 
 - Methods
     - public [__construct](https://github.com/lingtalfi/DotMenu/blob/master/doc/api/Ling/DotMenu/DotMenu/__construct.md)() : void
-    - public [appendItem](https://github.com/lingtalfi/DotMenu/blob/master/doc/api/Ling/DotMenu/DotMenu/appendItem.md)(array $item, string $parentPath = null) : void
+    - public [appendItem](https://github.com/lingtalfi/DotMenu/blob/master/doc/api/Ling/DotMenu/DotMenu/appendItem.md)(array $item, ?string $parentPath = null) : void
     - public [getItems](https://github.com/lingtalfi/DotMenu/blob/master/doc/api/Ling/DotMenu/DotMenu/getItems.md)() : array
     - public [setItems](https://github.com/lingtalfi/DotMenu/blob/master/doc/api/Ling/DotMenu/DotMenu/setItems.md)(array $items) : void
     - public [setChildrenKey](https://github.com/lingtalfi/DotMenu/blob/master/doc/api/Ling/DotMenu/DotMenu/setChildrenKey.md)(string $childrenKey) : void

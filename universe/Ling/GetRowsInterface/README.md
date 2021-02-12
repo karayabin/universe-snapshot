@@ -25,7 +25,15 @@ Or just download it and place it where you want otherwise.
 
 History Log
 ------------------
-    
+
+- 1.0.2 -- 2020-12-08
+
+    - Fix lpi-deps not using natsort.
+
+- 1.0.1 -- 2020-12-04
+
+    - Add lpi-deps.byml file
+
 - 1.0.0 -- 2017-05-04
 
     - initial commit

@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [UserApi::updateUserById](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/UserApi/updateUserById.md)(int $id, array $user) : void
+public [UserApi::updateUserById](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/UserApi/updateUserById.md)(int $id, array $user, ?array $extraWhere = [], ?array $markers = []) : void
 
 
 
@@ -35,6 +35,14 @@ Parameters
     
 
 - user
+
+    
+
+- extraWhere
+
+    
+
+- markers
 
     
 
@@ -58,7 +66,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [UserApi::updateUserById](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Classes/UserApi.php#L260-L266)
+See the source code for method [UserApi::updateUserById](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Classes/UserApi.php#L388-L394)
 
 
 See Also

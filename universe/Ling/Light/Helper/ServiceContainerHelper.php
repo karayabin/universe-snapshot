@@ -4,6 +4,8 @@
 namespace Ling\Light\Helper;
 
 
+use Ling\BabyYaml\BabyYamlUtil;
+use Ling\Bat\ArrayTool;
 use Ling\Bat\FileSystemTool;
 use Ling\DirScanner\YorgDirScannerTool;
 use Ling\Light\Exception\LightException;
@@ -30,8 +32,7 @@ class ServiceContainerHelper
      * - blueMode: string. Defines how the blue service container is re-created  (only applies if type=blue).
      *      - create: will re-create the service container every time
      *      - frozen: (default value) will never re-create the service container once it exists
-     *      - auto: if the environment is dev: will recreate the service container only if the service configuration
-     *              has changed, and if environment is not dev, then will use the frozen mode.
+     *      - auto: if the environment is dev: will recreate the service container only if the service configuration has changed.
      *
      *
      *
@@ -48,13 +49,18 @@ class ServiceContainerHelper
 
         $type = $options['type'] ?? 'blue';
         $blueMode = $options['blueMode'] ?? 'frozen';
+        $environment = $options['environment'] ?? null;
 
         if ('blue' === $type) {
 
             // if the blue container doesn't exist yet create it.
             $path = self::getDarkBlueContainerPath($appDir);
             if (false === is_file($path) || 'create' === $blueMode) {
-                $conf = self::getServicesConf($appDir);
+                $conf = self::getServicesConf($appDir, [
+                    'environment' => $environment,
+                ]);
+
+
                 self::buildDarkBlueContainer($appDir, $conf);
                 if ('auto' === $blueMode) {
                     self::createHashMap($appDir, $appDir . "/cache/LightServiceContainer.map.txt");
@@ -66,22 +72,22 @@ class ServiceContainerHelper
             } elseif ('create' === $blueMode) {
                 return self::getDarkBlueInstance($appDir);
             } elseif ('auto' === $blueMode) {
-                $isDev = EnvironmentHelper::isDev();
-                if (true === $isDev) {
-                    /**
-                     * here we compare two hash maps: the old map is located in $appDir/cache/LightServiceContainer.map.txt.
-                     * The new one is temporary and created in $appDir/cache/LightServiceContainer.map-tmp.txt.
-                     *
-                     */
-                    $tmpMap = $appDir . "/cache/LightServiceContainer.map-tmp.txt";
-                    self::createHashMap($appDir, $tmpMap);
-                    $map = $appDir . "/cache/LightServiceContainer.map.txt";
-                    if (hash_file("haval160,4", $map) !== hash_file("haval160,4", $tmpMap)) {
-                        $conf = self::getServicesConf($appDir);
-                        self::buildDarkBlueContainer($appDir, $conf);
-                        FileSystemTool::copyFile($tmpMap, $map);
-                    }
+                /**
+                 * here we compare two hash maps: the old map is located in $appDir/cache/LightServiceContainer.map.txt.
+                 * The new one is temporary and created in $appDir/cache/LightServiceContainer.map-tmp.txt.
+                 *
+                 */
+                $tmpMap = $appDir . "/cache/LightServiceContainer.map-tmp.txt";
+                self::createHashMap($appDir, $tmpMap);
+                $map = $appDir . "/cache/LightServiceContainer.map.txt";
+                if (hash_file("haval160,4", $map) !== hash_file("haval160,4", $tmpMap)) {
+                    $conf = self::getServicesConf($appDir, [
+                        'environment' => $environment,
+                    ]);
+                    self::buildDarkBlueContainer($appDir, $conf);
+                    FileSystemTool::copyFile($tmpMap, $map);
                 }
+
                 return self::getDarkBlueInstance($appDir);
             } else {
                 throw new LightException("Unknown blueMode option: $blueMode");
@@ -89,7 +95,9 @@ class ServiceContainerHelper
 
 
         } elseif ('red' === $type) {
-            $conf = self::getServicesConf($appDir);
+            $conf = self::getServicesConf($appDir, [
+                'environment' => $environment,
+            ]);
             $sc = new LightRedServiceContainer();
             $sc->setApplicationDir($appDir);
             $sc->build($conf);
@@ -106,17 +114,50 @@ class ServiceContainerHelper
     /**
      * Returns the service configuration array based on files in $appDir/config/services.
      *
+     * Available options are:
+     * - environment: string=null, the name of the environment to use
+     *
+     *
+     *
+     *
      * @param string $appDir
+     * @param array $options
      * @return array
      * @throws \Exception
      */
-    private static function getServicesConf(string $appDir)
+    private static function getServicesConf(string $appDir, array $options = [])
     {
+
+        $environment = $options['environment'] ?? null;
+
         $servicesConf = [];
         $servicesConfDir = $appDir . "/config/services";
         if (is_dir($servicesConfDir)) {
+
+            $preLazyVars = [];
+            if (null !== $environment) {
+
+                $envDir = $servicesConfDir . "/" . $environment;
+                if (is_dir($envDir)) {
+                    $files = YorgDirScannerTool::getFilesWithExtension($envDir, "byml", false, false, false);
+                    $preLazyVars = [];
+
+                    foreach ($files as $file) {
+                        $fileConf = BabyYamlUtil::readFile($file);
+                        foreach ($fileConf as $key => $value) {
+                            $preLazyVars[] = [$key, $value, $file];
+
+                        }
+                    }
+
+                }
+            }
+
+
             $servicesConf = ConfigurationHelper::getCombinedConf($servicesConfDir, [
                 "app_dir" => realpath($appDir),
+            ], [
+                "preLazyVars" => $preLazyVars,
             ]);
         }
         return $servicesConf;

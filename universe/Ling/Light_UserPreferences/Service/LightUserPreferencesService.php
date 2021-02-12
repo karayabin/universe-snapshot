@@ -5,12 +5,13 @@ namespace Ling\Light_UserPreferences\Service;
 
 
 use Ling\Light_LingStandardService\Service\LightLingStandardService01;
+use Ling\Light_LingStandardService\Service\LightLingStandardService02;
 use Ling\Light_UserPreferences\Api\Custom\CustomLightUserPreferencesApiFactory;
 
 /**
  * The LightUserPreferencesService class.
  */
-class LightUserPreferencesService extends LightLingStandardService01
+class LightUserPreferencesService extends LightLingStandardService02
 {
 
 

@@ -31,8 +31,7 @@ The options is an array with the following structure:
 - blueMode: string. Defines how the blue service container is re-created  (only applies if type=blue).
      - create: will re-create the service container every time
      - frozen: (default value) will never re-create the service container once it exists
-     - auto: if the environment is dev: will recreate the service container only if the service configuration
-             has changed, and if environment is not dev, then will use the frozen mode.
+     - auto: if the environment is dev: will recreate the service container only if the service configuration has changed.
 
 
 
@@ -69,7 +68,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [ServiceContainerHelper::getInstance](https://github.com/lingtalfi/Light/blob/master/Helper/ServiceContainerHelper.php#L43-L100)
+See the source code for method [ServiceContainerHelper::getInstance](https://github.com/lingtalfi/Light/blob/master/Helper/ServiceContainerHelper.php#L44-L108)
 
 
 See Also

@@ -1,0 +1,7 @@
+dependencies: 
+    Ling:
+        - Light_UserDatabase
+
+
+post_install: 
+    map: true

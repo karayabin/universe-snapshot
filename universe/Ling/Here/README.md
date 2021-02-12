@@ -710,7 +710,15 @@ $('#nav_next').on('click', function () {
 
 History Log
 ------------------
-        
+
+- 2.2.2 -- 2020-12-08
+
+    - Fix lpi-deps not using natsort.
+
+- 2.2.1 -- 2020-12-04
+
+    - Add lpi-deps.byml file
+
 - 2.2.0 -- 2016-02-02
 
     - plugin: remove refresh method's force (internal) argument

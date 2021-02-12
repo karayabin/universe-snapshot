@@ -3,9 +3,11 @@
 namespace Ling\UniverseTools;
 
 
+use Ling\Bat\FileSystemTool;
 use Ling\DirScanner\YorgDirScannerTool;
 use Ling\TokenFun\TokenFinder\Tool\TokenFinderTool;
 use Ling\UniverseTools\Exception\UniverseToolsException;
+use Ling\UniverseTools\Util\StandardReadmeUtil;
 
 /**
  * The PlanetTool class.
@@ -16,6 +18,71 @@ use Ling\UniverseTools\Exception\UniverseToolsException;
 class PlanetTool
 {
 
+
+    /**
+     * Returns the version number of the planet if found, or null otherwise.
+     *
+     * @param string $planetDir
+     * @return string|null
+     * @throws \Exception
+     */
+    public static function getVersionByPlanetDir(string $planetDir)
+    {
+        $version = MetaInfoTool::getVersion($planetDir);
+        if (true === empty($version)) {
+            $ru = new StandardReadmeUtil();
+            $rf = $planetDir . "/README.md";
+            if (file_exists($rf)) {
+                $errors = [];
+                $versionInfo = $ru->getLatestVersionInfo($rf, $errors);
+                if ($errors) {
+                    throw new UniverseToolsException("Some errors found while parsing the README.md file for the current version: " . implode(PHP_EOL, $errors));
+                }
+                $version = $versionInfo[0];
+            }
+        }
+        return $version;
+    }
+
+    /**
+     * Returns whether the given planet exists in the given app.
+     *
+     *
+     * @param string $planetDotName
+     * @param string $applicationDir
+     * @return bool
+     */
+    public static function exists(string $planetDotName, string $applicationDir): bool
+    {
+        $planetDir = self::getPlanetDirByPlanetDotName($planetDotName, $applicationDir);
+        return (true === file_exists($planetDir));
+    }
+
+
+    /**
+     * Returns the [planet slash name](https://github.com/karayabin/universe-snapshot#the-planet-slash-name) from the given planet dot name.
+     *
+     *
+     * @param string $planetDotName
+     * @return string
+     */
+    public static function getPlanetSlashNameByDotName(string $planetDotName): string
+    {
+        return str_replace(".", "/", $planetDotName);
+    }
+
+
+    /**
+     * Returns the location of the planet directory from the given planet dot name and app dir.
+     *
+     * @param string $planetDotName
+     * @param string $appDir
+     * @return string
+     */
+    public static function getPlanetDirByPlanetDotName(string $planetDotName, string $appDir): string
+    {
+        return $appDir . "/universe/" . self::getPlanetSlashNameByDotName($planetDotName);
+    }
 
     /**
      * Parses the given directory recursively and returns an array containing the names of all @kw(bsr-1) classes found.
@@ -174,6 +241,7 @@ class PlanetTool
     /**
      * Returns the @page(tight planet name) for a given planet.
      *
+     * Note: it's the same as the getCompressedPlanetName method.
      * @param string $planetName
      * @return string
      */
@@ -182,6 +250,19 @@ class PlanetTool
         return str_replace("_", "", $planetName);
     }
 
+
+    /**
+     * Returns the [compressed planet name](https://github.com/karayabin/universe-snapshot#the-compressed-planet-name) for a given planet.
+     *
+     * Note: it's the same as the getTightPlanetName method.
+     *
+     * @param string $planetName
+     * @return string
+     */
+    public static function getCompressedPlanetName(string $planetName): string
+    {
+        return str_replace("_", "", $planetName);
+    }
 
     /**
      * Returns an array containing the galaxy name and the short planet name extracted from the given $planetName.
@@ -226,6 +307,29 @@ class PlanetTool
 
 
     /**
+     * Returns an array containing the galaxy and the planet, based on the given [planetDotName](https://github.com/karayabin/universe-snapshot#the-planet-dot-name).
+     *
+     * The array contains the following:
+     * - 0: galaxy name
+     * - 1: planet name
+     *
+     *
+     *
+     * @param string $planetDotName
+     * @return array
+     * @throws \Exception
+     */
+    public static function extractPlanetDotName(string $planetDotName): array
+    {
+        $p = explode(".", $planetDotName, 2);
+        if (2 === count($p)) {
+            return $p;
+        }
+        throw new UniverseToolsException("The given planetDotName is not valid: $planetDotName.");
+    }
+
+
+    /**
      * Returns an array containing the galaxy and planet contained in the given class name.
      * Returns false if the given class name is not valid (i.e. @page(bsr-0) compliant).
      *
@@ -245,6 +349,115 @@ class PlanetTool
             ];
         }
         return false;
+    }
+
+
+    /**
+     * Imports a planet by copying its given external source dir to the target application.
+     * Optionally, the assets/map can be copied into the app.
+     *
+     * Available options are:
+     * - assets: bool=false, if true, the assets/map will be copied to the application.
+     *
+     * See more details in the @page(import install discussion).
+     *
+     * @param string $planetDot
+     * @param string $extPlanetDir
+     * @param string $appDir
+     * @param array $options
+     */
+    public static function importPlanetByExternalDir(string $planetDot, string $extPlanetDir, string $appDir, array $options = [])
+    {
+        $assets = $options['assets'] ?? false;
+
+
+        list($galaxy, $planet) = self::extractPlanetDotName($planetDot);
+        if (false === file_exists($extPlanetDir)) {
+            throw new UniverseToolsException("External source dir not found: $extPlanetDir.");
+        }
+        if (false === file_exists($appDir)) {
+            throw new UniverseToolsException("Application dir not found: $appDir.");
+        }
+
+        $newPlanetDir = $appDir . "/universe/$galaxy/$planet";
+        FileSystemTool::copyDir($extPlanetDir, $newPlanetDir);
+
+
+        if (true === $assets) {
+            $assetsMapDir = $newPlanetDir . "/assets/map";
+            if (is_dir($assetsMapDir)) {
+                AssetsMapTool::copyAssets($assetsMapDir, $appDir);
+            }
+        }
+    }
+
+
+    /**
+     * Installs the assets of the given planet.
+     *
+     * See the @page(UniverseTool conception notes) for more details about assets.
+     *
+     * @param string $appDir
+     * @param string $planetDotName
+     */
+    public static function installAssetsByPlanetDotName(string $appDir, string $planetDotName)
+    {
+        $planetDir = $appDir . "/universe/" . str_replace(".", "/", $planetDotName);
+        $assetsMapDir = $planetDir . "/assets/map";
+        if (is_dir($assetsMapDir)) {
+            AssetsMapTool::copyAssets($assetsMapDir, $appDir);
+        }
+    }
+
+
+    /**
+     * Removes the assets for the given planet.
+     *
+     * See the @page(UniverseTool conception notes) for more details about assets.
+     *
+     * @param string $appDir
+     * @param string $planetDotName
+     */
+    public static function removeAssetsByPlanetDotName(string $appDir, string $planetDotName)
+    {
+        $planetDir = $appDir . "/universe/" . str_replace(".", "/", $planetDotName);
+        $assetMapDir = $planetDir . "/assets/map";
+        if (is_dir($assetMapDir)) {
+            AssetsMapTool::removeAssets($assetMapDir, $appDir);
+        }
+    }
+
+
+    /**
+     * Removes the given planet from the given app directory.
+     * Optionally, the assets/map files are also removed.
+     *
+     * Available options are:
+     * - assets: bool=false, if true, the assets/map will be removed from the application.
+     *
+     * See more details in the @page(import install discussion).
+     *
+     * @param string $planetDot
+     * @param string $appDir
+     * @param array $options
+     */
+    public static function removePlanet(string $planetDot, string $appDir, array $options = [])
+    {
+        $assets = $options['assets'] ?? false;
+
+        list($galaxy, $planet) = self::extractPlanetDotName($planetDot);
+        $planetDir = $appDir . "/universe/$galaxy/$planet";
+
+        if (true === $assets) {
+            $assetMapDir = $planetDir . "/assets/map";
+            if (is_dir($assetMapDir)) {
+                AssetsMapTool::removeAssets($assetMapDir, $appDir);
+            }
+        }
+
+        if (is_dir($planetDir)) {
+            FileSystemTool::remove($planetDir);
+        }
     }
 
 }

@@ -7,7 +7,7 @@ UserGroupApiInterface::deleteUserGroupByIds
 
 
 
-UserGroupApiInterface::deleteUserGroupByIds — Deletes the userGroup rows identified by the given ids.
+UserGroupApiInterface::deleteUserGroupByIds — Deletes the user group rows identified by the given ids.
 
 
 
@@ -21,7 +21,7 @@ abstract public [UserGroupApiInterface::deleteUserGroupByIds](https://github.com
 
 
 
-Deletes the userGroup rows identified by the given ids.
+Deletes the user group rows identified by the given ids.
 
 
 
@@ -54,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [UserGroupApiInterface::deleteUserGroupByIds](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Interfaces/UserGroupApiInterface.php#L263-L263)
+See the source code for method [UserGroupApiInterface::deleteUserGroupByIds](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Interfaces/UserGroupApiInterface.php#L327-L327)
 
 
 See Also

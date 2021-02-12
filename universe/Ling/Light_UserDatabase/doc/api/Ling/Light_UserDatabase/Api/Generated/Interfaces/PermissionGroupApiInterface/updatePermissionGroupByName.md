@@ -7,7 +7,7 @@ PermissionGroupApiInterface::updatePermissionGroupByName
 
 
 
-PermissionGroupApiInterface::updatePermissionGroupByName — Updates the permissionGroup row identified by the given name.
+PermissionGroupApiInterface::updatePermissionGroupByName — Updates the permission group row identified by the given name.
 
 
 
@@ -16,12 +16,12 @@ Description
 ================
 
 
-abstract public [PermissionGroupApiInterface::updatePermissionGroupByName](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Interfaces/PermissionGroupApiInterface/updatePermissionGroupByName.md)(string $name, array $permissionGroup) : void
+abstract public [PermissionGroupApiInterface::updatePermissionGroupByName](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Interfaces/PermissionGroupApiInterface/updatePermissionGroupByName.md)(string $name, array $permissionGroup, ?array $extraWhere = [], ?array $markers = []) : void
 
 
 
 
-Updates the permissionGroup row identified by the given name.
+Updates the permission group row identified by the given name.
 
 
 
@@ -35,6 +35,14 @@ Parameters
     
 
 - permissionGroup
+
+    
+
+- extraWhere
+
+    
+
+- markers
 
     
 
@@ -58,7 +66,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [PermissionGroupApiInterface::updatePermissionGroupByName](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Interfaces/PermissionGroupApiInterface.php#L264-L264)
+See the source code for method [PermissionGroupApiInterface::updatePermissionGroupByName](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Interfaces/PermissionGroupApiInterface.php#L291-L291)
 
 
 See Also
@@ -66,5 +74,5 @@ See Also
 
 The [PermissionGroupApiInterface](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Interfaces/PermissionGroupApiInterface.md) class.
 
-Previous method: [updatePermissionGroupById](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Interfaces/PermissionGroupApiInterface/updatePermissionGroupById.md)<br>Next method: [delete](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Interfaces/PermissionGroupApiInterface/delete.md)<br>
+Previous method: [updatePermissionGroupById](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Interfaces/PermissionGroupApiInterface/updatePermissionGroupById.md)<br>Next method: [updatePermissionGroup](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Interfaces/PermissionGroupApiInterface/updatePermissionGroup.md)<br>
 

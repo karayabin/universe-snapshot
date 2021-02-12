@@ -73,7 +73,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [YorgDirScannerTool::getFilesWithoutExtension](https://github.com/lingtalfi/DirScanner/blob/master/YorgDirScannerTool.php#L469-L523)
+See the source code for method [YorgDirScannerTool::getFilesWithoutExtension](https://github.com/lingtalfi/DirScanner/blob/master/YorgDirScannerTool.php#L475-L529)
 
 
 See Also

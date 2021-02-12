@@ -4,7 +4,7 @@
 
 The LightUserPreferencesApiFactory class
 ================
-2020-07-31 --> 2020-08-13
+2020-07-31 --> 2021-02-11
 
 
 

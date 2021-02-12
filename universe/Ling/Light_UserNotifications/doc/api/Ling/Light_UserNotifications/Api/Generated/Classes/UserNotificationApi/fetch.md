@@ -51,7 +51,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [UserNotificationApi::fetch](https://github.com/lingtalfi/Light_UserNotifications/blob/master/Api/Generated/Classes/UserNotificationApi.php#L129-L135)
+See the source code for method [UserNotificationApi::fetch](https://github.com/lingtalfi/Light_UserNotifications/blob/master/Api/Generated/Classes/UserNotificationApi.php#L129-L139)
 
 
 See Also

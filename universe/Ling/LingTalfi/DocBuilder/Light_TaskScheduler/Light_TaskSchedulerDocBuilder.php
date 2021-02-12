@@ -76,6 +76,9 @@ class Light_TaskSchedulerDocBuilder
              */
             "reportIgnore" => [
                 "Ling\Light_LingStandardService\Service\LightLingStandardService01",
+                "Ling\Light_PluginInstaller\PluginInstaller\LightBasePluginInstaller",
+                "Ling\Light_LingStandardService\Service\LightLingStandardService02",
+                "Ling\Light_UserDatabase\Light_PluginInstaller\LightUserDatabaseBasePluginInstaller",
 
             ],
             /**
@@ -145,6 +148,7 @@ class Light_TaskSchedulerDocBuilder
                 "Light_TaskScheduler conception notes" => $doc . '/pages/conception-notes.md',
                 "ling standard object methods" =>  'https://github.com/lingtalfi/Light_BreezeGenerator/blob/master/doc/pages/ling-standard-object-methods.md',
                 "Light_PluginInstaller conception notes" =>  'https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/pages/conception-notes.md',
+                "light standard permissions" =>  'https://github.com/lingtalfi/TheBar/blob/master/discussions/light-standard-permissions.md',
             ],
             /**
              * An array of external classes to url.
@@ -162,6 +166,11 @@ class Light_TaskSchedulerDocBuilder
                 "Ling\SimplePdoWrapper\SimplePdoWrapperInterface" => "https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/SimplePdoWrapperInterface.md",
                 "Ling\Light_LingStandardService\Service\LightLingStandardService01" => "https://github.com/lingtalfi/Light_LingStandardService/blob/master/doc/api/Ling/Light_LingStandardService/Service/LightLingStandardService01.md",
                 "Ling\Light_PluginInstaller\PluginInstaller\PluginInstallerInterface" => "https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/PluginInstaller/PluginInstallerInterface.md",
+                "Ling\Light_PluginInstaller\PluginInstaller\LightBasePluginInstaller" => "https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/PluginInstaller/LightBasePluginInstaller.md",
+                "Ling\Light\ServiceContainer\LightServiceContainerAwareInterface" => "https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerAwareInterface.md",
+                "Ling\Light_LingStandardService\Service\LightLingStandardService02" => "https://github.com/lingtalfi/Light_LingStandardService/blob/master/doc/api/Ling/Light_LingStandardService/Service/LightLingStandardService02.md",
+                "Ling\Light_PluginInstaller\TableScope\TableScopeAwareInterface" => "https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/TableScope/TableScopeAwareInterface.md",
+                "Ling\Light_UserDatabase\Light_PluginInstaller\LightUserDatabaseBasePluginInstaller" => "https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Light_PluginInstaller/LightUserDatabaseBasePluginInstaller.md",
             ],
             "ignoreFilesStartingWith" => [
 //                "PHPExcel/",

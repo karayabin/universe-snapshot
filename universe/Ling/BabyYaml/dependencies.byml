@@ -1,6 +1,7 @@
 dependencies: 
     Ling: 
         - Bat
+        - CheapLogger
     
 
 post_install: []

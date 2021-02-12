@@ -4,7 +4,7 @@
 
 The ProjectInfo class
 ================
-2019-03-18 --> 2019-07-18
+2019-03-18 --> 2020-12-08
 
 
 
@@ -29,8 +29,8 @@ class <span class="pl-k">ProjectInfo</span>  {
 
 - Methods
     - public [__construct](https://github.com/lingtalfi/ProjectInfo/blob/master/doc/api/Ling/ProjectInfo/ProjectInfo/__construct.md)(string $rootDir) : void
-    - public [getInfo](https://github.com/lingtalfi/ProjectInfo/blob/master/doc/api/Ling/ProjectInfo/ProjectInfo/getInfo.md)(array $options = []) : array
-    - public [showReport](https://github.com/lingtalfi/ProjectInfo/blob/master/doc/api/Ling/ProjectInfo/ProjectInfo/showReport.md)(array $options = []) : void
+    - public [getInfo](https://github.com/lingtalfi/ProjectInfo/blob/master/doc/api/Ling/ProjectInfo/ProjectInfo/getInfo.md)(?array $options = []) : array
+    - public [showReport](https://github.com/lingtalfi/ProjectInfo/blob/master/doc/api/Ling/ProjectInfo/ProjectInfo/showReport.md)(?array $options = []) : void
 
 }
 

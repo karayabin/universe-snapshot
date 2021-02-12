@@ -1,0 +1,11 @@
+cli:
+    instance: Ling\Light_Cli\Service\LightCliService
+    methods:
+        setContainer:
+            container: @container()
+        setOptions:
+            options: []
+
+
+
+

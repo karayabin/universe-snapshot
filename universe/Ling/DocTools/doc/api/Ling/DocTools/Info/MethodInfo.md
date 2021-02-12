@@ -4,7 +4,7 @@
 
 The MethodInfo class
 ================
-2019-02-21 --> 2020-09-11
+2019-02-21 --> 2021-02-04
 
 
 
@@ -46,7 +46,7 @@ class <span class="pl-k">MethodInfo</span> implements [InfoInterface](https://gi
     - public [getName](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/MethodInfo/getName.md)() : null
     - public [setName](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/MethodInfo/setName.md)(string $name) : [MethodInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/MethodInfo.md)
     - public [getReflectionMethod](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/MethodInfo/getReflectionMethod.md)() : [ReflectionMethod](http://php.net/manual/en/class.reflectionmethod.php)
-    - public [setReflectionMethod](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/MethodInfo/setReflectionMethod.md)([\ReflectionMethod](http://php.net/manual/en/class.reflectionmethod.php) $reflectionMethod) : void
+    - public [setReflectionMethod](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/MethodInfo/setReflectionMethod.md)(ReflectionMethod $reflectionMethod) : void
     - public [getDeclaringClass](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/MethodInfo/getDeclaringClass.md)() : string
     - public [getReturnType](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/MethodInfo/getReturnType.md)() : string
     - public [setReturnType](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/MethodInfo/setReturnType.md)(string $returnType) : void

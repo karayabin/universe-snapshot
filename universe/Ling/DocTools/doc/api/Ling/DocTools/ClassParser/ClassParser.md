@@ -4,7 +4,7 @@
 
 The ClassParser class
 ================
-2019-02-21 --> 2020-09-11
+2019-02-21 --> 2021-02-04
 
 
 
@@ -59,13 +59,13 @@ class <span class="pl-k">ClassParser</span> implements [ClassParserInterface](ht
     - public [setNotationlInterpreter](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/ClassParser/ClassParser/setNotationlInterpreter.md)([Ling\DocTools\Interpreter\NotationInterpreterInterface](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Interpreter/NotationInterpreterInterface.md) $notationInterpreter) : void
     - public [setGeneratedItemsToUrl](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/ClassParser/ClassParser/setGeneratedItemsToUrl.md)(array $generatedItems2Url) : void
     - protected [parseDocComment](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/ClassParser/ClassParser/parseDocComment.md)(string $rawComment, string $elementType, string $elementId) : [CommentInfo](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Info/CommentInfo.md)
-    - protected [getPropertySignature](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/ClassParser/ClassParser/getPropertySignature.md)([\ReflectionProperty](http://php.net/manual/en/class.reflectionproperty.php) $property) : string
-    - protected [getMethodSignature](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/ClassParser/ClassParser/getMethodSignature.md)([\ReflectionMethod](http://php.net/manual/en/class.reflectionmethod.php) $method) : string
-    - protected [getClassSignature](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/ClassParser/ClassParser/getClassSignature.md)([\ReflectionClass](http://php.net/manual/en/class.reflectionclass.php) $class) : string
-    - protected [getMethodVisibility](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/ClassParser/ClassParser/getMethodVisibility.md)([\ReflectionMethod](http://php.net/manual/en/class.reflectionmethod.php) $method) : string
-    - protected [getPropertyVisibility](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/ClassParser/ClassParser/getPropertyVisibility.md)([\ReflectionProperty](http://php.net/manual/en/class.reflectionproperty.php) $property) : string
+    - protected [getPropertySignature](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/ClassParser/ClassParser/getPropertySignature.md)(ReflectionProperty $property) : string
+    - protected [getMethodSignature](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/ClassParser/ClassParser/getMethodSignature.md)(ReflectionMethod $method) : string
+    - protected [getClassSignature](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/ClassParser/ClassParser/getClassSignature.md)(ReflectionClass $class) : string
+    - protected [getMethodVisibility](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/ClassParser/ClassParser/getMethodVisibility.md)(ReflectionMethod $method) : string
+    - protected [getPropertyVisibility](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/ClassParser/ClassParser/getPropertyVisibility.md)(ReflectionProperty $property) : string
     - private [trimLines](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/ClassParser/ClassParser/trimLines.md)(array $lines) : array
-    - private [expandIncludes](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/ClassParser/ClassParser/expandIncludes.md)(string $rawContent, ?&$resolved = false, ?array &$includeReferences = []) : string
+    - private [expandIncludes](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/ClassParser/ClassParser/expandIncludes.md)(string $rawContent, ?$resolved = false, ?array &$includeReferences = []) : string
     - private [getTagDescriptionByContent](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/ClassParser/ClassParser/getTagDescriptionByContent.md)(string $content) : string
 
 }

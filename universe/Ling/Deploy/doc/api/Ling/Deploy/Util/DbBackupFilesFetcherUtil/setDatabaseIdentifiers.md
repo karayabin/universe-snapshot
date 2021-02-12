@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [DbBackupFilesFetcherUtil::setDatabaseIdentifiers](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Util/DbBackupFilesFetcherUtil/setDatabaseIdentifiers.md)(?$identifiers) : void
+public [DbBackupFilesFetcherUtil::setDatabaseIdentifiers](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Util/DbBackupFilesFetcherUtil/setDatabaseIdentifiers.md)($identifiers) : void
 
 
 

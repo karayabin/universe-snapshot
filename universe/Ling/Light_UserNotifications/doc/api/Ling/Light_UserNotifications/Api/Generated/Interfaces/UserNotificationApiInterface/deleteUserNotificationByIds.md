@@ -7,7 +7,7 @@ UserNotificationApiInterface::deleteUserNotificationByIds
 
 
 
-UserNotificationApiInterface::deleteUserNotificationByIds — Deletes the userNotification rows identified by the given ids.
+UserNotificationApiInterface::deleteUserNotificationByIds — Deletes the user notification rows identified by the given ids.
 
 
 
@@ -21,7 +21,7 @@ abstract public [UserNotificationApiInterface::deleteUserNotificationByIds](http
 
 
 
-Deletes the userNotification rows identified by the given ids.
+Deletes the user notification rows identified by the given ids.
 
 
 
@@ -62,5 +62,5 @@ See Also
 
 The [UserNotificationApiInterface](https://github.com/lingtalfi/Light_UserNotifications/blob/master/doc/api/Ling/Light_UserNotifications/Api/Generated/Interfaces/UserNotificationApiInterface.md) class.
 
-Previous method: [deleteUserNotificationById](https://github.com/lingtalfi/Light_UserNotifications/blob/master/doc/api/Ling/Light_UserNotifications/Api/Generated/Interfaces/UserNotificationApiInterface/deleteUserNotificationById.md)<br>
+Previous method: [deleteUserNotificationById](https://github.com/lingtalfi/Light_UserNotifications/blob/master/doc/api/Ling/Light_UserNotifications/Api/Generated/Interfaces/UserNotificationApiInterface/deleteUserNotificationById.md)<br>Next method: [deleteUserNotificationByLudUserId](https://github.com/lingtalfi/Light_UserNotifications/blob/master/doc/api/Ling/Light_UserNotifications/Api/Generated/Interfaces/UserNotificationApiInterface/deleteUserNotificationByLudUserId.md)<br>
 

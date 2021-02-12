@@ -218,6 +218,14 @@ echo FormRenderer::create()->prepare($model)->render();
 History Log
 ------------------
 
+- 1.7.4 -- 2020-12-08
+
+    - Fix lpi-deps not using natsort.
+
+- 1.7.3 -- 2020-12-04
+
+    - Add lpi-deps.byml file
+
 - 1.7.2 -- 2017-05-19
 
     - fix FormRenderer select value type

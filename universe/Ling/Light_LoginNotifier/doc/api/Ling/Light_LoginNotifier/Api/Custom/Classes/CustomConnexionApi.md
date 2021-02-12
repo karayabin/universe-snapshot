@@ -4,7 +4,7 @@
 
 The CustomConnexionApi class
 ================
-2020-11-27 --> 2020-11-30
+2020-11-27 --> 2021-02-11
 
 
 
@@ -49,7 +49,6 @@ class <span class="pl-k">CustomConnexionApi</span> extends [ConnexionApi](https:
     - public [ConnexionApi::delete](https://github.com/lingtalfi/Light_LoginNotifier/blob/master/doc/api/Ling/Light_LoginNotifier/Api/Generated/Classes/ConnexionApi/delete.md)(?$where = null, ?array $markers = []) : false | int
     - public [ConnexionApi::deleteConnexionById](https://github.com/lingtalfi/Light_LoginNotifier/blob/master/doc/api/Ling/Light_LoginNotifier/Api/Generated/Classes/ConnexionApi/deleteConnexionById.md)(int $id) : void
     - public [ConnexionApi::deleteConnexionByIds](https://github.com/lingtalfi/Light_LoginNotifier/blob/master/doc/api/Ling/Light_LoginNotifier/Api/Generated/Classes/ConnexionApi/deleteConnexionByIds.md)(array $ids) : void
-    - private [ConnexionApi::fetchRoutine](https://github.com/lingtalfi/Light_LoginNotifier/blob/master/doc/api/Ling/Light_LoginNotifier/Api/Generated/Classes/ConnexionApi/fetchRoutine.md)(string &$q, array &$markers, array $components) : array
     - public [LightLoginNotifierBaseApi::setPdoWrapper](https://github.com/lingtalfi/Light_LoginNotifier/blob/master/doc/api/Ling/Light_LoginNotifier/Api/Generated/Classes/LightLoginNotifierBaseApi/setPdoWrapper.md)([Ling\SimplePdoWrapper\SimplePdoWrapperInterface](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/SimplePdoWrapperInterface.md) $pdoWrapper) : void
     - public [LightLoginNotifierBaseApi::setContainer](https://github.com/lingtalfi/Light_LoginNotifier/blob/master/doc/api/Ling/Light_LoginNotifier/Api/Generated/Classes/LightLoginNotifierBaseApi/setContainer.md)([Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) $container) : void
 
@@ -80,7 +79,6 @@ Methods
 - [ConnexionApi::delete](https://github.com/lingtalfi/Light_LoginNotifier/blob/master/doc/api/Ling/Light_LoginNotifier/Api/Generated/Classes/ConnexionApi/delete.md) &ndash; Deletes the connexion rows matching the given where conditions, and returns the number of deleted rows.
 - [ConnexionApi::deleteConnexionById](https://github.com/lingtalfi/Light_LoginNotifier/blob/master/doc/api/Ling/Light_LoginNotifier/Api/Generated/Classes/ConnexionApi/deleteConnexionById.md) &ndash; Deletes the connexion identified by the given id.
 - [ConnexionApi::deleteConnexionByIds](https://github.com/lingtalfi/Light_LoginNotifier/blob/master/doc/api/Ling/Light_LoginNotifier/Api/Generated/Classes/ConnexionApi/deleteConnexionByIds.md) &ndash; Deletes the connexion rows identified by the given ids.
-- [ConnexionApi::fetchRoutine](https://github.com/lingtalfi/Light_LoginNotifier/blob/master/doc/api/Ling/Light_LoginNotifier/Api/Generated/Classes/ConnexionApi/fetchRoutine.md) &ndash; Appends the given components to the given query, and returns an array of options.
 - [LightLoginNotifierBaseApi::setPdoWrapper](https://github.com/lingtalfi/Light_LoginNotifier/blob/master/doc/api/Ling/Light_LoginNotifier/Api/Generated/Classes/LightLoginNotifierBaseApi/setPdoWrapper.md) &ndash; Sets the pdoWrapper.
 - [LightLoginNotifierBaseApi::setContainer](https://github.com/lingtalfi/Light_LoginNotifier/blob/master/doc/api/Ling/Light_LoginNotifier/Api/Generated/Classes/LightLoginNotifierBaseApi/setContainer.md) &ndash; Sets the container.
 

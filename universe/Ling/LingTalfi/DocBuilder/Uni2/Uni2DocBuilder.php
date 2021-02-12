@@ -7,6 +7,7 @@ namespace Ling\LingTalfi\DocBuilder\Uni2;
 use Ling\DocTools\DocBuilder\Git\PhpPlanet\LingGitPhpPlanetDocBuilder;
 use Ling\DocTools\Exception\DocBuilderException;
 use Ling\DocTools\Translator\ParseDownTranslator;
+use Ling\LingTalfi\DocTools\LingTalfiDocToolsHelper;
 
 /**
  * The Uni2DocBuilder class.
@@ -81,7 +82,8 @@ class Uni2DocBuilder
              *
              */
             "reportIgnore" => [
-//                "Ling\DocTools\Translator\ParseDownTranslator",
+                "Ling\CliTools\Program\Application",
+
             ],
             /**
              * Your project start date.
@@ -273,6 +275,7 @@ class Uni2DocBuilder
          * and since we've defined a @kw(copy module), it will also copy the whole doc to another location.
          */
         $builder->buildDoc();
+        LingTalfiDocToolsHelper::generateCrumbs($builder);
 
         if ('cli' !== php_sapi_name()) {
 

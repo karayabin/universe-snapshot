@@ -4,7 +4,7 @@
 
 The UserPreferenceApi class
 ================
-2020-07-31 --> 2020-08-13
+2020-07-31 --> 2021-02-11
 
 
 
@@ -47,6 +47,7 @@ class <span class="pl-k">UserPreferenceApi</span> extends [CustomLightUserPrefer
     - public [delete](https://github.com/lingtalfi/Light_UserPreferences/blob/master/doc/api/Ling/Light_UserPreferences/Api/Generated/Classes/UserPreferenceApi/delete.md)(?$where = null, ?array $markers = []) : false | int
     - public [deleteUserPreferenceById](https://github.com/lingtalfi/Light_UserPreferences/blob/master/doc/api/Ling/Light_UserPreferences/Api/Generated/Classes/UserPreferenceApi/deleteUserPreferenceById.md)(int $id) : void
     - public [deleteUserPreferenceByIds](https://github.com/lingtalfi/Light_UserPreferences/blob/master/doc/api/Ling/Light_UserPreferences/Api/Generated/Classes/UserPreferenceApi/deleteUserPreferenceByIds.md)(array $ids) : void
+    - public [deleteUserPreferenceByLudUserId](https://github.com/lingtalfi/Light_UserPreferences/blob/master/doc/api/Ling/Light_UserPreferences/Api/Generated/Classes/UserPreferenceApi/deleteUserPreferenceByLudUserId.md)(int $userId) : void
     - private [fetchRoutine](https://github.com/lingtalfi/Light_UserPreferences/blob/master/doc/api/Ling/Light_UserPreferences/Api/Generated/Classes/UserPreferenceApi/fetchRoutine.md)(string &$q, array &$markers, array $components) : array
 
 - Inherited methods
@@ -64,22 +65,23 @@ Methods
 ==============
 
 - [UserPreferenceApi::__construct](https://github.com/lingtalfi/Light_UserPreferences/blob/master/doc/api/Ling/Light_UserPreferences/Api/Generated/Classes/UserPreferenceApi/__construct.md) &ndash; Builds the UserPreferenceApi instance.
-- [UserPreferenceApi::insertUserPreference](https://github.com/lingtalfi/Light_UserPreferences/blob/master/doc/api/Ling/Light_UserPreferences/Api/Generated/Classes/UserPreferenceApi/insertUserPreference.md) &ndash; Inserts the given userPreference in the database.
-- [UserPreferenceApi::insertUserPreferences](https://github.com/lingtalfi/Light_UserPreferences/blob/master/doc/api/Ling/Light_UserPreferences/Api/Generated/Classes/UserPreferenceApi/insertUserPreferences.md) &ndash; Inserts the given userPreference rows in the database.
+- [UserPreferenceApi::insertUserPreference](https://github.com/lingtalfi/Light_UserPreferences/blob/master/doc/api/Ling/Light_UserPreferences/Api/Generated/Classes/UserPreferenceApi/insertUserPreference.md) &ndash; Inserts the given user preference in the database.
+- [UserPreferenceApi::insertUserPreferences](https://github.com/lingtalfi/Light_UserPreferences/blob/master/doc/api/Ling/Light_UserPreferences/Api/Generated/Classes/UserPreferenceApi/insertUserPreferences.md) &ndash; Inserts the given user preference rows in the database.
 - [UserPreferenceApi::fetchAll](https://github.com/lingtalfi/Light_UserPreferences/blob/master/doc/api/Ling/Light_UserPreferences/Api/Generated/Classes/UserPreferenceApi/fetchAll.md) &ndash; Returns the rows corresponding to given components.
 - [UserPreferenceApi::fetch](https://github.com/lingtalfi/Light_UserPreferences/blob/master/doc/api/Ling/Light_UserPreferences/Api/Generated/Classes/UserPreferenceApi/fetch.md) &ndash; Returns the first row corresponding to given components, or false if there is no match.
-- [UserPreferenceApi::getUserPreferenceById](https://github.com/lingtalfi/Light_UserPreferences/blob/master/doc/api/Ling/Light_UserPreferences/Api/Generated/Classes/UserPreferenceApi/getUserPreferenceById.md) &ndash; Returns the userPreference row identified by the given id.
+- [UserPreferenceApi::getUserPreferenceById](https://github.com/lingtalfi/Light_UserPreferences/blob/master/doc/api/Ling/Light_UserPreferences/Api/Generated/Classes/UserPreferenceApi/getUserPreferenceById.md) &ndash; Returns the user preference row identified by the given id.
 - [UserPreferenceApi::getUserPreference](https://github.com/lingtalfi/Light_UserPreferences/blob/master/doc/api/Ling/Light_UserPreferences/Api/Generated/Classes/UserPreferenceApi/getUserPreference.md) &ndash; Returns the userPreference row identified by the given [where conditions](https://github.com/lingtalfi/SimplePdoWrapper#the-where-conditions).
 - [UserPreferenceApi::getUserPreferences](https://github.com/lingtalfi/Light_UserPreferences/blob/master/doc/api/Ling/Light_UserPreferences/Api/Generated/Classes/UserPreferenceApi/getUserPreferences.md) &ndash; Returns the userPreference rows identified by the given [where conditions](https://github.com/lingtalfi/SimplePdoWrapper#the-where-conditions).
 - [UserPreferenceApi::getUserPreferencesColumn](https://github.com/lingtalfi/Light_UserPreferences/blob/master/doc/api/Ling/Light_UserPreferences/Api/Generated/Classes/UserPreferenceApi/getUserPreferencesColumn.md) &ndash; identified by the given [where conditions](https://github.com/lingtalfi/SimplePdoWrapper#the-where-conditions).
 - [UserPreferenceApi::getUserPreferencesColumns](https://github.com/lingtalfi/Light_UserPreferences/blob/master/doc/api/Ling/Light_UserPreferences/Api/Generated/Classes/UserPreferenceApi/getUserPreferencesColumns.md) &ndash; Returns a subset of the userPreference rows identified by the given [where conditions](https://github.com/lingtalfi/SimplePdoWrapper#the-where-conditions).
 - [UserPreferenceApi::getUserPreferencesKey2Value](https://github.com/lingtalfi/Light_UserPreferences/blob/master/doc/api/Ling/Light_UserPreferences/Api/Generated/Classes/UserPreferenceApi/getUserPreferencesKey2Value.md) &ndash; Returns an array of $key => $value from the userPreference rows identified by the given [where conditions](https://github.com/lingtalfi/SimplePdoWrapper#the-where-conditions).
 - [UserPreferenceApi::getAllIds](https://github.com/lingtalfi/Light_UserPreferences/blob/master/doc/api/Ling/Light_UserPreferences/Api/Generated/Classes/UserPreferenceApi/getAllIds.md) &ndash; Returns an array of all userPreference ids.
-- [UserPreferenceApi::updateUserPreferenceById](https://github.com/lingtalfi/Light_UserPreferences/blob/master/doc/api/Ling/Light_UserPreferences/Api/Generated/Classes/UserPreferenceApi/updateUserPreferenceById.md) &ndash; Updates the userPreference row identified by the given id.
-- [UserPreferenceApi::updateUserPreference](https://github.com/lingtalfi/Light_UserPreferences/blob/master/doc/api/Ling/Light_UserPreferences/Api/Generated/Classes/UserPreferenceApi/updateUserPreference.md) &ndash; Updates the userPreference row.
+- [UserPreferenceApi::updateUserPreferenceById](https://github.com/lingtalfi/Light_UserPreferences/blob/master/doc/api/Ling/Light_UserPreferences/Api/Generated/Classes/UserPreferenceApi/updateUserPreferenceById.md) &ndash; Updates the user preference row identified by the given id.
+- [UserPreferenceApi::updateUserPreference](https://github.com/lingtalfi/Light_UserPreferences/blob/master/doc/api/Ling/Light_UserPreferences/Api/Generated/Classes/UserPreferenceApi/updateUserPreference.md) &ndash; Updates the user preference row.
 - [UserPreferenceApi::delete](https://github.com/lingtalfi/Light_UserPreferences/blob/master/doc/api/Ling/Light_UserPreferences/Api/Generated/Classes/UserPreferenceApi/delete.md) &ndash; Deletes the userPreference rows matching the given where conditions, and returns the number of deleted rows.
-- [UserPreferenceApi::deleteUserPreferenceById](https://github.com/lingtalfi/Light_UserPreferences/blob/master/doc/api/Ling/Light_UserPreferences/Api/Generated/Classes/UserPreferenceApi/deleteUserPreferenceById.md) &ndash; Deletes the userPreference identified by the given id.
-- [UserPreferenceApi::deleteUserPreferenceByIds](https://github.com/lingtalfi/Light_UserPreferences/blob/master/doc/api/Ling/Light_UserPreferences/Api/Generated/Classes/UserPreferenceApi/deleteUserPreferenceByIds.md) &ndash; Deletes the userPreference rows identified by the given ids.
+- [UserPreferenceApi::deleteUserPreferenceById](https://github.com/lingtalfi/Light_UserPreferences/blob/master/doc/api/Ling/Light_UserPreferences/Api/Generated/Classes/UserPreferenceApi/deleteUserPreferenceById.md) &ndash; Deletes the user preference identified by the given id.
+- [UserPreferenceApi::deleteUserPreferenceByIds](https://github.com/lingtalfi/Light_UserPreferences/blob/master/doc/api/Ling/Light_UserPreferences/Api/Generated/Classes/UserPreferenceApi/deleteUserPreferenceByIds.md) &ndash; Deletes the user preference rows identified by the given ids.
+- [UserPreferenceApi::deleteUserPreferenceByLudUserId](https://github.com/lingtalfi/Light_UserPreferences/blob/master/doc/api/Ling/Light_UserPreferences/Api/Generated/Classes/UserPreferenceApi/deleteUserPreferenceByLudUserId.md) &ndash; Deletes the user preference rows having the given user id.
 - [UserPreferenceApi::fetchRoutine](https://github.com/lingtalfi/Light_UserPreferences/blob/master/doc/api/Ling/Light_UserPreferences/Api/Generated/Classes/UserPreferenceApi/fetchRoutine.md) &ndash; Appends the given components to the given query, and returns an array of options.
 - [LightUserPreferencesBaseApi::setPdoWrapper](https://github.com/lingtalfi/Light_UserPreferences/blob/master/doc/api/Ling/Light_UserPreferences/Api/Generated/Classes/LightUserPreferencesBaseApi/setPdoWrapper.md) &ndash; Sets the pdoWrapper.
 - [LightUserPreferencesBaseApi::setContainer](https://github.com/lingtalfi/Light_UserPreferences/blob/master/doc/api/Ling/Light_UserPreferences/Api/Generated/Classes/LightUserPreferencesBaseApi/setContainer.md) &ndash; Sets the container.

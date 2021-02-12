@@ -1,0 +1,3 @@
+https://github.com/lingtalfi/DerbyCache/blob/master/README.md
+https://github.com/lingtalfi/DerbyCache/blob/master/doc/hooks-and-related-caches.md
+https://github.com/lingtalfi/DerbyCache/blob/master/doc/successor-of-tabatha-cache.md

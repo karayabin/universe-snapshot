@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [CSRFProtector::cleanSession](https://github.com/lingtalfi/CSRFTools/blob/master/CSRFProtector.php#L292-L296)
+See the source code for method [CSRFProtector::cleanSession](https://github.com/lingtalfi/CSRFTools/blob/master/CSRFProtector.php#L291-L295)
 
 
 See Also

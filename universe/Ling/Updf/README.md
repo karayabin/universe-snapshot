@@ -576,7 +576,15 @@ So if you write this code, notice the border=0.5 set on the table tag...
 
 History Log
 ------------------
-    
+
+- 1.2.5 -- 2020-12-08
+
+    - Fix lpi-deps not using natsort.
+
+- 1.2.4 -- 2020-12-04
+
+    - Add lpi-deps.byml file
+
 - 1.2.3 -- 2020-06-25
 
     - fix Updf misnamed classes, add dependency to tcpdf

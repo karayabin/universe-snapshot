@@ -4,7 +4,7 @@
 
 The LightStream class
 ================
-2019-04-09 --> 2020-12-03
+2019-04-09 --> 2021-02-11
 
 
 
@@ -22,7 +22,7 @@ Class synopsis
 ==============
 
 
-abstract class <span class="pl-k">LightStream</span> implements [LightStreamInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Stream/LightStreamInterface.md) {
+abstract class <span class="pl-k">LightStream</span> implements [LightStreamInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Stream/LightStreamInterface.md), [\Stringable](https://wiki.php.net/rfc/stringable) {
 
 - Properties
     - private resource [$stream](#property-stream) ;

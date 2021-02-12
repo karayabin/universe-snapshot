@@ -1,0 +1,2 @@
+https://github.com/lingtalfi/Escaper/blob/master/README.md
+https://github.com/lingtalfi/Escaper/blob/master/convention/convention.escapeModes.eng.md

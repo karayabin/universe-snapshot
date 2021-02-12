@@ -45,6 +45,14 @@ Related
 History Log
 =============
 
+- 1.18.6 -- 2020-12-08
+
+    - Fix lpi-deps not using natsort.
+
+- 1.18.5 -- 2020-12-04
+
+    - Add lpi-deps.byml file
+
 - 1.18.4 -- 2020-12-01
 
     - update ZeroAdminForgottenPasswordWidget, add new variables, now handle multiple accounts choice and added back to login link

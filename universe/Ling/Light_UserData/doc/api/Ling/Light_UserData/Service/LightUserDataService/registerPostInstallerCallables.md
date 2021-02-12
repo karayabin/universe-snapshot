@@ -53,7 +53,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::registerPostInstallerCallables](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L270-L278)
+See the source code for method [LightUserDataService::registerPostInstallerCallables](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L310-L318)
 
 
 See Also

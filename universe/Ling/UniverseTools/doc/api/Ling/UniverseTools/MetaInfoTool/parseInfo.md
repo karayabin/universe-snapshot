@@ -51,7 +51,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [MetaInfoTool::parseInfo](https://github.com/lingtalfi/UniverseTools/blob/master/MetaInfoTool.php#L33-L43)
+See the source code for method [MetaInfoTool::parseInfo](https://github.com/lingtalfi/UniverseTools/blob/master/MetaInfoTool.php#L34-L44)
 
 
 See Also
@@ -59,5 +59,5 @@ See Also
 
 The [MetaInfoTool](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/MetaInfoTool.md) class.
 
-Next method: [getVersion](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/MetaInfoTool/getVersion.md)<br>
+Next method: [getVersionByUrl](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/MetaInfoTool/getVersionByUrl.md)<br>
 

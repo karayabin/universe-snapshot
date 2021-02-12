@@ -7,7 +7,7 @@ UserGroupHasPluginOptionApi::insertUserGroupHasPluginOptions
 
 
 
-UserGroupHasPluginOptionApi::insertUserGroupHasPluginOptions — Inserts the given userGroupHasPluginOption rows in the database.
+UserGroupHasPluginOptionApi::insertUserGroupHasPluginOptions — Inserts the given user group has plugin option rows in the database.
 
 
 
@@ -21,7 +21,7 @@ public [UserGroupHasPluginOptionApi::insertUserGroupHasPluginOptions](https://gi
 
 
 
-Inserts the given userGroupHasPluginOption rows in the database.
+Inserts the given user group has plugin option rows in the database.
 By default, it returns an array of the result of the PDO::lastInsertId method for each insert.
 If the returnRic flag is set to true, the method will return an array of the ric array (for each insert) instead of the lastInsertId.
 
@@ -71,7 +71,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [UserGroupHasPluginOptionApi::insertUserGroupHasPluginOptions](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Classes/UserGroupHasPluginOptionApi.php#L94-L105)
+See the source code for method [UserGroupHasPluginOptionApi::insertUserGroupHasPluginOptions](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Classes/UserGroupHasPluginOptionApi.php#L100-L111)
 
 
 See Also
@@ -79,5 +79,5 @@ See Also
 
 The [UserGroupHasPluginOptionApi](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/UserGroupHasPluginOptionApi.md) class.
 
-Previous method: [insertUserGroupHasPluginOption](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/UserGroupHasPluginOptionApi/insertUserGroupHasPluginOption.md)<br>Next method: [getUserGroupHasPluginOptionByUserGroupIdAndPluginOptionId](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/UserGroupHasPluginOptionApi/getUserGroupHasPluginOptionByUserGroupIdAndPluginOptionId.md)<br>
+Previous method: [insertUserGroupHasPluginOption](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/UserGroupHasPluginOptionApi/insertUserGroupHasPluginOption.md)<br>Next method: [fetchAll](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/UserGroupHasPluginOptionApi/fetchAll.md)<br>
 

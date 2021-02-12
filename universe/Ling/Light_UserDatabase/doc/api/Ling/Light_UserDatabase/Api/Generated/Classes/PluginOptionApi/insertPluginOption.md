@@ -7,7 +7,7 @@ PluginOptionApi::insertPluginOption
 
 
 
-PluginOptionApi::insertPluginOption — Inserts the given pluginOption in the database.
+PluginOptionApi::insertPluginOption — Inserts the given plugin option in the database.
 
 
 
@@ -21,7 +21,7 @@ public [PluginOptionApi::insertPluginOption](https://github.com/lingtalfi/Light_
 
 
 
-Inserts the given pluginOption in the database.
+Inserts the given plugin option in the database.
 By default, it returns the result of the PDO::lastInsertId method.
 If the returnRic flag is set to true, the method will return the ric array instead of the lastInsertId.
 
@@ -29,7 +29,7 @@ If the returnRic flag is set to true, the method will return the ric array inste
 If the row you're trying to insert triggers a duplicate error, the behaviour of this method depends on
 the ignoreDuplicate flag:
 - if true, the error will be caught internally, the return of the method is not affected
-- if false, the error will not be caught, and depending on your configuration, it might either
+- if false, the error will not be caught, and depending on your pdo configuration, it might either
          trigger an exception, or fail silently in which case this method returns false.
 
 
@@ -71,7 +71,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [PluginOptionApi::insertPluginOption](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Classes/PluginOptionApi.php#L36-L87)
+See the source code for method [PluginOptionApi::insertPluginOption](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Classes/PluginOptionApi.php#L42-L93)
 
 
 See Also

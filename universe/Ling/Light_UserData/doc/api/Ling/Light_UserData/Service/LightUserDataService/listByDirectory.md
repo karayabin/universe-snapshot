@@ -53,7 +53,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::listByDirectory](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L365-L389)
+See the source code for method [LightUserDataService::listByDirectory](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L209-L233)
 
 
 See Also

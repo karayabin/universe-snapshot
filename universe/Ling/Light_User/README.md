@@ -45,6 +45,14 @@ Related
 History Log
 =============
 
+- 1.7.2 -- 2020-12-08
+
+    - Fix lpi-deps not using natsort.
+
+- 1.7.1 -- 2020-12-04
+
+    - Add lpi-deps.byml file
+
 - 1.7.0 -- 2020-06-08
 
     - update LightWebsiteUser concept, the email and the identifier are two different concepts now

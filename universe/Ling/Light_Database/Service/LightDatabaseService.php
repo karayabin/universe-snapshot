@@ -11,6 +11,7 @@ use Ling\Light\Events\LightEvent;
 use Ling\Light_Database\LightDatabasePdoWrapper;
 use Ling\Light_Logger\LightLoggerService;
 use Ling\SimplePdoWrapper\Exception\SimplePdoWrapperQueryException;
+use Ling\SimplePdoWrapper\SimplePdoWrapper;
 use Ling\SimplePdoWrapper\Util\MysqlInfoUtil;
 
 /**
@@ -74,6 +75,7 @@ class LightDatabaseService extends LightDatabasePdoWrapper
         }
         return $this->_mysqlInfoUtil;
     }
+
 
     /**
      * Embellishes the error message in SimplePdoWrapperQueryException exceptions.

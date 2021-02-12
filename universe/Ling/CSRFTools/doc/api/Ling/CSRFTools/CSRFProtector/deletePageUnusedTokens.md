@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [CSRFProtector::deletePageUnusedTokens](https://github.com/lingtalfi/CSRFTools/blob/master/CSRFProtector.php#L244-L274)
+See the source code for method [CSRFProtector::deletePageUnusedTokens](https://github.com/lingtalfi/CSRFTools/blob/master/CSRFProtector.php#L243-L273)
 
 
 See Also

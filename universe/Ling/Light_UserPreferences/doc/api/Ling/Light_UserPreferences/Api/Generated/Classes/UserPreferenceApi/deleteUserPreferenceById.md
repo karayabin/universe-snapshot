@@ -7,7 +7,7 @@ UserPreferenceApi::deleteUserPreferenceById
 
 
 
-UserPreferenceApi::deleteUserPreferenceById — Deletes the userPreference identified by the given id.
+UserPreferenceApi::deleteUserPreferenceById — Deletes the user preference identified by the given id.
 
 
 
@@ -21,7 +21,7 @@ public [UserPreferenceApi::deleteUserPreferenceById](https://github.com/lingtalf
 
 
 
-Deletes the userPreference identified by the given id.
+Deletes the user preference identified by the given id.
 
 
 
@@ -54,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [UserPreferenceApi::deleteUserPreferenceById](https://github.com/lingtalfi/Light_UserPreferences/blob/master/Api/Generated/Classes/UserPreferenceApi.php#L282-L288)
+See the source code for method [UserPreferenceApi::deleteUserPreferenceById](https://github.com/lingtalfi/Light_UserPreferences/blob/master/Api/Generated/Classes/UserPreferenceApi.php#L286-L292)
 
 
 See Also

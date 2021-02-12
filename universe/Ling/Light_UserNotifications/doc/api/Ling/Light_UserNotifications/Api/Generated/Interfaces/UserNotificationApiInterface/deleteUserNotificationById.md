@@ -7,7 +7,7 @@ UserNotificationApiInterface::deleteUserNotificationById
 
 
 
-UserNotificationApiInterface::deleteUserNotificationById — Deletes the userNotification identified by the given id.
+UserNotificationApiInterface::deleteUserNotificationById — Deletes the user notification identified by the given id.
 
 
 
@@ -21,7 +21,7 @@ abstract public [UserNotificationApiInterface::deleteUserNotificationById](https
 
 
 
-Deletes the userNotification identified by the given id.
+Deletes the user notification identified by the given id.
 
 
 

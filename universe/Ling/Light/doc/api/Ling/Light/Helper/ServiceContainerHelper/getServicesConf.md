@@ -16,12 +16,15 @@ Description
 ================
 
 
-private static [ServiceContainerHelper::getServicesConf](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ServiceContainerHelper/getServicesConf.md)(string $appDir) : array
+private static [ServiceContainerHelper::getServicesConf](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ServiceContainerHelper/getServicesConf.md)(string $appDir, ?array $options = []) : array
 
 
 
 
 Returns the service configuration array based on files in $appDir/config/services.
+
+Available options are:
+- environment: string=null, the name of the environment to use
 
 
 
@@ -31,6 +34,10 @@ Parameters
 
 
 - appDir
+
+    
+
+- options
 
     
 
@@ -54,7 +61,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [ServiceContainerHelper::getServicesConf](https://github.com/lingtalfi/Light/blob/master/Helper/ServiceContainerHelper.php#L113-L123)
+See the source code for method [ServiceContainerHelper::getServicesConf](https://github.com/lingtalfi/Light/blob/master/Helper/ServiceContainerHelper.php#L128-L164)
 
 
 See Also

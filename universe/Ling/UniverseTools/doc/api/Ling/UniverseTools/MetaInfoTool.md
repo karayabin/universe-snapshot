@@ -4,7 +4,7 @@
 
 The MetaInfoTool class
 ================
-2019-02-26 --> 2020-12-03
+2019-02-26 --> 2021-02-12
 
 
 
@@ -30,7 +30,8 @@ class <span class="pl-k">MetaInfoTool</span>  {
 
 - Methods
     - public static [parseInfo](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/MetaInfoTool/parseInfo.md)(string $planetDir) : array
-    - public static [getVersion](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/MetaInfoTool/getVersion.md)(string $planetDir) : void
+    - public static [getVersionByUrl](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/MetaInfoTool/getVersionByUrl.md)($rawMetaInfoUrl) : string | null
+    - public static [getVersion](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/MetaInfoTool/getVersion.md)(string $planetDir) : string | null
     - public static [writeInfo](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/MetaInfoTool/writeInfo.md)(string $planetDir, array $info) : bool
 
 }
@@ -44,6 +45,7 @@ Methods
 ==============
 
 - [MetaInfoTool::parseInfo](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/MetaInfoTool/parseInfo.md) &ndash; Returns an array of the meta info found in the given planet.
+- [MetaInfoTool::getVersionByUrl](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/MetaInfoTool/getVersionByUrl.md) &ndash; Returns the current version number of the planet, from the metaInfo url.
 - [MetaInfoTool::getVersion](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/MetaInfoTool/getVersion.md) &ndash; Returns the version number associated with the given planetDir, if found in the meta-info file.
 - [MetaInfoTool::writeInfo](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/MetaInfoTool/writeInfo.md) &ndash; Writes the given meta $info to the meta-info.byml file of the given $planetDir.
 
@@ -60,4 +62,4 @@ See the source code of [Ling\UniverseTools\MetaInfoTool](https://github.com/ling
 
 SeeAlso
 ==============
-Previous class: [GalaxyTool](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/GalaxyTool.md)<br>Next class: [PlanetTool](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/PlanetTool.md)<br>
+Previous class: [MachineUniverseTool](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/MachineUniverseTool.md)<br>Next class: [PlanetTool](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/PlanetTool.md)<br>

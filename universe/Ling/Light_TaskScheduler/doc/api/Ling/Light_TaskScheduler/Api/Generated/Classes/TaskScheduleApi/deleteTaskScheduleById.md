@@ -7,7 +7,7 @@ TaskScheduleApi::deleteTaskScheduleById
 
 
 
-TaskScheduleApi::deleteTaskScheduleById — Deletes the taskSchedule identified by the given id.
+TaskScheduleApi::deleteTaskScheduleById — Deletes the task schedule identified by the given id.
 
 
 
@@ -21,7 +21,7 @@ public [TaskScheduleApi::deleteTaskScheduleById](https://github.com/lingtalfi/Li
 
 
 
-Deletes the taskSchedule identified by the given id.
+Deletes the task schedule identified by the given id.
 
 
 
@@ -54,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [TaskScheduleApi::deleteTaskScheduleById](https://github.com/lingtalfi/Light_TaskScheduler/blob/master/Api/Generated/Classes/TaskScheduleApi.php#L282-L288)
+See the source code for method [TaskScheduleApi::deleteTaskScheduleById](https://github.com/lingtalfi/Light_TaskScheduler/blob/master/Api/Generated/Classes/TaskScheduleApi.php#L286-L292)
 
 
 See Also

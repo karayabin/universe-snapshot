@@ -4,7 +4,7 @@
 
 The LightKitAdminUserDataControllerHubHandler class
 ================
-2020-02-28 --> 2020-12-01
+2020-02-28 --> 2021-01-29
 
 
 
@@ -63,4 +63,4 @@ See the source code of [Ling\Light_Kit_Admin_UserData\Light_ControllerHub\Genera
 
 SeeAlso
 ==============
-Previous class: [LightKitAdminUserDataLkaPlugin](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/doc/api/Ling/Light_Kit_Admin_UserData/LightKitAdminPlugin/LightKitAdminUserDataLkaPlugin.md)<br>Next class: [LightKitAdminUserDataDuplicator](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/doc/api/Ling/Light_Kit_Admin_UserData/Light_Kit_Admin/Duplicator/LightKitAdminUserDataDuplicator.md)<br>
+Previous class: [LightKitAdminUserDataLkaPlugin](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/doc/api/Ling/Light_Kit_Admin_UserData/LightKitAdminPlugin/LightKitAdminUserDataLkaPlugin.md)<br>Next class: [LkaUserDataFileManagerWidget](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/doc/api/Ling/Light_Kit_Admin_UserData/Light_Kit/Widget/Picasso/LkaUserDataFileManagerWidget.md)<br>

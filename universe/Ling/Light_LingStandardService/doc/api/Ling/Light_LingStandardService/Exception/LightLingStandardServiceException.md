@@ -4,7 +4,7 @@
 
 The LightLingStandardServiceException class
 ================
-2020-07-28 --> 2020-08-07
+2020-07-28 --> 2021-01-29
 
 
 
@@ -54,4 +54,4 @@ See the source code of [Ling\Light_LingStandardService\Exception\LightLingStanda
 
 SeeAlso
 ==============
-Next class: [LightLingStandardServiceHelper](https://github.com/lingtalfi/Light_LingStandardService/blob/master/doc/api/Ling/Light_LingStandardService/Helper/LightLingStandardServiceHelper.md)<br>
+Next class: [LightLingStandardService01](https://github.com/lingtalfi/Light_LingStandardService/blob/master/doc/api/Ling/Light_LingStandardService/Service/LightLingStandardService01.md)<br>

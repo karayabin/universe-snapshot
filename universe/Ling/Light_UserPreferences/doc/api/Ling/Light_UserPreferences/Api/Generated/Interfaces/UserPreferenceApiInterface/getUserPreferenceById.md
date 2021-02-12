@@ -7,7 +7,7 @@ UserPreferenceApiInterface::getUserPreferenceById
 
 
 
-UserPreferenceApiInterface::getUserPreferenceById — Returns the userPreference row identified by the given id.
+UserPreferenceApiInterface::getUserPreferenceById — Returns the user preference row identified by the given id.
 
 
 
@@ -21,7 +21,7 @@ abstract public [UserPreferenceApiInterface::getUserPreferenceById](https://gith
 
 
 
-Returns the userPreference row identified by the given id.
+Returns the user preference row identified by the given id.
 
 If the row is not found, this method's return depends on the throwNotFoundEx flag:
 - if true, the method throws an exception

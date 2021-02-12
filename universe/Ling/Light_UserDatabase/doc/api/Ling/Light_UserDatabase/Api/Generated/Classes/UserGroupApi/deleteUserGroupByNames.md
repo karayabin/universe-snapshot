@@ -7,7 +7,7 @@ UserGroupApi::deleteUserGroupByNames
 
 
 
-UserGroupApi::deleteUserGroupByNames — Deletes the userGroup rows identified by the given names.
+UserGroupApi::deleteUserGroupByNames — Deletes the user group rows identified by the given names.
 
 
 
@@ -21,7 +21,7 @@ public [UserGroupApi::deleteUserGroupByNames](https://github.com/lingtalfi/Light
 
 
 
-Deletes the userGroup rows identified by the given names.
+Deletes the user group rows identified by the given names.
 
 
 
@@ -54,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [UserGroupApi::deleteUserGroupByNames](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Classes/UserGroupApi.php#L325-L328)
+See the source code for method [UserGroupApi::deleteUserGroupByNames](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Classes/UserGroupApi.php#L417-L420)
 
 
 See Also
@@ -62,5 +62,5 @@ See Also
 
 The [UserGroupApi](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/UserGroupApi.md) class.
 
-Previous method: [deleteUserGroupByIds](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/UserGroupApi/deleteUserGroupByIds.md)<br>
+Previous method: [deleteUserGroupByIds](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/UserGroupApi/deleteUserGroupByIds.md)<br>Next method: [fetchRoutine](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/UserGroupApi/fetchRoutine.md)<br>
 

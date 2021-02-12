@@ -25,6 +25,7 @@ https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/SicTool/
 https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/SicTool.md
 https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/Util/SicFileCombinerUtil/__construct.md
 https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/Util/SicFileCombinerUtil/combine.md
+https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/Util/SicFileCombinerUtil/injectLazyVars.md
 https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/Util/SicFileCombinerUtil/setEnvironmentVariables.md
 https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/Util/SicFileCombinerUtil/setLazyOverrideSymbol.md
 https://github.com/lingtalfi/SicTools/blob/master/doc/api/Ling/SicTools/Util/SicFileCombinerUtil/setVariableSymbol.md

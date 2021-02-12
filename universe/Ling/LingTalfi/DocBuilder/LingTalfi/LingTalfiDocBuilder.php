@@ -7,6 +7,7 @@ namespace Ling\LingTalfi\DocBuilder\LingTalfi;
 use Ling\DocTools\DocBuilder\Git\PhpPlanet\LingGitPhpPlanetDocBuilder;
 use Ling\DocTools\Exception\DocBuilderException;
 use Ling\DocTools\Translator\ParseDownTranslator;
+use Ling\LingTalfi\DocTools\LingTalfiDocToolsHelper;
 
 
 /**
@@ -80,6 +81,8 @@ class LingTalfiDocBuilder
              */
             "reportIgnore" => [
                 "Ling\CliTools\Program\AbstractProgram",
+                "Ling\CliTools\Program\Application",
+
             ],
             /**
              * Your project start date.
@@ -149,6 +152,7 @@ class LingTalfiDocBuilder
                 "uni tool" => "https://github.com/lingtalfi/universe-naive-importer",
                 "a DocBuilder class" => "https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/DocBuilder/DocBuilder.md",
                 "LingTalfi conception notes" => "https://github.com/lingtalfi/LingTalfi/blob/master/doc/pages/conception-notes.md",
+                "Light_PlanetInstaller conception notes" => "https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/pages/conception-notes.md",
             ],
             /**
              * An array of external classes to url.
@@ -200,6 +204,10 @@ class LingTalfiDocBuilder
             ]);
         }
 
+
+
+
+
         $builder = new LingGitPhpPlanetDocBuilder();
         $builder->prepare($options);
 
@@ -208,6 +216,8 @@ class LingTalfiDocBuilder
          * and since we've defined a @kw(copy module), it will also copy the whole doc to another location.
          */
         $builder->buildDoc();
+
+        LingTalfiDocToolsHelper::generateCrumbs($builder);
 
 
         if ('cli' !== php_sapi_name()) {

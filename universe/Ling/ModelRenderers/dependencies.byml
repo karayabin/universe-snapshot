@@ -1,6 +1,8 @@
 dependencies: 
     Ling: 
         - Bat
+        - Models
+        - RowsGenerator
     
 
 post_install: []

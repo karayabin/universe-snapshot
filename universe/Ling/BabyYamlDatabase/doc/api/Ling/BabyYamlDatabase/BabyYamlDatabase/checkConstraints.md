@@ -16,7 +16,7 @@ Description
 ================
 
 
-protected [BabyYamlDatabase::checkConstraints](https://github.com/lingtalfi/BabyYamlDatabase/blob/master/doc/api/Ling/BabyYamlDatabase/BabyYamlDatabase/checkConstraints.md)(string $table, array &$row, array $tableArr, array $options = []) : void
+protected [BabyYamlDatabase::checkConstraints](https://github.com/lingtalfi/BabyYamlDatabase/blob/master/doc/api/Ling/BabyYamlDatabase/BabyYamlDatabase/checkConstraints.md)(string $table, array &$row, array $tableArr, ?array $options = []) : void
 
 
 

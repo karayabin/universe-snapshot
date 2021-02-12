@@ -4,6 +4,7 @@ dependencies:
         - TokenFun
         - DirScanner
         - UniverseTools
+        - ReflectionTools
         - ArrayToString
         - ArrayToTable
         - ZeusTemplateEngine

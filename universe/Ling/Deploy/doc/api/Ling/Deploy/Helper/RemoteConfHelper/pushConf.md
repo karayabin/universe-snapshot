@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [RemoteConfHelper::pushConf](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Helper/RemoteConfHelper/pushConf.md)(array $conf, string $sshConfigId, string $appDir, string $dstPath, Ling\CliTools\Output\OutputInterface $output, int $indentLevel = 0) : bool
+public static [RemoteConfHelper::pushConf](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Helper/RemoteConfHelper/pushConf.md)(array $conf, string $sshConfigId, string $appDir, string $dstPath, Ling\CliTools\Output\OutputInterface $output, ?int $indentLevel = 0) : bool
 
 
 

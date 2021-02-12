@@ -372,6 +372,7 @@ class ClassParser implements ClassParserInterface
                         $useStatementFound = null;
                         $classInfo = ClassNameHelper::getClassNameInfo($tagDef, $method->getDeclaringClass(), $this->generatedItems2Url, $comment->getIncludeReferences(), $useStatementFound);
 
+
                         if (false !== $classInfo) {
                             $oException = new ThrownExceptionInfo();
                             $oException->setText($tagCom);
@@ -384,6 +385,7 @@ class ClassParser implements ClassParserInterface
                         } else {
                             if (null !== $this->report) {
                                 $theClassName = (null !== $useStatementFound) ? $useStatementFound : "$tagDef";
+
                                 $this->report->addUnresolvedClassReference($theClassName, "@throws $tagDef, method " . $method->getName() . ' (hint from ClassParser)');
                             }
                         }
@@ -723,6 +725,10 @@ class ClassParser implements ClassParserInterface
     protected function parseDocComment(string $rawComment, string $elementType, string $elementId)
     {
         $this->_expandReflectionClass = $this->_reflectionClass;
+
+
+
+
         $includeReferences = [];
         if ("method" === $elementType) {
             /**
@@ -731,6 +737,7 @@ class ClassParser implements ClassParserInterface
             $resolved = false;
             $rawComment = $this->expandIncludes($rawComment, $resolved, $includeReferences);
         }
+
 
 
         //--------------------------------------------
@@ -1051,6 +1058,20 @@ class ClassParser implements ClassParserInterface
                  * First try interfaces
                  */
                 $interfaces = $class->getInterfaces();
+
+
+                /**
+                 * If Stringable is an interface, we make it last in the list, so that the
+                 * user's class get a chance to be interpreted first.
+                 * This is useful if the user has a __toString from a custom interface (i.e. not Stringable).
+                 */
+                if (array_key_exists("Stringable", $interfaces)) {
+                    $stringableInterface = $interfaces['Stringable'];
+                    unset($interfaces['Stringable']);
+                    $interfaces["Stringable"] = $stringableInterface;
+                }
+
+
                 foreach ($interfaces as $interface) {
 
 

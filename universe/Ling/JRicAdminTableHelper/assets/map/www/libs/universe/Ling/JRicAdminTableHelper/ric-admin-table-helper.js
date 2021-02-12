@@ -82,6 +82,7 @@ if ('undefined' === typeof RicAdminTableHelper) {
                         }
                     });
                 });
+
                 return rics;
             },
             getRic: function (jEmitter) {

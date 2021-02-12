@@ -16,7 +16,7 @@ Description
 ================
 
 
-protected [VariableDescriptionFileGeneratorUtil::renderVar](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/api/Ling/Kit_PicassoWidget/Util/VariableDescriptionFileGeneratorUtil/renderVar.md)(string $varName, ?$value, int $indentBase = 1) : string
+protected [VariableDescriptionFileGeneratorUtil::renderVar](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/api/Ling/Kit_PicassoWidget/Util/VariableDescriptionFileGeneratorUtil/renderVar.md)(string $varName, $value, ?int $indentBase = 1) : string
 
 
 

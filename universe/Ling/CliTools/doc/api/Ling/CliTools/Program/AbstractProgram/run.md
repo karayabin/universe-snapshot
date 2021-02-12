@@ -53,7 +53,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [AbstractProgram::run](https://github.com/lingtalfi/CliTools/blob/master/Program/AbstractProgram.php#L148-L174)
+See the source code for method [AbstractProgram::run](https://github.com/lingtalfi/CliTools/blob/master/Program/AbstractProgram.php#L148-L172)
 
 
 See Also

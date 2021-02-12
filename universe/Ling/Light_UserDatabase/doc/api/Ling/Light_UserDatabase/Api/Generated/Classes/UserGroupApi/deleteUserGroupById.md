@@ -7,7 +7,7 @@ UserGroupApi::deleteUserGroupById
 
 
 
-UserGroupApi::deleteUserGroupById — Deletes the userGroup identified by the given id.
+UserGroupApi::deleteUserGroupById — Deletes the user group identified by the given id.
 
 
 
@@ -21,7 +21,7 @@ public [UserGroupApi::deleteUserGroupById](https://github.com/lingtalfi/Light_Us
 
 
 
-Deletes the userGroup identified by the given id.
+Deletes the user group identified by the given id.
 
 
 
@@ -54,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [UserGroupApi::deleteUserGroupById](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Classes/UserGroupApi.php#L293-L299)
+See the source code for method [UserGroupApi::deleteUserGroupById](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Classes/UserGroupApi.php#L385-L391)
 
 
 See Also

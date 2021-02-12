@@ -4,7 +4,7 @@
 
 The ReportInterface class
 ================
-2019-02-21 --> 2020-09-11
+2019-02-21 --> 2021-02-04
 
 
 
@@ -112,7 +112,7 @@ Class synopsis
 ==============
 
 
-abstract class <span class="pl-k">ReportInterface</span>  {
+abstract class <span class="pl-k">ReportInterface</span> implements [\Stringable](https://wiki.php.net/rfc/stringable) {
 
 - Methods
     - abstract public [setCurrentContext](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Report/ReportInterface/setCurrentContext.md)(string $context) : void

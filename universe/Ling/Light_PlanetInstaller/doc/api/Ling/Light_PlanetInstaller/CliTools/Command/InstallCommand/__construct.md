@@ -1,0 +1,58 @@
+[Back to the Ling/Light_PlanetInstaller api](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller.md)<br>
+[Back to the Ling\Light_PlanetInstaller\CliTools\Command\InstallCommand class](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/CliTools/Command/InstallCommand.md)
+
+
+InstallCommand::__construct
+================
+
+
+
+InstallCommand::__construct — Builds the InstallCommand instance.
+
+
+
+
+Description
+================
+
+
+public [InstallCommand::__construct](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/CliTools/Command/InstallCommand/__construct.md)() : void
+
+
+
+
+Builds the InstallCommand instance.
+
+
+
+
+Parameters
+================
+
+This method has no parameters.
+
+
+Return values
+================
+
+Returns void.
+
+
+
+
+
+
+
+
+Source Code
+===========
+See the source code for method [InstallCommand::__construct](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/InstallCommand.php#L21-L25)
+
+
+See Also
+================
+
+The [InstallCommand](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/CliTools/Command/InstallCommand.md) class.
+
+Next method: [getDescription](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/CliTools/Command/InstallCommand/getDescription.md)<br>
+

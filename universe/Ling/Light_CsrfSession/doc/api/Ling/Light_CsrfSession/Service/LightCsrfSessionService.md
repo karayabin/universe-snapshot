@@ -4,7 +4,7 @@
 
 The LightCsrfSessionService class
 ================
-2019-11-27 --> 2019-12-09
+2019-11-27 --> 2020-12-08
 
 
 
@@ -78,3 +78,6 @@ See the source code of [Ling\Light_CsrfSession\Service\LightCsrfSessionService](
 
 
 
+SeeAlso
+==============
+Previous class: [LightCsrfSessionValidator](https://github.com/lingtalfi/Light_CsrfSession/blob/master/doc/api/Ling/Light_CsrfSession/Chloroform/Validator/LightCsrfSessionValidator.md)<br>

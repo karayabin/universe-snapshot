@@ -6,7 +6,7 @@ login_notifier:
         
         setOptions: 
             options:
-                send_notification_to_user: true
+                send_notification_to_user: false
                 record_to_db: true
                 send_notification_to_admin:
                     - lingtalfi@gmail.com
@@ -15,11 +15,3 @@ login_notifier:
 # --------------------------------------
 # hooks
 # --------------------------------------
-$plugin_installer.methods_collection: 
-    - 
-        method: registerPlugin
-        args: 
-            plugin: Light_LoginNotifier
-            installer: @service(login_notifier)
-        
-

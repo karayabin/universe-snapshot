@@ -7,7 +7,7 @@ PermissionGroupApi::getPermissionGroupByName
 
 
 
-PermissionGroupApi::getPermissionGroupByName — Returns the permissionGroup row identified by the given name.
+PermissionGroupApi::getPermissionGroupByName — Returns the permission group row identified by the given name.
 
 
 
@@ -21,7 +21,7 @@ public [PermissionGroupApi::getPermissionGroupByName](https://github.com/lingtal
 
 
 
-Returns the permissionGroup row identified by the given name.
+Returns the permission group row identified by the given name.
 
 If the row is not found, this method's return depends on the throwNotFoundEx flag:
 - if true, the method throws an exception
@@ -66,7 +66,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [PermissionGroupApi::getPermissionGroupByName](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Classes/PermissionGroupApi.php#L128-L142)
+See the source code for method [PermissionGroupApi::getPermissionGroupByName](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Classes/PermissionGroupApi.php#L164-L178)
 
 
 See Also

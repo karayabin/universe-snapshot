@@ -88,7 +88,15 @@ PhpTailer::create()
 
 History Log
 ------------------
-    
+
+- 1.0.3 -- 2020-12-08
+
+    - Fix lpi-deps not using natsort.
+
+- 1.0.2 -- 2020-12-04
+
+    - Add lpi-deps.byml file
+
 - 1.0.1 -- 2018-03-25
 
     - fix negative starting line in reverse mode problem

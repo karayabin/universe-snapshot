@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [LightException::__construct](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Exception/LightException/__construct.md)(?$message = , ?$code = 0, ?[\Throwable](http://php.net/manual/en/class.throwable.php) $previous = null) : void
+public [LightException::__construct](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Exception/LightException/__construct.md)(?$message = , ?$code = 0, ?Throwable $previous = null) : void
 
 
 

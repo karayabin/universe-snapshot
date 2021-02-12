@@ -1,6 +1,6 @@
 Ling/Light
 ================
-2019-04-09 --> 2020-12-03
+2019-04-09 --> 2021-02-11
 
 
 
@@ -52,9 +52,6 @@ Table of contents
     - [ControllerHelper::resolveController](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ControllerHelper/resolveController.md) &ndash; controller can be extracted out of the given value.
     - [ControllerHelper::getControllerArgs](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ControllerHelper/getControllerArgs.md) &ndash; Returns the controller arguments for the given controller and light instance.
     - [ControllerHelper::getControllerArgsInfo](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ControllerHelper/getControllerArgsInfo.md) &ndash; Returns an array of controller args corresponding to the given controller.
-- [EnvironmentHelper](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/EnvironmentHelper.md) &ndash; The EnvironmentHelper class.
-    - [EnvironmentHelper::isDev](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/EnvironmentHelper/isDev.md) &ndash; Returns whether the current environment is dev.
-    - [EnvironmentHelper::getEnvironment](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/EnvironmentHelper/getEnvironment.md) &ndash; Returns the name of the current environment.
 - [LightClassHelper](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/LightClassHelper.md) &ndash; The LightClassHelper class.
     - [LightClassHelper::getLightClassNameByFile](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/LightClassHelper/getLightClassNameByFile.md) &ndash; Returns the class name of the light class contained in the given file.
 - [LightHelper](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/LightHelper.md) &ndash; The LightHelper class.
@@ -66,6 +63,9 @@ Table of contents
     - [LightNamesAndPathHelper::getSymbolicPath](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/LightNamesAndPathHelper/getSymbolicPath.md) &ndash; Returns a symbolic path, where the given absolute path to the application directory is replaced by the symbol [app].
 - [ServiceContainerHelper](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ServiceContainerHelper.md) &ndash; The ServiceContainerHelper class.
     - [ServiceContainerHelper::getInstance](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ServiceContainerHelper/getInstance.md) &ndash; Returns an instance of a service container according to the given options.
+- [ZFileHelper](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ZFileHelper.md) &ndash; The ZFileHelper class.
+    - [ZFileHelper::getZPath](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ZFileHelper/getZPath.md) &ndash; Returns the path of the z file.
+    - [ZFileHelper::setProp](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ZFileHelper/setProp.md) &ndash; Sets a property in the z file.
 - [HttpAttachmentResponse](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpAttachmentResponse.md) &ndash; The HttpAttachmentResponse class.
     - [HttpAttachmentResponse::create](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpAttachmentResponse/create.md) &ndash; Creates and returns the http attachment response instance.
     - [HttpAttachmentResponse::setFile](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpAttachmentResponse/setFile.md) &ndash; Sets the file and optionally filename for this attachment.
@@ -319,6 +319,7 @@ Dependencies
 - [CheapLogger](https://github.com/lingtalfi/CheapLogger)
 - [Bat](https://github.com/lingtalfi/Bat)
 - [ParenthesisMirrorParser](https://github.com/lingtalfi/ParenthesisMirrorParser)
+- [BabyYaml](https://github.com/lingtalfi/BabyYaml)
 - [DirScanner](https://github.com/lingtalfi/DirScanner)
 - [Octopus](https://github.com/lingtalfi/Octopus)
 - [PhpUploadFileFix](https://github.com/lingtalfi/PhpUploadFileFix)

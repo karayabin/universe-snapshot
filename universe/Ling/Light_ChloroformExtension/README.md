@@ -81,6 +81,14 @@ Related
 History Log
 =============
 
+- 1.6.11 -- 2020-12-08
+
+    - Fix lpi-deps not using natsort.
+
+- 1.6.10 -- 2020-12-04
+
+    - Add lpi-deps.byml file
+
 - 1.6.9 -- 2020-11-20
 
     - fix TableListField, multiplier was erroneously initialized in update mode 

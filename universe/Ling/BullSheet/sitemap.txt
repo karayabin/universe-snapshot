@@ -1,0 +1,8 @@
+https://github.com/lingtalfi/BullSheet/blob/master/README.md
+https://github.com/lingtalfi/BullSheet/blob/master/docs/README_aux.md
+https://github.com/lingtalfi/BullSheet/blob/master/docs/cross.md
+https://github.com/lingtalfi/BullSheet/blob/master/docs/populate.md
+https://github.com/lingtalfi/BullSheet/blob/master/docs/probabilityTool.md
+https://github.com/lingtalfi/BullSheet/blob/master/docs/pure_data_image.md
+https://github.com/lingtalfi/BullSheet/blob/master/docs/relational_stream.md
+https://github.com/lingtalfi/BullSheet/blob/master/docs/timelines.md

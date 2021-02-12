@@ -82,7 +82,8 @@ class Light_Kit_Admin_UserPreferencesDocBuilder
                 "Ling\Light_Kit_Admin\LightKitAdminPlugin\BaseLightKitAdminPlugin",
                 "Ling\Light_Kit_Admin\Service\LightKitAdminStandardServicePlugin",
                 "Ling\Light_Kit_Admin\Controller\RealAdminPageController",
-
+                "Ling\Light_Kit_Admin\Light_PluginInstaller\LightKitAdminBasePortPluginInstallerWithDatabase",
+                "Ling\Light_PluginInstaller\PluginInstaller\LightBasePluginInstaller",
 
             ],
             /**
@@ -156,6 +157,7 @@ class Light_Kit_Admin_UserPreferencesDocBuilder
                 "babyYaml" => "https://github.com/lingtalfi/BabyYaml",
                 "Light_PluginInstaller conception notes" => "https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/pages/conception-notes.md",
                 "late registration concept" => "https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/design/late-service-registration.md",
+                "light standard permissions" => "https://github.com/lingtalfi/TheBar/blob/master/discussions/light-standard-permissions.md",
             ],
             /**
              * An array of external classes to url.
@@ -187,7 +189,8 @@ class Light_Kit_Admin_UserPreferencesDocBuilder
                 "Ling\Light_PluginInstaller\PluginInstaller\PluginInstallerInterface" => "https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/PluginInstaller/PluginInstallerInterface.md",
                 "Ling\Light_Kit_Admin\Controller\RealAdminPageController" => "https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/RealAdminPageController.md",
                 "Ling\Light\ServiceContainer\LightServiceContainerAwareInterface" => "https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerAwareInterface.md",
-
+                "Ling\Light_Kit_Admin\Light_PluginInstaller\LightKitAdminBasePortPluginInstallerWithDatabase" => "https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_PluginInstaller/LightKitAdminBasePortPluginInstallerWithDatabase.md",
+                "Ling\Light_PluginInstaller\TableScope\TableScopeAwareInterface" => "https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/TableScope/TableScopeAwareInterface.md",
             ],
             "ignoreFilesStartingWith" => [
 //                "PHPExcel/",

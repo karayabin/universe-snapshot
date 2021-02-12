@@ -46,7 +46,7 @@ Returns [CustomPermissionGroupHasPermissionApiInterface](https://github.com/ling
 
 Source Code
 ===========
-See the source code for method [LightUserDatabaseApiFactory::getPermissionGroupHasPermissionApi](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/LightUserDatabaseApiFactory.php#L123-L128)
+See the source code for method [LightUserDatabaseApiFactory::getPermissionGroupHasPermissionApi](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/LightUserDatabaseApiFactory.php#L128-L134)
 
 
 See Also

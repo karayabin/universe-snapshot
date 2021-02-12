@@ -7,7 +7,7 @@ UserPreferenceApiInterface::updateUserPreferenceById
 
 
 
-UserPreferenceApiInterface::updateUserPreferenceById — Updates the userPreference row identified by the given id.
+UserPreferenceApiInterface::updateUserPreferenceById — Updates the user preference row identified by the given id.
 
 
 
@@ -21,7 +21,7 @@ abstract public [UserPreferenceApiInterface::updateUserPreferenceById](https://g
 
 
 
-Updates the userPreference row identified by the given id.
+Updates the user preference row identified by the given id.
 
 
 

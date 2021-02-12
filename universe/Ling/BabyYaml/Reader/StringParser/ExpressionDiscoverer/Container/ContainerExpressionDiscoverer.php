@@ -174,7 +174,7 @@ abstract class ContainerExpressionDiscoverer extends ExpressionDiscoverer
     }
 
 
-    protected function next($itLen = 1, StringIteratorInterface $it)
+    protected function next($itLen = 1, StringIteratorInterface $it = null)
     {
         if (1 === $itLen) {
             $it->next();

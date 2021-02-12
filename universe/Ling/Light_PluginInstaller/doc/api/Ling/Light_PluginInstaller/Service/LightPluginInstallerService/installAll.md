@@ -7,7 +7,7 @@ LightPluginInstallerService::installAll
 
 
 
-LightPluginInstallerService::installAll — This method will install all registered plugins.
+LightPluginInstallerService::installAll — This method will logic install all plugins found in the current application.
 
 
 
@@ -16,12 +16,15 @@ Description
 ================
 
 
-public [LightPluginInstallerService::installAll](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/installAll.md)() : void
+public [LightPluginInstallerService::installAll](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/Service/LightPluginInstallerService/installAll.md)(?array $options = []) : void
 
 
 
 
-This method will install all registered plugins.
+This method will logic install all plugins found in the current application.
+
+Available options are:
+- force: bool=false, whether to call the install method of the plugin's installer, even if the plugin is already "logic installed"
 
 
 
@@ -29,7 +32,10 @@ This method will install all registered plugins.
 Parameters
 ================
 
-This method has no parameters.
+
+- options
+
+    
 
 
 Return values
@@ -51,7 +57,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightPluginInstallerService::installAll](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/Service/LightPluginInstallerService.php#L482-L516)
+See the source code for method [LightPluginInstallerService::installAll](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/Service/LightPluginInstallerService.php#L361-L375)
 
 
 See Also

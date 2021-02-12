@@ -343,6 +343,14 @@ method_children_indentation_unit |  space | Defines the character to use (space|
 History Log
 ------------------
 
+- 1.0.3 -- 2020-12-08
+
+    - Fix lpi-deps not using natsort.
+
+- 1.0.2 -- 2020-12-04
+
+    - Add lpi-deps.byml file
+
 - 1.0.1 -- 2019-02-07
 
     - add ClassCreator\Creator\ClassCreator->setProfile method

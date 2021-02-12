@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [ProjectInfo::getInfo](https://github.com/lingtalfi/ProjectInfo/blob/master/doc/api/Ling/ProjectInfo/ProjectInfo/getInfo.md)(array $options = []) : array
+public [ProjectInfo::getInfo](https://github.com/lingtalfi/ProjectInfo/blob/master/doc/api/Ling/ProjectInfo/ProjectInfo/getInfo.md)(?array $options = []) : array
 
 
 

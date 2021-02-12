@@ -7,7 +7,7 @@ UserGroupHasPluginOptionApi::deleteUserGroupHasPluginOptionByPluginOptionIds
 
 
 
-UserGroupHasPluginOptionApi::deleteUserGroupHasPluginOptionByPluginOptionIds — Deletes the userGroupHasPluginOption rows identified by the given plugin_option_plugin_option_ids.
+UserGroupHasPluginOptionApi::deleteUserGroupHasPluginOptionByPluginOptionIds — Deletes the user group has plugin option rows identified by the given plugin_option_ids.
 
 
 
@@ -21,7 +21,7 @@ public [UserGroupHasPluginOptionApi::deleteUserGroupHasPluginOptionByPluginOptio
 
 
 
-Deletes the userGroupHasPluginOption rows identified by the given plugin_option_plugin_option_ids.
+Deletes the user group has plugin option rows identified by the given plugin_option_ids.
 
 
 
@@ -54,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [UserGroupHasPluginOptionApi::deleteUserGroupHasPluginOptionByPluginOptionIds](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Classes/UserGroupHasPluginOptionApi.php#L282-L285)
+See the source code for method [UserGroupHasPluginOptionApi::deleteUserGroupHasPluginOptionByPluginOptionIds](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Classes/UserGroupHasPluginOptionApi.php#L306-L309)
 
 
 See Also
@@ -62,5 +62,5 @@ See Also
 
 The [UserGroupHasPluginOptionApi](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/UserGroupHasPluginOptionApi.md) class.
 
-Previous method: [deleteUserGroupHasPluginOptionByUserGroupIds](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/UserGroupHasPluginOptionApi/deleteUserGroupHasPluginOptionByUserGroupIds.md)<br>
+Previous method: [deleteUserGroupHasPluginOptionByUserGroupIds](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/UserGroupHasPluginOptionApi/deleteUserGroupHasPluginOptionByUserGroupIds.md)<br>Next method: [deleteUserGroupHasPluginOptionByUserGroupId](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Classes/UserGroupHasPluginOptionApi/deleteUserGroupHasPluginOptionByUserGroupId.md)<br>
 

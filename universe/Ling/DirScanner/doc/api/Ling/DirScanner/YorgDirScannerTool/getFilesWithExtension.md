@@ -74,7 +74,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [YorgDirScannerTool::getFilesWithExtension](https://github.com/lingtalfi/DirScanner/blob/master/YorgDirScannerTool.php#L384-L438)
+See the source code for method [YorgDirScannerTool::getFilesWithExtension](https://github.com/lingtalfi/DirScanner/blob/master/YorgDirScannerTool.php#L390-L444)
 
 
 See Also

@@ -1,8 +1,9 @@
 dependencies: 
     Ling: 
-        - Bat
-        - YouTubeUtils
         - Tim
+        - Bat
+        - DirScanner
+        - YouTubeUtils
         - UploaderHandler
     
 

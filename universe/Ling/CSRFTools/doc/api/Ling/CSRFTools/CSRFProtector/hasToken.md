@@ -49,7 +49,7 @@ Returns bool.
 
 Source Code
 ===========
-See the source code for method [CSRFProtector::hasToken](https://github.com/lingtalfi/CSRFTools/blob/master/CSRFProtector.php#L188-L195)
+See the source code for method [CSRFProtector::hasToken](https://github.com/lingtalfi/CSRFTools/blob/master/CSRFProtector.php#L187-L194)
 
 
 See Also

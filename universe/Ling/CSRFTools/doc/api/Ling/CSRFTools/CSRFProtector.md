@@ -4,7 +4,7 @@
 
 The CSRFProtector class
 ================
-2019-04-11 --> 2019-09-20
+2019-04-11 --> 2020-12-08
 
 
 
@@ -99,7 +99,7 @@ class <span class="pl-k">CSRFProtector</span>  {
     - public [setUsePage](https://github.com/lingtalfi/CSRFTools/blob/master/doc/api/Ling/CSRFTools/CSRFProtector/setUsePage.md)(bool $usePage) : void
     - public [createToken](https://github.com/lingtalfi/CSRFTools/blob/master/doc/api/Ling/CSRFTools/CSRFProtector/createToken.md)(string $tokenName) : string
     - public [hasToken](https://github.com/lingtalfi/CSRFTools/blob/master/doc/api/Ling/CSRFTools/CSRFProtector/hasToken.md)(string $tokenName) : bool
-    - public [isValid](https://github.com/lingtalfi/CSRFTools/blob/master/doc/api/Ling/CSRFTools/CSRFProtector/isValid.md)(string $tokenName, string $tokenValue, bool $useNewSlot = false) : bool
+    - public [isValid](https://github.com/lingtalfi/CSRFTools/blob/master/doc/api/Ling/CSRFTools/CSRFProtector/isValid.md)(string $tokenName, string $tokenValue, ?bool $useNewSlot = false) : bool
     - public [deleteToken](https://github.com/lingtalfi/CSRFTools/blob/master/doc/api/Ling/CSRFTools/CSRFProtector/deleteToken.md)(string $tokenName) : void
     - public [deletePageUnusedTokens](https://github.com/lingtalfi/CSRFTools/blob/master/doc/api/Ling/CSRFTools/CSRFProtector/deletePageUnusedTokens.md)() : void
     - public [dump](https://github.com/lingtalfi/CSRFTools/blob/master/doc/api/Ling/CSRFTools/CSRFProtector/dump.md)() : string

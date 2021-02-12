@@ -66,7 +66,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [MethodHelper::getMethodSignature](https://github.com/lingtalfi/DocTools/blob/master/Helper/MethodHelper.php#L92-L280)
+See the source code for method [MethodHelper::getMethodSignature](https://github.com/lingtalfi/DocTools/blob/master/Helper/MethodHelper.php#L98-L212)
 
 
 See Also
@@ -74,5 +74,5 @@ See Also
 
 The [MethodHelper](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Helper/MethodHelper.md) class.
 
-Previous method: [getMethodReturnType](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Helper/MethodHelper/getMethodReturnType.md)<br>
+Previous method: [getMethodReturnType](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Helper/MethodHelper/getMethodReturnType.md)<br>Next method: [resolveType](https://github.com/lingtalfi/DocTools/blob/master/doc/api/Ling/DocTools/Helper/MethodHelper/resolveType.md)<br>
 

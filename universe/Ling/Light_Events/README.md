@@ -1,6 +1,6 @@
 Light_Events
 ===========
-2019-10-31 -> 2020-11-30
+2019-10-31 -> 2021-01-11
 
 
 
@@ -81,6 +81,18 @@ $logger.methods_collection:
 
 History Log
 =============
+
+- 1.9.6 -- 2021-01-11
+
+    - update service, getFormattedMessage now forces bashtml format mode to cli
+  
+- 1.9.5 -- 2020-12-08
+
+    - Fix lpi-deps not using natsort.
+
+- 1.9.4 -- 2020-12-04
+
+    - Add lpi-deps.byml file
 
 - 1.9.3 -- 2020-11-30
 

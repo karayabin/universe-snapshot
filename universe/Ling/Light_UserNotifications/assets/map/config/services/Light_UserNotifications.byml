@@ -13,11 +13,4 @@ user_notifications:
 # --------------------------------------
 # hooks
 # --------------------------------------
-$plugin_installer.methods_collection: 
-    - 
-        method: registerPlugin
-        args: 
-            plugin: Light_UserNotifications
-            installer: @service(user_notifications)
-        
     

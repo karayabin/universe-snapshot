@@ -1,6 +1,6 @@
 DocTools
 ===========
-2019-02-19 -> 2020-09-11
+2019-02-19 -> 2021-02-04
 
 
 
@@ -679,7 +679,23 @@ This includes:
 History Log
 =============
 
-    
+
+- 1.14.4 -- 2021-02-04
+
+    - fix ClassParser->expandIncludes potentially not allowing for a custom __toString documentation
+  
+- 1.14.3 -- 2021-02-02
+
+    - adapt api to work better with php8
+
+- 1.14.2 -- 2020-12-08
+
+    - Fix lpi-deps not using natsort
+
+- 1.14.1 -- 2020-12-04
+
+    - Add lpi-deps.byml file
+
 - 1.14.0 -- 2020-09-11
 
     - update CommentHelper, add string[] as a possible return type

@@ -4,7 +4,7 @@
 
 The LightKitAdminMicroPermissionDeniedException class
 ================
-2019-05-17 --> 2020-12-01
+2019-05-17 --> 2021-02-11
 
 
 
@@ -22,7 +22,7 @@ Class synopsis
 ==============
 
 
-class <span class="pl-k">LightKitAdminMicroPermissionDeniedException</span> extends [LightKitAdminException](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Exception/LightKitAdminException.md) implements [\Throwable](http://php.net/manual/en/class.throwable.php) {
+class <span class="pl-k">LightKitAdminMicroPermissionDeniedException</span> extends [LightKitAdminException](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Exception/LightKitAdminException.md) implements [\Throwable](http://php.net/manual/en/class.throwable.php), [\Stringable](https://wiki.php.net/rfc/stringable) {
 
 - Inherited properties
     - protected  [Exception::$message](#property-message) =  ;

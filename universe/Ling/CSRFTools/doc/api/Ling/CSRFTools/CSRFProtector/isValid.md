@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [CSRFProtector::isValid](https://github.com/lingtalfi/CSRFTools/blob/master/doc/api/Ling/CSRFTools/CSRFProtector/isValid.md)(string $tokenName, string $tokenValue, bool $useNewSlot = false) : bool
+public [CSRFProtector::isValid](https://github.com/lingtalfi/CSRFTools/blob/master/doc/api/Ling/CSRFTools/CSRFProtector/isValid.md)(string $tokenName, string $tokenValue, ?bool $useNewSlot = false) : bool
 
 
 
@@ -57,7 +57,7 @@ Returns bool.
 
 Source Code
 ===========
-See the source code for method [CSRFProtector::isValid](https://github.com/lingtalfi/CSRFTools/blob/master/CSRFProtector.php#L207-L225)
+See the source code for method [CSRFProtector::isValid](https://github.com/lingtalfi/CSRFTools/blob/master/CSRFProtector.php#L206-L224)
 
 
 See Also

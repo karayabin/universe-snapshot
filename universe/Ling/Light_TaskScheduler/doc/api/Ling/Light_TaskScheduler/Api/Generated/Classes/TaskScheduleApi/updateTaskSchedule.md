@@ -7,7 +7,7 @@ TaskScheduleApi::updateTaskSchedule
 
 
 
-TaskScheduleApi::updateTaskSchedule — Updates the taskSchedule row.
+TaskScheduleApi::updateTaskSchedule — Updates the task schedule row.
 
 
 
@@ -21,7 +21,7 @@ public [TaskScheduleApi::updateTaskSchedule](https://github.com/lingtalfi/Light_
 
 
 
-Updates the taskSchedule row.
+Updates the task schedule row.
 
 
 
@@ -62,7 +62,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [TaskScheduleApi::updateTaskSchedule](https://github.com/lingtalfi/Light_TaskScheduler/blob/master/Api/Generated/Classes/TaskScheduleApi.php#L263-L266)
+See the source code for method [TaskScheduleApi::updateTaskSchedule](https://github.com/lingtalfi/Light_TaskScheduler/blob/master/Api/Generated/Classes/TaskScheduleApi.php#L267-L270)
 
 
 See Also

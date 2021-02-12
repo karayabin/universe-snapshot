@@ -4,7 +4,7 @@
 
 The LingTalfiDocToolsHelper class
 ================
-2019-03-13 --> 2020-12-03
+2019-03-13 --> 2020-12-08
 
 
 
@@ -52,4 +52,4 @@ See the source code of [Ling\LingTalfi\DocTools\LingTalfiDocToolsHelper](https:/
 
 SeeAlso
 ==============
-Previous class: [ZephyrTemplateEngineDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/ZephyrTemplateEngine/ZephyrTemplateEngineDocBuilder.md)<br>Next class: [KaosApplication](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Application/KaosApplication.md)<br>
+Previous class: [ZephyrTemplateEngineDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/ZephyrTemplateEngine/ZephyrTemplateEngineDocBuilder.md)<br>Next class: [LingTalfiException](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Exception/LingTalfiException.md)<br>

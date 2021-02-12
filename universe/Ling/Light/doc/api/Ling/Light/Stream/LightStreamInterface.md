@@ -4,7 +4,7 @@
 
 The LightStreamInterface class
 ================
-2019-04-09 --> 2020-12-03
+2019-04-09 --> 2021-02-11
 
 
 
@@ -45,7 +45,7 @@ Class synopsis
 ==============
 
 
-abstract class <span class="pl-k">LightStreamInterface</span>  {
+abstract class <span class="pl-k">LightStreamInterface</span> implements [\Stringable](https://wiki.php.net/rfc/stringable) {
 
 - Methods
     - abstract public [append](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Stream/LightStreamInterface/append.md)(string $string) : [LightStreamInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Stream/LightStreamInterface.md)

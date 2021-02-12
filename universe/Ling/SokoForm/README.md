@@ -1395,7 +1395,15 @@ Related
 
 History Log
 ------------------
-    
+
+- 1.72.2 -- 2020-12-08
+
+    - Fix lpi-deps not using natsort.
+
+- 1.72.1 -- 2020-12-04
+
+    - Add lpi-deps.byml file
+
 - 1.72.0 -- 2018-06-15
 
     - add SokoFormInterface.addError method

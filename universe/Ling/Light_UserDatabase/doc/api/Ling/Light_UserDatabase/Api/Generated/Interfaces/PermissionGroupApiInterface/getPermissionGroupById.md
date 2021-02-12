@@ -7,7 +7,7 @@ PermissionGroupApiInterface::getPermissionGroupById
 
 
 
-PermissionGroupApiInterface::getPermissionGroupById — Returns the permissionGroup row identified by the given id.
+PermissionGroupApiInterface::getPermissionGroupById — Returns the permission group row identified by the given id.
 
 
 
@@ -21,7 +21,7 @@ abstract public [PermissionGroupApiInterface::getPermissionGroupById](https://gi
 
 
 
-Returns the permissionGroup row identified by the given id.
+Returns the permission group row identified by the given id.
 
 If the row is not found, this method's return depends on the throwNotFoundEx flag:
 - if true, the method throws an exception
@@ -66,7 +66,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [PermissionGroupApiInterface::getPermissionGroupById](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Interfaces/PermissionGroupApiInterface.php#L72-L72)
+See the source code for method [PermissionGroupApiInterface::getPermissionGroupById](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Interfaces/PermissionGroupApiInterface.php#L95-L95)
 
 
 See Also
@@ -74,5 +74,5 @@ See Also
 
 The [PermissionGroupApiInterface](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Interfaces/PermissionGroupApiInterface.md) class.
 
-Previous method: [insertPermissionGroups](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Interfaces/PermissionGroupApiInterface/insertPermissionGroups.md)<br>Next method: [getPermissionGroupByName](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Interfaces/PermissionGroupApiInterface/getPermissionGroupByName.md)<br>
+Previous method: [fetch](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Interfaces/PermissionGroupApiInterface/fetch.md)<br>Next method: [getPermissionGroupByName](https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Api/Generated/Interfaces/PermissionGroupApiInterface/getPermissionGroupByName.md)<br>
 

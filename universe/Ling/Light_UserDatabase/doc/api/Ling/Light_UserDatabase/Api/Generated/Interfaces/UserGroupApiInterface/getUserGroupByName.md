@@ -7,7 +7,7 @@ UserGroupApiInterface::getUserGroupByName
 
 
 
-UserGroupApiInterface::getUserGroupByName — Returns the userGroup row identified by the given name.
+UserGroupApiInterface::getUserGroupByName — Returns the user group row identified by the given name.
 
 
 
@@ -21,7 +21,7 @@ abstract public [UserGroupApiInterface::getUserGroupByName](https://github.com/l
 
 
 
-Returns the userGroup row identified by the given name.
+Returns the user group row identified by the given name.
 
 If the row is not found, this method's return depends on the throwNotFoundEx flag:
 - if true, the method throws an exception
@@ -66,7 +66,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [UserGroupApiInterface::getUserGroupByName](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Interfaces/UserGroupApiInterface.php#L88-L88)
+See the source code for method [UserGroupApiInterface::getUserGroupByName](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Api/Generated/Interfaces/UserGroupApiInterface.php#L111-L111)
 
 
 See Also

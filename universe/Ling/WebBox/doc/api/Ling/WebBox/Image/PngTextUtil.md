@@ -4,7 +4,7 @@
 
 The PngTextUtil class
 ================
-2019-02-22 --> 2019-07-18
+2019-02-22 --> 2020-12-08
 
 
 
@@ -25,7 +25,7 @@ Class synopsis
 class <span class="pl-k">PngTextUtil</span>  {
 
 - Methods
-    - public static [displayPngText](https://github.com/lingtalfi/WebBox/blob/master/doc/api/Ling/WebBox/Image/PngTextUtil/displayPngText.md)(string $text, array $options = []) : void
+    - public static [displayPngText](https://github.com/lingtalfi/WebBox/blob/master/doc/api/Ling/WebBox/Image/PngTextUtil/displayPngText.md)(string $text, ?array $options = []) : void
 
 }
 

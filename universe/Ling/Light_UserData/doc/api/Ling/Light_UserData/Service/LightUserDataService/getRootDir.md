@@ -46,7 +46,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::getRootDir](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L753-L756)
+See the source code for method [LightUserDataService::getRootDir](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L619-L622)
 
 
 See Also

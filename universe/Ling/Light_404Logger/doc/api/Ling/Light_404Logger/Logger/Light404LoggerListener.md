@@ -4,7 +4,7 @@
 
 The Light404LoggerListener class
 ================
-2019-12-12 --> 2019-12-12
+2019-12-12 --> 2020-12-08
 
 
 
@@ -36,6 +36,7 @@ class <span class="pl-k">Light404LoggerListener</span> extends [LightFileLoggerL
     - protected string [LightFileLoggerListener::$maxFileSize](#property-maxFileSize) ;
     - protected string|null [LightFileLoggerListener::$rotatedFileExtension](#property-rotatedFileExtension) ;
     - protected bool [LightFileLoggerListener::$zipRotatedFiles](#property-zipRotatedFiles) ;
+    - protected array [LightFileLoggerListener::$channel2Formatting](#property-channel2Formatting) ;
     - protected string [BaseLoggerListener::$format](#property-format) ;
     - protected bool [BaseLoggerListener::$expandArray](#property-expandArray) ;
 
@@ -47,7 +48,7 @@ class <span class="pl-k">Light404LoggerListener</span> extends [LightFileLoggerL
     - protected [formatHttpRequestMessage](https://github.com/lingtalfi/Light_404Logger/blob/master/doc/api/Ling/Light_404Logger/Logger/Light404LoggerListener/formatHttpRequestMessage.md)(Ling\Light\Http\HttpRequestInterface $request) : string
 
 - Inherited methods
-    - protected LightFileLoggerListener::getFileFormat() : string
+    - protected LightFileLoggerListener::getFileFormat(string $filePath) : string
     - protected BaseLoggerListener::getFormattedMessage(string $channel, $msg) : string
 
 }
@@ -112,6 +113,13 @@ Properties
 
     This property holds whether the rotated files should be zipped.
     If true, then the rotated files are zipped.
+    
+    
+
+- <span id="property-channel2Formatting"><b>channel2Formatting</b></span>
+
+    This property holds the channel2Formatting for this instance.
+    Array of channel to [bashtml](https://github.com/lingtalfi/CliTools/blob/master/doc/pages/bashtml.md) formatting
     
     
 

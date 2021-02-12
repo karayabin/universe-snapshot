@@ -69,7 +69,15 @@ Dependencies
 
 History Log
 ------------------
-    
+
+- 1.3.2 -- 2020-12-08
+
+    - Fix lpi-deps not using natsort.
+
+- 1.3.1 -- 2020-12-04
+
+    - Add lpi-deps.byml file
+
 - 1.3.0 -- 2015-11-23
 
     - add WrappedStringTool::getNextWrappedStringInfo

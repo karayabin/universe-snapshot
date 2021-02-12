@@ -40,7 +40,7 @@ Parameters
 - module
 
     The module array must contain the action key.
-See the @page(conception notes) for more details.
+See the [conception notes](https://github.com/lingtalfi/Light_Firewall/blob/master/doc/pages/conception-notes.md) for more details.
 
 - light
 

@@ -7,7 +7,7 @@ UserPreferenceApi::deleteUserPreferenceByIds
 
 
 
-UserPreferenceApi::deleteUserPreferenceByIds — Deletes the userPreference rows identified by the given ids.
+UserPreferenceApi::deleteUserPreferenceByIds — Deletes the user preference rows identified by the given ids.
 
 
 
@@ -21,7 +21,7 @@ public [UserPreferenceApi::deleteUserPreferenceByIds](https://github.com/lingtal
 
 
 
-Deletes the userPreference rows identified by the given ids.
+Deletes the user preference rows identified by the given ids.
 
 
 
@@ -54,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [UserPreferenceApi::deleteUserPreferenceByIds](https://github.com/lingtalfi/Light_UserPreferences/blob/master/Api/Generated/Classes/UserPreferenceApi.php#L295-L298)
+See the source code for method [UserPreferenceApi::deleteUserPreferenceByIds](https://github.com/lingtalfi/Light_UserPreferences/blob/master/Api/Generated/Classes/UserPreferenceApi.php#L299-L302)
 
 
 See Also
@@ -62,5 +62,5 @@ See Also
 
 The [UserPreferenceApi](https://github.com/lingtalfi/Light_UserPreferences/blob/master/doc/api/Ling/Light_UserPreferences/Api/Generated/Classes/UserPreferenceApi.md) class.
 
-Previous method: [deleteUserPreferenceById](https://github.com/lingtalfi/Light_UserPreferences/blob/master/doc/api/Ling/Light_UserPreferences/Api/Generated/Classes/UserPreferenceApi/deleteUserPreferenceById.md)<br>Next method: [fetchRoutine](https://github.com/lingtalfi/Light_UserPreferences/blob/master/doc/api/Ling/Light_UserPreferences/Api/Generated/Classes/UserPreferenceApi/fetchRoutine.md)<br>
+Previous method: [deleteUserPreferenceById](https://github.com/lingtalfi/Light_UserPreferences/blob/master/doc/api/Ling/Light_UserPreferences/Api/Generated/Classes/UserPreferenceApi/deleteUserPreferenceById.md)<br>Next method: [deleteUserPreferenceByLudUserId](https://github.com/lingtalfi/Light_UserPreferences/blob/master/doc/api/Ling/Light_UserPreferences/Api/Generated/Classes/UserPreferenceApi/deleteUserPreferenceByLudUserId.md)<br>
 

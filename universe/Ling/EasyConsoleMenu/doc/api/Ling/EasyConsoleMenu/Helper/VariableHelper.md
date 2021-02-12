@@ -4,7 +4,7 @@
 
 The VariableHelper class
 ================
-2019-04-02 --> 2019-07-18
+2019-04-02 --> 2020-12-08
 
 
 
@@ -25,7 +25,7 @@ Class synopsis
 class <span class="pl-k">VariableHelper</span>  {
 
 - Methods
-    - public static [resolveVariables](https://github.com/lingtalfi/EasyConsoleMenu/blob/master/doc/api/Ling/EasyConsoleMenu/Helper/VariableHelper/resolveVariables.md)(string $msg, array $variables, array &$undefined = []) : string
+    - public static [resolveVariables](https://github.com/lingtalfi/EasyConsoleMenu/blob/master/doc/api/Ling/EasyConsoleMenu/Helper/VariableHelper/resolveVariables.md)(string $msg, array $variables, ?array &$undefined = []) : string
 
 }
 

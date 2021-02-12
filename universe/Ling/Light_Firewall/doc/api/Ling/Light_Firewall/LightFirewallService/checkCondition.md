@@ -33,7 +33,7 @@ Parameters
 - module
 
     The module array which must contain the condition key.
-See the @page(conception notes) for more details.
+See the [conception notes](https://github.com/lingtalfi/Light_Firewall/blob/master/doc/pages/conception-notes.md) for more details.
 
 If the condition is an array, it's an array of built-in capabilities to use.
 The condition is successful only if all declared capabilities return true.

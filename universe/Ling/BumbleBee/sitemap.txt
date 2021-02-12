@@ -1,0 +1,3 @@
+https://github.com/lingtalfi/BumbleBee/blob/master/Autoload/README.md
+https://github.com/lingtalfi/BumbleBee/blob/master/Autoload/convention.bsr0.eng.md
+https://github.com/lingtalfi/BumbleBee/blob/master/README.md

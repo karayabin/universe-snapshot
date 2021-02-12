@@ -58,7 +58,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::storeTagsByResourceId](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L1285-L1305)
+See the source code for method [LightUserDataService::storeTagsByResourceId](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L1194-L1214)
 
 
 See Also
@@ -66,5 +66,5 @@ See Also
 
 The [LightUserDataService](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService.md) class.
 
-Previous method: [updateUserGroupHasPluginOptionTable](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/updateUserGroupHasPluginOptionTable.md)<br>Next method: [createFileItems](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/createFileItems.md)<br>
+Previous method: [checkUserMaximumStorageLimit](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/checkUserMaximumStorageLimit.md)<br>Next method: [createFileItems](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/createFileItems.md)<br>
 

@@ -50,7 +50,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [Application::onCommandInstantiated](https://github.com/lingtalfi/CliTools/blob/master/Program/Application.php#L127-L130)
+See the source code for method [Application::onCommandInstantiated](https://github.com/lingtalfi/CliTools/blob/master/Program/Application.php#L125-L128)
 
 
 See Also
@@ -58,5 +58,5 @@ See Also
 
 The [Application](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Program/Application.md) class.
 
-Previous method: [runProgram](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Program/Application/runProgram.md)<br>
+Previous method: [runProgram](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Program/Application/runProgram.md)<br>Next method: [onCommandNotFound](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Program/Application/onCommandNotFound.md)<br>
 

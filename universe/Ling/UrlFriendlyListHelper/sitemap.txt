@@ -1,0 +1,3 @@
+https://github.com/lingtalfi/UrlFriendlyListHelper/blob/master/README.md
+https://github.com/lingtalfi/UrlFriendlyListHelper/blob/master/doc/brainstorm/brainstorm.urlFriendlyListHelper.md
+https://github.com/lingtalfi/UrlFriendlyListHelper/blob/master/doc/convention/convention.list-parameter-naming.one.md

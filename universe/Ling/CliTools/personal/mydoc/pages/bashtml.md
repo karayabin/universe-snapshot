@@ -1,6 +1,6 @@
 Bashtml
 =====
-2019-02-26
+2019-02-26 -> 2021-01-12
 
 
 Bashtml is a language used to write formatted console messages (messages with colors, bold, ...).
@@ -10,6 +10,8 @@ Bashtml is a language used to write formatted console messages (messages with co
 
 Summary
 ===========
+2019-02-26 -> 2021-01-12
+
 - [The basic example](#the-basic-example)
 - [The nested tags example](#the-nested-tags-example)
 - [The combined tags example](#the-combined-tags-example)
@@ -24,6 +26,7 @@ The main differences is that in bashtml:
 - there is no tag attributes
 - we can combine multiple tags in one using the colon separator (:)
 - the set of tags is not the same
+- a tag's content cannot contain whitespace in it; only the following chars are allowed inside a tag **a-zA-Z0-9:**
 
 
 The basic example

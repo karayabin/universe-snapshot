@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [VariableHelper::resolveVariables](https://github.com/lingtalfi/EasyConsoleMenu/blob/master/doc/api/Ling/EasyConsoleMenu/Helper/VariableHelper/resolveVariables.md)(string $msg, array $variables, array &$undefined = []) : string
+public static [VariableHelper::resolveVariables](https://github.com/lingtalfi/EasyConsoleMenu/blob/master/doc/api/Ling/EasyConsoleMenu/Helper/VariableHelper/resolveVariables.md)(string $msg, array $variables, ?array &$undefined = []) : string
 
 
 

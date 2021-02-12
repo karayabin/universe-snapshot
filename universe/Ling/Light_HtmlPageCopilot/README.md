@@ -67,6 +67,14 @@ html_page_copilot:
 History Log
 =============
 
+- 1.0.5 -- 2020-12-08
+
+    - Fix lpi-deps not using natsort.
+
+- 1.0.4 -- 2020-12-04
+
+    - Add lpi-deps.byml file
+
 - 1.0.3 -- 2019-11-25
 
     - add dedicated copilot service class

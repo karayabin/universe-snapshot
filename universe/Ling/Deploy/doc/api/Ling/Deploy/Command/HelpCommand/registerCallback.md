@@ -16,7 +16,7 @@ Description
 ================
 
 
-protected [HelpCommand::registerCallback](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/HelpCommand/registerCallback.md)(string $commandName, callable $function, string $identifier = null) : void
+protected [HelpCommand::registerCallback](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/HelpCommand/registerCallback.md)(string $commandName, callable $function, ?string $identifier = null) : void
 
 
 
