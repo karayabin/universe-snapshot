@@ -1,6 +1,6 @@
 Universe
 ==============
-2015-10-14 --> 2021-02-08
+2015-10-14 --> 2021-02-12
 
 
 
@@ -10,6 +10,9 @@ Welcome to the **universe** framework.
 
 
 The **universe** is essentially a php library that you can use in your php projects.
+
+It's developped by me for my own needs, but you can use it freely if you want, at your own risks. 
+I don't intend to provide support.
 
 This has been developped on mac os x, with the intent to be deployed on unix systems.
 It probably doesn't work on windows machines.
