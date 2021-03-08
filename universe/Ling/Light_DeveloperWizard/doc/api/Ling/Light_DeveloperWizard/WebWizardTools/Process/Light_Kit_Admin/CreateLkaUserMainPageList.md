@@ -4,7 +4,7 @@
 
 The CreateLkaUserMainPageList class
 ================
-2020-06-30 --> 2020-12-08
+2020-06-30 --> 2021-03-05
 
 
 
@@ -75,11 +75,12 @@ class <span class="pl-k">CreateLkaUserMainPageList</span> extends [CreateLkaUser
     - public WebWizardToolsProcess::execute(?array $options = []) : void
     - public WebWizardToolsProcess::addLogMessage(string $msg, string $type) : void
     - protected WebWizardToolsProcess::getContextVar(string $varName, ?$defaultValue = null, ?bool $throwEx = true) : void
+    - protected WebWizardToolsProcess::getContextVars() : array
     - protected WebWizardToolsProcess::traceMessage(string $msg) : void
     - protected WebWizardToolsProcess::infoMessage(string $msg) : void
     - protected WebWizardToolsProcess::errorMessage(string $msg) : void
     - protected WebWizardToolsProcess::importantMessage(string $msg) : void
-    - protected WebWizardToolsProcess::exceptionMessage([\Exception](http://php.net/manual/en/class.exception.php) $e) : void
+    - protected WebWizardToolsProcess::exceptionMessage(Exception $e) : void
     - protected WebWizardToolsProcess::message($msg, string $type) : void
 
 }
@@ -126,6 +127,7 @@ Methods
 - WebWizardToolsProcess::execute &ndash; Executes the process.
 - WebWizardToolsProcess::addLogMessage &ndash; Adds a message of the given type to the log.
 - WebWizardToolsProcess::getContextVar &ndash; Returns a variable from the wizard context.
+- WebWizardToolsProcess::getContextVars &ndash; Returns the context vars for this instance.
 - WebWizardToolsProcess::traceMessage &ndash; Adds a message of type "trace" to the process report.
 - WebWizardToolsProcess::infoMessage &ndash; Adds a message of type "info" to the process report.
 - WebWizardToolsProcess::errorMessage &ndash; Adds a message of type "error" to the process report.

@@ -4,7 +4,7 @@
 
 The StoreGalaxyCommand class
 ================
-2019-03-12 --> 2021-01-21
+2019-03-12 --> 2021-03-05
 
 
 
@@ -41,7 +41,7 @@ class <span class="pl-k">StoreGalaxyCommand</span> extends [ReimportGalaxyComman
     - public [__construct](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Command/StoreGalaxyCommand/__construct.md)() : void
 
 - Inherited methods
-    - public [ReimportGalaxyCommand::run](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Command/ReimportGalaxyCommand/run.md)(Ling\CliTools\Input\InputInterface $input, Ling\CliTools\Output\OutputInterface $output) : int
+    - public [ReimportGalaxyCommand::run](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Command/ReimportGalaxyCommand/run.md)(Ling\CliTools\Input\InputInterface $input, Ling\CliTools\Output\OutputInterface $output) : mixed
     - public [UniToolGenericCommand::setApplication](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Command/UniToolGenericCommand/setApplication.md)([Ling\Uni2\Application\UniToolApplication](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Application/UniToolApplication.md) $application) : void
 
 }

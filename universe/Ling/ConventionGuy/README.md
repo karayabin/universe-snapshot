@@ -1,6 +1,6 @@
 ConventionGuy
 =============
-2015-10-14 -> 2021-01-07
+2015-10-14 -> 2021-03-05
 
 
 
@@ -14,6 +14,11 @@ ConventionGuy is part of the [universe framework](https://github.com/karayabin/u
 Install
 =============
 
+
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.ConventionGuy
+```
 
 Using the [uni tool](https://github.com/lingtalfi/universe-naive-importer)
 ```bash
@@ -59,6 +64,10 @@ Paradigms
 
 History Log
 ===============
+
+- 1.1.4 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.1.3 -- 2021-01-07
 

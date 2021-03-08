@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [DeployApplication::runProgram](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Application/DeployApplication/runProgram.md)(Ling\CliTools\Input\InputInterface $input, Ling\CliTools\Output\OutputInterface $output) : int | null
+public [DeployApplication::runProgram](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Application/DeployApplication/runProgram.md)(Ling\CliTools\Input\InputInterface $input, Ling\CliTools\Output\OutputInterface $output) : mixed
 
 
 
@@ -43,9 +43,10 @@ Parameters
 Return values
 ================
 
-Returns int | null.
-The exit status.
-If null is returned, 0 should be assumed.
+Returns mixed.
+If int is returned, it's the exit status.
+If nothing or null is returned, 0 should be assumed.
+Other return types are free to be interpreted as you see fit.
 
 
 

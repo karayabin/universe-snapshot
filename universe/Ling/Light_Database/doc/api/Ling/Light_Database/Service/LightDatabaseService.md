@@ -4,7 +4,7 @@
 
 The LightDatabaseService class
 ================
-2019-07-22 --> 2020-12-08
+2019-07-22 --> 2021-03-05
 
 
 
@@ -40,18 +40,18 @@ class <span class="pl-k">LightDatabaseService</span> extends [LightDatabasePdoWr
     - public [setOptions](https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/Service/LightDatabaseService/setOptions.md)(array $options) : void
     - public [getMysqlInfoUtil](https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/Service/LightDatabaseService/getMysqlInfoUtil.md)() : [MysqlInfoUtil](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/Util/MysqlInfoUtil.md)
     - public [onExceptionCaught](https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/Service/LightDatabaseService/onExceptionCaught.md)(Ling\Light\Events\LightEvent $event) : void
-    - protected [queryLog](https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/Service/LightDatabaseService/queryLog.md)(string $type, ?...$args) : void
+    - protected [queryLog](https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/Service/LightDatabaseService/queryLog.md)(string $type, ?$args) : void
 
 - Inherited methods
     - public [LightDatabasePdoWrapper::init](https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/LightDatabasePdoWrapper/init.md)(array $settings) : void
     - public [LightDatabasePdoWrapper::getConnectionException](https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/LightDatabasePdoWrapper/getConnectionException.md)() : [PDOException](https://www.php.net/manual/en/class.pdoexception.php) | null
     - public [LightDatabasePdoWrapper::setContainer](https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/LightDatabasePdoWrapper/setContainer.md)([Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) $container) : void
     - protected [LightDatabasePdoWrapper::onSuccess](https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/LightDatabasePdoWrapper/onSuccess.md)(string $type, string $table, string $query, array $arguments, ?$return = true) : void
-    - public SimplePdoWrapper::setConnexion([\PDO](https://www.php.net/manual/en/class.pdo.php) $connexion) : void
+    - public SimplePdoWrapper::setConnexion(PDO $connexion) : void
     - public SimplePdoWrapper::getConnexion() : [PDO](https://www.php.net/manual/en/class.pdo.php)
     - public SimplePdoWrapper::setErrorMode($errorMode) : mixed
     - public SimplePdoWrapper::getError() : null | array
-    - public SimplePdoWrapper::transaction(callable $transactionCallback, ?[\Exception](http://php.net/manual/en/class.exception.php) &$e = null) : bool
+    - public SimplePdoWrapper::transaction(callable $transactionCallback, ?Exception &$e = null) : bool
     - public SimplePdoWrapper::insert($table, ?array $fields = [], ?array $options = []) : false | string
     - public SimplePdoWrapper::replace($table, ?array $fields = [], ?array $options = []) : false | string
     - public SimplePdoWrapper::update($table, array $fields, ?$whereConds = null, ?array $markers = []) : bool
@@ -59,11 +59,10 @@ class <span class="pl-k">LightDatabaseService</span> extends [LightDatabasePdoWr
     - public SimplePdoWrapper::fetch($query, ?array $markers = [], ?$fetchStyle = null) : false | array
     - public SimplePdoWrapper::fetchAll($query, ?array $markers = [], ?$fetchStyle = null, ?$fetchArg = null, ?array $ctorArgs = []) : false | array
     - public SimplePdoWrapper::executeStatement($query) : false | int
-    - public static SimplePdoWrapper::addWhereSubStmt(&$stmt, array &$markers, $whereConds) : void
+    - public static SimplePdoWrapper::addWhereSubStmt($stmt, array &$markers, $whereConds) : void
     - protected SimplePdoWrapper::boot() : [PDO](https://www.php.net/manual/en/class.pdo.php) | null
     - protected SimplePdoWrapper::storeQueryObject($queryObject) : void
-    - protected static SimplePdoWrapper::addAssignmentListSubStmt(&$stmt, array &$markers, array $fields, ?$firstForm = false) : void
-    - private SimplePdoWrapper::handleException([\Exception](http://php.net/manual/en/class.exception.php) $e, ?array $markers = []) : void
+    - protected static SimplePdoWrapper::addAssignmentListSubStmt($stmt, array &$markers, array $fields, ?$firstForm = false) : void
 
 }
 
@@ -150,7 +149,6 @@ Methods
 - SimplePdoWrapper::boot &ndash; You can use this method to initialize a "query method" (see SimplePdoWrapperInterface for more details).
 - SimplePdoWrapper::storeQueryObject &ndash; Stores the query object so that we can get the errors out of it.
 - SimplePdoWrapper::addAssignmentListSubStmt &ndash; for INSERT or UPDATE like statements.
-- SimplePdoWrapper::handleException &ndash; Will rethrow a custom exception based on the one given.
 
 
 
@@ -165,4 +163,4 @@ See the source code of [Ling\Light_Database\Service\LightDatabaseService](https:
 
 SeeAlso
 ==============
-Previous class: [LightDatabasePdoWrapper](https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/LightDatabasePdoWrapper.md)<br>Next class: [LightDatabaseTrait](https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/Traits/LightDatabaseTrait.md)<br>
+Previous class: [LightDatabasePlanetInstaller](https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/Light_PlanetInstaller/LightDatabasePlanetInstaller.md)<br>Next class: [LightDatabaseTrait](https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/Traits/LightDatabaseTrait.md)<br>

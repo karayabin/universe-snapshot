@@ -1,6 +1,6 @@
 Bootstrap Widget Library
 =============
-2019-05-01 -> 2020-12-08
+2019-05-01 -> 2021-03-05
 
 
 
@@ -7371,7 +7371,7 @@ The header is composed of various elements:
 - the logo (aka brand image)
 - the sidebar toggler (optional, the idea being that if your admin has a sidebar, you can toggle the sidebar on/off via this sidebar toggler)
 - some plain links (optional)
-- a subzone on the right (named SUB_zeroadmin_header) to add extra widgets
+- a subzone on the right (named SUB_zeroadmin_header by default) to add extra widgets
 
 In the original zeroadmin theme, the subzone is filled with the following widgets (in this order):
 
@@ -7418,6 +7418,7 @@ vars:
     brand_img_alt: ZeroAdmin Logo
     use_sidebar_toggler: true
     sidebar_toggler_id: header-navbar-toggler
+    zone_name: SUB_zeroadmin_header
     plain_links:
         -
             url: ::(@reverse_router->getUrl(/dashboard))::
@@ -7466,6 +7467,11 @@ ZeroAdminHeaderWidget variables description
     - **default_value**: header-navbar-toggler
     - **description**: The css id of the navbar toggler, used to toggle a visually external sidebar.
     - **example**: header-navbar-toggler
+- **zone_name**
+    - **type**: string
+    - **default_value**: SUB_zeroadmin_header
+    - **description**: The name of the kit zone to display
+    - **example**: SUB_zeroadmin_header
 - **plain_links**
     - **type**: item_list
     - **default_value**

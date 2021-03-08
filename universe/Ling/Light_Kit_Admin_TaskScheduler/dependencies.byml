@@ -3,10 +3,10 @@ dependencies:
         - Bat
         - Chloroform
         - Light
+        - Light_ControllerHub
+        - Light_Kit
         - Light_Kit_Admin
         - Light_Realform
-        - Light_Kit
-        - Light_ControllerHub
     
 
 post_install: 

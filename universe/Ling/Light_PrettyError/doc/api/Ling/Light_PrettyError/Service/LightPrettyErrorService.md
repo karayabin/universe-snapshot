@@ -4,7 +4,7 @@
 
 The LightPrettyErrorService class
 ================
-2019-04-05 --> 2020-12-08
+2019-04-05 --> 2021-03-05
 
 
 
@@ -25,7 +25,7 @@ Class synopsis
 class <span class="pl-k">LightPrettyErrorService</span>  {
 
 - Methods
-    - public [renderPage](https://github.com/lingtalfi/Light_PrettyError/blob/master/doc/api/Ling/Light_PrettyError/Service/LightPrettyErrorService/renderPage.md)([\Exception](http://php.net/manual/en/class.exception.php) $e) : string
+    - public [renderPage](https://github.com/lingtalfi/Light_PrettyError/blob/master/doc/api/Ling/Light_PrettyError/Service/LightPrettyErrorService/renderPage.md)(Exception $e) : string
     - public [onLightExceptionCaught](https://github.com/lingtalfi/Light_PrettyError/blob/master/doc/api/Ling/Light_PrettyError/Service/LightPrettyErrorService/onLightExceptionCaught.md)(Ling\Light\Events\LightEvent $event, string $eventName) : void
 
 }

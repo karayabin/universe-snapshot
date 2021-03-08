@@ -1,6 +1,6 @@
 Ling/Light_Kit_Admin_LoginNotifier
 ================
-2020-11-30 --> 2021-01-29
+2020-11-30 --> 2021-03-05
 
 
 
@@ -17,6 +17,7 @@ Table of contents
     - AdminPageController::renderAdminPage &ndash; if she is not connected yet.
     - LightKitAdminController::setRoute &ndash; Sets the matching route to this controller instance.
     - LightKitAdminController::renderPage &ndash; Renders the given page using the [kit service](https://github.com/lingtalfi/Light_Kit).
+    - LightKitAdminController::renderDefaultPage &ndash; Renders the default page, and returns the corresponding http response.
     - LightController::setLight &ndash; Sets the light instance.
 - [LightKitAdminLoginNotifierLkaPlugin](https://github.com/lingtalfi/Light_Kit_Admin_LoginNotifier/blob/master/doc/api/Ling/Light_Kit_Admin_LoginNotifier/LightKitAdminPlugin/Generated/LightKitAdminLoginNotifierLkaPlugin.md) &ndash; The LightKitAdminLoginNotifierLkaPlugin class.
     - BaseLightKitAdminPlugin::__construct &ndash; Builds the BaseLightKitAdminPlugin instance.
@@ -32,8 +33,8 @@ Table of contents
     - LightKitAdminBasePortPluginInstallerWithDatabase::isInstalled &ndash; Returns whether the core install phase of the plugin is fully completed.
     - LightKitAdminBasePortPluginInstallerWithDatabase::uninstall &ndash; Uninstalls the plugin.
     - LightKitAdminBasePortPluginInstallerWithDatabase::getDependencies &ndash; Returns the array of dependencies.
-    - LightBasePluginInstaller::setContainer &ndash; Sets the container.
-    - LightBasePluginInstaller::getTableScope &ndash; Returns the [table scope](https://github.com/lingtalfi/TheBar/blob/master/discussions/table-scope.md) for this planet.
+    - LightUserDatabaseBasePluginInstaller::setContainer &ndash; Sets the container.
+    - LightUserDatabaseBasePluginInstaller::getTableScope &ndash; Returns the [table scope](https://github.com/lingtalfi/TheBar/blob/master/discussions/table-scope.md) for this planet.
 - [LightKitAdminLoginNotifierService](https://github.com/lingtalfi/Light_Kit_Admin_LoginNotifier/blob/master/doc/api/Ling/Light_Kit_Admin_LoginNotifier/Service/LightKitAdminLoginNotifierService.md) &ndash; The LightKitAdminLoginNotifierService class.
     - LightKitAdminStandardServicePlugin::__construct &ndash; Builds the LightLingStandardService01 instance.
     - LightKitAdminStandardServicePlugin::setContainer &ndash; Sets the container.
@@ -43,8 +44,8 @@ Table of contents
 Dependencies
 ============
 - [Light](https://github.com/lingtalfi/Light)
+- [Light_ControllerHub](https://github.com/lingtalfi/Light_ControllerHub)
 - [Light_Kit](https://github.com/lingtalfi/Light_Kit)
 - [Light_Kit_Admin](https://github.com/lingtalfi/Light_Kit_Admin)
-- [Light_ControllerHub](https://github.com/lingtalfi/Light_ControllerHub)
 
 

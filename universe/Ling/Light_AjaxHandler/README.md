@@ -1,6 +1,6 @@
 Light_AjaxHandler
 ===========
-2019-09-19 -> 2020-08-21
+2019-09-19 -> 2021-03-05
 
 
 
@@ -14,6 +14,11 @@ This is part of the [universe framework](https://github.com/karayabin/universe-s
 
 Install
 ==========
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.Light_AjaxHandler
+```
+
 Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
 ```bash
 uni import Ling/Light_AjaxHandler
@@ -58,17 +63,6 @@ ajax_handler:
         setContainer:
             container: @container()
 
-
-
-# --------------------------------------
-# hooks
-# --------------------------------------
-
-$easy_route.methods_collection:
-    -
-        method: registerBundleFile
-        args:
-            file: config/data/Light_AjaxHandler/Light_EasyRoute/lah_routes.byml
 ```
 
 
@@ -80,9 +74,17 @@ $easy_route.methods_collection:
 History Log
 =============
 
+- 2.1.6 -- 2021-03-05
+
+    - update README.md, add install alternative
+
+- 2.1.5 -- 2021-02-23
+
+    - switch to Light_EasyRoute open registration system
+
 - 2.1.4 -- 2020-12-08
 
-    - Fix lpi-deps not using natsort.
+    - Fix lpi-deps not using natsort
 
 - 2.1.3 -- 2020-12-04
 

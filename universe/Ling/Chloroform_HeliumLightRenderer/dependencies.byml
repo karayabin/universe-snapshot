@@ -2,14 +2,14 @@ dependencies:
     Ling: 
         - Bat
         - Chloroform_HeliumRenderer
+        - FontAwesome
         - GormanJsonDecoder
         - HtmlPageTools
+        - JSortableLists
+        - Jquery
         - Light
         - Light_AjaxHandler
         - Light_CsrfSession
-        - FontAwesome
-        - JSortableLists
-        - Jquery
         - Select2
     
 

@@ -136,9 +136,6 @@ class LightErrorHandlerService
 
 
 
-    //--------------------------------------------
-    //
-    //--------------------------------------------
     /**
      *
      * The error handler function.
@@ -154,7 +151,7 @@ class LightErrorHandlerService
      * @param int $errline
      * @return bool
      */
-    protected function errorHandler(int $errno, string $errstr, string $errfile, int $errline): bool
+    public function errorHandler(int $errno, string $errstr, string $errfile, int $errline): bool
     {
         $this->sendError([
             "level" => $errno,

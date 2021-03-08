@@ -4,7 +4,7 @@
 
 The RowRestrictionHandlerInterface class
 ================
-2020-03-03 --> 2020-12-08
+2020-03-03 --> 2021-03-05
 
 
 
@@ -25,7 +25,7 @@ Class synopsis
 abstract class <span class="pl-k">RowRestrictionHandlerInterface</span>  {
 
 - Methods
-    - abstract public [checkRestriction](https://github.com/lingtalfi/Light_UserRowRestriction/blob/master/doc/api/Ling/Light_UserRowRestriction/RowRestrictionHandler/RowRestrictionHandlerInterface/checkRestriction.md)(Ling\Light_User\LightUserInterface $user, string $table, ?...$args) : void
+    - abstract public [checkRestriction](https://github.com/lingtalfi/Light_UserRowRestriction/blob/master/doc/api/Ling/Light_UserRowRestriction/RowRestrictionHandler/RowRestrictionHandlerInterface/checkRestriction.md)(Ling\Light_User\LightUserInterface $user, string $table, ?$args) : void
 
 }
 

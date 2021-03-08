@@ -1,6 +1,6 @@
 Zoli
 ===========
-2016-01-28
+2016-01-28 -> 2021-03-05
 
 
 a modal dialog.
@@ -11,6 +11,11 @@ Zoli is part of the [universe framework](https://github.com/karayabin/universe-s
 
 Install
 ==========
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.Zoli
+```
+
 Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
 ```bash
 uni import Ling/Zoli
@@ -428,6 +433,10 @@ Help preparing the zolipopup as a template before it shows up.
 
 History Log
 ------------------
+
+- 1.4.3 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.4.2 -- 2020-12-08
 

@@ -1,6 +1,6 @@
 Light_CsrfSimple
 ===========
-2019-11-07
+2019-11-07 -> 2021-03-05
 
 
 
@@ -20,6 +20,11 @@ As of 2019-11-07, this is the preferred alternative as for csrf protection imple
 
 Install
 ==========
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.Light_CsrfSimple
+```
+
 Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
 ```bash
 uni import Ling/Light_CsrfSimple
@@ -92,6 +97,10 @@ Related
 
 History Log
 =============
+
+- 1.2.4 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.2.3 -- 2020-12-08
 

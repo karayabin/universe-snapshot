@@ -47,7 +47,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [UpdateAllPlanetsTool::alterLinks](https://github.com/lingtalfi/LingTalfi/blob/master/Tools/UpdateAllPlanetsTool.php#L88-L105)
+See the source code for method [UpdateAllPlanetsTool::alterLinks](https://github.com/lingtalfi/LingTalfi/blob/master/Tools/UpdateAllPlanetsTool.php#L113-L130)
 
 
 See Also

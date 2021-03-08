@@ -1,8 +1,8 @@
 dependencies: 
     Ling: 
-        - Light
         - Bat
         - DirScanner
+        - Light
         - Light_Events
     
 

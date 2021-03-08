@@ -1,17 +1,17 @@
 dependencies: 
     Ling: 
-        - Light
-        - Light_Events
-        - Light_Logger
         - BabyYaml
         - Bat
+        - JFileUploader
+        - Light
         - Light_CsrfSession
         - Light_Database
+        - Light_Events
+        - Light_HtmlPageCopilot
+        - Light_Logger
         - Light_UserData
         - Light_UserManager
         - ThumbnailTools
-        - Light_HtmlPageCopilot
-        - JFileUploader
     
 
 post_install: 

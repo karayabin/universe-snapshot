@@ -1,6 +1,6 @@
 Ling/Light_Database
 ================
-2019-07-22 --> 2020-12-08
+2019-07-22 --> 2021-03-05
 
 
 
@@ -29,6 +29,10 @@ Table of contents
     - SimplePdoWrapper::fetchAll &ndash; Executes the prepared statement and return an array containing all of the result set rows.
     - SimplePdoWrapper::executeStatement &ndash; Executes an SQL statement and returns the number of affected rows.
     - SimplePdoWrapper::addWhereSubStmt &ndash; defined in the comments of the SimplePdoWrapperInterface->update method.
+- [LightDatabasePlanetInstaller](https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/Light_PlanetInstaller/LightDatabasePlanetInstaller.md) &ndash; The LightDatabasePlanetInstaller class.
+    - [LightDatabasePlanetInstaller::onMapCopyAfter](https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/Light_PlanetInstaller/LightDatabasePlanetInstaller/onMapCopyAfter.md) &ndash; This hook is executed during an [install](https://github.com/lingtalfi/TheBar/blob/master/discussions/import-install.md#summary).
+    - LightBasePlanetInstaller::__construct &ndash; Builds the LightBasePlanetInstaller instance.
+    - LightBasePlanetInstaller::setContainer &ndash; Sets the light service container interface.
 - [LightDatabaseService](https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/Service/LightDatabaseService.md) &ndash; The LightDatabaseService class.
     - [LightDatabaseService::__construct](https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/Service/LightDatabaseService/__construct.md) &ndash; Builds the LightDatabaseService instance.
     - [LightDatabaseService::setOptions](https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/Service/LightDatabaseService/setOptions.md) &ndash; Sets the options.
@@ -55,13 +59,14 @@ Table of contents
 
 Dependencies
 ============
+- [ArrayToString](https://github.com/lingtalfi/ArrayToString)
+- [Bat](https://github.com/lingtalfi/Bat)
 - [CheapLogger](https://github.com/lingtalfi/CheapLogger)
+- [CliTools](https://github.com/lingtalfi/CliTools)
 - [Light](https://github.com/lingtalfi/Light)
 - [Light_Events](https://github.com/lingtalfi/Light_Events)
 - [Light_Logger](https://github.com/lingtalfi/Light_Logger)
+- [Light_PlanetInstaller](https://github.com/lingtalfi/Light_PlanetInstaller)
 - [SimplePdoWrapper](https://github.com/lingtalfi/SimplePdoWrapper)
-- [ArrayToString](https://github.com/lingtalfi/ArrayToString)
-- [Bat](https://github.com/lingtalfi/Bat)
-- [CliTools](https://github.com/lingtalfi/CliTools)
 
 

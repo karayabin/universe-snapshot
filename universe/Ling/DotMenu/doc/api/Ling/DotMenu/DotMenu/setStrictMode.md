@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [DotMenu::setStrictMode](https://github.com/lingtalfi/DotMenu/blob/master/DotMenu.php#L171-L174)
+See the source code for method [DotMenu::setStrictMode](https://github.com/lingtalfi/DotMenu/blob/master/DotMenu.php#L173-L176)
 
 
 See Also

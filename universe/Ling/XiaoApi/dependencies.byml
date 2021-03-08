@@ -1,8 +1,8 @@
 dependencies: 
     Ling: 
+        - ArrayToString
         - Bat
         - QuickPdo
-        - ArrayToString
     
 
 post_install: []

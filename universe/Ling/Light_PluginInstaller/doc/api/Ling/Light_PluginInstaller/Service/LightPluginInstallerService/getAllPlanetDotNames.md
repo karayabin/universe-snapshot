@@ -46,7 +46,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [LightPluginInstallerService::getAllPlanetDotNames](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/Service/LightPluginInstallerService.php#L557-L572)
+See the source code for method [LightPluginInstallerService::getAllPlanetDotNames](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/Service/LightPluginInstallerService.php#L556-L571)
 
 
 See Also

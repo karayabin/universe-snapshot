@@ -4,7 +4,7 @@
 
 The LightUserManagerService class
 ================
-2019-05-10 --> 2020-12-08
+2019-05-10 --> 2021-03-05
 
 
 
@@ -34,7 +34,6 @@ class <span class="pl-k">LightUserManagerService</span> extends [WebsiteUserMana
     - public [WebsiteUserManager::getValidWebsiteUser](https://github.com/lingtalfi/Light_UserManager/blob/master/doc/api/Ling/Light_UserManager/UserManager/WebsiteUserManager/getValidWebsiteUser.md)() : [LightWebsiteUser](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightWebsiteUser.md)
     - public [WebsiteUserManager::setUser](https://github.com/lingtalfi/Light_UserManager/blob/master/doc/api/Ling/Light_UserManager/UserManager/WebsiteUserManager/setUser.md)([Ling\Light_User\LightUserInterface](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightUserInterface.md) $user) : void
     - public [WebsiteUserManager::setUserOnce](https://github.com/lingtalfi/Light_UserManager/blob/master/doc/api/Ling/Light_UserManager/UserManager/WebsiteUserManager/setUserOnce.md)([Ling\Light_User\LightUserInterface](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightUserInterface.md) $user) : void
-    - private [WebsiteUserManager::startPhpSession](https://github.com/lingtalfi/Light_UserManager/blob/master/doc/api/Ling/Light_UserManager/UserManager/WebsiteUserManager/startPhpSession.md)() : void
 
 }
 
@@ -52,7 +51,6 @@ Methods
 - [WebsiteUserManager::getValidWebsiteUser](https://github.com/lingtalfi/Light_UserManager/blob/master/doc/api/Ling/Light_UserManager/UserManager/WebsiteUserManager/getValidWebsiteUser.md) &ndash; 
 - [WebsiteUserManager::setUser](https://github.com/lingtalfi/Light_UserManager/blob/master/doc/api/Ling/Light_UserManager/UserManager/WebsiteUserManager/setUser.md) &ndash; Sets the user.
 - [WebsiteUserManager::setUserOnce](https://github.com/lingtalfi/Light_UserManager/blob/master/doc/api/Ling/Light_UserManager/UserManager/WebsiteUserManager/setUserOnce.md) &ndash; Sets the user only if there is no user in the session.
-- [WebsiteUserManager::startPhpSession](https://github.com/lingtalfi/Light_UserManager/blob/master/doc/api/Ling/Light_UserManager/UserManager/WebsiteUserManager/startPhpSession.md) &ndash; Starts the php session if it's not already started.
 
 
 

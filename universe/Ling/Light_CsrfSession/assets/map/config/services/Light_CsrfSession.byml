@@ -1,5 +1,0 @@
-csrf_session:
-    instance: Ling\Light_CsrfSession\Service\LightCsrfSessionService
-    methods:
-        setSalt:
-            salt: pepper-house

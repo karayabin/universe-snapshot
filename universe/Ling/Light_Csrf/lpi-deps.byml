@@ -12,3 +12,6 @@
 
 1.0.4: 
     - Ling:CSRFTools:1.5.3+
+
+1.0.5: 
+    - Ling:CSRFTools:1.5.4+

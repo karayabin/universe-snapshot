@@ -21,3 +21,9 @@
     - Ling:Light_PrerouteHub:1.0.2+
     - Ling:Light_ReverseRouter:1.11.3+
     - Ling:Light_User:1.7.2+
+
+1.1.3: 
+    - Ling:Light:0.69.30+
+    - Ling:Light_PrerouteHub:1.0.2+
+    - Ling:Light_ReverseRouter:1.11.3+
+    - Ling:Light_User:1.7.2+

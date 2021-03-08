@@ -87,6 +87,11 @@ class DotMenu
      */
     public function appendItem(array $item, string $parentPath = null)
     {
+        if (false === array_key_exists($this->idKey, $item)) {
+            throw new DotMenuException("Invalid item, an item must contain the $this->idKey key.");
+        }
+
+
         if (null === $parentPath) {
             $this->items[$item[$this->idKey]] = $item;
         } else {
@@ -97,9 +102,6 @@ class DotMenu
                 $v .= "." . $this->childrenKey;
             });
             $realParentPath = implode('.', $components);
-
-
-
 
 
             // now let's append the item

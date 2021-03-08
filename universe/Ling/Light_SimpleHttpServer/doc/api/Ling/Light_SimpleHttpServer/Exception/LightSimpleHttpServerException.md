@@ -4,7 +4,7 @@
 
 The LightSimpleHttpServerException class
 ================
-2020-10-30 --> 2020-12-08
+2020-10-30 --> 2021-03-05
 
 
 
@@ -22,7 +22,7 @@ Class synopsis
 ==============
 
 
-class <span class="pl-k">LightSimpleHttpServerException</span> extends [\Exception](http://php.net/manual/en/class.exception.php) implements [\Throwable](http://php.net/manual/en/class.throwable.php) {
+class <span class="pl-k">LightSimpleHttpServerException</span> extends [\Exception](http://php.net/manual/en/class.exception.php) implements [\Stringable](https://wiki.php.net/rfc/stringable), [\Throwable](http://php.net/manual/en/class.throwable.php) {
 
 - Properties
     - protected int [$httpStatusCode](#property-httpStatusCode) ;
@@ -34,7 +34,7 @@ class <span class="pl-k">LightSimpleHttpServerException</span> extends [\Excepti
     - protected  [Exception::$line](#property-line) ;
 
 - Methods
-    - public [__construct](https://github.com/lingtalfi/Light_SimpleHttpServer/blob/master/doc/api/Ling/Light_SimpleHttpServer/Exception/LightSimpleHttpServerException/__construct.md)(?$message = , ?$code = 0, ?[\Throwable](http://php.net/manual/en/class.throwable.php) $previous = null) : void
+    - public [__construct](https://github.com/lingtalfi/Light_SimpleHttpServer/blob/master/doc/api/Ling/Light_SimpleHttpServer/Exception/LightSimpleHttpServerException/__construct.md)(?$message = , ?$code = 0, ?Throwable $previous = null) : void
     - public [getHttpStatusCode](https://github.com/lingtalfi/Light_SimpleHttpServer/blob/master/doc/api/Ling/Light_SimpleHttpServer/Exception/LightSimpleHttpServerException/getHttpStatusCode.md)() : int
     - public [setHttpStatusCode](https://github.com/lingtalfi/Light_SimpleHttpServer/blob/master/doc/api/Ling/Light_SimpleHttpServer/Exception/LightSimpleHttpServerException/setHttpStatusCode.md)(int $httpStatusCode) : void
 

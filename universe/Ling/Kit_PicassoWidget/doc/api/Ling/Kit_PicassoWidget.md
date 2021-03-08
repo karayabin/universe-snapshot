@@ -1,6 +1,6 @@
 Ling/Kit_PicassoWidget
 ================
-2019-04-24 --> 2020-12-08
+2019-04-24 --> 2021-03-05
 
 
 
@@ -65,13 +65,13 @@ Table of contents
 
 Dependencies
 ============
-- [Kit](https://github.com/lingtalfi/Kit)
 - [BabyYaml](https://github.com/lingtalfi/BabyYaml)
 - [Bat](https://github.com/lingtalfi/Bat)
 - [DirScanner](https://github.com/lingtalfi/DirScanner)
+- [HtmlPageTools](https://github.com/lingtalfi/HtmlPageTools)
+- [Kit](https://github.com/lingtalfi/Kit)
 - [Light](https://github.com/lingtalfi/Light)
 - [Light_Kit](https://github.com/lingtalfi/Light_Kit)
-- [HtmlPageTools](https://github.com/lingtalfi/HtmlPageTools)
 - [ZephyrTemplateEngine](https://github.com/lingtalfi/ZephyrTemplateEngine)
 
 

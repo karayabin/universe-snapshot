@@ -1,12 +1,12 @@
 dependencies: 
     Ling: 
-        - Kit
         - BabyYaml
         - Bat
         - DirScanner
+        - HtmlPageTools
+        - Kit
         - Light
         - Light_Kit
-        - HtmlPageTools
         - ZephyrTemplateEngine
     
 

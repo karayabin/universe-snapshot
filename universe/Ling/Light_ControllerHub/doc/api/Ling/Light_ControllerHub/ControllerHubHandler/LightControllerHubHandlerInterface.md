@@ -4,7 +4,7 @@
 
 The LightControllerHubHandlerInterface class
 ================
-2019-10-28 --> 2020-12-08
+2019-10-28 --> 2021-03-05
 
 
 

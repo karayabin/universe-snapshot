@@ -47,6 +47,7 @@ class KaosApplication extends Application
         $this->registerCommand("Ling\LingTalfi\Kaos\Command\PackLightPluginCommand", "packlightmap");
         $this->registerCommand("Ling\LingTalfi\Kaos\Command\PushCommand", "push");
         $this->registerCommand("Ling\LingTalfi\Kaos\Command\PushUniverseSnapshotCommand", "pushuni");
+        $this->registerCommand("Ling\LingTalfi\Kaos\Command\UpdateSubscriberDependenciesCommand", "updsd");
 
     }
 

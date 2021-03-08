@@ -4,7 +4,7 @@
 
 The LightControllerHubService class
 ================
-2019-10-28 --> 2020-12-08
+2019-10-28 --> 2021-03-05
 
 
 
@@ -80,4 +80,4 @@ See the source code of [Ling\Light_ControllerHub\Service\LightControllerHubServi
 
 SeeAlso
 ==============
-Previous class: [LightControllerHubException](https://github.com/lingtalfi/Light_ControllerHub/blob/master/doc/api/Ling/Light_ControllerHub/Exception/LightControllerHubException.md)<br>
+Previous class: [LightControllerHubPlanetInstaller](https://github.com/lingtalfi/Light_ControllerHub/blob/master/doc/api/Ling/Light_ControllerHub/Light_PlanetInstaller/LightControllerHubPlanetInstaller.md)<br>

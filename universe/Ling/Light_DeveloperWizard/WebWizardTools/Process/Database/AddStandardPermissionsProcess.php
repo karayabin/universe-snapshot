@@ -6,7 +6,6 @@ namespace Ling\Light_DeveloperWizard\WebWizardTools\Process\Database;
 
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
 use Ling\Light_DeveloperWizard\WebWizardTools\Process\LightDeveloperWizardBaseProcess;
-use Ling\WebWizardTools\Process\WebWizardToolsProcess;
 
 
 /**
@@ -24,6 +23,20 @@ class AddStandardPermissionsProcess extends LightDeveloperWizardBaseProcess
         $this->setName("add-standard-permissions");
         $this->setLabel("Add standard permissions");
         $this->setLearnMoreByHash('add-standard-permissions');
+    }
+
+    /**
+     * @overrides
+     */
+    public function prepare()
+    {
+        parent::prepare();
+        $planet = $this->getContextVar("planet");
+        if (true === str_starts_with($planet, "Light_Kit_Admin_")) {
+            $this->setDisabledReason("Usually a Light_Kit_Admin plugin doesn't have standard permission of its own (it's rather the <a target='_blank' href='https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/pages/lka-plugins.md#light-kit-admin-source-and-port-plugin'>source plugin</a> that has them). If you really need this, please do it manually.");
+        }
+
+
     }
 
 

@@ -108,13 +108,10 @@ class LightUserDatabaseBasePluginInstaller implements PluginInstallerInterface, 
         $this->synchronizeDatabase();
 
 
-
-
         //--------------------------------------------
         // LIGHT STANDARD PERMISSIONS
         //--------------------------------------------
         if (true === $this->container->has("user_database")) {
-
             /**
              * @var $userDb LightUserDatabaseService
              */
@@ -277,7 +274,6 @@ class LightUserDatabaseBasePluginInstaller implements PluginInstallerInterface, 
         $scope = $this->getTableScope();
 
 
-
         $this->debugMsg("synchronizing <b>create file</b>." . PHP_EOL);
         LightDbSynchronizerHelper::synchronizePlanetCreateFile("$galaxy.$planet", $this->container, [
             'scope' => $scope,
@@ -343,17 +339,24 @@ class LightUserDatabaseBasePluginInstaller implements PluginInstallerInterface, 
      */
     protected function dropTables(array $tables)
     {
+
         /**
          * @var $userDb LightDatabaseService
          */
         $db = $this->container->get('database');
+
+
+        $stmt = "SET FOREIGN_KEY_CHECKS=0;" . PHP_EOL;
+
+        $this->debugMsg("Removing tables: " . implode(', ', $tables) . PHP_EOL);
         foreach ($tables as $table) {
-            $this->debugMsg("Remove table $table." . PHP_EOL);
-            try {
-                $db->executeStatement("drop table if exists `$table`");
-            } catch (\Exception $e) {
-                $this->warningMsg($e);
-            }
+            $stmt .= "drop table if exists `$table`;" . PHP_EOL;
+        }
+        $stmt .= "SET FOREIGN_KEY_CHECKS=1;" . PHP_EOL;
+        try {
+            $db->executeStatement($stmt);
+        } catch (\Exception $e) {
+            $this->warningMsg($e);
         }
 
     }

@@ -51,7 +51,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [AddServiceLingBreeze2GetFactoryMethodProcess::doExecute](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/WebWizardTools/Process/ServiceClass/AddServiceLingBreeze2GetFactoryMethodProcess.php#L57-L73)
+See the source code for method [AddServiceLingBreeze2GetFactoryMethodProcess::doExecute](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/WebWizardTools/Process/ServiceClass/AddServiceLingBreeze2GetFactoryMethodProcess.php#L57-L76)
 
 
 See Also

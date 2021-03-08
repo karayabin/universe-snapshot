@@ -1,6 +1,6 @@
 Ling/Light_Kit
 ================
-2019-04-25 --> 2020-12-08
+2019-04-25 --> 2021-03-05
 
 
 
@@ -63,14 +63,33 @@ Table of contents
     - KitPageRenderer::addWidgetConfDecorator &ndash; Adds a widget configuration decorator to this instance.
     - KitPageRenderer::printPage &ndash; Prints the page.
     - KitPageRenderer::printZone &ndash; Prints a zone.
+- [LightKitService](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/Service/LightKitService.md) &ndash; The LightKitService class.
+    - [LightKitPageRenderer::__construct](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageRenderer/LightKitPageRenderer/__construct.md) &ndash; Builds the LightKitPageRenderer instance.
+    - [LightKitPageRenderer::setConfStorage](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageRenderer/LightKitPageRenderer/setConfStorage.md) &ndash; Sets the confStorage.
+    - [LightKitPageRenderer::setContainer](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageRenderer/LightKitPageRenderer/setContainer.md) &ndash; Sets the container.
+    - [LightKitPageRenderer::addPageConfigurationTransformer](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageRenderer/LightKitPageRenderer/addPageConfigurationTransformer.md) &ndash; Adds a PageConfigurationTransformerInterface to this instance.
+    - [LightKitPageRenderer::configure](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageRenderer/LightKitPageRenderer/configure.md) &ndash; Configures thi instance.
+    - [LightKitPageRenderer::renderPage](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageRenderer/LightKitPageRenderer/renderPage.md) &ndash; Renders the given page.
+    - [LightKitPageRenderer::getContainer](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageRenderer/LightKitPageRenderer/getContainer.md) &ndash; Returns a light service container instance.
+    - KitPageRenderer::countWidgets &ndash; Returns the number of widgets for a given zone.
+    - KitPageRenderer::setPageConf &ndash; Sets the pageConf.
+    - KitPageRenderer::setStrictMode &ndash; Sets the strictMode.
+    - KitPageRenderer::setErrorHandler &ndash; Sets the errorHandler.
+    - KitPageRenderer::registerWidgetHandler &ndash; Registers a widget handler for the given (widget) type.
+    - KitPageRenderer::setLayoutRootDir &ndash; Sets the layoutRootDir.
+    - KitPageRenderer::addWidgetConfDecorator &ndash; Adds a widget configuration decorator to this instance.
+    - KitPageRenderer::printPage &ndash; Prints the page.
+    - KitPageRenderer::printZone &ndash; Prints a zone.
 
 
 Dependencies
 ============
+- [ArrayVariableResolver](https://github.com/lingtalfi/ArrayVariableResolver)
 - [Bat](https://github.com/lingtalfi/Bat)
 - [HtmlPageTools](https://github.com/lingtalfi/HtmlPageTools)
 - [Kit](https://github.com/lingtalfi/Kit)
-- [ArrayVariableResolver](https://github.com/lingtalfi/ArrayVariableResolver)
+- [Kit_PicassoWidget](https://github.com/lingtalfi/Kit_PicassoWidget)
+- [Kit_PrototypeWidget](https://github.com/lingtalfi/Kit_PrototypeWidget)
 - [Light](https://github.com/lingtalfi/Light)
 - [Light_Events](https://github.com/lingtalfi/Light_Events)
 

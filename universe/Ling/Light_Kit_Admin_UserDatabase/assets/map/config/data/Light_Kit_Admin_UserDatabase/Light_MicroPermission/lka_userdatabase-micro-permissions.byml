@@ -1,8 +1,0 @@
-store.lud_permission: Light_Kit_Admin.admin
-store.lud_permission_group: Light_Kit_Admin.admin
-store.lud_permission_group_has_permission: Light_Kit_Admin.admin
-store.lud_plugin_option: Light_Kit_Admin.admin
-store.lud_user: Light_Kit_Admin.admin
-store.lud_user_group: Light_Kit_Admin.admin
-store.lud_user_group_has_plugin_option: Light_Kit_Admin.admin
-store.lud_user_has_permission_group: Light_Kit_Admin.admin

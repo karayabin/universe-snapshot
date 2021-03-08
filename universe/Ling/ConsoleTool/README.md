@@ -1,6 +1,6 @@
 ConsoleTool
 ==================
-2017-03-22
+2017-03-22 -> 2021-03-05
 
 
 
@@ -59,6 +59,10 @@ if (true === ConsoleTool::booleanCapture(false)) {
 
 History Log
 ------------------
+
+- 1.0.3 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.0.2 -- 2020-12-08
 

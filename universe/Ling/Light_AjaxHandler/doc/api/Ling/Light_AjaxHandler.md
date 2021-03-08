@@ -1,6 +1,6 @@
 Ling/Light_AjaxHandler
 ================
-2019-09-19 --> 2020-12-08
+2019-09-19 --> 2021-03-05
 
 
 
@@ -23,6 +23,10 @@ Table of contents
     - [LightAjaxHandlerInterface::handle](https://github.com/lingtalfi/Light_AjaxHandler/blob/master/doc/api/Ling/Light_AjaxHandler/Handler/LightAjaxHandlerInterface/handle.md) &ndash; Handles the given action and returns an [alcp response](https://github.com/lingtalfi/Light_AjaxHandler/blob/master/doc/pages/ajax-light-communication-protocol.md), or throws an exception in case of problems.
 - [LightAjaxHandlerInterface](https://github.com/lingtalfi/Light_AjaxHandler/blob/master/doc/api/Ling/Light_AjaxHandler/Handler/LightAjaxHandlerInterface.md) &ndash; The LightAjaxHandlerInterface interface.
     - [LightAjaxHandlerInterface::handle](https://github.com/lingtalfi/Light_AjaxHandler/blob/master/doc/api/Ling/Light_AjaxHandler/Handler/LightAjaxHandlerInterface/handle.md) &ndash; Handles the given action and returns an [alcp response](https://github.com/lingtalfi/Light_AjaxHandler/blob/master/doc/pages/ajax-light-communication-protocol.md), or throws an exception in case of problems.
+- [LightAjaxHandlerPlanetInstaller](https://github.com/lingtalfi/Light_AjaxHandler/blob/master/doc/api/Ling/Light_AjaxHandler/Light_PlanetInstaller/LightAjaxHandlerPlanetInstaller.md) &ndash; The LightAjaxHandlerPlanetInstaller class.
+    - [LightAjaxHandlerPlanetInstaller::onMapCopyAfter](https://github.com/lingtalfi/Light_AjaxHandler/blob/master/doc/api/Ling/Light_AjaxHandler/Light_PlanetInstaller/LightAjaxHandlerPlanetInstaller/onMapCopyAfter.md) &ndash; This hook is executed during an [install](https://github.com/lingtalfi/TheBar/blob/master/discussions/import-install.md#summary).
+    - LightBasePlanetInstaller::__construct &ndash; Builds the LightBasePlanetInstaller instance.
+    - LightBasePlanetInstaller::setContainer &ndash; Sets the light service container interface.
 - [LightAjaxHandlerService](https://github.com/lingtalfi/Light_AjaxHandler/blob/master/doc/api/Ling/Light_AjaxHandler/Service/LightAjaxHandlerService.md) &ndash; The LightAjaxHandlerService class.
     - [LightAjaxHandlerService::__construct](https://github.com/lingtalfi/Light_AjaxHandler/blob/master/doc/api/Ling/Light_AjaxHandler/Service/LightAjaxHandlerService/__construct.md) &ndash; Builds the LightAjaxHandlerService instance.
     - [LightAjaxHandlerService::setContainer](https://github.com/lingtalfi/Light_AjaxHandler/blob/master/doc/api/Ling/Light_AjaxHandler/Service/LightAjaxHandlerService/setContainer.md) &ndash; Sets the container.
@@ -35,10 +39,13 @@ Table of contents
 
 Dependencies
 ============
-- [Light](https://github.com/lingtalfi/Light)
-- [Light_Events](https://github.com/lingtalfi/Light_Events)
-- [Light_CsrfSession](https://github.com/lingtalfi/Light_CsrfSession)
 - [Bat](https://github.com/lingtalfi/Bat)
+- [CliTools](https://github.com/lingtalfi/CliTools)
+- [Light](https://github.com/lingtalfi/Light)
+- [Light_CsrfSession](https://github.com/lingtalfi/Light_CsrfSession)
+- [Light_EasyRoute](https://github.com/lingtalfi/Light_EasyRoute)
+- [Light_Events](https://github.com/lingtalfi/Light_Events)
+- [Light_PlanetInstaller](https://github.com/lingtalfi/Light_PlanetInstaller)
 - [Light_ReverseRouter](https://github.com/lingtalfi/Light_ReverseRouter)
 
 

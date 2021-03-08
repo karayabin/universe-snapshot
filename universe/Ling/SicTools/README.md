@@ -1,6 +1,6 @@
 SicTools
 ========
-2019-02-06 -> 2021-02-09
+2019-02-06 -> 2021-03-05
 
 Tools for implementing
 the [sic notation](https://github.com/karayabin/universe-snapshot/blob/master/universe/Ling/NotationFan/sic.md) in a php
@@ -11,6 +11,11 @@ This is part of the [universe framework](https://github.com/karayabin/universe-s
 
 Install
 ==========
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.SicTools
+```
+
 Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
 
 ```bash
@@ -35,6 +40,10 @@ Summary
 
 History Log
 ------------------
+
+- 1.6.5 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.6.4 -- 2021-02-09
 

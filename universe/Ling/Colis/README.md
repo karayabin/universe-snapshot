@@ -1,6 +1,6 @@
 Colis
 ===========
-2016-01-12
+2016-01-12 -> 2021-03-05
 
 
 
@@ -14,6 +14,11 @@ Colis is part of the [universe framework](https://github.com/karayabin/universe-
 Install
 =============
 
+
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.Colis
+```
 
 Using the [uni tool](https://github.com/lingtalfi/universe-naive-importer)
 ```bash
@@ -237,6 +242,10 @@ Dependencies
 
 History Log
 ------------------
+
+- 2.2.3 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 2.2.2 -- 2020-12-08
 

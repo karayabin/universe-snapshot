@@ -58,7 +58,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [LightPlanetInstallerApplication::lpiDiff](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Program/LightPlanetInstallerApplication.php#L364-L447)
+See the source code for method [LightPlanetInstallerApplication::lpiDiff](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Program/LightPlanetInstallerApplication.php#L379-L462)
 
 
 See Also

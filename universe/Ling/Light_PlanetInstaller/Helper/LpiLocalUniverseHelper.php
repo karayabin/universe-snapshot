@@ -4,6 +4,7 @@
 namespace Ling\Light_PlanetInstaller\Helper;
 
 use Ling\Light_PlanetInstaller\Exception\LightPlanetInstallerException;
+use Ling\UniverseTools\LocalUniverseTool;
 use Ling\UniverseTools\PlanetTool;
 
 /**
@@ -20,7 +21,7 @@ class LpiLocalUniverseHelper
      */
     public static function hasPlanet(string $planetDot): bool
     {
-        if (null !== ($localPath = LpiConfHelper::getLocalUniversePath())) {
+        if (null !== ($localPath = self::getLocalUniversePath())) {
             $pSlash = PlanetTool::getPlanetSlashNameByDotName($planetDot);
             return is_dir($localPath . "/$pSlash");
         }
@@ -35,7 +36,7 @@ class LpiLocalUniverseHelper
      */
     public static function getPlanetPath(string $planetDot): ?string
     {
-        if (null !== ($localPath = LpiConfHelper::getLocalUniversePath())) {
+        if (null !== ($localPath = self::getLocalUniversePath())) {
             $pSlash = PlanetTool::getPlanetSlashNameByDotName($planetDot);
             $pDir = $localPath . "/$pSlash";
             if (true === is_dir($pDir)) {
@@ -56,7 +57,7 @@ class LpiLocalUniverseHelper
      */
     public static function getVersion(string $planetDot): string
     {
-        if (null !== ($localPath = LpiConfHelper::getLocalUniversePath())) {
+        if (null !== ($localPath = self::getLocalUniversePath())) {
             $pSlash = PlanetTool::getPlanetSlashNameByDotName($planetDot);
             $planetDir = $localPath . "/$pSlash";
             if (true === is_dir($planetDir)) {
@@ -68,5 +69,23 @@ class LpiLocalUniverseHelper
             }
         }
         throw new LightPlanetInstallerException("Planet not found in local universe: $planetDot.");
+    }
+
+
+    //--------------------------------------------
+    //
+    //--------------------------------------------
+
+    /**
+     * Returns the path to the local universe dir if it exists, or null otherwise.
+     * @return string|null
+     */
+    private static function getLocalUniversePath(): ?string
+    {
+        $uniDir = LocalUniverseTool::getLocalUniversePath();
+        if (true === is_dir($uniDir)) {
+            return $uniDir;
+        }
+        return null;
     }
 }

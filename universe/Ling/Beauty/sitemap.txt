@@ -1,2 +1,3 @@
 https://github.com/lingtalfi/Beauty/blob/master/README.md
 https://github.com/lingtalfi/Beauty/blob/master/brainstorm/brainstorm.beauty.eng.md
+https://github.com/lingtalfi/Beauty/blob/master/personal/mydoc/pages/conception-notes.md

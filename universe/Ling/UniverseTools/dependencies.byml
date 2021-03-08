@@ -1,8 +1,8 @@
 dependencies: 
     Ling: 
+        - BabyYaml
         - Bat
         - DirScanner
-        - BabyYaml
         - TokenFun
     
 

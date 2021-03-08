@@ -1,6 +1,6 @@
 Program
 ==============
-2017-03-30
+2017-03-30 -> 2021-03-05
 
 
 
@@ -129,6 +129,10 @@ HELLO MICHEL
 
 History Log
 ------------------
+
+- 1.1.3 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.1.2 -- 2020-12-08
 

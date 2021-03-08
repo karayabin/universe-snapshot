@@ -138,3 +138,7 @@
 1.10.25: 
     - Ling:Bat:1.302+
     - Ling:UniversalLogger:1.1.2+
+
+1.10.26: 
+    - Ling:Bat:1.308+
+    - Ling:UniversalLogger:1.1.2+

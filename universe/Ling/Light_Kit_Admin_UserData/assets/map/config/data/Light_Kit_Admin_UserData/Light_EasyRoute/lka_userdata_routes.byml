@@ -1,6 +1,0 @@
-Light_Kit_Admin_UserData:
-    routes:
-        lka_userdata_route-user_file_manager:
-            pattern: /user/user_file_manager
-            controller: Ling\Light_Kit_Admin_UserData\Controller\User\UserFileManagerController->render
-

@@ -64,7 +64,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [DependencyTool::getDependencyListByFile](https://github.com/lingtalfi/UniverseTools/blob/master/DependencyTool.php#L418-L441)
+See the source code for method [DependencyTool::getDependencyListByFile](https://github.com/lingtalfi/UniverseTools/blob/master/DependencyTool.php#L428-L451)
 
 
 See Also

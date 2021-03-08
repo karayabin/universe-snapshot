@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightBMenuAbstractHost::__construct](https://github.com/lingtalfi/Light_BMenu/blob/master/Host/LightBMenuAbstractHost.php#L42-L47)
+See the source code for method [LightBMenuAbstractHost::__construct](https://github.com/lingtalfi/Light_BMenu/blob/master/Host/LightBMenuAbstractHost.php#L43-L48)
 
 
 See Also

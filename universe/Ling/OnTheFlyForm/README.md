@@ -1,6 +1,6 @@
 OnTheFlyForm
 ===================
-2017-06-08 --> 2017-07-24
+2017-06-08 --> 2021-03-05
 
 work in progress...
 
@@ -16,6 +16,11 @@ Note: this planet has been superseded by the [SokoForm](https://github.com/lingt
 
 Install
 ==========
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.OnTheFlyForm
+```
+
 Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
 ```bash
 uni import Ling/OnTheFlyForm
@@ -216,6 +221,10 @@ History Log
 ------------------
     
     
+
+- 2.19.3 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 2.19.2 -- 2020-12-08
 

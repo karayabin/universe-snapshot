@@ -1,6 +1,6 @@
 Light_Kit_BootstrapWidgetLibrary
 ===========
-2019-04-26 -> 2020-12-01
+2019-04-26 -> 2021-03-05
 
 
 
@@ -12,6 +12,11 @@ This is part of the [universe framework](https://github.com/karayabin/universe-s
 
 Install
 ==========
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.Light_Kit_BootstrapWidgetLibrary
+```
+
 Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
 ```bash
 uni import Ling/Light_Kit_BootstrapWidgetLibrary
@@ -45,6 +50,18 @@ Related
 History Log
 =============
 
+- 1.18.9 -- 2021-03-05
+
+    - update README.md, add install alternative
+
+- 1.18.8 -- 2021-03-01
+
+    - update ZeroAdminHeaderWidget, now accepts zone_name variable 
+  
+- 1.18.7 -- 2021-02-26
+
+    - fix ZeroAdminLoginFormWidget template's default values not always set 
+  
 - 1.18.6 -- 2020-12-08
 
     - Fix lpi-deps not using natsort.

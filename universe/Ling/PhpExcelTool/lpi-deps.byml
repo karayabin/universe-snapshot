@@ -65,3 +65,7 @@
 1.9.6: 
     - Ling:Bat:1.293+
     - Ling:QuickPdo:2.41.3+
+
+1.9.7: 
+    - Ling:Bat:1.308+
+    - Ling:QuickPdo:2.41.3+

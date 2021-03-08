@@ -53,7 +53,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightCliService::registerCliApp](https://github.com/lingtalfi/Light_Cli/blob/master/Service/LightCliService.php#L86-L92)
+See the source code for method [LightCliService::registerCliApp](https://github.com/lingtalfi/Light_Cli/blob/master/Service/LightCliService.php#L90-L96)
 
 
 See Also

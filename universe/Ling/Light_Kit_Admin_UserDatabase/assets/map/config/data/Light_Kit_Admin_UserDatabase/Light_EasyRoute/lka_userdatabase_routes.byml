@@ -1,6 +1,0 @@
-Light_Kit_Admin_UserDatabase:
-    routes:
-        lka_userdatabase_route-user_profile:
-            pattern: /user/profile
-            controller: Ling\Light_Kit_Admin_UserDatabase\Controller\User\UserProfileController->render
-

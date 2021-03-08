@@ -1,6 +1,6 @@
 jDragSlider
 ================
-2016-03-05
+2016-03-05 -> 2021-03-05
 
 
 
@@ -17,6 +17,11 @@ JDragSlider is part of the [universe framework](https://github.com/karayabin/uni
 Install
 =============
 
+
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.JDragSlider
+```
 
 Using the [uni tool](https://github.com/lingtalfi/universe-naive-importer)
 ```bash
@@ -236,6 +241,10 @@ void        dragSlider (jHandle, string:closestParentSelector, bool:isHorizontal
 
 History Log
 ------------------
+
+- 1.1.3 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.1.2 -- 2020-12-08
 

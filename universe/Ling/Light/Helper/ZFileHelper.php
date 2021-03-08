@@ -4,6 +4,7 @@
 namespace Ling\Light\Helper;
 
 use Ling\BabyYaml\BabyYamlUtil;
+use Ling\Bat\BDotTool;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
 
 /**
@@ -37,5 +38,21 @@ class ZFileHelper
         BabyYamlUtil::updateProperty($file, $key, $value);
     }
 
+
+    /**
+     * Returns whether the z file has the given property.
+     * @param LightServiceContainerInterface $container
+     * @param string $key
+     * @return bool
+     */
+    public static function hasProp(LightServiceContainerInterface $container, string $key): bool
+    {
+        $file = self::getZPath($container);
+        if (true === file_exists($file)) {
+            $arr = BabyYamlUtil::readFile($file);
+            return BDotTool::hasDotValue($key, $arr);
+        }
+        return false;
+    }
 
 }

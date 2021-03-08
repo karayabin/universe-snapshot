@@ -295,7 +295,13 @@ class Light
     public function registerRoute(string $pattern, $controller, string $name = null, array $route = [])
     {
 
+
         $routeName = (null !== $name) ? $name : $pattern;
+
+        unset($route['pattern']);
+        unset($route['controller']);
+
+
         $this->routes[$routeName] = array_merge([
             'name' => $routeName,
             'pattern' => $pattern,
@@ -306,7 +312,6 @@ class Light
             "is_secure_protocol" => null,
             "is_ajax" => false,
         ], $route);
-
     }
 
 
@@ -394,6 +399,8 @@ class Light
                 $this->initialize($httpRequest);
             }
             $httpRequest = $this->httpRequest;
+
+
 
 
             //--------------------------------------------

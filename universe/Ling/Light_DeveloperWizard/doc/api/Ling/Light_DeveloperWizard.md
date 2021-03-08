@@ -1,6 +1,6 @@
 Ling/Light_DeveloperWizard
 ================
-2020-06-30 --> 2020-12-08
+2020-06-30 --> 2021-03-05
 
 
 
@@ -74,7 +74,7 @@ Table of contents
     - [ServiceManagerUtil::getCooker](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/Util/ServiceManagerUtil/getCooker.md) &ndash; Returns a cooker instance.
 - [AddStandardPermissionsProcess](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/WebWizardTools/Process/Database/AddStandardPermissionsProcess.md) &ndash; The AddStandardPermissionsProcess class.
     - [AddStandardPermissionsProcess::__construct](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/WebWizardTools/Process/Database/AddStandardPermissionsProcess/__construct.md) &ndash; Builds the WebWizardToolsProcess instance.
-    - WebWizardToolsProcess::prepare &ndash; An opportunity for the process to create the controls, and/or to change the label of the process dynamically.
+    - [AddStandardPermissionsProcess::prepare](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/WebWizardTools/Process/Database/AddStandardPermissionsProcess/prepare.md) &ndash; An opportunity for the process to create the controls, and/or to change the label of the process dynamically.
     - WebWizardToolsProcess::getReport &ndash; Returns the report of this instance.
     - WebWizardToolsProcess::getControls &ndash; Returns the controls of this instance.
     - WebWizardToolsProcess::setWebWizard &ndash; Sets the webWizard.
@@ -644,22 +644,22 @@ Dependencies
 ============
 - [BabyYaml](https://github.com/lingtalfi/BabyYaml)
 - [Bat](https://github.com/lingtalfi/Bat)
+- [ClassCooker](https://github.com/lingtalfi/ClassCooker)
+- [Jquery](https://github.com/lingtalfi/Jquery)
 - [Light](https://github.com/lingtalfi/Light)
+- [Light_ControllerHub](https://github.com/lingtalfi/Light_ControllerHub)
 - [Light_Database](https://github.com/lingtalfi/Light_Database)
+- [Light_DatabaseInfo](https://github.com/lingtalfi/Light_DatabaseInfo)
+- [Light_DbSynchronizer](https://github.com/lingtalfi/Light_DbSynchronizer)
+- [Light_Kit_Admin](https://github.com/lingtalfi/Light_Kit_Admin)
+- [Light_Kit_Admin_Generator](https://github.com/lingtalfi/Light_Kit_Admin_Generator)
+- [Light_LingStandardService](https://github.com/lingtalfi/Light_LingStandardService)
+- [Light_PluginInstaller](https://github.com/lingtalfi/Light_PluginInstaller)
+- [Light_UserDatabase](https://github.com/lingtalfi/Light_UserDatabase)
 - [SimplePdoWrapper](https://github.com/lingtalfi/SimplePdoWrapper)
 - [SqlWizard](https://github.com/lingtalfi/SqlWizard)
-- [Light_Kit_Admin](https://github.com/lingtalfi/Light_Kit_Admin)
-- [Light_PluginInstaller](https://github.com/lingtalfi/Light_PluginInstaller)
-- [UniverseTools](https://github.com/lingtalfi/UniverseTools)
-- [ClassCooker](https://github.com/lingtalfi/ClassCooker)
 - [TokenFun](https://github.com/lingtalfi/TokenFun)
+- [UniverseTools](https://github.com/lingtalfi/UniverseTools)
 - [WebWizardTools](https://github.com/lingtalfi/WebWizardTools)
-- [Light_DbSynchronizer](https://github.com/lingtalfi/Light_DbSynchronizer)
-- [Light_Kit_Admin_Generator](https://github.com/lingtalfi/Light_Kit_Admin_Generator)
-- [Light_DatabaseInfo](https://github.com/lingtalfi/Light_DatabaseInfo)
-- [Light_LingStandardService](https://github.com/lingtalfi/Light_LingStandardService)
-- [Light_UserDatabase](https://github.com/lingtalfi/Light_UserDatabase)
-- [Light_ControllerHub](https://github.com/lingtalfi/Light_ControllerHub)
-- [Jquery](https://github.com/lingtalfi/Jquery)
 
 

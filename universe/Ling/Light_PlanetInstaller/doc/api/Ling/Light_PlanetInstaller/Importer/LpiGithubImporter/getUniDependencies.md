@@ -49,7 +49,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [LpiGithubImporter::getUniDependencies](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Importer/LpiGithubImporter.php#L161-L167)
+See the source code for method [LpiGithubImporter::getUniDependencies](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Importer/LpiGithubImporter.php#L162-L168)
 
 
 See Also

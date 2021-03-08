@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [MysqlWizard::setConnection](https://github.com/lingtalfi/SqlWizard/blob/master/doc/api/Ling/SqlWizard/MysqlWizard/setConnection.md)([\PDO](https://www.php.net/manual/en/class.pdo.php) $connection) : void
+public [MysqlWizard::setConnection](https://github.com/lingtalfi/SqlWizard/blob/master/doc/api/Ling/SqlWizard/MysqlWizard/setConnection.md)(PDO $connection) : void
 
 
 

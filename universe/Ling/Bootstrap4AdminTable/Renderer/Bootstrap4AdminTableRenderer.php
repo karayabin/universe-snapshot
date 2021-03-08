@@ -418,24 +418,24 @@ class Bootstrap4AdminTableRenderer extends OpenAdminTableBaseRealistListRenderer
 
 
             $copilot->registerLibrary("realistTagTransfer", [
-                "/plugins/Light_Realist/js/realist-tag-transfer.js",
+                "/libs/universe/Ling/Light_Realist/js/realist-tag-transfer.js",
             ]);
 
             $copilot->registerLibrary("openAdminTableHelper", [
-                "/plugins/Light_Realist/js/open-admin-table-helper.js",
+                "/libs/universe/Ling/Light_Realist/js/open-admin-table-helper.js",
             ]);
 
 
             $copilot->registerLibrary("listActionHandlerHelper", [
-                "/plugins/Light_Realist/js/list-action-handler-helper.js",
+                "/libs/universe/Ling/Light_Realist/js/list-action-handler-helper.js",
             ]);
 
             $copilot->registerLibrary("listGeneralActionHandlerHelper", [
-                "/plugins/Light_Realist/js/list-general-action-handler-helper.js",
+                "/libs/universe/Ling/Light_Realist/js/list-general-action-handler-helper.js",
             ]);
 
             $copilot->registerLibrary("realistRegistry", [
-                "/plugins/Light_Realist/js/realist-registry.js",
+                "/libs/universe/Ling/Light_Realist/js/realist-registry.js",
             ]);
 
 

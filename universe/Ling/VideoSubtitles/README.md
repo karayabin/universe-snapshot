@@ -1,6 +1,6 @@
 VideoSubtitles
 ==================
-2016-03-13
+2016-03-13 -> 2021-03-05
 
 
 Tools to work with subtitles.
@@ -12,6 +12,11 @@ VideoSubtitles is part of the [universe framework](https://github.com/karayabin/
 
 Install
 ==========
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.VideoSubtitles
+```
+
 Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
 ```bash
 uni import Ling/VideoSubtitles
@@ -94,6 +99,10 @@ az($ret);
 
 History Log
 ------------------
+
+- 1.2.3 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.2.2 -- 2020-12-08
 

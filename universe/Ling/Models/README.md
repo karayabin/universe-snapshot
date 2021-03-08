@@ -1,6 +1,6 @@
 Models
 ===========
-2017-04-18
+2017-04-18 -> 2021-03-05
 
 
 
@@ -31,6 +31,11 @@ So, with the same mould, we can create different variations, basically.
 
 Install
 ==========
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.Models
+```
+
 Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
 ```bash
 uni import Ling/Models
@@ -52,6 +57,10 @@ Related
 
 History Log
 ------------------
+
+- 1.26.3 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.26.2 -- 2020-12-08
 

@@ -4,7 +4,7 @@
 
 The ZipBackupDatabaseCommand class
 ================
-2019-04-03 --> 2020-12-08
+2019-04-03 --> 2021-03-05
 
 
 
@@ -54,7 +54,7 @@ class <span class="pl-k">ZipBackupDatabaseCommand</span> extends [AbstractBackup
 
 - Methods
     - public [__construct](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/ZipBackupDatabaseCommand/__construct.md)() : void
-    - public [run](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/ZipBackupDatabaseCommand/run.md)(Ling\CliTools\Input\InputInterface $input, Ling\CliTools\Output\OutputInterface $output) : int
+    - public [run](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/ZipBackupDatabaseCommand/run.md)(Ling\CliTools\Input\InputInterface $input, Ling\CliTools\Output\OutputInterface $output) : mixed
     - public [onArchiveReady](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/ZipBackupDatabaseCommand/onArchiveReady.md)(Ling\CliTools\Input\InputInterface $input, Ling\CliTools\Output\OutputInterface $output) : void
 
 - Inherited methods

@@ -4,7 +4,7 @@
 
 The PreferencesTool class
 ================
-2019-03-13 --> 2020-12-08
+2019-03-13 --> 2021-03-08
 
 
 
@@ -52,4 +52,4 @@ See the source code of [Ling\LingTalfi\Kaos\Tool\PreferencesTool](https://github
 
 SeeAlso
 ==============
-Previous class: [KaosException](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Exception/KaosException.md)<br>Next class: [ReadmeUtil](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/ReadmeUtil.md)<br>
+Previous class: [KaosException](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Exception/KaosException.md)<br>Next class: [CommitWizard](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/CommitWizard.md)<br>

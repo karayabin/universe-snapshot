@@ -1,6 +1,6 @@
 Light_Kit_WebsiteBuilder
 ===========
-2019-04-30
+2019-04-30 -> 2021-03-05
 
 
 WORK IN PROGRESS, COME BACK IN A FEW MONTHS...
@@ -15,6 +15,11 @@ This is part of the [universe framework](https://github.com/karayabin/universe-s
 
 Install
 ==========
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.Light_Kit_WebsiteBuilder
+```
+
 Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
 ```bash
 uni import Ling/Light_Kit_WebsiteBuilder
@@ -40,6 +45,10 @@ Summary
 
 History Log
 =============
+
+- 1.0.4 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.0.3 -- 2020-12-08
 

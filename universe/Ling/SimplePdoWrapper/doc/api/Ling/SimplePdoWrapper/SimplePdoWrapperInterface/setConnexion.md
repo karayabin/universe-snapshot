@@ -16,7 +16,7 @@ Description
 ================
 
 
-abstract public [SimplePdoWrapperInterface::setConnexion](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/SimplePdoWrapperInterface/setConnexion.md)([\PDO](https://www.php.net/manual/en/class.pdo.php) $connexion) : void
+abstract public [SimplePdoWrapperInterface::setConnexion](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/SimplePdoWrapperInterface/setConnexion.md)(PDO $connexion) : void
 
 
 

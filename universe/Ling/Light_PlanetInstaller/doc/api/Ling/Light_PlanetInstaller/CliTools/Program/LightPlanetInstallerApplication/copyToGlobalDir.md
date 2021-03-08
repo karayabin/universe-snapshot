@@ -61,7 +61,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightPlanetInstallerApplication::copyToGlobalDir](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Program/LightPlanetInstallerApplication.php#L337-L344)
+See the source code for method [LightPlanetInstallerApplication::copyToGlobalDir](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Program/LightPlanetInstallerApplication.php#L352-L359)
 
 
 See Also

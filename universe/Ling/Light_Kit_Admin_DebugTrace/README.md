@@ -1,6 +1,6 @@
 Light_Kit_Admin_DebugTrace
 ===========
-2019-11-07 -> 2020-06-25
+2019-11-07 -> 2021-03-05
 
 
 
@@ -13,6 +13,11 @@ This is part of the [universe framework](https://github.com/karayabin/universe-s
 
 Install
 ==========
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.Light_Kit_Admin_DebugTrace
+```
+
 Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
 ```bash
 uni import Ling/Light_Kit_Admin_DebugTrace
@@ -120,6 +125,10 @@ $events.methods_collection:
 
 History Log
 =============
+
+- 1.6.7 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.6.6 -- 2020-12-08
 

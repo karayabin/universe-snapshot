@@ -1,6 +1,6 @@
 EchartsWrapper
 ===========
-2018-04-08
+2018-04-08 -> 2021-03-05
 
 
 
@@ -14,6 +14,11 @@ The echarts js library is [here](https://ecomfe.github.io/echarts-examples/publi
 
 Install
 ==========
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.EchartsWrapper
+```
+
 Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
 ```bash
 uni import Ling/EchartsWrapper
@@ -119,6 +124,10 @@ EEE
 
 History Log
 ------------------
+
+- 1.3.3 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.3.2 -- 2020-12-08
 

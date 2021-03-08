@@ -49,7 +49,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [LightKitAdminBaseProcess::getLkaServiceNameByPlanet](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/WebWizardTools/Process/Light_Kit_Admin/LightKitAdminBaseProcess.php#L288-L291)
+See the source code for method [LightKitAdminBaseProcess::getLkaServiceNameByPlanet](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/WebWizardTools/Process/Light_Kit_Admin/LightKitAdminBaseProcess.php#L289-L292)
 
 
 See Also

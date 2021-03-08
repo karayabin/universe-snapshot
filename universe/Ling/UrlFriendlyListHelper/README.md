@@ -1,6 +1,6 @@
 UrlFriendlyListHelper
 ==========================
-2015-11-04
+2015-11-04 -> 2021-03-05
 
 
 
@@ -12,6 +12,11 @@ UrlFriendlyListHelper is part of the [universe framework](https://github.com/kar
 
 Install
 ==========
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.UrlFriendlyListHelper
+```
+
 Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
 ```bash
 uni import Ling/UrlFriendlyListHelper
@@ -763,6 +768,10 @@ Dependencies
 
 History Log
 ------------------
+
+- 1.1.3 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.1.2 -- 2020-12-08
 

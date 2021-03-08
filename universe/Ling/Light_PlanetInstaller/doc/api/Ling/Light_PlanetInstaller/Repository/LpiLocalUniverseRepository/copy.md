@@ -71,7 +71,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LpiLocalUniverseRepository::copy](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Repository/LpiLocalUniverseRepository.php#L48-L63)
+See the source code for method [LpiLocalUniverseRepository::copy](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Repository/LpiLocalUniverseRepository.php#L64-L79)
 
 
 See Also

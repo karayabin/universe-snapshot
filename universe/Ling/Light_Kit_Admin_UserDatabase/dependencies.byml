@@ -1,20 +1,23 @@
 dependencies: 
     Ling: 
+        - BabyYaml
         - Bat
         - Chloroform
+        - CliTools
         - Light
-        - Light_Kit_Admin
-        - Light_Realform
-        - Light_Kit
-        - Light_Database
-        - Light_Nugget
-        - Light_UserDatabase
-        - Light_User
-        - WiseTool
-        - Light_ControllerHub
-        - BabyYaml
         - Light_BMenu
+        - Light_ControllerHub
+        - Light_Database
+        - Light_EasyRoute
+        - Light_Kit
+        - Light_Kit_Admin
+        - Light_Nugget
+        - Light_PlanetInstaller
+        - Light_Realform
+        - Light_User
         - Light_UserData
+        - Light_UserDatabase
+        - WiseTool
     
 
 post_install: 

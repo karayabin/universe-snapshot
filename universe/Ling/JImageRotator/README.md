@@ -1,6 +1,6 @@
 JImageRotator
 =============
-2016-02-18
+2016-02-18 -> 2021-03-05
 
 
 
@@ -18,6 +18,11 @@ JImageRotator is part of the [universe framework](https://github.com/karayabin/u
 Install
 =============
 
+
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.JImageRotator
+```
 
 Using the [uni tool](https://github.com/lingtalfi/universe-naive-importer)
 ```bash
@@ -148,6 +153,10 @@ Then with help of css, you build on that fact to achieve the desired effect.
  
 History Log
 ------------------
+
+- 1.1.4 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.1.3 -- 2020-12-08
 

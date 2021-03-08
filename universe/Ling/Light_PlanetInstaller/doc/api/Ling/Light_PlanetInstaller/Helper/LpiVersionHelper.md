@@ -4,7 +4,7 @@
 
 The LpiVersionHelper class
 ================
-2020-12-08 --> 2021-02-11
+2020-12-08 --> 2021-03-05
 
 
 
@@ -25,6 +25,8 @@ Class synopsis
 class <span class="pl-k">LpiVersionHelper</span>  {
 
 - Methods
+    - public static [toMiniVersionExpression](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiVersionHelper/toMiniVersionExpression.md)(string $planetDot, string $versionExpr) : string
+    - public static [getRealVersionByVersionExpression](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiVersionHelper/getRealVersionByVersionExpression.md)(string $planetDotName, string $versionExpr) : string
     - public static [extractMiniVersion](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiVersionHelper/extractMiniVersion.md)(string $miniVersionExpr) : array
     - public static [isPolaritySymbol](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiVersionHelper/isPolaritySymbol.md)(string $modifierSymbol) : bool
     - public static [versionMeetsExpectations](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiVersionHelper/versionMeetsExpectations.md)(string $realVersion, string $miniVersionExpr, ?string &$highestVersion = null) : bool
@@ -47,6 +49,8 @@ class <span class="pl-k">LpiVersionHelper</span>  {
 Methods
 ==============
 
+- [LpiVersionHelper::toMiniVersionExpression](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiVersionHelper/toMiniVersionExpression.md) &ndash; Returns the mini version of the given version expression.
+- [LpiVersionHelper::getRealVersionByVersionExpression](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiVersionHelper/getRealVersionByVersionExpression.md) &ndash; Returns the real version corresponding to the given planet and versionExpr, or throws an exception in case of problem.
 - [LpiVersionHelper::extractMiniVersion](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiVersionHelper/extractMiniVersion.md) &ndash; Returns an information array about the given mini version expression.
 - [LpiVersionHelper::isPolaritySymbol](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiVersionHelper/isPolaritySymbol.md) &ndash; Returns whether the given modifierSymbol is a polarity symbol.
 - [LpiVersionHelper::versionMeetsExpectations](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiVersionHelper/versionMeetsExpectations.md) &ndash; Returns whether the given real version meets the expectations of the given mini version expression.
@@ -72,4 +76,4 @@ See the source code of [Ling\Light_PlanetInstaller\Helper\LpiVersionHelper](http
 
 SeeAlso
 ==============
-Previous class: [LpiPlanetHelper](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiPlanetHelper.md)<br>Next class: [LpiWebHelper](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiWebHelper.md)<br>
+Previous class: [LpiUniDependenciesHelper](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiUniDependenciesHelper.md)<br>Next class: [LpiWebHelper](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiWebHelper.md)<br>

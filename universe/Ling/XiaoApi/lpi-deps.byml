@@ -212,3 +212,8 @@
     - Ling:Bat:1.293+
     - Ling:QuickPdo:2.41.3+
     - Ling:ArrayToString:1.4.2+
+
+2.2.7: 
+    - Ling:ArrayToString:1.4.5+
+    - Ling:Bat:1.308+
+    - Ling:QuickPdo:2.41.4+

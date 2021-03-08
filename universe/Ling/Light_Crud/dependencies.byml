@@ -3,8 +3,8 @@ dependencies:
         - Bat
         - Light
         - Light_AjaxHandler
-        - Light_DatabaseInfo
         - Light_Database
+        - Light_DatabaseInfo
         - Light_MicroPermission
         - SimplePdoWrapper
     

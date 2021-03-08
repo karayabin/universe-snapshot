@@ -2,8 +2,8 @@ dependencies:
     Ling: 
         - BabyYaml
         - Light
-        - Light_UserManager
         - Light_User
+        - Light_UserManager
     
 
 post_install: 

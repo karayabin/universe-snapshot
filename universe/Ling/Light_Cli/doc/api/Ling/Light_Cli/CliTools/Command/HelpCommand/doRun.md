@@ -53,7 +53,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [HelpCommand::doRun](https://github.com/lingtalfi/Light_Cli/blob/master/CliTools/Command/HelpCommand.php#L27-L120)
+See the source code for method [HelpCommand::doRun](https://github.com/lingtalfi/Light_Cli/blob/master/CliTools/Command/HelpCommand.php#L29-L46)
 
 
 See Also
@@ -61,5 +61,5 @@ See Also
 
 The [HelpCommand](https://github.com/lingtalfi/Light_Cli/blob/master/doc/api/Ling/Light_Cli/CliTools/Command/HelpCommand.md) class.
 
-Next method: [section](https://github.com/lingtalfi/Light_Cli/blob/master/doc/api/Ling/Light_Cli/CliTools/Command/HelpCommand/section.md)<br>
+Next method: [getDescription](https://github.com/lingtalfi/Light_Cli/blob/master/doc/api/Ling/Light_Cli/CliTools/Command/HelpCommand/getDescription.md)<br>
 

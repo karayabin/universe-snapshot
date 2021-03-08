@@ -46,7 +46,7 @@ Returns [MysqlInfoUtil](https://github.com/lingtalfi/SimplePdoWrapper/blob/maste
 
 Source Code
 ===========
-See the source code for method [LightDatabaseService::getMysqlInfoUtil](https://github.com/lingtalfi/Light_Database/blob/master/Service/LightDatabaseService.php#L69-L76)
+See the source code for method [LightDatabaseService::getMysqlInfoUtil](https://github.com/lingtalfi/Light_Database/blob/master/Service/LightDatabaseService.php#L70-L77)
 
 
 See Also

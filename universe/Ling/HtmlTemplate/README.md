@@ -1,6 +1,6 @@
 HtmlTemplate
 =================
-2016-01-31
+2016-01-31 -> 2021-03-05
 
 
 A simple template system to work with jquery.
@@ -13,6 +13,11 @@ HtmlTemplate is part of the [universe framework](https://github.com/karayabin/un
 Install
 =============
 
+
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.HtmlTemplate
+```
 
 Using the [uni tool](https://github.com/lingtalfi/universe-naive-importer)
 ```bash
@@ -534,6 +539,10 @@ Related
 
 History Log
 ------------------
+
+- 3.4.3 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 3.4.2 -- 2020-12-08
 

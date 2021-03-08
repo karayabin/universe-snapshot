@@ -125,12 +125,12 @@ class LightCliCommandDocUtility
         foreach ($list as $item) {
             $line = '';
             $index = $item['index'];
-            $type = $item['type'];
             $name = $item['name'];
-            $description = $item['description'] ?? null;
-            $parameters = $item['parameters'] ?? [];
-            $options = $item['options'] ?? [];
-            $flags = $item['flags'] ?? [];
+            $description = $item['description'];
+            $parameters = $item['parameters'];
+            $options = $item['options'];
+            $flags = $item['flags'];
+            $aliases = $item['aliases'];
 
 
             if (true === $hasStringFilter) {
@@ -140,120 +140,118 @@ class LightCliCommandDocUtility
             }
 
 
-            switch ($type) {
-                case "appCommand":
+            //--------------------------------------------
+            // COMMAND HEADER
+            //--------------------------------------------
+            if (true === $displayIndexes) {
+                $line = "<b>$index</b>. ";
+            } else {
+                $line = '- ';
+            }
+
+            if (str_starts_with($name, "light_cli ")) {
+                $name = substr($name, 10);
+            }
 
 
-                    if (true === $displayIndexes) {
-                        $line = "<b>$index</b>. ";
-                    } else {
-                        $line = '- ';
+            $line .= "<$cmdFmt>$name</$cmdFmt>";
+            foreach ($parameters as $parameter => $info) {
+                list($desc, $isMandatory) = $info;
+                $line .= " <$pmtFmt><$parameter>";
+                if (false === $isMandatory) {
+                    $line .= '?';
+                }
+                $line .= "</$pmtFmt>";
+            }
+
+
+            foreach ($flags as $name => $desc) {
+                $isLong = (strlen($name) > 1);
+                $dashPrefix = '-';
+                if (true === $isLong) {
+                    $dashPrefix .= '-';
+                }
+                $line .= " <$flagFmt>$dashPrefix" . $name . "</$flagFmt>";
+            }
+
+
+            if ($options) {
+                $line .= " (opts=";
+                $c = 0;
+                foreach ($options as $name => $info) {
+                    if (0 !== $c) {
+                        $line .= ", ";
                     }
+                    $line .= "<$optionFmt>$name</$optionFmt>";
+                    $c++;
+                }
+                $line .= ")";
+            }
 
-                    $line .= "<$cmdFmt>$name</$cmdFmt>";
+
+            //--------------------------------------------
+            // REST OF THE COMMAND
+            //--------------------------------------------
+            if (false === $verbose) {
+                $description = str_replace(PHP_EOL, " ", $this->trimLongText($description));
+                $line .= ": " . trim($this->indent($description, 1)) . PHP_EOL;
+            } else {
+                $line .= PHP_EOL;
+            }
+
+            if (true === $verbose) {
+
+                $line .= "$ind<$headerFmt>Description</$headerFmt>:" . PHP_EOL;
+                $line .= StringTool::indent($description, 2 * $this->indentInc) . PHP_EOL;
+
+
+                if ($parameters) {
+                    $line .= "$ind<$headerFmt>Parameters</$headerFmt>:" . PHP_EOL;
                     foreach ($parameters as $parameter => $info) {
                         list($desc, $isMandatory) = $info;
-                        $line .= " <$pmtFmt><$parameter>";
-                        if (false === $isMandatory) {
-                            $line .= '?';
-                        }
-                        $line .= "</$pmtFmt>";
+                        $line .= $this->indent("<$pmtFmt>$parameter</$pmtFmt>: $desc", 2) . PHP_EOL;
                     }
+                }
+                if ($options) {
 
+                    $line .= "$ind<$headerFmt>Options</$headerFmt>:" . PHP_EOL;
+                    foreach ($options as $option => $info) {
 
+                        $desc = $info['desc'] ?? '';
+                        $values = $info['values'] ?? [];
+                        $line .= $this->indent("<$optionFmt>$option</$optionFmt>: $desc", 2) . PHP_EOL;
+
+                        if ($values) {
+                            $line .= $this->indent("Possible values are:", 3) . PHP_EOL;
+                            foreach ($values as $itemName => $itemDesc) {
+                                $line .= "$ind4- <b>$itemName</b>";
+                                if (null !== $itemDesc) {
+                                    $line .= ": $itemDesc";
+                                }
+                                $line .= PHP_EOL;
+                            }
+                        }
+                    }
+                }
+                if ($flags) {
+                    $line .= "$ind<$headerFmt>Flags</$headerFmt>:" . PHP_EOL;
                     foreach ($flags as $name => $desc) {
-                        $isLong = (strlen($name) > 1);
-                        $dashPrefix = '-';
-                        if (true === $isLong) {
-                            $dashPrefix .= '-';
+                        $nbDash = 1;
+                        if (strlen($name) > 1) {
+                            $nbDash = 2;
                         }
-                        $line .= " <$flagFmt>$dashPrefix" . $name . "</$flagFmt>";
+                        $line .= $this->indent("<$flagFmt>" . str_repeat('-', $nbDash) . "$name</$flagFmt>: $desc", 2) . PHP_EOL;
                     }
+                }
 
-
-                    if ($options) {
-                        $line .= " (opts=";
-                        $c = 0;
-                        foreach ($options as $name => $info) {
-                            if (0 !== $c) {
-                                $line .= ", ";
-                            }
-                            $line .= "<$optionFmt>$name</$optionFmt>";
-                            $c++;
-                        }
-                        $line .= ")";
+                if ($aliases) {
+                    $line .= "$ind<$headerFmt>Aliases</$headerFmt>:" . PHP_EOL;
+                    foreach ($aliases as $name => $srcCommand) {
+                        $line .= $this->indent("- $name", 2) . PHP_EOL;
                     }
-
-
-                    if (false === $verbose) {
-                        $description = str_replace(PHP_EOL, " ", $this->trimLongText($description));
-                        $line .= ": " . trim($this->indent($description, 1)) . PHP_EOL;
-                    } else {
-                        $line .= PHP_EOL;
-                    }
-
-                    if (true === $verbose) {
-
-                        $line .= "$ind<$headerFmt>Description</$headerFmt>:" . PHP_EOL;
-                        $line .= StringTool::indent($description, 2 * $this->indentInc) . PHP_EOL;
-
-
-                        if ($parameters) {
-                            $line .= "$ind<$headerFmt>Parameters</$headerFmt>:" . PHP_EOL;
-                            foreach ($parameters as $parameter => $info) {
-                                list($desc, $isMandatory) = $info;
-                                $line .= $this->indent("<$pmtFmt>$parameter</$pmtFmt>: $desc", 2) . PHP_EOL;
-                            }
-                        }
-                        if ($options) {
-
-                            $line .= "$ind<$headerFmt>Options</$headerFmt>:" . PHP_EOL;
-                            foreach ($options as $option => $info) {
-
-                                $desc = $info['desc'] ?? '';
-                                $values = $info['values'] ?? [];
-                                $line .= $this->indent("<$optionFmt>$option</$optionFmt>: $desc", 2) . PHP_EOL;
-
-                                if ($values) {
-                                    $line .= $this->indent("Possible values are:", 3) . PHP_EOL;
-                                    foreach ($values as $itemName => $itemDesc) {
-                                        $line .= "$ind4- <b>$itemName</b>";
-                                        if (null !== $itemDesc) {
-                                            $line .= ": $itemDesc";
-                                        }
-                                        $line .= PHP_EOL;
-                                    }
-                                }
-                            }
-                        }
-                        if ($flags) {
-                            $line .= "$ind<$headerFmt>Flags</$headerFmt>:" . PHP_EOL;
-                            foreach ($flags as $name => $desc) {
-                                $nbDash = 1;
-                                if (strlen($name) > 1) {
-                                    $nbDash = 2;
-                                }
-                                $line .= $this->indent("<$flagFmt>" . str_repeat('-', $nbDash) . "$name</$flagFmt>: $desc", 2) . PHP_EOL;
-                            }
-                        }
-                    }
-                    break;
-                case "alias":
-                    if (true === $displayAliases) {
-                        $dest = $item['dest'];
-                        $dstIndex = $this->getIndexByCommand($dest, $this->listCache);
-                        if (true === $displayIndexes) {
-                            $line = "<b>$index</b>. ";
-                        } else {
-                            $line = '- ';
-                        }
-                        $line .= "<$cmdFmt>$name</$cmdFmt>: an alias to the <$cmdFmt>$dest</$cmdFmt> command (<b>#$dstIndex</b>)." . PHP_EOL;
-                    }
-                    break;
-                default:
-                    $this->error("Unknown list type: $type.");
-                    break;
+                }
             }
+
             $output->write($line);
         }
 
@@ -270,22 +268,15 @@ class LightCliCommandDocUtility
     //
     //--------------------------------------------
     /**
-     * Builds and returns a list of all appId command and aliases.
+     * Builds and returns a list of all appId commands.
      *
-     * The array is the one described in the conception notes, it basically contains all information.
-     *
-     * It's an array of trigger id (an int) => item, each item has the following structure:
+     * It's an array of index (an int) => item, each item has the following structure:
      * - index: int, the index number for this command
-     * - type: string (alias|appCommand), the type of the trigger
-     * - name: string, the name of the appCommand or alias
-     * - ?dest: string, only for alias: the full command the alias is referring to
-     * - ?description: string, the description of the appCommand. This is just for appCommands, aliases don't have a description.
-     *
-     * The extra properties below are only available when options.args=true, and for appCommands only (i.e. not aliases)
-     *
+     * - name: string, the name of the appCommand
+     * - description: string, the description of the appCommand
      * - flags: array of name => description
      * - options: array of name => description|list, with list an array of name => ?description.
-     * - parameters: array of name => description
+     * - parameters: array of name => [description, isMandatory]
      *
      *
      * Available options are:
@@ -302,7 +293,6 @@ class LightCliCommandDocUtility
     {
 
         $includeAppId = $options['includeAppId'] ?? true;
-        $args = true;
 
 
         $ret = [];
@@ -314,18 +304,9 @@ class LightCliCommandDocUtility
             $appId = $app->getAppId();
             $commands = $app->getCommands();
             foreach ($commands as $command) {
+
+
                 $name = $command->getName();
-                $description = $command->getDescription();
-                $aliases = $command->getAliases();
-
-
-                if (true === $args) {
-                    $flags = $command->getFlags();
-                    $cmdOptions = $command->getOptions();
-                    $parameters = $command->getParameters();
-                }
-
-
                 $cmdName = $name;
                 if (true === $includeAppId) {
                     $cmdName = $appId . " " . $cmdName;
@@ -336,24 +317,12 @@ class LightCliCommandDocUtility
                     'index' => $triggerId,
                     'type' => 'appCommand',
                     'name' => $cmdName,
-                    'description' => $description,
+                    'description' => $command->getDescription(),
+                    'parameters' => $command->getParameters(),
+                    'flags' => $command->getFlags(),
+                    'options' => $command->getOptions(),
+                    'aliases' => $command->getAliases(),
                 ];
-                if (true === $args) {
-                    $ret[$triggerId]["flags"] = $flags;
-                    $ret[$triggerId]["options"] = $cmdOptions;
-                    $ret[$triggerId]["parameters"] = $parameters;
-                }
-
-                foreach ($aliases as $alias => $aliasDst) {
-                    $triggerId++;
-
-                    $ret[$triggerId] = [
-                        'index' => $triggerId,
-                        'type' => 'alias',
-                        'name' => $alias,
-                        'dest' => $aliasDst,
-                    ];
-                }
 
 
                 $triggerId++;

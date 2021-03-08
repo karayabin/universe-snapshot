@@ -1,6 +1,6 @@
 CommandLineInput
 ===================
-2017-03-30
+2017-03-30 -> 2021-03-05
 
 
 
@@ -155,6 +155,10 @@ but that's your responsibility to differentiate the role of the parameter in you
 
 History Log
 ------------------
+
+- 1.2.3 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.2.2 -- 2020-12-08
 

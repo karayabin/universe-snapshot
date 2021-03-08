@@ -1,7 +1,0 @@
-database_info:
-    instance: Ling\Light_DatabaseInfo\Service\LightDatabaseInfoService
-    methods:
-        setCacheDir:
-            dir: ${app_dir}/cache/Light_DatabaseInfo
-        setContainer:
-            container: @container()

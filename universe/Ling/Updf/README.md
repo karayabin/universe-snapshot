@@ -1,6 +1,6 @@
 Updf
 =========
-2017-02-12 --> 2020-06-25
+2017-02-12 --> 2021-03-05
 
 
 
@@ -14,6 +14,11 @@ It uses the [tcpdf library](https://tcpdf.org/) (I used 6.2.13), which you need 
 
 Install
 ==========
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.Updf
+```
+
 Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
 ```bash
 uni import Updf
@@ -576,6 +581,10 @@ So if you write this code, notice the border=0.5 set on the table tag...
 
 History Log
 ------------------
+
+- 1.2.6 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.2.5 -- 2020-12-08
 

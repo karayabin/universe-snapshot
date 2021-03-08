@@ -1,23 +1,23 @@
 dependencies: 
     Ling: 
+        - BabyYaml
+        - Bat
+        - Chloroform
+        - ExceptionCodes
         - Light
         - Light_AjaxHandler
-        - SimplePdoWrapper
         - Light_Database
-        - Chloroform
-        - Light_User
-        - Bat
+        - Light_Realform
+        - Light_ReverseRouter
         - Light_SimpleHttpServer
-        - Panda_Headers
+        - Light_UploadGems
+        - Light_User
+        - Light_UserDatabase
         - Light_UserManager
         - Light_ZouUploader
-        - Light_UploadGems
-        - Light_UserDatabase
-        - Light_Realform
-        - ExceptionCodes
-        - Light_ReverseRouter
+        - Panda_Headers
+        - SimplePdoWrapper
         - TemporaryVirtualFileSystem
-        - BabyYaml
     
 
 post_install: 

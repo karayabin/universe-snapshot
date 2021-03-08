@@ -1,6 +1,6 @@
 jGoodies
 ==============
-2016-01-09
+2016-01-09 -> 2021-03-05
 
 
 Some functions that I found useful while playing with jQuery/javascript.
@@ -13,6 +13,11 @@ JGoodies is part of the [universe framework](https://github.com/karayabin/univer
 Install
 =============
 
+
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.JGoodies
+```
 
 Using the [uni tool](https://github.com/lingtalfi/universe-naive-importer)
 ```bash
@@ -59,6 +64,10 @@ var jItem = $('[data-id="'+ jGoodies.selectorEscape(x) +'"]');
 
 History Log
 ------------------
+
+- 1.1.3 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.1.2 -- 2020-12-08
 

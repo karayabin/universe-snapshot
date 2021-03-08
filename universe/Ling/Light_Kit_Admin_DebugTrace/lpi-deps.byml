@@ -109,3 +109,11 @@
     - Ling:Light_CsrfSession:1.0.3+
     - Ling:Light_CsrfSimple:1.2.3+
     - Ling:Light_Events:1.9.5+
+
+1.6.7: 
+    - Ling:BabyYaml:1.7.8+
+    - Ling:Bat:1.308+
+    - Ling:Light:0.69.30+
+    - Ling:Light_CsrfSession:1.0.4+
+    - Ling:Light_CsrfSimple:1.2.4+
+    - Ling:Light_Events:1.9.7+

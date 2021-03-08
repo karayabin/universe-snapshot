@@ -1,0 +1,14 @@
+1.0.0: 
+    - Ling:Bat:1.307+
+
+1.0.1: 
+    - Ling:ArrayVariableResolver:1.2.3+
+    - Ling:Bat:1.307+
+
+1.0.2: 
+    - Ling:ArrayVariableResolver:1.2.3+
+    - Ling:Bat:1.307+
+
+1.0.3: 
+    - Ling:ArrayVariableResolver:1.2.4+
+    - Ling:Bat:1.308+

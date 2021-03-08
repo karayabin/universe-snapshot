@@ -16,7 +16,7 @@ Description
 ================
 
 
-private [SimplePdoWrapper::handleException](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/SimplePdoWrapper/handleException.md)([\Exception](http://php.net/manual/en/class.exception.php) $e, ?array $markers = []) : void
+private [SimplePdoWrapper::handleException](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/SimplePdoWrapper/handleException.md)(Exception $e, ?array $markers = []) : void
 
 
 

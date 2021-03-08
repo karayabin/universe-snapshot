@@ -16,7 +16,7 @@ Description
 ================
 
 
-protected [LightDatabaseService::queryLog](https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/Service/LightDatabaseService/queryLog.md)(string $type, ?...$args) : void
+protected [LightDatabaseService::queryLog](https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/Service/LightDatabaseService/queryLog.md)(string $type, ?$args) : void
 
 
 
@@ -84,7 +84,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightDatabaseService::queryLog](https://github.com/lingtalfi/Light_Database/blob/master/Service/LightDatabaseService.php#L98-L165)
+See the source code for method [LightDatabaseService::queryLog](https://github.com/lingtalfi/Light_Database/blob/master/Service/LightDatabaseService.php#L100-L167)
 
 
 See Also

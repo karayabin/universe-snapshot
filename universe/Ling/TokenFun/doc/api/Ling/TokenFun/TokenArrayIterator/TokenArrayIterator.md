@@ -4,7 +4,7 @@
 
 The TokenArrayIterator class
 ================
-2020-07-28 --> 2021-02-02
+2020-07-28 --> 2021-03-08
 
 
 
@@ -80,4 +80,4 @@ See the source code of [Ling\TokenFun\TokenArrayIterator\TokenArrayIterator](htt
 
 SeeAlso
 ==============
-Previous class: [TokenFunException](https://github.com/lingtalfi/TokenFun/blob/master/doc/api/Ling/TokenFun/Exception/TokenFunException.md)<br>Next class: [TokenArrayIteratorInterface](https://github.com/lingtalfi/TokenFun/blob/master/doc/api/Ling/TokenFun/TokenArrayIterator/TokenArrayIteratorInterface.md)<br>
+Previous class: [UseStatementsParser](https://github.com/lingtalfi/TokenFun/blob/master/doc/api/Ling/TokenFun/Parser/UseStatementsParser.md)<br>Next class: [TokenArrayIteratorInterface](https://github.com/lingtalfi/TokenFun/blob/master/doc/api/Ling/TokenFun/TokenArrayIterator/TokenArrayIteratorInterface.md)<br>

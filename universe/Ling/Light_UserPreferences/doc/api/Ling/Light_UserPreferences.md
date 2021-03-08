@@ -1,6 +1,6 @@
 Ling/Light_UserPreferences
 ================
-2020-07-31 --> 2021-02-11
+2020-07-31 --> 2021-03-05
 
 
 
@@ -125,12 +125,12 @@ Table of contents
 
 Dependencies
 ============
-- [Light_UserManager](https://github.com/lingtalfi/Light_UserManager)
-- [Light_User](https://github.com/lingtalfi/Light_User)
-- [SimplePdoWrapper](https://github.com/lingtalfi/SimplePdoWrapper)
 - [Light](https://github.com/lingtalfi/Light)
 - [Light_Database](https://github.com/lingtalfi/Light_Database)
-- [Light_UserDatabase](https://github.com/lingtalfi/Light_UserDatabase)
 - [Light_LingStandardService](https://github.com/lingtalfi/Light_LingStandardService)
+- [Light_User](https://github.com/lingtalfi/Light_User)
+- [Light_UserDatabase](https://github.com/lingtalfi/Light_UserDatabase)
+- [Light_UserManager](https://github.com/lingtalfi/Light_UserManager)
+- [SimplePdoWrapper](https://github.com/lingtalfi/SimplePdoWrapper)
 
 

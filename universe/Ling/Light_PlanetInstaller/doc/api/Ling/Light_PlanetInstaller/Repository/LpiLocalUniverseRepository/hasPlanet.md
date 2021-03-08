@@ -53,7 +53,7 @@ Returns bool.
 
 Source Code
 ===========
-See the source code for method [LpiLocalUniverseRepository::hasPlanet](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Repository/LpiLocalUniverseRepository.php#L26-L33)
+See the source code for method [LpiLocalUniverseRepository::hasPlanet](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Repository/LpiLocalUniverseRepository.php#L42-L49)
 
 
 See Also
@@ -61,5 +61,5 @@ See Also
 
 The [LpiLocalUniverseRepository](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Repository/LpiLocalUniverseRepository.md) class.
 
-Next method: [getFirstVersionWithMinimumNumber](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Repository/LpiLocalUniverseRepository/getFirstVersionWithMinimumNumber.md)<br>
+Previous method: [getPlanetPath](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Repository/LpiLocalUniverseRepository/getPlanetPath.md)<br>Next method: [getFirstVersionWithMinimumNumber](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Repository/LpiLocalUniverseRepository/getFirstVersionWithMinimumNumber.md)<br>
 

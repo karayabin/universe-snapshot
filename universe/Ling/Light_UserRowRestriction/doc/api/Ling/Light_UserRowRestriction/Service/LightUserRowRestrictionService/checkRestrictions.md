@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [LightUserRowRestrictionService::checkRestrictions](https://github.com/lingtalfi/Light_UserRowRestriction/blob/master/doc/api/Ling/Light_UserRowRestriction/Service/LightUserRowRestrictionService/checkRestrictions.md)(string $eventName, ?...$args) : void
+public [LightUserRowRestrictionService::checkRestrictions](https://github.com/lingtalfi/Light_UserRowRestriction/blob/master/doc/api/Ling/Light_UserRowRestriction/Service/LightUserRowRestrictionService/checkRestrictions.md)(string $eventName, ?$args) : void
 
 
 

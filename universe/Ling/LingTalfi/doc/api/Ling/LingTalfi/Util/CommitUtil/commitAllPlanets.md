@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [CommitUtil::commitAllPlanets](https://github.com/lingtalfi/LingTalfi/blob/master/Util/CommitUtil.php#L18-L21)
+See the source code for method [CommitUtil::commitAllPlanets](https://github.com/lingtalfi/LingTalfi/blob/master/Util/CommitUtil.php#L23-L26)
 
 
 See Also
@@ -57,5 +57,5 @@ See Also
 
 The [CommitUtil](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Util/CommitUtil.md) class.
 
-
+Next method: [regularLingCommit](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Util/CommitUtil/regularLingCommit.md)<br>
 

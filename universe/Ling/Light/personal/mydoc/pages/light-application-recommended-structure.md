@@ -1,6 +1,6 @@
 Light application recommended structure
 =============
-2019-04-09 -> 2021-02-04
+2019-04-09 -> 2021-02-22
 
 
 
@@ -28,8 +28,9 @@ The filesystem structure looks like this:
             # an example of configuration data directory for a plugin named Light_MyPlugin 
             /Light_MyPlugin:
                 
-        # The "dynamic" directory is reserved for dynamic plugins intercommunication
-        /dynamic:                           
+        # The "open" directory is reserved for dynamic plugins intercommunication. 
+        # For more details, read https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/design/open-vs-close-service-registration.md.
+        /open:                           
 
             # this directory will contain all messages destined to the Light_MyPlugin plugin 
             /Light_MyPlugin:                
@@ -61,14 +62,20 @@ The filesystem structure looks like this:
         # The index.php script is the entry point for the web app. 
         - index.php
         
-        # the directory for light plugins web assets
-        /plugins:                           
-            # the web assets dir for the Light_MyPlugin planet
-            /Light_MyPlugin:                
-                # an example directory, not part of the recommendation
-                /css:                       
-                    # an example file, not part of the recommendation
-                    - style.css             
+        # 
+        /libs:
+
+            # We recommend using universe assets organization
+            # https://github.com/lingtalfi/NotationFan/blob/master/universe-assets.md
+            /universe:
+                # the galaxy name
+                /Ling:
+                    # the planet name. Inside this directory, all your web assets.
+                    /Light_MyPlugin:                
+                        # an example directory, not part of the recommendation
+                        /css:                       
+                            # an example file, not part of the recommendation
+                            - style.css             
                                                                
 ```
 
@@ -137,20 +144,15 @@ This is just one example, but the plugin author can also store any files he/she 
 
 
 
-The config dynamic directory
+The config open directory
 ---------
-2020-11-10
+2020-11-10 -> 2021-02-22
 
 
-The **dynamic** is fairly new, it's similar to the **data** part as a plugin **Light_AAA** can send configuration bits to a "recipient" service such
-as **Light_BBB** or **Light_CCC** for instance. 
+The **open** directory is a directory for **service providers**.
 
-The difference is that the recipient plugins will fetch that configuration only when needed (i.e. lazy fetching) rather than
-on the app initialization.
+More details in the [open vs close registration document](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/design/open-vs-close-service-registration.md).
 
-Basically, with the **dynamic** directory our idea is to implement the [late service registration system](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/design/late-service-registration.md). 
-
-The writing in this directory is still static, but the fetching is dynamic, hence the name.
 
 
 

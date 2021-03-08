@@ -1,6 +1,6 @@
 PhpBeast
 ==============
-2015-10-26
+2015-10-26 -> 2021-03-05
 
 
 
@@ -13,6 +13,11 @@ PhpBeast is part of the [universe framework](https://github.com/karayabin/univer
 
 Install
 ==========
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.PhpBeast
+```
+
 Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
 ```bash
 uni import Ling/PhpBeast
@@ -278,9 +283,22 @@ Dependencies
 
 
 
+
 History Log
 ------------------
 
+
+- 1.4.5 -- 2021-03-08
+
+    - fix typo in BnbMessageTool::printErrorResultString
+  
+- 1.4.4 -- 2021-03-08
+
+    - add BnbMessageTool class
+  
+- 1.4.3 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.4.2 -- 2020-12-08
 

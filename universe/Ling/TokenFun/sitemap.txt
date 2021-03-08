@@ -1,5 +1,8 @@
 https://github.com/lingtalfi/TokenFun/blob/master/README.md
 https://github.com/lingtalfi/TokenFun/blob/master/doc/api/Ling/TokenFun/Exception/TokenFunException.md
+https://github.com/lingtalfi/TokenFun/blob/master/doc/api/Ling/TokenFun/Parser/UseStatementsParser/debugToken.md
+https://github.com/lingtalfi/TokenFun/blob/master/doc/api/Ling/TokenFun/Parser/UseStatementsParser/parseTokens.md
+https://github.com/lingtalfi/TokenFun/blob/master/doc/api/Ling/TokenFun/Parser/UseStatementsParser.md
 https://github.com/lingtalfi/TokenFun/blob/master/doc/api/Ling/TokenFun/TokenArrayIterator/TokenArrayIterator/__construct.md
 https://github.com/lingtalfi/TokenFun/blob/master/doc/api/Ling/TokenFun/TokenArrayIterator/TokenArrayIterator/current.md
 https://github.com/lingtalfi/TokenFun/blob/master/doc/api/Ling/TokenFun/TokenArrayIterator/TokenArrayIterator/dump.md

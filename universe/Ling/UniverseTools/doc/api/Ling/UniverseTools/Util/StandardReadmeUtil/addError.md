@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [StandardReadmeUtil::addError](https://github.com/lingtalfi/UniverseTools/blob/master/Util/StandardReadmeUtil.php#L210-L213)
+See the source code for method [StandardReadmeUtil::addError](https://github.com/lingtalfi/UniverseTools/blob/master/Util/StandardReadmeUtil.php#L275-L278)
 
 
 See Also
@@ -57,5 +57,5 @@ See Also
 
 The [StandardReadmeUtil](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/Util/StandardReadmeUtil.md) class.
 
-Previous method: [addCommitMessageByUniverseDir](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/Util/StandardReadmeUtil/addCommitMessageByUniverseDir.md)<br>Next method: [getReadmeVersionsByPlanetDir](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/Util/StandardReadmeUtil/getReadmeVersionsByPlanetDir.md)<br>
+Previous method: [addCommitMessageByPlanetDir](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/Util/StandardReadmeUtil/addCommitMessageByPlanetDir.md)<br>Next method: [getReadmeVersionsByPlanetDir](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/Util/StandardReadmeUtil/getReadmeVersionsByPlanetDir.md)<br>
 

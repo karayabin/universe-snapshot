@@ -1,6 +1,6 @@
 PermsHiker
 ===============
-2016-06-16
+2016-06-16 -> 2021-03-05
 
 
 PermsHiker helps migrating permissions from a server to another.
@@ -11,6 +11,11 @@ PermsHiker is part of the [universe framework](https://github.com/karayabin/univ
 
 Install
 ==========
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.PermsHiker
+```
+
 Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
 ```bash
 uni import Ling/PermsHiker
@@ -291,6 +296,10 @@ Dependencies
 
 History Log
 ------------------
+
+- 1.1.3 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.1.2 -- 2020-12-08
 

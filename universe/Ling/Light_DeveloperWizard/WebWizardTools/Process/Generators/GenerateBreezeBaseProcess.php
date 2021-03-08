@@ -50,10 +50,13 @@ abstract class GenerateBreezeBaseProcess extends LightDeveloperWizardBaseProcess
         parent::prepare();
         $createFileExists = $this->getContextVar("createFileExists");
         if (false === $createFileExists) {
-            return 'Missing <a target="_blank" href="https://github.com/lingtalfi/TheBar/blob/master/discussions/create-file.md">create file.</a>';
+            $this->setDisabledReason('Missing <a target="_blank" href="https://github.com/lingtalfi/TheBar/blob/master/discussions/create-file.md">create file.</a>');
         }
 
     }
+
+
+
 
 
 

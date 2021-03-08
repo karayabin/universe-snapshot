@@ -4,7 +4,7 @@
 
 The LightErrorHandlerService class
 ================
-2020-06-01 --> 2021-02-12
+2020-06-01 --> 2021-03-05
 
 
 
@@ -39,7 +39,7 @@ class <span class="pl-k">LightErrorHandlerService</span>  {
     - public [getOptions](https://github.com/lingtalfi/Light_ErrorHandler/blob/master/doc/api/Ling/Light_ErrorHandler/Service/LightErrorHandlerService/getOptions.md)() : array
     - public [registerFunctions](https://github.com/lingtalfi/Light_ErrorHandler/blob/master/doc/api/Ling/Light_ErrorHandler/Service/LightErrorHandlerService/registerFunctions.md)() : void
     - public [fatalErrorHandler](https://github.com/lingtalfi/Light_ErrorHandler/blob/master/doc/api/Ling/Light_ErrorHandler/Service/LightErrorHandlerService/fatalErrorHandler.md)() : void
-    - protected [errorHandler](https://github.com/lingtalfi/Light_ErrorHandler/blob/master/doc/api/Ling/Light_ErrorHandler/Service/LightErrorHandlerService/errorHandler.md)(int $errno, string $errstr, string $errfile, int $errline) : bool
+    - public [errorHandler](https://github.com/lingtalfi/Light_ErrorHandler/blob/master/doc/api/Ling/Light_ErrorHandler/Service/LightErrorHandlerService/errorHandler.md)(int $errno, string $errstr, string $errfile, int $errline) : bool
     - private [sendError](https://github.com/lingtalfi/Light_ErrorHandler/blob/master/doc/api/Ling/Light_ErrorHandler/Service/LightErrorHandlerService/sendError.md)(array $phpError, ?string $channel = null) : void
 
 }

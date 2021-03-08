@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [WebWizardToolsProcess::infoMessage](https://github.com/lingtalfi/WebWizardTools/blob/master/Process/WebWizardToolsProcess.php#L418-L421)
+See the source code for method [WebWizardToolsProcess::infoMessage](https://github.com/lingtalfi/WebWizardTools/blob/master/Process/WebWizardToolsProcess.php#L427-L430)
 
 
 See Also

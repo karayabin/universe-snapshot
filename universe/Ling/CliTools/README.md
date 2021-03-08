@@ -1,6 +1,6 @@
 CliTools
 ===========
-2019-02-22 -> 2021-02-04
+2019-02-22 -> 2021-03-05
 
 
 
@@ -12,6 +12,11 @@ This is part of the [universe framework](https://github.com/karayabin/universe-s
 
 Install
 ==========
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.CliTools
+```
+
 Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
 ```bash
 uni import Ling/CliTools
@@ -72,6 +77,10 @@ and the [Symfony/Console](https://github.com/symfony/symfony/tree/master/src/Sym
 
 History Log
 =================
+
+- 1.10.26 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.10.25 -- 2021-02-04
 

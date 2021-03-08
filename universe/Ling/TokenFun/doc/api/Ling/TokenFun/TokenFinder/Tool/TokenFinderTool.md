@@ -4,7 +4,7 @@
 
 The TokenFinderTool class
 ================
-2020-07-28 --> 2021-02-02
+2020-07-28 --> 2021-03-08
 
 
 
@@ -33,7 +33,7 @@ class <span class="pl-k">TokenFinderTool</span>  {
     - public static [getInterfaces](https://github.com/lingtalfi/TokenFun/blob/master/doc/api/Ling/TokenFun/TokenFinder/Tool/TokenFinderTool/getInterfaces.md)(array $tokens, ?$fullName = true) : array
     - public static [getMethodsInfo](https://github.com/lingtalfi/TokenFun/blob/master/doc/api/Ling/TokenFun/TokenFinder/Tool/TokenFinderTool/getMethodsInfo.md)(array $tokens) : array
     - public static [getNamespace](https://github.com/lingtalfi/TokenFun/blob/master/doc/api/Ling/TokenFun/TokenFinder/Tool/TokenFinderTool/getNamespace.md)(array $tokens) : false | string
-    - public static [getUseDependencies](https://github.com/lingtalfi/TokenFun/blob/master/doc/api/Ling/TokenFun/TokenFinder/Tool/TokenFinderTool/getUseDependencies.md)(array $tokens, ?$sort = true) : array
+    - public static [getUseDependencies](https://github.com/lingtalfi/TokenFun/blob/master/doc/api/Ling/TokenFun/TokenFinder/Tool/TokenFinderTool/getUseDependencies.md)(array $tokens, ?array $options = []) : array
     - public static [getUseDependenciesByFolder](https://github.com/lingtalfi/TokenFun/blob/master/doc/api/Ling/TokenFun/TokenFinder/Tool/TokenFinderTool/getUseDependenciesByFolder.md)(string $dir) : array
     - public static [getUseDependenciesByReflectionClasses](https://github.com/lingtalfi/TokenFun/blob/master/doc/api/Ling/TokenFun/TokenFinder/Tool/TokenFinderTool/getUseDependenciesByReflectionClasses.md)(array $reflectionClasses) : array
     - public static [removePhpComments](https://github.com/lingtalfi/TokenFun/blob/master/doc/api/Ling/TokenFun/TokenFinder/Tool/TokenFinderTool/removePhpComments.md)(string $str, ?bool $preserveWhiteSpace = true) : string

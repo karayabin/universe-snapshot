@@ -58,7 +58,7 @@ Returns bool.
 
 Source Code
 ===========
-See the source code for method [ReadmeUtil::createBasicReadmeFile](https://github.com/lingtalfi/LingTalfi/blob/master/Kaos/Util/ReadmeUtil.php#L93-L126)
+See the source code for method [ReadmeUtil::createBasicReadmeFile](https://github.com/lingtalfi/LingTalfi/blob/master/Kaos/Util/ReadmeUtil.php#L91-L124)
 
 
 See Also

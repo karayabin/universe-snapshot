@@ -1,6 +1,6 @@
 Light_Database
 ===========
-2019-07-22 -> 2021-02-05
+2019-07-22 -> 2021-03-05
 
 
 
@@ -15,6 +15,11 @@ This is part of the [universe framework](https://github.com/karayabin/universe-s
 
 Install
 ==========
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.Light_Database
+```
+
 Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
 ```bash
 uni import Ling/Light_Database
@@ -125,7 +130,19 @@ $logger.methods_collection:
 History Log
 =============
 
--- 1.14.12 -- 2021-02-05
+- 1.14.15 -- 2021-03-05
+
+    - update README.md, add install alternative
+
+- 1.14.14 -- 2021-02-23
+
+    - fix LightDatabasePlanetInstaller->onMapCopyAfter, erroneous bool condition
+  
+- 1.14.13 -- 2021-02-23
+
+    - update LightDatabasePlanetInstaller->onMapCopyAfter, now only execute if necessary
+  
+- 1.14.12 -- 2021-02-15
 
     - add LightDatabasePlanetInstaller class
   

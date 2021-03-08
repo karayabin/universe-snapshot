@@ -93,3 +93,7 @@
 1.11.5: 
     - Ling:BabyYaml:1.7.5+
     - Ling:Bat:1.293+
+
+1.11.6: 
+    - Ling:BabyYaml:1.7.8+
+    - Ling:Bat:1.308+

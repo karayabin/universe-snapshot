@@ -1,6 +1,6 @@
 UniverseTools
 ===========
-2019-02-08 -> 2021-02-12
+2019-02-08 -> 2021-03-05
 
 
 
@@ -12,6 +12,11 @@ This is part of the [universe framework](https://github.com/karayabin/universe-s
 
 Install
 ==========
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.UniverseTools
+```
+
 Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
 ```bash
 uni import Ling/UniverseTools
@@ -38,6 +43,70 @@ Summary
 History Log
 ==============
 
+- 1.22.31 -- 2021-03-05
+
+    - add StandardReadmeUtil->updateDate method
+  
+- 1.22.30 -- 2021-03-05
+
+    - update README.md, add install alternative
+
+- 1.22.29 -- 2021-02-25
+
+    - update MetaInfoTool::getVersion make sure it returns a string
+  
+- 1.22.28 -- 2021-02-25
+
+    - add AssetsMapTool getAssets and getAssetMapDirByPlanetDir methods
+  
+- 1.22.27 -- 2021-02-23
+
+    - fix PlanetTool::importPlanetByExternalDir, didn't remove dir before creating symlink
+
+- 1.22.26 -- 2021-02-23
+
+    - update PlanetTool::importPlanetByExternalDir, add symlinks option
+  
+- 1.22.25 -- 2021-02-23
+
+    - add PlanetTool::getPlanetDotNames method
+  
+- 1.22.24 -- 2021-02-18
+
+    - update DependencyTool::getDependencyList, now sorts the planets alphabetically
+  
+- 1.22.23 -- 2021-02-18
+
+    - add PlanetTool::getPlanetDotNameByPlanetDir method
+  
+- 1.22.22 -- 2021-02-18
+
+    - add "local universe" concept and tools
+  
+- 1.22.21 -- 2021-02-16
+
+    - DependencyTool::parseDumpDependencies now sorts the planets alphabetically
+  
+- 1.22.20 -- 2021-02-15
+
+    - fix commit issues
+  
+- 1.22.19 -- 2021-02-15
+
+    - fix MetaInfoTool::incrementVersion unexpectedly reverting back to 1.22.16
+  
+- 1.22.18 -- 2021-02-15
+
+    - fix MetaInfoTool::incrementVersion functional typo
+  
+- 1.22.17 -- 2021-02-15
+
+    - add MetaInfoTool::incrementVersion method
+  
+- 1.22.16 -- 2021-02-12
+
+    - add StandardReadmeUtil->addCommitMessageByPlanetDir method
+  
 - 1.22.15 -- 2021-02-12
 
     - add MachineUniverseTool class and machine universe concept

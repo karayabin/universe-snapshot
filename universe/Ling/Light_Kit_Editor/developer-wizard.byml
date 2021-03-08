@@ -1,0 +1,6 @@
+db_synchronizer: 
+    scope: []
+    scope_use_prefix: true
+
+general: 
+    table_prefix: lke

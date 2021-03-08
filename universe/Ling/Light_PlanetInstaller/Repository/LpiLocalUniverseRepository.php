@@ -6,6 +6,7 @@ namespace Ling\Light_PlanetInstaller\Repository;
 
 use Ling\Bat\FileSystemTool;
 use Ling\Light_PlanetInstaller\Exception\LightPlanetInstallerException;
+use Ling\Light_PlanetInstaller\Helper\LpiDepsFileHelper;
 use Ling\Light_PlanetInstaller\Helper\LpiHelper;
 use Ling\Light_PlanetInstaller\Helper\LpiLocalUniverseHelper;
 use Ling\UniverseTools\DependencyTool;
@@ -15,6 +16,21 @@ use Ling\UniverseTools\DependencyTool;
  */
 class LpiLocalUniverseRepository implements LpiRepositoryInterface
 {
+
+
+    /**
+     * Returns the planet path in the local universe that matches the given planet dot name, or false otherwise.
+     * @param string $planetDot
+     * @return string|false
+     */
+    public function getPlanetPath(string $planetDot): string|false
+    {
+        $ret = LpiLocalUniverseHelper::getPlanetPath($planetDot);
+        if (null === $ret) {
+            return false;
+        }
+        return $ret;
+    }
 
 
     //--------------------------------------------
@@ -70,8 +86,8 @@ class LpiLocalUniverseRepository implements LpiRepositoryInterface
     {
         $planetDir = LpiLocalUniverseHelper::getPlanetPath($planetDot);
         if (null !== $planetDir) {
-            $lpiDepsPath = $planetDir . "/lpi-deps.byml";
-            return LpiHelper::getLpiDepsByLocation($lpiDepsPath, $realVersion);
+            $lpiDepsPath = LpiDepsFileHelper::getLpiDepsFilePathByPlanetDir($planetDir);
+            return LpiDepsFileHelper::getLpiDepsByLocation($lpiDepsPath, $realVersion);
         }
         return [];
     }

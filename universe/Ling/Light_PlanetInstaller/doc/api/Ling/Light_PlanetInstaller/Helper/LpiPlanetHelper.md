@@ -4,7 +4,7 @@
 
 The LpiPlanetHelper class
 ================
-2020-12-08 --> 2021-02-11
+2020-12-08 --> 2021-03-05
 
 
 
@@ -52,4 +52,4 @@ See the source code of [Ling\Light_PlanetInstaller\Helper\LpiPlanetHelper](https
 
 SeeAlso
 ==============
-Previous class: [LpiLocalUniverseHelper](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiLocalUniverseHelper.md)<br>Next class: [LpiVersionHelper](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiVersionHelper.md)<br>
+Previous class: [LpiLocalUniverseHelper](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiLocalUniverseHelper.md)<br>Next class: [LpiUniDependenciesHelper](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiUniDependenciesHelper.md)<br>

@@ -1,6 +1,6 @@
 Output
 ===================
-2017-03-22
+2017-03-22 -> 2021-03-05
 
 
 
@@ -50,6 +50,10 @@ So, if you don't understand what I'm trying to explain, this probably means that
 
 History Log
 ------------------
+
+- 1.7.3 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.7.2 -- 2020-12-08
 

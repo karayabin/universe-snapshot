@@ -109,3 +109,24 @@
     - Ling:Light_Logger:1.11.5+
     - Ling:Light_PluginInstaller:2.0.5+
     - Ling:UniverseTools:1.22.9+
+
+1.6.7: 
+    - Ling:Light:0.69.26+
+    - Ling:Light_Logger:1.11.5+
+    - Ling:Light_PluginInstaller:2.0.14+
+    - Ling:Light_UserDatabase:1.31.12+
+    - Ling:UniverseTools:1.22.26+
+
+1.6.8: 
+    - Ling:Light:0.69.26+
+    - Ling:Light_Logger:1.11.5+
+    - Ling:Light_PluginInstaller:2.0.15+
+    - Ling:Light_UserDatabase:1.31.12+
+    - Ling:UniverseTools:1.22.27+
+
+1.6.9: 
+    - Ling:Light:0.69.30+
+    - Ling:Light_Logger:1.11.5+
+    - Ling:Light_PluginInstaller:2.0.17+
+    - Ling:Light_UserDatabase:1.31.13+
+    - Ling:UniverseTools:1.22.29+

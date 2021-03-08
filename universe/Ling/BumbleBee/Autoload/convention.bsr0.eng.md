@@ -1,6 +1,6 @@
 BSR-0
 =============
-2015-10-05 --> 2019-02-21
+2015-10-05 --> 2021-03-08
 
 
 
@@ -20,7 +20,9 @@ For instance the class name **Batman57\Translator\BatmanTranslator** is composed
 - BatmanTranslator
 
 
-Every component SHOULD use the **CamelCase** (aka [pascal case](https://github.com/lingtalfi/ConventionGuy/blob/master/nomenclature.stringCases.eng.md#pascalcase)).
+Every component SHOULD use the [PascalCase](https://github.com/lingtalfi/ConventionGuy/blob/master/nomenclature.stringCases.eng.md#pascalcase)).
+
+
 
 
 
@@ -28,7 +30,9 @@ Class organization
 -----------------
 
 A **BSR-0** class resides under a root directory,
-and the path of the class file is the class name, with the ".php" extension added at the end, and with backslashes (\) converted to forward slashes (/). 
+and the path of the class file is the class name, with the ".php" extension added at the end, and with backslashes (\) converted to forward slashes (/).
+
+Each bsr-0 file must contain one class, and one class only.
 
 
 So for instance if our root directory is **/my/directory**, then the path to the **Batman57\Translator\BatmanTranslator** BSR-0 class must be:

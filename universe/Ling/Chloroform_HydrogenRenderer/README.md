@@ -1,6 +1,6 @@
 Chloroform_HydrogenRenderer
 ===========
-2019-04-18 -> 2020-08-11
+2019-04-18 -> 2021-03-05
 
 
 
@@ -14,6 +14,11 @@ This is part of the [universe framework](https://github.com/karayabin/universe-s
 
 Install
 ==========
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.Chloroform_HydrogenRenderer
+```
+
 Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
 ```bash
 uni import Ling/Chloroform_HydrogenRenderer
@@ -384,6 +389,10 @@ Related
 
 History Log
 =============
+
+- 1.4.3 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.4.2 -- 2020-12-08
 

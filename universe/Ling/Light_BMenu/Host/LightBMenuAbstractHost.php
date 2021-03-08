@@ -4,6 +4,7 @@
 namespace Ling\Light_BMenu\Host;
 
 
+use Ling\CheapLogger\CheapLogger;
 use Ling\Light_BMenu\Menu\LightBMenu;
 
 /**
@@ -63,6 +64,8 @@ abstract class LightBMenuAbstractHost implements LightBMenuHostInterface
         foreach ($items as $item) {
             $menu->appendItem($item, $this->defaultItemsParentPath);
         }
+
+
     }
 
     /**

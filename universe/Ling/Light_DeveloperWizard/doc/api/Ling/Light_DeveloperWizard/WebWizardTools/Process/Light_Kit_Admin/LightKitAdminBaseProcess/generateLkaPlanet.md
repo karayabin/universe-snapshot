@@ -62,7 +62,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightKitAdminBaseProcess::generateLkaPlanet](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/WebWizardTools/Process/Light_Kit_Admin/LightKitAdminBaseProcess.php#L130-L232)
+See the source code for method [LightKitAdminBaseProcess::generateLkaPlanet](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/WebWizardTools/Process/Light_Kit_Admin/LightKitAdminBaseProcess.php#L131-L233)
 
 
 See Also

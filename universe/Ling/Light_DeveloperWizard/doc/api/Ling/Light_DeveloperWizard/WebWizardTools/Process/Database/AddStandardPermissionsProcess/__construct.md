@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [AddStandardPermissionsProcess::__construct](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/WebWizardTools/Process/Database/AddStandardPermissionsProcess.php#L21-L27)
+See the source code for method [AddStandardPermissionsProcess::__construct](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/WebWizardTools/Process/Database/AddStandardPermissionsProcess.php#L20-L26)
 
 
 See Also
@@ -54,5 +54,5 @@ See Also
 
 The [AddStandardPermissionsProcess](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/WebWizardTools/Process/Database/AddStandardPermissionsProcess.md) class.
 
-Next method: [doExecute](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/WebWizardTools/Process/Database/AddStandardPermissionsProcess/doExecute.md)<br>
+Next method: [prepare](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/doc/api/Ling/Light_DeveloperWizard/WebWizardTools/Process/Database/AddStandardPermissionsProcess/prepare.md)<br>
 

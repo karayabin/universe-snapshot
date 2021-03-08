@@ -14,6 +14,11 @@ use Ling\TokenFun\Tool\TokenTool;
  *          use Ling\TokenFun\Tool\TokenTool;
  *
  *
+ * Note that this class is old and naive, as it doesn't take into account aliases.
+ *
+ * We recommend using the UseStatementsParser class instead.
+ *
+ *
  *
  */
 class UseStatementsTokenFinder extends RecursiveTokenFinder

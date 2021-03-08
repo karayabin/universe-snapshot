@@ -41,3 +41,11 @@
 1.5.3: 
     - Ling:Light:0.69.18+
     - Ling:UniversalTemplateEngine:1.1.2+
+
+1.5.4: 
+    - Ling:Light:0.69.23+
+    - Ling:UniversalTemplateEngine:1.1.2+
+
+1.5.5: 
+    - Ling:Light:0.69.30+
+    - Ling:UniversalTemplateEngine:1.1.2+

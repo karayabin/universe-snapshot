@@ -58,7 +58,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightCliCommandDocUtility::getIndexByCommand](https://github.com/lingtalfi/Light_Cli/blob/master/Util/LightCliCommandDocUtility.php#L413-L421)
+See the source code for method [LightCliCommandDocUtility::getIndexByCommand](https://github.com/lingtalfi/Light_Cli/blob/master/Util/LightCliCommandDocUtility.php#L382-L390)
 
 
 See Also

@@ -1,5 +1,0 @@
-A problem occurred in {appName}, the message was:
-
-{msg}
-
-

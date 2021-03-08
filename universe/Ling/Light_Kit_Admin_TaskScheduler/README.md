@@ -1,6 +1,6 @@
 Light_Kit_Admin_TaskScheduler
 ===========
-2020-07-31 -> 2021-01-29
+2020-07-31 -> 2021-03-05
 
 
 
@@ -16,6 +16,11 @@ This is part of the [universe framework](https://github.com/karayabin/universe-s
 
 Install
 ==========
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.Light_Kit_Admin_TaskScheduler
+```
+
 Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
 ```bash
 uni import Ling/Light_Kit_Admin_TaskScheduler
@@ -78,13 +83,6 @@ kit_admin_task_scheduler:
 # --------------------------------------
 $bmenu.methods_collection: 
     - 
-        method: addDefaultItemByFile
-        args: 
-            menu_type: admin_main_menu
-            file: ${app_dir}/config/data/Light_Kit_Admin_TaskScheduler/bmenu/generated/kit_admin_task_scheduler.admin_mainmenu_1.byml
-        
-    
-    - 
         method: addDirectItemsByFileAndParentPath
         args: 
             menu_type: admin_main_menu
@@ -118,6 +116,7 @@ $micro_permission.methods_collection:
         args: 
             file: ${app_dir}/config/data/Light_Kit_Admin_TaskScheduler/Light_MicroPermission/kit_admin_task_scheduler.profile.generated.byml
         
+    
 
     
 ```
@@ -128,6 +127,14 @@ History Log
 =============
 
 
+- 1.5.8 -- 2021-03-05
+
+    - update README.md, add install alternative
+
+- 1.5.7 -- 2021-03-01
+
+    - update service conf, unnecessary call to the bmenu->addDefaultItemByFile method
+  
 - 1.5.6 -- 2021-01-29
 
     - adapt to work with new Light_PluginInstaller api

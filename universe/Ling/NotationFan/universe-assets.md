@@ -1,6 +1,6 @@
 Universe assets
 ================
-2019-09-23
+2019-09-23 -> 2021-02-26
 
 
 
@@ -58,50 +58,47 @@ Then, we should have the following structure for a planet named **MyPlanet** fro
 
 The UniverseAssetDependencies trick
 -----------------
-
-And now time for a personal trick.
-
-Some planets are only exposing web assets (i.e. no php class). For instances, most of my planets starting with the letter "J" prefix are javascript tools only, 
-and they are embedded in a planet for the convenience of importing them using the [uni tool](https://github.com/lingtalfi/universe-naive-importer) one liners. 
-
-Now sometimes, some bigger planets use those "Assets only".
-
-And so for instance if I create a big planet **MyBigPlanet** which uses a **JMyAssetPlanet** planet, I want to write the dependency in the **dependencies.byml** file
-of the planet.
-
-Now the dependencies.byml file is explained in the uni tool documentation here: [dependencies.byml](https://github.com/lingtalfi/Uni2#dependenciesbyml).
+2019-09-23 -> 2021-02-26
 
 
-But to be honest, I never write in it manually, because my tools do that for me already, so they can potentially rewrite what I would put in there.
 
-So instead I found another way to add those dependencies, which is implemented in **Ling\UniverseTools\DependencyTool::parseDumpDependencies**.
+This is another way for me to declare dependencies.
 
+Let's say I'm the author of the **Ling.MyBigPlanet** planet, which depends on the **Ling.JMyAssetPlanet** planet.
 
-Basically, all I need to do is create the following structure at the root of the **MyBigPlanet**:
+Using the **universe asset dependencies** trick, I will create the following structure:
 
 
 ```txt
 
-- MyBigPlanet/
------ UniverseAssetDependencies/
---------- $galaxyName/
-------------- JMyAssetPlanet/
+- universe                                  # this is the universe directory
+----- Ling/                                 # this is the galaxy for my planet
+--------- MyBigPlanet/                      # this is my planet
+--------- UniverseAssetDependencies/        # this is the directory where I define my "universe assets" dependencies
+------------- Ling/                         # this is the galaxy name for one planet I depend on
+----------------- JMyAssetPlanet/           # this is the planet name of a planet I depend on
+----------------- ...
+------------- ...
 
 ```
 
-Note: those are only directories.
+
+And that's it.
+Then, when I publish a planet, my publishing tools (such as the [PushCommand](https://github.com/lingtalfi/LingTalfi/blob/master/Kaos/Command/PushCommand.php))
+will parse the **UniverseAssetDependencies** directory if it exists, and automatically write the corresponding dependencies in the [dependencies.byml](https://github.com/lingtalfi/Uni2#dependenciesbyml) file.
 
 
+I found myself in the need for that feature when my tools cannot guess the dependencies of the planet directly. So I help them by defining them manually
+using this trick.
+The cases when my tools cannot guess the dependencies are the following so far:
 
 
-
+- if my planet depends on a planets with no service, such as all my "J" planets for instance, which are basically just containers for a javascript library.
+        Those don't provide any service, and so there is no php code for my tools to parse, so they just don't know about this kind of dependency
   
-
-
-
-
-
-
-
- 
-
+- sometimes when I write a light service configuration, I reference a class that's outside my planet, thereby creating a dependency to that planet.
+    My tools don't read the service configuration files, and therefore miss the dependency. This happens in the [Light_Kit](https://github.com/lingtalfi/Light_Kit) service conf for instance.
+  
+- when writing [kit pages](https://github.com/lingtalfi/Light_Kit#babyyaml-page-configuration-files), it's likely that I call widgets from other planets.
+    When that happens, my tools don't know about it because they don't read those kit pages (yet), and so I use this trick in this case too to define
+    the dependencies manually.

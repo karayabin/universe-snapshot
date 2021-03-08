@@ -4,7 +4,7 @@
 
 The PushCommand class
 ================
-2019-04-03 --> 2020-12-08
+2019-04-03 --> 2021-03-05
 
 
 
@@ -72,7 +72,7 @@ class <span class="pl-k">PushCommand</span> extends [DeployGenericCommand](https
 
 - Methods
     - public [__construct](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/PushCommand/__construct.md)() : void
-    - public [run](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/PushCommand/run.md)(Ling\CliTools\Input\InputInterface $input, Ling\CliTools\Output\OutputInterface $output) : int
+    - public [run](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/PushCommand/run.md)(Ling\CliTools\Input\InputInterface $input, Ling\CliTools\Output\OutputInterface $output) : mixed
     - protected [onDiffReady](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/PushCommand/onDiffReady.md)(array $params, Ling\CliTools\Output\OutputInterface $output) : void
 
 - Inherited methods

@@ -1,8 +1,8 @@
 dependencies: 
     Ling: 
-        - Light_User
         - Light
         - Light_Database
+        - Light_User
         - Light_UserManager
         - SqlWizard
     

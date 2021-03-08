@@ -10,13 +10,17 @@ use Ling\CliTools\Helper\VirginiaMessageHelper as H;
 use Ling\CliTools\Input\ArrayInput;
 use Ling\CliTools\Input\InputInterface;
 use Ling\CliTools\Output\OutputInterface;
+use Ling\Light_PlanetInstaller\Helper\LpiDepsFileHelper;
 use Ling\Light_PlanetInstaller\Helper\LpiHelper;
 use Ling\LingTalfi\Kaos\Tool\PreferencesTool;
+use Ling\LingTalfi\Kaos\Util\CommitWizard;
 use Ling\LingTalfi\Kaos\Util\ReadmeUtil;
+use Ling\LingTalfi\Util\AppBoilerplateUtil;
 use Ling\PlanetSitemap\PlanetSitemapHelper;
 use Ling\SimpleCurl\SimpleCurl;
 use Ling\UniverseTools\DependencyTool;
 use Ling\UniverseTools\Exception\UniverseToolsException;
+use Ling\UniverseTools\LocalUniverseTool;
 use Ling\UniverseTools\MetaInfoTool;
 use Ling\UniverseTools\PlanetTool;
 
@@ -64,6 +68,7 @@ class PushCommand extends KaosGenericCommand
         $indentLevel = $this->application->getBaseIndentLevel();
         $gitAccount = "lingtalfi";
         $githubBaseUrl = "https://github.com/$gitAccount";
+        $uniDir = LocalUniverseTool::getLocalUniversePath();
 
         $planetDir = $input->getOption('planet-dir');
         $applicationDir = $input->getOption('application');
@@ -135,6 +140,10 @@ class PushCommand extends KaosGenericCommand
                     $mapDir = $planetDir . "/assets/map";
 
 
+
+                    FileSystemTool::remove($mapDir);
+
+
                     //--------------------------------------------
                     // AUTOMATIC UNIVERSE ASSETS IMPORT
                     //--------------------------------------------
@@ -156,8 +165,6 @@ class PushCommand extends KaosGenericCommand
                             }
                         }
                     }
-
-
 
 
                     //--------------------------------------------
@@ -195,26 +202,18 @@ class PushCommand extends KaosGenericCommand
                         ];
 
 
-
                         if (true === DependencyTool::writeDependencies($planetDir, $postInstall, $options)) {
 
 
                             $output->write('<success>ok</success>' . PHP_EOL);
 
 
-
-
-
                             //--------------------------------------------
                             // LPI DEPENDENCIES
                             //--------------------------------------------
                             H::info(H::i($indentLevel + 1) . "Updating <b>lpi-deps.byml</b>...", $output);
-                            LpiHelper::updateLpiDepsByPlanetDir($planetDir);
+                            LpiDepsFileHelper::updateLpiDepsByPlanetDir($planetDir);
                             $output->write('<success>ok</success>' . PHP_EOL);
-
-
-
-
 
 
                             $currentPwd = exec("pwd");
@@ -319,6 +318,7 @@ EEE;
                                     //--------------------------------------------
                                     H::info(H::i($indentLevel + 1) . "Asking google to crawl the sitemap...", $output);
 
+
                                     // https://support.google.com/webmasters/answer/183668?hl=en&ref_topic=4581190
                                     $pingUrl = "http://www.google.com/ping?sitemap=$sitemapUrl";
                                     $curl = new SimpleCurl();
@@ -361,6 +361,41 @@ EEE;
 
 
                                     H::success(H::i($indentLevel) . "The planet <blue>$galaxyName/$planetName</blue> was pushed." . PHP_EOL, $output);
+
+
+                                    //--------------------------------------------
+                                    // HOOKS TO Light_AppBoilerplate
+                                    //--------------------------------------------
+                                    $u = new AppBoilerplateUtil();
+                                    $u->setOutput($output);
+                                    H::info(H::i($indentLevel) . "Checking for hooks...", $output);
+                                    $deps = $u->getBoilerplateDependencies();
+                                    $planetDotName = $galaxyName . ".$planetName";
+                                    if (true === in_array($planetDotName, $deps)) {
+                                        $output->write("found hook to Light_AppBoilerplate." . PHP_EOL);
+
+                                        $hookPlanetDir = $uniDir . "/Ling/Light_AppBoilerplate";
+
+                                        H::info(H::i($indentLevel) . "Incrementing version number in meta-info.byml...", $output);
+                                        $newHookVersion = MetaInfoTool::incrementVersion($hookPlanetDir);
+                                        $output->write("-> $newHookVersion" . PHP_EOL);
+
+
+
+
+                                        H::info(H::i($indentLevel) . "Upgrading boilerplate." . PHP_EOL, $output);
+                                        $u->upgradeBoilerplate();
+
+
+                                        H::info(H::i($indentLevel) . "Committing boilerplate." . PHP_EOL, $output);
+
+                                        $u = new CommitWizard();
+                                        $u->commit("Ling.Light_AppBoilerplate", "wizard: update boilerplate for $planetDotName.");
+
+
+                                    } else {
+                                        $output->write("no hooks found, all good." . PHP_EOL);
+                                    }
 
 
                                 } else {

@@ -156,4 +156,22 @@ abstract class LightPlanetInstallerBaseCommand implements CommandInterface, Ligh
     }
 
 
+
+    //--------------------------------------------
+    //
+    //--------------------------------------------
+    /**
+     * Returns whether the current dir is an application dir (containing an universe dir).
+     * @param OutputInterface $output
+     * @return bool
+     */
+    protected function checkInsideAppDir(OutputInterface $output): bool
+    {
+        $uniDir = $this->application->getApplicationDirectory() . "/universe";
+        if (false === is_dir($uniDir)) {
+            $output->write("<warning>Warning: no universe directory found, you're probably not inside a light app directory. Aborting (this is a safety measure).</warning>." . PHP_EOL);
+            return false;
+        }
+        return true;
+    }
 }

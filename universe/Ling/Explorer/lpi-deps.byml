@@ -21,3 +21,7 @@
 1.2.2: 
     - Ling:Bat:1.293+
     - Ling:BabyYaml:1.7.5+
+
+1.2.3: 
+    - Ling:BabyYaml:1.7.8+
+    - Ling:Bat:1.308+

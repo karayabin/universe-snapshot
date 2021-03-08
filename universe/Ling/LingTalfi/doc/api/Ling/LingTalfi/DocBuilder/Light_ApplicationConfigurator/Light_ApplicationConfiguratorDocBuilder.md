@@ -4,7 +4,7 @@
 
 The Light_ApplicationConfiguratorDocBuilder class
 ================
-2019-03-13 --> 2020-12-08
+2019-03-13 --> 2021-03-08
 
 
 
@@ -52,4 +52,4 @@ See the source code of [Ling\LingTalfi\DocBuilder\Light_ApplicationConfigurator\
 
 SeeAlso
 ==============
-Previous class: [Light_AjaxHandlerDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_AjaxHandler/Light_AjaxHandlerDocBuilder.md)<br>Next class: [Light_BMenuDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_BMenu/Light_BMenuDocBuilder.md)<br>
+Previous class: [Light_AppBoilerplateDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_AppBoilerplate/Light_AppBoilerplateDocBuilder.md)<br>Next class: [Light_BMenuDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_BMenu/Light_BMenuDocBuilder.md)<br>

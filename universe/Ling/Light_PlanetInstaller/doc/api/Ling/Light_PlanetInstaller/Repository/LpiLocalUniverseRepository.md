@@ -4,7 +4,7 @@
 
 The LpiLocalUniverseRepository class
 ================
-2020-12-08 --> 2021-02-11
+2020-12-08 --> 2021-03-05
 
 
 
@@ -25,6 +25,7 @@ Class synopsis
 class <span class="pl-k">LpiLocalUniverseRepository</span> implements [LpiRepositoryInterface](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Repository/LpiRepositoryInterface.md) {
 
 - Methods
+    - public [getPlanetPath](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Repository/LpiLocalUniverseRepository/getPlanetPath.md)(string $planetDot) : string | false
     - public [hasPlanet](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Repository/LpiLocalUniverseRepository/hasPlanet.md)(string $planetDot, string $realVersion) : bool
     - public [getFirstVersionWithMinimumNumber](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Repository/LpiLocalUniverseRepository/getFirstVersionWithMinimumNumber.md)(string $planetDot, string $realVersion) : string | false
     - public [copy](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Repository/LpiLocalUniverseRepository/copy.md)(string $planetDot, string $realVersion, string $dstDir, ?array &$warnings = []) : void
@@ -41,6 +42,7 @@ class <span class="pl-k">LpiLocalUniverseRepository</span> implements [LpiReposi
 Methods
 ==============
 
+- [LpiLocalUniverseRepository::getPlanetPath](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Repository/LpiLocalUniverseRepository/getPlanetPath.md) &ndash; Returns the planet path in the local universe that matches the given planet dot name, or false otherwise.
 - [LpiLocalUniverseRepository::hasPlanet](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Repository/LpiLocalUniverseRepository/hasPlanet.md) &ndash; Returns whether the repository contains a planet matching the given arguments.
 - [LpiLocalUniverseRepository::getFirstVersionWithMinimumNumber](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Repository/LpiLocalUniverseRepository/getFirstVersionWithMinimumNumber.md) &ndash; Returns the real version number of the planet that is at least $realVersion, or false if not possible.
 - [LpiLocalUniverseRepository::copy](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Repository/LpiLocalUniverseRepository/copy.md) &ndash; Make a copy of the given planet so that the copy's path is $dstDir.

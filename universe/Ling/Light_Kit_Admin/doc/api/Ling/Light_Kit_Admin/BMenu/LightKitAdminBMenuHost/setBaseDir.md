@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightKitAdminBMenuHost::setBaseDir](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/BMenu/LightKitAdminBMenuHost.php#L136-L139)
+See the source code for method [LightKitAdminBMenuHost::setBaseDir](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/BMenu/LightKitAdminBMenuHost.php#L137-L140)
 
 
 See Also

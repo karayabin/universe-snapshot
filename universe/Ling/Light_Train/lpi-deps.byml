@@ -1,6 +1,12 @@
-1.1.0:
-    Ling:Planet1:1.5.0
-    Ling:Planet2:1.1.0
-1.2.0:
-    Ling:Planet1:1.5.0
-    Ling:Planet2:1.1.0
+1.1.0: 
+    Ling: Planet2:1.1.0
+
+1.2.0: 
+    Ling: Planet2:1.1.0
+
+1.0.0: 
+    - Ling:Light:0.69.30+
+    - Ling:Light_Database:1.14.15+
+    - Ling:Light_LingStandardService:1.6.9+
+    - Ling:Light_UserDatabase:1.31.13+
+    - Ling:SimplePdoWrapper:1.30.16+

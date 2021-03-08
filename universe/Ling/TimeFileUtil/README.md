@@ -1,6 +1,6 @@
 TimeFileUtil
 ================
-2017-02-23
+2017-02-23 -> 2021-03-05
 
 
 A helper class to get the start date and end date from a directory.
@@ -11,6 +11,11 @@ TimeFileUtil is part of the [universe framework](https://github.com/karayabin/un
 
 Install
 ==========
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.TimeFileUtil
+```
+
 Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
 ```bash
 uni import Ling/TimeFileUtil
@@ -77,6 +82,10 @@ Note, you can change the extractor callback to adapt different file formats.
 
 History Log
 ------------------
+
+- 1.0.3 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.0.2 -- 2020-12-08
 

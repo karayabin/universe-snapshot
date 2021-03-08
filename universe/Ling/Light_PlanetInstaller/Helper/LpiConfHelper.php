@@ -6,6 +6,7 @@ namespace Ling\Light_PlanetInstaller\Helper;
 
 use Ling\BabyYaml\BabyYamlUtil;
 use Ling\Light_PlanetInstaller\Exception\LightPlanetInstallerException;
+use Ling\UniverseTools\LocalUniverseTool;
 
 /**
  * The LpiConfHelper class.
@@ -74,15 +75,6 @@ class LpiConfHelper
         return self::getConfValue("local_universe_has_path", true);
     }
 
-
-    /**
-     * Returns the local_universe global conf value.
-     * @return string|null
-     */
-    public static function getLocalUniversePath(): ?string
-    {
-        return self::getConfValue("local_universe", null);
-    }
 
 
     /**

@@ -1,23 +1,23 @@
 dependencies: 
     Ling: 
-        - Light
-        - Light_Csrf
         - ArrayToString
-        - SimplePdoWrapper
-        - Chloroform
         - Bat
+        - Chloroform
+        - Light
+        - Light_ChloroformExtension
+        - Light_Crud
+        - Light_Csrf
+        - Light_CsrfSession
+        - Light_Database
         - Light_DatabaseInfo
         - Light_Events
         - Light_Flasher
-        - WiseTool
-        - Light_CsrfSession
-        - Light_Database
         - Light_MicroPermission
-        - Light_ChloroformExtension
         - Light_Nugget
-        - Light_UserManager
         - Light_User
-        - Light_Crud
+        - Light_UserManager
+        - SimplePdoWrapper
+        - WiseTool
     
 
 post_install: 

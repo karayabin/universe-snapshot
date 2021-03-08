@@ -4,7 +4,7 @@
 
 The DiffBackCommand class
 ================
-2019-04-03 --> 2020-12-08
+2019-04-03 --> 2021-03-05
 
 
 
@@ -44,7 +44,7 @@ class <span class="pl-k">DiffBackCommand</span> extends [DiffCommand](https://gi
     - public [__construct](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/DiffBackCommand/__construct.md)() : void
 
 - Inherited methods
-    - public [DiffCommand::run](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/DiffCommand/run.md)(Ling\CliTools\Input\InputInterface $input, Ling\CliTools\Output\OutputInterface $output) : int
+    - public [DiffCommand::run](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/DiffCommand/run.md)(Ling\CliTools\Input\InputInterface $input, Ling\CliTools\Output\OutputInterface $output) : mixed
     - public [DeployGenericCommand::setApplication](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/DeployGenericCommand/setApplication.md)([Ling\Deploy\Application\DeployApplication](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Application/DeployApplication.md) $application) : void
 
 }

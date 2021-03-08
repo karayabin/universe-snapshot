@@ -59,6 +59,7 @@ class LightKitAdminBMenuHost extends LightBMenuAbstractHost
 
         $menuStructureFile = $this->baseDir . "/$this->menuType/$this->menuStructureId.byml";
 
+
         if (false === file_exists($menuStructureFile)) {
             throw new LightKitAdminException("Menu configuration file not found in $menuStructureFile.");
         }

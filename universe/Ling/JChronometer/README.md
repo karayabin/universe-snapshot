@@ -1,6 +1,6 @@
 JChronometer
 ================
-2016-03-13
+2016-03-13 -> 2021-03-05
 
 
 A javascript chronometer.
@@ -14,6 +14,11 @@ JChronometer is part of the [universe framework](https://github.com/karayabin/un
 Install
 =============
 
+
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.JChronometer
+```
 
 Using the [uni tool](https://github.com/lingtalfi/universe-naive-importer)
 ```bash
@@ -112,6 +117,10 @@ Use this example as the documentation.
 History Log
 ------------------
     
+
+- 1.0.3 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.0.2 -- 2020-12-08
 

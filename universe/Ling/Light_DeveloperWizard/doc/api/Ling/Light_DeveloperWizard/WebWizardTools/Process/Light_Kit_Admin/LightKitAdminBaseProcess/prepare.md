@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightKitAdminBaseProcess::prepare](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/WebWizardTools/Process/Light_Kit_Admin/LightKitAdminBaseProcess.php#L51-L54)
+See the source code for method [LightKitAdminBaseProcess::prepare](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/WebWizardTools/Process/Light_Kit_Admin/LightKitAdminBaseProcess.php#L52-L55)
 
 
 See Also

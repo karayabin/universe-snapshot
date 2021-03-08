@@ -49,7 +49,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [ZFileHelper::getZPath](https://github.com/lingtalfi/Light/blob/master/Helper/ZFileHelper.php#L21-L24)
+See the source code for method [ZFileHelper::getZPath](https://github.com/lingtalfi/Light/blob/master/Helper/ZFileHelper.php#L22-L25)
 
 
 See Also

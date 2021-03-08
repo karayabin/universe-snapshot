@@ -1,6 +1,6 @@
 Notifier
 ============
-2017-06-18
+2017-06-18 -> 2021-03-05
 
 
 A simple observer with php callable.
@@ -13,6 +13,11 @@ This is part of the [universe framework](https://github.com/karayabin/universe-s
 
 Install
 ==========
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.Notifier
+```
+
 Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
 ```bash
 uni import Ling/Notifier
@@ -82,6 +87,10 @@ $o->notify('welcomeText', 6, 'cat');
 
 History Log
 ------------------
+
+- 1.0.3 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.0.2 -- 2020-12-08
 

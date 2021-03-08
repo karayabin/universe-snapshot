@@ -582,3 +582,21 @@
     - Ling:SqlWizard:1.13.6+
     - Ling:CheapLogger:1.0.3+
     - Ling:BabyYaml:1.7.5+
+
+1.29.11: 
+    - Ling:BabyYaml:1.7.7+
+    - Ling:Bat:1.305+
+    - Ling:CheapLogger:1.0.3+
+    - Ling:Light:0.69.22+
+    - Ling:Light_Database:1.14.12+
+    - Ling:Light_DatabaseInfo:1.12.3+
+    - Ling:SqlWizard:1.13.7+
+
+1.29.12: 
+    - Ling:BabyYaml:1.7.8+
+    - Ling:Bat:1.308+
+    - Ling:CheapLogger:1.0.4+
+    - Ling:Light:0.69.30+
+    - Ling:Light_Database:1.14.14+
+    - Ling:Light_DatabaseInfo:1.12.4+
+    - Ling:SqlWizard:1.13.7+

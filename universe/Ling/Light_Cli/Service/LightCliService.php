@@ -5,6 +5,7 @@ namespace Ling\Light_Cli\Service;
 
 
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
+use Ling\Light_Cli\CliTools\Program\LightCliApplication;
 use Ling\Light_Cli\CliTools\Program\LightCliApplicationInterface;
 use Ling\Light_Cli\Exception\LightCliException;
 
@@ -53,6 +54,9 @@ class LightCliService
         $this->container = null;
         $this->options = [];
         $this->cliApps = [];
+
+        $this->registerCliApp("light_cli", new LightCliApplication());
+
     }
 
 

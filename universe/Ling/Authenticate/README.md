@@ -1,6 +1,6 @@
 Authenticate
 ======================
-2017-04-10
+2017-04-10 -> 2021-03-05
 
 
 A system to handle permissions in your application.
@@ -12,6 +12,11 @@ This is part of the [universe framework](https://github.com/karayabin/universe-s
 
 Install
 ==========
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.Authenticate
+```
+
 Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
 ```bash
 uni import Ling/Authenticate
@@ -201,6 +206,10 @@ Hopefully this was helpful.
 
 History Log
 ------------------
+
+- 1.7.4 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.7.3 -- 2020-12-08
 

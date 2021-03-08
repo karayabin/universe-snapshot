@@ -104,14 +104,8 @@ class LightUserDataPluginInstaller extends LightUserDatabaseBasePluginInstaller
     public function uninstall()
     {
 
-        $this->removeLightStandardPermissions();
-        $this->dropTables([
-            "luda_resource_has_tag",
-            "luda_resource_file",
-            "luda_resource",
-            "luda_tag",
-        ]);
 
+        parent::uninstall();
 
         /**
          * @var $db LightDatabaseService

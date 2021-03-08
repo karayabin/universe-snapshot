@@ -1,6 +1,0 @@
-Light_AjaxHandler:
-    routes:
-        lah_route-ajax_handler:
-            pattern: /ajax-handler
-            controller: Ling\Light_AjaxHandler\Controller\LightAjaxHandlerController->handle
-            is_ajax: true

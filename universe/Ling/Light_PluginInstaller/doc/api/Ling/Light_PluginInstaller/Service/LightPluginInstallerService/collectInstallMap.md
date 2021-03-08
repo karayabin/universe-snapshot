@@ -53,7 +53,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightPluginInstallerService::collectInstallMap](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/Service/LightPluginInstallerService.php#L504-L515)
+See the source code for method [LightPluginInstallerService::collectInstallMap](https://github.com/lingtalfi/Light_PluginInstaller/blob/master/Service/LightPluginInstallerService.php#L503-L514)
 
 
 See Also

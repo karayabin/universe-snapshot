@@ -4,7 +4,7 @@
 
 The LpiConfHelper class
 ================
-2020-12-08 --> 2021-02-11
+2020-12-08 --> 2021-03-05
 
 
 
@@ -32,7 +32,6 @@ class <span class="pl-k">LpiConfHelper</span>  {
     - public static [getConfPath](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiConfHelper/getConfPath.md)() : string
     - public static [getHandlers](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiConfHelper/getHandlers.md)() : array
     - public static [getLocalUniverseHasLast](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiConfHelper/getLocalUniverseHasLast.md)() : bool
-    - public static [getLocalUniversePath](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiConfHelper/getLocalUniversePath.md)() : string | null
     - public static [getGlobalDirPath](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiConfHelper/getGlobalDirPath.md)() : string
     - public static [getMasterFilePath](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiConfHelper/getMasterFilePath.md)() : string
     - public static [getMasterVersionFilePath](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiConfHelper/getMasterVersionFilePath.md)() : string
@@ -61,7 +60,6 @@ Methods
 - [LpiConfHelper::getConfPath](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiConfHelper/getConfPath.md) &ndash; Returns the path to the global configuration file.
 - [LpiConfHelper::getHandlers](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiConfHelper/getHandlers.md) &ndash; Returns the handlers global conf value.
 - [LpiConfHelper::getLocalUniverseHasLast](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiConfHelper/getLocalUniverseHasLast.md) &ndash; Returns the local_universe_has_last global conf value.
-- [LpiConfHelper::getLocalUniversePath](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiConfHelper/getLocalUniversePath.md) &ndash; Returns the local_universe global conf value.
 - [LpiConfHelper::getGlobalDirPath](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiConfHelper/getGlobalDirPath.md) &ndash; Returns the path to the global directory.
 - [LpiConfHelper::getMasterFilePath](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiConfHelper/getMasterFilePath.md) &ndash; Returns the path to the master lpi file.
 - [LpiConfHelper::getMasterVersionFilePath](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiConfHelper/getMasterVersionFilePath.md) &ndash; Returns the path to the master version file.
@@ -80,4 +78,4 @@ See the source code of [Ling\Light_PlanetInstaller\Helper\LpiConfHelper](https:/
 
 SeeAlso
 ==============
-Previous class: [LpiIncompatibleException](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Exception/LpiIncompatibleException.md)<br>Next class: [LpiFormatHelper](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiFormatHelper.md)<br>
+Previous class: [LpiIncompatibleException](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Exception/LpiIncompatibleException.md)<br>Next class: [LpiDependenciesHelper](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiDependenciesHelper.md)<br>

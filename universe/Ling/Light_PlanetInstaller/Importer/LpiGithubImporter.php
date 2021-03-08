@@ -8,6 +8,7 @@ use Ling\Bat\ConsoleTool;
 use Ling\Bat\HttpTool;
 use Ling\Bat\OsTool;
 use Ling\Light_PlanetInstaller\Exception\LightPlanetInstallerException;
+use Ling\Light_PlanetInstaller\Helper\LpiDepsFileHelper;
 use Ling\Light_PlanetInstaller\Helper\LpiHelper;
 use Ling\UniverseTools\DependencyTool;
 use Ling\UniverseTools\MetaInfoTool;
@@ -152,7 +153,7 @@ class LpiGithubImporter extends LpiBaseImporter
         $account = $this->getConfigValue("account");
         list($galaxy, $planet) = PlanetTool::extractPlanetId($planetIdentifier);
         $url = "https://raw.githubusercontent.com/$account/$planet/master/lpi-deps.byml";
-        return LpiHelper::getLpiDepsByLocation($url, $version);
+        return LpiDepsFileHelper::getLpiDepsByLocation($url, $version);
     }
 
     /**

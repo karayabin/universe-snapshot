@@ -32,3 +32,8 @@
     - Ling:Bate:1.0.2+
     - Ling:Quoter:1.4.2+
     - Ling:Bat:1.293+
+
+1.2.3: 
+    - Ling:Bat:1.308+
+    - Ling:Bate:1.0.3+
+    - Ling:Quoter:1.4.2+

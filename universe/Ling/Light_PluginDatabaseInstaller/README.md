@@ -1,6 +1,6 @@
 Light_PluginDatabaseInstaller
 ===========
-2019-09-11 -> 2020-02-07
+2019-09-11 -> 2021-03-05
 
 
 
@@ -23,6 +23,11 @@ This is part of the [universe framework](https://github.com/karayabin/universe-s
 
 Install
 ==========
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.Light_PluginDatabaseInstaller
+```
+
 Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
 ```bash
 uni import Ling/Light_PluginDatabaseInstaller
@@ -83,6 +88,10 @@ plugin_database_installer:
 
 History Log
 =============
+
+- 1.6.4 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.6.3 -- 2020-12-08
 

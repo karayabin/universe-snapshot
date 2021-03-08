@@ -7,6 +7,7 @@ namespace Ling\LingTalfi\DocBuilder\Light_EasyRoute;
 use Ling\DocTools\DocBuilder\Git\PhpPlanet\LingGitPhpPlanetDocBuilder;
 use Ling\DocTools\Exception\DocBuilderException;
 use Ling\DocTools\Translator\ParseDownTranslator;
+use Ling\LingTalfi\DocTools\LingTalfiDocToolsHelper;
 
 
 /**
@@ -141,6 +142,7 @@ class Light_EasyRouteDocBuilder
              */
             "keyWord2UrlMap" => [
                 "Light.initialize_1 event" => 'https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md',
+                "Light_EasyRoute conception notes" => 'https://github.com/lingtalfi/Light_EasyRoute/blob/master/doc/pages/conception-notes.md',
             ],
             /**
              * An array of external classes to url.
@@ -153,6 +155,8 @@ class Light_EasyRouteDocBuilder
              */
             "externalClass2Url" => [
 //                "Ling\UniversalLogger\UniversalLoggerInterface" => "https://github.com/lingtalfi/UniversalLogger",
+                "Ling\Light\ServiceContainer\LightServiceContainerInterface" => "https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md",
+
             ],
         ];
 
@@ -188,6 +192,8 @@ class Light_EasyRouteDocBuilder
          * and since we've defined a @kw(copy module), it will also copy the whole doc to another location.
          */
         $builder->buildDoc();
+
+        LingTalfiDocToolsHelper::generateCrumbs($builder);
 
         if ('cli' !== php_sapi_name()) {
 

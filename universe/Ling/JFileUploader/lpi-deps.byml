@@ -112,3 +112,8 @@
     - Ling:FontAwesome:1.0.3+
     - Ling:Jquery:1.1.3+
     - Ling:Select2:1.0.3+
+
+3.0.8: 
+    - Ling:FontAwesome:1.0.4+
+    - Ling:Jquery:1.1.3+
+    - Ling:Select2:1.0.3+

@@ -1,5 +1,0 @@
-upload_gems:
-    instance: Ling\Light_UploadGems\Service\LightUploadGemsService
-    methods:
-        setContainer:
-            container: @container()

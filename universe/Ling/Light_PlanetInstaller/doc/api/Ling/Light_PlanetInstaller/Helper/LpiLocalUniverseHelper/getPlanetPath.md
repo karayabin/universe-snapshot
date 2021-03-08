@@ -49,7 +49,7 @@ Returns string | null.
 
 Source Code
 ===========
-See the source code for method [LpiLocalUniverseHelper::getPlanetPath](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Helper/LpiLocalUniverseHelper.php#L36-L46)
+See the source code for method [LpiLocalUniverseHelper::getPlanetPath](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Helper/LpiLocalUniverseHelper.php#L37-L47)
 
 
 See Also

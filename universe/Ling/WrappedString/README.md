@@ -1,6 +1,6 @@
 WrappedString
 ==================
-2015-11-20
+2015-11-20 -> 2021-03-05
 
 
 
@@ -12,6 +12,11 @@ WrappedString is part of the [universe framework](https://github.com/karayabin/u
 
 Install
 ==========
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.WrappedString
+```
+
 Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
 ```bash
 uni import Ling/WrappedString
@@ -69,6 +74,10 @@ Dependencies
 
 History Log
 ------------------
+
+- 1.3.3 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.3.2 -- 2020-12-08
 

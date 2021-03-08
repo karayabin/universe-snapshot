@@ -7,6 +7,7 @@ namespace Ling\Light_PlanetInstaller\CliTools\Command;
 use Ling\CliTools\Input\InputInterface;
 use Ling\CliTools\Output\OutputInterface;
 use Ling\Light_PlanetInstaller\Helper\LpiFormatHelper;
+use Ling\Light_PlanetInstaller\Service\LightPlanetInstallerService;
 use Ling\Light_PluginInstaller\Service\LightPluginInstallerService;
 
 
@@ -14,7 +15,7 @@ use Ling\Light_PluginInstaller\Service\LightPluginInstallerService;
  * The LogicInstallCommand class.
  *
  */
-class LogicInstallCommand extends LightPlanetInstallerBaseCommand
+class LogicInstallCommand extends LightPlanetInstallerProprietaryCommand
 {
 
 
@@ -26,6 +27,16 @@ class LogicInstallCommand extends LightPlanetInstallerBaseCommand
         $planetDotName = $input->getParameter(2);
         $debug = $input->hasFlag("d");
         $force = $input->hasFlag("f");
+        $postMap = $input->hasFlag("m");
+
+
+        if (true === $postMap) {
+            /**
+             * @var $pis LightPlanetInstallerService
+             */
+            $pis = $this->container->get("planet_installer");
+            $this->postMapByPlanetDotName($planetDotName, $pis, $output);
+        }
 
 
         /**
@@ -88,7 +99,7 @@ class LogicInstallCommand extends LightPlanetInstallerBaseCommand
         $url = LpiFormatHelper::getUrlFmt();
         $ret = <<<EEE
 <$co>logic installs</$co>(<$url>https://github.com/lingtalfi/TheBar/blob/master/discussions/import-install.md#summary</$url>) the given planet. This command is used internally by the <b>install</b> command.
-    This command assumes that the planet you want to <b>logic install</b> is already imported with <$co>assets/map</$co>.
+    This command assumes that the planet you want to <b>logic install</b> is already imported.
 EEE;
 
         return $ret;
@@ -105,7 +116,7 @@ EEE;
 
 
         $desc = <<<EEE
-- <$pmt>planetDotName</$pmt>: the <$concept>planetDotName</$concept> (<$url>https://github.com/karayabin/universe-snapshot#the-planet-dot-name</$url>) of the planet to logic install
+<$pmt>planetDotName</$pmt>: the <$concept>planetDotName</$concept> (<$url>https://github.com/karayabin/universe-snapshot#the-planet-dot-name</$url>) of the planet to logic install
 EEE;
 
 
@@ -126,6 +137,7 @@ EEE;
         return [
             "d" => "Whether to use <b>debug</b> mode",
             "f" => "if set, forces the logic reinstalling of the planet, even if it's already logic installed",
+            "m" => "if set, will execute the <b>post assets/map</b> step (of the <b>install</b> command) before doing the <b>logic install</b>",
         ];
     }
 

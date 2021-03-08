@@ -75,7 +75,7 @@ class MetaInfoTool
      * @param string $planetDir
      * @return string|null
      */
-    public static function getVersion(string $planetDir)
+    public static function getVersion(string $planetDir): ?string
     {
         $ret = null;
         if (is_dir($planetDir)) {
@@ -88,8 +88,45 @@ class MetaInfoTool
                 }
             }
         }
-        return (string)$ret;
+        return ((string)$ret);
     }
+
+
+    /**
+     * Increments the version number found in the meta-info.byml file, and returns that number.
+     * The file is created if necessary.
+     * If no version is found, the 0.1.0 is used.
+     *
+     * The version number must be a dot separated string.
+     * The last dot component is incremented (thus it should be numeric).
+     *
+     *
+     * @param string $planetDir
+     * @return string
+     */
+    public static function incrementVersion(string $planetDir): string
+    {
+        $metaFile = $planetDir . "/meta-info.byml";
+        $defaultVersion = "0.1.0";
+        $arr = [];
+        if (true === is_file($metaFile)) {
+            $arr = BabyYamlUtil::readFile($metaFile);
+            $currentVersion = $arr['version'] ?? $defaultVersion;
+        } else {
+            $currentVersion = $defaultVersion;
+        }
+
+
+        $p = explode(".", $currentVersion);
+        $lastComponent = array_pop($p);
+        $p[] = ++$lastComponent;
+        $newVersion = implode('.', $p);
+        $arr['version'] = $newVersion;
+
+        BabyYamlUtil::writeFile($arr, $metaFile);
+        return $newVersion;
+    }
+
 
     /**
      * Writes the given meta $info to the meta-info.byml file of the given $planetDir.

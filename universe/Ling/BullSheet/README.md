@@ -1,6 +1,6 @@
 BullSheet
 ================
-2016-02-09
+2016-02-09 -> 2021-03-05
 
 
 
@@ -13,6 +13,11 @@ BullSheet is part of the [universe framework](https://github.com/karayabin/unive
 Install
 =============
 
+
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.BullSheet
+```
 
 Using the [uni tool](https://github.com/lingtalfi/universe-naive-importer)
 ```bash
@@ -1084,6 +1089,10 @@ Dependencies
 
 History Log
 ------------------
+
+- 1.3.3 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.3.2 -- 2020-12-08
 

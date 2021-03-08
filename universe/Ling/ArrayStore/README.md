@@ -1,6 +1,6 @@
 ArrayStore
 ===============
-2016-12-05
+2016-12-05 -> 2021-03-05
 
 
 
@@ -14,6 +14,11 @@ ArrayStore is part of the [universe](https://github.com/karayabin/universe-snaps
 Install
 =============
 
+
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.ArrayStore
+```
 
 Using the [uni tool](https://github.com/lingtalfi/universe-naive-importer)
 ```bash
@@ -67,6 +72,10 @@ Dependencies
 History Log
 ------------------
     
+
+- 1.1.3 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.1.2 -- 2020-12-08
 

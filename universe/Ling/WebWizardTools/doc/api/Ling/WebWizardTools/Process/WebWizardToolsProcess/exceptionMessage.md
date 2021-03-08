@@ -16,7 +16,7 @@ Description
 ================
 
 
-protected [WebWizardToolsProcess::exceptionMessage](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/Process/WebWizardToolsProcess/exceptionMessage.md)([\Exception](http://php.net/manual/en/class.exception.php) $e) : void
+protected [WebWizardToolsProcess::exceptionMessage](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/Process/WebWizardToolsProcess/exceptionMessage.md)(Exception $e) : void
 
 
 
@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [WebWizardToolsProcess::exceptionMessage](https://github.com/lingtalfi/WebWizardTools/blob/master/Process/WebWizardToolsProcess.php#L449-L452)
+See the source code for method [WebWizardToolsProcess::exceptionMessage](https://github.com/lingtalfi/WebWizardTools/blob/master/Process/WebWizardToolsProcess.php#L458-L461)
 
 
 See Also

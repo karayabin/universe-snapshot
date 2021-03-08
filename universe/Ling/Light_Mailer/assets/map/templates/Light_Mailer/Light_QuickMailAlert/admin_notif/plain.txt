@@ -1,5 +1,0 @@
-An important notification in {appName}, the message was:
-
-{msg}
-
-

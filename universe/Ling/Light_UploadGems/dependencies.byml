@@ -3,9 +3,9 @@ dependencies:
         - Bat
         - Light
         - Light_AjaxFileUploadManager
-        - ThumbnailTools
         - Light_Nugget
         - PhpFileValidator
+        - ThumbnailTools
     
 
 post_install: 

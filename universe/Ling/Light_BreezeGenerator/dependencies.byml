@@ -1,12 +1,12 @@
 dependencies: 
     Ling: 
-        - Bat
-        - Light
-        - Light_DatabaseInfo
-        - Light_Database
-        - SqlWizard
-        - CheapLogger
         - BabyYaml
+        - Bat
+        - CheapLogger
+        - Light
+        - Light_Database
+        - Light_DatabaseInfo
+        - SqlWizard
     
 
 post_install: 

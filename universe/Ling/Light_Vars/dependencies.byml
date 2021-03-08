@@ -1,0 +1,8 @@
+dependencies: 
+    Ling: 
+        - ArrayVariableResolver
+        - Bat
+    
+
+post_install: 
+    map: true

@@ -1,6 +1,6 @@
 SitemapBuilderBox
 =================
-2015-10-09
+2015-10-09 -> 2021-03-05
 
 
 
@@ -14,6 +14,11 @@ SitemapBuilderBox is part of the [universe framework](https://github.com/karayab
 
 Install
 ==========
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.SitemapBuilderBox
+```
+
 Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
 ```bash
 uni import Ling/SitemapBuilderBox
@@ -358,6 +363,10 @@ Dependencies
 
 History Log
 ===============
+
+- 1.0.3 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.0.2 -- 2020-12-08
 

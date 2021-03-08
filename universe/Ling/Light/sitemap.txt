@@ -77,6 +77,7 @@ https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/Service
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ServiceContainerHelper/getServicesConf.md
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ServiceContainerHelper.md
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ZFileHelper/getZPath.md
+https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ZFileHelper/hasProp.md
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ZFileHelper/setProp.md
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ZFileHelper.md
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpAttachmentResponse/create.md
@@ -282,6 +283,7 @@ https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Tool/LightTool
 https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light.md
 https://github.com/lingtalfi/Light/blob/master/doc/pages/design/ajax-permission-philosophy.md
 https://github.com/lingtalfi/Light/blob/master/doc/pages/design/late-service-registration.md
+https://github.com/lingtalfi/Light/blob/master/doc/pages/design/open-vs-close-service-registration.md
 https://github.com/lingtalfi/Light/blob/master/doc/pages/developer-memo.md
 https://github.com/lingtalfi/Light/blob/master/doc/pages/diary.md
 https://github.com/lingtalfi/Light/blob/master/doc/pages/efficiency-tips.md
@@ -294,6 +296,7 @@ https://github.com/lingtalfi/Light/blob/master/doc/pages/light-init-script.md
 https://github.com/lingtalfi/Light/blob/master/doc/pages/light-service-container.md
 https://github.com/lingtalfi/Light/blob/master/doc/pages/my-snippets.md
 https://github.com/lingtalfi/Light/blob/master/doc/pages/nomenclature.md
+https://github.com/lingtalfi/Light/blob/master/doc/pages/notation/container-notation.md
 https://github.com/lingtalfi/Light/blob/master/doc/pages/notation/light-execute-notation.md
 https://github.com/lingtalfi/Light/blob/master/doc/pages/plugin.md
 https://github.com/lingtalfi/Light/blob/master/doc/pages/rights.md

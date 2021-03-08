@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AACE,uCAAU;EACR,SAAS,EAAE,IAAI;EACf,cAAc,EAAE,SAAS;EACzB,YAAY,EAAE,eAAe;EAC7B,aAAa,EAAE,eAAe;AAI9B,8CAAS;EACP,WAAW,EAAE,cAAc",
-"sources": ["glozzom.scss"],
-"names": [],
-"file": "glozzom.css"
-}

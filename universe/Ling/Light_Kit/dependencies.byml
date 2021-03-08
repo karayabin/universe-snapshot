@@ -1,9 +1,11 @@
 dependencies: 
     Ling: 
+        - ArrayVariableResolver
         - Bat
         - HtmlPageTools
         - Kit
-        - ArrayVariableResolver
+        - Kit_PicassoWidget
+        - Kit_PrototypeWidget
         - Light
         - Light_Events
     

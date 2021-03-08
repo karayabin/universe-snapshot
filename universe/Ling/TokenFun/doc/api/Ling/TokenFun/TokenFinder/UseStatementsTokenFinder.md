@@ -4,7 +4,7 @@
 
 The UseStatementsTokenFinder class
 ================
-2020-07-28 --> 2021-02-02
+2020-07-28 --> 2021-03-08
 
 
 
@@ -19,6 +19,11 @@ The UseStatementsTokenFinder class.
 If finds use statements, like
 
          use Ling\TokenFun\Tool\TokenTool;
+
+
+Note that this class is old and naive, as it doesn't take into account aliases.
+
+We recommend using the UseStatementsParser class instead.
 
 
 

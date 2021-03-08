@@ -16,7 +16,7 @@ use Ling\UniverseTools\MachineUniverseTool;
  * The CreateAppCommand
  *
  */
-class CreateAppCommand extends LightCliBaseCommand
+class CreateAppCommand extends LightCliDocCommand
 {
 
 
@@ -34,6 +34,9 @@ class CreateAppCommand extends LightCliBaseCommand
          */
 
 
+        $cache = $input->hasFlag("c");
+
+
         $fmtFile = LightCliFormatHelper::getFileFmt();
 
         $appName = $input->getParameter(2);
@@ -44,7 +47,7 @@ class CreateAppCommand extends LightCliBaseCommand
 
             $machineUniPath = MachineUniverseTool::getMachineUniversePath();
             $boilerDir = $machineUniPath . "/Ling/Light_Cli/light-app-boilerplate";
-            if (false === is_dir($boilerDir)) {
+            if (false === $cache || false === is_dir($boilerDir)) {
                 $boilerZipUrl = "https://github.com/lingtalfi/Light_AppBoilerplate/raw/master/assets/light-app-boilerplate.zip";
                 $boilerZip = $boilerDir . ".zip";
 
@@ -95,6 +98,65 @@ class CreateAppCommand extends LightCliBaseCommand
                 $this->error("The boilerplate dir doesn't exist: $boilerDir." . PHP_EOL);
             }
         }
+    }
+
+
+
+    //--------------------------------------------
+    // LightCliCommandInterface
+    //--------------------------------------------
+    /**
+     * @overrides
+     */
+    public function getDescription(): string
+    {
+        $co = LightCliFormatHelper::getConceptFmt();
+        $url = LightCliFormatHelper::getUrlFmt();
+        return " builds a light application with the given name in the current directory.";
+    }
+
+    /**
+     * @overrides
+     */
+    public function getParameters(): array
+    {
+        $co = LightCliFormatHelper::getConceptFmt();
+        $url = LightCliFormatHelper::getUrlFmt();
+
+        return [
+            "appName" => [
+                " the name of the application to create",
+                true,
+            ],
+        ];
+    }
+
+    /**
+     * @overrides
+     */
+    public function getFlags(): array
+    {
+        $co = LightCliFormatHelper::getConceptFmt();
+        $url = LightCliFormatHelper::getUrlFmt();
+
+        return [
+            "c" => " cache, by default, this command downloads the boilerplate from the web every time to make sure you have the latest version.
+ If the c flag is raised, it will use the cached version instead. If the cached version does not exist yet, 
+ it will be fetched from the internet.",
+        ];
+    }
+
+    /**
+     * @overrides
+     */
+    public function getAliases(): array
+    {
+        $co = LightCliFormatHelper::getConceptFmt();
+        $url = LightCliFormatHelper::getUrlFmt();
+
+        return [
+            "mkapp" => "light_cli create_app",
+        ];
     }
 
 

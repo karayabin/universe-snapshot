@@ -1,6 +1,6 @@
 PhpTailer
 ================
-2018-03-23
+2018-03-23 -> 2021-03-05
 
 
 A php wrapper for the unix tail command.
@@ -9,6 +9,11 @@ A php wrapper for the unix tail command.
 
 Install
 ==========
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.PhpTailer
+```
+
 Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
 ```bash
 uni import Ling/PhpTailer
@@ -88,6 +93,10 @@ PhpTailer::create()
 
 History Log
 ------------------
+
+- 1.0.4 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.0.3 -- 2020-12-08
 

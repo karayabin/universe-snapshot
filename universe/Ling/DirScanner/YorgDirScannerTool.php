@@ -424,7 +424,7 @@ class YorgDirScannerTool
                             if (false === $extensionCaseSensitive) {
                                 $_extension = strtolower($_extension);
                             }
-                            if ($_extension === substr($searchPath, -1 * (strlen($_extension)))) {
+                            if ('.' . $_extension === substr($searchPath, -1 * (1 + strlen($_extension)))) {
                                 $match = true;
                             }
                         }

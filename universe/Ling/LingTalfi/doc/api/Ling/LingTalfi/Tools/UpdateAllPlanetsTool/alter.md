@@ -54,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [UpdateAllPlanetsTool::alter](https://github.com/lingtalfi/LingTalfi/blob/master/Tools/UpdateAllPlanetsTool.php#L116-L188)
+See the source code for method [UpdateAllPlanetsTool::alter](https://github.com/lingtalfi/LingTalfi/blob/master/Tools/UpdateAllPlanetsTool.php#L141-L213)
 
 
 See Also

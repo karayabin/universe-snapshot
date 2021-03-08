@@ -89,16 +89,21 @@ class LightPlanetInstallerApplication extends LightCliBaseApplication
 
         $this->devMode = false;
 
+        $this->registerCommand("Ling\Light_PlanetInstaller\CliTools\Command\BuildCommand", "build");
+        $this->registerCommand("Ling\Light_PlanetInstaller\CliTools\Command\OpenConfCommand", "conf");
+        $this->registerCommand("Ling\Light_PlanetInstaller\CliTools\Command\DependencyCommand", "deps");
         $this->registerCommand("Ling\Light_PlanetInstaller\CliTools\Command\HelpCommand", "help");
         $this->registerCommand("Ling\Light_PlanetInstaller\CliTools\Command\ImportCommand", "import");
         $this->registerCommand("Ling\Light_PlanetInstaller\CliTools\Command\InstallCommand", "install");
-        $this->registerCommand("Ling\Light_PlanetInstaller\CliTools\Command\OpenConfCommand", "conf");
-        $this->registerCommand("Ling\Light_PlanetInstaller\CliTools\Command\ListCommand", "list");
-        $this->registerCommand("Ling\Light_PlanetInstaller\CliTools\Command\BuildCommand", "build");
+        $this->registerCommand("Ling\Light_PlanetInstaller\CliTools\Command\LogicInstallCommand", "logic_install");
+        $this->registerCommand("Ling\Light_PlanetInstaller\CliTools\Command\PostMapCommand", "post_map");
         $this->registerCommand("Ling\Light_PlanetInstaller\CliTools\Command\ReImportAppPlanetsCommand", "reimport");
         $this->registerCommand("Ling\Light_PlanetInstaller\CliTools\Command\RemoveCommand", "remove");
+        $this->registerCommand("Ling\Light_PlanetInstaller\CliTools\Command\ToDirCommand", "todir");
+        $this->registerCommand("Ling\Light_PlanetInstaller\CliTools\Command\ToLinkCommand", "tolink");
         $this->registerCommand("Ling\Light_PlanetInstaller\CliTools\Command\UninstallCommand", "uninstall");
-        $this->registerCommand("Ling\Light_PlanetInstaller\CliTools\Command\LogicInstallCommand", "logic_install");
+        $this->registerCommand("Ling\Light_PlanetInstaller\CliTools\Command\UpgradeCommand", "upgrade");
+        $this->registerCommand("Ling\Light_PlanetInstaller\CliTools\Command\VersionCommand", "version");
 
 
         $this->notFoundPlanets = [];
@@ -167,6 +172,16 @@ class LightPlanetInstallerApplication extends LightCliBaseApplication
     public function setCurrentOutput(OutputInterface $currentOutput)
     {
         $this->currentOutput = $currentOutput;
+    }
+
+    /**
+     * Returns the currentOutput of this instance.
+     *
+     * @return OutputInterface
+     */
+    public function getCurrentOutput(): OutputInterface
+    {
+        return $this->currentOutput;
     }
 
 
@@ -461,6 +476,7 @@ class LightPlanetInstallerApplication extends LightCliBaseApplication
      * - source: mixed. The source to use as the wishlist. Can be either the keyword "lpi", or a string representing the planetDefinition.
      *      The planetDefinition is: $planetDotName(:$versionExpr=last)?
      * - force: bool=false. Whether to force the reimport/reinstall
+     * - symlinks: bool=false, whether to use symlinks to the local universe when available, instead of copying planet dirs.
      *
      *
      * @param array $options
@@ -474,6 +490,7 @@ class LightPlanetInstallerApplication extends LightCliBaseApplication
         $bernoni = $options['bernoni'] ?? 'auto';
         $keepBuild = $options['keepBuild'] ?? false;
         $useDebug = $options['useDebug'] ?? false;
+        $useSymlinks = $options['symlinks'] ?? false;
         $force = $options['force'] ?? false;
 
 
@@ -522,6 +539,7 @@ class LightPlanetInstallerApplication extends LightCliBaseApplication
             'bernoniMode' => $bernoni,
             'keepBuild' => $keepBuild,
             'operationMode' => $mode,
+            'symlinks' => $useSymlinks,
         ]);
         $virtualBin = $u->getVirtualBin();
 

@@ -4,7 +4,7 @@
 
 The SimplePdoWrapperInterface class
 ================
-2019-07-22 --> 2020-12-08
+2019-07-22 --> 2021-03-05
 
 
 
@@ -73,8 +73,8 @@ abstract class <span class="pl-k">SimplePdoWrapperInterface</span>  {
     - abstract public [fetch](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/SimplePdoWrapperInterface/fetch.md)($query, ?array $markers = [], ?$fetchStyle = null) : false | array
     - abstract public [fetchAll](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/SimplePdoWrapperInterface/fetchAll.md)($query, ?array $markers = [], ?$fetchStyle = null, ?$fetchArg = null, ?array $ctorArgs = []) : false | array
     - abstract public [executeStatement](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/SimplePdoWrapperInterface/executeStatement.md)($query) : false | int
-    - abstract public [transaction](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/SimplePdoWrapperInterface/transaction.md)(callable $transactionCallback, ?[\Exception](http://php.net/manual/en/class.exception.php) &$e = null) : bool
-    - abstract public [setConnexion](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/SimplePdoWrapperInterface/setConnexion.md)([\PDO](https://www.php.net/manual/en/class.pdo.php) $connexion) : void
+    - abstract public [transaction](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/SimplePdoWrapperInterface/transaction.md)(callable $transactionCallback, ?Exception &$e = null) : bool
+    - abstract public [setConnexion](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/SimplePdoWrapperInterface/setConnexion.md)(PDO $connexion) : void
     - abstract public [getConnexion](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/SimplePdoWrapperInterface/getConnexion.md)() : [PDO](https://www.php.net/manual/en/class.pdo.php)
     - abstract public [setErrorMode](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/SimplePdoWrapperInterface/setErrorMode.md)($errorMode) : mixed
     - abstract public [getError](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/SimplePdoWrapperInterface/getError.md)() : null | array

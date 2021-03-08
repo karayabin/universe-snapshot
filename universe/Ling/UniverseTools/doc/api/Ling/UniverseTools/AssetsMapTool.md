@@ -4,7 +4,7 @@
 
 The AssetsMapTool class
 ================
-2019-02-26 --> 2021-02-12
+2019-02-26 --> 2021-03-05
 
 
 
@@ -27,6 +27,8 @@ class <span class="pl-k">AssetsMapTool</span>  {
 - Methods
     - public static [copyAssets](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/AssetsMapTool/copyAssets.md)(string $assetMapDir, string $targetAppDir) : void
     - public static [removeAssets](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/AssetsMapTool/removeAssets.md)(string $assetMapDir, string $targetAppDir) : void
+    - public static [getAssets](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/AssetsMapTool/getAssets.md)(string $assetMapDir, ?bool $useRelativePath = true) : array
+    - public static [getAssetMapDirByPlanetDir](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/AssetsMapTool/getAssetMapDirByPlanetDir.md)(string $planetDir) : string
 
 }
 
@@ -40,6 +42,8 @@ Methods
 
 - [AssetsMapTool::copyAssets](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/AssetsMapTool/copyAssets.md) &ndash; Copies all the asset files found in the given assetsMap directory into the target application dir.
 - [AssetsMapTool::removeAssets](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/AssetsMapTool/removeAssets.md) &ndash; Removes the assets files ("defined" in the assetsMapDir) from the target app dir.
+- [AssetsMapTool::getAssets](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/AssetsMapTool/getAssets.md) &ndash; Returns the list of files found in the given asset/map directory.
+- [AssetsMapTool::getAssetMapDirByPlanetDir](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/AssetsMapTool/getAssetMapDirByPlanetDir.md) &ndash; Returns the path to the asset/map directory.
 
 
 

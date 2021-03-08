@@ -1,6 +1,6 @@
 DirScanner
 ==============
-2015-11-03 -> 2021-01-07
+2015-11-03 -> 2021-03-08
 
 
 
@@ -16,6 +16,11 @@ DirScanner is part of the [universe framework](https://github.com/karayabin/univ
 Install
 =============
 
+
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.DirScanner
+```
 
 Using the [uni tool](https://github.com/lingtalfi/universe-naive-importer)
 ```bash
@@ -147,6 +152,14 @@ $dirs = YorgDirScannerTool::getDirs("/path/to/dir");
 
 History Log
 ------------------
+
+- 1.13.5 -- 2021-03-08
+
+    - fix YorgDirScannerTool::getFilesWithExtension incorrectly finding file if its name matches the extension 
+  
+- 1.13.4 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.13.3 -- 2021-01-07
 

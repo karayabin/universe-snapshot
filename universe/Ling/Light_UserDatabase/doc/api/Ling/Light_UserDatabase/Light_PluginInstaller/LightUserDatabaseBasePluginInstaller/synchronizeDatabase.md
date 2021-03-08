@@ -51,7 +51,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightUserDatabaseBasePluginInstaller::synchronizeDatabase](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Light_PluginInstaller/LightUserDatabaseBasePluginInstaller.php#L273-L285)
+See the source code for method [LightUserDatabaseBasePluginInstaller::synchronizeDatabase](https://github.com/lingtalfi/Light_UserDatabase/blob/master/Light_PluginInstaller/LightUserDatabaseBasePluginInstaller.php#L270-L281)
 
 
 See Also

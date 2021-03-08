@@ -129,3 +129,15 @@
     - Ling:Bat:1.293+
     - Ling:DirScanner:1.13.2+
     - Ling:HtmlPageTools:2.2.2+
+
+1.12.4: 
+    - Ling:BabyYaml:1.7.7+
+    - Ling:Bat:1.307+
+    - Ling:DirScanner:1.13.3+
+    - Ling:HtmlPageTools:2.2.2+
+
+1.12.5: 
+    - Ling:BabyYaml:1.7.8+
+    - Ling:Bat:1.308+
+    - Ling:DirScanner:1.13.4+
+    - Ling:HtmlPageTools:2.2.3+

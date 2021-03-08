@@ -184,17 +184,82 @@ class StandardReadmeUtil
     public function addCommitMessageByUniverseDir(string $universeDir, string $message)
     {
         $planetDirs = PlanetTool::getPlanetDirs($universeDir);
-        $date = date("Y-m-d");
         foreach ($planetDirs as $planetDir) {
-            $lastVersion = MetaInfoTool::getVersion($planetDir);
+            $this->addCommitMessageByPlanetDir($planetDir, $message, ['increment' => true]);
+        }
+    }
+
+
+    /**
+     * Updates the date of the README.md file.
+     * The date:
+     * - must be on line 3
+     * - must start at the beginning of the line
+     * - the last char of the line must be part of a date
+     * - can have a first/last date separator being either: -> or -->
+     * - both first and last component must have the mysql date format (i.e. 2021-03-05)
+     *
+     * This method always updates the "last" part of the date.
+     *
+     *
+     * @param string $readMeFile
+     * @param string|null $date
+     */
+    public function updateDate(string $readMeFile, string $date = null)
+    {
+        if (null === $date) {
+            $date = date("Y-m-d");
+        }
+        $lines = file($readMeFile);
+        if (true === array_key_exists(2, $lines)) {
+            $line = $lines[2];
+            if (preg_match('!^([0-9]{4}-[0-9]{2}-[0-9]{2})(:?\s*-{1,2}>\s*([0-9]{4}-[0-9]{2}-[0-9]{2}))?$!', $line, $match)) {
+                if (true === array_key_exists(3, $match)) {
+                    $lines[2] = str_replace($match[3], $date, $lines[2]);
+                } else {
+                    $lines[2] = trim($lines[2]) . ' -> ' . $date . PHP_EOL;
+                }
+                file_put_contents($readMeFile, implode('', $lines));
+            }
+        }
+    }
+
+    /**
+     * Adds a commit message to the history log section of the README files for the given planet..
+     * The version number is incremented from the last version found, using a minor version number increment.
+     * The date is set to the current date.
+     *
+     * Available options are:
+     *
+     * - increment: bool=false, whether to increment the version number.
+     *
+     *
+     *
+     *
+     * @param string $planetDir
+     * @param string $message
+     * @param array $options
+     */
+    public function addCommitMessageByPlanetDir(string $planetDir, string $message, array $options = [])
+    {
+
+        $increment = $options['increment'] ?? false;
+
+        $date = date("Y-m-d");
+        $lastVersion = MetaInfoTool::getVersion($planetDir);
+
+        if (true === $increment) {
             $p = explode(".", $lastVersion);
             $lastComponent = (int)array_pop($p);
             $lastComponent++;
             $p[] = $lastComponent;
             $version = implode('.', $p);
-            $readmePath = $planetDir . "/README.md";
-            $this->addHistoryLogEntry($readmePath, $version, $date, $message);
+        } else {
+            $version = $lastVersion;
         }
+
+        $readmePath = $planetDir . "/README.md";
+        $this->addHistoryLogEntry($readmePath, $version, $date, $message);
     }
 
 

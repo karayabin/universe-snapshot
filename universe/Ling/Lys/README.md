@@ -1,5 +1,7 @@
 Lys (Ling Infinite Scroll)
 ====================
+2016-01-24 -> 2021-03-05
+
 
 
 Another infinite scroll jquery plugin.
@@ -13,6 +15,11 @@ Lys is part of the [universe framework](https://github.com/karayabin/universe-sn
 Install
 =============
 
+
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.Lys
+```
 
 Using the [uni tool](https://github.com/lingtalfi/universe-naive-importer)
 ```bash
@@ -461,6 +468,10 @@ Friends
 
 History Log
 ------------------
+
+- 3.2.3 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 3.2.2 -- 2020-12-08
 

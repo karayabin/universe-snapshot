@@ -90,12 +90,6 @@ class PackLightPluginCommand extends KaosGenericCommand
             ];
 
 
-            $dynamicConfigDir = $applicationDir . "/config/dynamic";
-
-            $files = YorgDirScannerTool::getFilesWithName($dynamicConfigDir, $pluginName . ".byml", false, true);
-            foreach($files as $file){
-                $items[] = FileSystemTool::getRelativePath($file, $applicationDir);
-            }
 
 
 

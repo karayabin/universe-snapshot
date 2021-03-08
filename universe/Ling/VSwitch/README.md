@@ -1,6 +1,6 @@
 VSwitch
 ========
-2016-03-03
+2016-03-03 -> 2021-03-05
 
 
 
@@ -13,6 +13,11 @@ VSwitch is part of the [universe framework](https://github.com/karayabin/univers
 
 Install
 ==========
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.VSwitch
+```
+
 Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
 ```bash
 uni import Ling/VSwitch
@@ -310,6 +315,10 @@ Options
 
 History Log
 ------------------
+
+- 1.3.3 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.3.2 -- 2020-12-08
 

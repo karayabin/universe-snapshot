@@ -1,6 +1,6 @@
 LingTalfi
 ===========
-2019-03-13 -> 2021-02-09
+2019-03-13 -> 2021-03-08
 
 
 
@@ -14,6 +14,11 @@ This is part of the [universe framework](https://github.com/karayabin/universe-s
 
 Install
 ==========
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.LingTalfi
+```
+
 Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
 ```bash
 uni import Ling/LingTalfi
@@ -33,7 +38,53 @@ Or just download it and place it where you want otherwise.
 History Log
 =============
 
--- 1.23.5 -- 2021-02-09
+- 1.23.16 -- 2021-03-08
+
+    - update InitializePlanetCommand command, now use new README.md template, with lt install snippet
+  
+- 1.23.15 -- 2021-03-05
+
+    - update README.md, add install alternative
+
+- 1.23.14 -- 2021-02-25
+
+    - update AppBoilerplateUtl, now adds the .htaccess file
+  
+- 1.23.13 -- 2021-02-25
+
+    - update AppBoilerplateUtl, now only puts updated planet into zip
+  
+- 1.23.12 -- 2021-02-23
+
+    - update SubscribersUtil->updateSubscribersDependenciesAndCommit, now indicates the name of the planet on which it depends in the commit message
+  
+- 1.23.11 -- 2021-02-23
+
+    - add UpdateSubscriberDependenciesCommand command
+  
+- 1.23.10 -- 2021-02-23
+
+    - Update dependencies (pushed by SubscribersUtil)
+
+
+- 1.23.9 -- 2021-02-23
+
+    - Update dependencies
+
+- 1.23.8 -- 2021-02-22
+
+    - adapt to new Light_PlanetInstaller api
+    - push command now removes assets/map before recreating it
+  
+- 1.23.7 -- 2021-02-19
+
+    - fix KwinToLightCliCommandCodeUtil not generating alias section correctly
+  
+- 1.23.6 -- 2021-02-19
+
+    - add kwin related utils
+  
+- 1.23.5 -- 2021-02-16
 
     - add GranularDependencyUtil and AppBoilerPlateUtil class, update ReadmeUtil, move some methods to UniverseTools
   

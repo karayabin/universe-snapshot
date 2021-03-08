@@ -1,6 +1,6 @@
 Light_Kit
 ===========
-2019-04-25 -> 2020-11-27
+2019-04-25 -> 2021-03-05
 
 
 
@@ -12,6 +12,11 @@ This is part of the [universe framework](https://github.com/karayabin/universe-s
 
 Install
 ==========
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.Light_Kit
+```
+
 Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
 ```bash
 uni import Ling/Light_Kit
@@ -68,64 +73,63 @@ You don't have to change anything, but I will explain it anyway just in case:
 
 
 ```yaml
-# file path: your_light_app/config/services/Light_Kit.byml
 kit:
-    instance: Ling\Light_Kit\PageRenderer\LightKitPageRenderer
-    methods:
-        configure:
-            settings:
-                application_dir: ${app_dir}
-        setConfStorage:
-            -
-                instance: Ling\Kit\ConfStorage\BabyYamlConfStorage
-                methods:
-                    setRootDir:
-                        rootDir: ${app_dir}/config/data
-        setContainer:
-            container: @container()
+  instance: Ling\Light_Kit\Service\LightKitService
+  methods:
+    configure:
+      settings:
+        application_dir: ${app_dir}
+    setConfStorage:
+      -
+        instance: Ling\Kit\ConfStorage\BabyYamlConfStorage
+        methods:
+          setRootDir:
+            rootDir: ${app_dir}/config/data
+    setContainer:
+      container: @container()
 
-    methods_collection:
+  methods_collection:
+    -
+      method: addPageConfigurationTransformer
+      args:
         -
-            method: addPageConfigurationTransformer
-            args:
-                -
-                    instance: Ling\Light_Kit\PageConfigurationTransformer\DynamicVariableTransformer
+          instance: Ling\Light_Kit\PageConfigurationTransformer\DynamicVariableTransformer
+    -
+      method: addPageConfigurationTransformer
+      args:
         -
-            method: addPageConfigurationTransformer
-            args:
-                -
-                    instance: Ling\Light_Kit\PageConfigurationTransformer\LightExecuteNotationResolver
+          instance: Ling\Light_Kit\PageConfigurationTransformer\LightExecuteNotationResolver
 
 
+    -
+      method: registerWidgetHandler
+      args:
+        - picasso
         -
-            method: registerWidgetHandler
-            args:
-                - picasso
-                -
-                    instance: Ling\Kit_PicassoWidget\WidgetHandler\PicassoWidgetHandler
-                    constructor_args:
-                        options:
-                            showCssNuggetHeaders: true
-                            showJsNuggetHeaders: true
-                    methods:
-                        setWidgetBaseDir:
-                            dir: ${app_dir}
+          instance: Ling\Kit_PicassoWidget\WidgetHandler\PicassoWidgetHandler
+          constructor_args:
+            options:
+              showCssNuggetHeaders: true
+              showJsNuggetHeaders: true
+          methods:
+            setWidgetBaseDir:
+              dir: ${app_dir}
+    -
+      method: registerWidgetHandler
+      args:
+        - prototype
         -
-            method: registerWidgetHandler
-            args:
-                - prototype
-                -
-                    instance: Ling\Kit_PrototypeWidget\WidgetHandler\PrototypeWidgetHandler
-                    methods:
-                        setRootDir:
-                            appDir: ${app_dir}
+          instance: Ling\Kit_PrototypeWidget\WidgetHandler\PrototypeWidgetHandler
+          methods:
+            setRootDir:
+              appDir: ${app_dir}
 
 
 kit_css_file_generator:
-    instance: Ling\Light_Kit\CssFileGenerator\LightKitCssFileGenerator
-    constructor_args:
-        rootDir: ${app_dir}/www
-        format: css/tmp/$identifier-compiled-widgets.css
+  instance: Ling\Light_Kit\CssFileGenerator\LightKitCssFileGenerator
+  constructor_args:
+    rootDir: ${app_dir}/www
+    format: css/tmp/$identifier-compiled-widgets.css
 
 ```
 
@@ -192,8 +196,9 @@ Because we are using the babyYaml storage, this is done via page configuration f
 
 BabyYaml page configuration files
 ===========
+2019-04-25 -> 2021-02-26
 
-A page configuration file is a [babyYaml](https://github.com/lingtalfi/BabyYaml) file which contains the [page configuration array defined in kit](https://github.com/lingtalfi/Kit).
+A page configuration file (aka kit page) is a [babyYaml](https://github.com/lingtalfi/BabyYaml) file which contains the [page configuration array defined in kit](https://github.com/lingtalfi/Kit).
 
 Each file contains the configuration for one given page.
 
@@ -283,9 +288,25 @@ to access the htmlPageCopilot instance (and inject their assets on the main page
 History Log
 =============
 
+- 1.17.6 -- 2021-03-05
+
+    - update README.md, add install alternative
+
+- 1.17.5 -- 2021-03-02
+
+    - add dedicated service class
+  
+- 1.17.4 -- 2021-02-26
+
+    - update readme, add precision
+  
+- 1.17.3 -- 2021-02-26
+
+    - fix undeclared dependencies to Kit_PicassoWidget and Kit_PrototypeWidget planets
+  
 - 1.17.2 -- 2020-12-08
 
-    - Fix lpi-deps not using natsort.
+    - Fix lpi-deps not using natsort
 
 - 1.17.1 -- 2020-12-04
 

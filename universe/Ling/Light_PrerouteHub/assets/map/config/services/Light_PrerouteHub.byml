@@ -1,7 +1,0 @@
-preroute_hub:
-    instance: Ling\Light_PrerouteHub\LightPrerouteHub
-    methods:
-        setRunners:
-            runners: []
-
-

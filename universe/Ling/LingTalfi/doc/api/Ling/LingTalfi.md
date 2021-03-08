@@ -1,6 +1,6 @@
 Ling/LingTalfi
 ================
-2019-03-13 --> 2020-12-08
+2019-03-13 --> 2021-03-08
 
 
 
@@ -36,6 +36,8 @@ Table of contents
     - [CliToolsDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/CliTools/CliToolsDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the CliTools planet.
 - [CsvDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Csv/CsvDocBuilder.md) &ndash; The CsvDocBuilder class.
     - [CsvDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Csv/CsvDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the Csv planet.
+- [CyclicChainDetectorDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/CyclicChainDetector/CyclicChainDetectorDocBuilder.md) &ndash; The CyclicChainDetectorDocBuilder class.
+    - [CyclicChainDetectorDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/CyclicChainDetector/CyclicChainDetectorDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the CyclicChainDetector planet.
 - [DeployDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Deploy/DeployDocBuilder.md) &ndash; The DeployDocBuilder class.
     - [DeployDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Deploy/DeployDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the Deploy planet.
 - [DirScannerDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/DirScanner/DirScannerDocBuilder.md) &ndash; The DirScannerDocBuilder class.
@@ -80,6 +82,8 @@ Table of contents
     - [Kit_PrototypeWidgetDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Kit_PrototypeWidget/Kit_PrototypeWidgetDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the Kit_PrototypeWidget planet.
 - [KrankenSteinDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/KrankenStein/KrankenSteinDocBuilder.md) &ndash; The KrankenSteinDocBuilder class.
     - [KrankenSteinDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/KrankenStein/KrankenSteinDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the KrankenStein planet.
+- [KwinDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Kwin/KwinDocBuilder.md) &ndash; The KwinDocBuilder class.
+    - [KwinDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Kwin/KwinDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the Kwin planet.
 - [LightDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light/LightDocBuilder.md) &ndash; The LightDocBuilder class.
     - [LightDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light/LightDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the Light planet.
 - [Light_404LoggerDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_404Logger/Light_404LoggerDocBuilder.md) &ndash; The Light_404LoggerDocBuilder class.
@@ -88,6 +92,8 @@ Table of contents
     - [Light_AjaxFileUploadManagerDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_AjaxFileUploadManager/Light_AjaxFileUploadManagerDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the Light_AjaxFileUploadManager planet.
 - [Light_AjaxHandlerDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_AjaxHandler/Light_AjaxHandlerDocBuilder.md) &ndash; The Light_AjaxHandlerDocBuilder class.
     - [Light_AjaxHandlerDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_AjaxHandler/Light_AjaxHandlerDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the Light_AjaxHandler planet.
+- [Light_AppBoilerplateDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_AppBoilerplate/Light_AppBoilerplateDocBuilder.md) &ndash; The Light_AppBoilerplateDocBuilder class.
+    - [Light_AppBoilerplateDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_AppBoilerplate/Light_AppBoilerplateDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the Light_AppBoilerplate planet.
 - [Light_ApplicationConfiguratorDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_ApplicationConfigurator/Light_ApplicationConfiguratorDocBuilder.md) &ndash; The Light_ApplicationConfiguratorDocBuilder class.
     - [Light_ApplicationConfiguratorDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_ApplicationConfigurator/Light_ApplicationConfiguratorDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the Light_ApplicationConfigurator planet.
 - [Light_BMenuDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_BMenu/Light_BMenuDocBuilder.md) &ndash; The Light_BMenuDocBuilder class.
@@ -98,6 +104,8 @@ Table of contents
     - [Light_BullsheetDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Bullsheet/Light_BullsheetDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the Light_Bullsheet planet.
 - [Light_ChloroformExtensionDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_ChloroformExtension/Light_ChloroformExtensionDocBuilder.md) &ndash; The Light_ChloroformExtensionDocBuilder class.
     - [Light_ChloroformExtensionDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_ChloroformExtension/Light_ChloroformExtensionDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the Light_ChloroformExtension planet.
+- [Light_CliDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Cli/Light_CliDocBuilder.md) &ndash; The Light_CliDocBuilder class.
+    - [Light_CliDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Cli/Light_CliDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the Light_Cli planet.
 - [Light_ControllerHubDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_ControllerHub/Light_ControllerHubDocBuilder.md) &ndash; The Light_ControllerHubDocBuilder class.
     - [Light_ControllerHubDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_ControllerHub/Light_ControllerHubDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the Light_ControllerHub planet.
 - [Light_CrudDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Crud/Light_CrudDocBuilder.md) &ndash; The Light_CrudDocBuilder class.
@@ -168,6 +176,8 @@ Table of contents
     - [Light_Kit_BootstrapWidgetLibraryDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Kit_BootstrapWidgetLibrary/Light_Kit_BootstrapWidgetLibraryDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the Light_Kit_BootstrapWidgetLibrary planet.
 - [Light_Kit_DemoDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Kit_Demo/Light_Kit_DemoDocBuilder.md) &ndash; The Light_Kit_DemoDocBuilder class.
     - [Light_Kit_DemoDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Kit_Demo/Light_Kit_DemoDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the Light_Kit_Demo planet.
+- [Light_Kit_EditorDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Kit_Editor/Light_Kit_EditorDocBuilder.md) &ndash; The Light_Kit_EditorDocBuilder class.
+    - [Light_Kit_EditorDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Kit_Editor/Light_Kit_EditorDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the Light_Kit_Editor planet.
 - [Light_Kit_WebsiteBuilderDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Kit_WebsiteBuilder/Light_Kit_WebsiteBuilderDocBuilder.md) &ndash; The Light_Kit_WebsiteBuilderDocBuilder class.
     - [Light_Kit_WebsiteBuilderDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Kit_WebsiteBuilder/Light_Kit_WebsiteBuilderDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the Light_Kit_WebsiteBuilder planet.
 - [Light_LightInstanceDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_LightInstance/Light_LightInstanceDocBuilder.md) &ndash; The Light_LightInstanceDocBuilder class.
@@ -210,6 +220,8 @@ Table of contents
     - [Light_ReverseRouterDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_ReverseRouter/Light_ReverseRouterDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the Light_ReverseRouter planet.
 - [Light_RouterDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Router/Light_RouterDocBuilder.md) &ndash; The Light_RouterDocBuilder class.
     - [Light_RouterDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Router/Light_RouterDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the Light_Router planet.
+- [Light_ServiceSwitchDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_ServiceSwitch/Light_ServiceSwitchDocBuilder.md) &ndash; The Light_ServiceSwitchDocBuilder class.
+    - [Light_ServiceSwitchDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_ServiceSwitch/Light_ServiceSwitchDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the Light_ServiceSwitch planet.
 - [Light_SimpleHttpServerDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_SimpleHttpServer/Light_SimpleHttpServerDocBuilder.md) &ndash; The Light_SimpleHttpServerDocBuilder class.
     - [Light_SimpleHttpServerDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_SimpleHttpServer/Light_SimpleHttpServerDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the Light_SimpleHttpServer planet.
 - [Light_SpinKitHelperDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_SpinKitHelper/Light_SpinKitHelperDocBuilder.md) &ndash; The Light_SpinKitHelperDocBuilder class.
@@ -218,6 +230,8 @@ Table of contents
     - [Light_TablePrefixInfoDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_TablePrefixInfo/Light_TablePrefixInfoDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the Light_TablePrefixInfo planet.
 - [Light_TaskSchedulerDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_TaskScheduler/Light_TaskSchedulerDocBuilder.md) &ndash; The Light_TaskSchedulerDocBuilder class.
     - [Light_TaskSchedulerDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_TaskScheduler/Light_TaskSchedulerDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the Light_TaskScheduler planet.
+- [Light_TrainDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Train/Light_TrainDocBuilder.md) &ndash; The Light_TrainDocBuilder class.
+    - [Light_TrainDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Train/Light_TrainDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the Light_Train planet.
 - [Light_UploadGemsDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_UploadGems/Light_UploadGemsDocBuilder.md) &ndash; The Light_UploadGemsDocBuilder class.
     - [Light_UploadGemsDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_UploadGems/Light_UploadGemsDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the Light_UploadGems planet.
 - [Light_UserDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_User/Light_UserDocBuilder.md) &ndash; The Light_UserDocBuilder class.
@@ -234,6 +248,8 @@ Table of contents
     - [Light_UserPreferencesDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_UserPreferences/Light_UserPreferencesDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the Light_UserPreferences planet.
 - [Light_UserRowRestrictionDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_UserRowRestriction/Light_UserRowRestrictionDocBuilder.md) &ndash; The Light_UserRowRestrictionDocBuilder class.
     - [Light_UserRowRestrictionDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_UserRowRestriction/Light_UserRowRestrictionDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the Light_UserRowRestriction planet.
+- [Light_VarsDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Vars/Light_VarsDocBuilder.md) &ndash; The Light_VarsDocBuilder class.
+    - [Light_VarsDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Vars/Light_VarsDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the Light_Vars planet.
 - [Light_ZephyrTemplateDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_ZephyrTemplate/Light_ZephyrTemplateDocBuilder.md) &ndash; The Light_ZephyrTemplateDocBuilder class.
     - [Light_ZephyrTemplateDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_ZephyrTemplate/Light_ZephyrTemplateDocBuilder/buildDoc.md) &ndash; Launch this function to generate the documentation for the Light_ZephyrTemplate planet.
 - [Light_ZouUploaderDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_ZouUploader/Light_ZouUploaderDocBuilder.md) &ndash; The Light_ZouUploaderDocBuilder class.
@@ -298,8 +314,10 @@ Table of contents
     - [LingTalfiDocToolsHelper::generateCrumbs](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocTools/LingTalfiDocToolsHelper/generateCrumbs.md) &ndash; The generateCrumbs method
 - [LingTalfiException](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Exception/LingTalfiException.md) &ndash; The LingTalfiException class.
 - [GranularDependencyUtil](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/GranularDependency/GranularDependencyUtil.md) &ndash; The GranularDependencyUtil class.
-    - [GranularDependencyUtil::getReadmeVersionsByPlanetDir](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/GranularDependency/GranularDependencyUtil/getReadmeVersionsByPlanetDir.md) &ndash; Returns the array of all version numbers found in the README.md of the given planetDir.
+    - [GranularDependencyUtil::createMasterDependencyFileByUniverseDir](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/GranularDependency/GranularDependencyUtil/createMasterDependencyFileByUniverseDir.md) &ndash; Creates the Light_PlanetInstaller master lpi file at $rootDir/lpi-master.byml.
     - [GranularDependencyUtil::getMasterDependencyFileContentByUniverseDir](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/GranularDependency/GranularDependencyUtil/getMasterDependencyFileContentByUniverseDir.md) &ndash; Creates the master dependency file content for the given universe directory and returns it.
+- [PluginInstallerSynchronizerHelper](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Helper/PluginInstallerSynchronizerHelper.md) &ndash; The PluginInstallerSynchronizerHelper class.
+    - [PluginInstallerSynchronizerHelper::synchronizeDatabaseByPlanetDotName](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Helper/PluginInstallerSynchronizerHelper/synchronizeDatabaseByPlanetDotName.md) &ndash; Synchronizes the plugin's table(s) in the database.
 - [KaosApplication](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Application/KaosApplication.md) &ndash; The KaosApplication class.
     - [KaosApplication::__construct](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Application/KaosApplication/__construct.md) &ndash; Builds the KaosApplication instance.
     - [KaosApplication::getCurrentDirectory](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Application/KaosApplication/getCurrentDirectory.md) &ndash; Returns the current directory when this instance was first instantiated.
@@ -338,53 +356,70 @@ Table of contents
     - [PushUniverseSnapshotCommand::run](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Command/PushUniverseSnapshotCommand/run.md) &ndash; Runs the command.
     - [KaosGenericCommand::__construct](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Command/KaosGenericCommand/__construct.md) &ndash; Builds the KaosGenericCommand instance.
     - [KaosGenericCommand::setApplication](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Command/KaosGenericCommand/setApplication.md) &ndash; Sets the application.
+- [UpdateSubscriberDependenciesCommand](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Command/UpdateSubscriberDependenciesCommand.md) &ndash; The UpdateSubscriberDependenciesCommand class
+    - [UpdateSubscriberDependenciesCommand::run](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Command/UpdateSubscriberDependenciesCommand/run.md) &ndash; Runs the command.
+    - [KaosGenericCommand::__construct](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Command/KaosGenericCommand/__construct.md) &ndash; Builds the KaosGenericCommand instance.
+    - [KaosGenericCommand::setApplication](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Command/KaosGenericCommand/setApplication.md) &ndash; Sets the application.
 - [KaosException](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Exception/KaosException.md) &ndash; The KaosException class.
 - [PreferencesTool](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Tool/PreferencesTool.md) &ndash; The PreferencesTool class.
     - [PreferencesTool::getPreferences](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Tool/PreferencesTool/getPreferences.md) &ndash; Returns the kaos preferences.
+- [CommitWizard](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/CommitWizard.md) &ndash; The CommitWizard class.
+    - [CommitWizard::__construct](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/CommitWizard/__construct.md) &ndash; Builds the CommitWizard instance.
+    - [CommitWizard::setOutput](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/CommitWizard/setOutput.md) &ndash; Sets the output.
+    - [CommitWizard::commit](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/CommitWizard/commit.md) &ndash; Commits the given planet with the given message.
+    - [CommitWizard::commitCurrentByPlanetDir](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/CommitWizard/commitCurrentByPlanetDir.md) &ndash; Commits the given planet.
 - [ReadmeUtil](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/ReadmeUtil.md) &ndash; The ReadmeUtil class.
     - [ReadmeUtil::__construct](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/ReadmeUtil/__construct.md) &ndash; Builds the ReadmeUtil instance.
     - [ReadmeUtil::setIsLight](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/ReadmeUtil/setIsLight.md) &ndash; Sets the isLight.
     - [ReadmeUtil::setServiceContent](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/ReadmeUtil/setServiceContent.md) &ndash; Sets the serviceContent.
     - [ReadmeUtil::createBasicReadmeFile](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/ReadmeUtil/createBasicReadmeFile.md) &ndash; was successful.
-    - [ReadmeUtil::getLatestVersionInfo](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/ReadmeUtil/getLatestVersionInfo.md) &ndash; section of the given README file.
-    - [ReadmeUtil::getAllVersionNumbers](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/ReadmeUtil/getAllVersionNumbers.md) &ndash; Returns an array of all version numbers found in the in the "History Log" section of the "read me" file.
+    - [ReadmeUtil::getLatestVersionInfo](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/ReadmeUtil/getLatestVersionInfo.md) &ndash; Proxy to the standardReadmeUtil's getLatestVersionInfo method.
     - [ReadmeUtil::getErrors](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/ReadmeUtil/getErrors.md) &ndash; Returns the errors of this instance.
-    - [ReadmeUtil::addHistoryLogEntry](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/ReadmeUtil/addHistoryLogEntry.md) &ndash; Adds an history entry to the given "read me" file, with the given message, date and version.
-    - [ReadmeUtil::addCommitMessageByUniverseDir](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/ReadmeUtil/addCommitMessageByUniverseDir.md) &ndash; Adds a commit message to the history log section of the README files for each planet in the given universeDir.
 - [PhpStormMetaHelper](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/PhpStormMeta/PhpStormMetaHelper.md) &ndash; The PhpStormMetaHelper class.
     - [PhpStormMetaHelper::getPhpStormMetaMapString](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/PhpStormMeta/PhpStormMetaHelper/getPhpStormMetaMapString.md) &ndash; $container->get("my_service")-> // phpstorm will autocomplete with the methods of that service...
 - [UpdateAllPlanetsTool](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Tools/UpdateAllPlanetsTool.md) &ndash; The UpdateAllPlanetsTool class.
+    - [UpdateAllPlanetsTool::upgradePlanetsLpiDepsFileAndCommit](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Tools/UpdateAllPlanetsTool/upgradePlanetsLpiDepsFileAndCommit.md) &ndash; Upgrades the given planet's lpi-deps file, and commit them.
     - [UpdateAllPlanetsTool::recloneAll](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Tools/UpdateAllPlanetsTool/recloneAll.md) &ndash; you can use this method to "repair" that.
     - [UpdateAllPlanetsTool::updateAllPlanets](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Tools/UpdateAllPlanetsTool/updateAllPlanets.md) &ndash; An old method I used to push all planets to github.
     - [UpdateAllPlanetsTool::alterLinks](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Tools/UpdateAllPlanetsTool/alterLinks.md) &ndash; An old method I used to update links when when I introduced the galaxy concept into the universe.
     - [UpdateAllPlanetsTool::alter](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Tools/UpdateAllPlanetsTool/alter.md) &ndash; to convert the old system with package-info.yml to meta-info.byml and dependencies.byml...
+- [AppBoilerplateUtil](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Util/AppBoilerplateUtil.md) &ndash; The AppBoilerplateUtil class.
+    - [AppBoilerplateUtil::__construct](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Util/AppBoilerplateUtil/__construct.md) &ndash; Builds the AppBoilerplateUtil instance.
+    - [AppBoilerplateUtil::setOutput](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Util/AppBoilerplateUtil/setOutput.md) &ndash; Sets the output.
+    - [AppBoilerplateUtil::getBoilerplateDependencies](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Util/AppBoilerplateUtil/getBoilerplateDependencies.md) &ndash; Returns the dependencies packed in the boilerplate.
+    - [AppBoilerplateUtil::upgradeBoilerplate](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Util/AppBoilerplateUtil/upgradeBoilerplate.md) &ndash; Upgrades the boilerplate for the Light_AppBoilerplate planet.
 - [CommitUtil](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Util/CommitUtil.md) &ndash; The CommitUtil class.
     - [CommitUtil::commitAllPlanets](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Util/CommitUtil/commitAllPlanets.md) &ndash; Commit all planets using the kpp routine.
+    - [CommitUtil::regularLingCommit](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Util/CommitUtil/regularLingCommit.md) &ndash; This methods emulates what I normally do when I manually commit a planet.
+- [KwinToLightCliCommandCodeUtil](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Util/KwinToLightCliCommandCodeUtil.md) &ndash; The KwinToLightCliCommandCodeUtil class.
+    - [KwinToLightCliCommandCodeUtil::printCodeByKwin](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Util/KwinToLightCliCommandCodeUtil/printCodeByKwin.md) &ndash; Prints the php code corresponding to the given kwin string.
 - [ReadmeUtil](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Util/ReadmeUtil.md) &ndash; The ReadmeUtil class.
     - [ReadmeUtil::__construct](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/ReadmeUtil/__construct.md) &ndash; Builds the ReadmeUtil instance.
     - [ReadmeUtil::setIsLight](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/ReadmeUtil/setIsLight.md) &ndash; Sets the isLight.
     - [ReadmeUtil::setServiceContent](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/ReadmeUtil/setServiceContent.md) &ndash; Sets the serviceContent.
     - [ReadmeUtil::createBasicReadmeFile](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/ReadmeUtil/createBasicReadmeFile.md) &ndash; was successful.
-    - [ReadmeUtil::getLatestVersionInfo](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/ReadmeUtil/getLatestVersionInfo.md) &ndash; section of the given README file.
-    - [ReadmeUtil::getAllVersionNumbers](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/ReadmeUtil/getAllVersionNumbers.md) &ndash; Returns an array of all version numbers found in the in the "History Log" section of the "read me" file.
+    - [ReadmeUtil::getLatestVersionInfo](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/ReadmeUtil/getLatestVersionInfo.md) &ndash; Proxy to the standardReadmeUtil's getLatestVersionInfo method.
     - [ReadmeUtil::getErrors](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/ReadmeUtil/getErrors.md) &ndash; Returns the errors of this instance.
-    - [ReadmeUtil::addHistoryLogEntry](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/ReadmeUtil/addHistoryLogEntry.md) &ndash; Adds an history entry to the given "read me" file, with the given message, date and version.
-    - [ReadmeUtil::addCommitMessageByUniverseDir](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Util/ReadmeUtil/addCommitMessageByUniverseDir.md) &ndash; Adds a commit message to the history log section of the README files for each planet in the given universeDir.
+- [SubscribersUtil](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Util/SubscribersUtil.md) &ndash; The SubscribersUtil class.
+    - [SubscribersUtil::updateSubscribersDependenciesAndCommit](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Util/SubscribersUtil/updateSubscribersDependenciesAndCommit.md) &ndash; Updates the planets which depend on the given planetDot.
 
 
 Dependencies
 ============
-- [DocTools](https://github.com/lingtalfi/DocTools)
-- [Kit_PicassoWidget](https://github.com/lingtalfi/Kit_PicassoWidget)
-- [Bat](https://github.com/lingtalfi/Bat)
 - [BabyYaml](https://github.com/lingtalfi/BabyYaml)
-- [Light_PlanetInstaller](https://github.com/lingtalfi/Light_PlanetInstaller)
-- [UniverseTools](https://github.com/lingtalfi/UniverseTools)
+- [Bat](https://github.com/lingtalfi/Bat)
 - [CliTools](https://github.com/lingtalfi/CliTools)
 - [DirScanner](https://github.com/lingtalfi/DirScanner)
-- [Uni2](https://github.com/lingtalfi/Uni2)
+- [DocTools](https://github.com/lingtalfi/DocTools)
+- [Kit_PicassoWidget](https://github.com/lingtalfi/Kit_PicassoWidget)
+- [Kwin](https://github.com/lingtalfi/Kwin)
+- [Light](https://github.com/lingtalfi/Light)
+- [Light_DbSynchronizer](https://github.com/lingtalfi/Light_DbSynchronizer)
+- [Light_PlanetInstaller](https://github.com/lingtalfi/Light_PlanetInstaller)
+- [Light_PluginInstaller](https://github.com/lingtalfi/Light_PluginInstaller)
 - [PlanetSitemap](https://github.com/lingtalfi/PlanetSitemap)
 - [SimpleCurl](https://github.com/lingtalfi/SimpleCurl)
-- [Light](https://github.com/lingtalfi/Light)
+- [Uni2](https://github.com/lingtalfi/Uni2)
+- [UniverseTools](https://github.com/lingtalfi/UniverseTools)
 
 

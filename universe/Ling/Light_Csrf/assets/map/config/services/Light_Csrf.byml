@@ -1,5 +1,0 @@
-csrf:
-    instance: Ling\Light_Csrf\Service\LightCsrfService
-    methods:
-        setUsePage:
-            bool: true

@@ -1,7 +1,0 @@
-Light_UserData.admin:
-    - store.luda_tag
-    - store.luda_resource
-    - store.luda_resource_has_tag
-    - store.luda_resource_file
-
-

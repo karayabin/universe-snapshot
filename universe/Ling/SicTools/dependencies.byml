@@ -1,8 +1,8 @@
 dependencies: 
     Ling: 
         - ArrayToString
-        - Bat
         - BabyYaml
+        - Bat
         - DirScanner
     
 

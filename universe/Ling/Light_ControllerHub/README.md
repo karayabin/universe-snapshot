@@ -1,6 +1,6 @@
 Light_ControllerHub
 ===========
-2019-10-28 -> 2020-12-01
+2019-10-28 -> 2021-03-05
 
 
 
@@ -14,6 +14,11 @@ This is part of the [universe framework](https://github.com/karayabin/universe-s
 
 Install
 ==========
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.Light_ControllerHub
+```
+
 Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
 ```bash
 uni import Ling/Light_ControllerHub
@@ -54,16 +59,6 @@ controller_hub:
         setContainer:
             container: @container()
 
-
-# --------------------------------------
-# hooks
-# --------------------------------------
-$easy_route.methods_collection:
-    -
-        method: registerBundleFile
-        args:
-            file: config/data/Light_ControllerHub/Light_EasyRoute/lch_routes.byml
-
 ```
 
 
@@ -72,9 +67,41 @@ $easy_route.methods_collection:
 History Log
 =============
 
+- 1.2.12 -- 2021-03-05
+
+    - update README.md, add install alternative
+
+- 1.2.11 -- 2021-02-25
+
+    - fix assets/map dir removed
+
+- 1.2.10 -- 2021-02-23
+
+    - Update dependencies (pushed by SubscribersUtil)
+
+- 1.2.9 -- 2021-02-23
+
+    - Update dependencies (pushed by SubscribersUtil)
+
+- 1.2.8 -- 2021-02-23
+
+    - Update dependencies
+
+- 1.2.7 -- 2021-02-23
+
+  - cleaning assets/map dir 
+  
+- 1.2.6 -- 2021-02-23
+
+  - fix plugin's route declaration file not named correctly 
+  
+- 1.2.5 -- 2021-02-23
+
+  - switch to Light_EasyRoute open registration system
+
 - 1.2.4 -- 2020-12-08
 
-    - Fix lpi-deps not using natsort.
+    - Fix lpi-deps not using natsort
 
 - 1.2.3 -- 2020-12-04
 

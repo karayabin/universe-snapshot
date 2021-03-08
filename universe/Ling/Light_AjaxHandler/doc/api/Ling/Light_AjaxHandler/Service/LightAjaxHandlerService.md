@@ -4,7 +4,7 @@
 
 The LightAjaxHandlerService class
 ================
-2019-09-19 --> 2020-12-08
+2019-09-19 --> 2021-03-05
 
 
 
@@ -84,4 +84,4 @@ See the source code of [Ling\Light_AjaxHandler\Service\LightAjaxHandlerService](
 
 SeeAlso
 ==============
-Previous class: [LightAjaxHandlerInterface](https://github.com/lingtalfi/Light_AjaxHandler/blob/master/doc/api/Ling/Light_AjaxHandler/Handler/LightAjaxHandlerInterface.md)<br>
+Previous class: [LightAjaxHandlerPlanetInstaller](https://github.com/lingtalfi/Light_AjaxHandler/blob/master/doc/api/Ling/Light_AjaxHandler/Light_PlanetInstaller/LightAjaxHandlerPlanetInstaller.md)<br>

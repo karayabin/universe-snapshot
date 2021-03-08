@@ -13,3 +13,7 @@
 1.0.3: 
     - Ling:Chloroform:1.36.6+
     - Ling:Light:0.69.18+
+
+1.0.4: 
+    - Ling:Chloroform:1.36.7+
+    - Ling:Light:0.69.30+

@@ -4,7 +4,7 @@
 
 The LightKitPageRenderer class
 ================
-2019-04-25 --> 2020-12-08
+2019-04-25 --> 2021-03-05
 
 
 
@@ -223,4 +223,4 @@ See the source code of [Ling\Light_Kit\PageRenderer\LightKitPageRenderer](https:
 
 SeeAlso
 ==============
-Previous class: [PageConfUpdator](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageConfigurationUpdator/PageConfUpdator.md)<br>
+Previous class: [PageConfUpdator](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageConfigurationUpdator/PageConfUpdator.md)<br>Next class: [LightKitService](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/Service/LightKitService.md)<br>

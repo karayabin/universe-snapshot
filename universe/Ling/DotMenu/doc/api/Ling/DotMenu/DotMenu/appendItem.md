@@ -61,7 +61,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [DotMenu::appendItem](https://github.com/lingtalfi/DotMenu/blob/master/DotMenu.php#L88-L118)
+See the source code for method [DotMenu::appendItem](https://github.com/lingtalfi/DotMenu/blob/master/DotMenu.php#L88-L120)
 
 
 See Also

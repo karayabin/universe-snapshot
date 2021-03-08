@@ -1,6 +1,6 @@
 QuickForm
 ================
-2016-11-25
+2016-11-25 -> 2021-03-05
 
 
 
@@ -12,6 +12,11 @@ QuickForm is part of the [universe framework](https://github.com/karayabin/unive
 
 Install
 ==========
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.QuickForm
+```
+
 Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
 ```bash
 uni import Ling/QuickForm
@@ -876,6 +881,10 @@ Dependencies
 History Log
 ------------------
 
+
+- 4.6.4 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 4.6.3 -- 2020-12-08
 

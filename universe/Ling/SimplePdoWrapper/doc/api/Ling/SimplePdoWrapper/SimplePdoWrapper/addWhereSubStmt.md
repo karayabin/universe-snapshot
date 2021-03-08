@@ -16,7 +16,7 @@ Description
 ================
 
 
-public static [SimplePdoWrapper::addWhereSubStmt](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/SimplePdoWrapper/addWhereSubStmt.md)(&$stmt, array &$markers, $whereConds) : void
+public static [SimplePdoWrapper::addWhereSubStmt](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/SimplePdoWrapper/addWhereSubStmt.md)($stmt, array &$markers, $whereConds) : void
 
 
 

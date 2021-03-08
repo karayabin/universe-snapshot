@@ -99,7 +99,7 @@ class BabyYamlConfStorage implements ConfStorageInterface, VariableAwareConfStor
      * @implementation
      * @throws \Exception
      */
-    public function getPageConf(string $pageName)
+    public function getPageConf(string $pageName): array|false
     {
         $this->init();
         $dir = $this->rootDir . "/$pageName";

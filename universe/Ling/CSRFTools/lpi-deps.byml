@@ -33,3 +33,6 @@
 
 1.5.3: 
     - Ling:ArrayToString:1.4.2+
+
+1.5.4: 
+    - Ling:ArrayToString:1.4.5+

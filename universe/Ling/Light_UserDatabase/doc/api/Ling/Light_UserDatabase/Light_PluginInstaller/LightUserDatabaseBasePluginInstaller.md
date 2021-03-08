@@ -4,7 +4,7 @@
 
 The LightUserDatabaseBasePluginInstaller class
 ================
-2019-07-19 --> 2021-02-11
+2019-07-19 --> 2021-03-05
 
 
 

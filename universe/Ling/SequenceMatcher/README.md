@@ -1,6 +1,6 @@
 SequenceMatcher
 =========================
-2015-12-19 --> 2016-12-15
+2015-12-19 --> 2021-03-05
 
 
 Find/replace a pattern in a sequence of things.
@@ -12,6 +12,11 @@ SequenceMatcher is part of the [universe framework](https://github.com/karayabin
 
 Install
 ==========
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.SequenceMatcher
+```
+
 Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
 ```bash
 uni import Ling/SequenceMatcher
@@ -293,6 +298,10 @@ Still, the intent of this planet is to provide the replace functionality, maybe 
 
 History Log
 ------------------
+
+- 1.0.3 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.0.2 -- 2020-12-08
 

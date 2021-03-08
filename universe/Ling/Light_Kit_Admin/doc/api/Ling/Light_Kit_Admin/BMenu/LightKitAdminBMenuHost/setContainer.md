@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightKitAdminBMenuHost::setContainer](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/BMenu/LightKitAdminBMenuHost.php#L147-L150)
+See the source code for method [LightKitAdminBMenuHost::setContainer](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/BMenu/LightKitAdminBMenuHost.php#L148-L151)
 
 
 See Also

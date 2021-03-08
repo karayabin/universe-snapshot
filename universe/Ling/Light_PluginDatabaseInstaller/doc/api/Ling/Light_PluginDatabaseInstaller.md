@@ -1,6 +1,6 @@
 Ling/Light_PluginDatabaseInstaller
 ================
-2019-09-11 --> 2020-12-08
+2019-09-11 --> 2021-03-05
 
 
 
@@ -27,9 +27,9 @@ Table of contents
 
 Dependencies
 ============
-- [Light](https://github.com/lingtalfi/Light)
 - [Bat](https://github.com/lingtalfi/Bat)
 - [DirScanner](https://github.com/lingtalfi/DirScanner)
+- [Light](https://github.com/lingtalfi/Light)
 - [Light_Events](https://github.com/lingtalfi/Light_Events)
 
 

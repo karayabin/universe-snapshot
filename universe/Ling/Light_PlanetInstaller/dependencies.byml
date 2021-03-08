@@ -1,15 +1,15 @@
 dependencies: 
     Ling: 
-        - CliTools
-        - Bat
-        - Light_Cli
-        - Light
-        - UniverseTools
-        - Light_PluginInstaller
         - BabyYaml
-        - Light_Logger
-        - DirScanner
+        - Bat
+        - CliTools
         - CopyDir
+        - DirScanner
+        - Light
+        - Light_Cli
+        - Light_Logger
+        - Light_PluginInstaller
+        - UniverseTools
     
 
 post_install: 

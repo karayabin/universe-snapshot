@@ -16,7 +16,7 @@ Description
 ================
 
 
-protected [LightErrorHandlerService::errorHandler](https://github.com/lingtalfi/Light_ErrorHandler/blob/master/doc/api/Ling/Light_ErrorHandler/Service/LightErrorHandlerService/errorHandler.md)(int $errno, string $errstr, string $errfile, int $errline) : bool
+public [LightErrorHandlerService::errorHandler](https://github.com/lingtalfi/Light_ErrorHandler/blob/master/doc/api/Ling/Light_ErrorHandler/Service/LightErrorHandlerService/errorHandler.md)(int $errno, string $errstr, string $errfile, int $errline) : bool
 
 
 
@@ -66,7 +66,7 @@ Returns bool.
 
 Source Code
 ===========
-See the source code for method [LightErrorHandlerService::errorHandler](https://github.com/lingtalfi/Light_ErrorHandler/blob/master/Service/LightErrorHandlerService.php#L157-L167)
+See the source code for method [LightErrorHandlerService::errorHandler](https://github.com/lingtalfi/Light_ErrorHandler/blob/master/Service/LightErrorHandlerService.php#L154-L164)
 
 
 See Also

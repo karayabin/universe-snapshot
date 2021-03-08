@@ -75,7 +75,7 @@ Returns bool.
 
 Source Code
 ===========
-See the source code for method [LpiVersionHelper::versionMeetsExpectations](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Helper/LpiVersionHelper.php#L88-L112)
+See the source code for method [LpiVersionHelper::versionMeetsExpectations](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Helper/LpiVersionHelper.php#L124-L148)
 
 
 See Also

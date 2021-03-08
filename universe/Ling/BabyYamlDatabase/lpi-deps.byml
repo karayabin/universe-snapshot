@@ -22,3 +22,8 @@
     - Ling:ArrayToString:1.4.2+
     - Ling:BabyYaml:1.7.5+
     - Ling:Bat:1.293+
+
+1.0.5: 
+    - Ling:ArrayToString:1.4.5+
+    - Ling:BabyYaml:1.7.8+
+    - Ling:Bat:1.307+

@@ -1,6 +1,6 @@
 Light_HtmlPageCopilot
 ===========
-2019-08-30
+2019-08-30 -> 2021-03-05
 
 
 
@@ -15,6 +15,11 @@ This is part of the [universe framework](https://github.com/karayabin/universe-s
 
 Install
 ==========
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.Light_HtmlPageCopilot
+```
+
 Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
 ```bash
 uni import Ling/Light_HtmlPageCopilot
@@ -66,6 +71,10 @@ html_page_copilot:
 
 History Log
 =============
+
+- 1.0.6 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.0.5 -- 2020-12-08
 

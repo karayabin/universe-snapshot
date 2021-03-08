@@ -4,7 +4,7 @@
 
 The ChloroformWidget class
 ================
-2019-04-26 --> 2020-12-08
+2019-04-26 --> 2021-03-05
 
 
 
@@ -22,7 +22,7 @@ Class synopsis
 ==============
 
 
-class <span class="pl-k">ChloroformWidget</span> extends [EasyLightPicassoWidget](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/api/Ling/Kit_PicassoWidget/Widget/EasyLightPicassoWidget.md) implements [KitPageRendererAwareInterface](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRendererAwareInterface.md), [UniversalTemplateEngineInterface](https://github.com/lingtalfi/UniversalTemplateEngine/blob/master/UniversalTemplateEngineInterface.php), [WidgetConfAwarePicassoWidgetInterface](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/api/Ling/Kit_PicassoWidget/Widget/WidgetConfAwarePicassoWidgetInterface.md) {
+class <span class="pl-k">ChloroformWidget</span> extends [EasyLightPicassoWidget](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/api/Ling/Kit_PicassoWidget/Widget/EasyLightPicassoWidget.md) implements [KitPageRendererAwareInterface](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRendererAwareInterface.md), [WidgetConfAwarePicassoWidgetInterface](https://github.com/lingtalfi/Kit_PicassoWidget/blob/master/doc/api/Ling/Kit_PicassoWidget/Widget/WidgetConfAwarePicassoWidgetInterface.md), [UniversalTemplateEngineInterface](https://github.com/lingtalfi/UniversalTemplateEngine/blob/master/UniversalTemplateEngineInterface.php) {
 
 - Inherited properties
     - protected [Ling\Kit\PageRenderer\KitPageRendererInterface](https://github.com/lingtalfi/Kit/blob/master/doc/api/Ling/Kit/PageRenderer/KitPageRendererInterface.md) [EasyLightPicassoWidget::$kitPageRenderer](#property-kitPageRenderer) ;
@@ -52,7 +52,6 @@ class <span class="pl-k">ChloroformWidget</span> extends [EasyLightPicassoWidget
     - public ZephyrTemplateEngine::getErrors() : array
     - public ZephyrTemplateEngine::setDirectory(string $directory) : void
     - protected ZephyrTemplateEngine::interpret(string $___path, array $z) : false | string
-    - private ZephyrTemplateEngine::addError(string $msg) : void
 
 }
 
@@ -82,7 +81,6 @@ Methods
 - ZephyrTemplateEngine::getErrors &ndash; Returns the errors of this instance.
 - ZephyrTemplateEngine::setDirectory &ndash; Sets the directory.
 - ZephyrTemplateEngine::interpret &ndash; and returns the resulting html code.
-- ZephyrTemplateEngine::addError &ndash; Adds an error to this instance.
 
 
 

@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [LightSimpleHttpServerException::__construct](https://github.com/lingtalfi/Light_SimpleHttpServer/blob/master/doc/api/Ling/Light_SimpleHttpServer/Exception/LightSimpleHttpServerException/__construct.md)(?$message = , ?$code = 0, ?[\Throwable](http://php.net/manual/en/class.throwable.php) $previous = null) : void
+public [LightSimpleHttpServerException::__construct](https://github.com/lingtalfi/Light_SimpleHttpServer/blob/master/doc/api/Ling/Light_SimpleHttpServer/Exception/LightSimpleHttpServerException/__construct.md)(?$message = , ?$code = 0, ?Throwable $previous = null) : void
 
 
 

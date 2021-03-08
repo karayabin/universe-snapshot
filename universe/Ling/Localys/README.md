@@ -1,6 +1,6 @@
 Localys
 ============
-2017-07-01
+2017-07-01 -> 2021-03-05
 
 
 A locale helper for your apps.
@@ -15,6 +15,11 @@ This is part of the [universe framework](https://github.com/karayabin/universe-s
 
 Install
 ==========
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.Localys
+```
+
 Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
 ```bash
 uni import Ling/Localys
@@ -82,6 +87,10 @@ only the used bits?
 
 History Log
 ------------------
+
+- 1.9.3 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.9.2 -- 2020-12-08
 

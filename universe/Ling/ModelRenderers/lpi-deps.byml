@@ -72,3 +72,8 @@
     - Ling:Bat:1.293+
     - Ling:Models:1.26.2+
     - Ling:RowsGenerator:1.6.2+
+
+1.7.6: 
+    - Ling:Bat:1.308+
+    - Ling:Models:1.26.2+
+    - Ling:RowsGenerator:1.6.2+

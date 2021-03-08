@@ -87,6 +87,7 @@ EEE;
             "n" => "if set, doesn't update the <$concept>lpi file</$concept> when the <$pmt>planetDefinition</$pmt> parameter is defined",
             "f" => "if set, forces the reimporting and reinstalling of the planet, even if it's already in your app and already installed",
             "keep-build" => "if set, the <$concept>build directory</$concept> will not be automatically removed after a successful operation.",
+            "l" => "local, if set create symlinks to the local universe (when available) instead of copying the planet dir. This can save a lot of time.",
         ];
     }
 

@@ -1,23 +1,23 @@
 dependencies: 
     Ling: 
-        - Light
-        - Light_AjaxHandler
-        - Light_CsrfSession
-        - Light_ReverseRouter
-        - Light_MicroPermission
-        - Bat
-        - Light_ControllerHub
-        - Light_Kit_Admin
         - ArrayToString
-        - Light_Database
-        - Light_Nugget
-        - Light_UserManager
-        - Light_User
-        - ParametrizedSqlQuery
+        - Bat
         - JAcpHep
         - JResponsiveTableHelper
         - JRicAdminTableHelper
         - JSortTable
+        - Light
+        - Light_AjaxHandler
+        - Light_ControllerHub
+        - Light_CsrfSession
+        - Light_Database
+        - Light_Kit_Admin
+        - Light_MicroPermission
+        - Light_Nugget
+        - Light_ReverseRouter
+        - Light_User
+        - Light_UserManager
+        - ParametrizedSqlQuery
     
 
 post_install: 

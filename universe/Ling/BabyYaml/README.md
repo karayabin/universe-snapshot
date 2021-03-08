@@ -1,6 +1,6 @@
 BabyYaml
 ============
-2016-12-28 -> 2021-02-05
+2016-12-28 -> 2021-03-05
 
 
 php implementation of a babyYaml reader.
@@ -17,6 +17,11 @@ BabyYaml is part of the [universe framework](https://github.com/karayabin/univer
 Install
 =============
 
+
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.BabyYaml
+```
 
 Using the [uni tool](https://github.com/lingtalfi/universe-naive-importer)
 ```bash
@@ -688,6 +693,10 @@ The implementation is messy and without too much documentation, but it works.
 History Log
 ===============
    
+
+- 1.7.8 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.7.7 -- 2021-02-05
   

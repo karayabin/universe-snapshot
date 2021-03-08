@@ -13,6 +13,7 @@ use Ling\Light_DeveloperWizard\Helper\CreateFileHelper;
 use Ling\Light_DeveloperWizard\Helper\DeveloperWizardGenericHelper;
 use Ling\Light_DeveloperWizard\Helper\DeveloperWizardLkaHelper;
 use Ling\Light_DeveloperWizard\WebWizardTools\Process\LightDeveloperWizardCommonProcess;
+use Ling\Light_Kit_Admin\Helper\LightKitAdminPermissionHelper;
 use Ling\Light_Kit_Admin_Generator\Service\LightKitAdminGeneratorService;
 use Ling\Light_LingStandardService\Helper\LightLingStandardServiceHelper;
 use Ling\Light_UserDatabase\Service\LightUserDatabaseService;
@@ -474,7 +475,7 @@ abstract class LightKitAdminBaseProcess extends LightDeveloperWizardCommonProces
                      * @var $lud LightUserDatabaseService
                      */
                     $userDb = $this->container->get("user_database");
-                    LightLingStandardServiceHelper::bindStandardLightPermissionsToLkaPermissionGroups($userDb, $originPlanet);
+                    LightKitAdminPermissionHelper::bindStandardLightPermissionsToLkaPermissionGroups($userDb, $originPlanet);
 
 
                 } else {

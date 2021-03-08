@@ -1,6 +1,6 @@
 Ling/Light_Bullsheet
 ================
-2019-08-14 --> 2020-12-08
+2019-08-14 --> 2021-03-05
 
 
 
@@ -27,7 +27,7 @@ Table of contents
 
 Dependencies
 ============
-- [Light](https://github.com/lingtalfi/Light)
 - [Bat](https://github.com/lingtalfi/Bat)
+- [Light](https://github.com/lingtalfi/Light)
 
 

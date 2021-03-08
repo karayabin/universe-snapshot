@@ -9,3 +9,6 @@
 
 1.0.3: 
     - Ling:BabyYaml:1.7.5+
+
+1.0.4: 
+    - Ling:BabyYaml:1.7.8+

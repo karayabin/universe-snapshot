@@ -4,7 +4,7 @@
 
 The LightPlanetInstallerApplication class
 ================
-2020-12-08 --> 2021-02-11
+2020-12-08 --> 2021-03-05
 
 
 
@@ -57,6 +57,7 @@ class <span class="pl-k">LightPlanetInstallerApplication</span> extends [LightCl
     - protected [runProgram](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/CliTools/Program/LightPlanetInstallerApplication/runProgram.md)(Ling\CliTools\Input\InputInterface $input, [Ling\CliTools\Output\OutputInterface](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Output/OutputInterface.md) $output) : mixed
     - public [hasLpiFile](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/CliTools/Program/LightPlanetInstallerApplication/hasLpiFile.md)(?array $options = []) : bool
     - public [setCurrentOutput](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/CliTools/Program/LightPlanetInstallerApplication/setCurrentOutput.md)([Ling\CliTools\Output\OutputInterface](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Output/OutputInterface.md) $currentOutput) : void
+    - public [getCurrentOutput](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/CliTools/Program/LightPlanetInstallerApplication/getCurrentOutput.md)() : [OutputInterface](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Output/OutputInterface.md)
     - public [addPlanetListToLpiFile](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/CliTools/Program/LightPlanetInstallerApplication/addPlanetListToLpiFile.md)(array $planetList) : void
     - public [removePlanetFromLpiFile](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/CliTools/Program/LightPlanetInstallerApplication/removePlanetFromLpiFile.md)(string $planetDotName) : void
     - public [createLpiFile](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/CliTools/Program/LightPlanetInstallerApplication/createLpiFile.md)(?array $options = []) : void
@@ -198,6 +199,7 @@ Methods
 - [LightPlanetInstallerApplication::runProgram](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/CliTools/Program/LightPlanetInstallerApplication/runProgram.md) &ndash; Runs the program, and returns the exit status.
 - [LightPlanetInstallerApplication::hasLpiFile](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/CliTools/Program/LightPlanetInstallerApplication/hasLpiFile.md) &ndash; Returns whether there is a lpi file in the current application.
 - [LightPlanetInstallerApplication::setCurrentOutput](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/CliTools/Program/LightPlanetInstallerApplication/setCurrentOutput.md) &ndash; Sets the currentOutput.
+- [LightPlanetInstallerApplication::getCurrentOutput](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/CliTools/Program/LightPlanetInstallerApplication/getCurrentOutput.md) &ndash; Returns the currentOutput of this instance.
 - [LightPlanetInstallerApplication::addPlanetListToLpiFile](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/CliTools/Program/LightPlanetInstallerApplication/addPlanetListToLpiFile.md) &ndash; Adds/replaces the planets of the given list to the lpi file.
 - [LightPlanetInstallerApplication::removePlanetFromLpiFile](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/CliTools/Program/LightPlanetInstallerApplication/removePlanetFromLpiFile.md) &ndash; Removes a planet from the lpi file.
 - [LightPlanetInstallerApplication::createLpiFile](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/CliTools/Program/LightPlanetInstallerApplication/createLpiFile.md) &ndash; Creates the lpi file for this application if it doesn't exist yet.
@@ -240,4 +242,4 @@ See the source code of [Ling\Light_PlanetInstaller\CliTools\Program\LightPlanetI
 
 SeeAlso
 ==============
-Previous class: [UninstallCommand](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/CliTools/Command/UninstallCommand.md)<br>Next class: [LightPlanetInstallerException](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Exception/LightPlanetInstallerException.md)<br>
+Previous class: [VersionCommand](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/CliTools/Command/VersionCommand.md)<br>Next class: [LightPlanetInstallerException](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Exception/LightPlanetInstallerException.md)<br>

@@ -4,7 +4,7 @@
 
 The LightCliApplication class
 ================
-2021-01-07 --> 2021-02-12
+2021-01-07 --> 2021-03-05
 
 
 
@@ -22,15 +22,15 @@ Class synopsis
 ==============
 
 
-class <span class="pl-k">LightCliApplication</span> extends [Application](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Program/Application.md) implements [ProgramInterface](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Program/ProgramInterface.md) {
+class <span class="pl-k">LightCliApplication</span> extends [LightCliBaseApplication](https://github.com/lingtalfi/Light_Cli/blob/master/doc/api/Ling/Light_Cli/CliTools/Program/LightCliBaseApplication.md) implements [LightServiceContainerAwareInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerAwareInterface.md), [LightCliApplicationInterface](https://github.com/lingtalfi/Light_Cli/blob/master/doc/api/Ling/Light_Cli/CliTools/Program/LightCliApplicationInterface.md), [ProgramInterface](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Program/ProgramInterface.md) {
 
 - Properties
     - protected string [$currentDirectory](#property-currentDirectory) ;
-    - protected [Ling\CliTools\Output\OutputInterface](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Output/OutputInterface.md) [$currentOutput](#property-currentOutput) ;
-    - protected [Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) [$container](#property-container) ;
-    - protected array [$alias2Cmds](#property-alias2Cmds) ;
+    - protected [Ling\CliTools\Output\OutputInterface](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Output/OutputInterface.md)|null [$currentOutput](#property-currentOutput) ;
+    - protected array|null [$alias2Cmds](#property-alias2Cmds) ;
 
 - Inherited properties
+    - protected [Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) [LightCliBaseApplication::$container](#property-container) ;
     - protected array [Application::$commands](#property-commands) ;
     - protected string [Application::$defaultCommandAlias](#property-defaultCommandAlias) ;
     - protected [Ling\UniversalLogger\UniversalLoggerInterface](https://github.com/lingtalfi/UniversalLogger/blob/master/doc/api/Ling/UniversalLogger/UniversalLoggerInterface.md) [AbstractProgram::$logger](#property-logger) ;
@@ -40,14 +40,16 @@ class <span class="pl-k">LightCliApplication</span> extends [Application](https:
 
 - Methods
     - public [__construct](https://github.com/lingtalfi/Light_Cli/blob/master/doc/api/Ling/Light_Cli/CliTools/Program/LightCliApplication/__construct.md)() : void
-    - public [setContainer](https://github.com/lingtalfi/Light_Cli/blob/master/doc/api/Ling/Light_Cli/CliTools/Program/LightCliApplication/setContainer.md)([Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) $container) : void
     - public [getCurrentDirectory](https://github.com/lingtalfi/Light_Cli/blob/master/doc/api/Ling/Light_Cli/CliTools/Program/LightCliApplication/getCurrentDirectory.md)() : string
+    - public [getAppId](https://github.com/lingtalfi/Light_Cli/blob/master/doc/api/Ling/Light_Cli/CliTools/Program/LightCliApplication/getAppId.md)() : string
     - protected [onCommandNotFound](https://github.com/lingtalfi/Light_Cli/blob/master/doc/api/Ling/Light_Cli/CliTools/Program/LightCliApplication/onCommandNotFound.md)(string $commandAlias, Ling\CliTools\Input\InputInterface $input, [Ling\CliTools\Output\OutputInterface](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Output/OutputInterface.md) $output) : void
     - protected [onCommandInstantiated](https://github.com/lingtalfi/Light_Cli/blob/master/doc/api/Ling/Light_Cli/CliTools/Program/LightCliApplication/onCommandInstantiated.md)([Ling\CliTools\Command\CommandInterface](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Command/CommandInterface.md) $command) : void
     - private [buildAliases](https://github.com/lingtalfi/Light_Cli/blob/master/doc/api/Ling/Light_Cli/CliTools/Program/LightCliApplication/buildAliases.md)(array $cliApps) : void
     - private [error](https://github.com/lingtalfi/Light_Cli/blob/master/doc/api/Ling/Light_Cli/CliTools/Program/LightCliApplication/error.md)(string $msg, ?int $code = null) : void
 
 - Inherited methods
+    - public [LightCliBaseApplication::getCommands](https://github.com/lingtalfi/Light_Cli/blob/master/doc/api/Ling/Light_Cli/CliTools/Program/LightCliBaseApplication/getCommands.md)() : [LightCliCommandInterface](https://github.com/lingtalfi/Light_Cli/blob/master/doc/api/Ling/Light_Cli/CliTools/Program/LightCliCommandInterface.md)
+    - public [LightCliBaseApplication::setContainer](https://github.com/lingtalfi/Light_Cli/blob/master/doc/api/Ling/Light_Cli/CliTools/Program/LightCliBaseApplication/setContainer.md)([Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) $container) : void
     - public Application::registerCommand(string $commandClassName, $aliases) : void
     - protected Application::runProgram(Ling\CliTools\Input\InputInterface $input, [Ling\CliTools\Output\OutputInterface](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Output/OutputInterface.md) $output) : mixed
     - public AbstractProgram::setLogger([Ling\UniversalLogger\UniversalLoggerInterface](https://github.com/lingtalfi/UniversalLogger/blob/master/doc/api/Ling/UniversalLogger/UniversalLoggerInterface.md) $logger) : void
@@ -78,15 +80,15 @@ Properties
     
     
 
-- <span id="property-container"><b>container</b></span>
-
-    This property holds the container for this instance.
-    
-    
-
 - <span id="property-alias2Cmds"><b>alias2Cmds</b></span>
 
     This property holds the alias2Cmds for this instance.
+    
+    
+
+- <span id="property-container"><b>container</b></span>
+
+    This property holds the container for this instance.
     
     
 
@@ -155,12 +157,14 @@ Methods
 ==============
 
 - [LightCliApplication::__construct](https://github.com/lingtalfi/Light_Cli/blob/master/doc/api/Ling/Light_Cli/CliTools/Program/LightCliApplication/__construct.md) &ndash; Builds the Application instance.
-- [LightCliApplication::setContainer](https://github.com/lingtalfi/Light_Cli/blob/master/doc/api/Ling/Light_Cli/CliTools/Program/LightCliApplication/setContainer.md) &ndash; Sets the container.
 - [LightCliApplication::getCurrentDirectory](https://github.com/lingtalfi/Light_Cli/blob/master/doc/api/Ling/Light_Cli/CliTools/Program/LightCliApplication/getCurrentDirectory.md) &ndash; Returns the currentDirectory of this instance.
+- [LightCliApplication::getAppId](https://github.com/lingtalfi/Light_Cli/blob/master/doc/api/Ling/Light_Cli/CliTools/Program/LightCliApplication/getAppId.md) &ndash; Returns the appId of the application.
 - [LightCliApplication::onCommandNotFound](https://github.com/lingtalfi/Light_Cli/blob/master/doc/api/Ling/Light_Cli/CliTools/Program/LightCliApplication/onCommandNotFound.md) &ndash; Hook called if a command was not found.
 - [LightCliApplication::onCommandInstantiated](https://github.com/lingtalfi/Light_Cli/blob/master/doc/api/Ling/Light_Cli/CliTools/Program/LightCliApplication/onCommandInstantiated.md) &ndash; Can decorate the command after it has just been instantiated.
 - [LightCliApplication::buildAliases](https://github.com/lingtalfi/Light_Cli/blob/master/doc/api/Ling/Light_Cli/CliTools/Program/LightCliApplication/buildAliases.md) &ndash; Builds the aliases array if not already built.
 - [LightCliApplication::error](https://github.com/lingtalfi/Light_Cli/blob/master/doc/api/Ling/Light_Cli/CliTools/Program/LightCliApplication/error.md) &ndash; Throws an exception.
+- [LightCliBaseApplication::getCommands](https://github.com/lingtalfi/Light_Cli/blob/master/doc/api/Ling/Light_Cli/CliTools/Program/LightCliBaseApplication/getCommands.md) &ndash; Returns the array of commands provided by the application.
+- [LightCliBaseApplication::setContainer](https://github.com/lingtalfi/Light_Cli/blob/master/doc/api/Ling/Light_Cli/CliTools/Program/LightCliBaseApplication/setContainer.md) &ndash; Sets the light service container interface.
 - Application::registerCommand &ndash; Registers a command with the given aliases.
 - Application::runProgram &ndash; Runs the program, and returns the exit status.
 - AbstractProgram::setLogger &ndash; Sets the logger.
@@ -182,4 +186,4 @@ See the source code of [Ling\Light_Cli\CliTools\Program\LightCliApplication](htt
 
 SeeAlso
 ==============
-Previous class: [ListCommand](https://github.com/lingtalfi/Light_Cli/blob/master/doc/api/Ling/Light_Cli/CliTools/Command/ListCommand.md)<br>Next class: [LightCliApplicationAwareInterface](https://github.com/lingtalfi/Light_Cli/blob/master/doc/api/Ling/Light_Cli/CliTools/Program/LightCliApplicationAwareInterface.md)<br>
+Previous class: [ServicesCommand](https://github.com/lingtalfi/Light_Cli/blob/master/doc/api/Ling/Light_Cli/CliTools/Command/ServicesCommand.md)<br>Next class: [LightCliApplicationAwareInterface](https://github.com/lingtalfi/Light_Cli/blob/master/doc/api/Ling/Light_Cli/CliTools/Program/LightCliApplicationAwareInterface.md)<br>

@@ -4,7 +4,7 @@
 
 The FetchCommand class
 ================
-2019-04-03 --> 2020-12-08
+2019-04-03 --> 2021-03-05
 
 
 
@@ -65,7 +65,7 @@ class <span class="pl-k">FetchCommand</span> extends [PushCommand](https://githu
     - protected [onDiffReady](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/FetchCommand/onDiffReady.md)(array $params, Ling\CliTools\Output\OutputInterface $output) : void
 
 - Inherited methods
-    - public [PushCommand::run](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/PushCommand/run.md)(Ling\CliTools\Input\InputInterface $input, Ling\CliTools\Output\OutputInterface $output) : int
+    - public [PushCommand::run](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/PushCommand/run.md)(Ling\CliTools\Input\InputInterface $input, Ling\CliTools\Output\OutputInterface $output) : mixed
     - public [DeployGenericCommand::setApplication](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/DeployGenericCommand/setApplication.md)([Ling\Deploy\Application\DeployApplication](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Application/DeployApplication.md) $application) : void
 
 }

@@ -1,6 +1,6 @@
 Beauty
 ============
-2016-05-17 -- 2017-11-21
+2016-05-17 -> 2021-03-08
 
 
 ![Beauty look](http://lingtalfi.com/img/universe/Beauty/beauty3.png)
@@ -14,6 +14,11 @@ Beauty is part of the [universe framework](https://github.com/karayabin/universe
 Install
 =============
 
+
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.Beauty
+```
 
 Using the [uni tool](https://github.com/lingtalfi/universe-naive-importer)
 ```bash
@@ -30,6 +35,27 @@ Beauty uses an html gui interface (shown in the image above) to display the test
  
 
 It's an implementation of the beauty part of the [beauty'n'beast unit testing pattern](https://github.com/lingtalfi/Dreamer/blob/master/UnitTesting/BeautyNBeast/pattern.beautyNBeast.eng.md).
+
+
+
+
+Bnb Planet system
+===========
+2021-03-05
+
+
+If you're a planet author, I've updated the tool for that.
+
+Read the setup in the [conception notes](https://github.com/lingtalfi/Beauty/blob/master/personal/mydoc/pages/conception-notes.md).
+
+
+
+
+
+
+Older setup
+==========
+2016-05-17 -> 2021-03-05
 
 
 Quickstart
@@ -144,7 +170,7 @@ $openGroups = [
     <meta charset="utf-8"/>
     <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
     <!--    <script src="/libs/jquery/jquery-2.1.4.min.js"></script>-->
-    <script src="/libs/beauty/js/beauty.js"></script>
+    <script src="/libs/universe/Ling/Beauty/js/beauty.js"></script>
     <title>Html page</title>
 </head>
 
@@ -187,6 +213,22 @@ Related
 
 History Log
 ------------------
+
+- 1.4.8 -- 2021-03-08
+
+    - cleaning up class documentation  
+  
+- 1.4.5 -- 2021-03-05
+
+    - fix 404 link in README.md  
+  
+- 1.4.4 -- 2021-03-05
+
+    - add "bnb planet system" to help planet authors  
+  
+- 1.4.3 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.4.2 -- 2020-12-08
 

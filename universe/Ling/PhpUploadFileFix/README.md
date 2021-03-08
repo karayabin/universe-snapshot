@@ -1,6 +1,6 @@
 PhpUploadFileFix
 ==================
-2019-01-20 -> 2021-02-11
+2019-01-20 -> 2021-03-05
 
 
 This planet flattens the $_FILES array.
@@ -11,6 +11,11 @@ This is part of the [universe framework](https://github.com/karayabin/universe-s
 
 Install
 ==========
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.PhpUploadFileFix
+```
+
 Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
 ```bash
 uni import Ling/PhpUploadFileFix
@@ -218,6 +223,10 @@ $fixedFiles = PhpUploadFileFixTool::fixPhpFiles($_FILES);
 
 History Log
 ------------------
+
+- 1.0.4 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.0.3 -- 2021-02-11
 

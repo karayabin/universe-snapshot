@@ -1,7 +1,7 @@
 dependencies: 
     Ling: 
-        - SimplePdoWrapper
         - JumboExploder
+        - SimplePdoWrapper
     
 
 post_install: []

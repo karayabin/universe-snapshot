@@ -55,7 +55,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LpiLocalUniverseHelper::getVersion](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Helper/LpiLocalUniverseHelper.php#L57-L71)
+See the source code for method [LpiLocalUniverseHelper::getVersion](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Helper/LpiLocalUniverseHelper.php#L58-L72)
 
 
 See Also
@@ -63,5 +63,5 @@ See Also
 
 The [LpiLocalUniverseHelper](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiLocalUniverseHelper.md) class.
 
-Previous method: [getPlanetPath](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiLocalUniverseHelper/getPlanetPath.md)<br>
+Previous method: [getPlanetPath](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiLocalUniverseHelper/getPlanetPath.md)<br>Next method: [getLocalUniversePath](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiLocalUniverseHelper/getLocalUniversePath.md)<br>
 

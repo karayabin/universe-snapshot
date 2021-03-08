@@ -1,1 +1,0 @@
-Hey admin, a problem occurred in {appName}

@@ -20,7 +20,7 @@ interface ConfStorageInterface
      * @param string $pageName
      * @return array|false
      */
-    public function getPageConf(string $pageName);
+    public function getPageConf(string $pageName): array|false;
 
 
     /**

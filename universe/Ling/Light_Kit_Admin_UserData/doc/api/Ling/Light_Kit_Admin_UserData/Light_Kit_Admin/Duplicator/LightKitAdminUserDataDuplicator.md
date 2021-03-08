@@ -4,7 +4,7 @@
 
 The LightKitAdminUserDataDuplicator class
 ================
-2020-02-28 --> 2021-01-29
+2020-02-28 --> 2021-03-05
 
 
 
@@ -52,4 +52,4 @@ See the source code of [Ling\Light_Kit_Admin_UserData\Light_Kit_Admin\Duplicator
 
 SeeAlso
 ==============
-Previous class: [LkaUserDataFileManagerWidget](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/doc/api/Ling/Light_Kit_Admin_UserData/Light_Kit/Widget/Picasso/LkaUserDataFileManagerWidget.md)<br>Next class: [LightKitAdminUserDataPluginInstaller](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/doc/api/Ling/Light_Kit_Admin_UserData/Light_PluginInstaller/LightKitAdminUserDataPluginInstaller.md)<br>
+Previous class: [LkaUserDataFileManagerWidget](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/doc/api/Ling/Light_Kit_Admin_UserData/Light_Kit/Widget/Picasso/LkaUserDataFileManagerWidget.md)<br>Next class: [LightKitAdminUserDataPlanetInstaller](https://github.com/lingtalfi/Light_Kit_Admin_UserData/blob/master/doc/api/Ling/Light_Kit_Admin_UserData/Light_PlanetInstaller/LightKitAdminUserDataPlanetInstaller.md)<br>

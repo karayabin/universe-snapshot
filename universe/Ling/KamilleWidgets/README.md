@@ -1,6 +1,6 @@
 KamilleWidgets
 ================
-2017-03-13
+2017-03-13 -> 2021-03-05
 
 
 
@@ -32,6 +32,10 @@ Available widgets
 
 History Log
 ===============
+
+- 1.0.3 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.0.2 -- 2020-12-08
 

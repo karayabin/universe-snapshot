@@ -4,7 +4,7 @@
 
 The LightRealformLateServiceRegistrationInterface class
 ================
-2019-10-21 --> 2020-12-08
+2019-10-21 --> 2021-03-05
 
 
 

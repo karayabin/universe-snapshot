@@ -3,9 +3,9 @@ dependencies:
         - BabyYaml
         - Bat
         - CliTools
+        - DirScanner
         - Octopus
         - UniverseTools
-        - DirScanner
     
 
 post_install: []

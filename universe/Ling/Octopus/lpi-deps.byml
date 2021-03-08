@@ -33,3 +33,7 @@
 1.4.3: 
     - Ling:SicTools:1.6.2+
     - Ling:ClassCreator:1.0.3+
+
+1.4.4: 
+    - Ling:ClassCreator:1.0.4+
+    - Ling:SicTools:1.6.4+

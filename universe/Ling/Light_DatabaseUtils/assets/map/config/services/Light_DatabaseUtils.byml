@@ -1,5 +1,0 @@
-database_utils:
-    instance: Ling\Light_DatabaseUtils\Service\LightDatabaseUtilsService
-    methods:
-        setContainer:
-            container: @container()

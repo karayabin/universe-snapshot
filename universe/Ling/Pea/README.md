@@ -1,6 +1,6 @@
 Pea
 =========
-2015-10-26
+2015-10-26 -> 2021-03-05
 
 
 Php like functions in js.
@@ -12,6 +12,11 @@ Pea is part of the [universe framework](https://github.com/karayabin/universe-sn
 
 Install
 ==========
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.Pea
+```
+
 Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
 ```bash
 uni import Ling/Pea
@@ -68,6 +73,10 @@ Functions
 
 History Log
 ------------------
+
+- 1.2.3 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.2.2 -- 2020-12-08
 

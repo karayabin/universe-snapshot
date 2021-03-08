@@ -93,3 +93,7 @@
 1.13.7: 
     - Ling:SimplePdoWrapper:1.30.16+
     - Ling:JumboExploder:1.0.2+
+
+1.13.8: 
+    - Ling:JumboExploder:1.0.3+
+    - Ling:SimplePdoWrapper:1.30.17+

@@ -1,5 +1,0 @@
-multipleFormEditor:
-    prefixes:
-        lup:
-            realform_identifier: Light_Kit_Admin_UserPreferences.generated/{table}
-            kit_page: Light_Kit_Admin_UserPreferences/kit/zeroadmin/generated/{table}_form

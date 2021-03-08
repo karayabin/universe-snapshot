@@ -4,7 +4,7 @@
 
 The LightDocBuilder class
 ================
-2019-03-13 --> 2020-12-08
+2019-03-13 --> 2021-03-08
 
 
 
@@ -52,4 +52,4 @@ See the source code of [Ling\LingTalfi\DocBuilder\Light\LightDocBuilder](https:/
 
 SeeAlso
 ==============
-Previous class: [KrankenSteinDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/KrankenStein/KrankenSteinDocBuilder.md)<br>Next class: [Light_404LoggerDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_404Logger/Light_404LoggerDocBuilder.md)<br>
+Previous class: [KwinDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Kwin/KwinDocBuilder.md)<br>Next class: [Light_404LoggerDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_404Logger/Light_404LoggerDocBuilder.md)<br>

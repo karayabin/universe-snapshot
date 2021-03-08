@@ -4,7 +4,7 @@
 
 The LpiLocalUniverseHelper class
 ================
-2020-12-08 --> 2021-02-11
+2020-12-08 --> 2021-03-05
 
 
 
@@ -28,6 +28,7 @@ class <span class="pl-k">LpiLocalUniverseHelper</span>  {
     - public static [hasPlanet](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiLocalUniverseHelper/hasPlanet.md)(string $planetDot) : bool
     - public static [getPlanetPath](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiLocalUniverseHelper/getPlanetPath.md)(string $planetDot) : string | null
     - public static [getVersion](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiLocalUniverseHelper/getVersion.md)(string $planetDot) : string
+    - private static [getLocalUniversePath](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiLocalUniverseHelper/getLocalUniversePath.md)() : string | null
 
 }
 
@@ -42,6 +43,7 @@ Methods
 - [LpiLocalUniverseHelper::hasPlanet](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiLocalUniverseHelper/hasPlanet.md) &ndash; Returns whether the local universe contains the given planet.
 - [LpiLocalUniverseHelper::getPlanetPath](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiLocalUniverseHelper/getPlanetPath.md) &ndash; Returns the given planet's path, or null if it doesn't exist.
 - [LpiLocalUniverseHelper::getVersion](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiLocalUniverseHelper/getVersion.md) &ndash; Returns the current version of the given planet from the local universe.
+- [LpiLocalUniverseHelper::getLocalUniversePath](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Helper/LpiLocalUniverseHelper/getLocalUniversePath.md) &ndash; Returns the path to the local universe dir if it exists, or null otherwise.
 
 
 

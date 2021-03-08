@@ -1,11 +1,11 @@
 dependencies: 
     Ling: 
+        - Bat
         - Light
         - Light_Database
-        - SimplePdoWrapper
-        - Light_UserDatabase
-        - Bat
         - Light_LingStandardService
+        - Light_UserDatabase
+        - SimplePdoWrapper
     
 
 post_install: 

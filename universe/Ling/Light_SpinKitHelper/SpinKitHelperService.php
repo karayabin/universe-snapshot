@@ -113,7 +113,7 @@ class SpinKitHelperService
          */
         $copilot = $this->container->get("html_page_copilot");
         $copilot->registerLibrary("spinkit_helper", [], [
-            "/plugins/Light_SpinKitHelper/spinkit-helper.css",
+            "/libs/universe/Ling/Light_SpinKitHelper/spinkit-helper.css",
         ]);
 
 

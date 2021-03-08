@@ -1,44 +1,51 @@
 dependencies: 
     Ling: 
-        - Light
-        - Light_AjaxHandler
         - BabyYaml
         - Bat
-        - Light_BMenu
-        - Light_ReverseRouter
-        - Light_UserManager
-        - Light_User
-        - Light_Bullsheet
-        - Light_DatabaseInfo
-        - Light_Database
-        - Chloroform
-        - Light_CsrfSession
-        - Light_Kit
-        - WiseTool
-        - Light_Mailer
-        - Light_UserDatabase
-        - HtmlPageTools
-        - Light_Events
-        - Light_Flasher
-        - Light_MicroPermission
-        - Light_Realform
-        - Light_Nugget
-        - SimplePdoWrapper
-        - Light_DatabaseUtils
-        - UniverseTools
-        - Light_ControllerHub
-        - Light_Crud
-        - Light_Realist
-        - Light_UserData
-        - PhpSpreadSheetTool
         - Bootstrap4AdminTable
-        - Light_PluginInstaller
-        - Kit_PicassoWidget
+        - Chloroform
         - Chloroform_HeliumRenderer
+        - CliTools
         - FontAwesome
+        - HtmlPageTools
         - JBee
         - JPostForm
         - Jquery
+        - Kit_PicassoWidget
+        - Light
+        - Light_AjaxHandler
+        - Light_BMenu
+        - Light_Bullsheet
+        - Light_ControllerHub
+        - Light_Crud
+        - Light_CsrfSession
+        - Light_Database
+        - Light_DatabaseInfo
+        - Light_DatabaseUtils
+        - Light_EasyRoute
+        - Light_Events
+        - Light_Flasher
+        - Light_HtmlPageCopilot
+        - Light_Kit
+        - Light_Kit_BootstrapWidgetLibrary
+        - Light_Kit_Editor
+        - Light_Mailer
+        - Light_MicroPermission
+        - Light_Nugget
+        - Light_PlanetInstaller
+        - Light_PluginInstaller
+        - Light_Realform
+        - Light_Realist
+        - Light_ReverseRouter
+        - Light_User
+        - Light_UserData
+        - Light_UserDatabase
+        - Light_UserManager
+        - Light_Vars
+        - PhpSpreadSheetTool
+        - SimplePdoWrapper
+        - UniverseTools
+        - WiseTool
     
 
 post_install: 

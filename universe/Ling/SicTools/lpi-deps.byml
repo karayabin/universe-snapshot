@@ -117,3 +117,9 @@
     - Ling:Bat:1.303+
     - Ling:BabyYaml:1.7.7+
     - Ling:DirScanner:1.13.3+
+
+1.6.5: 
+    - Ling:ArrayToString:1.4.5+
+    - Ling:BabyYaml:1.7.8+
+    - Ling:Bat:1.308+
+    - Ling:DirScanner:1.13.4+

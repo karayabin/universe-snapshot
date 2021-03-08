@@ -49,7 +49,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [HelpCommand::opt](https://github.com/lingtalfi/Light_Cli/blob/master/CliTools/Command/HelpCommand.php#L157-L161)
+See the source code for method [HelpCommand::opt](https://github.com/lingtalfi/Light_Cli/blob/master/CliTools/Command/HelpCommand.php#L164-L168)
 
 
 See Also

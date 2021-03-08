@@ -4,7 +4,7 @@
 
 The SqlQueryInterface class
 ================
-2019-10-10 --> 2020-12-08
+2019-10-10 --> 2021-03-05
 
 
 
@@ -22,7 +22,7 @@ Class synopsis
 ==============
 
 
-abstract class <span class="pl-k">SqlQueryInterface</span>  {
+abstract class <span class="pl-k">SqlQueryInterface</span> implements [\Stringable](https://wiki.php.net/rfc/stringable) {
 
 - Methods
     - abstract public [getSqlQuery](https://github.com/lingtalfi/SqlQuery/blob/master/doc/api/Ling/SqlQuery/SqlQueryInterface/getSqlQuery.md)() : string

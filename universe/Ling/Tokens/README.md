@@ -1,6 +1,6 @@
 Tokens
 =========================
-2016-12-06 -- 2016-12-19
+2016-12-06 -> 2021-03-05
 
 
 
@@ -13,6 +13,11 @@ Tokens is part of the [universe framework](https://github.com/karayabin/universe
 
 Install
 ==========
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.Tokens
+```
+
 Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
 ```bash
 uni import Ling/Tokens
@@ -275,6 +280,10 @@ It's actually even better, depending on your use case, so be sure to check it ou
  
 History Log
 ------------------
+
+- 1.4.3 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.4.2 -- 2020-12-08
 

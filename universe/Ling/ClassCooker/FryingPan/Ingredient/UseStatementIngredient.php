@@ -26,6 +26,10 @@ class UseStatementIngredient extends BaseIngredient
         $cooker = $this->fryingPan->getCooker();
         $className = $cooker->getClassName();
 
+
+        azf("kk", $cooker->hasUseStatement($useStatementClassName), $useStatementClassName, $className);
+
+
         if (true === $cooker->hasUseStatement($useStatementClassName)) {
             $this->fryingPan->sendToLog("The use statement with class \"$useStatementClassName\" is already found in class \"$className\".", 'skip');
         } else {

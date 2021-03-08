@@ -1,6 +1,6 @@
 Explorer
 =============
-2016-12-28
+2016-12-28 -> 2021-03-05
 
 
 
@@ -16,6 +16,11 @@ Explorer is part of the [universe framework](https://github.com/karayabin/univer
 Install
 =============
 
+
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.Explorer
+```
 
 Using the [uni tool](https://github.com/lingtalfi/universe-naive-importer)
 ```bash
@@ -364,6 +369,10 @@ And maybe you will be using that tool too for your own apps, who knows?
 
 History Log
 ===============
+
+- 1.2.3 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.2.2 -- 2020-12-08
 

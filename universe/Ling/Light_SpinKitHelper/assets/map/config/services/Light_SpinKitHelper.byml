@@ -1,5 +1,0 @@
-spinkit_helper:
-    instance: Ling\Light_SpinKitHelper\SpinKitHelperService
-    methods:
-        setContainer:
-            container: @container()

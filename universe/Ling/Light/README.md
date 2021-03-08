@@ -1,6 +1,6 @@
 Light
 ===========
-2019-04-05 -> 2021-02-11
+2019-04-05 -> 2021-03-05
 
 
 
@@ -8,7 +8,6 @@ WORK IN PROGRESS, COME BACK IN A FEW MONTHS..., OR USE IT NOW AT YOUR OWN RISKS
 
 
 A light framework for creating web apps.
-This supersedes the [Jin](https://github.com/lingtalfi/Jin) framework. 
 
 
 This is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
@@ -16,6 +15,11 @@ This is part of the [universe framework](https://github.com/karayabin/universe-s
 
 Install
 ==========
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.Light
+```
+
 Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
 ```bash
 uni import Ling/Light
@@ -48,7 +52,7 @@ Summary
     - [Security](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/security.md)
     - Design
         - [ajax permission philosophy](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/design/ajax-permission-philosophy.md)
-        - [late service registration](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/design/late-service-registration.md)
+        - [open vs close service registration](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/design/open-vs-close-service-registration.md)
     - Notation
         - [light execute notation](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/notation/light-execute-notation.md)
 - [License](https://lingtalfi.com/no-license)
@@ -60,6 +64,43 @@ Summary
 History Log
 =============
 
+- 0.69.30 -- 2021-03-05
+
+    - update README.md, add install alternative
+
+- 0.69.29 -- 2021-02-25
+
+    - update Light->registerRoute method, now the pattern and controller argument have precedence over their equivalents in the route array
+    - add container notation definition
+  
+- 0.69.28 -- 2021-02-25
+
+    - checkpoint commit
+  
+- 0.69.27 -- 2021-02-25
+
+    - checkpoint commit
+  
+- 0.69.26 -- 2021-02-23
+
+    - add ZFileHelper::hasProp method
+  
+- 0.69.25 -- 2021-02-23
+
+    - mark optional route properties as optional in the route document
+  
+- 0.69.24 -- 2021-02-22
+
+    - add "Open vs close service registration" document, config/dynamic has now moved to config/open
+  
+- 0.69.23 -- 2021-02-22
+
+    - update recommended app structure, /www/plugins is not part of the recommendation anymore, using universe assets instead
+  
+- 0.69.22 -- 2021-02-15
+
+    - checkpoint commit
+  
 - 0.69.21 -- 2021-02-11
 
     - adding assets 

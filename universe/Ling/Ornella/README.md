@@ -1,6 +1,6 @@
 Ornella
 =========================
-2015-10-21
+2015-10-21 -> 2021-03-05
 
 
 
@@ -18,6 +18,11 @@ Ornella is part of the [universe framework](https://github.com/karayabin/univers
 
 Install
 ==========
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.Ornella
+```
+
 Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
 ```bash
 uni import Ling/Ornella
@@ -89,6 +94,10 @@ else {
 
 History Log
 ===============
+
+- 1.0.3 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.0.2 -- 2020-12-08
 

@@ -1,6 +1,6 @@
 Icons
 ==================
-2016-11-23
+2016-11-23 -> 2021-03-05
 
 
 Add svg icons to your website.
@@ -12,6 +12,11 @@ Icons is part of the [universe framework](https://github.com/karayabin/universe-
 Install
 =============
 
+
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.Icons
+```
 
 Using the [uni tool](https://github.com/lingtalfi/universe-naive-importer)
 ```bash
@@ -168,6 +173,10 @@ You can also change the size on the fly with the third argument:
  
 History Log
 ------------------
+
+- 1.0.5 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.0.4 -- 2020-12-08
 

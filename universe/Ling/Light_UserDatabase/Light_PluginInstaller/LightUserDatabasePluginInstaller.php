@@ -111,28 +111,31 @@ class LightUserDatabasePluginInstaller extends LightUserDatabaseBasePluginInstal
     }
 
 
-    /**
-     * @overrides
-     */
-    public function uninstall()
-    {
-        /**
-         * removing tables in the order that avoids constraint errors.
-         */
-        /**
-         * @var $db LightDatabaseService
-         */
-        $db = $this->container->get('database');
-
-        $db->executeStatement("DROP table if exists lud_permission_group_has_permission");
-        $db->executeStatement("DROP table if exists lud_user_has_permission_group");
-        $db->executeStatement("DROP table if exists lud_permission_group");
-        $db->executeStatement("DROP table if exists lud_permission");
-        $db->executeStatement("DROP table if exists lud_user_group_has_plugin_option");
-        $db->executeStatement("DROP table if exists lud_plugin_option");
-        $db->executeStatement("DROP table if exists lud_user");
-        $db->executeStatement("DROP table if exists lud_user_group");
-    }
+//    /**
+//     * @overrides
+//     */
+//    public function uninstall()
+//    {
+//
+//
+//        /**
+//         * removing tables in the order that avoids constraint errors.
+//         */
+//        /**
+//         * @var $db LightDatabaseService
+//         */
+//        $db = $this->container->get('database');
+//
+//
+//        $db->executeStatement("DROP table if exists lud_permission_group_has_permission");
+//        $db->executeStatement("DROP table if exists lud_user_has_permission_group");
+//        $db->executeStatement("DROP table if exists lud_permission_group");
+//        $db->executeStatement("DROP table if exists lud_permission");
+//        $db->executeStatement("DROP table if exists lud_user_group_has_plugin_option");
+//        $db->executeStatement("DROP table if exists lud_plugin_option");
+//        $db->executeStatement("DROP table if exists lud_user");
+//        $db->executeStatement("DROP table if exists lud_user_group");
+//    }
 
 
     /**

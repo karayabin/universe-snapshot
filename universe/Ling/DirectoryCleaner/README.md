@@ -1,6 +1,6 @@
 DirectoryCleaner
 ======================
-2017-03-31
+2017-03-31 -> 2021-03-05
 
 
 
@@ -47,6 +47,10 @@ DirectoryCleaner::create()->clean($d, $recursive);
 
 History Log
 ------------------
+
+- 1.0.3 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.0.2 -- 2020-12-08
 

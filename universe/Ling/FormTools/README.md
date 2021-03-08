@@ -1,6 +1,6 @@
 FormTools
 ===========
-2017-05-28
+2017-05-28 -> 2021-03-05
 
 
 
@@ -12,6 +12,11 @@ This is part of the [universe framework](https://github.com/karayabin/universe-s
 
 Install
 ==========
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.FormTools
+```
+
 Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
 ```bash
 uni import Ling/FormTools
@@ -79,6 +84,10 @@ if (array_key_exists($model['nameKey'], $_POST) && $key === $_POST[$model['nameK
 
 History Log
 ------------------
+
+- 1.7.3 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.7.2 -- 2020-12-08
 

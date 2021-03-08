@@ -1,6 +1,6 @@
 BeeFramework
 ========
-2017-05-22 -> 2021-02-02
+2017-05-22 -> 2021-03-05
 
 
 A php framework.
@@ -11,6 +11,11 @@ This is part of the [universe framework](https://github.com/karayabin/universe-s
 
 Install
 ==========
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.BeeFramework
+```
+
 Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
 ```bash
 uni import Ling/BeeFramework
@@ -30,6 +35,10 @@ but there is no official doc for now.
  
 History Log
 ------------------
+
+- 1.0.7 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.0.6 -- 2021-02-02
 

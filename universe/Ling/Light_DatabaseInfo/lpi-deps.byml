@@ -97,3 +97,13 @@
     - Ling:Light:0.69.18+
     - Ling:Light_Database:1.14.11+
     - Ling:SimplePdoWrapper:1.30.16+
+
+1.12.4: 
+    - Ling:Light:0.69.22+
+    - Ling:Light_Database:1.14.12+
+    - Ling:SimplePdoWrapper:1.30.16+
+
+1.12.5: 
+    - Ling:Light:0.69.30+
+    - Ling:Light_Database:1.14.15+
+    - Ling:SimplePdoWrapper:1.30.16+

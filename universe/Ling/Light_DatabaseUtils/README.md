@@ -1,6 +1,6 @@
 Light_DatabaseUtils
 ===========
-2019-10-01 -> 2020-11-24
+2019-10-01 -> 2021-03-05
 
 
 
@@ -14,6 +14,11 @@ This is part of the [universe framework](https://github.com/karayabin/universe-s
 
 Install
 ==========
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.Light_DatabaseUtils
+```
+
 Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
 ```bash
 uni import Ling/Light_DatabaseUtils
@@ -91,6 +96,14 @@ INSERT INTO `lud_user` (`id`, `identifier`, `pseudo`, `password`, `avatar_url`, 
 
 History Log
 =============
+
+- 1.1.9 -- 2021-03-05
+
+    - update README.md, add install alternative
+
+- 1.1.8 -- 2021-02-19
+
+    - upgrade dependencies
 
 - 1.1.7 -- 2020-12-08
 

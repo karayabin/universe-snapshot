@@ -1,6 +1,6 @@
 BabyDash
 =============
-2015-12-19
+2015-12-19 -> 2021-03-05
 
 
 BabyDash is a notation to write an array in a language independent manner.
@@ -12,6 +12,11 @@ BabyDash is part of the [universe framework](https://github.com/karayabin/univer
 Install
 =============
 
+
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.BabyDash
+```
 
 Using the [uni tool](https://github.com/lingtalfi/universe-naive-importer)
 ```bash
@@ -178,6 +183,10 @@ Dependencies
 
 History Log
 ------------------
+
+- 1.1.11 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.1.10 -- 2020-12-08
 

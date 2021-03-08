@@ -52,7 +52,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [GenerateBreezeBaseProcess::generateBreezeConfig](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/WebWizardTools/Process/Generators/GenerateBreezeBaseProcess.php#L72-L94)
+See the source code for method [GenerateBreezeBaseProcess::generateBreezeConfig](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/WebWizardTools/Process/Generators/GenerateBreezeBaseProcess.php#L75-L97)
 
 
 See Also

@@ -4,7 +4,7 @@
 
 The LightAjaxHandlerInterface class
 ================
-2019-09-19 --> 2020-12-08
+2019-09-19 --> 2021-03-05
 
 
 
@@ -52,4 +52,4 @@ See the source code of [Ling\Light_AjaxHandler\Handler\LightAjaxHandlerInterface
 
 SeeAlso
 ==============
-Previous class: [ContainerAwareLightAjaxHandler](https://github.com/lingtalfi/Light_AjaxHandler/blob/master/doc/api/Ling/Light_AjaxHandler/Handler/ContainerAwareLightAjaxHandler.md)<br>Next class: [LightAjaxHandlerService](https://github.com/lingtalfi/Light_AjaxHandler/blob/master/doc/api/Ling/Light_AjaxHandler/Service/LightAjaxHandlerService.md)<br>
+Previous class: [ContainerAwareLightAjaxHandler](https://github.com/lingtalfi/Light_AjaxHandler/blob/master/doc/api/Ling/Light_AjaxHandler/Handler/ContainerAwareLightAjaxHandler.md)<br>Next class: [LightAjaxHandlerPlanetInstaller](https://github.com/lingtalfi/Light_AjaxHandler/blob/master/doc/api/Ling/Light_AjaxHandler/Light_PlanetInstaller/LightAjaxHandlerPlanetInstaller.md)<br>

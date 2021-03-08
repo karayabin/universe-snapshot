@@ -1,17 +1,20 @@
 dependencies: 
     Ling: 
-        - DocTools
-        - Kit_PicassoWidget
-        - Bat
         - BabyYaml
-        - Light_PlanetInstaller
-        - UniverseTools
+        - Bat
         - CliTools
         - DirScanner
-        - Uni2
+        - DocTools
+        - Kit_PicassoWidget
+        - Kwin
+        - Light
+        - Light_DbSynchronizer
+        - Light_PlanetInstaller
+        - Light_PluginInstaller
         - PlanetSitemap
         - SimpleCurl
-        - Light
+        - Uni2
+        - UniverseTools
     
 
 post_install: []

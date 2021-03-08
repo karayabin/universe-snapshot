@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [UseStatementIngredient::execute](https://github.com/lingtalfi/ClassCooker/blob/master/FryingPan/Ingredient/UseStatementIngredient.php#L23-L45)
+See the source code for method [UseStatementIngredient::execute](https://github.com/lingtalfi/ClassCooker/blob/master/FryingPan/Ingredient/UseStatementIngredient.php#L23-L49)
 
 
 See Also

@@ -177,6 +177,8 @@ class LingTalfiDocBuilder
                 "Ling\CliTools\Program\AbstractProgram::run" => "https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Program/AbstractProgram/run.md",
                 "Ling\CliTools\Command\CommandInterface::run" => "https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Command/CommandInterface/run.md",
                 "Ling\CliTools\Program\Application::runProgram" => "https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Program/Application/runProgram.md",
+                "Ling\CliTools\Output\OutputInterface" => "https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Output/OutputInterface.md",
+
             ],
         ];
 

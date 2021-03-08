@@ -29,6 +29,7 @@ Available options are:
 - keepBuild: bool=false, whether to keep the buildDir. If false, it's removed after the execution in case of success.
 - operationMode: string (import|install) = import. The operation mode.
 - force: bool=false, whether to force the reimport/reinstall, even if the planet is already imported/installed.
+- symlinks: bool=false, whether to use symlinks to the local universe when available, instead of copying planet dirs.
 
 
 
@@ -64,7 +65,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [PlanetImportProcessUtil::updateApplicationByWishList](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Util/PlanetImportProcessUtil.php#L254-L457)
+See the source code for method [PlanetImportProcessUtil::updateApplicationByWishList](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Util/PlanetImportProcessUtil.php#L260-L472)
 
 
 See Also

@@ -1,6 +1,6 @@
 Light_Kit_Admin_UserDatabase
 ===========
-2020-06-25 -> 2021-01-29
+2020-06-25 -> 2021-03-05
 
 
 This is a work in progress until version 1.
@@ -16,6 +16,11 @@ This is part of the [universe framework](https://github.com/karayabin/universe-s
 
 Install
 ==========
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.Light_Kit_Admin_UserDatabase
+```
+
 Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
 ```bash
 uni import Ling/Light_Kit_Admin_UserDatabase
@@ -68,14 +73,6 @@ $bmenu.methods_collection:
 
     
 
-$easy_route.methods_collection: 
-    - 
-        method: registerBundleFile
-        args: 
-            file: config/data/Light_Kit_Admin_UserDatabase/Light_EasyRoute/lka_userdatabase_routes.byml
-        
-    
-
 $kit_admin.methods_collection: 
     - 
         method: registerPlugin
@@ -112,6 +109,19 @@ $micro_permission.methods_collection:
 
 History Log
 =============
+
+
+- 0.5.10 -- 2021-03-05
+
+    - update README.md, add install alternative
+
+- 0.5.9 -- 2021-02-23
+
+  - switch to Light_EasyRoute open registration system
+
+- 0.5.8 -- 2021-02-19
+
+    - upgrade dependencies
 
 - 0.5.7 -- 2021-01-29
 

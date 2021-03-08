@@ -57,7 +57,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightKitAdminBaseProcess::executeGeneratorConfigFile](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/WebWizardTools/Process/Light_Kit_Admin/LightKitAdminBaseProcess.php#L305-L589)
+See the source code for method [LightKitAdminBaseProcess::executeGeneratorConfigFile](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/WebWizardTools/Process/Light_Kit_Admin/LightKitAdminBaseProcess.php#L306-L590)
 
 
 See Also

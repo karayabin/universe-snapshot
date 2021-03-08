@@ -1,6 +1,6 @@
 FileCreator
 ================
-2016-12-26
+2016-12-26 -> 2021-03-05
 
 
 
@@ -13,6 +13,11 @@ FileCreator is part of the [universe framework](https://github.com/karayabin/uni
 Install
 =============
 
+
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.FileCreator
+```
 
 Using the [uni tool](https://github.com/lingtalfi/universe-naive-importer)
 ```bash
@@ -61,6 +66,10 @@ return false;
 
 History Log
 ------------------
+
+- 1.0.3 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.0.2 -- 2020-12-08
 

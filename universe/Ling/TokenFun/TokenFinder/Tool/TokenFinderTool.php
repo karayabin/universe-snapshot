@@ -7,6 +7,7 @@ use Ling\Bat\ClassTool;
 use Ling\Bat\FileSystemTool;
 use Ling\DirScanner\DirScanner;
 use Ling\TokenFun\Exception\TokenFunException;
+use Ling\TokenFun\Parser\UseStatementsParser;
 use Ling\TokenFun\TokenArrayIterator\TokenArrayIterator;
 use Ling\TokenFun\TokenArrayIterator\Tool\TokenArrayIteratorTool;
 use Ling\TokenFun\TokenFinder\ClassNameTokenFinder;
@@ -16,7 +17,6 @@ use Ling\TokenFun\TokenFinder\InterfaceTokenFinder;
 use Ling\TokenFun\TokenFinder\MethodTokenFinder;
 use Ling\TokenFun\TokenFinder\NamespaceTokenFinder;
 use Ling\TokenFun\TokenFinder\ParentClassNameTokenFinder;
-use Ling\TokenFun\TokenFinder\UseStatementsTokenFinder;
 use Ling\TokenFun\Tool\TokenTool;
 
 
@@ -544,27 +544,55 @@ class TokenFinderTool
     /**
      *
      * Returns an array of use statements' class names found in the given tokens.
+     *
+     * By default, it doesn't take into account the aliases part if any.
+     *
+     * Available options:
+     * - sort: bool = true. If true, the returned array is sorted.
+     * - alias: bool = false. If true, returns an array of items, each of which:
+     *      - 0: class (or func or constant)
+     *      - 1: alias
+     *
+     *
+     *
+     *
      * @param array $tokens
-     * @param bool $sort
+     * @param array $options
      * @return array
      */
-    public static function getUseDependencies(array $tokens, $sort = true): array
+    public static function getUseDependencies(array $tokens, array $options = []): array
     {
-        $ret = [];
-        $o = new UseStatementsTokenFinder();
-        $matches = $o->find($tokens);
-        if ($matches) {
-            $ret = $matches;
-            TokenFinderTool::matchesToString($ret, $tokens);
-            array_walk($ret, function (&$v) {
-                $p = explode(' ', $v);
-                $v = rtrim($p[1], ';');
-            });
 
+        $alias = $options['alias'] ?? false;
+        $sort = $options['sort'] ?? true;
+
+        $o = new UseStatementsParser();
+        $arr = $o->parseTokens($tokens);
+        $ret = [];
+        foreach ($arr as $item) {
+            if (false === $alias) {
+                $ret[] = array_shift($item);
+            } else {
+                array_pop($item);
+                $ret[] = $item;
+
+            }
+        }
+
+
+        if (false === $alias) {
+            $ret = array_unique($ret);
         }
         if (true === $sort) {
-            sort($ret);
+            if (true === $alias) {
+                usort($ret, function ($item1, $item2) {
+                    return (int)($item1[0] > $item2[0]);
+                });
+            } else {
+                sort($ret);
+            }
         }
+
         return $ret;
     }
 

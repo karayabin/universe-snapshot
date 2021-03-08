@@ -1,6 +1,6 @@
 Ling/Light_Kit_BootstrapWidgetLibrary
 ================
-2019-04-26 --> 2020-12-08
+2019-04-26 --> 2021-03-05
 
 
 
@@ -578,9 +578,9 @@ Table of contents
 
 Dependencies
 ============
-- [Kit_PicassoWidget](https://github.com/lingtalfi/Kit_PicassoWidget)
-- [HtmlPageTools](https://github.com/lingtalfi/HtmlPageTools)
-- [Bat](https://github.com/lingtalfi/Bat)
 - [BabyYaml](https://github.com/lingtalfi/BabyYaml)
+- [Bat](https://github.com/lingtalfi/Bat)
+- [HtmlPageTools](https://github.com/lingtalfi/HtmlPageTools)
+- [Kit_PicassoWidget](https://github.com/lingtalfi/Kit_PicassoWidget)
 
 

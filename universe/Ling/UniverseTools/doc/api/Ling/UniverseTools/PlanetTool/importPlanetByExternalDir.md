@@ -26,6 +26,8 @@ Optionally, the assets/map can be copied into the app.
 
 Available options are:
 - assets: bool=false, if true, the assets/map will be copied to the application.
+- symlinks: bool=false, if true, symlinks to the local universe will be created (if available) instead of copying
+     the whole planet dirs.
 
 See more details in the [import install discussion](https://github.com/lingtalfi/TheBar/blob/master/discussions/import-install.md#summary).
 
@@ -67,7 +69,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [PlanetTool::importPlanetByExternalDir](https://github.com/lingtalfi/UniverseTools/blob/master/PlanetTool.php#L369-L392)
+See the source code for method [PlanetTool::importPlanetByExternalDir](https://github.com/lingtalfi/UniverseTools/blob/master/PlanetTool.php#L402-L441)
 
 
 See Also

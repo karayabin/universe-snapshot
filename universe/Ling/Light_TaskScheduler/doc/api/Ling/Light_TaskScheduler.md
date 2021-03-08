@@ -1,6 +1,6 @@
 Ling/Light_TaskScheduler
 ================
-2020-06-30 --> 2021-02-11
+2020-06-30 --> 2021-03-05
 
 
 
@@ -120,11 +120,11 @@ Table of contents
 
 Dependencies
 ============
+- [Bat](https://github.com/lingtalfi/Bat)
 - [Light](https://github.com/lingtalfi/Light)
 - [Light_Database](https://github.com/lingtalfi/Light_Database)
-- [SimplePdoWrapper](https://github.com/lingtalfi/SimplePdoWrapper)
-- [Light_UserDatabase](https://github.com/lingtalfi/Light_UserDatabase)
-- [Bat](https://github.com/lingtalfi/Bat)
 - [Light_LingStandardService](https://github.com/lingtalfi/Light_LingStandardService)
+- [Light_UserDatabase](https://github.com/lingtalfi/Light_UserDatabase)
+- [SimplePdoWrapper](https://github.com/lingtalfi/SimplePdoWrapper)
 
 

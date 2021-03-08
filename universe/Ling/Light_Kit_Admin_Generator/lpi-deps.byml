@@ -367,3 +367,43 @@
     - Ling:SqlWizard:1.13.6+
     - Ling:UniverseTools:1.21.8+
     - Ling:Light_ControllerHub:1.2.4+
+
+1.19.9: 
+    - Ling:BabyYaml:1.7.7+
+    - Ling:Bat:1.305+
+    - Ling:Light_ControllerHub:1.2.9+
+    - Ling:Light_Kit_Admin:0.12.16+
+    - Ling:Light_RealGenerator:1.31.15+
+    - Ling:Light_TablePrefixInfo:1.0.2+
+    - Ling:SqlWizard:1.13.7+
+    - Ling:UniverseTools:1.22.26+
+
+1.19.10: 
+    - Ling:BabyYaml:1.7.7+
+    - Ling:Bat:1.305+
+    - Ling:Light_ControllerHub:1.2.10+
+    - Ling:Light_Kit_Admin:0.12.17+
+    - Ling:Light_RealGenerator:1.31.15+
+    - Ling:Light_TablePrefixInfo:1.0.2+
+    - Ling:SqlWizard:1.13.7+
+    - Ling:UniverseTools:1.22.27+
+
+1.19.11: 
+    - Ling:BabyYaml:1.7.7+
+    - Ling:Bat:1.307+
+    - Ling:Light_ControllerHub:1.2.11+
+    - Ling:Light_Kit_Admin:0.12.18+
+    - Ling:Light_RealGenerator:1.31.15+
+    - Ling:Light_TablePrefixInfo:1.0.2+
+    - Ling:SqlWizard:1.13.7+
+    - Ling:UniverseTools:1.22.29+
+
+1.19.12: 
+    - Ling:BabyYaml:1.7.8+
+    - Ling:Bat:1.308+
+    - Ling:Light_ControllerHub:1.2.12+
+    - Ling:Light_Kit_Admin:0.12.24+
+    - Ling:Light_RealGenerator:1.31.15+
+    - Ling:Light_TablePrefixInfo:1.0.2+
+    - Ling:SqlWizard:1.13.7+
+    - Ling:UniverseTools:1.22.29+

@@ -137,3 +137,8 @@
     - Ling:Bat:1.293+
     - Ling:QuickPdo:2.41.3+
     - Ling:SqlQuery:1.10.5+
+
+1.17.4: 
+    - Ling:Bat:1.308+
+    - Ling:QuickPdo:2.41.3+
+    - Ling:SqlQuery:1.10.5+

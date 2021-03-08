@@ -4,7 +4,7 @@
 
 The PlanetImportProcessUtil class
 ================
-2020-12-08 --> 2021-02-11
+2020-12-08 --> 2021-03-05
 
 
 
@@ -42,6 +42,7 @@ class <span class="pl-k">PlanetImportProcessUtil</span>  {
     - private array [$wishList](#property-wishList) ;
     - private bool [$keepBuild](#property-keepBuild) ;
     - private bool [$force](#property-force) ;
+    - private bool [$symlinks](#property-symlinks) ;
 
 - Methods
     - public [__construct](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/Util/PlanetImportProcessUtil/__construct.md)() : void
@@ -219,6 +220,12 @@ Properties
 - <span id="property-force"><b>force</b></span>
 
     This property holds the force for this instance.
+    
+    
+
+- <span id="property-symlinks"><b>symlinks</b></span>
+
+    This property holds the symlinks for this instance.
     
     
 

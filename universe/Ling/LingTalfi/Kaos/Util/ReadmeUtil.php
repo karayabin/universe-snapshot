@@ -139,4 +139,17 @@ class ReadmeUtil
 
     }
 
+    /**
+     * Returns the errors of this instance.
+     *
+     * @return array
+     */
+    public function getErrors(): array
+    {
+        return $this->errors;
+    }
+
+
+
+
 }

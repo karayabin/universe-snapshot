@@ -1,6 +1,6 @@
 Ling/Light_LoginNotifier
 ================
-2020-11-27 --> 2021-02-11
+2020-11-27 --> 2021-03-05
 
 
 
@@ -120,12 +120,12 @@ Table of contents
 
 Dependencies
 ============
-- [SimplePdoWrapper](https://github.com/lingtalfi/SimplePdoWrapper)
 - [Light](https://github.com/lingtalfi/Light)
 - [Light_Database](https://github.com/lingtalfi/Light_Database)
-- [Light_UserDatabase](https://github.com/lingtalfi/Light_UserDatabase)
 - [Light_LingStandardService](https://github.com/lingtalfi/Light_LingStandardService)
 - [Light_Mailer](https://github.com/lingtalfi/Light_Mailer)
 - [Light_User](https://github.com/lingtalfi/Light_User)
+- [Light_UserDatabase](https://github.com/lingtalfi/Light_UserDatabase)
+- [SimplePdoWrapper](https://github.com/lingtalfi/SimplePdoWrapper)
 
 

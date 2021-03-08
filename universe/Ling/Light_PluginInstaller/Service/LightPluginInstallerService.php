@@ -241,7 +241,6 @@ class LightPluginInstallerService
     {
         $this->dependencies = [];
 
-
         $force = $options['force'] ?? false;
 
         $this->message("Light_PluginInstaller: Calling \"install\" method with $planetDotName." . PHP_EOL);

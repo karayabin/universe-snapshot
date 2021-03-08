@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [GranularDependencyUtil::getMasterDependencyFileContentByUniverseDir](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/GranularDependency/GranularDependencyUtil/getMasterDependencyFileContentByUniverseDir.md)(string $universeDir, ?array &$errors = []) : string
+public static [GranularDependencyUtil::getMasterDependencyFileContentByUniverseDir](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/GranularDependency/GranularDependencyUtil/getMasterDependencyFileContentByUniverseDir.md)(string $universeDir, ?array &$errors = []) : string
 
 
 
@@ -55,7 +55,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [GranularDependencyUtil::getMasterDependencyFileContentByUniverseDir](https://github.com/lingtalfi/LingTalfi/blob/master/GranularDependency/GranularDependencyUtil.php#L53-L90)
+See the source code for method [GranularDependencyUtil::getMasterDependencyFileContentByUniverseDir](https://github.com/lingtalfi/LingTalfi/blob/master/GranularDependency/GranularDependencyUtil.php#L48-L85)
 
 
 See Also
@@ -63,5 +63,5 @@ See Also
 
 The [GranularDependencyUtil](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/GranularDependency/GranularDependencyUtil.md) class.
 
-Previous method: [getReadmeVersionsByPlanetDir](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/GranularDependency/GranularDependencyUtil/getReadmeVersionsByPlanetDir.md)<br>
+Previous method: [createMasterDependencyFileByUniverseDir](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/GranularDependency/GranularDependencyUtil/createMasterDependencyFileByUniverseDir.md)<br>
 

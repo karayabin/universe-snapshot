@@ -1,6 +1,6 @@
 Light_ReverseRouter
 ===========
-2019-04-10 -> 2019-12-17
+2019-04-10 -> 2021-03-05
 
 
 
@@ -14,6 +14,11 @@ This is part of the [universe framework](https://github.com/karayabin/universe-s
 
 Install
 ==========
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.Light_ReverseRouter
+```
+
 Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
 ```bash
 uni import Ling/Light_ReverseRouter
@@ -79,6 +84,10 @@ The **initializer** service is provided by the [Light_Initializer planet](https:
 
 History Log
 =============
+
+- 1.11.4 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.11.3 -- 2020-12-08
 

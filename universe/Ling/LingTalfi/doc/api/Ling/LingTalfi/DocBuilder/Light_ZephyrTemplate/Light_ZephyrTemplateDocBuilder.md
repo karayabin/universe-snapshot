@@ -4,7 +4,7 @@
 
 The Light_ZephyrTemplateDocBuilder class
 ================
-2019-03-13 --> 2020-12-08
+2019-03-13 --> 2021-03-08
 
 
 
@@ -52,4 +52,4 @@ See the source code of [Ling\LingTalfi\DocBuilder\Light_ZephyrTemplate\Light_Zep
 
 SeeAlso
 ==============
-Previous class: [Light_UserRowRestrictionDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_UserRowRestriction/Light_UserRowRestrictionDocBuilder.md)<br>Next class: [Light_ZouUploaderDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_ZouUploader/Light_ZouUploaderDocBuilder.md)<br>
+Previous class: [Light_VarsDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Vars/Light_VarsDocBuilder.md)<br>Next class: [Light_ZouUploaderDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_ZouUploader/Light_ZouUploaderDocBuilder.md)<br>

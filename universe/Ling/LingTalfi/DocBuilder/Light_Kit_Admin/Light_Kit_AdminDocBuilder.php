@@ -102,6 +102,7 @@ class Light_Kit_AdminDocBuilder
                 "Ling\Light_Realist\Rendering\BaseRealistListItemRenderer",
                 "Ling\Light_PluginInstaller\PluginInstaller\LightBasePluginInstaller",
                 "Ling\Light_UserDatabase\Light_PluginInstaller\LightUserDatabaseBasePluginInstaller",
+                "Ling\Light_PlanetInstaller\PlanetInstaller\LightBasePlanetInstaller",
 
             ],
             /**
@@ -308,6 +309,8 @@ class Light_Kit_AdminDocBuilder
                 "Ling\Light_PluginInstaller\PluginInstaller\LightBasePluginInstaller" => "https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/PluginInstaller/LightBasePluginInstaller.md",
                 "Ling\Light_PluginInstaller\TableScope\TableScopeAwareInterface" => "https://github.com/lingtalfi/Light_PluginInstaller/blob/master/doc/api/Ling/Light_PluginInstaller/TableScope/TableScopeAwareInterface.md",
                 "Ling\Light_UserDatabase\Light_PluginInstaller\LightUserDatabaseBasePluginInstaller" => "https://github.com/lingtalfi/Light_UserDatabase/blob/master/doc/api/Ling/Light_UserDatabase/Light_PluginInstaller/LightUserDatabaseBasePluginInstaller.md",
+                "Ling\Light_PlanetInstaller\PlanetInstaller\LightBasePlanetInstaller" => "https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/PlanetInstaller/LightBasePlanetInstaller.md",
+                "Ling\Light_PlanetInstaller\PlanetInstaller\LightPlanetInstallerInterface" => "https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/api/Ling/Light_PlanetInstaller/PlanetInstaller/LightPlanetInstallerInterface.md",
 
             ],
         ];

@@ -29,7 +29,7 @@ If an error occurs, the behaviour is defined by the throwEx option.
 Available options are:
 
 
-- throwEx: bool=false. Whether to throw an exception if the sending fails.
+- throwEx: bool=true. Whether to throw an exception if the sending fails.
 
 
 

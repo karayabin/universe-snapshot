@@ -1,6 +1,6 @@
 Ling/Light_DatabaseUtils
 ================
-2019-10-01 --> 2020-12-08
+2019-10-01 --> 2021-03-05
 
 
 
@@ -25,11 +25,11 @@ Table of contents
 
 Dependencies
 ============
-- [Light](https://github.com/lingtalfi/Light)
-- [Bat](https://github.com/lingtalfi/Bat)
-- [Light_DatabaseInfo](https://github.com/lingtalfi/Light_DatabaseInfo)
-- [Light_Database](https://github.com/lingtalfi/Light_Database)
 - [ArrayToString](https://github.com/lingtalfi/ArrayToString)
+- [Bat](https://github.com/lingtalfi/Bat)
+- [Light](https://github.com/lingtalfi/Light)
+- [Light_Database](https://github.com/lingtalfi/Light_Database)
+- [Light_DatabaseInfo](https://github.com/lingtalfi/Light_DatabaseInfo)
 - [SimplePdoWrapper](https://github.com/lingtalfi/SimplePdoWrapper)
 
 

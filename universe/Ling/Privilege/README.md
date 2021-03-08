@@ -1,6 +1,6 @@
 Privilege
 ==================
-2016-11-23
+2016-11-23 -> 2021-03-05
 
 
 
@@ -13,6 +13,11 @@ Privilege is part of the [universe framework](https://github.com/karayabin/unive
 
 Install
 ==========
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.Privilege
+```
+
 Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
 ```bash
 uni import Ling/Privilege
@@ -186,6 +191,10 @@ to not put too much data in the php session).
 
 History Log
 ------------------
+
+- 1.2.3 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.2.2 -- 2020-12-08
 

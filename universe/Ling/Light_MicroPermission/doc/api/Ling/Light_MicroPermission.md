@@ -1,6 +1,6 @@
 Ling/Light_MicroPermission
 ================
-2019-09-26 --> 2020-12-08
+2019-09-26 --> 2021-03-05
 
 
 
@@ -30,7 +30,7 @@ Dependencies
 ============
 - [BabyYaml](https://github.com/lingtalfi/BabyYaml)
 - [Light](https://github.com/lingtalfi/Light)
-- [Light_UserManager](https://github.com/lingtalfi/Light_UserManager)
 - [Light_User](https://github.com/lingtalfi/Light_User)
+- [Light_UserManager](https://github.com/lingtalfi/Light_UserManager)
 
 

@@ -1,90 +1,124 @@
 Light_EasyRoute, conception notes
 =================
-2019-08-21
+2019-08-21 -> 2021-02-25
 
 
 Plugins sometimes need to register their own routes.
 
 Rather than doing it manually, this plugin proposes to do it for them.
 
-In addition to that, this plugin provides some cool capabilities that a plugin would want to benefit of:
 
-- the implementation of a bundle system
+
 
 
 Registration
 ---------
-So, first how do we tell Light_EasyRoute to register our routes for us?
+2019-08-21 -> 2021-02-23
 
-This is done via the service container, obviously.
-The LightEasyRouteService provides the registerBundleFile method, so you just need to create a bundle file,
-and pass its path to the easy route service, and that's it.
+We implement the [open registration system](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/design/open-vs-close-service-registration.md).
+
+To register your routes:
+
+- create your [plugin's route declaration file](#the-plugins-routes-declaration-file)
+- create a [Light_PlanetInstaller hook](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/pages/conception-notes.md#the-light_planetinstaller-hooks) and in the **onMapCopyAfter** method, call our **LightEasyRouteHelper::copyRoutesFromPluginToMaster** method
 
 
-The bundle file, and what's a bundle?
------------------
 
-So what's the bundle file?
-It's a [babyYaml](https://github.com/lingtalfi/BabyYaml) file that we use to store the bundle(s)
-of our plugin.
+Following these steps will add your plugin's routes to the [master route declaration file](#the-master-route-declaration-file). 
 
-A plugin can define any number of bundles.
 
-A typical structure of a bundle is this:
 
-```yaml
-bundle_name:
+
+
+The plugin's routes declaration file 
+------------
+2021-02-23 -> 2021-02-25
+
+
+The plugin's routes declaration file has a structure similar to this:
+
+
+````yaml
+$bundleName1:
+    ?prefix: null
+    ?priority: 10
     routes:
-        dashboard:
+        lka_route-home:
             pattern: /
-            controller: Ling\Light_Kit_Admin\Controller\DashboardController->renderDashboard
-            right: Light_Kit_Admin.user
-        my_other_route:
-            pattern: /my_other_page
-            controller: Ling\Light_Kit_Admin\Controller\AnotherController->render
-            right: Light_Kit_Admin.admin
-        - ...
-    - ...
-- ...
+            controller: Ling\Light_Kit_Admin\Controller\DashboardController->render
+        lka_route-login:
+            pattern: /login
+            controller: Ling\Light_Kit_Admin\Controller\LoginFormController->render
+        ...
+...
+````
 
-```
+where you declare your bundles.
+You can declare any number of bundles you want.
 
+A typical plugin would declare only one bundle named after the plugin (tip: use namespaces as your bundle will be merged with other third-party plugin's bundles).
 
-So, as you can probably guess, a bundle is just a collection of routes.
-Some extra properties could be added in the future.
+Each bundle has the following entries:
 
-Note: that the "routes" property holding the routes is an array of routeId => routeItem.
-Note also that the right property of each route item is totally made up (actually it exists in the 
-context of the Light_Kit_Admin plugin, but that's an exception). 
-The route item is in fact defined in the light framework documentation.
-See the [route conception notes](https://github.com/lingtalfi/Light/blob/master/doc/pages/route.md) for more details.
-
-By the way, there is
-also a [conception note about the rights](https://github.com/lingtalfi/Light/blob/master/doc/pages/rights.md)
-if you're interested.
-
-
-But back to this page, so the route is indeed extendable, hence we can add whatever properties our plugin
-needs to to it (right, my_color, number_of_tics, whatever, ....).
+- ?**prefix**: string=null, allows you to specify a string which will be prepended to every route's pattern in the bundle.
+        It's possible to access [light vars](https://github.com/lingtalfi/Light_Vars/blob/master/doc/pages/conception-notes.md#light-variables) via [container notation](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/notation/container-notation.md).
+- ?**priority**: int=10, allows you to specify a positive arbitrary integer representing the priority. The smaller the number the sooner the route will be parsed.
+    The main idea behind this property is that sometimes there is a well known master/subscriber relationships between third-party plugins.
+    When that's the case, it's likely that the routes defined by the master plugin need to be parsed BEFORE the ones from the subscriber plugins.
+    So for instance, the master plugin could define a priority of 1, and the subscriber plugins would not define any priority (which defaults to 10),
+    so that the routes of the master plugin will be parsed first.
+  
+- **routes**: array, the [routes](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/route.md) of the bundle.
+    The index key for each route is the route's name.
 
 
-The benefits of using bundles
--------------
 
-So the bundle is a collection of routes.
-But why is it useful?
+The plugin file's location must be at:
 
-The main idea behind the bundle concept is to easily prefix all the routes of the bundle.
-Imagine you're creating an admin system, then by changing the route prefix at the bundle level,
-you could for instance decide that all your urls now are prefixed with "/my_secure_admin/".
-
-Note: this feature is not implemented yet, but will be as soon as the concrete need for it 
-will occur in my developer life.
+- config/data/$PluginName/Light_EasyRoute/routes.byml
 
 
 
 
+Trailing slashes
+---------------
+2021-02-25 -> 2021-02-26
 
+When our service registers a route to the light instance, it makes sure that the route pattern doesn't end with a slash.
+
+We reckon that urls shouldn't generally end with a "slash" character, and so by removing the trailing slashes of the route patterns we believe we help the user a bit.
+
+
+
+
+
+
+
+
+
+
+
+
+The master route declaration file
+---------
+2021-02-23
+
+
+
+The **master route declaration file** is the file used by our service to declare the routes to the light framework.
+
+Basically, every route declared in it will be registered to the light instance.
+
+
+Its structure is exactly the same as the [plugin's route declaration file](#the-plugins-routes-declaration-file).
+
+In fact, this file is entirely created by third-party plugins when the call our **LightEasyRouteHelper::copyRoutesFromPluginToMaster** method,
+which just merges the content of their route declaration file into the master file.
+
+
+The master's file location will be at:
+
+- config/open/Light_EasyRoute/routes.byml
 
 
 

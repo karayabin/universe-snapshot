@@ -46,3 +46,10 @@
     - Ling:DirScanner:1.13.2+
     - Ling:YouTubeUtils:1.2.2+
     - Ling:UploaderHandler:1.0.2+
+
+2.2.3: 
+    - Ling:Bat:1.308+
+    - Ling:DirScanner:1.13.3+
+    - Ling:Tim:1.6.2+
+    - Ling:UploaderHandler:1.0.2+
+    - Ling:YouTubeUtils:1.2.2+

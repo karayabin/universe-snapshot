@@ -148,6 +148,8 @@ class Light_PlanetInstallerDocBuilder
                 "bashtml" => 'https://github.com/lingtalfi/CliTools/blob/master/doc/pages/bashtml.md',
                 "planet dot name" => 'https://github.com/karayabin/universe-snapshot#the-planet-dot-name',
                 "classic log levels" => 'https://github.com/lingtalfi/TheBar/blob/master/discussions/classic-log-levels.md',
+                "local universe" => 'https://github.com/lingtalfi/UniverseTools/blob/master/doc/pages/conception-notes.md#local-universe',
+                "lpi-deps" => "https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/doc/pages/conception-notes.md#the-lpibyml-file",
             ],
             /**
              * An array of external classes to url.

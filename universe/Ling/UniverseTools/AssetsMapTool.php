@@ -46,4 +46,31 @@ class AssetsMapTool
             }
         }
     }
+
+
+    /**
+     * Returns the list of files found in the given asset/map directory.
+     * @param string $assetMapDir
+     * @param bool $useRelativePath
+     * @return array
+     */
+    public static function getAssets(string $assetMapDir, bool $useRelativePath = true): array
+    {
+        if (true === is_dir($assetMapDir)) {
+            return YorgDirScannerTool::getFiles($assetMapDir, true, $useRelativePath);
+        }
+        return [];
+    }
+
+
+    /**
+     * Returns the path to the asset/map directory.
+     *
+     * @param string $planetDir
+     * @return string
+     */
+    public static function getAssetMapDirByPlanetDir(string $planetDir): string
+    {
+        return $planetDir . "/assets/map";
+    }
 }

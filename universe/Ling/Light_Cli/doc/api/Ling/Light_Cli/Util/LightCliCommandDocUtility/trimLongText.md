@@ -49,7 +49,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [LightCliCommandDocUtility::trimLongText](https://github.com/lingtalfi/Light_Cli/blob/master/Util/LightCliCommandDocUtility.php#L391-L402)
+See the source code for method [LightCliCommandDocUtility::trimLongText](https://github.com/lingtalfi/Light_Cli/blob/master/Util/LightCliCommandDocUtility.php#L360-L371)
 
 
 See Also

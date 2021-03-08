@@ -1,1 +1,0 @@
-Connexion to {template:appname.txt}, with account {user_identifier}

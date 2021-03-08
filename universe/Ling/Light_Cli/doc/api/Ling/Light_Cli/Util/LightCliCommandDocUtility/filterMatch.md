@@ -55,7 +55,7 @@ Returns bool.
 
 Source Code
 ===========
-See the source code for method [LightCliCommandDocUtility::filterMatch](https://github.com/lingtalfi/Light_Cli/blob/master/Util/LightCliCommandDocUtility.php#L435-L443)
+See the source code for method [LightCliCommandDocUtility::filterMatch](https://github.com/lingtalfi/Light_Cli/blob/master/Util/LightCliCommandDocUtility.php#L404-L412)
 
 
 See Also

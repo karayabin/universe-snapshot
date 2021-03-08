@@ -1,6 +1,6 @@
 ArrayDiff
 ===========
-2020-06-09
+2020-06-09 -> 2021-03-05
 
 
 
@@ -12,6 +12,12 @@ This is part of the [universe framework](https://github.com/karayabin/universe-s
 
 Install
 ==========
+
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.ArrayDiff
+```
+
 Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
 ```bash
 uni import Ling/ArrayDiff
@@ -35,6 +41,10 @@ Summary
 
 History Log
 =============
+
+- 1.0.3 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.0.2 -- 2020-12-08
 

@@ -87,7 +87,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightCliCommandDocUtility::printListByApp](https://github.com/lingtalfi/Light_Cli/blob/master/Util/LightCliCommandDocUtility.php#L76-L261)
+See the source code for method [LightCliCommandDocUtility::printListByApp](https://github.com/lingtalfi/Light_Cli/blob/master/Util/LightCliCommandDocUtility.php#L76-L259)
 
 
 See Also

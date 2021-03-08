@@ -46,6 +46,7 @@ https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageRe
 https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageRenderer/LightKitPageRenderer/setConfStorage.md
 https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageRenderer/LightKitPageRenderer/setContainer.md
 https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageRenderer/LightKitPageRenderer.md
+https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/Service/LightKitService.md
 https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit.md
 https://github.com/lingtalfi/Light_Kit/blob/master/doc/pages/conception-notes.md
 https://github.com/lingtalfi/Light_Kit/blob/master/doc/pages/events.md

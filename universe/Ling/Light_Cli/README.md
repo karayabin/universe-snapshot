@@ -1,6 +1,6 @@
 Light_Cli
 ===========
-2021-01-07 -> 2021-02-12
+2021-01-07 -> 2021-03-05
 
 
 A command line interface for the light framework.
@@ -14,6 +14,11 @@ This is part of the [universe framework](https://github.com/karayabin/universe-s
 
 Install
 ==========
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.Light_Cli
+```
+
 Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
 
 ```bash
@@ -70,6 +75,50 @@ cli:
 History Log
 =============
 
+- 1.0.21 -- 2021-03-05
+
+    - update README.md, add install alternative
+
+- 1.0.20 -- 2021-02-26
+
+    - update doc, usage theory section
+  
+- 1.0.19 -- 2021-02-25
+
+    - update create_app command, replace n flag with c flag
+  
+- 1.0.18 -- 2021-02-23
+
+    - fix typo in CreateAppCommand->getAliases
+
+- 1.0.17 -- 2021-02-23
+
+    - update create_app command, add n flag
+  
+- 1.0.16 -- 2021-02-23
+
+    - Update dependencies (pushed by SubscribersUtil)
+
+- 1.0.15 -- 2021-02-23
+
+    - Update dependencies (pushed by SubscribersUtil)
+
+- 1.0.14 -- 2021-02-23
+
+    - Update dependencies
+
+- 1.0.13 -- 2021-02-19
+
+    - fix LightCliCommandDocUtility->printListByApp, aliases not displayed correctly
+  
+- 1.0.12 -- 2021-02-19
+
+    - add planets command, moved "list" command to "commands"
+  
+- 1.0.11 -- 2021-02-15
+
+    - add services and routes commands
+  
 - 1.0.10 -- 2021-02-12
 
     - add create_app command, and light-cli binary

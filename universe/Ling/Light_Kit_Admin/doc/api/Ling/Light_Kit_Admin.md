@@ -1,6 +1,6 @@
 Ling/Light_Kit_Admin
 ================
-2019-05-17 --> 2021-02-11
+2019-05-17 --> 2021-03-05
 
 
 
@@ -64,12 +64,14 @@ Table of contents
     - [AdminPageController::renderAdminPage](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/AdminPageController/renderAdminPage.md) &ndash; if she is not connected yet.
     - [LightKitAdminController::setRoute](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController/setRoute.md) &ndash; Sets the matching route to this controller instance.
     - [LightKitAdminController::renderPage](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController/renderPage.md) &ndash; Renders the given page using the [kit service](https://github.com/lingtalfi/Light_Kit).
+    - [LightKitAdminController::renderDefaultPage](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController/renderDefaultPage.md) &ndash; Renders the default page, and returns the corresponding http response.
     - LightController::setLight &ndash; Sets the light instance.
 - [AdminPageController](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/AdminPageController.md) &ndash; The AdminPageController class.
     - [AdminPageController::__construct](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/AdminPageController/__construct.md) &ndash; Builds the LightController instance.
     - [AdminPageController::renderAdminPage](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/AdminPageController/renderAdminPage.md) &ndash; if she is not connected yet.
     - [LightKitAdminController::setRoute](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController/setRoute.md) &ndash; Sets the matching route to this controller instance.
     - [LightKitAdminController::renderPage](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController/renderPage.md) &ndash; Renders the given page using the [kit service](https://github.com/lingtalfi/Light_Kit).
+    - [LightKitAdminController::renderDefaultPage](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController/renderDefaultPage.md) &ndash; Renders the default page, and returns the corresponding http response.
     - LightController::setLight &ndash; Sets the light instance.
 - [DashboardController](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/DashboardController.md) &ndash; The DashboardController class.
     - [DashboardController::render](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/DashboardController/render.md) &ndash; Renders the dashboard page and returns the result.
@@ -77,6 +79,7 @@ Table of contents
     - [AdminPageController::renderAdminPage](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/AdminPageController/renderAdminPage.md) &ndash; if she is not connected yet.
     - [LightKitAdminController::setRoute](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController/setRoute.md) &ndash; Sets the matching route to this controller instance.
     - [LightKitAdminController::renderPage](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController/renderPage.md) &ndash; Renders the given page using the [kit service](https://github.com/lingtalfi/Light_Kit).
+    - [LightKitAdminController::renderDefaultPage](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController/renderDefaultPage.md) &ndash; Renders the default page, and returns the corresponding http response.
     - LightController::setLight &ndash; Sets the light instance.
 - [ForbiddenController](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/ForbiddenController.md) &ndash; The ForbiddenController class.
     - [ForbiddenController::render](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/ForbiddenController/render.md) &ndash; Renders an access forbidden page.
@@ -84,23 +87,27 @@ Table of contents
     - [AdminPageController::renderAdminPage](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/AdminPageController/renderAdminPage.md) &ndash; if she is not connected yet.
     - [LightKitAdminController::setRoute](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController/setRoute.md) &ndash; Sets the matching route to this controller instance.
     - [LightKitAdminController::renderPage](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController/renderPage.md) &ndash; Renders the given page using the [kit service](https://github.com/lingtalfi/Light_Kit).
+    - [LightKitAdminController::renderDefaultPage](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController/renderDefaultPage.md) &ndash; Renders the default page, and returns the corresponding http response.
     - LightController::setLight &ndash; Sets the light instance.
 - [ForgottenPasswordController](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/ForgottenPasswordController.md) &ndash; The ForgottenPasswordController class.
     - [ForgottenPasswordController::render](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/ForgottenPasswordController/render.md) &ndash; Renders the forgot password page and returns the result.
     - [LightKitAdminController::__construct](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController/__construct.md) &ndash; Builds the LightController instance.
     - [LightKitAdminController::setRoute](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController/setRoute.md) &ndash; Sets the matching route to this controller instance.
     - [LightKitAdminController::renderPage](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController/renderPage.md) &ndash; Renders the given page using the [kit service](https://github.com/lingtalfi/Light_Kit).
+    - [LightKitAdminController::renderDefaultPage](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController/renderDefaultPage.md) &ndash; Renders the default page, and returns the corresponding http response.
     - LightController::setLight &ndash; Sets the light instance.
 - [LightKitAdminController](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController.md) &ndash; The LightKitAdminController class.
     - [LightKitAdminController::__construct](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController/__construct.md) &ndash; Builds the LightController instance.
     - [LightKitAdminController::setRoute](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController/setRoute.md) &ndash; Sets the matching route to this controller instance.
     - [LightKitAdminController::renderPage](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController/renderPage.md) &ndash; Renders the given page using the [kit service](https://github.com/lingtalfi/Light_Kit).
+    - [LightKitAdminController::renderDefaultPage](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController/renderDefaultPage.md) &ndash; Renders the default page, and returns the corresponding http response.
     - LightController::setLight &ndash; Sets the light instance.
 - [LoginFormController](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LoginFormController.md) &ndash; The LoginFormController class.
     - [LoginFormController::render](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LoginFormController/render.md) &ndash; Renders the login form, and handles it.
     - [LightKitAdminController::__construct](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController/__construct.md) &ndash; Builds the LightController instance.
     - [LightKitAdminController::setRoute](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController/setRoute.md) &ndash; Sets the matching route to this controller instance.
     - [LightKitAdminController::renderPage](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController/renderPage.md) &ndash; Renders the given page using the [kit service](https://github.com/lingtalfi/Light_Kit).
+    - [LightKitAdminController::renderDefaultPage](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController/renderDefaultPage.md) &ndash; Renders the default page, and returns the corresponding http response.
     - LightController::setLight &ndash; Sets the light instance.
 - [LogoutController](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LogoutController.md) &ndash; The LogoutController class.
     - [LogoutController::render](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LogoutController/render.md) &ndash; Disconnects the logged in user, and redirects the user to the login form.
@@ -108,6 +115,7 @@ Table of contents
     - [AdminPageController::renderAdminPage](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/AdminPageController/renderAdminPage.md) &ndash; if she is not connected yet.
     - [LightKitAdminController::setRoute](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController/setRoute.md) &ndash; Sets the matching route to this controller instance.
     - [LightKitAdminController::renderPage](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController/renderPage.md) &ndash; Renders the given page using the [kit service](https://github.com/lingtalfi/Light_Kit).
+    - [LightKitAdminController::renderDefaultPage](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController/renderDefaultPage.md) &ndash; Renders the default page, and returns the corresponding http response.
     - LightController::setLight &ndash; Sets the light instance.
 - [RealAdminPageController](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/RealAdminPageController.md) &ndash; The RealAdminPageController class.
     - [RealAdminPageController::__construct](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/RealAdminPageController/__construct.md) &ndash; Builds the instance.
@@ -118,6 +126,7 @@ Table of contents
     - [AdminPageController::renderAdminPage](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/AdminPageController/renderAdminPage.md) &ndash; if she is not connected yet.
     - [LightKitAdminController::setRoute](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController/setRoute.md) &ndash; Sets the matching route to this controller instance.
     - [LightKitAdminController::renderPage](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController/renderPage.md) &ndash; Renders the given page using the [kit service](https://github.com/lingtalfi/Light_Kit).
+    - [LightKitAdminController::renderDefaultPage](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController/renderDefaultPage.md) &ndash; Renders the default page, and returns the corresponding http response.
     - LightController::setLight &ndash; Sets the light instance.
 - [Test2PageController](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/Test2PageController.md) &ndash; The Test2PageController class.
     - [Test2PageController::render](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/Test2PageController/render.md) &ndash; Renders a test page.
@@ -125,6 +134,7 @@ Table of contents
     - [AdminPageController::renderAdminPage](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/AdminPageController/renderAdminPage.md) &ndash; if she is not connected yet.
     - [LightKitAdminController::setRoute](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController/setRoute.md) &ndash; Sets the matching route to this controller instance.
     - [LightKitAdminController::renderPage](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController/renderPage.md) &ndash; Renders the given page using the [kit service](https://github.com/lingtalfi/Light_Kit).
+    - [LightKitAdminController::renderDefaultPage](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController/renderDefaultPage.md) &ndash; Renders the default page, and returns the corresponding http response.
     - LightController::setLight &ndash; Sets the light instance.
 - [TestPageController](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/TestPageController.md) &ndash; The TestPageController class.
     - [TestPageController::render](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/TestPageController/render.md) &ndash; Renders a test page.
@@ -132,6 +142,7 @@ Table of contents
     - [AdminPageController::renderAdminPage](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/AdminPageController/renderAdminPage.md) &ndash; if she is not connected yet.
     - [LightKitAdminController::setRoute](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController/setRoute.md) &ndash; Sets the matching route to this controller instance.
     - [LightKitAdminController::renderPage](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController/renderPage.md) &ndash; Renders the given page using the [kit service](https://github.com/lingtalfi/Light_Kit).
+    - [LightKitAdminController::renderDefaultPage](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController/renderDefaultPage.md) &ndash; Renders the default page, and returns the corresponding http response.
     - LightController::setLight &ndash; Sets the light instance.
 - [RealformMultipleEditController](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/Tools/RealformMultipleEditController.md) &ndash; The MultipleFormEditController class.
     - [RealformMultipleEditController::__construct](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/Tools/RealformMultipleEditController/__construct.md) &ndash; Builds the LightController instance.
@@ -139,6 +150,7 @@ Table of contents
     - [AdminPageController::renderAdminPage](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/AdminPageController/renderAdminPage.md) &ndash; if she is not connected yet.
     - [LightKitAdminController::setRoute](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController/setRoute.md) &ndash; Sets the matching route to this controller instance.
     - [LightKitAdminController::renderPage](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController/renderPage.md) &ndash; Renders the given page using the [kit service](https://github.com/lingtalfi/Light_Kit).
+    - [LightKitAdminController::renderDefaultPage](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController/renderDefaultPage.md) &ndash; Renders the default page, and returns the corresponding http response.
     - LightController::setLight &ndash; Sets the light instance.
 - [MessagesDataExtractor](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/DataExtractor/MessagesDataExtractor.md) &ndash; The MessagesDataExtractor class.
     - [MessagesDataExtractor::extractNewest](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/DataExtractor/MessagesDataExtractor/extractNewest.md) &ndash; Extracts n new messages and format them for the header of the zeroadmin theme.
@@ -169,6 +181,10 @@ Table of contents
     - [LightKitAdminControllerHubHandler::handle](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_ControllerHub/LightKitAdminControllerHubHandler/handle.md) &ndash; Process the given controllerIdentifier and returns an appropriate http response.
     - LightBaseControllerHubHandler::__construct &ndash; Builds the LightKitAdminControllerHubHandler instance.
     - LightBaseControllerHubHandler::setContainer &ndash; Sets the light service container interface.
+- [LightKitAdminPlanetInstaller](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_PlanetInstaller/LightKitAdminPlanetInstaller.md) &ndash; The LightKitAdminPlanetInstaller class.
+    - [LightKitAdminPlanetInstaller::onMapCopyAfter](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_PlanetInstaller/LightKitAdminPlanetInstaller/onMapCopyAfter.md) &ndash; This hook is executed during an [install](https://github.com/lingtalfi/TheBar/blob/master/discussions/import-install.md#summary).
+    - LightBasePlanetInstaller::__construct &ndash; Builds the LightBasePlanetInstaller instance.
+    - LightBasePlanetInstaller::setContainer &ndash; Sets the light service container interface.
 - [LightKitAdminBasePortPluginInstallerWithDatabase](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_PluginInstaller/LightKitAdminBasePortPluginInstallerWithDatabase.md) &ndash; The LightKitAdminBasePluginInstallerWithDatabase class.
     - [LightKitAdminBasePortPluginInstallerWithDatabase::__construct](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_PluginInstaller/LightKitAdminBasePortPluginInstallerWithDatabase/__construct.md) &ndash; Builds the LightKitAdminBasePluginInstallerWithDatabase instance.
     - [LightKitAdminBasePortPluginInstallerWithDatabase::install](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_PluginInstaller/LightKitAdminBasePortPluginInstallerWithDatabase/install.md) &ndash; Installs the plugin in the light application.
@@ -285,44 +301,51 @@ Table of contents
 
 Dependencies
 ============
-- [Light](https://github.com/lingtalfi/Light)
-- [Light_AjaxHandler](https://github.com/lingtalfi/Light_AjaxHandler)
 - [BabyYaml](https://github.com/lingtalfi/BabyYaml)
 - [Bat](https://github.com/lingtalfi/Bat)
-- [Light_BMenu](https://github.com/lingtalfi/Light_BMenu)
-- [Light_ReverseRouter](https://github.com/lingtalfi/Light_ReverseRouter)
-- [Light_UserManager](https://github.com/lingtalfi/Light_UserManager)
-- [Light_User](https://github.com/lingtalfi/Light_User)
-- [Light_Bullsheet](https://github.com/lingtalfi/Light_Bullsheet)
-- [Light_DatabaseInfo](https://github.com/lingtalfi/Light_DatabaseInfo)
-- [Light_Database](https://github.com/lingtalfi/Light_Database)
-- [Chloroform](https://github.com/lingtalfi/Chloroform)
-- [Light_CsrfSession](https://github.com/lingtalfi/Light_CsrfSession)
-- [Light_Kit](https://github.com/lingtalfi/Light_Kit)
-- [WiseTool](https://github.com/lingtalfi/WiseTool)
-- [Light_Mailer](https://github.com/lingtalfi/Light_Mailer)
-- [Light_UserDatabase](https://github.com/lingtalfi/Light_UserDatabase)
-- [HtmlPageTools](https://github.com/lingtalfi/HtmlPageTools)
-- [Light_Events](https://github.com/lingtalfi/Light_Events)
-- [Light_Flasher](https://github.com/lingtalfi/Light_Flasher)
-- [Light_MicroPermission](https://github.com/lingtalfi/Light_MicroPermission)
-- [Light_Realform](https://github.com/lingtalfi/Light_Realform)
-- [Light_Nugget](https://github.com/lingtalfi/Light_Nugget)
-- [SimplePdoWrapper](https://github.com/lingtalfi/SimplePdoWrapper)
-- [Light_DatabaseUtils](https://github.com/lingtalfi/Light_DatabaseUtils)
-- [UniverseTools](https://github.com/lingtalfi/UniverseTools)
-- [Light_ControllerHub](https://github.com/lingtalfi/Light_ControllerHub)
-- [Light_Crud](https://github.com/lingtalfi/Light_Crud)
-- [Light_Realist](https://github.com/lingtalfi/Light_Realist)
-- [Light_UserData](https://github.com/lingtalfi/Light_UserData)
-- [PhpSpreadSheetTool](https://github.com/lingtalfi/PhpSpreadSheetTool)
 - [Bootstrap4AdminTable](https://github.com/lingtalfi/Bootstrap4AdminTable)
-- [Light_PluginInstaller](https://github.com/lingtalfi/Light_PluginInstaller)
-- [Kit_PicassoWidget](https://github.com/lingtalfi/Kit_PicassoWidget)
+- [Chloroform](https://github.com/lingtalfi/Chloroform)
 - [Chloroform_HeliumRenderer](https://github.com/lingtalfi/Chloroform_HeliumRenderer)
+- [CliTools](https://github.com/lingtalfi/CliTools)
 - [FontAwesome](https://github.com/lingtalfi/FontAwesome)
+- [HtmlPageTools](https://github.com/lingtalfi/HtmlPageTools)
 - [JBee](https://github.com/lingtalfi/JBee)
 - [JPostForm](https://github.com/lingtalfi/JPostForm)
 - [Jquery](https://github.com/lingtalfi/Jquery)
+- [Kit_PicassoWidget](https://github.com/lingtalfi/Kit_PicassoWidget)
+- [Light](https://github.com/lingtalfi/Light)
+- [Light_AjaxHandler](https://github.com/lingtalfi/Light_AjaxHandler)
+- [Light_BMenu](https://github.com/lingtalfi/Light_BMenu)
+- [Light_Bullsheet](https://github.com/lingtalfi/Light_Bullsheet)
+- [Light_ControllerHub](https://github.com/lingtalfi/Light_ControllerHub)
+- [Light_Crud](https://github.com/lingtalfi/Light_Crud)
+- [Light_CsrfSession](https://github.com/lingtalfi/Light_CsrfSession)
+- [Light_Database](https://github.com/lingtalfi/Light_Database)
+- [Light_DatabaseInfo](https://github.com/lingtalfi/Light_DatabaseInfo)
+- [Light_DatabaseUtils](https://github.com/lingtalfi/Light_DatabaseUtils)
+- [Light_EasyRoute](https://github.com/lingtalfi/Light_EasyRoute)
+- [Light_Events](https://github.com/lingtalfi/Light_Events)
+- [Light_Flasher](https://github.com/lingtalfi/Light_Flasher)
+- [Light_HtmlPageCopilot](https://github.com/lingtalfi/Light_HtmlPageCopilot)
+- [Light_Kit](https://github.com/lingtalfi/Light_Kit)
+- [Light_Kit_BootstrapWidgetLibrary](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary)
+- [Light_Kit_Editor](https://github.com/lingtalfi/Light_Kit_Editor)
+- [Light_Mailer](https://github.com/lingtalfi/Light_Mailer)
+- [Light_MicroPermission](https://github.com/lingtalfi/Light_MicroPermission)
+- [Light_Nugget](https://github.com/lingtalfi/Light_Nugget)
+- [Light_PlanetInstaller](https://github.com/lingtalfi/Light_PlanetInstaller)
+- [Light_PluginInstaller](https://github.com/lingtalfi/Light_PluginInstaller)
+- [Light_Realform](https://github.com/lingtalfi/Light_Realform)
+- [Light_Realist](https://github.com/lingtalfi/Light_Realist)
+- [Light_ReverseRouter](https://github.com/lingtalfi/Light_ReverseRouter)
+- [Light_User](https://github.com/lingtalfi/Light_User)
+- [Light_UserData](https://github.com/lingtalfi/Light_UserData)
+- [Light_UserDatabase](https://github.com/lingtalfi/Light_UserDatabase)
+- [Light_UserManager](https://github.com/lingtalfi/Light_UserManager)
+- [Light_Vars](https://github.com/lingtalfi/Light_Vars)
+- [PhpSpreadSheetTool](https://github.com/lingtalfi/PhpSpreadSheetTool)
+- [SimplePdoWrapper](https://github.com/lingtalfi/SimplePdoWrapper)
+- [UniverseTools](https://github.com/lingtalfi/UniverseTools)
+- [WiseTool](https://github.com/lingtalfi/WiseTool)
 
 

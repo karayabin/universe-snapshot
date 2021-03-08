@@ -80,7 +80,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LpiGithubImporter::importItem](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Importer/LpiGithubImporter.php#L37-L106)
+See the source code for method [LpiGithubImporter::importItem](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Importer/LpiGithubImporter.php#L38-L107)
 
 
 See Also

@@ -1,10 +1,10 @@
 dependencies: 
     Ling: 
-        - Light
-        - Bat
-        - Light_DatabaseInfo
-        - Light_Database
         - ArrayToString
+        - Bat
+        - Light
+        - Light_Database
+        - Light_DatabaseInfo
         - SimplePdoWrapper
     
 

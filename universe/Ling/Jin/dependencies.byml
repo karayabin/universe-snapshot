@@ -1,17 +1,17 @@
 dependencies: 
     Ling: 
-        - ArrayToString
-        - Bat
         - ArrayRefResolver
-        - BumbleBee
-        - Registry
+        - ArrayToString
         - BabyYaml
+        - Bat
+        - BumbleBee
         - DirScanner
-        - PhpErrorName
         - Octopus
+        - PhpErrorName
         - PhpUploadFileFix
-        - ZeusTemplateEngine
+        - Registry
         - UniversalTemplateEngine
+        - ZeusTemplateEngine
     
 
 post_install: []

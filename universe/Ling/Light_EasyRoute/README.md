@@ -1,6 +1,6 @@
 Light_EasyRoute
 ===========
-2019-08-21 -> 2020-12-01
+2019-08-21 -> 2021-03-05
 
 
 
@@ -14,6 +14,11 @@ This is part of the [universe framework](https://github.com/karayabin/universe-s
 
 Install
 ==========
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.Light_EasyRoute
+```
+
 Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
 ```bash
 uni import Ling/Light_EasyRoute
@@ -47,20 +52,23 @@ Here is an example of the service configuration file:
 
 ```yaml
 easy_route:
-    instance: Ling\Light_EasyRoute\Service\LightEasyRouteService
+  instance: Ling\Light_EasyRoute\Service\LightEasyRouteService
+  methods:
+    setContainer:
+      container: @container()
 
 
 # --------------------------------------
 # hooks
 # --------------------------------------
 $events.methods_collection:
-    -
-        method: registerListener
-        args:
-            events: Light.initialize_1
-            listener:
-                instance: @service(easy_route)
-                callable_method: initialize
+  -
+    method: registerListener
+    args:
+      events: Light.initialize_1
+      listener:
+        instance: @service(easy_route)
+        callable_method: initialize
 
 
 
@@ -77,9 +85,33 @@ See the conception notes for more details.
 History Log
 =============
 
+- 1.3.5 -- 2021-03-05
+
+    - update README.md, add install alternative
+
+- 1.3.4 -- 2021-02-26
+
+    - update doc, trailing slash section 
+
+- 1.3.3 -- 2021-02-26
+
+    - fix service->initialize type error when calling light vars service
+  
+- 1.3.2 -- 2021-02-25
+
+    - update service, now prefix can use container notation to access light vars
+  
+- 1.3.1 -- 2021-02-25
+
+    - update service->registerRouteByBundle, now trim trailing slashes of the route patterns
+  
+- 1.3.0 -- 2021-02-23
+
+    - implement open registration system
+  
 - 1.2.5 -- 2020-12-08
 
-    - Fix lpi-deps not using natsort.
+    - Fix lpi-deps not using natsort
 
 - 1.2.4 -- 2020-12-04
 

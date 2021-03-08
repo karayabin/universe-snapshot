@@ -2,9 +2,9 @@ dependencies:
     Ling: 
         - Light
         - Light_Database
-        - SimplePdoWrapper
-        - Light_UserDatabase
         - Light_LingStandardService
+        - Light_UserDatabase
+        - SimplePdoWrapper
     
 
 post_install: 

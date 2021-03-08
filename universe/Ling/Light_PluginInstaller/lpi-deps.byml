@@ -243,3 +243,43 @@
     - Ling:Light:0.69.21+
     - Ling:SimplePdoWrapper:1.30.16+
     - Ling:UniverseTools:1.22.14+
+
+2.0.13: 
+    - Ling:Bat:1.305+
+    - Ling:CliTools:1.10.25+
+    - Ling:CyclicChainDetector:1.1.1+
+    - Ling:Light:0.69.22+
+    - Ling:SimplePdoWrapper:1.30.16+
+    - Ling:UniverseTools:1.22.24+
+
+2.0.15: 
+    - Ling:Bat:1.305+
+    - Ling:CliTools:1.10.25+
+    - Ling:CyclicChainDetector:1.1.1+
+    - Ling:Light:0.69.26+
+    - Ling:SimplePdoWrapper:1.30.16+
+    - Ling:UniverseTools:1.22.26+
+
+2.0.16: 
+    - Ling:Bat:1.305+
+    - Ling:CliTools:1.10.25+
+    - Ling:CyclicChainDetector:1.1.1+
+    - Ling:Light:0.69.26+
+    - Ling:SimplePdoWrapper:1.30.16+
+    - Ling:UniverseTools:1.22.27+
+
+2.0.17: 
+    - Ling:Bat:1.307+
+    - Ling:CliTools:1.10.25+
+    - Ling:CyclicChainDetector:1.1.1+
+    - Ling:Light:0.69.26+
+    - Ling:SimplePdoWrapper:1.30.16+
+    - Ling:UniverseTools:1.22.29+
+
+2.0.18: 
+    - Ling:Bat:1.308+
+    - Ling:CliTools:1.10.26+
+    - Ling:CyclicChainDetector:1.1.2+
+    - Ling:Light:0.69.30+
+    - Ling:SimplePdoWrapper:1.30.16+
+    - Ling:UniverseTools:1.22.29+

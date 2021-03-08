@@ -1,6 +1,6 @@
 MethodInjector
 ==================
-2017-03-24
+2017-03-24 -> 2021-03-05
 
 
 A tool for injecting methods from a class to another.
@@ -63,6 +63,10 @@ foreach ($methods as $method) {
 
 History Log
 ------------------
+
+- 1.5.3 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.5.2 -- 2020-12-08
 

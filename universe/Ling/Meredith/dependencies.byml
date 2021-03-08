@@ -1,8 +1,8 @@
 dependencies: 
     Ling: 
-        - SuspiciousException
         - Bat
         - DirScanner
+        - SuspiciousException
     
 
 post_install: []

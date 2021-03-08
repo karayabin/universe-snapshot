@@ -51,7 +51,7 @@ Returns mixed.
 
 Source Code
 ===========
-See the source code for method [LightKitAdminBMenuHost::prepareBaseMenu](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/BMenu/LightKitAdminBMenuHost.php#L52-L71)
+See the source code for method [LightKitAdminBMenuHost::prepareBaseMenu](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/BMenu/LightKitAdminBMenuHost.php#L52-L72)
 
 
 See Also

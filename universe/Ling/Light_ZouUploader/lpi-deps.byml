@@ -22,3 +22,8 @@
     - Ling:Bat:1.293+
     - Ling:Light:0.69.18+
     - Ling:PhpFileValidator:1.0.2+
+
+1.1.4: 
+    - Ling:Bat:1.308+
+    - Ling:Light:0.69.30+
+    - Ling:PhpFileValidator:1.0.2+

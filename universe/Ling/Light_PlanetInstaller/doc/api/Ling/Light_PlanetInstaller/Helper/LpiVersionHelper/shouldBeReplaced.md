@@ -65,7 +65,7 @@ Returns bool.
 
 Source Code
 ===========
-See the source code for method [LpiVersionHelper::shouldBeReplaced](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Helper/LpiVersionHelper.php#L162-L166)
+See the source code for method [LpiVersionHelper::shouldBeReplaced](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Helper/LpiVersionHelper.php#L198-L202)
 
 
 See Also

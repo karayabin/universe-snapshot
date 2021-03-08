@@ -73,3 +73,7 @@
 1.11.3: 
     - Ling:Bat:1.293+
     - Ling:Light:0.69.18+
+
+1.11.4: 
+    - Ling:Bat:1.308+
+    - Ling:Light:0.69.30+

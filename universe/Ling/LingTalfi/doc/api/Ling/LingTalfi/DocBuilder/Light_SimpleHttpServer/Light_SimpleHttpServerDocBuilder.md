@@ -4,7 +4,7 @@
 
 The Light_SimpleHttpServerDocBuilder class
 ================
-2019-03-13 --> 2020-12-08
+2019-03-13 --> 2021-03-08
 
 
 
@@ -52,4 +52,4 @@ See the source code of [Ling\LingTalfi\DocBuilder\Light_SimpleHttpServer\Light_S
 
 SeeAlso
 ==============
-Previous class: [Light_RouterDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_Router/Light_RouterDocBuilder.md)<br>Next class: [Light_SpinKitHelperDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_SpinKitHelper/Light_SpinKitHelperDocBuilder.md)<br>
+Previous class: [Light_ServiceSwitchDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_ServiceSwitch/Light_ServiceSwitchDocBuilder.md)<br>Next class: [Light_SpinKitHelperDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light_SpinKitHelper/Light_SpinKitHelperDocBuilder.md)<br>

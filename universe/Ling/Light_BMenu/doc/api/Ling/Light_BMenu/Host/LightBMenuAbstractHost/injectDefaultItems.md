@@ -55,7 +55,7 @@ Returns mixed.
 
 Source Code
 ===========
-See the source code for method [LightBMenuAbstractHost::injectDefaultItems](https://github.com/lingtalfi/Light_BMenu/blob/master/Host/LightBMenuAbstractHost.php#L61-L66)
+See the source code for method [LightBMenuAbstractHost::injectDefaultItems](https://github.com/lingtalfi/Light_BMenu/blob/master/Host/LightBMenuAbstractHost.php#L62-L69)
 
 
 See Also

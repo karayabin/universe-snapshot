@@ -85,6 +85,7 @@ class Light_Kit_Admin_TaskSchedulerDocBuilder
                 "Ling\Light_Kit_Admin\Controller\RealAdminPageController",
                 "Ling\Light_Kit_Admin\Light_PluginInstaller\LightKitAdminBasePortPluginInstallerWithDatabase",
                 "Ling\Light_PluginInstaller\PluginInstaller\LightBasePluginInstaller",
+                "Ling\Light_UserDatabase\Light_PluginInstaller\LightUserDatabaseBasePluginInstaller",
 
             ],
             /**

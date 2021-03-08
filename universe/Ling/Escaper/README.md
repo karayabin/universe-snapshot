@@ -1,6 +1,6 @@
 Escaper
 =======
-2015-11-13
+2015-11-13 -> 2021-03-05
 
 
 
@@ -14,6 +14,11 @@ Escaper is part of the [universe framework](https://github.com/karayabin/univers
 Install
 =============
 
+
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.Escaper
+```
 
 Using the [uni tool](https://github.com/lingtalfi/universe-naive-importer)
 ```bash
@@ -164,6 +169,10 @@ Dependencies
 
 History Log
 ------------------
+
+- 1.4.3 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.4.2 -- 2020-12-08
 

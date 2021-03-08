@@ -1,6 +1,6 @@
 Chloroform_HeliumLightRenderer
 ===========
-2019-10-21 -> 2020-11-20
+2019-10-21 -> 2021-03-05
 
 
 
@@ -16,6 +16,11 @@ Chloroform_HeliumLightRenderer is compliant with the [clever form initiative](ht
 
 Install
 ==========
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.Chloroform_HeliumLightRenderer
+```
+
 Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
 ```bash
 uni import Ling/Chloroform_HeliumLightRenderer
@@ -54,6 +59,10 @@ Related
 
 History Log
 =============
+
+- 1.6.8 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.6.7 -- 2020-12-08
 

@@ -4,7 +4,7 @@
 
 The HelpCommand class
 ================
-2019-04-03 --> 2020-12-08
+2019-04-03 --> 2021-03-05
 
 
 
@@ -34,7 +34,7 @@ class <span class="pl-k">HelpCommand</span> extends [DeployGenericCommand](https
 
 - Methods
     - public [__construct](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/HelpCommand/__construct.md)() : void
-    - public [run](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/HelpCommand/run.md)(Ling\CliTools\Input\InputInterface $input, Ling\CliTools\Output\OutputInterface $output) : int
+    - public [run](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/HelpCommand/run.md)(Ling\CliTools\Input\InputInterface $input, Ling\CliTools\Output\OutputInterface $output) : mixed
     - protected [getCallbacks](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/HelpCommand/getCallbacks.md)(?string $identifier = null) : mixed
     - protected [registerCallback](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/HelpCommand/registerCallback.md)(string $commandName, callable $function, ?string $identifier = null) : void
     - protected [registerCallbacks](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/HelpCommand/registerCallbacks.md)(Ling\CliTools\Output\OutputInterface $output) : void

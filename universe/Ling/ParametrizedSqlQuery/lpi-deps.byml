@@ -87,3 +87,9 @@
     - Ling:Bat:1.293+
     - Ling:SqlQuery:1.10.5+
     - Ling:UniversalLogger:1.1.2+
+
+1.10.3: 
+    - Ling:BabyYaml:1.7.8+
+    - Ling:Bat:1.308+
+    - Ling:SqlQuery:1.10.5+
+    - Ling:UniversalLogger:1.1.2+

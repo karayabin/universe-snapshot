@@ -58,7 +58,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [TokenFinderTool::removePhpComments](https://github.com/lingtalfi/TokenFun/blob/master/TokenFinder/Tool/TokenFinderTool.php#L624-L674)
+See the source code for method [TokenFinderTool::removePhpComments](https://github.com/lingtalfi/TokenFun/blob/master/TokenFinder/Tool/TokenFinderTool.php#L652-L702)
 
 
 See Also

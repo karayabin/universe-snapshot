@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [PackAndPushUniToolCommand::run](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Command/PackAndPushUniToolCommand/run.md)(Ling\CliTools\Input\InputInterface $input, Ling\CliTools\Output\OutputInterface $output) : int
+public [PackAndPushUniToolCommand::run](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Command/PackAndPushUniToolCommand/run.md)(Ling\CliTools\Input\InputInterface $input, [Ling\CliTools\Output\OutputInterface](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Output/OutputInterface.md) $output) : mixed
 
 
 
@@ -48,9 +48,10 @@ Parameters
 Return values
 ================
 
-Returns int.
-The exit status.
-If null, 0 should be assumed.
+Returns mixed.
+If an int is returned, it should be assumed to be the exit status.
+If no value is returned, 0 should be assumed (meaning exit status=0, meaning the program executed correctly).
+Other return value types might be added in the future
 
 
 

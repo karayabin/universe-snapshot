@@ -133,3 +133,11 @@
     - Ling:CliTools:1.10.14+
     - Ling:DirScanner:1.13.3+
     - Ling:Light_Logger:1.11.5+
+
+1.9.7: 
+    - Ling:BabyYaml:1.7.8+
+    - Ling:Bat:1.308+
+    - Ling:CliTools:1.10.26+
+    - Ling:DirScanner:1.13.4+
+    - Ling:Light:0.69.30+
+    - Ling:Light_Logger:1.11.5+

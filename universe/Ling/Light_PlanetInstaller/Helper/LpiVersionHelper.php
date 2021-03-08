@@ -15,6 +15,42 @@ class LpiVersionHelper
 
 
     /**
+     * Returns the mini version of the given version expression.
+     *
+     * @param string $planetDot
+     * @param string $versionExpr
+     * @return string
+     */
+    public static function toMiniVersionExpression(string $planetDot, string $versionExpr): string
+    {
+        if ('last' === $versionExpr) {
+            if (true === LpiConfHelper::getLocalUniverseHasLast() && true === LpiLocalUniverseHelper::hasPlanet($planetDot)) {
+                return LpiLocalUniverseHelper::getVersion($planetDot);
+            }
+            return LpiWebHelper::getPlanetCurrentVersion($planetDot);
+        }
+        return $versionExpr;
+    }
+
+
+    /**
+     * Returns the real version corresponding to the given planet and versionExpr, or throws an exception in case of problem.
+     * The modifier symbol, if any, are just stripped out.
+     *
+     *
+     * @param string $planetDotName
+     * @param string $versionExpr
+     * @return string
+     * @throws \Exception
+     *
+     */
+    public static function getRealVersionByVersionExpression(string $planetDotName, string $versionExpr): string
+    {
+        $mini = self::toMiniVersionExpression($planetDotName, $versionExpr);
+        return self::removeModifierSymbol($mini);
+    }
+
+    /**
      * Returns an information array about the given mini version expression.
      *
      * The array contains:

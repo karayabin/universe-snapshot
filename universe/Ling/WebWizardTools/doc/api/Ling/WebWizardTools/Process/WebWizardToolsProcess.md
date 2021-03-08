@@ -4,7 +4,7 @@
 
 The WebWizardToolsProcess class
 ================
-2020-07-06 --> 2020-12-08
+2020-07-06 --> 2021-03-05
 
 
 
@@ -61,11 +61,12 @@ abstract class <span class="pl-k">WebWizardToolsProcess</span>  {
     - public [addLogMessage](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/Process/WebWizardToolsProcess/addLogMessage.md)(string $msg, string $type) : void
     - abstract protected [doExecute](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/Process/WebWizardToolsProcess/doExecute.md)(?array $options = []) : void
     - protected [getContextVar](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/Process/WebWizardToolsProcess/getContextVar.md)(string $varName, ?$defaultValue = null, ?bool $throwEx = true) : void
+    - protected [getContextVars](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/Process/WebWizardToolsProcess/getContextVars.md)() : array
     - protected [traceMessage](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/Process/WebWizardToolsProcess/traceMessage.md)(string $msg) : void
     - protected [infoMessage](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/Process/WebWizardToolsProcess/infoMessage.md)(string $msg) : void
     - protected [errorMessage](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/Process/WebWizardToolsProcess/errorMessage.md)(string $msg) : void
     - protected [importantMessage](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/Process/WebWizardToolsProcess/importantMessage.md)(string $msg) : void
-    - protected [exceptionMessage](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/Process/WebWizardToolsProcess/exceptionMessage.md)([\Exception](http://php.net/manual/en/class.exception.php) $e) : void
+    - protected [exceptionMessage](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/Process/WebWizardToolsProcess/exceptionMessage.md)(Exception $e) : void
     - protected [message](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/Process/WebWizardToolsProcess/message.md)($msg, string $type) : void
     - private [error](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/Process/WebWizardToolsProcess/error.md)(string $msg) : void
 
@@ -169,6 +170,7 @@ Methods
 - [WebWizardToolsProcess::addLogMessage](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/Process/WebWizardToolsProcess/addLogMessage.md) &ndash; Adds a message of the given type to the log.
 - [WebWizardToolsProcess::doExecute](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/Process/WebWizardToolsProcess/doExecute.md) &ndash; Executes the process.
 - [WebWizardToolsProcess::getContextVar](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/Process/WebWizardToolsProcess/getContextVar.md) &ndash; Returns a variable from the wizard context.
+- [WebWizardToolsProcess::getContextVars](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/Process/WebWizardToolsProcess/getContextVars.md) &ndash; Returns the context vars for this instance.
 - [WebWizardToolsProcess::traceMessage](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/Process/WebWizardToolsProcess/traceMessage.md) &ndash; Adds a message of type "trace" to the process report.
 - [WebWizardToolsProcess::infoMessage](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/Process/WebWizardToolsProcess/infoMessage.md) &ndash; Adds a message of type "info" to the process report.
 - [WebWizardToolsProcess::errorMessage](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/Process/WebWizardToolsProcess/errorMessage.md) &ndash; Adds a message of type "error" to the process report.

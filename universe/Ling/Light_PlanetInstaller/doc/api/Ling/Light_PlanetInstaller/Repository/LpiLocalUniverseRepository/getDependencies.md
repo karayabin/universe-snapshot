@@ -57,7 +57,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [LpiLocalUniverseRepository::getDependencies](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Repository/LpiLocalUniverseRepository.php#L69-L77)
+See the source code for method [LpiLocalUniverseRepository::getDependencies](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Repository/LpiLocalUniverseRepository.php#L85-L93)
 
 
 See Also

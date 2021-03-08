@@ -1,6 +1,6 @@
 Ling/SqlWizard
 ================
-2019-07-23 --> 2021-01-22
+2019-07-23 --> 2021-03-05
 
 
 
@@ -51,7 +51,7 @@ Table of contents
 
 Dependencies
 ============
-- [SimplePdoWrapper](https://github.com/lingtalfi/SimplePdoWrapper)
 - [JumboExploder](https://github.com/lingtalfi/JumboExploder)
+- [SimplePdoWrapper](https://github.com/lingtalfi/SimplePdoWrapper)
 
 

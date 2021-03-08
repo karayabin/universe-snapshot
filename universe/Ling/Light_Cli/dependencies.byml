@@ -2,8 +2,9 @@ dependencies:
     Ling: 
         - Bat
         - CliTools
-        - UniverseTools
         - Light
+        - Light_PlanetInstaller
+        - UniverseTools
     
 
 post_install: 

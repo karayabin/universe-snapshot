@@ -1,6 +1,6 @@
 ArrayToTable
 =====================
-2015-10-28
+2015-10-28 -> 2021-03-05
 
 
 
@@ -16,6 +16,11 @@ ArrayToTable is part of the [universe framework](https://github.com/karayabin/un
 Install
 =============
 
+
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.ArrayToTable
+```
 
 Using the [uni tool](https://github.com/lingtalfi/universe-naive-importer)
 ```bash
@@ -202,6 +207,10 @@ The code above, when executed by a browser, would give the following image:
 
 History Log
 ------------------
+
+- 1.2.3 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.2.2 -- 2020-12-08
 

@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [SynchronizeDbProcess::prepare](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/WebWizardTools/Process/Database/SynchronizeDbProcess.php#L37-L45)
+See the source code for method [SynchronizeDbProcess::prepare](https://github.com/lingtalfi/Light_DeveloperWizard/blob/master/WebWizardTools/Process/Database/SynchronizeDbProcess.php#L36-L44)
 
 
 See Also

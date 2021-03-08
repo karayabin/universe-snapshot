@@ -24,3 +24,6 @@
 
 3.4.2: 
     - Ling:DirScanner:1.13.2+
+
+3.4.3: 
+    - Ling:DirScanner:1.13.4+

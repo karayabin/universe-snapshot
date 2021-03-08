@@ -1,6 +1,6 @@
 TheBar
 ======
-2015-11-03 -> 2021-02-02
+2015-11-03 -> 2021-03-05
 
 
 
@@ -27,6 +27,7 @@ Listen to some of our customer's stories.
 - [import install](https://github.com/lingtalfi/TheBar/blob/master/discussions/import-install.md): a disambiguation about the import install concepts 
 - [inject svelte in an existing app](https://github.com/lingtalfi/TheBar/blob/master/discussions/inject-svelte-in-existing-app.md): Inject a svelte component in an existing app 
 - [Joe's Corner](https://github.com/lingtalfi/TheBar/blob/master/joe/README.md): tells you about how the universe should be organized 
+- [kwin notation](https://github.com/lingtalfi/TheBar/blob/master/discussions/kwin-notation.md): the kwin notation 
 - [light-standard-permissions](https://github.com/lingtalfi/TheBar/blob/master/discussions/light-standard-permissions.md): the light standard permissions 
 - [panda-headers protocol](https://github.com/lingtalfi/TheBar/blob/master/discussions/panda-headers-protocol.md): the panda-headers protocol 
 - [permissive-dev-environment](https://github.com/lingtalfi/TheBar/blob/master/discussions/permissive-dev-environment.md): the permissive dev environment discussion 
@@ -51,6 +52,11 @@ TheBar is part of the [universe framework](https://github.com/karayabin/universe
 
 Install
 ==========
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.TheBar
+```
+
 Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
 ```bash
 uni import Ling/TheBar
@@ -59,6 +65,30 @@ uni import Ling/TheBar
 History Log
 ===============
 
+- 1.24.30 -- 2021-03-05
+
+    - update README.md, add install alternative
+
+- 1.24.29 -- 2021-02-19
+
+    - update kwin notation, add aliases  
+  
+- 1.24.29 -- 2021-02-18
+
+    - update kwin notation, now uses multiple of four indentation 
+  
+- 1.24.28 -- 2021-02-18
+
+    - update kwin notation, add kwin array 
+  
+- 1.24.27 -- 2021-02-16
+
+    - update kwin notation 
+  
+- 1.24.26 -- 2021-02-16
+
+    - add kwin notation 
+  
 - 1.24.25 -- 2021-02-02
 
     - update import/install definition 

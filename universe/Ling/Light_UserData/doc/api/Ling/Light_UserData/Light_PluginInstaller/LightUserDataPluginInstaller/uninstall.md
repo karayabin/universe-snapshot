@@ -54,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightUserDataPluginInstaller::uninstall](https://github.com/lingtalfi/Light_UserData/blob/master/Light_PluginInstaller/LightUserDataPluginInstaller.php#L104-L152)
+See the source code for method [LightUserDataPluginInstaller::uninstall](https://github.com/lingtalfi/Light_UserData/blob/master/Light_PluginInstaller/LightUserDataPluginInstaller.php#L104-L146)
 
 
 See Also

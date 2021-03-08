@@ -4,7 +4,7 @@
 
 The MysqlWizard class
 ================
-2019-07-23 --> 2021-01-22
+2019-07-23 --> 2021-03-05
 
 
 
@@ -75,7 +75,7 @@ class <span class="pl-k">MysqlWizard</span>  {
 
 - Methods
     - public [__construct](https://github.com/lingtalfi/SqlWizard/blob/master/doc/api/Ling/SqlWizard/MysqlWizard/__construct.md)() : void
-    - public [setConnection](https://github.com/lingtalfi/SqlWizard/blob/master/doc/api/Ling/SqlWizard/MysqlWizard/setConnection.md)([\PDO](https://www.php.net/manual/en/class.pdo.php) $connection) : void
+    - public [setConnection](https://github.com/lingtalfi/SqlWizard/blob/master/doc/api/Ling/SqlWizard/MysqlWizard/setConnection.md)(PDO $connection) : void
     - public [getDatabases](https://github.com/lingtalfi/SqlWizard/blob/master/doc/api/Ling/SqlWizard/MysqlWizard/getDatabases.md)(?$filterMysqlDb = true) : array
     - public [getTables](https://github.com/lingtalfi/SqlWizard/blob/master/doc/api/Ling/SqlWizard/MysqlWizard/getTables.md)(?$db = null, ?$prefix = null) : array
     - public [getAutoIncrementedField](https://github.com/lingtalfi/SqlWizard/blob/master/doc/api/Ling/SqlWizard/MysqlWizard/getAutoIncrementedField.md)($table) : false | string

@@ -1,3 +1,0 @@
-Just a plain text to test the plain send...
-The variable is a {fruit}.
-The customer is {customer}.

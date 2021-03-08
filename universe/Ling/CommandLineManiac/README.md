@@ -1,6 +1,6 @@
 CommandLineManiac
 ====================
-2015-10-04
+2015-10-04 -> 2021-03-05
 
 
 
@@ -13,6 +13,11 @@ CommandLineManiac is part of the [universe framework](https://github.com/karayab
 Install
 =============
 
+
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.CommandLineManiac
+```
 
 Using the [uni tool](https://github.com/lingtalfi/universe-naive-importer)
 ```bash
@@ -159,6 +164,10 @@ try {
 
 History Log
 ===============
+
+- 1.0.3 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.0.2 -- 2020-12-08
 

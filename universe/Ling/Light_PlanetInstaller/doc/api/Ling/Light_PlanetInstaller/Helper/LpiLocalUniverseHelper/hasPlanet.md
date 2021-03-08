@@ -49,7 +49,7 @@ Returns bool.
 
 Source Code
 ===========
-See the source code for method [LpiLocalUniverseHelper::hasPlanet](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Helper/LpiLocalUniverseHelper.php#L21-L28)
+See the source code for method [LpiLocalUniverseHelper::hasPlanet](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Helper/LpiLocalUniverseHelper.php#L22-L29)
 
 
 See Also

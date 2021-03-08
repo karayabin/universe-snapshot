@@ -32,3 +32,8 @@
     - Ling:Chloroform:1.36.6+
     - Ling:Light:0.69.18+
     - Ling:Light_Events:1.9.5+
+
+1.2.4: 
+    - Ling:Chloroform:1.36.7+
+    - Ling:Light:0.69.30+
+    - Ling:Light_Events:1.9.6+

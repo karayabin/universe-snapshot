@@ -1,6 +1,6 @@
 CSRFTools
 ===========
-2019-04-11
+2019-04-11 -> 2021-03-05
 
 
 
@@ -12,6 +12,11 @@ This is part of the [universe framework](https://github.com/karayabin/universe-s
 
 Install
 ==========
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.CSRFTools
+```
+
 Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
 ```bash
 uni import Ling/CSRFTools
@@ -339,6 +344,10 @@ It's like a specific name associated with a token.
 
 History Log
 =============
+
+- 1.5.4 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.5.3 -- 2020-12-08
 

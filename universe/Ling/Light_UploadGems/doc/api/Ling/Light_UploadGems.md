@@ -1,6 +1,6 @@
 Ling/Light_UploadGems
 ================
-2020-04-13 --> 2020-12-08
+2020-04-13 --> 2021-03-05
 
 
 
@@ -37,8 +37,8 @@ Dependencies
 - [Bat](https://github.com/lingtalfi/Bat)
 - [Light](https://github.com/lingtalfi/Light)
 - [Light_AjaxFileUploadManager](https://github.com/lingtalfi/Light_AjaxFileUploadManager)
-- [ThumbnailTools](https://github.com/lingtalfi/ThumbnailTools)
 - [Light_Nugget](https://github.com/lingtalfi/Light_Nugget)
 - [PhpFileValidator](https://github.com/lingtalfi/PhpFileValidator)
+- [ThumbnailTools](https://github.com/lingtalfi/ThumbnailTools)
 
 

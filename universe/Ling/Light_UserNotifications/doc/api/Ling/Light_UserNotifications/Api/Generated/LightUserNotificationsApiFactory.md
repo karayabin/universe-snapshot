@@ -4,7 +4,7 @@
 
 The LightUserNotificationsApiFactory class
 ================
-2020-08-13 --> 2021-02-11
+2020-08-13 --> 2021-03-05
 
 
 

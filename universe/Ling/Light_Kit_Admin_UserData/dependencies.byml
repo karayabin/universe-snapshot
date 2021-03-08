@@ -1,19 +1,22 @@
 dependencies: 
     Ling: 
+        - BabyYaml
         - Bat
         - Chloroform
-        - Light
-        - Light_Kit_Admin
-        - Light_Realform
-        - Light_Kit
-        - Light_ControllerHub
+        - CliTools
         - Kit_PicassoWidget
-        - Light_UserRowRestriction
-        - Light_User
-        - BabyYaml
+        - Light
         - Light_BMenu
+        - Light_ControllerHub
+        - Light_EasyRoute
+        - Light_Kit
+        - Light_Kit_Admin
+        - Light_PlanetInstaller
         - Light_PluginInstaller
+        - Light_Realform
+        - Light_User
         - Light_UserDatabase
+        - Light_UserRowRestriction
         - SimplePdoWrapper
     
 

@@ -4,7 +4,7 @@
 
 The LightCliBaseCommand class
 ================
-2021-01-07 --> 2021-02-12
+2021-01-07 --> 2021-03-05
 
 
 
@@ -100,4 +100,4 @@ See the source code of [Ling\Light_Cli\CliTools\Command\LightCliBaseCommand](htt
 
 SeeAlso
 ==============
-Previous class: [HelpCommand](https://github.com/lingtalfi/Light_Cli/blob/master/doc/api/Ling/Light_Cli/CliTools/Command/HelpCommand.md)<br>Next class: [ListCommand](https://github.com/lingtalfi/Light_Cli/blob/master/doc/api/Ling/Light_Cli/CliTools/Command/ListCommand.md)<br>
+Previous class: [HelpCommand](https://github.com/lingtalfi/Light_Cli/blob/master/doc/api/Ling/Light_Cli/CliTools/Command/HelpCommand.md)<br>Next class: [LightCliDocCommand](https://github.com/lingtalfi/Light_Cli/blob/master/doc/api/Ling/Light_Cli/CliTools/Command/LightCliDocCommand.md)<br>

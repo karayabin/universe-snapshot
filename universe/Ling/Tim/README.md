@@ -1,6 +1,6 @@
 Tim
 ===========
-2015-12-11
+2015-12-11 -> 2021-03-05
 
 
 
@@ -14,6 +14,11 @@ Tim is part of the [universe framework](https://github.com/karayabin/universe-sn
 
 Install
 ==========
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.Tim
+```
+
 Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
 ```bash
 uni import Ling/Tim
@@ -217,6 +222,10 @@ it probably hasn't.
  
 History Log
 ------------------
+
+- 1.6.3 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.6.2 -- 2020-12-08
 

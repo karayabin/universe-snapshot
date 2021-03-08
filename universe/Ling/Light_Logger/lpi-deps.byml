@@ -141,3 +141,9 @@
     - Ling:Bat:1.293+
     - Ling:UniversalLogger:1.1.2+
     - Ling:CliTools:1.10.6+
+
+1.11.6: 
+    - Ling:ArrayToString:1.4.5+
+    - Ling:Bat:1.308+
+    - Ling:CliTools:1.10.26+
+    - Ling:UniversalLogger:1.1.2+

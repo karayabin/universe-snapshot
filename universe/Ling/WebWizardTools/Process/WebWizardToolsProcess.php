@@ -395,6 +395,15 @@ abstract class WebWizardToolsProcess
     }
 
 
+    /**
+     * Returns the context vars for this instance.
+     * @return array
+     */
+    protected function getContextVars(): array
+    {
+        return $this->webWizard->getContext();
+    }
+
 
 
     //--------------------------------------------

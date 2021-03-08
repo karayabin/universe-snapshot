@@ -1,6 +1,6 @@
 Jin
 ===
-2019-01-16 -> 2020-11-06
+2019-01-16 -> 2021-03-05
 
 
 A framework to build web apps.
@@ -18,6 +18,11 @@ Install
 =============
 
 
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.Jin
+```
+
 Using the [uni tool](https://github.com/lingtalfi/universe-naive-importer)
 ```bash
 uni import Ling/Jin
@@ -29,6 +34,10 @@ uni import Ling/Jin
 
 History Log
 ===============
+
+- 1.0.4 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.0.3 -- 2020-12-08
 

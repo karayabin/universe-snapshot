@@ -1,8 +1,9 @@
 dependencies: 
     Ling: 
-        - DotMenu
         - BabyYaml
         - Bat
+        - CheapLogger
+        - DotMenu
     
 
 post_install: 

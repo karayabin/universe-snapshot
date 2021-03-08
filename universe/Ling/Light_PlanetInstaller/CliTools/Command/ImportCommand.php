@@ -40,46 +40,51 @@ class ImportCommand extends LightPlanetInstallerBaseCommand
     {
 
 
-        $planetDefinition = $input->getParameter(2);
-
-        $bernoni = $input->getOption("bernoni") ?? 'auto';
-        $keepBuild = $input->hasFlag("keep-build");
-        $useDebug = $input->hasFlag("d");
-        $doNotUpdateLpiFile = $input->hasFlag("n");
-        $force = $input->hasFlag("f");
+        if (true === $this->checkInsideAppDir($output)) {
 
 
-        $updateLpiFile = false;
+            $planetDefinition = $input->getParameter(2);
+
+            $bernoni = $input->getOption("bernoni") ?? 'auto';
+            $keepBuild = $input->hasFlag("keep-build");
+            $useDebug = $input->hasFlag("d");
+            $doNotUpdateLpiFile = $input->hasFlag("n");
+            $force = $input->hasFlag("f");
+            $useSymlinks = $input->hasFlag("l");
 
 
-        $source = 'lpi';
-        if (null !== $planetDefinition) {
-            $source = $planetDefinition;
-            $updateLpiFile = true;
+            $updateLpiFile = false;
+
+
+            $source = 'lpi';
+            if (null !== $planetDefinition) {
+                $source = $planetDefinition;
+                $updateLpiFile = true;
+            }
+
+            $virtualBin = [];
+            $this->application->updateApplicationByWishlist([
+                'mode' => $this->operationMode,
+                'force' => $force,
+                //
+                'source' => $source,
+                'keepBuild' => $keepBuild,
+                'useDebug' => $useDebug,
+                'bernoni' => $bernoni,
+                'symlinks' => $useSymlinks,
+            ], $virtualBin);
+
+
+            if (true === $updateLpiFile && false === $doNotUpdateLpiFile) {
+
+                $planetList = array_map(function ($v) {
+                    return $v . "+";
+                }, $virtualBin);
+                $output->write("Updating lpi file...");
+                $this->application->addPlanetListToLpiFile($planetList);
+                $output->write("<success>ok</success>." . PHP_EOL);
+            }
         }
-
-        $virtualBin = [];
-        $this->application->updateApplicationByWishlist([
-            'mode' => $this->operationMode,
-            'force' => $force,
-            //
-            'source' => $source,
-            'keepBuild' => $keepBuild,
-            'useDebug' => $useDebug,
-            'bernoni' => $bernoni,
-        ], $virtualBin);
-
-
-        if (true === $updateLpiFile && false === $doNotUpdateLpiFile) {
-
-            $planetList = array_map(function ($v) {
-                return $v . "+";
-            }, $virtualBin);
-            $output->write("Updating lpi file...");
-            $this->application->addPlanetListToLpiFile($planetList);
-            $output->write("<success>ok</success>." . PHP_EOL);
-        }
-
     }
 
 
@@ -172,6 +177,7 @@ EEE;
             "n" => "if set, doesn't update the <$concept>lpi file</$concept> when the <$pmt>planetDefinition</$pmt> parameter is defined",
             "f" => "if set, forces the reimporting of the planet, even if it's already in your app",
             "keep-build" => "if set, the <$concept>build directory</$concept> will not be automatically removed after a successful operation.",
+            "l" => "local, if set create symlinks to the local universe (when available) instead of copying the planet dir. This can save a lot of time.",
         ];
     }
 

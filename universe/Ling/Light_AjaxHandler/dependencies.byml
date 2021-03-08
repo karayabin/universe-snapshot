@@ -1,9 +1,12 @@
 dependencies: 
     Ling: 
-        - Light
-        - Light_Events
-        - Light_CsrfSession
         - Bat
+        - CliTools
+        - Light
+        - Light_CsrfSession
+        - Light_EasyRoute
+        - Light_Events
+        - Light_PlanetInstaller
         - Light_ReverseRouter
     
 

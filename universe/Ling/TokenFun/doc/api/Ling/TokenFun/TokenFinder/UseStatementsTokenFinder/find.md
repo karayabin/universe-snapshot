@@ -54,7 +54,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [UseStatementsTokenFinder::find](https://github.com/lingtalfi/TokenFun/blob/master/TokenFinder/UseStatementsTokenFinder.php#L26-L75)
+See the source code for method [UseStatementsTokenFinder::find](https://github.com/lingtalfi/TokenFun/blob/master/TokenFinder/UseStatementsTokenFinder.php#L31-L80)
 
 
 See Also

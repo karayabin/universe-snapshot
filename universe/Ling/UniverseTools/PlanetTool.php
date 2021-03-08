@@ -220,6 +220,24 @@ class PlanetTool
 
 
     /**
+     * Returns the array of planet dot names found in the given universe directory.
+     *
+     * @param string $uniDir
+     * @return array
+     * @throws \Exception
+     */
+    public static function getPlanetDotNames(string $uniDir): array
+    {
+        $ret = [];
+        $pdirs = self::getPlanetDirs($uniDir);
+        foreach ($pdirs as $pdir) {
+            $ret[] = self::getPlanetDotNameByPlanetDir($pdir);
+        }
+        return $ret;
+    }
+
+
+    /**
      * Returns an array containing the galaxy name and the short planet name extracted from the given $planetDir.
      * Returns false if the given $planetDir is not valid.
      *
@@ -235,6 +253,19 @@ class PlanetTool
             ];
         }
         return false;
+    }
+
+
+    /**
+     * Returns the planet dot name from the given planet dir.
+     *
+     * @param string $planetDir
+     * @return string
+     */
+    public static function getPlanetDotNameByPlanetDir(string $planetDir): string
+    {
+        list($galaxy, $planet) = PlanetTool::getGalaxyNamePlanetNameByDir($planetDir);
+        return $galaxy . "." . $planet;
     }
 
 
@@ -358,6 +389,8 @@ class PlanetTool
      *
      * Available options are:
      * - assets: bool=false, if true, the assets/map will be copied to the application.
+     * - symlinks: bool=false, if true, symlinks to the local universe will be created (if available) instead of copying
+     *      the whole planet dirs.
      *
      * See more details in the @page(import install discussion).
      *
@@ -369,6 +402,7 @@ class PlanetTool
     public static function importPlanetByExternalDir(string $planetDot, string $extPlanetDir, string $appDir, array $options = [])
     {
         $assets = $options['assets'] ?? false;
+        $symlinks = $options['symlinks'] ?? false;
 
 
         list($galaxy, $planet) = self::extractPlanetDotName($planetDot);
@@ -380,7 +414,22 @@ class PlanetTool
         }
 
         $newPlanetDir = $appDir . "/universe/$galaxy/$planet";
-        FileSystemTool::copyDir($extPlanetDir, $newPlanetDir);
+        $symlinked = false;
+        if (true === $symlinks) {
+            $localDir = LocalUniverseTool::getPlanetDir($planetDot);
+            if (true === is_dir($localDir)) {
+                $symlinked = true;
+                if (is_dir($newPlanetDir)) {
+                    FileSystemTool::remove($newPlanetDir);
+                }
+                FileSystemTool::mkdir(dirname($newPlanetDir));
+                symlink($localDir, $newPlanetDir);
+            }
+        }
+
+        if (false === $symlinked) {
+            FileSystemTool::copyDir($extPlanetDir, $newPlanetDir);
+        }
 
 
         if (true === $assets) {

@@ -1,6 +1,6 @@
 Ling/Light_UserRowRestriction
 ================
-2020-03-03 --> 2020-12-08
+2020-03-03 --> 2021-03-05
 
 
 
@@ -21,9 +21,9 @@ Table of contents
 
 Dependencies
 ============
-- [Light_User](https://github.com/lingtalfi/Light_User)
 - [Light](https://github.com/lingtalfi/Light)
 - [Light_Database](https://github.com/lingtalfi/Light_Database)
+- [Light_User](https://github.com/lingtalfi/Light_User)
 - [Light_UserManager](https://github.com/lingtalfi/Light_UserManager)
 - [SqlWizard](https://github.com/lingtalfi/SqlWizard)
 

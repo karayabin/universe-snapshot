@@ -1,12 +1,12 @@
 dependencies: 
     Ling: 
+        - ArrayVariableResolver
+        - BabyYaml
         - Bat
         - Light
         - Light_DatabaseInfo
-        - SqlWizard
-        - ArrayVariableResolver
-        - BabyYaml
         - Light_Logger
+        - SqlWizard
     
 
 post_install: 

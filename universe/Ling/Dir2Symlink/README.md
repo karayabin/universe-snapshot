@@ -1,6 +1,6 @@
 Dir2Symlink
 =================
-2017-03-31
+2017-03-31 -> 2021-03-05
 
 
 Converts directories to symlinks, and vice versa.
@@ -14,6 +14,11 @@ This planet is part of the [universe framework](https://github.com/karayabin/uni
 
 Install
 ============
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.Dir2Symlink
+```
+
 Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
 
 ```bash
@@ -110,6 +115,10 @@ a(ProgramOutputAwareDir2Symlink::create()->setProgramOutput($output)->toSymlinks
 
 History Log
 ------------------
+
+- 1.2.3 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.2.2 -- 2020-12-08
 

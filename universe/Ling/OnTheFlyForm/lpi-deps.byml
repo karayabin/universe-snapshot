@@ -142,3 +142,8 @@
     - Ling:Bat:1.293+
     - Ling:ArrayToString:1.4.2+
     - Ling:FormTools:1.7.2+
+
+2.19.3: 
+    - Ling:ArrayToString:1.4.5+
+    - Ling:Bat:1.308+
+    - Ling:FormTools:1.7.3+

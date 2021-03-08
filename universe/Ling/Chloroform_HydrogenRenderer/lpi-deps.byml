@@ -53,3 +53,7 @@
 1.5.0: 
     - Ling:Bat:1.293+
     - Ling:Chloroform:1.36.6+
+
+1.4.3: 
+    - Ling:Bat:1.308+
+    - Ling:Chloroform:1.36.7+

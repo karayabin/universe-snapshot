@@ -1,7 +1,7 @@
 dependencies: 
     Ling: 
-        - Light
         - Bat
+        - Light
     
 
 post_install: 

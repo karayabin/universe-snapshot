@@ -1,14 +1,14 @@
 dependencies: 
     Ling: 
-        - Light_Events
-        - SicTools
-        - CheapLogger
-        - Bat
-        - ParenthesisMirrorParser
         - BabyYaml
+        - Bat
+        - CheapLogger
         - DirScanner
+        - Light_Events
         - Octopus
+        - ParenthesisMirrorParser
         - PhpUploadFileFix
+        - SicTools
     
 
 post_install: 

@@ -4,7 +4,7 @@
 
 The LightUserRowRestrictionService class
 ================
-2020-03-03 --> 2020-12-08
+2020-03-03 --> 2021-03-05
 
 
 
@@ -32,7 +32,7 @@ class <span class="pl-k">LightUserRowRestrictionService</span>  {
     - public [__construct](https://github.com/lingtalfi/Light_UserRowRestriction/blob/master/doc/api/Ling/Light_UserRowRestriction/Service/LightUserRowRestrictionService/__construct.md)() : void
     - public [registerRowRestrictionHandlerByTablePrefix](https://github.com/lingtalfi/Light_UserRowRestriction/blob/master/doc/api/Ling/Light_UserRowRestriction/Service/LightUserRowRestrictionService/registerRowRestrictionHandlerByTablePrefix.md)(string $tablePrefix, [Ling\Light_UserRowRestriction\RowRestrictionHandler\RowRestrictionHandlerInterface](https://github.com/lingtalfi/Light_UserRowRestriction/blob/master/doc/api/Ling/Light_UserRowRestriction/RowRestrictionHandler/RowRestrictionHandlerInterface.md) $handler) : void
     - public [setContainer](https://github.com/lingtalfi/Light_UserRowRestriction/blob/master/doc/api/Ling/Light_UserRowRestriction/Service/LightUserRowRestrictionService/setContainer.md)([Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) $container) : void
-    - public [checkRestrictions](https://github.com/lingtalfi/Light_UserRowRestriction/blob/master/doc/api/Ling/Light_UserRowRestriction/Service/LightUserRowRestrictionService/checkRestrictions.md)(string $eventName, ?...$args) : void
+    - public [checkRestrictions](https://github.com/lingtalfi/Light_UserRowRestriction/blob/master/doc/api/Ling/Light_UserRowRestriction/Service/LightUserRowRestrictionService/checkRestrictions.md)(string $eventName, ?$args) : void
 
 }
 

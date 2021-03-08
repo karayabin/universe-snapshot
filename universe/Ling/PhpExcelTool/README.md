@@ -1,6 +1,6 @@
 PhpExcelTool
 ===========
-2017-10-17 -> 2020-11-06
+2017-10-17 -> 2021-03-05
 
 
 Deprecated warning: this planet is now deprecated in favor of the better
@@ -15,6 +15,11 @@ This is part of the [universe framework](https://github.com/karayabin/universe-s
 
 Install
 ==========
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.PhpExcelTool
+```
+
 Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
 ```bash
 uni import Ling/PhpExcelTool
@@ -163,6 +168,10 @@ Related
 
 History Log
 ------------------
+
+- 1.9.7 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.9.6 -- 2020-12-08
 

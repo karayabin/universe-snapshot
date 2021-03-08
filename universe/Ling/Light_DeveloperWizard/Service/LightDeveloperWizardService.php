@@ -431,7 +431,7 @@ class LightDeveloperWizardService
             </ul>
         <?php elseif (1 === $guiDisplay): ?>
 
-            <h4><?php echo $galaxy . "/" . $planet; ?> (<a href="?">back</a>)</h4>
+            <h4><?php echo $galaxy . "/" . $planet; ?> (<a href="?">reset</a> | <a href="?planetdir=<?php echo htmlspecialchars($planetDir); ?>">processes</a>)</h4>
 
             <p>
                 <?php if (true === $createFileExists): ?>

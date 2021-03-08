@@ -4,7 +4,7 @@
 
 The ZFileHelper class
 ================
-2019-04-09 --> 2021-02-11
+2019-04-09 --> 2021-03-05
 
 
 
@@ -27,6 +27,7 @@ class <span class="pl-k">ZFileHelper</span>  {
 - Methods
     - public static [getZPath](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ZFileHelper/getZPath.md)([Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) $container) : string
     - public static [setProp](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ZFileHelper/setProp.md)([Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) $container, string $key, $value) : void
+    - public static [hasProp](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ZFileHelper/hasProp.md)([Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) $container, string $key) : bool
 
 }
 
@@ -40,6 +41,7 @@ Methods
 
 - [ZFileHelper::getZPath](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ZFileHelper/getZPath.md) &ndash; Returns the path of the z file.
 - [ZFileHelper::setProp](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ZFileHelper/setProp.md) &ndash; Sets a property in the z file.
+- [ZFileHelper::hasProp](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ZFileHelper/hasProp.md) &ndash; Returns whether the z file has the given property.
 
 
 

@@ -16,7 +16,7 @@ Description
 ================
 
 
-protected [PackLightPluginCommand::copyItem](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Command/PackLightPluginCommand/copyItem.md)(string $relPath, Ling\CliTools\Output\OutputInterface $output, int $indentLevel) : void
+protected [PackLightPluginCommand::copyItem](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/Kaos/Command/PackLightPluginCommand/copyItem.md)(string $relPath, [Ling\CliTools\Output\OutputInterface](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Output/OutputInterface.md) $output, int $indentLevel) : void
 
 
 
@@ -57,7 +57,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [PackLightPluginCommand::copyItem](https://github.com/lingtalfi/LingTalfi/blob/master/Kaos/Command/PackLightPluginCommand.php#L121-L142)
+See the source code for method [PackLightPluginCommand::copyItem](https://github.com/lingtalfi/LingTalfi/blob/master/Kaos/Command/PackLightPluginCommand.php#L115-L136)
 
 
 See Also

@@ -16,12 +16,20 @@ Description
 ================
 
 
-public static [TokenFinderTool::getUseDependencies](https://github.com/lingtalfi/TokenFun/blob/master/doc/api/Ling/TokenFun/TokenFinder/Tool/TokenFinderTool/getUseDependencies.md)(array $tokens, ?$sort = true) : array
+public static [TokenFinderTool::getUseDependencies](https://github.com/lingtalfi/TokenFun/blob/master/doc/api/Ling/TokenFun/TokenFinder/Tool/TokenFinderTool/getUseDependencies.md)(array $tokens, ?array $options = []) : array
 
 
 
 
 Returns an array of use statements' class names found in the given tokens.
+
+By default, it doesn't take into account the aliases part if any.
+
+Available options:
+- sort: bool = true. If true, the returned array is sorted.
+- alias: bool = false. If true, returns an array of items, each of which:
+     - 0: class (or func or constant)
+     - 1: alias
 
 
 
@@ -34,7 +42,7 @@ Parameters
 
     
 
-- sort
+- options
 
     
 
@@ -53,7 +61,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [TokenFinderTool::getUseDependencies](https://github.com/lingtalfi/TokenFun/blob/master/TokenFinder/Tool/TokenFinderTool.php#L551-L569)
+See the source code for method [TokenFinderTool::getUseDependencies](https://github.com/lingtalfi/TokenFun/blob/master/TokenFinder/Tool/TokenFinderTool.php#L563-L597)
 
 
 See Also

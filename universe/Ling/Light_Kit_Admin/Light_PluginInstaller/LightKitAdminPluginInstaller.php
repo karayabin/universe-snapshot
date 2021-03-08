@@ -98,7 +98,7 @@ class LightKitAdminPluginInstaller extends LightUserDatabaseBasePluginInstaller
                 'identifier' => "lka_admin",
                 'pseudo' => "Boss",
                 'password' => "boss",
-                'avatar_url' => "/plugins/Light_Kit_Admin/img/avatars/lka_admin.png",
+                'avatar_url' => "/libs/universe/Ling/Light_Kit_Admin/img/avatars/lka_admin.png",
                 'extra' => [],
             ]);
 
@@ -107,7 +107,7 @@ class LightKitAdminPluginInstaller extends LightUserDatabaseBasePluginInstaller
                 'identifier' => "lka_dude",
                 'pseudo' => "Dude",
                 'password' => "dude",
-                'avatar_url' => "/plugins/Light_Kit_Admin/img/avatars/user_avatar.png",
+                'avatar_url' => "/libs/universe/Ling/Light_Kit_Admin/img/avatars/user_avatar.png",
                 'extra' => [],
             ]);
 

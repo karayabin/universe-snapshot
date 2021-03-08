@@ -1,7 +1,0 @@
-Hey admin, this is for the {template:appname.txt} application.
-
-Somebody successfully logged in to the manager.
-
-   Client id  : {user_identifier}
-   Connexion ip      : {ip}
-   Connexion time  : {datetime}

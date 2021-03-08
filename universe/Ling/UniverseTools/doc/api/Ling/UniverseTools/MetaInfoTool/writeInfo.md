@@ -53,7 +53,7 @@ Returns bool.
 
 Source Code
 ===========
-See the source code for method [MetaInfoTool::writeInfo](https://github.com/lingtalfi/UniverseTools/blob/master/MetaInfoTool.php#L101-L105)
+See the source code for method [MetaInfoTool::writeInfo](https://github.com/lingtalfi/UniverseTools/blob/master/MetaInfoTool.php#L138-L142)
 
 
 See Also
@@ -61,5 +61,5 @@ See Also
 
 The [MetaInfoTool](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/MetaInfoTool.md) class.
 
-Previous method: [getVersion](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/MetaInfoTool/getVersion.md)<br>
+Previous method: [incrementVersion](https://github.com/lingtalfi/UniverseTools/blob/master/doc/api/Ling/UniverseTools/MetaInfoTool/incrementVersion.md)<br>
 

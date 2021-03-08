@@ -53,7 +53,7 @@ Returns bool.
 
 Source Code
 ===========
-See the source code for method [LpiVersionHelper::isGreaterThan](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Helper/LpiVersionHelper.php#L123-L139)
+See the source code for method [LpiVersionHelper::isGreaterThan](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Helper/LpiVersionHelper.php#L159-L175)
 
 
 See Also

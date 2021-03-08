@@ -4,7 +4,7 @@
 
 The LightKitAdminUserPreferencesUserMainPageController class
 ================
-2020-08-13 --> 2021-01-29
+2020-08-13 --> 2021-03-05
 
 
 
@@ -22,7 +22,7 @@ Class synopsis
 ==============
 
 
-class <span class="pl-k">LightKitAdminUserPreferencesUserMainPageController</span> extends [AdminPageController](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/AdminPageController.md) implements [LightAwareInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/LightAwareInterface.md), [LightControllerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Controller/LightControllerInterface.md), [RouteAwareControllerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Controller/RouteAwareControllerInterface.md) {
+class <span class="pl-k">LightKitAdminUserPreferencesUserMainPageController</span> extends [AdminPageController](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/AdminPageController.md) implements [LightControllerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Controller/LightControllerInterface.md), [LightAwareInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/LightAwareInterface.md), [RouteAwareControllerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Controller/RouteAwareControllerInterface.md) {
 
 - Inherited properties
     - protected array [LightKitAdminController::$route](#property-route) ;
@@ -40,6 +40,7 @@ class <span class="pl-k">LightKitAdminUserPreferencesUserMainPageController</spa
     - protected LightKitAdminController::getUser() : Ling\Light_User\LightWebsiteUser
     - protected LightKitAdminController::getValidWebsiteUser() : Ling\Light_User\LightWebsiteUser
     - public LightKitAdminController::renderPage(string $page, ?array $dynamicVariables = [], ?Ling\Light_Kit\PageConfigurationUpdator\PageConfUpdator $updator = null) : [HttpResponseInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponseInterface.md)
+    - public LightKitAdminController::renderDefaultPage() : [HttpResponseInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponseInterface.md)
     - protected LightKitAdminController::getRedirectResponseByRoute(string $route, ?array $urlParams = []) : Ling\Light\Http\HttpRedirectResponse
     - protected LightKitAdminController::checkRight(string $right) : [HttpResponseInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Http/HttpResponseInterface.md) | null
     - protected LightKitAdminController::checkMicroPermission(string $microPermission) : void
@@ -69,6 +70,7 @@ Methods
 - LightKitAdminController::getUser &ndash; Returns the current user.
 - LightKitAdminController::getValidWebsiteUser &ndash; Returns a valid website user, or throws an exception.
 - LightKitAdminController::renderPage &ndash; Renders the given page using the [kit service](https://github.com/lingtalfi/Light_Kit).
+- LightKitAdminController::renderDefaultPage &ndash; Renders the default page, and returns the corresponding http response.
 - LightKitAdminController::getRedirectResponseByRoute &ndash; Creates and returns an HttpRedirectResponse, based on the given arguments.
 - LightKitAdminController::checkRight &ndash; Ensures that the current user is connected and has the right provided in the arguments.
 - LightKitAdminController::checkMicroPermission &ndash; redirects to the access_denied page.

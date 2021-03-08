@@ -1,6 +1,6 @@
 Light_DbSynchronizer
 ===========
-2020-06-19 -> 2021-02-11
+2020-06-19 -> 2021-03-05
 
 
 
@@ -14,6 +14,11 @@ This is part of the [universe framework](https://github.com/karayabin/universe-s
 
 Install
 ==========
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.Light_DbSynchronizer
+```
+
 Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
 ```bash
 uni import Ling/Light_DbSynchronizer
@@ -90,7 +95,31 @@ $logger.methods_collection:
 
 History Log
 =============
-  
+
+- 1.2.14 -- 2021-03-05
+
+    - update README.md, add install alternative
+
+- 1.2.13 -- 2021-02-25
+
+    - fix assets/map dir removed
+
+- 1.2.12 -- 2021-02-23
+
+    - Update dependencies (pushed by SubscribersUtil)
+
+- 1.2.11 -- 2021-02-23
+
+    - Update dependencies (pushed by SubscribersUtil)
+
+- 1.2.10 -- 2021-02-23
+
+    - Update dependencies
+
+- 1.2.9 -- 2021-02-19
+
+    - upgrade dependencies
+
 - 1.2.8 -- 2021-02-11
 
     - fix non synchronized dependencies between uni style and lpi style

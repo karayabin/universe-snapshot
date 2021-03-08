@@ -1,7 +1,0 @@
-developer_wizard:
-    instance: Ling\Light_DeveloperWizard\Service\LightDeveloperWizardService
-    methods:
-        setContainer:
-            container: @container()
-        setOptions:
-            options: []

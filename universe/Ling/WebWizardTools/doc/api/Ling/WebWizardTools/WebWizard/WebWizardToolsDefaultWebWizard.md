@@ -4,7 +4,7 @@
 
 The WebWizardToolsDefaultWebWizard class
 ================
-2020-07-06 --> 2020-12-08
+2020-07-06 --> 2021-03-05
 
 
 
@@ -55,7 +55,6 @@ class <span class="pl-k">WebWizardToolsDefaultWebWizard</span> extends [WebWizar
     - public [WebWizardToolsWebWizard::setProcessFilter](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/WebWizard/WebWizardToolsWebWizard/setProcessFilter.md)(callable $processFilter) : void
     - public [WebWizardToolsWebWizard::getOnProcessSuccessMessage](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/WebWizard/WebWizardToolsWebWizard/getOnProcessSuccessMessage.md)() : string | null
     - public [WebWizardToolsWebWizard::setOnProcessSuccessMessage](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/WebWizard/WebWizardToolsWebWizard/setOnProcessSuccessMessage.md)(string $onProcessSuccessMessage) : void
-    - private [WebWizardToolsWebWizard::error](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/WebWizard/WebWizardToolsWebWizard/error.md)(string $msg) : void
 
 }
 
@@ -85,7 +84,6 @@ Methods
 - [WebWizardToolsWebWizard::setProcessFilter](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/WebWizard/WebWizardToolsWebWizard/setProcessFilter.md) &ndash; Sets the processFilter.
 - [WebWizardToolsWebWizard::getOnProcessSuccessMessage](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/WebWizard/WebWizardToolsWebWizard/getOnProcessSuccessMessage.md) &ndash; Returns the onProcessSuccessMessage of this instance.
 - [WebWizardToolsWebWizard::setOnProcessSuccessMessage](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/WebWizard/WebWizardToolsWebWizard/setOnProcessSuccessMessage.md) &ndash; Sets the onProcessSuccessMessage.
-- [WebWizardToolsWebWizard::error](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/WebWizard/WebWizardToolsWebWizard/error.md) &ndash; Throws an exception.
 
 
 

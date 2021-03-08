@@ -51,7 +51,7 @@ Returns bool.
 
 Source Code
 ===========
-See the source code for method [LpiVersionHelper::isPolaritySymbol](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Helper/LpiVersionHelper.php#L54-L57)
+See the source code for method [LpiVersionHelper::isPolaritySymbol](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/Helper/LpiVersionHelper.php#L90-L93)
 
 
 See Also

@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [LightPrettyErrorService::renderPage](https://github.com/lingtalfi/Light_PrettyError/blob/master/doc/api/Ling/Light_PrettyError/Service/LightPrettyErrorService/renderPage.md)([\Exception](http://php.net/manual/en/class.exception.php) $e) : string
+public [LightPrettyErrorService::renderPage](https://github.com/lingtalfi/Light_PrettyError/blob/master/doc/api/Ling/Light_PrettyError/Service/LightPrettyErrorService/renderPage.md)(Exception $e) : string
 
 
 

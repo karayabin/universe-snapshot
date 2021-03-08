@@ -58,7 +58,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightErrorHandlerService::sendError](https://github.com/lingtalfi/Light_ErrorHandler/blob/master/Service/LightErrorHandlerService.php#L180-L191)
+See the source code for method [LightErrorHandlerService::sendError](https://github.com/lingtalfi/Light_ErrorHandler/blob/master/Service/LightErrorHandlerService.php#L177-L188)
 
 
 See Also

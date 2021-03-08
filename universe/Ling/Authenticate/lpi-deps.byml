@@ -45,3 +45,7 @@
 1.7.3: 
     - Ling:Bat:1.293+
     - Ling:ArrayToString:1.4.2+
+
+1.7.4: 
+    - Ling:ArrayToString:1.4.5+
+    - Ling:Bat:1.307+

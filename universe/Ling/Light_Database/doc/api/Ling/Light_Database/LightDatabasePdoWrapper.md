@@ -4,7 +4,7 @@
 
 The LightDatabasePdoWrapper class
 ================
-2019-07-22 --> 2020-12-08
+2019-07-22 --> 2021-03-05
 
 
 
@@ -41,11 +41,11 @@ class <span class="pl-k">LightDatabasePdoWrapper</span> extends [SimplePdoWrappe
     - protected [onSuccess](https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/LightDatabasePdoWrapper/onSuccess.md)(string $type, string $table, string $query, array $arguments, ?$return = true) : void
 
 - Inherited methods
-    - public SimplePdoWrapper::setConnexion([\PDO](https://www.php.net/manual/en/class.pdo.php) $connexion) : void
+    - public SimplePdoWrapper::setConnexion(PDO $connexion) : void
     - public SimplePdoWrapper::getConnexion() : [PDO](https://www.php.net/manual/en/class.pdo.php)
     - public SimplePdoWrapper::setErrorMode($errorMode) : mixed
     - public SimplePdoWrapper::getError() : null | array
-    - public SimplePdoWrapper::transaction(callable $transactionCallback, ?[\Exception](http://php.net/manual/en/class.exception.php) &$e = null) : bool
+    - public SimplePdoWrapper::transaction(callable $transactionCallback, ?Exception &$e = null) : bool
     - public SimplePdoWrapper::insert($table, ?array $fields = [], ?array $options = []) : false | string
     - public SimplePdoWrapper::replace($table, ?array $fields = [], ?array $options = []) : false | string
     - public SimplePdoWrapper::update($table, array $fields, ?$whereConds = null, ?array $markers = []) : bool
@@ -53,12 +53,11 @@ class <span class="pl-k">LightDatabasePdoWrapper</span> extends [SimplePdoWrappe
     - public SimplePdoWrapper::fetch($query, ?array $markers = [], ?$fetchStyle = null) : false | array
     - public SimplePdoWrapper::fetchAll($query, ?array $markers = [], ?$fetchStyle = null, ?$fetchArg = null, ?array $ctorArgs = []) : false | array
     - public SimplePdoWrapper::executeStatement($query) : false | int
-    - public static SimplePdoWrapper::addWhereSubStmt(&$stmt, array &$markers, $whereConds) : void
+    - public static SimplePdoWrapper::addWhereSubStmt($stmt, array &$markers, $whereConds) : void
     - protected SimplePdoWrapper::boot() : [PDO](https://www.php.net/manual/en/class.pdo.php) | null
     - protected SimplePdoWrapper::storeQueryObject($queryObject) : void
-    - protected static SimplePdoWrapper::addAssignmentListSubStmt(&$stmt, array &$markers, array $fields, ?$firstForm = false) : void
-    - protected SimplePdoWrapper::queryLog(string $type, ?...$args) : void
-    - private SimplePdoWrapper::handleException([\Exception](http://php.net/manual/en/class.exception.php) $e, ?array $markers = []) : void
+    - protected static SimplePdoWrapper::addAssignmentListSubStmt($stmt, array &$markers, array $fields, ?$firstForm = false) : void
+    - protected SimplePdoWrapper::queryLog(string $type, ?$args) : void
 
 }
 
@@ -127,7 +126,6 @@ Methods
 - SimplePdoWrapper::storeQueryObject &ndash; Stores the query object so that we can get the errors out of it.
 - SimplePdoWrapper::addAssignmentListSubStmt &ndash; for INSERT or UPDATE like statements.
 - SimplePdoWrapper::queryLog &ndash; Hook for children classes.
-- SimplePdoWrapper::handleException &ndash; Will rethrow a custom exception based on the one given.
 
 
 
@@ -142,4 +140,4 @@ See the source code of [Ling\Light_Database\LightDatabasePdoWrapper](https://git
 
 SeeAlso
 ==============
-Previous class: [LightDatabaseHelper](https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/Helper/LightDatabaseHelper.md)<br>Next class: [LightDatabaseService](https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/Service/LightDatabaseService.md)<br>
+Previous class: [LightDatabaseHelper](https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/Helper/LightDatabaseHelper.md)<br>Next class: [LightDatabasePlanetInstaller](https://github.com/lingtalfi/Light_Database/blob/master/doc/api/Ling/Light_Database/Light_PlanetInstaller/LightDatabasePlanetInstaller.md)<br>

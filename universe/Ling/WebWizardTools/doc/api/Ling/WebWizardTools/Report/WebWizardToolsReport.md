@@ -4,7 +4,7 @@
 
 The WebWizardToolsReport class
 ================
-2020-07-06 --> 2020-12-08
+2020-07-06 --> 2021-03-05
 
 
 
@@ -43,7 +43,7 @@ class <span class="pl-k">WebWizardToolsReport</span>  {
     - public [addInfo](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/Report/WebWizardToolsReport/addInfo.md)(string $msg) : void
     - public [addError](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/Report/WebWizardToolsReport/addError.md)(string $msg) : void
     - public [addImportant](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/Report/WebWizardToolsReport/addImportant.md)(string $msg) : void
-    - public [addException](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/Report/WebWizardToolsReport/addException.md)([\Exception](http://php.net/manual/en/class.exception.php) $e) : void
+    - public [addException](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/Report/WebWizardToolsReport/addException.md)(Exception $e) : void
 
 }
 

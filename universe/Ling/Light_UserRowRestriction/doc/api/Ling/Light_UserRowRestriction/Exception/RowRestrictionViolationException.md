@@ -4,7 +4,7 @@
 
 The RowRestrictionViolationException class
 ================
-2020-03-03 --> 2020-12-08
+2020-03-03 --> 2021-03-05
 
 
 
@@ -22,7 +22,7 @@ Class synopsis
 ==============
 
 
-class <span class="pl-k">RowRestrictionViolationException</span> extends [LightUserRowRestrictionException](https://github.com/lingtalfi/Light_UserRowRestriction/blob/master/doc/api/Ling/Light_UserRowRestriction/Exception/LightUserRowRestrictionException.md) implements [\Throwable](http://php.net/manual/en/class.throwable.php) {
+class <span class="pl-k">RowRestrictionViolationException</span> extends [LightUserRowRestrictionException](https://github.com/lingtalfi/Light_UserRowRestriction/blob/master/doc/api/Ling/Light_UserRowRestriction/Exception/LightUserRowRestrictionException.md) implements [\Throwable](http://php.net/manual/en/class.throwable.php), [\Stringable](https://wiki.php.net/rfc/stringable) {
 
 - Inherited properties
     - protected  [Exception::$message](#property-message) =  ;

@@ -4,7 +4,7 @@
 
 The SqlQuery class
 ================
-2019-10-10 --> 2020-12-08
+2019-10-10 --> 2021-03-05
 
 
 
@@ -22,7 +22,7 @@ Class synopsis
 ==============
 
 
-class <span class="pl-k">SqlQuery</span> implements [SqlQueryInterface](https://github.com/lingtalfi/SqlQuery/blob/master/doc/api/Ling/SqlQuery/SqlQueryInterface.md) {
+class <span class="pl-k">SqlQuery</span> implements [SqlQueryInterface](https://github.com/lingtalfi/SqlQuery/blob/master/doc/api/Ling/SqlQuery/SqlQueryInterface.md), [\Stringable](https://wiki.php.net/rfc/stringable) {
 
 - Properties
     - private array [$fields](#property-fields) ;

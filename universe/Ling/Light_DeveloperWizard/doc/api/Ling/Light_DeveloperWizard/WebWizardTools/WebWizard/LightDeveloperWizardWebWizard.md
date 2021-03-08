@@ -4,7 +4,7 @@
 
 The LightDeveloperWizardWebWizard class
 ================
-2020-06-30 --> 2020-12-08
+2020-06-30 --> 2021-03-05
 
 
 
@@ -59,7 +59,6 @@ class <span class="pl-k">LightDeveloperWizardWebWizard</span> extends [WebWizard
     - public WebWizardToolsWebWizard::setProcessFilter(callable $processFilter) : void
     - public WebWizardToolsWebWizard::getOnProcessSuccessMessage() : string | null
     - public WebWizardToolsWebWizard::setOnProcessSuccessMessage(string $onProcessSuccessMessage) : void
-    - private WebWizardToolsWebWizard::error(string $msg) : void
 
 }
 
@@ -156,7 +155,6 @@ Methods
 - WebWizardToolsWebWizard::setProcessFilter &ndash; Sets the processFilter.
 - WebWizardToolsWebWizard::getOnProcessSuccessMessage &ndash; Returns the onProcessSuccessMessage of this instance.
 - WebWizardToolsWebWizard::setOnProcessSuccessMessage &ndash; Sets the onProcessSuccessMessage.
-- WebWizardToolsWebWizard::error &ndash; Throws an exception.
 
 
 

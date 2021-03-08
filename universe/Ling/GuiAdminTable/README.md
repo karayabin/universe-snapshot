@@ -1,6 +1,6 @@
 GuiAdminTable
 ===============
-2018-01-15
+2018-01-15 -> 2021-03-05
 
 
 An object to display administrable list of rows.
@@ -17,6 +17,11 @@ GuiAdminTable is part of the [universe framework](https://github.com/karayabin/u
 Install
 =============
 
+
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.GuiAdminTable
+```
 
 Using the [uni tool](https://github.com/lingtalfi/universe-naive-importer)
 ```bash
@@ -236,6 +241,10 @@ Bootstrap3GuiAdminHtmlTableRenderer::create()
 
 History Log
 ------------------
+
+- 1.12.3 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.12.2 -- 2020-12-08
 

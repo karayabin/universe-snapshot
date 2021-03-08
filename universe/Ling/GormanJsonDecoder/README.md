@@ -1,6 +1,6 @@
 GormanJsonDecoder
 ===========
-2020-05-28 -> 2020-10-02
+2020-05-28 -> 2021-03-05
 
 
 
@@ -12,6 +12,11 @@ This is part of the [universe framework](https://github.com/karayabin/universe-s
 
 Install
 ==========
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.GormanJsonDecoder
+```
+
 Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
 ```bash
 uni import Ling/GormanJsonDecoder
@@ -95,6 +100,10 @@ See more in the [conception notes](https://github.com/lingtalfi/GormanJsonDecode
 
 History Log
 =============
+
+- 1.1.4 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.1.3 -- 2020-12-08
 

@@ -1,6 +1,6 @@
 ClassCooker
 ===========
-2017-04-11 -> 2020-08-18
+2017-04-11 -> 2021-03-05
 
 
 A tool to cook your class: add/remove methods, properties, stuff like that.
@@ -11,6 +11,11 @@ This is part of the [universe framework](https://github.com/karayabin/universe-s
 
 Install
 ==========
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.ClassCooker
+```
+
 Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
 ```bash
 uni import Ling/ClassCooker
@@ -54,6 +59,10 @@ As a result, we can add/remove methods, properties, etc... multiple times during
 
 History Log
 ------------------
+
+- 1.16.3 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.16.2 -- 2020-12-08
 

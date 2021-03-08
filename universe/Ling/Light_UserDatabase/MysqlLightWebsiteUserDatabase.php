@@ -220,6 +220,7 @@ class MysqlLightWebsiteUserDatabase implements LightWebsiteUserDatabaseInterface
         }
 
 
+
         if (null !== $this->passwordProtector) {
             $array['password'] = $this->passwordProtector->passwordHash($array['password']);
         }

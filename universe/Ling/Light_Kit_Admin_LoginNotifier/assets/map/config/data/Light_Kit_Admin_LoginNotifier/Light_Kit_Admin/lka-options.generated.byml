@@ -1,5 +1,0 @@
-multipleFormEditor:
-    prefixes:
-        lln:
-            realform_identifier: Light_Kit_Admin_LoginNotifier.generated/{table}
-            kit_page: Light_Kit_Admin_LoginNotifier/kit/zeroadmin/generated/{table}_form

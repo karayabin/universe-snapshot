@@ -54,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightCliService::error](https://github.com/lingtalfi/Light_Cli/blob/master/Service/LightCliService.php#L122-L125)
+See the source code for method [LightCliService::error](https://github.com/lingtalfi/Light_Cli/blob/master/Service/LightCliService.php#L126-L129)
 
 
 See Also

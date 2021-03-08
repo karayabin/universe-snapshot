@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [DotMenu::setIdKey](https://github.com/lingtalfi/DotMenu/blob/master/DotMenu.php#L161-L164)
+See the source code for method [DotMenu::setIdKey](https://github.com/lingtalfi/DotMenu/blob/master/DotMenu.php#L163-L166)
 
 
 See Also

@@ -1,6 +1,6 @@
 KamillePacker
 =================
-2017-04-18
+2017-04-18 -> 2021-03-05
 
 
 A kamille developer companion.
@@ -10,6 +10,11 @@ This is part of the [universe framework](https://github.com/karayabin/universe-s
 
 Install
 ==========
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.KamillePacker
+```
+
 Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
 ```bash
 uni import Ling/KamillePacker
@@ -87,6 +92,10 @@ ModulePacker::create(Config::create()->set('appDir', $appDir))
 
 History Log
 ------------------
+
+- 1.7.3 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.7.2 -- 2020-12-08
 

@@ -37,3 +37,7 @@
 1.6.2: 
     - Ling:QuickPdo:2.41.3+
     - Ling:ListParams:1.10.6+
+
+1.6.3: 
+    - Ling:ListParams:1.10.7+
+    - Ling:QuickPdo:2.41.3+

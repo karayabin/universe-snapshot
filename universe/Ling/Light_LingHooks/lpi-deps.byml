@@ -9,3 +9,7 @@
 1.0.2: 
     - Ling:Light:0.69.18+
     - Ling:Light_QuickMailAlert:1.1.2+
+
+1.0.3: 
+    - Ling:Light:0.69.30+
+    - Ling:Light_QuickMailAlert:1.1.2+

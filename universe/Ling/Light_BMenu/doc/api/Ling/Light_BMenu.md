@@ -1,6 +1,6 @@
 Ling/Light_BMenu
 ================
-2019-08-08 --> 2020-12-08
+2019-08-08 --> 2021-03-05
 
 
 
@@ -49,8 +49,9 @@ Table of contents
 
 Dependencies
 ============
-- [DotMenu](https://github.com/lingtalfi/DotMenu)
 - [BabyYaml](https://github.com/lingtalfi/BabyYaml)
 - [Bat](https://github.com/lingtalfi/Bat)
+- [CheapLogger](https://github.com/lingtalfi/CheapLogger)
+- [DotMenu](https://github.com/lingtalfi/DotMenu)
 
 

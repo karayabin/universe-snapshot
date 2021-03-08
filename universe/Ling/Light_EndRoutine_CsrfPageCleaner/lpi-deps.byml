@@ -33,3 +33,7 @@
 1.4.2: 
     - Ling:Light:0.69.18+
     - Ling:Light_Csrf:1.0.4+
+
+1.4.3: 
+    - Ling:Light:0.69.30+
+    - Ling:Light_Csrf:1.0.5+

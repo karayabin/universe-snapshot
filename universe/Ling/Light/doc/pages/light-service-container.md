@@ -1,6 +1,6 @@
 Light Service Container
 ================
-2019-07-17 -> 2021-02-09
+2019-07-17 -> 2021-02-25
 
 
 
@@ -140,7 +140,7 @@ there are plenty of configuration files in it.
 
 
 ### The configuration merging mechanism
-2019-07-17 -> 2020-11-10
+2019-07-17 -> 2021-02-25
 
 How are the service configuration files combined?
 
@@ -182,13 +182,35 @@ If you do so, be sure that the configuration file containing the code above is c
 configuration files. 
 
 
+We recommend that a plugin that provides configurable variables use this convention:
+
+
+```yaml
+my_service_vars:
+    var1: defaultValue1
+    var2: defaultValue2
+    ...
+```
+
+So for instance, the kit_admin service should provide its "configurable/public" variables under the kit_admin_vars namespace, like this:
+
+
+```yaml
+kit_admin_vars:
+    var1: blabla
+    ....
+```
+
+
+
+
 
 
 
 
 A typical service configuration file structure
 ------------------
-2019-10-04
+2019-10-04 -> 2021-02-25
 
 
 After having created a few service configuration files, I've now found an organization I want to share with you,
@@ -197,6 +219,7 @@ because I believe it's flexible and can handle any situation (at least any situa
 Basically, you have between one and three parts depending on your needs:
 
 - the service declaration part (mandatory)
+    - followed by an optional public variable declaration part (if the service allows other plugins to configure some variables)
 - the hooks part (optional), where you register/subscribe to other plugins
 - the variables part (optional), where you replace variables that other plugins allow you to configure
 
@@ -209,7 +232,15 @@ A fictional service configuration which uses those three parts would look like t
 ```yaml 
 my_service:
     instance: MyGalaxy\Light_MyService\Service\LightMyService
+    method:
+        setOptions:
+            options:
+                color: ${my_service_vars.some_public_var}
     
+    
+my_service_vars:
+    some_public_var: blabla    
+    some_public_var2: blabla    
 
     
     

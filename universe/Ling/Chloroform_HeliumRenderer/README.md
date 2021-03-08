@@ -1,6 +1,6 @@
 Chloroform_HeliumRenderer
 ===========
-2019-07-26 -> 2020-12-01
+2019-07-26 -> 2021-03-05
 
 
 
@@ -17,6 +17,11 @@ This is part of the [universe framework](https://github.com/karayabin/universe-s
 
 Install
 ==========
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.Chloroform_HeliumRenderer
+```
+
 Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
 ```bash
 uni import Ling/Chloroform_HeliumRenderer
@@ -402,6 +407,10 @@ Related
 
 History Log
 =============
+
+- 1.19.13 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.19.12 -- 2020-12-08
 

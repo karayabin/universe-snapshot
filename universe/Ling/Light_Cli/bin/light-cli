@@ -24,7 +24,6 @@ $cliPath = "/usr/local/share";
 
 
 
-
 //--------------------------------------------
 // FIND THE light-cli.php SCRIPT TO USE
 //--------------------------------------------
@@ -62,7 +61,7 @@ if (false === file_exists($appInit)) {
 
 
 
-
+// /usr/local/share/universe/Ling/Light_Cli/light-app-standalone/scripts/Ling/Light/init.light.inc.php
 require_once $appInit;
 
 

@@ -5,7 +5,6 @@ namespace Ling\Light_Kit_Admin\Controller;
 
 
 use Ling\Bat\CookieTool;
-use Ling\Light\Events\LightEvent;
 use Ling\Light\Http\HttpResponseInterface;
 use Ling\Light_Events\Helper\LightEventsHelper;
 use Ling\Light_Kit\PageConfigurationUpdator\PageConfUpdator;

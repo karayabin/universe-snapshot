@@ -69,3 +69,19 @@
     - Ling:Light_Database:1.14.11+
     - Ling:ArrayToString:1.4.2+
     - Ling:SimplePdoWrapper:1.30.16+
+
+1.1.8: 
+    - Ling:ArrayToString:1.4.3+
+    - Ling:Bat:1.305+
+    - Ling:Light:0.69.22+
+    - Ling:Light_Database:1.14.12+
+    - Ling:Light_DatabaseInfo:1.12.4+
+    - Ling:SimplePdoWrapper:1.30.16+
+
+1.1.9: 
+    - Ling:ArrayToString:1.4.5+
+    - Ling:Bat:1.308+
+    - Ling:Light:0.69.30+
+    - Ling:Light_Database:1.14.15+
+    - Ling:Light_DatabaseInfo:1.12.5+
+    - Ling:SimplePdoWrapper:1.30.16+

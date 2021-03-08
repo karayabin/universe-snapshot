@@ -392,3 +392,8 @@
     - Ling:CSRFTools:1.5.3+
     - Ling:Bat:1.293+
     - Ling:PhpUploadFileFix:1.0.2+
+
+1.36.7: 
+    - Ling:Bat:1.308+
+    - Ling:CSRFTools:1.5.4+
+    - Ling:PhpUploadFileFix:1.0.3+

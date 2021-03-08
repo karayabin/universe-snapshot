@@ -14,6 +14,12 @@ This is part of the [universe framework](https://github.com/karayabin/universe-s
 
 Install
 ==========
+
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.WebBox
+```
+
 Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
 ```bash
 uni import Ling/WebBox

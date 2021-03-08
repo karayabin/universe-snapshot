@@ -81,6 +81,34 @@ Using this convention improves the general organization of universe related file
 
 
 
+Local universe
+===========
+2021-02-18
+
+
+The **local universe** is the concept of having a universe version on your machine.
+
+As the main developer of the universe so far, I have a local version. 
+
+In general, universe developers have such a version on their machine.
+
+Amongst other things, the **local universe** can be used as a cache of the web universe by certain tools, saving a few http requests.
+
+
+The default location of the **local universe** is: 
+
+- /myphp/universe
+
+
+This default location can be changed by setting its new value in the **/usr/local/share/universe/Ling/UniverseTools/local-universe-path.txt** file.
+
+
+
+
+
+
+
+
 
 
 

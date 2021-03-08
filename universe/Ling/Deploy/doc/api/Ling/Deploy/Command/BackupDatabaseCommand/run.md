@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [BackupDatabaseCommand::run](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/BackupDatabaseCommand/run.md)(Ling\CliTools\Input\InputInterface $input, Ling\CliTools\Output\OutputInterface $output) : int
+public [BackupDatabaseCommand::run](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Command/BackupDatabaseCommand/run.md)(Ling\CliTools\Input\InputInterface $input, Ling\CliTools\Output\OutputInterface $output) : mixed
 
 
 
@@ -48,9 +48,10 @@ Parameters
 Return values
 ================
 
-Returns int.
-The exit status.
-If null, 0 should be assumed.
+Returns mixed.
+If an int is returned, it should be assumed to be the exit status.
+If no value is returned, 0 should be assumed (meaning exit status=0, meaning the program executed correctly).
+Other return value types might be added in the future
 
 
 

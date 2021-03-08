@@ -53,7 +53,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [ListCommand::doRun](https://github.com/lingtalfi/Light_Cli/blob/master/CliTools/Command/ListCommand.php#L27-L53)
+See the source code for method [ListCommand::doRun](https://github.com/lingtalfi/Light_Cli/blob/master/CliTools/Command/ListCommand.php#L27-L52)
 
 
 See Also

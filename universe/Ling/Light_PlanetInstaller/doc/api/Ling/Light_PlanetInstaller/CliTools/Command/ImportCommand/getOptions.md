@@ -53,7 +53,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [ImportCommand::getOptions](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/ImportCommand.php#L147-L160)
+See the source code for method [ImportCommand::getOptions](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Command/ImportCommand.php#L152-L165)
 
 
 See Also

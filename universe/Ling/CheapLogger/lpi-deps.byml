@@ -13,3 +13,7 @@
 1.0.3: 
     - Ling:ArrayToString:1.4.2+
     - Ling:Bat:1.293+
+
+1.0.4: 
+    - Ling:ArrayToString:1.4.5+
+    - Ling:Bat:1.308+

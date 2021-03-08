@@ -1,2 +1,0 @@
-html_page_copilot:
-    instance: Ling\Light_HtmlPageCopilot\Service\LightHtmlPageCopilotService

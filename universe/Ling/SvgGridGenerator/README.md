@@ -1,6 +1,6 @@
 SvgGridGenerator
 =====================
-2016-09-04
+2016-09-04 -> 2021-03-05
 
 
 
@@ -17,6 +17,11 @@ SvgGridGenerator is part of the [universe framework](https://github.com/karayabi
 
 Install
 ==========
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.SvgGridGenerator
+```
+
 Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
 ```bash
 uni import Ling/SvgGridGenerator
@@ -260,6 +265,10 @@ https://www.sitepoint.com/understanding-css-grid-systems/
 
 History Log
 ------------------
+
+- 1.0.3 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.0.2 -- 2020-12-08
 

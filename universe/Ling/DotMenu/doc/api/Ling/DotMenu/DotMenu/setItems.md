@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [DotMenu::setItems](https://github.com/lingtalfi/DotMenu/blob/master/DotMenu.php#L135-L140)
+See the source code for method [DotMenu::setItems](https://github.com/lingtalfi/DotMenu/blob/master/DotMenu.php#L137-L142)
 
 
 See Also

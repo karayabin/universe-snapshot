@@ -77,3 +77,13 @@
     - Ling:Light_Realform:2.0.7+
     - Ling:Light_Kit:1.17.2+
     - Ling:Light_ControllerHub:1.2.4+
+
+1.2.6: 
+    - Ling:Bat:1.308+
+    - Ling:Chloroform:1.36.7+
+    - Ling:Light:0.69.30+
+    - Ling:Light_ControllerHub:1.2.12+
+    - Ling:Light_Kit:1.17.6+
+    - Ling:Light_Kit_Admin:0.12.24+
+    - Ling:Light_Realform:2.0.8+
+    - Ling:Light_UserPreferences:1.0.7+

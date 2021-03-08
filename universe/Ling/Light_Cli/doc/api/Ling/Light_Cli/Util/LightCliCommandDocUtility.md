@@ -4,7 +4,7 @@
 
 The LightCliCommandDocUtility class
 ================
-2021-01-07 --> 2021-02-12
+2021-01-07 --> 2021-03-05
 
 
 
@@ -65,7 +65,7 @@ Methods
 
 - [LightCliCommandDocUtility::__construct](https://github.com/lingtalfi/Light_Cli/blob/master/doc/api/Ling/Light_Cli/Util/LightCliCommandDocUtility/__construct.md) &ndash; Builds the LightCliCommandDocUtility instance.
 - [LightCliCommandDocUtility::printListByApp](https://github.com/lingtalfi/Light_Cli/blob/master/doc/api/Ling/Light_Cli/Util/LightCliCommandDocUtility/printListByApp.md) &ndash; Prints the list of commands for the given app(s) to the output.
-- [LightCliCommandDocUtility::buildListFromCliApps](https://github.com/lingtalfi/Light_Cli/blob/master/doc/api/Ling/Light_Cli/Util/LightCliCommandDocUtility/buildListFromCliApps.md) &ndash; Builds and returns a list of all appId command and aliases.
+- [LightCliCommandDocUtility::buildListFromCliApps](https://github.com/lingtalfi/Light_Cli/blob/master/doc/api/Ling/Light_Cli/Util/LightCliCommandDocUtility/buildListFromCliApps.md) &ndash; Builds and returns a list of all appId commands.
 - [LightCliCommandDocUtility::indent](https://github.com/lingtalfi/Light_Cli/blob/master/doc/api/Ling/Light_Cli/Util/LightCliCommandDocUtility/indent.md) &ndash; Returns the given string with the first line indented by the given indentLevel, and subsequent lines indented with the given number + $indentInc.
 - [LightCliCommandDocUtility::trimLongText](https://github.com/lingtalfi/Light_Cli/blob/master/doc/api/Ling/Light_Cli/Util/LightCliCommandDocUtility/trimLongText.md) &ndash; Returns a trimmed version of the given description.
 - [LightCliCommandDocUtility::getIndexByCommand](https://github.com/lingtalfi/Light_Cli/blob/master/doc/api/Ling/Light_Cli/Util/LightCliCommandDocUtility/getIndexByCommand.md) &ndash; Returns the index number of the given command.

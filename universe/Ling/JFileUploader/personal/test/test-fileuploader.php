@@ -105,7 +105,7 @@ $csrfToken = $csrf->getToken();
             theme: "default",
             container: $("#file-container"),
             urls: [
-                "/plugins/Light_Kit_Admin/img/avatars/root_avatar.png",
+                "/libs/universe/Ling/Light_Kit_Admin/img/avatars/root_avatar.png",
                 "/img/cat.png",
                 // "/user-data?id=f1581394664.3162-256",
             ],

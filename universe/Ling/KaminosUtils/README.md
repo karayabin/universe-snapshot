@@ -1,6 +1,6 @@
 KaminosUtils
 ============
-2017-03-22
+2017-03-22 -> 2021-03-05
 
 WORK iN PROGRESS...
 
@@ -14,6 +14,11 @@ KaminosUtils is part of the [universe framework](https://github.com/karayabin/un
 Install
 =============
 
+
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.KaminosUtils
+```
 
 Using the [uni tool](https://github.com/lingtalfi/universe-naive-importer)
 ```bash
@@ -31,6 +36,10 @@ which is where it belonged in the first place.
 
 History Log
 ===============
+
+- 1.0.3 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.0.2 -- 2020-12-08
 

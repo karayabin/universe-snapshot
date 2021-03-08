@@ -4,7 +4,7 @@
 
 The DeployApplication class
 ================
-2019-04-03 --> 2020-12-08
+2019-04-03 --> 2021-03-05
 
 
 
@@ -57,11 +57,12 @@ class <span class="pl-k">DeployApplication</span> extends [Application](https://
     - public [getProjectConf](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Application/DeployApplication/getProjectConf.md)() : array
     - public [getConf](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Application/DeployApplication/getConf.md)() : array
     - public [getConfPath](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Application/DeployApplication/getConfPath.md)() : string
-    - public [runProgram](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Application/DeployApplication/runProgram.md)(Ling\CliTools\Input\InputInterface $input, Ling\CliTools\Output\OutputInterface $output) : int | null
+    - public [runProgram](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Application/DeployApplication/runProgram.md)(Ling\CliTools\Input\InputInterface $input, Ling\CliTools\Output\OutputInterface $output) : mixed
     - protected [onCommandInstantiated](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Application/DeployApplication/onCommandInstantiated.md)([Ling\CliTools\Command\CommandInterface](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Command/CommandInterface.md) $command) : void
 
 - Inherited methods
     - public Application::registerCommand(string $commandClassName, $aliases) : void
+    - protected Application::onCommandNotFound(string $commandAlias, Ling\CliTools\Input\InputInterface $input, Ling\CliTools\Output\OutputInterface $output) : void
     - public AbstractProgram::setLogger([Ling\UniversalLogger\UniversalLoggerInterface](https://github.com/lingtalfi/UniversalLogger/blob/master/UniversalLoggerInterface.php) $logger) : void
     - public AbstractProgram::setLoggerChannel(string $loggerChannel) : void
     - public AbstractProgram::setErrorIsVerbose(bool $errorIsVerbose) : void
@@ -169,6 +170,7 @@ Methods
 - [DeployApplication::runProgram](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Application/DeployApplication/runProgram.md) &ndash; Runs the program, and returns the exit status.
 - [DeployApplication::onCommandInstantiated](https://github.com/lingtalfi/Deploy/blob/master/doc/api/Ling/Deploy/Application/DeployApplication/onCommandInstantiated.md) &ndash; Can decorate the command after it has just been instantiated.
 - Application::registerCommand &ndash; Registers a command with the given aliases.
+- Application::onCommandNotFound &ndash; Hook called if a command was not found.
 - AbstractProgram::setLogger &ndash; Sets the logger.
 - AbstractProgram::setLoggerChannel &ndash; Sets the loggerChannel.
 - AbstractProgram::setErrorIsVerbose &ndash; Sets the errorIsVerbose.

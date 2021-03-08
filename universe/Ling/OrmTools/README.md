@@ -1,6 +1,6 @@
 OrmTools
 =============
-2017-08-30
+2017-08-30 -> 2021-03-05
 
 
 Some tools helping with construction of orms.
@@ -12,6 +12,11 @@ This is part of the [universe framework](https://github.com/karayabin/universe-s
 
 Install
 ==========
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.OrmTools
+```
+
 Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
 ```bash
 uni import Ling/OrmTools
@@ -511,6 +516,10 @@ So, may the force be with you.
 
 History Log
 ------------------
+
+- 1.18.3 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.18.2 -- 2020-12-08
 

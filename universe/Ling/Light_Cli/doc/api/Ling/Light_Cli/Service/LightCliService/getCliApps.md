@@ -46,7 +46,7 @@ Returns [LightCliApplicationInterface](https://github.com/lingtalfi/Light_Cli/bl
 
 Source Code
 ===========
-See the source code for method [LightCliService::getCliApps](https://github.com/lingtalfi/Light_Cli/blob/master/Service/LightCliService.php#L99-L102)
+See the source code for method [LightCliService::getCliApps](https://github.com/lingtalfi/Light_Cli/blob/master/Service/LightCliService.php#L103-L106)
 
 
 See Also

@@ -47,7 +47,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [LightUserDataPluginInstaller::getTableScope](https://github.com/lingtalfi/Light_UserData/blob/master/Light_PluginInstaller/LightUserDataPluginInstaller.php#L173-L181)
+See the source code for method [LightUserDataPluginInstaller::getTableScope](https://github.com/lingtalfi/Light_UserData/blob/master/Light_PluginInstaller/LightUserDataPluginInstaller.php#L167-L175)
 
 
 See Also

@@ -70,7 +70,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [Light_EasyRouteDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Light_EasyRoute/Light_EasyRouteDocBuilder.php#L44-L199)
+See the source code for method [Light_EasyRouteDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Light_EasyRoute/Light_EasyRouteDocBuilder.php#L45-L205)
 
 
 See Also

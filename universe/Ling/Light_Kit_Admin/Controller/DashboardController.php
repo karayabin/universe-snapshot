@@ -21,6 +21,6 @@ class DashboardController extends AdminPageController
      */
     public function render()
     {
-        return $this->renderAdminPage('Light_Kit_Admin/kit/zeroadmin/zeroadmin_home');
+        return $this->renderAdminPage('dashboard');
     }
 }

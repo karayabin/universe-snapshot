@@ -1,6 +1,6 @@
 SokoForm
 ============
-2017-10-29 --> 2018-06-01
+2017-10-29 --> 2021-03-05
 
 
 SokoForm is a system that helps you creating your forms.
@@ -13,6 +13,11 @@ This is part of the [universe framework](https://github.com/karayabin/universe-s
 
 Install
 ==========
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.SokoForm
+```
+
 Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
 ```bash
 uni import Ling/SokoForm
@@ -1395,6 +1400,10 @@ Related
 
 History Log
 ------------------
+
+- 1.72.3 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.72.2 -- 2020-12-08
 

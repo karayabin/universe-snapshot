@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [WebWizardToolsReport::addException](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/Report/WebWizardToolsReport/addException.md)([\Exception](http://php.net/manual/en/class.exception.php) $e) : void
+public [WebWizardToolsReport::addException](https://github.com/lingtalfi/WebWizardTools/blob/master/doc/api/Ling/WebWizardTools/Report/WebWizardToolsReport/addException.md)(Exception $e) : void
 
 
 

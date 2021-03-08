@@ -1,6 +1,6 @@
 SafeUploader
 =================
-2018-02-26
+2018-02-26 -> 2021-03-05
 
 Secure "server side ajax upload handling" using configuration file.
 
@@ -17,6 +17,11 @@ This is part of the [universe framework](https://github.com/karayabin/universe-s
 
 Install
 ==========
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.SafeUploader
+```
+
 Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
 ```bash
 uni import Ling/SafeUploader
@@ -579,6 +584,10 @@ Here is an example of where this line should be in a morphic implementation
 
 History Log
 ------------------
+
+- 1.2.3 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.2.2 -- 2020-12-08
 

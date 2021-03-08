@@ -359,7 +359,7 @@ class LightMailerService
      * Available options are:
      *
      *
-     * - throwEx: bool=false. Whether to throw an exception if the sending fails.
+     * - throwEx: bool=true. Whether to throw an exception if the sending fails.
      *
      *
      *
@@ -374,7 +374,7 @@ class LightMailerService
     protected function sendMessage(\Swift_Mailer $mailer, \Swift_Message $message, $recipientList, string $templateId, array $options = []): int
     {
         $numSent = 0;
-        $throwEx = $options['throwEx'] ?? false;
+        $throwEx = $options['throwEx'] ?? true;
         try {
 
 

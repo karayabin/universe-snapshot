@@ -1,6 +1,6 @@
 Registry
 ========
-2019-01-18
+2019-01-18 -> 2021-03-05
 
 
 A simple registry.
@@ -12,6 +12,11 @@ Registry is part of the [universe framework](https://github.com/karayabin/univer
 Install
 =============
 
+
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.Registry
+```
 
 Using the [uni tool](https://github.com/lingtalfi/universe-naive-importer)
 ```bash
@@ -40,6 +45,10 @@ multiple components who want to communicate with each other.
 
 History Log
 ------------------
+
+- 1.0.3 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.0.2 -- 2020-12-08
 

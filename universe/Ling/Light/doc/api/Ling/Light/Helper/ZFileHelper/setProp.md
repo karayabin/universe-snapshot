@@ -57,7 +57,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [ZFileHelper::setProp](https://github.com/lingtalfi/Light/blob/master/Helper/ZFileHelper.php#L34-L38)
+See the source code for method [ZFileHelper::setProp](https://github.com/lingtalfi/Light/blob/master/Helper/ZFileHelper.php#L35-L39)
 
 
 See Also
@@ -65,5 +65,5 @@ See Also
 
 The [ZFileHelper](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ZFileHelper.md) class.
 
-Previous method: [getZPath](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ZFileHelper/getZPath.md)<br>
+Previous method: [getZPath](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ZFileHelper/getZPath.md)<br>Next method: [hasProp](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Helper/ZFileHelper/hasProp.md)<br>
 

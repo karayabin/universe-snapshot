@@ -70,7 +70,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [Light_DatabaseDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Light_Database/Light_DatabaseDocBuilder.php#L45-L211)
+See the source code for method [Light_DatabaseDocBuilder::buildDoc](https://github.com/lingtalfi/LingTalfi/blob/master/DocBuilder/Light_Database/Light_DatabaseDocBuilder.php#L45-L216)
 
 
 See Also

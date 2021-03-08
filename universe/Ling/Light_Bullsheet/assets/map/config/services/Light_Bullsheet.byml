@@ -1,9 +1,0 @@
-bullsheet:
-    instance: Ling\Light_Bullsheet\Service\LightBullsheetService
-    methods:
-        setContainer:
-            container: @container()
-        setSilentMode:
-            mode: true
-
-

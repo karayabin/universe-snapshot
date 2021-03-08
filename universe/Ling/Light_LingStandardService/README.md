@@ -1,6 +1,6 @@
 Light_LingStandardService
 ===========
-2020-07-28 -> 2021-01-29
+2020-07-28 -> 2021-03-05
 
 
 
@@ -14,6 +14,11 @@ This is part of the [universe framework](https://github.com/karayabin/universe-s
 
 Install
 ==========
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.Light_LingStandardService
+```
+
 Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
 ```bash
 uni import Ling/Light_LingStandardService
@@ -38,6 +43,22 @@ Summary
 
 History Log
 =============
+
+- 1.6.9 -- 2021-03-05
+
+    - update README.md, add install alternative
+
+- 1.6.8 -- 2021-02-23
+
+    - Update dependencies (pushed by SubscribersUtil)
+
+- 1.6.7 -- 2021-02-23
+
+    - Update dependencies (pushed by SubscribersUtil)
+
+- 1.6.6 -- 2021-02-23
+
+    - Update dependencies
 
 - 1.6.5 -- 2021-01-29
 

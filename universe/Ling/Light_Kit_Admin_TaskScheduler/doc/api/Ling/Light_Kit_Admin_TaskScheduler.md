@@ -1,6 +1,6 @@
 Ling/Light_Kit_Admin_TaskScheduler
 ================
-2020-07-31 --> 2021-01-29
+2020-07-31 --> 2021-03-05
 
 
 
@@ -15,6 +15,7 @@ Table of contents
     - AdminPageController::renderAdminPage &ndash; if she is not connected yet.
     - LightKitAdminController::setRoute &ndash; Sets the matching route to this controller instance.
     - LightKitAdminController::renderPage &ndash; Renders the given page using the [kit service](https://github.com/lingtalfi/Light_Kit).
+    - LightKitAdminController::renderDefaultPage &ndash; Renders the default page, and returns the corresponding http response.
     - LightController::setLight &ndash; Sets the light instance.
 - [LtsTaskScheduleController](https://github.com/lingtalfi/Light_Kit_Admin_TaskScheduler/blob/master/doc/api/Ling/Light_Kit_Admin_TaskScheduler/Controller/Generated/LtsTaskScheduleController.md) &ndash; The LtsTaskScheduleController class.
     - [LtsTaskScheduleController::renderList](https://github.com/lingtalfi/Light_Kit_Admin_TaskScheduler/blob/master/doc/api/Ling/Light_Kit_Admin_TaskScheduler/Controller/Generated/LtsTaskScheduleController/renderList.md) &ndash; Renders the task schedule list page.
@@ -25,6 +26,7 @@ Table of contents
     - AdminPageController::renderAdminPage &ndash; if she is not connected yet.
     - LightKitAdminController::setRoute &ndash; Sets the matching route to this controller instance.
     - LightKitAdminController::renderPage &ndash; Renders the given page using the [kit service](https://github.com/lingtalfi/Light_Kit).
+    - LightKitAdminController::renderDefaultPage &ndash; Renders the default page, and returns the corresponding http response.
     - LightController::setLight &ndash; Sets the light instance.
 - [LightKitAdminTaskSchedulerLkaPlugin](https://github.com/lingtalfi/Light_Kit_Admin_TaskScheduler/blob/master/doc/api/Ling/Light_Kit_Admin_TaskScheduler/LightKitAdminPlugin/Generated/LightKitAdminTaskSchedulerLkaPlugin.md) &ndash; The LightKitAdminTaskSchedulerLkaPlugin class.
     - BaseLightKitAdminPlugin::__construct &ndash; Builds the BaseLightKitAdminPlugin instance.
@@ -40,8 +42,8 @@ Table of contents
     - LightKitAdminBasePortPluginInstallerWithDatabase::isInstalled &ndash; Returns whether the core install phase of the plugin is fully completed.
     - LightKitAdminBasePortPluginInstallerWithDatabase::uninstall &ndash; Uninstalls the plugin.
     - LightKitAdminBasePortPluginInstallerWithDatabase::getDependencies &ndash; Returns the array of dependencies.
-    - LightBasePluginInstaller::setContainer &ndash; Sets the container.
-    - LightBasePluginInstaller::getTableScope &ndash; Returns the [table scope](https://github.com/lingtalfi/TheBar/blob/master/discussions/table-scope.md) for this planet.
+    - LightUserDatabaseBasePluginInstaller::setContainer &ndash; Sets the container.
+    - LightUserDatabaseBasePluginInstaller::getTableScope &ndash; Returns the [table scope](https://github.com/lingtalfi/TheBar/blob/master/discussions/table-scope.md) for this planet.
 - [LightKitAdminTaskSchedulerService](https://github.com/lingtalfi/Light_Kit_Admin_TaskScheduler/blob/master/doc/api/Ling/Light_Kit_Admin_TaskScheduler/Service/LightKitAdminTaskSchedulerService.md) &ndash; The LightKitAdminTaskSchedulerService class.
     - LightKitAdminStandardServicePlugin::__construct &ndash; Builds the LightLingStandardService01 instance.
     - LightKitAdminStandardServicePlugin::setContainer &ndash; Sets the container.
@@ -53,9 +55,9 @@ Dependencies
 - [Bat](https://github.com/lingtalfi/Bat)
 - [Chloroform](https://github.com/lingtalfi/Chloroform)
 - [Light](https://github.com/lingtalfi/Light)
+- [Light_ControllerHub](https://github.com/lingtalfi/Light_ControllerHub)
+- [Light_Kit](https://github.com/lingtalfi/Light_Kit)
 - [Light_Kit_Admin](https://github.com/lingtalfi/Light_Kit_Admin)
 - [Light_Realform](https://github.com/lingtalfi/Light_Realform)
-- [Light_Kit](https://github.com/lingtalfi/Light_Kit)
-- [Light_ControllerHub](https://github.com/lingtalfi/Light_ControllerHub)
 
 

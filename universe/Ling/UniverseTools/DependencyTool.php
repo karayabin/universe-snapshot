@@ -267,6 +267,14 @@ class DependencyTool
             }
 
 
+            //--------------------------------------------
+            // SORTING
+            //--------------------------------------------
+            foreach ($galaxies as $galaxy => $planets) {
+                sort($planets);
+                $galaxies[$galaxy] = $planets;
+            }
+
             $conf = [
                 "dependencies" => $galaxies,
                 "post_install" => $postInstall,
@@ -386,9 +394,11 @@ class DependencyTool
 
 
         $dependencyFile = $planetDir . "/dependencies.byml";
-        return self::getDependencyListByFile($dependencyFile, [
+        $deps = self::getDependencyListByFile($dependencyFile, [
             'dotNames' => $dotNames,
         ]);
+        sort($deps);
+        return $deps;
     }
 
 

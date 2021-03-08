@@ -47,7 +47,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [LightBMenuAbstractHost::getMenuStructureId](https://github.com/lingtalfi/Light_BMenu/blob/master/Host/LightBMenuAbstractHost.php#L53-L56)
+See the source code for method [LightBMenuAbstractHost::getMenuStructureId](https://github.com/lingtalfi/Light_BMenu/blob/master/Host/LightBMenuAbstractHost.php#L54-L57)
 
 
 See Also

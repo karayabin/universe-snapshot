@@ -1,6 +1,6 @@
 Light_Realist
 ===========
-2019-08-09 -> 2020-11-17
+2019-08-09 -> 2021-03-05
 
 
 
@@ -16,6 +16,11 @@ This is part of the [universe framework](https://github.com/karayabin/universe-s
 
 Install
 ==========
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.Light_Realist
+```
+
 Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
 ```bash
 uni import Ling/Realist
@@ -102,6 +107,30 @@ Related
 
 History Log
 =============
+
+- 2.0.13 -- 2021-03-05
+
+    - update README.md, add install alternative
+
+- 2.0.12 -- 2021-02-22
+
+    - clean assets/map dir for real (2)
+  
+- 2.0.11 -- 2021-02-22
+
+    - clean assets/map dir for real
+  
+- 2.0.10 -- 2021-02-22
+
+    - clean assets/map dir
+  
+- 2.0.9 -- 2021-02-22
+
+    - adapt to new light universe assets organization
+  
+- 2.0.8 -- 2021-02-19
+
+    - upgrade dependencies
 
 - 2.0.7 -- 2020-12-08
 

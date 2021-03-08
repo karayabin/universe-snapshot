@@ -377,3 +377,47 @@
     - Ling:ArrayToString:1.4.2+
     - Ling:Bat:1.293+
     - Ling:CliTools:1.10.6+
+
+1.14.12: 
+    - Ling:CheapLogger:1.0.3+
+    - Ling:Light:0.69.21+
+    - Ling:Light_Events:1.9.6+
+    - Ling:Light_Logger:1.11.5+
+    - Ling:SimplePdoWrapper:1.30.16+
+    - Ling:CliTools:1.10.25+
+    - Ling:Light_PlanetInstaller:1.0.6+
+    - Ling:ArrayToString:1.4.3+
+    - Ling:Bat:1.305+
+
+1.14.13: 
+    - Ling:ArrayToString:1.4.3+
+    - Ling:Bat:1.305+
+    - Ling:CheapLogger:1.0.3+
+    - Ling:CliTools:1.10.25+
+    - Ling:Light:0.69.26+
+    - Ling:Light_Events:1.9.6+
+    - Ling:Light_Logger:1.11.5+
+    - Ling:Light_PlanetInstaller:1.0.10+
+    - Ling:SimplePdoWrapper:1.30.16+
+
+1.14.14: 
+    - Ling:ArrayToString:1.4.3+
+    - Ling:Bat:1.305+
+    - Ling:CheapLogger:1.0.3+
+    - Ling:CliTools:1.10.25+
+    - Ling:Light:0.69.26+
+    - Ling:Light_Events:1.9.6+
+    - Ling:Light_Logger:1.11.5+
+    - Ling:Light_PlanetInstaller:1.0.10+
+    - Ling:SimplePdoWrapper:1.30.16+
+
+1.14.15: 
+    - Ling:ArrayToString:1.4.5+
+    - Ling:Bat:1.308+
+    - Ling:CheapLogger:1.0.4+
+    - Ling:CliTools:1.10.26+
+    - Ling:Light:0.69.30+
+    - Ling:Light_Events:1.9.6+
+    - Ling:Light_Logger:1.11.5+
+    - Ling:Light_PlanetInstaller:1.0.18+
+    - Ling:SimplePdoWrapper:1.30.16+

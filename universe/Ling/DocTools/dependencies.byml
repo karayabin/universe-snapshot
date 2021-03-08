@@ -1,14 +1,13 @@
 dependencies: 
     Ling: 
-        - Bat
-        - TokenFun
-        - DirScanner
-        - UniverseTools
-        - ReflectionTools
         - ArrayToString
         - ArrayToTable
-        - ZeusTemplateEngine
+        - Bat
+        - DirScanner
         - ParseDown
+        - TokenFun
+        - UniverseTools
+        - ZeusTemplateEngine
     
 
 post_install: []

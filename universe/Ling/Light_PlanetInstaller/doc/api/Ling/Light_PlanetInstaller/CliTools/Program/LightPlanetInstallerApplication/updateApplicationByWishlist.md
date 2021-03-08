@@ -34,6 +34,7 @@ Available options are:
 - source: mixed. The source to use as the wishlist. Can be either the keyword "lpi", or a string representing the planetDefinition.
      The planetDefinition is: $planetDotName(:$versionExpr=last)?
 - force: bool=false. Whether to force the reimport/reinstall
+- symlinks: bool=false, whether to use symlinks to the local universe when available, instead of copying planet dirs.
 
 
 
@@ -65,7 +66,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightPlanetInstallerApplication::updateApplicationByWishlist](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Program/LightPlanetInstallerApplication.php#L469-L528)
+See the source code for method [LightPlanetInstallerApplication::updateApplicationByWishlist](https://github.com/lingtalfi/Light_PlanetInstaller/blob/master/CliTools/Program/LightPlanetInstallerApplication.php#L485-L546)
 
 
 See Also

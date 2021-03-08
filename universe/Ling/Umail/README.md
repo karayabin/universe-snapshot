@@ -1,6 +1,6 @@
 Umail
 ============
-2017-02-06 --> 2020-06-26
+2017-02-06 --> 2021-03-05
 
 
 
@@ -12,6 +12,11 @@ Umail is part of the [universe framework](https://github.com/karayabin/universe-
 
 Install
 ==========
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.Umail
+```
+
 Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
 ```bash
 uni import Ling/Umail
@@ -855,6 +860,10 @@ Dependencies
 
 History Log
 ------------------
+
+- 1.6.3 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.6.2 -- 2020-12-08
 

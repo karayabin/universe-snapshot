@@ -4,7 +4,7 @@
 
 The KrankenSteinDocBuilder class
 ================
-2019-03-13 --> 2020-12-08
+2019-03-13 --> 2021-03-08
 
 
 
@@ -52,4 +52,4 @@ See the source code of [Ling\LingTalfi\DocBuilder\KrankenStein\KrankenSteinDocBu
 
 SeeAlso
 ==============
-Previous class: [Kit_PrototypeWidgetDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Kit_PrototypeWidget/Kit_PrototypeWidgetDocBuilder.md)<br>Next class: [LightDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Light/LightDocBuilder.md)<br>
+Previous class: [Kit_PrototypeWidgetDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Kit_PrototypeWidget/Kit_PrototypeWidgetDocBuilder.md)<br>Next class: [KwinDocBuilder](https://github.com/lingtalfi/LingTalfi/blob/master/doc/api/Ling/LingTalfi/DocBuilder/Kwin/KwinDocBuilder.md)<br>

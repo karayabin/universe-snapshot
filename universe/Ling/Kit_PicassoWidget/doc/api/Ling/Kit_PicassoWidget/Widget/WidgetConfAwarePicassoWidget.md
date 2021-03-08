@@ -4,7 +4,7 @@
 
 The WidgetConfAwarePicassoWidget class
 ================
-2019-04-24 --> 2020-12-08
+2019-04-24 --> 2021-03-05
 
 
 
@@ -56,7 +56,6 @@ class <span class="pl-k">WidgetConfAwarePicassoWidget</span> extends [PicassoWid
     - public ZephyrTemplateEngine::getErrors() : array
     - public ZephyrTemplateEngine::setDirectory(string $directory) : void
     - protected ZephyrTemplateEngine::interpret(string $___path, array $z) : false | string
-    - private ZephyrTemplateEngine::addError(string $msg) : void
 
 }
 
@@ -124,7 +123,6 @@ Methods
 - ZephyrTemplateEngine::getErrors &ndash; Returns the errors of this instance.
 - ZephyrTemplateEngine::setDirectory &ndash; Sets the directory.
 - ZephyrTemplateEngine::interpret &ndash; and returns the resulting html code.
-- ZephyrTemplateEngine::addError &ndash; Adds an error to this instance.
 
 
 

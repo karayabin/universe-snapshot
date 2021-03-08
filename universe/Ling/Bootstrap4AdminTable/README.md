@@ -1,6 +1,6 @@
 Bootstrap4AdminTable
 ===========
-2019-08-15 -> 2020-11-24
+2019-08-15 -> 2021-03-05
 
 
 
@@ -12,6 +12,11 @@ This is part of the [universe framework](https://github.com/karayabin/universe-s
 
 Install
 ==========
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.Bootstrap4AdminTable
+```
+
 Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
 ```bash
 uni import Ling/Bootstrap4AdminTable
@@ -57,9 +62,21 @@ Related
 History Log
 =============
 
+- 1.15.7 -- 2021-03-05
+
+    - update README.md, add install alternative
+
+- 1.15.6 -- 2021-02-23
+
+    - checkpoint commit for dependency update
+  
+- 1.15.5 -- 2021-02-22
+
+    - adapt to new light universe assets organization
+  
 - 1.15.4 -- 2020-12-08
 
-    - Fix lpi-deps not using natsort.
+    - Fix lpi-deps not using natsort
 
 - 1.15.3 -- 2020-12-04
 

@@ -4,7 +4,7 @@
 
 The TokenFunException class
 ================
-2020-07-28 --> 2021-02-02
+2020-07-28 --> 2021-03-08
 
 
 
@@ -54,4 +54,4 @@ See the source code of [Ling\TokenFun\Exception\TokenFunException](https://githu
 
 SeeAlso
 ==============
-Next class: [TokenArrayIterator](https://github.com/lingtalfi/TokenFun/blob/master/doc/api/Ling/TokenFun/TokenArrayIterator/TokenArrayIterator.md)<br>
+Next class: [UseStatementsParser](https://github.com/lingtalfi/TokenFun/blob/master/doc/api/Ling/TokenFun/Parser/UseStatementsParser.md)<br>

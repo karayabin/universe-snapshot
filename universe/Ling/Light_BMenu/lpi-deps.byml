@@ -67,3 +67,9 @@
     - Ling:DotMenu:1.0.3+
     - Ling:BabyYaml:1.7.5+
     - Ling:Bat:1.293+
+
+1.9.3: 
+    - Ling:BabyYaml:1.7.8+
+    - Ling:Bat:1.308+
+    - Ling:CheapLogger:1.0.4+
+    - Ling:DotMenu:1.0.5+

@@ -1,6 +1,6 @@
 JInfiniteSlider
 ===============
-2016-02-15
+2016-02-15 -> 2021-03-05
 
 
 
@@ -17,6 +17,11 @@ JInfiniteSlider is part of the [universe framework](https://github.com/karayabin
 Install
 =============
 
+
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.JInfiniteSlider
+```
 
 Using the [uni tool](https://github.com/lingtalfi/universe-naive-importer)
 ```bash
@@ -305,6 +310,10 @@ Related
 
 History Log
 ------------------
+
+- 1.2.3 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.2.2 -- 2020-12-08
 

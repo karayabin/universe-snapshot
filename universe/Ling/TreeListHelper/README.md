@@ -1,6 +1,6 @@
 TreeListHelper
 ===================
-2016-08-25
+2016-08-25 -> 2021-03-05
 
 
 
@@ -12,6 +12,11 @@ TreeListHelper is part of the [universe framework](https://github.com/karayabin/
 
 Install
 ==========
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.TreeListHelper
+```
+
 Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
 ```bash
 uni import Ling/TreeListHelper
@@ -162,6 +167,10 @@ Here are the different passes that are applied to every item before it's include
 
 History Log
 ------------------
+
+- 1.0.3 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.0.2 -- 2020-12-08
 

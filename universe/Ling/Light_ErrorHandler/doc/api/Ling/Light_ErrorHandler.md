@@ -1,6 +1,6 @@
 Ling/Light_ErrorHandler
 ================
-2020-06-01 --> 2021-02-12
+2020-06-01 --> 2021-03-05
 
 
 
@@ -20,12 +20,13 @@ Table of contents
     - [LightErrorHandlerService::getOptions](https://github.com/lingtalfi/Light_ErrorHandler/blob/master/doc/api/Ling/Light_ErrorHandler/Service/LightErrorHandlerService/getOptions.md) &ndash; Returns the options of this instance.
     - [LightErrorHandlerService::registerFunctions](https://github.com/lingtalfi/Light_ErrorHandler/blob/master/doc/api/Ling/Light_ErrorHandler/Service/LightErrorHandlerService/registerFunctions.md) &ndash; Registers the error handling functions based on the service configuration.
     - [LightErrorHandlerService::fatalErrorHandler](https://github.com/lingtalfi/Light_ErrorHandler/blob/master/doc/api/Ling/Light_ErrorHandler/Service/LightErrorHandlerService/fatalErrorHandler.md) &ndash; The fatal handler method for this service.
+    - [LightErrorHandlerService::errorHandler](https://github.com/lingtalfi/Light_ErrorHandler/blob/master/doc/api/Ling/Light_ErrorHandler/Service/LightErrorHandlerService/errorHandler.md) &ndash; The error handler function.
 
 
 Dependencies
 ============
+- [Bat](https://github.com/lingtalfi/Bat)
 - [Light](https://github.com/lingtalfi/Light)
 - [Light_Logger](https://github.com/lingtalfi/Light_Logger)
-- [Bat](https://github.com/lingtalfi/Bat)
 
 
